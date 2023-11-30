@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-scroll-animations (cdn)', () => {
-  it('should load the default dds-scroll-animations example', () => {
+describe('cds-scroll-animations (cdn)', () => {
+  it('should load the default cds-scroll-animations example', () => {
     cy.visit('/scroll-animations/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-scroll-animations | cdn | default');
+    cy.percySnapshot('cds-scroll-animations | cdn | default');
   });
 });

@@ -5,17 +5,28 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../image/image';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/web-components/scss/components/tooltip/tooltip' as *;
+@use '../../globals/vars' as *;
+@use '../image';
 
 @mixin background-media {
-  :host(#{$dds-prefix}-background-media) {
+  :host(#{$c4d-prefix}-background-media) {
     position: relative;
     height: 100%;
     display: block;
     outline: none;
+
+    .#{$c4d-prefix}--image__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   }
 
   .#{$prefix}--background-media--mobile-position {
@@ -31,27 +42,27 @@
     height: 100%;
     z-index: 1;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       background-image: linear-gradient(
         to bottom,
-        $ui-background 0%,
+        $background 0%,
         rgba(255, 255, 255, 0) 100%
       );
     }
   }
 
   .#{$prefix}--background-media--gradient--left-to-right {
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       background-image: linear-gradient(
         to right,
-        $ui-background 25%,
+        $background 25%,
         rgba(255, 255, 255, 0) 75%
       );
 
       [dir='rtl'] & {
         background-image: linear-gradient(
           to left,
-          $ui-background 25%,
+          $background 25%,
           rgba(255, 255, 255, 0) 75%
         );
       }
@@ -59,10 +70,10 @@
   }
 
   .#{$prefix}--background-media--gradient--top-to-bottom {
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       background-image: linear-gradient(
         to bottom,
-        $ui-background 0%,
+        $background 0%,
         rgba(255, 255, 255, 0) 100%
       );
     }
@@ -70,9 +81,9 @@
 
   .#{$prefix}--video-player__controls {
     appearance: none;
-    background: $ui-background;
+    background: $background;
     border: none;
-    color: $text-01;
+    color: $text-primary;
     border-radius: 50%;
     padding: 0;
     line-height: 0;
@@ -83,8 +94,33 @@
     z-index: 2;
     cursor: pointer;
   }
-}
 
-@include exports('background-media') {
-  @include background-media;
+  .#{$prefix}--background-media--video {
+    aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */
+    @include breakpoint(md) {
+      aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
+    }
+  }
+
+  .#{$prefix}--video-player__controls[hasTooltip] {
+    @include tooltip--trigger('definition', top);
+    @include tooltip--placement('definition', 'top', 'end');
+
+    position: absolute;
+    border: $spacing-01 solid transparent;
+    background-clip: padding-box;
+
+    &:focus {
+      border-color: $text-primary;
+      outline: $spacing-01 solid $background;
+    }
+  }
+
+  .#{$prefix}--background-media--container {
+    contain: layout;
+  }
+
+  .#{$prefix}--background-media--item {
+    height: 100%;
+  }
 }

@@ -16,6 +16,5 @@ import '../content-group/content-group-copy';
 import '../content-item/index';
 import '../cta/card-link-cta';
 import '../image/image';
-import '../image-with-caption/image-with-caption';
 import '../link-list/index';
 import '../pictogram-item/index';

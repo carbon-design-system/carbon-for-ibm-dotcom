@@ -7,18 +7,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSButtonCTA from '../cta/button-cta';
-import { BUTTON_KIND } from '../button/button';
+import { property } from 'lit/decorators.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import C4DButton from '../cta/button-cta';
+import { BUTTON_KIND } from '../../internal/vendor/@carbon/web-components/components/button/button';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-cell-cta`)
-class DDSPricingTableHeaderCellCta extends StableSelectorMixin(DDSButtonCTA) {
+@customElement(`${c4dPrefix}-pricing-table-header-cell-cta`)
+class C4DPricingTableHeaderCellCta extends StableSelectorMixin(C4DButton) {
   @property({ reflect: true })
   slot = 'cta';
 
@@ -28,10 +28,10 @@ class DDSPricingTableHeaderCellCta extends StableSelectorMixin(DDSButtonCTA) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-cell-cta`;
+    return `${c4dPrefix}--pricing-table-header-cell-cta`;
   }
 
   static styles = styles;
 }
 
-export default DDSPricingTableHeaderCellCta;
+export default C4DPricingTableHeaderCellCta;

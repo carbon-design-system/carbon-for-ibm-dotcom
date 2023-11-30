@@ -11,56 +11,66 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSCardSectionSimple from '@carbon/ibmdotcom-web-components/es/components-react/card-section-simple/card-section-simple';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardSectionSimple from '@carbon/ibmdotcom-web-components/es/components-react/card-section-simple/card-section-simple';
 /* eslint-disable max-len */
-import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
 
 import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
 
 import readme from './README.stories.react.mdx';
 
-const cardGroupItems = withImages => {
+const cardGroupItems = (withImages) => {
   return (
-    <DDSCardGroupItem href="https://example.com" cta-type="local">
-      {withImages ? <DDSImage slot="image" alt="Image alt text" default-src={imgLg4x3} /> : ''}
-      <DDSCardEyebrow>Topic</DDSCardEyebrow>
-      <DDSCardHeading>Natural Language Processing.</DDSCardHeading>
+    <C4DCardGroupItem href="https://example.com" cta-type="local">
+      {withImages ? (
+        <C4DImage slot="image" alt="Image alt text" default-src={imgLg4x3} />
+      ) : (
+        ''
+      )}
+      <C4DCardEyebrow>Topic</C4DCardEyebrow>
+      <C4DCardHeading>Natural Language Processing.</C4DCardHeading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
-    </DDSCardGroupItem>
+      <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
+    </C4DCardGroupItem>
   );
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, withImages, withCTA } = args?.CardSectionSimple ?? {};
   const cards: object[] = [];
   for (let i = 0; i < 5; i++) {
     cards.push(cardGroupItems(withImages));
   }
   return (
-    <DDSCardSectionSimple>
-      <DDSContentSectionHeading>{heading || null}</DDSContentSectionHeading>
-      <DDSCardGroup>
+    <C4DCardSectionSimple>
+      <C4DContentSectionHeading>{heading || null}</C4DContentSectionHeading>
+      <C4DCardGroup>
         {cards}
         {withCTA ? (
-          <DDSCardGroupItem href="https://example.com" color-scheme="inverse" cta-type="local">
-            <DDSCardHeading>Top level card link</DDSCardHeading>
-            <DDSCardCTAFooter slot="footer" color-scheme="inverse"></DDSCardCTAFooter>
-          </DDSCardGroupItem>
+          <C4DCardGroupItem
+            href="https://example.com"
+            color-scheme="inverse"
+            cta-type="local">
+            <C4DCardHeading>Top level card link</C4DCardHeading>
+            <C4DCardCTAFooter
+              slot="footer"
+              color-scheme="inverse"></C4DCardCTAFooter>
+          </C4DCardGroupItem>
         ) : (
           ''
         )}
-      </DDSCardGroup>
-    </DDSCardSectionSimple>
+      </C4DCardGroup>
+    </C4DCardSectionSimple>
   );
 };
 
@@ -79,10 +89,10 @@ Default.story = {
 export default {
   title: 'Components/Card section simple',
   decorators: [
-    story => {
+    (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">{story()}</div>
         </div>
       );
     },

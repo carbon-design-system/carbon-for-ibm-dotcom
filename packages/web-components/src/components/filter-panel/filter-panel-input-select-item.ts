@@ -7,25 +7,24 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import Close from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The input select inner dropdown.
  *
- * @element dds-filter-panel-input-select-item
+ * @element c4d-filter-panel-input-select-item
  */
-@customElement(`${ddsPrefix}-filter-panel-input-select-item`)
-class DDSFilterPanelInputSelectItem extends FocusMixin(
+@customElement(`${c4dPrefix}-filter-panel-input-select-item`)
+class C4DFilterPanelInputSelectItem extends FocusMixin(
   StableSelectorMixin(LitElement)
 ) {
   /**
@@ -92,11 +91,11 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-filter-panel-input-select-item`;
+    return `${c4dPrefix}-filter-panel-input-select-item`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelInputSelectItem;
+export default C4DFilterPanelInputSelectItem;

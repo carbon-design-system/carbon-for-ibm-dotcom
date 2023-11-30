@@ -3,9 +3,9 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<dds-content-block-simple>`
+# `<cds-content-block-simple>`
 
-> The Content Block - Simple pattern is a variant of `<dds-content-block>`, and
+> The Content Block - Simple pattern is a variant of `<cds-content-block>`, and
 > includes a single content item, optional media (image), and ends with a CTA.
 
 > 💡 Check our
@@ -36,38 +36,34 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 ### HTML
 
 ```html
-<dds-content-block-simple>
-  <dds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</dds-content-block-heading
+<cds-content-block-simple>
+  <cds-content-block-heading
+    >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
   >
-  <dds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</dds-content-block-copy
+  <cds-content-block-copy size="sm"
+    >Lorem ipsum *dolor* sit amet</cds-content-block-copy
   >
-  <dds-image
+  <cds-image
     slot="media"
     alt="Image alt text"
-    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-  >
-    <dds-image-item
+    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+    <cds-image-item
       media="(min-width: 672px)"
-      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
+      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+    <cds-image-item
       media="(min-width: 400px)"
-      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
+      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+    <cds-image-item
       media="(min-width: 320px)"
-      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-  </dds-image>
-  <dds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
-    >Lorem ipsum dolor sit amet</dds-text-cta
+      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+  </cds-image>
+  <cds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
+    >Lorem ipsum dolor sit amet</cds-text-cta
   >
-</dds-content-block-simple>
+</cds-content-block-simple>
 ```
 
 ## With Card Link CTA
@@ -85,37 +81,33 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 ### HTML
 
 ```html
-<dds-content-block-simple>
-  <dds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</dds-content-block-heading
+<cds-content-block-simple>
+  <cds-content-block-heading
+    >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
   >
-  <dds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</dds-content-block-copy
+  <cds-content-block-copy size="sm"
+    >Lorem ipsum *dolor* sit amet</cds-content-block-copy
   >
-  <dds-image
+  <cds-image
     slot="media"
     alt="Image alt text"
-    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-  >
-    <dds-image-item
+    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+    <cds-image-item
       media="(min-width: 672px)"
-      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
+      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+    <cds-image-item
       media="(min-width: 400px)"
-      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
+      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+    <cds-image-item
       media="(min-width: 320px)"
-      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-  </dds-image>
-  <dds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-    <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
-    <dds-card-cta-footer>
+      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+  </cds-image>
+  <cds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+    <cds-card-link-heading>Lorem ipsum dolor sit amet</cds-card-link-heading>
+    <cds-card-cta-footer>
       <svg
         slot="icon"
         focusable="false"
@@ -125,15 +117,13 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
         aria-hidden="true"
         width="20"
         height="20"
-        viewBox="0 0 20 20"
-      >
+        viewBox="0 0 20 20">
         <path
-          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-        ></path>
+          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
-    </dds-card-cta-footer>
-  </dds-card-link-cta>
-</dds-content-block-simple>
+    </cds-card-cta-footer>
+  </cds-card-link-cta>
+</cds-content-block-simple>
 ```
 
 ## With Link List
@@ -147,63 +137,63 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/inde
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 
 // with link list
-import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-card-cta.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 ```
 
 ### HTML
 
 ```html
-<dds-content-block-simple>
-  <dds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</dds-content-block-heading
+<cds-content-block-simple>
+  <cds-content-block-heading
+    >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
   >
-  <dds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</dds-content-block-copy
+  <cds-content-block-copy size="sm"
+    >Lorem ipsum *dolor* sit amet</cds-content-block-copy
   >
-  <dds-image
+  <cds-image
     slot="media"
     alt="Image alt text"
-    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-  >
-    <dds-image-item
+    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+    <cds-image-item
       media="(min-width: 672px)"
-      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
+      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+    <cds-image-item
       media="(min-width: 400px)"
-      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
+      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+    <cds-image-item
       media="(min-width: 320px)"
-      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
-    >
-    </dds-image-item>
-  </dds-image>
+      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
+    </cds-image-item>
+  </cds-image>
 
-  <dds-link-list type="default" slot="complementary">
-    <dds-link-list-heading>Tutorial</dds-link-list-heading>
-    <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
+  <cds-link-list type="default" slot="complementary">
+    <cds-link-list-heading>Tutorial</cds-link-list-heading>
+    <cds-link-list-item-cta
+      href="${ifDefined(href)}"
+      cta-type="local"
+      type="default">
       <p>Containerization A Complete Guide</p>
-      <dds-card-cta-footer></dds-card-cta-footer>
-    </dds-link-list-item-card-cta>
-    <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      href="${ifDefined(href)}"
+      cta-type="external"
+      type="default">
       <p>Why should you use microservices and containers</p>
-      <dds-card-cta-footer></dds-card-cta-footer>
-    </dds-link-list-item-card-cta>
-  </dds-link-list>
+    </cds-link-list-item-cta>
+  </cds-link-list>
 
-  <dds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
-    >Lorem ipsum dolor sit amet</dds-text-cta
+  <cds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
+    >Lorem ipsum dolor sit amet</cds-text-cta
   >
-</dds-content-block-simple>
+</cds-content-block-simple>
 ```
 
 ## Props
 
-<Props of="dds-content-block-simple" />
+<Props of="cds-content-block-simple" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -214,8 +204,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                      | Description |
 | ----------------------------- | ------------------------------------------- | ----------- |
-| `<dds-content-block-simple>`  | `data-autoid="dds--content-block-simple"`   | Component   |
-| `<dds-content-block-copy>`    | `data-autoid="dds--content-block__copy"`    | Component   |
-| `<dds-content-block-heading>` | `data-autoid="dds--content-block__heading"` | Component   |
+| `<cds-content-block-simple>`  | `data-autoid="cds--content-block-simple"`   | Component   |
+| `<cds-content-block-copy>`    | `data-autoid="cds--content-block__copy"`    | Component   |
+| `<cds-content-block-heading>` | `data-autoid="cds--content-block__heading"` | Component   |
 
 <Description markdown={contributing} />

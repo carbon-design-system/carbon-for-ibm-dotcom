@@ -16,5 +16,3 @@ import '../image/image-item';
 import './leadspace';
 import './leadspace-heading';
 import './leadspace-image';
-import '../tag-group/tag-group';
-import '../tag-link/tag-link';

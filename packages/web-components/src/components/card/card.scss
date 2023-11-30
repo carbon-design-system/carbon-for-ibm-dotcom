@@ -5,42 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/card/index';
-@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
-
-:host(#{$dds-prefix}-card-footer),
-:host(#{$dds-prefix}-card-cta-footer) {
-  align-self: flex-start;
-  max-width: 90%;
-
-  @include carbon--breakpoint('md') {
-    max-width: calc(100% - #{$layout-03});
-  }
-
-  .#{$dds-prefix}-ce--card__footer--static {
-    color: $link-01;
-  }
-
-  &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
-    color: $inverse-link;
-  }
-
-  &[color-scheme='inverse']
-    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
-    svg,
-    ::slotted(svg[slot='icon']) {
-      color: $inverse-link;
-    }
-  }
-
-  &:hover {
-    ::slotted(svg[slot='icon']),
-    .#{$prefix}--card__cta__copy {
-      color: $hover-primary-text;
-    }
-  }
-}
-
-:host(#{$dds-prefix}-card-footer[href])::after {
-  position: relative;
-}
+@use '@carbon/ibmdotcom-styles/scss/components/card';

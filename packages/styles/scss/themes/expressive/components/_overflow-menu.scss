@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Overflow Menu (expressive)
@@ -16,21 +16,21 @@
 /// @group overflow-menu-expressive
 @mixin overflow-menu-expressive {
   .#{$prefix}--overflow-menu {
-    height: rem(40px);
-    width: rem(40px);
+    height: $spacing-08;
+    width: $spacing-08;
 
     &-options__option {
-      height: rem(48px);
+      height: $spacing-09;
     }
 
     &-options--open[data-floating-menu-direction='bottom']::after,
     &-options--open[data-floating-menu-direction='top']::after {
-      width: rem(40px);
+      width: $spacing-08;
     }
 
     &__icon {
-      height: rem(20px);
-      width: rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
 }

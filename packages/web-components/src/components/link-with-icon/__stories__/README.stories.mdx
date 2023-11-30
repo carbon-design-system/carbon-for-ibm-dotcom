@@ -1,16 +1,18 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import '../link-with-icon';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
+# `<cds-link-with-icon>`
 
-
-
-# `<dds-link-with-icon>`
-
-> The `<dds-link-with-icon>` component should be used primarily as a navigational element,
-> with an icon as an indicator to the type of content being referenced, e.g.
-> url, external url, file.
+> The `<cds-link-with-icon>` component should be used primarily as a
+> navigational element, with an icon as an indicator to the type of content
+> being referenced, e.g. url, external url, file.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/link-with-icon)
@@ -33,24 +35,54 @@ import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/index.js';
 ### HTML
 
 ```html
-<dds-link-with-icon href="https://www.ibm.com/">
+<cds-link-with-icon href="https://www.ibm.com/">
   Link text
-  <svg slot="icon" ...>
-    ...
-  </svg>
-</dds-link-with-icon>
+  <svg slot="icon" ...>...</svg>
+</cds-link-with-icon>
 ```
+
+### CTA features
+
+The `cta-type` attribute allows every type of CTA and icon available in the
+Carbon for IBM.com library. The default CTA style is `local`, which provides a
+basic link and arrow icon.
+
+In order to use the desired type, modify the `cta-type` attribute to one of the
+following:
+
+- local
+- jump
+- external
+- new tab
+- download
+- video
+- pdf
+- blog
+- email
+- schedule
+- chat
+- call
+
+Notes:
+
+- When using `video`, you need to pass the video ID as the `href` attribute.
+- The Link with icon component will need to be wrapped within a
+  `cds-video-cta-container` components for videos to play.
+- Custom icons can replace the built-in ones within `cds-card-footer`, they only
+  need to be assigned to the `icon` slot.
 
 ## Props
 
-<Props of="dds-link-with-icon" />
+<Props of="cds-link-with-icon" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector              | Description |
 | ----------------------- | ----------------------------------- | ----------- |
-| `<dds-link-with-icon>`  | `data-autoid="dds--link-with-icon"` | Component   |
+| `<cds-link-with-icon>`  | `data-autoid="cds--link-with-icon"` | Component   |
 
 <Description markdown={contributing} />

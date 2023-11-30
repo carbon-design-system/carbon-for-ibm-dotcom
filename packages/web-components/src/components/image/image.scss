@@ -5,32 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/utils/ratio-base';
-@import '@carbon/ibmdotcom-styles/scss/components/image/image';
-@import '@carbon/ibmdotcom-styles/scss/components/image-with-caption/image-with-caption';
-
-:host(#{$dds-prefix}-card-cta-image),
-:host(#{$dds-prefix}-image) {
-  @extend .#{$prefix}--image;
-
-  display: block;
-
-  ::slotted(svg[slot='icon']) {
-    @extend .#{$prefix}--image__icon;
-  }
-}
-
-:host(#{$dds-prefix}-image-item) {
-  display: none;
-}
-
-:host(#{$dds-prefix}-card-cta-image) {
-  @include ratio-base(4, 3, true);
-
-  .#{$prefix}--image__img {
-    position: absolute;
-    height: 100%;
-    top: 0;
-  }
-}
+@use '@carbon/ibmdotcom-styles/scss/components/image';

@@ -12,7 +12,7 @@ import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container.j
 import './index.scss';
 
 document.addEventListener('click', event => {
-  if (event.target.matches('dds-locale-button')) {
-    document.querySelector('dds-locale-modal').open = true;
+  if (event.target.matches('cds-locale-button')) {
+    document.querySelector('cds-locale-modal').open = true;
   }
 });

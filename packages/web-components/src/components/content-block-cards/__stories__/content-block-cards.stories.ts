@@ -8,8 +8,8 @@
  */
 
 import '../index';
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
@@ -24,76 +24,76 @@ const ctaTypes = {
 };
 
 const cardGroupItem = html`
-  <dds-card-group-item cta-type="local" href="https://example.com">
-    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <dds-card-cta-footer></dds-card-cta-footer>
-  </dds-card-group-item>
+    <c4d-card-cta-footer></c4d-card-cta-footer>
+  </c4d-card-group-item>
 `;
 
 const cardGroupItemWithImages = html`
-  <dds-card-group-item cta-type="local" href="https://example.com">
-    <dds-image
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-image
       slot="image"
       alt="Image alt text"
       default-src="${imgLg4x3}"
     >
-    </dds-image>
-    <dds-card-eyebrow>Topic</dds-card-eyebrow>
-    <dds-card-heading>Natural Language Processing.</dds-card-heading>
-    <dds-card-cta-footer><dds-card-cta-footer>
-  </dds-card-group-item>
+    </c4d-image>
+    <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+    <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
+    <c4d-card-cta-footer><c4d-card-cta-footer>
+  </c4d-card-group-item>
 `;
 
 const cardGroupItemWithVideos = html`
-  <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
-    </dds-card-cta-footer>
-  </dds-card-group-item>
+  <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
+    <c4d-card-cta-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
+    </c4d-card-cta-footer>
+  </c4d-card-group-item>
 `;
 
 export const Default = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
-    <dds-content-block-cards>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group>
+    <c4d-content-block-cards>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+      <c4d-card-group>
         ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
         ${cardGroupItem}
-      </dds-card-group>
-      <dds-card-link-cta
+      </c4d-card-group>
+      <c4d-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
-        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
-    </dds-content-block-cards>
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
+        <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+        <c4d-card-cta-footer></c4d-card-cta-footer>
+      </c4d-card-link-cta>
+    </c4d-content-block-cards>
   `;
 };
 
 export const withImages = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
-    <dds-content-block-cards>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group>
+    <c4d-content-block-cards>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+      <c4d-card-group>
         ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
-      </dds-card-group>
-      <dds-card-link-cta
+      </c4d-card-group>
+      <c4d-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
-        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
-    </dds-content-block-cards>
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
+        <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+        <c4d-card-cta-footer></c4d-card-cta-footer>
+      </c4d-card-link-cta>
+    </c4d-content-block-cards>
   `;
 };
 
@@ -104,21 +104,21 @@ withImages.story = {
 export const withVideos = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
-    <dds-content-block-cards>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group>
+    <c4d-content-block-cards>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+      <c4d-card-group>
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
-      </dds-card-group>
-      <dds-card-link-cta
+      </c4d-card-group>
+      <c4d-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
-        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
-    </dds-content-block-cards>
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
+        <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+        <c4d-card-cta-footer></c4d-card-cta-footer>
+      </c4d-card-link-cta>
+    </c4d-content-block-cards>
   `;
 };
 
@@ -135,10 +135,10 @@ export default {
   title: 'Components/Content block cards',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">
+            <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
           </div>
         </div>
       </div>

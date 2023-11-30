@@ -1,21 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import DDSPricingTableHeaderRow from './pricing-table-header-row';
-import DDSPricingTableRow from './pricing-table-row';
+import C4DPricingTableHeaderRow from './pricing-table-header-row';
+import C4DPricingTableRow from './pricing-table-row';
 
 /**
  * Sets a CSS custom property on the given row that indicates the default
  * number of columns each of that row's cells row should span.
  */
 export const setColumnWidth = (
-  row: DDSPricingTableHeaderRow | DDSPricingTableRow
+  row: C4DPricingTableHeaderRow | C4DPricingTableRow
 ) => {
   const columnCount = row.children.length;
   let defaultColumnWidth: string;

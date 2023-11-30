@@ -5,32 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-// `<dds-leadspace-block-cta>` inherits `<dds-button-group>`
-@import '@carbon/ibmdotcom-styles/scss/components/buttongroup/buttongroup';
-@import '@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block';
-
-:host(#{$dds-prefix}-leadspace-with-search-heading),
-:host(#{$dds-prefix}-leadspace-block-heading) {
-  display: block;
-}
-
-:host(#{$dds-prefix}-leadspace-with-search-content),
-:host(#{$dds-prefix}-leadspace-block-content) {
-  ::slotted(*) {
-    margin-left: $carbon--spacing-05;
-    margin-right: $carbon--spacing-05;
-    @include carbon--breakpoint('md') {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-}
-
-.#{$prefix}--content-layout {
-  @include carbon--breakpoint('md') {
-    ::slotted([slot]) {
-      margin-left: 0;
-    }
-  }
-}
+@use '../../../../styles/scss/components/leadspace-block';

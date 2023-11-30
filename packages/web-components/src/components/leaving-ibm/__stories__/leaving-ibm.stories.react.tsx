@@ -12,58 +12,62 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
-import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
-import DDSCardLink from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
-import DDSFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
+import C4DCardLink from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
+import C4DFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import Launch20 from '@carbon/icons-react/es/launch/20';
-import DDSLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
+import C4DLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import readme from './README.stories.react.mdx';
 import styles from './leaving-ibm.stories.scss';
 
-export const Default = args => {
+export const Default = (args) => {
   const { href, ctaText, ctaType } = args?.LeavingIBM ?? {};
   return (
     <>
-      <DDSLeavingIBMContainer />
+      <C4DLeavingIBMContainer />
       {ctaType === 'Link' ? (
-        <DDSLinkWithIcon iconPlacement="right" href={href} data-leaving-ibm>
+        <C4DLinkWithIcon iconPlacement="right" href={href} data-leaving-ibm>
           {ctaText}
           <Launch20 slot="icon" />
-        </DDSLinkWithIcon>
+        </C4DLinkWithIcon>
       ) : null}
       {ctaType === 'Button' ? (
-        <DDSButtonGroup>
-          <DDSButtonGroupItem href={href} data-leaving-ibm>
+        <C4DButtonGroup>
+          <C4DButtonGroupItem href={href} data-leaving-ibm>
             {ctaText}
             <Launch20 slot="icon" />
-          </DDSButtonGroupItem>
-        </DDSButtonGroup>
+          </C4DButtonGroupItem>
+        </C4DButtonGroup>
       ) : null}
       {ctaType === 'Card' ? (
-        <DDSCardLink href={href} data-leaving-ibm>
-          <DDSCardLinkHeading>{ctaText}</DDSCardLinkHeading>
+        <C4DCardLink href={href} data-leaving-ibm>
+          <C4DCardLinkHeading>{ctaText}</C4DCardLinkHeading>
           <p>Lorem ipsum dolor sit</p>
-          <DDSCardFooter>
+          <C4DCardFooter>
             <Launch20 slot="icon" />
-          </DDSCardFooter>
-        </DDSCardLink>
+          </C4DCardFooter>
+        </C4DCardLink>
       ) : null}
       {ctaType === 'Feature Card' ? (
-        <DDSFeatureCard href={href} data-leaving-ibm>
-          <DDSImage slot="image" alt="Image alt text" default-src={mediumImgLg1x1} />
-          <DDSCardHeading>{ctaText}</DDSCardHeading>
-          <DDSFeatureCardFooter>
+        <C4DFeatureCard href={href} data-leaving-ibm>
+          <C4DImage
+            slot="image"
+            alt="Image alt text"
+            default-src={mediumImgLg1x1}
+          />
+          <C4DCardHeading>{ctaText}</C4DCardHeading>
+          <C4DFeatureCardFooter>
             <Launch20 slot="icon" />
-          </DDSFeatureCardFooter>
-        </DDSFeatureCard>
+          </C4DFeatureCardFooter>
+        </C4DFeatureCard>
       ) : null}
     </>
   );
@@ -76,7 +80,10 @@ Default.story = {
     knobs: {
       LeavingIBM: () => ({
         ctaText: text('CTA text', 'Learn more about Carbon'),
-        href: text('href (href)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/'),
+        href: text(
+          'href (href)',
+          'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/'
+        ),
         ctaType: select('CTA type:', ctaTypes, ctaTypes[0]),
       }),
     },
@@ -86,12 +93,14 @@ Default.story = {
 export default {
   title: 'Components/Leaving IBM',
   decorators: [
-    story => (
+    (story) => (
       <>
         <style type="text/css">{styles.cssText}</style>
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-sm-4 cds--col-lg-8 cds--no-gutter">
+              {story()}
+            </div>
           </div>
         </div>
       </>

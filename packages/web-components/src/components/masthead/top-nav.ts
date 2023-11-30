@@ -7,22 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, state, query } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
-import BXHeaderNav from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-nav.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import CDSHeaderNav from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-nav.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 // button gradient width size
 const buttonGradientWidth = 8;
@@ -49,14 +48,14 @@ function findLastIndex<T>(
 /**
  * Masthead top nav.
  *
- * @element dds-top-nav
+ * @element c4d-top-nav
  * @csspart nav The element containing the menu bar.
  * @csspart menubar The menu bar.
  * @csspart prev-button The button to go to the previous page.
  * @csspart next-button The button to go to the next page.
  */
-@customElement(`${ddsPrefix}-top-nav`)
-class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
+@customElement(`${c4dPrefix}-top-nav`)
+class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
   /**
    * The left-hand paginator button.
    */
@@ -78,7 +77,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * The scrolling container.
    */
-  @query(`.${ddsPrefix}-ce--header__nav-content-container`)
+  @query(`.${c4dPrefix}-ce--header__nav-content-container`)
   private _contentContainerNode?: HTMLElement;
 
   /**
@@ -203,7 +202,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
       .filter((elem) =>
-        (elem as HTMLElement).matches?.('dds-megamenu-top-nav-menu')
+        (elem as HTMLElement).matches?.('c4d-megamenu-top-nav-menu')
       );
     this._paginateRight({ onLoad: true });
   }
@@ -441,6 +440,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         if (event.shiftKey) {
           if (
             target.previousElementSibling &&
+            target.previousElementSibling.parentElement === this &&
             target.previousElementSibling.getBoundingClientRect().left -
               navNode!.getBoundingClientRect().left <
               currentScrollPosition
@@ -449,6 +449,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
           }
         } else if (
           target.nextElementSibling &&
+          target.nextElementSibling.parentElement === this &&
           Math.floor(
             target.nextElementSibling.getBoundingClientRect().right -
               navNode!.getBoundingClientRect().left
@@ -527,12 +528,12 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     } = this;
     const caretLeftContainerClasses = classMap({
       [`${prefix}--header__nav-caret-left-container`]: true,
-      [`${ddsPrefix}-ce--header__nav-caret-container--hidden`]:
+      [`${c4dPrefix}-ce--header__nav-caret-container--hidden`]:
         isIntersectionLeftTrackerInContent,
     });
     const caretRightContainerClasses = classMap({
       [`${prefix}--header__nav-caret-right-container`]: true,
-      [`${ddsPrefix}-ce--header__nav-caret-container--hidden`]:
+      [`${c4dPrefix}-ce--header__nav-caret-container--hidden`]:
         isIntersectionRightTrackerInContent,
     });
 
@@ -553,14 +554,14 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                     ${CaretLeft20()}
                   </button>
                 </div>
-                <div class="${ddsPrefix}-ce--header__nav-content-container">
+                <div class="${c4dPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content">
                     <nav part="nav" class="${prefix}--header__nav">
                       <div class="${prefix}--sub-content-right"></div>
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
@@ -593,7 +594,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                   </button>
                   <div class="${prefix}--header__nav-caret-left-gradient"></div>
                 </div>
-                <div class="${ddsPrefix}-ce--header__nav-content-container">
+                <div class="${c4dPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content">
                     <nav
                       part="nav"
@@ -603,7 +604,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
@@ -629,17 +630,17 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--masthead__l0-nav`;
+    return `${c4dPrefix}--masthead__l0-nav`;
   }
 
   /**
    * The name of the custom event fired after the search is toggled.
    */
   static get eventToggleSearch() {
-    return `${ddsPrefix}-search-with-typeahead-toggled`; // TODO hook up the new event
+    return `${c4dPrefix}-search-with-typeahead-toggled`; // TODO hook up the new event
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader.
 }
 
-export default DDSTopNav;
+export default C4DTopNav;

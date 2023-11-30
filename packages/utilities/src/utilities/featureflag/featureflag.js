@@ -13,7 +13,7 @@
  * @private
  * @returns {object} JSX object
  *
- * return featureFlag(DDS_FEATURE_NAME, <div>hello world</div>);
+ * return featureFlag(C4D_FEATURE_NAME, <div>hello world</div>);
  */
 function featureFlag(flag, jsx) {
   return flag ? jsx : null;

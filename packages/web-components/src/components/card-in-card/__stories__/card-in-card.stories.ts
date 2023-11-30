@@ -12,9 +12,8 @@ import '../../image/image';
 import '../index';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean } from '@storybook/addon-knobs';
 
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -26,38 +25,38 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = (args) => {
   const { video, eyebrow, heading, defaultSrc, alt, href } =
-    args?.['dds-card-in-card'] ?? {};
+    args?.['c4d-card-in-card'] ?? {};
   if (video) {
+    const card = document.querySelector('c4d-card') as any;
+    const videoCopy = card?.videoTitle;
+
     return html`
-      <dds-video-cta-container>
-        <dds-card-in-card href="1_9h94wo6b" cta-type="video">
-          <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-          <dds-card-cta-footer
-            cta-type="video"
-            href="1_9h94wo6b"></dds-card-cta-footer>
-        </dds-card-in-card>
-      </dds-video-cta-container>
+      <c4d-video-cta-container>
+        <c4d-card-in-card href="0_ibuqxqbe" cta-type="video">
+          <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+          <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
+          <c4d-card-footer></c4d-card-footer>
+        </c4d-card-in-card>
+      </c4d-video-cta-container>
     `;
   }
   return html`
-    <dds-card-in-card href=${ifNonNull(href || undefined)}>
-      <dds-card-in-card-image
+    <c4d-card-in-card href=${ifDefined(href || undefined)} cta-type="local">
+      <c4d-card-in-card-image
         slot="image"
-        alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}">
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
-        </dds-image-item>
-      </dds-card-in-card-image>
-      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <dds-card-cta-footer>
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
-    </dds-card-in-card>
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}">
+        <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+        </c4d-image-item>
+      </c4d-card-in-card-image>
+      <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+      <c4d-card-heading>${heading}</c4d-card-heading>
+      <c4d-card-footer></c4d-card-footer>
+    </c4d-card-in-card>
   `;
 };
 
@@ -65,9 +64,9 @@ export default {
   title: 'Components/Card in card',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">${story()}</div>
         </div>
       </div>
     `,
@@ -76,7 +75,7 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-card-in-card': () => {
+      'c4d-card-in-card': () => {
         const video = boolean('video', false);
         const alt = video
           ? undefined
@@ -105,7 +104,7 @@ export default {
     },
     propsSet: {
       default: {
-        'dds-card-in-card': {
+        'c4d-card-in-card': {
           video: false,
           alt: 'Image alt text',
           defaultSrc: imgSm4x3,

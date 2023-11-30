@@ -7,27 +7,69 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html } from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './callout-quote.scss';
-import DDSCalloutMixin from '../../component-mixins/callout/callout';
-import DDSQuote from '../quote/quote';
+import C4DCalloutMixin from '../../component-mixins/callout/callout';
+import C4DQuote from '../quote/quote';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { property } from 'lit/decorators.js';
+import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
+import C4DCalloutLinkWithIcon from './callout-link-with-icon';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
- * Callout Data.
+ * Callout Quote.
  *
- * @element dds-callout-data
+ * @element c4d-callout-quote
  */
-@customElement(`${ddsPrefix}-callout-quote`)
-class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {
+@customElement(`${c4dPrefix}-callout-quote`)
+class C4DCalloutQuote extends C4DCalloutMixin(C4DQuote) {
+  /**
+   * The color-scheme type.
+   */
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = COLOR_SCHEME.REGULAR;
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    const linkWithIcon = this.querySelector(
+      (this.constructor as typeof C4DCalloutQuote).selectorLinkWithIcon
+    );
+    linkWithIcon
+      ? ((linkWithIcon as C4DCalloutLinkWithIcon).colorScheme =
+          this.colorScheme)
+      : '';
+  }
+
+  render() {
+    return html`
+      <div class="${prefix}--callout__column">
+        <div class="${prefix}--callout__content">
+          <div class="${prefix}--quote__container">
+            <div class="${prefix}--quote__wrapper">
+              ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * A selector that will return the child link-with-icon.
+   */
+  static get selectorLinkWithIcon() {
+    return `${c4dPrefix}-callout-link-with-icon`;
+  }
+
   static get stableSelector() {
-    return `${ddsPrefix}--callout-quote`;
+    return `${c4dPrefix}--callout-quote`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCalloutQuote;
+export default C4DCalloutQuote;

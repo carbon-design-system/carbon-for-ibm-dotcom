@@ -1,48 +1,52 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/content-width';
-@import '../../globals/utils/hang';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/content-width' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/utils/hang' as *;
 
 @mixin content-block {
-  :host(#{$dds-prefix}-content-block),
-  :host(#{$dds-prefix}-content-block-simple),
-  :host(#{$dds-prefix}-content-block-media),
-  :host(#{$dds-prefix}-content-block-mixed),
-  :host(#{$dds-prefix}-content-block-horizontal),
-  :host(#{$dds-prefix}-content-group-horizontal),
-  :host(#{$dds-prefix}-leadspace-block-content),
-  :host(#{$dds-prefix}-leadspace-with-search-content),
-  :host(#{$dds-prefix}-content-block-segmented),
-  :host(#{$dds-prefix}-content-block-headlines),
+  :host(#{$c4d-prefix}-content-block),
+  :host(#{$c4d-prefix}-content-block-simple),
+  :host(#{$c4d-prefix}-content-block-media),
+  :host(#{$c4d-prefix}-content-block-mixed),
+  :host(#{$c4d-prefix}-content-block-horizontal),
+  :host(#{$c4d-prefix}-leadspace-block-content),
+  :host(#{$c4d-prefix}-leadspace-with-search-content),
+  :host(#{$c4d-prefix}-content-block-segmented),
+  :host(#{$c4d-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-10;
 
-    @include carbon--breakpoint('md') {
-      padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-06;
+    @include breakpoint(md) {
+      padding-top: $spacing-10;
+      padding-bottom: $spacing-12;
     }
 
-    @include carbon--breakpoint('max') {
-      padding-bottom: $carbon--layout-07;
+    @include breakpoint(max) {
+      padding-bottom: $spacing-13;
     }
 
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         @include hang;
       }
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       .#{$prefix}--link-list {
         &:first-of-type {
           padding-top: 0;
@@ -59,7 +63,7 @@
       'body' auto
       'footer' auto / 1fr;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       grid-template:
         'heading heading' auto
         'body body' auto
@@ -76,15 +80,15 @@
     // Most slotted contents have margins aligning to Carbon grid gutters.
     // Note: Child contents define their margin by their own
     ::slotted([slot]) {
-      margin-left: $carbon--spacing-05;
-      margin-right: $carbon--spacing-05;
+      margin-left: $spacing-05;
+      margin-right: $spacing-05;
     }
 
     // Cards and link lists are the exceptions of above
-    // TODO: Remove negative margin adjustment from `<dds-link-list-item*>` and add `<dds-link-list>` here
-    ::slotted(#{$dds-prefix}-card[slot]),
-    ::slotted(#{$dds-prefix}-card-cta[slot]),
-    ::slotted(#{$dds-prefix}-card-link-cta[slot]) {
+    // TODO: Remove negative margin adjustment from `<cds-link-list-item*>` and add `<cds-link-list>` here
+    ::slotted(#{$c4d-prefix}-card[slot]),
+    ::slotted(#{$c4d-prefix}-card-cta[slot]),
+    ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
       margin-left: 0;
       margin-right: 0;
     }
@@ -95,21 +99,18 @@
       margin-top: $layout-05;
       margin-bottom: $layout-05;
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         margin-top: 0;
         margin-bottom: 0;
       }
     }
 
-    .dds--content-block-footer ::slotted([slot='footer']) {
-      max-width: none;
-    }
-
     ::slotted([slot='footer']) {
-      margin-top: $carbon--layout-04;
+      margin-top: $spacing-09;
 
-      @include carbon--breakpoint('md') {
-        margin-top: $carbon--layout-05;
+      @include breakpoint(md) {
+        width: 50%;
+        margin-top: $spacing-10;
       }
     }
 
@@ -118,10 +119,10 @@
     }
 
     ::slotted([slot='media']) {
-      margin-top: $carbon--spacing-07;
+      margin-top: $spacing-07;
     }
 
-    ::slotted(#{$dds-prefix}-video-player-container) {
+    ::slotted(#{$c4d-prefix}-video-player-container) {
       // Ensures the margin gets effective
       display: block;
     }
@@ -134,7 +135,7 @@
       'footer' auto
       'complementary' auto / 1fr;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       grid-template:
         'heading heading' auto
         'body body' auto
@@ -142,7 +143,7 @@
         'complementary complementary' auto / 1fr 1fr;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       grid-template-columns: repeat(12, 1fr);
       grid-template-areas:
         'heading heading heading heading heading heading heading heading . . . .'
@@ -160,101 +161,93 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-horizontal) #{$dds-prefix}-hr,
-  :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr {
+  :host(#{$c4d-prefix}-content-block-horizontal) #{$c4d-prefix}-hr {
     margin: 0;
     margin-top: $layout-03;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       margin-top: 0;
     }
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       margin-top: $layout-05;
     }
   }
 
-  .#{$prefix}--content-block .#{$prefix}--hr,
-  .#{$prefix}--content-group-horizontal
-    .#{$prefix}--content-block
-    .#{$prefix}--hr {
+  .#{$prefix}--content-block .#{$prefix}--hr {
     margin-top: $layout-03;
 
     @include hang;
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       margin-top: $layout-01;
     }
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       margin-top: calc(#{$layout-04} + #{$spacing-03});
     }
   }
 
-  :host(#{$dds-prefix}-content-block-heading),
-  :host(#{$dds-prefix}-content-block-copy),
-  :host(#{$dds-prefix}-callout-with-media-copy),
+  :host(#{$c4d-prefix}-content-block-heading),
+  :host(#{$c4d-prefix}-content-block-copy),
+  :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
     @include content-width;
   }
 
-  :host(#{$dds-prefix}-content-block-heading),
+  :host(#{$c4d-prefix}-content-block-heading),
   .#{$prefix}--content-block__heading {
-    @include carbon--type-style('expressive-heading-05', true);
+    @include type-style('fluid-heading-05', true);
 
-    color: $text-01;
-    margin-bottom: $carbon--spacing-07;
+    color: $text-primary;
+    margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-block-paragraph),
+  :host(#{$c4d-prefix}-content-block-paragraph),
   .#{$prefix}--content-block__copy p {
-    @include carbon--type-style('expressive-heading-03', true);
+    @include type-style('fluid-heading-03', true);
 
-    margin-bottom: $carbon--spacing-07;
-    color: $text-01;
+    margin-bottom: $spacing-07;
+    color: $text-primary;
   }
 
   .#{$prefix}--content-block__cta {
-    margin-top: $carbon--layout-04;
-    @include carbon--breakpoint('md') {
-      margin-top: $carbon--layout-05;
+    margin-top: $spacing-09;
+    @include breakpoint(md) {
+      margin-top: $spacing-10;
     }
 
     .#{$prefix}--feature-card {
-      @include carbon--make-row;
+      @include make-row;
     }
 
     // FIXME: CardLink is being used as Card in React, need to separate this
     .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-02', true);
+      @include type-style('heading-02', true);
     }
   }
 
   .#{$prefix}--content-block__cta-row {
-    @include carbon--make-row;
+    @include make-row;
     // allows for margin collapsing
     display: block;
   }
 
   .#{$prefix}--content-block__cta-col {
-    @include carbon--make-col-ready;
+    @include make-col-ready;
 
-    max-width: calc(320px + #{$carbon--layout-05});
+    max-width: calc(320px + #{$spacing-10});
 
-    @include carbon--breakpoint('sm') {
+    @include breakpoint(sm) {
       .#{$prefix}--card__CTA {
-        margin-left: -($carbon--spacing-05);
+        margin-left: -($spacing-05);
       }
     }
 
-    @include carbon--breakpoint('md') {
-      @include carbon--make-col(4, 8);
+    @include breakpoint(md) {
+      @include make-col(4, 8);
 
-      padding-left: $carbon--spacing-05;
-      padding-right: $carbon--spacing-05;
-      max-width: calc(320px + #{$carbon--layout-05});
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
+      max-width: calc(320px + #{$spacing-10});
     }
   }
-}
-
-@include exports('content-block') {
-  @include content-block;
 }

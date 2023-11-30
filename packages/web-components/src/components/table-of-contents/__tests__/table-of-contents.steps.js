@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-describe('dds-table-of-contents', () => {
+describe('cds-table-of-contents', () => {
   describe('With wide screen', () => {
     describe('Without heading content', function () {
       beforeEach(async () => {
@@ -19,7 +19,7 @@ describe('dds-table-of-contents', () => {
 
       it('should hide the heading container unless it has its content', async () => {
         await expect(page).toHaveSelector(
-          'dds-table-of-contents .bx--tableofcontents__desktop__children',
+          'cds-table-of-contents .cds--tableofcontents__desktop__children',
           { state: 'hidden' }
         );
       });
@@ -35,7 +35,7 @@ describe('dds-table-of-contents', () => {
 
       it('should show the heading container', async () => {
         await expect(page).toHaveSelector(
-          'dds-table-of-contents .bx--tableofcontents__desktop__children',
+          'cds-table-of-contents .cds--tableofcontents__desktop__children',
           { state: 'visible' }
         );
       });
@@ -53,7 +53,7 @@ describe('dds-table-of-contents', () => {
 
       it('should hide the heading container unless it has its content', async () => {
         await expect(page).toHaveSelector(
-          'dds-table-of-contents .bx--tableofcontents__children__mobile',
+          'cds-table-of-contents .cds--tableofcontents__children__mobile',
           { state: 'hidden' }
         );
       });
@@ -69,7 +69,7 @@ describe('dds-table-of-contents', () => {
 
       it('should show the heading container', async () => {
         await expect(page).toHaveSelector(
-          'dds-table-of-contents .bx--tableofcontents__children__mobile',
+          'cds-table-of-contents .cds--tableofcontents__children__mobile',
           { state: 'visible' }
         );
       });

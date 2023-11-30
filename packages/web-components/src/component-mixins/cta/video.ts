@@ -11,13 +11,13 @@ import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arro
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
 import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
-import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/play--outline/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import PlayFilledAlt20 from '../../internal/vendor/@carbon/web-components/icons/play--filled--alt/20.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Icons to use, keyed by CTA type.
@@ -27,7 +27,7 @@ export const icons = {
   [CTA_TYPE.DOWNLOAD]: Download20,
   [CTA_TYPE.EXTERNAL]: Launch20,
   [CTA_TYPE.JUMP]: ArrowDown20,
-  [CTA_TYPE.VIDEO]: PlayOutline20,
+  [CTA_TYPE.VIDEO]: PlayFilledAlt20,
 };
 
 /**
@@ -182,14 +182,14 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * The name of the custom event fired when there is a user gesture to run the action.
      */
     static get eventRequestVideoData() {
-      return `${ddsPrefix}-cta-request-video-data`;
+      return `${c4dPrefix}-cta-request-video-data`;
     }
 
     /**
      * The name of the custom event fired when there is a user gesture to run the action.
      */
     static get eventRunAction() {
-      return `${ddsPrefix}-cta-run-action`;
+      return `${c4dPrefix}-cta-run-action`;
     }
   }
 

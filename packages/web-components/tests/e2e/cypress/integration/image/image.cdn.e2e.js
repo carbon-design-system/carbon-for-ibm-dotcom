@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-image (cdn)', () => {
-  it('should load the default dds-image example', () => {
+describe('cds-image (cdn)', () => {
+  it('should load the default cds-image example', () => {
     cy.visit('/image/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-image | cdn | default');
+    cy.percySnapshot('cds-image | cdn | default');
   });
 });

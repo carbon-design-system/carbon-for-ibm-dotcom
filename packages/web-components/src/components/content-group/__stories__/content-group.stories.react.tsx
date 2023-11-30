@@ -12,20 +12,20 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSContentGroup from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
-import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DContentGroup from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
@@ -35,91 +35,118 @@ import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = (
-  <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet.">
-    <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9}>
+  <C4DImage
+    slot="media"
+    alt="Image alt text"
+    default-src={imgLg16x9}
+    heading="Lorem ipsum dolor sit amet.">
+    <C4DImageItem media="(min-width: 672px)" srcset={imgLg16x9}>
       {' '}
-    </DDSImageItem>
-    <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9}>
+    </C4DImageItem>
+    <C4DImageItem media="(min-width: 400px)" srcset={imgMd16x9}>
       {' '}
-    </DDSImageItem>
-    <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9}>
+    </C4DImageItem>
+    <C4DImageItem media="(min-width: 320px)" srcset={imgSm16x9}>
       {' '}
-    </DDSImageItem>
-  </DDSImage>
+    </C4DImageItem>
+  </C4DImage>
 );
 
-export const Default = args => {
-  const { heading, copy, showCopy, addChildren, cta } = args?.ContentGroup ?? {};
+export const Default = (args) => {
+  const { heading, copy, showCopy, addChildren, cta } =
+    args?.ContentGroup ?? {};
   return (
-    <DDSContentGroup>
-      <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-      {showCopy ? <DDSContentGroupCopy>{copy}</DDSContentGroupCopy> : ''}
+    <C4DContentGroup>
+      <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
+      {showCopy ? <C4DContentGroupCopy>{copy}</C4DContentGroupCopy> : ''}
       {addChildren.includes('Content item simple') ? (
-        <DDSContentItem>
-          <DDSContentItemHeading>Natural language understanding</DDSContentItemHeading>
-          <DDSContentItemCopy>
-            This are of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using
-            formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic
-            tools.
-          </DDSContentItemCopy>
-        </DDSContentItem>
+        <C4DContentItem>
+          <C4DContentItemHeading>
+            Natural language understanding
+          </C4DContentItemHeading>
+          <C4DContentItemCopy>
+            This are of NLP takes "real world" text and applies a symbolic
+            system for a machine to interpret its meaning, using formal logic;
+            structures that describe the various relationships between concepts
+            (ontologies); and other semantic tools.
+          </C4DContentItemCopy>
+        </C4DContentItem>
       ) : (
         ''
       )}
       {addChildren.includes('Content item with image') ? (
-        <DDSContentItem>
+        <C4DContentItem>
           {image}
-          <DDSContentItemHeading>Natural language understanding</DDSContentItemHeading>
-          <DDSContentItemCopy>
-            This are of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using
-            formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic
-            tools.
-          </DDSContentItemCopy>
-          <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+          <C4DContentItemHeading>
+            Natural language understanding
+          </C4DContentItemHeading>
+          <C4DContentItemCopy>
+            This are of NLP takes "real world" text and applies a symbolic
+            system for a machine to interpret its meaning, using formal logic;
+            structures that describe the various relationships between concepts
+            (ontologies); and other semantic tools.
+          </C4DContentItemCopy>
+          <C4DTextCTA
+            slot="footer"
+            cta-type="local"
+            href="https://www.example.com">
             Read more about NLP
-          </DDSTextCTA>
-        </DDSContentItem>
+          </C4DTextCTA>
+        </C4DContentItem>
       ) : (
         ''
       )}
       {addChildren.includes('Content item with video') ? (
-        <DDSContentItem>
-          <DDSContentItemHeading>Natural language understanding</DDSContentItemHeading>
-          <DDSVideoPlayerContainer slot="media" video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
-          <DDSContentItemCopy>
-            This are of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using
-            formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic
-            tools.
-          </DDSContentItemCopy>
-          <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+        <C4DContentItem>
+          <C4DContentItemHeading>
+            Natural language understanding
+          </C4DContentItemHeading>
+          <C4DVideoPlayerContainer
+            slot="media"
+            video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
+          <C4DContentItemCopy>
+            This are of NLP takes "real world" text and applies a symbolic
+            system for a machine to interpret its meaning, using formal logic;
+            structures that describe the various relationships between concepts
+            (ontologies); and other semantic tools.
+          </C4DContentItemCopy>
+          <C4DTextCTA
+            slot="footer"
+            cta-type="local"
+            href="https://www.example.com">
             Read more about NLP
-          </DDSTextCTA>
-        </DDSContentItem>
+          </C4DTextCTA>
+        </C4DContentItem>
       ) : (
         ''
       )}
       {cta ? (
-        <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
-          <DDSCardLinkHeading>Learn more about natural language processing</DDSCardLinkHeading>
-          <DDSCardCTAFooter></DDSCardCTAFooter>
-        </DDSCardLinkCTA>
+        <C4DCardLinkCTA
+          slot="footer"
+          cta-type="local"
+          href="https://www.example.com">
+          <C4DCardLinkHeading>
+            Learn more about natural language processing
+          </C4DCardLinkHeading>
+          <C4DCardCTAFooter></C4DCardCTAFooter>
+        </C4DCardLinkCTA>
       ) : (
         ''
       )}
-    </DDSContentGroup>
+    </C4DContentGroup>
   );
 };
 
 export default {
   title: 'Components/Content group',
   decorators: [
-    story => {
+    (story) => {
       return (
         <>
-          <div className="bx--grid">
-            <div className="bx--row">
-              <div className="bx--col-lg-12 bx--no-gutter">
-                <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
+          <div className="cds--grid">
+            <div className="cds--row">
+              <div className="cds--col-lg-12 cds--no-gutter">
+                <C4DVideoCTAContainer>{story()}</C4DVideoCTAContainer>
               </div>
             </div>
           </div>

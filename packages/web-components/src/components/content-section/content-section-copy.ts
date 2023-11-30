@@ -7,22 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './content-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import C4DMarkdown from '../markdown/markdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Copy content in content section.
  *
- * @element dds-content-section-copy
+ * @element c4d-content-section-copy
  */
-@customElement(`${ddsPrefix}-content-section-copy`)
-class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
+@customElement(`${c4dPrefix}-content-section-copy`)
+class C4DContentSectionCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
 
@@ -32,14 +33,20 @@ class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
 
   firstUpdated() {
     this.querySelector('p')?.setAttribute('style', 'all:unset;');
+
+    this.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        this.removeChild(node);
+      }
+    });
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-section-copy`;
+    return `${c4dPrefix}--content-section-copy`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentSectionCopy;
+export default C4DContentSectionCopy;

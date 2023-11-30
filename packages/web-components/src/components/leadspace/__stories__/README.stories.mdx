@@ -36,32 +36,32 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 ### HTML
 
 ```html
-<dds-leadspace alt="alt text" default-src="www.example.com">
-  <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
   LeadSpace copy
-  <dds-button-group slot="action">
-    <dds-button-group-item href="www.example.com">
+  <c4d-button-group slot="action">
+    <c4d-button-group-item href="www.example.com">
       Button 1
       <svg ...>...</svg>
-    </dds-button-group-item>
-    <dds-button-group-item href="www.example.com">
+    </c4d-button-group-item>
+    <c4d-button-group-item href="www.example.com">
       Button 2
       <svg ...>...</svg>
-    </dds-button-group-item>
-  </dds-button-group>
-  <dds-background-media
+    </c4d-button-group-item>
+  </c4d-button-group>
+  <c4d-background-media
     slot="image"
     opacity="100"
     alt="alt text"
     default-src="https://picsum.photos/id/1076/1056/480">
-    <dds-image-item
+    <c4d-image-item
       media="(min-width: 672px)"
-      srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-    <dds-image-item
+      srcset="https://picsum.photos/id/1076/672/400"></c4d-image-item>
+    <c4d-image-item
       media="(min-width: 0)"
-      srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-  </dds-background-media>
-</dds-leadspace>
+      srcset="https://picsum.photos/id/1076/320/370"></c4d-image-item>
+  </c4d-background-media>
+</c4d-leadspace>
 ```
 
 ## Using a background video
@@ -71,25 +71,25 @@ It is possible to display a video instead of an image. To do so, use the
 such:
 
 ```html
-<dds-leadspace>
-  <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+<c4d-leadspace>
+  <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
   Leadspace copy
-  <dds-button-group slot="action">
-    <dds-button-group-item href="www.example.com">
+  <c4d-button-group slot="action">
+    <c4d-button-group-item href="www.example.com">
       Button 1
       <svg ...>...</svg>
-    </dds-button-group-item>
-    <dds-button-group-item href="www.example.com">
+    </c4d-button-group-item>
+    <c4d-button-group-item href="www.example.com">
       Button 2
       <svg ...>...</svg>
-    </dds-button-group-item>
-  </dds-button-group>
-  <dds-background-media slot="image" opacity="100">
-    <dds-video-player-container
+    </c4d-button-group-item>
+  </c4d-button-group>
+  <c4d-background-media slot="image" opacity="100">
+    <c4d-video-player-container
       video-id="1_9h94wo6b"
-      background-mode="true"></dds-video-player-container>
-  </dds-background-media>
-</dds-leadspace>
+      background-mode="true"></c4d-video-player-container>
+  </c4d-background-media>
+</c4d-leadspace>
 ```
 
 ## Using video player CTA button
@@ -101,39 +101,72 @@ the Leadspace reserves the "action" slot for its CTAs, make sure to include
 `slot='action'` as an attribute to `video-cta-container`:
 
 ```html
-<dds-leadspace alt="alt text" default-src="www.example.com">
-  <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
   LeadSpace copy
-  <dds-video-cta-container slot="action">
-    <dds-button-group slot="action">
-      <dds-button-cta cta-type="video" href="1_9h94wo6b">
+  <c4d-video-cta-container slot="action">
+    <c4d-button-group slot="action">
+      <c4d-button-group-item cta-type="video" href="1_9h94wo6b">
         Button 1
         <svg ...>...</svg>
-      </dds-button-cta>
-      <dds-button-group-item href="www.example.com">
+      </c4d-button-group-item>
+      <c4d-button-group-item href="www.example.com">
         Button 2
         <svg ...>...</svg>
-      </dds-button-group-item>
-    </dds-button-group>
-  </dds-video-cta-container>
-  <dds-background-media
+      </c4d-button-group-item>
+    </c4d-button-group>
+  </c4d-video-cta-container>
+  <c4d-background-media
     slot="image"
     opacity="100"
     alt="alt text"
     default-src="https://picsum.photos/id/1076/1056/480">
-    <dds-image-item
+    <c4d-image-item
       media="(min-width: 672px)"
-      srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-    <dds-image-item
+      srcset="https://picsum.photos/id/1076/672/400"></c4d-image-item>
+    <c4d-image-item
       media="(min-width: 0)"
-      srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-  </dds-background-media>
-</dds-leadspace>
+      srcset="https://picsum.photos/id/1076/320/370"></c4d-image-item>
+  </c4d-background-media>
+</c4d-leadspace>
 ```
+
+## Leadspace heading
+
+The heading component has two attributes that can be used.
+
+### Highlight
+You can use the `highlight` attribute to highlight a specific word or phrase in your heading.
+
+```html
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading highlight="important">LeadSpace title with an important word</c4d-leadspace-heading>
+  LeadSpace copy
+</c4d-leadspace>
+```
+
+In the previous example the word "important" will be highlighted.
+
+### Type style
+
+With the `type-style` attribute, you can modify the type of the heading.
+
+There are two options:
+* display-01 (default)
+* fluid-heading-05
+
+```html
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading type-style="fluid-heading-05">LeadSpace title</c4d-leadspace-heading>
+  LeadSpace copy
+</c4d-leadspace>
+```
+
+Note: The `short` variation of the leadspace can only have `fluid-heading-05` as its type heading.
 
 ## Props
 
-<Props of="dds-leadspace" />
+<Props of="c4d-leadspace" />
 
 ## Stable selectors
 
@@ -143,6 +176,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector         | Description |
 | ----------------------- | ------------------------------ | ----------- |
-| `<dds-leadspace>`       | `data-autoid="dds--leadspace"` | Component   |
+| `<c4d-leadspace>`       | `data-autoid="c4d--leadspace"` | Component   |
 
 <Description markdown={contributing} />

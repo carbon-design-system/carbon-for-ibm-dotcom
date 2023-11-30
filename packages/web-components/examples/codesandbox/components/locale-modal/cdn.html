@@ -147,11 +147,10 @@ LICENSE file in the root directory of this source tree.
   <link rel="alternate" hreflang="en-zw" href="https://www.ibm.com/zw-en"/>
   <link rel="stylesheet"
         href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"/>
-  <link rel="stylesheet"
-        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css"/>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-button-expressive:not(:defined), dds-locale-modal-container:not(:defined) {
+    cds-button-expressive:not(:defined), cds-locale-modal-container:not(:defined) {
       display: none;
     }
   </style>
@@ -161,15 +160,15 @@ LICENSE file in the root directory of this source tree.
           src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/button.min.js"></script>
 </head>
 <body>
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-sm-4 bx--col-lg-12">
-      <dds-button-expressive id="open-modal-btn">Open modal
-      </dds-button-expressive>
+<div class="cds--grid">
+  <div class="cds--row">
+    <div class="cds--col-sm-4 cds--col-lg-12">
+      <cds-button-expressive id="open-modal-btn">Open modal
+      </cds-button-expressive>
     </div>
   </div>
 </div>
-<dds-locale-modal-container id="modal"></dds-locale-modal-container>
+<cds-locale-modal-container id="modal"></cds-locale-modal-container>
 </body>
 <script type="text/javascript">
   document.getElementById('open-modal-btn').addEventListener('click', () => {

@@ -12,32 +12,32 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSContentBlockMixed from '@carbon/ibmdotcom-web-components/es/components-react/content-block-mixed/content-block-mixed';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
-import DDSContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+import C4DContentBlockMixed from '@carbon/ibmdotcom-web-components/es/components-react/content-block-mixed/content-block-mixed';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
 // eslint-disable-next-line max-len
-import DDSContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 // eslint-disable-next-line max-len
-import DDSContentGroupPictograms from '@carbon/ibmdotcom-web-components/es/components-react/content-group-pictograms/content-group-pictograms';
-import DDSPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DContentGroupPictograms from '@carbon/ibmdotcom-web-components/es/components-react/content-group-pictograms/content-group-pictograms';
+import C4DPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 // eslint-disable-next-line max-len
-import DDSContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import DDSLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
+import C4DContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import TouchScreen from '@carbon/pictograms-react/es/touch--screen/index.js';
 
@@ -84,165 +84,200 @@ const ctaTypes = {
 const complementaryStyleSchemes = {
   'Regular style scheme': null,
   // eslint-disable-next-line max-len
-  [`With border (${CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER})`]: CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+  [`With border (${CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER})`]:
+    CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
 };
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => (
-  <DDSImage slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading={imageHeading}>
-    <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
-    <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
-    <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-  </DDSImage>
+  <C4DImage
+    slot="media"
+    alt="Image alt text"
+    defaultSrc={imgLg16x9}
+    heading={imageHeading}>
+    <C4DImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
+    <C4DImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
+    <C4DImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
+  </C4DImage>
 );
 
-export const Default = args => {
-  const { heading, copy: groupCopy, cardsGroupHeading, ctaType } = args?.ContentBlockMixed ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+export const Default = (args) => {
+  const {
+    heading,
+    copy: groupCopy,
+    cardsGroupHeading,
+    ctaType,
+  } = args?.ContentBlockMixed ?? {};
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = heading;
   }
 
   return (
-    <DDSContentBlockMixed>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSContentBlockCopy>{groupCopy}</DDSContentBlockCopy>
-      <DDSContentGroupCards>
-        <DDSContentGroupHeading>{cardsGroupHeading}</DDSContentGroupHeading>
-        <DDSContentGroupCardsItem href="www.ibm.com">
-          <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          </DDSCardHeading>
+    <C4DContentBlockMixed>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DContentBlockCopy>{groupCopy}</C4DContentBlockCopy>
+      <C4DContentGroupCards>
+        <C4DContentGroupHeading>{cardsGroupHeading}</C4DContentGroupHeading>
+        <C4DContentGroupCardsItem href="www.ibm.com">
+          <C4DCardHeading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
+          </C4DCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <DDSCardFooter>
+          <C4DCardFooter>
             <ArrowRight20 slot="icon" />
-          </DDSCardFooter>
-        </DDSContentGroupCardsItem>
-        <DDSContentGroupCardsItem href="www.ibm.com">
-          <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          </DDSCardHeading>
+          </C4DCardFooter>
+        </C4DContentGroupCardsItem>
+        <C4DContentGroupCardsItem href="www.ibm.com">
+          <C4DCardHeading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
+          </C4DCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <DDSCardFooter>
+          <C4DCardFooter>
             <ArrowRight20 slot="icon" />
-          </DDSCardFooter>
-        </DDSContentGroupCardsItem>
-      </DDSContentGroupCards>
-      <DDSContentGroupPictograms>
-        <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-        <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
-        {pictogramsItems.map(({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
-          <DDSPictogramItem>
-            <TouchScreen slot="pictogram" />
-            <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
-            <DDSContentItemCopy>{itemCopy}</DDSContentItemCopy>
-            <DDSLinkWithIcon href={linkWithIcon.href} slot="footer">
-              {linkWithIcon.copy} <ArrowRight20 slot="icon" />
-            </DDSLinkWithIcon>
-          </DDSPictogramItem>
-        ))}
-      </DDSContentGroupPictograms>
-      <DDSContentGroupSimple>
-        <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-        <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
+          </C4DCardFooter>
+        </C4DContentGroupCardsItem>
+      </C4DContentGroupCards>
+      <C4DContentGroupPictograms>
+        <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
+        <C4DContentGroupCopy>{groupCopy}</C4DContentGroupCopy>
+        {pictogramsItems.map(
+          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
+            <C4DPictogramItem>
+              <TouchScreen slot="pictogram" />
+              <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
+              <C4DContentItemCopy>{itemCopy}</C4DContentItemCopy>
+              <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
+                {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+              </C4DLinkWithIcon>
+            </C4DPictogramItem>
+          )
+        )}
+      </C4DContentGroupPictograms>
+      <C4DContentGroupSimple>
+        <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
+        <C4DContentGroupCopy>{groupCopy}</C4DContentGroupCopy>
         {image({ heading })}
-        <DDSCardLinkCTA slot="footer" ctaType={ctaType} href="https://example.com">
-          <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
-          <DDSCardCTAFooter></DDSCardCTAFooter>
-        </DDSCardLinkCTA>
-      </DDSContentGroupSimple>
-    </DDSContentBlockMixed>
+        <C4DCardLinkCTA
+          slot="footer"
+          ctaType={ctaType}
+          href="https://example.com">
+          <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
+          <C4DCardCTAFooter></C4DCardCTAFooter>
+        </C4DCardLinkCTA>
+      </C4DContentGroupSimple>
+    </C4DContentBlockMixed>
   );
 };
 
-export const withLinkList = args => {
-  const { heading, copy: groupCopy, cardsGroupHeading, complementaryStyleScheme, ctaType, linkListHeading } =
-    args?.ContentBlockMixed ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+export const withLinkList = (args) => {
+  const {
+    heading,
+    copy: groupCopy,
+    cardsGroupHeading,
+    complementaryStyleScheme,
+    ctaType,
+    linkListHeading,
+  } = args?.ContentBlockMixed ?? {};
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = heading;
   }
 
   return (
-    <DDSContentBlockMixed complementary-style-scheme={complementaryStyleScheme || undefined}>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSContentBlockCopy>{groupCopy}</DDSContentBlockCopy>
-      <DDSContentGroupCards>
-        <DDSContentGroupHeading>{cardsGroupHeading}</DDSContentGroupHeading>
-        <DDSContentGroupCardsItem href="www.ibm.com">
-          <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          </DDSCardHeading>
+    <C4DContentBlockMixed
+      complementary-style-scheme={complementaryStyleScheme || undefined}>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DContentBlockCopy>{groupCopy}</C4DContentBlockCopy>
+      <C4DContentGroupCards>
+        <C4DContentGroupHeading>{cardsGroupHeading}</C4DContentGroupHeading>
+        <C4DContentGroupCardsItem href="www.ibm.com">
+          <C4DCardHeading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
+          </C4DCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <DDSCardFooter>
+          <C4DCardFooter>
             <ArrowRight20 slot="icon" />
-          </DDSCardFooter>
-        </DDSContentGroupCardsItem>
-        <DDSContentGroupCardsItem href="www.ibm.com">
-          <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          </DDSCardHeading>
+          </C4DCardFooter>
+        </C4DContentGroupCardsItem>
+        <C4DContentGroupCardsItem href="www.ibm.com">
+          <C4DCardHeading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
+          </C4DCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <DDSCardFooter>
+          <C4DCardFooter>
             <ArrowRight20 slot="icon" />
-          </DDSCardFooter>
-        </DDSContentGroupCardsItem>
-      </DDSContentGroupCards>
-      <DDSContentGroupPictograms>
-        <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-        <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
-        {pictogramsItems.map(({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
-          <DDSPictogramItem>
-            <TouchScreen slot="pictogram" />
-            <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
-            <DDSContentItemCopy>{itemCopy}</DDSContentItemCopy>
-            <DDSLinkWithIcon href={linkWithIcon.href} slot="footer">
-              {linkWithIcon.copy} <ArrowRight20 slot="icon" />
-            </DDSLinkWithIcon>
-          </DDSPictogramItem>
-        ))}
-      </DDSContentGroupPictograms>
-      <DDSContentGroupSimple>
-        <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-        <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
+          </C4DCardFooter>
+        </C4DContentGroupCardsItem>
+      </C4DContentGroupCards>
+      <C4DContentGroupPictograms>
+        <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
+        <C4DContentGroupCopy>{groupCopy}</C4DContentGroupCopy>
+        {pictogramsItems.map(
+          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
+            <C4DPictogramItem>
+              <TouchScreen slot="pictogram" />
+              <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
+              <C4DContentItemCopy>{itemCopy}</C4DContentItemCopy>
+              <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
+                {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+              </C4DLinkWithIcon>
+            </C4DPictogramItem>
+          )
+        )}
+      </C4DContentGroupPictograms>
+      <C4DContentGroupSimple>
+        <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
+        <C4DContentGroupCopy>{groupCopy}</C4DContentGroupCopy>
         {image({ heading })}
-        <DDSCardLinkCTA slot="footer" ctaType={ctaType} href="https://example.com">
-          <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
-          <DDSCardCTAFooter></DDSCardCTAFooter>
-        </DDSCardLinkCTA>
-      </DDSContentGroupSimple>
-      <DDSLinkList type="default" slot="complementary">
-        <DDSLinkListHeading>{linkListHeading}</DDSLinkListHeading>
-        <DDSLinkListItemCardCTA href="https://example.com" cta-type="local">
+        <C4DCardLinkCTA
+          slot="footer"
+          ctaType={ctaType}
+          href="https://example.com">
+          <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
+          <C4DCardCTAFooter></C4DCardCTAFooter>
+        </C4DCardLinkCTA>
+      </C4DContentGroupSimple>
+      <C4DLinkList type="default" slot="complementary">
+        <C4DLinkListHeading>{linkListHeading}</C4DLinkListHeading>
+        <C4DLinkListItemCTA
+          href="https://example.com"
+          cta-type="local"
+          type="default">
           <p>Containerization A Complete Guide</p>
-          <DDSCardCTAFooter></DDSCardCTAFooter>
-        </DDSLinkListItemCardCTA>
-        <DDSLinkListItemCardCTA href="https://example.com" cta-type="external">
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          href="https://example.com"
+          cta-type="external"
+          type="default">
           <p>Why should you use microservices and containers</p>
-          <DDSCardCTAFooter></DDSCardCTAFooter>
-        </DDSLinkListItemCardCTA>
-      </DDSLinkList>
-    </DDSContentBlockMixed>
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentBlockMixed>
   );
 };
 
 withLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMixed: () => ({
         heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet'),
@@ -253,7 +288,10 @@ withLinkList.story = {
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `,
-        cardsGroupHeading: text('Cards group heading (heading)', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+        cardsGroupHeading: text(
+          'Cards group heading (heading)',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        ),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
         linkListHeading: text('Link list heading (heading)', 'Tutorials'),
         complementaryStyleScheme: select(
@@ -271,9 +309,11 @@ export default {
   decorators: [
     (story, { parameters }) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className={`${parameters.gridContentClasses} bx--no-gutter`}>{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className={`${parameters.gridContentClasses} cds--no-gutter`}>
+              {story()}
+            </div>
           </div>
         </div>
       );
@@ -281,7 +321,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
+    gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
     knobs: {
       ContentBlockMixed: () => ({
@@ -293,7 +333,10 @@ export default {
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `,
-        cardsGroupHeading: text('Cards group heading (heading)', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'),
+        cardsGroupHeading: text(
+          'Cards group heading (heading)',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        ),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
       }),
     },

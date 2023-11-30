@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search';
 
@@ -17,28 +22,30 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search.js';
-import DDSLeadspaceWithSearchHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-heading';
-import DDSLeadspaceWithSearchContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content';
-import DDSLeadspaceWithSearchContentHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-heading';
-import DDSLeadspaceWithSearchContentCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-copy';
-import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
-import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
+import C4DLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search.js';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
+import C4DLeadspaceWithSearchCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-copy';
+import C4DHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 
 function App() {
   return (
-    <DDSLeadspaceWithSearch>
-      <DDSLeadspaceWithSearchHeading>Find a product</DDSLeadspaceWithSearchHeading>
-            <DDSLeadspaceWithSearchContent>
-              <DDSLeadspaceWithSearchContentHeading>Innovate like a startup, scale for the enterprise</DDSLeadspaceWithSearchContentHeading>
-              <DDSLeadspaceWithSearchContentCopy>
-                Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build,
-                test, and deploy code changes quickly, ensuring software is always ready for deployment.
-              </DDSLeadspaceWithSearchContentCopy>
-            </DDSLeadspaceWithSearchContent>
-      <DDSSearchWithTypeahead slot='search' leadspace-search></DDSSearchWithTypeahead>
-      <DDSHorizontalRule slot='hr'></DDSHorizontalRule>
-    </DDSLeadspaceWithSearch>
+    <C4DLeadspaceWithSearch>
+      <C4DLeadspaceHeading>
+        Find a product
+      </C4DLeadspaceHeading>
+        <C4DLeadspaceWithSearchCopy>
+          Automate your software release process with continuous delivery
+          (CD)—the most critical part of adopting DevOps. Build, test, and
+          deploy code changes quickly, ensuring software is always ready for
+          deployment.
+        </C4DLeadspaceWithSearchCopy>
+      </C4DLeadspaceWithSearchContent>
+      <C4DSearchWithTypeahead
+        slot="search"
+        leadspace-search></C4DSearchWithTypeahead>
+      <C4DHorizontalRule slot="hr"></C4DHorizontalRule>
+    </C4DLeadspaceWithSearch>
   );
 }
 ```
@@ -49,14 +56,16 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                       | Compatibility selector                                     | Description |
 | --------------------------------------------- | ---------------------------------------------------------- | ----------- |
-| `<dds-leadspace-with-search>`                 | `data-autoid="dds--leadspace-with-search"`                 | Component   |
-| `<dds-leadspace-with-search-content>`         | `data-autoid="dds--leadspace-with-search__content"`        | Component   |
-| `<dds-leadspace-with-search-heading>`         | `data-autoid="dds--leadspace-with-search__heading"`        | Component   |
-| `<dds-leadspace-with-search-content-copy>`    | `data-autoid="dds--leadspace-with-search-content-copy"`    | Component   |
-| `<dds-leadspace-with-search-content-heading>` | `data-autoid="dds--leadspace-with-search-content-heading"` | Component   |
+| `<cds-leadspace-with-search>`                 | `data-autoid="cds--leadspace-with-search"`                 | Component   |
+| `<cds-leadspace-with-search-content>`         | `data-autoid="cds--leadspace-with-search__content"`        | Component   |
+| `<cds-leadspace-with-search-heading>`         | `data-autoid="cds--leadspace-with-search__heading"`        | Component   |
+| `<cds-leadspace-with-search-content-copy>`    | `data-autoid="cds--leadspace-with-search-content-copy"`    | Component   |
+| `<cds-leadspace-with-search-content-heading>` | `data-autoid="cds--leadspace-with-search-content-heading"` | Component   |
 
 <Description markdown={contributing} />

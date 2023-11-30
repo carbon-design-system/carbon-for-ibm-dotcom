@@ -23,48 +23,59 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSCalloutWithMedia from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
-import DDSCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-image';
+import C4DCalloutWithMedia from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
+import C4DCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-image';
 
 function App() {
   return (
-    <DDSCalloutWithMedia>
-      <DDSContentBlockHeading>
+    <C4DCalloutWithMedia>
+      <C4DContentBlockHeading>
         Curabitur malesuada varius mi eu posuere
-      </DDSContentBlockHeading>
-      <DDSCalloutWithMediaCopy size="sm">
+      </C4DContentBlockHeading>
+      <C4DCalloutWithMediaCopy size="sm">
         lorum ipsum dolor sit ameet
-      </DDSCalloutWithMediaCopy>
-      <DDSCalloutWithMediaImage
+      </C4DCalloutWithMediaCopy>
+      <C4DCalloutWithMediaImage
         alt="Image alt text"
         default-src="https://fpoimg.com/1584x891?bg_color=ee5396&text_color=161616"
-        heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></DDSCalloutWithMediaImage>
-    </DDSCalloutWithMedia>
+        heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></C4DCalloutWithMediaImage>
+    </C4DCalloutWithMedia>
   );
 }
+```
+
+### SCSS
+
+Callout quote has specific tokens per theme that need to emitted in the styles.
+You can do this for example by adding the following:
+
+```css
+@use '@carbon/ibmdotcom-styles//scss/globals/tokens/color-tokens' as
+  color-tokens;
+@include add-component-tokens(color-tokens.$color-tokens);
 ```
 
 ## Callout with Media (Video)
 
 ```javascript
-import DDSCalloutWithMedia from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
-import DDSCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
+import C4DCalloutWithMedia from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
+import C4DCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
 
 function App() {
   return (
-    <DDSCalloutWithMedia>
-      <DDSContentBlockHeading>
+    <C4DCalloutWithMedia>
+      <C4DContentBlockHeading>
         Curabitur malesuada varius mi eu posuere
-      </DDSContentBlockHeading>
-      <DDSCalloutWithMediaCopy size="sm">
+      </C4DContentBlockHeading>
+      <C4DCalloutWithMediaCopy size="sm">
         lorum ipsum dolor sit ameet
-      </DDSCalloutWithMediaCopy>
-      <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>
-    </DDSCalloutWithMedia>
+      </C4DCalloutWithMediaCopy>
+      <C4DCalloutWithMediaVideo video-id="0_ibuqxqbe"></C4DCalloutWithMediaVideo>
+    </C4DCalloutWithMedia>
   );
 }
 ```
@@ -73,7 +84,7 @@ function App() {
 
 <Props of={PropTypesRef} />
 
-### DDSCalloutWithMediaImage props
+### C4DCalloutWithMediaImage props
 
 <Props of={imageProps} />
 
@@ -85,9 +96,9 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector          | Compatibility selector                        | Description |
 | -------------------------------- | --------------------------------------------- | ----------- |
-| `<dds-callout-with-media>`       | `data-autoid="dds--callout-with-media"`       | Component   |
-| `<dds-callout-with-media-copy>`  | `data-autoid="dds--callout-with-media-copy"`  | Component   |
-| `<dds-callout-with-media-image>` | `data-autoid="dds--callout-with-media-image"` | Component   |
-| `<dds-callout-with-media-video>` | `data-autoid="dds--callout-with-media-video"` | Component   |
+| `<cds-callout-with-media>`       | `data-autoid="cds--callout-with-media"`       | Component   |
+| `<cds-callout-with-media-copy>`  | `data-autoid="cds--callout-with-media-copy"`  | Component   |
+| `<cds-callout-with-media-image>` | `data-autoid="cds--callout-with-media-image"` | Component   |
+| `<cds-callout-with-media-video>` | `data-autoid="cds--callout-with-media-video"` | Component   |
 
 <Description markdown={contributing} />

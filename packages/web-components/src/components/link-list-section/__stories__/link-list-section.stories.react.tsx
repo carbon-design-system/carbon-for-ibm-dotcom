@@ -12,43 +12,44 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSLinkListSection from '@carbon/ibmdotcom-web-components/es/components-react/link-list-section/link-list-section';
+import C4DLinkListSection from '@carbon/ibmdotcom-web-components/es/components-react/link-list-section/link-list-section';
 // @ts-ignore
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 // @ts-ignore
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 // @ts-ignore
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading } = args?.LinkListSection ?? {};
   return (
-    <DDSLinkListSection>
-      <DDSLinkListHeading>{heading}</DDSLinkListHeading>
-      <DDSLinkList>
-        <DDSLinkListItem href="https://example.com">
-          Learn more about Kubernetes and automating deployment <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+    <C4DLinkListSection>
+      <C4DLinkListHeading>{heading}</C4DLinkListHeading>
+      <C4DLinkList>
+        <C4DLinkListItem href="https://example.com">
+          Learn more about Kubernetes and automating deployment{' '}
+          <ArrowRight20 slot="icon" />
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Containerization A Complete Guide <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Microservices and containers <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Learn more about Kubernetes <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Containerization A Complete Guide <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Microservices and containers <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-      </DDSLinkList>
-    </DDSLinkListSection>
+        </C4DLinkListItem>
+      </C4DLinkList>
+    </C4DLinkListSection>
   );
 };
 
@@ -59,7 +60,10 @@ export default {
     hasStoryPadding: true,
     knobs: {
       LinkListSection: () => {
-        const heading = textNullable('Link list section heading:', 'Lorem ipsum dolor sit amet');
+        const heading = textNullable(
+          'Link list section heading:',
+          'Lorem ipsum dolor sit amet'
+        );
         return {
           heading,
         };

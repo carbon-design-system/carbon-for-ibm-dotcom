@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
-import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import inPercy from '@percy-io/in-percy';
-import DDSLeftNav from '../left-nav';
+import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import '../cloud/cloud-masthead-container';
 import styles from './masthead.stories.scss';
@@ -66,37 +66,37 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-cloud-masthead-composite
+          <c4d-cloud-masthead-composite
             platform="Cloud"
-            .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .platformUrl="${ifDefined(platformData.url)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
             has-contact="${hasContact}"
             auth-method="${authMethod}"
-            redirect-path="${ifNonNull(redirectPath)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            redirect-path="${ifDefined(redirectPath)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
-            )}"></dds-cloud-masthead-composite>
+            )}"></c4d-cloud-masthead-composite>
         `
       : html`
-          <dds-cloud-masthead-container
+          <c4d-cloud-masthead-container
             platform="Cloud"
-            .platformUrl="${ifNonNull(urlObject)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .platformUrl="${ifDefined(urlObject)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
             has-contact="${hasContact}"
             auth-method="${authMethod}"
-            redirect-path="${ifNonNull(redirectPath)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            redirect-path="${ifDefined(redirectPath)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"></dds-cloud-masthead-container>
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"></c4d-cloud-masthead-container>
         `}
   `;
 };
@@ -107,9 +107,9 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('c4d-left-nav');
           if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+            (leftNav as c4dLeftNav).expanded = false;
           }
         });
       }
@@ -148,7 +148,7 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-cloud-masthead-container>` load the nav links
+      // Lets `<c4d-cloud-masthead-container>` load the nav links
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

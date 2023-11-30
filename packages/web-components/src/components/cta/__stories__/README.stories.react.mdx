@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef as TextCTAProps } from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import { PropTypesRef as ButtonCTAProps } from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
@@ -14,9 +19,9 @@ import { PropTypesRef as FeatureCTAProps } from '@carbon/ibmdotcom-web-component
 
 ## Getting started
 
-## `<DDSTextCTA>`
+## `<C4DTextCTA>`
 
-`DDSTextCTA` is the most basic version of CTA, presented as a simple link.
+`C4DTextCTA` is the most basic version of CTA, presented as a simple link.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-text)
@@ -27,13 +32,13 @@ import { PropTypesRef as FeatureCTAProps } from '@carbon/ibmdotcom-web-component
 ### JS
 
 ```javascript
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta.js';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta.js';
 
 function App() {
   return (
-  <DDSTextCTA href="https://www.ibm.com/" cta-type="local">
-    Copy text
-  </DDSTextCTA>
+    <C4DTextCTA href="https://www.ibm.com/" cta-type="local">
+      Copy text
+    </C4DTextCTA>
   );
 }
 ```
@@ -42,9 +47,9 @@ function App() {
 
 <Props of={TextCTAProps} />
 
-## `<DDSButtonCTA>`
+## `<C4DButtonCTA>`
 
-`DDSButtonCTA` is a version of CTA presented as a button.
+`C4DButtonCTA` is a version of CTA presented as a button.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-button)
@@ -55,13 +60,16 @@ function App() {
 ### JS
 
 ```javascript
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta.js';
+import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta.js';
 
 function App() {
   return (
-  <DDSButtonCTA cta-type="local" kind="tertiary" href="https://www.example.com">
-    Button CTA Copy
-  </DDSButtonCTA>
+    <C4DButtonCTA
+      cta-type="local"
+      kind="tertiary"
+      href="https://www.example.com">
+      Button CTA Copy
+    </C4DButtonCTA>
   );
 }
 ```
@@ -70,9 +78,9 @@ function App() {
 
 <Props of={ButtonCTAProps} />
 
-## `<DDSCardCTA>`
+## `<C4DCardCTA>`
 
-`DDSCardCTA` is a version of CTA presented as a card.
+`C4DCardCTA` is a version of CTA presented as a card.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-card)
@@ -83,18 +91,18 @@ function App() {
 ### JS
 
 ```javascript
-import DDSCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
-  <DDSCardCTA cta-type="local" href="https://www.example.com">
-    Card CTA Copy
-    <DDSCardCTAFooter>
-      <ArrowRight20 slot="icon" />
-    </DDSCardCTAFooter>
-  </DDSCardCTA>
+    <C4DCardCTA cta-type="local" href="https://www.example.com">
+      Card CTA Copy
+      <C4DCardCTAFooter>
+        <ArrowRight20 slot="icon" />
+      </C4DCardCTAFooter>
+    </C4DCardCTA>
   );
 }
 ```
@@ -103,9 +111,9 @@ function App() {
 
 <Props of={CardCTAProps} />
 
-## `<DDSCardLinkCTA>`
+## `<C4DCardLinkCTA>`
 
-`DDSCardLinkCTA` is a version of CTA presented as a card.
+`C4DCardLinkCTA` is a version of CTA presented as a card.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-card-link)
@@ -116,19 +124,19 @@ function App() {
 ### JS
 
 ```javascript
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta.js';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading.js';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta.js';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading.js';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
-  <DDSCardLinkCTA href="https://www.ibm.com/" cta-type="local">
-    <DDSCardLinkHeading>Heading text</DDSCardLinkHeading>
-    <DDSCardCTAFooter>
-      <ArrowRight20 slot="icon" />
-    </DDSCardCTAFooter>
-  </DDSCardLinkCTA>
+    <C4DCardLinkCTA href="https://www.ibm.com/" cta-type="local">
+      <C4DCardLinkHeading>Heading text</C4DCardLinkHeading>
+      <C4DCardCTAFooter>
+        <ArrowRight20 slot="icon" />
+      </C4DCardCTAFooter>
+    </C4DCardLinkCTA>
   );
 }
 ```
@@ -137,9 +145,9 @@ function App() {
 
 <Props of={CardLinkCTAProps} />
 
-## `<DDSFeatureCTA>`
+## `<C4DFeatureCTA>`
 
-`DDSFeatureCTA` is a version of CTA presented as a feature card.
+`C4DFeatureCTA` is a version of CTA presented as a feature card.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-feature)
@@ -150,50 +158,55 @@ function App() {
 ### JS
 
 ```javascript
-import DDSFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
-import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
+import C4DFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
-  <DDSFeatureCTA cta-type="local" href="https://www.example.com">
-    <DDSCardHeading>Feature CTA Copy</DDSCardHeading>
-    <DDSImage slot="image"
-              alt="Image alt text"
-              default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616" />
-    <DDSFeatureCTAFooter>
-      <ArrowRight20 slot="icon" />
-    </DDSFeatureCTAFooter>
-  </DDSFeatureCTA>
+    <C4DFeatureCTA cta-type="local" href="https://www.example.com">
+      <C4DCardHeading>Feature CTA Copy</C4DCardHeading>
+      <C4DImage
+        slot="image"
+        alt="Image alt text"
+        default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
+      />
+      <C4DFeatureCTAFooter>
+        <ArrowRight20 slot="icon" />
+      </C4DFeatureCTAFooter>
+    </C4DFeatureCTA>
   );
 }
 ```
 
-The Feature Card for CTA can also use the 'large' variation, but be sure to at least include an eyebrow and heading.
+The Feature Card for CTA can also use the 'large' variation, but be sure to at
+least include an eyebrow and heading.
 
 ### JS
 
 ```javascript
-import DDSFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
-import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
+import C4DFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
-  <DDSFeatureCTA size="large" cta-type="local" href="https://www.example.com">
-    <DDSCardHeading>Feature CTA Copy</DDSCardHeading>
-    <DDSImage slot="image"
-              alt="Image alt text"
-              default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616" />
-    <DDSFeatureCTAFooter>
-      <ArrowRight20 slot="icon" />
-    </DDSFeatureCTAFooter>
-  </DDSFeatureCTA>
+    <C4DFeatureCTA size="large" cta-type="local" href="https://www.example.com">
+      <C4DCardHeading>Feature CTA Copy</C4DCardHeading>
+      <C4DImage
+        slot="image"
+        alt="Image alt text"
+        default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
+      />
+      <C4DFeatureCTAFooter>
+        <ArrowRight20 slot="icon" />
+      </C4DFeatureCTAFooter>
+    </C4DFeatureCTA>
   );
 }
 ```
@@ -204,29 +217,31 @@ function App() {
 
 ## Using a video player
 
-The `<DDSVideoCTAContainer>` component lets you integrate `<DDSTextCTA>`/`<DDSButtonCTA>`/`<DDSCardCTA>`/`<DDSFeatureCTA>` with video player quickly.
-Only one `<DDSVideoCTAContainer>` has to be put in application.
-Ensure that `<DDSVideoCTAContainer>` contains all `<DDSTextCTA>`/`<DDSButtonCTA>`/`<DDSCardCTA>`/`<DDSFeatureCTA>`:
+The `<C4DVideoCTAContainer>` component lets you integrate
+`<C4DTextCTA>`/`<C4DButtonCTA>`/`<C4DCardCTA>`/`<C4DFeatureCTA>` with video
+player quickly. Only one `<C4DVideoCTAContainer>` has to be put in application.
+Ensure that `<C4DVideoCTAContainer>` contains all
+`<C4DTextCTA>`/`<C4DButtonCTA>`/`<C4DCardCTA>`/`<C4DFeatureCTA>`:
 
 ### JS
 
 ```javascript
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta.js';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta.js';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 function App() {
   return (
-  <DDSVideoCTAContainer>
-    <DDSTextCTA cta-type="video" href="1_9h94wo6b"></DDSTextCTA>
-  </DDSVideoCTAContainer>
+    <C4DVideoCTAContainer>
+      <C4DTextCTA cta-type="video" href="0_ibuqxqbe"></C4DTextCTA>
+    </C4DVideoCTAContainer>
   );
 }
 ```
 
-### `dds-cta-run-action` customization
+### `cds-cta-run-action` customization
 
 For more flexible solution that is better tailored to your application's needs,
-CTA components fire `dds-cta-run-action` custom event when user clicks on a CTA
+CTA components fire `cds-cta-run-action` custom event when user clicks on a CTA
 with `type="video"`. Application code can take care of creating/putting our
 video player component and working with our video player service API to put the
 video data into the video player component:
@@ -239,21 +254,21 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 
 ...
 
-document.addEventListener('dds-cta-run-action', async event => {
+document.addEventListener('cds-cta-run-action', async event => {
   const videoId = event.detail.href;
   const lightboxId = `lightbox-${videoId}`;
   let lightboxElem = document.getElementById(lightboxId);
   if (!lightboxElem) {
-    lightboxElem = document.createElement('dds-expressive-modal');
+    lightboxElem = document.createElement('cds-expressive-modal');
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
-      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-      <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
+      <cds-expressive-modal-close-button></cds-expressive-modal-close-button>
+      <cds-lightbox-video-player id="lightbox-video-player-${videoId}"></cds-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');
     videoTarget.id = `video-target-${videoId}`;
-    videoTarget.className = 'bx--video-player__video';
+    videoTarget.className = 'cds--video-player__video';
     const videoPlayer = document.getElementById(`lightbox-video-player-${videoId}`);
     videoPlayer.appendChild(videoTarget);
     const [videoData] = await Promise.all([
@@ -271,21 +286,22 @@ document.addEventListener('dds-cta-run-action', async event => {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector | Description |
-| ----------------------- | ---------------------- | ----------- |
-| `<dds-button-cta>`        | N/A                    | Component   |
-| `<dds-card-cta>`        | N/A                    | Component   |
-| `<dds-card-cta-footer>`        | N/A                    | Component   |
-| `<dds-card-cta-image>`        | N/A                    | Component   |
-| `<dds-card-link-cta>`        | N/A                    | Component   |
-| `<dds-feature-cta>`        | N/A                    | Component   |
-| `<dds-feature-cta-footer>`        | N/A                    | Component   |
-| `<dds-link-list-item-card-cta>`        | N/A                    | Component   |
-| `<dds-link-list-item-cta>`        | N/A                    | Component   |
-| `<dds-text-cta>`        | N/A                    | Component   |
-| `<dds-video-cta-composite>`        | N/A                    | Component   |
-| `<dds-video-cta-container>`        | N/A                    | Component   |
+| Web Components selector     | Compatibility selector | Description |
+| --------------------------- | ---------------------- | ----------- |
+| `<cds-button-cta>`          | N/A                    | Component   |
+| `<cds-card-cta>`            | N/A                    | Component   |
+| `<cds-card-cta-footer>`     | N/A                    | Component   |
+| `<cds-card-cta-image>`      | N/A                    | Component   |
+| `<cds-card-link-cta>`       | N/A                    | Component   |
+| `<cds-feature-cta>`         | N/A                    | Component   |
+| `<cds-feature-cta-footer>`  | N/A                    | Component   |
+| `<cds-link-list-item-cta>`  | N/A                    | Component   |
+| `<cds-text-cta>`            | N/A                    | Component   |
+| `<cds-video-cta-composite>` | N/A                    | Component   |
+| `<cds-video-cta-container>` | N/A                    | Component   |
 
 <Description markdown={contributing} />

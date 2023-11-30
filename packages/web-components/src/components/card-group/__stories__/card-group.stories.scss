@@ -5,27 +5,26 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/imports';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-card-group.dds-ce-demo-devenv--cards-in-row-2 {
-  @include carbon--breakpoint(lg) {
-    --dds--card-group--cards-in-row: 2 !important; /* stylelint-disable-line declaration-no-important */
+cds-card-group.cds-ce-demo-devenv--cards-in-row-2 {
+  @include breakpoint(lg) {
+    --cds--card-group--cards-in-row: 2 !important; /* stylelint-disable-line declaration-no-important */
   }
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-card-group.dds-ce-demo-devenv--cards-in-row-3 {
-  @include carbon--breakpoint(lg) {
-    --dds--card-group--cards-in-row: 3 !important; /* stylelint-disable-line declaration-no-important */
+cds-card-group.cds-ce-demo-devenv--cards-in-row-3 {
+  @include breakpoint(lg) {
+    --cds--card-group--cards-in-row: 3 !important; /* stylelint-disable-line declaration-no-important */
   }
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-card-group.dds-ce-demo-devenv--cards-in-row-4 {
-  @include carbon--breakpoint(lg) {
-    --dds--card-group--cards-in-row: 4 !important; /* stylelint-disable-line declaration-no-important */
+cds-card-group.cds-ce-demo-devenv--cards-in-row-4 {
+  @include breakpoint(lg) {
+    --cds--card-group--cards-in-row: 4 !important; /* stylelint-disable-line declaration-no-important */
   }
 }

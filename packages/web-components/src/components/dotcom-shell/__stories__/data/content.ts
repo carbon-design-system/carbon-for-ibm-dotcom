@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
@@ -16,7 +16,7 @@ import '../../../cta/index';
 import '../../../card-group/index';
 import '../../../content-block/index';
 import '../../../content-block-segmented/index';
-import '../../../content-item-horizontal/index';
+import '../../../content-item-row/index';
 import '../../../leadspace/index';
 import '../../../image/index';
 import '../../../leadspace-block/index';
@@ -36,359 +36,350 @@ import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
 
 export const image = html`
-  <dds-image
+  <c4d-image
     alt="Image alt text"
     default-src="${imgLg16x9}"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
-  </dds-image>
+    <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </c4d-image-item>
+  </c4d-image>
 `;
 
 export const contentBlockSegmentedItems = html`
-  <dds-content-block-segmented-item>
-    <dds-content-group-heading
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
       >A scelerisque purus semper eget duis at tellus.
-    </dds-content-group-heading>
-    <dds-content-item-copy
+    </c4d-content-group-heading>
+    <c4d-content-item-copy
       >Elementum nibh tellus molestie nunc non. Habitant morbi tristique
       senectus et netus et malesuada fames.
-    </dds-content-item-copy>
-    <dds-text-cta
+    </c4d-content-item-copy>
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</dds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </dds-content-block-segmented-item>
+  </c4d-content-block-segmented-item>
 
-  <dds-content-block-segmented-item>
-    <dds-content-group-heading
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
       >A scelerisque purus semper eget duis at tellus.
-    </dds-content-group-heading>
-    <dds-content-item-copy
+    </c4d-content-group-heading>
+    <c4d-content-item-copy
       >Elementum nibh tellus molestie nunc non. Habitant morbi tristique
       senectus et netus et malesuada fames.
-    </dds-content-item-copy>
-  </dds-content-block-segmented-item>
+    </c4d-content-item-copy>
+  </c4d-content-block-segmented-item>
 `;
 
 export const contentBlockSegmentedItemsWithImage = html`
-  <dds-content-block-segmented-item>
-    <dds-content-group-heading
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
       >A scelerisque purus semper eget duis at tellus.
-    </dds-content-group-heading>
-    <dds-content-item-copy
+    </c4d-content-group-heading>
+    <c4d-content-item-copy
       >Elementum nibh tellus molestie nunc non. Habitant morbi tristique
       senectus et netus et malesuada fames.
-    </dds-content-item-copy>
+    </c4d-content-item-copy>
     ${image}
-    <dds-text-cta
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</dds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </dds-content-block-segmented-item>
+  </c4d-content-block-segmented-item>
 `;
 
 export const contentItemHorizontal = html`
-  <dds-content-item-horizontal>
-    <dds-content-item-horizontal-eyebrow
-      >Lorem ipsum</dds-content-item-horizontal-eyebrow
-    >
-    <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-    <dds-content-item-horizontal-copy
+  <c4d-content-item-row>
+    <c4d-content-item-row-eyebrow>Lorem ipsum</c4d-content-item-row-eyebrow>
+    <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
+    <c4d-content-item-row-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-      sollicitudin.</dds-content-item-horizontal-copy
+      sollicitudin.</c4d-content-item-row-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-      <dds-link-list-item-cta
+      </c4d-link-list-item-cta>
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="external">
         External link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-item-horizontal>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-item-row>
 `;
 
-export const universalBanner = (srcImage) => html`
-  <dds-universal-banner image-width="4-col">
-    <dds-universal-banner-image
+export const globalBanner = (srcImage) => html`
+  <c4d-global-banner image-width="4-col">
+    <c4d-global-banner-image
       slot="image"
-      default-src="${srcImage}"></dds-universal-banner-image>
-    <dds-universal-banner-heading slot="heading"
-      >heading</dds-universal-banner-heading
+      default-src="${srcImage}"></c4d-global-banner-image>
+    <c4d-global-banner-heading slot="heading"
+      >heading</c4d-global-banner-heading
     >
-    <dds-universal-banner-copy slot="copy">copy</dds-universal-banner-copy>
-    <dds-button-cta
+    <c4d-global-banner-copy slot="copy">copy</c4d-global-banner-copy>
+    <c4d-button
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </dds-button-cta>
-  </dds-universal-banner>
+    </c4d-button>
+  </c4d-global-banner>
 `;
 
 export const cardGroupItems = html`
-  <dds-card-group-item href="https://example.com">
-    <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}">
-    </dds-image>
-    <dds-card-eyebrow>Topic</dds-card-eyebrow>
-    <dds-card-heading>Natural Language Processing.</dds-card-heading>
-    <dds-card-cta-footer slot="footer">
+  <c4d-card-group-item href="https://example.com">
+    <c4d-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}">
+    </c4d-image>
+    <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+    <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
+    <c4d-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
-  </dds-card-group-item>
+    </c4d-card-cta-footer>
+  </c4d-card-group-item>
 `;
 
 export const contentLeadspace = html`
-  <dds-leadspace
+  <c4d-leadspace
     size="medium"
     gradient-style-scheme="true"
     alt=""
     default-src="${leadspaceImg}">
-    <dds-leadspace-heading>Leadspace Title</dds-leadspace-heading>
+    <c4d-leadspace-heading>Leadspace Title</c4d-leadspace-heading>
     Use this area for a short line of copy to support the title
-    <dds-button-group slot="action">
-      <dds-button-group-item aria-label="" href="">test</dds-button-group-item>
-    </dds-button-group>
-    <dds-image
+    <c4d-button-group slot="action">
+      <c4d-button-group-item aria-label="" href="">test</c4d-button-group-item>
+    </c4d-button-group>
+    <c4d-image
       slot="image"
-      class="bx--image"
+      class="cds--image"
       alt=""
       default-src="${leadspaceImg}">
-      <dds-image-item
+      <c4d-image-item
         media="(min-width: 672px)"
-        srcset="${leadspaceImg}"></dds-image-item>
-      <dds-image-item
+        srcset="${leadspaceImg}"></c4d-image-item>
+      <c4d-image-item
         media="(min-width: 0)"
-        srcset="${leadspaceImg}"></dds-image-item>
-    </dds-image>
-  </dds-leadspace>
+        srcset="${leadspaceImg}"></c4d-image-item>
+    </c4d-image>
+  </c4d-leadspace>
 `;
 
 export const contentLeadspaceSearch = html`
-  <dds-leadspace-with-search adjacent-theme="white-and-g10" scroll-behavior>
-    <dds-leadspace-with-search-heading
-      >Find a product</dds-leadspace-with-search-heading
+  <c4d-leadspace-with-search
+    adjacent-theme="white-and-g10"
+    sticky-search
+    scroll-behavior>
+    <c4d-leadspace-heading highlight="Find a product -"
+      >Find a product - Innovate like a startup, scale for the
+      enterprise</c4d-leadspace-heading
     >
-    <dds-leadspace-with-search-content>
-      <dds-leadspace-with-search-content-heading
-        >Innovate like a startup, scale for the
-        enterprise</dds-leadspace-with-search-content-heading
-      >
-      <dds-leadspace-with-search-content-copy>
-        Automate your software release process with continuous delivery (CD)—the
-        most critical part of adopting DevOps. Build, test, and deploy code
-        changes quickly, ensuring software is always ready for deployment.
-      </dds-leadspace-with-search-content-copy>
-    </dds-leadspace-with-search-content>
-    <dds-search-with-typeahead
+    <c4d-leadspace-with-search-copy>
+      Automate your software release process with continuous delivery (CD)—the
+      most critical part of adopting DevOps. Build, test, and deploy code
+      changes quickly, ensuring software is always ready for deployment.
+    </c4d-leadspace-with-search-copy>
+    <c4d-search-with-typeahead
       slot="search"
       leadspace-search
       active
-      should-remain-open></dds-search-with-typeahead>
-  </dds-leadspace-with-search>
+      should-remain-open></c4d-search-with-typeahead>
+  </c4d-leadspace-with-search>
 `;
 
 export const tocContent = html`
   <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
-  <dds-leadspace-block>
-    <dds-leadspace-block-heading
-      >Lorem ipsum dolor sit amet</dds-leadspace-block-heading
+  <c4d-leadspace-block border>
+    <c4d-leadspace-heading
+      >Lorem ipsum dolor sit amet</c4d-leadspace-heading
     >
-    <dds-leadspace-block-content>
-      <dds-content-block-heading>
-        Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
-      </dds-content-block-heading>
-      <dds-content-block-copy slot="copy"
+    <c4d-leadspace-block-content>
+      <c4d-content-block-copy slot="copy"
         >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat.
-      </dds-content-block-copy>
-      <dds-leadspace-block-media slot="media">
-        <dds-video-player-container
-          video-id="1_9h94wo6b"></dds-video-player-container>
-      </dds-leadspace-block-media>
-      <dds-link-list type="end">
-        <dds-link-list-heading>Featured products</dds-link-list-heading>
-        <dds-link-list-item href="https://example.com">
+      </c4d-content-block-copy>
+      <c4d-leadspace-block-media>
+        <c4d-video-player-container
+          video-id="0_ibuqxqbe"></c4d-video-player-container>
+      </c4d-leadspace-block-media>
+      <c4d-link-list type="end">
+        <c4d-link-list-heading>Featured products</c4d-link-list-heading>
+        <c4d-link-list-item href="https://example.com">
           IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
+        </c4d-link-list-item>
+        <c4d-link-list-item href="https://example.com">
           UrbanCode ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
+        </c4d-link-list-item>
+        <c4d-link-list-item href="https://example.com">
           View all products ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-      </dds-link-list>
-      <dds-leadspace-block-cta>
-        <dds-button-group-item href="www.ibm.com"
-          >Contact sales
-          ${ArrowRight20({
-            slot: 'icon',
-          })}</dds-button-group-item
-        >
-      </dds-leadspace-block-cta>
-    </dds-leadspace-block-content>
-  </dds-leadspace-block>
+        </c4d-link-list-item>
+      </c4d-link-list>
+      <c4d>
+      <c4d-button href="https://example.com" cta-type="local">
+        Contact sales
+      </c4d-button>
+    </c4d-leadspace-block-content>
+  </c4d-leadspace-block>
 
   <a name="2" data-title="Pharetra pharetra massa massa ultricies mi quis."></a>
-  <dds-content-block-segmented>
-    <dds-content-block-heading
+  <c4d-content-block-segmented>
+    <c4d-content-block-heading
       >Pharetra pharetra massa massa ultricies mi
-      quis.</dds-content-block-heading
+      quis.</c4d-content-block-heading
     >
     ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
-  </dds-content-block-segmented>
-  <dds-feature-card size="large" href="https://example.com">
-    <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}">
-      <dds-image-item
+  </c4d-content-block-segmented>
+  <c4d-feature-card size="large" href="https://example.com">
+    <c4d-image slot="image" alt="Image alt text" default-src="${imgLg1x1}">
+      <c4d-image-item
         media="(min-width: 991px)"
-        srcset="${imgLg1x1}"></dds-image-item>
-    </dds-image>
-    <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
-    <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
+        srcset="${imgLg1x1}"></c4d-image-item>
+    </c4d-image>
+    <c4d-card-eyebrow>scelerisque purus</c4d-card-eyebrow>
+    <c4d-card-heading>Elementum nibh tellus molestie nunc?</c4d-card-heading>
     <p>
       Habitant morbi tristique senectus et netus et malesuada fames. Habitant
       morbu tristique.
     </p>
-    <dds-feature-card-footer>
+    <c4d-feature-card-footer>
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-feature-card-footer>
-  </dds-feature-card>
+    </c4d-feature-card-footer>
+  </c4d-feature-card>
 
   <a name="3" data-title="Elementum nibh tellus molestie nunc non."></a>
-  <dds-content-block-segmented>
-    <dds-content-block-heading
+  <c4d-content-block-segmented>
+    <c4d-content-block-heading
       >Elementum nibh tellus molestie nunc non.
-    </dds-content-block-heading>
+    </c4d-content-block-heading>
     ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
-    <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
+    <c4d-card-cta slot="footer" cta-type="local" href="https://example.com">
       Lorem ipsum dolor
-      <dds-card-cta-footer></dds-card-cta-footer>
-    </dds-card-cta>
-  </dds-content-block-segmented>
+      <c4d-card-cta-footer></c4d-card-cta-footer>
+    </c4d-card-cta>
+  </c4d-content-block-segmented>
 
-  <dds-callout-with-media>
-    <dds-content-block-heading slot="heading"
-      >Mauris ultrices eros in cursus</dds-content-block-heading
+  <c4d-callout-with-media>
+    <c4d-content-block-heading
+      >Mauris ultrices eros in cursus</c4d-content-block-heading
     >
-    <dds-callout-with-media-copy size="sm"
+    <c4d-callout-with-media-copy size="sm"
       >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada
       proin libero nunc consequat. In est ante in nibh mauris cursus mattis.
       Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est
       velit egestas dui.
-    </dds-callout-with-media-copy>
-    <dds-callout-with-media-video
-      video-id="1_9h94wo6b"></dds-callout-with-media-video>
-  </dds-callout-with-media>
+    </c4d-callout-with-media-copy>
+    <c4d-callout-with-media-video
+      video-id="0_ibuqxqbe"></c4d-callout-with-media-video>
+  </c4d-callout-with-media>
 
   <a name="4" data-title="Tincidunt ornare massa"></a>
-  <dds-content-block-horizontal>
-    <dds-content-block-heading
-      >Tincidunt ornare massa</dds-content-block-heading
+  <c4d-content-block-horizontal>
+    <c4d-content-block-heading
+      >Tincidunt ornare massa</c4d-content-block-heading
     >
     ${Array.from([1, 2]).map(() => contentItemHorizontal)}
-  </dds-content-block-horizontal>
+  </c4d-content-block-horizontal>
 
   <a name="5" data-title="Lobortis elementum nibh tellus"></a>
-  <dds-logo-grid ?hide-border="true">
-    <dds-content-block-heading
-      >Lobortis elementum nibh tellus</dds-content-block-heading
+  <c4d-logo-grid ?hide-border="true">
+    <c4d-content-block-heading
+      >Lobortis elementum nibh tellus</c4d-content-block-heading
     >
-    ${logosGroup &&
-    logosGroup.map(
-      (elem) => html`
-        <dds-logo-grid-item
-          default-src="${elem.imgSrc}"
-          alt="${elem.altText}"></dds-logo-grid-item>
-      `
-    )}
-  </dds-logo-grid>
+    ${
+      logosGroup &&
+      logosGroup.map(
+        (elem) => html`
+          <c4d-logo-grid-item
+            default-src="${elem.imgSrc}"
+            alt="${elem.altText}"></c4d-logo-grid-item>
+        `
+      )
+    }
+  </c4d-logo-grid>
 
   <a name="6" data-title="Aliquam condimentum interdum"></a>
-  <dds-content-block-cards>
-    <dds-content-block-heading
-      >Aliquam condimentum interdum</dds-content-block-heading
+  <c4d-content-block-cards>
+    <c4d-content-block-heading
+      >Aliquam condimentum interdum</c4d-content-block-heading
     >
-    <dds-card-group>
+    <c4d-card-group>
       ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
-    </dds-card-group>
-  </dds-content-block-cards>
-  <dds-callout-quote>
+    </c4d-card-group>
+  </c4d-content-block-cards>
+  <c4d-callout-quote>
     Duis aute irure dolor in reprehenderit
-    <dds-quote-source-heading>
+    <c4d-quote-source-heading>
       Lorem ipsum dolor sit amet
-    </dds-quote-source-heading>
-    <dds-quote-source-copy> consectetur adipiscing elit </dds-quote-source-copy>
-    <dds-quote-source-bottom-copy> IBM Cloud </dds-quote-source-bottom-copy>
-    <dds-callout-link-with-icon slot="footer" href="https://example.com">
-      Link with Icon ${ArrowRight20({ slot: 'icon' })}
-    </dds-callout-link-with-icon>
-  </dds-callout-quote>
+    </c4d-quote-source-heading>
+    <c4d-quote-source-copy> consectetur adipiscing elit </c4d-quote-source-copy>
+    <c4d-quote-source-bottom-copy> IBM Cloud </c4d-quote-source-bottom-copy>
+    <c4d-callout-link-with-icon slot="footer" href="https://example.com" cta-type="local">
+      Link with Icon
+    </c4d-callout-link-with-icon>
+  </c4d-callout-quote>
 
   <a name="7" data-title="Duis aute irure dolor in reprehenderit"></a>
-  <dds-cta-block no-border>
-    <dds-content-block-heading>Take the next step</dds-content-block-heading>
-    <dds-content-block-copy
+  <c4d-cta-block no-border>
+    <c4d-content-block-heading>Take the next step</c4d-content-block-heading>
+    <c4d-content-block-copy
       >Want to discuss your options with a DevOps expert? <br />
-      Contact our sales team to evaluate your needs.</dds-content-block-copy
+      Contact our sales team to evaluate your needs.</c4d-content-block-copy
     >
-    <dds-button-group slot="action">
-      <dds-button-group-item href="https://example.com">
+    <c4d-button-group slot="action">
+      <c4d-button-group-item href="https://example.com">
         Secondary Button ${ArrowRight20({ slot: 'icon' })}
-      </dds-button-group-item>
-      <dds-button-group-item href="https://example.com">
+      </c4d-button-group-item>
+      <c4d-button-group-item href="https://example.com">
         Primary button ${ArrowRight20({ slot: 'icon' })}
-      </dds-button-group-item>
-    </dds-button-group>
-    <dds-cta-block-item-row no-border>
-      <dds-cta-block-item>
-        <dds-content-item-heading>Get connected</dds-content-item-heading>
-        <dds-content-item-copy
+      </c4d-button-group-item>
+    </c4d-button-group>
+    <c4d-cta-block-item-row no-border>
+      <c4d-cta-block-item>
+        <c4d-content-item-heading>Get connected</c4d-content-item-heading>
+        <c4d-content-item-copy
           >IBM DevOps partners have a wide range of expertise. Find one to build
-          the right solution for you.</dds-content-item-copy
+          the right solution for you.</c4d-content-item-copy
         >
-        <dds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com">
           Find a partner
-        </dds-text-cta>
-      </dds-cta-block-item>
-      <dds-cta-block-item>
-        <dds-content-item-heading>Learn how</dds-content-item-heading>
-        <dds-content-item-copy
+        </c4d-text-cta>
+      </c4d-cta-block-item>
+      <c4d-cta-block-item>
+        <c4d-content-item-heading>Learn how</c4d-content-item-heading>
+        <c4d-content-item-copy
           >IBM DevOps partners have a wide range of
-          expertise</dds-content-item-copy
+          expertise</c4d-content-item-copy
         >
-        <dds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com">
           Browse tutorials
-        </dds-text-cta>
-      </dds-cta-block-item>
-    </dds-cta-block-item-row>
-  </dds-cta-block>
+        </c4d-text-cta>
+      </c4d-cta-block-item>
+    </c4d-cta-block-item-row>
+  </c4d-cta-block>
 `;
 
 export const StoryContent = (
@@ -399,8 +390,8 @@ export const StoryContent = (
   }
 ) => {
   const mainClasses = [
-    'bx--content',
-    'dds-ce-demo-devenv--ui-shell-content',
+    'cds--content',
+    'c4d-ce-demo-devenv--ui-shell-content',
     config?.l1 ? 'has-l1' : null,
     config?.leadspace ? 'has-leadspace' : null,
   ]
@@ -412,20 +403,20 @@ export const StoryContent = (
       ${config?.leadspace ? contentLeadspace : null}
       ${config?.tocLayout === TOC_TYPES.HORIZONTAL
         ? html`
-            <dds-table-of-contents
+            <c4d-table-of-contents
               stickyOffset="48"
               toc-layout=${config.tocLayout}>
-              <div class="bx--row">
-                <div class="bx--col-lg-12">${tocContent}</div>
+              <div class="cds--row">
+                <div class="cds--col-lg-12">${tocContent}</div>
               </div>
-            </dds-table-of-contents>
+            </c4d-table-of-contents>
           `
         : html`
-            <dds-table-of-contents
+            <c4d-table-of-contents
               stickyOffset="48"
               toc-layout=${config.tocLayout}>
               ${tocContent}
-            </dds-table-of-contents>
+            </c4d-table-of-contents>
           `}
     </div>
   `;
@@ -434,166 +425,169 @@ export const StoryContent = (
 export const StoryContentNoToC = () =>
   html`
     <div
-      class="dds-ce-demo-devenv--ui-shell-content"
+      class="c4d-ce-demo-devenv--ui-shell-content"
       style="padding-right:1rem">
-      <div class="bx--grid bx--col-lg-8">
+      <div class="cds--grid cds--col-lg-8">
         ${contentLeadspaceSearch}
 
-        <dds-content-block-segmented>
-          <dds-content-block-heading
+        <c4d-content-block-segmented>
+          <c4d-content-block-heading
             >Pharetra pharetra massa massa ultricies mi
-            quis.</dds-content-block-heading
+            quis.</c4d-content-block-heading
           >
           ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
-        </dds-content-block-segmented>
+        </c4d-content-block-segmented>
 
-        <dds-feature-card size="large" href="https://example.com">
-          <dds-image
+        <c4d-feature-card size="large" href="https://example.com">
+          <c4d-image
             slot="image"
             alt="Image alt text"
             default-src="${imgLg1x1}">
-            <dds-image-item
+            <c4d-image-item
               media="(min-width: 991px)"
-              srcset="${imgLg1x1}"></dds-image-item>
-          </dds-image>
-          <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
-          <dds-card-heading
-            >Elementum nibh tellus molestie nunc?</dds-card-heading
+              srcset="${imgLg1x1}"></c4d-image-item>
+          </c4d-image>
+          <c4d-card-eyebrow>scelerisque purus</c4d-card-eyebrow>
+          <c4d-card-heading
+            >Elementum nibh tellus molestie nunc?</c4d-card-heading
           >
           <p>
             Habitant morbi tristique senectus et netus et malesuada fames.
             Habitant morbu tristique.
           </p>
-          <dds-feature-card-footer>
+          <c4d-feature-card-footer>
             ${ArrowRight20({ slot: 'icon' })}
-          </dds-feature-card-footer>
-        </dds-feature-card>
+          </c4d-feature-card-footer>
+        </c4d-feature-card>
 
-        <dds-content-block-segmented>
-          <dds-content-block-heading
+        <c4d-content-block-segmented>
+          <c4d-content-block-heading
             >Elementum nibh tellus molestie nunc non.
-          </dds-content-block-heading>
+          </c4d-content-block-heading>
           ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
-          <dds-card-cta
+          <c4d-card-cta
             slot="footer"
             cta-type="local"
             href="https://example.com">
             Lorem ipsum dolor
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-card-cta>
-        </dds-content-block-segmented>
+            <c4d-card-cta-footer></c4d-card-cta-footer>
+          </c4d-card-cta>
+        </c4d-content-block-segmented>
 
-        <dds-callout-with-media>
-          <dds-content-block-heading slot="heading"
-            >Mauris ultrices eros in cursus</dds-content-block-heading
+        <c4d-callout-with-media>
+          <c4d-content-block-heading slot="heading"
+            >Mauris ultrices eros in cursus</c4d-content-block-heading
           >
-          <dds-callout-with-media-copy size="sm"
+          <c4d-callout-with-media-copy size="sm"
             >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper
             malesuada proin libero nunc consequat. In est ante in nibh mauris
             cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel
             facilisis volutpat est velit egestas dui.
-          </dds-callout-with-media-copy>
-          <dds-callout-with-media-video
-            video-id="1_9h94wo6b"></dds-callout-with-media-video>
-        </dds-callout-with-media>
+          </c4d-callout-with-media-copy>
+          <c4d-callout-with-media-video
+            video-id="0_ibuqxqbe"></c4d-callout-with-media-video>
+        </c4d-callout-with-media>
 
-        <dds-content-block-horizontal>
-          <dds-content-block-heading
-            >Tincidunt ornare massa</dds-content-block-heading
+        <c4d-content-block-horizontal>
+          <c4d-content-block-heading
+            >Tincidunt ornare massa</c4d-content-block-heading
           >
           ${Array.from([1, 2]).map(() => contentItemHorizontal)}
-        </dds-content-block-horizontal>
+        </c4d-content-block-horizontal>
 
-        <dds-logo-grid ?hide-border="true">
-          <dds-content-block-heading
-            >Lobortis elementum nibh tellus</dds-content-block-heading
+        <c4d-logo-grid ?hide-border="true">
+          <c4d-content-block-heading
+            >Lobortis elementum nibh tellus</c4d-content-block-heading
           >
           ${logosGroup &&
           logosGroup.map(
             (elem) => html`
-              <dds-logo-grid-item
+              <c4d-logo-grid-item
                 default-src="${elem.imgSrc}"
-                alt="${elem.altText}"></dds-logo-grid-item>
+                alt="${elem.altText}"></c4d-logo-grid-item>
             `
           )}
-        </dds-logo-grid>
+        </c4d-logo-grid>
 
-        <dds-content-block-cards>
-          <dds-content-block-heading
-            >Aliquam condimentum interdum</dds-content-block-heading
+        <c4d-content-block-cards>
+          <c4d-content-block-heading
+            >Aliquam condimentum interdum</c4d-content-block-heading
           >
-          <dds-card-group>
+          <c4d-card-group>
             ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
-          </dds-card-group>
-        </dds-content-block-cards>
+          </c4d-card-group>
+        </c4d-content-block-cards>
 
-        <dds-callout-quote>
+        <c4d-callout-quote>
           Duis aute irure dolor in reprehenderit
-          <dds-quote-source-heading>
+          <c4d-quote-source-heading>
             Lorem ipsum dolor sit amet
-          </dds-quote-source-heading>
-          <dds-quote-source-copy>
+          </c4d-quote-source-heading>
+          <c4d-quote-source-copy>
             consectetur adipiscing elit
-          </dds-quote-source-copy>
-          <dds-quote-source-bottom-copy>
+          </c4d-quote-source-copy>
+          <c4d-quote-source-bottom-copy>
             IBM Cloud
-          </dds-quote-source-bottom-copy>
-          <dds-callout-link-with-icon slot="footer" href="https://example.com">
-            Link with Icon ${ArrowRight20({ slot: 'icon' })}
-          </dds-callout-link-with-icon>
-        </dds-callout-quote>
+          </c4d-quote-source-bottom-copy>
+          <c4d-callout-link-with-icon
+            slot="footer"
+            href="https://example.com"
+            cta-type="local">
+            Link with Icon
+          </c4d-callout-link-with-icon>
+        </c4d-callout-quote>
 
-        <dds-cta-block no-border>
-          <dds-content-block-heading
-            >Take the next step</dds-content-block-heading
+        <c4d-cta-block no-border>
+          <c4d-content-block-heading
+            >Take the next step</c4d-content-block-heading
           >
-          <dds-content-block-copy
+          <c4d-content-block-copy
             >Want to discuss your options with a DevOps expert? <br />
             Contact our sales team to evaluate your
-            needs.</dds-content-block-copy
+            needs.</c4d-content-block-copy
           >
 
-          <dds-button-group slot="action">
-            <dds-button-group-item href="https://example.com">
+          <c4d-button-group slot="action">
+            <c4d-button-group-item href="https://example.com">
               Secondary Button ${ArrowRight20({ slot: 'icon' })}
-            </dds-button-group-item>
-            <dds-button-group-item href="https://example.com">
+            </c4d-button-group-item>
+            <c4d-button-group-item href="https://example.com">
               Primary button ${ArrowRight20({ slot: 'icon' })}
-            </dds-button-group-item>
-          </dds-button-group>
+            </c4d-button-group-item>
+          </c4d-button-group>
 
-          <dds-cta-block-item-row no-border>
-            <dds-cta-block-item>
-              <dds-content-item-heading>Get connected</dds-content-item-heading>
-              <dds-content-item-copy
+          <c4d-cta-block-item-row no-border>
+            <c4d-cta-block-item>
+              <c4d-content-item-heading>Get connected</c4d-content-item-heading>
+              <c4d-content-item-copy
                 >IBM DevOps partners have a wide range of expertise. Find one to
-                build the right solution for you.</dds-content-item-copy
+                build the right solution for you.</c4d-content-item-copy
               >
-              <dds-text-cta
+              <c4d-text-cta
                 slot="footer"
                 cta-type="local"
                 icon-placement="right"
                 href="example.com">
                 Find a partner
-              </dds-text-cta>
-            </dds-cta-block-item>
+              </c4d-text-cta>
+            </c4d-cta-block-item>
 
-            <dds-cta-block-item>
-              <dds-content-item-heading>Learn how</dds-content-item-heading>
-              <dds-content-item-copy
+            <c4d-cta-block-item>
+              <c4d-content-item-heading>Learn how</c4d-content-item-heading>
+              <c4d-content-item-copy
                 >IBM DevOps partners have a wide range of
-                expertise</dds-content-item-copy
+                expertise</c4d-content-item-copy
               >
-              <dds-text-cta
+              <c4d-text-cta
                 slot="footer"
                 cta-type="local"
                 icon-placement="right"
                 href="example.com">
                 Browse tutorials
-              </dds-text-cta>
-            </dds-cta-block-item>
-          </dds-cta-block-item-row>
-        </dds-cta-block>
+              </c4d-text-cta>
+            </c4d-cta-block-item>
+          </c4d-cta-block-item-row>
+        </c4d-cta-block>
       </div>
     </div>
   `;

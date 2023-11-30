@@ -5,41 +5,42 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/imports';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-block-card-static) {
+:host(#{$c4d-prefix}-content-block-card-static) {
   display: block;
   margin-bottom: $spacing-10;
 
-  @include carbon--breakpoint('md') {
+  @include breakpoint(md) {
     margin-bottom: $spacing-12;
   }
 
-  @include carbon--breakpoint('max') {
+  @include breakpoint(max) {
     margin-bottom: $spacing-13;
   }
 
-  ::slotted(#{$dds-prefix}-content-block-heading) {
+  ::slotted(#{$c4d-prefix}-content-block-heading) {
     margin-top: $spacing-07;
 
-    @include carbon--breakpoint('max') {
+    @include breakpoint(max) {
       margin-top: $spacing-10;
     }
   }
 
-  ::slotted(#{$dds-prefix}-content-item) {
+  ::slotted(#{$c4d-prefix}-content-item) {
     margin-top: $spacing-10;
     margin-left: $spacing-05;
     margin-bottom: $spacing-07;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       margin-bottom: $spacing-09;
     }
   }
 
   ::slotted([slot='footer']) {
     width: auto;
-    margin-top: -$carbon--spacing-05;
+    margin-top: -$spacing-05;
   }
 }

@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
 
@@ -17,31 +22,170 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer.js';
 
 function App() {
   return (
-    <DDSCardGroup>
-      <DDSCardGroupItem cta-type="local" href="https://example.com">
-        <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+    <C4DCardGroup>
+      <C4DCardGroupItem cta-type="local" href="https://example.com">
+        <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-          hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+          ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+          elit sollicitudin, sodales nulla quis, consequat libero.
         </p>
-        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
-      </DDSCardGroupItem>
-      <DDSCardGroupItem cta-type="local" href="https://example.com">
-        <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>
+      <C4DCardGroupItem cta-type="local" href="https://example.com">
+        <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-          hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+          ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+          elit sollicitudin, sodales nulla quis, consequat libero.
         </p>
-        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
-      </DDSCardGroupItem>
-    </DDSCardGroup>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>
+    </C4DCardGroup>
+  );
+}
+```
+
+### JS (with Card pictogram)
+
+```javascript
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer.js';
+import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
+
+function App() {
+  return (
+    <C4DCardGroup>
+      <C4DCardGroupItem cta-type="local" href="https://example.com">
+        <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+          ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+          elit sollicitudin, sodales nulla quis, consequat libero.
+        </p>
+        <Desktop slot="pictogram" width="48" height="48" />
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>
+      <C4DCardGroupItem cta-type="local" href="https://example.com">
+        <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+          ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+          elit sollicitudin, sodales nulla quis, consequat libero.
+        </p>
+        <Desktop slot="pictogram" width="48" height="48" />
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>
+    </C4DCardGroup>
+  );
+}
+```
+
+### JS (with Card static)
+
+```javascript
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer.js';
+
+function App() {
+  return (
+    <C4DCardGroup>
+      <C4DCardGroupItem cta-type="local">
+        <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+          ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+          elit sollicitudin, sodales nulla quis, consequat libero.
+        </p>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>
+      <C4DCardGroupItem cta-type="local">
+        <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+          ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+          elit sollicitudin, sodales nulla quis, consequat libero.
+        </p>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>
+    </C4DCardGroup>
+  );
+}
+```
+
+### JS (with Card link)
+
+```javascript
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer.js';
+
+function App() {
+  return (
+    <C4DCardGroup gridMode="narrow">
+      <C4DCardGroupItem
+        link
+        cta-type="local"
+        href="https://example.com"
+        pattern-background>
+        <C4DCardHeading>IBM Developer - Card 01</C4DCardHeading>
+        <p>Learn, code and connect with your community</p>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>
+      <C4DCardGroupItem
+        link
+        cta-type="local"
+        href="https://example.com"
+        pattern-background>
+        <C4DCardHeading>IBM Developer - Card 02</C4DCardHeading>
+        <p>Learn, code and connect with your community</p>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
+      </C4DCardGroupItem>      
+    </C4DCardGroup>
+  );
+}
+```
+
+### JS (with Mixed Media)
+
+In order to have video components, make sure to import the
+`C4DVideoCTAContainer` and place `C4DCardGroup` within.
+
+To set the `C4DCardInCard` to play video, see more details
+[here](https://www.ibm.com/standards/carbon/web-components/react/?path=/docs/components-card-in-card--default).
+
+```javascript
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+
+function App() {
+  return (
+    <C4DVideoCTAContainer>
+      <C4DCardGroup gridMode="narrow">
+        <C4DCardGroupItem cta-type="video" href="0_ibuqxqbe">
+          <C4DCardEyebrow>Topic</C4DCardEyebrow>
+          <C4DCardFooter
+            cta-type="video"
+            href="0_ibuqxqbe"
+            slot="footer"></C4DCardFooter>
+        </C4DCardGroupItem>
+      </C4DCardGroup>
+    </C4DVideoCTAContainer>
   );
 }
 ```
@@ -49,34 +193,34 @@ function App() {
 ### JS (with Card in Card)
 
 ```javascript
-import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card.js';
-import DDSCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image.js';
-import DDSCardInCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-footer.js';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js'
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow.js';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card.js';
+import C4DCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image.js';
+import C4DCardInCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-footer.js';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js'
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow.js';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer.js';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
-  <DDSCardInCard grid-mode="narrow" href="https://example.com">
-    <DDSCardInCardImage slot="image" alt="Image alt text" defaultSrc="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-      <DDSImageItem media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </DDSImageItem>
-      <DDSImageItem media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </DDSImageItem>
-      <DDSImageItem media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </DDSImageItem>
-    </DDSCardInCardImage>
-    <DDSCardEyebrow>Label</DDSCardEyebrow>
-    <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
-    <DDSCardCTAFooter>
+  <C4DCardInCard grid-mode="narrow" href="https://example.com">
+    <C4DCardInCardImage slot="image" alt="Image alt text" defaultSrc="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+      <C4DImageItem media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </C4DImageItem>
+      <C4DImageItem media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </C4DImageItem>
+      <C4DImageItem media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </C4DImageItem>
+    </C4DCardInCardImage>
+    <C4DCardEyebrow>Label</C4DCardEyebrow>
+    <C4DCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</C4DCardHeading>
+    <C4DCardFooter>
       <ArrowRight20 slot="icon"/>
-    </DDSCardCTAFooter>
-  </DDSCardInCard>
-  <DDSCardGroup>
-    <DDSCardGroupItem cta-type="local" href="https://example.com">
-      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+    </C4DCardFooter>
+  </C4DCardInCard>
+  <C4DCardGroup>
+    <C4DCardGroupItem cta-type="local" href="https://example.com">
+      <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec
@@ -84,60 +228,21 @@ function App() {
         consequat
         libero.
       </p>
-      <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
-    </DDSCardGroupItem>
-  </DDSCardGroup>
+      <C4DCardFooter slot="footer"></C4DCardFooter>
+    </C4DCardGroupItem>
+  </C4DCardGroup>
   );
 }
 ```
 
-### JS (with Card Link)
+### Grid mode
 
-```javascript
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
-import DDSCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item.js';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-link-heading.js';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+There are three different options for the `grid-mode` property:
 
-function App() {
-  return (
-    <DDSCardGroup gridMode="narrow">
-      <DDSCardGroupCardLinkItem cta-type="local" href="https://example.com" pattern-background>
-        <DDSCardLinkHeading>IBM Developer - Card 01</DDSCardLinkHeading>
-        <p>Learn, code and connect with your community</p>
-        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
-      </DDSCardGroupCardLinkItem>
-    </DDSCardGroup>
-  );
-}
-```
+* Default (32px gap)
+* Condensed (16px gap)
+* Collapsed (no gap)
 
-### JS (with Mixed Media)
-
-In order to have video components, make sure to import the `DDSVideoCTAContainer` and place `DDSCardGroup` within.
-
-To set the `DDSCardInCard` to play video, see more details [here](https://www.ibm.com/standards/carbon/web-components/react/?path=/docs/components-card-in-card--default).
-
-```javascript
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-link-heading.js';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
-
-function App() {
-  return (
-    <DDSVideoCTAContainer>
-      <DDSCardGroup gridMode="narrow">
-        <DDSCardGroupItem cta-type="video" href="1_9h94wo6b">
-          <DDSCardEyebrow>Topic</DDSCardEyebrow>
-          <DDSCardCTAFooter cta-type="video" href="1_9h94wo6b" slot="footer"></DDSCardCTAFooter>
-        </DDSCardGroupItem>
-      </DDSCardGroup>
-    </DDSVideoCTAContainer>
-  );
-}
-```
 
 ## Props
 
@@ -145,11 +250,13 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<dds-card-group>`      | N/A                    | Component   |
-| `<dds-card-group-item>` | N/A                    | Component   |
+| `<cds-card-group>`      | N/A                    | Component   |
+| `<cds-card-group-item>` | N/A                    | Component   |
 
 <Description markdown={contributing} />

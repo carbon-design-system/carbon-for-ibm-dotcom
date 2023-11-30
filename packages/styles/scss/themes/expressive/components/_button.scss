@@ -5,7 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use 'sass:list';
+
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Button (expressive)
@@ -17,10 +19,16 @@
 @mixin button-expressive {
   .#{$prefix}--btn {
     padding-top: calc(
-      (#{$button-md-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+      list.slash(
+          #{$button-md-height} - #{map-get($body-compact-01, 'line-height')},
+          2
+        ) - #{$button-outline-width}
     );
     padding-bottom: calc(
-      (#{$button-md-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+      list.slash(
+          #{$button-md-height} - #{map-get($body-compact-01, 'line-height')},
+          2
+        ) - #{$button-outline-width}
     );
 
     .#{$prefix}--btn__icon {
@@ -31,24 +39,38 @@
     &.#{$prefix}--btn--field {
       min-height: $button-field-height;
       padding-top: calc(
-        (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) /
-          2 - #{$button-outline-width}
+        list.slash(
+            #{$button-field-height} - #{map-get(
+                $body-compact-01,
+                'line-height'
+              )},
+            2
+          ) - #{$button-outline-width}
       );
       padding-bottom: calc(
-        (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) /
-          2 - #{$button-outline-width}
+        list.slash(
+            #{$button-field-height} - #{map-get(
+                $body-compact-01,
+                'line-height'
+              )},
+            2
+          ) - #{$button-outline-width}
       );
     }
 
     &.#{$prefix}--btn--sm {
       min-height: $button-sm-height;
       padding-top: calc(
-        (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
-          #{$button-outline-width}
+        list.slash(
+            #{$button-sm-height} - #{map-get($body-compact-01, 'line-height')},
+            2
+          ) - #{$button-outline-width}
       );
       padding-bottom: calc(
-        (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
-          #{$button-outline-width}
+        list.slash(
+            #{$button-sm-height} - #{map-get($body-compact-01, 'line-height')},
+            2
+          ) - #{$button-outline-width}
       );
     }
   }
@@ -56,20 +78,20 @@
   .#{$prefix}--btn--icon-only {
     min-width: $button-md-height;
     padding: calc(
-      (#{$button-md-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
+      list.slash(#{$button-md-height} - #{$icon-size-01}, 2) - #{$button-outline-width}
     );
 
     &.#{$prefix}--btn--field {
       min-width: $button-field-height;
       padding: calc(
-        (#{$button-field-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
+        list.slash(#{$button-field-height} - #{$icon-size-01}, 2) - #{$button-outline-width}
       );
     }
 
     &.#{$prefix}--btn--sm {
       min-width: $button-sm-height;
       padding: calc(
-        (#{$button-sm-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
+        list.slash(#{$button-sm-height} - #{$icon-size-01}, 2) - #{$button-outline-width}
       );
     }
   }

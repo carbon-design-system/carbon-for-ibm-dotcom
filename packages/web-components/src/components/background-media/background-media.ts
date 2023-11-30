@@ -7,31 +7,30 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import pauseIcon from '../../internal/vendor/@carbon/web-components/icons/pause--outline--filled/32.js';
 import playIcon from '../../internal/vendor/@carbon/web-components/icons/play--filled/32.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
-import DDSImage from '../image/image';
-import DDSVideoPlayer from '../video-player/video-player';
-import DDSVideoPlayerContainer from '../video-player/video-player-container';
-import DDSLeadSpace from '../leadspace/leadspace';
+import C4DImage from '../image/image';
+import C4DVideoPlayer from '../video-player/video-player';
+import C4DVideoPlayerContainer from '../video-player/video-player-container';
+import C4DLeadSpace from '../leadspace/leadspace';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Background media.
  *
- * @element dds-background-media
+ * @element c4d-background-media
  */
 
-@customElement(`${ddsPrefix}-background-media`)
-class DDSBackgroundMedia extends DDSImage {
+@customElement(`${c4dPrefix}-background-media`)
+class C4DBackgroundMedia extends C4DImage {
   /**
    * Returns a class-name based on the Gradient Direction type
    */
@@ -64,7 +63,7 @@ class DDSBackgroundMedia extends DDSImage {
   backgroundOpacity: number = 100;
 
   /**
-   * Set to true in _handleBackgroundMedia if all children are `dds-image-item`
+   * Set to true in _handleBackgroundMedia if all children are `c4d-image-item`
    */
   @property()
   containsOnlyImages = false;
@@ -76,7 +75,7 @@ class DDSBackgroundMedia extends DDSImage {
   gradientDirection = GRADIENT_DIRECTION.LEFT_TO_RIGHT;
 
   /**
-   * Option to hide gradient. Automatically set to yes if parent is dds-leadspace
+   * Option to hide gradient. Automatically set to yes if parent is c4d-leadspace
    */
   @property()
   gradientHidden: boolean = false;
@@ -105,20 +104,20 @@ class DDSBackgroundMedia extends DDSImage {
    * Internal storage of the video player comonent
    */
   @property()
-  videoPlayer: DDSVideoPlayer | null = null;
+  videoPlayer: C4DVideoPlayer | null = null;
 
   /**
-   * Conditionally runs super.render() if all children are `dds-image-item`
+   * Conditionally runs super.render() if all children are `c4d-image-item`
    */
   private _handleBackgroundMedia(event: Event) {
     const assignedElements = (
       event.target as HTMLSlotElement
     )?.assignedElements();
     const assignedImages = assignedElements.filter(
-      (el) => el.tagName === `${ddsPrefix}-image-item`.toUpperCase()
+      (el) => el.tagName === `${c4dPrefix}-image-item`.toUpperCase()
     );
     const assignedVideos = assignedElements.filter(
-      (el) => el.tagName === `${ddsPrefix}-video-player-container`.toUpperCase()
+      (el) => el.tagName === `${c4dPrefix}-video-player-container`.toUpperCase()
     );
 
     if (
@@ -131,8 +130,8 @@ class DDSBackgroundMedia extends DDSImage {
     if (assignedVideos.length) {
       const [video] = assignedVideos;
       this.videoId = video.getAttribute('video-id');
-      this.videoPlayer = video.querySelector(`${ddsPrefix}-video-player`);
-      this.videoIsPlaying = (video as DDSVideoPlayerContainer).isPlaying;
+      this.videoPlayer = video.querySelector(`${c4dPrefix}-video-player`);
+      this.videoIsPlaying = (video as C4DVideoPlayerContainer).isPlaying;
     }
   }
 
@@ -168,7 +167,7 @@ class DDSBackgroundMedia extends DDSImage {
   }
 
   /**
-   * Append the dds-background-media to the parent element where this component is being used.
+   * Append the c4d-background-media to the parent element where this component is being used.
    */
   updated() {
     // mobilePosition attribute deprecated
@@ -176,7 +175,7 @@ class DDSBackgroundMedia extends DDSImage {
       this.parentElement?.shadowRoot?.prepend(this);
     }
 
-    if (this.parentElement instanceof DDSLeadSpace) {
+    if (this.parentElement instanceof C4DLeadSpace) {
       this.gradientHidden = true;
     }
 
@@ -201,11 +200,11 @@ class DDSBackgroundMedia extends DDSImage {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--background-media`;
+    return `${c4dPrefix}--background-media`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSBackgroundMedia;
+export default C4DBackgroundMedia;

@@ -5,19 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-group';
+
 @mixin content-group-simple {
-  :host(#{$dds-prefix}-content-group-simple)
-    ::slotted(#{$dds-prefix}-content-group-copy),
+  :host(#{$c4d-prefix}-content-group-simple)
+    ::slotted(#{$c4d-prefix}-content-group-copy),
   .#{$prefix}--content-group-simple .#{$prefix}--content-group__copy {
     margin-bottom: $spacing-07;
   }
 
   .bx--content-group__cta {
-    max-width: calc(320px + 1rem);
+    max-width: calc(320px + $spacing-05);
     padding-right: 0;
   }
-}
-
-@include exports('content-group-simple') {
-  @include content-group-simple;
 }

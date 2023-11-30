@@ -1,17 +1,19 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@mixin content-block-simple {
-  .#{$prefix}--content-block {
-    // empty for now
-  }
+@use '@carbon/styles/scss/config' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-block';
+@use '../../internal/content-item/content-item';
+@use '../image';
 
+@mixin content-block-simple {
   .#{$prefix}--content-block-simple__media-video {
-    max-width: rem(640px);
+    max-width: to-rem(640px);
   }
 
   .#{$prefix}--content-block-simple__content {
@@ -21,8 +23,4 @@
       }
     }
   }
-}
-
-@include exports('content-block-simple') {
-  @include content-block-simple;
 }

@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Tooltip (expressive)
@@ -19,7 +19,7 @@
   .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--right.#{$prefix}--tooltip--align-start
     .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--right.#{$prefix}--tooltip--align-end {
     &::before {
-      border-width: rem(4px) rem(5.5px) rem(4px) 0;
+      border-width: $spacing-02 to-rem(5.5px) $spacing-02 0;
     }
   }
 
@@ -27,10 +27,10 @@
   .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--left.#{$prefix}--tooltip--align-start
     .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--left.#{$prefix}--tooltip--align-end {
     &::before {
-      border-width: rem(4px) 0 rem(4px) rem(5.5px);
+      border-width: $spacing-02 0 $spacing-02 to-rem(5.5px);
     }
   }
   .#{$prefix}--tooltip .#{$prefix}--link {
-    font-size: 1rem;
+    font-size: $spacing-05;
   }
 }

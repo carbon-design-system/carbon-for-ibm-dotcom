@@ -7,37 +7,51 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement, TemplateResult } from 'lit-element';
-import { nothing, render } from 'lit-html';
+import { LitElement, html, TemplateResult } from 'lit';
+import { state, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
+import root from 'window-or-global';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
-import root from 'window-or-global';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
 import {
+  BasicLink,
   MastheadL1,
-  MastheadLink,
   MastheadLogoData,
-  MastheadMenuItem,
   MastheadProfileItem,
   Translation,
+  L0MenuItem,
+  L0Megamenu,
+  Megapanel,
+  MegapanelLinkGroup,
+  L1MenuItem,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import {
+  UNAUTHENTICATED_STATUS,
+  CLOUD_UNAUTHENTICATED_STATUS,
+  MASTHEAD_AUTH_METHOD,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
-import DDSMastheadLogo from './masthead-logo';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
+import C4DMastheadLogo from './masthead-logo';
+import C4DMegaMenuTabs from './megamenu-tabs';
+import C4DMegamenuTopNavMenu from './megamenu-top-nav-menu';
 import './masthead';
+import './masthead-button-cta';
 import './masthead-l1';
 import './masthead-l1-name';
 import './masthead-menu-button';
+import './masthead-contact';
 import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
 import './megamenu';
+import './megamenu-heading';
 import './megamenu-top-nav-menu';
 import './skip-to-content';
 import './top-nav';
@@ -50,9 +64,11 @@ import './left-nav';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { MEGAMENU_LAYOUT_SCHEME } from './defs';
+import layoutBreakpoint from './masthead-breakpoint';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Rendering target for masthead navigation items.
@@ -70,189 +86,319 @@ export enum NAV_ITEMS_RENDER_TARGET {
 }
 
 /**
+ * Globally-scoped Contact Module variable.
+ *
+ * @see https://github.ibm.com/live-advisor/cm-app
+ */
+export interface CMApp {
+  version: string;
+  ready: boolean;
+  init: Function;
+  refresh: Function;
+  register: Function;
+  deregister: Function;
+  fireEvent: Function;
+  update: Function;
+  props: {
+    eventHandlers: any;
+    events: CustomEvent[];
+    getLoadedBundle: Function;
+  };
+}
+
+/**
  * Component that renders masthead from links, etc. data.
  *
- * @element dds-masthead-composite
+ * @element c4d-masthead-composite
  */
-@customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends HostListenerMixin(LitElement) {
+@customElement(`${c4dPrefix}-masthead-composite`)
+class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
-   * Renders L1 menu based on l1Data
+   * Renders L1 menu based on l1Data & screen width.
    *
-   * @param [options] The options.
-   * @param [options.selectedMenuItem] The selected nav item.
-   * @returns The L1 nav.
+   * @returns {TemplateResult | undefined} The L1 nav.
    */
-  protected _renderL1({
-    selectedMenuItem,
-  }: { selectedMenuItem?: string } = {}) {
+  protected _renderL1() {
     if (!this.l1Data) return undefined;
-    const { url, title } = this.l1Data;
-    const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
+
     return html`
-      <dds-masthead-l1 slot="masthead-l1">
-        ${!title
-          ? undefined
-          : html`
-              <dds-masthead-l1-name
-                title="${title}"
-                aria-selected="${isSelected}"
-                url="${url}"></dds-masthead-l1-name>
-            `}
-        <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
-          >${this._renderNavItems({
-            selectedMenuItem,
-            target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-            hasL1: true,
-          })}</dds-top-nav-l1
-        >
-      </dds-masthead-l1>
+      <c4d-masthead-l1
+        slot="masthead-l1"
+        .l1Data=${this.l1Data}
+        selected-menu-item=${this.selectedMenuItemL1 || ''}>
+      </c4d-masthead-l1>
     `;
   }
 
   /**
    * Renders masthead logo
    *
+   * @returns TemplateResult
    */
   protected _renderLogo() {
     if (!this.logoData) {
       return html`
-        <dds-masthead-logo
-          ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
+        <c4d-masthead-logo
+          ?hide-logo="${this.activateSearch}"></c4d-masthead-logo>
       `;
     }
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg, href } = this.logoData;
     return html`
-      <dds-masthead-logo
+      <c4d-masthead-logo
         ?hide-logo="${this.activateSearch}"
         ?hasTooltip="${tooltip}"
-        aria-label="${ifNonNull(tooltip)}"
-        href="${href || DDSMastheadLogo.hrefDefault}"
-        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
+        aria-label="${ifDefined(tooltip)}"
+        href="${href || C4DMastheadLogo.hrefDefault}"
+        >${useAlternateLogo ? unsafeSVG(svg) : ''}</c4d-masthead-logo
       >
     `;
   }
 
   /**
-   * Sorts highlighted and regular menu items in separate arrays
-   * and returns view all link
+   * Render MegaMenu content
    *
-   * @param sections menu section data object
+   * @param menu megamenu data object
+   * @param _parentKey parent key
+   * @param layout layout selection to render the megamenu with
+   * @returns TemplateResult
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _getHighlightedMenuItems(sections) {
-    const highlightedItems: MastheadMenuItem[] = [];
-    let viewAllLink;
-    const menu: MastheadMenuItem[] = [];
-
-    sections[0]?.menuItems?.forEach((item: MastheadMenuItem) => {
-      if (item.highlighted) return highlightedItems.push(item);
-      if (item.megaPanelViewAll) {
-        viewAllLink = item;
-        return viewAllLink;
-      }
-      return menu.push(item);
-    });
-
-    return { viewAllLink, highlightedItems, menu };
+  protected _renderMegaMenu(
+    menu: L0Megamenu,
+    _parentKey,
+    layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST
+  ): TemplateResult {
+    const { _megamenuRenderMap } = this;
+    if (_megamenuRenderMap.has(layout)) {
+      return (_megamenuRenderMap.get(layout) as Function)(menu, _parentKey);
+    }
+    return this._renderMegaMenuListing(menu, _parentKey);
   }
 
   /**
-   *  Render MegaMenu content
+   *  Render MegaMenu content in tabbed layout.
    *
-   * @param sections menu section data object
-   * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
+   * @param menu megamenu data object
+   * @param _parentKey key that identifies parent nav item
+   * @returns TemplateResult
+   */
+  protected _renderMegaMenuTabbed(menu: L0Megamenu, _parentKey) {
+    const { viewAll, sections } = menu;
+    type menuItem = Megapanel & { itemKey: String };
+    const sortedMenuItems: menuItem[] = [];
+    sections.forEach((section, i) => {
+      return sortedMenuItems.push({
+        ...section,
+        itemKey: `${_parentKey}-${i}`,
+      });
+    });
+
+    const activeMenuItem = this._activeMegamenuTabKey
+      ? sortedMenuItems.find(
+          (item) => item.itemKey === this._activeMegamenuTabKey
+        )
+      : sortedMenuItems[0];
+
+    return html`
+      <c4d-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
+        <c4d-megamenu-left-navigation>
+          <c4d-megamenu-tabs
+            value="${ifNonEmpty(activeMenuItem?.heading?.title)}">
+            ${sortedMenuItems.map((item) => {
+              return item?.heading?.title
+                ? html`
+                    <c4d-megamenu-tab
+                      id="tab-${item.itemKey}"
+                      target="panel-${item.itemKey}"
+                      value="${item.heading.title}">
+                      ${item.heading.title}
+                    </c4d-megamenu-tab>
+                  `
+                : '';
+            })}
+          </c4d-megamenu-tabs>
+          ${viewAll?.url && viewAll?.title
+            ? html`
+                <c4d-megamenu-link-with-icon
+                  href="${viewAll.url}"
+                  part="view-all view-all-left"
+                  slot="view-all">
+                  <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                </c4d-megamenu-link-with-icon>
+              `
+            : null}
+        </c4d-megamenu-left-navigation>
+        ${this._renderMegamenuTabPanel(activeMenuItem)}
+      </c4d-megamenu>
+    `;
+  }
+
+  protected _renderMegamenuTabPanel(menuItem) {
+    const { itemKey, groups, heading, viewAll: itemViewAll } = menuItem;
+    return html`
+      <div
+        id="panel-${itemKey}"
+        role="tabpanel"
+        aria-labelledby="tab-${itemKey}">
+        <c4d-megamenu-right-navigation
+          class="${c4dPrefix}--masthead__tabpanel-child"
+          style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
+          ${heading?.title
+            ? html`
+                <c4d-megamenu-heading
+                  href="${ifNonEmpty(heading?.url)}"
+                  title="${heading?.title}"
+                  slot="heading">
+                  ${heading?.description}
+                </c4d-megamenu-heading>
+              `
+            : ''}
+          ${groups
+            ? groups.map((group, i) =>
+                this._renderMegapanelLinkGroup(group, {
+                  autoid: `panel-${itemKey}-${i}`,
+                })
+              )
+            : ''}
+          ${itemViewAll?.url && itemViewAll?.title
+            ? html`
+                <c4d-megamenu-link-with-icon
+                  href="${itemViewAll.url}"
+                  part="view-all view-all-right"
+                  slot="view-all">
+                  <span>${itemViewAll.title}</span>${ArrowRight16({
+                    slot: 'icon',
+                  })}
+                </c4d-megamenu-link-with-icon>
+              `
+            : null}
+        </c4d-megamenu-right-navigation>
+      </div>
+    `;
+  }
+
+  /**
+   * Render MegaMenu content in listing layout.
+   *
+   * @param menu megamenu data object
+   * @param _parentKey key that identifies parent nav item
+   * @returns TemplateResult
    */
   // eslint-disable-next-line
-  protected _renderMegaMenu(sections, _parentKey) {
-    const { viewAllLink, highlightedItems, menu } =
-      this._getHighlightedMenuItems(sections);
-    const hasHighlights = highlightedItems.length !== 0;
+  protected _renderMegaMenuListing(menu: L0Megamenu, _parentKey) {
+    const megapanel = menu.sections[0];
+    const { heading } = megapanel;
+    const { viewAll, highlights } = menu;
+
     return html`
-      <dds-megamenu>
-        ${hasHighlights
+      <c4d-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
+        ${highlights
           ? html`
-              <dds-megamenu-left-navigation>
-                ${sections[0]?.heading &&
-                html`
-                  <dds-megamenu-category-group-copy
-                    >${sections[0]?.heading}</dds-megamenu-category-group-copy
-                  >
-                `}
-                ${highlightedItems.map((item, i) => {
-                  const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
-                  return html`
-                    <dds-megamenu-category-group
-                      data-autoid="${autoid}"
-                      href="${item.url}"
-                      title="${item.title}">
-                      <dds-megamenu-category-group-copy
-                        >${item.megapanelContent
-                          ?.description}</dds-megamenu-category-group-copy
-                      >
-                      ${item.megapanelContent?.quickLinks?.links.map(
-                        ({ title, url, highlightedLink }, key) => {
-                          return html`
-                            ${highlightedLink
-                              ? html`
-                                  <dds-megamenu-link-with-icon
-                                    data-autoid="${autoid}-item${key}"
-                                    href="${url}"
-                                    style-scheme="category-sublink"
-                                    title="${title}">
-                                    <span>${title}</span>${ArrowRight16({
-                                      slot: 'icon',
-                                    })}
-                                  </dds-megamenu-link-with-icon>
-                                `
-                              : html`
-                                  <dds-megamenu-category-link
-                                    data-autoid="${autoid}-item${key}"
-                                    title="${title}"
-                                    href="${url}">
-                                  </dds-megamenu-category-link>
-                                `}
-                          `;
-                        }
-                      )}
-                    </dds-megamenu-category-group>
-                  `;
-                })}
-              </dds-megamenu-left-navigation>
+              <c4d-megamenu-left-navigation>
+                ${highlights.map((group, i) =>
+                  this._renderMegapanelLinkGroup(group, {
+                    headingLevel: 2,
+                    autoid: `${c4dPrefix}--masthead__l0-nav-list${i}`,
+                  })
+                )}
+              </c4d-megamenu-left-navigation>
             `
           : null}
-        <dds-megamenu-right-navigation
-          style-scheme="${hasHighlights
-            ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
-            : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
-          view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}">
-          ${menu.map((item, j) => {
-            const autoid = `${ddsPrefix}--masthead__l0-nav-list${
-              j + highlightedItems.length
-            }`;
+        <c4d-megamenu-right-navigation
+          style-scheme="${highlights
+            ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR
+            : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL}">
+          ${heading && !highlights
+            ? html`
+                <c4d-megamenu-heading
+                  href="${ifNonEmpty(heading.url)}"
+                  title="${ifNonEmpty(heading.title)}"
+                  slot="heading">
+                  ${heading.description}
+                </c4d-megamenu-heading>
+              `
+            : ''}
+          ${megapanel.groups.map((group, i) =>
+            this._renderMegapanelLinkGroup(group, {
+              headingLevel: heading ? 3 : 2,
+              autoid: `${c4dPrefix}--masthead__l0-nav-list${
+                i + (highlights ? highlights.length : 0)
+              }`,
+            })
+          )}
+          ${viewAll?.url && viewAll?.title
+            ? html`
+                <c4d-megamenu-link-with-icon
+                  href="${viewAll.url}"
+                  part="view-all view-all-right"
+                  slot="view-all">
+                  <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                </c4d-megamenu-link-with-icon>
+              `
+            : null}
+        </c4d-megamenu-right-navigation>
+        ${viewAll?.url && viewAll?.title
+          ? html`
+              <c4d-megamenu-link-with-icon
+                href="${viewAll.url}"
+                part="view-all view-all-bottom">
+                <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+              </c4d-megamenu-link-with-icon>
+            `
+          : null}
+      </c4d-megamenu>
+    `;
+  }
+
+  /**
+   * Render a Megapanel link group.
+   *
+   * @param group megamenu link group
+   * @returns TemplateResult
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderMegapanelLinkGroup(
+    group: MegapanelLinkGroup,
+    options: { headingLevel?: Number; autoid?: String } = { headingLevel: 3 }
+  ) {
+    const { links, heading } = group;
+    const { headingLevel, autoid } = options;
+    return html`
+      <c4d-megamenu-category-group data-autoid="${ifNonEmpty(autoid)}">
+        ${heading?.title
+          ? html`
+              <c4d-megamenu-category-heading
+                title="${heading.title}"
+                href="${ifNonEmpty(heading?.url)}"
+                slot="heading"
+                heading-level="${ifNonEmpty(headingLevel)}">
+                ${heading?.description}
+              </c4d-megamenu-category-heading>
+            `
+          : ''}
+        ${links &&
+        links.map((link, i) => {
+          const linkAutoId = autoid ? `${autoid}-item${i}` : null;
+          if (link?.description) {
             return html`
-              <dds-megamenu-category-group
-                data-autoid="${autoid}"
-                href="${item.url}"
-                title="${item.title}">
-                ${item.megapanelContent?.quickLinks?.links.map(
-                  ({ title, url }, key) => {
-                    return html`
-                      <dds-megamenu-category-link
-                        data-autoid="${autoid}-item${key}"
-                        title="${title}"
-                        href="${url}">
-                      </dds-megamenu-category-link>
-                    `;
-                  }
-                )}
-              </dds-megamenu-category-group>
+              <c4d-megamenu-category-link
+                title="${link?.title}"
+                href="${ifNonEmpty(link?.url)}"
+                data-autoid="${ifNonEmpty(linkAutoId)}">
+                ${link?.description}
+              </c4d-megamenu-category-link>
             `;
-          })}
-        </dds-megamenu-right-navigation>
-      </dds-megamenu>
+          }
+          return html`
+            <c4d-megamenu-category-link
+              href="${ifNonEmpty(link?.url)}"
+              data-autoid="${ifNonEmpty(linkAutoId)}">
+              ${link?.title}
+            </c4d-megamenu-category-link>
+          `;
+        })}
+      </c4d-megamenu-category-group>
     `;
   }
 
@@ -260,6 +406,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * Renders the left nav menus sections
    *
    * @param object heading heading of menu section
+   * @param object.ctas cta items
    * @param object.menuItems menu items
    * @param object.heading heading heading of menu section
    * @param object.isSubmenu determines whether menu section is a submenu section
@@ -270,8 +417,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNavMenuSections({
+    ctas,
     menuItems,
-    heading = '',
+    heading,
     isSubmenu = false,
     showBackButton = false,
     sectionTitle = '',
@@ -281,45 +429,70 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const items = menuItems.map((elem) => {
       if (elem.menu) {
         return html`
-          <dds-left-nav-menu
+          <c4d-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
             ?active="${elem.selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}">
-          </dds-left-nav-menu>
+          </c4d-left-nav-menu>
         `;
       }
 
       return html`
-        <dds-left-nav-menu-item
+        <c4d-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
           ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
-          data-autoid="${elem.autoid}"></dds-left-nav-menu-item>
+          data-autoid="${elem.autoid}"
+          .isHeading=${elem.isHeading ?? false}
+          .isViewAll=${elem.isViewAll ?? false}></c4d-left-nav-menu-item>
       `;
     });
 
     if (heading) {
-      items.unshift(
-        html`
-          <dds-left-nav-menu-category-heading
-            >${heading}</dds-left-nav-menu-category-heading
-          >
-        `
-      );
+      if (typeof heading === 'string') {
+        items.unshift(
+          html`
+            <c4d-left-nav-menu-category-heading
+              title="${heading}"></c4d-left-nav-menu-category-heading>
+          `
+        );
+      } else {
+        const { title, description, url } = heading;
+        items.unshift(
+          html`
+            <c4d-left-nav-menu-category-heading
+              .boostSize=${true}
+              title="${title}"
+              url="${ifDefined(url)}">
+              ${description ?? ''}
+            </c4d-left-nav-menu-category-heading>
+          `
+        );
+      }
+    }
+
+    if (ctas) {
+      ctas.forEach((cta) => {
+        items.push(html`
+          <c4d-left-nav-cta-item href="${ifNonEmpty(cta.url)}">
+            ${cta.title}
+          </c4d-left-nav-cta-item>
+        `);
+      });
     }
 
     return html`
-      <dds-left-nav-menu-section
+      <c4d-left-nav-menu-section
         section-id="${sectionId}"
-        ?is-submenu=${ifNonNull(isSubmenu)}
-        title=${ifNonNull(sectionTitle)}
-        titleUrl=${ifNonNull(sectionUrl)}
-        ?show-back-button=${ifNonNull(showBackButton)}>
+        ?is-submenu=${ifDefined(isSubmenu)}
+        title=${ifDefined(sectionTitle)}
+        titleUrl=${ifDefined(sectionUrl)}
+        ?show-back-button=${ifDefined(showBackButton)}>
         ${items}
-      </dds-left-nav-menu-section>
+      </c4d-left-nav-menu-section>
     `;
   }
 
@@ -330,6 +503,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _selectedLeftNavItems() {
+    const { currentUrlPath } = this;
     let matchFound = false;
     const selectedItems = { level0: '', level1: '', level2: '' };
 
@@ -339,7 +513,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       ],
       key = '',
       parentItemUrl = '',
-      currentUrlPath = '',
     }) => {
       if (!matchFound) {
         if (parentItemUrl === currentUrlPath) {
@@ -379,301 +552,485 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * Renders the left nav menus
    *
    * @param menuItems The options.
-   * @param selectedMenuItem The selected menu item
    * @param autoid Base autoid to be applied to the menu items
-   * @param currentUrlPath current url path
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNav(
-    menuItems,
-    selectedMenuItem,
-    autoid,
-    currentUrlPath
-  ) {
+  protected _renderLeftNav(menuItems: L0MenuItem[], autoid) {
+    const { ctaButtons } = this;
     const menu: any[] = [];
-    const selectedItemUrl = this._selectedLeftNavItems();
-    const level0Items = menuItems.map((elem, i) => {
-      if (elem.menuSections) {
-        const level1Items: {
-          title: string;
-          panelId: string;
-          autoid: string;
-          lastHighlightedItem: boolean;
-          url?: string;
-          menu: boolean;
-          selected: boolean;
-        }[] = [];
+    const level0Items = menuItems.map((elem: L0MenuItem, i) => {
+      // Instantiate bucket for first level submenus.
+      const level1Items: {
+        title: string;
+        panelId: string;
+        autoid: string;
+        lastHighlightedItem: boolean;
+        url?: string;
+        menu: boolean;
+        selected: boolean;
+        isHeading?: boolean;
+        isViewAll?: boolean;
+        heading?: string;
+        description?: string;
+      }[] = [];
 
-        let menuElems = elem.menuSections[0]?.menuItems;
-        let highlightedItems: MastheadMenuItem[] = [];
-
-        if (elem.hasMegapanel) {
-          const {
-            viewAllLink,
-            highlightedItems: hightlighted,
-            menu: nonHighlightedMenuItems,
-          } = this._getHighlightedMenuItems(elem.menuSections);
-          highlightedItems = hightlighted;
-          menuElems = hightlighted.concat(nonHighlightedMenuItems);
-          if (viewAllLink) {
-            menuElems.push(viewAllLink);
-          }
-        }
-
-        const selectedItems = selectedItemUrl({
-          menu: menuElems,
-          key: i,
-          parentItemUrl: elem.url,
-          currentUrlPath,
-        });
-
-        // render level 1 menu sections
-        menuElems?.map((item, k) => {
-          const level2Items: {
-            title: string;
-            url?: string;
-            autoid: string;
-            selected: boolean;
-          }[] = [];
-
-          const lastHighlighted = k + 1 === highlightedItems.length;
-
-          // render level 2 menu sections
-          item.megapanelContent?.quickLinks?.links.map((submenu, j) => {
-            return level2Items.push({
-              title: submenu.title,
-              url: submenu.url,
-              autoid: `${autoid}--sidenav--nav${i}-list${k}-item${j}`,
-              selected: !selectedMenuItem
-                ? selectedItems?.level2 === `${i}-${k}-${j}`
-                : selectedMenuItem === submenu.titleEnglish,
-            });
-          });
-
-          if (level2Items.length !== 0) {
-            menu.push(
-              this._renderLeftNavMenuSections({
-                menuItems: level2Items,
-                isSubmenu: true,
-                showBackButton: true,
-                sectionTitle: item.title,
-                sectionUrl: item.url,
-                sectionId: `${i}, ${k}`,
-              })
-            );
-          }
-
-          return level1Items.push({
-            title: item.title,
-            autoid: `${autoid}--sidenav--nav${i}-list${k}`,
-            lastHighlightedItem: lastHighlighted,
-            url: item.url,
-            panelId: `${i}, ${k}`,
-            selected: !selectedMenuItem
-              ? selectedItems?.level1 === `${i}-${k}`
-              : selectedMenuItem === item.titleEnglish,
-            menu:
-              item.megapanelContent?.quickLinks?.links &&
-              item.megapanelContent?.quickLinks?.links.length !== 0,
+      // If it's a "simple" menu, no megapanels.
+      if (elem?.submenu instanceof Array) {
+        elem.submenu.forEach((link, j) => {
+          level1Items.push({
+            title: link.title,
+            url: link.url,
+            autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+            lastHighlightedItem: false,
+            panelId: `${i}, ${j}`,
+            menu: false,
+            selected: false,
           });
         });
 
         if (level1Items.length !== 0) {
           menu.push(
             this._renderLeftNavMenuSections({
+              ctas: undefined,
               menuItems: level1Items,
-              heading: elem.menuSections[0]?.heading,
               isSubmenu: true,
               showBackButton: true,
               sectionTitle: elem.title,
               sectionUrl: elem.url,
               sectionId: `${i}, -1`,
+              heading: elem.title,
             })
           );
         }
       }
 
-      const selectedItems = selectedItemUrl({
-        key: i,
-        parentItemUrl: elem.url,
-        currentUrlPath,
-      });
+      // If it's a megapanel.
+      const submenu = elem.submenu as L0Megamenu;
+      if (submenu?.sections) {
+        // Check if other types of links exist.
+        const highlightedItems = submenu?.highlights || [];
+        const viewAll = submenu?.viewAll;
+
+        // 1. Add highlighted items to top of menu.
+        if (highlightedItems.length !== 0) {
+          highlightedItems.forEach((highlight: MegapanelLinkGroup, j) => {
+            const { heading, links } = highlight;
+            const lastHighlighted = j + 1 === highlightedItems.length;
+
+            if (heading) {
+              level1Items.push({
+                title: heading.title,
+                url: heading.url,
+                autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+                lastHighlightedItem: lastHighlighted,
+                panelId: `${i}, ${j}`,
+                menu: false,
+                selected: false,
+                isHeading: true,
+              });
+            }
+            if (links) {
+              links.forEach((link, k) => {
+                level1Items.push({
+                  title: link.title,
+                  url: link.url,
+                  autoid: `${autoid}--sidenav--nav${i}-list${j}-item${k}`,
+                  lastHighlightedItem: lastHighlighted,
+                  panelId: `${i}, ${j}`,
+                  menu: false,
+                  selected: false,
+                });
+              });
+            }
+          });
+        }
+
+        /**
+         * 2. Add megamenu links to menu.
+         *
+         * `sections`' length implies a tabbed or listing megamenu, which must
+         * be handled in different ways and have slightly different content
+         * requirements.
+         */
+        if (submenu.sections.length > 1) {
+          submenu.sections.map((item: Megapanel, j) => {
+            const { heading, groups } = item;
+            const lastHighlighted = j + 1 === highlightedItems.length;
+            const level2Items: {
+              title: string;
+              url?: string;
+              autoid: string;
+              selected: boolean;
+              isHeading?: boolean;
+            }[] = [];
+
+            groups.forEach((linkGroup: MegapanelLinkGroup, k) => {
+              const { heading: groupHeading, links } = linkGroup;
+
+              if (groupHeading) {
+                level2Items.push({
+                  title: groupHeading.title,
+                  url: groupHeading.url,
+                  autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}`,
+                  selected: false,
+                  isHeading: true,
+                });
+              }
+              if (links) {
+                links.forEach((link, l) => {
+                  level2Items.push({
+                    title: link.title,
+                    url: link.url,
+                    autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}-item${l}`,
+                    selected: false,
+                  });
+                });
+              }
+            });
+
+            if (level2Items.length !== 0) {
+              menu.push(
+                this._renderLeftNavMenuSections({
+                  ctas: undefined,
+                  menuItems: level2Items,
+                  isSubmenu: true,
+                  showBackButton: true,
+                  sectionTitle: heading?.title,
+                  sectionUrl: heading?.url,
+                  sectionId: `${i}, ${j}`,
+                  heading,
+                })
+              );
+            }
+
+            return level1Items.push({
+              title: (heading as BasicLink).title, // headings are required in tabbed layout
+              url: heading?.url,
+              autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+              lastHighlightedItem: lastHighlighted,
+              panelId: `${i}, ${j}`,
+              selected: false,
+              menu: groups && groups.length !== 0,
+            });
+          });
+        } else {
+          submenu.sections[0].groups.forEach((group: MegapanelLinkGroup, j) => {
+            const { heading, links } = group;
+            const lastHighlighted = j + 1 === highlightedItems.length;
+
+            if (heading) {
+              level1Items.push({
+                title: heading.title,
+                url: heading.url,
+                lastHighlightedItem: lastHighlighted,
+                panelId: `${i}, ${j}`,
+                autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+                menu: false,
+                selected: false,
+                isHeading: true,
+              });
+            }
+
+            if (links) {
+              links.forEach((link, k) => {
+                level1Items.push({
+                  title: link.title,
+                  url: link.url,
+                  lastHighlightedItem: lastHighlighted,
+                  panelId: `${i}, ${j}, ${k}`,
+                  autoid: `${autoid}--sidenav--nav${i}-list${j}-item${k}`,
+                  menu: false,
+                  selected: false,
+                });
+              });
+            }
+          });
+        }
+
+        // 3. Add view all link to bottom of menu.
+        if (viewAll) {
+          level1Items.push({
+            title: viewAll.title,
+            url: viewAll.url,
+            lastHighlightedItem: false,
+            panelId: `${i}`,
+            autoid: `${autoid}--sidenav--nav${i}-list${level1Items.length}`,
+            menu: false,
+            selected: false,
+            isViewAll: true,
+          });
+        }
+
+        if (level1Items.length !== 0) {
+          const isNotFaceted = submenu.sections.length === 1;
+          const megapanelHeading = submenu.sections[0].heading;
+
+          const heading =
+            isNotFaceted && !!megapanelHeading ? megapanelHeading : elem.title;
+
+          menu.push(
+            this._renderLeftNavMenuSections({
+              ctas: undefined,
+              menuItems: level1Items,
+              isSubmenu: true,
+              showBackButton: true,
+              sectionTitle: elem.title,
+              sectionUrl: elem.url,
+              sectionId: `${i}, -1`,
+              heading,
+            })
+          );
+        }
+      }
 
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
-        menu: elem.menuSections && elem.menuSections.length !== 0,
-        url: elem.url,
+        url: elem?.url,
+        menu: Boolean(elem?.submenu),
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
-        selected: !selectedMenuItem
-          ? selectedItems?.level0 === `${i}`
-          : selectedMenuItem === elem.titleEnglish,
+        selected: false,
       };
     });
 
     return html`
       ${this._renderLeftNavMenuSections({
+        ctas: ctaButtons,
         menuItems: level0Items,
         sectionId: '-1, -1',
+        heading: false,
       })}
       ${menu}
     `;
   }
 
   /**
-   * checks if there is a child item in the menu section that matches current url and returns true for first valid result
+   * Checks if there is a child item in the menu section that matches current
+   * url and returns true for first valid result.
    *
-   * @returns function that returns true or false
+   * @param menuItem a top level L0 menu item
+   * @returns boolean
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _childLinkChecker() {
+  protected _isActiveMenuItem(menuItem: L0MenuItem) {
+    const { currentUrlPath } = this;
+    const { submenu } = menuItem;
     let matchFound = false;
 
-    return (sections, currentUrlPath) => {
-      if (!matchFound) {
-        if (sections.length) {
-          const { menuItems } = sections[0];
-
-          for (let i = 0; i < menuItems.length; i++) {
-            if (
-              menuItems[i]?.url === currentUrlPath ||
-              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(
-                (link) => link.url === currentUrlPath
-              ).length
-            ) {
-              matchFound = true;
-            }
-          }
+    if (!submenu) {
+      matchFound = menuItem?.url === currentUrlPath;
+    } else if (submenu instanceof Array) {
+      matchFound = Boolean(
+        (submenu as BasicLink[]).find((link) => link.url === currentUrlPath)
+      );
+    } else if (submenu.sections) {
+      const { highlights, viewAll, sections } = submenu;
+      const flattenedLinks: BasicLink[] = [];
+      const flattenLinkGroup = (group: MegapanelLinkGroup): BasicLink[] => {
+        const links: BasicLink[] = [];
+        if (group.heading) {
+          links.push(group.heading);
         }
+        if (group.links) {
+          group.links.forEach((link) => {
+            links.push(link);
+          });
+        }
+        return links;
+      };
 
-        return matchFound;
+      // Flatten all data into array of BasicLinks.
+      if (highlights) {
+        highlights.forEach((highlight) => {
+          flattenedLinks.push(...flattenLinkGroup(highlight));
+        });
+      }
+      if (sections.length > 0) {
+        sections.forEach((section) => {
+          if (section.heading) {
+            flattenedLinks.push(section.heading);
+          }
+          section.groups.forEach((group) => {
+            flattenedLinks.push(...flattenLinkGroup(group));
+          });
+        });
+      }
+      if (viewAll) {
+        flattenedLinks.push(viewAll);
       }
 
-      return false;
-    };
+      // Check flattened list for matching URL.
+      matchFound = Boolean(
+        flattenedLinks.find((link) => link.url === currentUrlPath)
+      );
+    }
+
+    return matchFound;
   }
 
   /**
    * @param options The options.
    * @param [options.selectedMenuItem] The selected nav item.
    * @param options.target The target of rendering navigation items.
+   * @param options.hasL1 If an L1 menu is present
    * @returns The nav items.
    */
   protected _renderNavItems({
-    selectedMenuItem,
     target,
     hasL1,
   }: {
-    selectedMenuItem?: string;
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    const currentUrlPath = root.location?.href;
-    const hasChildLink = this._childLinkChecker();
     const { navLinks, customNavLinks, l1Data } = this;
-    let menu: MastheadLink[] | undefined = customNavLinks || navLinks;
-    const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
+    let menu: L0MenuItem[] | L1MenuItem[] | undefined =
+      customNavLinks || navLinks;
+    const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
+
     if (hasL1) {
       menu = l1Data?.menuItems;
     }
 
     if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
-      return !menu
+      return !navLinks
         ? undefined
-        : menu.map((link, i) => {
-            const { menuSections = [], title, titleEnglish, url } = link;
-            let selected;
-
-            if (selectedMenuItem) {
-              selected = selectedMenuItem && titleEnglish === selectedMenuItem;
-            } else {
-              selected = hasChildLink(menuSections, currentUrlPath);
-            }
-
-            let sections;
-            if (link.hasMegapanel) {
-              sections = this.megamenuSet[i] = this._renderMegaMenu(
-                menuSections,
-                i
-              );
-            } else {
-              sections = menuSections
-                // eslint-disable-next-line no-use-before-define
-                .reduce(
-                  (acc: typeof menuItems, { menuItems }) =>
-                    acc.concat(menuItems),
-                  []
-                )
-                .map(
-                  ({ title: menuItemTitle, url: menuItemUrl }, j) =>
-                    html`
-                      <dds-top-nav-menu-item
-                        ?active="${selectedMenuItem
-                          ? selected
-                          : menuItemUrl === currentUrlPath}"
-                        href="${menuItemUrl}"
-                        title="${menuItemTitle}"
-                        data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></dds-top-nav-menu-item>
-                    `
-                );
-            }
-            if (sections.length === 0) {
-              return html`
-                <dds-top-nav-item
-                  ?active="${selectedMenuItem
-                    ? selected
-                    : url === currentUrlPath}"
-                  href="${url}"
-                  title="${title}"
-                  data-autoid="${autoid}-nav--nav${i}"></dds-top-nav-item>
-              `;
-            }
-            if (link.hasMegapanel) {
-              return html`
-                <dds-megamenu-top-nav-menu
-                  ?active="${selected}"
-                  menu-label="${title}"
-                  trigger-content="${title}"
-                  data-autoid="${autoid}-nav--nav${i}">
-                </dds-megamenu-top-nav-menu>
-              `;
-            }
-            return html`
-              <dds-top-nav-menu
-                ?active="${selected}"
-                menu-label="${title}"
-                trigger-content="${title}"
-                data-autoid="${autoid}-nav--nav${i}">
-                ${sections}
-              </dds-top-nav-menu>
-            `;
+        : menu?.map((link, i) => {
+            return this._renderNavItem(link, i, autoid);
           });
     }
 
-    return !menu
-      ? undefined
-      : this._renderLeftNav(menu, selectedMenuItem, autoid, currentUrlPath);
+    return !navLinks ? undefined : this._renderLeftNav(navLinks, autoid);
   }
 
   /**
-   * Handles the rendering of the megamenu once it is active
+   * Renders a nav item.
+   *
+   * @param item The item to render
+   * @param i The index of the item in a series
+   * @param autoid The unique id to assign to the item
+   * @returns A template fragment representing a nav item.
+   */
+  protected _renderNavItem(item: L0MenuItem, i, autoid): TemplateResult {
+    const { selectedMenuItem, currentUrlPath, _activeMegamenuIndex } = this;
+    const { submenu, title, titleEnglish, url } = item;
+    let selected;
+
+    if (selectedMenuItem) {
+      selected =
+        titleEnglish?.trim()?.toLowerCase() ===
+        selectedMenuItem?.trim()?.toLowerCase();
+    } else {
+      selected = this._isActiveMenuItem(item);
+    }
+
+    if (submenu instanceof Array) {
+      return html`
+        <c4d-top-nav-menu
+          ?active="${selected}"
+          menu-label="${title}"
+          trigger-content="${title}"
+          data-autoid="${autoid}-nav--nav${i}">
+          ${submenu.map(
+            ({ title: linkTitle, url: linkUrl }, j) =>
+              html`
+                <c4d-top-nav-menu-item
+                  ?active="${selectedMenuItem
+                    ? selected
+                    : linkUrl === currentUrlPath}"
+                  href="${ifDefined(linkUrl)}"
+                  title="${linkTitle}"
+                  data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></c4d-top-nav-menu-item>
+              `
+          )}
+        </c4d-top-nav-menu>
+      `;
+    }
+
+    if (submenu?.sections) {
+      const layout =
+        submenu.sections.length > 1
+          ? MEGAMENU_LAYOUT_SCHEME.TAB
+          : MEGAMENU_LAYOUT_SCHEME.LIST;
+
+      // Render nav menu, but only render megamenu if it is active.
+      return html`
+        <c4d-megamenu-top-nav-menu
+          ?active="${selected}"
+          menu-label="${title}"
+          trigger-content="${title}"
+          data-autoid="${autoid}-nav--nav${i}"
+          .menuIndex=${i}>
+          ${_activeMegamenuIndex === i
+            ? this._renderMegaMenu(submenu, i, layout)
+            : null}
+        </c4d-megamenu-top-nav-menu>
+      `;
+    }
+
+    // Fallback render as simple link.
+    return html`
+      <c4d-top-nav-item
+        ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
+        href="${ifDefined(url)}"
+        title="${title}"
+        data-autoid="${autoid}-nav--nav${i}"></c4d-top-nav-item>
+    `;
+  }
+
+  /**
+   * Sets the active megamenu upon user interaction.
    *
    * @param event The event.
    */
-  @HostListener('eventMegamenuActive')
+  @HostListener(C4DMegamenuTopNavMenu.eventMegaMenuToggled)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _loadMegamenu = (event: CustomEvent) => {
     const {
-      target,
-      detail: { active, resolveFn },
+      detail: { active, resolveFn, index: menuIndex },
     } = event;
-    const { autoid } = (target as HTMLElement).dataset;
-    const index = autoid?.slice(-1);
-    const currentMenu = this.megamenuSet[index!];
-    render(active ? currentMenu : nothing, target as HTMLElement);
+
+    // Open a megamenu by updating state to trigger a re-render. This also closes
+    // any previously opened megamenu.
+    if (active && menuIndex !== undefined) {
+      this._activeMegamenuIndex = menuIndex;
+    }
+
+    // If clicking the same nav item to close megamenu, reset state to prune its
+    // markup from the DOM.
+    if (!active && menuIndex === this._activeMegamenuIndex) {
+      this._activeMegamenuIndex = undefined;
+    }
+
+    // Reset active tab when closing any megamenu.
+    if (!active && this._activeMegamenuTabKey) {
+      this._activeMegamenuTabKey = undefined;
+    }
+
     resolveFn();
   };
+
+  /**
+   * Sets the active megamenu tabpanel upon user interaction.
+   *
+   * @param event The event.
+   */
+  @HostListener(C4DMegaMenuTabs.eventBeforeSelect)
+  protected _loadMegamenuTabPanel(event) {
+    const { detail } = event;
+    const panelId = detail.item.id.split('tab-')[1];
+    this._activeMegamenuTabKey = panelId;
+  }
+
+  /**
+   * Stores a reference of the globally-scoped CM_APP object within the masthead.
+   */
+  @HostListener('document:cm-app-ready')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _getContactModuleReference = () => {
+    // @ts-ignore: CM_APP will definitely exist if this event is fired
+    this.contactModuleApp = window.CM_APP;
+  };
+
+  contactModuleApp?: CMApp;
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".
@@ -681,6 +1038,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @internal
    */
   _hasAutoSelectedItems = false;
+
+  /**
+   * Whether the nav should load as `left-nav` or `top-nav`
+   */
+  _isMobileVersion = layoutBreakpoint.matches;
 
   /**
    * The placeholder for `loadTranslation()` Redux action that will be mixed in.
@@ -697,7 +1059,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @internal
    */
-  _loadUserStatus?: () => void;
+  _loadUserStatus?: (authMethod?: string) => void;
 
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
@@ -705,6 +1067,28 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @internal
    */
   _setLanguage?: (language: string) => void;
+
+  /**
+   * Map of megamenu layout options to corresponding render methods.
+   *
+   * @internal
+   */
+  _megamenuRenderMap = new Map([
+    [MEGAMENU_LAYOUT_SCHEME.LIST, this._renderMegaMenuListing.bind(this)],
+    [MEGAMENU_LAYOUT_SCHEME.TAB, this._renderMegaMenuTabbed.bind(this)],
+  ]);
+
+  /**
+   * The index of a megamenu that should be visible.
+   */
+  @state()
+  _activeMegamenuIndex?: number;
+
+  /**
+   * The index of a megamenu's tabpanel that should be visible.
+   */
+  @state()
+  _activeMegamenuTabKey?: string;
 
   /**
    * `true` if there is a profile.
@@ -737,6 +1121,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * The cta buttons for authenticated state.
+   */
+  @property({ attribute: false })
+  authenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
+   * Text for Contact us button
+   */
+  @property({ attribute: false })
+  contactUsButton?: MastheadProfileItem;
+
+  /**
    * The platform name.
    */
   @property()
@@ -749,18 +1145,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   platformUrl?;
 
   /**
-   * The brand name.
-   *
-   * @deprecated brandName use platform instead
-   */
-  @property({ attribute: 'brand-name' })
-  brandName!: string;
-
-  /**
    * The search results to show in the UI.
    */
   @property({ attribute: false })
   currentSearchResults: string[] = [];
+
+  @property({ attribute: false })
+  currentUrlPath?: string = root.location?.href;
 
   /**
    * The custom profile login link.
@@ -779,12 +1170,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: 'masthead-assistive-text' })
   mastheadAssistiveText!: string;
-
-  /**
-   * The array containing all the megamenus to be loaded in.
-   */
-  @property()
-  megamenuSet: TemplateResult[] = [];
 
   /**
    * The `aria-label` attribute for the menu bar UI.
@@ -829,13 +1214,25 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   selectedMenuItem!: string;
 
   /**
+   * The English title of the selected nav item in the L1.
+   */
+  @property({ attribute: 'selected-menu-item-l1' })
+  selectedMenuItemL1!: string;
+
+  /**
    * The profile items for unauthenticated state.
    */
   @property({ attribute: false })
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * Specify translation endpoint if not using default dds endpoint.
+   * The cta buttons for authenticated state.
+   */
+  @property({ attribute: false })
+  unauthenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
+   * Specify translation endpoint if not using default c4d endpoint.
    */
   @property({ attribute: 'data-endpoint' })
   dataEndpoint?: string;
@@ -856,7 +1253,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * The navigation links.
    */
   @property({ attribute: false })
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * Logo data
@@ -883,20 +1280,49 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   searchPlaceholder?: string;
 
   /**
+   * `true` if Contact us should be shown.
+   */
+  @property({ type: String, reflect: true, attribute: 'has-contact' })
+  hasContact = 'true';
+
+  /**
+   * The selected authentication method, either `profile-api` (default), `cookie`, or `docs-api`.
+   */
+  @property({ attribute: 'auth-method' })
+  authMethod = MASTHEAD_AUTH_METHOD.DEFAULT;
+
+  /**
    * Custom navigation links
    */
   @property()
-  customNavLinks?: MastheadLink[];
+  customNavLinks?: L0MenuItem[];
 
   /**
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
-  userStatus = UNAUTHENTICATED_STATUS;
+  userStatus =
+    this.authMethod === MASTHEAD_AUTH_METHOD.DEFAULT
+      ? UNAUTHENTICATED_STATUS
+      : CLOUD_UNAUTHENTICATED_STATUS;
 
-  createRenderRoot() {
-    // We render child elements of `<dds-masthead-container>` by ourselves
-    return this;
+  get userIsAuthenticated(): boolean {
+    const { userStatus } = this;
+    return (
+      userStatus !== UNAUTHENTICATED_STATUS &&
+      userStatus !== CLOUD_UNAUTHENTICATED_STATUS
+    );
+  }
+
+  get ctaButtons(): MastheadProfileItem[] | undefined {
+    const {
+      userIsAuthenticated,
+      authenticatedCtaButtons,
+      unauthenticatedCtaButtons,
+    } = this;
+    return userIsAuthenticated
+      ? authenticatedCtaButtons
+      : unauthenticatedCtaButtons;
   }
 
   firstUpdated() {
@@ -907,33 +1333,39 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     if (this.userStatus === UNAUTHENTICATED_STATUS) {
-      this._loadUserStatus?.();
+      this._loadUserStatus?.(this.authMethod);
     }
 
+    // This is a temp fix until we figure out why we can't set styles to the :host(c4d-masthead-container) in stylesheets
     this.style.zIndex = '900';
+
+    // Allows conditional rendering of left/top navs.
+    layoutBreakpoint.addEventListener('change', () => {
+      this._isMobileVersion = layoutBreakpoint.matches;
+      this.requestUpdate();
+    });
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('language')) {
+    if (
+      changedProperties.has('language') ||
+      changedProperties.has('dataEndpoint')
+    ) {
       const { language, dataEndpoint } = this;
       if (language) {
         this._setLanguage?.(language);
         this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
-    if (changedProperties.has('brandName')) {
-      this.platform = this.brandName;
-      // eslint-disable-next-line no-console
-      console.warn(
-        '`brand-name` will be deprecated in the future use `platform` instead.'
-      );
-    }
   }
 
   render() {
     const {
+      _isMobileVersion: isMobileVersion,
       activateSearch,
       authenticatedProfileItems,
+      ctaButtons,
+      contactUsButton,
       currentSearchResults,
       customTypeaheadAPI,
       customProfileLogin,
@@ -941,6 +1373,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       platformUrl,
       hasProfile,
       inputTimeout,
+      userIsAuthenticated,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
@@ -956,13 +1389,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       skipToContentText,
       skipToContentHref,
       unauthenticatedProfileItems,
-      userStatus,
       l1Data,
+      hasContact,
     } = this;
-    const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
 
     let profileItems;
-    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
+    if (
+      C4D_CUSTOM_PROFILE_LOGIN &&
+      customProfileLogin &&
+      !userIsAuthenticated
+    ) {
       profileItems = unauthenticatedProfileItems?.map((item) => {
         if (item?.id === 'signin') {
           return { ...item, url: customProfileLogin };
@@ -970,7 +1406,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         return item;
       });
     } else {
-      profileItems = authenticated
+      profileItems = userIsAuthenticated
         ? authenticatedProfileItems
         : unauthenticatedProfileItems;
     }
@@ -988,108 +1424,128 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     }
 
     return html`
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
-        ${!platform
-          ? undefined
-          : html`
-              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
-                >${platform}</dds-left-nav-name
-              >
-            `}
-        ${!l1Data?.title
-          ? undefined
-          : html`
-              <dds-left-nav-name href="${ifNonNull(l1Data.url)}"
-                >${l1Data.title}</dds-left-nav-name
-              >
-            `}
-        ${this._renderNavItems({
-          selectedMenuItem,
-          target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
-          hasL1: !!l1Data,
-        })}
-      </dds-left-nav>
-      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-        <dds-skip-to-content
+      ${isMobileVersion
+        ? html`
+            <c4d-left-nav-overlay></c4d-left-nav-overlay>
+            <c4d-left-nav>
+              ${!platform
+                ? undefined
+                : html`
+                    <c4d-left-nav-name href="${ifNonEmpty(platformAltUrl)}"
+                      >${platform}</c4d-left-nav-name
+                    >
+                  `}
+              ${this._renderNavItems({
+                target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
+                hasL1: !!l1Data,
+              })}
+            </c4d-left-nav>
+          `
+        : ''}
+      <c4d-masthead
+        ?has-l1=${this.l1Data}
+        aria-label="${ifNonEmpty(mastheadAssistiveText)}">
+        <c4d-skip-to-content
           href="${skipToContentHref}"
-          link-assistive-text="${skipToContentText}"></dds-skip-to-content>
-        <dds-masthead-menu-button
-          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
-          ?hide-menu-button="${activateSearch}">
-        </dds-masthead-menu-button>
+          link-assistive-text="${skipToContentText}"></c4d-skip-to-content>
 
+        ${isMobileVersion
+          ? html`
+              <c4d-masthead-menu-button
+                button-label-active="${ifNonEmpty(
+                  menuButtonAssistiveTextActive
+                )}"
+                button-label-inactive="${ifNonEmpty(
+                  menuButtonAssistiveTextInactive
+                )}"
+                ?hide-menu-button="${activateSearch}">
+              </c4d-masthead-menu-button>
+            `
+          : ''}
         ${this._renderLogo()}
         ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}"
-                >${platform}</dds-top-nav-name
+              <c4d-top-nav-name href="${ifDefined(platformAltUrl)}"
+                >${platform}</c4d-top-nav-name
               >
             `}
-        ${(!l1Data &&
-          (navLinks || customNavLinks) &&
-          html`
-            <dds-top-nav
-              selected-menu-item=${selectedMenuItem}
-              menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
-              ?hideNav="${activateSearch}">
-              ${this._renderNavItems({
-                selectedMenuItem,
-                target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-                hasL1: false,
-              })}
-            </dds-top-nav>
-          `) ||
-        undefined}
+        ${(navLinks || customNavLinks) && !isMobileVersion
+          ? html`
+              <c4d-top-nav
+                selected-menu-item=${selectedMenuItem}
+                menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
+                ?hideNav="${activateSearch}">
+                ${this._renderNavItems({
+                  target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
+                  hasL1: false,
+                })}
+              </c4d-top-nav>
+            `
+          : ''}
         ${hasSearch === 'false'
           ? ''
           : html`
-              <dds-search-with-typeahead
+              <c4d-search-with-typeahead
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
-                language="${ifNonNull(language)}"
+                language="${ifDefined(language)}"
                 ?open="${openSearchDropdown}"
                 ?searchOpenOnload="${activateSearch}"
-                placeholder="${ifNonNull(searchPlaceholder)}"
-                .currentSearchResults="${ifNonNull(currentSearchResults)}"
-                ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
-                .scopeParameters="${ifNonNull(
+                placeholder="${ifDefined(searchPlaceholder)}"
+                .currentSearchResults="${ifDefined(currentSearchResults)}"
+                ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
+                .scopeParameters="${ifDefined(
                   scopeParameters
-                )}"></dds-search-with-typeahead>
+                )}"></c4d-search-with-typeahead>
             `}
-        <dds-masthead-global-bar ?has-search-active=${activateSearch}>
+        <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
+          ${hasContact === 'false'
+            ? ''
+            : html`
+                <c4d-masthead-contact
+                  data-ibm-contact="contact-link"
+                  trigger-label="${ifDefined(
+                    contactUsButton?.title
+                  )}"></c4d-masthead-contact>
+              `}
           ${hasProfile === 'false'
             ? ''
             : html`
-                <dds-masthead-profile ?authenticated="${authenticated}">
+                <c4d-masthead-profile ?authenticated="${userIsAuthenticated}">
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
-                        <dds-masthead-profile-item href="${ifNonNull(url)}"
-                          >${title}</dds-masthead-profile-item
+                        <c4d-masthead-profile-item href="${ifDefined(url)}"
+                          >${title}</c4d-masthead-profile-item
                         >
                       `
                   )}
-                </dds-masthead-profile>
+                </c4d-masthead-profile>
               `}
-        </dds-masthead-global-bar>
-        ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
-        <dds-megamenu-overlay></dds-megamenu-overlay>
-      </dds-masthead>
+          ${ctaButtons?.map(
+            ({ title, url }) =>
+              html`
+                <c4d-masthead-button-cta href="${ifNonEmpty(url)}" kind="ghost">
+                  ${title}
+                </c4d-masthead-button-cta>
+              `
+          )}
+        </c4d-masthead-global-bar>
+        ${!l1Data ? undefined : this._renderL1()}
+        <c4d-megamenu-overlay></c4d-megamenu-overlay>
+      </c4d-masthead>
     `;
   }
 
-  /**
-   * The name of the custom event fired when a top nav menu is clicked
-   */
-  static get eventMegamenuActive() {
-    return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
-  }
+  // @TODO: check if needed after merge
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSMastheadComposite;
+export default C4DMastheadComposite;

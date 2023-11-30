@@ -7,23 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Error20 from '../../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../region-item';
 
 const template = (props?) => {
   const { href, invalid, name } = props ?? {};
   return html`
-    <dds-region-item
-      href="${ifNonNull(href)}"
+    <c4d-region-item
+      href="${ifDefined(href)}"
       ?invalid="${invalid}"
-      name="${ifNonNull(name)}"></dds-region-item>
+      name="${ifDefined(name)}"></c4d-region-item>
   `;
 };
 
-describe('dds-region-item', function () {
+describe('c4d-region-item', function () {
   describe('Misc attributes', function () {
     it('should render with various attributes', async function () {
       render(
@@ -35,9 +35,9 @@ describe('dds-region-item', function () {
         document.body
       );
       await Promise.resolve();
-      const regionItem = document.body.querySelector('dds-region-item');
+      const regionItem = document.body.querySelector('c4d-region-item');
       expect(regionItem).toMatchSnapshot({ mode: 'shadow' });
-      const icon = regionItem!.shadowRoot!.querySelector('.bx--card__cta');
+      const icon = regionItem!.shadowRoot!.querySelector('.cds--card__cta');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
         iconRef!.querySelector('path')!.getAttribute('d')
@@ -54,9 +54,9 @@ describe('dds-region-item', function () {
         document.body
       );
       await Promise.resolve();
-      const regionItem = document.body.querySelector('dds-region-item');
+      const regionItem = document.body.querySelector('c4d-region-item');
       expect(regionItem).toMatchSnapshot({ mode: 'shadow' });
-      const icon = regionItem!.shadowRoot!.querySelector('.bx--card__cta');
+      const icon = regionItem!.shadowRoot!.querySelector('.cds--card__cta');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
         iconRef!.querySelector('path')!.getAttribute('d')

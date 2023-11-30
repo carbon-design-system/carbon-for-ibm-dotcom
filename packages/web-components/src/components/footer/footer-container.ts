@@ -14,7 +14,7 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ConnectMixin from '../../globals/mixins/connect';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
@@ -40,13 +40,13 @@ import {
   LocaleModalContainerStateProps,
   LocaleModalContainerActions,
 } from '../locale-modal/locale-modal-container';
-import DDSFooterComposite from './footer-composite';
+import C4DFooterComposite from './footer-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * The Redux actions used for `<dds-footer-container>`.
+ * The Redux actions used for `<c4d-footer-container>`.
  */
 export type FooterContainerActions =
   | LocaleModalContainerActions
@@ -56,7 +56,7 @@ export type FooterContainerActions =
   | ReturnType<typeof setTranslation>;
 
 /**
- * The Redux state used for `<dds-footer-container>`.
+ * The Redux state used for `<c4d-footer-container>`.
  */
 export interface FooterContainerState extends LocaleModalContainerState {
   /**
@@ -71,7 +71,7 @@ export interface FooterContainerState extends LocaleModalContainerState {
 }
 
 /**
- * The properties for `<dds-footer-container>` from Redux state.
+ * The properties for `<c4d-footer-container>` from Redux state.
  */
 export interface FooterContainerStateProps
   extends LocaleModalContainerStateProps {
@@ -88,7 +88,7 @@ export interface FooterContainerStateProps
 
 /**
  * @param state The Redux state for masthead.
- * @returns The converted version of the given state, tailored for `<dds-footer-container>`.
+ * @returns The converted version of the given state, tailored for `<c4d-footer-container>`.
  */
 export function mapStateToProps(
   state: FooterContainerState
@@ -108,7 +108,7 @@ export function mapStateToProps(
 
 /**
  * @param dispatch The Redux `dispatch()` API.
- * @returns The methods in `<dds-footer-container>` to dispatch Redux actions.
+ * @returns The methods in `<c4d-footer-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(
   dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions>
@@ -132,10 +132,10 @@ export function mapDispatchToProps(
 /**
  * Container component for masthead.
  *
- * @element dds-footer-container
+ * @element c4d-footer-container
  */
-@customElement(`${ddsPrefix}-footer-container`)
-class DDSFooterContainer extends ConnectMixin<
+@customElement(`${c4dPrefix}-footer-container`)
+class C4DFooterContainer extends ConnectMixin<
   FooterContainerState,
   LocaleAPIActions | TranslateAPIActions,
   FooterContainerStateProps,
@@ -144,7 +144,7 @@ class DDSFooterContainer extends ConnectMixin<
   store as Store<FooterContainerState, LocaleAPIActions | TranslateAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSFooterComposite) {}
+)(C4DFooterComposite) {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFooterContainer;
+export default C4DFooterContainer;

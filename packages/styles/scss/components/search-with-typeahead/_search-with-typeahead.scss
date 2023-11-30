@@ -3,24 +3,65 @@
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- */
+*/
 
-@import 'carbon-components/scss/components/ui-shell/header';
-@import 'carbon-components/scss/components/ui-shell/side-nav';
-@import '@carbon/web-components/scss/components/dropdown/dropdown';
-@import '@carbon/web-components/scss/components/select/select';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/ui-shell/header';
+@use '@carbon/styles/scss/components/ui-shell/side-nav';
+@use '@carbon/styles/scss/components/dropdown';
+@use '@carbon/styles/scss/components/select';
+@use '../../globals/vars' as *;
+@use '../masthead/vars' as *;
 
-@import '../../globals/vars';
-@import '../../globals/imports';
+@mixin react-autosuggest-suggestion {
+  color: $text-primary;
+  height: $spacing-09;
+  display: flex;
+  span {
+    font-weight: 600;
+  }
 
-$search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
-$search-transition-timing: 95ms;
-$button-transition: background-color 110ms, border-color 110ms, color 110ms;
+  .#{$prefix}--container-class {
+    display: flex;
+    border-bottom: 1px solid $layer-01;
+    flex: 1;
+    padding: 0 $spacing-05;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $background-hover;
+    transition: $search-transition-timing;
+  }
+
+  .#{$prefix}--container-highlight-class:not(:hover),
+  &:focus,
+  &:active {
+    outline: $spacing-01 solid $focus;
+    outline-offset: -#{$spacing-01};
+  }
+
+  &:last-of-type {
+    .#{$prefix}--container-class {
+      border-bottom: none;
+    }
+  }
+}
 
 @mixin search-with-typeahead {
   // main nav/search container excluding
   // profile and logo icons for masthead use
-  :host(#{$dds-prefix}-top-nav),
+  :host(#{$c4d-prefix}-top-nav),
   .#{$prefix}--header__search {
     display: flex;
     flex: 1;
@@ -40,7 +81,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       .#{$prefix}--masthead__platform-name {
         z-index: 1;
         height: 100%;
-        background: $ui-background;
+        background: $background;
       }
     }
 
@@ -52,7 +93,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       + .#{$prefix}--header__profile {
         display: none;
 
-        @include carbon--breakpoint(md) {
+        @include breakpoint(md) {
           display: flex;
         }
       }
@@ -62,29 +103,29 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
   .#{$prefix}--header__search:not(
       .#{$prefix}--masthead__header--search-active
     ) {
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       overflow-x: visible;
     }
   }
 
   .#{$prefix}--header__action {
-    border: 2px solid transparent;
-    background-color: $ui-background;
+    border: $spacing-01 solid transparent;
+    background-color: $background;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     > {
       svg {
         position: relative;
-        fill: $icon-02;
+        fill: $icon-secondary;
       }
     }
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
       transition-duration: $search-transition-timing;
       > {
         svg {
-          fill: $icon-01;
+          fill: $icon-primary;
         }
       }
     }
@@ -92,7 +133,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     &:focus,
     &:active {
       border-color: $focus;
-      background-color: $hover-ui;
+      background-color: $background-hover;
     }
   }
 
@@ -101,18 +142,19 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     top: 0;
     right: 0;
     display: flex;
+    background-color: $background;
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
-      color: $icon-02;
+      color: $icon-secondary;
 
-      background-color: $ui-background;
+      background-color: $background;
       padding: 0;
 
       &:hover {
-        background-color: $hover-ui;
+        background-color: $background-hover;
         svg[focusable='false'][aria-hidden='true'] {
-          fill: $icon-01;
+          fill: $icon-primary;
         }
       }
       // prevent tooltip from showing on hover
@@ -145,23 +187,25 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
   .#{$prefix}--header__search--search {
     outline: none;
-    width: $carbon--spacing-09;
+    width: $spacing-09;
   }
 
-  :host(#{$dds-prefix}-search-with-typeahead) {
+  :host(#{$c4d-prefix}-search-with-typeahead) {
     display: block;
     position: relative;
     outline: none;
     height: $spacing-09;
-    margin-left: rem(48px);
+    margin-left: $spacing-09;
 
-    .#{$dds-prefix}-ce__search__list {
+    .#{$c4d-prefix}-ce__search__list {
       height: 0;
       overflow: hidden;
+      margin: 0;
     }
 
-    &[open] .#{$dds-prefix}-ce__search__list {
+    &[open] .#{$c4d-prefix}-ce__search__list {
       height: auto;
+      padding: 0;
     }
 
     &[active] {
@@ -171,6 +215,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
+        min-width: $spacing-09;
       }
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action.#{$prefix}--header__search--hide {
@@ -188,9 +233,9 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
           bottom: 0;
           left: 0;
           display: block;
-          border-bottom: 2px solid $interactive-01;
+          border-bottom: $spacing-01 solid $border-interactive;
           width: 100%;
-          height: 2px;
+          height: $spacing-01;
           z-index: 10002;
         }
       }
@@ -199,9 +244,10 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
         display: flex;
         flex: 1;
         padding: 0 $spacing-05;
-        outline: 2px solid transparent;
-        outline-offset: -2px;
-        background-color: $ui-01;
+        outline: $spacing-01 solid transparent;
+        outline-offset: -#{$spacing-01};
+        background-color: $layer-01;
+        color: $text-primary;
         height: carbon--mini-units(6);
         z-index: 10000;
 
@@ -210,7 +256,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
           opacity: 1;
           transition-duration: 112ms;
           transition-delay: 200ms;
-          color: $text-03;
+          color: $text-placeholder;
         }
       }
 
@@ -221,16 +267,16 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
       .#{$prefix}--header__search--close,
       .#{$prefix}--header__search--search {
-        border: 2px solid transparent;
+        border: $spacing-01 solid transparent;
 
         &:focus,
         &:active {
-          border: 2px solid $focus;
+          border: $spacing-01 solid $focus;
         }
       }
 
       .#{$prefix}--header__action {
-        background-color: $ui-01;
+        background-color: $layer-01;
         transition-property: width;
         transition-delay: 380ms;
         transition-duration: 112ms;
@@ -239,7 +285,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
     &[scope-value] {
       .react-autosuggest__suggestions-container {
-        @include carbon--breakpoint-down('lg') {
+        @include breakpoint-down(lg) {
           left: $spacing-09;
           width: calc(100% - #{$spacing-09});
         }
@@ -247,21 +293,17 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     }
 
     &[leadspace-search] {
-      background: $ui-01;
-      outline: 2px solid transparent;
-      transition: background-color $duration--fast-02
+      background: $layer-01;
+      outline: $spacing-01 solid transparent;
+      transition: background-color $duration-fast-02
           motion(standard, productive),
-        outline $duration--fast-02 motion(standard, productive),
-        top $duration--fast-02 motion(entrance, productive);
+        outline $duration-fast-02 motion(standard, productive),
+        top $duration-fast-02 motion(entrance, productive);
 
       top: 0;
 
-      @include carbon--breakpoint('md') {
-        height: $spacing-10;
-      }
-
       &:focus {
-        outline: 2px solid $focus;
+        outline: $spacing-01 solid $focus;
         .#{$prefix}--header__search--actions {
           border-bottom: none;
         }
@@ -270,22 +312,22 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       &[unfocused] {
         outline: none;
         .#{$prefix}--header__search--actions {
-          border-bottom: 1px solid $ui-04;
+          border-bottom: 1px solid $toggle-off;
         }
       }
 
       .#{$prefix}--header__search--actions {
         display: flex;
         width: 100%;
-        border-bottom: 1px solid $ui-04;
+        border-bottom: 1px solid $toggle-off;
       }
 
       .#{$prefix}--search-magnifier-icon {
         position: absolute;
         z-index: 2;
         top: 50%;
-        left: var(--cds-spacing-05, 1rem);
-        fill: var(--cds-icon-02, #525252);
+        left: $spacing-05;
+        fill: var(--cds-icon-secondary, #525252);
         pointer-events: none;
         transform: translateY(-50%);
       }
@@ -293,10 +335,6 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       form {
         width: 100%;
         padding-left: $spacing-09;
-
-        @include carbon--breakpoint('md') {
-          height: $spacing-10;
-        }
       }
 
       .react-autosuggest__container {
@@ -306,34 +344,24 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       }
 
       .react-autosuggest__suggestions-container {
-        top: rem(50px);
+        top: calc($spacing-09 + 2px);
 
-        @include carbon--breakpoint('md') {
-          top: rem(66px);
+        @include breakpoint(md) {
+          top: to-rem(66px);
         }
       }
 
       .react-autosuggest__suggestions-list {
-        background-color: $ui-01;
+        background-color: $layer-01;
       }
 
       .#{$prefix}--header__search--input {
-        color: $text-01;
+        color: $text-primary;
         border-bottom: none;
-
-        @include carbon--breakpoint('md') {
-          height: $spacing-10;
-        }
-      }
-
-      .#{$prefix}--header__search--close {
-        @include carbon--breakpoint('md') {
-          height: $spacing-10;
-        }
       }
 
       &[large] {
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           height: $spacing-09;
         }
 
@@ -341,45 +369,45 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
           width: 100%;
           padding-left: $spacing-09;
 
-          @include carbon--breakpoint('md') {
+          @include breakpoint(md) {
             height: $spacing-09;
           }
         }
 
         .#{$prefix}--header__search--input {
-          @include carbon--breakpoint('md') {
+          @include breakpoint(md) {
             height: $spacing-09;
           }
         }
 
         .#{$prefix}--header__search--close {
-          @include carbon--breakpoint('md') {
+          @include breakpoint(md) {
             height: $spacing-09;
           }
         }
 
         .react-autosuggest__suggestions-container {
-          top: rem(50px);
+          top: to-rem(50px);
 
-          @include carbon--breakpoint('md') {
-            top: rem(50px);
+          @include breakpoint(md) {
+            top: to-rem(50px);
           }
         }
       }
     }
 
     &[sticky-search] {
-      top: rem(80px);
+      top: $spacing-11;
     }
 
     &[theme-sticky] {
       top: $spacing-05;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         top: $spacing-07;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         top: $spacing-09;
       }
     }
@@ -389,104 +417,70 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     display: flex;
     justify-content: flex-end;
     position: relative;
-    height: $carbon--spacing-09;
+    height: $spacing-09;
   }
 
   .react-autosuggest__suggestions-container {
     position: absolute;
-    top: $carbon--spacing-09;
+    top: $spacing-09;
     left: 0;
     width: 100%;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
     max-height: 80vh;
     overflow-y: auto;
   }
 
   .react-autosuggest__suggestions-list {
-    background-color: $ui-background;
+    background-color: $background;
   }
 
   .react-autosuggest__section-title {
-    height: $carbon--spacing-09;
+    height: $spacing-09;
     display: flex;
     align-items: center;
-    color: $text-02;
-    padding: 0 $carbon--spacing-05;
-    border-top: solid 1px $ui-04;
-    border-bottom: solid 1px $ui-01;
-    background-color: $ui-background;
+    color: $text-secondary;
+    padding: 0 $spacing-05;
+    border-top: solid 1px $toggle-off;
+    border-bottom: solid 1px $layer-01;
+    background-color: $background;
 
-    @include type-style('body-short-01');
+    @include type-style('body-compact-01');
   }
 
   .react-autosuggest__suggestion {
-    color: $text-01;
-    height: $carbon--spacing-09;
-    display: flex;
-    span {
-      font-weight: 600;
-    }
-
-    .#{$prefix}--container-class {
-      display: flex;
-      border-bottom: 1px solid $ui-01;
-      flex: 1;
-      padding: 0 $carbon--spacing-05;
-      align-items: center;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    &:hover {
-      cursor: pointer;
-      background-color: $hover-ui;
-      transition: $search-transition-timing;
-    }
-
-    .#{$prefix}--container-highlight-class:not(:hover),
-    &:focus,
-    &:active {
-      outline: 2px solid $focus;
-      outline-offset: -2px;
-    }
-
-    &:last-of-type {
-      .#{$prefix}--container-class {
-        border-bottom: none;
-      }
-    }
+    @include react-autosuggest-suggestion;
   }
 
   .#{$prefix}--header__search--input {
-    font-size: $carbon--spacing-05;
+    @include font-family('sans');
+
+    font-size: $spacing-05;
     line-height: 1.375rem;
     border: none;
     width: 0;
     transition: 120ms;
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $layer-accent-01;
     padding: 0;
 
     &::placeholder {
       position: relative;
-      left: 5rem;
+      left: $spacing-11;
       opacity: 0;
     }
   }
 }
 
-:host(#{$dds-prefix}-search-with-typeahead-item) {
-  @extend .react-autosuggest__suggestion;
+:host(#{$c4d-prefix}-search-with-typeahead-item) {
+  @include react-autosuggest-suggestion;
 
   span {
     white-space: pre;
   }
 
   &[groupTitle] {
-    @include carbon--type-style('body-long-01', true);
+    @include type-style('body-01', true);
 
-    color: $text-05;
+    color: $text-helper;
 
     &:active {
       outline: none;
@@ -500,18 +494,22 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
   &[lastBeforeGroup] {
     .#{$prefix}--container-class {
-      border-bottom-color: $ui-04;
+      border-bottom-color: $toggle-off;
     }
   }
 }
 
-:host(#{$dds-prefix}-scoped-search-dropdown),
-:host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
+:host(#{$c4d-prefix}-search-with-typeahead-item[alternate]) {
+  border-top: 1px solid $border-subtle-01;
+}
+
+:host(#{$c4d-prefix}-scoped-search-dropdown),
+:host(#{$c4d-prefix}-scoped-search-dropdown-mobile) {
   display: flex;
-  border-right: 1px solid $ui-03;
+  border-right: 1px solid $layer-accent-01;
 
   .#{$prefix}--list-box {
-    height: 3rem;
+    height: $spacing-09;
     max-height: none;
   }
 
@@ -520,8 +518,8 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
   }
 }
 
-:host(#{$dds-prefix}-scoped-search-dropdown) {
-  @include carbon--breakpoint-down('lg') {
+:host(#{$c4d-prefix}-scoped-search-dropdown) {
+  @include breakpoint-down(lg) {
     display: none;
   }
 
@@ -530,8 +528,8 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
   }
 }
 
-:host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
-  width: 3rem;
+:host(#{$c4d-prefix}-scoped-search-dropdown-mobile) {
+  width: $spacing-09;
 
   .#{$prefix}--select-input {
     padding: 0;
@@ -551,11 +549,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     width: 0;
   }
 
-  @include carbon--breakpoint('lg') {
+  @include breakpoint(lg) {
     display: none;
   }
-}
-
-@include exports('search-with-typeahead') {
-  @include search-with-typeahead;
 }

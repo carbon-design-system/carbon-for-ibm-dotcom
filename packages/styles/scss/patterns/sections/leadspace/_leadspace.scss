@@ -7,18 +7,19 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace"
 @warn 'Deprecated scss import for `leadspace`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace`';
-@import '../../../components/leadspace/leadspace';
+@use '../../globals/utils/flex-grid' as *;
+@use '../../../components/leadspace';
 
 $btn-min-width: 26;
 
 @mixin gradient($color) {
-  .#{$prefix}--leadspace--gradient {
+  .#{$c4d-prefix}--leadspace--gradient {
     background-color: rgba($color, 0.75);
   }
 
-  @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace--gradient {
-      @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
+    .#{$c4d-prefix}--leadspace--gradient {
+      @include breakpoint(md) {
         background-color: transparent;
         background-image: linear-gradient(
           to right,
@@ -28,7 +29,7 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace--centered {
+    .#{$c4d-prefix}--leadspace--centered {
       &__gradient {
         background: linear-gradient(
           to bottom,
@@ -44,33 +45,29 @@ $btn-min-width: 26;
 
 // items that change according to the theme applied
 @mixin themed-items($theme: white) {
-  // TODO: figure out how to use the $ui-background color token instead with rgba()
-  $dds--gradient-light: #ffffff;
-  $dds--gradient-dark: #161616;
+  // TODO: figure out how to use the $background color token instead with rgba()
+  $cds--gradient-light: #ffffff;
+  $cds--gradient-dark: #161616;
 
   @include buttongroup;
 
-  background-color: $ui-background;
+  background-color: $background;
 
-  .#{$prefix}--leadspace--centered__overlay {
-    background-color: $ui-background;
+  .#{$c4d-prefix}--leadspace--centered__overlay {
+    background-color: $background;
   }
 
-  .#{$prefix}--leadspace__title,
-  .#{$prefix}--leadspace__desc,
-  .#{$prefix}--leadspace--centered__title,
-  .#{$prefix}--leadspace--centered__desc {
-    color: $text-01;
+  .#{$c4d-prefix}--leadspace__title,
+  .#{$c4d-prefix}--leadspace__desc,
+  .#{$c4d-prefix}--leadspace--centered__title,
+  .#{$c4d-prefix}--leadspace--centered__desc {
+    color: $text-primary;
   }
-  .#{$prefix}--leadspace--centered__desc {
+  .#{$c4d-prefix}--leadspace--centered__desc {
     width: 100%;
-  }
-  .#{$prefix}--buttongroup {
-    padding-left: 0;
-  }
 
-  @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace--centered {
+  @include breakpoint(md) {
+    .#{$c4d-prefix}--leadspace--centered {
       &__overlay {
         background-color: transparent;
       }
@@ -78,17 +75,14 @@ $btn-min-width: 26;
   }
 
   @if $theme == dark {
-    @include gradient($dds--gradient-dark);
+    @include gradient($cds--gradient-dark);
   } @else {
-    @include gradient($dds--gradient-light);
+    @include gradient($cds--gradient-light);
   }
 }
 
 @mixin leadspace {
-  .#{$prefix}--buttongroup {
-    padding-top: $carbon--layout-01;
-  }
-  .#{$prefix}--leadspace {
+  .#{$c4d-prefix}--leadspace {
     &--content__container {
       height: 100%;
       display: flex;
@@ -96,7 +90,7 @@ $btn-min-width: 26;
       justify-content: space-between;
     }
 
-    .#{$prefix}--image {
+    .#{$c4d-prefix}--image {
       position: absolute;
       top: 0;
       width: 100%;
@@ -114,7 +108,7 @@ $btn-min-width: 26;
     }
 
     &__overlay {
-      @include carbon--make-container;
+      @include make-container;
 
       position: relative;
       display: flex;
@@ -127,52 +121,52 @@ $btn-min-width: 26;
       max-width: none;
     }
 
-    .#{$prefix}--leadspace__title {
+    .#{$c4d-prefix}--leadspace__title {
       padding-top: 0;
       margin-bottom: $spacing-09;
-      @include carbon--type-style(display-01, true);
+      @include type-style(display-01, true);
     }
 
     &__title {
-      padding-left: 1rem;
+      padding-left: $spacing-05;
       width: 95%;
     }
     &__desc {
-      @include carbon--make-col-ready;
+      @include make-col-ready;
     }
 
     &__row {
-      @include carbon--make-row;
+      @include make-row;
     }
 
     .#{$prefix}--btn {
       min-width: carbon--mini-units($btn-min-width);
     }
 
-    .#{$prefix}--leadspace__desc {
-      @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col(4, 4);
+    .#{$c4d-prefix}--leadspace__desc {
+      @include type-style(fluid-heading-03, true);
+      @include make-col(4, 4);
     }
 
     @include themed-items;
   }
 
-  .#{$prefix}--leadspace--g100,
-  .#{$prefix}--leadspace--g90 {
-    @include carbon--theme(
-      $carbon--theme--g100,
+  .#{$c4d-prefix}--leadspace--g100,
+  .#{$c4d-prefix}--leadspace--g90 {
+    @include theme(
+      $g100,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
       @include themed-items(dark);
     }
   }
 
-  .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-    @include carbon--type-style(expressive-heading-06, true);
+  .#{$c4d-prefix}--leadspace--productive .#{$c4d-prefix}--leadspace__title {
+    @include type-style(fluid-heading-06, true);
   }
 
-  @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace {
+  @include breakpoint(md) {
+    .#{$c4d-prefix}--leadspace {
       margin-right: auto;
       margin-left: auto;
       position: relative;
@@ -195,71 +189,67 @@ $btn-min-width: 26;
         height: 100%;
       }
 
-      .#{$prefix}--image {
+      .#{$c4d-prefix}--image {
         height: auto;
       }
 
-      .#{$prefix}--leadspace__title {
-        @include carbon--make-col(7, 8);
+      .#{$c4d-prefix}--leadspace__title {
+        @include make-col(7, 8);
 
         flex-shrink: 1;
       }
 
-      .#{$prefix}--leadspace__desc {
-        @include carbon--make-col(4, 8);
+      .#{$c4d-prefix}--leadspace__desc {
+        @include make-col(4, 8);
       }
     }
   }
 
-  @include carbon--breakpoint(lg) {
-    .#{$prefix}--leadspace {
+  @include breakpoint(lg) {
+    .#{$c4d-prefix}--leadspace {
       padding-top: aspect-ratio(1056px, 480px);
 
-      .#{$prefix}--leadspace__title {
-        @include carbon--make-col(8, 16);
+      .#{$c4d-prefix}--leadspace__title {
+        @include make-col(8, 16);
       }
 
-      .#{$prefix}--leadspace__desc {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 16);
+      .#{$c4d-prefix}--leadspace__desc {
+        @include make-col-ready;
+        @include make-col(4, 16);
       }
     }
 
-    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-      @include carbon--make-col(7, 16);
+    .#{$c4d-prefix}--leadspace--productive .#{$c4d-prefix}--leadspace__title {
+      @include make-col(7, 16);
     }
   }
 
-  @include carbon--breakpoint(xlg) {
-    .#{$prefix}--leadspace {
+  @include breakpoint(xlg) {
+    .#{$c4d-prefix}--leadspace {
       padding-top: aspect-ratio(1312px, 560px);
     }
   }
 
-  @include carbon--breakpoint(max) {
-    .#{$prefix}--leadspace {
+  @include breakpoint(max) {
+    .#{$c4d-prefix}--leadspace {
       padding-top: aspect-ratio(1584px, 640px);
     }
   }
 }
 
 @mixin leadspace-centered {
-  .#{$prefix}--leadspace--centered {
+  .#{$c4d-prefix}--leadspace--centered {
     margin-right: auto;
     margin-left: auto;
     max-width: 99rem;
-    .#{$prefix}--buttongroup {
-      padding-bottom: $carbon--layout-01;
-      padding-top: 0;
-    }
 
     &--content__container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-left: $carbon--spacing-05;
-      @include carbon--make-col-ready;
-      @include carbon--make-col(4, 4);
+      padding-left: $spacing-05;
+      @include make-col-ready;
+      @include make-col(4, 4);
     }
     &--mobile__image {
       height: carbon--mini-units(20);
@@ -272,39 +262,35 @@ $btn-min-width: 26;
       }
     }
     &__content {
-      @include carbon--make-row;
+      @include make-row;
     }
 
     &__desc {
       width: 95%;
-      @include carbon--type-style(expressive-heading-03, true);
+      @include type-style(fluid-heading-03, true);
     }
 
     &__title {
-      @include carbon--type-style(expressive-heading-05, true);
+      @include type-style(fluid-heading-05, true);
     }
 
     &__desc,
     &__title {
-      padding-top: $carbon--layout-03;
+      padding-top: $spacing-07;
     }
 
     @include themed-items;
   }
 
-  @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace--centered {
-      .#{$prefix}--buttongroup {
-        padding-bottom: 0;
-      }
-
+  @include breakpoint(md) {
+    .#{$c4d-prefix}--leadspace--centered {
       &__overlay {
         padding-bottom: carbon--mini-units(20);
       }
       &--content__container {
         margin: auto;
-        padding-left: 1.5rem;
-        @include carbon--make-col(4, 8);
+        padding-left: $spacing-06;
+        @include make-col(4, 8);
       }
       &__image {
         background-repeat: no-repeat;
@@ -318,7 +304,7 @@ $btn-min-width: 26;
       }
 
       &__desc {
-        padding-top: $carbon--layout-04;
+        padding-top: $spacing-09;
       }
 
       &--mobile__image {
@@ -326,16 +312,16 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace--centered__image
-      .#{$prefix}--leadspace--centered__overlay {
+    .#{$c4d-prefix}--leadspace--centered__image
+      .#{$c4d-prefix}--leadspace--centered__overlay {
       padding-bottom: carbon--mini-units(32);
     }
   }
 
-  @include carbon--breakpoint(lg) {
-    .#{$prefix}--leadspace--centered {
+  @include breakpoint(lg) {
+    .#{$c4d-prefix}--leadspace--centered {
       &__title {
-        padding-top: $carbon--layout-05;
+        padding-top: $spacing-10;
       }
 
       &__content {
@@ -344,21 +330,13 @@ $btn-min-width: 26;
       }
     }
   }
-  .#{$prefix}--leadspace--centered--g100,
-  .#{$prefix}--leadspace--centered--g90 {
-    @include carbon--theme(
-      $carbon--theme--g100,
+  .#{$c4d-prefix}--leadspace--centered--g100,
+  .#{$c4d-prefix}--leadspace--centered--g90 {
+    @include theme(
+      $g100,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
       @include themed-items(dark);
     }
   }
-}
-
-@include exports('leadspace-centered') {
-  @include leadspace-centered;
-}
-
-@include exports('leadspace') {
-  @include leadspace;
 }

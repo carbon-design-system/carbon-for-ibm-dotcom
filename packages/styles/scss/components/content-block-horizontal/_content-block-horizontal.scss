@@ -5,70 +5,57 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../internal/content-block/content-block';
-@import '../content-item-horizontal/content-item-horizontal';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '../../internal/content-block';
+@use '../content-item-row';
+@use '../../globals/vars' as *;
 
 @mixin content-block-horizontal {
-  :host(#{$dds-prefix}-content-block-horizontal),
-  :host(#{$dds-prefix}-content-group-horizontal) {
-    padding-top: $layout-03;
-    padding-bottom: $carbon--layout-03;
+  :host(#{$c4d-prefix}-content-block-horizontal) {
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-07;
 
-    @include carbon--breakpoint('md') {
-      padding-bottom: $layout-03;
+    @include breakpoint(md) {
+      padding-bottom: $spacing-07;
     }
 
-    @include carbon--breakpoint('lg') {
-      padding-top: $layout-05;
-      padding-bottom: $layout-05;
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
+      padding-bottom: $spacing-10;
     }
   }
 
-  .#{$prefix}--content-block-horizontal,
-  .#{$prefix}--content-group-horizontal {
+  .#{$prefix}--content-block-horizontal {
     .#{$prefix}--content-block {
-      padding-top: $layout-03;
-      padding-bottom: $layout-01;
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-05;
 
-      @include carbon--breakpoint('lg') {
-        padding-top: $layout-05;
-        padding-bottom: $layout-04;
+      @include breakpoint(lg) {
+        padding-top: $spacing-10;
+        padding-bottom: $spacing-09;
       }
     }
   }
-  .#{$prefix}--content-group-horizontal {
-    .#{$prefix}--content-item-horizontal__item--cta {
-      margin-top: 0;
-    }
+
+  :host(#{$c4d-prefix}-content-block-horizontal) ::slotted([slot='heading']),
+  .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
+    margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
-  :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
-  .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading,
-  .#{$prefix}--content-group-horizontal .#{$prefix}--content-block__heading {
-    margin-bottom: $layout-03;
-  }
-
-  :host(#{$dds-prefix}-content-item-horizontal):last-child,
-  .#{$prefix}--content-block-horizontal
-    .#{$prefix}--content-item-horizontal__item:last-child,
-  .#{$prefix}--content-group-horizontal
-    .#{$prefix}--content-item-horizontal__item:last-child {
-    @include carbon--breakpoint('max') {
-      padding-bottom: $layout-07;
+  :host(#{$c4d-prefix}-content-item-row):last-child {
+    @include breakpoint(max) {
+      padding-bottom: $spacing-13;
     }
-    @include carbon--breakpoint('lg') {
-      padding-bottom: $layout-07;
+    @include breakpoint(lg) {
+      padding-bottom: $spacing-13;
     }
-    @include carbon--breakpoint('md') {
-      padding-bottom: $layout-05;
+    @include breakpoint(md) {
+      padding-bottom: $spacing-10;
     }
-    @include carbon--breakpoint('sm') {
-      padding-bottom: $layout-03;
+    @include breakpoint(sm) {
+      padding-bottom: $spacing-07;
     }
   }
-}
-
-@include exports('content-block-horizontal') {
-  @include content-block-horizontal;
 }

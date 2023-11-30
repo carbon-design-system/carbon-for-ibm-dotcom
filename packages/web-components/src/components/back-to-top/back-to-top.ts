@@ -7,19 +7,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import throttle from 'lodash-es/throttle.js';
 import UpToTop20 from '../../internal/vendor/@carbon/web-components/icons/up-to-top/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './back-to-top.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 interface Cancelable {
   cancel(): void;
 }
@@ -27,10 +26,10 @@ interface Cancelable {
 /**
  * Back to top
  *
- * @element dds-back-to-top
+ * @element c4d-back-to-top
  */
-@customElement(`${ddsPrefix}-back-to-top`)
-class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+@customElement(`${c4dPrefix}-back-to-top`)
+class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The observer for the resize of the document body.
    */
@@ -179,11 +178,11 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--back-to-top`;
+    return `${c4dPrefix}--back-to-top`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSBackToTop;
+export default C4DBackToTop;

@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell';
 
@@ -17,13 +22,13 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
+import C4DDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
 
 function App() {
   return (
-    <DDSDotcomShellContainer>
+    <C4DDotcomShellContainer>
       <main>(The main content)</main>
-    </DDSDotcomShellContainer>
+    </C4DDotcomShellContainer>
   );
 }
 ```
@@ -34,10 +39,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector | Description |
-| ----------------------- | ---------------------- | ----------- |
-| `<dds-dotcom-shell>`    | `data-autoid="dds--dotcom-shell"` | Component   |
+| Web Components selector | Compatibility selector            | Description |
+| ----------------------- | --------------------------------- | ----------- |
+| `<cds-dotcom-shell>`    | `data-autoid="cds--dotcom-shell"` | Component   |
 
 <Description markdown={contributing} />

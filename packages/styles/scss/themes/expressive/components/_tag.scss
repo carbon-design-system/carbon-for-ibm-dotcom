@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Tag (expressive)
@@ -16,12 +16,12 @@
 /// @group tag-expressive
 @mixin tag-expressive {
   .#{$prefix}--tag {
-    @include carbon--type-style('label-01');
+    @include type-style('label-01');
 
-    /* stylelint-disable-next-line declaration-property-unit-whitelist */
-    line-height: carbon--rem(20px);
+    /* stylelint-disable-next-line declaration-property-unit-allowed-list */
+    line-height: to-rem(20px);
 
-    height: carbon--rem(32px); /* carbon--container-02 */
+    height: $spacing-07; /* carbon--container-02 */
     padding: 6px $spacing-05;
   }
 
@@ -31,7 +31,7 @@
 
   .#{$prefix}--tag--disabled,
   .#{$prefix}--tag--filter.#{$prefix}--tag--disabled {
-    color: $disabled-02;
+    color: $text-disabled;
   }
 
   .#{$prefix}--tag__close-icon {

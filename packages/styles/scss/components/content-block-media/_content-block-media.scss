@@ -1,24 +1,35 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-@import '../../globals/vars';
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-block';
+@use '../../internal/content-group';
+@use '../../internal/content-item/content-item';
+@use '../card';
+@use '../content-group-simple/index';
+@use '../image';
+@use '../feature-card';
 
 @mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
+  color: $text-primary;
+  background: $background;
 
   &.#{$prefix}--content-block-media--with-border
     .#{$prefix}--content-block-media__divider {
-    border-bottom-color: $ui-04;
+    border-bottom-color: $toggle-off;
   }
 }
 
 @mixin content-block-media {
   .#{$prefix}--content-block-media,
-  :host(#{$dds-prefix}-content-block-media) {
+  :host(#{$c4d-prefix}-content-block-media) {
     @include themed-items;
 
     .#{$prefix}--content-group:last-child {
@@ -26,19 +37,13 @@
     }
 
     .#{$prefix}--feature-card {
-      max-width: rem(640px);
+      max-width: to-rem(640px);
     }
   }
 
   .#{$prefix}--content-block-media--g100 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g100, true);
+
+    @include themed-items;
   }
-}
-@include exports('content-block-media') {
-  @include content-block-media;
 }

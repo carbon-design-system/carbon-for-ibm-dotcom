@@ -7,18 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { state, html, LitElement, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html } from 'lit';
+import { property, state } from 'lit/decorators.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';
 import styles from './link-list.scss';
-import DDSLinkListItem from './link-list-item';
+import C4DLinkListItem from './link-list-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 export enum END_TYPE_LAYOUT {
   /**
@@ -40,11 +39,11 @@ export enum END_TYPE_LAYOUT {
 /**
  * Link list.
  *
- * @element dds-link-list
+ * @element c4d-link-list
  * @slot heading - The heading content.
  */
-@customElement(`${ddsPrefix}-link-list`)
-class DDSLinkList extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-link-list`)
+class C4DLinkList extends StableSelectorMixin(LitElement) {
   /**
    * Defines the layout for the end layout - based on END_TYPE_LAYOUT
    */
@@ -63,7 +62,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
    * @private
    */
   private _handleSlotChange(event: Event) {
-    const { selectorItem } = this.constructor as typeof DDSLinkList;
+    const { selectorItem } = this.constructor as typeof C4DLinkList;
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(
@@ -81,7 +80,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     }
     if (this.type === LINK_LIST_TYPE.END) {
       this._childItems.forEach((elem) => {
-        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+        (elem as C4DLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
       });
     }
   }
@@ -104,24 +103,24 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   render() {
     const { type, _endTypeLayout: endTypeLayout } = this;
     const headingClasses = classMap({
-      [`${ddsPrefix}-ce--link-list__heading__wrapper`]: true,
-      [`${ddsPrefix}-ce--link-list__heading--split`]:
+      [`${c4dPrefix}-ce--link-list__heading__wrapper`]: true,
+      [`${c4dPrefix}-ce--link-list__heading--split`]:
         type === LINK_LIST_TYPE.END &&
         endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
     });
-    const listTypeClasses =
-      {
-        [LINK_LIST_TYPE.HORIZONTAL]: `${prefix}--link-list__list--horizontal`,
-        [LINK_LIST_TYPE.VERTICAL]: `${prefix}--link-list__list--vertical`,
-        [LINK_LIST_TYPE.END]: `${ddsPrefix}-ce--link-list__list--end`,
-      }[type] ?? `${prefix}--link-list__list--card`;
+    const listTypeClasses = {
+      [LINK_LIST_TYPE.HORIZONTAL]: `${c4dPrefix}--link-list__list--horizontal`,
+      [LINK_LIST_TYPE.VERTICAL]: `${c4dPrefix}--link-list__list--vertical`,
+      [LINK_LIST_TYPE.END]: `${c4dPrefix}-ce--link-list__list--end`,
+      [LINK_LIST_TYPE.DEFAULT]: `${c4dPrefix}--link-list__list`,
+    }[type];
     const listClasses = classMap({
-      [`${prefix}--link-list__list`]: true,
+      // [`${c4dPrefix}--link-list__list`]: LINK_LIST_TYPE.DEFAULT,
       [listTypeClasses]: true,
-      [`${ddsPrefix}-ce--link-list__list--split`]:
+      [`${c4dPrefix}-ce--link-list__list--split`]:
         type === LINK_LIST_TYPE.END &&
         endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
-      [`${ddsPrefix}-ce--link-list__list--three-columns`]:
+      [`${c4dPrefix}-ce--link-list__list--three-columns`]:
         type === LINK_LIST_TYPE.END &&
         endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
     });
@@ -134,18 +133,12 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
-    if (this.type === LINK_LIST_TYPE.END) {
-      this._childItems.forEach((elem) => {
-        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
-      });
-    }
-
     if (
       this.type === LINK_LIST_TYPE.HORIZONTAL ||
       this.type === LINK_LIST_TYPE.VERTICAL
     ) {
       this._childItems.forEach((elem) => {
-        (elem as DDSLinkListItem).iconInline = true;
+        (elem as C4DLinkListItem).iconInline = true;
       });
     }
   }
@@ -154,15 +147,15 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
    * A selector selecting the child items.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-link-list-item, ${ddsPrefix}-link-list-item-cta`;
+    return `${c4dPrefix}-link-list-item, ${c4dPrefix}-link-list-item-cta`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--link-list`;
+    return `${c4dPrefix}--link-list`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkList;
+export default C4DLinkList;

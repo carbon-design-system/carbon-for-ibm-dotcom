@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
@@ -19,65 +19,97 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * MegaMenu right navigation section
  *
- * @element dds-megamenu-right-navigation
+ * @element c4d-megamenu-right-navigation
  */
-@customElement(`${ddsPrefix}-megamenu-right-navigation`)
-class DDSMegaMenuRightNavigation extends LitElement {
+@customElement(`${c4dPrefix}-megamenu-right-navigation`)
+class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
   /**
    * `true` to render left (highlighted) section layout.
    */
   @property({ reflect: true, attribute: 'style-scheme' })
-  styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR;
+  styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL;
 
-  /**
-   * view all link href.
-   */
-  @property({ attribute: 'view-all-href', reflect: true })
-  viewAllHref = '';
-
-  /**
-   * view all link title.
-   */
-  @property({ attribute: 'view-all-title', reflect: true })
-  viewAllTitle = '';
+  @property({ attribute: 'data-child-count', reflect: true })
+  childCount: Number | undefined;
 
   /**
    * Returns a class-name(s) for megamenu container
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--hasHighlights`]:
-        this.styleScheme ===
-        MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
-      [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
-      [`${prefix}--masthead__megamenu__categories`]: true,
+      [`${prefix}--masthead__megamenu-container`]: true,
+      [`${prefix}--masthead__megamenu-container--has-sidebar`]:
+        this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR,
     });
+  }
+
+  /**
+   * Handles default slot content changes.
+   *
+   * @param event Event
+   */
+  protected _handleSlotChange(event: Event) {
+    const { onlyChildClassName } = this
+      .constructor as typeof C4DMegaMenuRightNavigation;
+    const children = (event.target as HTMLSlotElement).assignedElements();
+    this.childCount = children.length;
+
+    // Supports alternative layout for single items.
+    if (children.length === 1 && onlyChildClassName) {
+      children[0].classList.add(onlyChildClassName);
+    } else if (children[0].classList.contains(onlyChildClassName)) {
+      children[0].classList.remove(onlyChildClassName);
+    }
+  }
+
+  updated() {
+    const hasViewAll =
+      (
+        this.shadowRoot?.querySelector(
+          'slot[name="view-all"]'
+        ) as HTMLSlotElement
+      ).assignedElements().length > 0;
+    this.shadowRoot
+      ?.querySelector(`.${prefix}--masthead__megamenu-container`)
+      ?.classList.toggle(
+        `${prefix}--masthead__megamenu-container--has-view-all-link`,
+        hasViewAll
+      );
   }
 
   render() {
     return html`
       <div class="${this._getClassNames()}">
-        <slot></slot>
+        <div class="${prefix}--masthead__megamenu-container-inner">
+          <div class="${prefix}--masthead__megamenu__heading">
+            <slot name="heading"></slot>
+          </div>
+          <div class="${prefix}--masthead__megamenu__categories">
+            <slot @slotchange="${this._handleSlotChange}"></slot>
+          </div>
+        </div>
+        <div class="${prefix}--masthead__megamenu__view-all">
+          <span class="${prefix}--masthead__megamenu__view-all__border"></span>
+          <slot name="view-all"></slot>
+        </div>
       </div>
-      ${this.viewAllHref &&
-      html`
-        <dds-megamenu-link-with-icon
-          href="${this.viewAllHref}"
-          style-scheme="view-all"
-          part="view-all">
-          <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
-        </dds-megamenu-link-with-icon>
-      `}
     `;
+  }
+
+  static get onlyChildClassName() {
+    return 'only-child';
+  }
+
+  static get stableSelector() {
+    return `${c4dPrefix}--masthead__megamenu-right-navigation`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default DDSMegaMenuRightNavigation;
+export default C4DMegaMenuRightNavigation;

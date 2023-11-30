@@ -7,21 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSStructuredListBody from '../structured-list/structured-list-body';
+import C4DStructuredListBody from '../structured-list/structured-list-body';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-body`)
-class DDSPricingTableBody extends StableSelectorMixin(DDSStructuredListBody) {
+@customElement(`${c4dPrefix}-pricing-table-body`)
+class C4DPricingTableBody extends StableSelectorMixin(C4DStructuredListBody) {
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-body`;
+    return `${c4dPrefix}--pricing-table-body`;
   }
 
   static styles = styles;
 }
 
-export default DDSPricingTableBody;
+export default C4DPricingTableBody;
