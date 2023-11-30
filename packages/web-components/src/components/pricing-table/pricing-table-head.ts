@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {} from 'lit-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredListHead from '../structured-list/structured-list-head';
