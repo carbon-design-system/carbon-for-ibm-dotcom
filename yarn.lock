@@ -3603,6 +3603,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@carbon/styles@npm:1.44.0-rc.0":
+  version: 1.44.0-rc.0
+  resolution: "@carbon/styles@npm:1.44.0-rc.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.20.0"
+    "@carbon/feature-flags": "npm:^0.16.0"
+    "@carbon/grid": "npm:^11.21.0"
+    "@carbon/layout": "npm:^11.20.0"
+    "@carbon/motion": "npm:^11.16.0"
+    "@carbon/themes": "npm:^11.27.0"
+    "@carbon/type": "npm:^11.25.0"
+    "@ibm/plex": "npm:6.0.0-next.6"
+  peerDependencies:
+    sass: ^1.33.0
+  peerDependenciesMeta:
+    sass:
+      optional: true
+  checksum: d51e415f1e572eda8578e0e9c7834396240b99537529398fb1e70438fd11a3baaefd4547b79ffd591f0d35024d5458d824b0811bc6c155a93fda017c9b3780d4
+  languageName: node
+  linkType: hard
+
 "@carbon/styles@npm:^1.36.0":
   version: 1.41.2
   resolution: "@carbon/styles@npm:1.41.2"
@@ -3731,7 +3752,7 @@ __metadata:
     "@babel/traverse": "npm:~7.23.0"
     "@carbon/icon-helpers": "npm:^10.28.0"
     "@carbon/icons": "npm:^10.48.0"
-    "@carbon/styles": "npm:^1.42.0"
+    "@carbon/styles": "npm:1.44.0-rc.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.8.1"
