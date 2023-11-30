@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utilities/focuswrap/focuswrap.js</title>
+    <title>JSDoc: Source: utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utilities/focuswrap/focuswrap.js</h1>
+    <h1 class="page-title">Source: utilities/on/on.js</h1>
 
     
 
@@ -27,71 +27,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { on } from '../on';
-
 /**
- * Fires the given event if focus goes out of the given element.
  *
- * @param {Element} element The element to monitor the focus on.
- * @param {Element[]} sentinelNodes
- *   The focus sentinel nodes.
- *   If these nodes gets focus, we see it as focus went out of the `element`.
- * @param {string} [eventRequestFocusWrap=cds-request-focus-wrap] The event name.
- * @returns {Function} The handle to remove the event handler.
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
  */
-function focuswrap(
-  element,
-  sentinelNodes,
-  eventRequestFocusWrap = 'cds-request-focus-wrap'
-) {
-  return on(element, 'focusout', function handleFocusout(event) {
-    const { target, relatedTarget } = event;
-    const [startSentinelNode, endSentinelNode] = sentinelNodes;
-    const oldContains =
-      target &amp;&amp;
-      target !== this &amp;&amp;
-      (event.currentTarget.contains(target) ||
-        event.currentTarget.host?.contains(target)) &amp;&amp;
-      sentinelNodes.indexOf(target) &lt; 0;
-    const currentContains =
-      relatedTarget &amp;&amp;
-      relatedTarget !== this &amp;&amp;
-      (event.currentTarget.contains(relatedTarget) ||
-        event.currentTarget.host?.contains(relatedTarget)) &amp;&amp;
-      sentinelNodes.indexOf(relatedTarget) &lt; 0;
-    // FF fires `focusout` event even if the page itself is losing focus (e.g. upon following outside link).
-    // In such case, we do nothing.
-    if (oldContains &amp;&amp; !currentContains &amp;&amp; relatedTarget) {
-      let comparisonResult = target.compareDocumentPosition(relatedTarget);
-      if (relatedTarget === startSentinelNode) {
-        comparisonResult = Node.DOCUMENT_POSITION_PRECEDING;
-      } else if (relatedTarget === endSentinelNode) {
-        comparisonResult = Node.DOCUMENT_POSITION_FOLLOWING;
-      } else {
-        comparisonResult = -1;
-      }
 
-      element.dispatchEvent(
-        new CustomEvent(eventRequestFocusWrap, {
-          bubbles: true,
-          cancelable: false,
-          composed: true,
-          detail: {
-            comparisonResult,
-          },
-        })
-      );
-    }
-  });
+function on(element, ...args) {
+  element.addEventListener(...args);
+  return {
+    release() {
+      element.removeEventListener(...args);
+      return null;
+    },
+  };
 }
 
-export default focuswrap;
+export default on;
 </code></pre>
         </article>
     </section>
