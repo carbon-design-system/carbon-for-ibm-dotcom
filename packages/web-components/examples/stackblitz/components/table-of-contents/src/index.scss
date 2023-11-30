@@ -14,7 +14,7 @@ $feature-flags: (
 );
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents';
 
 body {
   padding: $spacing-09;
