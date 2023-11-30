@@ -42,6 +42,13 @@ export {
  */
 @customElement(`${prefix}-button`)
 class CDSButton extends HostListenerMixin(FocusMixin(CarbonBase)) {
+  protected _requestCarbonStyles() {
+    return [
+      ...super._requestCarbonStyles(),
+      'button',
+    ];
+  }
+
   /**
    * `true` if there is an icon.
    */

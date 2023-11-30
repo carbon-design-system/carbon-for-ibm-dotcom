@@ -6,15 +6,20 @@
  */
 
 import root from 'window-or-global';
-import buttonStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/button.scss';
-import resetStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/reset.scss';
-import typeStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/type.scss';
+// import buttonStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/button.scss';
+// import resetStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/reset.scss';
+// import typeStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/type.scss';
+import buttonStyles from '../../../../styles/scss/globals/primitives/button.scss';
+import resetStyles from '../../../../styles/scss/globals/primitives/reset.scss';
+import typeStyles from '../../../../styles/scss/globals/primitives/type.scss';
+import layoutStyles from '../../../../styles/scss/globals/primitives/layout.scss';
 
 // CSS text strings
 const importedStyleSheets = {
   button: buttonStyles,
   reset: resetStyles,
   type: typeStyles,
+  layout: layoutStyles,
 };
 
 class CarbonStyles {

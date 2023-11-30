@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '@carbon/styles/scss/components/button' as *;
+@use '@carbon/styles/scss/layout' as *;
 
-// Don't need this because the index file in @use above calls it.
-// @include button;
+:host {
+  @include emit-layout-tokens();
+}

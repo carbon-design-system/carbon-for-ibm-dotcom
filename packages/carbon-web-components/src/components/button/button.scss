@@ -7,26 +7,53 @@
 
 $css--plex: true !default;
 
+// Definitely needed.
 @use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/utilities/convert' as *;
-@use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/components/button' as *;
-@use '@carbon/styles/scss/components/popover/index';
-@use '@carbon/styles/scss/components/code-snippet/code-snippet' as *;
-@use '@carbon/styles/scss/components/tooltip';
-@use '@carbon/styles/scss/layout' as *;
+@use '@carbon/styles/scss/spacing';
+@use '@carbon/styles/scss/utilities/convert';
+@use '@carbon/styles/scss/theme';
 
-@include code-snippet;
+// Using specific pieces of button styles rather than the whole kitchen sink.
+@use '@carbon/styles/scss/components/button/vars' as *;
+@use '@carbon/styles/scss/components/button/tokens' as *;
+// @use '@carbon/styles/scss/components/button/button' as *;
+/**
+ * This is the whole kitchen sink. I don't think it's needed, other than perhaps
+ * to give the @extend statements something to inherit from.
+ */
+// @use '@carbon/styles/scss/components/button' as *;
+
+/**
+ * This brings along layout utility classes that, strictly speaking, aren't
+ * necessary. However, it also sets layout "tokens"/CSS custom properties that
+ * are required for component to appear correctly.
+ */
+// @use '@carbon/styles/scss/layout';
+
+// Not sure why we need to include the code-snippet here.
+// @use '@carbon/styles/scss/components/code-snippet/code-snippet' as *;
+
+// Not needed? Tooltips appear to work fine without it.
+// @use '@carbon/styles/scss/components/tooltip';
+
+// Not needed? Not sure where popovers fit into this equation.
+// @use '@carbon/styles/scss/components/popover/index';
+
+// @include code-snippet;
+
+// Overrides work as expected 🙌. Uncomment to see.
+// .cds--btn--primary {
+//   background-color: pink;
+// }
 
 :host(#{$prefix}-button),
 :host(#{$prefix}-modal-footer-button) {
-  @include emit-layout-tokens();
+  // @include layout.emit-layout-tokens();
 
   display: inline-flex;
 
   ::slotted([slot='icon']) {
-    @extend .#{$prefix}--btn__icon;
+    // @extend .#{$prefix}--btn__icon;
   }
 
   .#{$prefix}--btn {
@@ -36,25 +63,25 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-button-skeleton) {
-  @include emit-layout-tokens();
+  // @include layout.emit-layout-tokens();
 }
 
 :host(#{$prefix}-button[isExpressive]) ::slotted([slot='icon']),
 :host(#{$prefix}-modal-footer-button[isExpressive]) ::slotted([slot='icon']) {
-  width: rem(20px);
-  height: rem(20px);
+  width: convert.rem(20px);
+  height: convert.rem(20px);
 }
 
 :host(#{$prefix}-button[pagination]),
 :host(#{$prefix}-modal-footer-button[pagination]) {
   .#{$prefix}--btn {
     border: none;
-    border-left: 1px solid $border-subtle;
+    border-left: 1px solid theme.$border-subtle;
     transition: none;
 
     &:focus {
-      outline: $spacing-01 solid $focus;
-      outline-offset: -#{$spacing-01};
+      outline: spacing.$spacing-01 solid theme.$focus;
+      outline-offset: -#{spacing.$spacing-01};
       box-shadow: none;
       border-left: 1px solid transparent;
     }
@@ -64,9 +91,9 @@ $css--plex: true !default;
 :host(#{$prefix}-button[pagination]:not([disabled])),
 :host(#{$prefix}-modal-footer-button[pagination]:not([disabled])) {
   .#{$prefix}--btn {
-    color: $icon-primary;
+    color: theme.$icon-primary;
     &:active {
-      background-color: $layer-hover;
+      background-color: theme.$layer-hover;
     }
   }
 }
@@ -79,8 +106,8 @@ $css--plex: true !default;
     padding: $button-padding-ghost;
 
     &:focus {
-      outline: $spacing-01 solid $layer;
-      outline-offset: -#{$spacing-01};
+      outline: spacing.$spacing-01 solid theme.$layer;
+      outline-offset: -#{spacing.$spacing-01};
     }
   }
 
@@ -92,7 +119,7 @@ $css--plex: true !default;
     ) {
     ::slotted([slot='icon']) {
       position: static;
-      margin-left: $spacing-02;
+      margin-left: spacing.$spacing-02;
     }
   }
 }
@@ -103,15 +130,15 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-button-set) {
-  @extend .#{$prefix}--btn-set;
+  // @extend .#{$prefix}--btn-set;
 
   ::slotted(#{$prefix}-button) {
     width: 100%;
     // 196px from design kit
-    max-width: rem(196px);
+    max-width: convert.rem(196px);
   }
 }
 
 :host(#{$prefix}-button-set[stacked]) {
-  @extend .#{$prefix}--btn-set--stacked;
+  // @extend .#{$prefix}--btn-set--stacked;
 }

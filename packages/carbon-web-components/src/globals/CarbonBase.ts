@@ -7,7 +7,8 @@
 
 // @ts-nocheck
 import { LitElement } from 'lit';
-import CarbonStyles from '../internal/vendor/@carbon/ibmdotcom-utilities/utilities/carbonStyles/carbonStyles.js';
+// import CarbonStyles from '../internal/vendor/@carbon/ibmdotcom-utilities/utilities/carbonStyles/carbonStyles.js';
+import CarbonStyles from '../../../utilities/src/utilities/carbonStyles/carbonStyles.js';
 
 export default class CarbonBase extends LitElement {
   /**
@@ -26,7 +27,7 @@ export default class CarbonBase extends LitElement {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _requestCarbonStyles(): string[] {
-    return ['reset', 'type'];
+    return ['reset', 'type', 'layout'];
   }
 
   /**
@@ -37,11 +38,13 @@ export default class CarbonBase extends LitElement {
     const neededStyles = this._requestCarbonStyles();
     if (this.shadowRoot && neededStyles) {
       const adoptedStyles = CarbonStyles.global.getStyleSheets(neededStyles);
-      const componentStyles = this.shadowRoot.adoptedStyleSheets;
-      this.shadowRoot.adoptedStyleSheets = [
+      const componentStyles = Array.from(this.shadowRoot.adoptedStyleSheets);
+      const sheetsToAdopt = [
         ...adoptedStyles,
         ...componentStyles,
       ];
+      debugger;
+      this.shadowRoot.adoptedStyleSheets = sheetsToAdopt;
     }
   }
 
