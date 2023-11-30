@@ -3603,16 +3603,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.44.0-rc.0":
-  version: 1.44.0-rc.0
-  resolution: "@carbon/styles@npm:1.44.0-rc.0"
+"@carbon/styles@npm:1.44.0":
+  version: 1.44.0
+  resolution: "@carbon/styles@npm:1.44.0"
   dependencies:
     "@carbon/colors": "npm:^11.20.0"
     "@carbon/feature-flags": "npm:^0.16.0"
     "@carbon/grid": "npm:^11.21.0"
     "@carbon/layout": "npm:^11.20.0"
     "@carbon/motion": "npm:^11.16.0"
-    "@carbon/themes": "npm:^11.27.0"
+    "@carbon/themes": "npm:^11.28.0"
     "@carbon/type": "npm:^11.25.0"
     "@ibm/plex": "npm:6.0.0-next.6"
   peerDependencies:
@@ -3620,7 +3620,7 @@ __metadata:
   peerDependenciesMeta:
     sass:
       optional: true
-  checksum: d51e415f1e572eda8578e0e9c7834396240b99537529398fb1e70438fd11a3baaefd4547b79ffd591f0d35024d5458d824b0811bc6c155a93fda017c9b3780d4
+  checksum: 5c4fe751a67cf44489354c51219f155722a593001d6667e67626a734896f5c9136af3ab004acfd4c952f80c5b2121e8fcb9d5717c70f52ea81ab0f260e4970e2
   languageName: node
   linkType: hard
 
@@ -3711,6 +3711,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@carbon/themes@npm:^11.28.0":
+  version: 11.28.0
+  resolution: "@carbon/themes@npm:11.28.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.20.0"
+    "@carbon/layout": "npm:^11.20.0"
+    "@carbon/type": "npm:^11.25.0"
+    color: "npm:^4.0.0"
+  checksum: efb53f286a8143901b640f0a86d0ea63281becd472a50ed87bc76b950d45dd438ef5456990506f3bc359f29ff6d7a881c5f629f7e6f0cd928747d4f9395f21c9
+  languageName: node
+  linkType: hard
+
 "@carbon/type@npm:^11.22.0":
   version: 11.22.0
   resolution: "@carbon/type@npm:11.22.0"
@@ -3752,7 +3764,7 @@ __metadata:
     "@babel/traverse": "npm:~7.23.0"
     "@carbon/icon-helpers": "npm:^10.28.0"
     "@carbon/icons": "npm:^10.48.0"
-    "@carbon/styles": "npm:1.44.0-rc.0"
+    "@carbon/styles": "npm:1.44.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.8.1"
