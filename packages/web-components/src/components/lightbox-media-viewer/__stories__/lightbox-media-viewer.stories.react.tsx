@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,10 +23,10 @@ import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/ca
 import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.react.mdx';
 
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
-import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
-import imgMax16x9 from '../../../../../storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgXlg16x9 from '../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
+import imgXlg2x1 from '../../../../.storybook/storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
+import imgMax16x9 from '../../../../.storybook/storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 
 const images = {
   none: null,
