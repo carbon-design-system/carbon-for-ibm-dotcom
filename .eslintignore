@@ -14,6 +14,7 @@ node_modules
 cypress
 packages/web-components/src/components/masthead
 packages/carbon-web-components/**/*-story.ts
+__stories__
 *.d.ts
 
 packages/**/src/internal/vendor

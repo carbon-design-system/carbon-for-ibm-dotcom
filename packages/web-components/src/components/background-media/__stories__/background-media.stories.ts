@@ -12,9 +12,9 @@ import '../../video-player/video-player-container';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { text, select, number } from '@storybook/addon-knobs';
-import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
-import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
+import imgMax from '../../../../.storybook/storybook-images/assets/leadspace/leadspaceMax.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
+import imgSm4x3 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
 import { GRADIENT_DIRECTION } from '../defs';
 import readme from './README.stories.mdx';
 
