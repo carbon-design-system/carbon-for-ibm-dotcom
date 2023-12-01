@@ -25,6 +25,7 @@ logs
 pids
 *.pid
 *.seed
+custom-elements.json
 
 # Certificates
 *.crt
