@@ -4788,7 +4788,7 @@ __metadata:
     babel-plugin-template-html-minifier: "npm:^4.1.0"
     cache-loader: "npm:^4.1.0"
     child-process-promise: "npm:^2.2.1"
-    commander: "npm:^4.1.0"
+    commander: "npm:^11.1.0"
     core-js: "npm:^3.19.1"
     cross-env: "npm:^7.0.0"
     css-loader: "npm:^5.2.0"
@@ -13359,7 +13359,7 @@ __metadata:
     babel-preset-carbon: "npm:^0.0.14"
     browserslist-config-carbon: "npm:^10.3.0"
     chalk: "npm:^4.1.1"
-    commander: "npm:^4.1.0"
+    commander: "npm:^11.1.0"
     cross-env: "npm:^7.0.0"
     doctoc: "npm:^2.0.0"
     enzyme-to-json: "npm:^3.3.5"
@@ -14166,7 +14166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^4.0.1, commander@npm:^4.1.0, commander@npm:^4.1.1":
+"commander@npm:^4.0.1, commander@npm:^4.1.1":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
   checksum: 3b2dc4125f387dab73b3294dbcb0ab2a862f9c0ad748ee2b27e3544d25325b7a8cdfbcc228d103a98a716960b14478114a5206b5415bd48cdafa38797891562c

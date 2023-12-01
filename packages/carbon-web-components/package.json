@@ -130,7 +130,7 @@
     "babel-plugin-template-html-minifier": "^4.1.0",
     "cache-loader": "^4.1.0",
     "child-process-promise": "^2.2.1",
-    "commander": "^4.1.0",
+    "commander": "^11.1.0",
     "core-js": "^3.19.1",
     "cross-env": "^7.0.0",
     "css-loader": "^5.2.0",
