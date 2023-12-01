@@ -13402,7 +13402,7 @@ __metadata:
     gitignore-to-glob: "npm:^0.3.0"
     globby: "npm:^10.0.0"
     gulp: "npm:^4.0.2"
-    husky: "npm:^7.0.0"
+    husky: "npm:^8.0.3"
     inquirer: "npm:^7.2.0"
     jest: "npm:25.5.4"
     jest-circus: "npm:25.5.4"
@@ -21075,12 +21075,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^7.0.0":
-  version: 7.0.4
-  resolution: "husky@npm:7.0.4"
+"husky@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "husky@npm:8.0.3"
   bin:
     husky: lib/bin.js
-  checksum: 8fecb619ab924bd99b2c9ce494bff88e45369c1125e07a603dfacb4bd60ef86840e08c689794c476189183e6223f0ea93aadebf78e3508479453c219358ca787
+  checksum: b754cf70fdc97c3b60fec5b80056b9c11436464953b1691bf2b5dcf0081fb6685d2c5f47abb8b2b1c49f504aabea5321fdd6496f8b755d9f6e7525a493406abb
   languageName: node
   linkType: hard
 
