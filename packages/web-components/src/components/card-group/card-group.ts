@@ -293,6 +293,13 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * A selector that will return the card-in-card selector
+   */
+  static get selectorCardInCard() {
+    return `${c4dPrefix}-card-in-card`;
+  }
+
+  /**
    * A selector that will return the card item.
    */
   static get selectorItem() {

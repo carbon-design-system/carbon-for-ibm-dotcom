@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './structured-list.scss';
+import CarbonBase from '../../globals/CarbonBase';
 
 /**
  * Structured list header row.
@@ -19,7 +20,7 @@ import styles from './structured-list.scss';
  * @element cds-structured-list-header-row
  */
 @customElement(`${prefix}-structured-list-header-row`)
-class CDSStructuredListHeaderRow extends LitElement {
+class CDSStructuredListHeaderRow extends CarbonBase {
   /**
    * The `name` attribute for the `<input>` for selection.
    * If present, this structured list header row will show its selectable version of the UI.

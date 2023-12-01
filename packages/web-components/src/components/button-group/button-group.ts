@@ -7,12 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { html } from 'lit';
 import { BUTTON_KIND } from '../../internal/vendor/@carbon/web-components/components/button/defs.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import CarbonBase from '../../internal/vendor/@carbon/web-components/globals/CarbonBase.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -22,7 +23,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-button-group
  */
 @customElement(`${c4dPrefix}-button-group`)
-class C4DButtonGroup extends StableSelectorMixin(LitElement) {
+class C4DButtonGroup extends StableSelectorMixin(CarbonBase) {
   /**
    * Handler for @slotchange, set the first button-group-item to kind tertiary and primary for the remaining ones
    *

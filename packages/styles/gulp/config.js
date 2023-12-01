@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,4 +18,5 @@ global.config = {
   distRtlCssMin: 'ibm-dotcom-styles-rtl.min.css',
   scssEntry: 'scss/ibm-dotcom-styles.scss',
   scssFiles: 'scss/**/*.scss',
+  primitivesEntry: 'scss/globals/primitives/*.scss',
 };

@@ -7,6 +7,7 @@
 
 export * from './altlangs';
 export * from './calculateTotalWidth';
+export * from './carbonStyles';
 export * from './decodeString';
 export * from './deprecate';
 export * from './escaperegexp';

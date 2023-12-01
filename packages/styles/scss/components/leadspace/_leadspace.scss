@@ -565,7 +565,6 @@ $btn-min-width: 26;
         margin-bottom: $spacing-12;
       }
     }
-  }
 
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
