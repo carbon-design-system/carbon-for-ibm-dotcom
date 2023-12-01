@@ -1,0 +1,165 @@
+//
+// Copyright IBM Corp. 2019, 2023
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+$css--plex: true !default;
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/code-snippet/index';
+@use '@carbon/styles/scss/components/copy-button/copy-button';
+
+:host(#{$prefix}-code-snippet),
+:host(#{$prefix}-code-snippet-skeleton) {
+  @extend .#{$prefix}--snippet;
+
+  .#{$prefix}--snippet-container {
+    @extend .#{$prefix}--snippet-container;
+  }
+}
+
+:host(#{$prefix}-code-snippet[disabled]) {
+  @extend .#{$prefix}--snippet--disabled;
+}
+
+:host(#{$prefix}-code-snippet[wrap-text]) {
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+:host(#{$prefix}-code-snippet[hide-copy-button]) {
+  @extend .#{$prefix}--snippet--no-copy;
+}
+
+:host(#{$prefix}-code-snippet-skeleton[type='single']),
+:host(#{$prefix}-code-snippet[type='single']) {
+  @extend .#{$prefix}--snippet--single;
+}
+
+:host(#{$prefix}-code-snippet[type='single']) {
+  pre {
+    white-space: nowrap;
+  }
+
+  #{$prefix}-copy-button {
+    @include font-family('sans');
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    code: {
+      overflow: hidden;
+    }
+  }
+}
+
+#{$prefix}-copy {
+  code {
+    padding: 0 $spacing-03;
+    @include type-style('code-01');
+  }
+}
+
+:host(#{$prefix}-code-snippet-skeleton[type='multi']),
+:host(#{$prefix}-code-snippet[type='multi']) {
+  @extend .#{$prefix}--snippet--multi;
+}
+
+:host(#{$prefix}-code-snippet[type='multi']) {
+  .#{$prefix}--snippet-container {
+    padding: 0;
+
+    @extend .#{$prefix}--snippet--multi, .#{$prefix}--snippet-container;
+  }
+
+  pre {
+    margin: 0;
+    padding: 0 $spacing-08 $spacing-06 0;
+    overflow-x: auto;
+  }
+
+  pre::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $spacing-05;
+    height: 100%;
+    background-image: linear-gradient(to right, transparent, $layer);
+    content: '';
+  }
+
+  #{$prefix}-button {
+    .#{$prefix}--snippet__icon {
+      margin-left: $spacing-03;
+    }
+
+    &[disabled] {
+      .#{$prefix}--snippet-btn--text {
+        color: $text-disabled;
+      }
+    }
+  }
+
+  #{$prefix}-copy-button {
+    position: absolute;
+    top: $spacing-03;
+    right: $spacing-03;
+  }
+}
+
+:host(#{$prefix}-code-snippet[type='multi'][expanded-code]) {
+  .#{$prefix}--snippet-container {
+    padding-bottom: $spacing-05;
+    transition: max-height $duration-moderate-01 motion(standard, productive);
+  }
+
+  #{$prefix}-button {
+    .#{$prefix}--snippet__icon {
+      transform: rotate(180deg);
+      transition: transform $transition-expansion;
+    }
+  }
+}
+
+:host(#{$prefix}-code-snippet-skeleton[type='single']) {
+  @extend .#{$prefix}--snippet--single, .#{$prefix}--skeleton;
+}
+
+:host(#{$prefix}-code-snippet-skeleton[type='multi']) {
+  @extend .#{$prefix}--snippet--multi, .#{$prefix}--skeleton;
+}
+
+:host(#{$prefix}-code-snippet-skeleton) {
+  @extend .#{$prefix}--skeleton;
+
+  span {
+    @include skeleton;
+
+    width: 100%;
+    height: $spacing-05;
+    display: block;
+    margin-top: $spacing-03;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    &:nth-child(2) {
+      width: 85%;
+    }
+
+    &:nth-child(3) {
+      width: 95%;
+    }
+  }
+}

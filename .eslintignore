@@ -1,79 +1,19 @@
+# build folders
+build
+coverage
+dist
+es
+lib
+umd
+packages/*/examples/*
+storybook-static
+
 node_modules
 
-# carbon-web-components
-packages/carbon-web-components/coverage
-packages/carbon-web-components/dist
-packages/carbon-web-components/es
-packages/carbon-web-components/examples
-packages/carbon-web-components/umd
-packages/carbon-web-components/lib
-packages/carbon-web-components/node_modules
-packages/carbon-web-components/storybook-static
-packages/carbon-web-components/src/internal/vendor
-packages/carbon-web-components/tests/e2e/dist
-packages/carbon-web-components/tests/e2e/cypress
-packages/carbon-web-components/tests/e2e-storybook/cypress
+# components
+cypress
+packages/web-components/src/components/masthead
+packages/carbon-web-components/**/*-story.ts
+*.d.ts
 
-# react
-packages/react/coverage
-packages/react/es
-packages/react/examples
-packages/react/umd
-packages/react/lib
-packages/react/node_modules
-packages/react/storybook-static
-packages/react/ssr-tests/nextjs/.next
-packages/react/src/internal/vendor
-packages/react/tests/e2e/dist
-packages/react/tests/e2e/cypress
-packages/react/tests/e2e-storybook/cypress
-
-# storybook-addon-theme
-packages/storybook-addon-theme/es
-packages/storybook-addon-theme/node_modules
-
-# services
-packages/services/coverage
-packages/services/docs
-packages/services/es
-packages/services/umd
-packages/services/lib
-packages/services/node_modules
-packages/services/src/internal/vendor
-
-# services-store
-packages/services-store/es
-packages/services-store/lib
-
-# styles
-packages/styles/dist
-packages/styles/es
-packages/styles/umd
-packages/styles/lib
-packages/styles/node_modules
-packages/styles/src/carbon-stories
-packages/styles/src/carbon-tools
-packages/styles/storybook-static
-
-# utilities
-packages/utilities/coverage
-packages/utilities/docs
-packages/utilities/es
-packages/utilities/umd
-packages/utilities/lib
-packages/utilities/node_modules
-
-# web-components
-packages/web-components/coverage
-packages/web-components/dist
-packages/web-components/es
-packages/web-components/examples
-packages/web-components/umd
-packages/web-components/lib
-packages/web-components/node_modules
-packages/web-components/storybook-static
-packages/web-components/storybook-static-react
-packages/web-components/src/internal/vendor
-packages/web-components/tests/e2e/dist
-packages/web-components/tests/e2e/cypress
-packages/web-components/tests/e2e-storybook/cypress
+packages/**/src/internal/vendor

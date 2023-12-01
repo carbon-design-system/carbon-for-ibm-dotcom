@@ -1,0 +1,56 @@
+//
+// Copyright IBM Corp. 2020, 2023
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+:host(#{$prefix}-table-expanded-row) {
+  display: table-row;
+  height: 0;
+  transition: height $duration-moderate-01 motion(standard);
+
+  ::slotted(*) {
+    color: $text-secondary;
+  }
+
+  td {
+    border-bottom-color: $border-subtle;
+    vertical-align: middle;
+    transition: all $duration-fast-02 motion(standard, productive);
+    padding: 0;
+    padding-left: $spacing-10;
+
+    .#{$prefix}--child-row-inner-container {
+      overflow: hidden;
+      height: 0;
+    }
+  }
+}
+
+:host(#{$prefix}-table-expanded-row[expanded]) {
+  height: $spacing-09;
+
+  td {
+    border-bottom: 1px solid $border-subtle;
+    height: auto;
+
+    .#{$prefix}--child-row-inner-container {
+      height: auto;
+    }
+  }
+}
+
+:host(#{$prefix}-table-expanded-row:hover),
+:host(#{$prefix}-table-expanded-row[selected]),
+:host(#{$prefix}-table-expanded-row[highlighted]) {
+  background-color: $background-hover;
+
+  ::slotted(*) {
+    color: $text-primary;
+  }
+}
+
+:host(#{$prefix}-table-expanded-row[selected][highlighted]) {
+  background-color: $layer-selected;
+}
