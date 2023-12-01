@@ -35,19 +35,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background-color: $layer-01;
-    text-decoration: none;
     padding: 0;
+    background-color: $layer-01;
+    block-size: 100%;
+    inline-size: 100%;
+    text-decoration: none;
     transition: $duration-moderate-01 motion(standard, productive);
 
     &:focus-within {
       .#{$prefix}--tile--clickable {
-        outline: $spacing-01 solid $focus;
-        outline-offset: -#{$spacing-01};
         position: relative;
         z-index: 2;
+        outline: $spacing-01 solid $focus;
+        outline-offset: -#{$spacing-01};
       }
 
       ::slotted(#{$c4d-prefix}-image),
@@ -74,15 +74,22 @@
     ::slotted(#{$c4d-prefix}-image),
     ::slotted(#{$c4d-prefix}-card-cta-image) {
       position: relative;
+      @media screen and (prefers-reduced-motion: reduce) {
+        &::before {
+          position: absolute;
+          background-color: $border-inverse;
+          content: '';
+          inset: 0;
+          opacity: 0;
+          transition: none;
+        }
+      }
 
       &::before {
-        content: '';
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
         background-color: $border-inverse;
+        content: '';
+        inset: 0;
         opacity: 0;
         transition: $duration-moderate-01 motion(standard, productive);
       }
@@ -97,12 +104,12 @@
         ::slotted(#{$c4d-prefix}-image),
         ::slotted(#{$c4d-prefix}-card-cta-image) {
           &::after {
-            content: '';
             position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
             background: $overlay;
+            block-size: 100%;
+            content: '';
+            inline-size: 100%;
+            inset-block-start: 0;
             opacity: 16%;
           }
         }
@@ -112,8 +119,8 @@
     .#{$prefix}--card__wrapper {
       display: flex;
       flex: 1;
-      min-height: carbon--mini-units(20);
       justify-content: space-between;
+      min-block-size: carbon--mini-units(20);
       transition: $duration-moderate-01 motion(standard, productive);
 
       @include ratio-base(2, 1, false);
@@ -123,13 +130,13 @@
       display: flex;
       flex-direction: column;
       padding: $spacing-05;
-      width: 100%;
+      inline-size: 100%;
     }
 
     .#{$prefix}--card__heading {
       @include type-style('fluid-heading-03', true);
 
-      margin-bottom: $spacing-10;
+      margin-block-end: $spacing-10;
     }
 
     .#{$prefix}--card__heading,
@@ -142,7 +149,7 @@
     .#{$prefix}--card__copy:not([hidden]) {
       @include type-style('body-02');
 
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
     }
 
     .#{$prefix}--card__img {
@@ -150,8 +157,8 @@
     }
 
     .#{$prefix}--card__link::after {
-      content: '';
       position: absolute;
+      content: '';
       inset: 0;
     }
   }
@@ -167,24 +174,24 @@
       display: flex;
 
       ::slotted(#{$c4d-prefix}-card-heading) {
-        padding-top: $spacing-07;
-        margin-bottom: 0;
+        margin-block-end: 0;
+        padding-block-start: $spacing-07;
 
         @include breakpoint(md) {
-          padding-left: 0;
-          flex: 1;
           display: flex;
+          flex: 1;
+          padding-inline-start: 0;
         }
       }
     }
 
     &[pictogram] .#{$prefix}--card {
       ::slotted(#{$c4d-prefix}-card-heading) {
-        padding-top: 0;
+        padding-block-start: 0;
       }
 
       ::slotted(svg[slot='pictogram']) {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
 
       .#{$prefix}--card__content {
@@ -192,8 +199,7 @@
       }
 
       .#{$prefix}--card__copy {
-        margin-top: $spacing-07;
-        margin-bottom: 0;
+        margin-block: $spacing-07 0;
 
         &[hidden] {
           margin: 0;
@@ -202,9 +208,9 @@
 
       svg {
         position: absolute;
-        right: $spacing-05;
-        bottom: $spacing-05;
         color: $link-primary;
+        inset-block-end: $spacing-05;
+        inset-inline-end: $spacing-05;
       }
     }
 
@@ -212,16 +218,15 @@
       &[pictogram-placement='top'] .#{$prefix}--card {
         ::slotted(#{$c4d-prefix}-card-heading) {
           align-items: flex-end;
-          margin-bottom: 0;
-          margin-top: auto;
+          margin-block: auto 0;
         }
 
         .#{$prefix}--card__copy {
-          margin-top: $spacing-07;
+          margin-block-start: $spacing-07;
         }
 
         ::slotted(svg[slot='pictogram']) {
-          margin-bottom: $spacing-07;
+          margin-block-end: $spacing-07;
         }
       }
 
@@ -231,12 +236,12 @@
         }
 
         .#{$prefix}--card__copy {
-          margin-bottom: $spacing-07;
+          margin-block-end: $spacing-07;
         }
 
         ::slotted(svg[slot='pictogram']) {
-          margin-top: auto;
           align-items: flex-end;
+          margin-block-start: auto;
         }
       }
     }
@@ -244,10 +249,10 @@
     ::slotted(svg[slot='pictogram']) {
       fill: currentColor;
       @include breakpoint(md) {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
       @include breakpoint(sm) {
-        margin-left: $spacing-05;
+        margin-inline-start: $spacing-05;
       }
     }
 
@@ -267,7 +272,7 @@
     ::slotted(div) {
       /* stylelint-disable declaration-no-important */
       // need the !important to prevent CSS reset styles from overwritting margin for tags
-      margin-left: -$spacing-02 !important;
+      margin-inline-start: -$spacing-02 !important;
     }
   }
 
@@ -305,7 +310,7 @@
   :host(#{$c4d-prefix}-card-group-item) {
     &:not([href]) {
       .#{$prefix}--card .#{$prefix}--card__copy {
-        margin-bottom: $spacing-01;
+        margin-block-end: $spacing-01;
       }
 
       .#{$prefix}--card.#{$prefix}--tile ::slotted(#{$c4d-prefix}-image) {
@@ -319,13 +324,14 @@
       }
 
       ::slotted(#{$c4d-prefix}-card-heading) {
-        padding-bottom: $spacing-10;
-        margin-bottom: auto;
+        margin-block-end: auto;
+        padding-block-end: $spacing-10;
       }
 
       ::slotted(#{$c4d-prefix}-card-footer) {
-        margin-top: $spacing-07;
         display: inline-flex;
+        margin-block-start: $spacing-07;
+
         &::after {
           position: relative;
         }
@@ -347,6 +353,7 @@
             background-color: $background-hover;
           }
         }
+
         &:active,
         a:active {
           outline: none;
@@ -361,7 +368,7 @@
       }
 
       .#{$prefix}--card__copy {
-        margin-bottom: $spacing-05;
+        margin-block-end: $spacing-05;
       }
 
       &:hover {
@@ -377,7 +384,7 @@
       }
 
       ::slotted(#{$c4d-prefix}-card-footer) {
-        height: 0;
+        block-size: 0;
       }
     }
 
@@ -394,11 +401,11 @@
     ::slotted(#{$c4d-prefix}-card-heading) {
       @include type-style('heading-02');
 
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
 
     .#{$prefix}--card .#{$prefix}--card__copy {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 
@@ -413,8 +420,9 @@
     @include content-width;
     @include type-style('label-02');
 
-    margin-bottom: $spacing-03;
     color: $text-secondary;
+
+    margin-block-end: $spacing-03;
   }
 
   :host(#{$c4d-prefix}-card-footer),
@@ -422,9 +430,9 @@
   :host(#{$c4d-prefix}-card-in-card-footer),
   :host(#{$c4d-prefix}-feature-card-footer),
   :host(#{$c4d-prefix}-feature-cta-footer) {
-    margin-top: auto;
     display: flex;
     align-items: flex-end;
+    margin-block-start: auto;
 
     &:focus-visible {
       outline: none;
@@ -449,7 +457,7 @@
   :host(#{$c4d-prefix}-feature-card-footer) a,
   :host(#{$c4d-prefix}-feature-cta-footer) a {
     /* Moves the footer down to the bottom in the card */
-    margin-top: auto;
+    margin-block-start: auto;
     text-decoration: none;
 
     &:focus {
@@ -465,31 +473,28 @@
     }
 
     &::after {
-      content: '';
       position: absolute;
       z-index: 1;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      content: '';
+      inset: 0;
     }
 
     .#{$prefix}--card__cta__copy {
-      max-width: calc(100% - 20px - #{$spacing-03});
-      margin-right: $spacing-03;
+      margin-inline-end: $spacing-03;
+      max-inline-size: calc(100% - 20px - #{$spacing-03});
       @include type-style('body-02');
     }
 
     .#{$prefix}--card__footer__copy {
-      max-width: calc(100% - 20px);
-      margin-bottom: -$spacing-01;
+      margin-block-end: -$spacing-01;
+      max-inline-size: calc(100% - 20px);
     }
 
     svg,
     ::slotted(svg[slot='icon']) {
       display: block;
-      min-width: 20px;
-      margin-left: 0;
+      margin-inline-start: 0;
+      min-inline-size: 20px;
     }
   }
 
@@ -497,9 +502,9 @@
   :host(#{$c4d-prefix}-card-cta-footer) {
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
       display: flex;
-      width: 100%;
-      justify-content: flex-end;
       align-items: center;
+      justify-content: flex-end;
+      inline-size: 100%;
 
       &:active {
         color: $link-primary-hover;
@@ -517,8 +522,8 @@
   // static card footer
   :host(#{$c4d-prefix}-card-footer):not([parent-href]) {
     .#{$prefix}--card__footer {
-      width: auto;
       justify-content: flex-start;
+      inline-size: auto;
 
       &:hover {
         color: $link-primary-hover;
@@ -532,13 +537,14 @@
       &::after {
         content: none;
       }
+
       &:focus {
         outline: $spacing-01 solid $focus;
       }
     }
 
     .#{$prefix}--card__cta__copy {
-      margin-right: $spacing-03;
+      margin-inline-end: $spacing-03;
     }
   }
 
@@ -546,8 +552,8 @@
   :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not([disabled])
     .#{$prefix}--card {
     .#{$prefix}--tile {
-      background-color: $background-inverse;
       border-color: $background-inverse;
+      background-color: $background-inverse;
 
       &:hover {
         #{$c4d-prefix}-image,
@@ -577,14 +583,11 @@
 
     &:focus-within {
       &::after {
-        content: '';
         position: absolute;
         z-index: 2;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
         border: $spacing-01 solid $focus;
+        content: '';
+        inset: 0;
         outline: 1px solid $focus-inset;
         outline-offset: -3px;
         pointer-events: none;
@@ -597,7 +600,8 @@
     @include content-width;
 
     color: $text-primary;
-    margin-bottom: $spacing-10;
+
+    margin-block-end: $spacing-10;
   }
 
   :host(#{$c4d-prefix}-card-heading) {
@@ -607,7 +611,7 @@
   :host(#{$c4d-prefix}-card-link-heading) {
     @include type-style('heading-02', true);
 
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   :host(#{$c4d-prefix}-card)[color-scheme='inverse'],
@@ -637,8 +641,8 @@
       border: 1px solid $layer-accent-01;
 
       .#{$prefix}--card {
-        background-color: $layer-02;
         border: none;
+        background-color: $layer-02;
       }
 
       ::slotted(#{$c4d-prefix}-image),
@@ -649,8 +653,8 @@
     }
 
     .#{$prefix}--card {
-      background-color: $layer-02;
       border: 1px solid $layer-accent-01;
+      background-color: $layer-02;
 
       .#{$prefix}--card__img,
       .#{$prefix}--card__image_img,

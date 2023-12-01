@@ -23,15 +23,15 @@ $hover-transition-timing: 95ms;
 
 // items that change according to the theme applied
 @mixin themed-items {
-  color: $text-primary;
   background: $background;
+  color: $text-primary;
   .#{$prefix}--tableofcontents__item {
     a {
-      border-left: $spacing-02 solid $border-subtle-01;
+      border-inline-start: $spacing-02 solid $border-subtle-01;
       color: $text-secondary;
 
       &:hover {
-        border-left-color: $layer-selected-hover-01;
+        border-inline-start-color: $layer-selected-hover-01;
         color: $text-primary;
       }
     }
@@ -40,9 +40,9 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--tableofcontents__navbar {
     .#{$prefix}--tableofcontents__item {
       a {
-        white-space: nowrap;
-        border-left: none;
+        border-inline-start: none;
         color: $text-secondary;
+        white-space: nowrap;
       }
 
       &:hover {
@@ -54,14 +54,13 @@ $hover-transition-timing: 95ms;
       color: $text-primary;
 
       &::before {
-        content: '';
         position: absolute;
-        bottom: 0;
-        height: to-rem(20px);
-        width: $spacing-01;
-        top: to-rem(14px);
         background-color: $border-interactive;
-        margin-left: to-rem(-6px);
+        block-size: to-rem(20px);
+        content: '';
+        inline-size: $spacing-01;
+        inset-block: to-rem(14px) 0;
+        margin-inline-start: to-rem(-6px);
       }
     }
   }
@@ -69,27 +68,26 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--tableofcontents__item--active {
     a,
     a:hover {
+      border-inline-start-color: $border-interactive;
       color: $text-primary;
-      border-left-color: $border-interactive;
     }
 
     a:focus {
-      border-bottom: none;
+      border-block-end: none;
     }
 
     &:hover {
-      border-left-color: $border-interactive;
+      border-inline-start-color: $border-interactive;
     }
   }
 }
 
 @mixin table-of-contents {
   :host(#{$c4d-prefix}-table-of-contents) {
-    text-size-adjust: 100%;
-    @extend .#{$prefix}--grid;
-
     display: block;
     margin: 0;
+    text-size-adjust: 100%;
+    @extend .#{$prefix}--grid;
 
     @include themed-items;
   }
@@ -103,9 +101,9 @@ $hover-transition-timing: 95ms;
     @extend .#{$prefix}--col-lg-4;
 
     position: inherit;
-    top: auto;
     z-index: 10;
     padding: 0;
+    inset-block-start: auto;
   }
 
   .#{$prefix}--tableofcontents__content {
@@ -116,25 +114,24 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--tableofcontents {
     display: block;
-    padding-top: $spacing-07;
-    margin-top: $spacing-07;
+    margin-block-start: $spacing-07;
+    padding-block-start: $spacing-07;
     @include make-col(3, 4);
   }
 
   .#{$prefix}--tableofcontents ul {
-    list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   .#{$prefix}--tableofcontents__item {
     a {
-      text-decoration: none;
       display: inline-block;
-      width: 100%;
-      padding-top: $spacing-04;
-      padding-bottom: $spacing-04;
-      padding-left: $spacing-04;
+      inline-size: 100%;
+      padding-block: $spacing-04;
+      padding-inline-start: $spacing-04;
+      text-decoration: none;
       @include type-style('body-02');
     }
 
@@ -143,36 +140,35 @@ $hover-transition-timing: 95ms;
     }
 
     a:focus {
-      outline: $spacing-01 solid $focus;
-      z-index: 1;
       position: relative;
+      z-index: 1;
+      outline: $spacing-01 solid $focus;
     }
   }
 
   .#{$prefix}--tableofcontents__children {
     @include breakpoint(lg) {
-      padding-top: $spacing-10;
-      padding-left: 0;
-      margin-bottom: -$spacing-07;
+      margin-block-end: -$spacing-07;
+      padding-block-start: $spacing-10;
+      padding-inline-start: 0;
       @include make-col(3, 4);
     }
 
-    padding-left: $spacing-05;
-    padding-top: $spacing-07;
-
     display: block;
+    padding-block-start: $spacing-07;
+
+    padding-inline-start: $spacing-05;
 
     &[hidden] {
       display: none;
     }
 
     > .#{$prefix}--link-list {
-      padding-top: 0;
-      padding-bottom: $spacing-05;
+      padding-block: 0 $spacing-05;
     }
 
     hr[data-autoid='#{$c4d-prefix}--hr'] {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 
@@ -195,43 +191,42 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--tableofcontents-horizontal__contents {
     [name] {
       display: block;
-      padding-top: $spacing-09;
+      padding-block-start: $spacing-09;
     }
   }
 
   .#{$prefix}--tableofcontents__navbar {
-    z-index: 10;
     position: sticky;
-    top: 0;
-    width: 100%;
-
-    border-bottom: 1px solid $border-subtle-00;
-    border-top: 1px solid $border-subtle-00;
-    height: $spacing-09;
+    z-index: 10;
     background-color: $background;
+    block-size: $spacing-09;
+
+    border-block-end: 1px solid $border-subtle-00;
+    border-block-start: 1px solid $border-subtle-00;
+    inline-size: 100%;
+    inset-block-start: 0;
 
     .#{$prefix}--tableofcontents__item {
       a {
-        border-left: none;
+        border-inline-start: none;
         color: $text-secondary;
-        padding-left: $spacing-05;
-        padding-right: $spacing-05;
-        width: auto;
+        inline-size: auto;
+        padding-inline: $spacing-05;
 
         &:focus {
+          position: initial;
           outline: $spacing-01 solid $focus;
           outline-offset: -#{$spacing-01};
-          position: initial;
         }
       }
     }
 
     .#{$prefix}--tableofcontents {
-      flex: 1;
-      max-width: none;
-      padding: 0;
-      margin-top: 0;
       position: absolute;
+      flex: 1;
+      padding: 0;
+      margin-block-start: 0;
+      max-inline-size: none;
       transition: left $transition-base motion(standard, productive);
 
       ul {
@@ -243,18 +238,18 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--sub-content-left {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 100%;
+    block-size: 100%;
+    inline-size: 1px;
+    inset-block-start: 0;
+    inset-inline-start: 0;
   }
 
   .#{$prefix}--sub-content-right {
     position: absolute;
-    top: 0;
-    right: 1px;
-    width: 1px;
-    height: 100%;
+    block-size: 100%;
+    inline-size: 1px;
+    inset-block-start: 0;
+    inset-inline-end: 1px;
   }
 
   .#{$prefix}--toc__navbar-chevron-left-container[hidden],
@@ -264,39 +259,43 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--toc__navbar-chevron-left-container,
   .#{$prefix}--toc__navbar-chevron-right-container {
-    display: block;
-    width: $spacing-08;
-    height: 100%;
     position: absolute;
-    top: 0;
-    bottom: 0;
     z-index: 1;
+    display: block;
     border: none;
     background-color: $background;
+    block-size: 100%;
+    inline-size: $spacing-08;
+    inset-block: 0;
+
     > {
       svg {
         position: absolute;
         fill: $icon-secondary;
-        top: 50%;
-        left: 50%;
+        inset-block-start: 50%;
+        inset-inline-start: 50%;
         transform: translateX(-50%) translateY(-50%);
       }
     }
+
     &:hover {
       background-color: $layer-hover-03;
       transition-duration: $hover-transition-timing;
+
       > {
         svg {
           fill: $text-primary;
         }
       }
     }
+
     &:focus,
     &:active {
       display: block;
       background-color: $layer-hover-03;
       outline: $spacing-01 solid $background-brand;
       outline-offset: -#{$spacing-01};
+
       &::before,
       &::after {
         display: none;
@@ -304,25 +303,25 @@ $hover-transition-timing: 95ms;
     }
 
     &::before {
-      content: '';
       position: absolute;
-      left: $spacing-08;
-      top: 0;
-      height: 100%;
-      width: $spacing-03;
       z-index: 1;
       background: linear-gradient(
         to right,
         $background,
         rgba(255, 255, 255, 0)
       );
+      block-size: 100%;
+      content: '';
+      inline-size: $spacing-03;
+      inset-block-start: 0;
+      inset-inline-start: $spacing-08;
     }
   }
 
   .#{$prefix}--toc__navbar-chevron-left-container {
-    left: 0;
+    inset-inline-start: 0;
     @include breakpoint(md) {
-      left: -$spacing-05;
+      inset-inline-start: -$spacing-05;
     }
 
     &:hover {
@@ -338,17 +337,16 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--toc__navbar-chevron-right-container {
     z-index: 2;
-    right: -$spacing-01;
+    inset-inline-end: -$spacing-01;
 
     @include breakpoint(md) {
-      right: -$spacing-05;
+      inset-inline-end: -$spacing-05;
     }
 
     &::before {
-      content: '';
-      left: auto;
-      right: $spacing-08;
       background: linear-gradient(to left, $background, rgba(255, 255, 255, 0));
+      content: '';
+      inset-inline: auto $spacing-08;
     }
 
     &:hover {
@@ -400,7 +398,7 @@ $hover-transition-timing: 95ms;
       }
 
       ::slotted(#{$c4d-prefix}-image) {
-        width: 25%;
+        inline-size: 25%;
       }
     }
   }
@@ -408,21 +406,19 @@ $hover-transition-timing: 95ms;
   :host(#{$c4d-prefix}-table-of-contents) .#{$prefix}--tableofcontents__navbar {
     &::before,
     &::after {
-      border-bottom: 1px solid $border-subtle-00;
-      border-top: 1px solid $border-subtle-00;
-      content: '';
-      background-color: $background;
       position: absolute;
-      top: -1px;
-      height: 100%;
-      left: calc(-50vw + 50%);
-      right: 100%;
       z-index: 1;
+      background-color: $background;
+      block-size: 100%;
+      border-block-end: 1px solid $border-subtle-00;
+      border-block-start: 1px solid $border-subtle-00;
+      content: '';
+      inset-block-start: -1px;
+      inset-inline: calc(-50vw + 50%) 100%;
     }
 
     &::after {
-      left: 100%;
-      right: calc(-50vw + 50%);
+      inset-inline: 100% calc(-50vw + 50%);
     }
   }
 
@@ -430,7 +426,7 @@ $hover-transition-timing: 95ms;
     .#{$prefix}--tableofcontents-container {
     position: relative;
     overflow: scroll;
-    height: $spacing-09;
+    block-size: $spacing-09;
   }
 
   :host(#{$c4d-prefix}-table-of-contents)
@@ -438,22 +434,21 @@ $hover-transition-timing: 95ms;
     @include breakpoint-down(lg) {
       position: relative;
       overflow: scroll;
-      height: $spacing-09;
+      block-size: $spacing-09;
     }
   }
 
   :host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
     .#{$prefix}--tableofcontents__content {
-    max-width: none;
     flex: 1;
+    max-inline-size: none;
   }
 
   .#{$c4d-prefix}-ce--table-of-contents__container {
     // TODO: Make the layout CSS grid-based so we can remove this ruleset
     ::slotted(#{$c4d-prefix}-content-block-simple),
     ::slotted(#{$c4d-prefix}-content-block-segmented) {
-      margin-left: calc(-1 * #{$spacing-05});
-      margin-right: calc(-1 * #{$spacing-05});
+      margin-inline: calc(-1 * #{$spacing-05});
     }
   }
 

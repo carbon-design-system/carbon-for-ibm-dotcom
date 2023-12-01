@@ -3,6 +3,7 @@
 packages/*/build/
 packages/*/examples/*/build/
 packages/*/tests/e2e/dist/
+packages/carbon-web-components/scss/
 es
 lib
 !packages/eslint-plugin-react-prop-type-comments/lib

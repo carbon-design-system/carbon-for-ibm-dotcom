@@ -35,19 +35,19 @@
     );
 
     .#{$prefix}--modal-container {
-      background-color: $background;
-      height: calc(100% - $spacing-07);
-      min-height: 80%;
       padding: $spacing-05;
+      background-color: $background;
+      block-size: calc(100% - $spacing-07);
+      min-block-size: 80%;
 
-      @include breakpoint-down('md') {
-        width: fit-content;
+      @include breakpoint-down(md) {
+        inline-size: fit-content;
       }
 
       .#{$prefix}--modal-content {
+        display: grid;
         padding: 0;
         margin: 0;
-        display: grid;
         grid-template-rows: auto 1fr auto;
       }
 
@@ -69,17 +69,16 @@
     }
 
     .#{$c4d-prefix}--locale-modal {
-      padding-left: $spacing-05;
-      margin-bottom: 0;
-      margin-top: $spacing-07;
       display: flex;
+      margin-block: $spacing-07 0;
+      padding-inline-start: $spacing-05;
 
       &.#{$prefix}--modal-content {
-        padding-top: $spacing-03;
-        margin-top: $spacing-07;
+        margin-block-start: $spacing-07;
+        padding-block-start: $spacing-03;
 
         @include breakpoint('lg', $grid-breakpoints) {
-          margin-top: auto;
+          margin-block-start: auto;
         }
       }
 
@@ -92,21 +91,21 @@
 
     button.#{$prefix}--modal-header__label,
     .#{$c4d-prefix}--locale-modal__back .#{$prefix}--modal-header__label {
+      display: inline-flex;
       padding: 0;
       border: none;
       background-color: transparent;
-      display: inline-flex;
 
       &:hover {
-        cursor: pointer;
         color: $background-brand;
+        cursor: pointer;
         text-decoration: underline;
       }
 
       &:focus {
-        outline-width: $spacing-01;
-        outline-offset: -#{$spacing-01};
         outline-color: $background-brand;
+        outline-offset: -#{$spacing-01};
+        outline-width: $spacing-01;
       }
 
       svg {
@@ -116,31 +115,31 @@
 
     .#{$c4d-prefix}--locale-modal__filter {
       z-index: -1;
+      display: none;
+      inset-block-start: $spacing-09;
       opacity: 0;
       transform: translate3d(0, -24px, 0);
       transition: transform 240ms cubic-bezier(0.4, 0.14, 1, 1);
-      display: none;
-      top: $spacing-09;
     }
 
     .#{$prefix}--modal-header {
-      padding-left: $spacing-07;
-      padding-top: $spacing-05;
+      padding-block-start: $spacing-05;
+      padding-inline-start: $spacing-07;
     }
 
     .#{$prefix}--modal-header__label {
-      color: $text-primary;
       display: flex;
       align-items: center;
+      color: $text-primary;
 
       .#{$c4d-prefix}--locale-modal__label-globe {
-        width: to-rem(20px);
-        height: to-rem(20px);
-        margin-left: $spacing-02;
+        block-size: to-rem(20px);
+        inline-size: to-rem(20px);
+        margin-inline-start: $spacing-02;
       }
 
       .#{$c4d-prefix}--locale-modal__label-arrow {
-        margin-right: $spacing-03;
+        margin-inline-end: $spacing-03;
       }
 
       @include type-style('body-compact-02');
@@ -150,7 +149,7 @@
       @include type-style('fluid-heading-04', true);
 
       padding: 0;
-      margin-top: $spacing-04;
+      margin-block-start: $spacing-04;
 
       &:focus {
         outline: none;
@@ -159,7 +158,7 @@
 
     #{$c4d-prefix}-expressive-modal-header {
       padding: 3px 20% 0 $spacing-05;
-      margin-bottom: $spacing-03;
+      margin-block-end: $spacing-03;
     }
   }
 
@@ -183,22 +182,21 @@
 
   .#{$c4d-prefix}--locale-modal-container
     .#{$c4d-prefix}--locale-modal__regions {
-    width: 100%;
-    margin-top: auto;
+    inline-size: 100%;
+    margin-block-start: auto;
     > .#{$prefix}--row {
-      margin-left: 0;
-      margin-right: 0;
+      margin-inline: 0;
     }
   }
 
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link {
-    outline: 1px solid $layer-02;
-    outline-offset: -1px;
-    max-width: none;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: stretch;
+    block-size: 100%;
+    inline-size: 100%;
+    max-inline-size: none;
+    outline: 1px solid $layer-02;
+    outline-offset: -1px;
     text-align: inherit;
 
     &:hover.#{$prefix}--link--disabled {
@@ -206,44 +204,44 @@
     }
 
     &:focus-within {
-      outline-width: $spacing-01;
-      outline-offset: -#{$spacing-01};
       outline-color: $background-brand;
+      outline-offset: -#{$spacing-01};
+      outline-width: $spacing-01;
     }
 
     @include breakpoint-down(lg) {
-      min-height: $spacing-12;
+      min-block-size: $spacing-12;
     }
   }
 
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--card.#{$prefix}--tile {
-    border-bottom: transparent;
+    border-block-end: transparent;
   }
 
   :host(#{$c4d-prefix}-region-item:last-of-type)
     .#{$prefix}--card.#{$prefix}--tile {
-    border-bottom: 1px solid $border-tile;
+    border-block-end: 1px solid $border-tile;
   }
 
   @include breakpoint(lg) {
     :host(#{$c4d-prefix}-region-item) .#{$prefix}--card.#{$prefix}--tile {
-      border-bottom: 1px solid $border-tile;
+      border-block-end: 1px solid $border-tile;
     }
 
     :host(#{$c4d-prefix}-region-item:first-of-type)
       .#{$prefix}--card.#{$prefix}--tile {
-      border-right: transparent;
+      border-inline-end: transparent;
     }
 
     :host(#{$c4d-prefix}-region-item:nth-of-type(3))
       .#{$prefix}--card.#{$prefix}--tile {
-      border-top: transparent;
-      border-right: transparent;
+      border-block-start: transparent;
+      border-inline-end: transparent;
     }
 
     :host(#{$c4d-prefix}-region-item:last-of-type)
       .#{$prefix}--card.#{$prefix}--tile {
-      border-top: transparent;
+      border-block-start: transparent;
     }
   }
 
@@ -260,11 +258,11 @@
   }
 
   :host(#{$c4d-prefix}-locale-item) a.#{$prefix}--link {
-    text-decoration: none;
-    border: $spacing-01 solid transparent;
     display: flex;
-    min-height: $spacing-09;
-    border-bottom: 1px solid $layer-accent-01;
+    border: $spacing-01 solid transparent;
+    border-block-end: 1px solid $layer-accent-01;
+    min-block-size: $spacing-09;
+    text-decoration: none;
     transition: background-color $duration-fast-02 motion(standard, expressive),
       border $duration-fast-02 motion(standard, expressive);
 
@@ -281,9 +279,9 @@
 
   :host(#{$c4d-prefix}-locale-item) {
     .#{$c4d-prefix}--locale-modal__locales__name {
-      width: 50%;
-      color: $text-helper;
       padding: $spacing-04 $spacing-05;
+      color: $text-helper;
+      inline-size: 50%;
       @include type-style('body-compact-02');
 
       &:first-of-type {
@@ -293,40 +291,40 @@
   }
 
   :host(#{$c4d-prefix}-locale-search) {
-    padding-top: $spacing-03;
     display: flex;
-    flex-direction: column;
-    margin-top: $spacing-07;
     overflow: hidden;
+    flex-direction: column;
+    margin-block-start: $spacing-07;
+    padding-block-start: $spacing-03;
 
     #{$prefix}-search::part(input)::placeholder {
       color: $text-secondary;
     }
 
     .#{$c4d-prefix}--locale-modal__filter {
-      opacity: 1;
       z-index: 1;
+      display: flex;
+      overflow: hidden;
+      flex: 1;
+      flex-direction: column;
+      opacity: 1;
       transform: translate3d(0, 0, 0);
       transition: 240ms cubic-bezier(0, 0, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      overflow: hidden;
     }
 
     .#{$c4d-prefix}--locale-modal__regions {
-      visibility: hidden;
       z-index: -1;
-      opacity: 0;
       display: none;
+      opacity: 0;
       transition: 240ms cubic-bezier(0, 0, 0.3, 1);
+      visibility: hidden;
     }
 
     .#{$c4d-prefix}--locale-modal__search {
       position: sticky;
-      top: 0;
       background-color: $background;
-      border-bottom: 1px solid $layer-accent-01;
+      border-block-end: 1px solid $layer-accent-01;
+      inset-block-start: 0;
     }
 
     .#{$c4d-prefix}--locale-modal__search-text {
@@ -343,28 +341,28 @@
   }
 
   :host(#{$c4d-prefix}-locale-modal) #{$c4d-prefix}-expressive-modal-heading {
-    width: fit-content;
+    inline-size: fit-content;
   }
 
   :host(#{$c4d-prefix}-region-item) {
     @include make-col(4, 4);
 
-    @include breakpoint('lg') {
+    @include breakpoint(lg) {
       @include make-col(8, 16);
     }
 
     .#{$prefix}--card__wrapper {
-      height: 100%;
+      block-size: 100%;
     }
 
     ::slotted(div.#{$c4d-prefix}--region-item-footer) {
-      /* stylelint-disable declaration-no-important */
-      // need the !important to prevent CSS reset styles from overwritting margin
-      margin-top: auto !important;
-      width: 100%;
       display: flex;
       justify-content: flex-end;
       color: $border-inverse;
+      inline-size: 100%;
+      /* stylelint-disable declaration-no-important */
+      // need the !important to prevent CSS reset styles from overwritting margin
+      margin-block-start: auto !important;
     }
 
     ::slotted(div.#{$c4d-prefix}--region-item-footer[disabled]) {
