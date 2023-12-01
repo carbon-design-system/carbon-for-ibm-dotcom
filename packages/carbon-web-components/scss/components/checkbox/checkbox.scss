@@ -32,8 +32,8 @@ $css--plex: true !default;
 
   .#{$prefix}--checkbox-label::before,
   .#{$prefix}--checkbox-label::after {
-    background-color: transparent;
     border-color: transparent;
+    background-color: transparent;
   }
 }
 

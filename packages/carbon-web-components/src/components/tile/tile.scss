@@ -75,9 +75,9 @@ $css--plex: true !default;
   @include emit-layout-tokens();
 
   display: block;
-  outline: none;
 
-  margin-bottom: $spacing-03;
+  margin-block-end: $spacing-03;
+  outline: none;
 }
 
 :host(#{$prefix}-selectable-tile) {
@@ -122,7 +122,7 @@ $css--plex: true !default;
   }
 
   .#{$prefix}-ce--expandable-tile--below-the-fold-content {
-    max-height: 0;
+    max-block-size: 0;
     transition: max-height $duration-fast-02 motion(standard, productive);
   }
 }
@@ -152,10 +152,10 @@ $css--plex: true !default;
 
 :host(#{$prefix}-expandable-tile:not([with-interactive])) {
   .#{$prefix}--tile__chevron {
-    background: none;
     border: none;
-    outline: none;
+    background: none;
     cursor: pointer;
+    outline: none;
   }
 }
 

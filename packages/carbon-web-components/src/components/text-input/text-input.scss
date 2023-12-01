@@ -18,13 +18,13 @@ $css--plex: true !default;
   @include emit-layout-tokens();
 
   // the base text-input class has a 100% so we need to propagate it up to the host element
-  width: 100%;
+  inline-size: 100%;
   outline: none;
 }
 
 :host(#{$prefix}-text-input[show-password-visibility-toggle]) {
   .#{$prefix}--text-input {
-    padding-right: $spacing-08;
+    padding-inline-end: $spacing-08;
   }
 }
 

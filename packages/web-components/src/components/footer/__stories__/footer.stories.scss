@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -12,11 +12,11 @@
 c4d-footer-container {
   display: flex;
   align-items: flex-end;
-  min-height: 100vh;
+  min-block-size: 100vh;
 }
 
 .default-language-only {
   @include breakpoint(lg) {
-    padding-top: 15rem;
+    padding-block-start: 15rem;
   }
 }

@@ -14,11 +14,11 @@
 
 .slug-container {
   display: flex;
-  margin-bottom: $spacing-12;
   align-items: flex-start;
+  margin-block-end: $spacing-12;
 
   > * {
-    margin-left: $spacing-07;
+    margin-inline-start: $spacing-07;
   }
 }
 
@@ -35,15 +35,14 @@ p {
 }
 
 h1 {
-  margin-bottom: $spacing-05;
+  margin-block-end: $spacing-05;
 }
 
 hr {
   border: 0;
-  height: 1px;
   background: $border-subtle;
-  margin-top: $spacing-07;
-  margin-bottom: $spacing-07;
+  block-size: 1px;
+  margin-block: $spacing-07;
 }
 
 div #{$prefix}-selectable-tile::-moz-list-bullet {
