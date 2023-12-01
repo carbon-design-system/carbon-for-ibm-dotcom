@@ -22,7 +22,7 @@ const noop = (s) => s;
  * @returns {string} A `lit-html` template of the given CSS.
  */
 function transformToTemplate(css) {
-  return `import { css } from 'lit-element';export default css([${JSON.stringify(
+  return `import { css } from 'lit';export default css([${JSON.stringify(
     css
   )}])`;
 }

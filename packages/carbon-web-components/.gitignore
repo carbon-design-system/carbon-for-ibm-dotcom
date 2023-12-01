@@ -5,7 +5,6 @@ dist
 es
 lib
 node_modules
-/src/internal/vendor
 /scss
 storybook-static
 tests/coverage

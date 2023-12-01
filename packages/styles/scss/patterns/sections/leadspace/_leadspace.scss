@@ -13,12 +13,12 @@
 $btn-min-width: 26;
 
 @mixin gradient($color) {
-  .#{$prefix}--leadspace--gradient {
+  .#{$c4d-prefix}--leadspace--gradient {
     background-color: rgba($color, 0.75);
   }
 
   @include breakpoint(md) {
-    .#{$prefix}--leadspace--gradient {
+    .#{$c4d-prefix}--leadspace--gradient {
       @include breakpoint(md) {
         background-color: transparent;
         background-image: linear-gradient(
@@ -29,7 +29,7 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace--centered {
+    .#{$c4d-prefix}--leadspace--centered {
       &__gradient {
         background: linear-gradient(
           to bottom,
@@ -53,25 +53,21 @@ $btn-min-width: 26;
 
   background-color: $background;
 
-  .#{$prefix}--leadspace--centered__overlay {
+  .#{$c4d-prefix}--leadspace--centered__overlay {
     background-color: $background;
   }
 
-  .#{$prefix}--leadspace__title,
-  .#{$prefix}--leadspace__desc,
-  .#{$prefix}--leadspace--centered__title,
-  .#{$prefix}--leadspace--centered__desc {
+  .#{$c4d-prefix}--leadspace__title,
+  .#{$c4d-prefix}--leadspace__desc,
+  .#{$c4d-prefix}--leadspace--centered__title,
+  .#{$c4d-prefix}--leadspace--centered__desc {
     color: $text-primary;
   }
-  .#{$prefix}--leadspace--centered__desc {
+  .#{$c4d-prefix}--leadspace--centered__desc {
     width: 100%;
-  }
-  .#{$prefix}--buttongroup {
-    padding-left: 0;
-  }
 
   @include breakpoint(md) {
-    .#{$prefix}--leadspace--centered {
+    .#{$c4d-prefix}--leadspace--centered {
       &__overlay {
         background-color: transparent;
       }
@@ -86,10 +82,7 @@ $btn-min-width: 26;
 }
 
 @mixin leadspace {
-  .#{$prefix}--buttongroup {
-    padding-top: $spacing-05;
-  }
-  .#{$prefix}--leadspace {
+  .#{$c4d-prefix}--leadspace {
     &--content__container {
       height: 100%;
       display: flex;
@@ -97,7 +90,7 @@ $btn-min-width: 26;
       justify-content: space-between;
     }
 
-    .#{$prefix}--image {
+    .#{$c4d-prefix}--image {
       position: absolute;
       top: 0;
       width: 100%;
@@ -128,7 +121,7 @@ $btn-min-width: 26;
       max-width: none;
     }
 
-    .#{$prefix}--leadspace__title {
+    .#{$c4d-prefix}--leadspace__title {
       padding-top: 0;
       margin-bottom: $spacing-09;
       @include type-style(display-01, true);
@@ -150,7 +143,7 @@ $btn-min-width: 26;
       min-width: carbon--mini-units($btn-min-width);
     }
 
-    .#{$prefix}--leadspace__desc {
+    .#{$c4d-prefix}--leadspace__desc {
       @include type-style(fluid-heading-03, true);
       @include make-col(4, 4);
     }
@@ -158,8 +151,8 @@ $btn-min-width: 26;
     @include themed-items;
   }
 
-  .#{$prefix}--leadspace--g100,
-  .#{$prefix}--leadspace--g90 {
+  .#{$c4d-prefix}--leadspace--g100,
+  .#{$c4d-prefix}--leadspace--g90 {
     @include theme(
       $g100,
       feature-flag-enabled('enable-css-custom-properties')
@@ -168,12 +161,12 @@ $btn-min-width: 26;
     }
   }
 
-  .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+  .#{$c4d-prefix}--leadspace--productive .#{$c4d-prefix}--leadspace__title {
     @include type-style(fluid-heading-06, true);
   }
 
   @include breakpoint(md) {
-    .#{$prefix}--leadspace {
+    .#{$c4d-prefix}--leadspace {
       margin-right: auto;
       margin-left: auto;
       position: relative;
@@ -196,63 +189,59 @@ $btn-min-width: 26;
         height: 100%;
       }
 
-      .#{$prefix}--image {
+      .#{$c4d-prefix}--image {
         height: auto;
       }
 
-      .#{$prefix}--leadspace__title {
+      .#{$c4d-prefix}--leadspace__title {
         @include make-col(7, 8);
 
         flex-shrink: 1;
       }
 
-      .#{$prefix}--leadspace__desc {
+      .#{$c4d-prefix}--leadspace__desc {
         @include make-col(4, 8);
       }
     }
   }
 
   @include breakpoint(lg) {
-    .#{$prefix}--leadspace {
+    .#{$c4d-prefix}--leadspace {
       padding-top: aspect-ratio(1056px, 480px);
 
-      .#{$prefix}--leadspace__title {
+      .#{$c4d-prefix}--leadspace__title {
         @include make-col(8, 16);
       }
 
-      .#{$prefix}--leadspace__desc {
+      .#{$c4d-prefix}--leadspace__desc {
         @include make-col-ready;
         @include make-col(4, 16);
       }
     }
 
-    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+    .#{$c4d-prefix}--leadspace--productive .#{$c4d-prefix}--leadspace__title {
       @include make-col(7, 16);
     }
   }
 
   @include breakpoint(xlg) {
-    .#{$prefix}--leadspace {
+    .#{$c4d-prefix}--leadspace {
       padding-top: aspect-ratio(1312px, 560px);
     }
   }
 
   @include breakpoint(max) {
-    .#{$prefix}--leadspace {
+    .#{$c4d-prefix}--leadspace {
       padding-top: aspect-ratio(1584px, 640px);
     }
   }
 }
 
 @mixin leadspace-centered {
-  .#{$prefix}--leadspace--centered {
+  .#{$c4d-prefix}--leadspace--centered {
     margin-right: auto;
     margin-left: auto;
     max-width: 99rem;
-    .#{$prefix}--buttongroup {
-      padding-bottom: $spacing-05;
-      padding-top: 0;
-    }
 
     &--content__container {
       display: flex;
@@ -294,11 +283,7 @@ $btn-min-width: 26;
   }
 
   @include breakpoint(md) {
-    .#{$prefix}--leadspace--centered {
-      .#{$prefix}--buttongroup {
-        padding-bottom: 0;
-      }
-
+    .#{$c4d-prefix}--leadspace--centered {
       &__overlay {
         padding-bottom: carbon--mini-units(20);
       }
@@ -327,14 +312,14 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace--centered__image
-      .#{$prefix}--leadspace--centered__overlay {
+    .#{$c4d-prefix}--leadspace--centered__image
+      .#{$c4d-prefix}--leadspace--centered__overlay {
       padding-bottom: carbon--mini-units(32);
     }
   }
 
   @include breakpoint(lg) {
-    .#{$prefix}--leadspace--centered {
+    .#{$c4d-prefix}--leadspace--centered {
       &__title {
         padding-top: $spacing-10;
       }
@@ -345,8 +330,8 @@ $btn-min-width: 26;
       }
     }
   }
-  .#{$prefix}--leadspace--centered--g100,
-  .#{$prefix}--leadspace--centered--g90 {
+  .#{$c4d-prefix}--leadspace--centered--g100,
+  .#{$c4d-prefix}--leadspace--centered--g90 {
     @include theme(
       $g100,
       feature-flag-enabled('enable-css-custom-properties')

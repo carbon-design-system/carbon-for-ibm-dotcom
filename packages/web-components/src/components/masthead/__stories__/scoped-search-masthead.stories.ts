@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
-import on from 'carbon-components/es/globals/js/misc/on.js';
+import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,7 +28,7 @@
   .#{$prefix}--filter-panel__section {
     box-sizing: border-box;
     background-color: $layer-01;
-    padding-bottom: rem(112px);
+    padding-bottom: to-rem(112px);
     margin-top: $spacing-05;
     overflow: initial;
 
@@ -67,14 +67,14 @@
       outline: $spacing-01 solid $focus;
       margin-left: $spacing-01;
       margin-right: $spacing-01;
-      padding-left: rem(14px);
+      padding-left: to-rem(14px);
       z-index: 1;
     }
 
     .#{$prefix}--close__icon {
       position: absolute;
       right: $spacing-05;
-      top: rem(10px);
+      top: to-rem(10px);
     }
   }
 
@@ -161,8 +161,8 @@
   }
 
   :host(#{$c4d-prefix}-filter-panel-checkbox) {
-    padding-left: rem(14px);
-    padding-bottom: rem(6px);
+    padding-left: to-rem(14px);
+    padding-bottom: to-rem(6px);
     @extend .#{$prefix}--checkbox-label;
     @include type-style('body-compact-01');
 
@@ -225,7 +225,7 @@
     .#{$prefix}--close__icon {
       position: absolute;
       right: $spacing-05;
-      top: rem(10px);
+      top: to-rem(10px);
     }
   }
 

@@ -63,7 +63,7 @@
     width: 100%;
 
     @include breakpoint(md) {
-      max-width: rem(640px);
+      max-width: to-rem(640px);
       padding-right: $spacing-07;
     }
   }

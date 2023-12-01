@@ -72,7 +72,7 @@ describe('c4d-carousel', function () {
           carousel!.shadowRoot!.querySelector(
             '.cds--carousel__scroll-contents'
           ) as HTMLElement
-        ).style.left
+        ).style.insetInlineStart
       ).toBe('-400px');
     });
 

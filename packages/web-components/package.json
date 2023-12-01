@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-rc.2",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -90,9 +90,9 @@
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "2.0.0-beta.0",
-    "@carbon/ibmdotcom-styles": "2.0.0-beta.1",
-    "@carbon/ibmdotcom-utilities": "2.0.0-beta.0",
+    "@carbon/ibmdotcom-services": "2.0.0-rc.2",
+    "@carbon/ibmdotcom-styles": "2.0.0-rc.2",
+    "@carbon/ibmdotcom-utilities": "2.0.0-rc.2",
     "@carbon/layout": "^11.20.0",
     "@carbon/motion": "^11.0.0",
     "@carbon/styles": "^1.36.0",
@@ -130,8 +130,8 @@
     "@babel/preset-react": "~7.12.1",
     "@babel/template": "~7.12.0",
     "@babel/traverse": "~7.23.0",
-    "@carbon/ibmdotcom-services-store": "2.0.0-beta.0",
-    "@carbon/icon-helpers": "10.43.1",
+    "@carbon/ibmdotcom-services-store": "1.53.0",
+    "@carbon/icon-helpers": "10.45.1",
     "@carbon/icons": "^11.23.0",
     "@carbon/pictograms-react": "11.45.2",
     "@carbon/react": "^1.36.0",
@@ -173,7 +173,7 @@
     "carbon-icons": "^7.0.5",
     "chalk": "^4.1.1",
     "classnames": "2.3.2",
-    "commander": "^4.1.0",
+    "commander": "^11.1.0",
     "cross-env": "^7.0.0",
     "css-loader": "^5.2.0",
     "cssnano": "^5.0.0",

@@ -57,11 +57,11 @@ $hover-transition-timing: 95ms;
         content: '';
         position: absolute;
         bottom: 0;
-        height: rem(20px);
+        height: to-rem(20px);
         width: $spacing-01;
-        top: rem(14px);
+        top: to-rem(14px);
         background-color: $border-interactive;
-        margin-left: rem(-6px);
+        margin-left: to-rem(-6px);
       }
     }
   }

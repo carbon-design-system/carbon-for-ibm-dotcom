@@ -69,18 +69,6 @@
           margin-top: 0;
         }
       }
-
-      .#{$prefix}--buttongroup {
-        padding-top: 0;
-
-        .#{$prefix}--buttongroup-item {
-          margin-top: 0;
-        }
-      }
-      .#{$prefix}--buttongroup-item {
-        margin-top: 0;
-        padding-top: 0;
-      }
     }
     .#{$prefix}--hr {
       border-color: $toggle-off;

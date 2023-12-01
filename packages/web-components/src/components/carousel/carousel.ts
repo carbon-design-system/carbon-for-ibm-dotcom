@@ -577,6 +577,30 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
           (elems.length - 1);
   }
 
+  private _updateContentsPosition(changedProperties) {
+    // The calculation of the contents position is base on start,
+    // _contentsBaseWidth, _gap and pageSize. If none of them changed, we've
+    // got nothing to do.
+    if (
+      !changedProperties.has('start') &&
+      !changedProperties.has('_contentsBaseWidth') &&
+      !changedProperties.has('_gap') &&
+      !changedProperties.has('pageSize')
+    ) {
+      return;
+    }
+
+    // Hard to update the contents node if it hasn't yet been populated. Return
+    // early if it's falsy.
+    if (!this._contentsNode) {
+      return;
+    }
+
+    const contentsPosition =
+      (-this.start * (this._contentsBaseWidth + this._gap)) / this.pageSize;
+    this._contentsNode.style.insetInlineStart = `${contentsPosition}px`;
+  }
+
   get focusableElements() {
     const { selectorTabbable: selectorTabbableForCarousel } = this
       .constructor as typeof C4DExpressiveModal;
@@ -676,6 +700,16 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
     this._cleanAndCreateObserverIntersection({ create: true });
+    // Reflect the current writing mode in the dir attribute so that we can
+    // make styling adjustments.
+    this.setAttribute(
+      'dir',
+      window.getComputedStyle(this).getPropertyValue('direction')
+    );
+  }
+
+  updated(changedProperties) {
+    this._updateContentsPosition(changedProperties);
   }
 
   render() {
@@ -687,8 +721,6 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
       prevButtonText,
       _defaultPrevButtonText: defaultPrevButtonText,
       start,
-      _contentsBaseWidth: contentsBaseWidth,
-      _gap: gap,
       _pageSize: pageSizeExplicit,
       _total: total,
       _getStatus: status,
@@ -726,9 +758,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
               ? null
               : `${customPropertyPageSize}: ${pageSizeExplicit}`
           )}">
-          <div
-            class="${scrollContentsClasses}"
-            style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
+          <div class="${scrollContentsClasses}">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
@@ -744,7 +774,11 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
             title="${prevButtonText || defaultPrevButtonText}">
             ${CaretLeft20()}
           </button>
-          <span aria-hidden="true">${formatStatus(status)}</span>
+          <span
+            class="${prefix}--carousel__navigation__status"
+            aria-hidden="true"
+            >${formatStatus(status)}</span
+          >
           <span class="${prefix}--visually-hidden" aria-live="polite"></span>
           <button
             part="next-button"

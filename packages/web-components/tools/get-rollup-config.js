@@ -153,7 +153,6 @@ function getRollupConfig({
           '@carbon/ibmdotcom-services',
           '@carbon/ibmdotcom-styles',
           '@carbon/web-components',
-          'carbon-components',
         ],
         extensions: ['.js', '.ts'],
       }),

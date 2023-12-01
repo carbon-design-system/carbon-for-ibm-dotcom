@@ -66,7 +66,7 @@ class C4DFooterComposite extends MediaQueryMixin(
   /**
    * Handles `click` event on the locale button.
    */
-  private _handleClickLocaleButton = () => {
+  private async _handleClickLocaleButton() {
     this.openLocaleModal = true;
 
     // Set 'open' attribute after modal is in dom so CSS can fade it in.
@@ -76,7 +76,7 @@ class C4DFooterComposite extends MediaQueryMixin(
       );
       composite?.setAttribute('open', '');
     });
-  };
+  }
 
   @state()
   _isMobile = this.carbonBreakpoints.lg.matches;

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
 @use '../../components/horizontal-rule';
-@use '../../components/link-with-icon';
+@use '../../components/link-with-icon' as *;
 
 @mixin quote {
   :host(#{$c4d-prefix}-quote) {
@@ -179,7 +179,7 @@
   }
 
   :host(#{$c4d-prefix}-quote-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon;
+    @extend .#{$prefix}--link-with-icon !optional;
 
     display: inline-block;
   }

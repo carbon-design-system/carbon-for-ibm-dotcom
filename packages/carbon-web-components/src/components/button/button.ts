@@ -98,7 +98,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(CarbonBase)) {
    */
   @HostListener('focus')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocus = async (event) => {
+  private _handleFocus = async () => {
     this.openTooltip = true;
   };
 
@@ -108,7 +108,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(CarbonBase)) {
    */
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocusout = async (event) => {
+  private _handleFocusout = async () => {
     this.openTooltip = false;
   };
 

@@ -32,13 +32,8 @@ const types = {
 };
 
 export const Default = (args) => {
-  const {
-    copy,
-    quoteMark,
-    sourceHeading,
-    sourceCopy,
-    sourceBottomCopy
-  } = args?.Quote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+    args?.Quote ?? {};
   return (
     <C4DQuote mark-type={quoteMark}>
       {copy}
