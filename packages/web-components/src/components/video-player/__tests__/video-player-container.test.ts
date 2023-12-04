@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,15 +9,15 @@
 
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import convertValue from '../../../../tests/utils/convert-value';
-import { DDSVideoPlayerContainerMixin } from '../video-player-container';
+import { C4DVideoPlayerContainerMixin } from '../video-player-container';
 
-describe('dds-video-player-container', function () {
+describe('c4d-video-player-container', function () {
   let videoPlayerContainer;
   let videoPlayer;
 
   beforeEach(function () {
     videoPlayer = document.body.appendChild(document.createElement('div'));
-    const VideoPlayerContainer = DDSVideoPlayerContainerMixin(
+    const VideoPlayerContainer = C4DVideoPlayerContainerMixin(
       class {
         _videoPlayer = videoPlayer;
 

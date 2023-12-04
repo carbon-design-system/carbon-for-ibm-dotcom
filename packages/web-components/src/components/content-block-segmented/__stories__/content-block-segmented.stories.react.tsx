@@ -8,24 +8,24 @@
  */
 
 import React from 'react';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta.js';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading.js';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta.js';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading.js';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 // eslint-disable-next-line max-len
-import DDSContentBlockSegmented from '@carbon/ibmdotcom-web-components/es/components-react/content-block-segmented/content-block-segmented';
+import C4DContentBlockSegmented from '@carbon/ibmdotcom-web-components/es/components-react/content-block-segmented/content-block-segmented';
 // eslint-disable-next-line max-len
-import DDSContentBlockSegmentedItem from '@carbon/ibmdotcom-web-components/es/components-react/content-block-segmented/content-block-segmented-item';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading.js';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy.js';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import DDSLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container.js';
+import C4DContentBlockSegmentedItem from '@carbon/ibmdotcom-web-components/es/components-react/content-block-segmented/content-block-segmented-item';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading.js';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy.js';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container.js';
 import { select, text } from '@storybook/addon-knobs';
 import readme from './README.stories.react.mdx';
 
@@ -59,11 +59,15 @@ const complementaryStyleSchemes = {
 };
 
 const image = (
-  <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Mauris iaculis eget dolor nec hendrerit.">
-    <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
-    <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
-    <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-  </DDSImage>
+  <C4DImage
+    slot="media"
+    alt="Image alt text"
+    default-src={imgLg16x9}
+    heading="Mauris iaculis eget dolor nec hendrerit.">
+    <C4DImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
+    <C4DImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
+    <C4DImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
+  </C4DImage>
 );
 
 const contentItemCopy =
@@ -77,7 +81,11 @@ const contentItemCopy =
   'turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium ' +
   'elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.';
 
-const video = <DDSVideoPlayerContainer slot="media" video-id="0_uka1msg4"></DDSVideoPlayerContainer>;
+const video = (
+  <C4DVideoPlayerContainer
+    slot="media"
+    video-id="0_uka1msg4"></C4DVideoPlayerContainer>
+);
 
 const linkListItems = [
   'Containerization A Complete Guide',
@@ -86,104 +94,151 @@ const linkListItems = [
   'Explore AI use cases in all industries',
 ];
 
-export const Default = args => {
-  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = args?.ContentBlockSegmented ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+export const Default = (args) => {
+  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } =
+    args?.ContentBlockSegmented ?? {};
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent && headingComponent.shadowRoot) {
     headingComponent.shadowRoot.textContent = heading;
   }
 
   return (
-    <DDSContentBlockSegmented complementary-style-scheme={complementaryStyleScheme}>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
+    <C4DContentBlockSegmented
+      complementary-style-scheme={complementaryStyleScheme}>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DContentBlockCopy>{copy}</C4DContentBlockCopy>
       {image}
-      <DDSContentBlockSegmentedItem>
-        <DDSContentGroupHeading>Lorem ipsum dolor sit amet.</DDSContentGroupHeading>
-        <DDSContentItemCopy>{contentItemCopy}</DDSContentItemCopy>
-        <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://example.com">
+      <C4DContentBlockSegmentedItem>
+        <C4DContentGroupHeading>
+          Lorem ipsum dolor sit amet.
+        </C4DContentGroupHeading>
+        <C4DContentItemCopy>{contentItemCopy}</C4DContentItemCopy>
+        <C4DTextCTA
+          slot="footer"
+          cta-type="local"
+          icon-placement="right"
+          href="https://example.com">
           Lorem Ipsum dolor sit
-        </DDSTextCTA>
-      </DDSContentBlockSegmentedItem>
-      <DDSContentBlockSegmentedItem>
-        <DDSContentGroupHeading>Lorem ipsum dolor sit amet.</DDSContentGroupHeading>
-        <DDSContentItemCopy>{contentItemCopy}</DDSContentItemCopy>
+        </C4DTextCTA>
+      </C4DContentBlockSegmentedItem>
+      <C4DContentBlockSegmentedItem>
+        <C4DContentGroupHeading>
+          Lorem ipsum dolor sit amet.
+        </C4DContentGroupHeading>
+        <C4DContentItemCopy>{contentItemCopy}</C4DContentItemCopy>
         {video}
-        <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://example.com">
+        <C4DTextCTA
+          slot="footer"
+          cta-type="local"
+          icon-placement="right"
+          href="https://example.com">
           Lorem Ipsum dolor sit
-        </DDSTextCTA>
-      </DDSContentBlockSegmentedItem>
+        </C4DTextCTA>
+      </C4DContentBlockSegmentedItem>
       {ctaStyle === 'text' ? (
-        <DDSTextCTA slot="footer" cta-type={ctaType} icon-placement="right" href={hrefsForType[ctaType]}>
+        <C4DTextCTA
+          slot="footer"
+          cta-type={ctaType}
+          icon-placement="right"
+          href={hrefsForType[ctaType]}>
           Lorem ipsum dolor
-        </DDSTextCTA>
+        </C4DTextCTA>
       ) : (
-        <DDSCardLinkCTA slot="footer" cta-type={ctaType} href={hrefsForType[ctaType]}>
-          <DDSCardLinkHeading>Lorem ipsum dolor</DDSCardLinkHeading>
-          <DDSCardCTAFooter />
-        </DDSCardLinkCTA>
+        <C4DCardLinkCTA
+          slot="footer"
+          cta-type={ctaType}
+          href={hrefsForType[ctaType]}>
+          <C4DCardLinkHeading>Lorem ipsum dolor</C4DCardLinkHeading>
+          <C4DCardCTAFooter />
+        </C4DCardLinkCTA>
       )}
-    </DDSContentBlockSegmented>
+    </C4DContentBlockSegmented>
   );
 };
 
-export const withLinkList = args => {
-  const { blockHeading, heading, copy, ctaStyle, ctaType, complementaryStyleScheme, totalLinks } =
-    args?.ContentBlockSegmented ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+export const withLinkList = (args) => {
+  const {
+    blockHeading,
+    heading,
+    copy,
+    ctaStyle,
+    ctaType,
+    complementaryStyleScheme,
+    totalLinks,
+  } = args?.ContentBlockSegmented ?? {};
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent && headingComponent.shadowRoot) {
     headingComponent.shadowRoot.textContent = blockHeading;
   }
 
   return (
-    <DDSContentBlockSegmented complementary-style-scheme={complementaryStyleScheme}>
-      <DDSContentBlockHeading>{blockHeading}</DDSContentBlockHeading>
-      <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
+    <C4DContentBlockSegmented
+      complementary-style-scheme={complementaryStyleScheme}>
+      <C4DContentBlockHeading>{blockHeading}</C4DContentBlockHeading>
+      <C4DContentBlockCopy>{copy}</C4DContentBlockCopy>
       {image}
-      <DDSContentBlockSegmentedItem>
-        <DDSContentGroupHeading>Lorem ipsum dolor sit amet.</DDSContentGroupHeading>
-        <DDSContentItemCopy>{contentItemCopy}</DDSContentItemCopy>
-        <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://example.com">
+      <C4DContentBlockSegmentedItem>
+        <C4DContentGroupHeading>
+          Lorem ipsum dolor sit amet.
+        </C4DContentGroupHeading>
+        <C4DContentItemCopy>{contentItemCopy}</C4DContentItemCopy>
+        <C4DTextCTA
+          slot="footer"
+          cta-type="local"
+          icon-placement="right"
+          href="https://example.com">
           Lorem Ipsum dolor sit
-        </DDSTextCTA>
-      </DDSContentBlockSegmentedItem>
-      <DDSContentBlockSegmentedItem>
-        <DDSContentGroupHeading>Lorem ipsum dolor sit amet.</DDSContentGroupHeading>
-        <DDSContentItemCopy>{contentItemCopy}</DDSContentItemCopy>
+        </C4DTextCTA>
+      </C4DContentBlockSegmentedItem>
+      <C4DContentBlockSegmentedItem>
+        <C4DContentGroupHeading>
+          Lorem ipsum dolor sit amet.
+        </C4DContentGroupHeading>
+        <C4DContentItemCopy>{contentItemCopy}</C4DContentItemCopy>
         {image}
-        <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://example.com">
+        <C4DTextCTA
+          slot="footer"
+          cta-type="local"
+          icon-placement="right"
+          href="https://example.com">
           Lorem Ipsum dolor sit
-        </DDSTextCTA>
-      </DDSContentBlockSegmentedItem>
-      <DDSLinkList type="default" slot="complementary">
-        <DDSLinkListHeading>{heading}</DDSLinkListHeading>
-        {linkListItems.slice(0, totalLinks).map(linkListCopy => (
-          <DDSLinkListItemCardCTA href="https://example.com" cta-type="local">
+        </C4DTextCTA>
+      </C4DContentBlockSegmentedItem>
+      <C4DLinkList type="default" slot="complementary">
+        <C4DLinkListHeading>{heading}</C4DLinkListHeading>
+        {linkListItems.slice(0, totalLinks).map((linkListCopy) => (
+          <C4DLinkListItemCTA href="https://example.com" cta-type="local">
             <p>{linkListCopy}</p>
-            <DDSCardCTAFooter />
-          </DDSLinkListItemCardCTA>
+          </C4DLinkListItemCTA>
         ))}
-      </DDSLinkList>
+      </C4DLinkList>
       {ctaStyle === 'text' ? (
-        <DDSTextCTA slot="footer" cta-type={ctaType} icon-placement="right" href={hrefsForType[ctaType]}>
+        <C4DTextCTA
+          slot="footer"
+          cta-type={ctaType}
+          icon-placement="right"
+          href={hrefsForType[ctaType]}>
           Lorem ipsum dolor
-        </DDSTextCTA>
+        </C4DTextCTA>
       ) : (
-        <DDSCardLinkCTA slot="footer" cta-type={ctaType} href={hrefsForType[ctaType]}>
-          <DDSCardLinkHeading>Lorem ipsum dolor</DDSCardLinkHeading>
-          <DDSCardCTAFooter />
-        </DDSCardLinkCTA>
+        <C4DCardLinkCTA
+          slot="footer"
+          cta-type={ctaType}
+          href={hrefsForType[ctaType]}>
+          <C4DCardLinkHeading>Lorem ipsum dolor</C4DCardLinkHeading>
+          <C4DCardCTAFooter />
+        </C4DCardLinkCTA>
       )}
-    </DDSContentBlockSegmented>
+    </C4DContentBlockSegmented>
   );
 };
 
 withLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockSegmented: () => ({
         blockHeading: text('Heading (required)', 'Lorem ipsum dolor sit amet.'),
@@ -229,16 +284,18 @@ export default {
   title: 'Components/Content block segmented',
   decorators: [
     (story, { parameters }) => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className={`bx--no-gutter ${parameters.gridContentClasses}`}>{story()}</div>
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className={`cds--no-gutter ${parameters.gridContentClasses}`}>
+            {story()}
+          </div>
         </div>
       </div>
     ),
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
+    gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
     knobs: {
       ContentBlockSegmented: () => ({

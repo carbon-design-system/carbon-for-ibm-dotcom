@@ -7,35 +7,35 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXTabs from '../../../internal/vendor/@carbon/web-components/components/tabs/tabs.js';
-import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import CDSTabs from '../../../internal/vendor/@carbon/web-components/components/tabs/tabs.js';
+import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Cloud Megamenu Tabs.
  *
- * @element dds-cloud-megamenu-tabs
+ * @element c4d-cloud-megamenu-tabs
  */
-@customElement(`${ddsPrefix}-cloud-megamenu-tabs`)
-class DDSCloudMegaMenuTabs extends BXTabs {
+@customElement(`${c4dPrefix}-cloud-megamenu-tabs`)
+class C4DCloudMegaMenuTabs extends CDSTabs {
   /**
    * A selector that will return megamenu tabs.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-cloud-megamenu-tab`;
+    return `${c4dPrefix}-cloud-megamenu-tab`;
   }
 
   /**
    * A selector that will return selected items.
    */
   static get selectorItemSelected() {
-    return `${ddsPrefix}-cloud-megamenu-tab[selected]`;
+    return `${c4dPrefix}-cloud-megamenu-tab[selected]`;
   }
 
   static styles = styles;
 }
 
-export default DDSCloudMegaMenuTabs;
+export default C4DCloudMegaMenuTabs;

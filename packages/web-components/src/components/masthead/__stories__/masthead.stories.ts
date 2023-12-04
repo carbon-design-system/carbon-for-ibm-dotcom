@@ -7,22 +7,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
-import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import inPercy from '@percy-io/in-percy';
+import { html } from 'lit';
+import { select, boolean } from '@storybook/addon-knobs';
+import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import DDSLeftNav from '../left-nav';
+import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { mastheadLinks as links, mastheadL1Data, logoData } from './links';
-import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
+import {
+  UNAUTHENTICATED_STATUS,
+  MASTHEAD_AUTH_METHOD,
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
 } from './profile-items';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -59,6 +62,12 @@ const scopeParameters = [
   },
 ];
 
+const dataEndpoints = {
+  cloud: '/common/carbon-for-ibm-dotcom/translations/cloud-masthead',
+  v2: '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2',
+  'v2.1': '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1',
+};
+
 async function customTypeaheadApiFunction(searchVal) {
   return fetch(
     `https://ibm.com/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
@@ -81,52 +90,105 @@ export const Default = (args) => {
     customProfileLogin,
     hasProfile,
     hasSearch,
+    hasContact,
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
+    authMethod,
+    useMock,
   } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+          <c4d-masthead-composite
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            has-contact="${hasContact}"
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['v2.1']}"
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            user-status="${ifNonEmpty(userStatus)}"
+            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
+            has-contact="${hasContact}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${authMethod}"></c4d-masthead-container>
+        `}
+  `;
+};
+
+export const withCloudData = (args) => {
+  const {
+    customProfileLogin,
+    hasSearch,
+    selectedMenuItem,
+    searchPlaceholder,
+    useMock,
+  } = args?.MastheadComposite ?? {};
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <c4d-masthead-composite
+            platform="Cloud"
+            .platformUrl="https://www.ibm.com/cloud"
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
+            has-search="${hasSearch}"
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
+              unauthenticatedProfileItems
+            )}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-composite>
+        `
+      : html`
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['cloud']}"
+            platform="Cloud"
+            .platformUrl="https://www.ibm.com/cloud"
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
+            has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-container>
         `}
   `;
 };
 
 export const WithCustomTypeahead = (args) => {
-  const { useMock } = args?.Other ?? {};
+  const { useMock } = args?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener(
-    'dds-search-with-typeahead-input',
+    'c4d-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
         (e as CustomEvent).detail.value
       );
       document.dispatchEvent(
-        new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+        new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
       );
     }
   );
@@ -137,12 +199,20 @@ export const WithCustomTypeahead = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            ?custom-typeahead-api=${true}></dds-masthead-composite>
+          <c4d-masthead-composite
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
+              unauthenticatedProfileItems
+            )}"
+            ?custom-typeahead-api=${true}></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            ?custom-typeahead-api=${true}></dds-masthead-container>
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['v2.1']}"
+            ?custom-typeahead-api=${true}></c4d-masthead-container>
         `}
   `;
 };
@@ -168,26 +238,33 @@ WithCustomTypeahead.story = {
 };
 
 export const searchOpenOnload = (args) => {
-  const { searchPlaceholder } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+  const { searchPlaceholder, useMock } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
+              unauthenticatedProfileItems
+            )}"
             activate-search="true"
-            searchPlaceholder="${ifNonNull(
+            searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></dds-masthead-composite>
+            )}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['v2.1']}"
             activate-search="true"
-            searchPlaceholder="${ifNonNull(
+            searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></dds-masthead-container>
+            )}"></c4d-masthead-container>
         `}
   `;
 };
@@ -207,22 +284,29 @@ searchOpenOnload.story = {
 };
 
 export const withPlatform = (args) => {
-  const { platform, platformUrl } = args?.WithPlatform ?? {};
-  const { useMock } = args?.Other ?? {};
+  const { platform, platformUrl, useMock } = args?.WithPlatform ?? {};
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-composite>
+          <c4d-masthead-composite
+            platform="${ifNonEmpty(platform)}"
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
+              unauthenticatedProfileItems
+            )}"
+            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-container>
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['v2.1']}"
+            platform="${ifNonEmpty(platform)}"
+            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-container>
         `}
   `;
 };
@@ -238,11 +322,13 @@ withPlatform.story = {
           'platform url (platformUrl)',
           'https://www.ibm.com'
         ),
+        useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
     propsSet: {
       default: {
         MastheadComposite: {
+          platform: 'Platform',
           hasProfile: 'true',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
@@ -255,26 +341,36 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+  const { selectedMenuItem, selectedMenuItemL1, useMock } =
+    args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
+              unauthenticatedProfileItems
+            )}"
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(
-              selectedMenuItem
-            )}"></dds-masthead-composite>
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            selected-menu-item-l1="${ifNonEmpty(
+              selectedMenuItemL1
+            )}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['v2.1']}"
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(
-              selectedMenuItem
-            )}"></dds-masthead-container>
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            selected-menu-item-l1="${ifNonEmpty(
+              selectedMenuItemL1
+            )}"></c4d-masthead-container>
         `}
   `;
 };
@@ -285,9 +381,14 @@ withL1.story = {
     knobs: {
       MastheadComposite: () => ({
         selectedMenuItem: textNullable(
-          'selected menu item (selected-menu-item)',
-          'Products'
+          'selected menu item in L0 (selected-menu-item)',
+          'Consulting'
         ),
+        selectedMenuItemL1: textNullable(
+          'selected menu item in L1 (selected-menu-item-l1)',
+          ''
+        ),
+        useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
     propsSet: {
@@ -305,24 +406,31 @@ withL1.story = {
 };
 
 export const withAlternateLogoAndTooltip = (args) => {
-  const { mastheadLogo } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+  const { mastheadLogo, useMock } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
+              unauthenticatedProfileItems
+            )}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : null}"></dds-masthead-composite>
+              : null}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['v2.1']}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : null}"></dds-masthead-container>
+              : null}"></c4d-masthead-container>
         `}
   `;
 };
@@ -357,21 +465,28 @@ withAlternateLogoAndTooltip.story = {
   },
 };
 
-export const WithScopedSearch = ({ parameters }) => {
-  const { useMock } = parameters?.props?.Other ?? {};
-
+export const WithScopedSearch = (args) => {
+  const { useMock } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            .scopeParameters=${scopeParameters}></dds-masthead-composite>
+          <c4d-masthead-composite
+            .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
+              unauthenticatedProfileItems
+            )}"
+            .scopeParameters=${scopeParameters}></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            .scopeParameters=${scopeParameters}></dds-masthead-container>
+          <c4d-masthead-container
+            data-endpoint="${dataEndpoints['v2.1']}"
+            .scopeParameters=${scopeParameters}></c4d-masthead-container>
         `}
   `;
 };
@@ -402,13 +517,31 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('c4d-left-nav');
           if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+            (leftNav as c4dLeftNav).expanded = false;
           }
         });
       }
-      return story();
+      return html`
+        ${story()}
+        <script>
+          window.digitalData.page.pageInfo.ibm.contactModuleConfiguration = {
+            contactInformationBundleKey: {
+              focusArea: 'Cloud - Automation - All',
+              languageCode: 'en',
+              regionCode: 'US',
+            },
+            contactModuleTranslationKey: {
+              languageCode: 'en',
+              regionCode: 'US',
+            },
+          };
+        </script>
+        <script
+          src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js"
+          defer></script>
+      `;
     },
   ],
   parameters: {
@@ -416,6 +549,7 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: () => ({
+        platform: textNullable('platform name (platform)', ''),
         hasProfile: select(
           'show the profile functionality (has-profile)',
           ['true', 'false'],
@@ -426,13 +560,18 @@ export default {
           ['true', 'false'],
           'true'
         ),
+        hasContact: select(
+          'Contact us button visibility (has-contact)',
+          ['true', 'false'],
+          'true'
+        ),
         searchPlaceholder: textNullable(
           'search placeholder (searchPlaceholder)',
           'Search all of IBM'
         ),
         selectedMenuItem: textNullable(
           'selected menu item (selected-menu-item)',
-          'Consulting & Services'
+          'Consulting'
         ),
         userStatus: select(
           'The user authenticated status (user-status)',
@@ -440,26 +579,14 @@ export default {
           userStatuses.unauthenticated
         ),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN &&
+          C4D_CUSTOM_PROFILE_LOGIN &&
           textNullable(
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'
           ),
+        useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
-    props: (() => {
-      // Lets `<dds-masthead-container>` load the nav links
-      const useMock =
-        inPercy() || new URLSearchParams(window.location.search).has('mock');
-      return {
-        MastheadComposite: {
-          navLinks: !useMock ? undefined : links,
-        },
-        Other: {
-          useMock,
-        },
-      };
-    })(),
     propsSet: {
       default: {
         MastheadComposite: {
@@ -470,7 +597,7 @@ export default {
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
           customProfileLogin: 'https://www.example.com/',
-          navLinks: links,
+          useMockData: false,
         },
       },
     },

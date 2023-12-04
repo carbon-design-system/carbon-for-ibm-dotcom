@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -34,7 +34,7 @@ const images = {
 
 const videos = {
   none: null,
-  'Speed of AI Test Video': '1_9h94wo6b',
+  'Speed of AI Test Video': '0_ibuqxqbe',
 };
 
 export const Default = (args) => {
@@ -51,22 +51,22 @@ export const Default = (args) => {
     <style>
       ${styles}
     </style>
-    <dds-expressive-modal
+    <c4d-expressive-modal
       expressive-size="full-width"
       mode="lightbox"
       ?open="${open}"
-      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
-      @dds-expressive-modal-closed="${onClose}">
-      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-      <dds-lightbox-media-viewer
-        alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-        description="${ifNonNull(description)}"
-        title="${ifNonNull(title)}"
-        video-id="${ifNonNull(videoId)}"
-        ?hideCaption="${ifNonNull(hideCaption)}">
-      </dds-lightbox-media-viewer>
-    </dds-expressive-modal>
+      @c4d-expressive-modal-beingclosed="${handleBeforeClose}"
+      @c4d-expressive-modal-closed="${onClose}">
+      <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+      <c4d-lightbox-media-viewer
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}"
+        description="${ifDefined(description)}"
+        title="${ifDefined(title)}"
+        video-id="${ifDefined(videoId)}"
+        ?hideCaption="${ifDefined(hideCaption)}">
+      </c4d-lightbox-media-viewer>
+    </c4d-expressive-modal>
   `;
 };
 
@@ -108,7 +108,7 @@ Default.story = {
           `,
           title: 'Curabitur malesuada varius mi eu posuere',
           hideCaption: false,
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
           customVideoName: 'Custom video name',
           customVideoDescription: 'This is a custom video description',
         },
@@ -129,25 +129,25 @@ export const WithCarousel = (args) => {
     <style>
       ${styles}
     </style>
-    <dds-expressive-modal
+    <c4d-expressive-modal
       expressive-size="full-width"
       mode="lightbox"
       ?open="${open}"
-      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
-      @dds-expressive-modal-closed="${onClose}">
-      <span slot="header" class="bx--visually-hidden"
+      @c4d-expressive-modal-beingclosed="${handleBeforeClose}"
+      @c4d-expressive-modal-closed="${onClose}">
+      <span slot="header" class="cds--visually-hidden"
         >Lightbox modal with carousel</span
       >
-      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-      <dds-carousel page-size="1">
-        <dds-lightbox-media-viewer
+      <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+      <c4d-carousel page-size="1">
+        <c4d-lightbox-media-viewer
           video-id="${videos['Speed of AI Test Video']}"
           title="Praesent at erat."
           description="
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at erat eu lectus elementum hendrerit sed sed lacus.
             Morbi feugiat tortor purus, id pretium elit scelerisque id. Donec dignissim ac purus id faucibus.
-          "></dds-lightbox-media-viewer>
-        <dds-lightbox-media-viewer
+          "></c4d-lightbox-media-viewer>
+        <c4d-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
           alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="Donec dignissim ac purus id faucibus."
@@ -155,16 +155,16 @@ export const WithCarousel = (args) => {
             Proin ut leo condimentum, consequat risus quis, mattis lacus. Donec malesuada convallis erat ut luctus.
             Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
             Vivamus non ultricies libero. Fusce scelerisque sit amet ex finibus scelerisque.
-          "></dds-lightbox-media-viewer>
-        <dds-lightbox-media-viewer
+          "></c4d-lightbox-media-viewer>
+        <c4d-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
           alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="Donec malesuada convallis."
           description="
             In ac luctus mauris. Sed egestas neque nec lorem pharetra congue. Vestibulum quis mi ac nibh dictum vulputate.
             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed et justo massa.
-          "></dds-lightbox-media-viewer>
-        <dds-lightbox-media-viewer
+          "></c4d-lightbox-media-viewer>
+        <c4d-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
           alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="Fusce scelerisque sit amet ex finibus"
@@ -177,14 +177,14 @@ export const WithCarousel = (args) => {
             convallis tempor dui. Proin sodales congue dictum. Proin arcu nisl, ultricies eu dolor ut, posuere placerat arcu.
             Fusce placerat purus vel libero consectetur, id fringilla ex egestas. Vestibulum ante ipsum primis in faucibus orci
             luctus et ultrices posuere cubilia curae; In sodales faucibus mi vel ultricies.
-          "></dds-lightbox-media-viewer>
-        <dds-lightbox-media-viewer
+          "></c4d-lightbox-media-viewer>
+        <c4d-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
           alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="In ac luctus mauris."
-          description="Aenean vel sem velit. Mauris malesuada eleifend leo vel interdum. In eu aliquet lacus, eu feugiat turpis."></dds-lightbox-media-viewer>
-      </dds-carousel>
-    </dds-expressive-modal>
+          description="Aenean vel sem velit. Mauris malesuada eleifend leo vel interdum. In eu aliquet lacus, eu feugiat turpis."></c4d-lightbox-media-viewer>
+      </c4d-carousel>
+    </c4d-expressive-modal>
   `;
 };
 
@@ -201,11 +201,11 @@ export default {
       Modal: () => ({
         open: boolean('Open (open)', true),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in c4d-expressive-modal-beingclosed event)',
           false
         ),
-        onBeforeClose: action('dds-expressive-modal-beingclosed'),
-        onClose: action('dds-expressive-modal-closed'),
+        onBeforeClose: action('c4d-expressive-modal-beingclosed'),
+        onClose: action('c4d-expressive-modal-closed'),
       }),
     },
     propsSet: {
@@ -213,8 +213,8 @@ export default {
         Modal: {
           open: true,
           disableClose: false,
-          onBeforeClose: 'dds-expressive-modal-beingclosed',
-          onClose: 'dds-expressive-modal-closed',
+          onBeforeClose: 'c4d-expressive-modal-beingclosed',
+          onClose: 'c4d-expressive-modal-closed',
         },
       },
     },

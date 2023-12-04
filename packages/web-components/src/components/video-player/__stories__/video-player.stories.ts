@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, text } from '@storybook/addon-knobs';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
@@ -17,12 +17,12 @@ import '../../lightbox-media-viewer/lightbox-video-player-container';
 export const Default = (args) => {
   const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
@@ -30,13 +30,13 @@ export const aspectRatio1x1 = (args) => {
   const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
@@ -44,13 +44,13 @@ export const aspectRatio4x3 = (args) => {
   const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
@@ -64,16 +64,16 @@ export const withLightboxMediaViewer = (args) => {
     customVideoDescription,
   } = args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
-      video-description="${ifNonNull(customVideoDescription)}"
+      video-description="${ifDefined(customVideoDescription)}"
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}
       playing-mode="lightbox">
-    </dds-video-player-container>
-    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
+    </c4d-video-player-container>
+    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
   `;
 };
 
@@ -87,7 +87,7 @@ aspectRatio4x3.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         };
       },
     },
@@ -98,7 +98,7 @@ aspectRatio4x3.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         },
       },
     },
@@ -115,7 +115,7 @@ aspectRatio1x1.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         };
       },
     },
@@ -126,7 +126,7 @@ aspectRatio1x1.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         },
       },
     },
@@ -147,7 +147,7 @@ withLightboxMediaViewer.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         };
       },
     },
@@ -159,7 +159,7 @@ withLightboxMediaViewer.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         },
       },
     },
@@ -170,9 +170,9 @@ export default {
   title: 'Components/Video player',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-lg-8">${story()}</div>
         </div>
       </div>
     `,
@@ -185,7 +185,7 @@ export default {
         caption: text('Custom caption (caption):', ''),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnail: text('Custom thumbnail (thumbnail):', ''),
-        videoId: '1_9h94wo6b',
+        videoId: '0_ibuqxqbe',
       }),
     },
     propsSet: {
@@ -194,7 +194,7 @@ export default {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         },
       },
     },

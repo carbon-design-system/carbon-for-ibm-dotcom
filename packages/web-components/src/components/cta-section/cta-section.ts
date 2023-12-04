@@ -7,23 +7,24 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, property } from 'lit-element';
+import { css } from 'lit';
+import { property } from 'lit/decorators.js';
 import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspectRatio/parseAspectRatio.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
-import DDSContentSection from '../content-section/content-section';
+import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The CTA SECTION pattern
  *
- * @element dds-cta-section
+ * @element c4d-cta-section
  */
-@customElement(`${ddsPrefix}-cta-section`)
-class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
+@customElement(`${c4dPrefix}-cta-section`)
+class C4DCTASection extends StableSelectorMixin(C4DContentSection) {
   @property({ attribute: 'logo-ratio' })
   logoRatio?;
 
@@ -40,7 +41,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--cta-section`;
+    return `${c4dPrefix}--cta-section`;
   }
 
   static get styles() {
@@ -50,5 +51,10 @@ class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   }
 }
 
+console.warn(
+  'The cta-section component has been deprecated in favor of the content-section/block and content-item components. ' +
+    'See content-section/block amd content-item documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTASection;
+export default C4DCTASection;

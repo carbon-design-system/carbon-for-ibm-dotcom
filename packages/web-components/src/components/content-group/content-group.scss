@@ -1,23 +1,8 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/styles';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-group/content-group';
-
-:host(#{$dds-prefix}-content-group),
-:host(#{$dds-prefix}-content-group-copy),
-:host(#{$dds-prefix}-content-group-paragraph) {
-  display: block;
-}
-
-:host(#{$dds-prefix}-content-group-copy) {
-  @include carbon--type-style('body-long-02');
-}
+@use '@carbon/ibmdotcom-styles/scss/components/content-group';

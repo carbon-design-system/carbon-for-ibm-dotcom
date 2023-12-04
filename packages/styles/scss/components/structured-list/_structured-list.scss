@@ -1,13 +1,17 @@
 //
-// Copyright IBM Corp. 2019, 2023
+// Copyright IBM Corp. 2019, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../globals/imports';
-@import '../../globals/vars';
-@import '@carbon/web-components/scss/components/structured-list/structured-list';
+@use '@carbon/styles/scss/components/structured-list' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
 
 // Overridden column spanning
 @mixin structured-list-colspan($colNumber) {
@@ -19,7 +23,7 @@
     flex: 0 0 var(--width);
   }
 
-  @include carbon--breakpoint('md') {
+  @include breakpoint(md) {
     ::slotted(*:nth-child(#{$colNumber})) {
       --cols: var(
         --col-span-md-#{$colNumber},
@@ -32,7 +36,7 @@
     }
   }
 
-  @include carbon--breakpoint('lg') {
+  @include breakpoint(lg) {
     ::slotted(*:nth-child(#{$colNumber})) {
       --cols: var(
         --col-span-lg-#{$colNumber},
@@ -53,7 +57,7 @@
   $value: null;
 
   @for $i from $begin through $end {
-    $new-value: ($i * 50vw) 0 $ui-03;
+    $new-value: ($i * 50vw) 0 $layer-accent-01;
     $value: append($value, $new-value);
 
     @if $i != $end {
@@ -67,31 +71,31 @@
 @mixin structured-list {
   // Inherited Table Styles
   .#{$prefix}--structured-list-header-row,
-  :host(#{$dds-prefix}-structured-list-header-row) {
+  :host(#{$c4d-prefix}-structured-list-header-row) {
     border-bottom: none;
   }
 
   .#{$prefix}--structured-list-header-cell,
-  :host(#{$dds-prefix}-structured-list-header-cell) {
+  :host(#{$c4d-prefix}-structured-list-header-cell) {
     @extend .#{$prefix}--structured-list-th;
 
     padding-inline: $spacing-05;
     padding-block-end: $spacing-05;
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $layer-accent-01;
   }
 
   .#{$prefix}--structured-list-group,
-  :host(#{$dds-prefix}-structured-list-group) {
+  :host(#{$c4d-prefix}-structured-list-group) {
     display: contents;
 
     tr {
       @extend .#{$prefix}--structured-list-row;
 
-      background-color: $ui-03;
-      color: $text-01;
-      border-bottom: 1px solid $ui-03;
+      background-color: $layer-accent-01;
+      color: $text-primary;
+      border-bottom: 1px solid $layer-accent-01;
 
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         box-shadow: extended-box-shadow();
       }
     }
@@ -99,7 +103,7 @@
     th {
       @extend .#{$prefix}--structured-list-td;
 
-      color: $text-01;
+      color: $text-primary;
       text-align: left;
       font-weight: bold;
       padding-inline: $spacing-05;
@@ -108,31 +112,31 @@
   }
 
   .#{$prefix}--structured-list-cell,
-  :host(#{$dds-prefix}-structured-list-cell) {
+  :host(#{$c4d-prefix}-structured-list-cell) {
     @extend .#{$prefix}--structured-list-td;
 
     padding-inline: $spacing-05;
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $layer-accent-01;
   }
 
   // Default Carbon Rows/Columns
   .#{$prefix}--structured-list-all-rows,
-  :host(#{$dds-prefix}-structured-list-header-row),
-  :host(#{$dds-prefix}-structured-list-row),
-  :host(#{$dds-prefix}-structured-list-group) tr {
+  :host(#{$c4d-prefix}-structured-list-header-row),
+  :host(#{$c4d-prefix}-structured-list-row),
+  :host(#{$c4d-prefix}-structured-list-group) tr {
     --max-cols: 4;
 
-    @include carbon--breakpoint('sm') {
-      @include carbon--make-row();
+    @include breakpoint(sm) {
+      @include make-row();
 
       flex-wrap: nowrap;
     }
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       --max-cols: 8;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       --max-cols: 16;
     }
 
@@ -147,34 +151,34 @@
   }
 
   .#{$prefix}--structured-list-all-cells,
-  :host(#{$dds-prefix}-structured-list-header-cell),
-  :host(#{$dds-prefix}-structured-list-cell),
-  :host(#{$dds-prefix}-structured-list-group) td {
+  :host(#{$c4d-prefix}-structured-list-header-cell),
+  :host(#{$c4d-prefix}-structured-list-cell),
+  :host(#{$c4d-prefix}-structured-list-group) td {
     height: auto;
     scroll-snap-align: start;
 
-    @include carbon--breakpoint('sm') {
-      @include carbon--make-col(2, 4);
+    @include breakpoint(sm) {
+      @include make-col(2, 4);
     }
 
-    @include carbon--breakpoint('md') {
-      @include carbon--make-col(2, 8);
+    @include breakpoint(md) {
+      @include make-col(2, 8);
     }
 
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(2, 16);
+    @include breakpoint(lg) {
+      @include make-col(2, 16);
     }
   }
 
   // Internal components
-  .#{$dds-prefix}--structured-list,
-  :host(#{$dds-prefix}-structured-list) {
+  .#{$c4d-prefix}--structured-list,
+  :host(#{$c4d-prefix}-structured-list) {
     display: flex;
     flex-wrap: nowrap;
-    padding-left: $carbon--layout-01;
-    padding-right: $carbon--layout-01;
-    margin-left: -#{$carbon--layout-01};
-    margin-right: -#{$carbon--layout-01};
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    margin-left: -#{$spacing-05};
+    margin-right: -#{$spacing-05};
     overflow-x: auto;
     scroll-snap-type: x;
     position: relative;
@@ -194,7 +198,7 @@
 
       &::before {
         content: '';
-        width: 24px;
+        width: $spacing-06;
         height: 100%;
         position: absolute;
         top: 0;
@@ -202,21 +206,21 @@
 
       &.left {
         left: 0;
-        transform: translateX(-1rem);
+        transform: translateX(-$spacing-05);
 
         &::before {
           left: 0;
-          background-image: linear-gradient(90deg, $ui-01, transparent);
+          background-image: linear-gradient(90deg, $layer-01, transparent);
         }
       }
 
       &.right {
         left: calc(100%);
-        transform: translateX(1rem);
+        transform: translateX($spacing-05);
 
         &::before {
           right: 0;
-          background-image: linear-gradient(90deg, transparent, $ui-01);
+          background-image: linear-gradient(90deg, transparent, $layer-01);
         }
       }
     }
@@ -235,29 +239,19 @@
   }
 
   .#{$prefix}--structured-list-cell-tooltip-icon,
-  :host(#{$dds-prefix}-structured-list-cell) #{$prefix}-tooltip-icon {
+  :host(#{$c4d-prefix}-structured-list-cell) #{$prefix}-tooltip-icon {
     display: inline-flex;
     vertical-align: sub;
 
     svg {
-      fill: $icon-02;
+      fill: $icon-secondary;
     }
   }
 
   .#{$prefix}--structured-list-cell[icon],
-  :host(#{$dds-prefix}-structured-list-cell[icon]) {
+  :host(#{$c4d-prefix}-structured-list-cell[icon]) {
     &[icon='checkmark'] {
-      color: $support-02;
+      color: $support-success;
     }
   }
-
-  .#{$prefix}--structured-list-cell-icon-text,
-  :host(#{$dds-prefix}-structured-list-cell)
-    .#{$prefix}--structured-list-cell-icon-text {
-    color: $text-02;
-  }
-}
-
-@include exports('structured-list') {
-  @include structured-list;
 }

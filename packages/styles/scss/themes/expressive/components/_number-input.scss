@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Number Input (expressive)
@@ -16,12 +16,12 @@
 /// @group number-input-expressive
 @mixin number-input-expressive {
   .#{$prefix}--number input[type='number'] {
-    height: carbon--rem(48px); /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--number__input-wrapper .#{$prefix}--number__invalid {
-    width: carbon--rem(20px);
-    height: carbon--rem(20px);
+    width: to-rem(20px);
+    height: to-rem(20px);
   }
 
   .#{$prefix}--number__control-btn.up-icon,
@@ -30,8 +30,8 @@
     height: 100%;
 
     svg {
-      height: carbon--rem(20px);
-      width: carbon--rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
 }

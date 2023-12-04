@@ -1,8 +1,11 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
 
 # Leaving IBM
 
@@ -30,28 +33,35 @@ import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/index';
 
 ```html
 <!-- Add component to document -->
-<dds-leaving-ibm-container></dds-leaving-ibm-container>
+<cds-leaving-ibm-container></cds-leaving-ibm-container>
 
 ...
 
 <!-- Trigger modal on click -->
-<dds-link-with-icon href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/" data-leaving-ibm>
+<cds-link-with-icon
+  href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+  data-leaving-ibm>
   Learn more about the Carbon Design System
-</dds-link-with-icon>
+</cds-link-with-icon>
 ```
 
-> 💡 Give your link the `data-leaving-ibm` attribute to trigger the modal on click. Alternatively, you can use the [custom events available to the modal](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#bx-modal-attributes-and-properties) to create custom triggering behavior.
+> 💡 Give your link the `data-leaving-ibm` attribute to trigger the modal on
+> click. Alternatively, you can use the
+> [custom events available to the modal](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#cds-modal-attributes-and-properties)
+> to create custom triggering behavior.
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector                 | Description |
 | ------------------------- | -------------------------------------- | ----------- |
-| `<dds-leaving-ibm-modal>` | `data-autoid="dds--leaving-ibm-modal"` | Component   |
-| `dds--leaving-ibm-cta`    | `data-autoid="dds--leaving-ibm-cta"`   | Interactive |
+| `<cds-leaving-ibm-modal>` | `data-autoid="cds--leaving-ibm-modal"` | Component   |
+| `cds--leaving-ibm-cta`    | `data-autoid="cds--leaving-ibm-cta"`   | Interactive |
 
 ## Props
 
-<Props of="dds-leaving-ibm-composite" />
+<Props of="cds-leaving-ibm-composite" />
 <Description markdown={contributing} />

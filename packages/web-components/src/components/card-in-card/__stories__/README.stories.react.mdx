@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
 
@@ -18,50 +23,64 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 
 function App() {
   return (
-    <DDSCardInCard href="https://example.com">
-      <DDSCardInCardImage slot="image" alt="Image alt text" default-src="https://picsum.photos/id/1076/480/360">
-        <DDSImageItem media="(min-width: 1312px)" srcset="https://picsum.photos/id/1076/1312/738"></DDSImageItem>
-        <DDSImageItem media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/960/540"></DDSImageItem>
-        <DDSImageItem media="(min-width: 320px)" srcset="https://picsum.photos/id/1076/480/360"></DDSImageItem>
-      </DDSCardInCardImage>
-      <DDSCardEyebrow>Label</DDSCardEyebrow>
-      <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
-      <DDSCardCTAFooter>
+    <C4DCardInCard href="https://example.com">
+      <C4DCardInCardImage
+        slot="image"
+        alt="Image alt text"
+        default-src="https://picsum.photos/id/1076/480/360">
+        <C4DImageItem
+          media="(min-width: 1312px)"
+          srcset="https://picsum.photos/id/1076/1312/738"></C4DImageItem>
+        <C4DImageItem
+          media="(min-width: 672px)"
+          srcset="https://picsum.photos/id/1076/960/540"></C4DImageItem>
+        <C4DImageItem
+          media="(min-width: 320px)"
+          srcset="https://picsum.photos/id/1076/480/360"></C4DImageItem>
+      </C4DCardInCardImage>
+      <C4DCardEyebrow>Label</C4DCardEyebrow>
+      <C4DCardHeading>
+        Standard Bank Group prepares to embrace Africa’s AI opportunity
+      </C4DCardHeading>
+      <C4DCardCTAFooter>
         <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
-    </DDSCardInCard>
+      </C4DCardCTAFooter>
+    </C4DCardInCard>
   );
 }
 ```
 
-To render the video variation, make sure to wrap `DDSCardInCard` with `DDSVideoCTAContainer`. However, if parent component (ie. `Card group`)
-already is wrapped in `DDSVideoCTAContainer`, there is no need to wrap the `DDSCardInCard`.
+To render the video variation, make sure to wrap `C4DCardInCard` with
+`C4DVideoCTAContainer`. However, if parent component (ie. `Card group`) already
+is wrapped in `C4DVideoCTAContainer`, there is no need to wrap the
+`C4DCardInCard`.
 
-NOTE: The default video title can be overwritten by passing in the `video-name` attribute to `DDSCardInCard`.
+NOTE: The default video title can be overwritten by passing in the `video-name`
+attribute to `C4DCardInCard`.
 
 ```javascript
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
-import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 
 function App() {
   return (
-    <DDSVideoCTAContainer>
-      <DDSCardInCard href="1_9h94wo6b" cta-type="video">
-        <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-        <DDSCardCTAFooter cta-type="video" href="1_9h94wo6b"></DDSCardCTAFooter>
-      </DDSCardInCard>
-    </DDSVideoCTAContainer>
+    <C4DVideoCTAContainer>
+      <C4DCardInCard href="0_ibuqxqbe" cta-type="video">
+        <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+        <C4DCardCTAFooter cta-type="video" href="0_ibuqxqbe"></C4DCardCTAFooter>
+      </C4DCardInCard>
+    </C4DVideoCTAContainer>
   );
 }
 ```
@@ -72,8 +91,10 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector           | Description |
 | ----------------------- | -------------------------------- | ----------- |
-| `<dds-card-in-card>`    | `data-autoid="dds-card-in-card"` | Component   |
+| `<cds-card-in-card>`    | `data-autoid="cds-card-in-card"` | Component   |

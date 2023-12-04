@@ -4,7 +4,7 @@ import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-rea
 
 # Content Group Cards
 
-> The Content Group – Cards pattern is a variant of `DDSContentGroup`, and
+> The Content Group – Cards pattern is a variant of `C4DContentGroup`, and
 > includes a heading, copy, and card items.
 >
 > 💡 Check our
@@ -20,52 +20,52 @@ Here's a quick example to get you started.
 ### JS
 
 ```js
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import DDSContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import C4DContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
 
 const card1 = (
-  <DDSContentGroupCardsItem href="https://www.example.com">
-    <DDSCardHeading>
+  <C4DContentGroupCardsItem href="https://www.example.com">
+    <C4DCardHeading>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt
-    </DDSCardHeading>
+    </C4DCardHeading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
-    <DDSCardFooter icon-placement="left">
+    <C4DCardFooter icon-placement="left">
       <ArrowRight20 slot="icon" />
-    </DDSCardFooter>
-  </DDSContentGroupCardsItem>
+    </C4DCardFooter>
+  </C4DContentGroupCardsItem>
 );
 const card2 = (
-  <DDSContentGroupCardsItem href="https://www.example.com">
-    <DDSCardHeading>
+  <C4DContentGroupCardsItem href="https://www.example.com">
+    <C4DCardHeading>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt
-    </DDSCardHeading>
+    </C4DCardHeading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-    <DDSCardFooter icon-placement="left">
+    <C4DCardFooter icon-placement="left">
       <ArrowRight20 slot="icon" />
-    </DDSCardFooter>
-  </DDSContentGroupCardsItem>
+    </C4DCardFooter>
+  </C4DContentGroupCardsItem>
 );
 const App = () => (
-  <DDSContentGroupCards>
-    <DDSContentGroupHeading>Lorem ipsum dolor sit amet.</DDSContentGroupHeading>
-    <DDSContentGroupCopy>
+  <C4DContentGroupCards>
+    <C4DContentGroupHeading>Lorem ipsum dolor sit amet.</C4DContentGroupHeading>
+    <C4DContentGroupCopy>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </DDSContentGroupCopy>
+    </C4DContentGroupCopy>
     {card1}
     {card2}
     {card1}
     {card2}
-  </DDSContentGroupCards>
+  </C4DContentGroupCards>
 );
 ```
 
@@ -81,8 +81,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector          | Compatibility selector                        | Description |
 | -------------------------------- | --------------------------------------------- | ----------- |
-| `<dds-content-group-cards>`      | `data-autoid="dds--content-group-cards"`      | Component   |
-| `<dds-content-group-heading>`    | `data-autoid="dds--content-group__title"`     | Component   |
-| `<dds-content-group-cards-item>` | `data-autoid="dds--content-group-cards-item"` | Component   |
+| `<cds-content-group-cards>`      | `data-autoid="cds--content-group-cards"`      | Component   |
+| `<cds-content-group-heading>`    | `data-autoid="cds--content-group__title"`     | Component   |
+| `<cds-content-group-cards-item>` | `data-autoid="cds--content-group-cards-item"` | Component   |
 
 <Description markdown={contributing} />

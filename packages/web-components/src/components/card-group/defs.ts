@@ -12,17 +12,17 @@
  */
 export enum GRID_MODE {
   /**
+   * Default grid with 32px gutter
+   */
+  DEFAULT = 'default',
+
+  /**
    * Narrow 16px gutter
    */
   NARROW = 'narrow',
 
   /**
-   * Collapsed 1px gutter
+   * Condensed 1px border
    */
-  COLLAPSED = 'collapsed',
-
-  /**
-   * 1px optional border
-   */
-  BORDER = 'border',
+  CONDENSED = 'condensed',
 }

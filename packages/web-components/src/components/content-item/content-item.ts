@@ -7,38 +7,60 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, state, LitElement, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html, LitElement, TemplateResult } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
+import { property, state } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-item.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
 const slotExistencePropertyNames = {
+  media: '_hasMedia',
+  statistic: '_hasStatistic',
   footer: '_hasFooter',
 };
 
 /**
  * Content item.
  *
- * @element dds-content-item
+ * @element c4d-content-item
  * @slot media - The media content.
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
  */
-@customElement(`${ddsPrefix}-content-item`)
-class DDSContentItem extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-content-item`)
+class C4DContentItem extends StableSelectorMixin(LitElement) {
+  /**
+   * `true` if there are CTA statistic in the content item area.
+   */
+  @state()
+  protected _hasLogo = false;
+  /**
+   * `true` if there are CTA media in the content item area.
+   */
+  @state()
+  protected _hasMedia = false;
+
+  /**
+   * `true` if there are CTA statistic in the content item area.
+   */
+  @state()
+  protected _hasStatistic = false;
+
   /**
    * `true` if there is a footer content.
    */
   @state()
   _hasFooter = false;
+
+  @property({ type: Boolean })
+  horizontal = false;
 
   /**
    * Handles `slotchange` event.
@@ -47,31 +69,49 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
    */
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
-    const content = (target as HTMLSlotElement)
+    const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter((elem) =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorTextCTA
-            ) ||
-            (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorButtonCTA
-            ) ||
-            (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorButtonGroup
-            ) ||
-            (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorLinkWithIcon
-            ) ||
-            (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorLinkList
-            )
-          : false
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );
-    const hasContent = content?.some(
-      (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-    );
-    this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    this[slotExistencePropertyNames[name] || '_hasStatistic'] = hasContent;
+    if (
+      (
+        (target as HTMLSlotElement).assignedNodes()[0] as HTMLElement
+      )?.matches?.(
+        (this.constructor as typeof C4DContentItem).selectorImageLogo
+      )
+    ) {
+      this._hasLogo = true;
+    } else this._hasLogo = false;
+  }
+
+  /**
+   * @returns The statistic content items
+   */
+  protected _renderStatistic(): TemplateResult | string | void {
+    const { _hasStatistic: hasStatistic, _handleSlotChange: handleSlotChange } =
+      this;
+    return html`
+      <div
+        ?hidden="${!hasStatistic}"
+        class="${c4dPrefix}--content-item__statitics">
+        <slot name="statistics" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  /**
+   * @returns The media content items
+   */
+  protected _renderMedia(): TemplateResult | string | void {
+    const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
+
+    return html`
+      <div ?hidden="${!hasMedia}" class="${c4dPrefix}--content-item__media">
+        <slot name="media" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
   }
 
   /**
@@ -95,41 +135,33 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    const { horizontal, _hasStatistic: hasStatistic, _hasLogo: hasLogo } = this;
+    const horizontalClass = classMap({
+      [`${c4dPrefix}--content-item__horizontal`]:
+        horizontal && !hasStatistic && !hasLogo,
+    });
+
     return html`
-      <slot name="heading"></slot>
-      <div>
-        <slot name="media"></slot>
+      <div class="${horizontalClass}">
+        ${this._renderStatistic()} ${this._renderMedia()}
+        <div>
+          <slot name="heading"></slot>
+          ${this._renderBody()}${this._renderFooter()}
+        </div>
       </div>
-      ${this._renderBody()}${this._renderFooter()}
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-item`;
+    return `${c4dPrefix}--content-item`;
   }
 
-  static get selectorTextCTA() {
-    return `${ddsPrefix}-text-cta`;
-  }
-
-  static get selectorButtonCTA() {
-    return `${ddsPrefix}-button-cta`;
-  }
-
-  static get selectorLinkList() {
-    return `${ddsPrefix}-link-list`;
-  }
-
-  static get selectorLinkWithIcon() {
-    return `${ddsPrefix}-link-with-icon`;
-  }
-
-  static get selectorButtonGroup() {
-    return `${ddsPrefix}-button-group`;
+  static get selectorImageLogo() {
+    return `${c4dPrefix}-image-logo`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItem;
+export default C4DContentItem;

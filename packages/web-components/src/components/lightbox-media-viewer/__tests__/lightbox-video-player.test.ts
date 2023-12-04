@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../lightbox-video-player';
 
 const template = (props?) => {
@@ -21,22 +21,22 @@ const template = (props?) => {
     name,
   } = props ?? {};
   return html`
-    <dds-lightbox-video-player
-      description="${ifNonNull(description)}"
-      duration="${ifNonNull(duration)}"
+    <c4d-lightbox-video-player
+      description="${ifDefined(description)}"
+      duration="${ifDefined(duration)}"
       ?hide-caption="${hideCaption}"
-      name="${ifNonNull(name)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}">
-    </dds-lightbox-video-player>
+      name="${ifDefined(name)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}">
+    </c4d-lightbox-video-player>
   `;
 };
 
-describe('dds-lightbox-video-player', function () {
+describe('c4d-lightbox-video-player', function () {
   it('should render with minimum attributes', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-video-player')).toMatchSnapshot(
+    expect(document.querySelector('c4d-lightbox-video-player')).toMatchSnapshot(
       { mode: 'shadow' }
     );
   });
@@ -51,7 +51,7 @@ describe('dds-lightbox-video-player', function () {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-video-player')).toMatchSnapshot(
+    expect(document.querySelector('c4d-lightbox-video-player')).toMatchSnapshot(
       { mode: 'shadow' }
     );
   });

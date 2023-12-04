@@ -5,30 +5,33 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-section';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-section),
-:host(#{$dds-prefix}-card-section-carousel),
-:host(#{$dds-prefix}-content-section-heading),
-:host(#{$dds-prefix}-content-section-copy) {
+:host(#{$c4d-prefix}-content-section),
+:host(#{$c4d-prefix}-card-section-carousel),
+:host(#{$c4d-prefix}-content-section-heading),
+:host(#{$c4d-prefix}-content-section-copy) {
   display: block;
   overflow-x: hidden;
 }
 
-:host(#{$dds-prefix}-content-section) {
+:host(#{$c4d-prefix}-content-section) {
   &[with-link-list] {
     .#{$prefix}--content-section__body {
       padding: 0 $spacing-05;
     }
   }
 
-  ::slotted(#{$dds-prefix}-content-block-simple) {
+  ::slotted(#{$c4d-prefix}-content-block-simple) {
     padding-bottom: $spacing-10;
   }
 
-  ::slotted(#{$dds-prefix}-link-list) {
-    @include carbon--breakpoint-down(md) {
+  ::slotted(#{$c4d-prefix}-link-list) {
+    @include breakpoint-down(md) {
       display: block;
       margin: 0 $spacing-05;
     }

@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import {
   VIDEO_PLAYER_CONTENT_STATE,
   VIDEO_PLAYER_PLAYING_MODE,
@@ -29,21 +29,21 @@ const template = (props?) => {
     playingMode,
   } = props ?? {};
   return html`
-    <dds-video-player
-      content-state="${ifNonNull(contentState)}"
-      duration="${ifNonNull(duration)}"
+    <c4d-video-player
+      content-state="${ifDefined(contentState)}"
+      duration="${ifDefined(duration)}"
       ?hide-caption="${hideCaption}"
-      name="${ifNonNull(name)}"
-      thumbnail-url="${ifNonNull(thumbnailUrl)}"
-      video-id="${ifNonNull(videoId)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-      .playingMode="${ifNonNull(playingMode)}">
-    </dds-video-player>
+      name="${ifDefined(name)}"
+      thumbnail-url="${ifDefined(thumbnailUrl)}"
+      video-id="${ifDefined(videoId)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}"
+      .playingMode="${ifDefined(playingMode)}">
+    </c4d-video-player>
   `;
 };
 
-describe('dds-video-player', function () {
+describe('c4d-video-player', function () {
   it('should render with minimum attributes', async function () {
     render(
       template({
@@ -52,7 +52,7 @@ describe('dds-video-player', function () {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-video-player')).toMatchSnapshot({
+    expect(document.querySelector('c4d-video-player')).toMatchSnapshot({
       mode: 'shadow',
     });
   });
@@ -69,7 +69,7 @@ describe('dds-video-player', function () {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-video-player')).toMatchSnapshot({
+    expect(document.querySelector('c4d-video-player')).toMatchSnapshot({
       mode: 'shadow',
     });
   });
@@ -85,8 +85,8 @@ describe('dds-video-player', function () {
     await Promise.resolve();
     expect(
       document
-        .querySelector('dds-video-player')!
-        .shadowRoot!.querySelector('.bx--video-player__video-caption')
+        .querySelector('c4d-video-player')!
+        .shadowRoot!.querySelector('.cds--video-player__video-caption')
     ).toBeNull();
   });
 
@@ -107,7 +107,7 @@ describe('dds-video-player', function () {
     );
     await Promise.resolve();
     expect(
-      document.querySelector('dds-video-player')!.getAttribute('aria-label')
+      document.querySelector('c4d-video-player')!.getAttribute('aria-label')
     ).toBe('video-name-foo-1');
   });
 

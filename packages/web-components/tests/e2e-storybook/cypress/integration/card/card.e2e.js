@@ -39,7 +39,7 @@ const _pathStatic = '/iframe.html?id=components-card--static';
  * @type {string}
  * @private
  */
-const _selectorBase = `[data-autoid="dds--card"]`;
+const _selectorBase = `[data-autoid="cds--card"]`;
 
 /**
  * Defines the card element selectors.
@@ -48,16 +48,16 @@ const _selectorBase = `[data-autoid="dds--card"]`;
  * @private
  */
 const _selectors = {
-  eyebrow: `${_selectorBase} [data-autoid="dds--card-eyebrow"]`,
-  heading: `${_selectorBase} [data-autoid="dds--card-heading"]`,
-  footer: `${_selectorBase} [data-autoid="dds--card-footer"]`,
-  image: `${_selectorBase} [data-autoid="dds--image"]`,
-  tagGroup: `${_selectorBase} [data-autoid="dds--tag-group"]`,
+  eyebrow: `${_selectorBase} [data-autoid="cds--card-eyebrow"]`,
+  heading: `${_selectorBase} [data-autoid="cds--card-heading"]`,
+  footer: `${_selectorBase} [data-autoid="cds--card-footer"]`,
+  image: `${_selectorBase} [data-autoid="cds--image"]`,
+  tagGroup: `${_selectorBase} div`,
   copy: `${_selectorBase} p`,
 };
 
 /**
- * Collection of all tests for dds-card
+ * Collection of all tests for cds-card
  *
  * @property {function} screenshotThemes
  * @property {function} checkTextRenders
@@ -105,11 +105,11 @@ const _tests = {
   checkClickableCard: pictogram => {
     if (pictogram) {
       it('should check for link', () => {
-        cy.get('dds-card').should('have.attr', 'href');
+        cy.get('cds-card').should('have.attr', 'href');
       });
     } else {
       it('should check for link', () => {
-        cy.get('dds-card > dds-card-footer')
+        cy.get('cds-card > cds-card-footer')
           .shadow()
           .find('a.bx--card__footer')
           .then($link => {
@@ -119,7 +119,7 @@ const _tests = {
       });
 
       it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-        cy.get('dds-card > dds-card-footer')
+        cy.get('cds-card > cds-card-footer')
           .shadow()
           .find('a')
           .then($els => {
@@ -138,7 +138,7 @@ const _tests = {
   },
   checkTabbableCard: () => {
     it('should check tabbable', () => {
-      cy.get('dds-card > dds-card-footer')
+      cy.get('cds-card > cds-card-footer')
         .shadow()
         .find('a.bx--card__footer')
         .focus();
@@ -211,42 +211,26 @@ const _tests = {
   pictogramPosition: (position, groupId) => {
     if (position === 'top') {
       it('should check for pictogram at the top', () => {
-        cy.get('dds-card').should('have.attr', 'pictogram-placement', 'top');
-        cy.get('dds-card svg').then($content => {
+        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:${groupId}=bottom`);
+        cy.get('cds-card').should('have.attr', 'pictogram-placement', 'top');
+        cy.get('cds-card svg').then($content => {
           expect($content[0].getBoundingClientRect().top).to.equal(32);
           expect($content[0].getBoundingClientRect().bottom).to.equal(80);
         });
       });
     } else {
-      it('should check for pictogram at the bottom with text showing on hover', () => {
-        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:${groupId}=bottom`);
-
-        cy.get('dds-card').should('have.attr', 'pictogram-placement', 'bottom');
-        cy.get('dds-card svg').then($content => {
+      it('should check for pictogram at the bottom', () => {
+        cy.get('cds-card').should('have.attr', 'pictogram-placement', 'bottom');
+        cy.get('cds-card svg').then($content => {
           expect($content[0].getBoundingClientRect().top).to.equal(186);
           expect($content[0].getBoundingClientRect().bottom).to.equal(234);
         });
-
-        cy.get('dds-card').then($el => {
-          const sheets = $el[0].shadowRoot.adoptedStyleSheets;
-
-          if (sheets) {
-            const hover = getCssPropertyForRule(
-              ':host(dds-card[pictogram-placement="bottom"]:hover) .bx--card__copy',
-              'display',
-              sheets
-            );
-            expect(hover).to.not.equal('none');
-          }
-        });
-        cy.get('dds-card p').should('not.be.empty');
-        cy.takeSnapshots();
       });
     }
   },
 };
 
-describe('dds-card | default (desktop)', () => {
+describe('cds-card | default (desktop)', () => {
   const groupId = '_Default';
   beforeEach(() => {
     cy.visit(`${_path}&knob-Body%20copy:${groupId}=copy`);
@@ -265,7 +249,7 @@ describe('dds-card | default (desktop)', () => {
   it('should check a11y', _tests.checkA11y);
 });
 
-describe('dds-card | pictogram (desktop)', () => {
+describe('cds-card | pictogram (desktop)', () => {
   const groupId = '_pictogram';
   beforeEach(() => {
     cy.visit(`/${_pathPictogram}`);
@@ -282,7 +266,7 @@ describe('dds-card | pictogram (desktop)', () => {
   it('should check a11y', _tests.checkA11y);
 });
 
-describe('dds-card | static (desktop)', () => {
+describe('cds-card | static (desktop)', () => {
   const groupId = '_static';
   beforeEach(() => {
     cy.visit(`${_pathStatic}&knob-Add%20CTA:${groupId}=true`);

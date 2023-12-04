@@ -15,7 +15,7 @@ const { promisify } = require('util');
 const asyncDone = require('async-done');
 const gulp = require('gulp');
 // This can be changed to `dart-sass` once Carbon V11 is used require('sass')
-const sass = require('gulp-sass')(require('node-sass'));
+const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const prettier = require('gulp-prettier');
 const header = require('gulp-header');
@@ -52,7 +52,11 @@ const _cssStream = ({ banner, dir }) =>
     )
     .pipe(
       sass({
-        includePaths: ['node_modules', path.resolve(__dirname, '../../../../../node_modules')],
+        includePaths: [
+          path.resolve(__dirname, '../../../node_modules'),
+          path.resolve(__dirname, '../../../../../node_modules'),
+          path.resolve(__dirname, '../../../../../node_modules/@carbon/styles/node_modules'),
+        ],
       })
     )
     .pipe(
@@ -78,7 +82,7 @@ const _cssStream = ({ banner, dir }) =>
     .pipe(
       through2.obj((file, enc, done) => {
         file.contents = Buffer.from(`
-        import { css } from 'lit-element';
+        import { css } from 'lit';
         export default css([${JSON.stringify(String(file.contents))}]);
       `);
         file.path = replaceExtension(file.path, dir === 'rtl' ? '.rtl.css.js' : '.css.js');

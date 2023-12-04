@@ -9,15 +9,15 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSButtonExpressive from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
-import DDSLightboxVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/lightbox-media-viewer/lightbox-video-player-container';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+import C4DLightboxVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/lightbox-media-viewer/lightbox-video-player-container';
 
 import './index.css';
 
 const App = () => (
   <>
-    <DDSButtonExpressive id="open-modal-btn">Open modal</DDSButtonExpressive>
-    <DDSLightboxVideoPlayerContainer id="my-video" video-id="1_9h94wo6b"></DDSLightboxVideoPlayerContainer>
+    <C4DButton id="open-modal-btn">Open modal</C4DButton>
+    <C4DLightboxVideoPlayerContainer id="my-video" video-id="1_9h94wo6b"></C4DLightboxVideoPlayerContainer>
   </>
 );
 

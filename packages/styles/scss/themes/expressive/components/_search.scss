@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Search (expressive)
@@ -16,15 +16,15 @@
 /// @group search-expressive
 @mixin search-expressive {
   .#{$prefix}--search svg {
-    height: carbon--rem(20px);
-    width: carbon--rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
   }
 
   .#{$prefix}--search--lg .#{$prefix}--search-input {
-    height: $carbon--spacing-09;
+    height: $spacing-09;
   }
 
   .#{$prefix}--search--sm .#{$prefix}--search-input {
-    height: $carbon--spacing-08;
+    height: $spacing-08;
   }
 }

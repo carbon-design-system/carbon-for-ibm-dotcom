@@ -7,30 +7,28 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html, css } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
+import { property } from 'lit/decorators.js';
+import C4DCard from '../card/card';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Region item.
  *
- * @element dds-region-item
+ * @element c4d-region-item
  */
-@customElement(`${ddsPrefix}-region-item`)
-class DDSRegionItem extends BXLink {
+@customElement(`${c4dPrefix}-region-item`)
+class C4DRegionItem extends C4DCard {
   /**
    * `true` if this region has no countries.
    */
   @property({ type: Boolean })
-  invalid = false;
+  disabled = false;
 
   /**
    * The region name.
@@ -38,66 +36,48 @@ class DDSRegionItem extends BXLink {
   @property({ reflect: true })
   name = '';
 
+  protected _cardClasses = classMap({
+    [`${prefix}--tile`]: true,
+    [`${prefix}--card`]: true,
+    [`${prefix}--tile--clickable`]: true,
+    [`${prefix}--card--link`]: true,
+  });
+
   /**
    * @returns The disabled link content.
    */
   protected _renderDisabledLink() {
-    const { _classes: classes } = this;
+    const { _classes: classes, _cardClasses: cardClasses } = this;
     return html`
       <button id="link" class="${classes}" disabled type="button">
-        ${this._renderInner()}
+        <div class="${cardClasses}">${this._renderInner()}</div>
       </button>
     `;
   }
 
-  /**
-   * @returns The link content.
-   */
-  protected _renderLink() {
-    const { _classes: classes } = this;
-    return html`
-      <button id="link" class="${classes}" type="button">
-        ${this._renderInner()}
-      </button>
-    `;
-  }
-
-  /**
-   * @returns The inner content.
-   */
-  _renderInner() {
-    const { invalid, name } = this;
-    return html`
-      <div class="${prefix}--card__wrapper">
-        <div class="${prefix}--card__content">
-          <h3 class="${prefix}--card__heading">
-            <slot>${name}</slot>
-          </h3>
-          <div class="${prefix}--card__footer">
-            ${(invalid ? Error20 : ArrowRight20)({
-              class: `${prefix}--card__cta`,
-            })}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  shouldUpdate(changedProperties) {
-    if (changedProperties.has('invalid')) {
-      this.disabled = this.invalid;
-    }
-    return true;
+  render() {
+    const { _classes: classes, disabled, _cardClasses: cardClasses } = this;
+    return disabled
+      ? this._renderDisabledLink()
+      : html`
+          <button id="link" class="${classes}" type="button">
+            <div class="${cardClasses}">${this._renderInner()}</div>
+          </button>
+        `;
   }
 
   updated(changedProperties) {
     if (changedProperties.has('name')) {
       const { name } = this;
-      this.dataset.autoId = `${ddsPrefix}--locale-modal__geo-btn-${name}`;
+      this.dataset.autoId = `${c4dPrefix}--locale-modal__geo-btn-${name}`;
     }
   }
 
-  static styles = styles;
+  static get styles() {
+    return css`
+      ${super.styles}${styles}
+    `;
+  }
 }
 
-export default DDSRegionItem;
+export default C4DRegionItem;

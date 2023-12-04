@@ -1,0 +1,464 @@
+/**
+ * Copyright IBM Corp. 2016, 2023
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/carbon-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/hang' as *;
+@use '../layout/layout';
+
+$hover-transition-timing: 95ms;
+
+// items that change according to the theme applied
+@mixin themed-items {
+  color: $text-primary;
+  background: $background;
+  .#{$prefix}--tableofcontents__item {
+    a {
+      border-left: $spacing-02 solid $border-subtle-01;
+      color: $text-secondary;
+
+      &:hover {
+        border-left-color: $layer-selected-hover-01;
+        color: $text-primary;
+      }
+    }
+  }
+
+  .#{$prefix}--tableofcontents__navbar {
+    .#{$prefix}--tableofcontents__item {
+      a {
+        white-space: nowrap;
+        border-left: none;
+        color: $text-secondary;
+      }
+
+      &:hover {
+        background-color: $background-hover;
+      }
+    }
+
+    .#{$prefix}--tableofcontents__item--active a {
+      color: $text-primary;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: to-rem(20px);
+        width: $spacing-01;
+        top: to-rem(14px);
+        background-color: $border-interactive;
+        margin-left: to-rem(-6px);
+      }
+    }
+  }
+
+  .#{$prefix}--tableofcontents__item--active {
+    a,
+    a:hover {
+      color: $text-primary;
+      border-left-color: $border-interactive;
+    }
+
+    a:focus {
+      border-bottom: none;
+    }
+
+    &:hover {
+      border-left-color: $border-interactive;
+    }
+  }
+}
+
+@mixin table-of-contents {
+  :host(#{$c4d-prefix}-table-of-contents) {
+    text-size-adjust: 100%;
+    @extend .#{$prefix}--grid;
+
+    display: block;
+    margin: 0;
+
+    @include themed-items;
+  }
+
+  .#{$c4d-prefix}-ce--table-of-contents__container,
+  .#{$c4d-prefix}-ce--table-of-contents-horizontal__container {
+    @include make-row();
+  }
+
+  .#{$prefix}--tableofcontents__sidebar {
+    @extend .#{$prefix}--col-lg-4;
+
+    position: inherit;
+    top: auto;
+    z-index: 10;
+    padding: 0;
+  }
+
+  .#{$prefix}--tableofcontents__content {
+    @extend .#{$prefix}--col-lg-12;
+
+    padding: $spacing-05 0 $spacing-09 0;
+  }
+
+  .#{$prefix}--tableofcontents {
+    display: block;
+    padding-top: $spacing-07;
+    margin-top: $spacing-07;
+    @include make-col(3, 4);
+  }
+
+  .#{$prefix}--tableofcontents ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .#{$prefix}--tableofcontents__item {
+    a {
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      padding-top: $spacing-04;
+      padding-bottom: $spacing-04;
+      padding-left: $spacing-04;
+      @include type-style('body-02');
+    }
+
+    a:hover {
+      cursor: pointer;
+    }
+
+    a:focus {
+      outline: $spacing-01 solid $focus;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__children {
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
+      padding-left: 0;
+      margin-bottom: -$spacing-07;
+      @include make-col(3, 4);
+    }
+
+    padding-left: $spacing-05;
+    padding-top: $spacing-07;
+
+    display: block;
+
+    &[hidden] {
+      display: none;
+    }
+
+    > .#{$prefix}--link-list {
+      padding-top: 0;
+      padding-bottom: $spacing-05;
+    }
+
+    hr[data-autoid='#{$c4d-prefix}--hr'] {
+      margin-top: 0;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__contents {
+    [name] {
+      display: block;
+      color: $text-primary;
+      transform: translateY(calc(-1 * #{$spacing-07}));
+
+      > * {
+        transform: translateY($spacing-07);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .#{$prefix}--tableofcontents-horizontal__contents {
+    [name] {
+      display: block;
+      padding-top: $spacing-09;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__navbar {
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    border-bottom: 1px solid $border-subtle-00;
+    border-top: 1px solid $border-subtle-00;
+    height: $spacing-09;
+    background-color: $background;
+
+    .#{$prefix}--tableofcontents__item {
+      a {
+        border-left: none;
+        color: $text-secondary;
+        padding-left: $spacing-05;
+        padding-right: $spacing-05;
+        width: auto;
+
+        &:focus {
+          outline: $spacing-01 solid $focus;
+          outline-offset: -#{$spacing-01};
+          position: initial;
+        }
+      }
+    }
+
+    .#{$prefix}--tableofcontents {
+      flex: 1;
+      max-width: none;
+      padding: 0;
+      margin-top: 0;
+      position: absolute;
+      transition: left $transition-base motion(standard, productive);
+
+      ul {
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .#{$prefix}--sub-content-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--sub-content-right {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--toc__navbar-chevron-left-container[hidden],
+  .#{$prefix}--toc__navbar-chevron-right-container[hidden] {
+    display: none;
+  }
+
+  .#{$prefix}--toc__navbar-chevron-left-container,
+  .#{$prefix}--toc__navbar-chevron-right-container {
+    display: block;
+    width: $spacing-08;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    border: none;
+    background-color: $background;
+    > {
+      svg {
+        position: absolute;
+        fill: $icon-secondary;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    &:hover {
+      background-color: $layer-hover-03;
+      transition-duration: $hover-transition-timing;
+      > {
+        svg {
+          fill: $text-primary;
+        }
+      }
+    }
+    &:focus,
+    &:active {
+      display: block;
+      background-color: $layer-hover-03;
+      outline: $spacing-01 solid $background-brand;
+      outline-offset: -#{$spacing-01};
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: $spacing-08;
+      top: 0;
+      height: 100%;
+      width: $spacing-03;
+      z-index: 1;
+      background: linear-gradient(
+        to right,
+        $background,
+        rgba(255, 255, 255, 0)
+      );
+    }
+  }
+
+  .#{$prefix}--toc__navbar-chevron-left-container {
+    left: 0;
+    @include breakpoint(md) {
+      left: -$spacing-05;
+    }
+
+    &:hover {
+      &::before {
+        background: linear-gradient(
+          to right,
+          $layer-hover-03,
+          rgba(255, 255, 255, 0)
+        );
+      }
+    }
+  }
+
+  .#{$prefix}--toc__navbar-chevron-right-container {
+    z-index: 2;
+    right: -$spacing-01;
+
+    @include breakpoint(md) {
+      right: -$spacing-05;
+    }
+
+    &::before {
+      content: '';
+      left: auto;
+      right: $spacing-08;
+      background: linear-gradient(to left, $background, rgba(255, 255, 255, 0));
+    }
+
+    &:hover {
+      &::before {
+        background: linear-gradient(
+          to left,
+          $layer-hover-03,
+          rgba(255, 255, 255, 0)
+        );
+      }
+    }
+  }
+
+  .#{$prefix}--tableofcontents--g100 {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--tableofcontents--g10 {
+    @include theme($g10, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--toc__print-styles {
+    display: none;
+  }
+
+  @media print {
+    :host(#{$c4d-prefix}-table-of-contents),
+    .#{$prefix}--tableofcontents {
+      .#{$prefix}--tableofcontents__sidebar {
+        position: relative;
+      }
+
+      .#{$prefix}--tableofcontents {
+        display: block;
+      }
+
+      &[toc-layout='horizontal'] {
+        .#{$prefix}--tableofcontents__navbar {
+          display: none;
+        }
+
+        .#{$prefix}--toc__print-styles {
+          display: block;
+        }
+      }
+
+      ::slotted(#{$c4d-prefix}-image) {
+        width: 25%;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents) .#{$prefix}--tableofcontents__navbar {
+    &::before,
+    &::after {
+      border-bottom: 1px solid $border-subtle-00;
+      border-top: 1px solid $border-subtle-00;
+      content: '';
+      background-color: $background;
+      position: absolute;
+      top: -1px;
+      height: 100%;
+      left: calc(-50vw + 50%);
+      right: 100%;
+      z-index: 1;
+    }
+
+    &::after {
+      left: 100%;
+      right: calc(-50vw + 50%);
+    }
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
+    .#{$prefix}--tableofcontents-container {
+    position: relative;
+    overflow: scroll;
+    height: $spacing-09;
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents)
+    .#{$prefix}--tableofcontents-container {
+    @include breakpoint-down(lg) {
+      position: relative;
+      overflow: scroll;
+      height: $spacing-09;
+    }
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
+    .#{$prefix}--tableofcontents__content {
+    max-width: none;
+    flex: 1;
+  }
+
+  .#{$c4d-prefix}-ce--table-of-contents__container {
+    // TODO: Make the layout CSS grid-based so we can remove this ruleset
+    ::slotted(#{$c4d-prefix}-content-block-simple),
+    ::slotted(#{$c4d-prefix}-content-block-segmented) {
+      margin-left: calc(-1 * #{$spacing-05});
+      margin-right: calc(-1 * #{$spacing-05});
+    }
+  }
+
+  .#{$c4d-prefix}-ce--toc__navbar-chevron-container--hidden {
+    position: absolute;
+    visibility: hidden;
+  }
+}

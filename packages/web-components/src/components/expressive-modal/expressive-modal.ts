@@ -7,32 +7,22 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  LitElement,
-  property,
-  query,
-  state,
-  SVGTemplateResult,
-  TemplateResult,
-} from 'lit-element';
+import { html, LitElement, SVGTemplateResult, TemplateResult } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
 import { EXPRESSIVE_MODAL_MODE, EXPRESSIVE_MODAL_SIZE } from './defs';
-
-import { classMap } from 'lit-html/directives/class-map.js';
-import DDSCarousel from '../carousel/carousel';
-import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { classMap } from 'lit/directives/class-map.js';
+import C4DCarousel from '../carousel/carousel';
+import C4DExpressiveModalCloseButton from './expressive-modal-close-button';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import on from 'carbon-components/es/globals/js/misc/on.js';
+import on from '../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './expressive-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /* eslint-disable no-bitwise */
 const PRECEDING =
@@ -65,16 +55,16 @@ const slotExistencePropertyNames = {
 /**
  * Expressive modal.
  *
- * @element dds-expressive-modal
- * @fires dds-expressive-modal-beingclosed
+ * @element c4d-expressive-modal
+ * @fires c4d-expressive-modal-beingclosed
  *   The custom event fired before this modal is being closed upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of closing this modal.
- * @fires dds-expressive-modal-closed - The custom event fired after this modal is closed upon a user gesture.
+ * @fires c4d-expressive-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  * @slot header - The header content.
  * @slot footer - The footer content.
  */
-@customElement(`${ddsPrefix}-expressive-modal`)
-class DDSExpressiveModal extends StableSelectorMixin(
+@customElement(`${c4dPrefix}-expressive-modal`)
+class C4DExpressiveModal extends StableSelectorMixin(
   HostListenerMixin(LitElement)
 ) {
   /**
@@ -103,14 +93,14 @@ class DDSExpressiveModal extends StableSelectorMixin(
   /**
    * Collection of elements to search for focusable elements.
    */
-  hasFocusableElements: [DDSExpressiveModal | DDSCarousel] = [this];
+  hasFocusableElements: [C4DExpressiveModal | C4DCarousel] = [this];
 
   /**
    * Returns all focusable elements within this component and its shadowroot
    */
   get focusableElements() {
     const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } =
-      this.constructor as typeof DDSExpressiveModal;
+      this.constructor as typeof C4DExpressiveModal;
     return [
       ...Array.from(
         (this.shadowRoot?.querySelectorAll(
@@ -127,7 +117,6 @@ class DDSExpressiveModal extends StableSelectorMixin(
 
   get _focusableElements() {
     const { hasFocusableElements } = this;
-
     const focusableElements: [HTMLElement?] = [];
 
     hasFocusableElements.forEach((el) => {
@@ -168,7 +157,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
   @query(`.${prefix}--modal-content`)
   modalContent?: HTMLDivElement;
 
-  @query(`.${ddsPrefix}-ce--modal__body`)
+  @query(`.${c4dPrefix}-ce--modal__body`)
   modalBody?: HTMLDivElement;
 
   // TODO: Wait for `.d.ts` update to support `ResizeObserver`
@@ -197,7 +186,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
    * @param event The event.
    */
   protected _handleFocusIn = ({ target, relatedTarget }) => {
-    const { tryFocusElems } = this.constructor as typeof DDSExpressiveModal;
+    const { tryFocusElems } = this.constructor as typeof C4DExpressiveModal;
     let focusFromWithin = false;
     if (target && relatedTarget) {
       const comparedToThis = this.compareDocumentPosition(relatedTarget);
@@ -239,7 +228,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
     // If no target/relatedTarget, focus has entered/left the window. Do nothing.
     if (!target || !relatedTarget) return;
 
-    const { tryFocusElems } = this.constructor as typeof DDSExpressiveModal;
+    const { tryFocusElems } = this.constructor as typeof C4DExpressiveModal;
     const { _focusableElements: focusableElements } = this;
 
     // See if element gaining focus is inside `this` or `this.shadowRoot`.
@@ -276,7 +265,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
   private _handleClickContainer(event: MouseEvent) {
     if (
       (event.target as Element).matches(
-        (this.constructor as typeof DDSExpressiveModal).selectorCloseButton
+        (this.constructor as typeof C4DExpressiveModal).selectorCloseButton
       )
     ) {
       this._handleUserInitiatedClose(event.target);
@@ -295,10 +284,10 @@ class DDSExpressiveModal extends StableSelectorMixin(
         if (node.nodeType === Node.TEXT_NODE && node!.textContent!.trim()) {
           return true;
         }
-        // Allow only element nodes that don't have a .bx--visually-hidden
+        // Allow only element nodes that don't have a .cds--visually-hidden
         // class.
         if (node instanceof Element) {
-          return !node.classList.contains('bx--visually-hidden');
+          return !node.classList.contains('cds--visually-hidden');
         }
         // No opinion on other cases.
         return true;
@@ -322,7 +311,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         },
       };
       const { eventBeforeClose, eventClose } = this
-        .constructor as typeof DDSExpressiveModal;
+        .constructor as typeof C4DExpressiveModal;
       if (this.dispatchEvent(new CustomEvent(eventBeforeClose, init))) {
         this.open = false;
         this.dispatchEvent(new CustomEvent(eventClose, init));
@@ -364,11 +353,11 @@ class DDSExpressiveModal extends StableSelectorMixin(
       _hasFooter: hasFooter,
     } = this;
     const headerClasses = classMap({
-      [`${ddsPrefix}-ce--modal__header--with-body`]:
+      [`${c4dPrefix}-ce--modal__header--with-body`]:
         hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="${ddsPrefix}--modal-header" class="${headerClasses}">
+      <div id="${prefix}--modal-header" class="${headerClasses}">
         <slot name="header"></slot>
       </div>
     `;
@@ -380,8 +369,8 @@ class DDSExpressiveModal extends StableSelectorMixin(
   protected _renderBody(): TemplateResult | SVGTemplateResult | void {
     const { _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const bodyClasses = classMap({
-      [`${ddsPrefix}-ce--modal__body`]: true,
-      [`${ddsPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
+      [`${c4dPrefix}-ce--modal__body`]: true,
+      [`${c4dPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
     return html` <div class="${bodyClasses}"><slot></slot></div> `;
   }
@@ -446,7 +435,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         class="${containerClasses}"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="${ddsPrefix}--modal-header"
+        aria-labelledby="${c4dPrefix}--modal-header"
         @click="${handleClickContainer}"
         @slotchange="${handleSlotChange}">
         <div class="${prefix}--modal-content">
@@ -471,12 +460,12 @@ class DDSExpressiveModal extends StableSelectorMixin(
   async updated(changedProperties) {
     const { _focusableElements: focusableElements, size } = this;
     const { selectorCloseButton, tryFocusElems } = this
-      .constructor as typeof DDSExpressiveModal;
+      .constructor as typeof C4DExpressiveModal;
 
     if (changedProperties.has('size')) {
       const closeButton = this.querySelector(selectorCloseButton);
       if (closeButton) {
-        (closeButton as DDSExpressiveModalCloseButton).size = size;
+        (closeButton as C4DExpressiveModalCloseButton).size = size;
       }
     }
     if (changedProperties.has('open')) {
@@ -486,11 +475,11 @@ class DDSExpressiveModal extends StableSelectorMixin(
         this._launcher = this.ownerDocument!.activeElement;
         await this._waitForTransitionEnd();
         const primaryFocusNode = this.querySelector(
-          (this.constructor as typeof DDSExpressiveModal).selectorPrimaryFocus
+          (this.constructor as typeof C4DExpressiveModal).selectorPrimaryFocus
         );
         if (primaryFocusNode) {
-          // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
-          // where its first update/render cycle that makes it focusable happens after `<bx-modal>`'s first update/render cycle
+          // For cases where a `carbon-web-components` component (e.g. `<cds-btn>`) being `primaryFocusNode`,
+          // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
           (primaryFocusNode as HTMLElement).focus();
         } else {
           tryFocusElems(focusableElements as [HTMLElement], true, this);
@@ -512,7 +501,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
    * A selector selecting buttons that should close this modal.
    */
   static get selectorCloseButton() {
-    return `[data-modal-close],${prefix}-modal-close-button,${ddsPrefix}-expressive-modal-close-button`;
+    return `[data-modal-close],${prefix}-modal-close-button,${c4dPrefix}-expressive-modal-close-button`;
   }
 
   /**
@@ -521,9 +510,9 @@ class DDSExpressiveModal extends StableSelectorMixin(
   static get selectorTabbable() {
     return `
       ${selectorTabbable},
-      ${ddsPrefix}-button-expressive,
-      ${ddsPrefix}-expressive-modal,
-      ${ddsPrefix}-expressive-modal-close-button
+      ${c4dPrefix}-button,
+      ${c4dPrefix}-expressive-modal,
+      ${c4dPrefix}-expressive-modal-close-button
     `;
   }
 
@@ -533,13 +522,12 @@ class DDSExpressiveModal extends StableSelectorMixin(
   static get selectorPrimaryFocus() {
     return `
       [data-modal-primary-focus],
-      ${ddsPrefix}-expressive-modal-footer ${prefix}-btn[kind="primary"],
-      ${ddsPrefix}-expressive-modal-footer ${ddsPrefix}-button-expressive[kind="primary"]
+      ${c4dPrefix}-expressive-modal-footer ${c4dPrefix}-button[kind="primary"],
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--expressive-modal`;
+    return `${c4dPrefix}--expressive-modal`;
   }
 
   /**
@@ -547,14 +535,14 @@ class DDSExpressiveModal extends StableSelectorMixin(
    * Cancellation of this event stops the user-initiated action of closing this modal.
    */
   static get eventBeforeClose() {
-    return `${ddsPrefix}-expressive-modal-beingclosed`;
+    return `${c4dPrefix}-expressive-modal-beingclosed`;
   }
 
   /**
    * The name of the custom event fired after this modal is closed upon a user gesture.
    */
   static get eventClose() {
-    return `${ddsPrefix}-expressive-modal-closed`;
+    return `${c4dPrefix}-expressive-modal-closed`;
   }
 
   /**
@@ -607,4 +595,4 @@ class DDSExpressiveModal extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSExpressiveModal;
+export default C4DExpressiveModal;

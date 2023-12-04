@@ -23,43 +23,43 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
-import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
-import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
-import DDSLeadspace from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace';
-import DDSLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
+import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
+import C4DLeadspace from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
 function App() {
   return (
-    <DDSLeadspace size="tall">
-      <DDSLeadspaceHeading>Heading can go on two lines max</DDSLeadspaceHeading>
+    <C4DLeadspace size="tall">
+      <C4DLeadspaceHeading>Heading can go on two lines max</C4DLeadspaceHeading>
       Use this area for a short line of copy to support the title
-      <DDSButtonGroup slot="action">
-        <DDSButtonGroupItem href="https://www.example.com">
+      <C4DButtonGroup slot="action">
+        <C4DButtonGroupItem href="https://www.example.com">
           <ArrowRight20 slot="icon" />
           Button 1
-        </DDSButtonGroupItem>
-        <DDSButtonGroupItem href="https://www.example.com">
+        </C4DButtonGroupItem>
+        <C4DButtonGroupItem href="https://www.example.com">
           <ArrowRight20 slot="icon" />
           Button 2
-        </DDSButtonGroupItem>
-      </DDSButtonGroup>
-      <DDSBackgroundMedia
+        </C4DButtonGroupItem>
+      </C4DButtonGroup>
+      <C4DBackgroundMedia
         slot="image"
         default-src="https://picsum.photos/id/1076/1056/480"
         alt="Image alt text"
         opacity="100">
-        <DDSImageItem
+        <C4DImageItem
           media="(min-width: 672px)"
-          srcset="https://picsum.photos/id/1076/672/400"></DDSImageItem>
-        <DDSImageItem
+          srcset="https://picsum.photos/id/1076/672/400"></C4DImageItem>
+        <C4DImageItem
           media="(min-width: 0)"
-          srcset="https://picsum.photos/id/1076/320/370"></DDSImageItem>
-      </DDSBackgroundMedia>
-    </DDSLeadspace>
+          srcset="https://picsum.photos/id/1076/320/370"></C4DImageItem>
+      </C4DBackgroundMedia>
+    </C4DLeadspace>
   );
 }
 ```
@@ -73,25 +73,25 @@ such:
 ```javascript
 function App() {
   return (
-    <DDSLeadspace size="tall">
-      <DDSLeadspaceHeading>Heading can go on two lines max</DDSLeadspaceHeading>
+    <C4DLeadspace size="tall">
+      <C4DLeadspaceHeading>Heading can go on two lines max</C4DLeadspaceHeading>
       Use this area for a short line of copy to support the title
-      <DDSButtonGroup slot="action">
-        <DDSButtonGroupItem href="https://www.example.com">
+      <C4DButtonGroup slot="action">
+        <C4DButtonGroupItem href="https://www.example.com">
           <ArrowRight20 slot="icon" />
           Button 1
-        </DDSButtonGroupItem>
-        <DDSButtonGroupItem href="https://www.example.com">
+        </C4DButtonGroupItem>
+        <C4DButtonGroupItem href="https://www.example.com">
           <ArrowRight20 slot="icon" />
           Button 2
-        </DDSButtonGroupItem>
-      </DDSButtonGroup>
-      <DDSBackgroundMedia slot="image" alt="Image alt text" opacity="100">
-        <DDSVideoPlayerContainer
-          video-id="1_9h94wo6b"
-          background-mode="true"></DDSVideoPlayerContainer>
-      </DDSBackgroundMedia>
-    </DDSLeadspace>
+        </C4DButtonGroupItem>
+      </C4DButtonGroup>
+      <C4DBackgroundMedia slot="image" alt="Image alt text" opacity="100">
+        <C4DVideoPlayerContainer
+          video-id="0_ibuqxqbe"
+          background-mode="true"></C4DVideoPlayerContainer>
+      </C4DBackgroundMedia>
+    </C4DLeadspace>
   );
 }
 ```
@@ -107,38 +107,78 @@ the Leadspace reserves the "action" slot for its CTAs, make sure to include
 ```javascript
 function App() {
   return (
-    <DDSLeadspace size="tall">
-      <DDSLeadspaceHeading>Heading can go on two lines max</DDSLeadspaceHeading>
+    <C4DLeadspace size="tall">
+      <C4DLeadspaceHeading>Heading can go on two lines max</C4DLeadspaceHeading>
       Use this area for a short line of copy to support the title
-      <DDSVideoCTAContainer slot="action">
-        <DDSButtonGroup slot="action">
-          <DDSButtonCTA cta-type="video" href="1_9h94wo6b">
+      <C4DVideoCTAContainer slot="action">
+        <C4DButtonGroup slot="action">
+          <C4DButtonGroupItem cta-type="video" href="1_9h94wo6b">
             <ArrowRight20 slot="icon" />
             Button 1
-          </DDSButtonCTA>
-          <DDSButtonGroupItem href="https://www.example.com">
+          </C4DButtonCTA>
+          <C4DButtonGroupItem href="https://www.example.com">
             <ArrowRight20 slot="icon" />
             Button 2
-          </DDSButtonGroupItem>
-        </DDSButtonGroup>
-      </DDSVideoCTAContainer>
-      <DDSBackgroundMedia
+          </C4DButtonGroupItem>
+        </C4DButtonGroup>
+      </C4DVideoCTAContainer>
+      <C4DBackgroundMedia
         slot="image"
         default-src="https://picsum.photos/id/1076/1056/480"
         alt="Image alt text"
         opacity="100">
-        <DDSImageItem
+        <C4DImageItem
           media="(min-width: 672px)"
-          srcset="https://picsum.photos/id/1076/672/400"></DDSImageItem>
-        <DDSImageItem
+          srcset="https://picsum.photos/id/1076/672/400"></C4DImageItem>
+        <C4DImageItem
           media="(min-width: 0)"
-          srcset="https://picsum.photos/id/1076/320/370"></DDSImageItem>
-      </DDSBackgroundMedia>
-    </DDSLeadspace>
+          srcset="https://picsum.photos/id/1076/320/370"></C4DImageItem>
+      </C4DBackgroundMedia>
+    </C4DLeadspace>
   );
 }
 ```
 
+## Leadspace heading
+
+The heading component has two attributes that can be used.
+
+### Highlight
+You can use the `highlight` attribute to highlight a specific word or phrase in your heading.
+
+```javascript
+function App() {
+  return (
+    <C4DLeadspace>
+      <C4DLeadspaceHeading highlight="important">Leadspace with an important word</C4DLeadspaceHeading>
+      Leadspace copy
+    </C4DLeadspace>
+  );
+}
+```
+
+In the previous example the word "important" will be highlighted.
+
+### Type style
+
+With the `type-style` attribute, you can modify the type of the heading.
+
+There are two options:
+* display-01 (default)
+* fluid-heading-05
+
+```javascript
+function App() {
+  return (
+    <C4DLeadspace>
+      <C4DLeadspaceHeading type-style="fluid-heading-05">Heading</C4DLeadspaceHeading>
+      Leadspace copy
+    </C4DLeadspace>
+  );
+}
+```
+
+Note: The `short` variation of the leadspace can only have `fluid-heading-05` as its type heading.
 ## Props
 
 <Props of={PropTypesRef} />
@@ -151,6 +191,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector         | Description |
 | ----------------------- | ------------------------------ | ----------- |
-| `<dds-leadspace>`       | `data-autoid="dds--leadspace"` | Component   |
+| `<c4d-leadspace>`       | `data-autoid="c4d--leadspace"` | Component   |
 
 <Description markdown={contributing} />

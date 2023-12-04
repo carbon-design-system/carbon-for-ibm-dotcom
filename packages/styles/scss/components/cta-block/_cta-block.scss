@@ -1,88 +1,99 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-@import '../buttongroup/_buttongroup';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-block';
+@use '../../internal/content-item/content-item';
+@use '../button-group';
 
 @mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
+  color: $text-primary;
+  background: $background;
 
   .#{$prefix}--content-item__heading {
-    color: $text-01;
+    color: $text-primary;
   }
 
   .#{$prefix}--content-item__copy {
     p {
-      color: $text-01;
+      color: $text-primary;
     }
   }
 
   .#{$prefix}--content-item__cta {
-    color: $link-01;
+    color: $link-primary;
   }
 }
 
-@mixin cta-block--pattern {
-  :host(#{$dds-prefix}-cta-block),
+@mixin cta-block {
+  :host(#{$c4d-prefix}-cta-block),
   .#{$prefix}--cta-block {
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-05;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-10;
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
     }
 
     .#{$prefix}--cta-block__cta {
-      padding-bottom: $carbon--layout-05;
-      @include carbon--breakpoint('md') {
-        padding-bottom: $carbon--layout-06;
+      padding-bottom: $spacing-10;
+      @include breakpoint(md) {
+        padding-bottom: $spacing-12;
       }
-      @include carbon--breakpoint('lg') {
-        padding-bottom: $carbon--layout-07;
+      @include breakpoint(lg) {
+        padding-bottom: $spacing-13;
       }
 
       .#{$prefix}--buttongroup {
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           flex-direction: row;
         }
       }
 
       .#{$prefix}--buttongroup-item {
-        @include carbon--breakpoint('md') {
-          padding-right: $carbon--layout-03;
+        @include breakpoint(md) {
+          padding-right: $spacing-07;
         }
       }
     }
 
     .#{$prefix}--content-block {
-      padding-top: $carbon--layout-03;
+      padding-top: $spacing-07;
       padding-bottom: 0;
 
-      @include carbon--breakpoint('lg') {
-        padding-top: $carbon--layout-05;
+      @include breakpoint(lg) {
+        padding-top: $spacing-10;
       }
     }
 
     .#{$prefix}--content-block__heading,
     .#{$prefix}--content-block__copy {
       width: 90%;
-      max-width: rem(640px);
+      max-width: to-rem(640px);
 
-      @include carbon--breakpoint('sm') {
+      @include breakpoint(sm) {
         width: 100%;
       }
     }
 
     .#{$prefix}--content-block__heading {
-      @include carbon--type-style('expressive-heading-05', true);
+      @include type-style('fluid-heading-05', true);
     }
 
     .#{$prefix}--content-block__copy {
       p {
         margin-bottom: 0;
-        @include carbon--type-style('expressive-heading-03', true);
+        @include type-style('fluid-heading-03', true);
       }
     }
 
@@ -92,25 +103,25 @@
 
     .#{$prefix}--helper-wrapper {
       .#{$prefix}--content-item-wrapper {
-        @include carbon--make-row;
+        @include make-row;
 
         .#{$prefix}--content-item {
           width: 100%;
           margin-bottom: 0;
-          padding-bottom: $carbon--spacing-05;
+          padding-bottom: $spacing-05;
           position: relative;
 
-          @include carbon--make-col-ready;
+          @include make-col-ready;
 
-          @include carbon--breakpoint('md') {
-            @include carbon--make-col(4, 8);
+          @include breakpoint(md) {
+            @include make-col(4, 8);
           }
 
           &:last-of-type {
-            margin-top: $carbon--spacing-05;
+            margin-top: $spacing-05;
 
-            @include carbon--breakpoint('md') {
-              margin-top: $carbon--spacing-07;
+            @include breakpoint(md) {
+              margin-top: $spacing-07;
             }
           }
         }
@@ -118,9 +129,9 @@
         .#{$prefix}--content-item__heading {
           width: 100%;
 
-          @include carbon--type-style('expressive-heading-02', true);
+          @include type-style('heading-02', true);
 
-          @include carbon--breakpoint('md') {
+          @include breakpoint(md) {
             width: 90%;
           }
         }
@@ -128,36 +139,36 @@
         .#{$prefix}--content-item__copy {
           width: 100%;
 
-          @include carbon--breakpoint('md') {
+          @include breakpoint(md) {
             width: 90%;
           }
 
           p {
             width: 100%;
-            margin-bottom: $carbon--spacing-05;
+            margin-bottom: $spacing-05;
 
-            @include carbon--type-style('body-long-02', true);
+            @include type-style('body-02', true);
           }
         }
       }
     }
 
     &.#{$prefix}--cta-block__has-items {
-      padding-bottom: $carbon--layout-04;
+      padding-bottom: $spacing-09;
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         padding-bottom: carbon--mini-units(10);
       }
 
       .#{$prefix}--cta-block__cta {
-        padding-bottom: $carbon--spacing-07;
+        padding-bottom: $spacing-07;
 
-        @include carbon--breakpoint('md') {
-          padding-bottom: $carbon--layout-05;
+        @include breakpoint(md) {
+          padding-bottom: $spacing-10;
         }
 
-        @include carbon--breakpoint('lg') {
-          padding-bottom: $carbon--layout-06;
+        @include breakpoint(lg) {
+          padding-bottom: $spacing-12;
         }
       }
 
@@ -168,33 +179,20 @@
   }
 
   .#{$prefix}--cta-block--g10 {
-    @include carbon--theme(
-      $carbon--theme--g10,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g10, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
   }
 
   .#{$prefix}--cta-block--g90 {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
   }
 
   .#{$prefix}--cta-block--g100 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
-  }
-}
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
-@include exports('cta-block--pattern') {
-  @include cta-block--pattern;
+    @include themed-items;
+  }
 }

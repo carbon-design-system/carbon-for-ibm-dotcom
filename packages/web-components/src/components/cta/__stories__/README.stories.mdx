@@ -1,10 +1,14 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import '../text-cta';
 import '../card-cta';
 import '../feature-cta';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
 
 # CTA
 
@@ -14,16 +18,18 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 ## Getting started
 
-The CTA contains every style and type of CTA available in the Carbon for IBM.com library. 
-The default CTA style is `text`, which provides a basic Link with icon component.
+The CTA contains every style and type of CTA available in the Carbon for IBM.com
+library. The default CTA style is `text`, which provides a basic Link with icon
+component.
 
-In order to use the desired component, modify the `cta-style` attribute to one of the following:
+In order to use the desired component, modify the `cta-style` attribute to one
+of the following:
 
-* `text`
-* `button`
-* `card`
-* `card-link`
-* `feature`
+- `text`
+- `button`
+- `card`
+- `card-link`
+- `feature`
 
 ### JS (via import)
 
@@ -48,14 +54,14 @@ CTA Text is the most basic version of CTA, presented as a simple link.
 ### HTML
 
 ```html
-<dds-cta cta-style='text' href="https://www.ibm.com/" cta-type="local">
+<cds-cta cta-style="text" href="https://www.ibm.com/" cta-type="local">
   Copy text
-</dds-cta>
+</cds-cta>
 ```
 
 ### Props
 
-<Props of="dds-text-cta" />
+<Props of="cds-text-cta" />
 
 ## `Button`
 
@@ -70,14 +76,18 @@ CTA Button is a version of CTA presented as a button.
 ### HTML
 
 ```html
-<dds-cta cta-style='button' cta-type="local" kind="tertiary" href="https://www.example.com">
+<cds-cta
+  cta-style="button"
+  cta-type="local"
+  kind="tertiary"
+  href="https://www.example.com">
   Button CTA Copy
-</dds-cta>
+</cds-cta>
 ```
 
 ### Props
 
-<Props of="dds-button-cta" />
+<Props of="cds-button-cta" />
 
 ## Card CTA
 
@@ -92,9 +102,9 @@ CTA Card is a version of CTA presented as a card.
 ### HTML
 
 ```html
-<dds-cta cta-style='card' href="https://www.ibm.com/" cta-type="local">
+<cds-cta cta-style="card" href="https://www.ibm.com/" cta-type="local">
   Copy text
-  <dds-card-cta-footer>
+  <cds-card-cta-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -104,18 +114,17 @@ CTA Card is a version of CTA presented as a card.
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
+      viewBox="0 0 20 20">
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-card-cta-footer>
-</dds-cta>
+  </cds-card-cta-footer>
+</cds-cta>
 ```
 
 ### Props
 
-<Props of="dds-card-cta" />
+<Props of="cds-card-cta" />
 
 ## Card link CTA
 
@@ -130,31 +139,29 @@ Card link CTA is a version of CTA presented as a card.
 ### HTML
 
 ```html
-<dds-cta cta-style='card-link' href="https://www.ibm.com/" cta-type="local">
-  <dds-card-link-heading>Heading text</dds-card-link-heading>
-    <dds-card-cta-footer>
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path
-          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-card-cta-footer>
-</dds-cta>
+<cds-cta cta-style="card-link" href="https://www.ibm.com/" cta-type="local">
+  <cds-card-link-heading>Heading text</cds-card-link-heading>
+  <cds-card-cta-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </cds-card-cta-footer>
+</cds-cta>
 ```
 
 ### Props
 
-<Props of="dds-card-link-cta" />
-
+<Props of="cds-card-link-cta" />
 
 ## Feature card CTA
 
@@ -169,15 +176,14 @@ Feature card CTA is a version of CTA presented as a feature card.
 ### HTML
 
 ```html
-<dds-cta cta-style='feature' href="https://www.ibm.com/" cta-type="local">
-  <dds-card-heading>This is a heading</dds-card-heading>
-  <dds-image
+<cds-cta cta-style="feature" href="https://www.ibm.com/" cta-type="local">
+  <cds-card-heading>This is a heading</cds-card-heading>
+  <cds-image
     slot="image"
     alt="Image alt text"
-    default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
-  >
-  </dds-image>
-  <dds-feature-cta-footer>
+    default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616">
+  </cds-image>
+  <cds-feature-cta-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -187,47 +193,55 @@ Feature card CTA is a version of CTA presented as a feature card.
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
+      viewBox="0 0 20 20">
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-feature-cta-footer>
-</dds-cta>
+  </cds-feature-cta-footer>
+</cds-cta>
 ```
 
-The Feature Card for CTA can also use the 'large' variation, but be sure to at least include an eyebrow and heading.
-
+The Feature Card for CTA can also use the 'large' variation, but be sure to at
+least include an eyebrow and heading.
 
 ```html
-<dds-cta cta-style='feature' size='large' href="https://www.ibm.com/" cta-type="local">
-  <dds-card-eyebrow>This is an eyebrow</dds-card-eyebrow>
-  <dds-card-heading>This is a heading</dds-card-heading>
-  <dds-image
+<cds-cta
+  cta-style="feature"
+  size="large"
+  href="https://www.ibm.com/"
+  cta-type="local">
+  <cds-card-eyebrow>This is an eyebrow</cds-card-eyebrow>
+  <cds-card-heading>This is a heading</cds-card-heading>
+  <cds-image
     slot="image"
     alt="Image alt text"
-    default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
-  >
-  </dds-image>
-</dds-cta>
+    default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616">
+  </cds-image>
+</cds-cta>
 ```
 
 ### Props
 
-<Props of="dds-feature-cta" />
+<Props of="cds-feature-cta" />
 
 ## Using a video player
 
-The `<dds-video-cta-container>` component lets you integrate `<dds-text-cta>`/`<dds-button-cta>`/`<dds-card-cta>`/`<dds-feature-cta>` with video player quickly.
-Only one `<dds-video-cta-container>` has to be put in application.
-Ensure that `<dds-video-cta-container>` contains all `<dds-text-cta>`/`<dds-button-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
+The `<cds-video-cta-container>` component lets you integrate
+`<cds-text-cta>`/`<cds-button-cta>`/`<cds-card-cta>`/`<cds-feature-cta>` with
+video player quickly. Only one `<cds-video-cta-container>` has to be put in
+application. Ensure that `<cds-video-cta-container>` contains all
+`<cds-text-cta>`/`<cds-button-cta>`/`<cds-card-cta>`/`<cds-feature-cta>`:
 
 ## Using contact methods
 
-The various cta components allow the `type` attributes `email`, `schedule`, `chat`, and `call`, to perform their respective contact methods, but requires importing the contact module.
+The various cta components allow the `type` attributes `email`, `schedule`,
+`chat`, and `call`, to perform their respective contact methods, but requires
+importing the contact module.
 
 ```html
-<script src="https://www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
+<script
+  src="https://www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js"
+  defer></script>
 ```
 
 ### JS (via import)
@@ -236,16 +250,18 @@ The various cta components allow the `type` attributes `email`, `schedule`, `cha
 import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['cta','video-cta-container'] })}`} />
+<Description
+  markdown={`${cdnJs({ components: ['cta', 'video-cta-container'] })}`}
+/>
 
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-<dds-video-cta-container>
-  <dds-cta cta-style='text' cta-type="video" href="1_9h94wo6b"></dds-cta>
-</dds-video-cta-container>
+<cds-video-cta-container>
+  <cds-cta cta-style="text" cta-type="video" href="0_ibuqxqbe"></cds-cta>
+</cds-video-cta-container>
 ```
 
 > 💡 Check our
@@ -254,10 +270,10 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.j
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta/text)
 
-### `dds-cta-run-action` customization
+### `cds-cta-run-action` customization
 
 For more flexible solution that is better tailored to your application's needs,
-CTA components fire `dds-cta-run-action` custom event when user clicks on a CTA
+CTA components fire `cds-cta-run-action` custom event when user clicks on a CTA
 with `type="video"`. Application code can take care of creating/putting our
 video player component and working with our video player service API to put the
 video data into the video player component:
@@ -270,21 +286,21 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 
 ...
 
-document.addEventListener('dds-cta-run-action', async event => {
+document.addEventListener('cds-cta-run-action', async event => {
   const videoId = event.detail.href;
   const lightboxId = `lightbox-${videoId}`;
   let lightboxElem = document.getElementById(lightboxId);
   if (!lightboxElem) {
-    lightboxElem = document.createElement('dds-expressive-modal');
+    lightboxElem = document.createElement('cds-expressive-modal');
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
-      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-      <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
+      <cds-expressive-modal-close-button></cds-expressive-modal-close-button>
+      <cds-lightbox-video-player id="lightbox-video-player-${videoId}"></cds-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');
     videoTarget.id = `video-target-${videoId}`;
-    videoTarget.className = 'bx--video-player__video';
+    videoTarget.className = 'cds--video-player__video';
     const videoPlayer = document.getElementById(`lightbox-video-player-${videoId}`);
     videoPlayer.appendChild(videoTarget);
     const [videoData] = await Promise.all([

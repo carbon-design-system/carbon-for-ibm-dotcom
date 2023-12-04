@@ -7,38 +7,37 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { html } from 'lit';
+import { property, state } from 'lit/decorators.js';
 import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import EarthFilled16 from '../../internal/vendor/@carbon/web-components/icons/earth--filled/16.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSExpressiveModal from '../expressive-modal/expressive-modal';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
 import '../expressive-modal/expressive-modal-heading';
 import '../expressive-modal/expressive-modal-close-button';
-import DDSLocaleSearch from './locale-search';
-import DDSRegionItem from './region-item';
+import C4DLocaleSearch from './locale-search';
+import C4DRegionItem from './region-item';
 import styles from './locale-modal.scss';
 import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Locale modal.
  *
- * @element dds-locale-modal
+ * @element c4d-locale-modal
  * @slot regions-selector - The area for the regions selector.
  * @slot locales-selector - The area for the locales selector.
  */
-@customElement(`${ddsPrefix}-locale-modal`)
-// `BXModal` extends `HostListenerMixin`
-class DDSLocaleModal extends DDSExpressiveModal {
+@customElement(`${c4dPrefix}-locale-modal`)
+// `CDSModal` extends `HostListenerMixin`
+class C4DLocaleModal extends C4DExpressiveModal {
   /**
    * The current region.
    */
@@ -59,8 +58,8 @@ class DDSLocaleModal extends DDSExpressiveModal {
    * @param event The event.
    */
   private _handleClickRegionSelector(event: MouseEvent) {
-    const { invalid, name } = event.target as DDSRegionItem;
-    if (!invalid) {
+    const { disabled, name } = event.target as C4DRegionItem;
+    if (!disabled) {
       this._currentRegion = name;
     }
   }
@@ -75,7 +74,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
    * Sets focus on primary selectable element.
    */
   private async _setPrimaryFocus() {
-    const { selectorPrimaryFocus } = DDSLocaleModal;
+    const { selectorPrimaryFocus } = C4DLocaleModal;
     const focusTarget = this.querySelector(selectorPrimaryFocus);
     if (focusTarget) {
       (focusTarget as HTMLElement).tabIndex = 0;
@@ -87,11 +86,11 @@ class DDSLocaleModal extends DDSExpressiveModal {
    * Sets focus on locale selector search.
    */
   private async _setSearchFocus() {
-    const { selectorLocaleSearch } = DDSLocaleModal;
+    const { selectorLocaleSearch } = C4DLocaleModal;
     await this.updateComplete;
     const localeSearch = this.querySelector(selectorLocaleSearch);
     if (localeSearch) {
-      (localeSearch as DDSLocaleSearch).reset();
+      (localeSearch as C4DLocaleSearch).reset();
       (localeSearch as HTMLElement).focus();
     }
   }
@@ -106,14 +105,14 @@ class DDSLocaleModal extends DDSExpressiveModal {
       html`
         <p class="${prefix}--modal-header__label ${prefix}--type-delta">
           ${langDisplay}${EarthFilled16({
-            class: `${prefix}--locale-modal__label-globe`,
+            class: `${c4dPrefix}--locale-modal__label-globe`,
           })}
         </p>
       `}
       ${langDisplay &&
       headerTitle &&
       html`
-        <p class="bx--modal-header__heading bx--type-beta">${headerTitle}</p>
+        <p class="cds--modal-header__heading cds--type-beta">${headerTitle}</p>
       `}
     `;
   }
@@ -128,16 +127,16 @@ class DDSLocaleModal extends DDSExpressiveModal {
       _handleClickBackButton: handleClickBackButton,
     } = this;
     return html`
-      <dds-link-with-icon
+      <c4d-link-with-icon
         icon-placement="${ICON_PLACEMENT.LEFT}"
         href="#"
         @click="${handleClickBackButton}">
         ${headerTitle}${ArrowLeft20({
           slot: 'icon',
-          class: `${prefix}--locale-modal__label-arrow`,
+          class: `${c4dPrefix}--locale-modal__label-arrow`,
         })}
-      </dds-link-with-icon>
-      <p class="bx--modal-header__heading bx--type-beta" tabindex="0">
+      </c4d-link-with-icon>
+      <p class="cds--modal-header__heading cds--type-beta" tabindex="0">
         ${currentRegion}
       </p>
     `;
@@ -160,7 +159,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
     const { _handleClickRegionSelector: handleClickRegionSelector } = this;
     return html`
       <div
-        class="${prefix}--modal-content ${prefix}--locale-modal"
+        class="${prefix}--modal-content ${c4dPrefix}--locale-modal"
         @click="${handleClickRegionSelector}">
         <slot name="regions-selector"></slot>
       </div>
@@ -178,15 +177,15 @@ class DDSLocaleModal extends DDSExpressiveModal {
   protected _renderHeader() {
     const { closeButtonAssistiveText } = this;
     return html`
-      <div id="${ddsPrefix}--modal-header">
-        <dds-expressive-modal-header>
-          <dds-expressive-modal-close-button
-            assistive-text="${ifNonNull(closeButtonAssistiveText)}">
-          </dds-expressive-modal-close-button>
-          <dds-expressive-modal-heading
-            >${this._renderHeading()}</dds-expressive-modal-heading
+      <div id="${prefix}--modal-header">
+        <c4d-expressive-modal-header>
+          <c4d-expressive-modal-close-button
+            assistive-text="${ifDefined(closeButtonAssistiveText)}">
+          </c4d-expressive-modal-close-button>
+          <c4d-expressive-modal-heading
+            >${this._renderHeading()}</c4d-expressive-modal-heading
           >
-        </dds-expressive-modal-header>
+        </c4d-expressive-modal-header>
       </div>
     `;
   }
@@ -226,7 +225,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
       // Allow listening components to update their state.
       this.dispatchEvent(
         new CustomEvent(
-          (this.constructor as typeof DDSLocaleModal).eventRegionUpdated,
+          (this.constructor as typeof C4DLocaleModal).eventRegionUpdated,
           {
             bubbles: true,
             composed: true,
@@ -240,10 +239,10 @@ class DDSLocaleModal extends DDSExpressiveModal {
 
       // Pass state to search element.
       const { selectorLocaleSearch } = this
-        .constructor as typeof DDSLocaleModal;
+        .constructor as typeof C4DLocaleModal;
       const localeSearch = this.querySelector(selectorLocaleSearch);
       if (localeSearch) {
-        (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
+        (localeSearch as C4DLocaleSearch).region = this._currentRegion ?? '';
       }
 
       // Set element focus.
@@ -252,14 +251,14 @@ class DDSLocaleModal extends DDSExpressiveModal {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--locale-modal`;
+    return `${c4dPrefix}--locale-modal`;
   }
 
   /**
    * A selector selecting the locale search UI.
    */
   static get selectorLocaleSearch() {
-    return `${ddsPrefix}-locale-search`;
+    return `${c4dPrefix}-locale-search`;
   }
 
   /**
@@ -268,7 +267,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
   static get selectorPrimaryFocus() {
     return `
       [data-modal-primary-focus],
-      ${ddsPrefix}-region-item
+      ${c4dPrefix}-region-item
     `;
   }
 
@@ -278,11 +277,11 @@ class DDSLocaleModal extends DDSExpressiveModal {
   static get selectorTabbable() {
     return `
       ${selectorTabbable},
-      ${ddsPrefix}-expressive-modal,
-      ${ddsPrefix}-expressive-modal-close-button,
-      ${ddsPrefix}-region-item,
-      ${ddsPrefix}-search,
-      ${ddsPrefix}-locale-item
+      ${c4dPrefix}-expressive-modal,
+      ${c4dPrefix}-expressive-modal-close-button,
+      ${c4dPrefix}-region-item,
+      ${prefix}-search,
+      ${c4dPrefix}-locale-item
     `;
   }
 
@@ -290,10 +289,10 @@ class DDSLocaleModal extends DDSExpressiveModal {
    * Name for event fired when a region is selected.
    */
   static get eventRegionUpdated() {
-    return `${ddsPrefix}-locale-modal-region-updated`;
+    return `${c4dPrefix}-locale-modal-region-updated`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default DDSLocaleModal;
+export default C4DLocaleModal;

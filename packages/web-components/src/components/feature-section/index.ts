@@ -8,8 +8,7 @@
  */
 
 import './feature-section';
-import './feature-section-card-link';
-import '../card/card-eyebrow';
-import '../card-link/card-link-heading';
 import '../content-block/content-block-heading';
 import '../content-item/content-item-paragraph';
+import '../image/index';
+import '../card/index';

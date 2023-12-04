@@ -7,39 +7,39 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSVideoPlayerContainer from './video-player-container';
+import C4DVideoPlayerContainer from './video-player-container';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Video player.
  *
- * @element dds-video-player
+ * @element c4d-video-player
  */
-@customElement(`${ddsPrefix}-video-player`)
-class DDSVideoPlayer extends FocusMixin(
+@customElement(`${c4dPrefix}-video-player`)
+class C4DVideoPlayer extends FocusMixin(
   StableSelectorMixin(ParentVisibilityMixin(LitElement))
 ) {
   /**
@@ -57,7 +57,7 @@ class DDSVideoPlayer extends FocusMixin(
     }
     const { videoId, name, customVideoDescription } = this;
     const { eventContentStateChange } = this
-      .constructor as typeof DDSVideoPlayer;
+      .constructor as typeof C4DVideoPlayer;
     this.dispatchEvent(
       new CustomEvent(eventContentStateChange, {
         bubbles: true,
@@ -81,13 +81,13 @@ class DDSVideoPlayer extends FocusMixin(
     return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
       !backgroundMode
       ? html`
-          <div class="${prefix}--video-player__video">
+          <div class="${c4dPrefix}--video-player__video">
             <button
-              class="${prefix}--video-player__image-overlay"
+              class="${c4dPrefix}--video-player__image-overlay"
               @click="${this._handleClickOverlay}">
-              <dds-image default-src="${thumbnailUrl}" alt="${ifNonNull(name)}">
-                ${PlayVideo({ slot: 'icon' })}
-              </dds-image>
+              <c4d-image default-src="${thumbnailUrl}" alt="${ifDefined(name)}">
+                ${unsafeSVG(PlayVideo)}
+              </c4d-image>
             </button>
           </div>
         `
@@ -129,7 +129,7 @@ class DDSVideoPlayer extends FocusMixin(
   public userInitiatedTogglePlaybackState() {
     const { videoId } = this;
     const { eventPlaybackStateChange } = this
-      .constructor as typeof DDSVideoPlayer;
+      .constructor as typeof C4DVideoPlayer;
     this.dispatchEvent(
       new CustomEvent(eventPlaybackStateChange, {
         bubbles: true,
@@ -213,15 +213,6 @@ class DDSVideoPlayer extends FocusMixin(
   @property({ attribute: 'aspect-ratio' })
   aspectRatio?: string;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   render() {
     const {
       aspectRatio,
@@ -233,8 +224,9 @@ class DDSVideoPlayer extends FocusMixin(
     } = this;
 
     const aspectRatioClass = classMap({
-      [`${prefix}--video-player__video-container`]: true,
-      [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: !!aspectRatio,
+      [`${c4dPrefix}--video-player__video-container`]: true,
+      [`${c4dPrefix}--video-player__aspect-ratio--${aspectRatio}`]:
+        !!aspectRatio,
     });
 
     return html`
@@ -242,7 +234,7 @@ class DDSVideoPlayer extends FocusMixin(
       ${hideCaption
         ? undefined
         : html`
-            <div class="${prefix}--video-player__video-caption">
+            <div class="${c4dPrefix}--video-player__video-caption">
               ${formatCaption({
                 duration: formatDuration({
                   duration: !duration ? duration : duration * 1000,
@@ -285,7 +277,7 @@ class DDSVideoPlayer extends FocusMixin(
   firstUpdated() {
     this.tabIndex = 0;
     const parentIsBackground = Boolean(
-      (this.parentElement as DDSVideoPlayerContainer)?.backgroundMode
+      (this.parentElement as C4DVideoPlayerContainer)?.backgroundMode
     );
 
     this.backgroundMode = parentIsBackground;
@@ -295,22 +287,26 @@ class DDSVideoPlayer extends FocusMixin(
    * The name of the custom event fired after video content state is changed upon a user gesture.
    */
   static get eventContentStateChange() {
-    return `${ddsPrefix}-video-player-content-state-changed`;
+    return `${c4dPrefix}-video-player-content-state-changed`;
   }
 
   /**
    * The name of the custom event fired requesting playback state change.
    */
   static get eventPlaybackStateChange() {
-    return `${ddsPrefix}-video-player-playback-state-changed`;
+    return `${c4dPrefix}-video-player-playback-state-changed`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--video-player`;
+    return `${c4dPrefix}--video-player`;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSVideoPlayer;
+export default C4DVideoPlayer;

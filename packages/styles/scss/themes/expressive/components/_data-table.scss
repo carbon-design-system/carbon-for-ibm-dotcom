@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Data Table (expressive)
@@ -16,17 +16,17 @@
 /// @group data-table-expressive
 @mixin data-table-expressive {
   .#{$prefix}--data-table--compact td {
-    height: rem(32px);
+    height: $spacing-07;
   }
   .#{$prefix}--data-table--short td {
-    height: rem(40px);
+    height: $spacing-08;
   }
   .#{$prefix}--data-table--tall td {
-    height: rem(70px);
+    height: to-rem(70px);
   }
   .#{$prefix}--table-expand__svg {
-    height: rem(20px);
-    width: rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
   }
   .#{$prefix}--data-table tbody td {
     &.#{$prefix}--table-column-checkbox {
@@ -35,8 +35,8 @@
   }
 
   .#{$prefix}--action-list .#{$prefix}--btn__icon {
-    height: rem(20px);
-    width: rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
   }
   .#{$prefix}--toolbar-search-container-expandable
     .#{$prefix}--search
@@ -45,8 +45,8 @@
     width: var(--cds-layout-04, 3.25rem);
   }
   .#{$prefix}--action-list .#{$prefix}--btn .#{$prefix}--btn__icon {
-    height: rem(20px);
-    width: rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
   }
   .#{$prefix}--overflow-menu__icon {
     height: 1.25rem;

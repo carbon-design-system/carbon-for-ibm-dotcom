@@ -7,14 +7,9 @@
   "engines": {
     "node": ">=18.x"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/marked"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "lerna run build --stream --prefix",
     "ci-check": "npm run format:diff && yarn lint:license && yarn lint && yarn lint:styles",
@@ -22,16 +17,15 @@
     "doctoc": "doctoc --title '## Table of Contents' docs",
     "format": "prettier --cache --write '**/*.{js,md,scss,ts}'",
     "format:diff": "prettier --cache --list-different '**/*.{js,md,scss,ts}'",
-    "lint": "eslint packages",
+    "lint": "eslint packages --ext .js,.ts",
     "lint:license": "gulp lint:license",
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:scripts:staged": "eslint",
     "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
     "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
-    "test": "yarn test:unit && yarn test:a11y && yarn test:integration:build",
+    "test": "yarn test:unit && yarn test:a11y",
     "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
-    "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -67,12 +61,13 @@
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
     "jest-junit": "^6.4.0",
-    "lerna": "^6.4.1",
+    "lerna": "^6.5.1",
     "lint-staged": "^13.0.3",
     "node-fetch": "^2.6.0",
     "prettier": "^2.7.1",
     "react": "16.14.0",
     "rimraf": "^3.0.0",
+    "sass": "^1.19.0",
     "stylelint": "^13.3.3",
     "stylelint-config-prettier": "^7.0.0",
     "stylelint-prettier": "^1.1.2",
@@ -85,7 +80,6 @@
   },
   "resolutions": {
     "kind-of": ">=6.0.3",
-    "lit-html": "^1.4.1",
     "marked": "^4.0.10",
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1",

@@ -9,68 +9,62 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
-import DDSLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading.js';
-import DDSLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
-import DDSLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
-import DDSLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta.js';
-import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item.js';
+import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading.js';
+import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
+import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
+import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Download20 from '@carbon/icons-react/es/download/20.js';
 
 import './index.css';
 
 const App = () => (
-  <DDSLeadspaceBlock>
-    <DDSLeadspaceBlockHeading>Lead Space Block Title</DDSLeadspaceBlockHeading>
-    <DDSLeadspaceBlockContent>
-      <DDSContentBlockHeading>Content Block Heading</DDSContentBlockHeading>
-      <DDSContentBlockCopy>Content Block Copy</DDSContentBlockCopy>
-      <DDSLeadspaceBlockMedia slot="media">
-        <DDSImage
+  <C4DLeadspaceBlock>
+    <C4DLeadspaceHeading type-style="fluid-heading-05">Lead Space Block Title</C4DLeadspaceHeading>
+    <C4DLeadspaceBlockContent>
+      <C4DContentBlockCopy>Content Block Copy</C4DContentBlockCopy>
+      <C4DLeadspaceBlockMedia slot="media">
+        <C4DImage
           alt="Image alt text"
           default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
           heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-          <DDSImageItem
+          <C4DImageItem
             media="(min-width: 672px)"
             srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
           />
-          <DDSImageItem
+          <C4DImageItem
             media="(min-width: 400px)"
             srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
           />
-          <DDSImageItem
+          <C4DImageItem
             media="(min-width: 320px)"
             srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
           />
-        </DDSImage>
-      </DDSLeadspaceBlockMedia>
-      <DDSLinkList type="end">
-        <DDSLinkListHeading>Featured products</DDSLinkListHeading>
-        <DDSLinkListItem href="https://example.com">
+        </C4DImage>
+      </C4DLeadspaceBlockMedia>
+      <C4DLinkList type="end">
+        <C4DLinkListHeading>Featured products</C4DLinkListHeading>
+        <C4DLinkListItem href="https://example.com">
           IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           UrbanCode <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           View all products <Download20 slot="icon" />
-        </DDSLinkListItem>
-      </DDSLinkList>
-      <DDSLeadspaceBlockCTA>
-        <DDSButtonGroupItem href="www.ibm.com">
-          Contact sales <ArrowRight20 slot="icon" />
-        </DDSButtonGroupItem>
-      </DDSLeadspaceBlockCTA>
-    </DDSLeadspaceBlockContent>
-  </DDSLeadspaceBlock>
+        </C4DLinkListItem>
+      </C4DLinkList>
+      <C4DButton href="https://example.com" cta-type="local">
+        Contact sales
+      </C4DButton>
+    </C4DLeadspaceBlockContent>
+  </C4DLeadspaceBlock>
 );
 
 render(<App />, document.getElementById('root'));

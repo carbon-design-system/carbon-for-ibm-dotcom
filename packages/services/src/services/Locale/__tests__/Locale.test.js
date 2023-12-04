@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -528,7 +528,7 @@ describe('LocaleAPI', () => {
 
     // using very old cached session
     sessionStorageMock.setItem(
-      'dds-countrylist-en-us',
+      'cds-countrylist-en-us',
       JSON.stringify(Object.assign(oldSession, { CACHE: true }))
     );
 
@@ -538,7 +538,7 @@ describe('LocaleAPI', () => {
     });
 
     const newSession = JSON.parse(
-      sessionStorageMock.getItem('dds-countrylist-en-us')
+      sessionStorageMock.getItem('cds-countrylist-en-us')
     );
 
     // fresh cached data would lack this property

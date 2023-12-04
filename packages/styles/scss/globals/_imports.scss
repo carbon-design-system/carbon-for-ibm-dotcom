@@ -13,14 +13,14 @@
 // isolated as helper functions/mixins/utilities and should have minimal
 // effect on the final artifact size
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/type';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-family';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
-@import 'carbon-components/scss/globals/scss/vars';
-@import 'carbon-components/scss/globals/scss/helper-mixins';
-@import 'carbon-components/scss/globals/scss/layout';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
-@import 'carbon-components/scss/globals/scss/css--reset';
+@use 'vars' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/grid' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/reset' as *;
 
-@import './utils/content-width';
-@import './carbon-grid';
+@forward './utils/content-width';
+@forward './utils/ratio-base';

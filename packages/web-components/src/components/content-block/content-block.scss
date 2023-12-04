@@ -1,59 +1,62 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
-@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
-@import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
+@use '@carbon/ibmdotcom-styles/scss/internal/content-item';
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/components/card-group';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/content-width' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-block),
-:host(#{$dds-prefix}-callout-with-media-copy),
-:host(#{$dds-prefix}-content-block-copy),
-:host(#{$dds-prefix}-content-block-heading),
-:host(#{$dds-prefix}-content-block-complementary),
-:host(#{$dds-prefix}-content-block-paragraph) {
+:host(#{$c4d-prefix}-content-block),
+:host(#{$c4d-prefix}-callout-with-media-copy),
+:host(#{$c4d-prefix}-content-block-copy),
+:host(#{$c4d-prefix}-content-block-heading),
+:host(#{$c4d-prefix}-content-block-complementary),
+:host(#{$c4d-prefix}-content-block-paragraph) {
   display: block;
 }
 
 // TODO: Consider applying this rule in general
-:host(#{$dds-prefix}-content-block-simple),
-:host(#{$dds-prefix}-content-block-segmented) {
-  ::slotted(#{$dds-prefix}-callout-with-media-copy),
-  ::slotted(#{$dds-prefix}-content-block-copy) {
-    @include carbon--breakpoint('md') {
-      width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
+:host(#{$c4d-prefix}-content-block-simple),
+:host(#{$c4d-prefix}-content-block-segmented) {
+  ::slotted(#{$c4d-prefix}-callout-with-media-copy),
+  ::slotted(#{$c4d-prefix}-content-block-copy) {
+    @include breakpoint(md) {
+      width: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
   }
 }
 
-:host(#{$dds-prefix}-callout-with-media-copy[size='sm']),
-:host(#{$dds-prefix}-content-block-copy[size='sm']) {
+:host(#{$c4d-prefix}-callout-with-media-copy[size='sm']),
+:host(#{$c4d-prefix}-content-block-copy[size='sm']) {
   width: auto;
   max-width: none;
 
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     @include content-width;
   }
 
-  ::slotted(#{$dds-prefix}-content-block-paragraph) {
-    @include carbon--type-style('body-long-02');
+  ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+    @include type-style('body-02');
 
-    margin-bottom: $carbon--spacing-06;
+    margin-bottom: $spacing-06;
   }
 }
 
-.#{$dds-prefix}--content-block-footer {
-  @extend :host(#{$dds-prefix}-card-group);
+.#{$c4d-prefix}--content-block-footer {
+  @extend :host(#{$c4d-prefix}-card-group);
 }
 
-// TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version
-.#{$dds-prefix}-ce--content-block__col {
-  @include dds--make-col(2, 3);
+// TODO: Apply `cds--make-col(2, 3)` to React version, too, so we can merge the style to React version
+.#{$c4d-prefix}-ce--content-block__col {
+  @include make-col(2, 3);
 }

@@ -9,8 +9,8 @@
 
 import { select, number, boolean } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../link-list/index';
@@ -24,57 +24,55 @@ import content from './content';
 
 const contentItemTypeMap = {
   text: ({ heading, copy, links }) => html`
-    <dds-cta-block-item>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+    <c4d-content-item>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
         (elem) =>
           html`
-            <dds-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</dds-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </dds-cta-block-item>
+    </c4d-content-item>
   `,
   statistics: ({ heading, copy, links }) => html`
-    <dds-cta-block-item>
+    <c4d-content-item>
       <span slot="statistics">10%</span>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
         (elem) =>
           html`
-            <dds-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</dds-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </dds-cta-block-item>
+    </c4d-content-item>
   `,
   pictogram: ({ heading, copy, links }) => html`
-    <dds-cta-block-item>
+    <c4d-content-item>
       <svg
         slot="media"
         focusable="false"
         preserveAspectRatio="xMidYMid meet"
         xmlns="http://www.w3.org/2000/svg"
         stroke="currentColor"
-        data-autoid="dds--pictogram-item__pictogram"
+        data-autoid="c4d--pictogram-item__pictogram"
         aria-label="Pictogram description"
         width="48"
         height="48"
         viewBox="0 0 48 48"
         role="img"
-        class="bx--pictogram-item__pictogram">
+        class="cds--pictogram-item__pictogram">
         <path
           fill="none"
           stroke-linejoin="round"
@@ -85,68 +83,65 @@ const contentItemTypeMap = {
           3.109386,1.3655181 3.109386,3.0344847 V 33.103454 c 0,1.668967 -1.399224,3.034485 -3.109386,3.034485 z m
           -31.09386,7.586212 H 34.882851 M 24,36.137939 v 7.586212 M 0.67960524,28.551727 H 47.320395" />
       </svg>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
         (elem) =>
           html`
-            <dds-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</dds-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </dds-cta-block-item>
+    </c4d-content-item>
   `,
   media: ({ heading, copy, links }) => html`
-    <dds-cta-block-item>
-      <dds-video-player-container
-        video-id="1_9h94wo6b"
+    <c4d-content-item>
+      <c4d-video-player-container
+        video-id="0_ibuqxqbe"
         aspect-ratio="4x3"
         slot="media"
         hide-caption
         playing-mode="lightbox">
-      </dds-video-player-container>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      </c4d-video-player-container>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
         (elem) =>
           html`
-            <dds-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</dds-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </dds-cta-block-item>
+    </c4d-content-item>
   `,
   logo: ({ heading, copy, links }) => html`
-    <dds-cta-block-item>
-      <dds-image-logo
+    <c4d-content-item>
+      <c4d-image-logo
         alt="Microsoft logo"
         slot="media"
-        default-src="${logoMicrosoft2x1}"></dds-image-logo>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+        default-src="${logoMicrosoft2x1}"></c4d-image-logo>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
         (elem) =>
           html`
-            <dds-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</dds-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </dds-cta-block-item>
+    </c4d-content-item>
   `,
 };
 
@@ -160,9 +155,9 @@ const contentItemTypeOptions = {
 
 const renderItems = (item, count) => {
   return html`
-    <dds-cta-block-item-row>
+    <c4d-cta-block-item-row>
       ${count.map((_, index) => item({ ...content[index] }))}
-    </dds-cta-block-item-row>
+    </c4d-cta-block-item-row>
   `;
 };
 
@@ -170,32 +165,32 @@ export const Simple = (args) => {
   const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
 
   return html`
-    <dds-cta-section>
-      <dds-cta-block ?no-border="${!border}">
-        <dds-content-block-heading
-          >${ifNonNull(heading)}</dds-content-block-heading
+    <c4d-cta-section>
+      <c4d-cta-block ?no-border="${!border}">
+        <c4d-content-block-heading
+          >${ifDefined(heading)}</c4d-content-block-heading
         >
         ${showText
           ? html`
-              <dds-content-block-copy
-                >${ifNonNull(copy)}</dds-content-block-copy
+              <c4d-content-block-copy
+                >${ifDefined(copy)}</c4d-content-block-copy
               >
             `
           : ''}
         ${showCta
           ? html`
-              <dds-text-cta
+              <c4d-text-cta
                 slot="action"
                 cta-type="local"
                 icon-placement="right"
                 href="example.com"
-                >Browse tutorials</dds-text-cta
+                >Browse tutorials</c4d-text-cta
               >
             `
           : ''}
-      </dds-cta-block>
-    </dds-cta-section>
-    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
+      </c4d-cta-block>
+    </c4d-cta-section>
+    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
   `;
 };
 
@@ -207,36 +202,36 @@ export const WithContentItems = (args) => {
   const contentItem = contentItemTypeMap[contentItemType];
 
   return html`
-    <dds-cta-section logo-ratio="${ifNonNull(logoAspectRatio)}">
-      <dds-content-section-heading
-        >Related products and services</dds-content-section-heading
+    <c4d-cta-section logo-ratio="${ifDefined(logoAspectRatio)}">
+      <c4d-content-section-heading
+        >Related products and services</c4d-content-section-heading
       >
-      <dds-cta-block ?no-border="${!border}">
-        <dds-content-block-heading
-          >${ifNonNull(heading)}</dds-content-block-heading
+      <c4d-cta-block ?no-border="${!border}">
+        <c4d-content-block-heading
+          >${ifDefined(heading)}</c4d-content-block-heading
         >
         ${showText
           ? html`
-              <dds-content-block-copy
-                >${ifNonNull(copy)}</dds-content-block-copy
+              <c4d-content-block-copy
+                >${ifDefined(copy)}</c4d-content-block-copy
               >
             `
           : ''}
         ${showCta
           ? html`
-              <dds-text-cta
+              <c4d-text-cta
                 slot="action"
                 cta-type="local"
                 icon-placement="right"
                 href="example.com"
-                >Browse tutorials</dds-text-cta
+                >Browse tutorials</c4d-text-cta
               >
             `
           : ''}
-        ${renderItems(contentItem, contentItemCount)}
-      </dds-cta-block>
-    </dds-cta-section>
-    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
+        <div>${renderItems(contentItem, contentItemCount)}</div>
+      </c4d-cta-block>
+    </c4d-cta-section>
+    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
   `;
 };
 
@@ -279,57 +274,57 @@ export const WithLinkList = (args) => {
   const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
 
   return html`
-    <dds-cta-section>
-      <dds-content-section-heading
-        >Related products and services</dds-content-section-heading
+    <c4d-cta-section>
+      <c4d-content-section-heading
+        >Related products and services</c4d-content-section-heading
       >
-      <dds-cta-block ?no-border="${!border}">
-        <dds-content-block-heading
-          >${ifNonNull(heading)}</dds-content-block-heading
+      <c4d-cta-block ?no-border="${!border}">
+        <c4d-content-block-heading
+          >${ifDefined(heading)}</c4d-content-block-heading
         >
         ${showText
           ? html`
-              <dds-content-block-copy
-                >${ifNonNull(copy)}</dds-content-block-copy
+              <c4d-content-block-copy
+                >${ifDefined(copy)}</c4d-content-block-copy
               >
             `
           : ''}
         ${showCta
           ? html`
-              <dds-text-cta
+              <c4d-text-cta
                 slot="action"
                 cta-type="local"
                 icon-placement="right"
                 href="example.com"
-                >Browse tutorials</dds-text-cta
+                >Browse tutorials</c4d-text-cta
               >
             `
           : ''}
-        <dds-link-list slot="link-list" type="end">
-          <dds-link-list-heading
-            >More ways to explore DevOps</dds-link-list-heading
+        <c4d-link-list slot="link-list" type="end">
+          <c4d-link-list-heading
+            >More ways to explore DevOps</c4d-link-list-heading
           >
-          <dds-link-list-item href="https://example.com">
+          <c4d-link-list-item href="https://example.com">
             Events ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
             Blogs ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
             Training ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
             Developer resources ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
             Research ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
             News ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
-      </dds-cta-block>
-    </dds-cta-section>
+          </c4d-link-list-item>
+        </c4d-link-list>
+      </c4d-cta-block>
+    </c4d-cta-section>
   `;
 };
 

@@ -6,12 +6,12 @@
  */
 
 @mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
+  color: $text-primary;
+  background: $background;
 
   &.#{$prefix}--content-block-media--with-border
     .#{$prefix}--content-block-media__divider {
-    border-bottom-color: $ui-04;
+    border-bottom-color: $toggle-off;
   }
 }
 
@@ -25,14 +25,11 @@
   }
 
   .#{$prefix}--content-block-media--g100 {
-    @include carbon--theme(
-      $carbon--theme--g100,
+    @include theme(
+      $g100,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
       @include themed-items;
     }
   }
-}
-@include exports('content-block-media') {
-  @include content-block-media;
 }

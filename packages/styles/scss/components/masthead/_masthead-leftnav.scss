@@ -1,15 +1,25 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/components/button/tokens' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+
 // Include left navigation component
 /// @access private
 /// @group masthead
 
-@mixin masthead-sidenav {
+@mixin masthead-leftnav {
   .#{$prefix}--masthead__focus {
     opacity: 0;
     border: none;
@@ -17,13 +27,13 @@
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
-    height: calc(100% - #{mini-units(6)});
+    height: calc(100% - #{$spacing-09});
 
     > nav {
       height: 100%;
     }
 
-    @include carbon--breakpoint-up(800px) {
+    @include breakpoint-up(800px) {
       display: none;
     }
   }
@@ -37,16 +47,16 @@
 
     &.#{$prefix}--header__action--active {
       border-color: transparent;
-      background-color: $ui-background;
+      background-color: $background;
 
       &:focus {
         border-color: $focus;
-        background-color: $hover-ui;
+        background-color: $background-hover;
       }
 
       + .#{$prefix}--header__logo {
         z-index: 6001;
-        margin-left: $carbon--spacing-09;
+        margin-left: $spacing-09;
       }
 
       .#{$prefix}--side-nav__close {
@@ -59,15 +69,15 @@
     }
 
     &.#{$prefix}--masthead__header--search-active {
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         display: none;
       }
     }
 
-    @include carbon--breakpoint-between('md', 'lg') {
+    @include breakpoint-between('md', 'lg') {
       + .#{$prefix}--header__logo {
         a {
-          padding: 0 $carbon--spacing-05;
+          padding: 0 $spacing-05;
         }
       }
     }
@@ -84,19 +94,19 @@
       visibility: hidden;
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line  time-min-milliseconds */
-      transition: visibility 1ms motion(exit, productive) $duration--fast-02,
-        inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
+      transition: visibility 1ms motion(exit, productive) $duration-fast-02,
+        inset-inline-start $duration-fast-02 motion(exit, productive) 1ms;
 
       &:not(.#{$prefix}--side-nav--fixed):hover {
-        @include carbon--breakpoint-down(md) {
+        @include breakpoint-down(md) {
           max-width: 100vw;
           width: 100vw;
         }
       }
 
       .#{$prefix}--header__logo {
-        height: 3rem;
-        padding-left: $carbon--spacing-09;
+        height: $spacing-09;
+        padding-left: $spacing-09;
       }
     }
 
@@ -114,7 +124,7 @@
 
     .#{$prefix}--side-nav__item {
       height: auto;
-      min-height: $container-04;
+      min-height: $spacing-09;
 
       .#{$prefix}--side-nav__submenu {
         height: 100%;
@@ -124,16 +134,16 @@
     .#{$prefix}--side-nav__overlay {
       top: 0;
       z-index: 1000;
-      @include carbon--breakpoint-down(md) {
-        background-color: $ui-background;
+      @include breakpoint-down(md) {
+        background-color: $background;
       }
     }
 
     .#{$prefix}--side-nav__overlay-active {
       display: none;
-      @include carbon--breakpoint-down(800px) {
+      @include breakpoint-down(800px) {
         display: block;
-        background-color: $overlay-01;
+        background-color: $overlay;
       }
     }
 
@@ -144,23 +154,23 @@
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) 0ms,
-        inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
+        inset-inline-start $duration-fast-02 motion(exit, productive) 1ms;
     }
 
     .#{$prefix}--side-nav--ux,
     .#{$prefix}--side-nav,
     .#{$prefix}--side-nav--expanded {
-      @include carbon--breakpoint-down(md) {
+      @include breakpoint-down(md) {
         max-width: 100vw;
         width: 100vw;
-        border-top: 1px solid $ui-03;
+        border-top: 1px solid $layer-accent-01;
       }
     }
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section),
+  :host(#{$c4d-prefix}-left-nav-menu-section),
   .#{$prefix}--side-nav__menu-section {
-    @include carbon--theme($carbon--theme--white, true);
+    @include theme($white, true);
 
     position: absolute;
     width: 100%;
@@ -168,56 +178,56 @@
     overflow-y: auto;
     z-index: 0;
     inset-inline-start: -100%;
-    background-color: $ui-background;
+    background-color: $background;
     padding-bottom: $spacing-09;
     transform: translateZ(0.0001px);
-    transition: inset-inline-start $duration--moderate-01
+    transition: inset-inline-start $duration-moderate-01
       motion(exit, productive);
 
     a {
-      @include carbon--type-style(body-short-02);
+      @include type-style(body-compact-02);
 
-      padding-left: $carbon--spacing-05;
-      height: carbon--mini-units(6);
+      padding-left: $spacing-05;
+      height: $spacing-09;
 
       &:hover {
         text-decoration: none;
-        background-color: $shell-side-nav-bg-04;
+        background-color: $background-hover;
       }
     }
 
     .#{$prefix}--masthead__side-nav--submemu-title {
-      @include carbon--type-style(productive-heading-02);
+      @include type-style(heading-compact-02);
 
       display: flex;
-      color: $text-01;
-      padding: 0.8rem $carbon--spacing-05;
+      color: $text-primary;
+      padding: 0.8rem $spacing-05;
       height: auto;
-      min-height: 3rem;
-      border-bottom: 1px solid $ui-04;
+      min-height: $spacing-09;
+      border-bottom: 1px solid $toggle-off;
       align-items: center;
       text-decoration: none;
 
       &:focus {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: -#{$spacing-01};
       }
     }
 
     .#{$prefix}--side-nav__item
       .#{$prefix}--masthead__side-nav--submemu-section-title {
       height: auto;
-      min-height: 3rem;
+      min-height: $spacing-09;
       padding: 0;
 
       span {
-        @include carbon--type-style(productive-heading-02);
+        @include type-style(heading-compact-02);
 
         display: flex;
         width: 100%;
-        padding: 0.8rem 1rem;
-        color: $text-01;
-        border-bottom: 1px solid $ui-04;
+        padding: 0.8rem $spacing-05;
+        color: $text-primary;
+        border-bottom: 1px solid $toggle-off;
       }
     }
 
@@ -227,26 +237,25 @@
       justify-content: flex-end;
       align-items: center;
       align-self: flex-start;
-      margin-top: rem(2px);
+      margin-top: $spacing-01;
     }
   }
 
   a,
   button {
     &.#{$prefix}--side-nav__link {
-      height: carbon--mini-units(6);
-      @include carbon--type-style(body-short-02);
+      height: $spacing-09;
+      @include type-style(body-short-01);
 
       > {
         .#{$prefix}--side-nav__link-text {
-          @include carbon--type-style(body-short-02);
+          @include type-style(body-short-01);
 
           display: flex;
           align-items: center;
-          color: $text-02;
+          color: $text-secondary;
           width: 100%;
           height: 100%;
-          border-bottom: 1px solid $ui-03;
           text-overflow: ellipsis;
         }
       }
@@ -255,17 +264,17 @@
       &:focus {
         > {
           .#{$prefix}--side-nav__link-text {
-            color: $text-01;
+            color: $text-primary;
           }
         }
       }
     }
 
     &.#{$prefix}--side-nav__link--current {
-      background-color: $ui-background;
+      background-color: $background;
       > {
         .#{$prefix}--side-nav__link-text {
-          color: $text-01;
+          color: $text-primary;
         }
       }
     }
@@ -274,30 +283,43 @@
   .#{$prefix}--masthead__side-nav--submemu-back {
     position: sticky;
     top: 0;
-    background-color: $ui-background;
+    background-color: $background;
     z-index: 1;
+
     button {
       width: 100%;
       border: none;
       cursor: pointer;
-      outline: 2px solid transparent;
-      outline-offset: -2px;
+      outline: $spacing-01 solid transparent;
+      outline-offset: -#{$spacing-01};
       position: relative;
       display: flex;
       align-items: center;
-      min-height: 2rem;
-      padding: 0 1rem;
-      background-color: $ui-background;
+      min-height: $spacing-07;
+      padding: 0 $spacing-05;
+      background-color: $background;
+
+      &:hover {
+        background-color: $background-hover;
+
+        > .#{$prefix}--side-nav__link-text {
+          color: $link-primary-hover;
+        }
+      }
 
       &:focus {
         outline: 2px solid $focus;
         outline-offset: -2px;
+
+        > .#{$prefix}--side-nav__link-text {
+          color: $link-primary;
+        }
       }
 
       > .#{$prefix}--side-nav__link-text {
-        @include carbon--type-style(body-short-02);
+        @include type-style(body-short-01);
 
-        color: $link-01;
+        color: $link-primary;
         display: flex;
         border-bottom: none;
         align-items: center;
@@ -316,29 +338,23 @@
     }
   }
 
-  .#{$prefix}--masthead__side-nav--submemu-back
-    button:focus
-    > .#{$prefix}--side-nav__link-text {
-    color: $link-01;
-  }
-
-  :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[expanded],
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
     inset-inline-start: 0;
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu],
   .#{$prefix}--side-nav__menu-section-submenu {
     inset-inline-start: 100%;
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][expanded],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu][expanded],
   .#{$prefix}--side-nav__menu-section-submenu.#{$prefix}--side-nav__menu-section--expanded {
     inset-inline-start: 0;
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][transition],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu][transition],
   .#{$prefix}--side-nav__menu-section-submenu--expanded {
     inset-inline-start: -100%;
   }
@@ -352,40 +368,39 @@
   }
 
   .#{$prefix}--side-nav__submenu {
-    @include carbon--theme($carbon--theme--white, true);
+    @include theme($white, true);
 
     .#{$prefix}--side-nav__submenu-content {
       width: 100%;
       height: auto;
-      min-height: rem(48px);
+      min-height: $spacing-09;
       display: flex;
-      border-bottom: 1px solid $ui-03;
     }
 
     .#{$prefix}--side-nav__submenu-title {
-      @include carbon--type-style(body-short-02);
+      @include type-style(body-short-01);
 
-      color: $text-02;
+      color: $text-secondary;
       align-self: center;
     }
 
     &[aria-haspopup='true'] {
-      height: $container-04;
+      height: $spacing-09;
       &.#{$prefix}--side-nav__submenu-platform {
-        border-top: 1px solid $ui-03;
-        border-bottom: 1px solid $ui-04;
+        border-top: 1px solid $layer-accent-01;
+        border-bottom: 1px solid $toggle-off;
         text-decoration: none;
-        color: $text-01;
-        height: $container-04;
+        color: $text-primary;
+        height: $spacing-09;
 
-        @include carbon--type-style(expressive-heading-02);
+        @include type-style(heading-02);
       }
     }
 
     &:hover,
     &:focus {
       .#{$prefix}--side-nav__submenu-title {
-        color: $text-01;
+        color: $text-primary;
       }
     }
   }
@@ -399,21 +414,139 @@
   }
 
   .#{$prefix}--masthead__side-nav--submemu-heading,
-  :host(#{$dds-prefix}-left-nav-menu-category-heading) {
-    @include type-style('body-long-01');
+  :host(#{$c4d-prefix}-left-nav-menu-category-heading) {
+    @include type-style('body-short-01');
 
-    font-size: 1rem;
-    line-height: 1.5rem;
-    letter-spacing: normal;
     display: block;
-    color: $text-02;
-    padding: $spacing-02 0;
-    margin: 0 $spacing-05;
-    border-bottom: 1px solid $ui-03;
+    color: $text-secondary;
+
+    &:is(.#{$prefix}--left-nav-menu-category__heading-large) {
+      margin: $spacing-03 0 $spacing-06;
+
+      .#{$prefix}--side-nav__heading {
+        padding: 0;
+      }
+    }
+
+    .#{$prefix}--side-nav__heading {
+      height: auto;
+      padding: $spacing-05 0;
+    }
+
+    .#{$prefix}--side-nav__heading-title {
+      display: block;
+      padding: 0 $spacing-05;
+
+      &:where(a) {
+        color: inherit;
+        display: inline-flex;
+        gap: $spacing-03;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:focus {
+          outline: 2px solid $focus;
+          outline-offset: -2px;
+          color: $text-primary;
+        }
+      }
+    }
+
+    .#{$prefix}--side-nav__heading-description {
+      padding: 0 $spacing-05;
+    }
+
+    ::slotted(:first-child) {
+      padding-top: $spacing-03;
+    }
+
+    h2 {
+      @include type-style(productive-heading-01);
+
+      color: $text-primary;
+    }
+
+    h2.#{$prefix}--side-nav__menu-section-title {
+      @include type-style(productive-heading-03);
+
+      + .#{$prefix}--side-nav__heading-description {
+        margin-block-start: $spacing-03;
+      }
+    }
+  }
+
+  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
+  :host(#{$c4d-prefix}-left-nav-menu-category-heading):not(
+      .#{$prefix}--left-nav-menu-category__heading-large
+    ),
+  :host(#{$c4d-prefix}-left-nav-menu),
+  :host(#{$c4d-prefix}-left-nav-menu-item) {
+    display: block;
+    border-bottom: 1px solid $layer-accent-01;
+  }
+  /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
+
+  :host(#{$c4d-prefix}-left-nav-menu-item) {
+    .#{$prefix}--side-nav__link {
+      display: flex;
+      align-items: center;
+      padding-left: $spacing-05;
+      height: auto;
+      min-height: $spacing-09;
+      width: 100%;
+
+      &:not(:is(a)):hover {
+        background-color: transparent;
+      }
+    }
+
+    &.#{$prefix}--side-nav__group-header {
+      &:not(:first-of-type) {
+        margin-top: $spacing-07;
+      }
+
+      .#{$prefix}--side-nav__link-text {
+        @include type-style(productive-heading-01);
+
+        color: $text-primary;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-03;
+
+        svg {
+          color: $icon-primary;
+        }
+      }
+    }
+
+    &.#{$prefix}--side-nav__group-view-all {
+      &:hover {
+        .#{$prefix}--side-nav__link-text {
+          color: $link-primary-hover;
+        }
+      }
+
+      .#{$prefix}--side-nav__link-text {
+        color: $button-primary;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-03;
+
+        svg {
+          color: $button-primary;
+        }
+      }
+    }
   }
 
   .#{$prefix}--masthead__side-nav--submemu--selected {
-    border-inline-start: 3px solid $interactive-01;
+    border-inline-start: 3px solid $background-brand;
 
     .#{$prefix}--side-nav__submenu-title,
     &.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
@@ -425,8 +558,8 @@
   .#{$prefix}--side-nav__submenu[aria-expanded='true']
     .#{$prefix}--side-nav__submenu-chevron {
     > svg {
-      transform: rotate(-90deg) scale(1.25);
-      fill: $text-01;
+      transform: rotate(-90deg);
+      fill: $text-primary;
 
       :host([dir='rtl']) & {
         transform: rotate(90deg) scale(1.25);
@@ -437,38 +570,15 @@
   .#{$prefix}--side-nav__item .#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__menu-item
     .#{$prefix}--side-nav__link:not([isbackbutton='true']),
-  :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-menu-item-highlighted)
+  :host(#{$c4d-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
+  :host(#{$c4d-prefix}-left-nav-menu-item-highlighted)
     a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
+  :host(#{$c4d-prefix}-left-nav-item) a.#{$prefix}--side-nav__link {
     display: flex;
-    padding-left: $carbon--spacing-05;
+    padding-left: $spacing-05;
     height: auto;
-    min-height: carbon--mini-units(6);
+    min-height: $spacing-09;
     width: 100%;
-  }
-
-  .#{$prefix}--masthead__side-nav__last-highlighted,
-  :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted]),
-  :host(#{$dds-prefix}-left-nav-menu[last-highlighted]) {
-    border-bottom: 1px solid $ui-04;
-  }
-
-  :host(#{$dds-prefix}-left-nav-menu[last-highlighted])
-    .#{$prefix}--side-nav__submenu
-    .#{$prefix}--side-nav__submenu-content,
-  .#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__submenu-content,
-  .#{$prefix}--side-nav__menu-item.#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__link,
-  :host(dds-left-nav-menu-section)
-    .#{$prefix}--masthead__side-nav--submemu-back
-    .#{$prefix}--side-nav__link
-    .#{$prefix}--side-nav__link-text,
-  :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
-    .#{$prefix}--side-nav__link {
-    border-bottom: none;
   }
 
   .#{$prefix}--side-nav__submenu-platform {
@@ -478,8 +588,4 @@
       content: none;
     }
   }
-}
-
-@include exports('masthead-sidenav') {
-  @include masthead-sidenav;
 }

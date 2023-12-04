@@ -7,21 +7,21 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block"
 @warn 'Deprecated scss import for `leadspace-block`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block`';
-@import '../../../components/leadspace-block/leadspace-block';
+@use '../../../components/leadspace-block';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
     &__title {
       width: 90%;
-      color: $text-01;
+      color: $text-primary;
       padding-top: $layout-03;
-      @include carbon--type-style('expressive-heading-06', true);
+      @include type-style('fluid-heading-06', true);
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding-top: $layout-03;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         padding-top: $layout-05;
       }
     }
@@ -36,14 +36,14 @@
       padding-bottom: $layout-01;
       &__copy {
         p {
-          @include carbon--type-style('expressive-heading-03', true);
+          @include type-style('fluid-heading-03', true);
         }
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding-bottom: $layout-06;
       }
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         padding-bottom: $layout-07;
       }
 
@@ -61,7 +61,7 @@
       }
 
       .#{$prefix}--leadspace-block__media {
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           padding-top: $spacing-05;
         }
 
@@ -69,26 +69,10 @@
           margin-top: 0;
         }
       }
-
-      .#{$prefix}--buttongroup {
-        padding-top: 0;
-
-        .#{$prefix}--buttongroup-item {
-          margin-top: 0;
-        }
-      }
-      .#{$prefix}--buttongroup-item {
-        margin-top: 0;
-        padding-top: 0;
-      }
     }
     .#{$prefix}--hr {
-      border-color: $ui-04;
+      border-color: $toggle-off;
       margin-top: 0;
     }
   }
-}
-
-@include exports('leadspace-block') {
-  @include leadspace-block;
 }

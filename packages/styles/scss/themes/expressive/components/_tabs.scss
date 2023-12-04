@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Tabs (expressive)
@@ -17,25 +17,25 @@
 /// @group tabs-expressive
 @mixin tabs-expressive {
   .#{$prefix}--tabs-trigger {
-    height: $container-03;
+    height: $spacing-09;
   }
 
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     .#{$prefix}--tabs {
-      min-height: $container-03;
+      min-height: $spacing-09;
     }
 
     .#{$prefix}--tabs--container {
-      min-height: $container-04;
+      min-height: $spacing-09;
 
       a.#{$prefix}--tabs__nav-link {
-        height: $container-04;
+        height: $spacing-09;
       }
     }
 
     .#{$prefix}--tabs__nav-item,
     a.#{$prefix}--tabs__nav-link {
-      height: $container-03;
+      height: $spacing-09;
     }
 
     a.#{$prefix}--tabs__nav-link {

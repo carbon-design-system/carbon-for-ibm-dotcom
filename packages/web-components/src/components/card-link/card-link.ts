@@ -7,23 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCard from '../card/card';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import C4DCard from '../card/card';
 import styles from './card-link.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card Link.
  *
- * @element dds-card-link
+ * @element c4d-card-link
  */
-@customElement(`${ddsPrefix}-card-link`)
-class DDSCardLink extends DDSCard {
+@customElement(`${c4dPrefix}-card-link`)
+class C4DCardLink extends C4DCard {
   /**
    * `true` to disable the card link.
    */
@@ -43,11 +41,16 @@ class DDSCardLink extends DDSCard {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-link`;
+    return `${c4dPrefix}--card-link`;
   }
 
   static styles = styles;
 }
 
+console.warn(
+  'The card-link component has been deprecated in favor of the card (link variant) component. ' +
+    'See card documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardLink;
+export default C4DCardLink;

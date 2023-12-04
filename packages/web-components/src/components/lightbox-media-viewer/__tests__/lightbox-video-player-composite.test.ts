@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import DDSLightboxVideoPlayer from '../lightbox-video-player';
-import DDSLightboxVideoPlayerComposite from '../lightbox-video-player-composite';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import C4DLightboxVideoPlayer from '../lightbox-video-player';
+import C4DLightboxVideoPlayerComposite from '../lightbox-video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-video-player-composite';
 
@@ -24,18 +24,18 @@ const template = (props?) => {
     mediaData,
   } = props ?? {};
   return html`
-    <dds-lightbox-video-player-composite
+    <c4d-lightbox-video-player-composite
       ?hide-caption="${hideCaption}"
-      video-id="${ifNonNull(videoId)}"
-      .embeddedVideos="${ifNonNull(embeddedVideos)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-      .mediaData="${ifNonNull(mediaData)}">
-    </dds-lightbox-video-player-composite>
+      video-id="${ifDefined(videoId)}"
+      .embeddedVideos="${ifDefined(embeddedVideos)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}"
+      .mediaData="${ifDefined(mediaData)}">
+    </c4d-lightbox-video-player-composite>
   `;
 };
 
-describe('dds-lightbox-video-player-composite', function () {
+describe('c4d-lightbox-video-player-composite', function () {
   it('should send props to video player', async function () {
     const formatCaption = () => {};
     const formatDuration = () => {};
@@ -46,11 +46,11 @@ describe('dds-lightbox-video-player-composite', function () {
     await Promise.resolve(); // Micro-task cycle for `VideoPlayer`
     await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
     const videoPlayerComposite = document.querySelector(
-      'dds-lightbox-video-player-composite'
-    ) as DDSLightboxVideoPlayerComposite;
+      'c4d-lightbox-video-player-composite'
+    ) as C4DLightboxVideoPlayerComposite;
     const videoPlayer = (
       videoPlayerComposite.modalRenderRoot as Element
-    ).querySelector('dds-lightbox-video-player') as DDSLightboxVideoPlayer;
+    ).querySelector('c4d-lightbox-video-player') as C4DLightboxVideoPlayer;
     expect(videoPlayer.formatCaption).toBe(formatCaption);
     expect(videoPlayer.formatDuration).toBe(formatDuration);
   });
@@ -69,8 +69,8 @@ describe('dds-lightbox-video-player-composite', function () {
     expect(
       (
         document.querySelector(
-          'dds-lightbox-video-player-composite'
-        ) as DDSLightboxVideoPlayerComposite
+          'c4d-lightbox-video-player-composite'
+        ) as C4DLightboxVideoPlayerComposite
       ).modalRenderRoot
     ).toMatchSnapshot();
   });
@@ -79,12 +79,12 @@ describe('dds-lightbox-video-player-composite', function () {
     render(template({ videoId: 'video-id-bar' }), document.body);
     await Promise.resolve();
     const lightboxVideoPlayerComposite = document.querySelector(
-      'dds-lightbox-video-player-composite'
-    ) as DDSLightboxVideoPlayerComposite;
+      'c4d-lightbox-video-player-composite'
+    ) as C4DLightboxVideoPlayerComposite;
     const modalRenderRoot = (
-      lightboxVideoPlayerComposite as DDSLightboxVideoPlayerComposite
+      lightboxVideoPlayerComposite as C4DLightboxVideoPlayerComposite
     ).modalRenderRoot as Element;
-    modalRenderRoot.querySelector('dds-lightbox-video-player')!.innerHTML = `
+    modalRenderRoot.querySelector('c4d-lightbox-video-player')!.innerHTML = `
       <div data-video-id="video-id-foo"></div>
       <div data-video-id="video-id-bar"></div>
       <div data-video-id="video-id-baz"></div>
@@ -108,7 +108,7 @@ describe('dds-lightbox-video-player-composite', function () {
     };
     await Promise.resolve();
     (lightboxVideoPlayerComposite.modalRenderRoot as Element).dispatchEvent(
-      new CustomEvent('dds-expressive-modal-closed', { bubbles: true })
+      new CustomEvent('c4d-expressive-modal-closed', { bubbles: true })
     );
     expect((embeddedVideoFoo as any).sendNotification).not.toHaveBeenCalled();
     expect((embeddedVideoBar as any).sendNotification).toHaveBeenCalledWith(

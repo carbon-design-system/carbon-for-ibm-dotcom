@@ -7,103 +7,126 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import 'carbon-components/scss/components/button/button';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/vendor/@carbon/layout/breakpoint';
-@import '../../globals/vars';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-carousel),
-.#{$prefix}--carousel {
-  --#{$dds-prefix}--carousel--page-size: 1;
+@mixin carousel {
+  :host(#{$c4d-prefix}-carousel),
+  .#{$prefix}--carousel {
+    --#{$c4d-prefix}--carousel--page-size: 1;
 
-  @include carbon--breakpoint(md) {
-    --#{$dds-prefix}--carousel--page-size: 2;
-  }
+    @include breakpoint(md) {
+      --#{$c4d-prefix}--carousel--page-size: 2;
+    }
 
-  @include carbon--breakpoint(lg) {
-    --#{$dds-prefix}--carousel--page-size: 3;
-  }
+    @include breakpoint(lg) {
+      --#{$c4d-prefix}--carousel--page-size: 4;
+    }
 
-  [role='region'] {
-    display: contents;
-  }
+    [role='region'] {
+      display: contents;
+    }
 
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-  inline-size: calc(
-    100% + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-  );
-  margin-inline-end: calc(
-    -1 * var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-  );
-  padding-inline-start: $spacing-05;
-  padding-inline-end: calc(
-    #{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-  );
-
-  @include carbon--breakpoint(md) {
-    padding-inline-start: 0;
-  }
-
-  ::slotted(:not([name])) {
-    flex: 0 0
-      calc(
-        (
-            100% - (var(--#{$dds-prefix}--carousel--page-size, 1) - 1) * #{$spacing-05}
-          ) / var(--#{$dds-prefix}--carousel--page-size, 1)
-      );
-    block-size: auto;
-    margin-inline-end: $spacing-05;
-    vertical-align: middle;
-  }
-
-  .#{$prefix}--carousel__scroll-container {
-    grid-area: body;
-    position: relative;
-    overflow: hidden;
-    margin-inline-end: calc(
-      -1 * (#{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05}))
-    );
-  }
-
-  .#{$prefix}--carousel__scroll-contents {
-    position: relative;
-    margin-inline-end: calc(
-      #{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-    );
     display: flex;
-    // Achieves `sameHeight` effect for card group.
-    // The cards must have `height:auto`.
-    align-items: stretch;
+    flex-direction: column;
+
+    overflow: hidden;
+    inline-size: calc(
+      100% + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+    );
+    margin-inline-end: calc(
+      -1 * var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+    );
+    padding-inline-start: $spacing-05;
+    padding-inline-end: calc(
+      #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+    );
+
+    @include breakpoint(md) {
+      padding-inline-start: 0;
+    }
+
+    ::slotted(:not([name])) {
+      flex: 0 0
+        calc(
+          (
+              100% - (var(--#{$c4d-prefix}--carousel--page-size, 1) - 1) * #{$spacing-05}
+            ) / var(--#{$c4d-prefix}--carousel--page-size, 1)
+        );
+      block-size: auto;
+      margin-inline-end: $spacing-05;
+      vertical-align: middle;
+    }
+
+    .#{$prefix}--carousel__scroll-container {
+      grid-area: body;
+      position: relative;
+      overflow: hidden;
+      margin-inline-end: calc(
+        -1 * (#{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05}))
+      );
+    }
+
+    .#{$prefix}--carousel__scroll-contents {
+      position: relative;
+      margin-inline-end: calc(
+        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      );
+      display: flex;
+      // Achieves `sameHeight` effect for card group.
+      // The cards must have `height:auto`.
+      align-items: stretch;
+    }
+
+    .#{$prefix}--carousel__scroll-contents--scrolling {
+      transition: inset-inline-start $duration-slow-01
+        motion(standard, productive);
+    }
+
+    .#{$prefix}--carousel__navigation {
+      @include type-style('body-02', true);
+
+      grid-area: navigation;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      justify-content: flex-end;
+      align-items: center;
+      gap: $spacing-05;
+      margin-block-start: $spacing-05;
+    }
+
+    .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
+      padding: 0;
+      min-block-size: $spacing-09;
+      inline-size: $spacing-09;
+      block-size: $spacing-09;
+
+      svg {
+        margin: auto;
+      }
+    }
   }
 
-  .#{$prefix}--carousel__scroll-contents--scrolling {
-    transition: inset-inline-start $duration--slow-01
-      motion(standard, productive);
-  }
+  :host(#{$c4d-prefix}-carousel[in-modal]) {
+    padding: 0 0 $spacing-05;
+    inline-size: 100%;
+    block-size: 100%;
 
-  .#{$prefix}--carousel__navigation {
-    @include carbon--type-style('body-long-02', true);
+    @include breakpoint(md) {
+      padding-block-end: 0;
+    }
 
-    grid-area: navigation;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: flex-end;
-    align-items: center;
-    gap: $spacing-05;
-    margin-block-start: $spacing-05;
-  }
+    .#{$prefix}--carousel__scroll-container {
+      flex-grow: 1;
+    }
 
-  .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
-    padding: 0;
-    min-block-size: $container-03;
-    block-size: $container-03;
-    inline-size: $container-03;
-
-    svg {
-      margin: auto;
+    .#{$prefix}--carousel__scroll-contents {
+      block-size: 100%;
     }
   }
 
@@ -112,26 +135,8 @@
   }
 }
 
-:host(#{$dds-prefix}-carousel[in-modal]) {
-  padding: 0 0 $spacing-05;
-  inline-size: 100%;
-  block-size: 100%;
-
-  @include carbon--breakpoint(md) {
-    padding-block-end: 0;
-  }
-
-  .#{$prefix}--carousel__scroll-container {
-    flex-grow: 1;
-  }
-
-  .#{$prefix}--carousel__scroll-contents {
-    block-size: 100%;
-  }
-}
-
-:host(#{$dds-prefix}-carousel[dir='rtl']) {
-  .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
+:host(#{$c4d-prefix}-carousel[dir='rtl']) {
+  .#{$prefix}--btn.#{$c4d-prefix}--carousel__navigation__btn {
     svg {
       transform: rotate(180deg);
     }
@@ -139,9 +144,9 @@
 }
 
 @media print {
-  :host(#{$dds-prefix}-carousel),
+  :host(#{$c4d-prefix}-carousel),
   .#{$prefix}--carousel {
-    --#{$dds-prefix}--carousel--page-size: 4;
+    --#{$c4d-prefix}--carousel--page-size: 4;
 
     flex-flow: row wrap;
     margin: 0;

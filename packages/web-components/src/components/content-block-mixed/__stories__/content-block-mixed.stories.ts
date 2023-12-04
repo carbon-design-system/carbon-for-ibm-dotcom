@@ -14,8 +14,8 @@ import '../../content-group-cards/index';
 import '../../content-group-pictograms/index';
 import '../../content-group-simple/index';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--001.jpg';
@@ -67,18 +67,18 @@ const complementaryStyleSchemes = {
 };
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => html`
-  <dds-image
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="${ifNonNull(imageHeading)}">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
-  </dds-image>
+    heading="${ifDefined(imageHeading)}">
+    <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </c4d-image-item>
+  </c4d-image>
 `;
 
 export default {
@@ -88,9 +88,9 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="${parameters.gridContentClasses} bx--no-gutter">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="${parameters.gridContentClasses} cds--no-gutter">
             ${story()}
           </div>
         </div>
@@ -99,7 +99,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
+    gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
     knobs: {
       ContentBlockMixed: () => ({
@@ -149,46 +149,46 @@ export const Default = (args) => {
     ctaType,
   } = args?.ContentBlockMixed ?? {};
   return html`
-    <dds-content-block-mixed>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-block-copy>${groupCopy}</dds-content-block-copy>
-      <dds-content-group-cards>
-        <dds-content-group-heading
-          >${cardsGroupHeading}</dds-content-group-heading
+    <c4d-content-block-mixed>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+      <c4d-content-block-copy>${groupCopy}</c4d-content-block-copy>
+      <c4d-content-group-cards>
+        <c4d-content-group-heading
+          >${cardsGroupHeading}</c4d-content-group-heading
         >
-        <dds-content-group-cards-item href="www.ibm.com">
-          <dds-card-heading>
+        <c4d-content-group-cards-item href="www.ibm.com">
+          <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
-          </dds-card-heading>
+          </c4d-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <dds-card-footer icon-placement="left">
+          <c4d-card-footer icon-placement="left">
             ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-content-group-cards-item>
-        <dds-content-group-cards-item href="www.ibm.com">
-          <dds-card-heading>
+          </c4d-card-footer>
+        </c4d-content-group-cards-item>
+        <c4d-content-group-cards-item href="www.ibm.com">
+          <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
-          </dds-card-heading>
+          </c4d-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <dds-card-footer icon-placement="left">
+          <c4d-card-footer icon-placement="left">
             ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-content-group-cards-item>
-      </dds-content-group-cards>
-      <dds-content-group-pictograms>
-        <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+          </c4d-card-footer>
+        </c4d-content-group-cards-item>
+      </c4d-content-group-cards>
+      <c4d-content-group-pictograms>
+        <c4d-content-group-heading>${heading}</c4d-content-group-heading>
+        <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
         ${pictogramsItems.map(
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
-            <dds-pictogram-item>
+            <c4d-pictogram-item>
               <svg
                 version="1.1"
                 slot="pictogram"
@@ -213,32 +213,32 @@ export const Default = (args) => {
                 </g>
                 <g></g>
               </svg>
-              <dds-content-item-heading
-                >${itemHeading}</dds-content-item-heading
+              <c4d-content-item-heading
+                >${itemHeading}</c4d-content-item-heading
               >
-              <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+              <c4d-content-item-copy>${itemCopy}</c4d-content-item-copy>
+              <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer">
                 ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-pictogram-item>
+              </c4d-link-with-icon>
+            </c4d-pictogram-item>
           `
         )}
-      </dds-content-group-pictograms>
-      <dds-content-group-simple>
-        <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      </c4d-content-group-pictograms>
+      <c4d-content-group-simple>
+        <c4d-content-group-heading>${heading}</c4d-content-group-heading>
+        <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
         ${image({ heading })}
-        <dds-card-link-cta
+        <c4d-card-link-cta
           slot="footer"
           cta-type=${ctaType}
           href="https://example.com">
-          <dds-card-link-heading
-            >Lorem ipsum dolor sit amet</dds-card-link-heading
+          <c4d-card-link-heading
+            >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-card-link-cta>
-      </dds-content-group-simple>
-    </dds-content-block-mixed>
+          <c4d-card-cta-footer></c4d-card-cta-footer>
+        </c4d-card-link-cta>
+      </c4d-content-group-simple>
+    </c4d-content-block-mixed>
   `;
 };
 
@@ -252,47 +252,47 @@ export const WithLinkList = (args) => {
     linkListHeading,
   } = args?.ContentBlockMixed ?? {};
   return html`
-    <dds-content-block-mixed
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-block-copy>${groupCopy}</dds-content-block-copy>
-      <dds-content-group-cards>
-        <dds-content-group-heading
-          >${cardsGroupHeading}</dds-content-group-heading
+    <c4d-content-block-mixed
+      complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+      <c4d-content-block-copy>${groupCopy}</c4d-content-block-copy>
+      <c4d-content-group-cards>
+        <c4d-content-group-heading
+          >${cardsGroupHeading}</c4d-content-group-heading
         >
-        <dds-content-group-cards-item href="www.ibm.com">
-          <dds-card-heading>
+        <c4d-content-group-cards-item href="www.ibm.com">
+          <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
-          </dds-card-heading>
+          </c4d-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <dds-card-footer icon-placement="left">
+          <c4d-card-footer icon-placement="left">
             ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-content-group-cards-item>
-        <dds-content-group-cards-item href="www.ibm.com">
-          <dds-card-heading>
+          </c4d-card-footer>
+        </c4d-content-group-cards-item>
+        <c4d-content-group-cards-item href="www.ibm.com">
+          <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
-          </dds-card-heading>
+          </c4d-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <dds-card-footer icon-placement="left">
+          <c4d-card-footer icon-placement="left">
             ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-content-group-cards-item>
-      </dds-content-group-cards>
-      <dds-content-group-pictograms>
-        <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+          </c4d-card-footer>
+        </c4d-content-group-cards-item>
+      </c4d-content-group-cards>
+      <c4d-content-group-pictograms>
+        <c4d-content-group-heading>${heading}</c4d-content-group-heading>
+        <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
         ${pictogramsItems.map(
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
-            <dds-pictogram-item>
+            <c4d-pictogram-item>
               <svg
                 version="1.1"
                 slot="pictogram"
@@ -319,52 +319,52 @@ export const WithLinkList = (args) => {
                 </g>
                 <g"></g>
               </svg>
-              <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-              <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+              <c4d-content-item-heading>${itemHeading}</c4d-content-item-heading>
+              <c4d-content-item-copy>${itemCopy}</c4d-content-item-copy>
+              <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer">
                 ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-pictogram-item>
+              </c4d-link-with-icon>
+            </c4d-pictogram-item>
           `
         )}
-      </dds-content-group-pictograms>
-      <dds-content-group-simple>
-        <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      </c4d-content-group-pictograms>
+      <c4d-content-group-simple>
+        <c4d-content-group-heading>${heading}</c4d-content-group-heading>
+        <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
         ${image({ heading })}
-        <dds-card-link-cta
+        <c4d-card-link-cta
           slot="footer"
           cta-type=${ctaType}
           href="https://example.com">
-          <dds-card-link-heading
-            >Lorem ipsum dolor sit amet</dds-card-link-heading
+          <c4d-card-link-heading
+            >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-card-link-cta>
-      </dds-content-group-simple>
-      <dds-link-list type="default" slot="complementary">
-        <dds-link-list-heading>${linkListHeading}</dds-link-list-heading>
-        <dds-link-list-item-card-cta
+          <c4d-card-cta-footer></c4d-card-cta-footer>
+        </c4d-card-link-cta>
+      </c4d-content-group-simple>
+      <c4d-link-list type="default" slot="complementary">
+        <c4d-link-list-heading>${linkListHeading}</c4d-link-list-heading>
+        <c4d-link-list-item-cta
           href="https://example.com"
-          cta-type="local">
+          cta-type="local"
+          type="default">
           <p>Containerization A Complete Guide</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-        <dds-link-list-item-card-cta
+        </c4d-link-list-item-cta>
+        <c4d-link-list-item-cta
           href="https://example.com"
-          cta-type="external">
+          cta-type="external"
+          type="default">
           <p>Why should you use microservices and containers</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-      </dds-link-list>
-    </dds-content-block-mixed>
+        </c4d-link-list-item-cta>
+      </c4d-link-list>
+    </c4d-content-block-mixed>
   `;
 };
 
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMixed: () => ({
         heading: textNullable(

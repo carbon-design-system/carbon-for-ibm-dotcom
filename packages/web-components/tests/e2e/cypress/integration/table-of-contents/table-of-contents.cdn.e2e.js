@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-table-of-contents (cdn)', () => {
-  it('should load the default dds-table-of-contents example', () => {
+describe('cds-table-of-contents (cdn)', () => {
+  it('should load the default cds-table-of-contents example', () => {
     cy.visit('/table-of-contents/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-table-of-contents | cdn | default');
+    cy.percySnapshot('cds-table-of-contents | cdn | default');
   });
 });

@@ -14,13 +14,13 @@ import React from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // @ts-ignore
 /* eslint-disable max-len */
-import DDSExpressiveModal from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal';
-import DDSExpressiveModalHeader from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-header';
-import DDSExpressiveModalCloseButton from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-close-button';
-import DDSExpressiveModalHeading from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-heading';
-import DDSExpressiveModalBody from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-body';
-import DDSExpressiveModalFooter from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-footer';
-import DDSButtonExpressive from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+import C4DExpressiveModal from '../../../../es/components-react/expressive-modal/expressive-modal.js';
+import C4DExpressiveModalHeader from '../../../../es/components-react/expressive-modal/expressive-modal-header.js';
+import C4DExpressiveModalCloseButton from '../../../../es/components-react/expressive-modal/expressive-modal-close-button.js';
+import C4DExpressiveModalHeading from '../../../../es/components-react/expressive-modal/expressive-modal-heading.js';
+import C4DExpressiveModalBody from '../../../../es/components-react/expressive-modal/expressive-modal-body.js';
+import C4DExpressiveModalFooter from '../../../../es/components-react/expressive-modal/expressive-modal-footer.js';
+import C4DButton from '../../../../es/components-react/button/button.js';
 import { action } from '@storybook/addon-actions';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import readme from './README.stories.react.mdx';
@@ -43,16 +43,16 @@ export const Default = (args) => {
     }
   };
   return (
-    <DDSExpressiveModal
+    <C4DExpressiveModal
       open={open}
       expressive-size={size}
       onBeforeClose={handleBeforeClose}
       onClosed={onClose}>
-      <DDSExpressiveModalHeader>
-        <DDSExpressiveModalCloseButton></DDSExpressiveModalCloseButton>
-        <DDSExpressiveModalHeading>Modal Title</DDSExpressiveModalHeading>
-      </DDSExpressiveModalHeader>
-      <DDSExpressiveModalBody>
+      <C4DExpressiveModalHeader>
+        <C4DExpressiveModalCloseButton></C4DExpressiveModalCloseButton>
+        <C4DExpressiveModalHeading>Modal Title</C4DExpressiveModalHeading>
+      </C4DExpressiveModalHeader>
+      <C4DExpressiveModalBody>
         Quisque felis odio, egestas vel tempus iaculis, interdum vel eros.
         Phasellus pharetra, purus et pretium posuere, ipsum risus pulvinar leo,
         non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec
@@ -61,13 +61,13 @@ export const Default = (args) => {
         laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed
         nisl dui, scelerisque et augue eget, pharetra commodo elit. In venenatis
         sapien eu nisl congue suscipit.
-      </DDSExpressiveModalBody>
-      <DDSExpressiveModalFooter>
-        <DDSButtonExpressive href="https://www.example.com">
+      </C4DExpressiveModalBody>
+      <C4DExpressiveModalFooter>
+        <C4DButton href="https://www.example.com">
           {buttonContent} <ArrowRight20 slot="icon" />
-        </DDSButtonExpressive>
-      </DDSExpressiveModalFooter>
-    </DDSExpressiveModal>
+        </C4DButton>
+      </C4DExpressiveModalFooter>
+    </C4DExpressiveModal>
   );
 };
 
@@ -79,12 +79,12 @@ export default {
       Modal: () => ({
         open: boolean('Open (open)', true),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in cds-expressive-modal-beingclosed event)',
           false
         ),
         size: select('Modal size (size)', sizes, null),
-        onBeforeClose: action('dds-expressive-modal-beingclosed'),
-        onClose: action('dds-expressive-modal-closed'),
+        onBeforeClose: action('cds-expressive-modal-beingclosed'),
+        onClose: action('cds-expressive-modal-closed'),
       }),
       Other: () => ({
         buttonContent: textNullable('Button content', 'Lorem ipsum dolor'),
@@ -96,8 +96,8 @@ export default {
           open: true,
           disableClose: false,
           size: null,
-          onBeforeClose: 'dds-expressive-modal-beingclosed',
-          onClose: 'dds-expressive-modal-closed',
+          onBeforeClose: 'cds-expressive-modal-beingclosed',
+          onClose: 'cds-expressive-modal-closed',
         },
         Other: {
           buttonContent: 'Lorem ipsum dolor',

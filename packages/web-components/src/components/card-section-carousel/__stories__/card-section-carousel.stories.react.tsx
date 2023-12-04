@@ -13,22 +13,22 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 // eslint-disable-next-line max-len
-import DDSCardSectionCarousel from '@carbon/ibmdotcom-web-components/es/components-react/card-section-carousel/card-section-carousel';
+import C4DCardSectionCarousel from '@carbon/ibmdotcom-web-components/es/components-react/card-section-carousel/card-section-carousel';
 // @ts-ignore
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 // @ts-ignore
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 // @ts-ignore
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 // @ts-ignore
-import DDSContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
+import C4DContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
 // @ts-ignore
 // eslint-disable-next-line max-len
-import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
 // @ts-ignore
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 // @ts-ignore
-import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
+import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import readme from './README.stories.react.mdx';
 import styles from './card-section-carousel.stories.scss';
 
@@ -46,37 +46,37 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
 } = {}) => (
-  <DDSCard href={href}>
-    <DDSCardHeading>{heading}</DDSCardHeading>
+  <C4DCard href={href}>
+    <C4DCardHeading>{heading}</C4DCardHeading>
     <p>{copy}</p>
-    <DDSCardFooter>
+    <C4DCardFooter>
       <ArrowRight20 slot="icon" />
-    </DDSCardFooter>
-  </DDSCard>
+    </C4DCardFooter>
+  </C4DCard>
 );
 
 export const Default = () => {
   return (
-    <DDSCardSectionCarousel>
-      <DDSContentSectionHeading>
+    <C4DCardSectionCarousel>
+      <C4DContentSectionHeading>
         Lorem ipsum dolor sit amet
-      </DDSContentSectionHeading>
-      <DDSContentSectionCopy>
+      </C4DContentSectionHeading>
+      <C4DContentSectionCopy>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est.
-      </DDSContentSectionCopy>
-      <DDSLinkWithIcon slot="footer" href={hrefDefault}>
+      </C4DContentSectionCopy>
+      <C4DLinkWithIcon slot="footer" href={hrefDefault}>
         Link text
         <ArrowRight20 slot="icon" />
-      </DDSLinkWithIcon>
-      <DDSCarousel>
+      </C4DLinkWithIcon>
+      <C4DCarousel>
         <Card />
         <Card copy={copyOdd} />
         <Card />
         <Card copy={copyOdd} />
         <Card />
-      </DDSCarousel>
-    </DDSCardSectionCarousel>
+      </C4DCarousel>
+    </C4DCardSectionCarousel>
   );
 };
 
@@ -86,8 +86,8 @@ export default {
     (story) => (
       <>
         <style type="text/css">{styles.cssText}</style>
-        <div className="bx--grid">
-          <div className="bx--row grid-alignment">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row grid-alignment">{story()}</div>
         </div>
       </>
     ),

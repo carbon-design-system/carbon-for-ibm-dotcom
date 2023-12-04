@@ -5,56 +5,95 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/hang';
+@use 'sass:map';
+@use '@carbon/colors' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/hang' as *;
+@use '../../globals/tokens/color-tokens' as *;
 
 @mixin callout {
-  .#{$prefix}--callout__container,
-  :host(#{$dds-prefix}-callout) {
-    background-color: $inverse-02;
-    @include carbon--make-row;
+  :host(#{$c4d-prefix}-callout) {
+    background-color: $background;
   }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='inverse']) {
+    background-color: $background-inverse;
+  }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='layer']) {
+    background-color: $layer-01;
+  }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='purple']) {
+    background-color: $background-purple;
+  }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='cyan']) {
+    background-color: $background-cyan;
+  }
+
+  :host(#{$c4d-prefix}-callout-text),
+  :host(#{$c4d-prefix}-callout-text[color-scheme='layer']) {
+    color: $text-primary;
+  }
+
+  :host(#{$c4d-prefix}-callout-text[color-scheme='inverse']) {
+    color: $text-inverse;
+  }
+
+  :host(#{$c4d-prefix}-callout-text[color-scheme='purple']) {
+    color: $text-purple;
+  }
+
+  :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']) {
+    color: $text-cyan;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='layer']),
+  :host(#{$c4d-prefix}-callout-caption) {
+    color: $text-secondary;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='inverse']) {
+    color: $text-inverse;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='purple']) {
+    color: $caption-purple;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='cyan']) {
+    color: $caption-cyan;
+  }
+
   .#{$prefix}--callout__column {
-    @include carbon--make-col-ready;
+    @include make-col-ready;
   }
   .#{$prefix}--callout__content {
-    @include carbon--breakpoint(sm) {
+    box-sizing: border-box;
+
+    @include breakpoint(sm) {
       padding-top: $layout-03;
     }
-    @include carbon--breakpoint(md) {
-      @include carbon--make-col-offset(1, 8);
-      @include carbon--make-col(6, 8);
+    @include breakpoint(md) {
+      @include make-col-offset(1, 8);
+      @include make-col(6, 8);
 
       padding-left: $spacing-02;
       padding-right: $spacing-02;
       padding-top: $layout-05;
     }
-    @include carbon--breakpoint(lg) {
+    @include breakpoint(lg) {
       padding-left: $spacing-01;
       padding-right: $spacing-01;
-      @include carbon--make-col-offset(1, 12);
-      @include carbon--make-col(10, 12);
-    }
-
-    .#{$prefix}--quote {
-      background-color: $ui-01;
-    }
-
-    .#{$prefix}--quote__copy,
-    .#{$prefix}--quote__source-heading,
-    .#{$prefix}--quote__source-body,
-    .#{$prefix}--quote__source-optional-copy,
-    ::slotted(#{$dds-prefix}-quote-source-bottom-copy),
-    ::slotted(#{$dds-prefix}-quote-source-copy),
-    ::slotted(#{$dds-prefix}-quote-source-heading),
-    .#{$prefix}--quote__mark {
-      color: $inverse-01;
+      @include make-col-offset(1, 12);
+      @include make-col(10, 12);
     }
   }
-}
-
-@include exports('callout') {
-  @include callout;
 }

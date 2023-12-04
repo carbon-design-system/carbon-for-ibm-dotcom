@@ -1,0 +1,100 @@
+/**
+ * Copyright IBM Corp. 2016, 2023
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/hang' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../internal/callout/callout' as *;
+@use '../quote/quote' as *;
+
+@include callout;
+@include quote;
+
+@mixin callout-quote {
+  :host(#{$c4d-prefix}-callout-quote) {
+    @extend :host(#{$c4d-prefix}-callout);
+    @extend :host(#{$c4d-prefix}-callout-text);
+    @include make-row;
+
+    @include breakpoint(md) {
+      @include hang;
+    }
+
+    padding-bottom: $spacing-10;
+
+    ::slotted(#{$c4d-prefix}-callout-link-with-icon) {
+      padding-left: $spacing-07;
+      outline: transparent;
+    }
+  }
+
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='inverse']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='inverse']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='inverse']);
+  }
+
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='layer']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='layer']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='layer']);
+  }
+
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='purple']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='purple']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='purple']);
+  }
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='cyan']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='cyan']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']);
+  }
+
+  :host(#{$c4d-prefix}-callout-link-with-icon) {
+    @extend .#{$c4d-prefix}--link-with-icon !optional;
+
+    display: inline-block;
+    a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
+      color: $link-primary;
+
+      &:hover {
+        color: $link-primary-hover;
+      }
+
+      &:active {
+        color: $link-primary;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-callout-link-with-icon[color-scheme='inverse']) {
+    a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
+      color: $link-inverse;
+      outline-color: $focus-inverse;
+
+      &:hover {
+        // @carbon/styles has no hover color for $link-inverse.
+        color: $link-inverse;
+      }
+
+      &:active {
+        color: $link-inverse;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-callout-quote) #{$c4d-prefix}-hr {
+    margin: $spacing-05;
+    @include breakpoint(md) {
+      margin: $spacing-05 0;
+    }
+    @include breakpoint(lg) {
+      margin: $spacing-05 $spacing-03;
+    }
+  }
+}

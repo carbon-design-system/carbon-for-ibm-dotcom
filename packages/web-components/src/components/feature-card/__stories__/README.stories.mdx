@@ -1,10 +1,11 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
-
 
 # Feature Card
 
@@ -31,10 +32,10 @@ import '@carbon/ibmdotcom-web-components/es/components/feature-card/index.js';
 ### HTML
 
 ```html
-<dds-feature-card href="https://example.com">
+<cds-feature-card href="https://example.com">
   <img />
-  <dds-card-heading>Explore AI use cases in all industries</dds-card-heading>
-  <dds-feature-card-footer>
+  <cds-card-heading>Explore AI use cases in all industries</cds-card-heading>
+  <cds-feature-card-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -44,23 +45,27 @@ import '@carbon/ibmdotcom-web-components/es/components/feature-card/index.js';
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-feature-card-footer>
-</dds-feature-card>
+  </cds-feature-card-footer>
+</cds-feature-card>
 ```
 
-Here's an example using the Feature Card Large variant (previously known as `FeatureCardBlockLarge`)
+Here's an example using the Feature Card Large variant (previously known as
+`FeatureCardBlockLarge`)
 
 ```html
-<dds-feature-card size='large' href="https://example.com">
+<cds-feature-card size="large" href="https://example.com">
   <img />
-  <dds-card-eyebrow>This is an eyebrow</dds-card-eyebrow>
-  <dds-card-heading>Explore AI use cases in all industries</dds-card-heading>
-  <dds-card-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dds-card-copy>
-  <dds-feature-card-footer>
+  <cds-card-eyebrow>This is an eyebrow</cds-card-eyebrow>
+  <cds-card-heading>Explore AI use cases in all industries</cds-card-heading>
+  <cds-card-copy
+    >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.</cds-card-copy
+  >
+  <cds-feature-card-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -70,24 +75,56 @@ Here's an example using the Feature Card Large variant (previously known as `Fea
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-feature-card-footer>
-</dds-feature-card>
+  </cds-feature-card-footer>
+</cds-feature-card>
 ```
+
+### CTA features
+
+The `cta-type` attribute allows every type of CTA and icon available in the
+Carbon for IBM.com library. The default CTA style is `local`, which provides a
+basic link and arrow icon.
+
+In order to use the desired type, modify the `cta-type` attribute to one of the
+following:
+
+- local
+- jump
+- external
+- new tab
+- download
+- video
+- pdf
+- blog
+- email
+- schedule
+- chat
+- call
+
+Notes:
+
+- When using `video`, you need to pass the video ID as the `href` attribute.
+- The Feature Card component will need to be wrapped within a
+  `cds-video-cta-container` components for videos to play.
+- Custom icons can replace the built-in ones within `cds-card-footer`, they only
+  need to be assigned to the `icon` slot.
 
 ## Props
 
-<Props of="dds-feature-card" />
+<Props of="cds-feature-card" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector            | Description |
 | ----------------------- | --------------------------------- | ----------- |
-| `<dds-feature-card>`    | `data-autoid="dds--feature-card"` | Component   |
+| `<cds-feature-card>`    | `data-autoid="cds--feature-card"` | Component   |
 
 <Description markdown={contributing} />

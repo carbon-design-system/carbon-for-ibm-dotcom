@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-leadspace-with-search', () => {
-  it('should load the default dds-leadspace-with-search example', () => {
+describe('cds-leadspace-with-search', () => {
+  it('should load the default cds-leadspace-with-search example', () => {
     cy.visit('/leadspace-with-search');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-leadspace-with-search | default');
+    cy.percySnapshot('cds-leadspace-with-search | default');
   });
 });

@@ -1,48 +1,10 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../card/card';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/imports';
-@import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
-
-:host(#{$dds-prefix}-card-group) {
-  background: none;
-
-  ::slotted(#{$dds-prefix}-card-group-item) {
-    background-color: $decorative-01;
-  }
-
-  ::slotted(#{$dds-prefix}-card-group-card-link-item) {
-    @include carbon--breakpoint('md') {
-      padding-right: $carbon--spacing-05;
-    }
-  }
-
-  ::slotted(#{$dds-prefix}-card-group-item[empty]),
-  ::slotted(#{$dds-prefix}-card-group-card-link-item[empty]) {
-    background-color: transparent;
-    outline: none;
-  }
-}
-
-:host(#{$dds-prefix}-card-group)[grid-mode='border'] {
-  background: var(--#{$dds-prefix}--card-group-gradient, $decorative-01);
-
-  /* stylelint-disable-next-line selector-type-no-unknown */
-  #{$dds-prefix}-card-group-item[empty],
-  #{$dds-prefix}-card-group-card-link-item[empty] {
-    outline: none;
-  }
-
-  ::slotted(#{$dds-prefix}-card-group-item),
-  ::slotted(#{$dds-prefix}-card-group-card-link-item) {
-    background-color: transparent;
-  }
-}
+@use '@carbon/ibmdotcom-styles/scss/components/card-group' as *;

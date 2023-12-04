@@ -5,8 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
+@use '@carbon/grid';
 
-@include exports('carbon-grid') {
-  @include carbon--grid();
-}
+// Emit the flex-grid styles
+@include grid.flex-grid();

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,7 @@ const getTopElement = (x, y, root = window.document) => {
 };
 
 /**
- * Collection of all tests for dds-table-of-contents
+ * Collection of all tests for cds-table-of-contents
  *
  * @private
  */
@@ -44,9 +44,9 @@ const _tests = {
     let box;
 
     cy.visit(`/${_paths.default}`)
-      .get('dds-cta')
+      .get('cds-cta')
       .shadow()
-      .find('dds-card-cta')
+      .find('cds-card-cta')
       .then(card => {
         const bcr = card[0].getBoundingClientRect();
 
@@ -59,9 +59,9 @@ const _tests = {
           centerY: bcr.top + bcr.height / 2,
         };
       });
-    cy.get('dds-cta')
+    cy.get('cds-cta')
       .shadow()
-      .find('dds-card-cta-footer')
+      .find('cds-card-cta-footer')
       .then(footer => {
         // Since the link is in the shadowroot, we need to look there
         const root = footer[0].shadowRoot;
@@ -93,15 +93,15 @@ const _tests = {
   },
   checkHoverStyles: () => {
     cy.visit(`/${_paths.default}`)
-      .get('dds-cta')
+      .get('cds-cta')
       .shadow()
-      .find('dds-card-cta')
+      .find('cds-card-cta')
       .then(([card]) => {
         const sheets = card.shadowRoot.adoptedStylesheets;
 
         if (sheets) {
           const hover = getCssPropertyForRule(
-            '.bx--card:hover .bx--card__wrapper, :host(dds-card:hover) .bx--card__wrapper, :host(dds-link-list-item-card:hover) .bx--card__wrapper, :host(dds-card-group-item:hover) .bx--card__wrapper, :host(dds-card-group-item) .bx--card:hover .bx--card__wrapper, :host(dds-card-cta:hover) .bx--card__wrapper, :host(dds-link-list-item-card-cta:hover) .bx--card__wrapper, :host(dds-card-in-card:hover) .bx--card__wrapper, :host(dds-content-group-cards-item:hover) .bx--card__wrapper, :host(dds-content-group-cards-item) .bx--card:hover .bx--card__wrapper',
+            '.bx--card:hover .bx--card__wrapper, :host(cds-card:hover) .bx--card__wrapper, :host(cds-card-group-item:hover) .bx--card__wrapper, :host(cds-card-group-item) .bx--card:hover .bx--card__wrapper, :host(cds-card-cta:hover) .bx--card__wrapper, :host(cds-card-in-card:hover) .bx--card__wrapper, :host(cds-content-group-cards-item:hover) .bx--card__wrapper, :host(cds-content-group-cards-item) .bx--card:hover .bx--card__wrapper',
             'background-color',
             sheets
           );
@@ -111,7 +111,7 @@ const _tests = {
   },
 };
 
-describe('dds-card-cta | (desktop)', () => {
+describe('cds-card-cta | (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
   });
@@ -122,7 +122,7 @@ describe('dds-card-cta | (desktop)', () => {
   it('Should check a11y', _tests.checkA11y);
 });
 
-describe('dds-card-cta | (mobile)', () => {
+describe('cds-card-cta | (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 720);
   });

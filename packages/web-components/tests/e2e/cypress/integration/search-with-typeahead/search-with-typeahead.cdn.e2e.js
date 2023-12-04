@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-search-with-typeahead (cdn)', () => {
-  it('should load the default dds-search-with-typeahead example', () => {
+describe('cds-search-with-typeahead (cdn)', () => {
+  it('should load the default cds-search-with-typeahead example', () => {
     cy.visit('/search-with-typeahead/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-search-with-typeahead | cdn | default');
+    cy.percySnapshot('cds-search-with-typeahead | cdn | default');
   });
 });

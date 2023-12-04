@@ -7,13 +7,13 @@
 
 'use strict';
 
-describe('dds-dotcom-shell', () => {
-  it('should load the default dds-dotcom-shell example', () => {
+describe('cds-dotcom-shell', () => {
+  it('should load the default cds-dotcom-shell example', () => {
     cy.visit('/dotcom-shell');
 
-    cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty');
+    cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-dotcom-shell | default');
+    cy.percySnapshot('cds-dotcom-shell | default');
   });
 });

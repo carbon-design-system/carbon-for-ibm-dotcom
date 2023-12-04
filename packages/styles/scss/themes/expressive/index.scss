@@ -5,43 +5,43 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
-@import 'carbon-components/scss/globals/scss/vars';
-@import 'tokens';
+@use '@carbon/styles/scss/config' as *;
+@use 'tokens';
+@forward 'tokens';
 
 // Carbon component theming
-@import 'components/accordion';
-@import 'components/button';
-@import 'components/checkbox';
-@import 'components/code-snippet';
-@import 'components/combo-box';
-@import 'components/content-switcher';
-@import 'components/copy-button';
-@import 'components/date-picker';
-@import 'components/data-table';
-@import 'components/dropdown';
-@import 'components/file-uploader';
-@import 'components/inline-loading';
-@import 'components/inline-notifications';
-@import 'components/list-box';
-@import 'components/loading';
-@import 'components/modal';
-@import 'components/multi-select';
-@import 'components/number-input';
-@import 'components/overflow-menu';
-@import 'components/progressive-indicator';
-@import 'components/tabs';
-@import 'components/tag';
-@import 'components/text-area';
-@import 'components/text-input';
-@import 'components/tile';
-@import 'components/time-picker';
-@import 'components/tooltip';
-@import 'components/search';
-@import 'components/select';
-@import 'components/structured-list';
-@import 'components/toast-notifications';
-@import 'components/ui-shell';
+@use 'components/accordion';
+@use 'components/button';
+@use 'components/checkbox';
+@use 'components/code-snippet';
+@use 'components/combo-box';
+@use 'components/content-switcher';
+@use 'components/copy-button';
+@use 'components/date-picker';
+@use 'components/data-table';
+@use 'components/dropdown';
+@use 'components/file-uploader';
+@use 'components/inline-loading';
+@use 'components/inline-notifications';
+@use 'components/list-box';
+@use 'components/loading';
+@use 'components/modal';
+@use 'components/multi-select';
+@use 'components/number-input';
+@use 'components/overflow-menu';
+@use 'components/progressive-indicator';
+@use 'components/tabs';
+@use 'components/tag';
+@use 'components/text-area';
+@use 'components/text-input';
+@use 'components/tile';
+@use 'components/time-picker';
+@use 'components/tooltip';
+@use 'components/search';
+@use 'components/select';
+@use 'components/structured-list';
+@use 'components/toast-notifications';
+@use 'components/ui-shell';
 
 //-------------------------
 // Expressive Theme

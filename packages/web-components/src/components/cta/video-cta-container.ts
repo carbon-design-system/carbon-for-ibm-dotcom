@@ -8,7 +8,7 @@
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   MediaData,
   MediaPlayerAPIState,
@@ -17,18 +17,18 @@ import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store'
 import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
 import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
 import {
-  DDSVideoPlayerContainerMixin,
+  C4DVideoPlayerContainerMixin,
   mapStateToProps,
   mapDispatchToProps,
 } from '../video-player/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
-import DDSVideoCTAComposite from './video-cta-composite';
+import C4DVideoCTAComposite from './video-cta-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * The Redux state used for `<dds-cta-container>`.
+ * The Redux state used for `<c4d-cta-container>`.
  */
 export interface VideoCTAContainerState {
   /**
@@ -38,7 +38,7 @@ export interface VideoCTAContainerState {
 }
 
 /**
- * The properties for `<dds-cta-container>` from Redux state.
+ * The properties for `<c4d-cta-container>` from Redux state.
  */
 export interface VideoCTAContainerStateProps {
   /**
@@ -48,17 +48,17 @@ export interface VideoCTAContainerStateProps {
 }
 
 /**
- * The Redux actions used for `<dds-cta-container>.
+ * The Redux actions used for `<c4d-cta-container>.
  */
 export type CTAContainerActions = ReturnType<typeof loadMediaData>;
 
 /**
  * Container component for CTA.
  *
- * @element dds-cta-container
+ * @element c4d-cta-container
  */
-@customElement(`${ddsPrefix}-video-cta-container`)
-class DDSVideoCTAContainer extends ConnectMixin<
+@customElement(`${c4dPrefix}-video-cta-container`)
+class C4DVideoCTAContainer extends ConnectMixin<
   VideoCTAContainerState,
   MediaPlayerAPIActions,
   VideoCTAContainerStateProps,
@@ -67,7 +67,7 @@ class DDSVideoCTAContainer extends ConnectMixin<
   store as Store<VideoCTAContainerState, MediaPlayerAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSVideoPlayerContainerMixin(DDSVideoCTAComposite)) {}
+)(C4DVideoPlayerContainerMixin(C4DVideoCTAComposite)) {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSVideoCTAContainer;
+export default C4DVideoCTAContainer;

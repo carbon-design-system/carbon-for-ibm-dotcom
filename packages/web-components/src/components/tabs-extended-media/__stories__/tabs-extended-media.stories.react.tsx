@@ -11,32 +11,32 @@ import { select, boolean } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTabsExtendedMedia from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended-media/tabs-extended-media';
+import C4DTabsExtendedMedia from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended-media/tabs-extended-media';
 // @ts-ignore
-import DDSTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab';
+import C4DTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import C4DContentItemRowMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemRowMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-copy';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
+import C4DContentItemRowMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-video';
 // @ts-ignore
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 // @ts-ignore
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 // @ts-ignore
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 // @ts-ignore
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 import readme from './README.stories.react.mdx';
-import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
+import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-row/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -50,42 +50,59 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = args => {
-  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedMedia ?? {};
+export const Default = (args) => {
+  const { sectionHeading, sectionHeadingText, align, type } =
+    args?.TabsExtendedMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
     tabs.push(
-      <DDSTab label={`Tab ${i}`}>
-        <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage> : ``}
-          {type === MEDIA_TYPE.VIDEO ? (
-            <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+      <C4DTab label={`Tab ${i}`}>
+        <C4DContentItemRowMedia align={align}>
+          {type === MEDIA_TYPE.IMAGE ? (
+            <C4DImage
+              slot="media"
+              alt="Image alt text"
+              default-src={imgLg16x9}></C4DImage>
           ) : (
             ``
           )}
-          <DDSContentItemHeading>Tab heading {i}</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>
-            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-            hendrerit. Phasellus at elit sollicitudin.
-          </DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+          {type === MEDIA_TYPE.VIDEO ? (
+            <C4DContentItemRowMediaVideo video-id="0_ibuqxqbe"></C4DContentItemRowMediaVideo>
+          ) : (
+            ``
+          )}
+          <C4DContentItemHeading>Tab heading {i}</C4DContentItemHeading>
+          <C4DContentItemRowMediaCopy>
+            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+            ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+            elit sollicitudin.
+          </C4DContentItemRowMediaCopy>
+          <C4DLinkList slot="footer" type="vertical">
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="local">
               CTA {i}
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            </C4DLinkListItemCTA>
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="external">
               Microservices and containers
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
+            </C4DLinkListItemCTA>
+          </C4DLinkList>
+        </C4DContentItemRowMedia>
+      </C4DTab>
     );
   }
   return (
-    <DDSTabsExtendedMedia section-heading={sectionHeading}>
-      <DDSContentSectionHeading>{sectionHeadingText || undefined}</DDSContentSectionHeading>
+    <C4DTabsExtendedMedia section-heading={sectionHeading}>
+      <C4DContentSectionHeading>
+        {sectionHeadingText || undefined}
+      </C4DContentSectionHeading>
       {tabs}
-    </DDSTabsExtendedMedia>
+    </C4DTabsExtendedMedia>
   );
 };
 
@@ -94,7 +111,8 @@ Default.story = {
     knobs: {
       TabsExtendedMedia: () => {
         const sectionHeading = boolean('Section heading', true);
-        const sectionHeadingText = sectionHeading && textNullable('Heading', 'Section heading');
+        const sectionHeadingText =
+          sectionHeading && textNullable('Heading', 'Section heading');
         return {
           sectionHeading,
           sectionHeadingText,
@@ -111,9 +129,14 @@ export default {
   decorators: [
     (story, args) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter`}>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div
+              className={`${
+                args?.TabsExtendedMedia?.sectionHeading
+                  ? `cds--col-lg-16`
+                  : `cds--col-lg-12`
+              } cds--no-gutter`}>
               {story()}
             </div>
           </div>

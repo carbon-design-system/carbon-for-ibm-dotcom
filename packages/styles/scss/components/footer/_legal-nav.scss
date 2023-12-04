@@ -5,136 +5,154 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/flex-grid' as *;
+
 /// Legal nav styles
 /// @access private
 /// @group footer
 
 @mixin legal-nav {
-  :host(#{$dds-prefix}-legal-nav),
-  .#{$prefix}--legal-nav__container {
-    @include carbon--make-container;
+  :host(#{$c4d-prefix}-legal-nav) {
+    @include make-container;
   }
 
-  .#{$prefix}--legal-nav {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include carbon--make-row;
+  .#{$c4d-prefix}--legal-nav {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+    @include make-row;
 
-      .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
-        @include carbon--breakpoint-down('md') {
-          border-top: 0;
-        }
+    .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
+      @include breakpoint-down(md) {
+        border-top: 0;
       }
     }
   }
 
-  .#{$prefix}--legal-nav__list {
+  .#{$c4d-prefix}--adjunct-links__container,
+  .#{$c4d-prefix}--legal-nav__list {
     width: 100%;
-    padding-left: $carbon--spacing-05;
+    padding-left: $spacing-05;
 
-    @include carbon--breakpoint('md') {
-      border-top: 1px solid $ui-03;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col-offset(4, 16);
+    @include breakpoint(md) {
+      border-top: 1px solid $layer-accent-01;
     }
-    &.#{$prefix}--legal-nav__micro {
-      @include carbon--theme(
-        $carbon--theme--g90,
+
+    @include breakpoint(lg) {
+      @include make-col-offset(4, 16);
+    }
+    &.#{$c4d-prefix}--legal-nav__micro {
+      @include theme(
+        $g100,
         feature-flag-enabled('enable-css-custom-properties')
-      ) {
-        display: flex;
-        padding-bottom: 0;
+      );
+
+      display: flex;
+      padding-bottom: 0;
+      padding-left: 0;
+      flex-direction: column-reverse;
+      margin-right: 0;
+
+      @include breakpoint-down(md) {
+        ::slotted([slot='locale']),
+        ::slotted([slot='brand']) {
+          display: none;
+        }
+      }
+
+      @include breakpoint(md) {
         padding-left: 0;
-        flex-direction: column-reverse;
-        margin-right: 0;
+      }
 
-        @include carbon--breakpoint('md') {
-          padding-left: 0;
+      @include breakpoint(lg) {
+        justify-content: space-between;
+        flex-direction: row;
+        margin-left: 0;
+      }
+
+      .#{$prefix}--legal-nav__holder {
+        column-count: inherit;
+        margin-left: 0;
+        border-top: 1px solid $layer-accent-01;
+        padding: 0 $spacing-05;
+
+        @include breakpoint(md) {
+          display: flex;
+          align-items: center;
+          padding: 0 $spacing-05 0;
         }
 
-        @include carbon--breakpoint('lg') {
-          justify-content: space-between;
-          flex-direction: row;
-          margin-left: 0;
+        @include breakpoint(lg) {
+          border-top: none;
         }
 
-        .#{$prefix}--legal-nav__holder {
-          column-count: inherit;
-          margin-left: 0;
-          border-top: 1px solid $ui-03;
-          padding: 0 $carbon--spacing-05;
+        .#{$prefix}--legal-nav__list-item {
+          margin-right: 0;
+          padding-top: 0;
+          height: $spacing-09;
+          display: flex;
+          align-items: center;
 
-          @include carbon--breakpoint('md') {
+          @include breakpoint(md) {
+            margin-right: $spacing-07;
+          }
+
+          a {
             display: flex;
             align-items: center;
-            padding: 0 $carbon--spacing-05 0;
-          }
-
-          @include carbon--breakpoint('lg') {
-            border-top: none;
-          }
-
-          .#{$prefix}--legal-nav__list-item {
-            margin-right: 0;
-            padding-top: 0;
-            height: $spacing-09;
-            display: flex;
-            align-items: center;
-
-            @include carbon--breakpoint('md') {
-              margin-right: $carbon--spacing-07;
-            }
-
-            a {
-              display: flex;
-              align-items: center;
-              width: 100%;
-            }
+            width: 100%;
           }
         }
+      }
 
-        .#{$prefix}--locale-btn__container,
-        .#{$prefix}--language-selector__container {
+      .#{$prefix}--locale-btn__container,
+      .#{$prefix}--language-selector__container {
+        margin: 0;
+
+        @include breakpoint(md) {
+          align-self: flex-end;
+          width: 50%;
+          border-left: 1px solid $layer-accent-01;
+        }
+
+        @include breakpoint(lg) {
           margin: 0;
+        }
 
-          @include carbon--breakpoint('md') {
-            align-self: flex-end;
-            width: 50%;
-            border-left: 1px solid $ui-03;
+        .#{$prefix}--btn--secondary,
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
+          background-color: $background;
+          max-width: 100%;
+
+          &:hover {
+            background-color: $background-hover;
           }
 
-          @include carbon--breakpoint('lg') {
-            margin: 0;
+          &:active {
+            background-color: $layer-active-01;
           }
+        }
 
-          .#{$prefix}--btn--secondary,
-          .#{$prefix}--list-box,
-          .#{$prefix}--select-input {
-            background-color: $ui-background;
-            max-width: 100%;
+        .#{$prefix}--select {
+          max-width: 100%;
+        }
 
-            &:hover {
-              background-color: $hover-ui;
-            }
-
-            &:active {
-              background-color: $active-ui;
-            }
-          }
-
-          .#{$prefix}--select {
-            max-width: 100%;
-          }
-
-          .#{$prefix}--text-input,
-          .#{$prefix}--list-box,
-          .#{$prefix}--select-input {
-            border-bottom: none;
-          }
+        .#{$prefix}--text-input,
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
+          border-bottom: none;
         }
       }
     }
@@ -144,27 +162,27 @@
     padding-top: 0;
     margin-left: 0;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       padding-top: $spacing-03;
       column-count: 2;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       column-count: 3;
     }
   }
 
   .#{$prefix}--adjunct-links__holder {
     margin-left: 0;
-    margin-top: $carbon--spacing-09;
-    padding: 0 $carbon--layout-04 0 $carbon--spacing-05;
+    margin-top: $spacing-09;
+    padding: 0 $spacing-09 0 $spacing-05;
     width: 100%;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       width: 50%;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       margin-left: 25%;
       width: 25%;
     }
@@ -175,22 +193,18 @@
     }
 
     .#{$prefix}--legal-nav__list-item:not(:first-of-type) {
-      padding-top: $carbon--spacing-03;
+      padding-top: $spacing-03;
     }
   }
 
-  :host(#{$dds-prefix}-legal-nav-item),
-  :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
+  :host(#{$c4d-prefix}-legal-nav-item),
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div,
   .#{$prefix}--legal-nav__list-item {
-    margin-right: carbon--mini-units(4);
-    padding: carbon--mini-units(2) 0 0 0;
-    @include carbon--type-style('body-long-01');
+    margin-right: $spacing-07;
+    padding: $spacing-03 0 0 0;
+    @include type-style('body-01');
 
-    @include carbon--breakpoint('md') {
-      padding: carbon--mini-units(1) 0 0 0;
-    }
-
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       &:first-child {
         padding-top: 0;
       }
@@ -200,8 +214,4 @@
       margin-right: 0;
     }
   }
-}
-
-@include exports('legal-nav') {
-  @include legal-nav;
 }

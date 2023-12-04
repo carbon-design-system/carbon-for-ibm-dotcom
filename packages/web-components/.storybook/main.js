@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 'use strict';
 
 const path = require('path');
-const sass = require('node-sass');
+const sass = require('sass');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
@@ -154,10 +154,7 @@ module.exports = {
     if (babelLoaderRule) {
       config.module.rules.unshift({
         use: babelLoaderRule.use,
-        include: [
-          path.dirname(require.resolve('lit-html')),
-          path.dirname(require.resolve('lit-element')),
-        ],
+        include: [path.dirname(require.resolve('lit'))],
       });
     }
 
@@ -168,11 +165,8 @@ module.exports = {
         use: 'null-loader',
       },
       {
-        test: /[\\/]styles[\\/]icons[\\/]/i,
-        use: [
-          ...babelLoaderRule.use,
-          require.resolve('../tools/svg-result-ibmdotcom-icon-loader'),
-        ],
+        test: /\.svg$/,
+        use: [{ loader: 'raw-loader' }],
       },
       {
         test: /\.stories\.[jt]sx?$/,

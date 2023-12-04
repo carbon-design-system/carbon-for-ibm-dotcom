@@ -1,25 +1,25 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
-import DDSTableOfContents from '../table-of-contents';
+import C4DTableOfContents from '../table-of-contents';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../table-of-contents';
 
 const template = (props?) => {
   const { children } = props ?? {};
-  return html` <dds-table-of-contents>${children}</dds-table-of-contents> `;
+  return html` <c4d-table-of-contents>${children}</c4d-table-of-contents> `;
 };
 
-describe('dds-table-of-contents', function () {
+describe('c4d-table-of-contents', function () {
   const events = new EventManager();
 
   describe('Misc attributes', function () {
@@ -36,7 +36,7 @@ describe('dds-table-of-contents', function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-table-of-contents')
+        document.body.querySelector('c4d-table-of-contents')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -44,11 +44,11 @@ describe('dds-table-of-contents', function () {
       render(
         template({
           children: html`
-            <dds-image
+            <c4d-image
               slot="heading"
               alt="Alt text"
-              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"></dds-image>
-            <dds-horizontal-rule slot="menu-rule"></dds-horizontal-rule>
+              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"></c4d-image>
+            <c4d-horizontal-rule slot="menu-rule"></c4d-horizontal-rule>
           `,
         }),
         document.body
@@ -57,7 +57,7 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating cycle upon `slotchange`
       expect(
-        document.body.querySelector('dds-table-of-contents')
+        document.body.querySelector('c4d-table-of-contents')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -65,22 +65,22 @@ describe('dds-table-of-contents', function () {
       render(
         template({
           children: html`
-            <dds-image
+            <c4d-image
               slot="heading"
               alt="Alt text"
-              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"></dds-image>
-            <dds-horizontal-rule slot="menu-rule"></dds-horizontal-rule>
+              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"></c4d-image>
+            <c4d-horizontal-rule slot="menu-rule"></c4d-horizontal-rule>
           `,
         }),
         document.body
       );
       await Promise.resolve(); // Update cycle for the component
       const tableOfContents = document.querySelector(
-        'dds-table-of-contents'
-      ) as DDSTableOfContents;
+        'c4d-table-of-contents'
+      ) as C4DTableOfContents;
       MockResizeObserver.run(
         tableOfContents!.shadowRoot!.querySelector(
-          '.bx--tableofcontents__mobile'
+          '.cds--tableofcontents__mobile'
         )!,
         { height: 32 }
       );
@@ -88,7 +88,7 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating cycle upon `slotchange`
       expect(
-        document.body.querySelector('dds-table-of-contents')
+        document.body.querySelector('c4d-table-of-contents')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -116,7 +116,7 @@ describe('dds-table-of-contents', function () {
       expect(
         Array.prototype.map.call(
           document.body
-            .querySelector('dds-table-of-contents')!
+            .querySelector('c4d-table-of-contents')!
             .shadowRoot!.querySelectorAll('a[data-target]'),
           (elem) => ({
             target: elem.dataset.target,
@@ -162,7 +162,7 @@ describe('dds-table-of-contents', function () {
       expect(
         Array.prototype.map.call(
           document.body
-            .querySelector('dds-table-of-contents')!
+            .querySelector('c4d-table-of-contents')!
             .shadowRoot!.querySelectorAll('a[data-target]'),
           (elem) => ({
             target: elem.dataset.target,
@@ -206,8 +206,8 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating upon harvesting `<a>`s
       const tableOfContents = document.querySelector(
-        'dds-table-of-contents'
-      ) as DDSTableOfContents;
+        'c4d-table-of-contents'
+      ) as C4DTableOfContents;
       spyOn(tableOfContents as any, '_handleUserInitiatedJump');
       (
         tableOfContents!.shadowRoot!.querySelector(
@@ -234,11 +234,11 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating upon harvesting `<a>`s
       const tableOfContents = document.querySelector(
-        'dds-table-of-contents'
-      ) as DDSTableOfContents;
+        'c4d-table-of-contents'
+      ) as C4DTableOfContents;
       spyOn(tableOfContents as any, '_handleUserInitiatedJump');
       const select = tableOfContents!.shadowRoot!.querySelector(
-        '.bx--tableofcontents__mobile__select'
+        '.cds--tableofcontents__mobile__select'
       ) as HTMLSelectElement;
       select.value = '2';
       select.dispatchEvent(new CustomEvent('change', { bubbles: true }));

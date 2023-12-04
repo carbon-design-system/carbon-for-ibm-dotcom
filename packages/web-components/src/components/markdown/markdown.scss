@@ -7,11 +7,11 @@
 
 $css--reset: false !default;
 
-@import 'carbon-components/scss/globals/scss/css--reset';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-markdown) {
-  p {
-    @include reset;
-  }
+:host(#{$c4d-prefix}-markdown) {
+  // shouldn't be needed
+  // p {
+  //   @include reset;
+  // }
 }

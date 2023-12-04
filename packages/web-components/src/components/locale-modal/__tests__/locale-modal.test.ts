@@ -7,30 +7,30 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../locale-modal';
 import '../regions';
 import '../region-item';
-import DDSLocaleSearch from '../locale-search';
+import C4DLocaleSearch from '../locale-search';
 
 const template = (props?) => {
   const { headerTitle, langDisplay, children } = props ?? {};
   return html`
-    <dds-locale-modal
-      header-title="${ifNonNull(headerTitle)}"
-      lang-display="${ifNonNull(langDisplay)}">
+    <c4d-locale-modal
+      header-title="${ifDefined(headerTitle)}"
+      lang-display="${ifDefined(langDisplay)}">
       ${children}
-    </dds-locale-modal>
+    </c4d-locale-modal>
   `;
 };
 
-describe('dds-locale-modal', function () {
+describe('c4d-locale-modal', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      const localeModal = document.body.querySelector('dds-locale-modal');
+      const localeModal = document.body.querySelector('c4d-locale-modal');
       expect(localeModal).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -43,7 +43,7 @@ describe('dds-locale-modal', function () {
         document.body
       );
       await Promise.resolve();
-      const localeModal = document.body.querySelector('dds-locale-modal');
+      const localeModal = document.body.querySelector('c4d-locale-modal');
       expect(localeModal).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -52,17 +52,17 @@ describe('dds-locale-modal', function () {
         template({
           headerTitle: 'header-title-foo',
           children: html`
-            <dds-regions>
-              <dds-region-item name="region-foo"></dds-region-item>
-            </dds-regions>
+            <c4d-regions>
+              <c4d-region-item name="region-foo"></c4d-region-item>
+            </c4d-regions>
           `,
         }),
         document.body
       );
       await Promise.resolve();
-      (document.body.querySelector('dds-region-item') as HTMLElement).click();
+      (document.body.querySelector('c4d-region-item') as HTMLElement).click();
       await Promise.resolve();
-      const localeModal = document.body.querySelector('dds-locale-modal');
+      const localeModal = document.body.querySelector('c4d-locale-modal');
       expect(localeModal).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -73,19 +73,19 @@ describe('dds-locale-modal', function () {
         template({
           headerTitle: 'header-title-foo',
           children: html`
-            <dds-regions>
-              <dds-region-item name="region-foo"></dds-region-item>
-            </dds-regions>
-            <dds-locale-search></dds-locale-search>
+            <c4d-regions>
+              <c4d-region-item name="region-foo"></c4d-region-item>
+            </c4d-regions>
+            <c4d-locale-search></c4d-locale-search>
           `,
         }),
         document.body
       );
       await Promise.resolve();
-      (document.body.querySelector('dds-region-item') as HTMLElement).click();
+      (document.body.querySelector('c4d-region-item') as HTMLElement).click();
       await Promise.resolve();
-      const localeSearch = document.body.querySelector('dds-locale-search');
-      expect((localeSearch as DDSLocaleSearch).region).toBe('region-foo');
+      const localeSearch = document.body.querySelector('c4d-locale-search');
+      expect((localeSearch as C4DLocaleSearch).region).toBe('region-foo');
     });
 
     it('should support going back to the region selector', async function () {
@@ -93,25 +93,25 @@ describe('dds-locale-modal', function () {
         template({
           headerTitle: 'header-title-foo',
           children: html`
-            <dds-regions>
-              <dds-region-item name="region-foo"></dds-region-item>
-            </dds-regions>
+            <c4d-regions>
+              <c4d-region-item name="region-foo"></c4d-region-item>
+            </c4d-regions>
           `,
         }),
         document.body
       );
       await Promise.resolve();
-      (document.body.querySelector('dds-region-item') as HTMLElement).click();
+      (document.body.querySelector('c4d-region-item') as HTMLElement).click();
       await Promise.resolve();
-      const localeModal = document.body.querySelector('dds-locale-modal');
+      const localeModal = document.body.querySelector('c4d-locale-modal');
       (
         localeModal!.shadowRoot!.querySelector(
-          'dds-link-with-icon'
+          'c4d-link-with-icon'
         ) as HTMLElement
       ).click();
       await Promise.resolve();
       expect(
-        localeModal!.shadowRoot!.querySelector('dds-link-with-icon')
+        localeModal!.shadowRoot!.querySelector('c4d-link-with-icon')
       ).toBeNull();
     });
   });

@@ -5,12 +5,10 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
-@import '@carbon/ibmdotcom-styles/scss/components/pictogram-item/pictogram-item';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-item';
+@use '@carbon/ibmdotcom-styles/scss/components/pictogram-item';
 
-:host(#{$dds-prefix}-pictogram-item) {
+:host(#{$c4d-prefix}-pictogram-item) {
   display: block;
 }

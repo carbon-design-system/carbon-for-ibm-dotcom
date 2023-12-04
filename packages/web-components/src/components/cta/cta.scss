@@ -5,22 +5,23 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../button-group/button-group';
-@import '../link-with-icon/link-with-icon';
-@import '../feature-card/feature-card'; /* Covers regular card style, too */
-@import '../card-link/card-link.scss';
+@use '@carbon/styles/scss/spacing' as *;
+@use '../button-group/button-group';
+@use '../link-with-icon/link-with-icon';
+@use '../feature-card/feature-card'; /* Covers regular card style, too */
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-.#{$dds-prefix}-ce--cta__icon {
+.#{$c4d-prefix}-ce--cta__icon {
   flex-shrink: 0;
 }
 
-:host(#{$dds-prefix}-button-cta) .#{$dds-prefix}-ce--cta__icon {
+:host(#{$c4d-prefix}-button-cta) .#{$c4d-prefix}-ce--cta__icon {
   position: absolute;
-  right: 1rem;
+  right: $spacing-05;
   top: 50%;
   transform: translateY(-50%);
 }
 
-:host(#{$dds-prefix}-cta) {
+:host(#{$c4d-prefix}-cta) {
   display: block;
 }
