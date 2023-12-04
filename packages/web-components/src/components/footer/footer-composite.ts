@@ -404,7 +404,9 @@ class C4DFooterComposite extends MediaQueryMixin(
           ? this.renderLanguageSelector()
           : ``}
 
-        <c4d-legal-nav size="${ifDefined(size)}">
+        <c4d-legal-nav 
+          size="${ifDefined(size)}"
+          navLabel="${ifDefined(navLabel)}">
           <c4d-footer-logo size="${ifDefined(size)}"></c4d-footer-logo>
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`

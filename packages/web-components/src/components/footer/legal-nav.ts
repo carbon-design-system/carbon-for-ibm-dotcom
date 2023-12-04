@@ -10,6 +10,7 @@
 import { LitElement, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -71,9 +72,10 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    const { navLabel } = this;
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
-          <nav class="${c4dPrefix}--legal-nav">
+          <nav class="${c4dPrefix}--legal-nav" aria-label="${ifDefined(navLabel)}">
             <div class="${this._getTypeClass()}">
               <ul>
                 <slot></slot>
