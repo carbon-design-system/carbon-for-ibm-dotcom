@@ -20,6 +20,7 @@
     height: 100%;
     display: block;
     outline: none;
+    overflow: clip;
 
     .#{$c4d-prefix}--image__img {
       width: 100%;
