@@ -4,26 +4,6 @@
 
 ##   `Misc attributes`
 
-####     `should render with minimum attributes`
-
-```
-<p class="cds--file--label">
-  <slot name="label-title">
-  </slot>
-</p>
-<p class="cds--label-description">
-  <slot name="label-description">
-  </slot>
-</p>
-<slot name="drop-container">
-</slot>
-<div class="cds--file-container">
-  <slot>
-  </slot>
-</div>
-
-```
-
 ####     `should render with various attributes`
 
 ```
@@ -42,6 +22,25 @@
   </slot>
 </div>
 
+```
+
+####     `should render with minimum attributes`
+
+```
+<p class="cds--file--label">
+  <slot name="label-title">
+  </slot>
+</p>
+<p class="cds--label-description">
+  <slot name="label-description">
+  </slot>
+</p>
+<slot name="drop-container">
+</slot>
+<div class="cds--file-container">
+  <slot>
+  </slot>
+</div>
 ```
 
 ## `cds-file-uploader-item`
@@ -312,7 +311,7 @@
 
 ##   `Handling events`
 
-####   `Should handle drag-over`
+####     `Should handle drag-over`
 
 ```
 <label

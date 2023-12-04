@@ -7,6 +7,7 @@
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/content-block-simple';
 @use '@carbon/ibmdotcom-styles/scss/components/image';
 @use '@carbon/ibmdotcom-styles/scss/components/video-player';
@@ -33,6 +34,6 @@
   }
 
   ::slotted([slot='media']) {
-    max-width: rem(640px);
+    max-width: to-rem(640px);
   }
 }

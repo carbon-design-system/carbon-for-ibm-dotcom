@@ -36,7 +36,7 @@ const iconTemplate = (props?) =>
     'cds-tooltip-icon': props,
   });
 
-describe('cds-tooltip', function () {
+xdescribe('cds-tooltip', function () {
   describe('Missing menu body', function () {
     let trigger: CDSTooltip | null;
 

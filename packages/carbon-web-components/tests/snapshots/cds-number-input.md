@@ -16,6 +16,7 @@
   <div class="cds--number__input-wrapper">
     <input
       aria-atomic="true"
+      autocomplete=""
       id="input"
       max="200"
       min="-100"
