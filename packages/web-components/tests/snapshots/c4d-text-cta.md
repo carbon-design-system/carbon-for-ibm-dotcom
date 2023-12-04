@@ -16,7 +16,7 @@
     </slot>
   </span>
   <slot name="icon">
-    <span class="bx--visually-hidden">
+    <span class="cds--visually-hidden">
     </span>
   </slot>
 </a>
@@ -40,7 +40,7 @@
     video-name-foo-caption
   </span>
   <slot name="icon">
-    <span class="bx--visually-hidden">
+    <span class="cds--visually-hidden">
       - This link plays a video
     </span>
   </slot>

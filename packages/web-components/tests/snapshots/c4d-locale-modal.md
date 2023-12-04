@@ -18,7 +18,7 @@
   tabindex="-1"
 >
   <div class="cds--modal-content">
-    <div id="c4d--modal-header">
+    <div id="cds--modal-header">
       <c4d-expressive-modal-header data-autoid="c4d--expressive-modal-header">
         <c4d-expressive-modal-close-button data-autoid="c4d--expressive-modal-close-button">
         </c4d-expressive-modal-close-button>
@@ -30,7 +30,7 @@
         </c4d-expressive-modal-heading>
       </c4d-expressive-modal-header>
     </div>
-    <div class="cds--locale-modal cds--modal-content">
+    <div class="c4d--locale-modal cds--modal-content">
       <slot name="regions-selector">
       </slot>
     </div>
@@ -65,7 +65,7 @@
   tabindex="-1"
 >
   <div class="cds--modal-content">
-    <div id="c4d--modal-header">
+    <div id="cds--modal-header">
       <c4d-expressive-modal-header data-autoid="c4d--expressive-modal-header">
         <c4d-expressive-modal-close-button data-autoid="c4d--expressive-modal-close-button">
         </c4d-expressive-modal-close-button>
@@ -83,7 +83,7 @@
         </c4d-expressive-modal-heading>
       </c4d-expressive-modal-header>
     </div>
-    <div class="cds--locale-modal cds--modal-content">
+    <div class="c4d--locale-modal cds--modal-content">
       <slot name="regions-selector">
       </slot>
     </div>
@@ -118,7 +118,7 @@
   tabindex="-1"
 >
   <div class="cds--modal-content">
-    <div id="c4d--modal-header">
+    <div id="cds--modal-header">
       <c4d-expressive-modal-header
         data-autoid="c4d--expressive-modal-header"
         slot="header"

@@ -7,10 +7,9 @@
 ```
 <a
   aria-label="IBM logo"
-  class="cds--footer-logo__link"
+  class="c4d--footer-logo__link"
   href="https://www.ibm.com/"
 >
-  [object Object]
   <slot>
   </slot>
 </a>
@@ -22,10 +21,9 @@
 ```
 <a
   aria-label="IBM logo"
-  class="cds--footer-logo__link"
+  class="c4d--footer-logo__link"
   href="https://cloud.ibm.com/"
 >
-  [object Object]
   <slot>
   </slot>
 </a>

@@ -6,15 +6,15 @@
 
 ```
 <a
-  class="cds--link cds--link--md"
+  class="cds--link"
   id="link"
   part="link"
   tabindex="0"
 >
-  <div class="cds--locale-modal__locales__name">
+  <div class="c4d--locale-modal__locales__name">
     country-foo
   </div>
-  <div class="cds--locale-modal__locales__name">
+  <div class="c4d--locale-modal__locales__name">
     language-foo
   </div>
 </a>

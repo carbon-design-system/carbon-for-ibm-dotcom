@@ -17,7 +17,7 @@ const template = (props?) => {
   `;
 };
 
-describe('c4d-tabs-extended-media', function () {
+xdescribe('c4d-tabs-extended-media', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);

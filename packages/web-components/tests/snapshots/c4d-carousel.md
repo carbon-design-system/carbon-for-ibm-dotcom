@@ -16,10 +16,10 @@
       </span>
     </slot>
   </div>
-  <div class="c4d--carousel__scroll-container">
+  <div class="cds--carousel__scroll-container">
     <div
-      class="c4d--carousel__scroll-contents"
-      style="left:0px"
+      class="cds--carousel__scroll-contents"
+      style="inset-inline-start: 0px;"
     >
       <slot>
       </slot>
@@ -27,11 +27,11 @@
   </div>
   <nav
     aria-label="Carousel Navigation"
-    class="c4d--carousel__navigation"
+    class="cds--carousel__navigation"
   >
     <button
       aria-label="previous"
-      class="cds--btn cds--btn--icon-only cds--btn--tertiary c4d--carousel__navigation__btn"
+      class="cds--btn cds--btn--icon-only cds--btn--tertiary cds--carousel__navigation__btn"
       disabled=""
       part="prev-button"
       title="previous"
@@ -39,7 +39,7 @@
     </button>
     <span
       aria-hidden="true"
-      class="bx--carousel__navigation__status"
+      class="cds--carousel__navigation__status"
     >
       1 / 0
     </span>
@@ -50,7 +50,7 @@
     </span>
     <button
       aria-label="next"
-      class="cds--btn cds--btn--icon-only cds--btn--tertiary c4d--carousel__navigation__btn"
+      class="cds--btn cds--btn--icon-only cds--btn--tertiary cds--carousel__navigation__btn"
       disabled=""
       part="next-button"
       title="next"

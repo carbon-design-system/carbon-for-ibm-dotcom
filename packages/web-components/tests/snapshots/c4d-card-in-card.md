@@ -21,6 +21,11 @@
         <slot>
         </slot>
       </div>
+      <slot
+        data-pictogram-placement="bottom"
+        name="pictogram"
+      >
+      </slot>
       <slot name="footer">
       </slot>
     </div>
@@ -48,6 +53,11 @@
         <slot>
         </slot>
       </div>
+      <slot
+        data-pictogram-placement="bottom"
+        name="pictogram"
+      >
+      </slot>
       <slot name="footer">
       </slot>
     </div>

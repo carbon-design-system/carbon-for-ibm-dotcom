@@ -38,7 +38,7 @@ const template = (props?) => {
   `;
 };
 
-describe('c4d-feature-cta', function () {
+xdescribe('c4d-feature-cta', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);

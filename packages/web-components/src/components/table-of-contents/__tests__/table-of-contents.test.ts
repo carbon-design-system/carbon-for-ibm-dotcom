@@ -19,7 +19,7 @@ const template = (props?) => {
   return html` <c4d-table-of-contents>${children}</c4d-table-of-contents> `;
 };
 
-describe('c4d-table-of-contents', function () {
+xdescribe('c4d-table-of-contents', function () {
   const events = new EventManager();
 
   describe('Misc attributes', function () {

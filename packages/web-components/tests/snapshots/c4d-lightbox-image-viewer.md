@@ -3,20 +3,20 @@
 #### `should render with minimum attributes`
 
 ```
-<div class="cds--lightbox-media-viewer__container">
-  <div class="cds--lightbox-media-viewer__row">
-    <div class="cds--lightbox-media-viewer__media cds--no-gutter">
+<div class="c4d--lightbox-media-viewer__container">
+  <div class="c4d--lightbox-media-viewer__row">
+    <div class="c4d--lightbox-media-viewer__media">
       <img
         alt=""
-        class="cds--image__img"
+        class="c4d--image__img"
         loading="lazy"
         src=""
       >
     </div>
-    <div class="cds--lightbox-media-viewer__media-description cds--no-gutter">
-      <div class="cds--lightbox-media-viewer__content">
+    <div class="c4d--lightbox-media-viewer__media-description">
+      <div class="c4d--lightbox-media-viewer__content">
         <div
-          class="cds--lightbox-media-viewer__content__title"
+          class="c4d--lightbox-media-viewer__content__title"
           data-autoid="c4d--lightbox-media-viewer__content__title"
           part="title"
         >
@@ -24,7 +24,7 @@
           </slot>
         </div>
         <div
-          class="cds--lightbox-media-viewer__content__desc"
+          class="c4d--lightbox-media-viewer__content__desc"
           data-autoid="c4d--lightbox-media-viewer__content__desc"
           part="description"
         >
@@ -41,20 +41,20 @@
 #### `should render with various attributes`
 
 ```
-<div class="cds--lightbox-media-viewer__container">
-  <div class="cds--lightbox-media-viewer__row">
-    <div class="cds--lightbox-media-viewer__media cds--no-gutter">
+<div class="c4d--lightbox-media-viewer__container">
+  <div class="c4d--lightbox-media-viewer__row">
+    <div class="c4d--lightbox-media-viewer__media">
       <img
         alt="image-alt-foo"
-        class="cds--image__img"
+        class="c4d--image__img"
         loading="lazy"
         src="https://example.com/image"
       >
     </div>
-    <div class="cds--lightbox-media-viewer__media-description cds--no-gutter">
-      <div class="cds--lightbox-media-viewer__content">
+    <div class="c4d--lightbox-media-viewer__media-description">
+      <div class="c4d--lightbox-media-viewer__content">
         <div
-          class="cds--lightbox-media-viewer__content__title"
+          class="c4d--lightbox-media-viewer__content__title"
           data-autoid="c4d--lightbox-media-viewer__content__title"
           part="title"
         >
@@ -63,7 +63,7 @@
           </slot>
         </div>
         <div
-          class="cds--lightbox-media-viewer__content__desc"
+          class="c4d--lightbox-media-viewer__content__desc"
           data-autoid="c4d--lightbox-media-viewer__content__desc"
           part="description"
         >

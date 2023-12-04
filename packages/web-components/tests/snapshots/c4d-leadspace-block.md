@@ -14,11 +14,6 @@
   <div class="cds--content-layout__body">
     <slot>
     </slot>
-    <c4d-hr
-      data-autoid="c4d--hr"
-      role="separator"
-    >
-    </c4d-hr>
   </div>
 </div>
 
@@ -36,11 +31,6 @@
   <div class="cds--content-layout__body">
     <slot>
     </slot>
-    <c4d-hr
-      data-autoid="c4d--hr"
-      role="separator"
-    >
-    </c4d-hr>
   </div>
 </div>
 
@@ -67,7 +57,6 @@
     </c4d-hr>
   </div>
 </div>
-
 ```
 
 ####   `should render with various attributes`
@@ -89,6 +78,5 @@
     </c4d-hr>
   </div>
 </div>
-
 ```
 

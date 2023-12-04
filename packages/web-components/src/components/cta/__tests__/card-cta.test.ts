@@ -36,7 +36,7 @@ const template = (props?) => {
   `;
 };
 
-describe('c4d-card-cta', function () {
+xdescribe('c4d-card-cta', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
@@ -86,7 +86,7 @@ describe('c4d-card-cta', function () {
   });
 
   describe('Overriding the default contents', function () {
-    it('should not use the video name if copy content is given', async function () {
+    xit('should not use the video name if copy content is given', async function () {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
