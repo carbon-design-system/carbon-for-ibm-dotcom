@@ -13,9 +13,9 @@ const { getAttributes, formatAttributes } = require('@carbon/icon-helpers');
 
 // For `@carbon/ibmdotcom-web-components`, we let our consumers set those attributes
 const omitAttrs = {
-  class: true,
-  role: true,
-  'aria-labelledby': true,
+  class: false,
+  role: false,
+  'aria-labelledby': false,
 };
 
 /**
