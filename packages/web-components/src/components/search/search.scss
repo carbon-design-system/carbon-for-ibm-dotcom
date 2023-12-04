@@ -8,7 +8,6 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/web-components/scss/components/search/search' as *;
-// @use '@carbon/styles/scss/components/search/search';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 //
 :host(#{$c4d-prefix}-search) {

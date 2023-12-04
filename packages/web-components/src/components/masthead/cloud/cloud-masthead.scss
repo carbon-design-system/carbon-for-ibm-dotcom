@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/button/tokens' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
 @use '../masthead';
 @use '../../cta/cta';
@@ -51,7 +52,7 @@
   }
 
   .#{$prefix}--btn {
-    padding: calc(0.875rem - 3px) rem(15px);
+    padding: calc(0.875rem - 3px) to-rem(15px);
   }
 
   .#{$prefix}--btn--ghost {
@@ -131,14 +132,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: rem(1px) solid $border-subtle-01;
+  border-right: to-rem(1px) solid $border-subtle-01;
 
   @include breakpoint(md) {
-    min-height: rem(580px);
+    min-height: to-rem(580px);
   }
 
   @include breakpoint(xlg) {
-    min-height: rem(475px);
+    min-height: to-rem(475px);
   }
 }
 
@@ -154,8 +155,8 @@
 :host(#{$c4d-prefix}-cloud-megamenu-tabs) {
   display: flex;
   flex-direction: column;
-  margin-top: rem(18px);
-  margin-bottom: rem(18px);
+  margin-top: to-rem(18px);
+  margin-bottom: to-rem(18px);
 
   .#{$prefix}--tabs-trigger {
     display: none;
@@ -172,7 +173,7 @@
     width: 100%;
     border: none;
     text-align: left;
-    padding: rem(6px) $spacing-05;
+    padding: to-rem(6px) $spacing-05;
     background-color: $background;
     cursor: pointer;
 
@@ -187,7 +188,7 @@
 
     &:focus {
       outline: $spacing-01 solid $focus;
-      outline-offset: rem(-#{$spacing-01});
+      outline-offset: to-rem(-#{$spacing-01});
     }
   }
 }
@@ -242,7 +243,7 @@
 
     &:focus {
       outline: $spacing-01 solid $focus;
-      outline-offset: rem(-#{$spacing-01});
+      outline-offset: to-rem(-#{$spacing-01});
     }
   }
 }
@@ -283,7 +284,7 @@
 
       &:focus {
         outline: $spacing-01 solid $focus;
-        outline-offset: rem(-#{$spacing-01});
+        outline-offset: to-rem(-#{$spacing-01});
       }
     }
   }

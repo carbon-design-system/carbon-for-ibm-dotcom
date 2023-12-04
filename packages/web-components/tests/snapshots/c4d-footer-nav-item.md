@@ -6,7 +6,11 @@
 
 ```
 <a
+<<<<<<< HEAD
   class="cds--footer__link cds--link cds--link--md"
+=======
+  class="cds--footer__link cds--link"
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
   id="link"
   part="link"
   tabindex="0"
@@ -21,7 +25,11 @@
 
 ```
 <a
+<<<<<<< HEAD
   class="cds--footer__link cds--link cds--link--md"
+=======
+  class="cds--footer__link cds--link"
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
   id="link"
   part="link"
   tabindex="0"

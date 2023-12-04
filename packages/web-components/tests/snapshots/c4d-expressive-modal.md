@@ -20,7 +20,11 @@
   <div class="cds--modal-content">
     <div
       class="c4d-ce--modal__header--with-body"
+<<<<<<< HEAD
       id="c4d--modal-header"
+=======
+      id="cds--modal-header"
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
     >
       <slot name="header">
       </slot>
@@ -62,7 +66,11 @@
   <div class="cds--modal-content">
     <div
       class="c4d-ce--modal__header--with-body"
+<<<<<<< HEAD
       id="c4d--modal-header"
+=======
+      id="cds--modal-header"
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
     >
       <slot name="header">
       </slot>
@@ -106,7 +114,11 @@
   <div class="cds--modal-content">
     <div
       class="c4d-ce--modal__header--with-body"
+<<<<<<< HEAD
       id="c4d--modal-header"
+=======
+      id="cds--modal-header"
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
     >
       <slot name="header">
       </slot>
@@ -148,7 +160,11 @@
   <div class="cds--modal-content">
     <div
       class="c4d-ce--modal__header--with-body"
+<<<<<<< HEAD
       id="c4d--modal-header"
+=======
+      id="cds--modal-header"
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
     >
       <slot name="header">
       </slot>
@@ -190,7 +206,11 @@
   <div class="cds--modal-content">
     <div
       class="c4d-ce--modal__header--with-body"
+<<<<<<< HEAD
       id="c4d--modal-header"
+=======
+      id="cds--modal-header"
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
     >
       <slot name="header">
       </slot>
