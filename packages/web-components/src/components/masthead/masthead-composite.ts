@@ -1339,7 +1339,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * A reference to the dds-masthead element.
+   * A reference to the c4d-masthead element.
    */
   @query(`${c4dPrefix}-masthead`)
   mastheadRef;
@@ -1399,7 +1399,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       this.requestUpdate();
     });
 
-    // Keep render root's height in sync with dds-masthead.
+    // Keep render root's height in sync with c4d-masthead.
     this._heightResizeObserver.observe(this.mastheadRef);
   }
 
