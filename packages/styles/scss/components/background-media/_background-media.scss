@@ -96,13 +96,6 @@
     cursor: pointer;
   }
 
-  .#{$prefix}--background-media--video {
-    aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */
-    @include breakpoint(md) {
-      aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
-    }
-  }
-
   .#{$prefix}--video-player__controls[hasTooltip] {
     @include tooltip--trigger('definition', top);
     @include tooltip--placement('definition', 'top', 'end');
