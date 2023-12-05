@@ -16,6 +16,7 @@
     height: 100%;
     display: block;
     outline: none;
+    overflow: clip;
   }
 
   .#{$prefix}--background-media--mobile-position {
