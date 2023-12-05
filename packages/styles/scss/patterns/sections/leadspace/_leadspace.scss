@@ -65,6 +65,7 @@ $btn-min-width: 26;
   }
   .#{$c4d-prefix}--leadspace--centered__desc {
     width: 100%;
+  }
 
   @include breakpoint(md) {
     .#{$c4d-prefix}--leadspace--centered {
