@@ -18,5 +18,12 @@
       }
     ]
   ],
-  "plugins": [["@babel/plugin-transform-runtime", { "version": "7.3.0" }]]
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "version": "7.3.0"
+      }
+    ]
+  ]
 }

@@ -1,24 +1,11 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-window.digitalData = {
-  page: {
-    pageInfo: {
-      language: 'en-US',
-      ibm: {
-        country: 'US',
-        siteID: 'IBMTESTWWW',
-      },
-    },
-    isDataLayerReady: true,
-  },
-};
 
 const l1Data = {
   title: 'Stock Charts',
@@ -59,4 +46,4 @@ const l1Data = {
   ],
 };
 
-document.querySelector('cds-masthead-composite').l1Data = l1Data;
+document.querySelector('c4d-masthead-container').l1Data = l1Data;
