@@ -46,8 +46,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       padding: 0;
     }
 
-    ::slotted(.#{$c4d-prefix}--video-player__video),
-    .#{$c4d-prefix}--video-player__video {
+    ::slotted(.#{$dds-prefix}--video-player__video),
+    .#{$dds-prefix}--video-player__video {
       aspect-ratio: var(--native-file-aspect-ratio, 16 / 9);
       min-width: 100%;
       min-height: 100%;
