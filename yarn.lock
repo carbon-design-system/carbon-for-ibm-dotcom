@@ -3603,7 +3603,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.44.0":
+"@carbon/styles@npm:1.44.0, @carbon/styles@npm:^1.35.0":
   version: 1.44.0
   resolution: "@carbon/styles@npm:1.44.0"
   dependencies:
@@ -3743,7 +3743,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@npm:2.0.1, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@carbon/web-components@npm:2.0.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.16.3"
+    "@carbon/styles": "npm:^1.35.0"
+    flatpickr: "npm:4.6.1"
+    lit: "npm:^2.7.6"
+    lodash-es: "npm:^4.17.21"
+  checksum: f766b5b2181d3790b3477289fec307d442a1ea711c5effa19e672ed4f1b24535821302d644f11c650fc2bde96decfb2639d0b2034b32cc84999f2c1571ca0b3a
+  languageName: node
+  linkType: hard
+
+"@carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
