@@ -3365,6 +3365,7 @@ __metadata:
     "@carbon/ibmdotcom-utilities": "npm:2.0.0-rc.2"
     "@carbon/icon-helpers": "npm:10.45.1"
     "@carbon/icons": "npm:^11.31.0"
+    "@carbon/icons-react": "npm:^11.31.0"
     "@carbon/layout": "npm:^11.20.1"
     "@carbon/motion": "npm:^11.16.1"
     "@carbon/pictograms-react": "npm:11.54.0"
