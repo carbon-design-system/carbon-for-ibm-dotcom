@@ -16,11 +16,7 @@
     </slot>
   </span>
   <slot name="icon">
-<<<<<<< HEAD
-    <span class="bx--visually-hidden">
-=======
     <span class="cds--visually-hidden">
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
     </span>
   </slot>
 </a>
@@ -44,11 +40,7 @@
     video-name-foo-caption
   </span>
   <slot name="icon">
-<<<<<<< HEAD
-    <span class="bx--visually-hidden">
-=======
     <span class="cds--visually-hidden">
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
       - This link plays a video
     </span>
   </slot>

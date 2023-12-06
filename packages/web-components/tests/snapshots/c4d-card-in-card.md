@@ -21,14 +21,11 @@
         <slot>
         </slot>
       </div>
-<<<<<<< HEAD
-=======
       <slot
         data-pictogram-placement="bottom"
         name="pictogram"
       >
       </slot>
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
       <slot name="footer">
       </slot>
     </div>
@@ -56,14 +53,11 @@
         <slot>
         </slot>
       </div>
-<<<<<<< HEAD
-=======
       <slot
         data-pictogram-placement="bottom"
         name="pictogram"
       >
       </slot>
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
       <slot name="footer">
       </slot>
     </div>

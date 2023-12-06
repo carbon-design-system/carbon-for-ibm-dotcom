@@ -188,7 +188,7 @@
 
     &:focus {
       outline: $spacing-01 solid $focus;
-      outline-offset: to-rem(-#{$spacing-01});
+      outline-offset: -#{$spacing-01};
     }
   }
 }
@@ -243,7 +243,7 @@
 
     &:focus {
       outline: $spacing-01 solid $focus;
-      outline-offset: to-rem(-#{$spacing-01});
+      outline-offset: #{$spacing-01};
     }
   }
 }
@@ -284,7 +284,7 @@
 
       &:focus {
         outline: $spacing-01 solid $focus;
-        outline-offset: to-rem(-#{$spacing-01});
+        outline-offset: -#{$spacing-01};
       }
     }
   }

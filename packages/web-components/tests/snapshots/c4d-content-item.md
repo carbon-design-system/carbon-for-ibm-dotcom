@@ -5,22 +5,6 @@
 ####   `should render with minimum attributes`
 
 ```
-<<<<<<< HEAD
-<slot name="heading">
-</slot>
-<div>
-  <slot name="media">
-  </slot>
-</div>
-<slot>
-</slot>
-<div
-  class="cds--content-item__cta"
-  hidden=""
->
-  <slot name="footer">
-  </slot>
-=======
 <div>
   <div
     class="c4d--content-item__statitics"
@@ -49,7 +33,6 @@
       </slot>
     </div>
   </div>
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 </div>
 
 ```
@@ -57,19 +40,6 @@
 ####   `should render with various attributes`
 
 ```
-<<<<<<< HEAD
-<slot name="heading">
-</slot>
-<div>
-  <slot name="media">
-  </slot>
-</div>
-<slot>
-</slot>
-<div class="cds--content-item__cta">
-  <slot name="footer">
-  </slot>
-=======
 <div>
   <div
     class="c4d--content-item__statitics"
@@ -92,7 +62,6 @@
       </slot>
     </div>
   </div>
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 </div>
 
 ```
