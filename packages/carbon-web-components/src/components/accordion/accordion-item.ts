@@ -225,15 +225,9 @@ class CDSAccordionItem extends FocusMixin(LitElement) {
           <slot name="title">${title}</slot>
         </div>
       </button>
-      <<<<<<< HEAD
       <div class="${prefix}--accordion__wrapper">
         <div id="content" part="content" class="${contentClasses}">
           <slot></slot>
-        </div>
-        =======
-        <div id="content" part="content" class="${contentClasses}">
-          <slot></slot>
-          >>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
         </div>
       </div>
     `;
