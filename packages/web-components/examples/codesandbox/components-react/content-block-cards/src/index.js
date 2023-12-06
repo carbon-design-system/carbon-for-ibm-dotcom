@@ -9,65 +9,65 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSContentBlockCards from '@carbon/ibmdotcom-web-components/es/components-react/content-block-cards/content-block-cards';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DContentBlockCards from '@carbon/ibmdotcom-web-components/es/components-react/content-block-cards/content-block-cards';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 import './index.css';
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 bx--no-gutter">
-        <DDSContentBlockCards>
-          <DDSContentBlockHeading>Lorem ipsum dolor sit amet</DDSContentBlockHeading>
-          <DDSCardGroup>
-            <DDSCardGroupItem href="https://example.com">
-              <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-sm-4 cds--col-lg-12 cds--offset-lg-4 cds--no-gutter">
+        <C4DContentBlockCards>
+          <C4DContentBlockHeading>Lorem ipsum dolor sit amet</C4DContentBlockHeading>
+          <C4DCardGroup>
+            <C4DCardGroupItem href="https://example.com">
+              <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
               </p>
-              <DDSCardCTAFooter>
+              <C4DCardCTAFooter>
                 <ArrowRight20 slot="icon" />
-              </DDSCardCTAFooter>
-            </DDSCardGroupItem>
-            <DDSCardGroupItem href="https://example.com">
-              <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+              </C4DCardCTAFooter>
+            </C4DCardGroupItem>
+            <C4DCardGroupItem href="https://example.com">
+              <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
               </p>
-              <DDSCardCTAFooter>
+              <C4DCardCTAFooter>
                 <ArrowRight20 slot="icon" />
-              </DDSCardCTAFooter>
-            </DDSCardGroupItem>
-            <DDSCardGroupItem href="https://example.com">
-              <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+              </C4DCardCTAFooter>
+            </C4DCardGroupItem>
+            <C4DCardGroupItem href="https://example.com">
+              <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
               </p>
-              <DDSCardCTAFooter>
+              <C4DCardCTAFooter>
                 <ArrowRight20 slot="icon" />
-              </DDSCardCTAFooter>
-            </DDSCardGroupItem>
-            <DDSCardGroupItem href="https://example.com">
-              <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+              </C4DCardCTAFooter>
+            </C4DCardGroupItem>
+            <C4DCardGroupItem href="https://example.com">
+              <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
               </p>
-              <DDSCardCTAFooter>
+              <C4DCardCTAFooter>
                 <ArrowRight20 slot="icon" />
-              </DDSCardCTAFooter>
-            </DDSCardGroupItem>
-          </DDSCardGroup>
-        </DDSContentBlockCards>
+              </C4DCardCTAFooter>
+            </C4DCardGroupItem>
+          </C4DCardGroup>
+        </C4DContentBlockCards>
       </div>
     </div>
   </div>

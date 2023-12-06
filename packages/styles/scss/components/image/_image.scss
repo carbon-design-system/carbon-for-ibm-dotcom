@@ -5,27 +5,63 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/ratio-base';
+@use '../../globals/vars' as *;
+@use '../../globals/utils/ratio-base' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/colors' as *;
+@use '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin image {
-  .#{$prefix}--image {
+  :host(#{$c4d-prefix}-global-banner-image),
+  :host(#{$c4d-prefix}-card-cta-image),
+  :host(#{$c4d-prefix}-image) {
     position: relative;
-  }
-
-  .#{$prefix}--image__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     display: block;
+
+    .#{$c4d-prefix}--image__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .#{$c4d-prefix}--image__img--border {
+      outline: 1px solid $border-subtle-02;
+    }
   }
 
-  .#{$prefix}--image__img--border {
-    outline: 1px solid $decorative-01;
+  :host(#{$c4d-prefix}-card-cta-image::slotted(svg[slot='icon'])),
+  :host(#{$c4d-prefix}-image::slotted(svg[slot='icon'])) {
+    position: absolute;
+    top: calc(50% - #{$spacing-07});
+    right: calc(50% - #{$spacing-07});
   }
 
-  .#{$prefix}--image__longdescription {
+  :host(#{$c4d-prefix}-image-item) {
+    display: none;
+  }
+
+  :host(#{$c4d-prefix}-image)[card-group-item],
+  :host(#{$c4d-prefix}-image) {
+    @include ratio-base(4, 3, true);
+
+    padding-top: 75%;
+    height: 0;
+    overflow: hidden;
+
+    .#{$c4d-prefix}--image__img {
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  .#{$c4d-prefix}--image__longdescription {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -34,26 +70,123 @@
     overflow: hidden;
   }
 
-  .#{$prefix}--image__icon {
-    position: absolute;
-    top: calc(50% - #{$carbon--spacing-07});
-    right: calc(50% - #{$carbon--spacing-07});
+  :host(#{$c4d-prefix}-image)[heading] {
+    display: block;
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-07;
+    max-width: carbon--mini-units(80);
+
+    @include breakpoint(md) {
+      margin-top: $spacing-07;
+      margin-bottom: $spacing-07;
+    }
   }
 
-  // dds-image-logo style.
-  :host(#{$dds-prefix}-image-logo) {
-    background-color: $ui-02;
+  .#{$c4d-prefix}--image-with-caption__image {
+    display: block;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    pointer-events: none;
+    border: 1px solid $border-tile-01;
+    background-color: transparent;
+
+    &:hover {
+      // only have lightbox functionality on bigger breakpoints
+      @include breakpoint(md) {
+        cursor: zoom-in;
+
+        .#{$c4d-prefix}--image__img {
+          filter: brightness(80%);
+        }
+
+        .#{$c4d-prefix}--image-with-caption__zoom-button {
+          background-color: rgba($gray-100, 1);
+        }
+      }
+    }
+
+    &:focus {
+      // only have lightbox functionality on bigger breakpoints
+      @include breakpoint(md) {
+        outline: $spacing-01 solid $focus;
+        border: 1px solid $focus-inset;
+      }
+    }
+  }
+
+  .#{$c4d-prefix}--image-with-caption__zoom-button {
+    display: none;
+
+    // only have lightbox functionality on bigger breakpoints
+    @include breakpoint(md) {
+      width: $spacing-09;
+      height: $spacing-09;
+      display: flex;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($gray-100, 0.85);
+
+      svg {
+        margin: auto;
+        fill: $white;
+      }
+    }
+  }
+
+  .#{$c4d-prefix}--image-with-caption__image,
+  .#{$c4d-prefix}--image-with-caption__zoom-button {
+    // only have lightbox functionality on bigger breakpoints
+    @include breakpoint(md) {
+      transition: $duration-moderate-01 motion(standard, productive);
+      pointer-events: auto;
+    }
+  }
+
+  .#{$c4d-prefix}--image__caption {
+    @include type-style('body-01');
+
+    margin-top: $spacing-03;
+    color: $text-helper;
+  }
+
+  :host(#{$c4d-prefix}-image[lightbox-contrast='dark']) {
+    .#{$c4d-prefix}--image-with-caption__zoom-button {
+      background-color: rgba($white, 0.85);
+
+      svg {
+        fill: $gray-90;
+      }
+    }
+    .#{$c4d-prefix}--image-with-caption__image {
+      &:hover {
+        // only have lightbox functionality on bigger breakpoints
+        @include breakpoint(md) {
+          .#{$c4d-prefix}--image__img {
+            filter: brightness(120%);
+          }
+
+          .#{$c4d-prefix}--image-with-caption__zoom-button {
+            background-color: rgba($white, 1);
+          }
+        }
+      }
+    }
+  }
+
+  // c4d-image-logo style.
+  :host(#{$c4d-prefix}-image-logo) {
+    background-color: $layer-02;
     margin: $spacing-05 $spacing-05 $spacing-03 $spacing-05;
-    max-width: rem(160px);
+    max-width: $spacing-13;
 
     @include ratio-base(2, 1, false);
 
-    .#{$prefix}--image__img {
+    .#{$c4d-prefix}--image__img {
       object-fit: contain;
+      width: 100%;
+      height: 100%;
     }
   }
-}
-
-@include exports('image') {
-  @include image;
 }

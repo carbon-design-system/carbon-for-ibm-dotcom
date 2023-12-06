@@ -5,49 +5,53 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../../internal/content-block/content-block';
-@import '../card-group/card-group';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-block';
+@use '../card-group/card-group';
 
 @mixin content-block-cards {
-  :host(#{$dds-prefix}-content-block-cards),
+  :host(#{$c4d-prefix}-content-block-cards),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block {
     display: block;
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-10;
 
-    @include carbon--breakpoint('md') {
-      padding-top: $carbon--layout-03;
-      padding-bottom: $carbon--layout-06;
+    @include breakpoint(md) {
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-12;
     }
 
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-07;
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
+      padding-bottom: $spacing-13;
     }
   }
 
-  :host(#{$dds-prefix}-content-block-cards) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-content-block-cards) ::slotted([slot='heading']),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__heading {
-    margin-bottom: $carbon--layout-03;
+    margin-bottom: $spacing-07;
 
-    @include carbon--breakpoint('md') {
-      margin-bottom: $carbon--layout-04;
+    @include breakpoint(md) {
+      margin-bottom: $spacing-09;
     }
 
-    @include carbon--breakpoint('lg') {
-      margin-bottom: $carbon--layout-03;
+    @include breakpoint(lg) {
+      margin-bottom: $spacing-07;
     }
   }
 
-  :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
+  :host(#{$c4d-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__cta {
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(4, 12);
+    @include breakpoint(lg) {
+      @include make-col(4, 12);
     }
   }
 
-  :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta {
+  :host(#{$c4d-prefix}-content-block-cards) .#{$prefix}--content-block__cta {
     padding: 0;
   }
 
@@ -57,8 +61,4 @@
       margin: 0;
     }
   }
-}
-
-@include exports('content-block-cards') {
-  @include content-block-cards;
 }

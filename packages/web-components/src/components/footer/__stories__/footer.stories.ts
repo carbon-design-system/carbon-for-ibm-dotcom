@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, object } from '@storybook/addon-knobs';
 import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
@@ -45,36 +45,36 @@ export const base = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-footer-composite
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            size="${ifNonNull(size)}"
-            .langList="${ifNonNull(langList)}"
-            .adjunctLinks="${ifNonNull(adjunctLinks)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .links="${ifNonNull(links)}"
-            .localeList="${ifNonNull(localeList)}"
-            language-selector-label="${ifNonNull(languageSelectorLabel)}"
-            clear-selection-label="${ifNonNull(clearSelectionLabel)}"
-            selected-language="${ifNonNull(selectedLanguage)}"
+          <c4d-footer-composite
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            size="${ifDefined(size)}"
+            .langList="${ifDefined(langList)}"
+            .adjunctLinks="${ifDefined(adjunctLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .links="${ifDefined(links)}"
+            .localeList="${ifDefined(localeList)}"
+            language-selector-label="${ifDefined(languageSelectorLabel)}"
+            clear-selection-label="${ifDefined(clearSelectionLabel)}"
+            selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
-          </dds-footer-composite>
+          </c4d-footer-composite>
         `
       : html`
-          <dds-footer-container
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            size="${ifNonNull(size)}"
-            .langList="${ifNonNull(langList)}"
-            .adjunctLinks="${ifNonNull(adjunctLinks)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .links="${ifNonNull(links)}"
-            .localeList="${ifNonNull(localeList)}"
-            language-selector-label="${ifNonNull(languageSelectorLabel)}"
-            clear-selection-label="${ifNonNull(clearSelectionLabel)}"
-            selected-language="${ifNonNull(selectedLanguage)}"
+          <c4d-footer-container
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            size="${ifDefined(size)}"
+            .langList="${ifDefined(langList)}"
+            .adjunctLinks="${ifDefined(adjunctLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .links="${ifDefined(links)}"
+            .localeList="${ifDefined(localeList)}"
+            language-selector-label="${ifDefined(languageSelectorLabel)}"
+            clear-selection-label="${ifDefined(clearSelectionLabel)}"
+            selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
-          </dds-footer-container>
+          </c4d-footer-container>
         `}
   `;
 };
@@ -277,7 +277,7 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-footer-container>` load the footer links
+      // Lets `<c4d-footer-container>` load the footer links
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

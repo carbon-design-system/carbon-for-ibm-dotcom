@@ -9,28 +9,28 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
-import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
+import C4DFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-8">
-        <DDSFeatureCTA cta-type="local" href="https://www.example.com">
-          <DDSCardHeading>Feature CTA Copy</DDSCardHeading>
-          <DDSImage
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-sm-4 cds--col-lg-8">
+        <C4DFeatureCTA cta-type="local" href="https://www.example.com">
+          <C4DCardHeading>Feature CTA Copy</C4DCardHeading>
+          <C4DImage
             slot="image"
             alt="Image alt text"
             default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
           />
-          <DDSFeatureCTAFooter>
+          <C4DFeatureCTAFooter>
             <ArrowRight20 slot="icon" />
-          </DDSFeatureCTAFooter>
-        </DDSFeatureCTA>
+          </C4DFeatureCTAFooter>
+        </C4DFeatureCTA>
       </div>
     </div>
   </div>

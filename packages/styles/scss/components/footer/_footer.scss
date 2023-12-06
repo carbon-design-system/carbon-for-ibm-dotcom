@@ -1,61 +1,97 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/layout' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+
+@use '@carbon/styles/scss/components/accordion';
+@use '@carbon/styles/scss/components/combo-box';
+@use '@carbon/styles/scss/components/select';
+@use '@carbon/styles/scss/components/form';
+@use '@carbon/styles/scss/components/text-input';
+@use '@carbon/styles/scss/components/link';
+@use '../locale-modal';
 
 /// Footer styles
 /// @access private
 /// @group footer
 
 @mixin footer {
-  :host(#{$dds-prefix}-footer),
-  .#{$prefix}--footer {
+  :host(#{$c4d-prefix}-footer) {
     width: 100%;
-    padding-block: $carbon--spacing-09;
+    padding-block: $spacing-09;
 
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      color: $text-01;
-      background-color: $ui-background;
-      padding-top: carbon--mini-units(6);
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
-      .#{$prefix}--modal-content {
-        .#{$prefix}--link {
-          &,
-          &:visited {
-            color: $inverse-01;
-          }
+    color: $text-primary;
+    background-color: $background;
+    padding-top: $spacing-09;
+
+    .#{$prefix}--modal-content {
+      .#{$prefix}--link {
+        &,
+        &:visited {
+          color: $icon-inverse;
         }
       }
     }
-  }
 
-  :host(#{$dds-prefix}-footer[size='short']),
-  .#{$prefix}--footer--short {
-    padding-block: carbon--mini-units(4);
-
-    .#{$prefix}--language-selector__container {
-      margin-top: $spacing-09;
-      @include carbon--breakpoint('md') {
-        margin-top: 0;
-      }
-      @include carbon--breakpoint('max') {
-        @include carbon--make-col-offset(10, 16);
+    @include breakpoint-down(md) {
+      ::slotted([slot='brand']) {
+        margin-bottom: $spacing-09;
       }
     }
   }
 
-  :host(#{$dds-prefix}-footer[size='micro']),
-  .#{$prefix}--footer--micro {
-    padding-top: 0;
-    padding-bottom: 0;
+  :host(#{$c4d-prefix}-footer[size='short']) {
+    .#{$prefix}--footer__logo-container {
+      width: 100%;
+    }
+
+    .#{$prefix}--language-selector__container {
+      margin-top: $spacing-09;
+      @include breakpoint(md) {
+        margin-top: 0;
+      }
+      @include breakpoint(max) {
+        @include make-col-offset(10, 16);
+      }
+    }
+
+    @include breakpoint-down(md) {
+      ::slotted([slot='brand']) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-footer[size='micro']) {
+    @include breakpoint(md) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    @include breakpoint-down(md) {
+      ::slotted([slot='locale-button']) {
+        margin-top: 0;
+      }
+    }
 
     .#{$prefix}--footer__logo-container {
-      display: none;
+      @include breakpoint(md) {
+        display: none;
+      }
     }
 
     .#{$prefix}--language-selector__container {
@@ -74,52 +110,47 @@
     }
   }
 
-  :host(#{$dds-prefix}-footer-nav-item),
-  :host(#{$dds-prefix}-legal-nav-item),
-  :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
-  .#{$prefix}--footer {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      .#{$prefix}--footer__link.#{$prefix}--link {
-        @include carbon--type-style('body-long-01');
-        &,
-        &:visited {
-          color: $text-02;
-        }
+  :host(#{$c4d-prefix}-footer-nav-item),
+  :host(#{$c4d-prefix}-legal-nav-item),
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
-        &:focus {
-          outline-color: $focus;
-          outline-offset: -1px;
-        }
+    display: list-item;
+    outline: none;
 
-        &:active {
-          color: $text-04;
-        }
+    .#{$prefix}--footer__link.#{$prefix}--link {
+      @include type-style('body-01');
+      &,
+      &:visited {
+        color: $text-secondary;
+      }
 
-        &:hover,
-        &:visited:hover {
-          color: $text-01;
-        }
+      &:focus {
+        outline-color: $focus;
+        outline-offset: -1px;
+      }
+
+      &:active {
+        color: $text-on-color;
+      }
+
+      &:hover,
+      &:visited:hover {
+        color: $text-primary;
       }
     }
   }
 
-  :host(#{$dds-prefix}-legal-nav),
-  .#{$prefix}--footer {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      .#{$prefix}--legal-nav__list {
-        .#{$prefix}--legal-nav__list-item {
-          .#{$prefix}--link {
-            color: $text-02;
+  :host(#{$c4d-prefix}-legal-nav) {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
-            &:hover {
-              color: $text-01;
-            }
+    .#{$prefix}--legal-nav__list {
+      .#{$prefix}--legal-nav__list-item {
+        .#{$prefix}--link {
+          color: $text-secondary;
+
+          &:hover {
+            color: $text-primary;
           }
         }
       }
@@ -127,48 +158,52 @@
   }
 
   .#{$prefix}--footer__main {
-    @include carbon--make-container;
+    box-sizing: border-box;
+    @include make-container;
   }
 
   .#{$prefix}--footer__main-container {
-    @include carbon--make-row;
+    @include make-row;
 
     flex-direction: column;
 
-    :host(#{$dds-prefix}-footer[size='short']) &,
+    :host(#{$c4d-prefix}-footer[size='short']) &,
     .#{$prefix}--footer--short & {
       flex-direction: row;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       flex-direction: row;
     }
   }
 
   .#{$prefix}--footer__logo-container {
-    width: 100%;
-    @include carbon--make-container;
+    @include make-container;
 
-    @include carbon--breakpoint('md') {
+    margin-right: 0;
+    margin-left: 0;
+
+    @include breakpoint(md) {
       margin-bottom: 0;
       padding-left: $spacing-05;
       padding-right: $spacing-05;
     }
 
+    @include breakpoint(lg) {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     .#{$prefix}--footer__logo-row {
-      @include carbon--make-row;
+      @include make-row;
+
+      justify-content: space-between;
     }
   }
 
-  .#{$prefix}--footer__locale-button--disabled {
-    @include carbon--make-col(2, 16);
-
-    margin-left: 0;
-    margin-right: 0;
-  }
-
   @media print {
-    :host(#{$dds-prefix}-footer),
+    :host(#{$c4d-prefix}-footer),
     .#{$prefix}--footer {
       /* stylelint-disable declaration-no-important */
       // need important since it gets overriden in WC Footer without it
@@ -176,8 +211,347 @@
       /* stylelint-enable declaration-no-important */
     }
   }
-}
 
-@include exports('footer') {
-  @include footer;
+  :host(#{$c4d-prefix}-footer),
+  :host(#{$c4d-prefix}-legal-nav) {
+    display: block;
+    .#{$c4d-prefix}--adjunct-links__container {
+      list-style: none;
+      margin-top: $spacing-07;
+      @include breakpoint-down(md) {
+        @include make-container;
+      }
+    }
+    .#{$prefix}--adjunct-links__container--hidden {
+      display: none;
+    }
+  }
+
+  :host(#{$c4d-prefix}-footer-nav-group[open]) {
+    @extend .#{$prefix}--accordion__item--active;
+  }
+
+  :host(#{$c4d-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
+    display: block;
+    padding-top: 0;
+  }
+
+  :host(#{$c4d-prefix}-footer-nav-group) {
+    .#{$prefix}--accordion__heading {
+      border-top: 1px solid $border-subtle-01;
+      padding: 0;
+      align-items: center;
+      min-height: $spacing-09;
+    }
+  }
+
+  :host(#{$c4d-prefix}-footer-nav-group:last-of-type) {
+    @include breakpoint-down(md) {
+      border-bottom: 1px solid $border-subtle-01;
+    }
+  }
+
+  // The style of legal nav deviates from the one of React, so we can make the markup simpler.
+  // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
+  :host(#{$c4d-prefix}-legal-nav):not([size='micro']) {
+    .#{$c4d-prefix}--adjunct-links__container,
+    .#{$c4d-prefix}--legal-nav__list {
+      padding-bottom: 0;
+      padding-top: 0;
+
+      @include breakpoint(md) {
+        padding-top: $spacing-03;
+      }
+      @include breakpoint(lg) {
+        @include make-col-offset(4, 16);
+      }
+
+      > ul {
+        width: 100%;
+        @include breakpoint(md) {
+          display: block;
+          column-count: 2;
+          column-gap: $grid-gutter;
+        }
+
+        @include breakpoint(lg) {
+          column-count: 3;
+        }
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-legal-nav[size='micro']) {
+    ::slotted(#{$c4d-prefix}-legal-nav-item),
+    ::slotted(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
+      @include breakpoint(md) {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        min-height: $spacing-09;
+      }
+    }
+
+    .#{$c4d-prefix}--adjunct-links__container {
+      display: none;
+    }
+
+    .#{$c4d-prefix}--legal-nav {
+      display: block;
+      border-top: 0;
+    }
+
+    // The style of legal nav deviates from the one of React, so we can make the markup simpler.
+    // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
+    .#{$c4d-prefix}--legal-nav__list {
+      width: 100%;
+
+      div {
+        @include breakpoint(lg) {
+          display: flex;
+        }
+      }
+
+      div > ul {
+        border-top: 1px solid $border-subtle-01;
+        padding: 0 $spacing-05;
+
+        @include breakpoint-down(md) {
+          padding-top: $spacing-03;
+        }
+
+        @include breakpoint(md) {
+          display: flex;
+          column-count: inherit;
+        }
+
+        @include breakpoint(lg) {
+          border-top: none;
+          padding: 0 $spacing-05 0 $spacing-07;
+        }
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-locale-button[size='micro']) {
+    @include breakpoint(md) {
+      margin: 0;
+      flex-shrink: 1;
+      padding: 0;
+
+      margin-left: 50%;
+
+      .#{$prefix}--btn--tertiary {
+        background-color: $background;
+        margin: 0;
+        border: none;
+        @include type-style('body-short-01');
+        @include breakpoint(md) {
+          align-self: flex-end;
+          border-left: 1px solid $border-subtle-01;
+        }
+
+        @include breakpoint(lg) {
+          margin: 0 (-$spacing-05) 0 0;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: $background-hover;
+          color: $text-primary;
+        }
+
+        .#{$prefix}--btn--tertiary,
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
+          background-color: $background;
+          max-width: 100%;
+
+          &:hover {
+            background-color: $background-hover;
+          }
+
+          &:active {
+            background-color: $background-active;
+          }
+        }
+
+        .#{$prefix}--select {
+          max-width: 100%;
+        }
+
+        .#{$prefix}--text-input,
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
+          border-bottom: none;
+        }
+      }
+    }
+    @include breakpoint(lg) {
+      margin-left: 0;
+    }
+
+    .#{$prefix}--btn {
+      padding-top: $spacing-04;
+      padding-bottom: $spacing-04;
+    }
+
+    .#{$prefix}--locale-btn {
+      max-width: 100%;
+    }
+  }
+
+  :host(#{$c4d-prefix}-language-selector-desktop),
+  :host(#{$c4d-prefix}-language-selector-mobile) {
+    position: relative;
+    outline: none;
+    margin-top: $spacing-09;
+    margin-bottom: $spacing-09;
+    max-height: $spacing-09;
+    padding: 0 $spacing-05;
+    @include make-col(4, 4);
+
+    .#{$prefix}--list-box__field {
+      background-color: $layer-01;
+    }
+
+    .#{$prefix}--combo-box {
+      bottom: $spacing-05;
+    }
+
+    .#{$prefix}--list-box__menu {
+      position: absolute;
+      top: auto;
+      bottom: 47px;
+      max-height: 13.5rem;
+    }
+
+    .#{$prefix}--text-input {
+      @include type-style('body-short-01');
+      @include emit-layout-tokens();
+    }
+
+    @include breakpoint(md) {
+      margin-top: 0;
+      padding: 0;
+      @include make-col(4, 8);
+      @include make-col-offset(2, 8);
+    }
+
+    @include breakpoint(lg) {
+      @include make-col(4, 16);
+      @include make-col-offset(10, 16);
+
+      order: 1;
+      min-width: 13.5rem;
+    }
+  }
+
+  :host(#{$c4d-prefix}-language-selector-desktop) {
+    .#{$prefix}--list-box__menu-icon {
+      right: $spacing-04;
+    }
+
+    .#{$prefix}--list-box__selection {
+      right: 2.25rem;
+    }
+
+    .#{$prefix}--label-visually-hidden {
+      visibility: hidden;
+      height: 0;
+    }
+  }
+
+  :host(#{$c4d-prefix}-language-selector-desktop[size='micro']) {
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid $border-subtle-01;
+    align-self: flex-end;
+    margin-bottom: 0;
+    width: 100%;
+
+    .#{$prefix}--dropdown {
+      background-color: $background;
+      max-height: $spacing-09;
+      height: $spacing-09;
+
+      .#{$prefix}--list-box__field {
+        height: inherit;
+        background-color: $background;
+      }
+
+      &:hover {
+        background-color: $background-hover;
+      }
+    }
+
+    .#{$prefix}--list-box__menu {
+      bottom: to-rem($spacing-09);
+    }
+
+    .#{$prefix}--dropdown,
+    .#{$prefix}--text-input {
+      border-bottom: none;
+    }
+
+    @include breakpoint(sm) {
+      .#{$prefix}--select-input__wrapper {
+        height: 100%;
+      }
+
+      .#{$prefix}--select-input {
+        height: 100%;
+        background-color: $background;
+        border-bottom: none;
+
+        &:hover {
+          background-color: $background-hover;
+        }
+      }
+    }
+
+    @include breakpoint(md) {
+      max-width: 50%;
+      border-left: 1px solid $border-subtle-01;
+    }
+  }
+
+  :host(#{$c4d-prefix}-language-selector-mobile[size='micro']) {
+    align-self: flex-end;
+    border-left: 1px solid $border-subtle-01;
+    width: 100%;
+    margin-top: 0;
+
+    .#{$prefix}--select {
+      display: block;
+    }
+
+    .#{$prefix}--select-input {
+      height: 100%;
+      width: 100%;
+      max-width: 100%;
+
+      &:hover {
+        background-color: $background-hover;
+      }
+    }
+
+    @include breakpoint(md) {
+      margin: 0;
+      max-width: 50%;
+      padding: 0;
+
+      .#{$prefix}--select-input {
+        background-color: $background;
+        border-bottom: none;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-language-selector-mobile) {
+    .#{$prefix}--select-input__wrapper {
+      height: $spacing-09;
+      margin-top: -#{$spacing-05};
+    }
+  }
 }

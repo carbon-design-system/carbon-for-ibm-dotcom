@@ -1,9 +1,11 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
 
 # Notice Choice
 
@@ -18,11 +20,13 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 Here's a quick example to get you started.
 
 ### JS (via import)
+
 Note that, please always use the latest version.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
 ```
+
 <Description markdown={`${cdnJs({ components: ['notice-choice'] })}`} />
 
 <Description markdown={`${cdnCss()}`} />
@@ -30,38 +34,43 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
 ### HTML
 
 ```html
-<dds-notice-choice
-    language="en"
-    country="US"
-    question-choices="1,2"
-    state="CA"
-    email=""
-    terms-condition-link=""
-    bpid-legal-text=""
-    enable-all-opt-in=""
-    default-values=""
-    >
-</dds-notice-choice>
+<c4d-notice-choice
+  language="en"
+  country="US"
+  question-choices="1,2"
+  state="CA"
+  email=""
+  terms-condition-link=""
+  bpid-legal-text=""
+  enable-all-opt-in=""
+  default-values="">
+</c4d-notice-choice>
 ```
+
 ## Custom Event
-This event will return the field name and value. The values need to be sent to MRS.
-For more info, check > [W3 Publisher](https://w3.ibm.com/w3publisher/urx/notice-and-choice)
+
+This event will return the field name and value. The values need to be sent to
+MRS. For more info, check >
+[W3 Publisher](https://w3.ibm.com/w3publisher/urx/notice-and-choice)
 
 ```javascript
-document.addEventListener('dds-notice-choice-change', (event) =>{
-    this.handleInputChange(event.detail.field, event.detail.value)
+document.addEventListener('cds-notice-choice-change', (event) => {
+  this.handleInputChange(event.detail.field, event.detail.value);
 });
 ```
+
 ## Props
 
-<Props of="dds-notice-choice" />
+<Props of="cds-notice-choice" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector         | Compatibility selector                 | Description |
-| ------------------------------- | -------------------------------------- | ----------- |
-| `<dds-notice-choice>`           | `data-autoid="dds--notice-choice"`     | Component   |
+| Web Components selector | Compatibility selector             | Description |
+| ----------------------- | ---------------------------------- | ----------- |
+| `<cds-notice-choice>`   | `data-autoid="cds--notice-choice"` | Component   |
 
 <Description markdown={contributing} />

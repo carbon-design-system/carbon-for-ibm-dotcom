@@ -5,31 +5,39 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import 'carbon-components/scss/components/accordion/keyframes';
-@import 'carbon-components/scss/components/accordion/accordion';
-@import '@carbon/web-components/scss/components/checkbox/checkbox';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/layout' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '@carbon/styles/scss/components/checkbox';
+@use '../../../../carbon-web-components/src/components/modal/modal';
+@use '../../../../carbon-web-components/scss/components/accordion/accordion';
+@use '../../globals/vars' as *;
 
 @mixin filter-panel {
   .#{$prefix}--filter__heading {
-    @include carbon--type-style('heading-01');
+    @include type-style('heading-01');
 
     padding: $spacing-05;
   }
 
   .#{$prefix}--filter-panel__section {
-    background-color: $ui-01;
-    padding-bottom: rem(112px);
+    box-sizing: border-box;
+    background-color: $layer-01;
+    padding-bottom: to-rem(112px);
     margin-top: $spacing-05;
     overflow: initial;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       height: 80%;
       width: 60%;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       height: auto;
       width: auto;
       padding-bottom: $spacing-09;
@@ -48,30 +56,33 @@
     position: relative;
     cursor: pointer;
     padding: $spacing-03 $spacing-05;
-    color: $text-02;
-    @include carbon--type-style('body-short-01');
+    color: $text-secondary;
+    @include type-style('body-compact-01');
 
     &:hover {
-      color: $text-01;
+      color: $text-primary;
     }
 
     &:focus-visible {
       outline: $spacing-01 solid $focus;
       margin-left: $spacing-01;
       margin-right: $spacing-01;
-      padding-left: rem(14px);
+      padding-left: to-rem(14px);
       z-index: 1;
     }
 
     .#{$prefix}--close__icon {
       position: absolute;
       right: $spacing-05;
-      top: rem(10px);
+      top: to-rem(10px);
     }
   }
 
   .#{$prefix}--selected-option-dropdown {
     display: grid;
+    padding: 0;
+    margin: 0;
+
     &.#{$prefix}--selected-option-dropdown__hidden {
       display: none;
     }
@@ -92,9 +103,9 @@
     cursor: pointer;
     padding-right: $spacing-05;
     border: 0;
-    color: $link-01;
-    background-color: $ui-01;
-    @include carbon--type-style('body-short-01');
+    color: $link-primary;
+    background-color: $layer-01;
+    @include type-style('body-compact-01');
   }
 
   .#{$prefix}--heading-clear {
@@ -109,14 +120,10 @@
 
   .#{$prefix}--clear__container {
     display: flex;
+    align-items: center;
   }
 
-  .#{$prefix}--filter__modal__button {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  :host(#{$dds-prefix}-filter-panel) {
+  :host(#{$c4d-prefix}-filter-panel) {
     .#{$prefix}--clear {
       display: block;
 
@@ -128,55 +135,42 @@
       }
 
       &:hover {
-        color: $hover-primary-text;
+        color: $link-primary-hover;
       }
     }
 
     &:not([has-selections]) {
       .#{$prefix}--clear {
-        color: $disabled-02;
+        color: $button-disabled;
         cursor: not-allowed;
       }
     }
-    @include carbon--breakpoint-down('lg') {
+    @include breakpoint-down(lg) {
       display: none;
     }
   }
 
-  :host(#{$dds-prefix}-filter-panel-composite) {
-    .#{$prefix}--filter-button {
-      @include carbon--type-style('body-short-01');
+  :host(#{$c4d-prefix}-filter-panel-composite) {
+    @include emit-layout-tokens();
 
-      cursor: pointer;
-      border: 1px solid $interactive-03;
-      color: $interactive-03;
-      padding: $spacing-05;
-      margin-top: $spacing-05;
-      margin-left: $spacing-05;
-      background-color: transparent;
-      width: rem(128px);
-      @include carbon--breakpoint('lg') {
+    #{$prefix}-button {
+      @include breakpoint(lg) {
         display: none;
-      }
-
-      &:hover {
-        background-color: $hover-tertiary;
-        color: $inverse-01;
       }
     }
   }
 
-  :host(#{$dds-prefix}-filter-panel-checkbox) {
-    padding-left: rem(14px);
-    padding-bottom: rem(6px);
-    @extend :host(#{$prefix}-checkbox);
-    @include carbon--type-style('body-short-01');
+  :host(#{$c4d-prefix}-filter-panel-checkbox) {
+    padding-left: to-rem(14px);
+    padding-bottom: to-rem(6px);
+    @extend .#{$prefix}--checkbox-label;
+    @include type-style('body-compact-01');
 
-    color: $text-02;
+    color: $text-secondary;
 
     &:hover,
     &[checked] {
-      color: $text-01;
+      color: $text-primary;
     }
 
     label.#{$prefix}--checkbox-label {
@@ -184,20 +178,20 @@
       padding-left: $spacing-06;
 
       &::before {
-        border: 1px solid $icon-02;
+        border: 1px solid $icon-secondary;
       }
 
       &:hover::before {
-        border: 1px solid $icon-01;
+        border: 1px solid $icon-primary;
       }
     }
   }
 
-  :host(#{$dds-prefix}-filter-panel-input-select) {
+  :host(#{$c4d-prefix}-filter-panel-input-select) {
     display: block;
 
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
     }
 
     &[selected] {
@@ -205,19 +199,18 @@
     }
   }
 
-  :host(#{$dds-prefix}-filter-panel-input-select-item) {
-    @include carbon--type-style('body-short-01');
+  :host(#{$c4d-prefix}-filter-panel-input-select-item) {
+    @include type-style('body-compact-01');
 
-    background-color: $ui-01;
-    width: 100%;
+    background-color: $layer-01;
     cursor: pointer;
     position: relative;
-    color: $text-02;
+    color: $text-secondary;
     padding: $spacing-03 $spacing-06;
 
     &:hover {
-      background-color: $hover-ui;
-      color: $text-01;
+      background-color: $background-hover;
+      color: $text-primary;
     }
 
     &:active {
@@ -226,55 +219,78 @@
 
     &[selected] {
       background-color: $highlight;
-      color: $text-01;
+      color: $text-primary;
     }
 
     .#{$prefix}--close__icon {
       position: absolute;
       right: $spacing-05;
-      top: rem(10px);
+      top: to-rem(10px);
     }
   }
 
-  :host(#{$dds-prefix}-filter-panel-heading) {
+  :host(#{$c4d-prefix}-filter-panel-heading) {
     display: none;
   }
 
-  :host(#{$dds-prefix}-filter-group:first-of-type) {
+  :host(#{$c4d-prefix}-filter-group) {
+    @extend :host(#{$prefix}-accordion);
+  }
+
+  :host(#{$c4d-prefix}-filter-group:first-of-type) {
     ::slotted(#{$prefix}-filter-group-item:first-of-type) {
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         margin-top: $spacing-05;
       }
     }
   }
 
-  :host(#{$dds-prefix}-filter-group-item) {
-    @extend .#{$prefix}--accordion__item;
+  :host(#{$c4d-prefix}-filter-group-item) {
+    @extend :host(#{$prefix}-accordion-item);
 
     display: block;
     outline: none;
-    border-top: 1px solid $ui-03;
+    border-top: 1px solid $layer-accent-01;
     border-bottom: none;
+
+    .#{$prefix}--accordion__wrapper {
+      /* stylelint-disable declaration-no-important */
+      // TODO: see if we can remove. Need important to override accordion inline styles. 
+      max-block-size: none !important;
+      /* stylelint-enable declaration-no-important */
+    }
 
     .#{$prefix}--accordion__heading {
       display: flex;
       align-items: center;
     }
 
-    .#{$prefix}--accordion__arrow {
-      align-self: flex-start;
+    .#{$prefix}--accordion__title {
+      @include type-style('heading-01');
     }
 
-    .#{$prefix}--accordion__title {
-      @include carbon--type-style('heading-01');
+    .#{$c4d-prefix}-filter-group-item__view-all {
+      @include font-family('sans');
+
+      width: 100%;
+      padding: $spacing-03 $spacing-05;
+      text-align: left;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: none;
+        border-color: $focus;
+        box-shadow: inset 0 0 0 $button-outline-width $focus,
+          inset 0 0 0 $button-border-width $background;
+      }
     }
 
     &:last-of-type {
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $layer-accent-01;
     }
   }
 
-  :host(#{$dds-prefix}-filter-group-item[open]:not([disabled])) {
+  :host(#{$c4d-prefix}-filter-group-item[open]:not([disabled])) {
     @extend .#{$prefix}--accordion__item--active;
 
     .#{$prefix}--accordion__content {
@@ -283,7 +299,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-filter-modal-footer) {
+  :host(#{$c4d-prefix}-filter-modal-footer) {
+    display: flex;
     z-index: 999;
     position: absolute;
     bottom: 0;
@@ -291,14 +308,56 @@
     overflow: auto;
   }
 
-  :host(#{$dds-prefix}-filter-modal-heading) {
-    @include carbon--type-style('heading-01');
+  :host(#{$c4d-prefix}-filter-modal-heading) {
+    @include type-style('heading-01');
 
     display: block;
     padding-bottom: $spacing-03;
   }
-}
 
-@include exports('filter-panel') {
-  @include filter-panel;
+  :host(#{$c4d-prefix}-filter-panel-modal) {
+    @extend :host(#{$prefix}-modal);
+
+    left: 0;
+
+    @include breakpoint(lg) {
+      display: none;
+    }
+
+    .#{$prefix}--filter-panel__section.#{$prefix}--modal-container {
+      transform: translate3d(0, 0, 0);
+      overflow: initial;
+      @include breakpoint(md) {
+        height: 80%;
+        width: 60%;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-filter-panel-modal[open]) {
+    @extend :host(#{$prefix}-modal[open]);
+    @include breakpoint(lg) {
+      display: none;
+    }
+  }
+
+  :host(#{$c4d-prefix}-filter-panel-modal[expressive-size='full-width']) {
+    .#{$prefix}--modal-container {
+      max-height: none;
+
+      @include breakpoint(lg) {
+        width: calc(100% - $spacing-07);
+        height: calc(100% - $spacing-07);
+      }
+
+      .#{$prefix}--modal-content {
+        margin: $spacing-09 $spacing-07;
+        padding: 0;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-filter-modal-footer-button) {
+    @extend :host(#{$prefix}-modal-footer-button);
+  }
 }

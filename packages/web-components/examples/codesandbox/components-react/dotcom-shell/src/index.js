@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
+import C4DDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
 import './index.css';
 
 window.digitalData = {
@@ -26,11 +26,11 @@ window.digitalData = {
 };
 
 const App = () => (
-  <DDSDotcomShellContainer>
-    <main className="bx--content dds-ce-demo--ui-shell-content">
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--offset-lg-3 bx--col-lg-13">
+  <C4DDotcomShellContainer>
+    <main className="cds--content cds-ce-demo--ui-shell-content">
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--offset-lg-3 cds--col-lg-13">
             <h2>Purpose and function</h2>
             <p>
               The shell is perhaps the most crucial piece of any UI built with Carbon. It contains the shared navigation framework
@@ -66,7 +66,7 @@ const App = () => (
         </div>
       </div>
     </main>
-  </DDSDotcomShellContainer>
+  </C4DDotcomShellContainer>
 );
 
 render(<App />, document.getElementById('root'));

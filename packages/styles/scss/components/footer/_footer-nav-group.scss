@@ -5,69 +5,85 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+
 /// Footer nav group styles
 /// @access private
 /// @group footer
 
 @mixin footer-nav-group {
-  :host(#{$dds-prefix}-footer-nav-group),
+  :host(#{$c4d-prefix}-footer-nav-group),
   .#{$prefix}--footer-nav-group,
   .#{$prefix}--footer-nav-group.#{$prefix}--accordion__item {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+
+    padding-left: 0;
+    display: block;
+
+    &:last-child {
+      margin-bottom: $spacing-09;
+      border-bottom: 1px solid $layer-accent-01;
+
+      @include breakpoint(md) {
+        border-bottom: none;
+      }
+    }
+
+    .#{$prefix}--accordion__content {
       padding-left: 0;
-      display: block;
+      padding-right: 0;
 
-      &:last-child {
-        margin-bottom: carbon--mini-units(6);
-        border-bottom: 1px solid $ui-03;
+      ul {
+        list-style: none;
+        padding-inline-start: 0;
+        margin: 0;
+      }
+    }
 
-        @include carbon--breakpoint('md') {
-          border-bottom: none;
-        }
+    .#{$prefix}--accordion__arrow {
+      margin: 2px $spacing-05 0 0;
+    }
+
+    @include breakpoint(md) {
+      @include make-col-ready;
+
+      padding-left: 0;
+      display: inline-block;
+      margin-bottom: $spacing-09;
+
+      &.#{$prefix}--accordion__item {
+        border-top: 0 transparent;
+      }
+
+      .#{$prefix}--accordion__heading {
+        display: none;
       }
 
       .#{$prefix}--accordion__content {
-        padding-left: 0;
-        padding-right: 0;
+        display: block;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
       }
 
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col-ready;
-
-        padding-left: 0;
-        display: inline-block;
-        margin-bottom: carbon--mini-units(6);
-
-        &.#{$prefix}--accordion__item {
-          border-top: 0 transparent;
-        }
-
-        .#{$prefix}--accordion__heading {
-          display: none;
-        }
-
-        .#{$prefix}--accordion__content {
-          display: block;
-          height: auto;
-          opacity: 1;
-          visibility: visible;
-        }
-
-        .#{$prefix}--accordion__content,
-        &.#{$prefix}--accordion__item--active .#{$prefix}--accordion__content {
-          padding: 0;
-        }
+      .#{$prefix}--accordion__content,
+      &.#{$prefix}--accordion__item--active .#{$prefix}--accordion__content {
+        padding: 0;
       }
     }
   }
 
-  :host(#{$dds-prefix}-footer-nav-item),
+  :host(#{$c4d-prefix}-footer-nav-item),
   .#{$prefix}--footer-nav-group {
     .#{$prefix}--link {
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         margin-top: 0;
         display: block;
         padding: $spacing-05;
@@ -78,11 +94,11 @@
         }
 
         &:hover {
-          background-color: $hover-ui;
+          background-color: $background-hover;
         }
 
         &:active {
-          background-color: $active-ui;
+          background-color: $layer-active-01;
         }
 
         &:focus {
@@ -94,27 +110,24 @@
   }
 
   .#{$prefix}--footer-nav-group__title {
-    @include carbon--type-style('expressive-heading-01');
+    @include type-style('heading-01');
 
     display: none;
   }
 
   .#{$prefix}--footer-nav-group__link {
-    @include carbon--type-style('body-long-01');
+    @include type-style('body-01');
   }
 
-  @include carbon--breakpoint('md') {
+  @include breakpoint(md) {
     .#{$prefix}--footer-nav-group__title {
       display: block;
+      margin: 0;
     }
 
-    :host(#{$dds-prefix}-footer-nav-item),
+    :host(#{$c4d-prefix}-footer-nav-item),
     .#{$prefix}--footer-nav-group__item {
-      margin-top: carbon--mini-units(1);
+      margin-top: $spacing-03;
     }
   }
-}
-
-@include exports('footer-nav-group') {
-  @include footer-nav-group;
 }

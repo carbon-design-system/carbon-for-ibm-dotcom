@@ -7,49 +7,49 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
 const card1 = html`
-  <dds-content-group-cards-item href="https://www.example.com">
-    <dds-card-heading>
+  <c4d-content-group-cards-item href="https://www.example.com">
+    <c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt
-    </dds-card-heading>
+    </c4d-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
-    <dds-card-footer icon-placement="left">
+    <c4d-card-footer icon-placement="left">
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-content-group-cards-item>
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
 `;
 
 const card2 = html`
-  <dds-content-group-cards-item href="https://www.example.com">
-    <dds-card-heading>
+  <c4d-content-group-cards-item href="https://www.example.com">
+    <c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt
-    </dds-card-heading>
+    </c4d-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-    <dds-card-footer icon-placement="left">
+    <c4d-card-footer icon-placement="left">
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-content-group-cards-item>
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
 `;
 
 export const Default = (args) => {
   const { heading, copy } = args?.ContentGroupCards ?? {};
   return html`
-    <dds-content-group-cards>
-      <dds-content-group-heading>${heading}</dds-content-group-heading>
-      <dds-content-group-copy>${copy}</dds-content-group-copy>
+    <c4d-content-group-cards>
+      <c4d-content-group-heading>${heading}</c4d-content-group-heading>
+      <c4d-content-group-copy>${copy}</c4d-content-group-copy>
       ${card1}${card2}${card1}${card2}
-    </dds-content-group-cards>
+    </c4d-content-group-cards>
   `;
 };
 
@@ -57,9 +57,9 @@ export default {
   title: 'Components/Content group cards',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-8 bx--no-gutter">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-8 cds--no-gutter">${story()}</div>
         </div>
       </div>
     `,

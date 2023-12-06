@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { CTA_TYPE } from '../defs';
 import '../card-cta';
 import '../card-cta-footer';
@@ -24,7 +24,7 @@ const template = (props?) => {
     children,
   } = props ?? {};
   return html`
-    <dds-card-cta
+    <c4d-card-cta
       cta-type="${ifDefined(ctaType)}"
       video-duration="${ifDefined(videoDuration)}"
       video-name="${ifDefined(videoName)}"
@@ -32,16 +32,16 @@ const template = (props?) => {
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
       .formatVideoDuration="${ifDefined(formatVideoDuration)}">
       ${children}
-    </dds-card-cta>
+    </c4d-card-cta>
   `;
 };
 
-describe('dds-card-cta', function () {
+describe('c4d-card-cta', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-card-cta')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-card-cta')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -58,7 +58,7 @@ describe('dds-card-cta', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-card-cta')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-card-cta')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -73,14 +73,14 @@ describe('dds-card-cta', function () {
           // Should yeild to `undefined` in `name` part given card footer doesn't render the video name
           formatVideoCaption: ({ name, duration }) => `${name}-${duration}`,
           formatVideoDuration: ({ duration }) => duration,
-          children: html` <dds-card-cta-footer></dds-card-cta-footer> `,
+          children: html` <c4d-card-cta-footer></c4d-card-cta-footer> `,
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-card-cta>`
-      await Promise.resolve(); // Update cycle for `<dds-card-cta-footer>` upon property forwarding
+      await Promise.resolve(); // Update cycle for `<c4d-card-cta>`
+      await Promise.resolve(); // Update cycle for `<c4d-card-cta-footer>` upon property forwarding
       expect(
-        document.body.querySelector('dds-card-cta-footer')
+        document.body.querySelector('c4d-card-cta-footer')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -100,8 +100,8 @@ describe('dds-card-cta', function () {
       await Promise.resolve(); // Update cycle for rendering upon `slotchange` event
       expect(
         document.body
-          .querySelector('dds-card-cta')!
-          .shadowRoot!.querySelector('.bx--card__copy')!
+          .querySelector('c4d-card-cta')!
+          .shadowRoot!.querySelector('.cds--card__copy')!
           .textContent!.trim()
       ).toBe('');
     });
@@ -112,7 +112,7 @@ describe('dds-card-cta', function () {
           ctaType: CTA_TYPE.VIDEO,
           videoName: 'video-name-foo',
           children: html`
-            <dds-image slot="image" alt="image-alt-foo"></dds-image>
+            <c4d-image slot="image" alt="image-alt-foo"></c4d-image>
           `,
         }),
         document.body
@@ -122,8 +122,8 @@ describe('dds-card-cta', function () {
       await Promise.resolve(); // Update cycle for rendering upon `slotchange` event
       expect(
         document.body
-          .querySelector('dds-card-cta')!
-          .shadowRoot!.querySelector('dds-image[alt="video-name-foo"]')
+          .querySelector('c4d-card-cta')!
+          .shadowRoot!.querySelector('c4d-image[alt="video-name-foo"]')
       ).toBeNull();
     });
   });

@@ -7,27 +7,27 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../horizontal-rule';
 
 const template = (props?) => {
   const { type, size, weight, contrast } = props ?? {};
   return html`
-    <dds-hr
-      size="${ifNonNull(size)}"
-      type="${ifNonNull(type)}"
-      weight="${ifNonNull(weight)}"
-      contrast="${ifNonNull(contrast)}"></dds-hr>
+    <c4d-hr
+      size="${ifDefined(size)}"
+      type="${ifDefined(type)}"
+      weight="${ifDefined(weight)}"
+      contrast="${ifDefined(contrast)}"></c4d-hr>
   `;
 };
 
-describe('dds-hr', function () {
+describe('c4d-hr', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-hr>`
-      expect(document.body.querySelector('dds-hr')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-hr>`
+      expect(document.body.querySelector('c4d-hr')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -37,8 +37,8 @@ describe('dds-hr', function () {
         template({ size: 'small', type: 'solid', weight: 'thin' }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-hr>`
-      expect(document.body.querySelector('dds-hr')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-hr>`
+      expect(document.body.querySelector('c4d-hr')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -52,8 +52,8 @@ describe('dds-hr', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-hr>`
-      expect(document.body.querySelector('dds-hr')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-hr>`
+      expect(document.body.querySelector('c4d-hr')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

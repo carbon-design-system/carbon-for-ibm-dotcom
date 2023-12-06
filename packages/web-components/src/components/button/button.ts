@@ -7,250 +7,154 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, state, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
-import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from './defs';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { LitElement, html } from 'lit';
+import { property, query } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import CTAMixin from '../../component-mixins/cta/cta';
+import CDSButton from '../../internal/vendor/@carbon/web-components/components/button/button.js';
 
-export { BUTTON_KIND, BUTTON_SIZE };
-
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+import { ariaLabels, icons } from '../../component-mixins/cta/cta';
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
- * Expressive button.
+ * Button.
  *
- * @element dds-button-expressive
- * @csspart button The button.
+ * @element c4d-button
+ * @csspart button.
  */
-@customElement(`${ddsPrefix}-button-expressive`)
-class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
-  /**
-   * `true` if there is an icon.
-   */
-  @state()
-  protected _hasIcon = false;
+@customElement(`${c4dPrefix}-button`)
+// @ts-ignore
+class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
+  @query('a')
+  _linkNode;
+
+  @property()
+  iconDiv;
+
+  @property()
+  span;
 
   /**
-   * `true` if there is a non-icon content.
+   * `true` if expressive theme enabled.
    */
-  @state()
-  protected _hasMainContent = false;
+  @property({ type: Boolean, reflect: true })
+  isExpressive = true;
 
-  /**
-   * The CSS class list for the button/link node.
-   */
-  protected get _classes() {
-    const {
-      disabled,
-      kind,
-      size,
-      _hasIcon: hasIcon,
-      _hasMainContent: hasMainContent,
-    } = this;
-    return classMap({
-      [`${prefix}--btn`]: true,
-      [`${prefix}--btn--${kind}`]: kind,
-      [`${prefix}--btn--disabled`]: disabled,
-      [`${prefix}--btn--icon-only`]: hasIcon && !hasMainContent,
-      [`${prefix}--btn--expressive`]: true,
-      [`${prefix}--btn--${size}`]: size,
-      [`${prefix}-ce--btn--has-icon`]: hasIcon,
-    });
+  _handleDisabledClick(event: Event) {
+    super._handleClick(event as any);
   }
 
   /**
-   * Handles `click` event on the button.
+   * TODO: Due to the new render() logic coming from the CWC v2 button,
+   * this function is currently unused. We'd need to dynamically add it.
+   *
+   * @returns The icon for the print styles
    */
-  protected _handleClick() {} // eslint-disable-line class-methods-use-this
-
-  /**
-   * Handles `slotchange` event.
-   */
-  protected _handleSlotChange({ target }: Event) {
-    const { name } = target as HTMLSlotElement;
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
-    this[name === 'icon' ? '_hasIcon' : '_hasMainContent'] = hasContent;
-    this.requestUpdate();
-  }
-
-  /**
-   * @returns The disabled link content.
-   */
-  protected _renderDisabledLink() {
-    const { _classes: classes } = this;
+  _renderIconPrintStyles() {
     return html`
-      <p id="button" part="button" class="${classes}">${this._renderInner()}</p>
-    `;
-  }
-
-  /**
-   * @returns The inner content.
-   */
-  protected _renderInner() {
-    const { _handleSlotChange: handleSlotChange } = this;
-    return html`
-      <slot @slotchange="${handleSlotChange}"></slot>
       <p class="${prefix}--btn--hidden" aria-hidden="true">
         <span>:</span> ${this.href}
       </p>
-      <slot name="icon" @slotchange="${handleSlotChange}"></slot>
+      <slot name="icon"></slot>
     `;
   }
 
   /**
-   * `true` if the button should have input focus when the page loads.
+   * @returns The template for the icon.
    */
-  @property({ type: Boolean, reflect: true })
-  autofocus = false;
-
-  /**
-   * `true` if the button should be disabled.
-   */
-  @property({ type: Boolean, reflect: true })
-  disabled = false;
-
-  /**
-   * The default file name, used if this button is rendered as `<a>`.
-   */
-  @property({ reflect: true })
-  download!: string;
-
-  /**
-   * Link `href`. If present, this button is rendered as `<a>`.
-   */
-  @property({ reflect: true })
-  href!: string;
-
-  /**
-   * The language of what `href` points to, if this button is rendered as `<a>`.
-   */
-  @property({ reflect: true })
-  hreflang!: string;
-
-  /**
-   * Button icon layout.
-   */
-  @property({ reflect: true, attribute: 'icon-layout' })
-  iconLayout = BUTTON_ICON_LAYOUT.REGULAR;
-
-  /**
-   * Button kind.
-   */
-  @property({ reflect: true })
-  kind = BUTTON_KIND.PRIMARY;
-
-  /**
-   * The a11y role for `<a>`.
-   */
-  @property({ attribute: 'link-role' })
-  linkRole = 'button';
-
-  /**
-   * URLs to ping, if this button is rendered as `<a>`.
-   */
-  @property({ reflect: true })
-  ping!: string;
-
-  /**
-   * The link type, if this button is rendered as `<a>`.
-   */
-  @property({ reflect: true })
-  rel!: string;
-
-  /**
-   * Button size.
-   */
-  @property({ reflect: true })
-  size = BUTTON_SIZE.REGULAR;
-
-  /**
-   * The link target, if this button is rendered as `<a>`.
-   */
-  @property({ reflect: true })
-  target!: string;
-
-  /**
-   * The default behavior if the button is rendered as `<button>`. MIME type of the `target`if this button is rendered as `<a>`.
-   */
-  @property({ reflect: true })
-  type!: string;
-
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
+  _renderButtonIcon() {
+    const { ctaType } = this;
+    return `
+        <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
+        ${icons[ctaType]?.()?.strings?.join()}
+      `;
   }
 
-  render() {
-    const {
-      autofocus,
-      disabled,
-      download,
-      href,
-      hreflang,
-      linkRole,
-      ping,
-      rel,
-      target,
-      type,
-      _classes: classes,
-      _handleClick: handleClick,
-    } = this;
-    if (href) {
-      return disabled
-        ? this._renderDisabledLink()
-        : html`
-            <a
-              id="button"
-              part="button"
-              role="${ifNonNull(linkRole)}"
-              class="${classes}"
-              download="${ifNonNull(download)}"
-              href="${ifNonNull(href)}"
-              hreflang="${ifNonNull(hreflang)}"
-              ping="${ifNonNull(ping)}"
-              rel="${ifNonNull(rel)}"
-              target="${ifNonNull(target)}"
-              type="${ifNonNull(type)}"
-              @click="${handleClick}">
-              ${this._renderInner()}
-            </a>
-          `;
+  /**
+   * Handles button video title
+   *
+   * @param event The event.
+   */
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleVideoTitleUpdate = async (event) => {
+    if (event) {
+      const { videoDuration, videoName } = event.detail as any;
+      const { formatVideoDuration, formatVideoCaption } = this;
+      const formattedVideoDuration = formatVideoDuration({
+        duration: !videoDuration ? videoDuration : videoDuration * 1000,
+      });
+      this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
+
+      this.videoTitle = formatVideoCaption({
+        duration: formattedVideoDuration,
+        name: videoName,
+      });
+
+      if (this.textContent?.trim() === '') {
+        const title = document.createTextNode(this.videoTitle);
+        this.appendChild(title);
+      }
     }
-    return html`
-      <button
-        id="button"
-        part="button"
-        class="${classes}"
-        ?autofocus="${autofocus}"
-        ?disabled="${disabled}"
-        type="${ifNonNull(type)}"
-        @click="${handleClick}">
-        ${this._renderInner()}
-      </button>
-    `;
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    const { eventRequestAdditionalVideoData } = this
+      .constructor as typeof C4DButton;
+    document.addEventListener(
+      eventRequestAdditionalVideoData,
+      this._handleVideoTitleUpdate
+    );
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    const { eventRequestAdditionalVideoData } = this
+      .constructor as typeof C4DButton;
+    document.removeEventListener(
+      eventRequestAdditionalVideoData,
+      this._handleVideoTitleUpdate
+    );
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    if (changedProperties.has('ctaType')) {
+      if (!this.iconDiv) {
+        this.iconDiv = this.shadowRoot?.querySelector("slot[name='icon']");
+      }
+
+      const { iconDiv } = this;
+
+      iconDiv.querySelector('svg')?.remove();
+      iconDiv.innerHTML = this._renderButtonIcon();
+      iconDiv
+        ?.querySelector('svg')
+        ?.classList.add(`${prefix}--card__cta`, `${c4dPrefix}-ce--cta__icon`);
+    }
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--button-expressive`;
+    return `${c4dPrefix}--button`;
   }
 
+  /**
+   * The name of the custom event fired when there is a user gesture to run the action.
+   */
+  static get eventRequestAdditionalVideoData() {
+    return `${c4dPrefix}-cta-request-additional-video-data`;
+  }
+
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButtonExpressive;
+export default C4DButton;

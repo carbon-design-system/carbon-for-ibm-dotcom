@@ -1,0 +1,178 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '../../globals/utils/flex-grid' as *;
+@use '../../../components/button-group';
+
+@mixin themed-items {
+  color: $text-primary;
+  background: $background;
+
+  .#{$prefix}--content-item {
+    &__heading {
+      color: $text-primary;
+    }
+
+    &__copy {
+      p {
+        color: $text-primary;
+      }
+    }
+
+    &__cta {
+      color: $link-primary;
+    }
+  }
+}
+
+@mixin cta-section {
+  .#{$prefix}--cta-section {
+    &__cta {
+      @include breakpoint(md) {
+        padding-bottom: $spacing-12;
+      }
+    }
+
+    .#{$prefix}--content-block {
+      padding-top: $spacing-07;
+      padding-bottom: 0;
+
+      &__heading,
+      &__copy {
+        width: 90%;
+        max-width: 640px;
+
+        @include breakpoint(sm) {
+          width: 100%;
+        }
+      }
+
+      &__heading {
+        @include type-style('fluid-heading-05', true);
+      }
+
+      &__copy {
+        p {
+          margin-bottom: 0;
+          @include type-style('fluid-heading-03', true);
+        }
+      }
+
+      &__cta-col {
+        margin-top: 0;
+      }
+
+      @include breakpoint(lg) {
+        padding-top: $spacing-10;
+      }
+    }
+
+    .#{$prefix}--helper-wrapper {
+      .#{$prefix}--content-item-wrapper {
+        border-top: 1px solid $layer-accent-01;
+
+        @include make-row;
+
+        .#{$prefix}--content-item {
+          width: 100%;
+          margin-bottom: 0;
+          padding-bottom: $spacing-05;
+          position: relative;
+
+          @include make-col-ready;
+
+          &__heading {
+            width: 100%;
+
+            @include type-style('heading-02', true);
+          }
+
+          &__copy {
+            width: 100%;
+            p {
+              width: 100%;
+              margin-bottom: $spacing-05;
+
+              @include type-style('body-02', true);
+            }
+          }
+
+          @include breakpoint(md) {
+            @include make-col(4, 8);
+
+            &__heading {
+              width: 90%;
+            }
+
+            &__copy {
+              width: 90%;
+            }
+          }
+
+          &:last-of-type {
+            margin-top: $spacing-05;
+
+            @include breakpoint(md) {
+              margin-top: $spacing-07;
+            }
+          }
+        }
+      }
+    }
+
+    &.#{$prefix}--cta-section__has-items {
+      padding-bottom: $spacing-09;
+
+      @include breakpoint(lg) {
+        padding-bottom: carbon--mini-units(10);
+      }
+
+      .#{$prefix}--cta-section {
+        &__cta {
+          padding-bottom: $spacing-07;
+
+          @include breakpoint(md) {
+            padding-bottom: $spacing-10;
+          }
+
+          @include breakpoint(lg) {
+            padding-bottom: $spacing-12;
+          }
+        }
+      }
+
+      .#{$prefix}--content-block {
+        padding-bottom: 0;
+      }
+    }
+
+    @include breakpoint(lg) {
+      padding-bottom: $spacing-10;
+    }
+  }
+
+  .#{$prefix}--cta-section--g10 {
+    @include theme($g10, feature-flag-enabled('enable-css-custom-properties')) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--cta-section--g90 {
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties')) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--cta-section--g100 {
+    @include theme(
+      $g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+}

@@ -5,32 +5,36 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-media/index';
-@import '@carbon/ibmdotcom-styles/scss/components/content-group-simple/content-group-simple';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-media';
+@use '@carbon/ibmdotcom-styles/scss/components/content-group-simple';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-block-media),
-:host(#{$dds-prefix}-content-block-media-content) {
+:host(#{$c4d-prefix}-content-block-media),
+:host(#{$c4d-prefix}-content-block-media-content) {
   display: block;
 }
 
-:host(#{$dds-prefix}-content-block-media-content) {
-  @extend :host(#{$dds-prefix}-content-group-simple);
+:host(#{$c4d-prefix}-content-block-media-content) {
+  @extend :host(#{$c4d-prefix}-content-group-simple);
 
-  &::slotted(#{$dds-prefix}-card-link) {
-    margin-left: -1rem;
-    margin-right: -1rem;
+  &::slotted(#{$c4d-prefix}-card-link) {
+    margin-left: -$spacing-05;
+    margin-right: -$spacing-05;
     display: block;
   }
 
-  ::slotted(#{$dds-prefix}-content-block-complementary) {
-    @include carbon--breakpoint-down('lg') {
-      margin: $layout-05 0;
+  ::slotted(#{$c4d-prefix}-content-block-complementary) {
+    @include breakpoint-down(lg) {
+      margin: $spacing-10 0;
     }
   }
 
   ::slotted(*) {
-    margin-left: $carbon--spacing-05;
-    margin-right: $carbon--spacing-05;
+    margin-left: $spacing-05;
+    margin-right: $spacing-05;
   }
 
   ::slotted([slot='media']) {

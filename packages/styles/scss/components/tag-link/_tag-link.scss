@@ -5,29 +5,34 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../globals/imports';
-@import '../../globals/vars';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '../../globals/vars' as *;
 
-:host(#{$dds-prefix}-tag-link) a {
-  @include carbon--type-style(body-long-01, true);
+@mixin tag-link {
+  :host(#{$c4d-prefix}-tag-link) a {
+    @include type-style(body-01, true);
 
-  padding: rem(6px) $carbon--spacing-05;
-  border-radius: rem(15px);
-  background-color: $ui-01;
-  color: $text-02;
-  text-decoration: none;
+    padding: to-rem(6px) $spacing-05;
+    border-radius: to-rem(15px);
+    background-color: $layer-01;
+    color: $text-secondary;
+    text-decoration: none;
 
-  &:hover {
-    background-color: $hover-ui;
-    color: $text-01;
-  }
+    &:hover {
+      background-color: $background-hover;
+      color: $text-primary;
+    }
 
-  &:active {
-    background-color: $active-ui;
-  }
+    &:active {
+      background-color: $layer-active-01;
+    }
 
-  &:focus {
-    outline: none;
-    box-shadow: inset 0 0 0 2px $focus;
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 $spacing-01 $focus;
+    }
   }
 }

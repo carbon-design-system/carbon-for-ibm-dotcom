@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Download20 from '@carbon/icons-react/es/download/20.js';
@@ -15,103 +15,90 @@ import Download20 from '@carbon/icons-react/es/download/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block';
+import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block';
 // eslint-disable-next-line max-len
-import DDSLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
 // eslint-disable-next-line max-len
-import DDSLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
-import DDSLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media';
-import DDSLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
-import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 
 import readme from './README.stories.react.mdx';
-import styles from './leadspace-block.stories.scss';
 
 const image = (
-  <DDSImage alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-    <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
-    <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
-    <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-  </DDSImage>
+  <C4DImage
+    alt="Image alt text"
+    default-src={imgLg16x9}
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <C4DImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
+    <C4DImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
+    <C4DImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
+  </C4DImage>
+);
+
+const video = (
+  <C4DVideoPlayerContainer video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
 );
 
 const linkList = (
-  <DDSLinkList type="end">
-    <DDSLinkListHeading>Featured products</DDSLinkListHeading>
-    <DDSLinkListItem href="https://example.com">
+  <C4DLinkList type="end">
+    <C4DLinkListHeading>Featured products</C4DLinkListHeading>
+    <C4DLinkListItem href="https://example.com">
       IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
+    </C4DLinkListItem>
+    <C4DLinkListItem href="https://example.com">
       UrbanCode <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
+    </C4DLinkListItem>
+    <C4DLinkListItem href="https://example.com">
       View all products <Download20 slot="icon" />
-    </DDSLinkListItem>
-  </DDSLinkList>
+    </C4DLinkListItem>
+  </C4DLinkList>
 );
 
 const buttonCTA = (
-  <DDSLeadspaceBlockCTA>
-    <DDSButtonGroupItem href="www.ibm.com">
-      Contact sales <ArrowRight20 slot="icon" />
-    </DDSButtonGroupItem>
-  </DDSLeadspaceBlockCTA>
+  <C4DButton cta-type="local" href="https://example.com">
+    Contact sales
+  </C4DButton>
 );
 
-export const Default = args => {
-  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
+export const Default = (args) => {
+  const { title, copy, media, border, highlight } = args?.LeadSpaceBlock ?? {};
   return (
-    <DDSLeadspaceBlock>
-      <DDSLeadspaceBlockHeading>{title}</DDSLeadspaceBlockHeading>
-      <DDSLeadspaceBlockContent>
-        <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-        <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
-        <DDSLeadspaceBlockMedia slot="media">{image}</DDSLeadspaceBlockMedia>
+    <C4DLeadspaceBlock border={border || undefined}>
+      <C4DLeadspaceHeading highlight={highlight} type-style="fluid-heading-05">{title}</C4DLeadspaceHeading>
+      <C4DLeadspaceBlockContent>
+        <C4DContentBlockCopy>{copy}</C4DContentBlockCopy>
+        {media !== 'none' ?
+        <C4DLeadspaceBlockMedia>
+          {media === 'image' ? image : media === 'video' ? video : ''}
+        </C4DLeadspaceBlockMedia>
+        : ``}
         {linkList} {buttonCTA}
-      </DDSLeadspaceBlockContent>
-    </DDSLeadspaceBlock>
-  );
-};
-
-export const withVideo = args => {
-  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
-  return (
-    <DDSLeadspaceBlock>
-      <DDSLeadspaceBlockHeading>{title}</DDSLeadspaceBlockHeading>
-      <DDSLeadspaceBlockContent>
-        <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-        <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
-        <DDSLeadspaceBlockMedia slot="media">
-          <DDSVideoPlayerContainer video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
-        </DDSLeadspaceBlockMedia>
-        {linkList} {buttonCTA}
-      </DDSLeadspaceBlockContent>
-    </DDSLeadspaceBlock>
+      </C4DLeadspaceBlockContent>
+    </C4DLeadspaceBlock>
   );
 };
 
 export default {
   title: 'Components/Lead space block',
   decorators: [
-    story => {
+    (story) => {
       return (
         <>
-          <style type="text/css">{styles.cssText}</style>
-          <div className="bx--grid">
-            <div className="bx--row">
-              <div className="bx--col-lg-9 bx--no-gutter">{story()}</div>
+          <div className="cds--grid">
+            <div className="cds--row">
+              <div className="cds--col-lg-8">{story()}</div>
             </div>
           </div>
         </>
@@ -123,11 +110,13 @@ export default {
     hasStoryPadding: true,
     knobs: {
       LeadSpaceBlock: () => ({
-        title: text('title (title)', 'Continuous delivery'),
-        heading: text('heading (required):', 'Innovate like a startup and scale for the enterprise '),
+        title: text('title (title)', 'Infuse your AIOps platform with intelligent IT operations'),
+        highlight: text('Highlight:', 'intelligent IT operations'),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,
+        media: select('Media:', ['none', 'image', 'video'], 'image'),
+        border: boolean('Border:', true)
       }),
     },
   },

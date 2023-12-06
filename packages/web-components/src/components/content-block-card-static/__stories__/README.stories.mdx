@@ -3,9 +3,9 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<dds-content-block-card-static>`
+# `<cds-content-block-card-static>`
 
-> The Content Block - Card Static pattern is a variant of `<dds-content-block>`,
+> The Content Block - Card Static pattern is a variant of `<cds-content-block>`,
 > and includes a card group, a single content item, and ends with a CTA.
 
 > 💡 Check our
@@ -20,7 +20,7 @@ This component is currently behind a feature flag, in order to use it you'll
 need to add the following into your `.env` file.
 
 ```
-  DDS_CONTENT_BLOCK_CARD_STATIC=true
+  C4D_CONTENT_BLOCK_CARD_STATIC=true
 ```
 
 ## Getting started
@@ -49,52 +49,52 @@ import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
 ### HTML
 
 ```html
-<dds-content-block-card-static>
-  <dds-content-block-heading>Ways to buy</dds-content-block-heading>
-  <dds-card-group>
-    <dds-card-group-item>
-      <dds-card-heading>Nunc convallis</dds-card-heading>
-      <dds-tag-group>
-        <bx-tag>Most popular</bx-tag>
-      </dds-tag-group>
+<cds-content-block-card-static>
+  <cds-content-block-heading>Ways to buy</cds-content-block-heading>
+  <cds-card-group>
+    <cds-card-group-item>
+      <cds-card-heading>Nunc convallis</cds-card-heading>
+      <div>
+        <cds-tag>Most popular</cds-tag>
+      </div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-    </dds-card-group-item>
-    <dds-card-group-item>
-      <dds-card-heading>Nunc convallis</dds-card-heading>
+    </cds-card-group-item>
+    <cds-card-group-item>
+      <cds-card-heading>Nunc convallis</cds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-    </dds-card-group-item>
-  </dds-card-group>
-  <dds-content-item>
-    <dds-content-item-heading
-      >Lorem ipsum dolor si amett</dds-content-item-heading
+    </cds-card-group-item>
+  </cds-card-group>
+  <cds-content-item>
+    <cds-content-item-heading
+      >Lorem ipsum dolor si amett</cds-content-item-heading
     >
-    <dds-content-item-copy
+    <cds-content-item-copy
       >Contact us for a customized quote, discounted pricing, and financing
       options - or get started with a free trial today
-    </dds-content-item-copy>
-  </dds-content-item>
-  <dds-button-group slot="footer">
-    <dds-button-group-item href="https://example.com">
+    </cds-content-item-copy>
+  </cds-content-item>
+  <cds-button-group slot="footer">
+    <cds-button-group-item href="https://example.com">
       Contact us ${Chat20({ slot: 'icon' })}
-    </dds-button-group-item>
-    <dds-button-group-item href="https://example.com">
+    </cds-button-group-item>
+    <cds-button-group-item href="https://example.com">
       Free trial ${ArrowRight20({ slot: 'icon' })}
-    </dds-button-group-item>
-  </dds-button-group>
-</dds-content-block-card-static>
+    </cds-button-group-item>
+  </cds-button-group>
+</cds-content-block-card-static>
 ```
 
 ## Props
 
-<Props of="dds-content-block-card-static" />
+<Props of="cds-content-block-card-static" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -105,6 +105,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector           | Compatibility selector                         | Description |
 | --------------------------------- | ---------------------------------------------- | ----------- |
-| `<dds-content-block-card-static>` | `data-autoid="dds--content-block-card-static"` | Component   |
+| `<cds-content-block-card-static>` | `data-autoid="cds--content-block-card-static"` | Component   |
 
 <Description markdown={contributing} />

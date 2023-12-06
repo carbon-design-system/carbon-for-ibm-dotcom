@@ -1,274 +1,374 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+@use 'sass:map';
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../card/index';
-@import 'carbon-components/scss/components/search/search';
-@import 'carbon-components/scss/components/modal/modal';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/layout/scss/convert' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/flex-grid' as *;
+
+@use '../card' as *;
+@use '@carbon/styles/scss/components/search' as *;
+@use '@carbon/styles/scss/components/modal' as *;
 
 /// Locale modal
 /// @access private
 /// @group locale-modal
 
 @mixin locale-modal {
-  :host(#{$dds-prefix}-locale-modal),
-  .#{$prefix}--locale-modal-container {
-    @include carbon--theme(
-      $carbon--theme--white,
+  :host(#{$c4d-prefix}-locale-modal) {
+    @extend .#{$prefix}--modal;
+
+    @include theme(
+      $white,
       feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      .#{$prefix}--modal-container {
-        background-color: $ui-background;
-        height: 100%;
-        min-height: 80%;
+    );
 
-        @media (max-height: rem(450px)) {
-          .#{$prefix}--locale-modal__filtering {
-            .#{$prefix}--locale-modal__filter {
+    .#{$prefix}--modal-container {
+      background-color: $background;
+      height: calc(100% - $spacing-07);
+      min-height: 80%;
+      padding: $spacing-05;
+
+      @include breakpoint-down('md') {
+        width: fit-content;
+      }
+
+      .#{$prefix}--modal-content {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      @media (max-height: to-rem(450px)) {
+        .#{$c4d-prefix}--locale-modal__filtering {
+          .#{$c4d-prefix}--locale-modal__filter {
+            overflow-y: initial;
+
+            .#{$c4d-prefix}--locale-modal__list {
               overflow-y: initial;
-
-              .#{$prefix}--locale-modal__list {
-                overflow-y: initial;
-              }
             }
           }
-
-          .#{$prefix}--locale-modal__search {
-            position: relative;
-          }
-        }
-      }
-
-      .#{$prefix}--locale-modal {
-        padding-left: $carbon--spacing-05;
-        margin-bottom: $carbon--spacing-05;
-        margin-top: $carbon--spacing-07;
-        display: flex;
-
-        &.#{$prefix}--modal-content {
-          padding-right: $carbon--spacing-05;
         }
 
-        @include carbon--type-style(body-short-02, true);
-      }
-
-      .#{$prefix}--locale-modal__locales.#{$prefix}--locale-modal__locales-hidden {
-        display: none;
-      }
-
-      button.#{$prefix}--modal-header__label,
-      .#{$prefix}--locale-modal__back .#{$prefix}--modal-header__label {
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        display: inline-flex;
-
-        &:hover {
-          cursor: pointer;
-          color: $interactive-01;
-          text-decoration: underline;
+        .#{$c4d-prefix}--locale-modal__search {
+          position: relative;
         }
-
-        &:focus {
-          outline-width: 2px;
-          outline-offset: -2px;
-          outline-color: $interactive-01;
-        }
-
-        svg {
-          fill: currentColor;
-        }
-      }
-
-      .#{$prefix}--locale-modal__filter {
-        z-index: -1;
-        opacity: 0;
-        transform: translate3d(0, -24px, 0);
-        transition: transform 240ms cubic-bezier(0.4, 0.14, 1, 1);
-        display: none;
-        top: 3rem;
-      }
-
-      .#{$prefix}--modal-header {
-        padding-left: $carbon--spacing-07;
-        padding-top: $carbon--spacing-05;
-      }
-
-      .#{$prefix}--modal-header__label {
-        color: $text-01;
-        display: flex;
-        align-items: center;
-
-        .#{$prefix}--locale-modal__label-globe {
-          width: rem(20px);
-          height: rem(20px);
-          margin-left: $spacing-02;
-        }
-
-        .#{$prefix}--locale-modal__label-arrow {
-          margin-right: $carbon--spacing-03;
-        }
-
-        @include carbon--type-style('body-short-02');
-      }
-
-      .#{$prefix}--modal-header__heading {
-        @include carbon--type-style('expressive-heading-04', true);
-
-        margin-top: $carbon--spacing-04;
-
-        &:focus {
-          outline: none;
-        }
-      }
-
-      // FIXME: CardLink is being used as Card in React, need to separate this
-      .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
-        @include carbon--type-style('expressive-heading-03', true);
       }
     }
-  }
-}
 
-:host(#{$prefix}-search) .#{$prefix}--search-input,
-.#{$prefix}--search--xl .#{$prefix}--search-input {
-  &::placeholder {
-    color: $text-02;
-  }
-}
+    .#{$c4d-prefix}--locale-modal {
+      padding-left: $spacing-05;
+      margin-bottom: 0;
+      margin-top: $spacing-07;
+      display: flex;
 
-.#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__regions {
-  width: 100%;
-  margin-top: auto;
-  > .#{$prefix}--row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+      &.#{$prefix}--modal-content {
+        padding-top: $spacing-03;
+        margin-top: $spacing-07;
 
-:host(#{$dds-prefix}-region-item) .#{$prefix}--link,
-.#{$prefix}--locale-modal-container
-  .#{$prefix}--locale-modal__regions
-  .#{$prefix}--card {
-  min-height: rem(184px);
-  outline: 1px solid $ui-02;
-  outline-offset: -1px;
-  max-width: none;
-  width: 100%;
-  height: 100%;
-  display: flex;
+        @include breakpoint('lg', $grid-breakpoints) {
+          margin-top: auto;
+        }
+      }
 
-  &:focus-within {
-    outline-width: 2px;
-    outline-offset: -2px;
-    outline-color: $interactive-01;
-  }
+      @include type-style(body-compact-02, true);
+    }
 
-  @include carbon--breakpoint-down(lg) {
-    min-height: rem(96px);
-  }
-}
+    .#{$c4d-prefix}--locale-modal__locales.#{$c4d-prefix}--locale-modal__locales-hidden {
+      display: none;
+    }
 
-:host(#{$dds-prefix}-region-item),
-.#{$prefix}--modal-container {
-  svg.#{$prefix}--card__cta {
-    color: $ui-05;
-  }
-}
+    button.#{$prefix}--modal-header__label,
+    .#{$c4d-prefix}--locale-modal__back .#{$prefix}--modal-header__label {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      display: inline-flex;
 
-:host(#{$dds-prefix}-locale-item) a.#{$prefix}--link,
-.#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__locales {
-  text-decoration: none;
-  border: 2px solid transparent;
-  display: flex;
-  min-height: $carbon--spacing-09;
-  border-bottom: 1px solid $ui-03;
-  transition: background-color $duration--fast-02 motion(standard, expressive),
-    border $duration--fast-02 motion(standard, expressive);
+      &:hover {
+        cursor: pointer;
+        color: $background-brand;
+        text-decoration: underline;
+      }
 
-  &:hover {
-    background-color: $hover-ui;
-  }
+      &:focus {
+        outline-width: $spacing-01;
+        outline-offset: -#{$spacing-01};
+        outline-color: $background-brand;
+      }
 
-  &:active,
-  &:focus {
-    border: 2px solid $focus;
-    outline: none;
-  }
-}
+      svg {
+        fill: currentColor;
+      }
+    }
 
-:host(#{$dds-prefix}-locale-item),
-.#{$prefix}--locale-modal-container {
-  .#{$prefix}--locale-modal__locales__name {
-    width: 50%;
-    color: $text-05;
-    padding: $carbon--spacing-04 $carbon--spacing-05;
-    @include type-style('body-short-02');
+    .#{$c4d-prefix}--locale-modal__filter {
+      z-index: -1;
+      opacity: 0;
+      transform: translate3d(0, -24px, 0);
+      transition: transform 240ms cubic-bezier(0.4, 0.14, 1, 1);
+      display: none;
+      top: $spacing-09;
+    }
 
-    &:first-of-type {
-      color: $text-01;
+    .#{$prefix}--modal-header {
+      padding-left: $spacing-07;
+      padding-top: $spacing-05;
+    }
+
+    .#{$prefix}--modal-header__label {
+      color: $text-primary;
+      display: flex;
+      align-items: center;
+
+      .#{$c4d-prefix}--locale-modal__label-globe {
+        width: to-rem(20px);
+        height: to-rem(20px);
+        margin-left: $spacing-02;
+      }
+
+      .#{$c4d-prefix}--locale-modal__label-arrow {
+        margin-right: $spacing-03;
+      }
+
+      @include type-style('body-compact-02');
+    }
+
+    .#{$prefix}--modal-header__heading {
+      @include type-style('fluid-heading-04', true);
+
+      padding: 0;
+      margin-top: $spacing-04;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    #{$c4d-prefix}-expressive-modal-header {
+      padding: 3px 20% 0 $spacing-05;
+      margin-bottom: $spacing-03;
     }
   }
-}
 
-:host(#{$dds-prefix}-locale-search),
-.#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__filtering {
-  display: flex;
-  flex-direction: column;
-  margin-top: $carbon--spacing-07;
-  overflow: hidden;
+  :host(#{$c4d-prefix}-locale-modal[open]) {
+    @extend .#{$prefix}--modal;
 
-  .#{$prefix}--locale-modal__filter {
     opacity: 1;
-    z-index: 1;
-    transform: translate3d(0, 0, 0);
-    transition: 240ms cubic-bezier(0, 0, 0.3, 1);
+    transition: opacity $duration-moderate-02 motion(entrance, expressive),
+      visibility 0ms linear;
+    visibility: inherit;
+
+    .#{$prefix}--modal-container {
+      transform: translate3d(0, 0, 0);
+      transition: transform $duration-moderate-02 motion(entrance, expressive);
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .#{$c4d-prefix}--locale-modal-container
+    .#{$c4d-prefix}--locale-modal__regions {
+    width: 100%;
+    margin-top: auto;
+    > .#{$prefix}--row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  :host(#{$c4d-prefix}-region-item) .#{$prefix}--link {
+    outline: 1px solid $layer-02;
+    outline-offset: -1px;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    text-align: inherit;
+
+    &:hover.#{$prefix}--link--disabled {
+      display: flex;
+    }
+
+    &:focus-within {
+      outline-width: $spacing-01;
+      outline-offset: -#{$spacing-01};
+      outline-color: $background-brand;
+    }
+
+    @include breakpoint-down(lg) {
+      min-height: $spacing-12;
+    }
+  }
+
+  :host(#{$c4d-prefix}-region-item) .#{$prefix}--card.#{$prefix}--tile {
+    border-bottom: transparent;
+  }
+
+  :host(#{$c4d-prefix}-region-item:last-of-type)
+    .#{$prefix}--card.#{$prefix}--tile {
+    border-bottom: 1px solid $border-tile;
+  }
+
+  @include breakpoint(lg) {
+    :host(#{$c4d-prefix}-region-item) .#{$prefix}--card.#{$prefix}--tile {
+      border-bottom: 1px solid $border-tile;
+    }
+
+    :host(#{$c4d-prefix}-region-item:first-of-type)
+      .#{$prefix}--card.#{$prefix}--tile {
+      border-right: transparent;
+    }
+
+    :host(#{$c4d-prefix}-region-item:nth-of-type(3))
+      .#{$prefix}--card.#{$prefix}--tile {
+      border-top: transparent;
+      border-right: transparent;
+    }
+
+    :host(#{$c4d-prefix}-region-item:last-of-type)
+      .#{$prefix}--card.#{$prefix}--tile {
+      border-top: transparent;
+    }
+  }
+
+  :host(#{$c4d-prefix}-region-item),
+  .#{$prefix}--modal-container {
+    svg.#{$prefix}--card__cta {
+      color: $border-inverse;
+    }
+  }
+
+  :host(#{$c4d-prefix}-regions) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  :host(#{$c4d-prefix}-locale-item) a.#{$prefix}--link {
+    text-decoration: none;
+    border: $spacing-01 solid transparent;
+    display: flex;
+    min-height: $spacing-09;
+    border-bottom: 1px solid $layer-accent-01;
+    transition: background-color $duration-fast-02 motion(standard, expressive),
+      border $duration-fast-02 motion(standard, expressive);
+
+    &:hover {
+      background-color: $background-hover;
+    }
+
+    &:active,
+    &:focus {
+      border: $spacing-01 solid $focus;
+      outline: none;
+    }
+  }
+
+  :host(#{$c4d-prefix}-locale-item) {
+    .#{$c4d-prefix}--locale-modal__locales__name {
+      width: 50%;
+      color: $text-helper;
+      padding: $spacing-04 $spacing-05;
+      @include type-style('body-compact-02');
+
+      &:first-of-type {
+        color: $text-primary;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-locale-search) {
+    padding-top: $spacing-03;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    margin-top: $spacing-07;
     overflow: hidden;
-  }
 
-  .#{$prefix}--locale-modal__regions {
-    visibility: hidden;
-    z-index: -1;
-    opacity: 0;
-    display: none;
-    transition: 240ms cubic-bezier(0, 0, 0.3, 1);
-  }
-}
+    #{$prefix}-search::part(input)::placeholder {
+      color: $text-secondary;
+    }
 
-:host(#{$dds-prefix}-locale-search),
-.#{$prefix}--locale-modal-container {
-  .#{$prefix}--locale-modal__search {
-    position: sticky;
-    top: 0;
-    background-color: $ui-background;
-    border-bottom: rem(1px) solid $ui-03;
+    .#{$c4d-prefix}--locale-modal__filter {
+      opacity: 1;
+      z-index: 1;
+      transform: translate3d(0, 0, 0);
+      transition: 240ms cubic-bezier(0, 0, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: hidden;
+    }
 
-    .#{$prefix}--search-input {
-      background-color: $field-01;
+    .#{$c4d-prefix}--locale-modal__regions {
+      visibility: hidden;
+      z-index: -1;
+      opacity: 0;
+      display: none;
+      transition: 240ms cubic-bezier(0, 0, 0.3, 1);
+    }
+
+    .#{$c4d-prefix}--locale-modal__search {
+      position: sticky;
+      top: 0;
+      background-color: $background;
+      border-bottom: 1px solid $layer-accent-01;
+    }
+
+    .#{$c4d-prefix}--locale-modal__search-text {
+      padding: $spacing-07 $spacing-05 $spacing-05;
+      margin: 0;
+
+      @include type-style('label-02');
+    }
+
+    .#{$c4d-prefix}--locale-modal__list {
+      flex: 1;
+      overflow-y: auto;
     }
   }
 
-  .#{$prefix}--locale-modal__search-text {
-    padding: $carbon--spacing-07 $carbon--spacing-05 $carbon--spacing-05;
-    min-height: $carbon--spacing-09;
-
-    @include carbon--type-style('label-02');
+  :host(#{$c4d-prefix}-locale-modal) #{$c4d-prefix}-expressive-modal-heading {
+    width: fit-content;
   }
 
-  .#{$prefix}--locale-modal__list {
-    flex: 1;
-    overflow-y: auto;
-  }
-}
+  :host(#{$c4d-prefix}-region-item) {
+    @include make-col(4, 4);
 
-@include exports('locale-modal') {
-  @include locale-modal;
+    @include breakpoint('lg') {
+      @include make-col(8, 16);
+    }
+
+    .#{$prefix}--card__wrapper {
+      height: 100%;
+    }
+
+    ::slotted(div.#{$c4d-prefix}--region-item-footer) {
+      /* stylelint-disable declaration-no-important */
+      // need the !important to prevent CSS reset styles from overwritting margin
+      margin-top: auto !important;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      color: $border-inverse;
+    }
+
+    ::slotted(div.#{$c4d-prefix}--region-item-footer[disabled]) {
+      color: $icon-disabled;
+    }
+  }
 }

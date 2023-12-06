@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-link-with-icon (cdn)', () => {
-  it('should load the default dds-link-with-icon example', () => {
+describe('cds-link-with-icon (cdn)', () => {
+  it('should load the default cds-link-with-icon example', () => {
     cy.visit('/link-with-icon/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-link-with-icon | cdn | default');
+    cy.percySnapshot('cds-link-with-icon | cdn | default');
   });
 });

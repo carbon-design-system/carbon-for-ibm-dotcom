@@ -9,19 +9,19 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta.js';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading.js';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy.js';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading.js';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta.js';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading.js';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy.js';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading.js';
 // eslint-disable-next-line max-len
-import DDSContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
-import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item.js';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy.js';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading.js';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container.js';
+import C4DContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item.js';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy.js';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading.js';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container.js';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
@@ -70,38 +70,38 @@ const items = [
 ];
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => (
-  <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading={imageHeading}>
-    <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
-    <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
-    <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-  </DDSImage>
+  <C4DImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading={imageHeading}>
+    <C4DImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
+    <C4DImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
+    <C4DImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
+  </C4DImage>
 );
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-lg-12 bx--no-gutter">
-        <DDSVideoCTAContainer>
-          <DDSContentGroupSimple>
-            <DDSContentGroupHeading>'Curabitur malesuada varius mi eu posuere'</DDSContentGroupHeading>
-            <DDSContentGroupCopy>
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-lg-12 cds--no-gutter">
+        <C4DVideoCTAContainer>
+          <C4DContentGroupSimple>
+            <C4DContentGroupHeading>'Curabitur malesuada varius mi eu posuere'</C4DContentGroupHeading>
+            <C4DContentGroupCopy>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
-            </DDSContentGroupCopy>
+            </C4DContentGroupCopy>
             {image({ heading: 'Curabitur malesuada varius mi eu posuere' })}
             {items.map(({ heading: itemHeading }) => (
-              <DDSContentItem>
-                <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
-                <DDSContentItemCopy>
+              <C4DContentItem>
+                <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
+                <C4DContentItemCopy>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
-                </DDSContentItemCopy>
-              </DDSContentItem>
+                </C4DContentItemCopy>
+              </C4DContentItem>
             ))}
-            <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
-              <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
-              <DDSCardCTAFooter></DDSCardCTAFooter>
-            </DDSCardLinkCTA>
-          </DDSContentGroupSimple>
-        </DDSVideoCTAContainer>
+            <C4DCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
+              <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
+              <C4DCardCTAFooter></C4DCardCTAFooter>
+            </C4DCardLinkCTA>
+          </C4DContentGroupSimple>
+        </C4DVideoCTAContainer>
       </div>
     </div>
   </div>

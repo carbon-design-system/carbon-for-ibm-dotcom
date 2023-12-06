@@ -10,10 +10,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 /* eslint-disable max-len */
-import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+import C4DHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
 /* eslint-enable max-len */
 import './index.css';
 
-const App = () => <DDSHorizontalRule size="fluid"></DDSHorizontalRule>;
+const App = () => <C4DHorizontalRule size="fluid"></C4DHorizontalRule>;
 
 render(<App />, document.getElementById('root'));

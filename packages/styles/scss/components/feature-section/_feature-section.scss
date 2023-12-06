@@ -5,17 +5,27 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/aspect-ratio';
-@import '../../globals/utils/ratio-base';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/aspect-ratio';
+@use '../../globals/carbon-grid';
+@use '../../globals/utils/ratio-base' as *;
+@use '../../globals/tokens/color-tokens' as *;
 
 @mixin feature-section {
+  :host(#{$c4d-prefix}-feature-section) {
+    display: block;
+    outline: none;
+  }
+
   .#{$prefix}--feature-section {
+    box-sizing: border-box;
     position: relative;
-    padding-left: $carbon--spacing-05;
-    padding-right: $carbon--spacing-05;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
     outline: none;
 
     &:hover {
@@ -31,7 +41,7 @@
     &:focus-within {
       outline: none;
 
-      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$c4d-prefix}-image),
       .#{$prefix}--image {
         z-index: 0;
       }
@@ -39,44 +49,67 @@
   }
 
   .#{$prefix}--feature-section__container {
-    background-color: $ui-01;
+    background-color: $layer-01;
     display: block;
 
-    @include carbon--breakpoint('lg') {
+    div[class^='#{$prefix}--col'] {
+      box-sizing: border-box;
+    }
+
+    @include breakpoint(lg) {
       display: flex;
     }
   }
 
+  :host(#{$c4d-prefix}-feature-section[color-scheme='inverse'])
+    .#{$prefix}--feature-section__container {
+    background-color: $background-inverse;
+
+    ::slotted([slot='eyebrow']),
+    ::slotted([slot='heading']),
+    ::slotted([slot='copy']) {
+      color: $text-inverse;
+    }
+  }
+
+  :host(#{$c4d-prefix}-feature-section[color-scheme='cyan'])
+    .#{$prefix}--feature-section__container {
+    background-color: $background-cyan;
+  }
+
+  :host(#{$c4d-prefix}-feature-section[color-scheme='purple'])
+    .#{$prefix}--feature-section__container {
+    background-color: $background-purple;
+  }
+
   .#{$prefix}--feature-section__body {
     position: relative;
-    padding-top: $carbon--spacing-07;
+    padding-top: $spacing-07;
     padding-left: 0;
     padding-right: 0;
 
-    @include carbon--breakpoint('max') {
-      padding-top: $carbon--spacing-08;
+    @include breakpoint(max) {
+      padding-top: $spacing-08;
     }
 
-    .#{$prefix}--content-item__copy p,
-    ::slotted(#{$dds-prefix}-content-item-paragraph) {
-      margin-bottom: $carbon--spacing-07;
+    ::slotted(#{$c4d-prefix}-content-item-paragraph) {
+      margin-bottom: $spacing-07;
 
-      @include carbon--breakpoint('md') {
-        margin-bottom: $carbon--spacing-09;
+      @include breakpoint(md) {
+        margin-bottom: $spacing-09;
       }
     }
 
-    .#{$prefix}--card-link,
-    ::slotted(#{$dds-prefix}-feature-section-card-link) {
+    ::slotted([slot='footer']) {
       position: relative;
       display: inline-block;
       margin-left: 25%;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         margin-left: 50%;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         position: absolute;
         margin-left: 0;
       }
@@ -87,48 +120,47 @@
     position: relative;
     padding-left: 0;
     padding-right: 0;
+    border: 1px solid $border-subtle-01;
 
-    .#{$prefix}--image,
-    ::slotted(#{$dds-prefix}-image) {
+    ::slotted(#{$c4d-prefix}-image) {
       overflow: hidden;
 
-      @include carbon--breakpoint('sm') {
+      @include breakpoint(sm) {
         height: aspect-ratio(1, 1);
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         height: aspect-ratio(4, 3);
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         height: aspect-ratio(1, 1);
       }
     }
   }
 
-  .#{$prefix}--card__eyebrow,
-  ::slotted(#{$dds-prefix}-card-eyebrow) {
+  ::slotted(#{$c4d-prefix}-card-eyebrow) {
     display: inline-block;
-    margin-bottom: $carbon--spacing-05;
+    margin-bottom: $spacing-03;
   }
 
-  .#{$prefix}--card-link,
-  ::slotted(#{$dds-prefix}-feature-section-card-link) {
+  ::slotted([slot='footer']) {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -1px;
     width: 75%;
+    height: auto;
 
-    @include carbon--breakpoint('md') {
-      width: calc(50% - #{$carbon--spacing-05});
-      right: $carbon--spacing-05;
+    @include breakpoint(md) {
+      width: calc(50% - #{$spacing-05});
+      right: $spacing-05;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       width: calc(50% - #{$spacing-03});
     }
 
-    @include carbon--breakpoint('max') {
+    @include breakpoint(max) {
       width: calc(50% - #{$spacing-04});
     }
 
@@ -136,12 +168,8 @@
       max-width: inherit;
     }
 
-    @include carbon--breakpoint('max') {
-      right: $carbon--spacing-06;
+    @include breakpoint(max) {
+      right: $spacing-06;
     }
   }
-}
-
-@include exports('feature-section') {
-  @include feature-section;
 }

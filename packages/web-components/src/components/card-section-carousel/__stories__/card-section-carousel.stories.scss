@@ -6,11 +6,13 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/imports';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 .grid-alignment {
-  @include carbon--breakpoint('md') {
-    margin-right: -2rem;
+  @include breakpoint(md) {
+    margin-right: -$spacing-07;
   }
 }

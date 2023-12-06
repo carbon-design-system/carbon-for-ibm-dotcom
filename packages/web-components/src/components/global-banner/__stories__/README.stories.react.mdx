@@ -1,0 +1,136 @@
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
+
+# Global banner
+
+A Global banner is the only component allowed to show up above the Masthead,
+and should be used exclusively for global and critical announcements (e.g. THINK
+global event, COVID 19 messages etc).
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/global-banner)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/global-banner)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+This will render a basic global banner containing a heading, copy text, and a
+button CTA at the top of the page, sitting above the masthead.
+
+The component should be placed before the Dotcom shell, but in case it is placed
+within, it can move itself to the proper place automatically.
+
+### JS
+
+```javascript
+import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
+import C4DGlobalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-heading';
+import C4DGlobalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-copy';
+import C4DGlobalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-image';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+
+function App() {
+  return (
+    <C4DGlobalBanner>
+      <C4DGlobalBannerHeading>
+        Hybrid cloud and AI for smarter business
+      </C4DGlobalBannerHeading>
+      <C4DGlobalBannerCopy>
+        Las Vegas, June 15-18, 2025
+      </C4DGlobalBannerCopy>
+      <C4DButton
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
+        Register for Think. Free
+      </C4DButton>
+    </C4DGlobalBanner>
+  );
+}
+```
+
+## Example - With image
+
+This example renders the banner with the aforementioned elements and an image.
+
+Add the `image-width` attribute into the global banner and set it to either
+`4-col` or `8-col`. Note that if an image is added without the attribute being
+manually added, it will default to `4-col`.
+
+It is important to create an image asset that best fits the component to ensure
+a proper aspect ratio.
+
+```javascript
+function App() {
+  return (
+    <C4DGlobalBanner image-width="4-col">
+      <C4DGlobalBannerImage
+        default-src={
+          'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616'
+        }></C4DGlobalBannerImage>
+      <C4DGlobalBannerHeading slot="heading">
+        Hybrid cloud and AI for smarter business
+      </C4DGlobalBannerHeading>
+      <C4DGlobalBannerCopy slot="copy">
+        Las Vegas, June 15-18, 2025
+      </C4DGlobalBannerCopy>
+      <C4DButtonCTA
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
+        Register for Think. Free
+      </C4DButtonCTA>
+    </C4DGlobalBanner>
+  );
+}
+```
+
+In case you'd like to change images depending on the breakpoint, you can use the
+`C4DImageItem` component as such:
+
+```javascript
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+
+<C4DGlobalBannerImage
+  default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  <C4DImageItem
+    media="(min-width:672px)"
+    srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+  <C4DImageItem
+    media="(min-width:400px)"
+    srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+  <C4DImageItem
+    media="(min-width:320px)"
+    srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+</C4DGlobalBannerImage>;
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector          | Compatibility selector                        | Description |
+| -------------------------------- | --------------------------------------------- | ----------- |
+| `<cds-global-banner>`         | `data-autoid="cds--global-banner"`         | Component   |
+| `<cds-global-banner-heading>` | `data-autoid="cds--global-banner-heading"` | Component   |
+| `<cds-global-banner-copy>`    | `data-autoid="cds--global-banner-copy"`    | Component   |
+| `<cds-global-banner-image>`   | `data-autoid="cds--global-banner-image"`   | Component   |
+
+<Description markdown={contributing} />

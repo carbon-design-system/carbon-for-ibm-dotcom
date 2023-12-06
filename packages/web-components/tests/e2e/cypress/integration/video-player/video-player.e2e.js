@@ -7,13 +7,13 @@
 
 'use strict';
 
-describe('dds-video-player', () => {
-  it('should load the default dds-video-player example', () => {
+describe('cds-video-player', () => {
+  it('should load the default cds-video-player example', () => {
     cy.visit('/video-player');
 
     // Take a snapshot for visual diffing
     // NOTE: This is causing false positives, will shut off for now and just
     // check for build errors
-    // cy.percySnapshot('dds-video-player | default');
+    // cy.percySnapshot('cds-video-player | default');
   });
 });

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Tile (expressive)
@@ -16,7 +16,7 @@
 /// @group tile-expressive
 @mixin tile-expressive {
   .#{$prefix}--tile--is-selected {
-    outline-offset: -2px;
+    outline-offset: -#{$spacing-01};
   }
 
   .#{$prefix}--tile__checkmark {

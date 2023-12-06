@@ -9,20 +9,20 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSTabsExtended from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended';
-import DDSTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab';
+import C4DTabsExtended from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended';
+import C4DTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab';
 
 import './index.css';
 
 const App = () => (
-  <DDSTabsExtended>
-    <DDSTab label="First Tab">
+  <C4DTabsExtended>
+    <C4DTab label="First Tab">
       <p>First tab paragraph text</p>
-    </DDSTab>
-    <DDSTab label="Second Tab">
+    </C4DTab>
+    <C4DTab label="Second Tab">
       <p>Second tab paragraph text</p>
-    </DDSTab>
-  </DDSTabsExtended>
+    </C4DTab>
+  </C4DTabsExtended>
 );
 
 render(<App />, document.getElementById('root'));

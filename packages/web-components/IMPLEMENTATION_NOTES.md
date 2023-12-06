@@ -69,7 +69,7 @@ There are three categories of components in `@carbon/ibmdotcom-web-components`:
 | State                                         | Description                                                                                                                                                                                                                                                 |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | UI components                                 | Components that define the user interface. Most components are in this category.                                                                                                                                                                            |
-| Composite components                          | Components that render UI components from object structures via property. An example is `<dds-masthead-composite>` that renders top/left navs from the `navLinks` property as an object. Components in this category should have `<*-composite>` tag names. |
+| Composite components                          | Components that render UI components from object structures via property. An example is `<cds-masthead-composite>` that renders top/left navs from the `navLinks` property as an object. Components in this category should have `<*-composite>` tag names. |
 | [Container components](#container-components) | Inheritances of composite components that connects to `@carbon/ibmdotcom-service`.                                                                                                                                                                          |
 
 ## Carbon core library
@@ -80,12 +80,12 @@ versions of the Carbon core library. Here are some examples:
 
 | Component                                                                                                                                                                               | Extends from                                                                                                                         |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [`<dds-card>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/card/card.ts)                                             | [`<bx-link>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/link/link.ts)                 |
-| [`<dds-link-with-icon>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/link-with-icon/link-with-icon.ts)               | [`<bx-link>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/link/link.ts)                 |
-| [`<dds-top-nav>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/masthead/top-nav.ts)                                   | [`<bx-header-nav>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/ui-shell/header-nav.ts) |
-| [`<dds-left-nav>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/masthead/left-nav.ts)                                 | [`<bx-side-nav>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/ui-shell/side-nav.ts)     |
-| [`<dds-language-selector-desktop>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/footer/language-selector-desktop.ts) | [`<bx-combo-box>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/combo-box/combo-box.ts)  |
-| [`<dds-language-selector-mobile>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/footer/language-selector-mobile.ts)   | [`<bx-select>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/select/select.ts)           |
+| [`<cds-card>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/card/card.ts)                                             | [`<bx-link>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/link/link.ts)                 |
+| [`<cds-link-with-icon>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/link-with-icon/link-with-icon.ts)               | [`<bx-link>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/link/link.ts)                 |
+| [`<cds-top-nav>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/masthead/top-nav.ts)                                   | [`<bx-header-nav>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/ui-shell/header-nav.ts) |
+| [`<cds-left-nav>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/masthead/left-nav.ts)                                 | [`<bx-side-nav>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/ui-shell/side-nav.ts)     |
+| [`<cds-language-selector-desktop>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/footer/language-selector-desktop.ts) | [`<bx-combo-box>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/combo-box/combo-box.ts)  |
+| [`<cds-language-selector-mobile>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/footer/language-selector-mobile.ts)   | [`<bx-select>`](https://github.com/carbon-design-system/carbon-web-components/blob/master/src/components/select/select.ts)           |
 
 ## Component CSS
 
@@ -96,8 +96,8 @@ Most components use the following to define CSS:
 ```typescript
 import styles from './some-component.scss';
 
-@customElement('dds-some-component')
-class DDSSomeComponent extends LitElement {
+@customElement('c4d-some-component')
+class C4DSomeComponent extends LitElement {
   ...
 
   static styles = styles;
@@ -142,11 +142,11 @@ but
 There are several approaches depending on what best suits the use case:
 
 1. Create an inherited class with different styles applied (e.g.
-   [`<dds-callout-quote>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/callout-quote/callout-quote.ts)
-   that extends `<dds-quote>`).
+   [`<cds-callout-quote>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/callout-quote/callout-quote.ts)
+   that extends `<cds-quote>`).
 2. Use CSS custom properties as they are inherited to descendant DOM elements.
    An example is
-   [`<dds-link-list>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/components/link-list/link-list.scss#L34).
+   [`<cds-link-list>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/components/link-list/link-list.scss#L34).
    However, it may not be a good idea to use this approach if there are many
    custom properties.
 
@@ -207,29 +207,29 @@ There are some common behaviors in CTA components that are implemented by
 
 The `video` CTA type requires more features, implemented by
 [`VideoCTAMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/video.ts).
-With the exception of `<dds-feature-cta-footer>`, every CTA component supports
+With the exception of `<cds-feature-cta-footer>`, every CTA component supports
 the `video` CTA type (as of `v1.15.0`) and thus extend `VideoCTAMixin`.
 `VideoCTAMixin` implements the following:
 
-- Send an event (`dds-cta-run-action`) when user clicks on CTA.
-- Send an event (`dds-cta-request-video-data`) when the CTA type is `video` and
+- Send an event (`cds-cta-run-action`) when user clicks on CTA.
+- Send an event (`cds-cta-request-video-data`) when the CTA type is `video` and
   video info (caption, duration and thumbmail) hasn't been loaded yet.
 
 Those events are handled by
-[`<dds-video-cta-container>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-container.ts):
+[`<cds-video-cta-container>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-container.ts):
 
-| Event                        | `<dds-video-cta-container>` logic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Event                        | `<cds-video-cta-container>` logic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `dds-cta-run-action`         | Launches the lightbox, by setting the [`_activeVideoId`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L102) private property and using it to trigger [opening the modal](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L157). `_activeVideoId` should be cleared when the lightbox is closed.                                                                                                                                                |
-| `dds-cta-request-video-data` | Loads the [video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L84) via [Redux store](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/videoPlayerAPI.ts#L63-L84), and updates `event.target` with the [loaded video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L87-L88). `event.target` should be a CTA component as CTA component is the one firing the event. |
+| `cds-cta-run-action`         | Launches the lightbox, by setting the [`_activeVideoId`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L102) private property and using it to trigger [opening the modal](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L157). `_activeVideoId` should be cleared when the lightbox is closed.                                                                                                                                                |
+| `cds-cta-request-video-data` | Loads the [video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L84) via [Redux store](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/videoPlayerAPI.ts#L63-L84), and updates `event.target` with the [loaded video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L87-L88). `event.target` should be a CTA component as CTA component is the one firing the event. |
 
-Only one instance of `<dds-video-cta-container>` is needed in an application as
+Only one instance of `<cds-video-cta-container>` is needed in an application as
 long as it contains all CTA components, as can be seen
 [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/__stories__/cta.stories.ts#L176-L182).
-This separation between `<dds-*-cta>` and `<dds-video-cta-container>` keeps
-`<dds-*-cta>` lightweight and simple.
+This separation between `<cds-*-cta>` and `<cds-video-cta-container>` keeps
+`<cds-*-cta>` lightweight and simple.
 
-- Send an event (`dds-cta-request-video-data`) when a user clicks on the CTA so
+- Send an event (`cds-cta-request-video-data`) when a user clicks on the CTA so
   that the lightbox video player can launch the lightbox.
 - Returns the video caption, duration, and thumbnail.
 
@@ -240,8 +240,8 @@ The video player has two states,
 and
 [video (playing) mode](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/defs.ts#L22).
 When a user clicks on a video thumbmail, the
-[`dds-video-player-content-state-changed`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player.ts#L42-L51)
-event is fired, allowing `<dds-video-player-composite>` to
+[`cds-video-player-content-state-changed`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player.ts#L42-L51)
+event is fired, allowing `<cds-video-player-composite>` to
 [embed the video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L80-L86).
 
 Embedding the video involves:
@@ -249,11 +249,11 @@ Embedding the video involves:
 1. [Creating](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L157-L159)
    the DOM element of the video.
 2. [Inserting](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L160-L164)
-   the DOM element to the correct location. `<dds-video-player-composite>`
+   the DOM element to the correct location. `<cds-video-player-composite>`
    specifies the location for the DOM element of the video via the
    [`selectorVideoPlayer`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L182-L184)
    static property. This can be overridden by using
-   [`<dds-lightbox-video-player-composite>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/lightbox-media-viewer/lightbox-video-player-composite.ts#L119-L121).
+   [`<cds-lightbox-video-player-composite>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/lightbox-media-viewer/lightbox-video-player-composite.ts#L119-L121).
 3. [Calling](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L165)
    the video player API from `@carbon/ibmdotcom-services`.
 
@@ -269,12 +269,12 @@ While frameworks such as Angular and Vue require limited to no changes in the
 application when using web components, React has some issues. React heavily
 relies on its knowledge with regard to how intrinsic HTML elements work.
 
-For example, `<dds-foo custom-boolean={true}>` renders as
-`<dds-foo custom-boolean="true">`. This differs from `<button disabled={true}>`,
+For example, `<cds-foo custom-boolean={true}>` renders as
+`<cds-foo custom-boolean="true">`. This differs from `<button disabled={true}>`,
 which renders as `<button disabled>` (empty string in `disabled` attribute
 value).
 
-Another example is `<dds-foo onFoo={handleFoo}>` which doesn't attach an event
+Another example is `<cds-foo onFoo={handleFoo}>` which doesn't attach an event
 handler, whereas `<div onClick={handleClick}>` does.
 
 ### React wrapper generator
@@ -339,8 +339,8 @@ and `eventXXX` in the custom element class. The build procedure can be found
 #### Limited components to generate React wrapper
 
 As of `v1.15.0`, we decided to generate React wrappers only for components
-without a pure React counterpart, for example `<dds-carousel>` and
-`<dds-leaving-ibm-modal>`.
+without a pure React counterpart, for example `<cds-carousel>` and
+`<cds-leaving-ibm-modal>`.
 
 These components should have a `/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */`
 annotation at the default export. The annotation is read by a
@@ -354,7 +354,7 @@ the list of files to generate React wrappers.
 Here are some more types of non-React APIs that an application can use with
 React integration code:
 
-- Constant/enum definitions, e.g. `PICTOGRAM_PLACEMENT` for `<dds-card>`
+- Constant/enum definitions, e.g. `PICTOGRAM_PLACEMENT` for `<cds-card>`
 - `mapStateToProps()`/`mapDispatchToProps()` for Redux integration
 
 Because of the non-React nature, this implementation is identical to the
@@ -414,12 +414,12 @@ React wrappers for composite components render web components of leaf
 components, as opposed to the web components version of the composite component.
 Doing so ensures React SSR works for REST API calls, reducing network
 round-trips that is the key benefit of React SSR. For example,
-[`<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-composite.tsx).
+[`<cds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-composite.tsx).
 
 React wrappers for container components use the official Redux integration
 library, `react-redux`. Doing so allows applications to be scoped, leveraging
 React's [context feature](https://reactjs.org/docs/context.html). For example,
-[`<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-container.ts).
+[`<cds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-container.ts).
 
 ## Container components
 
@@ -445,12 +445,12 @@ Similar to `react-redux`, `ConnectMixin` uses two callbacks:
 And container components are created by `ConnectMixin`:
 
 ```typescript
-@customElement(`${ddsPrefix}-footer-container`)
-class DDSFooterContainer extends ConnectMixin(
+@customElement(`${c4dPrefix}-footer-container`)
+class C4DFooterContainer extends ConnectMixin(
   store,
   mapStateToProps,
   mapDispatchToProps
-)(DDSFooterComposite) {}
+)(C4DFooterComposite) {}
 ```
 
 As seen in the example above, one notable difference of `ConnectMixin` from
@@ -502,30 +502,30 @@ The search box feature in masthead consists of two things:
 
 | Component                                                                                                                                                                                    | Description                                      |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| [`<dds-masthead-search>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search.ts)                     | The search box UI.                               |
-| [`<dds-masthead-search-container>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts) | The component to load and render search results. |
+| [`<cds-masthead-search>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search.ts)                     | The search box UI.                               |
+| [`<cds-masthead-search-container>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts) | The component to load and render search results. |
 
-`<dds-masthead-search>` triggers the `dds-masthead-search-input` event when
-users type in the input field. `<dds-masthead-search-composite>`, the underlying
-component behind `<dds-masthead-search-container>`,
+`<cds-masthead-search>` triggers the `cds-masthead-search-input` event when
+users type in the input field. `<cds-masthead-search-composite>`, the underlying
+component behind `<cds-masthead-search-container>`,
 [runs](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L43-L46)
 the
 [`loadSearchResults()`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/searchAPI.ts#L93-L120)
 Redux action during the
-[`dds-masthead-search-input`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L139)
+[`cds-masthead-search-input`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L139)
 event.
 
-`<dds-masthead-search-composite>` uses
+`<cds-masthead-search-composite>` uses
 [`ThrottledInputMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/throttled-input.ts)
-to throttle the `dds-masthead-search-input` event. `ThrottledInputMixin` calls
+to throttle the `cds-masthead-search-input` event. `ThrottledInputMixin` calls
 `_handleThrottledInput()` as the `eventInput` static method is fired.
 
-`<dds-masthead-search-container>`
+`<cds-masthead-search-container>`
 [intersects the search query](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts#L64-L70)
 with the table of loaded search results and sets the
 [`currentSearchResults`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts#L72)
 property, which is rendered as
-[`<dds-masthead-search-item>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L118-L123).
+[`<cds-masthead-search-item>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L118-L123).
 
 ## TypeScript type definition
 
@@ -675,7 +675,7 @@ Most unit tests consist of the following parts:
 We use [`lit-html`](https://lit-html.polymer-project.org), the underlying
 template library of `lit-element`. In some cases, we reuse templates from
 [Storybook CSF](https://storybook.js.org/docs/react/api/csf), The test for
-[`<dds-leadspace-block>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/leadspace-block/__tests__/leadspace-block.test.ts#L12-L30)
+[`<cds-leadspace-block>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/leadspace-block/__tests__/leadspace-block.test.ts#L12-L30)
 is an example.
 
 #### Waiting for a template to be updated
@@ -694,10 +694,10 @@ await Promise.resolve();
 ```
 
 If multiple `lit-html` templates are being tested, multiple template update
-cycles (microtasks) may be in play. For example, rendering `<dds-carousel>` in a
+cycles (microtasks) may be in play. For example, rendering `<cds-carousel>` in a
 test template involves three update cycles. One for test template, another for
-`<dds-carousel>` that registers its `slotchange` event handler, and lastly
-`<dds-carousel>`,which again updates the template upon the `slotchange` event.
+`<cds-carousel>` that registers its `slotchange` event handler, and lastly
+`<cds-carousel>`,which again updates the template upon the `slotchange` event.
 In such cases we need to wait for microtasks to be done multiple times.
 
 #### Changing a public property
@@ -712,7 +712,7 @@ can be found
 
 Changing a private property in a test allows us to quickly set up the test
 environment for a particular case in an isolated manner. For example,
-`<dds-carousel>` has a
+`<cds-carousel>` has a
 [private property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/carousel.ts#L46)
 that reflects the space between cards. This property is updated by the
 `slotchange` event handler as well as by a `ResizeObserver` callback. Directly
@@ -866,13 +866,13 @@ within the component while it's open. There is a spec
 elements where keyboard focus is kept within, but nothing has been implemented
 yet.
 
-To achieve a similar behavior, `<dds-expressive-modal>` defines its own "focus
+To achieve a similar behavior, `<cds-expressive-modal>` defines its own "focus
 wrap" behavior. The code
 [detects](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L146-L155)
-if the keyboard focus leaves `<dds-expressive-modal>`, and returns focus within
+if the keyboard focus leaves `<cds-expressive-modal>`, and returns focus within
 the component if so.
 
-Making sure focus wrapping works even when `<dds-expressive-modal>` is the last
+Making sure focus wrapping works even when `<cds-expressive-modal>` is the last
 element in `<body>` requires extra mechanism. In such cases the entire viewport
 loses focus and the `blur` event cannot detect the newly focused element. To
 prevent this, we use
@@ -881,15 +881,15 @@ that is a non-visible, focusable
 [element](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L306)
 that gets focused before the viewport loses focus.
 
-`<dds-left-nav>` uses a
+`<cds-left-nav>` uses a
 [utility function](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/utilities/src/utilities/focuswrap/focuswrap.js)
 for the same purpose, which supports two regions for focus wrapping. When the
-focus leaves `<dds-masthead-menu-button>` (the trigger button for
-`<dds-left-nav>`), focus should return to `<dds-left-nav>`. When the focus
-leaves `<dds-left-nav>`, focus should then go to `<dds-masthead-menu-button>`.
+focus leaves `<cds-masthead-menu-button>` (the trigger button for
+`<cds-left-nav>`), focus should return to `<cds-left-nav>`. When the focus
+leaves `<cds-left-nav>`, focus should then go to `<cds-masthead-menu-button>`.
 The utility function fires
-[`dds-request-focus-wrap`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/utilities/src/utilities/focuswrap/focuswrap.js#L23)
-in such conditions, and `<dds-left-nav>` handles the [`dds-request-focus-wrap`]
+[`cds-request-focus-wrap`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/utilities/src/utilities/focuswrap/focuswrap.js#L23)
+in such conditions, and `<cds-left-nav>` handles the [`cds-request-focus-wrap`]
 event(https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/left-nav.ts#L61-L93)
-to decide whether `<dds-masthead-menu-button>` or `<dds-left-nav>` should get
+to decide whether `<cds-masthead-menu-button>` or `<cds-left-nav>` should get
 focus.

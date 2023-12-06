@@ -7,42 +7,46 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/css--helpers';
-@import 'carbon-components/scss/globals/grid/grid';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/grid';
 
-@import '@carbon/type/scss/font-face/mono';
-@import '@carbon/type/scss/font-face/sans';
-@import '@carbon/type/scss/font-face/serif';
-@import '@carbon/type/scss/reset';
-@include carbon--font-face-mono();
-@include carbon--font-face-sans();
-@include carbon--font-face-serif();
-@include carbon--type-reset();
+@use '@carbon/ibmdotcom-styles/scss/globals/tokens/color-tokens' as color-tokens;
+@use '@carbon/styles/scss/components/button/tokens' as button-tokens;
+@use '@carbon/styles/scss/components/tag/tokens' as tag-tokens;
+
+@include add-component-tokens(color-tokens.$color-tokens);
+@include add-component-tokens(button-tokens.$button-tokens);
+@include add-component-tokens(tag-tokens.$tag-tokens);
+
+// Emit the flex-grid styles
+@include grid.flex-grid();
 
 :root {
-  @include carbon--theme($carbon--theme--white, true);
+  @include theme($white, true);
 
   height: 100%;
 }
 
 :root[storybook-carbon-theme='g10'] {
-  @include carbon--theme($carbon--theme--g10, true);
+  @include theme($g10, true);
 }
 
 :root[storybook-carbon-theme='g90'] {
-  @include carbon--theme($carbon--theme--g90, true);
+  @include theme($g90, true);
 }
 
 :root[storybook-carbon-theme='g100'] {
-  @include carbon--theme($carbon--theme--g100, true);
+  @include theme($g100, true);
 }
 
 body {
   // `@include css-body` has `font-family: inherit` via `@include type-style('body-short-01')`,
   // which kills `font-family` from `@include carbon--type-reset`
-  color: $text-01;
-  background-color: $ui-background;
+  color: $text-primary;
+  background-color: $background;
   line-height: 1;
 }
 
@@ -66,7 +70,7 @@ html {
   }
 }
 
-.dds-story-padding {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.c4d-story-padding {
+  padding-top: $spacing-05;
+  padding-bottom: $spacing-05;
 }

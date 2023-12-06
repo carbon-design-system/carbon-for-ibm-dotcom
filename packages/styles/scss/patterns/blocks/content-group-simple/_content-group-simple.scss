@@ -12,7 +12,3 @@
     }
   }
 }
-
-@include exports('content-group-simple') {
-  @include content-group-simple;
-}

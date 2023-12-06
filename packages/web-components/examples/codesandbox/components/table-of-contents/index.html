@@ -13,11 +13,10 @@ LICENSE file in the root directory of this source tree.
   <meta charset="UTF-8"/>
   <link rel="stylesheet"
         href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"/>
-  <link rel="stylesheet"
-        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css"/>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-table-of-contents:not(:defined) {
+    cds-table-of-contents:not(:defined) {
       display: none;
     }
 
@@ -31,8 +30,8 @@ LICENSE file in the root directory of this source tree.
       padding: 2rem 0;
     }
 
-    dds-carousel {
-      --dds--carousel--overflow-hint-size: 0;
+    cds-carousel {
+      --cds--carousel--overflow-hint-size: 0;
       padding: 2rem 0;
     }
   </style>
@@ -44,11 +43,11 @@ LICENSE file in the root directory of this source tree.
   <script src="src/index.js"></script>
 </head>
 <body>
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-sm-8 bx--col-lg-16">
-      <dds-table-of-contents>
-        <div class="bx--tableofcontents__contents">
+<div class="cds--grid">
+  <div class="cds--row">
+    <div class="cds--col-sm-8 cds--col-lg-16">
+      <cds-table-of-contents>
+        <div class="cds--tableofcontents__contents">
           <a name="1" data-title="Section - 1"></a>
           <h3>Section - 1</h3>
           <p>
@@ -70,12 +69,12 @@ LICENSE file in the root directory of this source tree.
             auctor augue.
           </p>
 
-          <dds-carousel>
-            <dds-card href="https://example.com">
-              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+          <cds-carousel>
+            <cds-card href="https://example.com">
+              <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
               ultricies est.
-              <dds-card-footer>
+              <cds-card-footer>
                 <svg
                   slot="icon"
                   focusable="false"
@@ -89,14 +88,14 @@ LICENSE file in the root directory of this source tree.
                   <path
                     d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
                 </svg>
-              </dds-card-footer>
-            </dds-card>
-            <dds-card href="https://example.com">
-              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              </cds-card-footer>
+            </cds-card>
+            <cds-card href="https://example.com">
+              <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
               ultricies est. Mauris iaculis eget dolor nec hendrerit.
               Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-              <dds-card-footer>
+              <cds-card-footer>
                 <svg
                   slot="icon"
                   focusable="false"
@@ -110,13 +109,13 @@ LICENSE file in the root directory of this source tree.
                   <path
                     d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
                 </svg>
-              </dds-card-footer>
-            </dds-card>
-            <dds-card href="https://example.com">
-              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              </cds-card-footer>
+            </cds-card>
+            <cds-card href="https://example.com">
+              <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
               ultricies est.
-              <dds-card-footer>
+              <cds-card-footer>
                 <svg
                   slot="icon"
                   focusable="false"
@@ -130,14 +129,14 @@ LICENSE file in the root directory of this source tree.
                   <path
                     d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
                 </svg>
-              </dds-card-footer>
-            </dds-card>
-            <dds-card href="https://example.com">
-              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              </cds-card-footer>
+            </cds-card>
+            <cds-card href="https://example.com">
+              <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
               ultricies est. Mauris iaculis eget dolor nec hendrerit.
               Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-              <dds-card-footer>
+              <cds-card-footer>
                 <svg
                   slot="icon"
                   focusable="false"
@@ -151,13 +150,13 @@ LICENSE file in the root directory of this source tree.
                   <path
                     d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
                 </svg>
-              </dds-card-footer>
-            </dds-card>
-            <dds-card href="https://example.com">
-              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              </cds-card-footer>
+            </cds-card>
+            <cds-card href="https://example.com">
+              <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
               ultricies est.
-              <dds-card-footer>
+              <cds-card-footer>
                 <svg
                   slot="icon"
                   focusable="false"
@@ -171,9 +170,9 @@ LICENSE file in the root directory of this source tree.
                   <path
                     d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
                 </svg>
-              </dds-card-footer>
-            </dds-card>
-          </dds-carousel>
+              </cds-card-footer>
+            </cds-card>
+          </cds-carousel>
 
           <a name="2" data-title="Section - 2"></a>
           <h3>Section - 2</h3>
@@ -196,9 +195,9 @@ LICENSE file in the root directory of this source tree.
             auctor augue.
           </p>
 
-          <dds-video-cta-container>
-            <dds-text-cta cta-type="video" href="1_9h94wo6b"></dds-text-cta>
-          </dds-video-cta-container>
+          <cds-video-cta-container>
+            <cds-text-cta cta-type="video" href="1_9h94wo6b"></cds-text-cta>
+          </cds-video-cta-container>
 
           <a name="3" data-title="Section - 3"></a>
           <h3>Section - 3</h3>
@@ -245,9 +244,9 @@ LICENSE file in the root directory of this source tree.
                 </li>
                 <li>Mauris elementum massa</li>
               </ul>
-              <dds-text-cta cta-type="local" href="#!" icon-placement="right">
+              <cds-text-cta cta-type="local" href="#!" icon-placement="right">
                 Call To Action
-              </dds-text-cta>
+              </cds-text-cta>
             </caem-accordion-item>
             <caem-accordion-item title-text="Accordion 2">
               <p>
@@ -280,7 +279,7 @@ LICENSE file in the root directory of this source tree.
             auctor augue.
           </p>
 
-          <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
+          <cds-video-player-container video-id="1_9h94wo6b"></cds-video-player-container>
 
           <a name="5" data-title="Section - 5"></a>
           <h3>Section - 5</h3>
@@ -345,7 +344,7 @@ LICENSE file in the root directory of this source tree.
             auctor augue.
           </p>
         </div>
-      </dds-table-of-contents>
+      </cds-table-of-contents>
     </div>
   </div>
 </div>

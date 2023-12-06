@@ -5,262 +5,182 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../card';
+@use '../link-with-icon';
+
 @mixin link-list {
-  .#{$prefix}--link-list {
-    padding-bottom: $carbon--layout-05;
+  :host(#{$c4d-prefix}-link-list) {
+    padding-bottom: 0;
 
-    &:first-of-type {
-      padding-top: $carbon--layout-05;
+    ul {
+      padding: 0;
+      margin: 0;
     }
-  }
 
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
-  .#{$prefix}--link-list {
-    .#{$prefix}--card {
-      max-width: none;
+    .#{$c4d-prefix}--link-list__list--vertical,
+    .#{$c4d-prefix}-ce--link-list__list--end {
+      display: grid;
+      grid-auto-rows: 1fr;
 
-      &:not(:hover) {
-        background: $ui-background;
+      ::slotted(#{$c4d-prefix}-link-list-item),
+      ::slotted(#{$c4d-prefix}-link-list-item-cta) {
+        outline: none;
       }
     }
 
-    .#{$prefix}--card__footer {
-      margin-top: 0;
+    .#{$c4d-prefix}--link-list__list--vertical
+      ::slotted(#{$c4d-prefix}-link-list-item) {
+      display: flex;
+    }
 
-      svg {
-        margin-right: 0;
+    .#{$c4d-prefix}-ce--link-list__heading__wrapper {
+      display: contents;
+    }
 
-        @include carbon--breakpoint-down('md') {
-          align-self: start;
-          margin-top: 1px; /* keeps icon centered when text is a single line */
+    @include breakpoint(md) {
+      .#{$c4d-prefix}-ce--link-list__heading--split
+        ::slotted(#{$c4d-prefix}-link-list-heading) {
+        width: 33.3%;
+        padding-right: 10%;
+      }
+    }
+
+    .#{$c4d-prefix}-ce--link-list__list--split,
+    .#{$c4d-prefix}-ce--link-list__list--three-columns {
+      ::slotted(#{$c4d-prefix}-link-list-item) {
+        display: grid;
+        align-items: stretch;
+        // margin-right: -$spacing-05;
+      }
+
+      @include breakpoint(md) {
+        display: grid;
+        grid-column-gap: $spacing-07;
+
+        ::slotted(#{$c4d-prefix}-link-list-item) {
+          margin-left: -$spacing-05;
+          margin-right: 0;
         }
       }
     }
 
-    .#{$prefix}--card__wrapper {
-      padding-left: $carbon--spacing-07;
-      padding-right: $carbon--spacing-07;
-
-      .#{$prefix}--card__copy {
-        margin-bottom: 0;
-
-        @include carbon--breakpoint('lg') {
-          margin-bottom: $carbon--spacing-07;
-        }
-      }
-
-      .#{$prefix}--card__copy p,
-      .#{$prefix}--card__heading,
-      .#{$prefix}--card__copy ::slotted(p) {
-        color: $link-01;
-        @include carbon--type-style('body-short-02');
-      }
-
-      @include carbon--breakpoint('md') {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      &::before,
-      &::after {
-        display: none;
+    .#{$c4d-prefix}-ce--link-list__list--split {
+      @include breakpoint(md) {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    .#{$prefix}--card__content {
-      flex-direction: row;
-      justify-content: space-between;
-
-      @include carbon--breakpoint('lg') {
-        flex-direction: column;
-      }
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  :host(#{$dds-prefix}-link-list-item-card-cta) {
-    ::slotted(#{$dds-prefix}-card-cta-footer) {
-      @include carbon--breakpoint-down('lg') {
-        margin-top: 0;
+    .#{$c4d-prefix}-ce--link-list__list--three-columns {
+      @include breakpoint(md) {
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }
 
-  :host(#{$dds-prefix}-link-list-item-card-cta)[cta-type='video'],
-  .#{$prefix}--card__video {
-    [slot='heading'],
-    .#{$prefix}--card__heading {
-      margin-bottom: 0;
+  :host(#{$c4d-prefix}-link-list-item) {
+    .#{$prefix}--link {
+      align-content: flex-start;
 
-      @include carbon--type-style('body-short-02');
-
-      @include carbon--breakpoint('lg') {
-        margin-bottom: $carbon--spacing-05;
+      span,
+      ::slotted(svg[slot='icon']) {
+        align-self: flex-start;
       }
     }
   }
-  :host(#{$dds-prefix}-link-list-item-card-cta)[cta-type='video'] {
-    [slot='heading'],
-    .#{$prefix}--card__heading {
-      color: $link-01;
+
+  :host(#{$c4d-prefix}-link-list-heading) {
+    margin-bottom: $spacing-05;
+    color: $text-primary;
+    display: block;
+
+    .#{$prefix}--link {
+      cursor: pointer;
+    }
+
+    @include type-style('heading-02');
+
+    @include breakpoint(md) {
+      margin-left: -$spacing-05;
+    }
+
+    @include breakpoint(lg) {
+      margin-left: 0;
     }
   }
 
-  .#{$prefix}--link-list__heading,
-  :host(#{$dds-prefix}-link-list-heading) {
-    margin-bottom: $carbon--spacing-05;
-
-    @include carbon--type-style('expressive-heading-02');
-
-    color: $text-01;
+  :host(#{$c4d-prefix}-link-list-item)[type='default'],
+  :host(#{$c4d-prefix}-link-list-item-cta)[type='default'],
+  :host(#{$c4d-prefix}-link-list-item)[type='end'] {
+    .#{$prefix}--link {
+      display: flex;
+      width: 100%;
+      padding: $spacing-05 0;
+    }
   }
 
-  .#{$prefix}--link-list__list.#{$prefix}--link-list__list--card {
-    margin-left: -$carbon--spacing-05;
-    margin-right: -$carbon--spacing-05;
+  .#{$c4d-prefix}--link-list__list {
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta) {
+      display: flex;
+      border-top: 1px solid $border-subtle-01;
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid $border-subtle-01;
+    }
   }
 
-  .#{$prefix}--link-list__list--horizontal {
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-card),
-    ::slotted(#{$dds-prefix}-link-list-item-cta),
-    ::slotted(#{$dds-prefix}-link-list-item-card-cta),
-    .#{$prefix}--link-list__list__CTA {
+  .#{$c4d-prefix}-ce--link-list__list--end {
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta) {
+      border-top: 1px solid $border-subtle-01;
+      border-bottom: 1px solid $border-subtle-01;
+      margin-top: -1px;
+
+      @include breakpoint(lg) {
+        margin-left: -$spacing-05;
+        margin-right: -$spacing-05;
+      }
+    }
+  }
+
+  .#{$c4d-prefix}--link-list__list--horizontal {
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta) {
       float: left;
-      padding-right: $carbon--spacing-07;
-      padding-bottom: $carbon--spacing-05;
+      padding-right: $spacing-07;
+      padding-bottom: $spacing-05;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding-bottom: 0;
       }
     }
   }
 
-  .#{$prefix}--link-list__list--vertical {
-    .#{$prefix}--link-list__list__CTA {
-      margin-bottom: $carbon--spacing-05;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-
+  .#{$c4d-prefix}--link-list__list--vertical {
     ::slotted(*) {
-      margin-bottom: $carbon--spacing-05;
-    }
-
-    ::slotted(*:last-of-type) {
-      margin-bottom: 0;
+      margin-bottom: $spacing-05;
     }
   }
 
-  .#{$prefix}--content-item-horizontal__item--cta {
-    .#{$prefix}--link-list li {
-      &:last-of-type {
-        @include carbon--breakpoint('lg') {
-          margin-bottom: 0;
-        }
-      }
-    }
+  :host(#{$c4d-prefix}-link-list-item)
+    .#{$prefix}--link-with-icon__icon-left
+    ::slotted(svg[slot='icon']),
+  :host(#{$c4d-prefix}-link-list-item-cta)
+    .#{$prefix}--link-with-icon__icon-left
+    ::slotted(svg[slot='icon']) {
+    min-width: 20px;
+    min-height: 20px;
   }
 
-  .#{$prefix}--link-list__list--vertical-end {
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-cta),
-    .#{$prefix}--link-list__list__CTA .#{$prefix}--link-with-icon__container {
-      @include carbon--make-col-ready;
-
-      width: 100%;
-    }
-
-    .#{$prefix}--link-list__list__CTA .#{$prefix}--link-with-icon__container {
-      a {
-        padding: $carbon--spacing-05 0;
-        justify-content: space-between;
-
-        &:hover {
-          text-decoration: none;
-        }
-
-        &:focus {
-          outline: none;
-        }
-      }
-
-      svg {
-        align-self: start;
-        margin-left: $carbon--spacing-07;
-        margin-top: 1px; /* keeps icon centered when text is a single line */
-      }
-    }
+  :host(#{$c4d-prefix}-link-list):last-of-type {
+    padding-bottom: $spacing-10;
   }
-
-  .#{$prefix}--link-list__list--vertical-end .#{$prefix}--link-list__list__CTA {
-    border-bottom: 1px solid $ui-03;
-    max-width: 640px;
-    @include hang;
-
-    &:hover {
-      background: $hover-ui;
-    }
-
-    &:focus-within {
-      outline: 2px solid $focus;
-    }
-
-    &:first-of-type {
-      border-top: 1px solid $ui-03;
-    }
-  }
-
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
-  .#{$prefix}--link-list__list__CTA {
-    &.#{$prefix}--link-list__list--video .#{$prefix}--card__footer span {
-      color: $link-01;
-      display: none;
-
-      @include carbon--breakpoint('lg') {
-        display: inline;
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
-  .#{$prefix}--link-list__list--card .#{$prefix}--link-list__list__CTA {
-    max-width: carbon--mini-units(80);
-    border-top: 1px solid $ui-03;
-
-    &:last-of-type {
-      border-bottom: 1px solid $ui-03;
-    }
-  }
-
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
-  .#{$prefix}--link-list__list--card .#{$prefix}--link-list__list__CTA div {
-    .#{$prefix}--tile {
-      margin-left: 0;
-      margin-right: 0;
-      min-height: 0;
-
-      .#{$prefix}--card__wrapper {
-        min-height: 0;
-        padding: 0;
-
-        @include carbon--breakpoint('lg') {
-          min-height: 116px;
-        }
-      }
-    }
-  }
-}
-
-@include exports('link-list') {
-  @include link-list;
 }

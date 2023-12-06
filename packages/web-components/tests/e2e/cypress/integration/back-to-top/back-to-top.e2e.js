@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-back-to-top', () => {
+describe('cds-back-to-top', () => {
   it('should load the default back-to-top example', () => {
     cy.visit('/back-to-top');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-back-to-top | default');
+    cy.percySnapshot('cds-back-to-top | default');
   });
 });

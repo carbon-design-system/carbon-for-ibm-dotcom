@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-button-group (cdn)', () => {
+describe('cds-button-group (cdn)', () => {
   it('should load the default button group example', () => {
     cy.visit('/button-group/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-button-group | cdn | default');
+    cy.percySnapshot('cds-button-group | cdn | default');
   });
 });

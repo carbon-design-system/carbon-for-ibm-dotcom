@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-tag-group (cdn)', () => {
-  it('should load the default dds-tag-group example', () => {
+describe('cds-tag-group (cdn)', () => {
+  it('should load the default cds-tag-group example', () => {
     cy.visit('/tag-group/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-tag-group | cdn | default');
+    cy.percySnapshot('cds-tag-group | cdn | default');
   });
 });

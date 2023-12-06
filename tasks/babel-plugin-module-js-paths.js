@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,8 +10,6 @@
 const replaceTable = {
   '@carbon/icons/es': '@carbon/icons/lib',
   '@carbon/icons-react/es': '@carbon/icons-react/lib',
-  'carbon-components/es': 'carbon-components/umd',
-  'carbon-components-react/es': 'carbon-components-react/lib',
   '@carbon/ibmdotcom-services/es': '@carbon/ibmdotcom-services/lib',
   '@carbon/ibmdotcom-utilities/es': '@carbon/ibmdotcom-utilities/lib',
 };

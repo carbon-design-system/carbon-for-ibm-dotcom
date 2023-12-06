@@ -5,93 +5,93 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/content-width';
-@import '../../globals/utils/hang';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/content-width' as *;
+@use '../../globals/utils/hang' as *;
 
 @mixin themed-items {
-  :host(#{$dds-prefix}-content-group-heading),
+  :host(#{$c4d-prefix}-content-group-heading),
   .#{$prefix}--content-group__title {
-    color: $text-01;
+    color: $text-primary;
   }
 }
 @mixin content-group {
-  :host(#{$dds-prefix}-content-group) ::slotted(:not([slot])) {
+  :host(#{$c4d-prefix}-content-group) ::slotted(:not([slot])) {
     margin-left: $spacing-05;
     margin-right: $spacing-05;
   }
 
-  :host(#{$dds-prefix}-content-group),
-  :host(#{$dds-prefix}-content-group-simple),
-  :host(#{$dds-prefix}-content-group-cards),
-  :host(#{$dds-prefix}-content-group-pictograms),
+  :host(#{$c4d-prefix}-content-group),
+  :host(#{$c4d-prefix}-content-group-simple),
+  :host(#{$c4d-prefix}-content-group-cards),
+  :host(#{$c4d-prefix}-content-group-pictograms),
   .#{$prefix}--content-group {
     display: block;
     margin-top: $spacing-07;
     margin-bottom: $spacing-07;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       margin-bottom: $spacing-09;
     }
 
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         @include hang;
       }
     }
   }
 
-  :host(#{$dds-prefix}-content-group-heading),
+  :host(#{$c4d-prefix}-content-group-heading),
   .#{$prefix}--content-group__title {
-    @include carbon--type-style('expressive-heading-04', true);
+    @include type-style('fluid-heading-04', true);
 
     display: block;
-    margin-bottom: $carbon--spacing-07;
+    margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-group-heading),
-  :host(#{$dds-prefix}-content-group-copy),
+  :host(#{$c4d-prefix}-content-group-heading),
+  :host(#{$c4d-prefix}-content-group-copy),
   .#{$prefix}--content-group__title,
   .#{$prefix}--content-group__copy {
     @include content-width;
   }
 
-  :host(#{$dds-prefix}-content-group-copy),
+  :host(#{$c4d-prefix}-content-group-copy),
   .#{$prefix}--content-group__copy {
     margin-bottom: $layout-03;
   }
 
-  :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']),
+  :host(#{$c4d-prefix}-content-group) ::slotted([slot='footer']),
   .#{$prefix}--content-group__cta {
-    margin-top: $carbon--layout-04;
+    margin-top: $spacing-09;
 
-    @include carbon--breakpoint('md') {
-      @include carbon--make-col-ready;
-      @include carbon--make-col(4, 8);
+    @include breakpoint(md) {
+      @include make-col-ready;
+      @include make-col(4, 8);
     }
   }
 
-  :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']) {
-    @include carbon--breakpoint('md') {
-      margin-left: -1rem;
+  :host(#{$c4d-prefix}-content-group) ::slotted([slot='footer']) {
+    @include breakpoint(md) {
+      margin-left: -$spacing-05;
     }
   }
 
   .#{$prefix}--content-group__cta-row {
-    @include carbon--make-row;
+    @include make-row;
 
     // allows for margin collapsing
     display: block;
 
     // FIXME: CardLink is being used as Card in React, need to separate this
     .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-02', true);
+      @include type-style('heading-02', true);
     }
   }
-}
-
-@include exports('content-group') {
-  @include content-group;
 }

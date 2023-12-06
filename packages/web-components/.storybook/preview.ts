@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-html'; // eslint-disable-line import/first
-import { classMap } from 'lit-html/directives/class-map';
+import { html } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 
@@ -58,15 +58,15 @@ export const decorators = [
     const result = story();
     const { hasStoryPadding } = parameters;
     const classes = classMap({
-      'dds-story-padding': hasStoryPadding,
+      'c4d-story-padding': hasStoryPadding,
     });
 
     return html`
       <style>
         ${containerStyles}
       </style>
-      <bx-skip-to-content href="#main-content"
-        >Skip to main content</bx-skip-to-content
+      <cds-skip-to-content href="#main-content"
+        >Skip to main content</cds-skip-to-content
       >
       <div
         id="main-content"

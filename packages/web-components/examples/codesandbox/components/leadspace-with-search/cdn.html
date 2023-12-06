@@ -11,11 +11,10 @@ LICENSE file in the root directory of this source tree.
   <meta charset="UTF-8"/>
   <link rel="stylesheet"
         href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"/>
-  <link rel="stylesheet"
-        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css"/>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-leadspace-with-search:not(:defined) {
+    cds-leadspace-with-search:not(:defined) {
       display: none;
     }
   </style>
@@ -23,25 +22,22 @@ LICENSE file in the root directory of this source tree.
           src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/leadspace-with-search.min.js"></script>
 </head>
 <body>
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-sm-4 bx--col-lg-12">
+<div class="cds--grid">
+  <div class="cds--row">
+    <div class="cds--col-sm-4 cds--col-lg-12">
       <h1>Hello World! 👋</h1>
 
-      <dds-leadspace-with-search>
-        <dds-leadspace-with-search-heading>Find a product</dds-leadspace-with-search-heading>
-        <dds-leadspace-with-search-content>
-          <dds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-with-search-content-heading>
-          <dds-leadspace-with-search-content-copy
-            >Automate your software release process with continuous
-            delivery (CD)—the most critical part of adopting DevOps.
-            Build, test, and deploy code changes quickly, ensuring
-            software is always ready for deployment.
-          </dds-leadspace-with-search-content-copy>
-        </dds-leadspace-with-search-content>
-        <dds-search-with-typeahead slot='search' leadspace-search><dds-search-with-typeahead/>
-        <dds-hr slot='hr'></dds-hr>
-      </dds-leadspace-with-search>
+      <c4d-leadspace-with-search>
+        <c4d-leadspace-heading>Find a product</cds-leadspace-heading>
+        <c4d-leadspace-with-search-copy
+        >Automate your software release process with continuous
+        delivery (CD)—the most critical part of adopting DevOps.
+        Build, test, and deploy code changes quickly, ensuring
+        software is always ready for deployment.
+      </cds-leadspace-with-search-copy>
+        <c4d-search-with-typeahead slot='search' leadspace-search><c4d-search-with-typeahead/>
+        <c4d-hr slot='hr'></cds-hr>
+      </cds-leadspace-with-search>
     </div>
   </div>
 </div>

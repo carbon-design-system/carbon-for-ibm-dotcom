@@ -13,22 +13,35 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+
+import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
+import { CTA_TYPE } from '../../cta/defs';
+import {
+  hrefsForType,
+  knobNamesForType,
+  typeOptions,
+  types,
+} from '../../cta/__stories__/ctaTypeConfig';
+
 export const Default = (args) => {
   const {
+    aspectRatio,
+    ctaType,
+    disabled,
+    noPoster,
     image,
     href,
     alt,
@@ -37,68 +50,118 @@ export const Default = (args) => {
     eyebrow,
     tagGroup,
     copy,
-    footer,
     cardStyles,
+    customVideoTitle,
   } = args?.Card ?? {};
+  /* eslint-disable no-nested-ternary */
+
+  let videoCopy;
+  let videoFooterCopy;
+
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('c4d-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    if (!customVideoTitle) {
+      videoCopy = card?.videoTitle;
+    } else {
+      videoCopy = customVideoTitle;
+    }
+
+    videoFooterCopy = duration;
+  }
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
   return (
-    /* eslint-disable no-nested-ternary */
-    <DDSCard
-      colorScheme={
-        cardStyles === 'Inverse card'
-          ? 'inverse'
-          : cardStyles === 'Outlined card'
-          ? 'light'
-          : ''
-      }
-      href={href || undefined}
-      border={cardStyles === 'Outlined card'}>
-      {image ? (
-        <DDSImage
-          slot="image"
-          alt={alt || undefined}
-          defaultSrc={defaultSrc || undefined}
-        />
-      ) : (
-        ''
-      )}
-      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-      <DDSCardHeading>{heading}</DDSCardHeading>
-      {copy ? <p>{copy}</p> : ''}
-      {tagGroup ? (
-        <DDSTagGroup>
+    <C4DVideoCTAContainer>
+      <C4DCard
+        disabled={disabled || undefined}
+        aspect-ratio={aspectRatio}
+        no-poster={noPoster || undefined}
+        cta-type={ctaType}
+        color-scheme={cardStyles === 'Inverse card' ? 'inverse' : ''}
+        href={href || undefined}>
+        {image
+          ?
+            <C4DImage
+                slot="image"
+                alt={alt || undefined}
+                default-src={defaultSrc || undefined}></C4DImage>
+          : ``}
+        <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+        <C4DCardHeading>{videoCopy ?? heading}</C4DCardHeading>
+        {copy ? <p></p> : ``}
+        {tagGroup ? (
+        <div>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </div>
       ) : (
         ''
       )}
-      <DDSCardFooter>
-        {footer}
-        <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+        {ctaType === CTA_TYPE.VIDEO
+          ? <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
+          : <C4DCardFooter></C4DCardFooter>}
+      </C4DCard>
+    </C4DVideoCTAContainer>
   );
 };
 
 Default.story = {
   parameters: {
+    ...readme.parameters,
     knobs: {
-      Card: () => ({
-        image: boolean('Add image:', false),
-        eyebrow: textNullable('Eyebrow:', 'Industry'),
-        heading: textNullable('Heading:', 'Aerospace and defence'),
-        copy: textNullable('Body copy:', ''),
-        alt: 'Image alt text',
-        defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags:', false),
-        href: 'https://example.com',
-        footer: textNullable('CTA:', 'Learn more'),
-        cardStyles: select(
-          'Card style:',
-          ['Outlined card', 'Inverse card', 'none'],
-          'none'
-        ),
-      }),
+      Card: () => {
+        const aspectRatio = select(
+          'Aspect ratio (aspect-ratio)',
+          ['1:1', '2:1', '3:2', '4:3', '16:9', '1:1'],
+          '2:1'
+        );
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Heading:', 'Aerospace and defence');
+
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
+
+        const image =
+          ctaType === CTA_TYPE.VIDEO ? null : boolean('Add image:', false);
+        const noPoster =
+          ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
+
+        return {
+          disabled: boolean('Disabled:', false),
+          aspectRatio,
+          customVideoTitle,
+          ctaType,
+          image,
+          noPoster,
+          eyebrow: textNullable('Eyebrow:', 'Industry'),
+          heading,
+          copy: textNullable('Body copy:', ''),
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          tagGroup: boolean('Add tags:', false),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+          cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
+        };
+      },
     },
   },
 };
@@ -112,29 +175,22 @@ export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
     args?.PictogramCard ?? {};
   return (
-    <DDSCard
+    <C4DCard
       pictogramPlacement={pictogramPlacement}
       href={href || undefined}
-      colorScheme={
-        cardStyles === 'Inverse card'
-          ? 'inverse'
-          : cardStyles === 'Outlined card'
-          ? 'light'
-          : ''
-      }
-      border={cardStyles === 'Outlined card'}>
-      <DDSCardHeading>{heading}</DDSCardHeading>
+      colorScheme={cardStyles === 'Inverse card' ? 'inverse' : ''}>
+      <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
-        <DDSTagGroup>
+        <div>
           <Tag>Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </div>
       ) : (
         ''
       )}
       <Desktop slot="pictogram" width="48" height="48" />
-    </DDSCard>
+    </C4DCard>
   );
 };
 
@@ -145,7 +201,7 @@ Pictogram.story = {
         const pictogramPlacement = select(
           'Pictogram position:',
           pictogramPlacements,
-          pictogramPlacements.top
+          pictogramPlacements.bottom
         );
         const copy = textNullable(
           'Body copy:',
@@ -156,11 +212,7 @@ Pictogram.story = {
           heading: textNullable('Heading:', 'Aerospace and defence'),
           copy,
           href: 'https://example.com',
-          cardStyles: select(
-            'Card style:',
-            ['Outlined card', 'Inverse card', 'none'],
-            'none'
-          ),
+          cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
         };
       },
     },
@@ -168,48 +220,37 @@ Pictogram.story = {
 };
 
 export const Static = (args) => {
-  const {
-    image,
-    alt,
-    defaultSrc,
-    outlinedCard,
-    eyebrow,
-    heading,
-    copy,
-    tagGroup,
-    cta,
-  } = args?.StaticCard ?? {};
+  const { image, alt, defaultSrc, eyebrow, heading, copy, tagGroup, cta } =
+    args?.StaticCard ?? {};
   return (
-    <DDSCard colorScheme={outlinedCard ? 'light' : ''} border={outlinedCard}>
-      {image ? (
-        <DDSImage
-          slot="image"
-          alt={alt || undefined}
-          defaultSrc={defaultSrc || undefined}
-        />
-      ) : (
-        ''
-      )}
-      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-      <DDSCardHeading>{heading}</DDSCardHeading>
+    <C4DCard>
+      {image
+          ?
+            <C4DImage
+                slot="image"
+                alt={alt || undefined}
+                default-src={defaultSrc || undefined}></C4DImage>
+          : ``}
+      <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+      <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
-        <DDSTagGroup>
+        <div>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </div>
       ) : (
         ''
       )}
       {cta ? (
-        <DDSCardFooter href="https://www.example.com">
+        <C4DCardFooter href="https://www.example.com">
           Sign up for the trial
           <ArrowRight20 slot="icon" />
-        </DDSCardFooter>
+        </C4DCardFooter>
       ) : (
         ''
       )}
-    </DDSCard>
+    </C4DCard>
   );
 };
 
@@ -231,7 +272,6 @@ Static.story = {
         const ctaCopy = cta
           ? textNullable('CTA copy:', 'Sign up for the trial')
           : '';
-        const outlinedCard = boolean('Outlined card:', true);
         return {
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
@@ -242,7 +282,6 @@ Static.story = {
           tagGroup,
           cta,
           ctaCopy,
-          outlinedCard,
         };
       },
     },
@@ -253,25 +292,104 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
   return (
-    <DDSCard border logo href={href || undefined}>
-      <DDSImageLogo
+    <C4DCard logo href={href || undefined}>
+      <C4DImageLogo
         slot="image"
         alt={alt}
-        default-src={defaultSrc}></DDSImageLogo>
-      {eyebrow ? <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow> : ''}
-      {heading ? <DDSCardHeading>{heading}</DDSCardHeading> : ''}
+        default-src={defaultSrc}></C4DImageLogo>
+      {eyebrow ? <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow> : ''}
+      {heading ? <C4DCardHeading>{heading}</C4DCardHeading> : ''}
       {copy ? <p>{copy}</p> : ``}
       {tagGroup ? (
-        <DDSTagGroup>
+        <div>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </div>
       ) : (
         ''
       )}
-      <DDSCardFooter></DDSCardFooter>
-    </DDSCard>
+      <C4DCardFooter></C4DCardFooter>
+    </C4DCard>
   );
+};
+
+export const Link = (args) => {
+  const { disabled, ctaType, href, heading, copy, customVideoTitle } =
+    args?.Card ?? {};
+
+  let videoCopy;
+
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('c4d-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    if (!customVideoTitle) {
+      videoCopy = card?.videoTitle;
+    } else {
+      videoCopy = customVideoTitle;
+    }
+    
+    card.querySelector('c4d-card-footer')!.innerHTML = duration ?? '';
+  }
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
+  return (
+    <C4DVideoCTAContainer>
+      <C4DCard
+        disabled={disabled || undefined}
+        link
+        no-poster={ctaType === CTA_TYPE.VIDEO}
+        cta-type={ctaType}
+        href={href || undefined}>
+        <C4DCardHeading>{videoCopy ?? heading}</C4DCardHeading>
+        {copy ? <p></p> : ``}
+        <C4DCardFooter></C4DCardFooter>
+      </C4DCard>
+    </C4DVideoCTAContainer>
+  );
+};
+
+Link.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      Card: () => {
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Heading:', 'Aerospace and defence');
+
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
+
+        return {
+          disabled: boolean('Disabled: ', false),
+          customVideoTitle,
+          ctaType,
+          heading,
+          copy: textNullable('Body copy:', ''),
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+        };
+      },
+    },
+  },
 };
 
 Logo.story = {
@@ -298,9 +416,9 @@ export default {
   title: 'Components/Card',
   decorators: [
     (story) => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--col-sm-4 cds--col-md-3 cds--col-lg-6 cds--col-xlg-4 cds--no-gutter">
             {story()}
           </div>
         </div>

@@ -19,7 +19,7 @@ import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-ser
 import { setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 
 /**
- * The Redux state used for `<dds-leaving-ibm-container>`.
+ * The Redux state used for `<c4d-leaving-ibm-container>`.
  */
 export interface LeavingIbmContainerState {
   /**
@@ -34,7 +34,7 @@ export interface LeavingIbmContainerState {
 }
 
 /**
- * The properties for `<dds-leaving-ibm-container>` from Redux state.
+ * The properties for `<c4d-leaving-ibm-container>` from Redux state.
  */
 export interface LeavingIbmContainerStateProps {
   /**
@@ -49,7 +49,7 @@ export interface LeavingIbmContainerStateProps {
 }
 
 /**
- * The Redux actions used for `<dds-leaving-ibm-container>`.
+ * The Redux actions used for `<c4d-leaving-ibm-container>`.
  */
 export type LeavingIbmContainerActions =
   | ReturnType<typeof setLanguage>
@@ -57,7 +57,7 @@ export type LeavingIbmContainerActions =
 
 /**
  * @param state The Redux state for leaving ibm component.
- * @returns The converted version of the given state, tailored for `<dds-leaving-ibm-container>`.
+ * @returns The converted version of the given state, tailored for `<c4d-leaving-ibm-container>`.
  */
 export function mapStateToProps(
   state: LeavingIbmContainerState
@@ -75,7 +75,7 @@ export function mapStateToProps(
 
 /**
  * @param dispatch The Redux `dispatch()` API.
- * @returns The methods in `<dds-masthead-container>` to dispatch Redux actions.
+ * @returns The methods in `<c4d-masthead-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(dispatch: Dispatch<TranslateAPIActions>) {
   return bindActionCreators<

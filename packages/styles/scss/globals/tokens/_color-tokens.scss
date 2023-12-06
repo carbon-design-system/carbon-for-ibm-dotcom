@@ -1,0 +1,167 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/colors' as *;
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/component-tokens';
+
+$background-cyan: (
+  fallback: $cyan-10,
+  values: (
+    (
+      theme: themes.$white,
+      value: $cyan-10,
+    ),
+    (
+      theme: themes.$g10,
+      value: $cyan-10,
+    ),
+    (
+      theme: themes.$g90,
+      value: $cyan-90,
+    ),
+    (
+      theme: themes.$g100,
+      value: $cyan-90,
+    ),
+  ),
+);
+
+$text-cyan: (
+  fallback: $cyan-90,
+  values: (
+    (
+      theme: themes.$white,
+      value: $cyan-90,
+    ),
+    (
+      theme: themes.$g10,
+      value: $cyan-90,
+    ),
+    (
+      theme: themes.$g90,
+      value: $cyan-10,
+    ),
+    (
+      theme: themes.$g100,
+      value: $cyan-10,
+    ),
+  ),
+);
+
+$caption-cyan: (
+  fallback: $cyan-70,
+  values: (
+    (
+      theme: themes.$white,
+      value: $cyan-70,
+    ),
+    (
+      theme: themes.$g10,
+      value: $cyan-70,
+    ),
+    (
+      theme: themes.$g90,
+      value: $cyan-30,
+    ),
+    (
+      theme: themes.$g100,
+      value: $cyan-30,
+    ),
+  ),
+);
+
+$background-purple: (
+  fallback: $purple-10,
+  values: (
+    (
+      theme: themes.$white,
+      value: $purple-10,
+    ),
+    (
+      theme: themes.$g10,
+      value: $purple-10,
+    ),
+    (
+      theme: themes.$g90,
+      value: $purple-90,
+    ),
+    (
+      theme: themes.$g100,
+      value: $purple-90,
+    ),
+  ),
+);
+
+$text-purple: (
+  fallback: $purple-90,
+  values: (
+    (
+      theme: themes.$white,
+      value: $purple-90,
+    ),
+    (
+      theme: themes.$g10,
+      value: $purple-90,
+    ),
+    (
+      theme: themes.$g90,
+      value: $purple-10,
+    ),
+    (
+      theme: themes.$g100,
+      value: $purple-10,
+    ),
+  ),
+);
+
+$caption-purple: (
+  fallback: $purple-70,
+  values: (
+    (
+      theme: themes.$white,
+      value: $purple-70,
+    ),
+    (
+      theme: themes.$g10,
+      value: $purple-70,
+    ),
+    (
+      theme: themes.$g90,
+      value: $purple-30,
+    ),
+    (
+      theme: themes.$g100,
+      value: $purple-30,
+    ),
+  ),
+);
+
+$color-tokens: (
+  background-cyan: $background-cyan,
+  text-cyan: $text-cyan,
+  caption-cyan: $caption-cyan,
+  background-purple: $background-purple,
+  text-purple: $text-purple,
+  caption-purple: $caption-purple,
+);
+
+$background-cyan: component-tokens.get-var($background-cyan, 'background-cyan');
+
+$text-cyan: component-tokens.get-var($text-cyan, 'text-cyan');
+
+$caption-cyan: component-tokens.get-var($caption-cyan, 'caption-cyan');
+
+$background-purple: component-tokens.get-var(
+  $background-purple,
+  'background-purple'
+);
+
+$text-purple: component-tokens.get-var($text-purple, 'text-purple');
+
+$caption-purple: component-tokens.get-var($caption-purple, 'caption-purple');

@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-card-in-card (cdn)', () => {
+describe('cds-card-in-card (cdn)', () => {
   it('should load the default card-in-card example (cdn)', () => {
     cy.visit('/card-group/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-card-in-card | cdn | default');
+    cy.percySnapshot('cds-card-in-card | cdn | default');
   });
 });

@@ -12,17 +12,17 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSContentBlockCards from '@carbon/ibmdotcom-web-components/es/components-react/content-block-cards/content-block-cards';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DContentBlockCards from '@carbon/ibmdotcom-web-components/es/components-react/content-block-cards/content-block-cards';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 import { CTA_TYPE } from '../../cta/defs';
 import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
@@ -35,61 +35,76 @@ const ctaTypes = {
 };
 
 const cardGroupItem = (
-  <DDSCardGroupItem cta-type="local" href="https://example.com">
-    <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+  <C4DCardGroupItem cta-type="local" href="https://example.com">
+    <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <DDSCardCTAFooter></DDSCardCTAFooter>
-  </DDSCardGroupItem>
+    <C4DCardCTAFooter></C4DCardCTAFooter>
+  </C4DCardGroupItem>
 );
 
 const cardGroupItemWithImages = (
-  <DDSCardGroupItem cta-type="local" href="https://example.com">
-    <DDSImage slot="image" alt="Image alt text" default-src={imgLg4x3}></DDSImage>
-    <DDSCardEyebrow>Topic</DDSCardEyebrow>
-    <DDSCardHeading>Natural Language Processing</DDSCardHeading>
-    <DDSCardCTAFooter></DDSCardCTAFooter>
-  </DDSCardGroupItem>
+  <C4DCardGroupItem cta-type="local" href="https://example.com">
+    <C4DImage
+      slot="image"
+      alt="Image alt text"
+      default-src={imgLg4x3}></C4DImage>
+    <C4DCardEyebrow>Topic</C4DCardEyebrow>
+    <C4DCardHeading>Natural Language Processing</C4DCardHeading>
+    <C4DCardCTAFooter></C4DCardCTAFooter>
+  </C4DCardGroupItem>
 );
 
 const cardGroupItemWithVideos = (
-  <DDSCardGroupItem cta-type="video" href="1_9h94wo6b">
-    <DDSCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b"></DDSCardCTAFooter>
-  </DDSCardGroupItem>
+  <C4DCardGroupItem cta-type="video" href="0_ibuqxqbe">
+    <C4DCardCTAFooter
+      cta-type="video"
+      slot="footer"
+      href="0_ibuqxqbe"></C4DCardCTAFooter>
+  </C4DCardGroupItem>
 );
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return (
-    <DDSContentBlockCards>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSCardGroup>
-        {cardGroupItem} {cardGroupItem} {cardGroupItem} {cardGroupItem} {cardGroupItem}
-      </DDSCardGroup>
-      <DDSCardLinkCTA slot="footer" cta-type={ctaType || null} href={href || null}>
-        <DDSCardLinkHeading>{ctaCopy}</DDSCardLinkHeading>
-        <DDSCardCTAFooter></DDSCardCTAFooter>
-      </DDSCardLinkCTA>
-    </DDSContentBlockCards>
+    <C4DContentBlockCards>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DCardGroup>
+        {cardGroupItem} {cardGroupItem} {cardGroupItem} {cardGroupItem}{' '}
+        {cardGroupItem}
+      </C4DCardGroup>
+      <C4DCardLinkCTA
+        slot="footer"
+        cta-type={ctaType || null}
+        href={href || null}>
+        <C4DCardLinkHeading>{ctaCopy}</C4DCardLinkHeading>
+        <C4DCardCTAFooter></C4DCardCTAFooter>
+      </C4DCardLinkCTA>
+    </C4DContentBlockCards>
   );
 };
 
-export const withImages = args => {
+export const withImages = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return (
-    <DDSContentBlockCards>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSCardGroup>
-        {cardGroupItemWithImages} {cardGroupItemWithImages} {cardGroupItemWithImages} {cardGroupItemWithImages}
+    <C4DContentBlockCards>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DCardGroup>
+        {cardGroupItemWithImages} {cardGroupItemWithImages}{' '}
+        {cardGroupItemWithImages} {cardGroupItemWithImages}
         {cardGroupItemWithImages}
-      </DDSCardGroup>
-      <DDSCardLinkCTA slot="footer" cta-type={ctaType || null} href={href || null}>
-        <DDSCardLinkHeading>{ctaCopy}</DDSCardLinkHeading>
-        <DDSCardCTAFooter></DDSCardCTAFooter>
-      </DDSCardLinkCTA>
-    </DDSContentBlockCards>
+      </C4DCardGroup>
+      <C4DCardLinkCTA
+        slot="footer"
+        cta-type={ctaType || null}
+        href={href || null}>
+        <C4DCardLinkHeading>{ctaCopy}</C4DCardLinkHeading>
+        <C4DCardCTAFooter></C4DCardCTAFooter>
+      </C4DCardLinkCTA>
+    </C4DContentBlockCards>
   );
 };
 
@@ -97,20 +112,24 @@ withImages.story = {
   name: 'With images',
 };
 
-export const withVideos = args => {
+export const withVideos = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return (
-    <DDSContentBlockCards>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSCardGroup>
-        {cardGroupItemWithVideos} {cardGroupItemWithVideos} {cardGroupItemWithVideos} {cardGroupItemWithVideos}
+    <C4DContentBlockCards>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DCardGroup>
+        {cardGroupItemWithVideos} {cardGroupItemWithVideos}{' '}
+        {cardGroupItemWithVideos} {cardGroupItemWithVideos}
         {cardGroupItemWithVideos}
-      </DDSCardGroup>
-      <DDSCardLinkCTA slot="footer" cta-type={ctaType || null} href={href || null}>
-        <DDSCardLinkHeading>{ctaCopy}</DDSCardLinkHeading>
-        <DDSCardCTAFooter></DDSCardCTAFooter>
-      </DDSCardLinkCTA>
-    </DDSContentBlockCards>
+      </C4DCardGroup>
+      <C4DCardLinkCTA
+        slot="footer"
+        cta-type={ctaType || null}
+        href={href || null}>
+        <C4DCardLinkHeading>{ctaCopy}</C4DCardLinkHeading>
+        <C4DCardCTAFooter></C4DCardCTAFooter>
+      </C4DCardLinkCTA>
+    </C4DContentBlockCards>
   );
 };
 
@@ -126,12 +145,12 @@ withVideos.story = {
 export default {
   title: 'Components/Content block cards',
   decorators: [
-    story => {
+    (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-lg-12 bx--no-gutter">
-              <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-lg-12 cds--no-gutter">
+              <C4DVideoCTAContainer>{story()}</C4DVideoCTAContainer>
             </div>
           </div>
         </div>

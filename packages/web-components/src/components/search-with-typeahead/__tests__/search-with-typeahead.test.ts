@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { find } from '../../../globals/internal/collection-helpers';
 import EventManager from '../../../../tests/utils/event-manager';
-import DDSSearchWithTypeahead from '../search-with-typeahead';
+import C4DSearchWithTypeahead from '../search-with-typeahead';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../search-with-typeahead';
 import '../search-with-typeahead-item';
@@ -28,26 +28,26 @@ const template = (props?) => {
     redirectUrl,
   } = props ?? {};
   return html`
-    <dds-search-with-typeahead
+    <c4d-search-with-typeahead
       ?active="${active}"
-      close-search-button-assistive-text="${ifNonNull(
+      close-search-button-assistive-text="${ifDefined(
         closeSearchButtonAssistiveText
       )}"
-      language=${ifNonNull(language)}
+      language=${ifDefined(language)}
       ?open="${open}"
-      open-search-button-assistive-text="${ifNonNull(
+      open-search-button-assistive-text="${ifDefined(
         openSearchButtonAssistiveText
       )}"
-      perform-search-button-assistive-text="${ifNonNull(
+      perform-search-button-assistive-text="${ifDefined(
         performSearchButtonAssistiveText
       )}"
-      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-      redirect-url="${ifNonNull(redirectUrl)}">
-    </dds-search-with-typeahead>
+      searchPlaceholder="${ifDefined(searchPlaceholder)}"
+      redirect-url="${ifDefined(redirectUrl)}">
+    </c4d-search-with-typeahead>
   `;
 };
 
-describe('dds-search-with-typeahead', function () {
+describe('c4d-search-with-typeahead', function () {
   const events = new EventManager();
 
   describe('Misc attributes', function () {
@@ -55,7 +55,7 @@ describe('dds-search-with-typeahead', function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-search-with-typeahead')
+        document.body.querySelector('c4d-search-with-typeahead')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -69,7 +69,7 @@ describe('dds-search-with-typeahead', function () {
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-search-with-typeahead')
+        document.body.querySelector('c4d-search-with-typeahead')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -90,7 +90,7 @@ describe('dds-search-with-typeahead', function () {
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-search-with-typeahead')
+        document.body.querySelector('c4d-search-with-typeahead')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -100,21 +100,21 @@ describe('dds-search-with-typeahead', function () {
       render(template(), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--search'
+          '.cds--header__search--search'
         ) as HTMLElement
       ).click();
       expect(search.active).toBe(true);
       await Promise.resolve();
       // The `<input>` for the search box isn't rendered unless it's activated
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       spyOn(searchInputNode, 'focus');
-      await Promise.resolve(); // `.updateComplete()` in `<dds-search-with-typeahead>` seems to take two rounds of micro-tasks
+      await Promise.resolve(); // `.updateComplete()` in `<c4d-search-with-typeahead>` seems to take two rounds of micro-tasks
       expect(searchInputNode.focus).toHaveBeenCalled();
     });
 
@@ -122,25 +122,25 @@ describe('dds-search-with-typeahead', function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       const searchButtonNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--search'
+        '.cds--header__search--search'
       ) as HTMLButtonElement;
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-input-node-value-foo';
       spyOn(searchButtonNode, 'focus');
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--close'
+          '.cds--header__search--close'
         ) as HTMLElement
       ).click();
       expect(searchInputNode.value).toBe('');
       expect(search.active).toBe(false);
       await Promise.resolve();
-      await Promise.resolve(); // `.updateComplete()` in `<dds-search-with-typeahead>` seems to take two rounds of micro-tasks
+      await Promise.resolve(); // `.updateComplete()` in `<c4d-search-with-typeahead>` seems to take two rounds of micro-tasks
       expect(searchButtonNode.focus).toHaveBeenCalled();
     });
   });
@@ -157,16 +157,16 @@ describe('dds-search-with-typeahead', function () {
       );
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       spyOn(search as any, '_redirect');
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-query-foo';
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--search'
+          '.cds--header__search--search'
         ) as HTMLElement
       ).click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
@@ -184,10 +184,10 @@ describe('dds-search-with-typeahead', function () {
       );
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       const input = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       );
       spyOn(search as any, '_redirect');
       (input as HTMLInputElement).value = 'test';
@@ -200,7 +200,7 @@ describe('dds-search-with-typeahead', function () {
       await new Promise((r) => setTimeout(r, 2500));
       (
         search.shadowRoot!.querySelector(
-          'dds-search-with-typeahead-item'
+          'c4d-search-with-typeahead-item'
         ) as HTMLElement
       )?.click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
@@ -212,25 +212,25 @@ describe('dds-search-with-typeahead', function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       spyOn(search as any, '_redirect');
       let redirectUrlInEvent;
       events.on(
         search,
-        'dds-search-with-typeahead-beingredirected',
+        'c4d-search-with-typeahead-beingredirected',
         (event) => {
           event.preventDefault();
           redirectUrlInEvent = event.detail.redirectUrl;
         }
       );
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-query-foo';
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--search'
+          '.cds--header__search--search'
         ) as HTMLElement
       ).click();
       expect(redirectUrlInEvent).toBe(
@@ -248,10 +248,10 @@ describe('dds-search-with-typeahead', function () {
       );
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       const input = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       );
       (input as HTMLInputElement).value = 'test';
       input?.dispatchEvent(
@@ -274,8 +274,8 @@ describe('dds-search-with-typeahead', function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       spyOn(search as any, '_redirect');
       const event = new CustomEvent('submit', {
         bubbles: true,
@@ -292,10 +292,10 @@ describe('dds-search-with-typeahead', function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
-        'dds-search-with-typeahead'
-      ) as DDSSearchWithTypeahead;
+        'c4d-search-with-typeahead'
+      ) as C4DSearchWithTypeahead;
       const input = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       );
       (input as HTMLInputElement).value = 'tes';
       input?.dispatchEvent(
@@ -306,14 +306,14 @@ describe('dds-search-with-typeahead', function () {
       );
       await new Promise((r) => setTimeout(r, 2500));
       const searchItem = search.shadowRoot!.querySelector(
-        'dds-search-with-typeahead-item'
+        'c4d-search-with-typeahead-item'
       );
       const highlightedContent = searchItem!.shadowRoot!.querySelector(
-        '.dds-ce--search-with-typeahead-item__highlighted'
+        '.c4d-ce--search-with-typeahead-item__highlighted'
       );
       expect(highlightedContent!.textContent).toBe('tes');
       const textNode = find(
-        searchItem!.shadowRoot!.querySelector('.bx--container-class')!
+        searchItem!.shadowRoot!.querySelector('.cds--container-class')!
           .childNodes,
         ({ nodeType, nodeValue }) =>
           nodeType === Node.TEXT_NODE && !/^\s*$/.test(nodeValue ?? '')

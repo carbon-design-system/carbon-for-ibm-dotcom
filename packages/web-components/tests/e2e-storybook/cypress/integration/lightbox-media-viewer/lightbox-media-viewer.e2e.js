@@ -6,7 +6,7 @@
  */
 
 /**
- * Sets the correct defaultPath for dds-lightbox-media-viewer
+ * Sets the correct defaultPath for cds-lightbox-media-viewer
  *
  * @type {string}
  * @private
@@ -19,7 +19,7 @@ const _args = {
   img16x9: '&knob-Image%20(default-src)=3a7714edad00ad8b4f6f19f94ab56dd1.jpg',
 };
 
-describe('dds-lightbox-media-viewer | default', () => {
+describe('cds-lightbox-media-viewer | default', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(_defaultPath);
@@ -31,27 +31,27 @@ describe('dds-lightbox-media-viewer | default', () => {
   });
 
   it('should render with all elements', () => {
-    cy.get('dds-lightbox-media-viewer')
+    cy.get('cds-lightbox-media-viewer')
       .as('component')
       .should('have.attr', 'default-src')
       .should('not.be.empty');
 
     cy.get('@component')
-      .find('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .find('[data-autoid="cds--lightbox-media-viewer__content__title"]')
       .should('not.be.empty')
       .get('@component')
-      .find('[data-autoid="dds--lightbox-media-viewer__content__desc"]')
+      .find('[data-autoid="cds--lightbox-media-viewer__content__desc"]')
       .should('not.be.empty');
 
     cy.takeSnapshots();
   });
 
   it('should align elements', () => {
-    cy.get('dds-lightbox-media-viewer .bx--image__img').then($image => {
+    cy.get('cds-lightbox-media-viewer .bx--image__img').then($image => {
       expect($image[0].getBoundingClientRect().left).to.equal(64);
     });
 
-    cy.get('dds-lightbox-media-viewer')
+    cy.get('cds-lightbox-media-viewer')
       .find('.bx--lightbox-media-viewer__content')
       .then($content => {
         expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
@@ -86,7 +86,7 @@ describe('dds-lightbox-media-viewer | default', () => {
   });
 });
 
-describe('dds-lightbox-media-viewer | embedded video player', () => {
+describe('cds-lightbox-media-viewer | embedded video player', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`${_defaultPath}${_args.video}`);
@@ -98,31 +98,31 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
   });
 
   it('should render with all elements', () => {
-    cy.get('dds-lightbox-media-viewer')
+    cy.get('cds-lightbox-media-viewer')
       .as('component')
       .should('have.attr', 'video-id')
       .and('not.be.empty')
 
       .get('@component')
-      .find('[data-autoid="dds--video-player"]')
+      .find('[data-autoid="cds--video-player"]')
       .should('have.attr', 'video-id')
       .and('not.be.empty')
 
       .get('@component')
-      .find('[data-autoid="dds--lightbox-media-viewer__content__desc"]')
+      .find('[data-autoid="cds--lightbox-media-viewer__content__desc"]')
       .should('not.be.empty')
 
       .takeSnapshots();
   });
 
   it('should align elements correctly', () => {
-    cy.get('dds-lightbox-media-viewer')
+    cy.get('cds-lightbox-media-viewer')
       .find('.bx--video-player__video-container')
       .then($video => {
         expect($video[0].getBoundingClientRect().left).to.equal(64);
       });
 
-    cy.get('dds-lightbox-media-viewer')
+    cy.get('cds-lightbox-media-viewer')
       .find('.bx--lightbox-media-viewer__content')
       .then($content => {
         expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
@@ -130,7 +130,7 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
   });
 
   it('should have interactive video controls', () => {
-    cy.get('dds-lightbox-media-viewer')
+    cy.get('cds-lightbox-media-viewer')
       .find('.bx--video-player__video-container')
       .find('.bx--video-player__image-overlay')
       .click()

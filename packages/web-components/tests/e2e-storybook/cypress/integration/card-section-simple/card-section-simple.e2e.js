@@ -17,7 +17,7 @@ const _paths = {
 };
 
 /**
- * Collection of all tests for dds-card-section-simple
+ * Collection of all tests for cds-card-section-simple
  *
  * @function checkForBlocklink - Asserts a full-sized pseudoelement from the footer link
  * @function checkForTitlePosition - Asserts left-aligned title (16 || 32)px from left edge
@@ -29,7 +29,7 @@ const _tests = {
     cy.checkAxeA11y();
   },
   checkForBlocklink: () => {
-    cy.get('dds-card-group-item > dds-card-cta-footer').each(footer => {
+    cy.get('cds-card-group-item > cds-card-cta-footer').each(footer => {
       cy.get(footer)
         .shadow()
         .find('a')
@@ -47,13 +47,13 @@ const _tests = {
     });
   },
   checkForTitlePosition: () => {
-    cy.get('dds-content-section-heading').then(heading => {
+    cy.get('cds-content-section-heading').then(heading => {
       expect(heading.offset().left == 16 || heading.offset().left == 32).to.be.eq(true);
       expect(heading.css('textAlign')).to.be.eq('start');
     });
   },
   checkForCardContent: () => {
-    cy.get('dds-card-group-item').each(card => {
+    cy.get('cds-card-group-item').each(card => {
       card.children().each((_i, child) => {
         const cardRoot = card[0].shadowRoot;
         expect(child.assignedSlot.getRootNode()).to.be.eq(cardRoot);
@@ -62,13 +62,13 @@ const _tests = {
   },
   checkCTACard: () => {
     cy.visit(`${_paths.default}&knob-With%20CTA:=true`);
-    cy.get('dds-card-group-item')
+    cy.get('cds-card-group-item')
       .last()
       .should('have.attr', 'color-scheme', 'inverse');
   },
   checkCardWithImages: () => {
     cy.visit(`${_paths.default}&knob-With%20images:=true`);
-    cy.get('dds-card-group-item > dds-image').each($img => {
+    cy.get('cds-card-group-item > cds-image').each($img => {
       cy.wrap($img).should('be.visible');
     });
   },
@@ -77,7 +77,7 @@ const _tests = {
   },
 };
 
-describe('dds-card-section-simple | default (desktop)', () => {
+describe('cds-card-section-simple | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
@@ -93,7 +93,7 @@ describe('dds-card-section-simple | default (desktop)', () => {
   it('should check a11y', _tests.checkA11y);
 });
 
-describe('dds-card-section-simple | default (mobile)', () => {
+describe('cds-card-section-simple | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 720);
     cy.visit(`/${_paths.default}`);

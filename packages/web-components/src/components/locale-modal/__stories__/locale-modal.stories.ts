@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import inPercy from '@percy-io/in-percy';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import localeData from './locale-data.json';
 import styles from './locale-modal.stories.scss';
@@ -24,18 +24,18 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-locale-modal-composite
-            lang-display="${ifNonNull(langDisplay)}"
+          <c4d-locale-modal-composite
+            lang-display="${ifDefined(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}">
-          </dds-locale-modal-composite>
+            .localeList="${ifDefined(localeList)}">
+          </c4d-locale-modal-composite>
         `
       : html`
-          <dds-locale-modal-container
-            lang-display="${ifNonNull(langDisplay)}"
+          <c4d-locale-modal-container
+            lang-display="${ifDefined(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}">
-          </dds-locale-modal-container>
+            .localeList="${ifDefined(localeList)}">
+          </c4d-locale-modal-container>
         `}
   `;
 };
@@ -45,7 +45,7 @@ export default {
   parameters: {
     ...readme.parameters,
     ...(() => {
-      // Lets `<dds-footer-container>` load the locale list
+      // Lets `<c4d-footer-container>` load the locale list
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

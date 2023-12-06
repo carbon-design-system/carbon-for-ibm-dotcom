@@ -7,40 +7,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, html, LitElement } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
-import { ADJACENT_THEMES } from './defs';
+import { ADJACENT_THEMES, DUAL_THEMES } from './defs';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+import { themes } from '@carbon/themes';
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Leadspace with Search
  *
- * @element dds-leadspace-with-search
+ * @element c4d-leadspace-with-search
  */
-@customElement(`${ddsPrefix}-leadspace-with-search`)
-class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
-  /**
-   *
-   */
-  @property()
-  _contents: any[] = [];
-
-  /**
-   * `true` if there is an image.
-   */
-  @property({ attribute: 'has-image', reflect: true, type: Boolean })
-  protected _hasImage = false;
-
+@customElement(`${c4dPrefix}-leadspace-with-search`)
+class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   /**
    * sets the heading for sticky search
    */
@@ -56,14 +42,25 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   /**
    * The adjacent theme.
    *
+   * Options are:
+   * "monotheme",
+   * "dual-theme"
+   *
+   */
+  @property({ attribute: 'adjacent-theme', reflect: true })
+  adjacentTheme = ADJACENT_THEMES.MONOTHEME;
+
+  /**
+   * The adjacent theme.
+   *
    * Color scheme options are:
    * "white-and-g10",
    * "g10-and-white",
    * "g90-and-g100",
    * "g100-and-g90"
    */
-  @property({ attribute: 'adjacent-theme', reflect: true })
-  theme = ADJACENT_THEMES.MONOTHEME;
+  @property({ attribute: 'dual-theme', reflect: true })
+  dualTheme = DUAL_THEMES.MONOTHEME;
 
   /**
    * Handles `slotchange` event.
@@ -73,26 +70,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   protected _handleHeadingSlotChange({ target }: Event) {
     this._heading = (
       (target as HTMLSlotElement).assignedNodes()[0] as HTMLElement
-    ).innerText;
-  }
-
-  /**
-   * Handles `slotchange` event.
-   *
-   * @param event The event.
-   */
-  protected _handleImageSlotChange({ target }: Event) {
-    this._hasImage = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
-
-    this._contents = (target as HTMLSlotElement)
-      .assignedNodes()
-      .filter(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+    ).querySelector('h1')?.innerText!;
   }
 
   /**
@@ -101,13 +79,38 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   protected _getSearchClass() {
     return classMap({
       [`${prefix}--search-container`]: true,
-      [`${prefix}--search-container-adjacent-theme`]:
-        this.theme !== ADJACENT_THEMES.MONOTHEME || this._hasImage,
+      [`${prefix}--search-container-dual-theme`]:
+        this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME,
     });
   }
 
   protected firstUpdated() {
     StickyHeader.global.leadspaceWithSearch = this;
+
+    this.querySelector(`${c4dPrefix}-leadspace-heading`)?.setAttribute(
+      'type-style',
+      'fluid-heading-05'
+    );
+  }
+
+  updated() {
+    const currentBackground = window
+      .getComputedStyle(this)
+      .getPropertyValue('--cds-background');
+    const currentTheme = Object.keys(themes).find(
+      (colorName) => themes[colorName].background === currentBackground
+    );
+
+    if (this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME) {
+      for (const key in DUAL_THEMES) {
+        if (DUAL_THEMES[key].startsWith(currentTheme)) {
+          this.dualTheme = DUAL_THEMES[key];
+          break;
+        }
+      }
+    } else {
+      this.dualTheme = '' as any;
+    }
   }
 
   render() {
@@ -117,8 +120,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
           name="heading"
           @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
-          <slot name="content"></slot>
-          <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
+          <slot name="copy"></slot>
         </div>
       </div>
       <div class="${this._getSearchClass()}">
@@ -128,18 +130,15 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         </div>
       </div>
       <slot name="hr"></slot>
-      ${this._contents.map((e) => {
-        return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
-      })}
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--leadspace-with-search`;
+    return `${c4dPrefix}--leadspace-with-search`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadspaceWithSearch;
+export default C4DLeadspaceWithSearch;

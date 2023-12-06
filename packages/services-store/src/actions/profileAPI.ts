@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,6 +13,7 @@ import {
   UserStatus,
   PROFILE_API_ACTION,
   ProfileAPIState,
+  MASTHEAD_AUTH_METHOD,
 } from '../types/profileAPI';
 
 /**
@@ -58,14 +59,27 @@ export type ProfileAPIActions =
 /**
  * @returns A Redux action that sends a REST call for user authentication status.
  */
-export function loadUserStatus(): ThunkAction<
+export function loadUserStatus(
+  authMethod: MASTHEAD_AUTH_METHOD
+): ThunkAction<
   Promise<UserStatus>,
   { profileAPI: ProfileAPIState },
   void,
   ProfileAPIActions
 > {
   return async (dispatch) => {
-    const promiseStatus: Promise<UserStatus> = ProfileAPI.getUserStatus();
+    let promiseStatus: Promise<UserStatus>;
+    switch (authMethod) {
+      case MASTHEAD_AUTH_METHOD.COOKIE:
+        promiseStatus = ProfileAPI.checkCloudCookie();
+        break;
+      case MASTHEAD_AUTH_METHOD.DOCS_API:
+        promiseStatus = ProfileAPI.checkCloudDocsAPI();
+        break;
+      default:
+        promiseStatus = ProfileAPI.getUserStatus();
+    }
+
     dispatch(setRequestUserStatusInProgress(promiseStatus));
     try {
       dispatch(setUserStatus(await promiseStatus));

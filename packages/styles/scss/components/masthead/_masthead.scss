@@ -5,52 +5,62 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/components/overflow-menu/overflow-menu' as *;
+@use '@carbon/styles/scss/components/tooltip';
+@use '@carbon/styles/scss/components/ui-shell/side-nav';
+@use '@carbon/styles/scss/components/ui-shell/ui-shell';
+@use '@carbon/styles/scss/components/button/tokens' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '../../globals/vars' as *;
+@use '../link-with-icon';
+@use 'vars' as *;
 
 /// @access private
 /// @group dotcom-shell
-
-$button-transition: background-color 110ms, border-color 110ms, color 110ms;
-$search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
-$search-transition-timing: 95ms;
 
 /// @access private
 @mixin masthead-logo {
   height: 100%;
   z-index: 2;
-  background-color: $ui-background;
+  background-color: $background;
 
   a {
     position: relative;
     display: flex;
     height: 100%;
     align-items: center;
-    padding: 0 $carbon--spacing-07;
-    border: solid 2px transparent;
+    padding: 0 $spacing-07;
+    border: solid $spacing-01 transparent;
     transition: $button-transition;
     outline: none;
 
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
     }
 
     &:active,
     &:focus {
       border-color: $focus;
-      background-color: $ui-01;
+      background-color: $layer-01;
     }
 
-    @include carbon--breakpoint-up(max) {
-      padding: 0 $carbon--spacing-08;
+    @include breakpoint-up(max) {
+      padding: 0 $spacing-08;
     }
 
-    @include carbon--breakpoint-down(xlg) {
-      padding: 0 $carbon--spacing-07;
+    @include breakpoint-down(xlg) {
+      padding: 0 $spacing-07;
     }
 
-    @include carbon--breakpoint-down(lg) {
-      padding: 0 $carbon--spacing-05;
+    @include breakpoint-down(lg) {
+      padding: 0 $spacing-05;
     }
 
     svg {
@@ -69,16 +79,16 @@ $search-transition-timing: 95ms;
     }
 
     &::after {
-      @include carbon--breakpoint-up(800px) {
+      @include breakpoint-up(800px) {
         content: '';
         display: block;
         position: absolute;
-        right: rem(-3px);
+        right: to-rem(-3px);
         top: 50%;
         transform: translateY(-50%);
-        height: rem(24px);
-        width: rem(1px);
-        background-color: $ui-03;
+        height: $spacing-06;
+        width: to-rem(1px);
+        background-color: $layer-accent-01;
       }
     }
   }
@@ -98,7 +108,7 @@ $search-transition-timing: 95ms;
 
   &.#{$prefix}--search-active {
     display: none;
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       display: block;
     }
   }
@@ -116,7 +126,7 @@ $search-transition-timing: 95ms;
     height: 100%;
     top: 0;
     left: 0;
-    border-top: 1px solid $ui-03;
+    border-top: 1px solid $layer-accent-01;
   }
 
   &:first-of-type {
@@ -126,22 +136,22 @@ $search-transition-timing: 95ms;
   }
 
   &:hover {
-    background-color: $ui-01;
+    background-color: $layer-01;
 
     &::before {
-      border-top: 1px solid $ui-01;
+      border-top: 1px solid $layer-01;
     }
 
     + li {
       &::before {
-        border-top: 1px solid $ui-01;
+        border-top: 1px solid $layer-01;
       }
     }
   }
 
   &:focus {
     &::before {
-      border: 2px solid $interactive-01;
+      border: $spacing-01 solid $background-brand;
       box-sizing: border-box;
     }
   }
@@ -149,43 +159,60 @@ $search-transition-timing: 95ms;
 
 /// @access private
 @mixin masthead-top-nav-link {
-  @include carbon--type-style(body-short-02, true);
+  @include type-style(body-compact-02, true);
 
   border: none;
-  padding: rem(13px) $spacing-05;
-  color: $text-02;
+  padding: to-rem(13px) $spacing-05;
+  color: $text-secondary;
   white-space: nowrap;
 
+  > svg {
+    fill: $icon-secondary;
+  }
+
   &:hover {
-    background-color: $hover-ui;
+    background-color: $background-hover;
     cursor: pointer;
-    color: $text-01;
+  }
+
+  &:active {
+    background-color: $background-selected;
+  }
+
+  &:active,
+  &:hover {
+    color: $icon-primary;
+
     > svg {
-      fill: currentColor;
+      fill: $icon-primary;
     }
   }
 
   &:active,
   &:focus {
-    outline: 2px solid $interactive-01;
+    outline: 2px solid $button-primary;
     outline-offset: -2px;
-    > svg {
-      fill: $text-01;
-    }
   }
 }
 
 /// @access private
 @mixin masthead {
-  :host(#{$dds-prefix}-masthead-composite),
-  :host(#{$dds-prefix}-cloud-masthead-container) {
+  * {
+    box-sizing: border-box;
+  }
+
+  :host(#{$c4d-prefix}-masthead-composite),
+  :host(#{$c4d-prefix}-masthead-container),
+  :host(#{$c4d-prefix}-cloud-masthead-container) {
+    position: relative;
     z-index: 900;
-    padding-top: $carbon--layout-04;
+    padding-top: $spacing-09;
   }
 
   .#{$prefix}--masthead,
-  :host(#{$dds-prefix}-masthead) {
-    @include carbon--theme($carbon--theme--white, true);
+  :host(#{$c4d-prefix}-masthead) {
+    @include theme($white, true);
+    @include font-family('sans');
 
     position: fixed;
     top: 0;
@@ -195,46 +222,50 @@ $search-transition-timing: 95ms;
     transition-delay: 200ms;
     transition-timing-function: $search-transition;
     transition-duration: 300ms;
-    background-color: $ui-background;
+    background-color: $background;
 
     &[with-banner] {
       top: $spacing-13;
     }
+
+    &[has-l1] {
+      --c4d-active-l0-border-color: #{$layer-accent-01};
+    }
+
+    ::slotted([slot='profile']) {
+      background-color: $background;
+    }
   }
 
-  :host(#{$dds-prefix}-megamenu-overlay),
+  :host(#{$c4d-prefix}-megamenu-overlay),
   .#{$prefix}--masthead__overlay {
     position: fixed;
     left: 0;
-    top: 48px;
+    top: $spacing-09;
     height: 100%;
     width: 100%;
     z-index: -1;
     visibility: hidden;
     background-color: none;
     opacity: 0;
-    transition: opacity $transition--expansion $carbon--standard-easing,
-      visibility $transition--expansion $carbon--standard-easing,
-      background-color $transition--expansion $carbon--standard-easing;
+    transition: opacity $transition-expansion $standard-easing,
+      visibility $transition-expansion $standard-easing,
+      background-color $transition-expansion $standard-easing;
   }
 
-  :host(#{$dds-prefix}-megamenu-overlay)[active],
+  :host(#{$c4d-prefix}-megamenu-overlay)[active],
   .#{$prefix}--masthead__overlay-show {
-    background-color: $overlay-01;
+    background-color: $overlay;
     visibility: visible;
     opacity: 1;
     height: 100vh;
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon;
-  }
-
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
     top: -98px;
 
-    @include carbon--breakpoint-up(800px) {
-      top: -48px;
+    @include breakpoint-up(800px) {
+      top: -$spacing-09;
     }
   }
 
@@ -249,16 +280,16 @@ $search-transition-timing: 95ms;
     .#{$prefix}--tableofcontents__sidebar {
     top: 0;
 
-    @include carbon--breakpoint-up(800px) {
-      top: 48px;
+    @include breakpoint-up(800px) {
+      top: $spacing-09;
     }
   }
 
   .#{$prefix}--masthead__l0 {
-    @include carbon--theme($carbon--theme--white, true);
+    @include theme($white, true);
 
     position: relative;
-    background: $ui-background;
+    background: $background;
 
     &::after {
       content: '';
@@ -267,16 +298,16 @@ $search-transition-timing: 95ms;
       height: 1px;
       bottom: -1px;
       left: 0;
-      background-color: $ui-03;
+      background-color: $layer-accent-01;
     }
   }
 
   .#{$prefix}--header,
   .#{$prefix}--masthead__l0 #{$prefix}-header {
     transition-timing-function: $search-transition;
-    background: $ui-background;
+    background: $background;
     border: none;
-    max-width: rem(1584px);
+    max-width: to-rem(1584px);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1px;
@@ -286,8 +317,8 @@ $search-transition-timing: 95ms;
     &::before {
       content: '';
       position: absolute;
-      background-color: $ui-background;
-      height: 48px;
+      background-color: $background;
+      height: $spacing-09;
       left: calc(-50vw + 50%);
       right: 100%;
       z-index: 1;
@@ -295,22 +326,22 @@ $search-transition-timing: 95ms;
     &::after {
       content: '';
       position: absolute;
-      background-color: $ui-background;
-      height: 48px;
+      background-color: $background;
+      height: $spacing-09;
       left: 100%;
       right: calc(-50vw + 50%);
     }
 
     .#{$prefix}--header__menu-arrow {
-      fill: $icon-02;
+      fill: $icon-secondary;
       &:hover {
-        fill: $icon-02;
+        fill: $icon-secondary;
       }
     }
   }
 
   .#{$prefix}--skip-to-content:focus {
-    height: rem(49px);
+    height: to-rem(49px);
   }
 
   .#{$prefix}--header__logo {
@@ -335,19 +366,19 @@ $search-transition-timing: 95ms;
     position: absolute;
     height: 100%;
     inset-inline-start: 0;
-    transition: inset $transition--base motion(standard, productive);
+    transition: inset $transition-base motion(standard, productive);
   }
 
   .#{$prefix}--header__submenu,
-  :host(#{$dds-prefix}-top-nav-menu-item) {
+  :host(#{$c4d-prefix}-top-nav-menu-item) {
     .#{$prefix}--text-truncate--end {
       white-space: normal;
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-item),
-  :host(#{$dds-prefix}-top-nav-menu),
-  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  :host(#{$c4d-prefix}-top-nav-item),
+  :host(#{$c4d-prefix}-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--header__nav {
     a.#{$prefix}--header__menu-item {
       @include masthead-top-nav-link;
@@ -357,6 +388,10 @@ $search-transition-timing: 95ms;
         &[data-selected='true'] {
           border-bottom-color: transparent;
         }
+
+        &::after {
+          background-color: $focus;
+        }
       }
     }
 
@@ -365,12 +400,16 @@ $search-transition-timing: 95ms;
       &:active {
         &[data-selected='true'][aria-expanded='false'] {
           border-bottom-color: transparent;
+
+          &::after {
+            background-color: $focus;
+          }
         }
       }
     }
 
     a.#{$prefix}--header__menu-item[data-selected='true'] {
-      color: $text-01;
+      color: $text-primary;
     }
 
     a.#{$prefix}--header__menu-item[data-selected='true']::after,
@@ -382,45 +421,47 @@ $search-transition-timing: 95ms;
       bottom: 0;
       left: 0;
       right: 0;
-      height: rem(3px);
-      background-color: $link-01;
+      height: to-rem(3px);
+      background-color: var(--c4d-active-l0-border-color, $link-primary);
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
-  :host(#{$dds-prefix}-megamenu-top-nav-menu) {
+  :host(#{$c4d-prefix}-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu) {
     a.#{$prefix}--header__menu-item {
       border-bottom: $spacing-01 solid transparent;
-      padding: rem(13px) $spacing-05 rem(11px);
+      padding: to-rem(13px) $spacing-05 to-rem(11px);
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
+  :host(#{$c4d-prefix}-top-nav-menu),
   .#{$prefix}--header__nav {
     .#{$prefix}--header__menu-title[aria-expanded='true'] {
       z-index: 0;
-      background-color: $ui-01;
+      background-color: $layer-01;
       + .#{$prefix}--header__menu {
-        background-color: $ui-02;
-        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+        background-color: $layer-02;
+        box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
         bottom: -1px;
-        width: rem(256px);
+        width: to-rem(256px);
+
         li {
           @include masthead-top-nav-menu-item;
         }
+
         .#{$prefix}--header__menu-item {
           border: none;
           position: relative;
           height: 100%;
 
           &:hover {
-            color: $text-01;
-            background-color: $hover-ui;
+            color: $text-primary;
+            background-color: $background-hover;
           }
 
           &:focus {
             &::before {
-              border: 2px solid $interactive-01;
+              border: $spacing-01 solid $background-brand;
               box-sizing: border-box;
             }
           }
@@ -450,31 +491,29 @@ $search-transition-timing: 95ms;
     }
   }
   .#{$prefix}--header__action {
-    border: 2px solid transparent;
-    background-color: $ui-background;
+    border: $spacing-01 solid transparent;
+    background-color: $background;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    > {
-      svg {
-        position: relative;
-        fill: $icon-02;
-      }
-    }
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
       transition-duration: $search-transition-timing;
-      > {
-        svg {
-          fill: $icon-01;
-        }
+
+      > svg {
+        fill: $icon-primary;
       }
     }
 
     &:focus,
     &:active {
       border-color: $focus;
-      background-color: $hover-ui;
+      background-color: $background-hover;
+    }
+
+    > svg {
+      position: relative;
+      fill: $icon-secondary;
     }
 
     .#{$prefix}--overflow-menu {
@@ -483,7 +522,7 @@ $search-transition-timing: 95ms;
 
       &.#{$prefix}--overflow-menu--open {
         box-shadow: none;
-        outline: 2px solid $interactive-01;
+        outline: $spacing-01 solid $background-brand;
         outline-offset: 0;
       }
 
@@ -516,12 +555,12 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--header__nav-caret-left,
   .#{$prefix}--header__nav-caret-right {
-    width: rem(40px);
+    width: $spacing-08;
     height: 100%;
     display: none;
     position: absolute;
     top: 0;
-    background-color: $ui-background;
+    background-color: $background;
     border: none;
     > {
       svg {
@@ -533,20 +572,20 @@ $search-transition-timing: 95ms;
       }
     }
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
       transition-duration: $search-transition-timing;
       > {
         svg {
-          fill: $text-01;
+          fill: $text-primary;
         }
       }
     }
     &:focus,
     &:active {
       display: block;
-      background-color: $hover-ui;
-      outline: 2px solid $interactive-01;
-      outline-offset: -2px;
+      background-color: $background-hover;
+      outline: $spacing-01 solid $background-brand;
+      outline-offset: -#{$spacing-01};
       &::before,
       &::after {
         display: none;
@@ -569,8 +608,8 @@ $search-transition-timing: 95ms;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      height: rem(24px);
-      width: rem(1px);
+      height: $spacing-06;
+      width: to-rem(1px);
       background-color: #dcdcdc;
     }
   }
@@ -578,15 +617,11 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__nav-caret-left-gradient {
     display: block;
     position: absolute;
-    left: rem(40px);
+    left: $spacing-08;
     top: 0;
     height: 100%;
-    width: rem(8px);
-    background: linear-gradient(
-      to right,
-      $ui-background,
-      rgba(255, 255, 255, 0)
-    );
+    width: $spacing-03;
+    background: linear-gradient(to right, $background, rgba(255, 255, 255, 0));
     z-index: 1;
   }
 
@@ -600,8 +635,8 @@ $search-transition-timing: 95ms;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      height: rem(24px);
-      width: rem(1px);
+      height: $spacing-06;
+      width: to-rem(1px);
       background-color: #dcdcdc;
     }
   }
@@ -610,22 +645,18 @@ $search-transition-timing: 95ms;
     display: block;
     position: absolute;
     top: 0;
-    right: rem(40px);
+    right: $spacing-08;
     height: 100%;
-    width: rem(8px);
-    background: linear-gradient(
-      to left,
-      $ui-background,
-      rgba(255, 255, 255, 0)
-    );
+    width: $spacing-03;
+    background: linear-gradient(to left, $background, rgba(255, 255, 255, 0));
   }
 
   .#{$prefix}--header__action--active {
     position: relative;
-    border: 2px solid $interactive-01;
-    background-color: $hover-ui;
+    border: $spacing-01 solid $background-brand;
+    background-color: $background-hover;
 
-    @include carbon--breakpoint-up(sm) {
+    @include breakpoint-up(sm) {
       top: 0;
       z-index: 6001;
     }
@@ -634,7 +665,7 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__menu {
     li {
       &:hover {
-        background-color: $ui-01;
+        background-color: $layer-01;
       }
 
       &:last-of-type {
@@ -664,14 +695,14 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--header__search--search {
     outline: none;
-    width: $carbon--spacing-09;
+    width: $spacing-09;
   }
 
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
-    @include carbon--theme($carbon--theme--white, true);
+    @include theme($white, true);
 
-    background-color: $ui-background;
+    background-color: $background;
     position: fixed;
     z-index: 99999;
     /* !rtl:raw:
@@ -688,32 +719,32 @@ $search-transition-timing: 95ms;
   }
 
   .#{$prefix}--overflow-menu-options__btn {
-    @include carbon--type-style(body-short-02, true);
+    @include type-style(body-compact-02, true);
 
-    color: $text-01;
+    color: $text-primary;
     text-decoration: none;
 
     &:hover {
-      background-color: $ui-01;
+      background-color: $layer-01;
     }
   }
 
   .#{$prefix}--overflow-menu-options__option {
-    height: $layout-04;
+    height: $spacing-09;
     &:hover {
-      background-color: $ui-01;
+      background-color: $layer-01;
     }
   }
 
   .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open {
     box-shadow: none;
-    background-color: $hover-ui;
+    background-color: $background-hover;
   }
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
     height: $spacing-09;
   }
 
-  @include carbon--breakpoint-up(800px) {
+  @include breakpoint-up(800px) {
     .#{$prefix}--header__menu-toggle__hidden {
       display: none;
     }
@@ -724,13 +755,9 @@ $search-transition-timing: 95ms;
   }
 
   @media print {
-    :host(#{$dds-prefix}-masthead),
+    :host(#{$c4d-prefix}-masthead),
     .#{$prefix}--masthead {
       display: none;
     }
   }
-}
-
-@include exports('masthead') {
-  @include masthead;
 }

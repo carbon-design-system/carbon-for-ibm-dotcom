@@ -7,25 +7,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { property } from 'lit/decorators.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSTagLink from '../tag-link/tag-link';
+import C4DTagLink from '../tag-link/tag-link';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-cell-tag`)
-class DDSPricingTableHeaderCellTag extends StableSelectorMixin(DDSTagLink) {
+@customElement(`${c4dPrefix}-pricing-table-header-cell-tag`)
+class C4DPricingTableHeaderCellTag extends StableSelectorMixin(C4DTagLink) {
   @property({ reflect: true })
   slot = 'tag';
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-cell-tag`;
+    return `${c4dPrefix}--pricing-table-header-cell-tag`;
   }
 
   static styles = styles;
 }
 
-export default DDSPricingTableHeaderCellTag;
+export default C4DPricingTableHeaderCellTag;

@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-pictogram-item (cdn)', () => {
-  it('should load the default dds-pictogram-item example', () => {
+describe('cds-pictogram-item (cdn)', () => {
+  it('should load the default cds-pictogram-item example', () => {
     cy.visit('/pictogram-item/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-pictogram-item | cdn | default');
+    cy.percySnapshot('cds-pictogram-item | cdn | default');
   });
 });

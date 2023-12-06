@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-cta-block (cdn)', () => {
-  it('should load the default dds-cta-block example (cdn)', () => {
+describe('cds-cta-block (cdn)', () => {
+  it('should load the default cds-cta-block example (cdn)', () => {
     cy.visit('/cta-block/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-cta-block | cdn | default');
+    cy.percySnapshot('cds-cta-block | cdn | default');
   });
 });

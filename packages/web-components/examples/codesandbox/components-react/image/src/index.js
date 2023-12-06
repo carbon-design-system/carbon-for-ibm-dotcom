@@ -9,22 +9,22 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
 import './index.css';
 
 const App = () => (
-  <DDSImage alt="Image alt text">
-    <DDSImageItem
+  <C4DImage alt="Image alt text">
+    <C4DImageItem
       media="(min-width:672px)"
-      srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></DDSImageItem>
-    <DDSImageItem
+      srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+    <C4DImageItem
       media="(min-width:400px)"
-      srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></DDSImageItem>
-    <DDSImageItem
+      srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+    <C4DImageItem
       media="(min-width:320px)"
-      srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></DDSImageItem>
-  </DDSImage>
+      srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+  </C4DImage>
 );
 
 render(<App />, document.getElementById('root'));

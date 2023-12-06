@@ -33,10 +33,17 @@ export function formatVideoCaption({ duration, name } = {}) {
  * @returns {string} The formatted video duration.
  */
 export function formatVideoDuration({ duration } = {}) {
+  const hours = Math.floor(((duration ?? 0) / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((duration ?? 0) / 60000);
   const seconds = Math.floor(((duration ?? 0) / 1000) % 60);
+
   const fillSeconds = Array.from({
     length: 2 - String(seconds).length + 1,
   }).join('0');
-  return duration == null ? duration : `${minutes}:${fillSeconds}${seconds}`;
+
+  return duration == null
+    ? duration
+    : hours
+    ? `${hours}:${minutes} hr`
+    : `${minutes}:${fillSeconds}${seconds} min`;
 }

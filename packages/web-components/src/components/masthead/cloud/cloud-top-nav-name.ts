@@ -7,21 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSTopNavName from '../top-nav-name';
+import C4DTopNavName from '../top-nav-name';
 import styles from './cloud-masthead.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Cloud's brand name UI in top nav.
  *
- * @element dds-cloud-top-nav-name
+ * @element c4d-cloud-top-nav-name
  */
-@customElement(`${ddsPrefix}-cloud-top-nav-name`)
-class DDSCloudTopNavName extends DDSTopNavName {
+@customElement(`${c4dPrefix}-cloud-top-nav-name`)
+class C4DCloudTopNavName extends C4DTopNavName {
   static styles = styles;
 }
 
-export default DDSCloudTopNavName;
+export default C4DCloudTopNavName;

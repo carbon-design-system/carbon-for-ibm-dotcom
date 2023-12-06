@@ -1,27 +1,27 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit-html';
+import { render } from 'lit/html.js';
 import '../feature-card';
 import { Medium } from '../__stories__/feature-card.stories';
 
 const template = (props?) =>
   Medium({
-    'dds-feature-card': props,
+    'c4d-feature-card': props,
   });
 
-describe('dds-feature-card', function () {
+describe('c4d-feature-card', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-feature-card>`
-      expect(document.body.querySelector('dds-feature-card')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-feature-card>`
+      expect(document.body.querySelector('c4d-feature-card')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -37,8 +37,8 @@ describe('dds-feature-card', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-feature-card>`
-      expect(document.body.querySelector('dds-feature-card')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-feature-card>`
+      expect(document.body.querySelector('c4d-feature-card')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

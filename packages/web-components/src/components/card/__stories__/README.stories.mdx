@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
@@ -26,11 +31,10 @@ import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
 ### HTML
 
 ```html
-<dds-card href="https://example.com">
-  <dds-card-eyebrow>Eyebrow text</dds-card-eyebrow>
-  <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-  <dds-card-footer slot="footer">
-    Card CTA text
+<c4d-card href="https://example.com">
+  <c4d-card-eyebrow>Eyebrow text</c4d-card-eyebrow>
+  <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
+  <c4d-card-footer slot="footer">
     <svg
       slot="icon"
       focusable="false"
@@ -40,23 +44,27 @@ import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-card-footer>
-</dds-card>
+  </c4d-card-footer>
+</c4d-card>
 ```
 
 ## Card with pictogram
 
-You can browse the [Carbon Pictogram library](https://www.carbondesignsystem.com/guidelines/pictograms/library/) to find a pictogram that fits your design.
-You can also check out the repo [here](https://github.com/carbon-design-system/carbon/tree/main/packages/pictograms)
+You can browse the
+[Carbon Pictogram library](https://www.carbondesignsystem.com/guidelines/pictograms/library/)
+to find a pictogram that fits your design. You can also check out the repo
+[here](https://github.com/carbon-design-system/carbon/tree/main/packages/pictograms)
 
 ```html
-<dds-card pictogram-placement="${pictogramPlacement}" href="https://example.com">
-  <dds-card-eyebrow>Eyebrow text</dds-card-eyebrow>
-  <dds-card-heading>Lorem ipsum dolor</dds-card-heading>
+<c4d-card
+  pictogram-placement="${pictogramPlacement}"
+  href="https://example.com">
+  <c4d-card-eyebrow>Eyebrow text</c4d-card-eyebrow>
+  <c4d-card-heading>Lorem ipsum dolor</c4d-card-heading>
   <p>Copy to be shown on hover if the pictogram placement is bottom</p>
   <svg
     slot="pictogram"
@@ -64,45 +72,40 @@ You can also check out the repo [here](https://github.com/carbon-design-system/c
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     stroke="currentColor"
-    data-autoid="dds--card__pictogram"
+    data-autoid="c4d--card__pictogram"
     aria-label="Pictogram description"
     width="48"
     height="48"
     viewBox="0 0 48 48"
     role="img"
-    class="bx--card__pictogram"
-  >
+    class="c4d--card__pictogram">
     <path
       fill="none"
       stroke-linejoin="round"
       stroke-miterlimit="10"
       stroke-width=".72"
-      d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
-    ></path>
+      d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"></path>
   </svg>
-</dds-card>
+</c4d-card>
 ```
 
 ## Card - static
 
-When there is no URL being passed to the `DDSCard`'s href attribute, the static variation will be rendered,
-where the card is no longer clickable and optional `Tag` elements can also be added.
+When there is no URL being passed to the `C4DCard`'s href attribute, the static
+variation will be rendered, where the card is no longer clickable and optional
+`Tag` elements can also be added.
 
 ```html
-<dds-card>
-  <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+<c4d-card>
+  <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
   ${copy ? html`
   <p>${copy}</p>
   ` : ``}
-  <dds-tag-group>
-    <bx-tag>
-      Most popular
-    </bx-tag>
-    <bx-tag type="purple">
-      Enterprise
-    </bx-tag>
-  </dds-tag-group>
-  <dds-card-footer href="https://example.com" icon-placement="right">
+  <div>
+    <cds-tag> Most popular </cds-tag>
+    <cds-tag type="purple"> Enterprise </cds-tag>
+  </div>
+  <c4d-card-footer href="https://example.com" icon-placement="right">
     Card CTA text
     <svg
       slot="icon"
@@ -113,38 +116,45 @@ where the card is no longer clickable and optional `Tag` elements can also be ad
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-card-footer>
-</dds-card>
+  </c4d-card-footer>
+</c4d-card>
+```
+
+## Card - link
+
+```html
+<c4d-card link href="https://example.com">
+  <c4d-card-heading>Card link heading</c4d-card-heaing>
+  <c4d-card-footer></c4d-card-footer>
+</c4d-card>
 ```
 
 ## Card - logo
 
-If you need to use a Logo image for the Card component, use the Logo variant to ensure the Card
-properly accomodates to the Logo image.
+If you need to use a Logo image for the Card component, use the Logo variant to
+ensure the Card properly accomodates to the Logo image.
 
 ```html
-<dds-card border logo href="https://example.com">
-  <dds-image-logo
+<c4d-card logo href="https://example.com">
+  <c4d-image-logo
     slot="image"
     alt="Image logo alt text"
-    default-src="https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616"
-  ></dds-image-logo>
-  <dds-card-eyebrow>Microsoft</dds-card-eyebrow>
-  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <dds-tag-group>
-    <bx-tag>
-      Most popular
-    </bx-tag>
-    <bx-tag type="purple">
-      Enterprise
-    </bx-tag>
-  </dds-tag-group>
-  <dds-card-footer href="https://example.com"></dds-card-footer>
-</dds-card>
+    default-src="https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616"></c4d-image-logo>
+  <c4d-card-eyebrow>Microsoft</c4d-card-eyebrow>
+  <p>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+  </p>
+  <div>
+    <cds-tag> Most popular </cds-tag>
+    <cds-tag type="purple"> Enterprise </cds-tag>
+  </div>
+  <c4d-card-footer href="https://example.com"></c4d-card-footer>
+</c4d-card>
 ```
 
 ## Light theme
@@ -152,30 +162,38 @@ properly accomodates to the Logo image.
 An optional light theme is available under `color-scheme`.
 
 ```html
-<dds-card color-scheme="light"></dds-card>
+<c4d-card color-scheme="light"></c4d-card>
+```
+
+## Tags
+
+If using tags within `dds-card` in tandem with the dark themes, make sure the
+proper styles are imported from `@carbon/styles` in your application.
+
+```
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/components/tag/tokens' as tag-tokens;
+@include add-component-tokens(tag-tokens.$tag-tokens);
 ```
 
 ## Card with image
 
-To add image to the `dds-card`, import the `image` component and place `dds-image` within `dds-card`:
+To add image to the `c4d-card`, import the `image` component and place
+`c4d-image` within `c4d-card`:
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 ```
 
 ```html
-<dds-card>
-  <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-  <dds-image slot="image" alt="alt text" default-src="../image.png"></dds-image>
-  <dds-tag-group>
-    <bx-tag>
-      Most popular
-    </bx-tag>
-    <bx-tag type="purple">
-      Enterprise
-    </bx-tag>
-  </dds-tag-group>
-  <dds-card-footer href="https://example.com" icon-placement="right">
+<c4d-card>
+  <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
+  <c4d-image slot="image" alt="alt text" default-src="../image.png"></c4d-image>
+  <div>
+    <cds-tag> Most popular </cds-tag>
+    <cds-tag type="purple"> Enterprise </cds-tag>
+  </div>
+  <c4d-card-footer href="https://example.com" icon-placement="right">
     Card CTA text
     <svg
       slot="icon"
@@ -186,24 +204,61 @@ import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-card-footer>
-</dds-card>
+  </c4d-card-footer>
+</c4d-card>
 ```
+
+### CTA features
+
+The `cta-type` attribute allows every type of CTA and icon available in the
+Carbon for IBM.com library. The default CTA style is `local`, which provides a
+basic link and arrow icon.
+
+In order to use the desired type, modify the `cta-type` attribute to one of the
+following:
+
+- local
+- jump
+- external
+- new tab
+- download
+- video
+- pdf
+- blog
+- email
+- schedule
+- chat
+- call
+
+Notes for `video`:
+
+- You need to pass the video ID as the `href` attribute.
+- The Card component will need to be wrapped within a `c4d-video-cta-container`
+  components for videos to play.
+- If left empty, the `c4d-card-footer` can display the video duration. If not,
+  it will be overridden with custom text.
+
+General note:
+
+- Custom icons can replace the built-in ones within `c4d-card-footer`, they only
+  need to be assigned to the `icon` slot.
 
 ## Props
 
-<Props of="dds-card" />
+<Props of="c4d-card" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector    | Description |
 | ----------------------- | ------------------------- | ----------- |
-| `<dds-card>`            | `data-autoid="dds--card"` | Component   |
+| `<c4d-card>`            | `data-autoid="c4d--card"` | Component   |
 
 <Description markdown={contributing} />

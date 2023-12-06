@@ -7,6 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/components/logo-grid/logo-grid';
+@use '@carbon/ibmdotcom-styles/scss/components/logo-grid';

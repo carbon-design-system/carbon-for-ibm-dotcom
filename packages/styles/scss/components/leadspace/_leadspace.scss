@@ -5,76 +5,122 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../buttongroup/_buttongroup';
-@import '../image/image';
-@import '../tag-group/tag-group';
+@use 'sass:map';
+@use 'sass:math';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '../../globals/utils/content-width' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/utils/ratio-base' as *;
+@use '../../globals/vars' as *;
+@use '../button-group';
+@use '../image';
 
 $btn-min-width: 26;
 
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 // items that change according to the theme applied
 @mixin themed-items($theme: white) {
-  // TODO: figure out how to use the $ui-background color token instead with rgba()
-  $dds--gradient-light: #ffffff;
-  $dds--gradient-dark: #161616;
+  // TODO: figure out how to use the $background color token instead with rgba()
+  $cds--gradient-light: #ffffff;
+  $cds--gradient-dark: #161616;
 
-  @include buttongroup;
-
-  .#{$prefix}--leadspace__section {
+  .#{$c4d-prefix}--leadspace__section {
     display: flex;
-    background-color: $ui-background;
+    background-color: $background;
 
     @media print {
-      background-color: $white-0;
+      background-color: $background;
     }
   }
 
-  .#{$prefix}--leadspace__gradient__stops stop {
-    stop-color: $ui-background;
+  .#{$c4d-prefix}--leadspace__gradient__stops stop {
+    stop-color: $background;
   }
 
-  .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
-    background-color: $ui-background;
+  .#{$c4d-prefix}--leadspace--centered .#{$c4d-prefix}--leadspace__overlay {
+    background-color: $background;
   }
 
-  ::slotted(#{$dds-prefix}-leadspace-heading),
-  .#{$prefix}--leadspace__title,
-  .#{$prefix}--leadspace__desc {
-    color: $text-01;
-
-    @media print {
-      color: $gray-100;
-    }
+  ::slotted(#{$c4d-prefix}-leadspace-heading),
+  .#{$c4d-prefix}--leadspace__title,
+  .#{$c4d-prefix}--leadspace__desc {
+    color: $text-primary;
+    padding-right: 0;
   }
 
-  .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
+  .#{$c4d-prefix}--leadspace--centered .#{$c4d-prefix}--leadspace__desc {
     width: 100%;
   }
 
-  .#{$prefix}--buttongroup {
-    padding-left: 0;
-
-    @include carbon--breakpoint(md) {
-      display: flex;
-    }
-  }
-
-  @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
+  @include breakpoint(md) {
+    .#{$c4d-prefix}--leadspace--centered .#{$c4d-prefix}--leadspace__overlay {
       background-color: transparent;
     }
   }
 }
 
 @mixin leadspace {
-  ::slotted([slot='action']),
-  .#{$prefix}--buttongroup {
-    padding-top: $carbon--layout-03;
+  ::slotted([slot='action']) {
+    padding-top: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-leadspace),
-  .#{$prefix}--leadspace {
+  :host(#{$c4d-prefix}-leadspace) {
+    display: block;
+    position: relative;
+
+    &::before {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(270deg, #c6c6c6, #a8a8a8);
+      background-size: 100% 100%;
+      animation: loadingAnimation 2000ms ease infinite;
+      transition: all 800ms cubic-bezier(0.4, 0.14, 0.3, 1);
+    }
+
+    &[loading] {
+      &::before {
+        z-index: 5;
+        opacity: 1;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-background-media) {
+      height: auto;
+      aspect-ratio: 4 / 3; /* stylelint-disable-line property-no-unknown */
+
+      @include breakpoint(lg) {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace),
+  .#{$c4d-prefix}--leadspace {
     .#{$prefix}--image {
       /* stylelint-disable-next-line comment-whitespace-inside */
       /* !rtl:raw:
@@ -83,35 +129,33 @@ $btn-min-width: 26;
 
       picture {
         width: 100%;
-        max-width: rem(1584px);
+        max-width: to-rem(1584px);
       }
     }
 
-    .#{$prefix}--leadspace--content__container {
+    .#{$c4d-prefix}--leadspace--content__container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
+      margin-bottom: $spacing-07;
     }
 
-    .#{$prefix}--leadspace__container {
+    .#{$c4d-prefix}--leadspace__container {
       position: relative;
       width: 100%;
 
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         position: static;
       }
     }
 
-    .#{$prefix}--buttongroup,
-    ::slotted(#{$dds-prefix}-button-group),
-    ::slotted(#{$dds-prefix}-leadspace-block-cta) {
-      padding-bottom: $spacing-07;
-
-      @include carbon--breakpoint(md) {
+    ::slotted(#{$c4d-prefix}-button-group),
+    ::slotted(#{$c4d-prefix}-leadspace-block-cta) {
+      @include breakpoint(md) {
         display: grid;
         grid-template-columns: repeat(
-          var(--#{$dds-prefix}--button-group--item-count),
+          var(--#{$c4d-prefix}--button-group--item-count),
           1fr
         );
         @media print {
@@ -120,8 +164,8 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace__overlay {
-      @include carbon--make-container;
+    .#{$c4d-prefix}--leadspace__overlay {
+      @include make-container;
 
       position: relative;
       display: flex;
@@ -132,52 +176,53 @@ $btn-min-width: 26;
       width: 100%;
       max-width: none;
 
-      @include carbon--breakpoint(lg) {
-        height: 100%;
+      @include breakpoint-down(md) {
+        width: auto;
       }
     }
 
-    .#{$prefix}--leadspace--productive {
-      ::slotted(#{$dds-prefix}-leadspace-heading),
-      .#{$prefix}--leadspace__title {
-        @include carbon--type-style(expressive-heading-06, true);
+    .#{$c4d-prefix}--leadspace--productive {
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
+      .#{$c4d-prefix}--leadspace__title {
+        @include type-style(fluid-heading-05, true);
       }
     }
 
-    .#{$prefix}--leadspace__desc {
+    .#{$c4d-prefix}--leadspace__desc {
       z-index: 1;
-      @include carbon--make-col-ready;
-      @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col(4, 4);
+      @include make-col-ready;
+      @include type-style(fluid-heading-03, true);
+      @include make-col(4, 4);
+
+      margin-bottom: 0;
+
+      @include breakpoint-down(lg) {
+        margin-top: 0;
+      }
+
+      @include breakpoint(md) {
+        width: calc(60% - $spacing-07);
+      }
+
+      @include breakpoint(lg) {
+        width: calc(30% - $spacing-07);
+      }
     }
 
-    .#{$prefix}--leadspace__row {
-      @include carbon--make-row;
+    .#{$c4d-prefix}--leadspace__row {
+      @include make-row;
 
       flex-flow: column nowrap;
     }
 
-    .#{$prefix}--leadspace__action {
-      display: inline-block;
-
-      // Button requirements dictate buttons should be full width at 320px and
-      // down. The carbon--breakpoint-down(sm) mixin has logic that will use
-      // a value of 320px - 0.02, which is not quite what we want, so instead,
-      // we use carbon--breakpoint-down with a number argument, using the
-      // defined width for the sm breakpoint.
-      $breakpoint: map-get($carbon--grid-breakpoints, sm);
-      $width: map-get($breakpoint, width);
-      @include carbon--breakpoint-down($width) {
-        display: block;
+    .#{$c4d-prefix}--leadspace__action {
+      @include breakpoint(md) {
+        display: inline-block;
       }
     }
 
-    .#{$prefix}--btn {
-      min-width: carbon--mini-units($btn-min-width);
-    }
-
-    @include carbon--breakpoint(md) {
-      .#{$prefix}--leadspace__overlay {
+    @include breakpoint(md) {
+      .#{$c4d-prefix}--leadspace__overlay {
         padding-top: $spacing-07;
         top: 0;
       }
@@ -186,19 +231,19 @@ $btn-min-width: 26;
         height: 100%;
       }
 
-      ::slotted(#{$dds-prefix}-leadspace-heading),
-      .#{$prefix}--leadspace__title {
-        width: percentage(6 / 8);
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
+      .#{$c4d-prefix}--leadspace__title {
+        width: percentage(math.div(6, 8));
 
         flex-shrink: 1;
       }
 
-      .#{$prefix}--leadspace__desc {
-        @include carbon--make-col(6, 8);
+      .#{$c4d-prefix}--leadspace__desc {
+        @include make-col(6, 8);
       }
     }
 
-    @include carbon--breakpoint(lg) {
+    @include breakpoint(lg) {
       width: 100vw;
       overflow: hidden;
       position: relative;
@@ -207,36 +252,35 @@ $btn-min-width: 26;
       margin-left: -50vw;
       margin-right: -50vw;
 
-      .#{$prefix}--leadspace__section {
+      .#{$c4d-prefix}--leadspace__section {
         margin-right: auto;
         margin-left: auto;
         position: relative;
         max-width: 99rem;
       }
 
-      .#{$prefix}--leadspace__container {
+      .#{$c4d-prefix}--leadspace__container {
         width: 100%;
       }
 
-      ::slotted(#{$dds-prefix}-leadspace-heading),
-      .#{$prefix}--leadspace__title {
-        width: percentage(8 / 16);
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
+      .#{$c4d-prefix}--leadspace__title {
+        width: percentage(math.div(8, 16));
       }
 
-      .#{$prefix}--leadspace__desc {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(6, 16);
+      .#{$c4d-prefix}--leadspace__desc {
+        @include make-col(6, 16);
       }
 
-      .#{$prefix}--leadspace--productive {
-        ::slotted(#{$dds-prefix}-leadspace-heading),
-        .#{$prefix}--leadspace__title {
-          @include carbon--make-col(7, 16);
+      .#{$c4d-prefix}--leadspace--productive {
+        ::slotted(#{$c4d-prefix}-leadspace-heading),
+        .#{$c4d-prefix}--leadspace__title {
+          @include make-col(7, 16);
         }
       }
     }
 
-    .#{$prefix}--leadspace--centered {
+    .#{$c4d-prefix}--leadspace--centered {
       margin-right: auto;
       margin-left: auto;
       max-width: 99rem;
@@ -244,83 +288,83 @@ $btn-min-width: 26;
       background-size: cover;
       background-position: center top;
 
-      ::slotted(#{$dds-prefix}-button-group),
-      ::slotted([slot='action']),
-      .#{$prefix}--buttongroup {
-        padding-top: $carbon--layout-01;
-        padding-bottom: calc(#{$layout-03});
+      ::slotted(#{$c4d-prefix}-button-group),
+      ::slotted([slot='action']) {
+        padding-top: $spacing-05;
+        padding-bottom: 0;
 
-        @include carbon--breakpoint('lg') {
-          padding-bottom: calc(#{$layout-06} + #{$layout-07});
+        @include breakpoint(lg) {
+          padding-bottom: calc(#{$spacing-12} + #{$spacing-13});
         }
       }
 
-      &.#{$prefix}--leadspace__section {
-        min-height: rem(560px);
+      &.#{$c4d-prefix}--leadspace__section {
+        min-height: to-rem(560px);
         padding-top: 0;
       }
 
-      .#{$prefix}--leadspace--content__container {
+      .#{$c4d-prefix}--leadspace--content__container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 4);
+        margin-bottom: $spacing-07;
+
+        @include make-col-ready;
+        @include make-col(4, 4);
       }
 
-      .#{$prefix}--leadspace__desc {
+      .#{$c4d-prefix}--leadspace__desc {
         width: 95%;
         padding-top: $spacing-09;
 
-        @include carbon--type-style(expressive-heading-03, true);
+        @include type-style(fluid-heading-03, true);
       }
 
-      ::slotted(#{$dds-prefix}-leadspace-heading),
-      .#{$prefix}--leadspace__title {
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
+      .#{$c4d-prefix}--leadspace__title {
         margin-bottom: 0;
-        @include carbon--type-style(expressive-heading-05, true);
       }
 
-      .#{$prefix}--leadspace__desc,
-      ::slotted(#{$dds-prefix}-leadspace-heading),
-      .#{$prefix}--leadspace__title {
+      .#{$c4d-prefix}--leadspace__desc,
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
+      .#{$c4d-prefix}--leadspace__title {
         flex: none;
       }
 
       @include themed-items;
 
-      @include carbon--breakpoint(sm) {
-        .#{$prefix}--leadspace__overlay {
+      @include breakpoint(sm) {
+        .#{$c4d-prefix}--leadspace__overlay {
           padding: $spacing-05 0 0 0;
         }
       }
 
-      @include carbon--breakpoint(md) {
-        .#{$prefix}--leadspace__overlay {
+      @include breakpoint(md) {
+        .#{$c4d-prefix}--leadspace__overlay {
           padding: $spacing-07 0 0 0;
         }
 
-        .#{$prefix}--leadspace--content__container {
+        .#{$c4d-prefix}--leadspace--content__container {
           margin: 0 auto;
           padding-left: $spacing-06;
-          @include carbon--breakpoint(lg) {
-            @include carbon--make-col(4, 8);
+          @include breakpoint(lg) {
+            @include make-col(4, 8);
           }
         }
 
-        ::slotted(#{$dds-prefix}-leadspace-heading),
-        .#{$prefix}--leadspace__title,
-        .#{$prefix}--leadspace__desc {
+        ::slotted(#{$c4d-prefix}-leadspace-heading),
+        .#{$c4d-prefix}--leadspace__title,
+        .#{$c4d-prefix}--leadspace__desc {
           @include content-width;
         }
 
-        .#{$prefix}--leadspace__desc {
-          padding-top: $carbon--layout-04;
+        .#{$c4d-prefix}--leadspace__desc {
+          padding-top: $spacing-09;
         }
       }
 
-      @include carbon--breakpoint(lg) {
-        .#{$prefix}--leadspace__overlay {
+      @include breakpoint(lg) {
+        .#{$c4d-prefix}--leadspace__overlay {
           height: 100%;
           padding: $spacing-10 0 0 0;
         }
@@ -329,17 +373,17 @@ $btn-min-width: 26;
 
     @include themed-items;
 
-    .#{$prefix}--leadspace--g100,
-    .#{$prefix}--leadspace--g90 {
-      @include carbon--theme(
-        $carbon--theme--g100,
+    .#{$c4d-prefix}--leadspace--g100,
+    .#{$c4d-prefix}--leadspace--g90 {
+      @include theme(
+        $g100,
         feature-flag-enabled('enable-css-custom-properties')
-      ) {
-        @include themed-items(dark);
-      }
+      );
+
+      @include themed-items(dark);
     }
 
-    .#{$prefix}--leadspace__gradient {
+    .#{$c4d-prefix}--leadspace__gradient {
       display: block;
       position: absolute;
       top: 0;
@@ -353,11 +397,11 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace__gradient__rect {
+    .#{$c4d-prefix}--leadspace__gradient__rect {
       fill: url(#stops);
     }
 
-    .#{$prefix}--leadspace__gradient__stops stop {
+    .#{$c4d-prefix}--leadspace__gradient__stops stop {
       &:nth-of-type(1) {
         stop-opacity: 1;
         /* stylelint-disable-next-line comment-whitespace-inside */
@@ -387,8 +431,8 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace--centered
-      .#{$prefix}--leadspace__gradient__stops
+    .#{$c4d-prefix}--leadspace--centered
+      .#{$c4d-prefix}--leadspace__gradient__stops
       stop {
       &:nth-of-type(1) {
         stop-opacity: 1;
@@ -408,47 +452,17 @@ $btn-min-width: 26;
     }
   }
 
-  .#{$prefix}--leadspace__section {
-    height: auto;
-  }
-
-  .#{$prefix}--leadspace--medium {
-    .#{$prefix}--leadspace__section {
-      @include carbon--breakpoint('lg') {
-        min-height: carbon--mini-units(60);
-      }
-    }
-  }
-
-  .#{$prefix}--leadspace--tall {
-    .#{$prefix}--leadspace__section {
-      @include carbon--breakpoint('lg') {
-        min-height: carbon--mini-units(70);
-      }
-    }
-  }
-
-  .#{$prefix}--leadspace--super {
-    .#{$prefix}--leadspace__section {
-      @include carbon--breakpoint('lg') {
-        min-height: carbon--mini-units(80);
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-leadspace) ::slotted([slot='navigation']) {
+  :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
-    max-width: rem(640px);
+    /* stylelint-disable declaration-no-important */
+    // need the !important to prevent CSS reset styles from overwritting margin for tags
+    padding-left: $spacing-05 !important;
+    padding-right: $spacing-05 !important;
+    padding-bottom: $spacing-05 !important;
   }
 
-  :host(#{$dds-prefix}-leadspace) ::slotted(#{$dds-prefix}-tag-group) {
-    padding-bottom: $spacing-03;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
-    color: $text-01;
+  :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
+    color: $text-primary;
     cursor: auto;
 
     &:hover {
@@ -456,111 +470,133 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace) ::slotted(#{$dds-prefix}-leadspace-image) {
-    @include carbon--breakpoint('lg') {
+  :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-leadspace-image) {
+    @include breakpoint(lg) {
       height: 100%;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-heading),
-  .#{$prefix}--leadspace__title {
+  :host(#{$c4d-prefix}-leadspace-heading),
+  .#{$c4d-prefix}--leadspace__title {
     padding-top: 0;
     margin-bottom: $spacing-09;
     padding-left: $spacing-05;
     padding-right: $spacing-05;
     width: 95%;
     z-index: 1;
-    @include carbon--type-style(expressive-heading-06, true);
 
-    /* stylelint-disable declaration-no-important */
-    ::slotted(h1) {
-      all: unset !important; /* stylelint-disable-line declaration-property-value-blacklist */
+    ::slotted(span) {
+      color: $link-primary;
     }
-    /* stylelint-enable declaration-no-important */
+
+    ::slotted(h1) {
+      display: none;
+    }
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='tall'],
-  :host(#{$dds-prefix}-leadspace)[size='super'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
-      @include carbon--breakpoint('lg') {
+  :host(#{$c4d-prefix}-leadspace-heading[type-style='fluid-heading-05']) {
+    @include type-style(fluid-heading-05, true);
+  }
+
+  :host(#{$c4d-prefix}-leadspace-heading[type-style='display-01']) {
+    @include type-style(display-01, true);
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='super'] {
+    @include breakpoint(lg) {
+      .#{$c4d-prefix}--leadspace__overlay {
+        height: 40rem;
+      }
+    }
+
+    .#{$c4d-prefix}--leadspace__section {
+      @include breakpoint(lg) {
+        min-height: 40rem;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='medium'] {
+    @include breakpoint(lg) {
+      .#{$c4d-prefix}--leadspace__overlay {
+        height: 30rem;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      @include breakpoint(lg) {
+        margin-bottom: $spacing-10;
+      }
+    }
+
+    .#{$c4d-prefix}--leadspace__section {
+      @include breakpoint(lg) {
+        min-height: 30rem;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='short'] {
+    @include breakpoint(lg) {
+      .#{$c4d-prefix}--leadspace__overlay {
+        height: 20rem;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      margin-bottom: $spacing-07;
+
+      @include breakpoint(lg) {
+        margin-bottom: $spacing-10;
+      }
+    }
+
+    .#{$c4d-prefix}--leadspace__section {
+      @include breakpoint(lg) {
+        min-height: 20rem;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='tall'],
+  :host(#{$c4d-prefix}-leadspace)[size='super'] {
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      @include breakpoint(lg) {
         margin-bottom: $spacing-12;
       }
     }
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='tall'],
-  :host(#{$dds-prefix}-leadspace)[size] {
-    .#{$prefix}--leadspace__section {
+  :host(#{$c4d-prefix}-leadspace)[size='tall'] {
+    @include breakpoint(lg) {
+      .#{$c4d-prefix}--leadspace__overlay {
+        height: 35rem;
+      }
+    }
+
+    .#{$c4d-prefix}--leadspace__section {
       height: auto;
-
-      @include carbon--breakpoint('lg') {
-        min-height: carbon--mini-units(70);
-      }
+      min-height: 35rem;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='short'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
-      margin-bottom: $spacing-07;
-      @include carbon--type-style(expressive-heading-06, true);
-
-      @include carbon--breakpoint('lg') {
-        margin-bottom: $spacing-10;
-      }
-    }
-
-    .#{$prefix}--leadspace__section {
-      @include carbon--breakpoint('lg') {
-        min-height: carbon--mini-units(40);
-      }
-    }
-  }
-
-  :host-context(#{$dds-prefix}-leadspace[size='short']) {
-    @include carbon--breakpoint('lg') {
+  :host-context(#{$c4d-prefix}-leadspace[size='short']) {
+    @include breakpoint(lg) {
       .#{$prefix}--image__img {
         object-position: left top;
       }
     }
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='medium'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
-      @include carbon--type-style(expressive-heading-05, true);
-
-      @include carbon--breakpoint('lg') {
-        margin-bottom: $spacing-10;
-      }
-    }
-
-    .#{$prefix}--leadspace__section {
-      @include carbon--breakpoint('lg') {
-        min-height: carbon--mini-units(60);
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-leadspace)[size='super'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
-      @include carbon--type-style(display-01, true);
-    }
-
-    .#{$prefix}--leadspace__section {
-      @include carbon--breakpoint('lg') {
-        min-height: carbon--mini-units(80);
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-leadspace-image),
-  .#{$prefix}--leadspace .#{$prefix}--image {
+  :host(#{$c4d-prefix}-leadspace-image),
+  .#{$c4d-prefix}--leadspace .#{$prefix}--image {
     @include ratio-base(4, 3, false);
 
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       @include ratio-base(16, 9, false);
     }
 
-    @include carbon--breakpoint(lg) {
+    @include breakpoint(lg) {
       position: absolute;
       top: 0;
       left: 0;
@@ -580,8 +616,4 @@ $btn-min-width: 26;
       visibility: hidden;
     }
   }
-}
-
-@include exports('leadspace') {
-  @include leadspace;
 }

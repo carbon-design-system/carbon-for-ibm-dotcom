@@ -7,20 +7,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXHeaderMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu-item.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import CDSHeaderMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu-item.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Profile menu item in masthead.
  *
- * @element dds-masthead-profile-item
+ * @element c4d-masthead-profile-item
  */
-@customElement(`${ddsPrefix}-masthead-profile-item`)
-class DDSMastheadProfileItem extends BXHeaderMenuItem {
+@customElement(`${c4dPrefix}-masthead-profile-item`)
+class C4DMastheadProfileItem extends CDSHeaderMenuItem {
   static styles = styles;
 
   firstUpdated() {
@@ -30,4 +30,4 @@ class DDSMastheadProfileItem extends BXHeaderMenuItem {
   }
 }
 
-export default DDSMastheadProfileItem;
+export default C4DMastheadProfileItem;

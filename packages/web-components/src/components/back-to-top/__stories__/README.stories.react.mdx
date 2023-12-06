@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/back-to-top';
 
@@ -22,7 +27,7 @@ import '@carbon/ibmdotcom-web-components/es/components/back-to-top/index.js';
 function App() {
   return (
     <main id="example-main-content">
-      <DDSBackToTop />
+      <C4DBackToTop />
     </main>
   );
 }
@@ -30,10 +35,12 @@ function App() {
 
 ### HTML
 
-The `<dds-back-to-top>` component is set to position itself above `<dds-footer>` if it is present – it will not scroll into the footer. For easiest implementation place `<dds-back-to-top>` within the page's main content area.
+The `<cds-back-to-top>` component is set to position itself above `<cds-footer>`
+if it is present – it will not scroll into the footer. For easiest
+implementation place `<cds-back-to-top>` within the page's main content area.
 
 ```html
-<dds-back-to-top></dds-back-to-top>
+<cds-back-to-top></cds-back-to-top>
 ```
 
 ## Props
@@ -42,10 +49,12 @@ The `<dds-back-to-top>` component is set to position itself above `<dds-footer>`
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector           | Description |
 | ----------------------- | -------------------------------- | ----------- |
-| `<dds-back-to-top>`     | `data-autoid="dds--back-to-top"` | Component   |
+| `<cds-back-to-top>`     | `data-autoid="cds--back-to-top"` | Component   |
 
 <Description markdown={contributing} />

@@ -7,20 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './quote.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The source bottom copy content of quote.
  *
- * @element dds-quote-source-bottom-copy
+ * @element c4d-quote-source-bottom-copy
  */
-@customElement(`${ddsPrefix}-quote-source-bottom-copy`)
-class DDSQuoteSourceBottomCopy extends LitElement {
+@customElement(`${c4dPrefix}-quote-source-bottom-copy`)
+class C4DQuoteSourceBottomCopy extends LitElement {
   /**
    * The shadow slot this source bottom copy content should be in.
    */
@@ -36,4 +37,4 @@ class DDSQuoteSourceBottomCopy extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSQuoteSourceBottomCopy;
+export default C4DQuoteSourceBottomCopy;

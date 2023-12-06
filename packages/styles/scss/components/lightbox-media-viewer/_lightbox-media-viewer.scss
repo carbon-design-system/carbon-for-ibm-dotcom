@@ -5,23 +5,53 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../expressive-modal/expressive-modal';
-@import '../video-player/video-player';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/video-player';
+@use '../expressive-modal/expressive-modal';
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../expressive-modal' as *;
+@use '../video-player' as *;
 
 @mixin lightbox-media-viewer {
-  .#{$prefix}--modal--expressive--fullwidth
-    .#{$prefix}--modal-container
-    .#{$prefix}--modal-content {
+  :host(#{$c4d-prefix}-lightbox-image-viewer),
+  :host(#{$c4d-prefix}-lightbox-video-player) {
+    @extend :host(#{$c4d-prefix}-expressive-modal-body);
+    @extend .#{$c4d-prefix}--lightbox-media-viewer;
+  }
+
+  :host(#{$c4d-prefix}-lightbox-video-player-container),
+  :host(#{$c4d-prefix}-lightbox-video-player-composite) {
+    display: contents;
+  }
+
+  :host(#{$c4d-prefix}-lightbox-video-player) .#{$c4d-prefix}--video-player {
+    width: 100%;
+
+    ::slotted(.#{$c4d-prefix}--video-player__video) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .#{$c4d-prefix}--modal--expressive--fullwidth
+    .#{$c4d-prefix}--modal-container
+    .#{$c4d-prefix}--modal-content {
     min-height: 100%;
   }
 
-  .#{$prefix}--lightbox-media-viewer {
-    color: $text-01;
+  .#{$c4d-prefix}--lightbox-media-viewer {
+    color: $text-primary;
 
     .#{$prefix}--modal-container {
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         padding: 0 $spacing-05;
       }
       .#{$prefix}--modal-content {
@@ -29,31 +59,31 @@
       }
     }
 
-    .#{$prefix}--video-player {
+    .#{$c4d-prefix}--video-player {
       width: 100%;
-      .#{$prefix}--video-player__video-container {
+      .#{$c4d-prefix}--video-player__video-container {
         /* stylelint-disable-next-line function-name-case */
         padding-top: Min(calc(100vh - #{$spacing-13}), 56.25%);
       }
     }
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       .#{$prefix}--model-container {
-        padding-top: $carbon--layout-05;
+        padding-top: $spacing-10;
         padding-bottom: 0;
       }
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       .#{$prefix}--model-container {
-        padding-top: $carbon--layout-04;
-        padding-bottom: $carbon--spacing-05;
+        padding-top: $spacing-09;
+        padding-bottom: $spacing-05;
       }
     }
   }
 
-  :host(#{$dds-prefix}-lightbox-media-viewer-body),
-  .#{$prefix}--lightbox-media-viewer__container {
+  :host(#{$c4d-prefix}-lightbox-media-viewer-body),
+  .#{$c4d-prefix}--lightbox-media-viewer__container {
     display: block;
     width: 100%;
     height: 100%;
@@ -73,41 +103,46 @@
 
     &::before {
       top: 0;
-      background: linear-gradient(to bottom, $ui-01, transparent);
+      background: linear-gradient(to bottom, $layer-01, transparent);
     }
 
     &::after {
       bottom: 0;
-      background: linear-gradient(to top, $ui-01, transparent);
+      background: linear-gradient(to top, $layer-01, transparent);
     }
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       padding-left: $spacing-05;
       padding-right: $spacing-05;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       display: flex;
       flex-direction: column;
       padding: 0;
     }
 
-    .#{$prefix}--lightbox-media-viewer__row {
-      @include carbon--make-row(0);
+    .#{$c4d-prefix}--lightbox-media-viewer__row {
+      @include make-row(0);
 
       flex-flow: column nowrap;
       width: 100%;
       // Padding top needs to account for the scroll gradient overlay
       padding-top: calc(#{$spacing-09} - #{$spacing-07});
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         padding-top: 0;
         flex-direction: row;
       }
     }
 
-    .#{$prefix}--lightbox-media-viewer__media {
-      @include carbon--breakpoint-down('lg') {
+    .#{$c4d-prefix}--lightbox-media-viewer__media,
+    .#{$c4d-prefix}--lightbox-media-viewer__media-description {
+      box-sizing: border-box;
+    }
+
+    .#{$c4d-prefix}--lightbox-media-viewer__media {
+      @include breakpoint-down(lg) {
         position: relative;
       }
 
@@ -118,71 +153,71 @@
         max-height: 100%;
       }
 
-      @include carbon--breakpoint-down('lg') {
+      @include breakpoint-down(lg) {
         display: flex;
         align-items: center;
       }
 
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(12, 16);
+      @include breakpoint(lg) {
+        @include make-col-ready;
+        @include make-col(12, 16);
 
         width: 100%;
         flex: none;
         /* stylelint-disable-next-line property-no-unknown */
         aspect-ratio: 16 / 9;
 
-        .#{$prefix}--image {
+        .#{$c4d-prefix}--image {
           height: 100%;
         }
       }
     }
 
-    .#{$prefix}--lightbox-media-viewer__media-description {
+    .#{$c4d-prefix}--lightbox-media-viewer__media-description {
       display: flex;
       flex-direction: column;
       position: relative;
 
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 16);
+      @include breakpoint(lg) {
+        @include make-col-ready;
+        @include make-col(4, 16);
 
         margin-left: auto;
       }
 
-      @include carbon--breakpoint-down('lg') {
+      @include breakpoint-down(lg) {
         flex-grow: 1;
       }
     }
 
-    .#{$prefix}--lightbox-media-viewer__content {
-      padding-right: $carbon--spacing-07;
+    .#{$c4d-prefix}--lightbox-media-viewer__content {
+      padding-right: $spacing-07;
 
-      @include carbon--type-style('body-long-02');
-      @include carbon--breakpoint('lg') {
+      @include type-style('body-02');
+      @include breakpoint(lg) {
         overflow: auto;
       }
     }
 
-    .#{$prefix}--lightbox-media-viewer__content__title {
-      padding-bottom: $carbon--spacing-07;
+    .#{$c4d-prefix}--lightbox-media-viewer__content__title {
+      padding-bottom: $spacing-07;
 
-      @include carbon--type-style('expressive-heading-03');
-      @include carbon--breakpoint-down('lg') {
+      @include type-style('fluid-heading-03', true);
+      @include breakpoint-down(lg) {
         padding-top: $spacing-05;
       }
     }
 
-    .#{$prefix}--lightbox-media-viewer__content__desc {
-      color: $text-02;
+    .#{$c4d-prefix}--lightbox-media-viewer__content__desc {
+      color: $text-secondary;
       padding-bottom: $spacing-07;
 
-      @include carbon--type-style('body-long-02');
+      @include type-style('body-02');
     }
 
-    .#{$prefix}--lightbox-media-viewer__title,
-    .#{$prefix}--lightbox-media-viewer__desc {
-      @include carbon--breakpoint('lg') {
+    .#{$c4d-prefix}--lightbox-media-viewer__title,
+    .#{$c4d-prefix}--lightbox-media-viewer__desc {
+      @include breakpoint(lg) {
         display: flex;
         max-width: 95%;
         height: 100%;
@@ -190,11 +225,7 @@
     }
   }
 
-  ::slotted(#{$dds-prefix}-video-player-container) {
+  ::slotted(#{$c4d-prefix}-video-player-container) {
     width: 100%;
   }
-}
-
-@include exports('lightbox-media-viewer') {
-  @include lightbox-media-viewer;
 }

@@ -13,10 +13,9 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import {} from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import {} from 'lit';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import {
   MediaData,
@@ -27,14 +26,13 @@ import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-s
 import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSVideoPlayerComposite from './video-player-composite';
+import C4DVideoPlayerComposite from './video-player-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * The Redux state used for `<dds-video-player-container>`.
+ * The Redux state used for `<c4d-video-player-container>`.
  */
 export interface VideoPlayerContainerState {
   /**
@@ -44,7 +42,7 @@ export interface VideoPlayerContainerState {
 }
 
 /**
- * The properties for `<dds-video-player-container>` from Redux state.
+ * The properties for `<c4d-video-player-container>` from Redux state.
  */
 export interface VideoPlayerContainerStateProps {
   /**
@@ -57,7 +55,7 @@ export type VideoPlayerActions = ReturnType<typeof loadMediaData>;
 
 /**
  * @param state The Redux state for video player.
- * @returns The converted version of the given state, tailored for `<dds-video-player-container>`.
+ * @returns The converted version of the given state, tailored for `<c4d-video-player-container>`.
  */
 export function mapStateToProps(
   state: VideoPlayerContainerState
@@ -69,7 +67,7 @@ export function mapStateToProps(
 
 /**
  * @param dispatch The Redux `dispatch()` API.
- * @returns The methods in `<dds-video-player-container>` to dispatch Redux actions.
+ * @returns The methods in `<c4d-video-player-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(dispatch: Dispatch<MediaPlayerAPIActions>) {
   return bindActionCreators<
@@ -87,7 +85,7 @@ export function mapDispatchToProps(dispatch: Dispatch<MediaPlayerAPIActions>) {
  * @param Base The base class.
  * @returns A mix-in that implements video embedding API calls.
  */
-export const DDSVideoPlayerContainerMixin = <
+export const C4DVideoPlayerContainerMixin = <
   T extends Constructor<HTMLElement>
 >(
   Base: T
@@ -95,7 +93,7 @@ export const DDSVideoPlayerContainerMixin = <
   /**
    * A mix-in class that sets up and cleans up event listeners defined by `@HostListener` decorator.
    */
-  abstract class DDSVideoPlayerContainerMixinImpl extends StableSelectorMixin(
+  abstract class C4DVideoPlayerContainerMixinImpl extends StableSelectorMixin(
     Base
   ) {
     /**
@@ -230,7 +228,7 @@ export const DDSVideoPlayerContainerMixin = <
       const playerId = Math.random().toString(36).slice(2);
       const div = document.createElement('div');
       div.id = playerId;
-      div.className = `${prefix}--video-player__video`;
+      div.className = `${c4dPrefix}--video-player__video`;
       const { _videoPlayer: videoPlayer } = this;
       if (!videoPlayer) {
         throw new TypeError(
@@ -278,12 +276,12 @@ export const DDSVideoPlayerContainerMixin = <
     };
 
     /**
-     * Calls the data-* attribute transpose function to target `dds-video-player`'s button element.
+     * Calls the data-* attribute transpose function to target `c4d-video-player`'s button element.
      */
     firstUpdated() {
       window.requestAnimationFrame(() => {
         const button =
-          this.querySelector('dds-video-player')?.shadowRoot?.querySelector(
+          this.querySelector('c4d-video-player')?.shadowRoot?.querySelector(
             'button'
           );
         if (!this.getAttribute('href') && this.getAttribute('video-id')) {
@@ -296,19 +294,19 @@ export const DDSVideoPlayerContainerMixin = <
       });
     }
 
-    prefersAutoplayStorageKey: String = `${ddsPrefix}-background-video-prefers-autoplay`;
+    prefersAutoplayStorageKey: String = `${c4dPrefix}-background-video-prefers-autoplay`;
   }
 
-  return DDSVideoPlayerContainerMixinImpl;
+  return C4DVideoPlayerContainerMixinImpl;
 };
 
 /**
  * Container component for video player.
  *
- * @element dds-video-player-container
+ * @element c4d-video-player-container
  */
-@customElement(`${ddsPrefix}-video-player-container`)
-class DDSVideoPlayerContainer extends ConnectMixin<
+@customElement(`${c4dPrefix}-video-player-container`)
+class C4DVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   MediaPlayerAPIActions,
   VideoPlayerContainerStateProps,
@@ -317,7 +315,7 @@ class DDSVideoPlayerContainer extends ConnectMixin<
   store as Store<VideoPlayerContainerState, MediaPlayerAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSVideoPlayerContainerMixin(DDSVideoPlayerComposite)) {}
+)(C4DVideoPlayerContainerMixin(C4DVideoPlayerComposite)) {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSVideoPlayerContainer;
+export default C4DVideoPlayerContainer;

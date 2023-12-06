@@ -6,13 +6,10 @@
  */
 
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import ddsSettings from '../settings/settings.js';
 import root from 'window-or-global';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from '../settings/settings.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
-
+const { prefix, stablePrefix: c4dPrefix } = settings;
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 class StickyHeader {
@@ -48,7 +45,7 @@ class StickyHeader {
   }
 
   static get customPropertyName() {
-    return `--${ddsPrefix}-sticky-header-height`;
+    return `--${c4dPrefix}-sticky-header-height`;
   }
 
   get height() {
@@ -77,7 +74,7 @@ class StickyHeader {
 
     const tocRoot = toc.shadowRoot;
 
-    const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
+    const desktopSelector = `.${c4dPrefix}-ce--table-of-contents__items-container`;
 
     if (window.innerWidth > gridBreakpoint) {
       if (toc.layout === 'horizontal') {
@@ -96,7 +93,7 @@ class StickyHeader {
   }
 
   set banner(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-universal-banner`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-global-banner`)) {
       this._banner = component;
       this.hasBanner = true;
 
@@ -110,7 +107,7 @@ class StickyHeader {
 
   set leadspaceWithSearch(component) {
     if (
-      this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
+      this._validateComponent(component, `${c4dPrefix}-leadspace-with-search`)
     ) {
       this._leadspaceWithSearch = component;
       const leadspaceSearchBar = component.shadowRoot.querySelector(
@@ -118,7 +115,7 @@ class StickyHeader {
       );
       this._leadspaceSearchBar = leadspaceSearchBar;
       this._leadspaceWithSearchInput = component.querySelector(
-        `${ddsPrefix}-search-with-typeahead`
+        `${c4dPrefix}-search-with-typeahead`
       );
       this._leadspaceWithSearchStickyThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
@@ -128,27 +125,27 @@ class StickyHeader {
   }
 
   set localeModal(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-locale-modal`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-locale-modal`)) {
       this._localeModal = component;
       this._calculateCumulativeHeight();
     }
   }
 
   set masthead(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-masthead`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-masthead`)) {
       this._masthead = component;
       if (this._banner) this._masthead.setAttribute('with-banner', '');
 
       this._mastheadL0 = component.shadowRoot.querySelector(
         `.${prefix}--masthead__l0`
       );
-      this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
+      this._mastheadL1 = component.querySelector(`${c4dPrefix}-masthead-l1`);
       this._calculateCumulativeHeight();
     }
   }
 
   set tableOfContents(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-table-of-contents`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-table-of-contents`)) {
       this._tableOfContents = component;
       this._tableOfContentsStickyUpdate();
       this._resizeObserver.observe(this._tableOfContents);

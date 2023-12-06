@@ -20,4 +20,5 @@ CHANGELOG.md
 packages/**/src/internal/vendor
 packages/**/tests/e2e/cypress
 packages/**/tests/e2e-storybook/cypress
+packages/carbon-web-components/scss
 custom-elements.json

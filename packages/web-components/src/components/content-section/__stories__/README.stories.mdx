@@ -3,7 +3,7 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<dds-content-section>`
+# `<cds-content-section>`
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-section)
@@ -28,13 +28,13 @@ import '@carbon/ibmdotcom-web-components/es/components/content-section/index.js'
 ### HTML
 
 ```html
-<dds-content-section>
-  <dds-content-section-heading>Heading</dds-content-section-heading>
-  <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</dds-text-cta
+<cds-content-section>
+  <cds-content-section-heading>Heading</cds-content-section-heading>
+  <cds-content-section-copy>Copy</cds-content-section-copy>
+  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</cds-text-cta
   >
-</dds-content-section>
+</cds-content-section>
 ```
 
 As part of the ongoing upgrade to Carbon for IBM.com v2, we have consolidated
@@ -44,72 +44,279 @@ components that are compatible with the `Content section` component are:
 
 ### Content block simple
 
-Note: With `Content block simple`, the `children-custom-class` attribute will need to be provided with proper grid class as shown below in order for the component to render correctly within the grid.
+Note: With `Content block simple`, the `children-custom-class` attribute will
+need to be provided with proper grid class as shown below in order for the
+component to render correctly within the grid.
 
 ```html
-<dds-content-section children-custom-class="bx--col-lg-16 bx--no-gutter">
-  <dds-content-section-heading>Heading</dds-content-section-heading>
-  <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</dds-text-cta
+<cds-content-section children-custom-class="cds--col-lg-16 cds--no-gutter">
+  <cds-content-section-heading>Heading</cds-content-section-heading>
+  <cds-content-section-copy>Copy</cds-content-section-copy>
+  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</cds-text-cta
   >
-  <dds-content-block-simple>
-    <dds-content-block-heading>Content block simple heading</dds-content-block-heading>
-    <dds-content-block-copy size="sm">Content block simple copy</dds-content-block-copy>
-    <dds-video-player-container
-      slot="media"
-      video-id="1_9h94wo6b"></dds-video-player-container>
-    <dds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com"
-      >Jump to AI ethics and trust</dds-text-cta
+  <cds-content-block-simple>
+    <cds-content-block-heading
+      >Content block simple heading</cds-content-block-heading
     >
-  </dds-content-block-simple>
-</dds-content-section>
+    <cds-content-block-copy size="sm"
+      >Content block simple copy</cds-content-block-copy
+    >
+    <cds-video-player-container
+      slot="media"
+      video-id="0_ibuqxqbe"></cds-video-player-container>
+    <cds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com"
+      >Jump to AI ethics and trust</cds-text-cta
+    >
+  </cds-content-block-simple>
+</cds-content-section>
 ```
 
 ### Card group
 
 ```html
-<dds-content-section>
-  <dds-content-section-heading>Heading</dds-content-section-heading>
-  <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</dds-text-cta
+<cds-content-section>
+  <cds-content-section-heading>Heading</cds-content-section-heading>
+  <cds-content-section-copy>Copy</cds-content-section-copy>
+  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</cds-text-cta
   >
-  <dds-card-group>
-    <dds-card-group-item href="https://example.com" cta-type="local">
-      <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+  <cds-card-group>
+    <cds-card-group-item href="https://example.com" cta-type="local">
+      <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
+      <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
+    </cds-card-group-item>
+  </cds-card-group>
+</cds-content-section>
+```
+
+### Carousel
+
+```html
+<cds-content-section>
+  <cds-content-section-heading>Heading</cds-content-section-heading>
+  <cds-content-section-copy>Copy</cds-content-section-copy>
+  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</cds-text-cta
+  >
+  <cds-content-section-heading
+    >Lorem ipsum dolor sit amet</cds-content-section-heading
+  >
+  <cds-content-section-copy>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+    est.
+  </cds-content-section-copy>
+  <cds-carousel>
+    <cds-card href="https://example.com">
+      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
+      <cds-card-footer>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </cds-card-footer>
+    </cds-card>
+    <cds-card href="https://example.com">
+      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
+      <cds-card-footer>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </cds-card-footer>
+    </cds-card>
+    <cds-card href="https://example.com">
+      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
+      <cds-card-footer>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </cds-card-footer>
+    </cds-card>
+    <cds-card href="https://example.com">
+      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
+      <cds-card-footer>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </cds-card-footer>
+    </cds-card>
+    <cds-card href="https://example.com">
+      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
+      <cds-card-footer>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </cds-card-footer>
+    </cds-card>
+    <cds-card href="https://example.com">
+      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
+      <cds-card-footer>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </cds-card-footer>
+    </cds-card>
+  </cds-carousel>
+</cds-content-section>
+```
+
+### Link list
+
+```html
+<cds-content-section>
+  <cds-content-section-heading>Heading</cds-content-section-heading>
+  <cds-content-section-copy>Copy</cds-content-section-copy>
+  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</cds-text-cta
+  >
+  <cds-content-section-heading
+    >Lorem ipsum dolor sit amet</cds-content-section-heading
+  >
+  <cds-content-section-copy>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+    est.
+  </cds-content-section-copy>
+  <cds-link-list>
+    <cds-link-list-item href="https://example.com">
+      Learn more about Kubernetes and automating deployment ${ArrowRight20({
+      slot: 'icon' })}
+    </cds-link-list-item>
+    <cds-link-list-item href="https://example.com">
+      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+    </cds-link-list-item>
+    <cds-link-list-item href="https://example.com">
+      Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+    </cds-link-list-item>
+    <cds-link-list-item href="https://example.com">
+      Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+    </cds-link-list-item>
+    <cds-link-list-item href="https://example.com">
+      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+    </cds-link-list-item>
+    <cds-link-list-item href="https://example.com">
+      Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+    </cds-link-list-item>
+  </cds-link-list>
+</cds-content-section>
+```
+
+As part of the ongoing upgrade to Carbon for IBM.com v2, we have consolidated some of the other `Content section` variants under a single one.
+Some of the components that are compatible with the `Content section` component are: `Card group`, `Carousel`, `Link list`.
+
+### Card group
+
+```html
+
+<dds-content-section>
+  <dds-content-section-heading>Heading</dds-content-section-heading>
+  <dds-content-section-copy>Copy</dds-content-section-copy>
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com"> CTA text</dds-text-cta>
+  <dds-card-group>
+    <dds-card-group-item href="https://example.com" cta-type="local">
+      <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      </p>
+      <dds-card-cta-footer slot="footer">
+      </dds-card-cta-footer>
     </dds-card-group-item>
-  </dds-card-group>
+  </dds-card-group>  
 </dds-content-section>
 ```
 
 ### Carousel
 
 ```html
+
 <dds-content-section>
   <dds-content-section-heading>Heading</dds-content-section-heading>
   <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</dds-text-cta
-  >
-  <dds-content-section-heading
-    >Lorem ipsum dolor sit amet</dds-content-section-heading
-  >
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com"> CTA text</dds-text-cta>
+  <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
   <dds-content-section-copy>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
-    est.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
   </dds-content-section-copy>
   <dds-carousel>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-      ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -120,16 +327,15 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20">
-          <path
-            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20"
+        >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-      ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -140,16 +346,15 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20">
-          <path
-            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20"
+        >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-      ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -160,16 +365,15 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20">
-          <path
-            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20"
+        >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-      ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -180,16 +384,15 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20">
-          <path
-            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20"
+        >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-      ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -200,16 +403,15 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20">
-          <path
-            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20"
+        >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-      ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -220,9 +422,9 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20">
-          <path
-            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20"
+        >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
@@ -236,20 +438,14 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
 <dds-content-section>
   <dds-content-section-heading>Heading</dds-content-section-heading>
   <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</dds-text-cta
-  >
-  <dds-content-section-heading
-    >Lorem ipsum dolor sit amet</dds-content-section-heading
-  >
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com"> CTA text</dds-text-cta>
+  <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
   <dds-content-section-copy>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
-    est.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
   </dds-content-section-copy>
   <dds-link-list>
     <dds-link-list-item href="https://example.com">
-      Learn more about Kubernetes and automating deployment ${ArrowRight20({
-      slot: 'icon' })}
+      Learn more about Kubernetes and automating deployment ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
     <dds-link-list-item href="https://example.com">
       Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
@@ -266,13 +462,13 @@ Note: With `Content block simple`, the `children-custom-class` attribute will ne
     <dds-link-list-item href="https://example.com">
       Microservices and containers ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
-  </dds-link-list>
+  </dds-link-list>  
 </dds-content-section>
 ```
 
 ## Props
 
-<Props of="dds-content-section" />
+<Props of="cds-content-section" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -283,8 +479,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector         | Compatibility selector                        | Description |
 | ------------------------------- | --------------------------------------------- | ----------- |
-| `<dds-content-section>`         | `data-autoid="dds--content-section"`          | Component   |
-| `<dds-content-section-copy>`    | `data-autoid="dds--content-section__copy"`    | Component   |
-| `<dds-content-section-heading>` | `data-autoid="dds--content-section__heading"` | Component   |
+| `<cds-content-section>`         | `data-autoid="cds--content-section"`          | Component   |
+| `<cds-content-section-copy>`    | `data-autoid="cds--content-section__copy"`    | Component   |
+| `<cds-content-section-heading>` | `data-autoid="cds--content-section__heading"` | Component   |
 
 <Description markdown={contributing} />

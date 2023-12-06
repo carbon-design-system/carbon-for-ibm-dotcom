@@ -13,13 +13,13 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
-import DDSContentBlockSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-block-simple/content-block-simple';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import DDSCardLink from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DContentBlockSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-block-simple/content-block-simple';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DCardLink from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
 import readme from './README.stories.react.mdx';
@@ -56,26 +56,35 @@ const ctaStyles = {
   [`Text (${CTA_STYLE.TEXT})`]: CTA_STYLE.TEXT,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, ctaStyle, ctaType } = args?.ContentBlockSimple ?? {};
   return (
     <>
-      <DDSContentBlockSimple>
-        <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-        <DDSContentBlockCopy size={CONTENT_BLOCK_COPY_SIZE.SMALL}>{copy}</DDSContentBlockCopy>
+      <C4DContentBlockSimple>
+        <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+        <C4DContentBlockCopy size={CONTENT_BLOCK_COPY_SIZE.SMALL}>
+          {copy}
+        </C4DContentBlockCopy>
         {ctaStyle === 'card' ? (
-          <DDSCardLink cta-type={ctaType} slot="footer" href="https://example.com">
-            <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
-            <DDSCardFooter>
+          <C4DCardLink
+            cta-type={ctaType}
+            slot="footer"
+            href="https://example.com">
+            <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
+            <C4DCardFooter>
               <ArrowRight20 slot="icon" />
-            </DDSCardFooter>
-          </DDSCardLink>
+            </C4DCardFooter>
+          </C4DCardLink>
         ) : (
-          <DDSTextCTA cta-type={ctaType} slot="footer" href="#" icon-placement="right">
+          <C4DTextCTA
+            cta-type={ctaType}
+            slot="footer"
+            href="#"
+            icon-placement="right">
             Lorem ipsum dolor sit amet
-          </DDSTextCTA>
+          </C4DTextCTA>
         )}
-      </DDSContentBlockSimple>
+      </C4DContentBlockSimple>
     </>
   );
 };
@@ -84,7 +93,10 @@ Default.story = {
   parameters: {
     knobs: {
       ContentBlockSimple: () => ({
-        heading: text('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
+        heading: text(
+          'Heading (required)',
+          'Curabitur malesuada varius mi eu posuere'
+        ),
         copy,
         ctaStyle: select('CTA style', ctaStyles, CTA_STYLE.TEXT),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
@@ -96,11 +108,11 @@ Default.story = {
 export default {
   title: 'Components/Content block simple',
   decorators: [
-    story => {
+    (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--no-gutter bx--col-lg-12">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--no-gutter cds--col-lg-12">{story()}</div>
           </div>
         </div>
       );

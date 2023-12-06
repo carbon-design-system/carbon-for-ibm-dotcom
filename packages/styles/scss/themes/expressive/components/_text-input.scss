@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Text Input (expressive)
@@ -16,24 +16,24 @@
 /// @group text-input-expressive
 @mixin text-input-expressive {
   .#{$prefix}--text-input {
-    height: carbon--rem(48px); /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
 
     &__invalid-icon {
-      height: carbon--rem(20px);
-      width: carbon--rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
   .#{$prefix}--text-input__field-wrapper
     .#{$prefix}--text-input--password__visibility,
   .#{$prefix}--text-input__field-wrapper
     .#{$prefix}--text-input--password__visibility__toggle.#{$prefix}--tooltip__trigger {
-    height: carbon--rem(20px);
-    width: carbon--rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
 
     .#{$prefix}--icon-visibility-off,
     .#{$prefix}--icon-visibility-on {
-      height: carbon--rem(20px);
-      width: carbon--rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
 }

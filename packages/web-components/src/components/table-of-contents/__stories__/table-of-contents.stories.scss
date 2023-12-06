@@ -5,17 +5,14 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/colors/colors';
-@import 'carbon-components/scss/globals/scss/typography';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-.dds-ce-demo--table-of-contents {
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+.#{$c4d-prefix}-ce-demo--table-of-contents {
+  padding: 0 $spacing-05;
 
   h3 {
-    padding-top: rem(32px);
-    padding-bottom: rem(32px);
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-07;
   }
 }

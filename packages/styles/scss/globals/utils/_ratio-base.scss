@@ -6,7 +6,7 @@
  */
 
 // mixin to give the ratio for lays doen for an aspect ratio
-@import '../../globals/utils/aspect-ratio';
+@use '../../globals/utils/aspect-ratio' as *;
 
 @mixin ratio-base($height, $width, $fixed) {
   @if ($fixed) {

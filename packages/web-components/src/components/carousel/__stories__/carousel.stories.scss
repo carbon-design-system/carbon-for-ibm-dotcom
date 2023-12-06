@@ -7,11 +7,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@use '@carbon/styles/scss/breakpoint' as *;
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-carousel {
-  @include carbon--breakpoint('lg') {
-    --dds--carousel--page-size: 4;
+cds-carousel {
+  @include breakpoint(lg) {
+    --cds--carousel--page-size: 4;
   }
 }

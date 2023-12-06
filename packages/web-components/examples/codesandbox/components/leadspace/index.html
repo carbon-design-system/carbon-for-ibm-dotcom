@@ -17,26 +17,26 @@ LICENSE file in the root directory of this source tree.
     />
     <style type="text/css">
       /* Suppress custom element until styles are loaded */
-      dds-leadspace:not(:defined) {
+      cds-leadspace:not(:defined) {
         display: none;
       }
     </style>
     <script src="src/index.js"></script>
   </head>
   <body>
-    <div class="bx--grid">
-      <div class="bx--row">
-        <div class="bx--col-sm-8 bx--col-lg-16">
-          <dds-leadspace
+    <div class="cds--grid">
+      <div class="cds--row">
+        <div class="cds--col-sm-8 cds--col-lg-16">
+          <cds-leadspace
             size="medium"
             alt="Image text"
             default-src="https://picsum.photos/id/1076/1056/480"
           >
-            <dds-leadspace-heading>Lead space title</dds-leadspace-heading>
+            <cds-leadspace-heading>Lead space title</cds-leadspace-heading>
             Use this area for a short line of copy to support the title
 
-            <dds-button-group slot="action">
-              <dds-button-group-item href="https://example.com">
+            <cds-button-group slot="action">
+              <cds-button-group-item href="https://example.com">
                 Button 1
                 <svg
                   focusable="false"
@@ -53,8 +53,8 @@ LICENSE file in the root directory of this source tree.
                     d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                   ></path>
                 </svg>
-              </dds-button-group-item>
-              <dds-button-group-item href="https://example.com">
+              </cds-button-group-item>
+              <cds-button-group-item href="https://example.com">
                 Button 2
                 <svg
                   focusable="false"
@@ -71,37 +71,37 @@ LICENSE file in the root directory of this source tree.
                     d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                   ></path>
                 </svg>
-              </dds-button-group-item>
-            </dds-button-group>
+              </cds-button-group-item>
+            </cds-button-group>
 
-            <dds-background-media
+            <cds-background-media
               slot="image"
               alt="Image text"
               default-src="https://picsum.photos/id/1076/1056/480"
               opacity="100"
             >
-              <dds-image-item
+              <cds-image-item
                 media="(min-width: 1312px)"
                 srcset="https://picsum.photos/id/1076/1056/480"
               >
-              </dds-image-item>
-              <dds-image-item
+              </cds-image-item>
+              <cds-image-item
                 media="(min-width: 672px)"
                 srcset="https://picsum.photos/id/1076/672/400"
               >
-              </dds-image-item>
-              <dds-image-item
+              </cds-image-item>
+              <cds-image-item
                 media="(min-width: 320px)"
                 srcset="https://picsum.photos/id/1076/672/400"
               >
-              </dds-image-item>
-              <dds-image-item
+              </cds-image-item>
+              <cds-image-item
                 media="(min-width: 0px)"
                 srcset="https://picsum.photos/id/1076/320/370"
               >
-              </dds-image-item>
-            </dds-background-media>
-          </dds-leadspace>
+              </cds-image-item>
+            </cds-background-media>
+          </cds-leadspace>
         </div>
       </div>
     </div>

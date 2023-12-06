@@ -7,10 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -20,23 +23,25 @@ import {
   LocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
-import DDSLocaleModal from './locale-modal';
+import C4DLocaleModal from './locale-modal';
 import './regions';
 import './region-item';
 import './locale-search';
 import './locale-item';
+import '../card/card-heading';
+import '../card/card-footer';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Container component for locale modal.
  *
- * @element dds-locale-modal-composite
+ * @element c4d-locale-modal-composite
  */
-@customElement(`${ddsPrefix}-locale-modal-composite`)
-class DDSLocaleModalComposite extends HostListenerMixin(
+@customElement(`${c4dPrefix}-locale-modal-composite`)
+class C4DLocaleModalComposite extends HostListenerMixin(
   HybridRenderMixin(LitElement)
 ) {
   /**
@@ -99,7 +104,7 @@ class DDSLocaleModalComposite extends HostListenerMixin(
   @property()
   chosenRegion?: string;
 
-  @HostListener(DDSLocaleModal.eventRegionUpdated)
+  @HostListener(C4DLocaleModal.eventRegionUpdated)
   protected _handleRegionUpdatedEvent(event) {
     this.chosenRegion = event.detail.region || undefined;
   }
@@ -184,31 +189,45 @@ class DDSLocaleModalComposite extends HostListenerMixin(
       }[]
     );
     return html`
-      <dds-locale-modal
-        close-button-assistive-text="${ifNonNull(modalClose)}"
-        header-title="${ifNonNull(headerTitle)}"
-        lang-display="${ifNonNull(langDisplay)}"
+      <c4d-locale-modal
+        close-button-assistive-text="${ifDefined(modalClose)}"
+        header-title="${ifDefined(headerTitle)}"
+        lang-display="${ifDefined(langDisplay)}"
         ?open="${open}">
-        <dds-regions title="${ifNonNull(headerTitle)}">
+        <c4d-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
             const isInvalid =
               countryList.length === 0 ||
               massagedCountryList?.find(({ region }) => region === name) ===
                 undefined;
             return html`
-              <dds-region-item
-                ?invalid="${isInvalid}"
-                name="${name}"></dds-region-item>
+              <c4d-region-item link ?disabled="${isInvalid}" name="${name}">
+                <c4d-card-heading>${name}</c4d-card-heading>
+                <div
+                  slot="footer"
+                  class="${c4dPrefix}--region-item-footer"
+                  ?disabled="${isInvalid}">
+                  ${isInvalid
+                    ? Error20({
+                        slot: 'icon',
+                        class: `${c4dPrefix}--card__cta`,
+                      })
+                    : ArrowRight20({
+                        slot: 'icon',
+                        class: `${c4dPrefix}--card__cta`,
+                      })}
+                </div>
+              </c4d-region-item>
             `;
           })}
-        </dds-regions>
+        </c4d-regions>
 
-        <dds-locale-search
-          close-button-assistive-text="${ifNonNull(searchClearText)}"
-          label-text="${ifNonNull(searchLabel)}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-          availability-label-text="${ifNonNull(availabilityText)}"
-          unavailability-label-text="${ifNonNull(unavailabilityText)}">
+        <c4d-locale-search
+          close-button-assistive-text="${ifDefined(searchClearText)}"
+          label-text="${ifDefined(searchLabel)}"
+          placeholder="${ifDefined(searchPlaceholder)}"
+          availability-label-text="${ifDefined(availabilityText)}"
+          unavailability-label-text="${ifDefined(unavailabilityText)}">
           ${chosenRegion
             ? html`
                 ${massagedCountryList
@@ -217,19 +236,19 @@ class DDSLocaleModalComposite extends HostListenerMixin(
                   })
                   .map(
                     ({ country, href, language, locale, region }) => html`
-                      <dds-locale-item
+                      <c4d-locale-item
                         country="${country}"
                         href="${href}"
                         language="${language}"
                         locale="${locale}"
                         region="${region}">
-                      </dds-locale-item>
+                      </c4d-locale-item>
                     `
                   )}
               `
             : ``}
-        </dds-locale-search>
-      </dds-locale-modal>
+        </c4d-locale-search>
+      </c4d-locale-modal>
     `;
   }
 
@@ -241,4 +260,4 @@ class DDSLocaleModalComposite extends HostListenerMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLocaleModalComposite;
+export default C4DLocaleModalComposite;

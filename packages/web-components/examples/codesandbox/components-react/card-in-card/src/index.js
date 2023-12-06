@@ -10,27 +10,27 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import './index.css';
 
 const App = () => (
-  <DDSCardInCard href="https://example.com">
-    <DDSCardInCardImage slot="image" alt="Image alt text" default-src="https://picsum.photos/id/1076/480/360">
-      <DDSImageItem media="(min-width: 1312px)" srcset="https://picsum.photos/id/1076/1312/738"></DDSImageItem>
-      <DDSImageItem media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/960/540"></DDSImageItem>
-      <DDSImageItem media="(min-width: 320px)" srcset="https://picsum.photos/id/1076/480/360"></DDSImageItem>
-    </DDSCardInCardImage>
-    <DDSCardEyebrow>Label</DDSCardEyebrow>
-    <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
-    <DDSCardCTAFooter>
+  <C4DCardInCard href="https://example.com">
+    <C4DCardInCardImage slot="image" alt="Image alt text" default-src="https://picsum.photos/id/1076/480/360">
+      <C4DImageItem media="(min-width: 1312px)" srcset="https://picsum.photos/id/1076/1312/738"></C4DImageItem>
+      <C4DImageItem media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/960/540"></C4DImageItem>
+      <C4DImageItem media="(min-width: 320px)" srcset="https://picsum.photos/id/1076/480/360"></C4DImageItem>
+    </C4DCardInCardImage>
+    <C4DCardEyebrow>Label</C4DCardEyebrow>
+    <C4DCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</C4DCardHeading>
+    <C4DCardCTAFooter>
       <ArrowRight20 slot="icon" />
-    </DDSCardCTAFooter>
-  </DDSCardInCard>
+    </C4DCardCTAFooter>
+  </C4DCardInCard>
 );
 
 render(<App />, document.getElementById('root'));

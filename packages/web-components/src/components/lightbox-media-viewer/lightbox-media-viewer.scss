@@ -5,24 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer/lightbox-media-viewer';
-@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
-@import '../expressive-modal/expressive-modal';
-
-:host(#{$dds-prefix}-lightbox-image-viewer),
-:host(#{$dds-prefix}-lightbox-video-player) {
-  @extend :host(#{$dds-prefix}-expressive-modal-body);
-  @extend .#{$prefix}--lightbox-media-viewer;
-}
-
-:host(#{$dds-prefix}-lightbox-video-player) .#{$prefix}--video-player {
-  width: 100%;
-
-  ::slotted(.#{$prefix}--video-player__video) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
+@use '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer';

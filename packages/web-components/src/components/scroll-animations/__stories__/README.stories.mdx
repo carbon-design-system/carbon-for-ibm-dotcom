@@ -1,6 +1,15 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import { cdnJs, cdnCss, cdnCssAdditional } from '../../../globals/internal/storybook-cdn';
+import {
+  cdnJs,
+  cdnCss,
+  cdnCssAdditional,
+} from '../../../globals/internal/storybook-cdn';
 
 # Fade In Out
 
@@ -15,10 +24,12 @@ import { cdnJs, cdnCss, cdnCssAdditional } from '../../../globals/internal/story
 ## Getting started
 
 ### Quick start
+
 ##### (Note: Animation effect won't be noticeable unless the page is long enough to scroll through)
 
-In order to use the `<dds-scroll-animations>` component, it needs to be wrapped around the elements that need to be targeted,
-passing in a querystring containing the exact identifiers to control which elements it should target.
+In order to use the `<cds-scroll-animations>` component, it needs to be wrapped
+around the elements that need to be targeted, passing in a querystring
+containing the exact identifiers to control which elements it should target.
 
 Here's a simple example to get started:
 
@@ -27,63 +38,68 @@ Here's a simple example to get started:
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.js'
+import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.js';
 ```
 
 ### SCSS
+
 ```scss
-@import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
+@use '@carbon/ibmdotcom-styles/scss/components/scroll-into-view';
 ```
 
 ## Example using CDN
 
 <Description markdown={`${cdnJs({ components: ['scroll-animations'] })}`} />
 
-<Description markdown={`${cdnCssAdditional({ components: ['scroll-animations'] })}`} />
+<Description
+  markdown={`${cdnCssAdditional({ components: ['scroll-animations'] })}`}
+/>
 
 <Description markdown={`${cdnCss()}`} />
 
 ## Example HTML
 
 ```html
-<dds-scroll-animations animation='fade' selector-targets='.targeted-class'>
-  <div class='targeted-class'>
+<cds-scroll-animations animation="fade" selector-targets=".targeted-class">
+  <div class="targeted-class">
     <p>This content will fade in upon scrolled into view.</p>
   </div>
 
   <div>
     <p>This content is not included in the selector, it will not fade.</p>
   </div>
-</dds-scroll-animations>
+</cds-scroll-animations>
 ```
 
 ### Customizing Delay
 
-An optional custom delay can be set within targeted class in the application's CSS code as such:
+An optional custom delay can be set within targeted class in the application's
+CSS code as such:
 
 ```css
 .targeted-class {
-  --dds--fade-in-out-delay: 250ms;
+  --cds--fade-in-out-delay: 250ms;
 }
 ```
 
 ### Animation Effects
 
-There are currently nine effects that can be applied in the component.
-To use a specific animation effect, pass one of the following to the `animation` attribute (e.g. `animation='slide-left'`):
+There are currently nine effects that can be applied in the component. To use a
+specific animation effect, pass one of the following to the `animation`
+attribute (e.g. `animation='slide-left'`):
 
-* `fade`
-* `slide-up`
-* `slide-up-right`
-* `slide-right`
-* `slide-down-right`
-* `slide-down`
-* `slide-down-left`
-* `slide-left`
-* `slide-up-left`
+- `fade`
+- `slide-up`
+- `slide-up-right`
+- `slide-right`
+- `slide-down-right`
+- `slide-down`
+- `slide-down-left`
+- `slide-left`
+- `slide-up-left`
 
 ## Props
 
-<Props of="dds-scroll-animations" />
+<Props of="cds-scroll-animations" />
 
 <Description markdown={contributing} />

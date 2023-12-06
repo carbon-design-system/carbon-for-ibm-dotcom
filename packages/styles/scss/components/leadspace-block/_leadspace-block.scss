@@ -1,145 +1,107 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../../globals/utils/content-width';
-@import '../../globals/utils/hang';
-@import '../buttongroup/_buttongroup';
-@import '../link-list/index';
-@import '../image-with-caption/image-with-caption';
-@import '../../internal/content-block/content-block';
-
-%leadspace-block-padding {
-  padding-top: 0;
-  padding-bottom: $layout-01;
-
-  @include carbon--breakpoint('md') {
-    padding-bottom: $layout-06;
-  }
-  @include carbon--breakpoint('lg') {
-    padding-bottom: $layout-07;
-  }
-}
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/content-width' as *;
+@use '../../globals/utils/hang' as *;
+@use '../../globals/vars' as *;
+@use '../link-list';
+@use '../image';
+@use '../../internal/content-block';
 
 @mixin leadspace-block {
-  :host(#{$dds-prefix}-leadspace-block)
-    ::slotted(#{$dds-prefix}-leadspace-block-content) {
-    @extend %leadspace-block-padding;
-  }
+  :host(#{$c4d-prefix}-leadspace-block) {
+    display: block;
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-12;
 
-  .#{$prefix}--leadspace-block {
-    .#{$prefix}--content-block {
-      @extend %leadspace-block-padding;
-
-      .#{$prefix}--image-with-caption {
-        margin-bottom: 0;
-      }
-
-      .#{$prefix}--link-list__list__CTA {
-        max-width: none;
-      }
+    @include breakpoint(md) {
+      margin-top: $spacing-10;
+      margin-bottom: $spacing-13;
     }
 
-    .#{$prefix}--content-block__copy {
-      p {
-        @include carbon--type-style('expressive-heading-03', true);
-      }
-    }
-
-    dds-hr,
-    .#{$prefix}--hr {
-      border-color: $ui-04;
-      margin-top: 0;
-
-      @include hang;
-    }
-
-    .#{$prefix}--content-block__cta {
-      margin-top: 0;
+    ::slotted(#{$c4d-prefix}-leadspace-block-content) {
+      padding: 0;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-with-search-heading),
-  :host(#{$dds-prefix}-leadspace-block-heading),
-  .#{$prefix}--leadspace-block__title {
-    width: 90%;
-    color: $text-01;
-    padding-top: $layout-03;
-    @include carbon--type-style('expressive-heading-06', true);
+  :host(#{$c4d-prefix}-leadspace-block[border]) {
+    margin: $spacing-07 0;
 
-    /* stylelint-disable declaration-no-important */
-    ::slotted(h1) {
-      all: unset !important; /* stylelint-disable-line declaration-property-value-blacklist */
-    }
-    /* stylelint-enable declaration-no-important */
-
-    @include carbon--breakpoint('md') {
-      padding-top: $layout-03;
-    }
-
-    @include carbon--breakpoint('lg') {
-      padding-top: $layout-05;
+    @include breakpoint(md) {
+      margin: $spacing-10 0;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-block-content)
-    ::slotted(#{$dds-prefix}-link-list),
+  :host(#{$c4d-prefix}-leadspace-block[border])
+    ::slotted(#{$c4d-prefix}-leadspace-block-content) {
+    padding-top: 0;
+    padding-bottom: $spacing-10;
+
+    @include breakpoint(md) {
+      padding-bottom: $spacing-12;
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block) c4d-hr {
+    margin: 0 #{-$spacing-05};
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-leadspace-block-content)
+    ::slotted(#{$c4d-prefix}-content-block-copy) {
+    display: block;
+    width: 100%;
+
+    @include breakpoint(md) {
+      max-width: to-rem(640px);
+      padding-right: $spacing-07;
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot='heading']) {
+    width: 100%;
+    padding-left: 0;
+
+    margin-bottom: $spacing-07;
+    margin-left: 0;
+
+    @include breakpoint-down(md) {
+      padding-right: 0;
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block-content)
+    ::slotted(#{$c4d-prefix}-link-list),
   .#{$prefix}--leadspace-block .#{$prefix}--link-list {
     display: block;
-    padding-top: $spacing-09;
     padding-bottom: $spacing-09;
     margin-right: 0;
     max-width: none;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       max-width: carbon--mini-units(80);
     }
   }
 
-  .#{$prefix}--leadspace-block
-    .#{$prefix}--link-list
-    .#{$prefix}--link-list__list--vertical-end
-    .#{$prefix}--link-list__list__CTA {
-    max-width: none;
-  }
-
-  :host(#{$dds-prefix}-leadspace-block-content)
-    ::slotted(#{$dds-prefix}-content-block-copy) {
-    display: block;
-  }
-
-  :host(#{$dds-prefix}-leadspace-block-media),
+  :host(#{$c4d-prefix}-leadspace-block-media),
   .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
     display: block;
     max-width: carbon--mini-units(80);
+    padding-bottom: $spacing-07;
 
-    @include carbon--breakpoint('md') {
-      padding-top: $spacing-05;
-    }
-
-    ::slotted(#{$dds-prefix}-image),
-    .#{$prefix}--image-with-caption {
+    ::slotted(#{$c4d-prefix}-image) {
       margin-top: 0;
       margin-bottom: 0;
     }
   }
-
-  :host(#{$dds-prefix}-leadspace-block-cta),
-  .#{$prefix}--leadspace-block .#{$prefix}--buttongroup {
-    padding-top: 0;
-
-    ::slotted(#{$dds-prefix}-button-group-item),
-    .#{$prefix}--buttongroup-item {
-      margin-top: 0;
-      padding-top: 0;
-    }
-  }
-}
-
-@include exports('leadspace-block') {
-  @include leadspace-block;
 }

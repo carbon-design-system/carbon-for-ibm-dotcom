@@ -10,12 +10,14 @@
  *
  * @exports ibmdotcom.settings
  * @type {object} Settings object
- * @property {string} [prefix=dds]
- * Carbon for IBM.com v1.53.0',
+ * @property {string} [stablePrefix=c4d] stable prefix
+ * @property {string} [prefix=cds] core Carbon prefix
+ * Carbon for IBM.com v2.0.0',
  */
 const settings = {
-  version: 'Carbon for IBM.com v1.53.0',
-  stablePrefix: 'dds',
+  version: 'Carbon for IBM.com v2.0.0',
+  stablePrefix: 'c4d',
+  prefix: 'cds',
 };
 
 export default settings;

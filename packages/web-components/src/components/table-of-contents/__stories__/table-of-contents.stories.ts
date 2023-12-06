@@ -7,8 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { nothing } from 'lit-html';
-import { html } from 'lit-element';
+import { html, nothing } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import '../table-of-contents';
@@ -24,47 +23,47 @@ import { ICON_PLACEMENT } from '../../../globals/defs';
 export const Default = (args) => {
   const { numberOfItems: items, withHeadingContent } = args?.Other ?? {};
   return html`
-    <dds-table-of-contents>
+    <c4d-table-of-contents>
       ${withHeadingContent
         ? html`
-            <dds-link-list type="vertical" slot="heading">
-              <dds-link-list-item
+            <c4d-link-list type="vertical" slot="heading">
+              <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
                 DevOps${ArrowLeft20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item
+              </c4d-link-list-item>
+              <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
                 Automation${ArrowLeft20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item
+              </c4d-link-list-item>
+              <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
                 Development${ArrowLeft20({ slot: 'icon' })}
-              </dds-link-list-item>
-            </dds-link-list>
-            <dds-hr slot="menu-rule"></dds-hr>
+              </c4d-link-list-item>
+            </c4d-link-list>
+            <c4d-hr slot="menu-rule"></c4d-hr>
           `
         : nothing}
-      ${content({ contentClass: 'bx--tableofcontents__contents', items })}
-    </dds-table-of-contents>
+      ${content({ contentClass: 'cds--tableofcontents__contents', items })}
+    </c4d-table-of-contents>
   `;
 };
 
 export const Horizontal = (args) => {
   const { numberOfItems: items } = args?.Other ?? {};
   return html`
-    <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
-      <div class="bx--row">
-        <div class="bx--col-lg-12">
+    <c4d-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
+      <div class="cds--row">
+        <div class="cds--col-lg-12">
           ${content({
-            contentClass: 'bx--tableofcontents-horizontal__contents',
+            contentClass: 'cds--tableofcontents-horizontal__contents',
             items,
           })}
         </div>
       </div>
-    </dds-table-of-contents>
+    </c4d-table-of-contents>
   `;
 };
 
@@ -107,7 +106,7 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid" style="padding: 0">${story()}</div>
+      <div class="cds--grid" style="padding: 0">${story()}</div>
     `,
   ],
   parameters: {

@@ -31,24 +31,62 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 ### JS (via import)
 
-```javascript
+````javascript
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['masthead'] })}`} />
-
+```<Description markdown={`\${cdnJs({ components: ['masthead'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-<dds-masthead-container></dds-masthead-container>
+<c4d-masthead-container></c4d-masthead-container>
+````
+
+#### Adopting Masthead v2 with new data endpoint
+
+###### JS (via CDN):
+
+```html
+// Alpha tag using changes from the feature branch (feat/masthead-v2)
+<script
+  type="module"
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
+```
+
+###### Markup:
+
+```html
+<c4d-masthead-container
+  data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+  auth-method="profile-api"
+  has-contact="false"></c4d-masthead-container>
+```
+
+#### Adopting Masthead v2 with Cloud data endpoint
+
+###### JS (via CDN):
+
+```html
+// Alpha tag using changes from the feature branch (feat/masthead-v2)
+<script
+  type="module"
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
+```
+
+###### Markup:
+
+```html
+<c4d-masthead-container
+  data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
+  platform="Cloud"
+  auth-method="cookie"
+  has-contact="true"></c4d-masthead-container>
 ```
 
 #### Setting Platform
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum"></dds-masthead-container>
+<c4d-masthead-container platform="Lorem Ipsum"></c4d-masthead-container>
 ```
 
 #### Setting Platform URL
@@ -59,9 +97,9 @@ specific URL for each locale. This property has to be set via javascript.
 ###### Setting a single platform URL:
 
 ```html
-<dds-masthead-container
+<c4d-masthead-container
   platform="Lorem Ipsum"
-  id="masthead-container"></dds-masthead-container>
+  id="masthead-container"></c4d-masthead-container>
 ```
 
 ```javascript
@@ -91,9 +129,9 @@ document.getElementById('masthead-container').platformUrl = urlObject;
 ```
 
 ```html
-<dds-masthead-container
+<c4d-masthead-container
   platform="Lorem Ipsum"
-  id="masthead-container"></dds-masthead-container>
+  id="masthead-container"></c4d-masthead-container>
 ```
 
 #### Custom Navigation
@@ -108,8 +146,9 @@ document.getElementById('masthead-container').customNavLinks = links;
 
 #### Using L1 nav
 
-To use L1 nav, set `l1Data` prop. `l1Data` prop should be an object that
-contains the navigation data of L1 nav:
+To use L1 nav, set `l1Data` prop. `l1Data` prop should be a MastheadL1 object,
+as defined in packages/services-store/src/actions/translateAPI.ts that contains
+the navigation data of L1 nav:
 
 ```javascipt
 const l1Data = {
@@ -117,21 +156,22 @@ const l1Data = {
     name: 'Stock Charts',
     url: 'https://example.com/',
   },
-  menuItems: (The nav links),
+  menuItems: [...],
+  actions: {...},
 }
 ```
 
 ```html
-<dds-masthead-container id="masthead-container"></dds-masthead-container>
+<c4d-masthead-container id="masthead-container"></c4d-masthead-container>
 ```
 
 To set a custom endpoint for the translation service to fetch from, set either
-the `data-endpoint` attribute like below or `DDS_TRANSLATION_ENDPOINT`
+the `data-endpoint` attribute like below or `C4D_TRANSLATION_ENDPOINT`
 environment variable.
 
 ```html
-<dds-masthead-container
-  data-endpoint="/custom-endpoint"></dds-masthead-container>
+<c4d-masthead-container
+  data-endpoint="/custom-endpoint"></c4d-masthead-container>
 ```
 
 ### Setting the active menu item
@@ -153,6 +193,24 @@ been set.
 If no other menu items are marked active and the optional `platformUrl` property
 has been set, the platform link will be marked active.
 
+### Understanding the different authentication method types
+
+The `<c4d-masthead-container>` and `<c4d-masthead-composite>` components both
+expose the `auth-method` property which allows the adopters to define the
+authentication method based on their content ecosystems and renders the ultity
+menu items (located on the top right-hand area) based on the defined auth
+method. See below for more context on each available value.
+
+- `auth-method="profile-api"` - The default authentication method used on the
+  global masthead to display links to the MyIBM profile.
+- `auth-method="cookie"` - This authentication method checks for the cookie name
+  value return from the `cloud.ibm.com` console application (eg.
+  `com.ibm.cloud.iam.LoggedIn.prod`) and see if it returns `1` or `0`. This
+  method is designed and intended for "Cloud" web segment usage only.
+- `auth-method="docs-api"` - This authentication method checks against the
+  console API user login response. This method is designed and intended for
+  Cloud Docs (https://cloud.ibm.com) team usage only.
+
 ## Using custom search with typeahead API
 
 Using a search API other than the default provided from IBM Search is supported.
@@ -161,7 +219,7 @@ First, add the `custom-typeahead-api` attribute into the masthead and set it to
 `true`.
 
 ```html
-<dds-masthead-container custom-typeahead-api="true"></dds-masthead-container>
+<c4d-masthead-container custom-typeahead-api="true"></c4d-masthead-container>
 ```
 
 As an example, we will be using the IBM Docs API to fetch the data, retrieving
@@ -181,17 +239,17 @@ async function customTypeaheadApiFunction(searchVal) {
 ```
 
 To query the current masthead search input, we need to create an event listener
-to listen for the `dds-search-with-typeahead-input` event. Once captured, we
+to listen for the `c4d-search-with-typeahead-input` event. Once captured, we
 need to call our asynchronous function to fetch the custom API results based on
 the query. Once the results are retrieved, a new custom event
-`dds-custom-typeahead-api-results` needs to be dispatched containing the results
+`c4d-custom-typeahead-api-results` needs to be dispatched containing the results
 for the component to render the search suggestions.
 
 ```javascript
-document.addEventListener('dds-search-with-typeahead-input', async (e) => {
+document.addEventListener('c4d-search-with-typeahead-input', async (e) => {
   const results = await customTypeaheadApiFunction(e.detail.value);
   document.dispatchEvent(
-    new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+    new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
   );
 });
 ```
@@ -227,8 +285,8 @@ async function customTypeaheadApiFunction(searchVal) {
 }
 ```
 
-As mentioned above, the two events `dds-search-with-typeahead-input` and
-`dds-custom-typeahead-api-results` must be handled for suggestions to be
+As mentioned above, the two events `c4d-search-with-typeahead-input` and
+`c4d-custom-typeahead-api-results` must be handled for suggestions to be
 rendered -- the same code for the event listener can be reused.
 
 #### Note
@@ -304,14 +362,14 @@ This array will be passed into the `scopeParameters` property. If using
 the `.`), in order for the array to be processed properly in the component.
 
 ```html
-<dds-masthead-composite
-  .scopeParameters="${scopeParameters}"></dds-masthead-composite>
+<c4d-masthead-composite
+  .scopeParameters="${scopeParameters}"></c4d-masthead-composite>
 ```
 
 Alternatively, JavaScript can be used to insert it into the component.
 
 ```javascript
-document.querySelector('dds-masthead-composite').scopeParameters =
+document.querySelector('c4d-masthead-composite').scopeParameters =
   scopeParameters;
 ```
 
@@ -321,24 +379,24 @@ scope.
 
 ```javascript
 const placeholderFormatter = ({ scopeValue }) => `Buscar en ${scopeValue}`;
-document.querySelector('dds-search-with-typeahead').placeholderFormatter =
+document.querySelector('c4d-search-with-typeahead').placeholderFormatter =
   placeholderFormatter;
 ```
 
 ## Props
 
-### `<dds-masthead-container>`/`<dds-masthead-composite>`
+### `<c4d-masthead-container>`/`<c4d-masthead-composite>`
 
-<Props of="dds-masthead-composite" />
+<Props of="c4d-masthead-composite" />
 
 For Cloud-specific version of masthead-container,
-`<dds-cloud-masthead-container>`, we support two user authentication methods,
+`<c4d-cloud-masthead-container>`, we support two user authentication methods,
 via cookie or api. To select between the two, provide the `auth-method` prop
 with a value of either 'cookie' or 'api'.
 
 ```html
-<dds-cloud-masthead-container
-  auth-method="cookie"></dds-cloud-masthead-container>
+<c4d-cloud-masthead-container
+  auth-method="cookie"></c4d-cloud-masthead-container>
 ```
 
 ## Stable selectors
@@ -347,16 +405,16 @@ See
 [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
 to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector                                                                   | Compatibility selector                                                   | Description |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
-| `<dds-masthead>`                                                                          | `data-autoid="dds--masthead"`                                            | Component   |
-| `<dds-masthead-menu-button>`                                                              | `data-autoid="dds--masthead__hamburger"`                                 | Interactive |
-| `<dds-top-nav-name>`                                                                      | `data-autoid="dds--masthead__platform-name"`                             | Interactive |
-| `<dds-top-nav>`                                                                           | `data-autoid="dds--masthead__l0-nav"`                                    | Component   |
-| `<dds-top-nav-menu trigger-content="${item}">` and `<dds-top-nav-item title="${item}">`   | `data-autoid="dds--masthead__l0-nav--nav${item}"`                        | Interactive |
-| `<dds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="dds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
-| `<dds-left-nav>`                                                                          | `data-autoid="dds--masthead__l0-sidenav"`                                | Component   |
-| `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
-| `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
+| Web Components selector                                                                 | Compatibility selector                                                   | Description |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
+| `<c4d-masthead>`                                                                        | `data-autoid="c4d--masthead"`                                            | Component   |
+| `<c4d-masthead-menu-button>`                                                            | `data-autoid="c4d--masthead__hamburger"`                                 | Interactive |
+| `<c4d-top-nav-name>`                                                                    | `data-autoid="c4d--masthead__platform-name"`                             | Interactive |
+| `<c4d-top-nav>`                                                                         | `data-autoid="c4d--masthead__l0-nav"`                                    | Component   |
+| `<c4d-top-nav-menu trigger-content="${item}">` and `<c4d-top-nav-item title="${item}">` | `data-autoid="c4d--masthead__l0-nav--nav${item}"`                        | Interactive |
+| `<c4d-top-nav-menu-item title="${item}">`                                               | `data-autoid="c4d--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
+| `<c4d-left-nav>`                                                                        | `data-autoid="c4d--masthead__l0-sidenav"`                                | Component   |
+| `<c4d-left-nav-menu trigger-content="${item}">`                                         | `data-autoid="c4d--masthead__l0-sidenav--nav${item}"`                    | Interactive |
+| `<c4d-left-nav-menu-item title="${item}">`                                              | `data-autoid="c4d--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
 
 <Description markdown={contributing} />

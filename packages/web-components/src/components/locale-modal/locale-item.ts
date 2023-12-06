@@ -7,24 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Locale item.
  *
- * @element dds-locale-item
+ * @element c4d-locale-item
  */
-@customElement(`${ddsPrefix}-locale-item`)
-class DDSLocaleItem extends BXLink {
+@customElement(`${c4dPrefix}-locale-item`)
+class C4DLocaleItem extends CDSLink {
   /**
    * The country.
    */
@@ -76,12 +75,12 @@ class DDSLocaleItem extends BXLink {
   _renderInner() {
     const { country, language } = this;
     return html`
-      <div class="${prefix}--locale-modal__locales__name">${country}</div>
-      <div class="${prefix}--locale-modal__locales__name">${language}</div>
+      <div class="${c4dPrefix}--locale-modal__locales__name">${country}</div>
+      <div class="${c4dPrefix}--locale-modal__locales__name">${language}</div>
     `;
   }
 
   static styles = styles;
 }
 
-export default DDSLocaleItem;
+export default C4DLocaleItem;

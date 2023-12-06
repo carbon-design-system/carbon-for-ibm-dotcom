@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,9 +12,9 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
+import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
 import { mastheadL1Data, logoData } from './links';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 
 import readme from './README.stories.react.mdx';
@@ -85,37 +85,37 @@ export const Default = (args) => {
   if (!hasSearch) {
     setTimeout(() => {
       document
-        .querySelector('dds-masthead-container')
+        .querySelector('cds-masthead-container')
         ?.removeAttribute('has-search');
     }, 1000);
   }
   return (
-    <DDSMastheadContainer
+    <C4DMastheadContainer
       selected-menu-item={selectedMenuItem}
       user-status={userStatus}
       searchPlaceholder={searchPlaceholder}
       navLinks={navLinks}
       has-profile={hasProfile}
       has-search={hasSearch}
-      custom-profile-login={customProfileLogin}></DDSMastheadContainer>
+      custom-profile-login={customProfileLogin}></C4DMastheadContainer>
   );
 };
 
 export const WithCustomTypeahead = () => {
   document.documentElement.addEventListener(
-    'dds-search-with-typeahead-input',
+    'cds-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
         (e as CustomEvent).detail.value
       );
       document.dispatchEvent(
-        new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+        new CustomEvent('cds-custom-typeahead-api-results', { detail: results })
       );
     }
   );
 
   return (
-    <DDSMastheadContainer custom-typeahead-api={true}></DDSMastheadContainer>
+    <C4DMastheadContainer custom-typeahead-api={true}></C4DMastheadContainer>
   );
 };
 
@@ -132,9 +132,9 @@ export const searchOpenOnload = (args) => {
   const { searchPlaceholder } = args?.MastheadComposite ?? {};
 
   return (
-    <DDSMastheadContainer
+    <C4DMastheadContainer
       activate-search="true"
-      searchPlaceholder={searchPlaceholder}></DDSMastheadContainer>
+      searchPlaceholder={searchPlaceholder}></C4DMastheadContainer>
   );
 };
 
@@ -156,9 +156,9 @@ export const withPlatform = (args) => {
   const { platform, platformUrl } = args?.WithPlatform ?? {};
 
   return (
-    <DDSMastheadContainer
+    <C4DMastheadContainer
       platform={platform}
-      platformUrl={platformUrl}></DDSMastheadContainer>
+      platformUrl={platformUrl}></C4DMastheadContainer>
   );
 };
 
@@ -181,9 +181,9 @@ withPlatform.story = {
 export const withL1 = (args) => {
   const { selectedMenuItem } = args?.MastheadComposite ?? {};
   return (
-    <DDSMastheadContainer
+    <C4DMastheadContainer
       selected-menu-item={selectedMenuItem}
-      l1Data={mastheadL1Data}></DDSMastheadContainer>
+      l1Data={mastheadL1Data}></C4DMastheadContainer>
   );
 };
 
@@ -205,10 +205,10 @@ export const withAlternateLogoAndTooltip = (args) => {
   const { mastheadLogo } = args?.MastheadComposite ?? {};
 
   return (
-    <DDSMastheadContainer
+    <C4DMastheadContainer
       logoData={
         mastheadLogo === 'alternateWithTooltip' ? logoData : null
-      }></DDSMastheadContainer>
+      }></C4DMastheadContainer>
   );
 };
 
@@ -232,8 +232,8 @@ withAlternateLogoAndTooltip.story = {
 
 export const WithScopedSearch = () => {
   return (
-    <DDSMastheadContainer
-      scopeParameters={scopeParameters}></DDSMastheadContainer>
+    <C4DMastheadContainer
+      scopeParameters={scopeParameters}></C4DMastheadContainer>
   );
 };
 
@@ -282,7 +282,7 @@ export default {
           userStatuses.unauthenticated
         ),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN &&
+          C4D_CUSTOM_PROFILE_LOGIN &&
           textNullable(
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'

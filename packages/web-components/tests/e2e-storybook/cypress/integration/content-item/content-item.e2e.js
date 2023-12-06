@@ -21,7 +21,7 @@ const _path = '/iframe.html?id=components-content-item--default';
  * @type {string}
  * @private
  */
-const _selector = '[data-autoid="dds--content-item"]';
+const _selector = '[data-autoid="cds--content-item"]';
 
 /**
  * Collection of test scenarios.
@@ -44,13 +44,13 @@ const _tests = [
 
       cy.visit(_path)
         .get(_selector)
-        .find('dds-content-item-heading')
+        .find('cds-content-item-heading')
         .then(([copy]) => {
           defaultHeader = copy.innerText.trim();
         })
         .visit(`${_path}&knob-Heading:=${customHeaderInput}`)
         .get(_selector)
-        .find('dds-content-item-heading')
+        .find('cds-content-item-heading')
         .should(([copy]) => {
           customHeaderOutput = copy.innerText.trim();
 
@@ -64,11 +64,11 @@ const _tests = [
     it('should optionally render copy text', () => {
       cy.visit(`${_path}&knob-Copy:=true`)
         .get(_selector)
-        .find('dds-content-item-copy')
+        .find('cds-content-item-copy')
         .should('have.length', 1)
         .visit(`${_path}&knob-Copy:=false`)
         .get(_selector)
-        .find('dds-content-item-copy')
+        .find('cds-content-item-copy')
         .should('have.length', 0);
       cy.takeSnapshots();
     });
@@ -80,13 +80,13 @@ const _tests = [
 
       cy.visit(_path)
         .get(_selector)
-        .find('dds-text-cta')
+        .find('cds-text-cta')
         .then(([copy]) => {
           defaultCopy = copy.innerText.trim();
         })
         .visit(`${_path}&knob-CTA%20copy:=${customCopyInput}`)
         .get(_selector)
-        .find('dds-text-cta')
+        .find('cds-text-cta')
         .should(([copy]) => {
           customCopyOutput = copy.innerText.trim();
 
@@ -99,8 +99,8 @@ const _tests = [
   () => {
     it('should support clickable text and button CTA links', () => {
       const cta_types = {
-        text: 'dds-text-cta',
-        button: 'dds-button-cta',
+        text: 'cds-text-cta',
+        button: 'cds-button-cta',
       };
       Object.keys(cta_types).forEach(type => {
         cy.visit(`${_path}&knob-CTA%20style:=${type}`)
@@ -118,8 +118,8 @@ const _tests = [
   () => {
     it('should support image and video media', () => {
       const media_types = {
-        image: 'dds-image',
-        video: 'dds-video-player-container',
+        image: 'cds-image',
+        video: 'cds-video-player-container',
       };
       Object.keys(media_types).forEach(type => {
         cy.visit(`${_path}&knob-Media%20type:=${type}`)
@@ -139,7 +139,7 @@ const _tests = [
   },
 ];
 
-describe('dds-content-item | default (desktop)', () => {
+describe('cds-content-item | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -147,7 +147,7 @@ describe('dds-content-item | default (desktop)', () => {
   _tests.forEach(test => test());
 });
 
-describe('dds-content-item | default (mobile)', () => {
+describe('cds-content-item | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
   });

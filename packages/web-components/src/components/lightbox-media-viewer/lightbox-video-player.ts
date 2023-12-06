@@ -7,29 +7,28 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
+import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The video content of lightbox media viewer.
  *
- * @element dds-lightbox-video-player
+ * @element c4d-lightbox-video-player
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@customElement(`${ddsPrefix}-lightbox-video-player`)
-class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
+@customElement(`${c4dPrefix}-lightbox-video-player`)
+class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
     return html`
@@ -40,8 +39,8 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
   // eslint-disable-next-line class-methods-use-this
   _renderMedia() {
     return html`
-      <div class="${prefix}--video-player">
-        <div class="${prefix}--video-player__video-container">
+      <div class="${c4dPrefix}--video-player">
+        <div class="${c4dPrefix}--video-player__video-container">
           <slot></slot>
         </div>
       </div>
@@ -109,4 +108,4 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLightboxVideoPlayer;
+export default C4DLightboxVideoPlayer;

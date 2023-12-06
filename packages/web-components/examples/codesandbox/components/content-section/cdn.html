@@ -10,10 +10,10 @@ LICENSE file in the root directory of this source tree.
   <title>@carbon/ibmdotcom-web-components example</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style>
     /* Suppress custom element until styles are loaded */
-    dds-content-section:not(:defined) {
+    cds-content-section:not(:defined) {
       display: none;
     }
   </style>
@@ -22,14 +22,14 @@ LICENSE file in the root directory of this source tree.
 </head>
 <body>
 <div id="app">
-  <div class="bx--grid">
-    <div class="bx--row">
-      <div class="bx--col-lg-12 bx--col-sm-4 bx--offset-lg-4">
-        <dds-content-section>
-          <dds-content-section-heading>Content section heading</dds-content-section-heading>
-          <dds-content-section-copy>Copy text</dds-content-section-copy>
-          <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
-        </dds-content-section>
+  <div class="cds--grid">
+    <div class="cds--row">
+      <div class="cds--col-lg-12 cds--col-sm-4 cds--offset-lg-4">
+        <cds-content-section>
+          <cds-content-section-heading>Content section heading</cds-content-section-heading>
+          <cds-content-section-copy>Copy text</cds-content-section-copy>
+          <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</cds-text-cta>
+        </cds-content-section>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
   "description": "Carbon for IBM.com Utilities",
-  "version": "1.53.0",
+  "version": "2.0.0-rc.2",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -25,9 +25,7 @@
     "umd/**/*"
   ],
   "keywords": [
-    "react",
     "carbon",
-    "carbon-components",
     "ibm",
     "carbon-design-system",
     "components"
@@ -44,13 +42,11 @@
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md",
     "postinstall": "carbon-telemetry collect --install",
     "prepublish": "yarn build",
-    "test": "jest",
-    "upgrade-carbon": "yarn upgrade-interactive carbon-components --latest --exact"
+    "test": "jest"
   },
   "dependencies": {
     "@carbon/telemetry": "0.1.0",
     "axios": "^1.6.0",
-    "carbon-components": "10.58.12",
     "isomorphic-dompurify": "0.27.0",
     "js-cookie": "^2.2.1",
     "marked": "^4.0.10",

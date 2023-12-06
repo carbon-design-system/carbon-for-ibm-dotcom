@@ -9,13 +9,13 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import DDSLeavingIbmContainer, {
+import C4DLeavingIbmContainer, {
   store,
 } from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container.js';
 
 const App = () => (
   <Provider store={store}>
-    <DDSLeavingIbmContainer href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/" open />
+    <C4DLeavingIbmContainer href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/" open />
   </Provider>
 );
 

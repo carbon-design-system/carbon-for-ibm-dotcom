@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-card-group', () => {
+describe('cds-card-group', () => {
   it('should load the default card group example', () => {
     cy.visit('/card-group');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-card-group | default');
+    cy.percySnapshot('cds-card-group | default');
   });
 });

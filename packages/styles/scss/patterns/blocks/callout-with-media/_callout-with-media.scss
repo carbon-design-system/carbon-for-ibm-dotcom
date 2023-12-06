@@ -15,7 +15,7 @@
       padding-bottom: $layout-05;
 
       &-simple__media-video {
-        @include carbon--breakpoint-down('md') {
+        @include breakpoint-down(md) {
           margin-top: -16px;
         }
 
@@ -23,7 +23,7 @@
       }
 
       &-simple__media-image {
-        @include carbon--breakpoint-down('md') {
+        @include breakpoint-down(md) {
           margin-top: 0;
         }
 
@@ -35,7 +35,4 @@
       padding-top: $spacing-03;
     }
   }
-}
-@include exports('callout-with-media') {
-  @include callout-with-media;
 }

@@ -7,25 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSCard from '../card/card';
+import C4DCard from '../card/card';
 import '../image/image';
 import styles from './feature-card.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Card.
  *
- * @element dds-feature-card
+ * @element c4d-feature-card
  */
-@customElement(`${ddsPrefix}-feature-card`)
-class DDSFeatureCard extends StableSelectorMixin(DDSCard) {
+@customElement(`${c4dPrefix}-feature-card`)
+class C4DFeatureCard extends StableSelectorMixin(C4DCard) {
   /**
    * The size property to render either Medium (default) or Large Feature Card variants.
    */
@@ -42,18 +40,18 @@ class DDSFeatureCard extends StableSelectorMixin(DDSCard) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-card`;
+    return `${c4dPrefix}--feature-card`;
   }
 
   /**
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-feature-card-footer`;
+    return `${c4dPrefix}-feature-card-footer`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFeatureCard;
+export default C4DFeatureCard;

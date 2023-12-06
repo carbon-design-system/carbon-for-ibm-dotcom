@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -19,37 +19,35 @@ const copy =
   'Phasellus at elit sollicitudin.';
 
 const linkListItem = html`
-  <dds-content-item-horizontal>
-    <dds-content-item-horizontal-eyebrow
-      >Lorem ipsum</dds-content-item-horizontal-eyebrow
-    >
-    <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-    <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+  <c4d-content-item-row>
+    <c4d-content-item-row-eyebrow>Lorem ipsum</c4d-content-item-row-eyebrow>
+    <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
+    <c4d-content-item-row-copy>${copy}</c4d-content-item-row-copy>
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-      <dds-link-list-item-cta
+      </c4d-link-list-item-cta>
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="external">
         External link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-item-horizontal>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-item-row>
 `;
 
 export const Default = (args) => {
   const { heading, border } = args?.ContentBlockHorizontal ?? {};
 
   return html`
-    <dds-content-block-horizontal ?border=${border}>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <c4d-content-block-horizontal ?border=${border}>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
       ${linkListItem} ${linkListItem} ${linkListItem}
-    </dds-content-block-horizontal>
+    </c4d-content-block-horizontal>
   `;
 };
 
@@ -57,9 +55,9 @@ export default {
   title: 'Components/Content block horizontal',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">${story()}</div>
         </div>
       </div>
     `,

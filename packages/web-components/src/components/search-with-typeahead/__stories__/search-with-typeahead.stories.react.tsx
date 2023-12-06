@@ -11,17 +11,17 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
+import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 /* eslint-enable max-len */
 import readme from './README.stories.react.mdx';
 import styles from '../../carousel/__stories__/carousel.stories.scss';
 
 export const Default = () => {
-  return <DDSSearchWithTypeahead></DDSSearchWithTypeahead>;
+  return <C4DSearchWithTypeahead></C4DSearchWithTypeahead>;
 };
 
 export const Alternate = () => {
-  return <DDSSearchWithTypeahead leadspace-search></DDSSearchWithTypeahead>;
+  return <C4DSearchWithTypeahead leadspace-search></C4DSearchWithTypeahead>;
 };
 
 Default.story = {};
@@ -29,12 +29,12 @@ Default.story = {};
 export default {
   title: 'Components/Search with typeahead',
   decorators: [
-    story => {
+    (story) => {
       return (
         <>
           <style>{styles.cssText}</style>
-          <div className="bx--grid">
-            <div className="bx--row">{story()}</div>
+          <div className="cds--grid">
+            <div className="cds--row">{story()}</div>
           </div>
         </>
       );

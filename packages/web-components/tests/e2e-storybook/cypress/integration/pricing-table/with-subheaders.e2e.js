@@ -100,7 +100,7 @@ const _tests = (path = path) => [
   },
 ];
 
-describe('dds-pricing-table | with subheaders (desktop)', () => {
+describe('cds-pricing-table | with subheaders (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -108,7 +108,7 @@ describe('dds-pricing-table | with subheaders (desktop)', () => {
   [...createTests(path), ..._tests(path)].forEach(test => test());
 });
 
-describe('dds-pricing-table | with subheaders (mobile)', () => {
+describe('cds-pricing-table | with subheaders (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
   });

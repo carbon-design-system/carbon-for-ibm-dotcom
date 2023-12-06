@@ -5,12 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/config' as *;
+
 /**
  * This locks the scroll on the body element when the megamenu is expanded.
- * When using the megamenu web component, adopters will need to load this file in their application for 
+ * When using the megamenu web component, adopters will need to load this file in their application for
  * the scroll locking to work.
  */
-.#{$prefix}--body__lock-scroll {
-  position: relative;
-  overflow: hidden;
+
+@mixin masthead-megamenu-scroll {
+  .#{$prefix}--body__lock-scroll {
+    position: relative;
+    overflow: hidden;
+  }
 }

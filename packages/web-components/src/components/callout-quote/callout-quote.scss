@@ -5,46 +5,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/callout-quote/index';
-@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
-
-:host(#{$dds-prefix}-callout-link-with-icon) {
-  @extend .#{$prefix}--link-with-icon;
-
-  display: inline-block;
-  a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
-    color: $inverse-link;
-    outline-color: $inverse-focus-ui;
-    &:hover {
-      color: $blue-40;
-    }
-    &:active {
-      color: $inverse-link;
-    }
-  }
-}
-
-:host(#{$dds-prefix}-callout-quote) #{$dds-prefix}-hr {
-  margin: 1rem;
-  @include carbon--breakpoint('md') {
-    margin: 1rem 0;
-  }
-  @include carbon--breakpoint('lg') {
-    margin: 1rem 0.5rem;
-  }
-}
-
-:host(#{$dds-prefix}-callout-quote) {
-  .#{$prefix}--quote__wrapper {
-    margin-left: -$spacing-05;
-    margin-right: -$spacing-05;
-    @include carbon--breakpoint('md') {
-      margin-left: -$spacing-05;
-      margin-right: -$spacing-05;
-    }
-    @include carbon--breakpoint('sm') {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-}
+@use '@carbon/ibmdotcom-styles/scss/components/callout-quote';
+@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';

@@ -8,15 +8,16 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, LitElement } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   BasicLink,
   BasicLinkSet,
   MastheadL1,
-  MastheadLink,
+  L0MenuItem,
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
@@ -24,18 +25,18 @@ import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
-import styles from './dotcom-shell-composite.scss';
+import styles from './dotcom-shell.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * Component that rendres dotcom shell from links, etc. data.
+ * Component that renders dotcom shell from links, etc. data.
  *
- * @element dds-dotcom-shell-composite
+ * @element c4d-dotcom-shell-composite
  */
-@customElement(`${ddsPrefix}-dotcom-shell-composite`)
-class DDSDotcomShellComposite extends LitElement {
+@customElement(`${c4dPrefix}-dotcom-shell-composite`)
+class C4DDotcomShellComposite extends LitElement {
   /**
    * The render target of the footer contents.
    */
@@ -56,7 +57,7 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _createFooterRenderRoot() {
     const footer = this.ownerDocument!.createElement(
-      `${ddsPrefix}-footer-composite`
+      `${c4dPrefix}-footer-composite`
     );
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
@@ -67,7 +68,7 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _createMastheadRenderRoot() {
     const masthead = this.ownerDocument!.createElement(
-      `${ddsPrefix}-masthead-composite`
+      `${c4dPrefix}-masthead-composite`
     );
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
@@ -121,7 +122,7 @@ class DDSDotcomShellComposite extends LitElement {
   hasSearch = true;
 
   /**
-   * `true` if there is a universal banner.
+   * `true` if there is a global banner.
    */
   @property({ type: Boolean, attribute: 'has-banner' })
   hasBanner = false;
@@ -320,7 +321,7 @@ class DDSDotcomShellComposite extends LitElement {
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * The parameters passed to the search-with-typeahead for search scope
@@ -459,14 +460,16 @@ class DDSDotcomShellComposite extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties);
 
-    // moving universal banner outside of dotcom shell if placed within
-    if (this.querySelector('dds-universal-banner')) {
+    // moving global banner outside of dotcom shell if placed within
+    if (this.querySelector(`${c4dPrefix}-global-banner`)) {
       this.ownerDocument
-        .querySelector('dds-masthead-composite')
-        ?.before(this.querySelector('dds-universal-banner') as HTMLElement);
+        .querySelector(`${c4dPrefix}-masthead-composite`)
+        ?.before(
+          this.querySelector(`${c4dPrefix}-global-banner`) as HTMLElement
+        );
     }
 
-    if (this.ownerDocument.querySelector('dds-universal-banner')) {
+    if (this.ownerDocument.querySelector(`${c4dPrefix}-global-banner`)) {
       this.hasBanner = true;
       this._masthead?.setAttribute('with-banner', '');
     }
@@ -474,9 +477,9 @@ class DDSDotcomShellComposite extends LitElement {
 
   render() {
     return html`
-      <dds-dotcom-shell>
+      <c4d-dotcom-shell>
         <slot></slot>
-      </dds-dotcom-shell>
+      </c4d-dotcom-shell>
     `;
   }
 
@@ -484,4 +487,4 @@ class DDSDotcomShellComposite extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSDotcomShellComposite;
+export default C4DDotcomShellComposite;

@@ -1,0 +1,29 @@
+//
+// Copyright IBM Corp. 2018, 2023
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use 'footer';
+@forward 'footer';
+@use 'footer-logo';
+@forward 'footer-logo';
+@use 'footer-nav';
+@forward 'footer-nav';
+@use 'footer-nav-group';
+@forward 'footer-nav-group';
+@use 'language-selector';
+@forward 'language-selector';
+@use 'legal-nav';
+@forward 'legal-nav';
+@use 'locale-button';
+@forward 'locale-button';
+
+@include footer.footer;
+@include footer-logo.footer-logo;
+@include footer-nav.footer-nav;
+@include footer-nav-group.footer-nav-group;
+@include language-selector.language-selector;
+@include legal-nav.legal-nav;
+@include locale-button.locale-button;

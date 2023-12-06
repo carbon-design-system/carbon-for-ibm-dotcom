@@ -5,114 +5,60 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
 
-@mixin horizontalrule {
-  $low-contrast: $ui-03;
-  $medium-contrast: $ui-04;
-  $high-contrast: $ui-05;
-  $thin-weight: rem(1px);
+@mixin horizontal-rule {
+  $subtle-contrast: $border-subtle-01;
+  $strong-contrast: $border-strong-01;
+  $thin-weight: to-rem(1px);
 
-  :host(#{$dds-prefix}-hr)[size='small'] {
-    @extend .#{$prefix}--hr--small;
-  }
-  :host(#{$dds-prefix}-hr)[size='medium'] {
-    @extend .#{$prefix}--hr--medium;
-  }
-  :host(#{$dds-prefix}-hr)[size='large'] {
-    @extend .#{$prefix}--hr--large;
-  }
-  :host(#{$dds-prefix}-hr)[weight='thick'] {
-    @extend .#{$prefix}--hr--thick;
-  }
-  :host(#{$dds-prefix}-hr)[type='dashed'] {
-    @extend .#{$prefix}--hr--dashed;
-  }
-  :host(#{$dds-prefix}-hr)[contrast='low-contrast'] {
-    @extend .#{$prefix}--hr--low-contrast;
-  }
-  :host(#{$dds-prefix}-hr)[contrast='high-contrast'] {
-    @extend .#{$prefix}--hr--high-contrast;
-  }
-
-  :host(#{$dds-prefix}-hr),
-  .#{$prefix}--hr {
-    margin: $carbon--spacing-05 0;
+  :host(#{$c4d-prefix}-hr) {
+    display: block;
+    margin: $spacing-05 0;
     border: none;
     height: $thin-weight;
-    background: $medium-contrast;
-
-    &.#{$prefix}--hr--small {
-      max-width: carbon--mini-units(4);
-    }
-
-    &.#{$prefix}--hr--medium {
-      max-width: carbon--mini-units(6);
-    }
-
-    &.#{$prefix}--hr--large {
-      max-width: carbon--mini-units(8);
-    }
-
-    &.#{$prefix}--hr--thick {
-      height: rem(2px);
-    }
-
-    &.#{$prefix}--hr--low-contrast {
-      background: $low-contrast;
-    }
-
-    &.#{$prefix}--hr--high-contrast {
-      background: $high-contrast;
-    }
+    background: $strong-contrast;
   }
 
-  .#{$prefix}--hr--dashed {
+  :host(
+      #{$c4d-prefix}-hr[type='dashed']:not([size='small']):not(
+          [size='medium']
+        ):not([size='large'])
+    ) {
     height: $thin-weight;
     background-color: transparent;
-    background-size: $carbon--spacing-05 $thin-weight;
+    background-size: $spacing-05 $thin-weight;
     background-repeat: repeat-x;
     background-image: linear-gradient(
       to right,
-      $medium-contrast 50%,
+      $strong-contrast 50%,
       transparent 50%
     );
-
-    &.#{$prefix}--hr--low-contrast {
-      background-image: linear-gradient(
-        to right,
-        $low-contrast 50%,
-        transparent 50%
-      );
-    }
-
-    &.#{$prefix}--hr--high-contrast {
-      background-image: linear-gradient(
-        to right,
-        $high-contrast 50%,
-        transparent 50%
-      );
-    }
   }
 
-  .#{$prefix}--hr--small,
-  .#{$prefix}--hr--medium,
-  .#{$prefix}--hr--large {
-    height: $thin-weight;
-    background: $medium-contrast;
-    background-image: none;
-
-    &.#{$prefix}--hr--low-contrast {
-      background: $low-contrast;
-    }
-
-    &.#{$prefix}--hr--high-contrast {
-      background: $high-contrast;
-    }
+  :host(#{$c4d-prefix}-hr[size='small']) {
+    max-width: $spacing-07;
   }
-}
+  :host(#{$c4d-prefix}-hr[size='medium']) {
+    max-width: $spacing-09;
+  }
+  :host(#{$c4d-prefix}-hr[size='large']) {
+    max-width: $spacing-10;
+  }
 
-@include exports('horizontalrule') {
-  @include horizontalrule;
+  :host(#{$c4d-prefix}-hr[contrast='subtle']) {
+    background: $subtle-contrast;
+  }
+
+  :host(#{$c4d-prefix}-hr[contrast='strong']) {
+    background: $strong-contrast;
+  }
+
+  :host(#{$c4d-prefix}-hr[weight='thick']) {
+    height: $spacing-01;
+  }
 }

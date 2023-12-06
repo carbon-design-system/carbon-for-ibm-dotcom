@@ -29,7 +29,7 @@ const _paths = {
  * @type {string}
  * @private
  */
-const _selectorBase = `[data-autoid="dds--carousel"]`;
+const _selectorBase = `[data-autoid="cds--carousel"]`;
 
 /**
  * Defines the carousel element selectors.
@@ -49,14 +49,14 @@ const _selectorBase = `[data-autoid="dds--carousel"]`;
  * @private
  */
 const _selectors = {
-  card: `${_selectorBase} [data-autoid="dds--card"]`,
-  videoCard: `${_selectorBase} dds-video-cta-container`,
-  heading: `[data-autoid="dds--card-heading"]`,
+  card: `${_selectorBase} [data-autoid="cds--card"]`,
+  videoCard: `${_selectorBase} cds-video-cta-container`,
+  heading: `[data-autoid="cds--card-heading"]`,
   copy: `.bx--card__copy`,
-  footer: `[data-autoid="dds--card-footer"]`,
-  videoFooter: `[data-autoid="dds--card-cta-footer"]`,
-  image: `${_selectorBase} [data-autoid="dds--image"]`,
-  video: `dds-card-cta-image`,
+  footer: `[data-autoid="cds--card-footer"]`,
+  videoFooter: `[data-autoid="cds--card-cta-footer"]`,
+  image: `${_selectorBase} [data-autoid="cds--image"]`,
+  video: `cds-card-cta-image`,
   buttonNext: `button[part="next-button"]`,
   buttonPrevious: `button[part="prev-button"]`,
 };
@@ -278,7 +278,7 @@ const _tests = {
   },
 };
 
-describe('dds-carousel | default (desktop)', () => {
+describe('cds-carousel | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`${_paths.default}`);
@@ -294,7 +294,7 @@ describe('dds-carousel | default (desktop)', () => {
   _tests.checkScroll();
 });
 
-describe('dds-carousel | default (mobile)', () => {
+describe('cds-carousel | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`${_paths.default}`);
@@ -309,7 +309,7 @@ describe('dds-carousel | default (mobile)', () => {
   _tests.checkScroll();
 });
 
-describe('dds-carousel | with images (desktop)', () => {
+describe('cds-carousel | with images (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`${_paths.withImages}`);
@@ -325,7 +325,7 @@ describe('dds-carousel | with images (desktop)', () => {
   _tests.checkScroll();
 });
 
-describe('dds-carousel | with images (mobile)', () => {
+describe('cds-carousel | with images (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`${_paths.withImages}`);
@@ -341,7 +341,7 @@ describe('dds-carousel | with images (mobile)', () => {
   _tests.checkScroll();
 });
 
-describe('dds-carousel | with videos (desktop)', () => {
+describe('cds-carousel | with videos (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`${_paths.withVideos}`);
@@ -359,7 +359,7 @@ describe('dds-carousel | with videos (desktop)', () => {
   _tests.checkScroll();
 });
 
-describe('dds-carousel | with videos (mobile)', () => {
+describe('cds-carousel | with videos (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`${_paths.withVideos}`);
@@ -376,7 +376,7 @@ describe('dds-carousel | with videos (mobile)', () => {
   _tests.checkScroll();
 });
 
-describe('dds-carousel | with media (desktop)', () => {
+describe('cds-carousel | with media (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`${_paths.withMedia}`);
@@ -395,7 +395,7 @@ describe('dds-carousel | with media (desktop)', () => {
   _tests.checkScroll();
 });
 
-describe('dds-carousel | with media (mobile)', () => {
+describe('cds-carousel | with media (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`${_paths.withMedia}`);

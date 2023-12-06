@@ -1,10 +1,12 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
 
 # Card Section - Carousel
 
@@ -16,61 +18,74 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card.js';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer.js';
-import DDSContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy.js';
-import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading.js';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon.js';
-import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel.js';
-import DDSCardSectionCarousel from '@carbon/ibmdotcom-web-components/es/components-react/card-section-carousel/card-section-carousel.js';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card.js';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer.js';
+import C4DContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy.js';
+import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading.js';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon.js';
+import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel.js';
+import C4DCardSectionCarousel from '@carbon/ibmdotcom-web-components/es/components-react/card-section-carousel/card-section-carousel.js';
 
 function App() {
   return (
-    <DDSCardSectionCarousel>
-      <DDSContentSectionHeading>Lorem ipsum dolor sit amet</DDSContentSectionHeading>
-      <DDSContentSectionCopy>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      </DDSContentSectionCopy>
-      <DDSLinkWithIcon slot="footer" href="https://www.ibm.com/standards/carbon">
+    <C4DCardSectionCarousel>
+      <C4DContentSectionHeading>
+        Lorem ipsum dolor sit amet
+      </C4DContentSectionHeading>
+      <C4DContentSectionCopy>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est.
+      </C4DContentSectionCopy>
+      <C4DLinkWithIcon
+        slot="footer"
+        href="https://www.ibm.com/standards/carbon">
         Link text
         <ArrowRight20 slot="icon" />
-      </DDSLinkWithIcon>
-      <DDSCarousel>
-        <DDSCard href="https://www.ibm.com/standards/carbon">
-          <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.</p>
-          <DDSCardFooter>
+      </C4DLinkWithIcon>
+      <C4DCarousel>
+        <C4DCard href="https://www.ibm.com/standards/carbon">
+          <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+            ultricies est.
+          </p>
+          <C4DCardFooter>
             <ArrowRight20 slot="icon" />
-          </DDSCardFooter>
-        </DDSCard>
-        <DDSCard href="https://www.ibm.com/standards/carbon">
-          <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p>
+          </C4DCardFooter>
+        </C4DCard>
+        <C4DCard href="https://www.ibm.com/standards/carbon">
+          <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+            ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          </p>
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          <DDSCardFooter>
+          <C4DCardFooter>
             <ArrowRight20 slot="icon" />
-          </DDSCardFooter>
-        </DDSCard>
-      </DDSCarousel>
-    </DDSCardSectionCarousel>
+          </C4DCardFooter>
+        </C4DCard>
+      </C4DCarousel>
+    </C4DCardSectionCarousel>
   );
 }
 ```
 
 ## Props
 
-### `<dds-carousel>`
+### `<cds-carousel>`
 
 <Props of={PropTypesRef} />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector             | Compatibility selector                    | Description |
-| ----------------------------------- | ----------------------                    | ----------- |
-| `<dds-card-section-carousel>`        | data-autoid="dds--card-section-carousel"  | Component   |
-| `<dds-carousel>`                    | N/A                                       | Component   |
+| Web Components selector       | Compatibility selector                   | Description |
+| ----------------------------- | ---------------------------------------- | ----------- |
+| `<cds-card-section-carousel>` | data-autoid="cds--card-section-carousel" | Component   |
+| `<cds-carousel>`              | N/A                                      | Component   |
 
 <Description markdown={contributing} />

@@ -12,24 +12,31 @@ LICENSE file in the root directory of this source tree.
   <title>@carbon/ibmdotcom-web-components example</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-masthead-container:not(:defined) {
+    cds-masthead-container:not(:defined) {
       display: none;
     }
   </style>
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/rtl/masthead.rtl.min.js"></script>
   <script src="src/index-cdn.js"></script>
+  <script src="src/ddo.js"></script>
+
+  <!-- IBM Tag Management and Site Analytics -->
+  <script src="//1.www.s81c.com/common/stats/ibm-common.js" async="async" defer></script>
+  <!-- IBM CMaaS -->
+  <script src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
+
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.rtl.min.js"></script>
 </head>
 <body>
-<dds-masthead-container id="masthead-container"></dds-masthead-container>
-<main class="bx--content dds-ce-demo--ui-shell-content">
-  <div class="bx--grid">
-    <div class="bx--row">
-      <div class="bx--offset-lg-3 bx--col-lg-13">
+<cds-masthead-container id="masthead-container"></cds-masthead-container>
+<main class="cds--content cds-ce-demo--ui-shell-content">
+  <div class="cds--grid">
+    <div class="cds--row">
+      <div class="cds--offset-lg-3 cds--col-lg-13">
         <h2>
-          Purpose and function
+          L0/Masthead V2 using V2 Translations (RTL)
         </h2>
         <p>
           The shell is perhaps the most crucial piece of any UI built with Carbon. It contains the shared navigation framework
@@ -67,7 +74,6 @@ LICENSE file in the root directory of this source tree.
         </p>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 </body>
 </html>

@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-block-simple/content-block-simple';
 
@@ -22,13 +27,17 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/inde
 function App() {
   return (
     <main id="example-main-content">
-      <DDSContentBlockSimple>
-        <DDSContentBlockHeading>Heading</DDSContentBlockHeading>
-        <DDSContentBlockCopy size="sm">Content copy</DDSContentBlockCopy>
-          <DDSTextCTA cta-type={ctaType} slot="footer" href="#" icon-placement="right">
-            Text CTA
-          </DDSTextCTA>
-      </DDSContentBlockSimple>
+      <C4DContentBlockSimple>
+        <C4DContentBlockHeading>Heading</C4DContentBlockHeading>
+        <C4DContentBlockCopy size="sm">Content copy</C4DContentBlockCopy>
+        <C4DTextCTA
+          cta-type={ctaType}
+          slot="footer"
+          href="#"
+          icon-placement="right">
+          Text CTA
+        </C4DTextCTA>
+      </C4DContentBlockSimple>
     </main>
   );
 }
@@ -36,11 +45,11 @@ function App() {
 
 ### HTML
 
-> The Content Block - Simple pattern is a variant of `<dds-content-block>`, and
+> The Content Block - Simple pattern is a variant of `<cds-content-block>`, and
 > includes a single content item, optional media (image), and ends with a CTA.
 
 ```html
-<dds-content-block-simple></dds-content-block-simple>
+<cds-content-block-simple></cds-content-block-simple>
 ```
 
 ## Props
@@ -49,10 +58,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector           | Description |
-| ----------------------- | -------------------------------- | ----------- |
-| `<dds-content-block-simple>`     | `data-autoid="dds--content-block-simple"` | Component   |
+| Web Components selector      | Compatibility selector                    | Description |
+| ---------------------------- | ----------------------------------------- | ----------- |
+| `<cds-content-block-simple>` | `data-autoid="cds--content-block-simple"` | Component   |
 
 <Description markdown={contributing} />

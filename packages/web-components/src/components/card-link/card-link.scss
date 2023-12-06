@@ -1,20 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/card/index';
-@import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/card';
+@use '@carbon/ibmdotcom-styles/scss/components/card-link';
 
-:host(#{$dds-prefix}-card-link),
-:host(#{$dds-prefix}-card-link-cta),
-:host(#{$dds-prefix}-link-list-item-card),
-:host(#{$dds-prefix}-link-list-item-card-cta) {
+:host(#{$c4d-prefix}-card-link),
+:host(#{$c4d-prefix}-card-link-cta) {
   max-width: rem(364px);
 
   .#{$prefix}--card__wrapper {
@@ -24,11 +25,11 @@
   }
 }
 
-:host(#{$dds-prefix}-card-link-cta) {
+:host(#{$c4d-prefix}-card-link-cta) {
   display: flex;
 }
 
-:host(#{$dds-prefix}-feature-section-card-link) {
+:host(#{$c4d-prefix}-feature-section-card-link) {
   .#{$prefix}--card {
     max-width: inherit;
   }
@@ -36,17 +37,6 @@
   .#{$prefix}--card__wrapper {
     .#{$prefix}--card__copy {
       flex: 1;
-    }
-  }
-}
-
-:host(#{$dds-prefix}-link-list-item-card),
-:host(#{$dds-prefix}-link-list-item-card-cta) {
-  ::slotted(#{$dds-prefix}-card-footer) {
-    margin-block: 2px;
-    margin-inline-start: 32px;
-    @include carbon--breakpoint('lg') {
-      margin-inline-start: 0;
     }
   }
 }

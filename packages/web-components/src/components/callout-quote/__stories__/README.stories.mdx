@@ -1,9 +1,11 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
 
 # Callout Quote
 
@@ -27,34 +29,44 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-quote/index.js';
 
 <Description markdown={`${cdnCss()}`} />
 
+### SCSS
+
+Callout quote has specific tokens per theme that need to emitted in the styles.
+You can do this for example by adding the following:
+
+```css
+@use '@carbon/ibmdotcom-styles//scss/globals/tokens/color-tokens' as
+  color-tokens;
+@include add-component-tokens(color-tokens.$color-tokens);
+```
+
 ### HTML
 
 ```html
-<dds-callout-quote mark-type="double-curved">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem.
-  Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.
-  <dds-quote-source-heading>
+<cds-callout-quote mark-type="double-curved">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus,
+  posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum,
+  hendrerit augue eu, placerat magna.
+  <cds-quote-source-heading>
     Lorem ipsum dolor sit amet
-  </dds-quote-source-heading>
-  <dds-quote-source-copy>
-    consectetur adipiscing elit
-  </dds-quote-source-copy>
-  <dds-quote-source-bottom-copy>
-    IBM Cloud
-  </dds-quote-source-bottom-copy>
-</dds-callout-quote>
+  </cds-quote-source-heading>
+  <cds-quote-source-copy> consectetur adipiscing elit </cds-quote-source-copy>
+  <cds-quote-source-bottom-copy> IBM Cloud </cds-quote-source-bottom-copy>
+</cds-callout-quote>
 ```
 
 ## Props
 
-<Props of="dds-callout-quote" />
+<Props of="cds-callout-quote" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector             | Description |
 | ----------------------- | ---------------------------------- | ----------- |
-| `<dds-callout-quote>`   | `data-autoid="dds--callout-quote"` | Component   |
+| `<cds-callout-quote>`   | `data-autoid="cds--callout-quote"` | Component   |
 
 <Description markdown={contributing} />

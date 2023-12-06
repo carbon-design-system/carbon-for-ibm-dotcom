@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-composite.js';
 
@@ -16,44 +21,50 @@ Here's a quick example to get you started.
 
 ### JS
 
-> 💡 `Provider` is only in the context of the example, and can be swapped out with other implementations based on the application setup.
+> 💡 `Provider` is only in the context of the example, and can be swapped out
+> with other implementations based on the application setup.
 
 ```javascript
-import DDSLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import Launch20 from '@carbon/icons-react/es/launch/20';
 
 function App() {
   return (
     // Add component to
-    <DDSLeavingIBMContainer />
+    <C4DLeavingIBMContainer />
 
     ...
 
     // Trigger modal on click
-    <DDSLinkWithIcon iconPlacement="right" href={href} data-leaving-ibm>
+    <C4DLinkWithIcon iconPlacement="right" href={href} data-leaving-ibm>
       Learn more about the Carbon Design System
       <Launch20 slot="icon" />
-    </DDSLinkWithIcon>
+    </C4DLinkWithIcon>
   );
 }
 ```
 
-> 💡 Give your link the `data-leaving-ibm` attribute to trigger the modal on click. Alternatively, you can use the [custom events available to the modal](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#bx-modal-attributes-and-properties) to create custom triggering behavior.
+> 💡 Give your link the `data-leaving-ibm` attribute to trigger the modal on
+> click. Alternatively, you can use the
+> [custom events available to the modal](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#cds-modal-attributes-and-properties)
+> to create custom triggering behavior.
 
 ## Props
 
-### `<DDSLeavingIbmComposite>`
+### `<C4DLeavingIbmComposite>`
 
 <Props of={PropTypesRef} />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector                 | Description |
 | ------------------------- | -------------------------------------- | ----------- |
-| `<dds-leaving-ibm-modal>` | `data-autoid="dds--leaving-ibm-modal"` | Component   |
-| `dds--leaving-ibm-cta`    | `data-autoid="dds--leaving-ibm-cta"`   | Interactive |
+| `<cds-leaving-ibm-modal>` | `data-autoid="cds--leaving-ibm-modal"` | Component   |
+| `cds--leaving-ibm-cta`    | `data-autoid="cds--leaving-ibm-cta"`   | Interactive |
 
 <Description markdown={contributing} />

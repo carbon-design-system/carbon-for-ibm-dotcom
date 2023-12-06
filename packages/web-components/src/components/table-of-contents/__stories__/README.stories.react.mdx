@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 
@@ -17,23 +22,23 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents.js';
+import C4DTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents.js';
 
 function App() {
   return (
-  <DDSTableOfContents>
-    <div class="bx--tableofcontents__contents">
-      <a name="1" data-title="Section - 1"></a>
-      <h3>Section - 1</h3>
-      <p>Section 1 content</p>
-      <a name="2" data-title="Section - 2"></a>
-      <h3>Section - 2</h3>
-      <p>Section 2 content</p>
-      <a name="3" data-title="Section - 3"></a>
-      <h3>Section - 3</h3>
-      <p>Section 3 content</p>
-    </div>
-  </DDSTableOfContents>
+    <C4DTableOfContents>
+      <div class="cds--tableofcontents__contents">
+        <a name="1" data-title="Section - 1"></a>
+        <h3>Section - 1</h3>
+        <p>Section 1 content</p>
+        <a name="2" data-title="Section - 2"></a>
+        <h3>Section - 2</h3>
+        <p>Section 2 content</p>
+        <a name="3" data-title="Section - 3"></a>
+        <h3>Section - 3</h3>
+        <p>Section 3 content</p>
+      </div>
+    </C4DTableOfContents>
   );
 }
 ```
@@ -43,37 +48,39 @@ function App() {
 ```javascript
 function App() {
   return (
-  <DDSTableOfContents layout={'horizontal'}>
-    <div class="bx--tableofcontents__contents">
-      <a name="1" data-title="Section - 1"></a>
-      <h3>Section - 1</h3>
-      <p>Section 1 content</p>
-      <a name="2" data-title="Section - 2"></a>
-      <h3>Section - 2</h3>
-      <p>Section 2 content</p>
-      <a name="3" data-title="Section - 3"></a>
-      <h3>Section - 3</h3>
-      <p>Section 3 content</p>
-    </div>
-  </DDSTableOfContents>
+    <C4DTableOfContents layout={'horizontal'}>
+      <div class="cds--tableofcontents__contents">
+        <a name="1" data-title="Section - 1"></a>
+        <h3>Section - 1</h3>
+        <p>Section 1 content</p>
+        <a name="2" data-title="Section - 2"></a>
+        <h3>Section - 2</h3>
+        <p>Section 2 content</p>
+        <a name="3" data-title="Section - 3"></a>
+        <h3>Section - 3</h3>
+        <p>Section 3 content</p>
+      </div>
+    </C4DTableOfContents>
   );
 }
 ```
 
 ## Harvesting the table of contents
 
-`<dds-table-of-contents>` automatically harvests the table of contents by looking for `<a>`s with their `name` attribute.
-The titles in the table of contents are harvested from the text content in `<a>` by default.
-You can add `data-title` attribute to the `<a>`s to change the titles.
+`<cds-table-of-contents>` automatically harvests the table of contents by
+looking for `<a>`s with their `name` attribute. The titles in the table of
+contents are harvested from the text content in `<a>` by default. You can add
+`data-title` attribute to the `<a>`s to change the titles.
 
 ## Adjusting the position of `<select>` box
 
-`<dds-table-of-contents>` uses `<select>` as the table if the browser viewport has narrow width.
-It sticks at the very top by default, but you can adjust the position via CSS.
-This is useful e.g. when you use `<dds-table-of-contents>` with ibm.com masthead.
+`<cds-table-of-contents>` uses `<select>` as the table if the browser viewport
+has narrow width. It sticks at the very top by default, but you can adjust the
+position via CSS. This is useful e.g. when you use `<cds-table-of-contents>`
+with ibm.com masthead.
 
 ```css
-dds-table-of-contents::part(table) {
+cds-table-of-contents::part(table) {
   top: 3rem;
 }
 ```
@@ -84,10 +91,12 @@ dds-table-of-contents::part(table) {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector | Description |
-| ----------------------- | ---------------------- | ----------- |
-| `<dds-table-of-contents>`        | N/A                    | Component   |
+| Web Components selector   | Compatibility selector | Description |
+| ------------------------- | ---------------------- | ----------- |
+| `<cds-table-of-contents>` | N/A                    | Component   |
 
 <Description markdown={contributing} />

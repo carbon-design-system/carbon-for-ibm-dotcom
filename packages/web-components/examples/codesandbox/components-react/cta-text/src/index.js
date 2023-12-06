@@ -9,13 +9,13 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import './index.css';
 
 const App = () => (
-  <DDSTextCTA cta-type="local" href="https://www.example.com">
+  <C4DTextCTA cta-type="local" href="https://www.example.com">
     Text CTA Copy
-  </DDSTextCTA>
+  </C4DTextCTA>
 );
 
 render(<App />, document.getElementById('root'));

@@ -22,20 +22,20 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSContentSection from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section';
-import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
-import DDSContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DContentSection from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section';
+import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import C4DContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 
 function App() {
   return (
-    <DDSContentSection>
-      <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
-      <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
-      <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+    <C4DContentSection>
+      <C4DContentSectionHeading>{heading}</C4DContentSectionHeading>
+      <C4DContentSectionCopy>{copy}</C4DContentSectionCopy>
+      <C4DTextCTA slot="footer" cta-type="local" href="https://www.example.com">
         Link action
-      </DDSTextCTA>
-    </DDSContentSection>
+      </C4DTextCTA>
+    </C4DContentSection>
   );
 }
 ```
@@ -52,176 +52,176 @@ to be provided with proper grid class as shown below in order for the component
 to render correctly within the grid.
 
 ```html
-<DDSContentSection childrenCustomClass="bx--col-lg-16 bx--no-gutter">
-  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
-  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
-  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+<C4DContentSection childrenCustomClass="cds--col-lg-16 cds--no-gutter">
+  <C4DContentSectionHeading>{heading}</C4DContentSectionHeading>
+  <C4DContentSectionCopy>{copy}</C4DContentSectionCopy>
+  <C4DTextCTA slot="footer" cta-type="local" href="https://www.example.com">
     Link action
-  </DDSTextCTA>
-  <DDSContentBlockSimple>
-    <DDSContentBlockHeading>
+  </C4DTextCTA>
+  <C4DContentBlockSimple>
+    <C4DContentBlockHeading>
       Content block simple heading
-    </DDSContentBlockHeading>
-    <DDSContentBlockCopy size="sm">
+    </C4DContentBlockHeading>
+    <C4DContentBlockCopy size="sm">
       Content block simple copy
-    </DDSContentBlockCopy>
-    <DDSVideoPlayerContainer
+    </C4DContentBlockCopy>
+    <C4DVideoPlayerContainer
       slot="media"
-      video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
-    <DDSTextCTA slot="footer" cta-type="jump" href="https://www.ibm.com">
+      video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
+    <C4DTextCTA slot="footer" cta-type="jump" href="https://www.ibm.com">
       Content block simple CTA
-    </DDSTextCTA>
-  </DDSContentBlockSimple>
-</DDSContentSection>
+    </C4DTextCTA>
+  </C4DContentBlockSimple>
+</C4DContentSection>
 ```
 
 ### Card group
 
 ```html
-<DDSContentSection>
-  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
-  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
-  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+<C4DContentSection>
+  <C4DContentSectionHeading>{heading}</C4DContentSectionHeading>
+  <C4DContentSectionCopy>{copy}</C4DContentSectionCopy>
+  <C4DTextCTA slot="footer" cta-type="local" href="https://www.example.com">
     Link action
-  </DDSTextCTA>
-  <DDSCardGroup>
-    <DDSContentGroupCardsItem href="https://www.example.com">
-      <DDSCardHeading>
+  </C4DTextCTA>
+  <C4DCardGroup>
+    <C4DContentGroupCardsItem href="https://www.example.com">
+      <C4DCardHeading>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt
-      </DDSCardHeading>
+      </C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </p>
-      <DDSCardFooter icon-placemenet="left">
+      <C4DCardFooter icon-placemenet="left">
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSContentGroupCardsItem>
-    <DDSContentGroupCardsItem href="https://www.example.com">
-      <DDSCardHeading>
+      </C4DCardFooter>
+    </C4DContentGroupCardsItem>
+    <C4DContentGroupCardsItem href="https://www.example.com">
+      <C4DCardHeading>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt
-      </DDSCardHeading>
+      </C4DCardHeading>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-      <DDSCardFooter icon-placemenet="left">
+      <C4DCardFooter icon-placemenet="left">
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSContentGroupCardsItem>
-    <DDSContentGroupCardsItem href="https://www.example.com">
-      <DDSCardHeading>
+      </C4DCardFooter>
+    </C4DContentGroupCardsItem>
+    <C4DContentGroupCardsItem href="https://www.example.com">
+      <C4DCardHeading>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt
-      </DDSCardHeading>
+      </C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </p>
-      <DDSCardFooter icon-placemenet="left">
+      <C4DCardFooter icon-placemenet="left">
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSContentGroupCardsItem>
-    <DDSContentGroupCardsItem href="https://www.example.com">
-      <DDSCardHeading>
+      </C4DCardFooter>
+    </C4DContentGroupCardsItem>
+    <C4DContentGroupCardsItem href="https://www.example.com">
+      <C4DCardHeading>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt
-      </DDSCardHeading>
+      </C4DCardHeading>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-      <DDSCardFooter icon-placemenet="left">
+      <C4DCardFooter icon-placemenet="left">
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSContentGroupCardsItem>
-  </DDSCardGroup>
-</DDSContentSection>
+      </C4DCardFooter>
+    </C4DContentGroupCardsItem>
+  </C4DCardGroup>
+</C4DContentSection>
 ```
 
 ### Carousel
 
 ```html
-<DDSContentSection>
-  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
-  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
-  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+<C4DContentSection>
+  <C4DContentSectionHeading>{heading}</C4DContentSectionHeading>
+  <C4DContentSectionCopy>{copy}</C4DContentSectionCopy>
+  <C4DTextCTA slot="footer" cta-type="local" href="https://www.example.com">
     Link action
-  </DDSTextCTA>
-  <DDSCarousel>
-    <DDSCard href="https://www.ibm.com/standards/carbon">
-      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+  </C4DTextCTA>
+  <C4DCarousel>
+    <C4DCard href="https://www.ibm.com/standards/carbon">
+      <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
-      <DDSCardFooter>
+      <C4DCardFooter>
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+      </C4DCardFooter>
+    </C4DCard>
 
-    <DDSCard href="https://www.ibm.com/standards/carbon">
-      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+    <C4DCard href="https://www.ibm.com/standards/carbon">
+      <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin,
       sodales nulla quis, consequat libero.
-      <DDSCardFooter>
+      <C4DCardFooter>
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+      </C4DCardFooter>
+    </C4DCard>
 
-    <DDSCard href="https://www.ibm.com/standards/carbon">
-      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+    <C4DCard href="https://www.ibm.com/standards/carbon">
+      <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
-      <DDSCardFooter>
+      <C4DCardFooter>
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+      </C4DCardFooter>
+    </C4DCard>
 
-    <DDSCard href="https://www.ibm.com/standards/carbon">
-      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+    <C4DCard href="https://www.ibm.com/standards/carbon">
+      <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin,
       sodales nulla quis, consequat libero.
-      <DDSCardFooter>
+      <C4DCardFooter>
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
-  </DDSCarousel>
-</DDSContentSection>
+      </C4DCardFooter>
+    </C4DCard>
+  </C4DCarousel>
+</C4DContentSection>
 ```
 
 ### Link list
 
 ```html
-<DDSContentSection>
-  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
-  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
-  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+<C4DContentSection>
+  <C4DContentSectionHeading>{heading}</C4DContentSectionHeading>
+  <C4DContentSectionCopy>{copy}</C4DContentSectionCopy>
+  <C4DTextCTA slot="footer" cta-type="local" href="https://www.example.com">
     Link action
-  </DDSTextCTA>
-  <DDSLinkList>
-    <DDSLinkListItem href="https://example.com">
+  </C4DTextCTA>
+  <C4DLinkList>
+    <C4DLinkListItem href="https://example.com">
       Learn more about Kubernetes and automating deployment
       <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
+    </C4DLinkListItem>
+    <C4DLinkListItem href="https://example.com">
       Containerization A Complete Guide
       <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
+    </C4DLinkListItem>
+    <C4DLinkListItem href="https://example.com">
       Microservices and container
       <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
+    </C4DLinkListItem>
+    <C4DLinkListItem href="https://example.com">
       Learn more about Kubernetes and automating deployment
       <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
+    </C4DLinkListItem>
+    <C4DLinkListItem href="https://example.com">
       Containerization A Complete Guide
       <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
+    </C4DLinkListItem>
+    <C4DLinkListItem href="https://example.com">
       Microservices and container
       <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-  </DDSLinkList>
-</DDSContentSection>
+    </C4DLinkListItem>
+  </C4DLinkList>
+</C4DContentSection>
 ```
 
 ## Props
@@ -236,8 +236,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector         | Compatibility selector                        | Description |
 | ------------------------------- | --------------------------------------------- | ----------- |
-| `<dds-content-section>`         | `data-autoid="dds--content-section"`          | Component   |
-| `<dds-content-section-copy>`    | `data-autoid="dds--content-section__copy"`    | Component   |
-| `<dds-content-section-heading>` | `data-autoid="dds--content-section__heading"` | Component   |
+| `<cds-content-section>`         | `data-autoid="cds--content-section"`          | Component   |
+| `<cds-content-section-copy>`    | `data-autoid="cds--content-section__copy"`    | Component   |
+| `<cds-content-section-heading>` | `data-autoid="cds--content-section__heading"` | Component   |
 
 <Description markdown={contributing} />

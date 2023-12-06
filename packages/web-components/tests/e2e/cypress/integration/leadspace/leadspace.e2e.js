@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-leadspace', () => {
-  it('should load the default dds-leadspace example', () => {
+describe('cds-leadspace', () => {
+  it('should load the default cds-leadspace example', () => {
     cy.visit('/leadspace');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-leadspace | default');
+    cy.percySnapshot('cds-leadspace | default');
   });
 });

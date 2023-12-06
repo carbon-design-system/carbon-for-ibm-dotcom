@@ -10,9 +10,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 // eslint-disable-next-line max-len
-import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
+import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 import './index.css';
 
-const App = () => <DDSSearchWithTypeahead active={true}></DDSSearchWithTypeahead>;
+const App = () => <C4DSearchWithTypeahead active={true}></C4DSearchWithTypeahead>;
 
 render(<App />, document.getElementById('root'));

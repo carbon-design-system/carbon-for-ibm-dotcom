@@ -1,36 +1,42 @@
 //
-// Copyright IBM Corp. 2022, 2023
+// Copyright IBM Corp. 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/components/tag/tag';
-@import '../../globals/imports';
-@import '../../globals/vars';
-@import '../buttongroup/buttongroup';
-@import '../structured-list/structured-list';
+@use '@carbon/styles/scss/components/tag' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '../button-group' as *;
+@use '../structured-list' as *;
 
-@include structured-list;
-@include tags;
+// @include button-group;
+// @include structured-list;
+// @include tags;
 
 @keyframes sticky-header-slide-in {
   from {
     top: -100%;
   }
   to {
-    top: var(--#{$dds-prefix}-sticky-header-height);
+    top: var(--#{$c4d-prefix}-sticky-header-height);
   }
 }
 
 @mixin pricing-table {
-  .#{$prefix}--pricing-table,
-  :host(#{$dds-prefix}-pricing-table) {
-    @extend .#{$dds-prefix}--structured-list;
+  .#{$c4d-prefix}--pricing-table,
+  :host(#{$c4d-prefix}-pricing-table) {
+    @extend .#{$c4d-prefix}--structured-list;
 
     overflow-y: hidden;
 
-    .#{$dds-prefix}-pricing-table-sentinel {
+    .#{$c4d-prefix}-pricing-table-sentinel {
       display: block;
       height: 1px;
       margin-top: -1px;
@@ -39,17 +45,17 @@
   }
 
   .#{$prefix}--pricing-table-group,
-  :host(#{$dds-prefix}-pricing-table-group) {
+  :host(#{$c4d-prefix}-pricing-table-group) {
     @extend .#{$prefix}--structured-list-group;
   }
 
   .#{$prefix}--pricing-table-header-row,
-  :host(#{$dds-prefix}-pricing-table-header-row) {
+  :host(#{$c4d-prefix}-pricing-table-header-row) {
     @extend .#{$prefix}--structured-list-header-row;
 
     box-shadow: none;
-    transition: top $duration--slow-01 motion(standard, productive),
-      box-shadow $duration--fast-02 motion(standard, productive);
+    transition: top $duration-slow-01 motion(standard, productive),
+      box-shadow $duration-fast-02 motion(standard, productive);
 
     // Pseudo full width background activated when row is sticky.
     &::before {
@@ -59,27 +65,27 @@
       top: 0;
       bottom: 0;
       left: 0;
-      transition: $duration--slow-01 motion(standard, productive),
+      transition: $duration-slow-01 motion(standard, productive),
         box-shadow 0 motion(standard, productive);
     }
 
     &.#{$prefix}--pricing-table-header-row--sticky {
       position: sticky;
-      animation: sticky-header-slide-in $duration--slow-01
+      animation: sticky-header-slide-in $duration-slow-01
         motion(standard, productive);
-      top: var(--#{$dds-prefix}-sticky-header-height);
-      background-color: $ui-background;
+      top: var(--#{$c4d-prefix}-sticky-header-height);
+      background-color: $background;
       z-index: 1;
 
       &::before {
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           width: 100vw;
           left: calc(50% - 50vw);
           right: calc(50% - 50vw);
-          background-color: $ui-background;
-          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
-          transition: $duration--fast-02 motion(standard, productive),
-            box-shadow $duration--slow-01 motion(standard, productive);
+          background-color: $background;
+          box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
+          transition: $duration-fast-02 motion(standard, productive),
+            box-shadow $duration-slow-01 motion(standard, productive);
         }
       }
 
@@ -92,9 +98,9 @@
   .#{$prefix}--pricing-table-header-row,
   .#{$prefix}--pricing-table-row,
   .#{$prefix}--pricing-table-group tr,
-  :host(#{$dds-prefix}-pricing-table-header-row),
-  :host(#{$dds-prefix}-pricing-table-row),
-  :host(#{$dds-prefix}-pricing-table-group) tr {
+  :host(#{$c4d-prefix}-pricing-table-header-row),
+  :host(#{$c4d-prefix}-pricing-table-row),
+  :host(#{$c4d-prefix}-pricing-table-group) tr {
     @extend .#{$prefix}--structured-list-all-rows;
 
     position: relative;
@@ -111,14 +117,14 @@
       bottom: 0;
       width: 100%;
       height: 1px;
-      background-color: $ui-03;
+      background-color: $layer-accent-01;
     }
   }
 
   .#{$prefix}--pricing-table-header-row,
   .#{$prefix}--pricing-table-row,
-  :host(#{$dds-prefix}-pricing-table-header-row),
-  :host(#{$dds-prefix}-pricing-table-row) {
+  :host(#{$c4d-prefix}-pricing-table-header-row),
+  :host(#{$c4d-prefix}-pricing-table-row) {
     ::slotted(:last-child) {
       flex-grow: none;
       max-width: var(--width);
@@ -128,23 +134,23 @@
   .#{$prefix}--pricing-table-header-cell,
   .#{$prefix}--pricing-table-cell,
   .#{$prefix}--pricing-table-group th,
-  :host(#{$dds-prefix}-pricing-table-header-cell),
-  :host(#{$dds-prefix}-pricing-table-cell),
-  :host(#{$dds-prefix}-pricing-table-group) th {
+  :host(#{$c4d-prefix}-pricing-table-header-cell),
+  :host(#{$c4d-prefix}-pricing-table-cell),
+  :host(#{$c4d-prefix}-pricing-table-group) th {
     @extend .#{$prefix}--structured-list-all-cells;
 
-    padding-block-end: $carbon--spacing-05;
+    padding-block-end: $spacing-05;
   }
 
   .#{$prefix}--pricing-table-header-cell,
   .#{$prefix}--pricing-table-cell,
-  :host(#{$dds-prefix}-pricing-table-header-cell),
-  :host(#{$dds-prefix}-pricing-table-cell) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell),
+  :host(#{$c4d-prefix}-pricing-table-cell) {
     position: relative;
-    background-color: $ui-background;
+    background-color: $background;
 
     &.highlighted {
-      background-color: $ui-01;
+      background-color: $layer-01;
     }
 
     .#{$prefix}--pricing-table-cell-inner {
@@ -152,35 +158,23 @@
       display: flex;
       justify-content: space-between;
     }
-
-    .#{$prefix}--pricing-table-cell-content {
-      display: flex;
-      align-items: start;
-      line-height: 1.25rem;
-
-      svg {
-        margin-inline-end: $spacing-03;
-        flex-shrink: 0;
-      }
-    }
   }
 
   .#{$prefix}--pricing-table-header-cell,
-  :host(#{$dds-prefix}-pricing-table-header-cell) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell) {
     @extend .#{$prefix}--structured-list-header-cell;
   }
 
   .#{$prefix}--pricing-table-header-cell:not([scope='row']),
-  :host(#{$dds-prefix}-pricing-table-header-cell:not([scope='row'])) {
-    padding-block-end: $carbon--layout-06;
-    transition: padding-block-end $duration--slow-01
-      motion(standard, productive);
+  :host(#{$c4d-prefix}-pricing-table-header-cell:not([scope='row'])) {
+    padding-block-end: $spacing-12;
+    transition: padding-block-end $duration-slow-01 motion(standard, productive);
 
     &.#{$prefix}--pricing-table-header-cell--sticky {
       border-bottom-color: transparent;
 
       &::after {
-        @include carbon--breakpoint-down('md') {
+        @include breakpoint-down(md) {
           /**
            * Mobile sticky header shadow must be set on cells since they extend
            * beyond the width of their container.
@@ -199,31 +193,30 @@
     }
 
     &.#{$prefix}--pricing-table-header-cell--sticky[type='complex'] {
-      padding-block-end: $carbon--spacing-05;
+      padding-block-end: $spacing-05;
 
       .#{$prefix}--pricing-table-header-cell-tag-wrapper,
       .#{$prefix}--pricing-table-cell-inner {
-        transition: $duration--slow-01 motion(standard, productive),
-          opacity $duration--fast-02 motion(standard, productive);
+        transition: $duration-slow-01 motion(standard, productive),
+          opacity $duration-fast-02 motion(standard, productive);
       }
 
       .#{$prefix}--pricing-table-header-cell-cta,
-      ::slotted(#{$dds-prefix}-pricing-table-header-cell-cta) {
-        margin-block-start: $carbon--spacing-05;
+      ::slotted(#{$c4d-prefix}-pricing-table-header-cell-cta) {
+        margin-block-start: $spacing-05;
       }
     }
 
     .#{$prefix}--pricing-table-header-cell-tag-wrapper,
     .#{$prefix}--pricing-table-cell-inner {
-      transition: $duration--slow-01 motion(standard, productive),
-        opacity $duration--slow-01 motion(standard, productive)
-          $duration--slow-01;
+      transition: $duration-slow-01 motion(standard, productive),
+        opacity $duration-slow-01 motion(standard, productive) $duration-slow-01;
     }
 
     &.highlighted {
       position: relative;
 
-      ::slotted(#{$dds-prefix}-pricing-table-highlight-label) {
+      ::slotted(#{$c4d-prefix}-pricing-table-highlight-label) {
         display: block;
       }
     }
@@ -237,70 +230,69 @@
   }
 
   .#{$prefix}--pricing-table-cell,
-  :host(#{$dds-prefix}-pricing-table-cell) {
+  :host(#{$c4d-prefix}-pricing-table-cell) {
     @extend .#{$prefix}--structured-list-cell;
 
     &.annotation-visible {
-      ::slotted(#{$dds-prefix}-pricing-table-cell-annotation) {
+      ::slotted(#{$c4d-prefix}-pricing-table-cell-annotation) {
         display: block;
         height: auto;
         opacity: 1;
-        margin-block-start: $carbon--spacing-05;
+        margin-block-start: $spacing-05;
         transform: translateY(0);
       }
     }
 
     &.annotation-visible.no-cell-content {
-      ::slotted(#{$dds-prefix}-pricing-table-cell-annotation) {
+      ::slotted(#{$c4d-prefix}-pricing-table-cell-annotation) {
         margin-top: 0;
       }
     }
   }
 
-  :host(#{$dds-prefix}-pricing-table-cell[icon]) {
+  :host(#{$c4d-prefix}-pricing-table-cell[icon]) {
     &[icon='checkmark'] {
-      color: $support-02;
+      color: $support-success;
     }
   }
 
   .#{$prefix}--pricing-table-highlight-label,
-  :host(#{$dds-prefix}-pricing-table-highlight-label) {
-    @include carbon--type-style('body-short-01');
+  :host(#{$c4d-prefix}-pricing-table-highlight-label) {
+    @include type-style('body-compact-01');
 
     display: none;
     position: absolute;
     bottom: 100%;
     left: 0;
     right: 0;
-    background-color: $ui-05;
-    color: $inverse-01;
-    padding: $carbon--spacing-03 $carbon--spacing-05;
+    background-color: $border-inverse;
+    color: $icon-inverse;
+    padding: $spacing-03 $spacing-05;
   }
 
   .#{$prefix}--pricing-table-header-cell-headline,
-  :host(#{$dds-prefix}-pricing-table-header-cell-headline) {
-    @include carbon--type-style('expressive-heading-03');
-
-    color: $text-01;
+  :host(#{$c4d-prefix}-pricing-table-header-cell-headline) {
+    // @include type-style('fluid-heading-03');
+    color: $text-primary;
     display: block;
   }
 
   .#{$prefix}--pricing-table-header-cell-caption,
-  :host(#{$dds-prefix}-pricing-table-header-cell-caption) {
-    @include carbon--type-style('productive-heading-01');
+  :host(#{$c4d-prefix}-pricing-table-header-cell-caption) {
+    @include type-style('heading-compact-01');
 
-    color: $text-01;
+    color: $text-primary;
     display: block;
   }
 
   .#{$prefix}--pricing-table-header-cell-tag,
-  :host(#{$dds-prefix}-pricing-table-header-cell-tag) a {
+  :host(#{$c4d-prefix}-pricing-table-header-cell-tag) a {
     @extend .#{$prefix}--tag;
     @extend .#{$prefix}--tag--green;
     @extend .#{$prefix}--tag--sm;
 
     text-decoration: none;
-    margin: $carbon--spacing-05 0 0;
+    margin: $spacing-05 0 0;
 
     &[href] {
       cursor: pointer;
@@ -308,32 +300,32 @@
   }
 
   .#{$prefix}--pricing-table-header-cell-description,
-  :host(#{$dds-prefix}-pricing-table-header-cell-description) {
-    @include carbon--type-style('body-long-01');
+  :host(#{$c4d-prefix}-pricing-table-header-cell-description) {
+    @include type-style('body-01');
 
     display: block;
-    margin-block-start: $carbon--spacing-05;
-    color: $text-01;
+    margin-block-start: $spacing-05;
+    color: $text-primary;
   }
 
   .#{$prefix}--pricing-table-header-cell-cta,
-  :host(#{$dds-prefix}-pricing-table-header-cell-cta) {
-    @extend .#{$prefix}--buttongroup-item;
+  :host(#{$c4d-prefix}-pricing-table-header-cell-cta) {
+    @extend :host(#{$c4d-prefix}-button-group-item);
 
     display: block;
-    margin-block-start: $carbon--spacing-06;
+    margin-block-start: $spacing-06;
 
     .#{$prefix}--btn svg {
       position: absolute;
-      right: 1rem;
+      right: $spacing-05;
       top: 50%;
       transform: translateY(-50%);
     }
   }
 
   .#{$prefix}--pricing-table-annotation-toggle,
-  :host(#{$dds-prefix}-pricing-table-annotation-toggle) {
-    padding-inline-end: $carbon--spacing-03;
+  :host(#{$c4d-prefix}-pricing-table-annotation-toggle) {
+    padding-inline-end: $spacing-03;
 
     button {
       background: none;
@@ -342,21 +334,17 @@
     }
 
     svg {
-      fill: $ui-04;
+      fill: $toggle-off;
     }
   }
 
   .#{$prefix}--pricing-table-cell-annotation,
-  :host(#{$dds-prefix}-pricing-table-cell-annotation) {
+  :host(#{$c4d-prefix}-pricing-table-cell-annotation) {
     display: block;
-    color: $text-02;
-    transition: $duration--fast-02 motion(standard, productive);
+    color: $text-secondary;
+    transition: $duration-fast-02 motion(standard, productive);
     height: 0;
     opacity: 0;
-    transform: translateY(-#{$carbon--spacing-05});
+    transform: translateY(-#{$spacing-05});
   }
-}
-
-@include exports('pricing-table') {
-  @include pricing-table;
 }

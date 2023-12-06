@@ -10,23 +10,23 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSQuote from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
-import DDSQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
-import DDSQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
-import DDSQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
+import C4DQuote from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
+import C4DQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
+import C4DQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
 import './index.css';
 
 const App = () => (
-  <DDSQuote color-scheme="inverse" mark-type="double-curved">
+  <C4DQuote color-scheme="inverse" mark-type="double-curved">
     Bringing together the technology and expertise for a new way to create
-    <DDSQuoteSourceHeading>John Doe</DDSQuoteSourceHeading>
-    <DDSQuoteSourceCopy>Senior Vice President</DDSQuoteSourceCopy>
-    <DDSQuoteSourceBottomCopy>IBM Cloud</DDSQuoteSourceBottomCopy>
-    <DDSLinkWithIcon slot="footer" href="https://example.com">
+    <C4DQuoteSourceHeading>John Doe</C4DQuoteSourceHeading>
+    <C4DQuoteSourceCopy>Senior Vice President</C4DQuoteSourceCopy>
+    <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
+    <C4DLinkWithIcon slot="footer" href="https://example.com">
       Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
-    </DDSLinkWithIcon>
-  </DDSQuote>
+    </C4DLinkWithIcon>
+  </C4DQuote>
 );
 
 render(<App />, document.getElementById('root'));

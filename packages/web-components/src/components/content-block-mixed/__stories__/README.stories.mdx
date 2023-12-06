@@ -3,10 +3,6 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
-
 # Content Block Mixed
 
 > 💡 Check our
@@ -37,95 +33,125 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/inde
 ### HTML
 
 ```html
-<dds-content-block-mixed>
-  <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
-  <dds-content-block-copy>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-    Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-  </dds-content-block-copy>
+<cds-content-block-mixed>
+  <cds-content-block-heading
+    >Lorem ipsum dolor sit amet</cds-content-block-heading
+  >
+  <cds-content-block-copy>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+    est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+    sollicitudin, sodales nulla quis, consequat libero.
+  </cds-content-block-copy>
 
-  <dds-content-group-cards>
-    <dds-content-group-heading>Content group heading</dds-content-group-heading>
-    <dds-content-group-cards-item href="www.ibm.com">
-      <dds-card-heading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <dds-card-footer>
-        <svg slot="icon" ...>
-          ...
-        </svg>
-      </dds-card-footer>
-    </dds-content-group-cards-item>
-    <dds-content-group-cards-item href="www.ibm.com">
-      <dds-card-heading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <dds-card-footer icon-placement="left">
-        <svg slot="icon" ...>
-          ...
-        </svg>
-      </dds-card-footer>
-    </dds-content-group-cards-item>
-  </dds-content-group-cards>
+  <cds-content-group-cards>
+    <cds-content-group-heading>Content group heading</cds-content-group-heading>
+    <cds-content-group-cards-item href="www.ibm.com">
+      <cds-card-heading
+        >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt</cds-card-heading
+      >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <cds-card-footer>
+        <svg slot="icon" ...>...</svg>
+      </cds-card-footer>
+    </cds-content-group-cards-item>
+    <cds-content-group-cards-item href="www.ibm.com">
+      <cds-card-heading
+        >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt</cds-card-heading
+      >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <cds-card-footer icon-placement="left">
+        <svg slot="icon" ...>...</svg>
+      </cds-card-footer>
+    </cds-content-group-cards-item>
+  </cds-content-group-cards>
 
-  <dds-content-group-pictograms>
-    <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-group-copy>Lorem ipsum *dolor* sit amet</dds-content-group-copy>
-    <dds-pictogram-item>
-      <svg slot="pictogram"...>
-        ...
-      </svg>
-      <dds-content-item-heading>Lorem ipsum dolor sit amet</dds-content-item-heading>
-      <dds-content-item-copy>Lorem ipsum dolor sit amet</dds-content-item-copy>
-      <dds-link-with-icon href="https://www.ibm.com/" slot="footer">
+  <cds-content-group-pictograms>
+    <cds-content-group-heading
+      >Curabitur malesuada varius mi eu posuere</cds-content-group-heading
+    >
+    <cds-content-group-copy
+      >Lorem ipsum *dolor* sit amet</cds-content-group-copy
+    >
+    <cds-pictogram-item>
+      <svg slot="pictogram" ...>...</svg>
+      <cds-content-item-heading
+        >Lorem ipsum dolor sit amet</cds-content-item-heading
+      >
+      <cds-content-item-copy>Lorem ipsum dolor sit amet</cds-content-item-copy>
+      <cds-link-with-icon href="https://www.ibm.com/" slot="footer">
         Link text
-        <svg slot="icon" ...>
-          ...
-        </svg>
-      </dds-link-with-icon>
-    </dds-pictogram-item>
-  </dds-content-group-pictograms>
+        <svg slot="icon" ...>...</svg>
+      </cds-link-with-icon>
+    </cds-pictogram-item>
+  </cds-content-group-pictograms>
 
-  <dds-content-group-simple>
-    <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-group-copy>Lorem ipsum *dolor* sit amet</dds-content-group-copy>
-    <dds-image
+  <cds-content-group-simple>
+    <cds-content-group-heading
+      >Curabitur malesuada varius mi eu posuere</cds-content-group-heading
+    >
+    <cds-content-group-copy
+      >Lorem ipsum *dolor* sit amet</cds-content-group-copy
+    >
+    <cds-image
       slot="media"
       alt="Image alt text"
       default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-      heading="Curabitur malesuada varius mi eu posuere"
-    >
-      <dds-image-item media="(min-width: 672px)" srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 400px)" srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
-      </dds-image-item>
-    </dds-image>
-    <dds-content-item copy="Lorem ipsum *dolor* sit amet">
-      <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
-    </dds-content-item>
-    <dds-content-item copy="Lorem ipsum *dolor* sit amet">
-      <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
-    </dds-content-item>
-    <dds-card-link-cta slot="footer" href="https://www.ibm.com/" cta-type="local">
-      <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
-      <dds-card-cta-footer>
-      </dds-card-cta-footer>
-    </dds-card-link-cta>
-  </dds-content-group-simple>
-</dds-content-block-mixed>
+      heading="Curabitur malesuada varius mi eu posuere">
+      <cds-image-item
+        media="(min-width: 672px)"
+        srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+      </cds-image-item>
+      <cds-image-item
+        media="(min-width: 400px)"
+        srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
+      </cds-image-item>
+      <cds-image-item
+        media="(min-width: 320px)"
+        srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
+      </cds-image-item>
+    </cds-image>
+    <cds-content-item copy="Lorem ipsum *dolor* sit amet">
+      <cds-content-item-heading
+        >Lorem ipsum dolor sit amet.</cds-content-item-heading
+      >
+    </cds-content-item>
+    <cds-content-item copy="Lorem ipsum *dolor* sit amet">
+      <cds-content-item-heading
+        >Lorem ipsum dolor sit amet.</cds-content-item-heading
+      >
+    </cds-content-item>
+    <cds-card-link-cta
+      slot="footer"
+      href="https://www.ibm.com/"
+      cta-type="local">
+      <cds-card-link-heading>Lorem ipsum dolor sit amet</cds-card-link-heading>
+      <cds-card-cta-footer> </cds-card-cta-footer>
+    </cds-card-link-cta>
+  </cds-content-group-simple>
+</cds-content-block-mixed>
 ```
 
 <Description markdown={markdownContents} />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                      | Description |
 | ----------------------------- | ------------------------------------------- | ----------- |
-| `<dds-content-block-mixed>`   | `data-autoid="dds--content-block-mixed"`    | Component   |
-| `<dds-content-block-copy>`    | `data-autoid="dds--content-block__copy"`    | Component   |
-| `<dds-content-block-heading>` | `data-autoid="dds--content-block__heading"` | Component   |
-| `<dds-content-item-copy>`     | `data-autoid="dds--content-item__copy"`     | Component   |
+| `<cds-content-block-mixed>`   | `data-autoid="cds--content-block-mixed"`    | Component   |
+| `<cds-content-block-copy>`    | `data-autoid="cds--content-block__copy"`    | Component   |
+| `<cds-content-block-heading>` | `data-autoid="cds--content-block__heading"` | Component   |
+| `<cds-content-item-copy>`     | `data-autoid="cds--content-item__copy"`     | Component   |
 
 <Description markdown={contributing} />

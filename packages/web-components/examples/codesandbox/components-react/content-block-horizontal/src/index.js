@@ -9,35 +9,35 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSContentBlockHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-block-horizontal/content-block-horizontal';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentBlockHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-block-horizontal/content-block-horizontal';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
 
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 
 import './index.css';
 
 const App = () => (
-  <DDSContentBlockHorizontal>
-    <DDSContentBlockHeading>Lorem ipsum dolor sit amet</DDSContentBlockHeading>
-    <DDSContentItemHorizontal>
-      <DDSContentItemHorizontalEyebrow>Lorem ipsum</DDSContentItemHorizontalEyebrow>
-      <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-      <DDSContentItemHorizontalCopy>Lorem ipsum dolor sit amet</DDSContentItemHorizontalCopy>
-      <DDSLinkList slot="footer" type="vertical">
-        <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+  <C4DContentBlockHorizontal>
+    <C4DContentBlockHeading>Lorem ipsum dolor sit amet</C4DContentBlockHeading>
+    <C4DContentItemRow>
+      <C4DContentItemRowEyebrow>Lorem ipsum</C4DContentItemRowEyebrow>
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemRowCopy>Lorem ipsum dolor sit amet</C4DContentItemRowCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
           Link text
-        </DDSLinkListItemCTA>
-        <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
           External link text
-        </DDSLinkListItemCTA>
-      </DDSLinkList>
-    </DDSContentItemHorizontal>
-  </DDSContentBlockHorizontal>
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentItemRow>
+  </C4DContentBlockHorizontal>
 );
 
 render(<App />, document.getElementById('root'));

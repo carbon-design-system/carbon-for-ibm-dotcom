@@ -5,82 +5,135 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
+@use 'sass:math';
 
-@import 'carbon-components/scss/components/modal/modal';
+@use '../../globals/vars' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/components/modal' as *;
 
 /// Expressive modal
 /// @access private
 /// @group expressive-modal
 
-@mixin expressive-model {
+@mixin expressive-modal {
   $modal: '.#{$prefix}--modal';
-  $button-size: rem(48px);
-  $icon-size: rem(20px);
-  $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
+  $icon-size: to-rem(20px);
 
-  :host(#{$dds-prefix}-expressive-modal),
-  #{$modal}--expressive {
-    color: $text-01;
+  :host(#{$c4d-prefix}-expressive-modal) {
+    @extend .#{$prefix}--modal;
 
-    #{$modal}-container {
-      padding: $carbon--spacing-05;
-      min-height: $carbon--spacing-07 + $icon-size + $carbon--spacing-07;
+    .#{$prefix}--modal-container {
+      grid-template-rows: 1fr;
+      padding: $spacing-05;
+      min-height: $spacing-10 + to-rem($icon-size);
 
-      @include carbon--breakpoint('md') {
-        padding: $carbon--spacing-07;
+      @include breakpoint(md) {
+        padding: $spacing-07;
       }
     }
 
-    #{$modal}-content {
-      display: flex;
-      padding-left: 0;
-      padding-right: $button-size - $offset-close-icon;
-      margin-bottom: 0;
-      padding-top: 0;
+    .#{$prefix}--modal-content {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding-bottom: 0;
+    }
+
+    .#{$c4d-prefix}-ce--modal__header--with-body {
+      margin-bottom: $spacing-05;
+    }
+
+    .#{$c4d-prefix}-ce--modal__body {
+      width: 100%;
+    }
+
+    .#{$c4d-prefix}-ce--modal__body--with-footer {
+      margin-bottom: $spacing-09;
     }
   }
 
-  :host(#{$dds-prefix}-expressive-modal-footer) #{$modal}-footer {
-    justify-content: flex-start;
-    height: rem(48px);
+  :host(#{$c4d-prefix}-expressive-modal[open]) {
+    @extend .#{$prefix}--modal;
+
+    opacity: 1;
+    transition: opacity $duration-moderate-02 motion(entrance, expressive),
+      visibility 0ms linear;
+    visibility: inherit;
+
+    .#{$prefix}--modal-container {
+      transform: translate3d(0, 0, 0);
+      transition: transform $duration-moderate-02 motion(entrance, expressive);
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
-  :host(#{$dds-prefix}-expressive-modal-close-button) {
-    #{$modal}-close {
+  :host(#{$c4d-prefix}-expressive-modal-footer) .#{$prefix}--modal-footer {
+    justify-content: flex-start;
+    height: $spacing-09;
+  }
+
+  :host(#{$c4d-prefix}-expressive-modal-close-button) {
+    .#{$prefix}--modal-close {
       position: fixed;
     }
   }
 
-  :host(#{$dds-prefix}-expressive-modal-heading),
-  #{$modal}--expressive #{$modal}-content h1 {
-    @include carbon--type-style('expressive-heading-04');
+  :host(#{$c4d-prefix}-expressive-modal-heading),
+  .#{$prefix}--modal--expressive .#{$prefix}--modal-content h1 {
+    @include type-style('heading-04');
   }
 
-  :host(#{$dds-prefix}-expressive-modal)[expressive-size='full-width'],
-  #{$modal}--expressive--fullwidth {
-    @include carbon--breakpoint('md') {
-      #{$modal}-container {
-        width: calc(100% - #{$carbon--spacing-07});
+  :host(#{$c4d-prefix}-expressive-modal-header) {
+    display: block;
+    padding: 0;
+  }
+
+  :host(#{$c4d-prefix}-expressive-modal-body),
+  :host(#{$c4d-prefix}-lightbox-media-viewer-body) {
+    @include type-style('body-02');
+  }
+
+  :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'],
+  .#{$prefix}--modal--expressive--fullwidth {
+    @include breakpoint(md) {
+      .#{$prefix}--modal-container {
+        width: calc(100% - #{$spacing-07});
         max-width: 96rem;
-        height: calc(100% - #{$carbon--spacing-07});
+        height: calc(100% - #{$spacing-07});
         max-height: none;
       }
     }
   }
 
-  :host(#{$dds-prefix}-expressive-modal[size='full-width'])
-    ::slotted(#{$dds-prefix}-expressive-modal-body),
-  :host(#{$dds-prefix}-expressive-modal[size='full-width'])
-    ::slotted(#{$dds-prefix}-lightbox-media-viewer-body),
-  #{$modal}--expressive--fullwidth #{$modal}-content {
+  :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'] {
+    .#{$prefix}--modal-container {
+      padding: 0;
+    }
+
+    .#{$prefix}--modal-content {
+      padding: $spacing-05;
+
+      @include breakpoint(md) {
+        padding: $spacing-07;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
+    ::slotted(#{$c4d-prefix}-expressive-modal-body),
+  :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
+    ::slotted(#{$c4d-prefix}-lightbox-media-viewer-body),
+  .#{$prefix}--modal--expressive--fullwidth .#{$prefix}--modal-content {
     padding-right: 0;
     height: auto;
-    min-height: rem(500px);
+    min-height: to-rem(500px);
   }
-}
-
-@include exports('expressive-model') {
-  @include expressive-model;
 }
