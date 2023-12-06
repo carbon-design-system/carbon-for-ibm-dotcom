@@ -219,6 +219,21 @@ $css--plex: true !default;
   }
 }
 
+:host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile--is-selected {
+  border: 1px solid $layer-selected-inverse;
+  .#{$prefix}--tile__checkmark {
+    z-index: 1;
+  }
+}
+
+:host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile--is-selected::after {
+  @include callout-gradient('selected');
+}
+
+:host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile--is-selected::after {
+  opacity: 1;
+}
+
 :host(#{$prefix}-clickable-tile) {
   ::slotted(#{$prefix}-slug) {
     pointer-events: none;
