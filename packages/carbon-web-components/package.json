@@ -74,6 +74,7 @@
     "@babel/runtime": "^7.16.3",
     "@carbon/styles": "^1.42.0",
     "flatpickr": "4.6.1",
+    "gulp-minify-html-literals": "^1.1.22",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",
     "rollup-plugin-minify-html-literals": "^1.2.6"
