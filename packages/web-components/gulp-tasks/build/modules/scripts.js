@@ -15,7 +15,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const stripComments = require('strip-comments');
 const babelPluginResourceJSPaths = require('../../../tools/babel-plugin-resource-js-paths');
-
+const minifyHTMLLiterals = require('gulp-minify-html-literals');
 const config = require('../../config');
 
 /**
@@ -34,6 +34,17 @@ function scripts() {
         `!${config.srcDir}/**/ibmdotcom-web-components-*.ts`,
       ])
       .pipe(sourcemaps.init())
+      .pipe(minifyHTMLLiterals({
+        failOnError: true,
+        options: {
+          minifyOptions: {
+            caseSensitive: true,
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            removeComments: true
+          },
+        },
+      }))
       .pipe(
         babel({
           presets: ['@babel/preset-modules', '@babel/preset-env'],
