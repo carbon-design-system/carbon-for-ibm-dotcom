@@ -20,7 +20,7 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const rtlcss = require('rtlcss');
 const { promisify } = require('util');
 const { terser } = require('rollup-plugin-terser');
-
+const minfyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
 const carbonIcons = require('./rollup-plugin-icons');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
 const license = require('./rollup-plugin-license');
@@ -129,6 +129,17 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
+      minfyHTMLLiterals({
+        failOnError: true,
+        options: {
+          minifyOptions: {
+            caseSensitive: true,
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            removeComments: true
+          },
+        },
+      }),
       carbonIcons(),
       babel.babel({
         babelHelpers: 'runtime',
@@ -145,27 +156,7 @@ function getRollupConfig({
           '@babel/plugin-transform-nullish-coalescing-operator',
           ['@babel/plugin-transform-object-rest-spread', { useBuiltIns: true }],
           '@babel/plugin-transform-optional-chaining',
-          ...(mode === 'development'
-            ? []
-            : [
-                [
-                  'template-html-minifier', // TODO: verify this is actually needed, doesn't seem to be doing anything
-                  {
-                    modules: {
-                      'lit-html': ['html'],
-                      'lit-element': ['html'],
-                    },
-                    htmlMinifier: {
-                      collapseWhitespace: true,
-                      conservativeCollapse: true,
-                      removeComments: true,
-                      caseSensitive: true,
-                      minifyCSS: true,
-                    },
-                  },
-                ],
-              ]),
-        ],
+        ]
       }),
       litSCSS({
         includePaths: [path.resolve(__dirname, '../node_modules')],
