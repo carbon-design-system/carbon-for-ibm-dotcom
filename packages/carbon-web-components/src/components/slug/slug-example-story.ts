@@ -191,6 +191,72 @@ export const _NumberItem = () => {
   `;
 };
 
+export const _RadioButton = () => {
+  return html`
+  <div class="slug-check-radio-container">
+  <cds-radio-button-group
+    legend-text="Group label"
+    name="radio-group"
+    value="radio-1"
+    orientation="vertical">
+    <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-1"></cds-radio-button>
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-2"></cds-radio-button>
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-3"></cds-radio-button>
+  </cds-radio-button-group>
+
+  <cds-radio-button-group
+    legend-text="Group label"
+    name="radio-group-2"
+    value="radio-4"
+    orientation="vertical">
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-4">
+      <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
+
+      </cds-radio-button>
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-5">
+      <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
+
+      </cds-radio-button>
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-6"></cds-radio-button>
+  </cds-radio-button-group>
+
+  <cds-radio-button-group
+    legend-text="Group label"
+    name="radio-group-2"
+    value="radio-4"
+    orientation="vertical">
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-4">
+      <cds-slug alignment="bottom-left" kind="inline"> ${content}${actions} </cds-slug>
+
+      </cds-radio-button>
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-5">
+      <cds-slug alignment="bottom-left" kind="inline"> ${content}${actions} </cds-slug>
+
+      </cds-radio-button>
+    <cds-radio-button
+      label-text="Radio button label"
+      value="radio-6"></cds-radio-button>
+  </cds-radio-button-group>
+  </div>
+  `;
+};
 export const _Select = () => {
   return html`
     <div style="width: 400px">

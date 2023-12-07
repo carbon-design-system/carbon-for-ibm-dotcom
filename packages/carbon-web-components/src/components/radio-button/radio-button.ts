@@ -177,6 +177,31 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof CDSRadioButton).slugItem
+            )
+          : false
+      );
+
+    this._hasSlug = Boolean(hasContent);
+    const type = (hasContent[0] as HTMLElement).getAttribute('kind');
+    (hasContent[0] as HTMLElement).setAttribute('size',  type === 'inline' ? 'md' : 'mini');
+    this.requestUpdate();
+  }
+
+  /**
+   * `true` if there is a slug.
+   */
+  protected _hasSlug = false;
+
+  /**
    * `true` if this radio button should be checked.
    */
   @property({ type: Boolean, reflect: true })
@@ -261,10 +286,12 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
 
   updated(changedProperties) {
     const {
+      _hasSlug: hasSlug,
       _inputNode: inputNode,
       _radioButtonDelegate: radioButtonDelegate,
       name,
     } = this;
+    
     if (changedProperties.has('checked') || changedProperties.has('name')) {
       if (this.readOnly) {
         this.checked = false;
@@ -288,6 +315,7 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
           : '0'
       );
     }
+    hasSlug ? this.setAttribute('slug', '') : this.removeAttribute('slug');
   }
 
   render() {
@@ -301,6 +329,7 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
       disabledItem,
     } = this;
     const innerLabelClasses = classMap({
+      [`${prefix}--radio-button__label-text`]: true,
       [`${prefix}--visually-hidden`]: hideLabel,
     });
     return html`
@@ -314,9 +343,18 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
         value=${ifDefined(value)} />
       <label for="input" class="${prefix}--radio-button__label">
         <span class="${prefix}--radio-button__appearance"></span>
-        <span class="${innerLabelClasses}"><slot>${labelText}</slot></span>
+        <span class="${innerLabelClasses}">${labelText}
+        <slot name="slug" @slotchange="${this._handleSlotChange}"></slot></span>
+
       </label>
     `;
+  }
+
+  /**
+   * A selector that will return the slug item.
+   */
+  static get slugItem() {
+    return `${prefix}-slug`;
   }
 
   /**
