@@ -75,7 +75,8 @@
     "@carbon/styles": "^1.42.0",
     "flatpickr": "4.6.1",
     "lit": "^2.7.6",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "rollup-plugin-minify-html-literals": "^1.2.6"
   },
   "devDependencies": {
     "@babel/core": "~7.12.0",

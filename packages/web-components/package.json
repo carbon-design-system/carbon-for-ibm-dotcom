@@ -103,6 +103,7 @@
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
     "redux-thunk": "^2.3.0",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
     "wicg-inert": "^3.1.2",
     "window-or-global": "^1.0.1"
   },
