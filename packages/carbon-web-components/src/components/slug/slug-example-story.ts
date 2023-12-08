@@ -12,6 +12,7 @@ import { boolean } from '@storybook/addon-knobs';
 import View16 from '@carbon/icons/lib/view/16';
 import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
 import Folders16 from '@carbon/icons/lib/folders/16';
+import textNullable from '../../../.storybook/knob-text-nullable';
 import { prefix } from '../../globals/settings';
 import './index';
 import '../icon-button/index';
@@ -210,72 +211,102 @@ export const _NumberItem = () => {
     </div> `;
 };
 
-export const _RadioButton = () => {
+export const _RadioButton = (args) => {
+  const { disabled, invalid, invalidText, warn, warnText } =
+    args?.['cds-radio-button'] ?? {};
+
   return html`
-  <div class="slug-check-radio-container">
-  <cds-radio-button-group
-    legend-text="Group label"
-    name="radio-group"
-    value="radio-1"
-    orientation="vertical">
-    <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-1"></cds-radio-button>
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-2"></cds-radio-button>
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-3"></cds-radio-button>
-  </cds-radio-button-group>
-
-  <cds-radio-button-group
-    legend-text="Group label"
-    name="radio-group-2"
-    value="radio-4"
-    orientation="vertical">
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-4">
+    <style>
+      ${styles}
+    </style>
+    <cds-radio-button-group
+      legend-text="Group label"
+      name="radio-group"
+      value="radio-1"
+      orientation="vertical"
+      ?disabled="${disabled}"
+      ?invalid="${invalid}"
+      invalid-text="${invalidText}"
+      ?warn="${warn}"
+      warn-text="${warnText}">
       <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-1"></cds-radio-button>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-2"></cds-radio-button>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-3"></cds-radio-button>
+    </cds-radio-button-group>
 
+    <cds-radio-button-group
+      legend-text="Group label"
+      name="radio-group-2"
+      value="radio-4"
+      orientation="vertical"
+      ?disabled="${disabled}"
+      ?invalid="${invalid}"
+      invalid-text="${invalidText}"
+      ?warn="${warn}"
+      warn-text="${warnText}">
+      <cds-radio-button label-text="Radio button label" value="radio-4">
+        <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
       </cds-radio-button>
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-5">
-      <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
-
+      <cds-radio-button label-text="Radio button label" value="radio-5">
+        <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
       </cds-radio-button>
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-6"></cds-radio-button>
-  </cds-radio-button-group>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-6"></cds-radio-button>
+    </cds-radio-button-group>
 
-  <cds-radio-button-group
-    legend-text="Group label"
-    name="radio-group-2"
-    value="radio-4"
-    orientation="vertical">
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-4">
-      <cds-slug alignment="bottom-left" kind="inline"> ${content}${actions} </cds-slug>
-
+    <cds-radio-button-group
+      legend-text="Group label"
+      name="radio-group-3"
+      value="radio-7"
+      orientation="vertical"
+      ?disabled="${disabled}"
+      ?invalid="${invalid}"
+      invalid-text="${invalidText}"
+      ?warn="${warn}"
+      warn-text="${warnText}">
+      <cds-radio-button label-text="Radio button label" value="radio-7">
+        <cds-slug alignment="bottom-left" kind="inline">
+          ${content}${actions}
+        </cds-slug>
       </cds-radio-button>
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-5">
-      <cds-slug alignment="bottom-left" kind="inline"> ${content}${actions} </cds-slug>
-
+      <cds-radio-button label-text="Radio button label" value="radio-8">
+        <cds-slug alignment="bottom-left" kind="inline">
+          ${content}${actions}
+        </cds-slug>
       </cds-radio-button>
-    <cds-radio-button
-      label-text="Radio button label"
-      value="radio-6"></cds-radio-button>
-  </cds-radio-button-group>
-  </div>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-9"></cds-radio-button>
+    </cds-radio-button-group>
   `;
 };
+
+_RadioButton.parameters = {
+  knobs: {
+    [`${prefix}-radio-button`]: () => ({
+      disabled: boolean('Disabled (disabled)', false),
+      invalid: boolean('Invalid (invalid)', false),
+      invalidText: textNullable(
+        'Invalid text (invalid-text)',
+        'Error message goes here'
+      ),
+      warn: boolean('Warn (warn)', false),
+      warnText: textNullable(
+        'Warn text (warn-text)',
+        'Warning message that is really long can wrap to more lines but should not be excessively long.'
+      ),
+    }),
+  },
+};
+
 export const _Select = () => {
   return html`<style>
       ${styles}

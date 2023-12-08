@@ -62,10 +62,10 @@ $css--plex: true !default;
 :host(#{$prefix}-radio-button[orientation='vertical']) {
   margin-block-end: to-rem(6px);
   margin-inline-end: 0;
-} 
+}
 
 :host(#{$prefix}-radio-button[invalid]) .#{$prefix}--radio-button__appearance {
-  border-color: $support-error;
+  border-color: $support-error !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :host(#{$prefix}-radio-button[data-table]) {
@@ -109,21 +109,21 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-radio-button[slug]){
+:host(#{$prefix}-radio-button[slug]) {
   .#{$prefix}--radio-button__label-text {
     display: flex;
   }
 }
 
 :host(#{$prefix}-radio-button-group) .#{$prefix}--radio-button-group--slug,
-:host(#{$prefix}-radio-button[slug]){
-  ::slotted(#{$prefix}-slug){
+:host(#{$prefix}-radio-button[slug]) {
+  ::slotted(#{$prefix}-slug) {
     margin-inline-start: $spacing-03;
   }
 }
 
-:host(#{$prefix}-radio-button[slug]){
-  ::slotted(#{$prefix}-slug[inline]){
+:host(#{$prefix}-radio-button[slug]) {
+  ::slotted(#{$prefix}-slug[inline]) {
     line-height: inherit;
     margin-block-start: to-rem(-1px);
   }

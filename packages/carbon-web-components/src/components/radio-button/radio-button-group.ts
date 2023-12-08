@@ -214,7 +214,7 @@ class CDSRadioButtonGroup extends FormMixin(HostListenerMixin(LitElement)) {
       legendText,
       helperText,
       _hasSlug: hasSlug,
-      _handleSlotChange: handleSlotChange
+      _handleSlotChange: handleSlotChange,
     } = this;
 
     const showWarning = !readOnly && !invalid && warn;
@@ -245,7 +245,10 @@ class CDSRadioButtonGroup extends FormMixin(HostListenerMixin(LitElement)) {
         ?disabled="${disabled}"
         aria-readonly="${readOnly}">
         ${legendText
-          ? html` <legend class="${prefix}--label">${legendText} <slot name="slug" @slotchange="${handleSlotChange}"></slot></legend>`
+          ? html` <legend class="${prefix}--label">
+              ${legendText}
+              <slot name="slug" @slotchange="${handleSlotChange}"></slot>
+            </legend>`
           : ``}
         <slot></slot>
       </fieldset>
