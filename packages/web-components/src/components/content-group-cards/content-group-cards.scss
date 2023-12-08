@@ -5,5 +5,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/card/index';
-@import '@carbon/ibmdotcom-styles/scss/components/content-group-cards/content-group-cards';
+@use '@carbon/ibmdotcom-styles/scss/components/card';
+@use '@carbon/ibmdotcom-styles/scss/components/content-group-cards';

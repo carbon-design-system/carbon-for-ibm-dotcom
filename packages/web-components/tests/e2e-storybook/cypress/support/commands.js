@@ -46,7 +46,7 @@ Cypress.Commands.add('carbonThemesScreenshot', (screenshotOpts = {}, percyOption
 /**
  * Check a11y
  *
- * @param {string} context optional to specify component context (ex. 'dds-content-item)
+ * @param {string} context optional to specify component context (ex. 'cds-content-item)
  * @param {Array} additionalRules optional to remove unnecessary rules by there id to pass a11y test (ex. ['list', 'region'])
  */
 Cypress.Commands.add('checkAxeA11y', (context, additionalRules) => {

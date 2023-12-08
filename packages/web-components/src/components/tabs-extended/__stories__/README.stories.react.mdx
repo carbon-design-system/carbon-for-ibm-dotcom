@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended';
 
@@ -17,46 +22,48 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSTabsExtended from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended.js';
-import DDSTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab.js';
+import C4DTabsExtended from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended.js';
+import C4DTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab.js';
 
 function App() {
   return (
-<DDSTabsExtended>
-  <DDSTab label="First tab">
-    <p>Content for first tab goes here.</p>
-  </DDSTab>
-  <DDSTab label="Second tab">
-    <p>Content for second tab goes here.</p>
-  </DDSTab>
-  <DDSTab label="Third tab">
-    <p>Content for third tab goes here.</p>
-  </DDSTab>  
-</DDSTabsExtended>
+    <C4DTabsExtended>
+      <C4DTab label="First tab">
+        <p>Content for first tab goes here.</p>
+      </C4DTab>
+      <C4DTab label="Second tab">
+        <p>Content for second tab goes here.</p>
+      </C4DTab>
+      <C4DTab label="Third tab">
+        <p>Content for third tab goes here.</p>
+      </C4DTab>
+    </C4DTabsExtended>
   );
 }
 ```
 
 ## Setting active tab
 
-To set a different default tab to be active upon load, set the `active-tab` attribute to the index of your desired tab.
+To set a different default tab to be active upon load, set the `active-tab`
+attribute to the index of your desired tab.
 
-Here's an example targetting the third tab. Note that the indexing starts at 0, which means the third tab is the one at index 2.
+Here's an example targetting the third tab. Note that the indexing starts at 0,
+which means the third tab is the one at index 2.
 
 ```javascript
 function App() {
   return (
-<DDSTabsExtended active-tab='2'>
-  <DDSTab label="First tab">
-    <p>Content for first tab goes here.</p>
-  </DDSTab>
-  <DDSTab label="Second tab">
-    <p>Content for second tab goes here.</p>
-  </DDSTab>
-  <DDSTab label="Third tab">
-    <p>Content for third tab goes here.</p>
-  </DDSTab>  
-</DDSTabsExtended>
+    <C4DTabsExtended active-tab="2">
+      <C4DTab label="First tab">
+        <p>Content for first tab goes here.</p>
+      </C4DTab>
+      <C4DTab label="Second tab">
+        <p>Content for second tab goes here.</p>
+      </C4DTab>
+      <C4DTab label="Third tab">
+        <p>Content for third tab goes here.</p>
+      </C4DTab>
+    </C4DTabsExtended>
   );
 }
 ```
@@ -67,11 +74,13 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<dds-tabs-extended>`   | N/A                    | Component   |
-| `<dds-tab>`             | N/A                    | Component   |
+| `<cds-tabs-extended>`   | N/A                    | Component   |
+| `<cds-tab>`             | N/A                    | Component   |
 
 <Description markdown={contributing} />

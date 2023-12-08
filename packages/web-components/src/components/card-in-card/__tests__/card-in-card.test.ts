@@ -1,27 +1,27 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit-html';
+import { render } from 'lit/html.js';
 import '../card-in-card';
 import { Default } from '../__stories__/card-in-card.stories';
 
 const template = (props?) =>
   Default({
-    'dds-card-in-card': props,
+    'c4d-card-in-card': props,
   });
 
-describe('dds-card-in-card', function () {
+describe('c4d-card-in-card', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-card-in-card>`
-      expect(document.body.querySelector('dds-card-in-card')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-card-in-card>`
+      expect(document.body.querySelector('c4d-card-in-card')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -38,8 +38,8 @@ describe('dds-card-in-card', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-card-in-card>`
-      expect(document.body.querySelector('dds-card-in-card')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-card-in-card>`
+      expect(document.body.querySelector('c4d-card-in-card')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

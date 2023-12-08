@@ -17,8 +17,8 @@ import '../feature-cta-footer';
 import '../text-cta';
 import '../cta';
 import '../../button-group/index';
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
@@ -58,12 +58,12 @@ export const Default = (args) => {
   // due to the shadow DOM nesting, modifying storybook knobs won't retrigger some DOM updates
   // these are for demo purposes only
   if (ctaType === 'video') {
-    const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+    const childCta = document.querySelector('c4d-cta')?.shadowRoot!.children[0];
 
     if (ctaStyle === 'card' || ctaStyle === 'feature') {
       const headingComponent =
-        childCta?.shadowRoot?.querySelector('dds-card-heading') ||
-        childCta?.querySelector('dds-card-heading');
+        childCta?.shadowRoot?.querySelector('c4d-card-heading') ||
+        childCta?.querySelector('c4d-card-heading');
       headingComponent && !duration
         ? (duration = headingComponent!.textContent!.match(/\((.*)\)/)?.pop())
         : null;
@@ -100,103 +100,103 @@ export const Default = (args) => {
     }
   }
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('c4d-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   return html`
     ${ctaStyle === 'button'
       ? html`
-          <dds-button-group>
-            <dds-cta
+          <c4d-button-group>
+            <c4d-cta
               cta-style="button"
-              cta-type="${ifNonNull(ctaType)}"
-              video-name="${ifNonNull(customVideoTitle)}"
-              video-description="${ifNonNull(customVideoDescription)}"
-              download="${ifNonNull(download)}"
-              href="${ifNonNull(href)}">
+              cta-type="${ifDefined(ctaType)}"
+              video-name="${ifDefined(customVideoTitle)}"
+              video-description="${ifDefined(customVideoDescription)}"
+              download="${ifDefined(download)}"
+              href="${ifDefined(href)}">
               ${copy}
-            </dds-cta>
-            <dds-cta
+            </c4d-cta>
+            <c4d-cta
               cta-style="button"
-              cta-type="${ifNonNull(ctaType)}"
-              href="${ifNonNull(href)}"
-              >${copy}</dds-cta
+              cta-type="${ifDefined(ctaType)}"
+              href="${ifDefined(href)}"
+              >${copy}</c4d-cta
             >
-          </dds-button-group>
+          </c4d-button-group>
         `
       : html`
-          <dds-cta
-            cta-style="${ifNonNull(ctaStyle)}"
-            cta-type="${ifNonNull(ctaType)}"
-            video-name="${ifNonNull(customVideoTitle)}"
-            video-description="${ifNonNull(customVideoDescription)}"
-            download="${ifNonNull(download)}"
+          <c4d-cta
+            cta-style="${ifDefined(ctaStyle)}"
+            cta-type="${ifDefined(ctaType)}"
+            video-name="${ifDefined(customVideoTitle)}"
+            video-description="${ifDefined(customVideoDescription)}"
+            download="${ifDefined(download)}"
             ?no-poster=${noPoster}
-            thumbnail="${ifNonNull(thumbnail)}"
-            href="${ifNonNull(href)}">
+            thumbnail="${ifDefined(thumbnail)}"
+            href="${ifDefined(href)}">
             ${ctaStyle !== 'card' ? copy : ''}
             ${ctaStyle === 'card'
               ? html`
                   ${ctaType !== 'video'
-                    ? html` <dds-card-heading>${heading}</dds-card-heading> `
+                    ? html` <c4d-card-heading>${heading}</c4d-card-heading> `
                     : ''}
                   ${ctaType !== 'video' ? copy : ''}
-                  <dds-card-cta-footer
-                    cta-type="${ifNonNull(ctaType)}"
-                    download="${ifNonNull(footerDownload)}"
-                    video-name="${ifNonNull(customVideoTitle)}"
-                    video-description="${ifNonNull(customVideoDescription)}"
-                    href="${ifNonNull(footerHref)}">
+                  <c4d-card-cta-footer
+                    cta-type="${ifDefined(ctaType)}"
+                    download="${ifDefined(footerDownload)}"
+                    video-name="${ifDefined(customVideoTitle)}"
+                    video-description="${ifDefined(customVideoDescription)}"
+                    href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
-                  </dds-card-cta-footer>
+                  </c4d-card-cta-footer>
                 `
               : ''}
             ${ctaStyle === 'feature'
               ? html`
                   ${ctaType !== 'video'
-                    ? html` <dds-card-heading>${heading}</dds-card-heading> `
+                    ? html` <c4d-card-heading>${heading}</c4d-card-heading> `
                     : ''}
                   ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
                     ? html`
-                        <dds-image
+                        <c4d-image
                           slot="image"
                           alt="Image alt text"
                           default-src="${imgLg1x1}">
-                        </dds-image>
+                        </c4d-image>
                       `
                     : ''}
-                  <dds-feature-cta-footer
-                    cta-type="${ifNonNull(ctaType)}"
-                    download="${ifNonNull(footerDownload)}"
-                    video-name="${ifNonNull(customVideoTitle)}"
-                    video-description="${ifNonNull(customVideoDescription)}"
-                    href="${ifNonNull(footerHref)}">
+                  <c4d-feature-cta-footer
+                    cta-type="${ifDefined(ctaType)}"
+                    download="${ifDefined(footerDownload)}"
+                    video-name="${ifDefined(customVideoTitle)}"
+                    video-description="${ifDefined(customVideoDescription)}"
+                    href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
-                  </dds-feature-cta-footer>
+                  </c4d-feature-cta-footer>
                 `
               : ''}
             ${ctaStyle === 'card-link'
               ? html`
-                  <dds-card-link-heading>${heading}</dds-card-link-heading>
+                  <c4d-card-link-heading>${heading}</c4d-card-link-heading>
                   ${copy}
-                  <dds-card-cta-footer
-                    cta-type="${ifNonNull(ctaType)}"
-                    download="${ifNonNull(footerDownload)}"
-                    video-name="${ifNonNull(customVideoTitle)}"
-                    video-description="${ifNonNull(customVideoDescription)}"
-                    href="${ifNonNull(footerHref)}">
+                  <c4d-card-cta-footer
+                    cta-type="${ifDefined(ctaType)}"
+                    download="${ifDefined(footerDownload)}"
+                    video-name="${ifDefined(customVideoTitle)}"
+                    video-description="${ifDefined(customVideoDescription)}"
+                    href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
-                  </dds-card-cta-footer>
+                  </c4d-card-cta-footer>
                 `
               : ''}
-          </dds-cta>
+          </c4d-cta>
         `}
   `;
 };
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
+    gridContentClasses: 'cds--col-sm-4 cds--col-lg-8',
     knobs: {
       DefaultCTA: () => {
         const ctaStyle = select(
@@ -311,10 +311,10 @@ export default {
   decorators: [
     (story, { parameters }) => {
       return html`
-        <div class="bx--grid">
-          <div class="bx--row">
+        <div class="cds--grid">
+          <div class="cds--row">
             <div class="${parameters.gridContentClasses}">
-              <dds-video-cta-container> ${story()} </dds-video-cta-container>
+              <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
             </div>
           </div>
         </div>

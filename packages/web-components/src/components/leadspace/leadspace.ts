@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, svg, property, LitElement } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html, LitElement, svg } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   LEADSPACE_TYPE,
   LEADSPACE_GRADIENT_STYLE_SCHEME,
@@ -22,21 +22,20 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE };
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The LeadSpace component.
  *
- * @element dds-leadspace
+ * @element c4d-leadspace
  * @slot action The action (CTA) content.
  * @slot image The image content.
  * @csspart section The first DOM node inside the shadow-root
  */
-@customElement(`${ddsPrefix}-leadspace`)
-class DDSLeadSpace extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-leadspace`)
+class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   /**
-   * Handler for @slotchange, ensure that the only element being rendered is DDSTagGroup
+   * Handler for @slotchange, ensure that the only element being rendered is C4DTagGroup
    *
    * @private
    */
@@ -46,8 +45,8 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     childItems.filter(
       (elem) =>
         (elem as HTMLElement).matches?.(
-          (this.constructor as typeof DDSLeadSpace).tagGroupSelector
-        ) || (this.constructor as typeof DDSLeadSpace).breadcrumbSelector
+          (this.constructor as typeof C4DLeadSpace).tagGroupSelector
+        ) || (this.constructor as typeof C4DLeadSpace).breadcrumbSelector
     );
   }
 
@@ -56,8 +55,8 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getGradientClass() {
     return classMap({
-      [`${prefix}--leadspace--gradient`]: this.defaultSrc,
-      [`${prefix}--leadspace__overlay`]: true,
+      [`${c4dPrefix}--leadspace--gradient`]: this.defaultSrc,
+      [`${c4dPrefix}--leadspace__overlay`]: true,
     });
   }
 
@@ -66,11 +65,13 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getTypeClass() {
     return classMap({
-      [`${prefix}--leadspace--centered`]: this.type === LEADSPACE_TYPE.CENTERED,
-      [`${prefix}--leadspace--centered__image`]:
+      [`${c4dPrefix}--leadspace--centered`]:
+        this.type === LEADSPACE_TYPE.CENTERED,
+      [`${c4dPrefix}--leadspace--centered__image`]:
         this.type === LEADSPACE_TYPE.CENTERED && this.defaultSrc,
-      [`${prefix}--leadspace--productive`]: this.type === LEADSPACE_TYPE.SMALL,
-      [`${prefix}--leadspace__section`]: true,
+      [`${c4dPrefix}--leadspace--productive`]:
+        this.type === LEADSPACE_TYPE.SMALL,
+      [`${c4dPrefix}--leadspace__section`]: true,
     });
   }
 
@@ -80,10 +81,10 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   protected _renderCopy() {
     const { copy } = this;
     return html`
-      <div class="${prefix}--leadspace__row">
+      <div class="${c4dPrefix}--leadspace__row">
         <p
-          data-autoid="${ddsPrefix}--leadspace__desc"
-          class="${prefix}--leadspace__desc">
+          data-autoid="${c4dPrefix}--leadspace__desc"
+          class="${c4dPrefix}--leadspace__desc">
           <slot>${copy}</slot>
         </p>
       </div>
@@ -143,33 +144,40 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   firstUpdated() {
     Array.from(this.children).forEach((child) => {
       if (
-        (child.tagName === 'DDS-BACKGROUND-MEDIA' ||
-          child.tagName === 'DDS-LEADSPACE-IMAGE') &&
+        (child.tagName === 'C4D-BACKGROUND-MEDIA' ||
+          child.tagName === 'C4D-LEADSPACE-IMAGE') &&
         child.slot === ''
       ) {
         child.slot = 'image';
       }
     });
+
+    if (this.size === 'short') {
+      this.querySelector('c4d-leadspace-heading')?.setAttribute(
+        'type-style',
+        'fluid-heading-05'
+      );
+    }
   }
 
   render() {
     const { gradientStyleScheme, type, size } = this;
     return html`
       <section class="${this._getTypeClass()}" part="section">
-        <div class="${prefix}--leadspace__container">
+        <div class="${c4dPrefix}--leadspace__container">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
               : svg`
                 <svg
-                  class="${prefix}--leadspace__gradient"
+                  class="${c4dPrefix}--leadspace__gradient"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <defs>
-                    <linearGradient id="stops" class="${prefix}--leadspace__gradient__stops" gradientTransform="${
+                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops" gradientTransform="${
                   type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : ''
                 }">
                       ${
@@ -189,11 +197,11 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                       }
                     </linearGradient>
                   </defs>
-                  <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
+                  <rect class="${c4dPrefix}--leadspace__gradient__rect" width="100" height="100" />
                 </svg>
               `}
-            <div class="${prefix}--leadspace--content__container">
-              <div class="${prefix}--leadspace__row">
+            <div class="${c4dPrefix}--leadspace--content__container">
+              <div class="${c4dPrefix}--leadspace__row">
                 <slot
                   name="navigation"
                   @slotchange="${this._handleSlotChange}"></slot>
@@ -201,9 +209,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               </div>
               ${size !== LEADSPACE_SIZE.SHORT
                 ? html`
-                    <div class="${prefix}--leadspace__content">
+                    <div class="${c4dPrefix}--leadspace__content">
                       ${this._renderCopy()}
-                      <div class="${prefix}--leadspace__action">
+                      <div class="${c4dPrefix}--leadspace__action">
                         <slot name="action"></slot>
                       </div>
                     </div>
@@ -222,19 +230,19 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   }
 
   static get headingSelector() {
-    return `${ddsPrefix}-leadspace-heading`;
+    return `${c4dPrefix}-leadspace-heading`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--leadspace`;
+    return `${c4dPrefix}--leadspace`;
   }
 
   static get tagGroupSelector() {
-    return `${ddsPrefix}-tag-group`;
+    return `div`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadSpace;
+export default C4DLeadSpace;

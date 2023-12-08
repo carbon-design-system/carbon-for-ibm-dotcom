@@ -9,8 +9,6 @@ import '../regions';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
 # Locale modal
 
 > The locale modal allows users to change geographic regions and translate pages
@@ -35,21 +33,24 @@ import '@carbon/ibmdotcom-web-components/es/components/locale-modal/index.js';
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
+
 ```html
-<dds-locale-modal-container open></dds-locale-modal-container>
+<cds-locale-modal-container open></cds-locale-modal-container>
 ```
 
 ## Props
 
-<Props of="dds-locale-modal-container" />
+<Props of="cds-locale-modal-container" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                       | Compatibility selector                 | Description |
 | --------------------------------------------- | -------------------------------------- | ----------- |
-| `<dds-locale-modal>`                          | `dds--locale-modal`                    | Component   |
-| `<dds-region-item name="${region}">`          | `dds--locale-modal__geo-btn-${region}` | Interactive |
-| `::part(searchbox)` in `<dds-locale-search>`  | `dds--locale-modal__filter`            | Interactive |
-| `::part(back-button)` in `<dds-locale-modal>` | `dds--locale-modal__region-back`       | Interactive |
+| `<cds-locale-modal>`                          | `cds--locale-modal`                    | Component   |
+| `<cds-region-item name="${region}">`          | `cds--locale-modal__geo-btn-${region}` | Interactive |
+| `::part(searchbox)` in `<cds-locale-search>`  | `cds--locale-modal__filter`            | Interactive |
+| `::part(back-button)` in `<cds-locale-modal>` | `cds--locale-modal__region-back`       | Interactive |

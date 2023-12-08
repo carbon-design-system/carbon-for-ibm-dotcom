@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2018, 2018
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,8 +42,18 @@ module.exports = {
     'block-no-empty': true,
 
     // Selector
-    'selector-pseudo-class-no-unknown': true,
-    'selector-pseudo-element-no-unknown': true,
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['part', 'is', 'where'],
+      },
+    ],
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['part'],
+      },
+    ],
     'selector-type-no-unknown': true,
 
     // Media feature

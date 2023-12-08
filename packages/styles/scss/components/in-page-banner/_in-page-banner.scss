@@ -1,0 +1,89 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-group';
+@use '../../globals/tokens/color-tokens' as *;
+
+@mixin in-page-banner {
+  :host(#{$c4d-prefix}-in-page-banner) {
+    display: block;
+    background: $background;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-07;
+
+    @include breakpoint(md) {
+      padding-bottom: $spacing-09;
+    }
+
+    ::slotted(#{$c4d-prefix}-content-group-heading),
+    .#{$prefix}--content-layout ::slotted([slot='heading']),
+    .#{$prefix}--content-group__title {
+      margin-bottom: 0;
+
+      @include breakpoint(md) {
+        grid-column: 1 / span 6;
+      }
+
+      @include breakpoint(lg) {
+        grid-column: 1 / span 8;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-link-list),
+    .#{$prefix}--content-layout ::slotted([slot='complementary']),
+    .#{$prefix}--link-list__list {
+      position: relative;
+      grid-area: auto;
+      margin-top: $spacing-07;
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      @include breakpoint(md) {
+        grid-column: 1 / span 6;
+      }
+
+      @include breakpoint(lg) {
+        grid-column: 9 / span 12;
+        margin: 0;
+        padding-left: $spacing-05;
+        padding-right: $spacing-05;
+        border-left: 1px solid $layer-accent-01;
+
+        // Adjust the direction of the border line on RTL.
+        [dir='rtl'] & {
+          border-left: inherit;
+          border-right: 1px solid $layer-accent-01;
+        }
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-in-page-banner[color-scheme='cyan']) {
+    background-color: $background-cyan;
+
+    ::slotted([slot='heading']) {
+      color: $text-cyan;
+    }
+  }
+
+  :host(#{$c4d-prefix}-in-page-banner[color-scheme='purple']) {
+    background-color: $background-purple;
+
+    ::slotted([slot='heading']) {
+      color: $text-purple;
+    }
+  }
+
+  :host(#{$c4d-prefix}-in-page-banner[color-scheme='layer']) {
+    background-color: $layer-01;
+  }
+}

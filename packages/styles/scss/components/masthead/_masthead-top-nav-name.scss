@@ -5,38 +5,44 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use 'vars' as *;
 
-/// @access private
 @mixin masthead-top-nav-name {
-  @include carbon--type-style(expressive-heading-02, true);
+  %masthead-top-nav-name {
+    @include type-style('heading-02');
 
-  color: $text-01;
-  padding-left: $carbon--spacing-05;
-  padding-right: $carbon--spacing-05;
-  border: solid 2px transparent;
-  transition: $button-transition;
-  position: relative;
-  white-space: nowrap;
-  z-index: 1;
-  background-color: $ui-background;
+    color: $text-primary;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    border: solid $spacing-01 transparent;
+    transition: $button-transition;
+    position: relative;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: $background;
 
-  @include carbon--breakpoint(lg) {
-    margin-left: $carbon--spacing-05;
-  }
+    @include breakpoint(lg) {
+      margin-left: $spacing-05;
+    }
 
-  &:hover {
-    background-color: $hover-ui;
-    color: $text-01;
-  }
+    &:hover {
+      background-color: $background-hover;
+      color: $text-primary;
+    }
 
-  &:active,
-  &:focus {
-    border-color: $focus;
-    background-color: $ui-01;
-  }
+    &:active,
+    &:focus {
+      border-color: $focus;
+      background-color: $layer-01;
+    }
 
-  @include carbon--breakpoint-down(800px) {
-    display: none;
+    @include breakpoint-down(800px) {
+      display: none;
+    }
   }
 }

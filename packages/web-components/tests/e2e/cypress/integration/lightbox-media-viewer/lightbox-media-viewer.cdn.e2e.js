@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-lightbox-media-viewer (cdn)', () => {
-  it('should load the default dds-lightbox-media-viewer example', () => {
+describe('cds-lightbox-media-viewer (cdn)', () => {
+  it('should load the default cds-lightbox-media-viewer example', () => {
     cy.visit('/lightbox-media-viewer/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-lightbox-media-viewer | cdn | default');
+    cy.percySnapshot('cds-lightbox-media-viewer | cdn | default');
   });
 });

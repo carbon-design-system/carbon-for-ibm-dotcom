@@ -5,21 +5,22 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../footer/index';
-@import '../masthead/index';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '../../globals/vars' as *;
+@use '../footer';
+@use '../masthead';
 
 @mixin dotcom-shell {
-  :host(#{$dds-prefix}-dotcom-shell),
+  :host(#{$c4d-prefix}-dotcom-shell),
   .#{$prefix}--dotcom-shell {
     display: flex;
     flex-direction: column;
-    padding-top: $carbon--layout-04;
+    padding-top: $spacing-09;
     width: 100%;
 
     .#{$prefix}--tableofcontents__sidebar {
-      top: 48px;
+      top: $spacing-09;
     }
   }
 
@@ -29,8 +30,9 @@
     max-width: 99rem;
     width: 100%;
   }
-}
 
-@include exports('dotcom-shell') {
-  @include dotcom-shell;
+  :host(#{$c4d-prefix}-dotcom-shell-container),
+  :host(#{$c4d-prefix}-dotcom-shell-composite) {
+    display: contents;
+  }
 }

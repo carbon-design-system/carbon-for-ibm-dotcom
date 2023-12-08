@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import DDSVideoPlayer from '../video-player';
-import DDSVideoPlayerComposite from '../video-player-composite';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import C4DVideoPlayer from '../video-player';
+import C4DVideoPlayerComposite from '../video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../video-player-composite';
 
@@ -25,19 +25,19 @@ const template = (props?) => {
     playingMode,
   } = props ?? {};
   return html`
-    <dds-video-player-composite
+    <c4d-video-player-composite
       ?hide-caption="${hideCaption}"
-      video-id="${ifNonNull(videoId)}"
-      .embeddedVideos="${ifNonNull(embeddedVideos)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-      .mediaData="${ifNonNull(mediaData)}"
-      .playingMode="${ifNonNull(playingMode)}">
-    </dds-video-player-composite>
+      video-id="${ifDefined(videoId)}"
+      .embeddedVideos="${ifDefined(embeddedVideos)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}"
+      .mediaData="${ifDefined(mediaData)}"
+      .playingMode="${ifDefined(playingMode)}">
+    </c4d-video-player-composite>
   `;
 };
 
-describe('dds-video-player-composite', function () {
+describe('c4d-video-player-composite', function () {
   it('should send props to video player', async function () {
     const formatCaption = () => {};
     const formatDuration = () => {};
@@ -53,8 +53,8 @@ describe('dds-video-player-composite', function () {
     await Promise.resolve(); // Micro-task cycle for `VideoPlayer`
     await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
     const videoPlayer = document.querySelector(
-      'dds-video-player'
-    ) as DDSVideoPlayer;
+      'c4d-video-player'
+    ) as C4DVideoPlayer;
     expect(videoPlayer.formatCaption).toBe(formatCaption);
     expect(videoPlayer.formatDuration).toBe(formatDuration);
     expect(videoPlayer.hideCaption).toBe(true);
@@ -71,7 +71,7 @@ describe('dds-video-player-composite', function () {
     render(template({ mediaData, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve();
     expect(
-      document.querySelector('dds-video-player-composite')
+      document.querySelector('c4d-video-player-composite')
     ).toMatchSnapshot();
   });
 
@@ -79,9 +79,9 @@ describe('dds-video-player-composite', function () {
     render(template({ videoId: 'video-id-foo' }), document.body);
     await Promise.resolve();
     const videoPlayerComposite = document.querySelector(
-      'dds-video-player-composite'
-    ) as DDSVideoPlayerComposite;
-    videoPlayerComposite.querySelector('dds-video-player')!.innerHTML = `
+      'c4d-video-player-composite'
+    ) as C4DVideoPlayerComposite;
+    videoPlayerComposite.querySelector('c4d-video-player')!.innerHTML = `
       <div data-video-id="video-id-foo"></div>
       <div data-video-id="video-id-bar"></div>
       <div data-video-id="video-id-baz"></div>

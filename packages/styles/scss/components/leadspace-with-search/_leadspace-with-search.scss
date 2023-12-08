@@ -1,176 +1,58 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-block';
+@use '../leadspace-block';
+
 @mixin leadspace-with-search {
-  .#{$prefix}--leadspace-with-search {
-    padding-top: $layout-04;
-    padding-bottom: $layout-04;
-    border-bottom: 1px solid $ui-03;
-    @include carbon--make-container;
-    @include carbon--breakpoint('lg') {
-      padding-top: $layout-05;
-      padding-bottom: $layout-05;
-    }
-    &__row {
-      @include carbon--make-row;
-    }
-    &__content {
-      @include carbon--make-col(4, 4);
-      @include carbon--make-col-ready;
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(12, 16);
-        @include carbon--make-col-offset(4, 16);
-      }
-    }
-    &__heading {
-      color: $text-01;
-      @include type-style('expressive-heading-06', true);
-    }
-    &__copy {
-      color: $text-01;
-      @include type-style('expressive-heading-05', true);
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col(6, 8);
-      }
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(8, 16);
-      }
-    }
-    &__search {
-      margin-top: $layout-03;
-      svg.bx--search-magnifier {
-        height: $layout-02;
-        width: $layout-02;
-        @include carbon--breakpoint('lg') {
-          height: $layout-03;
-          width: $layout-03;
-        }
-      }
-      button.bx--search-close {
-        height: 100%;
-        width: $layout-04;
-        @include carbon--breakpoint('md') {
-          width: $layout-05;
-          svg {
-            height: $layout-02;
-            width: $layout-02;
-          }
-        }
-      }
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col(6, 8);
-      }
-      @include carbon--breakpoint('lg') {
-        height: $layout-05;
-        margin-top: $layout-05;
-        @include carbon--make-col(8, 10);
-
-        input.bx--search-input {
-          height: 100%;
-          color: $text-01;
-          padding-left: carbon--mini-units(8);
-          @include type-style('expressive-heading-03');
-          &::placeholder {
-            color: $text-05;
-            @include type-style('expressive-heading-03');
-          }
-          &:focus::placeholder {
-            color: transparent;
-          }
-        }
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-leadspace-with-search) {
+  :host(#{$c4d-prefix}-leadspace-with-search) {
     display: block;
     position: relative;
 
-    &[has-image] {
-      @include carbon--breakpoint-down('lg') {
-        ::slotted([slot='hr']) {
-          display: none;
-        }
-      }
-
-      .#{$prefix}--content-layout {
-        @include carbon--breakpoint-down('md') {
-          padding-bottom: 0;
-        }
-      }
-    }
-
-    #{$dds-prefix}-background-media {
-      display: block;
-      height: auto;
-
-      @include carbon--breakpoint('md') {
-        display: none;
-      }
-    }
-
-    ::slotted([slot='image']) {
-      display: none;
-      @include carbon--breakpoint('md') {
-        position: absolute;
-        display: block;
-        height: 100%;
-        margin: 0 calc(50% - 50vw);
-        width: 100vw;
-        top: 0;
-        // Puts background underneath all static elements
-        z-index: -1;
-      }
-    }
-
-    ::slotted(#{$dds-prefix}-leadspace-block-heading) {
-      @include carbon--breakpoint('md') {
-        width: calc(75% - 32px);
-        max-width: rem(640px);
-      }
-
-      @include carbon--breakpoint('lg') {
-        width: calc(100% - 32px);
-        max-width: rem(640px);
-      }
-    }
-
     .#{$prefix}--content-layout {
       position: relative;
-      padding: $spacing-05 0 $spacing-07;
+      padding: $spacing-07 0 $spacing-07;
 
       &::before {
         right: calc(50% - 50vw);
         content: '';
-        background-color: $ui-background;
+        background-color: $background;
         position: absolute;
         width: 100vw;
         height: 100%;
         z-index: -1;
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding: $spacing-07 0 $spacing-09;
       }
 
-      @include carbon--breakpoint('xlg') {
+      @include breakpoint(xlg) {
         padding: $spacing-09 0;
       }
 
       &-g10 {
-        @include carbon--theme($carbon--theme--g10, true);
+        @include theme($g10, true);
       }
 
       &-g90 {
-        @include carbon--theme($carbon--theme--g90, true);
+        @include theme($g90, true);
       }
 
       &-g100 {
-        @include carbon--theme($carbon--theme--g100, true);
+        @include theme($g100, true);
       }
     }
 
@@ -183,36 +65,24 @@
       transition-timing-function: motion(entrance, productive);
       transition-duration: 0s;
 
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         margin: 0 $spacing-05;
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding-bottom: $spacing-12;
       }
 
-      &-adjacent-theme {
+      &-dual-theme {
         padding: $spacing-07 0;
 
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           padding: $spacing-09 0;
         }
       }
 
-      &-g10 {
-        @include carbon--theme($carbon--theme--g10, true);
-      }
-
-      &-g90 {
-        @include carbon--theme($carbon--theme--g90, true);
-      }
-
-      &-g100 {
-        @include carbon--theme($carbon--theme--g100, true);
-      }
-
       .#{$prefix}--sticky-header {
-        @include carbon--type-style('expressive-heading-01');
+        @include type-style('heading-01');
 
         display: none;
         align-self: center;
@@ -222,7 +92,7 @@
         top: 0;
         right: calc(50% - 50vw);
         content: '';
-        background-color: $ui-background;
+        background-color: $background;
         position: absolute;
         width: 100vw;
         height: 100%;
@@ -230,164 +100,148 @@
       }
     }
 
-    ::slotted(#{$dds-prefix}-search-with-typeahead) {
-      @include carbon--breakpoint('md') {
-        width: 75%;
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      margin-bottom: 0;
+      padding-left: 0;
+      color: $text-primary;
+
+      max-width: to-rem(640px);
+
+      @include breakpoint(md) {
+        width: calc(75% - $spacing-07);
       }
 
-      @include carbon--breakpoint('lg') {
-        width: 125%;
+      @include breakpoint(lg) {
+        width: calc(100% - $spacing-07);
       }
     }
 
-    ::slotted(#{$dds-prefix}-hr) {
+    ::slotted(#{$c4d-prefix}-search-with-typeahead) {
+      @include breakpoint(md) {
+        margin-left: $spacing-05;
+        width: calc(75% - $spacing-07);
+      }
+
+      @include breakpoint(lg) {
+        width: calc(100% - $spacing-07);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-hr) {
       margin: 0 calc(50% - 50vw);
       position: relative;
-      background: $ui-03;
-    }
-
-    &[adjacent-theme='white-and-g10'] {
-      .#{$prefix}--search-container {
-        @include carbon--theme($carbon--theme--g10, true);
-      }
-    }
-
-    &[adjacent-theme='g10-and-white'] {
-      ::slotted(#{$dds-prefix}-background-media),
-      .#{$prefix}--content-layout {
-        @include carbon--theme($carbon--theme--g10, true);
-      }
-    }
-
-    &[adjacent-theme='g90-and-g100'] {
-      ::slotted(#{$dds-prefix}-background-media),
-      .#{$prefix}--content-layout {
-        @include carbon--theme($carbon--theme--g90, true);
-      }
-
-      .#{$prefix}--search-container {
-        @include carbon--theme($carbon--theme--g100, true);
-      }
-    }
-
-    &[adjacent-theme='g100-and-g90'] {
-      ::slotted(#{$dds-prefix}-background-media),
-      .#{$prefix}--content-layout {
-        @include carbon--theme($carbon--theme--g100, true);
-      }
-
-      .#{$prefix}--search-container {
-        @include carbon--theme($carbon--theme--g90, true);
-      }
-    }
-
-    &[sticky-search] {
-      .#{$prefix}--search-container {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        padding: $spacing-05 0;
-        margin: 0;
-        transform: translateY(-100%);
-      }
-
-      .#{$prefix}--search-container-inner {
-        @include carbon--make-container;
-        @include carbon--make-row;
-
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .#{$prefix}--sticky-header {
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col(4, 16);
-        }
-      }
-
-      ::slotted(#{$dds-prefix}-search-with-typeahead) {
-        @include carbon--make-col(4, 4);
-
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col(10, 16);
-        }
-      }
-
-      &[scroll-behavior]:not([adjacent-theme]) {
-        .#{$prefix}--search-container {
-          &::before {
-            border-bottom: 1px solid $ui-03;
-          }
-        }
-      }
+      background: $layer-accent-01;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-with-search-heading),
-  :host(#{$dds-prefix}-leadspace-with-search-content) {
-    display: block;
-    padding: 0;
-
-    /* stylelint-disable declaration-no-important */
-    ::slotted(h1) {
-      all: unset !important; /* stylelint-disable-line declaration-property-value-blacklist */
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='white-and-g10']) {
+    .#{$prefix}--search-layout {
+      @include theme($white, true);
     }
-    /* stylelint-enable declaration-no-important */
+
+    .#{$prefix}--search-container {
+      @include theme($g10, true);
+    }
   }
 
-  :host(#{$dds-prefix}-leadspace-with-search-content-heading) {
-    @extend :host(#{$dds-prefix}-content-block-heading);
-
-    @include carbon--breakpoint-down('lg') {
-      display: block;
-      width: calc(75% - #{$spacing-07});
-      margin-bottom: 0;
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g10-and-white']) {
+    .#{$prefix}--content-layout {
+      @include theme($g10, true);
     }
 
-    @include carbon--breakpoint('xlg') {
-      display: block;
-      width: calc(100% - #{$spacing-07});
-      margin-bottom: 0;
+    .#{$prefix}--search-container {
+      @include theme($white, true);
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g90-and-g100']) {
+    .#{$prefix}--content-layout {
+      @include theme($g90, true);
     }
 
-    // !important required to override slotted styling from block-content component
-    @include carbon--breakpoint-down('md') {
-      /* stylelint-disable declaration-no-important */
-      margin-left: 0 !important;
-      /* stylelint-enable declaration-no-important */
+    .#{$prefix}--search-container {
+      @include theme($g100, true);
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g100-and-g90']) {
+    .#{$prefix}--content-layout {
+      @include theme($g100, true);
+    }
+
+    .#{$prefix}--search-container {
+      @include theme($g90, true);
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-with-search[sticky-search]) {
+    .#{$prefix}--search-container {
+      position: fixed;
       width: 100%;
+      top: 0;
+      left: 0;
+      padding: $spacing-05 0;
+      margin: 0;
+      transform: translateY(-100%);
+    }
+
+    .#{$prefix}--search-container-inner {
+      @include make-container;
+      @include make-row;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .#{$prefix}--sticky-header {
+      @include breakpoint(lg) {
+        @include make-col(4, 16);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-search-with-typeahead) {
+      @include make-col(4, 4);
+
+      @include breakpoint(lg) {
+        @include make-col(10, 16);
+      }
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-with-search-content-copy) {
-    @extend :host(#{$dds-prefix}-content-block-paragraph);
-    @include carbon--type-style('expressive-heading-03', true);
+  :host(
+      #{$c4d-prefix}-leadspace-with-search[sticky-search][scroll-behavior]:not(
+          [dual-theme]
+        )
+    ) {
+    .#{$prefix}--search-container {
+      &::before {
+        border-bottom: 1px solid $layer-accent-01;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-with-search-copy) {
+    @extend :host(#{$c4d-prefix}-content-block-paragraph);
+    @include type-style('fluid-heading-03', true);
 
     display: block;
     padding-top: $spacing-07;
     margin-bottom: 0;
-    max-width: rem(640px);
+    max-width: to-rem(640px);
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       width: calc(75% - #{$spacing-07});
+      padding-right: $spacing-05;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       width: calc(100% - #{$spacing-07});
+      padding-right: $spacing-05;
     }
 
     // !important required to override slotted styling from block-content component
-    @include carbon--breakpoint-down('md') {
-      /* stylelint-disable declaration-no-important */
-      margin-left: 0 !important;
-      /* stylelint-enable declaration-no-important */
+    @include breakpoint-down(md) {
       padding-top: $spacing-06;
-      width: 100%;
     }
   }
-}
-
-@include exports('leadspace-with-search') {
-  @include leadspace-with-search;
 }

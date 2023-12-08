@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-block-simple (cdn)', () => {
-  it('should load the default dds-content-block-simple example (cdn)', () => {
+describe('cds-content-block-simple (cdn)', () => {
+  it('should load the default cds-content-block-simple example (cdn)', () => {
     cy.visit('/content-block-simple/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-block-simple | cdn | default');
+    cy.percySnapshot('cds-content-block-simple | cdn | default');
   });
 });

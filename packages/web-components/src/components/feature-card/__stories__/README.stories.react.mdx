@@ -23,21 +23,21 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
-import DDSFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
+import C4DFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 
 function App() {
   return (
-    <DDSFeatureCard href="https://www.example.com">
-      <DDSImage alt="Image alt text" defaultSrc={mediumImgLg1x1} slot="image" />
-      <DDSCardHeading>Feature card heading</DDSCardHeading>
-      <DDSFeatureCardFooter>
+    <C4DFeatureCard href="https://www.example.com">
+      <C4DImage alt="Image alt text" defaultSrc={mediumImgLg1x1} slot="image" />
+      <C4DCardHeading>Feature card heading</C4DCardHeading>
+      <C4DFeatureCardFooter>
         <ArrowRight20 slot="icon" />
-      </DDSFeatureCardFooter>
-    </DDSFeatureCard>
+      </C4DFeatureCardFooter>
+    </C4DFeatureCard>
   );
 }
 ```
@@ -54,6 +54,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector            | Description |
 | ----------------------- | --------------------------------- | ----------- |
-| `<dds-feature-card>`    | `data-autoid="dds--feature-card"` | Component   |
+| `<cds-feature-card>`    | `data-autoid="cds--feature-card"` | Component   |
 
 <Description markdown={contributing} />

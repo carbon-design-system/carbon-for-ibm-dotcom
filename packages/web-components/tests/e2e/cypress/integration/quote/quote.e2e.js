@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-quote', () => {
-  it('should load the default dds-quote example', () => {
+describe('cds-quote', () => {
+  it('should load the default cds-quote example', () => {
     cy.visit('/quote');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-quote | default');
+    cy.percySnapshot('cds-quote | default');
   });
 });

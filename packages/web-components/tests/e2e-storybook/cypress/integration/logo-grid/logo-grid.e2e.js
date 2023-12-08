@@ -23,7 +23,7 @@ const _pathWithCTA =
   '/iframe.html?id=components-logo-grid--default&knob-Heading%20(heading)=Our%20customers&knob-Display%20CTA:=true&knob-CTA%20Copy%20(ctaCopy)=Lorem%20ipsum%20dolor%20sit%20amet&knob-CTA%20Href%20(ctaHref):=http://local.url.com/';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('dds-logo-grid | default', () => {
+describe('cds-logo-grid | default', () => {
   beforeEach(() => {
     cy.visit(`/${_defaultPath}`);
     cy.injectAxe();
@@ -35,8 +35,8 @@ describe('dds-logo-grid | default', () => {
   });
 
   it('should have page heading with different brand logos', () => {
-    cy.get('dds-logo-grid dds-content-block-heading').should('have.length', 1);
-    cy.get('dds-logo-grid-item').then($els => {
+    cy.get('cds-logo-grid cds-content-block-heading').should('have.length', 1);
+    cy.get('cds-logo-grid-item').then($els => {
       const logoItems = Array.from($els, el => el.defaultSrc);
       const equalLogos = logoItems.filter((item, i, ar) => ar.indexOf(item) != i);
 
@@ -50,10 +50,10 @@ describe('dds-logo-grid | default', () => {
   it('should have clickable CTA card link with heading', () => {
     cy.visit(`/${_pathWithCTA}`);
 
-    cy.get('dds-logo-grid-link').should('have.length', 1);
-    cy.get('dds-logo-grid-link dds-card-link-heading').should('have.length', 1);
+    cy.get('cds-logo-grid-link').should('have.length', 1);
+    cy.get('cds-logo-grid-link cds-card-link-heading').should('have.length', 1);
 
-    cy.get('dds-logo-grid-link dds-card-footer')
+    cy.get('cds-logo-grid-link cds-card-footer')
       .shadow()
       .find('a')
       .then($els => {

@@ -16,11 +16,11 @@
 
 ## Overview
 
-In order to minimize the necessity of using front-end bundlers with the Carbon 
+In order to minimize the necessity of using front-end bundlers with the Carbon
 for IBM.com Web Components CDN artifacts, page level styles artifacts are also
 available to use.
 
-If your application is not already compiling its own version of the below 
+If your application is not already compiling its own version of the below
 artifacts, these can be included as part of your project.
 
 > NOTE: The latest/next tags are moving versions. While beneficial to
@@ -46,7 +46,7 @@ the page. Note, this will import `IBM Plex Sans`, `IBM Plex Serif`, and `IBM Ple
 
 ### Alternative: individual Plex family loading
 
-Plex fonts are also available as CSS artifacts, where the Plex font families can be loaded in individually. 
+Plex fonts are also available as CSS artifacts, where the Plex font families can be loaded in individually.
 
 Available CSS files:
 
@@ -250,84 +250,79 @@ The following includes Carbon grid and all corresponding grid classes.
 
 ```html
 // SPECIFIC VERSION
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v1.x.y]/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/version/[v2.x.y]/grid.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/next/grid.css" />
 ```
 
 [Learn more about the Carbon 2x Grid](https://carbondesignsystem.com/guidelines/2x-grid/overview)
 
 ## Carbon theme zoning classes
 
-The following includes classes for creating Carbon theme zones (white, g10, g90, 
+The following includes classes for creating Carbon theme zones (white, g10, g90,
 g100). Note that these classes take advantage of using CSS Custom Properties enabled
 in Carbon.
 
 ```html
 // SPECIFIC VERSION
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v1.x.y]/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/version/[v2.x.y]/themes.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/next/themes.css" />
 ```
 
 ### Available classes
 
 | Theme  | Class name              |
 | ------ | ----------------------- |
-| white  | `.dds-theme-zone-white` |
-| g10    | `.dds-theme-zone-g10`   |
-| g90    | `.dds-theme-zone-g90`   |
-| g100   | `.dds-theme-zone-g100`  |
+| white  | `.cds-theme-zone-white` |
+| g10    | `.cds-theme-zone-g10`   |
+| g90    | `.cds-theme-zone-g90`   |
+| g100   | `.cds-theme-zone-g100`  |
 
 ### Example usage
 
 ```html
 <html>
 <head>
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css" />
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js"></script>
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/leadspace.min.js"></script>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css" />
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/dotcom-shell.min.js"></script>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/leadspace.min.js"></script>
   ...
 </head>
 <body>
-<dds-dotcom-shell-container>
+<c4d-dotcom-shell-container>
 <main>
-    <dds-leadspace size="medium" class="dds-theme-zone-g90">
-      <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+    <c4d-leadspace size="medium" class="cds-theme-zone-g90">
+      <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
       LeadSpace copy
-      <dds-button-group slot="action">
-        <dds-button-group-item href="www.example.com">
+      <c4d-button-group slot="action">
+        <c4d-button-group-item href="www.example.com" cta-type="local">
           Button 1
-          <svg 
-            focusable="false" 
-            preserveAspectRatio="xMidYMid meet" 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="currentColor" 
-            aria-hidden="true" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 20 20" 
-            slot="icon"
-          >
-            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-          </svg>
-        </dds-button-group-item>
-      </dds-button-group>
-      <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-      </dds-leadspace-image>
-    </dds-leadspace>  
+        </c4d-button-group-item>
+      </c4d-button-group>
+      <c4d-background-media
+        slot="image"
+        opacity="100"
+        alt="alt text"
+        default-src="https://picsum.photos/id/1076/1056/480">
+        <c4d-image-item
+          media="(min-width: 672px)"
+          srcset="https://picsum.photos/id/1076/672/400"></c4d-image-item>
+        <c4d-image-item
+          media="(min-width: 0)"
+          srcset="https://picsum.photos/id/1076/320/370"></c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
 </main>
-</dds-dotcom-shell-container>
+</cds-dotcom-shell-container>
 </body>
 </html>
 ```

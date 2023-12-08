@@ -14,7 +14,7 @@ LICENSE file in the root directory of this source tree.
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-footer-container:not(:defined) {
+    cds-footer-container:not(:defined) {
       display: none;
     }
   </style>
@@ -22,12 +22,12 @@ LICENSE file in the root directory of this source tree.
 </head>
 <body>
 <div style="padding-top: 200px;"></div>
-<dds-footer-container
+<cds-footer-container
   size="regular"
   language-selector-label="Choose a language"
   clear-selection-label="Clear language selection"
   selected-language="English"
-></dds-footer-container>
+></cds-footer-container>
 </body>
 <script>
   const languageList = [
@@ -35,6 +35,6 @@ LICENSE file in the root directory of this source tree.
     { id: 'nl', text: 'Dutch / Nederlands' },
     { id: 'en', text: 'English' },
   ];
-  document.querySelector("dds-footer-container").langList = languageList;
+  document.querySelector("cds-footer-container").langList = languageList;
 </script>
 </html>

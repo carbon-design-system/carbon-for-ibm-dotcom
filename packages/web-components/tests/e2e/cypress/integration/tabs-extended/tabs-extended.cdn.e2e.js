@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-tabs-extended (cdn)', () => {
-  it('should load the default dds-tabs-extended example', () => {
+describe('cds-tabs-extended (cdn)', () => {
+  it('should load the default cds-tabs-extended example', () => {
     cy.visit('/tabs-extended/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-tabs-extended | cdn | default');
+    cy.percySnapshot('cds-tabs-extended | cdn | default');
   });
 });

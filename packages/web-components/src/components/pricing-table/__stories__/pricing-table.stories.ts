@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, TemplateResult } from 'lit-element';
+import { TemplateResult, html } from 'lit';
 import { number, text } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
@@ -25,90 +25,90 @@ enum CELL_TYPES {
 const renderHeaderCell = (iterator: number): TemplateResult => {
   const cellVariations = [
     html`
-      <dds-pricing-table-header-cell>
-        <dds-pricing-table-header-cell-headline
-          >Variation ${iterator}</dds-pricing-table-header-cell-headline
+      <c4d-pricing-table-header-cell>
+        <c4d-pricing-table-header-cell-headline
+          >Variation ${iterator}</c4d-pricing-table-header-cell-headline
         >
-        <dds-pricing-table-header-cell-caption
-          >Starting at $X.XX per user</dds-pricing-table-header-cell-caption
+        <c4d-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</c4d-pricing-table-header-cell-caption
         >
-        <dds-pricing-table-header-cell-tag
+        <c4d-pricing-table-header-cell-tag
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Merchandising offer</dds-pricing-table-header-cell-tag
+          >Merchandising offer</c4d-pricing-table-header-cell-tag
         >
-        <dds-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item
+          <cds-unordered-list>
+            <cds-list-item>Lorem ipsum dolor</cds-list-item>
+            <cds-list-item>sit amet</cds-list-item>
+            <cds-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</bx-list-item
+              tempor</cds-list-item
             >
-          </bx-unordered-list>
-        </dds-pricing-table-header-cell-description>
-        <dds-pricing-table-header-cell-cta
+          </cds-unordered-list>
+        </c4d-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-cta
           cta-type="local"
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Call to action</dds-pricing-table-header-cell-cta
+          >Call to action</c4d-pricing-table-header-cell-cta
         >
-      </dds-pricing-table-header-cell>
+      </c4d-pricing-table-header-cell>
     `,
     html`
-      <dds-pricing-table-header-cell>
-        <dds-pricing-table-header-cell-headline
-          >Variation ${iterator}</dds-pricing-table-header-cell-headline
+      <c4d-pricing-table-header-cell>
+        <c4d-pricing-table-header-cell-headline
+          >Variation ${iterator}</c4d-pricing-table-header-cell-headline
         >
-        <dds-pricing-table-header-cell-caption
-          >Starting at $X.XX per user</dds-pricing-table-header-cell-caption
+        <c4d-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</c4d-pricing-table-header-cell-caption
         >
-        <dds-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item
+          <cds-unordered-list>
+            <cds-list-item>Lorem ipsum dolor</cds-list-item>
+            <cds-list-item>sit amet</cds-list-item>
+            <cds-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</bx-list-item
+              tempor</cds-list-item
             >
-          </bx-unordered-list>
-        </dds-pricing-table-header-cell-description>
-        <dds-pricing-table-header-cell-cta
+          </cds-unordered-list>
+        </c4d-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-cta
           cta-type="local"
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Call to action</dds-pricing-table-header-cell-cta
+          >Call to action</c4d-pricing-table-header-cell-cta
         >
-      </dds-pricing-table-header-cell>
+      </c4d-pricing-table-header-cell>
     `,
     html`
-      <dds-pricing-table-header-cell>
-        <dds-pricing-table-header-cell-headline
-          >Variation ${iterator}</dds-pricing-table-header-cell-headline
+      <c4d-pricing-table-header-cell>
+        <c4d-pricing-table-header-cell-headline
+          >Variation ${iterator}</c4d-pricing-table-header-cell-headline
         >
-        <dds-pricing-table-header-cell-caption
-          >Starting at $X.XX per user</dds-pricing-table-header-cell-caption
+        <c4d-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</c4d-pricing-table-header-cell-caption
         >
-        <dds-pricing-table-header-cell-tag
+        <c4d-pricing-table-header-cell-tag
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Secondary tag</dds-pricing-table-header-cell-tag
+          >Secondary tag</c4d-pricing-table-header-cell-tag
         >
-        <dds-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item
+          <cds-unordered-list>
+            <cds-list-item>Lorem ipsum dolor</cds-list-item>
+            <cds-list-item>sit amet</cds-list-item>
+            <cds-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</bx-list-item
+              tempor</cds-list-item
             >
-          </bx-unordered-list>
-        </dds-pricing-table-header-cell-description>
-        <dds-pricing-table-header-cell-cta
+          </cds-unordered-list>
+        </c4d-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-cta
           cta-type="local"
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Call to action</dds-pricing-table-header-cell-cta
+          >Call to action</c4d-pricing-table-header-cell-cta
         >
-      </dds-pricing-table-header-cell>
+      </c4d-pricing-table-header-cell>
     `,
   ];
   return cellVariations[(iterator - 1) % cellVariations.length];
@@ -119,11 +119,11 @@ const renderHead = (
   heading: string = ''
 ): TemplateResult => {
   return html`
-    <dds-pricing-table-head>
-      <dds-pricing-table-header-row>
-        <dds-pricing-table-header-cell
+    <c4d-pricing-table-head>
+      <c4d-pricing-table-header-row>
+        <c4d-pricing-table-header-cell
           type="${PRICING_TABLE_HEADER_CELL_TYPES.SIMPLE}"
-          >${heading}</dds-pricing-table-header-cell
+          >${heading}</c4d-pricing-table-header-cell
         >
         ${(() => {
           const cells: TemplateResult[] = [];
@@ -132,8 +132,8 @@ const renderHead = (
           }
           return cells;
         })()}
-      </dds-pricing-table-header-row>
-    </dds-pricing-table-head>
+      </c4d-pricing-table-header-row>
+    </c4d-pricing-table-head>
   `;
 };
 
@@ -144,31 +144,31 @@ const renderBodyCell = (
   switch (type) {
     case CELL_TYPES.TEXT:
       return html`
-        <dds-pricing-table-cell>
+        <c4d-pricing-table-cell>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
           magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere
           sem vel euismod dignissim.
-          <dds-pricing-table-cell-annotation>
+          <c4d-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
-          </dds-pricing-table-cell-annotation>
-        </dds-pricing-table-cell>
+          </c4d-pricing-table-cell-annotation>
+        </c4d-pricing-table-cell>
       `;
     case CELL_TYPES.ICON:
       return html`
-        <dds-pricing-table-cell icon="checkmark">
+        <c4d-pricing-table-cell icon="checkmark">
           ${iconText}
-          <dds-pricing-table-cell-annotation>
+          <c4d-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
-          </dds-pricing-table-cell-annotation>
-        </dds-pricing-table-cell>
+          </c4d-pricing-table-cell-annotation>
+        </c4d-pricing-table-cell>
       `;
     default:
       return html`
-        <dds-pricing-table-cell>
-          <dds-pricing-table-cell-annotation>
+        <c4d-pricing-table-cell>
+          <c4d-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
-          </dds-pricing-table-cell-annotation>
-        </dds-pricing-table-cell>
+          </c4d-pricing-table-cell-annotation>
+        </c4d-pricing-table-cell>
       `;
   }
 };
@@ -180,22 +180,22 @@ const renderBodyRow = (
   rowHeaders: boolean = true,
   iconText: string = ''
 ): TemplateResult => html`
-  <dds-pricing-table-row>
+  <c4d-pricing-table-row>
     ${(() => {
       const cells: TemplateResult[] = [
         html`
           ${rowHeaders
             ? html`
-                <dds-pricing-table-header-cell scope="row"
-                  >Row ${rowNum}</dds-pricing-table-header-cell
+                <c4d-pricing-table-header-cell scope="row"
+                  >Row ${rowNum}</c4d-pricing-table-header-cell
                 >
               `
             : html`
-                <dds-pricing-table-cell
+                <c4d-pricing-table-cell
                   >Row ${rowNum} Lorem ipsum dolor sit amet, consectetur
                   adipiscing elit. Nunc dui magna, finibus id tortor sed,
                   aliquet bibendum augue. Aenean posuere sem vel euismod
-                  dignissim.</dds-pricing-table-cell
+                  dignissim.</c4d-pricing-table-cell
                 >
               `}
         `,
@@ -205,7 +205,7 @@ const renderBodyRow = (
       }
       return cells;
     })()}
-  </dds-pricing-table-row>
+  </c4d-pricing-table-row>
 `;
 
 export const Default = (args) => {
@@ -229,7 +229,7 @@ export const Default = (args) => {
         padding-bottom: 250px;
       }
     </style>
-    <dds-pricing-table
+    <c4d-pricing-table
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
@@ -237,12 +237,12 @@ export const Default = (args) => {
       highlight-column="${highlightCol}"
       highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
-      <dds-pricing-table-body>
+      <c4d-pricing-table-body>
         ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
         ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-      </dds-pricing-table-body>
-    </dds-pricing-table>
+      </c4d-pricing-table-body>
+    </c4d-pricing-table>
   `;
 };
 
@@ -259,7 +259,7 @@ export const WithoutRowHeaders = (args) => {
     iconText,
   } = args?.PricingTable ?? {};
   return html`
-    <dds-pricing-table
+    <c4d-pricing-table
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
@@ -267,12 +267,12 @@ export const WithoutRowHeaders = (args) => {
       highlight-column="${highlightCol}"
       highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
-      <dds-pricing-table-body>
+      <c4d-pricing-table-body>
         ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false, iconText)}
         ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT, false)}
-      </dds-pricing-table-body>
-    </dds-pricing-table>
+      </c4d-pricing-table-body>
+    </c4d-pricing-table>
   `;
 };
 if (WithoutRowHeaders) {
@@ -295,7 +295,7 @@ export const WithSubheaders = (args) => {
     iconText,
   } = args?.PricingTable ?? {};
   return html`
-    <dds-pricing-table
+    <c4d-pricing-table
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
@@ -303,24 +303,24 @@ export const WithSubheaders = (args) => {
       highlight-column="${highlightCol}"
       highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
-      <dds-pricing-table-body>
-        <dds-pricing-table-group title="Group 1">
+      <c4d-pricing-table-body>
+        <c4d-pricing-table-group title="Group 1">
           ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-        </dds-pricing-table-group>
-        <dds-pricing-table-group title="Group 2">
+        </c4d-pricing-table-group>
+        <c4d-pricing-table-group title="Group 2">
           ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-        </dds-pricing-table-group>
-        <dds-pricing-table-group title="Group 3">
+        </c4d-pricing-table-group>
+        <c4d-pricing-table-group title="Group 3">
           ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-        </dds-pricing-table-group>
-      </dds-pricing-table-body>
-    </dds-pricing-table>
+        </c4d-pricing-table-group>
+      </c4d-pricing-table-body>
+    </c4d-pricing-table>
   `;
 };
 if (WithSubheaders) {
@@ -370,9 +370,9 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-16">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-16">${story()}</div>
         </div>
       </div>
     `,

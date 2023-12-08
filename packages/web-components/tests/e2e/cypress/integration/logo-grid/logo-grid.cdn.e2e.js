@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-logo-grid (cdn)', () => {
-  it('should load the default dds-logo-grid example', () => {
+describe('cds-logo-grid (cdn)', () => {
+  it('should load the default cds-logo-grid example', () => {
     cy.visit('/logo-grid/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-logo-grid | cdn | default');
+    cy.percySnapshot('cds-logo-grid | cdn | default');
   });
 });

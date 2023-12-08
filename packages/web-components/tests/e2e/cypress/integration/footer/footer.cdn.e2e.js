@@ -7,13 +7,13 @@
 
 'use strict';
 
-describe('dds-footer (cdn)', () => {
-  it('should load the default dds-footer example', () => {
+describe('cds-footer (cdn)', () => {
+  it('should load the default cds-footer example', () => {
     cy.visit('/footer/cdn.html');
 
-    cy.get('[data-autoid="dds--footer-nav-group"]');
+    cy.get('[data-autoid="cds--footer-nav-group"]');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-footer | cdn | default');
+    cy.percySnapshot('cds-footer | cdn | default');
   });
 });

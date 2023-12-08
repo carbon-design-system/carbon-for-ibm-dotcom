@@ -1,69 +1,69 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
 const contentItemRow1 = html`
-  <dds-content-block-headlines-item>
-    <dds-content-block-headlines-heading
-      >25%</dds-content-block-headlines-heading
+  <c4d-content-block-headlines-item>
+    <c4d-content-block-headlines-heading
+      >25%</c4d-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <c4d-content-item-copy slot="copy"
       >Modernize mission-critical applications and infrastructure in a hybrid
-      multicloud environment up to 25 percent faster.</dds-content-item-copy
+      multicloud environment up to 25 percent faster.</c4d-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-block-headlines-item>
 `;
 
 const contentItemRow2 = html`
-  <dds-content-block-headlines-item>
-    <dds-content-block-headlines-heading
-      >1.34M</dds-content-block-headlines-heading
+  <c4d-content-block-headlines-item>
+    <c4d-content-block-headlines-heading
+      >1.34M</c4d-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <c4d-content-item-copy slot="copy"
       >Save 1.34M per year by optimizing your time and IT
-      expenses.</dds-content-item-copy
+      expenses.</c4d-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-block-headlines-item>
 `;
 
 export const Default = (args) => {
   const { heading, copy } = args?.ContentBlockHeadlines ?? {};
   return html`
-    <div class="bx--grid">
-      <div class="bx--row">
-        <div class="bx--col-lg-12 bx--no-gutter">
-          <dds-content-block-headlines>
-            <dds-content-block-heading>${heading}</dds-content-block-heading>
-            <dds-content-block-copy>${copy}</dds-content-block-copy>
+    <div class="cds--grid">
+      <div class="cds--row">
+        <div class="cds--col-lg-12 cds--no-gutter">
+          <c4d-content-block-headlines>
+            <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+            <c4d-content-block-copy>${copy}</c4d-content-block-copy>
             ${contentItemRow1} ${contentItemRow1} ${contentItemRow2}
             ${contentItemRow1}
-          </dds-content-block-headlines>
+          </c4d-content-block-headlines>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@ export default {
   decorators: [
     (story) => html`
       <div
-        class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
+        class="c4d-ce-demo-devenv--simple-grid c4d-ce-demo-devenv--simple-grid--content-block-headlines">
         ${story()}
       </div>
     `,

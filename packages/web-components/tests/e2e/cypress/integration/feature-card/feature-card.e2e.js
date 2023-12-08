@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-feature-card', () => {
-  it('should load the default dds-feature-card example', () => {
+describe('cds-feature-card', () => {
+  it('should load the default cds-feature-card example', () => {
     cy.visit('/feature-card');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-feature-card | default');
+    cy.percySnapshot('cds-feature-card | default');
   });
 });

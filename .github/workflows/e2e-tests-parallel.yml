@@ -2,9 +2,9 @@ name: e2e-tests-parallel
 
 on:
   push:
-    branches: [ v1 ]
+    branches: [ main, release/*, feat/*, fix/content-updates ]
   pull_request:
-    branches: [ v1 ]
+    branches: [ main, release/*, feat/*, fix/content-updates ]
 
 concurrency:
   group: e2e-tests-parallel${{ github.ref }}
@@ -50,8 +50,8 @@ jobs:
         with:
           env-file: packages/web-components/.env
         env:
-          DDS_CLOUD_MASTHEAD: true
-          DDS_FLAGS_ALL: true
+          C4D_CLOUD_MASTHEAD: true
+          C4D_FLAGS_ALL: true
 
       - name: Build storybook
         working-directory: packages/web-components
@@ -150,142 +150,6 @@ jobs:
         uses: andstor/file-existence-action@v2
         with:
           files: "failure-wc.txt"
-
-      - name: Failure file exists, exit with error
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: exit 1
-
-  install-react:
-    strategy:
-      matrix:
-        os: [ ubuntu-20.04 ]
-        node-version: [ 18.x ]
-        browser: [ chromium ]
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 120
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-      - uses: actions/cache@v3
-        name: Download any existing cache
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            /home/runner/.cache/Cypress
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.os }}-yarn-v5${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ matrix.os }}-yarn
-
-      - name: Installing dependencies (if not cached)
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --immutable --immutable-cache
-
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
-
-      - name: Build storybook
-        working-directory: packages/react
-        run: yarn build-storybook
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v3
-        with:
-          name: storybook-build
-          path: packages/react/storybook-static
-
-      - name: Clear remnant failure files
-        uses: geekyeggo/delete-artifact@v2
-        with:
-          name: failure-react.txt
-
-  react-tests:
-    runs-on: ubuntu-20.04
-    needs: install-react
-    continue-on-error: true
-    strategy:
-      fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
-        os: [ ubuntu-20.04 ]
-        node-version: [ 18.x ]
-        browser: [ chromium ]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v3
-        with:
-          name: storybook-build
-          path: packages/react/storybook-static
-
-      - uses: actions/cache@v3
-        name: Retrieve yarn cache
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            /home/runner/.cache/Cypress
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.os }}-yarn-v5${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ matrix.os }}-yarn
-
-      - name: 'Run e2e tests (chromium)'
-        if: matrix.browser == 'chromium'
-        id: cypress-tests-react
-        continue-on-error: true
-        working-directory: packages/react
-        run: yarn test:e2e-storybook:test:parallel
-        env:
-          CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
-          CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
-          CYPRESS_CACHE_FOLDER: /home/runner/.cache/Cypress
-
-      - name: Create failure file if job failed
-        id: react-no-tests-ran
-        if: steps.cypress-tests-react.outcome == 'failure'
-        run: touch failure-react.txt
-
-      - name: Save failure file
-        if: steps.cypress-tests-react.outcome == 'failure'
-        uses: actions/upload-artifact@v3
-        with:
-          name: failure-react
-          path: failure-react.txt
-
-      - name: Exit upon failure
-        if: steps.cypress-tests-react.outcome == 'failure'
-        run: exit 1
-
-  react-tests-completed:
-    if: always()
-    runs-on: ubuntu-20.04
-    needs: react-tests
-    steps:
-      - uses: actions/download-artifact@v3
-        continue-on-error: true
-        with:
-          name: failure-react
-
-      - name: Check failure file existence
-        continue-on-error: true
-        id: check_files
-        uses: andstor/file-existence-action@v2
-        with:
-          files: "failure-react.txt"
 
       - name: Failure file exists, exit with error
         if: steps.check_files.outputs.files_exists == 'true'

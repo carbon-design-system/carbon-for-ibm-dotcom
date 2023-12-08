@@ -11,10 +11,10 @@
  * @type {string}
  * @private
  */
-const _defaultPath = '/iframe.html?id=components-universal-banner--default';
+const _defaultPath = '/iframe.html?id=components-global-banner--default';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('dds-universal-banner | default', () => {
+describe('c4d-global-banner | default', () => {
   beforeEach(() => {
     cy.visit(`/${_defaultPath}`);
     cy.injectAxe();
@@ -26,11 +26,11 @@ describe('dds-universal-banner | default', () => {
   });
 
   it('should load heading and copy', () => {
-    cy.get('dds-universal-banner-heading')
+    cy.get('c4d-global-banner-heading')
       .invoke('text')
       .should('not.be.empty');
 
-    cy.get('dds-universal-banner-copy')
+    cy.get('c4d-global-banner-copy')
       .invoke('text')
       .should('not.be.empty');
 
@@ -38,12 +38,12 @@ describe('dds-universal-banner | default', () => {
   });
 
   it('should load the cta button and link with icon on mobile', () => {
-    cy.get('dds-universal-banner')
+    cy.get('c4d-global-banner')
       .shadow()
-      .find('.bx--universal-banner-icon')
+      .find('.cds--global-banner-icon')
       .should('not.be.visible');
 
-    cy.get('dds-universal-banner dds-button-cta')
+    cy.get('c4d-global-banner c4d-button')
       .shadow()
       .find('a')
       .should($link => {
@@ -52,21 +52,21 @@ describe('dds-universal-banner | default', () => {
 
     cy.viewport(1055, 780);
 
-    cy.get('dds-universal-banner')
+    cy.get('c4d-global-banner')
       .shadow()
-      .find('.bx--universal-banner-icon')
+      .find('.cds--global-banner-icon')
       .should('be.visible');
 
-    cy.get('.bx--universal-banner-layout-container').should($link => {
+    cy.get('.cds--global-banner-layout-container').should($link => {
       expect($link.prop('href')).not.to.be.empty;
     });
   });
 
   xit('should load an image only in larger breakpoints', () => {
-    cy.get('dds-universal-banner-image').should('be.visible');
+    cy.get('c4d-global-banner-image').should('be.visible');
     cy.viewport(672, 780);
-    cy.get('dds-universal-banner-image').should('not.be.visible');
+    cy.get('c4d-global-banner-image').should('not.be.visible');
     cy.viewport(320, 780);
-    cy.get('dds-universal-banner-image').should('not.be.visible');
+    cy.get('c4d-global-banner-image').should('not.be.visible');
   });
 });

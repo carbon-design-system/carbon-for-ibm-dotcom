@@ -7,26 +7,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
-import DDSCarousel from '../carousel';
+import C4DCarousel from '../carousel';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../carousel';
 
 const template = (props?) => {
   const { formatStatus, pageSize, start, children } = props ?? {};
   return html`
-    <dds-carousel
-      .formatStatus="${ifNonNull(formatStatus)}"
-      page-size="${ifNonNull(pageSize)}"
-      start="${ifNonNull(start)}">
+    <c4d-carousel
+      .formatStatus="${ifDefined(formatStatus)}"
+      page-size="${ifDefined(pageSize)}"
+      start="${ifDefined(start)}">
       ${children}
-    </dds-carousel>
+    </c4d-carousel>
   `;
 };
 
-describe('dds-carousel', function () {
+describe('c4d-carousel', function () {
   let pageSize = 3;
   const origComputedStyle = window.getComputedStyle;
   // TODO: Wait for `.d.ts` update to support `ResizeObserver`
@@ -37,7 +37,7 @@ describe('dds-carousel', function () {
       const origResult = origComputedStyle.call(window, elem);
       return {
         getPropertyValue(name) {
-          return name !== '--dds-carousel-page-size'
+          return name !== '--c4d-carousel-page-size'
             ? origResult.getPropertyValue(name)
             : pageSize;
         },
@@ -50,10 +50,10 @@ describe('dds-carousel', function () {
   describe('Rendering', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-carousel')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-carousel')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -61,8 +61,8 @@ describe('dds-carousel', function () {
     it('should set the scroll position', async function () {
       render(template({ pageSize: 2, start: 1 }), document.body);
       await Promise.resolve();
-      const carousel = document.querySelector('dds-carousel') as DDSCarousel;
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      const carousel = document.querySelector('c4d-carousel') as C4DCarousel;
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       (carousel as any)._contentsBaseWidth = 700;
       (carousel as any)._gap = 100;
@@ -70,7 +70,7 @@ describe('dds-carousel', function () {
       expect(
         (
           carousel!.shadowRoot!.querySelector(
-            '.bx--carousel__scroll-contents'
+            '.cds--carousel__scroll-contents'
           ) as HTMLElement
         ).style.insetInlineStart
       ).toBe('-400px');
@@ -79,7 +79,7 @@ describe('dds-carousel', function () {
     it('should enable/disable the previous button based on the starting position', async function () {
       render(template({ start: 0 }), document.body);
       await Promise.resolve();
-      const carousel = document.querySelector('dds-carousel') as DDSCarousel;
+      const carousel = document.querySelector('c4d-carousel') as C4DCarousel;
       expect(
         (
           carousel!.shadowRoot!.querySelector(
@@ -113,10 +113,10 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      const carousel = document.querySelector('dds-carousel') as DDSCarousel;
+      const carousel = document.querySelector('c4d-carousel') as C4DCarousel;
       expect(
         (
           carousel!.shadowRoot!.querySelector(
@@ -150,14 +150,14 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       const carousel = document.body.querySelector(
-        'dds-carousel'
-      ) as DDSCarousel;
+        'c4d-carousel'
+      ) as C4DCarousel;
       const navigation = carousel!.shadowRoot!.querySelector(
-        '.bx--carousel__navigation'
+        '.cds--carousel__navigation'
       );
       expect(navigation!.textContent!.trim()).toBe('1 / 2');
       carousel.start = 1;
@@ -185,14 +185,14 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       const carousel = document.body.querySelector(
-        'dds-carousel'
-      ) as DDSCarousel;
+        'c4d-carousel'
+      ) as C4DCarousel;
       const navigation = carousel!.shadowRoot!.querySelector(
-        '.bx--carousel__navigation'
+        '.cds--carousel__navigation'
       );
       expect(navigation!.textContent!.trim()).toBe('1 in 2');
       carousel.start = 3;
@@ -218,12 +218,12 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       const carousel = document.body.querySelector(
-        'dds-carousel'
-      ) as DDSCarousel;
+        'c4d-carousel'
+      ) as C4DCarousel;
       (
         carousel!.shadowRoot!.querySelector(
           '[part="prev-button"]'
@@ -248,12 +248,12 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       const carousel = document.body.querySelector(
-        'dds-carousel'
-      ) as DDSCarousel;
+        'c4d-carousel'
+      ) as C4DCarousel;
       (
         carousel!.shadowRoot!.querySelector(
           '[part="prev-button"]'
@@ -278,12 +278,12 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       const carousel = document.body.querySelector(
-        'dds-carousel'
-      ) as DDSCarousel;
+        'c4d-carousel'
+      ) as C4DCarousel;
       (
         carousel!.shadowRoot!.querySelector(
           '[part="next-button"]'
@@ -308,12 +308,12 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       const carousel = document.body.querySelector(
-        'dds-carousel'
-      ) as DDSCarousel;
+        'c4d-carousel'
+      ) as C4DCarousel;
       (
         carousel!.shadowRoot!.querySelector(
           '[part="next-button"]'
@@ -338,12 +338,12 @@ describe('dds-carousel', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // Update cycle for `<c4d-carousel>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       const carousel = document.body.querySelector(
-        'dds-carousel'
-      ) as DDSCarousel;
+        'c4d-carousel'
+      ) as C4DCarousel;
       (
         carousel!.shadowRoot!.querySelector(
           '[part="next-button"]'
@@ -361,7 +361,7 @@ describe('dds-carousel', function () {
       MockResizeObserver.run(document.documentElement, {});
       await Promise.resolve();
       expect(
-        (document.body.querySelector('dds-carousel') as DDSCarousel).pageSize
+        (document.body.querySelector('c4d-carousel') as C4DCarousel).pageSize
       ).toBe(2);
     });
 
@@ -376,17 +376,17 @@ describe('dds-carousel', function () {
         document.body
       );
       await Promise.resolve();
-      const carousel = document.querySelector('dds-carousel') as DDSCarousel;
+      const carousel = document.querySelector('c4d-carousel') as C4DCarousel;
       pageSize = 2;
       spyOnProperty(
         carousel.shadowRoot!.querySelector(
-          '.bx--carousel__scroll-contents'
+          '.cds--carousel__scroll-contents'
         ) as Element,
         'scrollWidth'
       ).and.returnValue(700);
       MockResizeObserver.run(document.documentElement, {});
       MockResizeObserver.run(
-        carousel.shadowRoot!.querySelector('.bx--carousel__scroll-contents')!,
+        carousel.shadowRoot!.querySelector('.cds--carousel__scroll-contents')!,
         { width: 700 }
       );
       await Promise.resolve();

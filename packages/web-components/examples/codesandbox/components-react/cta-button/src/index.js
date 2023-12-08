@@ -9,13 +9,13 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 import './index.css';
 
 const App = () => (
-  <DDSButtonCTA cta-type="local" kind="tertiary" href="https://www.example.com">
+  <C4DButtonCTA cta-type="local" kind="tertiary" href="https://www.example.com">
     Button CTA Copy
-  </DDSButtonCTA>
+  </C4DButtonCTA>
 );
 
 render(<App />, document.getElementById('root'));

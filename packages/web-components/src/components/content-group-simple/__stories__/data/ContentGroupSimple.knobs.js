@@ -56,7 +56,7 @@ const ContentGroupSimpleKnobs = {
       },
     },
     video: {
-      videoId: '1_9h94wo6b',
+      videoId: '0_ibuqxqbe',
       showCaption: true,
     },
   },

@@ -6,24 +6,24 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { css } from 'lit-element';
+import { css } from 'lit';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
-import DDSImage from '../image/image';
+import C4DImage from '../image/image';
 import styles from '../image/image.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Image logo.
  *
- * @element dds-image-logo
+ * @element c4d-image-logo
  */
 
-@customElement(`${ddsPrefix}-image-logo`)
-class DDSImageLogo extends DDSImage {
+@customElement(`${c4dPrefix}-image-logo`)
+class C4DImageLogo extends C4DImage {
   static get stableSelector() {
-    return `${ddsPrefix}-image-logo`;
+    return `${c4dPrefix}-image-logo`;
   }
 
   static get styles() {
@@ -34,4 +34,4 @@ class DDSImageLogo extends DDSImage {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSImageLogo;
+export default C4DImageLogo;

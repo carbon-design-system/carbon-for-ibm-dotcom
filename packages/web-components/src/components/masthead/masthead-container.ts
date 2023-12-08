@@ -14,10 +14,10 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
-  MastheadLink,
+  L0MenuItem,
   TranslateAPIState,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
@@ -33,13 +33,13 @@ import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services
 import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
 import ConnectMixin from '../../globals/mixins/connect';
 
-import DDSMastheadComposite from './masthead-composite';
+import C4DMastheadComposite from './masthead-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * The Redux state used for `<dds-masthead-container>`.
+ * The Redux state used for `<c4d-masthead-container>`.
  */
 export interface MastheadContainerState {
   /**
@@ -59,13 +59,13 @@ export interface MastheadContainerState {
 }
 
 /**
- * The properties for `<dds-masthead-container>` from Redux state.
+ * The properties for `<c4d-masthead-container>` from Redux state.
  */
 export interface MastheadContainerStateProps {
   /**
    * The nav links.
    */
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * The user authentication status.
@@ -74,7 +74,7 @@ export interface MastheadContainerStateProps {
 }
 
 /**
- * The Redux actions used for `<dds-masthead-container>.
+ * The Redux actions used for `<c4d-masthead-container>.
  */
 export type MastheadContainerActions =
   | ReturnType<typeof loadLanguage>
@@ -84,7 +84,7 @@ export type MastheadContainerActions =
 
 /**
  * @param state The Redux state for masthead.
- * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
+ * @returns The converted version of the given state, tailored for `<c4d-masthead-container>`.
  */
 export function mapStateToProps(
   state: MastheadContainerState
@@ -95,15 +95,24 @@ export function mapStateToProps(
   const { request } = profileAPI ?? {};
   return pickBy(
     {
-      authenticatedProfileItems: !language
-        ? undefined
-        : translations?.[language]?.profileMenu.signedin,
       navLinks: !language
         ? undefined
         : translations?.[language]?.mastheadNav?.links,
+      authenticatedProfileItems: !language
+        ? undefined
+        : translations?.[language]?.profileMenu.signedin,
       unauthenticatedProfileItems: !language
         ? undefined
         : translations?.[language]?.profileMenu.signedout,
+      authenticatedCtaButtons: !language
+        ? undefined
+        : translations?.[language]?.masthead?.profileMenu.signedin.ctaButtons,
+      unauthenticatedCtaButtons: !language
+        ? undefined
+        : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
+      contactUsButton: !language
+        ? undefined
+        : translations?.[language]?.masthead?.contact,
       logoData: !language
         ? undefined
         : translations?.[language]?.masthead?.logo,
@@ -116,7 +125,7 @@ export function mapStateToProps(
 
 /**
  * @param dispatch The Redux `dispatch()` API.
- * @returns The methods in `<dds-masthead-container>` to dispatch Redux actions.
+ * @returns The methods in `<c4d-masthead-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(
   dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>
@@ -138,10 +147,10 @@ export function mapDispatchToProps(
 /**
  * Container component for masthead.
  *
- * @element dds-masthead-container
+ * @element c4d-masthead-container
  */
-@customElement(`${ddsPrefix}-masthead-container`)
-class DDSMastheadContainer extends ConnectMixin<
+@customElement(`${c4dPrefix}-masthead-container`)
+class C4DMastheadContainer extends ConnectMixin<
   MastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | ProfileAPIActions,
   MastheadContainerStateProps,
@@ -153,7 +162,7 @@ class DDSMastheadContainer extends ConnectMixin<
   >,
   mapStateToProps,
   mapDispatchToProps
-)(DDSMastheadComposite) {}
+)(C4DMastheadComposite) {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSMastheadContainer;
+export default C4DMastheadContainer;

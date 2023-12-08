@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-card-section-simple', () => {
+describe('cds-card-section-simple', () => {
   it('should load the default card section simple example', () => {
     cy.visit('/card-section-simple');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-card-section-simple | default');
+    cy.percySnapshot('cds-card-section-simple | default');
   });
 });

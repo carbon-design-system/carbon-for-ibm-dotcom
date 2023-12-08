@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import '../../card/card-heading';
 import '../content-group-cards';
@@ -16,17 +16,17 @@ import '../content-group-cards-item';
 const template = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-group-cards> ${children} </dds-content-group-cards>
+    <c4d-content-group-cards> ${children} </c4d-content-group-cards>
   `;
 };
 
-describe('dds-content-group-cards', function () {
+describe('c4d-content-group-cards', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-group-cards')
+        document.body.querySelector('c4d-content-group-cards')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -34,28 +34,28 @@ describe('dds-content-group-cards', function () {
       render(
         template({
           children: html`
-            <dds-content-group-heading>heading-foo</dds-content-group-heading>
+            <c4d-content-group-heading>heading-foo</c4d-content-group-heading>
             <p>copy-foo</p>
-            <dds-content-group-cards-item href="https://www.example.com">
-              <dds-card-heading>
+            <c4d-content-group-cards-item href="https://www.example.com">
+              <c4d-card-heading>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt
-              </dds-card-heading>
+              </c4d-card-heading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <dds-card-footer icon-placement="left">
+              <c4d-card-footer icon-placement="left">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-footer>
-            </dds-content-group-cards-item>
+              </c4d-card-footer>
+            </c4d-content-group-cards-item>
           `,
         }),
         document.body
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-group-cards')
+        document.body.querySelector('c4d-content-group-cards')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

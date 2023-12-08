@@ -3,14 +3,10 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
+# `<cds-content-block-segmented>`
 
-
-
-
-# `<dds-content-block-segmented>`
-
-> The Content Block - Segmented pattern is a variant of `<dds-content-block>`, and
-> includes media, two content group items, and ends with a CTA.
+> The Content Block - Segmented pattern is a variant of `<cds-content-block>`,
+> and includes media, two content group items, and ends with a CTA.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-segmented)
@@ -28,45 +24,83 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['content-block-segmented'] })}`} />
+<Description
+  markdown={`${cdnJs({ components: ['content-block-segmented'] })}`}
+/>
 
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-    <dds-content-block-segmented>
-      <dds-content-block-heading>heading</dds-content-block-heading>
-      <dds-content-block-copy>copy</dds-content-block-copy>
-      <dds-image
-        slot="media"
-        alt="Image alt text"
-        default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-        heading="Mauris iaculis eget dolor nec hendrerit."
-      >
-      </dds-image>
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</dds-content-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com">Lorem Ipsum dolor sit</dds-text-cta>
-      </dds-content-block-segmented-item>
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</dds-content-item-copy>
-        <dds-image
-          slot="media"
-          alt="Image alt text"
-          default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-          heading="Mauris iaculis eget dolor nec hendrerit."
-        >
-        </dds-image>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com">Lorem Ipsum dolor sit</dds-text-cta>
-      </dds-content-block-segmented-item>
-      <dds-card-link-cta slot="footer" cta-type="local" href="https://example.com">
-        <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
-    </dds-content-block-segmented>
+<cds-content-block-segmented>
+  <cds-content-block-heading>heading</cds-content-block-heading>
+  <cds-content-block-copy>copy</cds-content-block-copy>
+  <cds-image
+    slot="media"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    heading="Mauris iaculis eget dolor nec hendrerit.">
+  </cds-image>
+  <cds-content-block-segmented-item>
+    <cds-content-group-heading
+      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+    >
+    <cds-content-item-copy
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed
+      interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus
+      efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et,
+      tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec
+      quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id
+      pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu.
+      Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem.
+      Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in
+      dignissim sapien.</cds-content-item-copy
+    >
+    <cds-text-cta
+      slot="footer"
+      cta-type="local"
+      icon-placement="right"
+      href="https://example.com"
+      >Lorem Ipsum dolor sit</cds-text-cta
+    >
+  </cds-content-block-segmented-item>
+  <cds-content-block-segmented-item>
+    <cds-content-group-heading
+      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+    >
+    <cds-content-item-copy
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed
+      interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus
+      efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et,
+      tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec
+      quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id
+      pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu.
+      Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem.
+      Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in
+      dignissim sapien.</cds-content-item-copy
+    >
+    <cds-image
+      slot="media"
+      alt="Image alt text"
+      default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+      heading="Mauris iaculis eget dolor nec hendrerit.">
+    </cds-image>
+    <cds-text-cta
+      slot="footer"
+      cta-type="local"
+      icon-placement="right"
+      href="https://example.com"
+      >Lorem Ipsum dolor sit</cds-text-cta
+    >
+  </cds-content-block-segmented-item>
+  <cds-card-link-cta slot="footer" cta-type="local" href="https://example.com">
+    <cds-card-link-heading>Lorem ipsum dolor</cds-card-link-heading>
+    <cds-card-cta-footer></cds-card-cta-footer>
+  </cds-card-link-cta>
+</cds-content-block-segmented>
 ```
 
 ## With Video
@@ -83,42 +117,60 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player
 ### HTML
 
 ```html
-    <dds-content-block-segmented complementary-style-scheme="with-border">
-      <dds-content-block-heading>Lorem ipsum dolor sit amet.</dds-content-block-heading>
-      <dds-content-block-copy>Lorem ipsum dolor sit amet</dds-content-block-copy>
+<cds-content-block-segmented complementary-style-scheme="with-border">
+  <cds-content-block-heading
+    >Lorem ipsum dolor sit amet.</cds-content-block-heading
+  >
+  <cds-content-block-copy>Lorem ipsum dolor sit amet</cds-content-block-copy>
 
-      <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
+  <cds-video-player-container
+    slot="media"
+    video-id="0_uka1msg4"></cds-video-player-container>
 
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>copy</dds-content-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-          >Lorem Ipsum dolor sit</dds-text-cta
-        >
-      </dds-content-block-segmented-item>
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>copy</dds-content-item-copy>
-        <dds-image
-          slot="media"
-          alt="Image alt text"
-          default-src="image.jpg"
-          heading="Mauris iaculis eget dolor nec hendrerit."
-        >
-          <dds-image-item media="(min-width: 672px)" srcset="image-large.jpg"> </dds-image-item>
-          <dds-image-item media="(min-width: 400px)" srcset="image-medium.jpg"> </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="image-small.jpg"> </dds-image-item>
-        </dds-image>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-          >Lorem Ipsum dolor sit</dds-text-cta
-        >
-      </dds-content-block-segmented-item>
+  <cds-content-block-segmented-item>
+    <cds-content-group-heading
+      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+    >
+    <cds-content-item-copy>copy</cds-content-item-copy>
+    <cds-text-cta
+      slot="footer"
+      cta-type="local"
+      icon-placement="right"
+      href="https://example.com"
+      >Lorem Ipsum dolor sit</cds-text-cta
+    >
+  </cds-content-block-segmented-item>
+  <cds-content-block-segmented-item>
+    <cds-content-group-heading
+      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+    >
+    <cds-content-item-copy>copy</cds-content-item-copy>
+    <cds-image
+      slot="media"
+      alt="Image alt text"
+      default-src="image.jpg"
+      heading="Mauris iaculis eget dolor nec hendrerit.">
+      <cds-image-item media="(min-width: 672px)" srcset="image-large.jpg">
+      </cds-image-item>
+      <cds-image-item media="(min-width: 400px)" srcset="image-medium.jpg">
+      </cds-image-item>
+      <cds-image-item media="(min-width: 320px)" srcset="image-small.jpg">
+      </cds-image-item>
+    </cds-image>
+    <cds-text-cta
+      slot="footer"
+      cta-type="local"
+      icon-placement="right"
+      href="https://example.com"
+      >Lorem Ipsum dolor sit</cds-text-cta
+    >
+  </cds-content-block-segmented-item>
 
-      <dds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-        <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
-    </dds-content-block-segmented>
+  <cds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+    <cds-card-link-heading>Lorem ipsum dolor</cds-card-link-heading>
+    <cds-card-cta-footer></cds-card-cta-footer>
+  </cds-card-link-cta>
+</cds-content-block-segmented>
 ```
 
 ## With Aside Items
@@ -135,64 +187,82 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
 ### HTML
 
 ```html
-    <dds-content-block-segmented complementary-style-scheme="with-border">
-      <dds-content-block-heading>Lorem ipsum dolor sit amet.</dds-content-block-heading>
-      <dds-content-block-copy>Lorem ipsum dolor sit amet</dds-content-block-copy>
+<cds-content-block-segmented complementary-style-scheme="with-border">
+  <cds-content-block-heading
+    >Lorem ipsum dolor sit amet.</cds-content-block-heading
+  >
+  <cds-content-block-copy>Lorem ipsum dolor sit amet</cds-content-block-copy>
 
-      <dds-image
-        slot="media"
-        alt="Image alt text"
-        default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-        heading="Mauris iaculis eget dolor nec hendrerit."
-      >
-      </dds-image>
+  <cds-image
+    slot="media"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    heading="Mauris iaculis eget dolor nec hendrerit.">
+  </cds-image>
 
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>copy</dds-content-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-          >Lorem Ipsum dolor sit</dds-text-cta
-        >
-      </dds-content-block-segmented-item>
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>copy</dds-content-item-copy>
-        ${image}
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-          >Lorem Ipsum dolor sit</dds-text-cta
-        >
-      </dds-content-block-segmented-item>
-      <dds-link-list type="default" slot="complementary">
-        <dds-link-list-heading>Lorem Ipsum</dds-link-list-heading>
-        <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
-          <p>Containerization A Complete Guide</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-        <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
-          <p>Why should you use microservices and containers</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-      </dds-link-list>
-      <dds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-        <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
-    </dds-content-block-segmented>
+  <cds-content-block-segmented-item>
+    <cds-content-group-heading
+      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+    >
+    <cds-content-item-copy>copy</cds-content-item-copy>
+    <cds-text-cta
+      slot="footer"
+      cta-type="local"
+      icon-placement="right"
+      href="https://example.com"
+      >Lorem Ipsum dolor sit</cds-text-cta
+    >
+  </cds-content-block-segmented-item>
+  <cds-content-block-segmented-item>
+    <cds-content-group-heading
+      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+    >
+    <cds-content-item-copy>copy</cds-content-item-copy>
+    ${image}
+    <cds-text-cta
+      slot="footer"
+      cta-type="local"
+      icon-placement="right"
+      href="https://example.com"
+      >Lorem Ipsum dolor sit</cds-text-cta
+    >
+  </cds-content-block-segmented-item>
+  <cds-link-list type="default" slot="complementary">
+    <cds-link-list-heading>Lorem Ipsum</cds-link-list-heading>
+    <cds-link-list-item-cta
+      href="https://example.com"
+      cta-type="local"
+      type="default">
+      <p>Containerization A Complete Guide</p>
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      href="https://example.com"
+      cta-type="external"
+      type="default">
+      <p>Why should you use microservices and containers</p>
+    </cds-link-list-item-cta>
+  </cds-link-list>
+  <cds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+    <cds-card-link-heading>Lorem ipsum dolor</cds-card-link-heading>
+    <cds-card-cta-footer></cds-card-cta-footer>
+  </cds-card-link-cta>
+</cds-content-block-segmented>
 ```
-
 
 ## Props
 
-<Props of="dds-content-block-segmented" />
+<Props of="cds-content-block-segmented" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector               | Compatibility selector                              | Description |
-| ------------------------------------- | --------------------------------------------------- | ----------- |
-| `<dds-content-block-segmented>`       | `data-autoid="dds--content-block-segmented"`        | Component   |
-| `<dds-content-block-segmented-item>`  | `data-autoid="dds--content-block-segmented-item"`   | Component   |
+| Web Components selector              | Compatibility selector                            | Description |
+| ------------------------------------ | ------------------------------------------------- | ----------- |
+| `<cds-content-block-segmented>`      | `data-autoid="cds--content-block-segmented"`      | Component   |
+| `<cds-content-block-segmented-item>` | `data-autoid="cds--content-block-segmented-item"` | Component   |
 
 <Description markdown={contributing} />

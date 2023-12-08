@@ -1,0 +1,39 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/colors' as *;
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/component-tokens';
+
+$card-background: (
+  fallback: $black,
+  values: (
+    (
+      theme: themes.$white,
+      value: $black,
+    ),
+    (
+      theme: themes.$g10,
+      value: $black,
+    ),
+    (
+      theme: themes.$g90,
+      value: $white,
+    ),
+    (
+      theme: themes.$g100,
+      value: $white,
+    ),
+  ),
+);
+
+$card-in-card-tokens: (
+  card-background: $card-background,
+);
+
+$card-background: component-tokens.get-var($card-background, 'card-background');

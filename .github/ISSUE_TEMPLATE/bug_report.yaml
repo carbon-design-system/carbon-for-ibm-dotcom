@@ -68,7 +68,6 @@ body:
       description: Which package(s) are you using?
       multiple: true
       options:
-        - '@carbon/ibmdotcom-react'
         - '@carbon/ibmdotcom-web-components'
         - '@carbon/web-components'
         - '@carbon/ibmdotcom-styles'
@@ -82,8 +81,7 @@ body:
       label: CodeSandbox example
       description:
         'Our
-        [Web Components](https://www.ibm.com/standards/carbon/web-components)
-        and [React](https://www.ibm.com/standards/carbon/react) Storybook documentation includes links to
+        [Web Components](https://www.ibm.com/standards/carbon/web-components) Storybook documentation includes links to
         codesandboxes for each component. Use those to help re-create the issue.'
     validations:
       required: true

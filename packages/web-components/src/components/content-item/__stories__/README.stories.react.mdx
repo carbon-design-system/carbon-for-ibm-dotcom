@@ -23,25 +23,147 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 
 const App = () => (
-  <DDSContentItem>
-    <DDSContentItemHeading>Heading</DDSContentItemHeading>
-    <DDSContentItemCopy>Copy</DDSContentItemCopy>
-    <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+  <C4DContentItem>
+    <C4DContentItemHeading>Heading</C4DContentItemHeading>
+    <C4DContentItemCopy>Copy</C4DContentItemCopy>
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
       CTA text
-    </DDSTextCTA>
-  </DDSContentItem>
+    </C4DLinkWithIcon>
+  </C4DContentItem>
+);
+```
+
+### JS (with statistics)
+
+```javascript
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+
+const App = () => (
+  <C4DContentItem>
+    <span slot="statistics">10%</span>
+    <C4DContentItemHeading>Heading</C4DContentItemHeading>
+    <C4DContentItemCopy>Copy</C4DContentItemCopy>
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
+      CTA text
+    </C4DLinkWithIcon>
+  </C4DContentItem>
+);
+```
+
+### JS (with pictogram)
+
+```javascript
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+
+const App = () => (
+  <C4DContentItem>
+    <svg
+      slot="media"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      data-autoid="c4d--pictogram-item__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 48 48"
+      role="img"
+      class="cds--pictogram-item__pictogram">
+      <path
+        fill="none"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="1.10581"
+        d="M 44.211009,36.137939 H 3.7889912 c -1.7101623,0 -3.10938596,-1.365518
+              -3.10938596,-3.034485 V 7.3103341 c 0,-1.6689666 1.39922366,-3.0344847 3.10938596,-3.0344847 H 44.211009 c 1.710162,0
+              3.109386,1.3655181 3.109386,3.0344847 V 33.103454 c 0,1.668967 -1.399224,3.034485 -3.109386,3.034485 z m
+              -31.09386,7.586212 H 34.882851 M 24,36.137939 v 7.586212 M 0.67960524,28.551727 H 47.320395" />
+    </svg>
+    <C4DContentItemHeading>Heading</C4DContentItemHeading>
+    <C4DContentItemCopy>Copy</C4DContentItemCopy>
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
+      CTA text
+    </C4DLinkWithIcon>
+  </C4DContentItem>
+);
+```
+
+### JS (with media)
+
+```javascript
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/index';
+
+const App = () => (
+  <C4DContentItem>
+    <C4DImage
+      slot="media"
+      alt="Alt image text"
+      default-src="../image.png"></C4DImage>
+    <C4DContentItemHeading>Heading</C4DContentItemHeading>
+    <C4DContentItemCopy>Copy</C4DContentItemCopy>
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
+      CTA text
+    </C4DLinkWithIcon>
+  </C4DContentItem>
+  <C4DContentItem>
+    <C4DVideoPlayerContainer
+      slot="media"
+      video-id="0_ibuqxqbe"
+      hide-caption></C4DVideoPlayerContainer>
+    <C4DContentItemHeading>Heading</C4DContentItemHeading>
+    <C4DContentItemCopy>Copy</C4DContentItemCopy>
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
+      CTA text
+    </C4DLinkWithIcon>
+  </C4DContentItem>
+);
+```
+
+### JS (with logo)
+
+```javascript
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/image/image-logo';
+
+const App = () => (
+  <C4DContentItem>
+    <C4DImageLogo
+      slot="media"
+      alt="Image logo alt text"
+      default-src="https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageLogo>
+    <C4DContentItemHeading>Heading</C4DContentItemHeading>
+    <C4DContentItemCopy>Copy</C4DContentItemCopy>
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
+      CTA text
+    </C4DLinkWithIcon>
+  </C4DContentItem>
 );
 ```
 
 ## Props
 
-<Props of="dds-content-item" />
+<Props of="c4d-content-item" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -52,8 +174,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector      | Compatibility selector                     | Description |
 | ---------------------------- | ------------------------------------------ | ----------- |
-| `<dds-content-item>`         | `data-autoid="dds--content-item"`          | Component   |
-| `<dds-content-item-copy>`    | `data-autoid="dds--content-item__copy"`    | Component   |
-| `<dds-content-item-heading>` | `data-autoid="dds--content-item__heading"` | Component   |
+| `<c4d-content-item>`         | `data-autoid="c4d--content-item"`          | Component   |
+| `<c4d-content-item-copy>`    | `data-autoid="c4d--content-item__copy"`    | Component   |
+| `<c4d-content-item-heading>` | `data-autoid="c4d--content-item__heading"` | Component   |
 
 <Description markdown={contributing} />

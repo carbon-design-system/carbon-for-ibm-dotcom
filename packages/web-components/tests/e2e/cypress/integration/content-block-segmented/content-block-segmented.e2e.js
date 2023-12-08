@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-block-segmented', () => {
-  it('should load the default dds-content-block-segmented example', () => {
+describe('cds-content-block-segmented', () => {
+  it('should load the default cds-content-block-segmented example', () => {
     cy.visit('/content-block-segmented');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-block-segmented | default');
+    cy.percySnapshot('cds-content-block-segmented | default');
   });
 });

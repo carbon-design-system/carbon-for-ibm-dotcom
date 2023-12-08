@@ -7,28 +7,28 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
 import '../content-block-simple';
 
 const template = (props?) => {
   const { complementaryStyleScheme, children } = props ?? {};
   return html`
-    <dds-content-block-simple
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+    <c4d-content-block-simple
+      complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
       ${children}
-    </dds-content-block-simple>
+    </c4d-content-block-simple>
   `;
 };
 
-describe('dds-content-block-simple', function () {
+describe('c4d-content-block-simple', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-block-simple')
+        document.body.querySelector('c4d-content-block-simple')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -41,11 +41,11 @@ describe('dds-content-block-simple', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle of `<dds-content-block-simple>`
+      await Promise.resolve(); // The update cycle of `<c4d-content-block-simple>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       expect(
-        document.body.querySelector('dds-content-block-simple')
+        document.body.querySelector('c4d-content-block-simple')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

@@ -5,50 +5,56 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use 'vars' as *;
 
 /// @access private
-@mixin masthead-top-nav-name {
-  @include carbon--type-style(expressive-heading-02, true);
+@mixin masthead-top-nav-search {
+  @include type-style(heading-02, true);
 
-  color: $text-01;
-  padding-left: $carbon--spacing-05;
-  padding-right: $carbon--spacing-05;
-  border: solid 2px transparent;
+  color: $text-primary;
+  padding-left: $spacing-05;
+  padding-right: $spacing-05;
+  border: solid $spacing-01 transparent;
   transition: $button-transition;
   position: relative;
   white-space: nowrap;
   z-index: 1;
-  background-color: $ui-background;
+  background-color: $background;
 
-  @include carbon--breakpoint(lg) {
-    margin-left: $carbon--spacing-05;
+  @include breakpoint(lg) {
+    margin-left: $spacing-05;
   }
 
   &:hover {
-    background-color: $hover-ui;
-    color: $text-01;
+    background-color: $background-hover;
+    color: $text-primary;
   }
 
   &:active,
   &:focus {
     border-color: $focus;
-    background-color: $ui-01;
+    background-color: $layer-01;
   }
 
   &::before {
     content: '';
     display: block;
     position: absolute;
-    left: calc(-1rem - 2px);
+    left: calc(-1 * ($spacing-05 - $spacing-01));
     top: 50%;
     transform: translateY(-50%);
-    height: 1.5rem;
+    height: $spacing-06;
     width: 0.0625rem;
     background-color: #dcdcdc;
   }
 
-  @include carbon--breakpoint-down(800px) {
+  @include breakpoint-down(800px) {
     display: none;
   }
 }
@@ -56,7 +62,7 @@
 @mixin masthead-search {
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
-  :host(#{$dds-prefix}-top-nav),
+  :host(#{$c4d-prefix}-top-nav),
   .#{$prefix}--header__search {
     display: flex;
     flex: 1;
@@ -76,12 +82,12 @@
       .#{$prefix}--masthead__platform-name {
         z-index: 1;
         height: 100%;
-        background: $ui-background;
+        background: $background;
       }
     }
 
     a.#{$prefix}--header__name {
-      @include masthead-top-nav-name;
+      @include masthead-top-nav-search;
     }
 
     &.#{$prefix}--masthead__header--search-active {
@@ -92,7 +98,7 @@
       + .#{$prefix}--header__profile {
         display: none;
 
-        @include carbon--breakpoint(md) {
+        @include breakpoint(md) {
           display: flex;
         }
       }
@@ -102,7 +108,7 @@
   .#{$prefix}--header__search:not(
       .#{$prefix}--masthead__header--search-active
     ) {
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       overflow-x: visible;
     }
   }
@@ -119,15 +125,15 @@
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
-      color: $icon-02;
+      color: $icon-secondary;
 
-      background-color: $ui-background;
+      background-color: $background;
       padding: 0;
 
       &:hover {
-        background-color: $hover-ui;
+        background-color: $background-hover;
         svg[focusable='false'][aria-hidden='true'] {
-          fill: $icon-01;
+          fill: $icon-primary;
         }
       }
       // prevent tooltip from showing on hover
@@ -149,9 +155,9 @@
 
   // search container
   .#{$prefix}--masthead__search,
-  :host(#{$dds-prefix}-masthead-search) {
-    height: $carbon--spacing-09;
-    margin-left: rem(48px);
+  :host(#{$c4d-prefix}-masthead-search) {
+    height: $spacing-09;
+    margin-left: $spacing-09;
 
     &.#{$prefix}--masthead__search--active,
     &[active] {
@@ -161,7 +167,7 @@
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
-        width: $carbon--spacing-09;
+        width: $spacing-09;
       }
 
       .#{$prefix}--header__search--actions {
@@ -175,9 +181,9 @@
           bottom: 0;
           left: 0;
           display: block;
-          border-bottom: 2px solid $interactive-01;
+          border-bottom: $spacing-01 solid $background-brand;
           width: 100%;
-          height: 2px;
+          height: $spacing-01;
           z-index: 10002;
         }
       }
@@ -185,11 +191,11 @@
       .#{$prefix}--header__search--input {
         display: flex;
         flex: 1;
-        padding: 0 $carbon--spacing-05;
-        outline: 2px solid transparent;
-        outline-offset: -2px;
-        background-color: $ui-01;
-        height: carbon--mini-units(6);
+        padding: 0 $spacing-05;
+        outline: $spacing-01 solid transparent;
+        outline-offset: -#{$spacing-01};
+        background-color: $layer-01;
+        height: $spacing-09;
         z-index: 10000;
 
         &::placeholder {
@@ -197,22 +203,22 @@
           opacity: 1;
           transition-duration: 112ms;
           transition-delay: 200ms;
-          color: $text-03;
+          color: $text-placeholder;
         }
       }
 
       .#{$prefix}--header__search--close,
       .#{$prefix}--header__search--search {
-        border: 2px solid transparent;
+        border: $spacing-01 solid transparent;
 
         &:focus,
         &:active {
-          border: 2px solid $focus;
+          border: $spacing-01 solid $focus;
         }
       }
 
       .#{$prefix}--header__action {
-        background-color: $ui-01;
+        background-color: $layer-01;
         transition-property: width;
         transition-delay: 380ms;
         transition-duration: 112ms;
@@ -220,14 +226,14 @@
     }
 
     &.#{$prefix}--masthead__search--active {
-      @include carbon--breakpoint-down(md) {
+      @include breakpoint-down(md) {
         position: absolute;
         width: 100vw;
       }
     }
 
     &[active] {
-      @include carbon--breakpoint-down(md) {
+      @include breakpoint-down(md) {
         width: 100vw;
         right: 0;
       }
@@ -238,37 +244,37 @@
     display: flex;
     justify-content: flex-end;
     position: relative;
-    height: $carbon--spacing-09;
+    height: $spacing-09;
   }
 
   .react-autosuggest__suggestions-container {
     position: absolute;
-    top: $carbon--spacing-09;
+    top: $spacing-09;
     left: 0;
     width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 $spacing-02 $spacing-03 0 rgba(0, 0, 0, 0.5);
   }
 
   .react-autosuggest__suggestions-list {
-    background-color: $ui-background;
+    background-color: $background;
   }
 
   .react-autosuggest__section-title {
-    height: $carbon--spacing-09;
+    height: $spacing-09;
     display: flex;
     align-items: center;
-    color: $text-02;
-    padding: 0 $carbon--spacing-05;
-    border-top: solid 1px $ui-04;
-    border-bottom: solid 1px $ui-01;
-    background-color: $ui-background;
+    color: $text-secondary;
+    padding: 0 $spacing-05;
+    border-top: solid 1px $toggle-off;
+    border-bottom: solid 1px $layer-01;
+    background-color: $background;
 
-    @include type-style('body-short-01');
+    @include type-style('body-compact-01');
   }
 
   .react-autosuggest__suggestion {
-    color: $text-01;
-    height: $carbon--spacing-09;
+    color: $text-primary;
+    height: $spacing-09;
     display: flex;
     span {
       font-weight: 600;
@@ -276,9 +282,9 @@
 
     .#{$prefix}--container-class {
       display: flex;
-      border-bottom: 1px solid $ui-01;
+      border-bottom: 1px solid $layer-01;
       flex: 1;
-      padding: 0 $carbon--spacing-05;
+      padding: 0 $spacing-05;
       align-items: center;
 
       &:focus {
@@ -288,14 +294,14 @@
 
     &:hover {
       cursor: pointer;
-      background-color: $hover-ui;
+      background-color: $background-hover;
       transition: $search-transition-timing;
     }
 
     .#{$prefix}--container-highlight-class:not(:hover),
     &:focus,
     &:active {
-      outline: 2px solid $focus;
+      outline: $spacing-01 solid $focus;
     }
 
     &:last-of-type {
@@ -306,22 +312,18 @@
   }
 
   .#{$prefix}--header__search--input {
-    font-size: $carbon--spacing-05;
+    font-size: $spacing-05;
     line-height: 1.375rem;
     border: none;
     width: 0;
     transition: 120ms;
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $layer-accent-01;
     padding: 0;
 
     &::placeholder {
       position: relative;
-      left: 5rem;
+      left: $spacing-11;
       opacity: 0;
     }
   }
-}
-
-@include exports('masthead-search') {
-  @include masthead-search;
 }

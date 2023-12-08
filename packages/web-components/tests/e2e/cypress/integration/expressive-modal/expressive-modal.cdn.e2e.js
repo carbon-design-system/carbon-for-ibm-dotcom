@@ -7,15 +7,15 @@
 
 'use strict';
 
-describe('dds-expressive-modal (cdn)', () => {
-  it('should load the default dds-expressive-modal example', () => {
+describe('cds-expressive-modal (cdn)', () => {
+  it('should load the default cds-expressive-modal example', () => {
     cy.visit('/expressive-modal/cdn.html');
 
-    cy.get('[data-autoid="dds--button-expressive"]')
+    cy.get('[data-autoid="cds--button-expressive"]')
       .first()
       .click();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-expressive-modal | cdn | default');
+    cy.percySnapshot('cds-expressive-modal | cdn | default');
   });
 });

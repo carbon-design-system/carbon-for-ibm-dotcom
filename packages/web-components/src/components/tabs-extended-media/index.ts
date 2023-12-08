@@ -9,5 +9,5 @@
 
 import './tabs-extended-media';
 import '../tabs-extended/tabs-extended';
-import '../content-item-horizontal/content-item-horizontal-media';
+import '../content-item-row/content-item-row-media';
 import '../content-section/content-section-heading';

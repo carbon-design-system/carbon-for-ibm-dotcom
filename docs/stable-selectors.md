@@ -18,16 +18,16 @@
 ## Overview
 
 To assist various teams with tag management, selenium testing, A/B testing,
-personalization, etc, we will need to add data attributes to any dynamic 
-elements to our HTML markup. This would include input elements and dynamically 
+personalization, etc, we will need to add data attributes to any dynamic
+elements to our HTML markup. This would include input elements and dynamically
 loaded text. The purpose of adding a stable selector language is to provide a
 reliable system of accessing elements on the page that will not change due to
 possible changes in code (e.g. id's or classnames) that would break campaigns
 and automated tests.
 
 ## Naming convention
-Based on discussions with the design team, we will look to use BEM as a naming 
-convention for the stable selectors. The following is a brief summary on how 
+Based on discussions with the design team, we will look to use BEM as a naming
+convention for the stable selectors. The following is a brief summary on how
 naming is done using BEM: http://getbem.com/naming/.
 
 ## data-autoid
@@ -37,8 +37,8 @@ We will have the following convention for adding this markup:
 <input type="text" data-autoid="block__element--modifier"/>
 ```
 
-At minimum, components and patterns should include an autoid on the outermost 
-element. For example, the `<MastHead />` should output the following markup 
+At minimum, components and patterns should include an autoid on the outermost
+element. For example, the `<MastHead />` should output the following markup
 (note, this is not real live markup and is only used as an example):
 
 ```html
@@ -54,7 +54,7 @@ element. For example, the `<MastHead />` should output the following markup
 
 ### Selenium tests
 
-The QA team will use the following xpath convention for identifying these 
+The QA team will use the following xpath convention for identifying these
 autoid attributes in their tests:
 
 ```xpath
@@ -74,6 +74,6 @@ This is an example of writing an e2e test (in this case, [Cypress](https://cypre
 
 ```javascript
 it('should load the megamenu - first nav item', () => {
-  cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').click();
+  cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').click();
 });
 ```

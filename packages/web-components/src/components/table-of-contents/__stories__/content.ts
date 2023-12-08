@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 
 export const headings = [
   'Forward thinkers',
@@ -24,7 +24,7 @@ export const LOREM = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. C
 const generateCopySections = (n) => Array(n).map(() => html` <p>${LOREM}</p> `);
 
 const content = ({ contentClass, items }) => html`
-  <div class="${contentClass} dds-ce-demo--table-of-contents">
+  <div class="${contentClass} c4d-ce-demo--table-of-contents">
     ${items.map(
       ({ heading, copy }, i) =>
         html`

@@ -7,12 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
+import { GRID_MODE } from '../../card-group/defs';
 import { CTA_TYPE } from '../../cta/defs';
 import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -29,7 +30,7 @@ const hrefsForType = {
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]:
     'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {
@@ -39,48 +40,66 @@ const knobNamesForType = {
   [CTA_TYPE.VIDEO]: 'Video ID (href)',
 };
 
+const gridModes = {
+  [`Condensed (1px)`]: GRID_MODE.CONDENSED,
+  [`Narrow (16px)`]: GRID_MODE.NARROW,
+  [`Default (32px)`]: GRID_MODE.DEFAULT,
+};
+
 const defaultCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
-    <dds-card-eyebrow>Label</dds-card-eyebrow>
-    <dds-card-heading
-      >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
+  <c4d-card-group-item href="https://example.com">
+    <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+    <c4d-card-heading
+      >Lorem ipsum dolor sit amet, pro graeco tibique an</c4d-card-heading
     >
     <p>
       Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
       democritum ex. Illud ullum graecis
     </p>
-    <dds-card-cta-footer slot="footer">
+    <c4d-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
-  </dds-card-group-item>
+    </c4d-card-cta-footer>
+  </c4d-card-group-item>
 `;
 
 export const Default = (args) => {
-  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } =
-    args?.CardSectionOffset ?? {};
+  const {
+    heading,
+    cards,
+    ctaType,
+    ctaCopy,
+    download,
+    gridMode,
+    href,
+    alt,
+    defaultSrc,
+  } = args?.CardSectionOffset ?? {};
   return html`
-    <dds-card-section-offset>
-      <dds-background-media
+    <c4d-card-section-offset>
+      <c4d-background-media
         gradient-direction="left-to-right"
         slot="image-top"
-        alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}">
-      </dds-background-media>
-      <dds-content-block-heading slot="heading"
-        >${heading}</dds-content-block-heading
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}">
+      </c4d-background-media>
+      <c4d-content-block-heading slot="heading"
+        >${heading}</c4d-content-block-heading
       >
-      <dds-text-cta
+      <c4d-text-cta
         slot="action"
         icon-placement="right"
-        cta-type="${ifNonNull(ctaType)}"
-        download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        download="${ifDefined(download)}"
+        href="${ifDefined(href)}">
         ${ctaCopy}
-      </dds-text-cta>
-      <dds-card-group slot="card-group" cards-per-row="2">
-        <dds-card-group-item empty></dds-card-group-item>${cards}
-      </dds-card-group>
-    </dds-card-section-offset>
+      </c4d-text-cta>
+      <c4d-card-group
+        slot="card-group"
+        cards-per-row="2"
+        grid-mode="${gridMode}">
+        ${cards}
+      </c4d-card-group>
+    </c4d-card-section-offset>
   `;
 };
 
@@ -88,9 +107,9 @@ export default {
   title: 'Components/Card section offset',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <dds-video-cta-container> ${story()} </dds-video-cta-container>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
         </div>
       </div>
     `,
@@ -105,6 +124,11 @@ export default {
           ctaType === CTA_TYPE.VIDEO
             ? undefined
             : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
+        const gridMode = select(
+          'Grid mode:',
+          gridModes,
+          gridModes['Default (32px)']
+        );
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
@@ -117,6 +141,7 @@ export default {
           ctaCopy,
           ctaType,
           download,
+          gridMode,
           href: textNullable(
             knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
             hrefsForType[ctaType ?? CTA_TYPE.REGULAR]

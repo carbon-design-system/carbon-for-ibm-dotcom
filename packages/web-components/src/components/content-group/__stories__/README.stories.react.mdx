@@ -22,28 +22,28 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSContentGroup from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DContentGroup from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
 
 function App() {
   return (
-    <DDSContentGroup>
-      <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-      <DDSContentGroupCopy>{copy}</DDSContentGroupCopy>
-      <DDSCardLinkCTA
+    <C4DContentGroup>
+      <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
+      <C4DContentGroupCopy>{copy}</C4DContentGroupCopy>
+      <C4DCardLinkCTA
         slot="footer"
         cta-type="local"
         href="https://www.example.com">
-        <DDSCardLinkHeading>
+        <C4DCardLinkHeading>
           Learn more about natural language processing
-        </DDSCardLinkHeading>
-        <DDSCardCTAFooter></DDSCardCTAFooter>
-      </DDSCardLinkCTA>
-    </DDSContentGroup>
+        </C4DCardLinkHeading>
+        <C4DCardCTAFooter></C4DCardCTAFooter>
+      </C4DCardLinkCTA>
+    </C4DContentGroup>
   );
 }
 ```
@@ -60,8 +60,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                    | Description |
 | ----------------------------- | ----------------------------------------- | ----------- |
-| `<dds-content-group>`         | `data-autoid="dds--content-group-simple"` | Component   |
-| `<dds-content-group-copy>`    | `data-autoid="dds--content-group__copy"`  | Component   |
-| `<dds-content-group-heading>` | `data-autoid="dds--content-group__title"` | Component   |
+| `<cds-content-group>`         | `data-autoid="cds--content-group-simple"` | Component   |
+| `<cds-content-group-copy>`    | `data-autoid="cds--content-group__copy"`  | Component   |
+| `<cds-content-group-heading>` | `data-autoid="cds--content-group__title"` | Component   |
 
 <Description markdown={contributing} />

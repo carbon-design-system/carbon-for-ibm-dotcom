@@ -11,17 +11,17 @@
  * @type {Object<string>}
  */
 export const selectors = {
-  annotation: '[data-autoid="dds--pricing-table-cell-annotation"]',
-  annotationToggle: '[data-autoid="dds--pricing-table-annotation-toggle"]',
-  body: '[data-autoid="dds--pricing-table-body"]',
-  group: '[data-autoid="dds--pricing-table-group"]',
-  headerRow: '[data-autoid="dds--pricing-table-header-row"]',
-  headerCell: '[data-autoid="dds--pricing-table-header-cell"]',
-  headerCellCta: '[data-autoid="dds--pricing-table-header-cell-cta"]',
-  headerCellDescription: '[data-autoid="dds--pricing-table-header-cell-description"]',
-  highlightLabel: '[data-autoid="dds--pricing-table-highlight-label"]',
-  row: '[data-autoid="dds--pricing-table-row"]',
-  table: '[data-autoid="dds--pricing-table"]',
+  annotation: '[data-autoid="cds--pricing-table-cell-annotation"]',
+  annotationToggle: '[data-autoid="cds--pricing-table-annotation-toggle"]',
+  body: '[data-autoid="cds--pricing-table-body"]',
+  group: '[data-autoid="cds--pricing-table-group"]',
+  headerRow: '[data-autoid="cds--pricing-table-header-row"]',
+  headerCell: '[data-autoid="cds--pricing-table-header-cell"]',
+  headerCellCta: '[data-autoid="cds--pricing-table-header-cell-cta"]',
+  headerCellDescription: '[data-autoid="cds--pricing-table-header-cell-description"]',
+  highlightLabel: '[data-autoid="cds--pricing-table-highlight-label"]',
+  row: '[data-autoid="cds--pricing-table-row"]',
+  table: '[data-autoid="cds--pricing-table"]',
 };
 
 /**

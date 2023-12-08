@@ -1,27 +1,28 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/web-components/scss/components/search/search';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-
-:host(#{$dds-prefix}-search) {
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/web-components/scss/components/search/search' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+//
+:host(#{$c4d-prefix}-search) {
   @extend :host(#{$prefix}-search);
 
   &[size='sm'] {
     @extend .#{$prefix}--search--sm;
   }
 
-  &[size='lg'] {
-    @extend .#{$prefix}--search--lg;
+  &[size='md'] {
+    @extend .#{$prefix}--search--md;
   }
 
-  &[size='xl'] {
-    @extend .#{$prefix}--search--xl;
+  &[size='lg'] {
+    @extend .#{$prefix}--search--lg;
   }
 
   &[color-scheme='light'] {
@@ -36,6 +37,6 @@
    * while this replacement color passes testing.
    */
   ::placeholder {
-    color: $text-02;
+    color: $text-secondary;
   }
 }

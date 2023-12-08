@@ -4,7 +4,12 @@
     "module": "es2020",
     "moduleResolution": "node",
     "lib": ["es2017", "esnext.array", "dom", "dom.iterable"],
-    "typeRoots": ["src/typings", "tests/typings", "node_modules/@types", "../../node_modules/@types"],
+    "typeRoots": [
+      "src/typings",
+      "tests/typings",
+      "node_modules/@types",
+      "../../node_modules/@types"
+    ],
     "declaration": true,
     "rootDir": ".",
     "sourceMap": true,
@@ -21,6 +26,12 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts", ".storybook/**/*.ts", ".storybook/**/*.tsx"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tests/**/*.ts",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
+  ],
   "exclude": []
 }

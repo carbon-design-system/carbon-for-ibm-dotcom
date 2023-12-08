@@ -9,24 +9,23 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
-import DDSCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
-import DDSQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
-import DDSQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
-import DDSQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
+import C4DCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
+import C4DCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
+import C4DQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
+import C4DQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
+import C4DQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
 import './index.css';
 
 const App = () => (
-  <DDSCalloutQuote mark-type="double-curved">
+  <C4DCalloutQuote mark-type="double-curved">
     Bringing together the technology and expertise for a new way to create
-    <DDSQuoteSourceHeading>John Doe</DDSQuoteSourceHeading>
-    <DDSQuoteSourceCopy>Senior Vice President</DDSQuoteSourceCopy>
-    <DDSQuoteSourceBottomCopy>IBM Cloud</DDSQuoteSourceBottomCopy>
-    <DDSCalloutLinkWithIcon slot="footer" href="https://example.com">
-      Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
-    </DDSCalloutLinkWithIcon>
-  </DDSCalloutQuote>
+    <C4DQuoteSourceHeading>John Doe</C4DQuoteSourceHeading>
+    <C4DQuoteSourceCopy>Senior Vice President</C4DQuoteSourceCopy>
+    <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
+    <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+      Link with icon
+    </C4DCalloutLinkWithIcon>
+  </C4DCalloutQuote>
 );
 
 render(<App />, document.getElementById('root'));

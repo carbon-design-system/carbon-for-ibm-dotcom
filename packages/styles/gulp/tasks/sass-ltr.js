@@ -11,8 +11,7 @@ const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
-  // This can be changed to `dart-sass` once Carbon V11 is used require('sass')
-  sass = require('gulp-sass')(require('node-sass')),
+  sass = require('gulp-sass')(require('sass')),
   path = require('path');
 
 /**
@@ -30,8 +29,8 @@ function _sass() {
     .src(global.config.scssEntry)
     .pipe(sass({
       includePaths: [
-        path.resolve(__dirname, '../../', 'node_modules'),
-        path.resolve(__dirname, '../../../../', 'node_modules'),
+        path.resolve(__dirname, '../../', 'node_modules'), // styles
+        path.resolve(__dirname, '../../../../', 'node_modules'), // styles
       ]
     }).on('error', sass.logError))
     .pipe(

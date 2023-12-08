@@ -15,7 +15,7 @@
 const _path = '/iframe.html?id=components-cta-block--within-tabs';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('dds-cta-block (desktop)', () => {
+describe('cds-cta-block (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
     cy.injectAxe();
@@ -36,9 +36,9 @@ describe('dds-cta-block (desktop)', () => {
       const itemHeadingHeights = [];
       const itemCopyHeights = [];
 
-      cy.get('dds-tab:visible')
+      cy.get('cds-tab:visible')
         // Only measure first row of items
-        .find('dds-cta-block-item:nth-child(-n+3)')
+        .find('cds-cta-block-item:nth-child(-n+3)')
         .as('items')
         .should('be.visible')
         // Items should match from CSS Grid
@@ -46,13 +46,13 @@ describe('dds-cta-block (desktop)', () => {
           itemHeights.push(item.getBoundingClientRect().height);
         })
         .get('@items')
-        .find('dds-content-item-heading')
+        .find('cds-content-item-heading')
         // Item headings should have inline style set
         .each(([itemHeading]) => {
           itemHeadingHeights.push(itemHeading.getBoundingClientRect().height);
         })
         .get('@items')
-        .find('dds-content-item-copy')
+        .find('cds-content-item-copy')
         // Item copy should have inline style set
         .each(([itemCopy]) => {
           itemCopyHeights.push(itemCopy.getBoundingClientRect().height);

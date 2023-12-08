@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-button-cta (cdn)', () => {
-  it('should load the default dds-button-cta example (cdn)', () => {
+describe('cds-button-cta (cdn)', () => {
+  it('should load the default cds-button-cta example (cdn)', () => {
     cy.visit('/cta-button/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-button-cta | cdn | default');
+    cy.percySnapshot('cds-button-cta | cdn | default');
   });
 });

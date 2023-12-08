@@ -5,15 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '../../globals/vars' as *;
+@use '../pictogram-item';
+
 @mixin content-group-pictograms {
-  :host(#{$dds-prefix}-content-group-pictograms)
-    ::slotted(#{$dds-prefix}-content-group-copy),
+  :host(#{$c4d-prefix}-content-group-pictograms)
+    ::slotted(#{$c4d-prefix}-content-group-copy),
   .#{$prefix}--content-group-pictograms .#{$prefix}--content-group__copy {
     margin-bottom: $spacing-05;
     margin-left: $spacing-05;
     margin-right: $spacing-05;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       margin-bottom: $spacing-07;
     }
   }
@@ -33,8 +39,4 @@
       margin-bottom: 0;
     }
   }
-}
-
-@include exports('content-group-pictograms') {
-  @include content-group-pictograms;
 }

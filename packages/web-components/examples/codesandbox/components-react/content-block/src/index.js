@@ -9,23 +9,23 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSContentBlock from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block.js';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DContentBlock from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block.js';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import './index.css';
 
 const App = () => (
-  <DDSContentBlock>
-    <DDSContentBlockHeading>Heading text</DDSContentBlockHeading>
-    <DDSContentBlockCopy>Copy test</DDSContentBlockCopy>
-    <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
-      <DDSCardLinkHeading>cta copy</DDSCardLinkHeading>
-      <DDSCardCTAFooter></DDSCardCTAFooter>
-    </DDSCardLinkCTA>
-  </DDSContentBlock>
+  <C4DContentBlock>
+    <C4DContentBlockHeading>Heading text</C4DContentBlockHeading>
+    <C4DContentBlockCopy>Copy test</C4DContentBlockCopy>
+    <C4DCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
+      <C4DCardLinkHeading>cta copy</C4DCardLinkHeading>
+      <C4DCardCTAFooter></C4DCardCTAFooter>
+    </C4DCardLinkCTA>
+  </C4DContentBlock>
 );
 
 render(<App />, document.getElementById('root'));

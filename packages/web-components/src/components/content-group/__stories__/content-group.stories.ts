@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import '../index';
 import '../../content-item/index';
 import '../../cta/text-cta';
 import '../../image/index';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
@@ -23,107 +23,107 @@ export const Default = (args) => {
   const { heading, showCopy, copy, cta, addChildren } =
     args?.ContentGroup ?? {};
   return html`
-    <dds-content-group>
-      <dds-content-group-heading>${heading}</dds-content-group-heading>
+    <c4d-content-group>
+      <c4d-content-group-heading>${heading}</c4d-content-group-heading>
       ${showCopy
-        ? html` <dds-content-group-copy>${copy}</dds-content-group-copy> `
+        ? html` <c4d-content-group-copy>${copy}</c4d-content-group-copy> `
         : ''}
       ${addChildren.includes('Content item simple')
         ? html`
-            <dds-content-item>
-              <dds-content-item-heading
-                >Natural language understanding</dds-content-item-heading
+            <c4d-content-item>
+              <c4d-content-item-heading
+                >Natural language understanding</c4d-content-item-heading
               >
-              <dds-content-item-copy
+              <c4d-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic
                 system for a machine to interpret its meaning, using formal
                 logic; structures that describe the various relationships
                 between concepts (ontologies); and other semantic
-                tools.</dds-content-item-copy
+                tools.</c4d-content-item-copy
               >
-            </dds-content-item>
+            </c4d-content-item>
           `
         : ``}
       ${addChildren.includes('Content item with image')
         ? html`
-            <dds-content-item>
-              <dds-content-item-heading
-                >Natural language understanding</dds-content-item-heading
+            <c4d-content-item>
+              <c4d-content-item-heading
+                >Natural language understanding</c4d-content-item-heading
               >
-              <dds-image
+              <c4d-image
                 slot="media"
                 alt="Image alt text"
                 default-src="${imgLg16x9}"
                 heading="Image caption text">
-                <dds-image-item
+                <c4d-image-item
                   media="(min-width: 672px)"
                   srcset="${imgLg16x9}">
-                </dds-image-item>
-                <dds-image-item
+                </c4d-image-item>
+                <c4d-image-item
                   media="(min-width: 400px)"
                   srcset="${imgMd16x9}">
-                </dds-image-item>
-                <dds-image-item
+                </c4d-image-item>
+                <c4d-image-item
                   media="(min-width: 320px)"
                   srcset="${imgSm16x9}">
-                </dds-image-item>
-              </dds-image>
-              <dds-content-item-copy
+                </c4d-image-item>
+              </c4d-image>
+              <c4d-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic
                 system for a machine to interpret its meaning, using formal
                 logic; structures that describe the various relationships
                 between concepts (ontologies); and other semantic
-                tools.</dds-content-item-copy
+                tools.</c4d-content-item-copy
               >
-              <dds-text-cta
+              <c4d-text-cta
                 slot="footer"
                 cta-type="local"
                 href="https://www.example.com">
                 Read more about NLP
-              </dds-text-cta>
-            </dds-content-item>
+              </c4d-text-cta>
+            </c4d-content-item>
           `
         : ``}
       ${addChildren.includes('Content item with video')
         ? html`
-            <dds-content-item>
-              <dds-content-item-heading
-                >Natural language understanding</dds-content-item-heading
+            <c4d-content-item>
+              <c4d-content-item-heading
+                >Natural language understanding</c4d-content-item-heading
               >
-              <dds-video-player-container
+              <c4d-video-player-container
                 slot="media"
-                video-id="1_9h94wo6b"></dds-video-player-container>
-              <dds-content-item-copy
+                video-id="0_ibuqxqbe"></c4d-video-player-container>
+              <c4d-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic
                 system for a machine to interpret its meaning, using formal
                 logic; structures that describe the various relationships
                 between concepts (ontologies); and other semantic
-                tools.</dds-content-item-copy
+                tools.</c4d-content-item-copy
               >
-              <dds-text-cta
+              <c4d-text-cta
                 slot="footer"
                 cta-type="local"
                 href="https://www.example.com">
                 Read more about NLP
-              </dds-text-cta>
-            </dds-content-item>
+              </c4d-text-cta>
+            </c4d-content-item>
           `
         : ``}
       ${cta
         ? html`
-            <dds-card-link-cta
+            <c4d-card
               slot="footer"
               cta-type="local"
               href="https://www.example.com">
-              <dds-card-link-heading
+              <c4d-card-link-heading
                 >Learn more about natual language
-                processing</dds-card-link-heading
+                processing</c4d-card-link-heading
               >
-              <dds-card-cta-footer></dds-card-cta-footer>
-            </dds-card-link-cta>
+              <c4d-card-footer></c4d-card-footer>
+            </c4d-card>
           `
         : ''}
-    </dds-content-group>
+    </c4d-content-group>
   `;
 };
 
@@ -131,10 +131,10 @@ export default {
   title: 'Components/Content group',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">
+            <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
           </div>
         </div>
       </div>

@@ -14,4 +14,3 @@ import '../content-item/index';
 import '../content-block/content-block-heading';
 import '../cta/card-cta-footer';
 import '../cta/video-cta-container';
-import '../tag-group/tag-group';

@@ -149,7 +149,7 @@ function getRollupConfig({
             ? []
             : [
                 [
-                  'template-html-minifier',
+                  'template-html-minifier', // TODO: verify this is actually needed, doesn't seem to be doing anything
                   {
                     modules: {
                       'lit-html': ['html'],
@@ -168,7 +168,10 @@ function getRollupConfig({
         ],
       }),
       litSCSS({
-        includePaths: [path.resolve(__dirname, '../node_modules')],
+        includePaths: [
+          path.resolve(__dirname, '../node_modules'),
+          path.resolve(__dirname, '../../../node_modules'),
+        ],
         async preprocessor(contents, id) {
           return (await postcss(postCSSPlugins).process(contents, { from: id }))
             .css;

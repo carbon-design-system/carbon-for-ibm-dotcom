@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-leaving-ibm (cdn)', () => {
-  it('should load the default dds-leaving-ibm example', () => {
+describe('cds-leaving-ibm (cdn)', () => {
+  it('should load the default cds-leaving-ibm example', () => {
     cy.visit('/leaving-ibm/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-leaving-ibm | cdn | default');
+    cy.percySnapshot('cds-leaving-ibm | cdn | default');
   });
 });

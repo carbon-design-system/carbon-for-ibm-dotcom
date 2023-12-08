@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 
 import '../card-section-offset';
@@ -15,21 +15,21 @@ import '../card-section-offset';
 const template = (props?) => {
   const { heading, cta, children } = props ?? {};
   return html`
-    <dds-card-section-offset>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <c4d-card-section-offset>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
       ${cta}
-      <dds-card-group>${children}</dds-card-group>
-    </dds-card-section-offset>
+      <c4d-card-group>${children}</c4d-card-group>
+    </c4d-card-section-offset>
   `;
 };
 
-describe('dds-card-section-offset', function () {
+describe('c4d-card-section-offset', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-card-section-offset')
+        document.body.querySelector('c4d-card-section-offset')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -38,46 +38,45 @@ describe('dds-card-section-offset', function () {
         template({
           heading: 'heading-foo',
           cta: html`
-            <dds-text-cta
+            <c4d-text-cta
               slot="action"
               cta-type="local"
               icon-placement="right"
               href="https://example.com">
               CTA copy
-            </dds-text-cta>
+            </c4d-text-cta>
           `,
           cards: html`
-            <dds-card-group-item empty></dds-card-group-item>
-            <dds-card-group-item href="https://example.com">
-              <dds-card-eyebrow>Topic</dds-card-eyebrow>
-              <dds-card-heading>Natural Language Processing.</dds-card-heading>
-              <dds-card-cta-footer slot="footer">
+            <c4d-card-group-item href="https://example.com">
+              <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+              <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
+              <c4d-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-cta-footer>
-            </dds-card-group-item>
-            <dds-card-group-item href="https://example.com">
-              <dds-card-eyebrow>Topic</dds-card-eyebrow>
-              <dds-card-heading>Natural Language Processing.</dds-card-heading>
-              <dds-card-footer slot="footer">
+              </c4d-card-cta-footer>
+            </c4d-card-group-item>
+            <c4d-card-group-item href="https://example.com">
+              <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+              <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
+              <c4d-card-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-footer>
-            </dds-card-group-item>
-            <dds-card-group-item href="https://example.com">
-              <dds-card-eyebrow>Topic</dds-card-eyebrow>
-              <dds-card-heading>Natural Language Processing.</dds-card-heading>
-              <dds-card-cta-footer slot="footer">
+              </c4d-card-footer>
+            </c4d-card-group-item>
+            <c4d-card-group-item href="https://example.com">
+              <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+              <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
+              <c4d-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-cta-footer>
-            </dds-card-group-item>
+              </c4d-card-cta-footer>
+            </c4d-card-group-item>
           `,
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle of `<dds-card-section-offset>`
+      await Promise.resolve(); // The update cycle of `<c4d-card-section-offset>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       expect(
-        document.body.querySelector('dds-card-section-offset')
+        document.body.querySelector('c4d-card-section-offset')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

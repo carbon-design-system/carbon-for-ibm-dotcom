@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@
 /* eslint-disable global-require */
 
 const path = require('path');
-const sass = require('node-sass');
+const sass = require('sass');
 const webpack = require('webpack');
 
 function normalizeBrowser(browser) {
@@ -91,8 +91,8 @@ module.exports = function setupKarma(config) {
             use: 'null-loader',
           },
           {
-            test: /[\\/]styles[\\/]icons[\\/]/i,
-            use: [require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
+            test: /\.svg$/,
+            use: [{ loader: 'raw-loader' }],
           },
           {
             test: /\.ts$/,
@@ -126,11 +126,7 @@ module.exports = function setupKarma(config) {
               },
           {
             test: /\.js$/,
-            include: [
-              __dirname,
-              path.dirname(require.resolve('lit-html')),
-              path.dirname(require.resolve('lit-element')),
-            ],
+            include: [__dirname, path.dirname(require.resolve('lit'))],
             use: {
               loader: 'babel-loader',
               options: {
@@ -187,7 +183,7 @@ module.exports = function setupKarma(config) {
       plugins: [
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('test'),
-          'process.env.DDS_CLOUD_MASTHEAD': JSON.stringify('true'),
+          'process.env.C4D_CLOUD_MASTHEAD': JSON.stringify('true'),
         }),
         new webpack.NormalModuleReplacementPlugin(reServices, (resource) => {
           const { request } = resource;

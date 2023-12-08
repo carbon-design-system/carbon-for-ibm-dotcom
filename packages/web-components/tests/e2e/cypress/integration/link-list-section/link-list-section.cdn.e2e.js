@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-link-list-section (cdn)', () => {
-  it('should load the default dds-link-list-section example', () => {
+describe('cds-link-list-section (cdn)', () => {
+  it('should load the default cds-link-list-section example', () => {
     cy.visit('/link-list-section/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-link-list-section | cdn | default');
+    cy.percySnapshot('cds-link-list-section | cdn | default');
   });
 });

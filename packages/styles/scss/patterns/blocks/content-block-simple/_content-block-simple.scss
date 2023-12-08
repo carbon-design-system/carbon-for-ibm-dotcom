@@ -7,13 +7,6 @@
 
 @mixin content-block-simple {
   .#{$prefix}--content-block-simple--inverse {
-    background-color: $inverse-02;
+    background-color: $focus-inset;
   }
-  .#{$prefix}--content-block {
-    // empty for now
-  }
-}
-
-@include exports('content-block-simple') {
-  @include content-block-simple;
 }

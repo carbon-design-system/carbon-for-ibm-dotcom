@@ -7,27 +7,27 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../left-nav-menu';
 
 const template = (props?) => {
   const { backButtonText, expanded, title } = props ?? {};
   return html`
-    <dds-left-nav-menu
-      back-button-text="${ifNonNull(backButtonText)}"
+    <c4d-left-nav-menu
+      back-button-text="${ifDefined(backButtonText)}"
       ?expanded="${expanded}"
-      title="${ifNonNull(title)}">
-    </dds-left-nav-menu>
+      title="${ifDefined(title)}">
+    </c4d-left-nav-menu>
   `;
 };
 
-describe('dds-left-nav-menu', function () {
+describe('c4d-left-nav-menu', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      const leftNavMenu = document.body.querySelector('dds-left-nav-menu');
+      const leftNavMenu = document.body.querySelector('c4d-left-nav-menu');
       expect(leftNavMenu).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -41,7 +41,7 @@ describe('dds-left-nav-menu', function () {
         document.body
       );
       await Promise.resolve();
-      const leftNavMenu = document.body.querySelector('dds-left-nav-menu');
+      const leftNavMenu = document.body.querySelector('c4d-left-nav-menu');
       expect(leftNavMenu).toMatchSnapshot({ mode: 'shadow' });
     });
   });

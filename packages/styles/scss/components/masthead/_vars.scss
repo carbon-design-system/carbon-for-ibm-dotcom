@@ -1,0 +1,21 @@
+/**
+* Copyright IBM Corp. 2016, 2021
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+
+/// @type Value
+/// @access public
+/// @group masthead
+$button-transition: background-color 110ms, border-color 110ms, color 110ms;
+
+/// @type Value
+/// @access public
+/// @group masthead
+$search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
+
+/// @type Value
+/// @access public
+/// @group masthead
+$search-transition-timing: 95ms;

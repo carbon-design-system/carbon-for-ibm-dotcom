@@ -1,0 +1,40 @@
+/**
+* Copyright IBM Corp. 2016, 2023
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../../../carbon-web-components/src/components/button/button';
+
+@mixin button {
+  :host(#{$c4d-prefix}-button) {
+    @extend :host(#{$prefix}-button);
+
+    svg {
+      @extend .#{$prefix}--btn__icon;
+    }
+
+    .#{$prefix}--btn--hidden {
+      display: none;
+      visibility: hidden;
+
+      @media print {
+        display: inline-block;
+        visibility: visible;
+        font-weight: 200;
+        color: $text-primary;
+
+        span {
+          font-weight: 600;
+          margin-left: calc(-1 * #{$spacing-02});
+          margin-right: $spacing-02;
+        }
+      }
+    }
+  }
+}

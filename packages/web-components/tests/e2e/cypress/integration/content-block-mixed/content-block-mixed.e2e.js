@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-block-mixed', () => {
-  it('should load the default dds-content-block-mixed example', () => {
+describe('cds-content-block-mixed', () => {
+  it('should load the default cds-content-block-mixed example', () => {
     cy.visit('/content-block-mixed');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-block-mixed | default');
+    cy.percySnapshot('cds-content-block-mixed | default');
   });
 });

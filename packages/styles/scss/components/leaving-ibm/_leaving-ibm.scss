@@ -1,0 +1,63 @@
+//
+// Copyright IBM Corp. 2020, 2023
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../../../carbon-web-components/src/components/modal/modal' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+
+@mixin leaving-ibm {
+  :host(#{$c4d-prefix}-leaving-ibm-composite),
+  :host(#{$c4d-prefix}-leaving-ibm-container) {
+    width: 100%;
+  }
+
+  :host(#{$c4d-prefix}-leaving-ibm-modal) {
+    @extend :host(#{$prefix}-modal);
+
+    max-height: 100%;
+  }
+  :host(#{$c4d-prefix}-leaving-ibm-modal)[open] {
+    @extend :host(#{$prefix}-modal[open]);
+  }
+
+  :host(#{$c4d-prefix}-leaving-ibm-modal-heading) {
+    @include type-style('fluid-heading-04', true);
+  }
+
+  :host(#{$c4d-prefix}-leaving-ibm-modal-body) {
+    @extend :host(#{$prefix}-modal-body);
+
+    padding-right: 20%;
+    z-index: 1;
+
+    ::slotted(#{$c4d-prefix}-leaving-ibm-modal-supplemental),
+    ::slotted(slot[name='supplemental']) {
+      display: block;
+      margin-top: $spacing-07;
+      color: $text-secondary;
+      @include type-style('label-02');
+    }
+
+    > p {
+      padding-right: 0;
+      margin: 0;
+    }
+    ::slotted(:last-child) {
+      padding-bottom: 0;
+    }
+    #{$prefix}-link {
+      min-height: 24px;
+      display: inline-block;
+    }
+  }
+  .#{$prefix}--modal-container {
+    transform: translate3d(0, 0, 0);
+  }
+}

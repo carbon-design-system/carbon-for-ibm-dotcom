@@ -1,10 +1,12 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import { cdnJs, cdnCss, cdnCssAdditional } from '../../../globals/internal/storybook-cdn';
+import {
+  cdnJs,
+  cdnCss,
+  cdnCssAdditional,
+} from '../../../globals/internal/storybook-cdn';
 
-
-
-# `<dds-table-of-contents>`
+# `<cds-table-of-contents>`
 
 > Table of contents display pre-defined sections of the page and provide a
 > convenient way to navigate to those sections. It also sticks to the top of the
@@ -20,7 +22,9 @@ import { cdnJs, cdnCss, cdnCssAdditional } from '../../../globals/internal/story
 
 Here's a quick example to get you started.
 
-> 💡 `bx--tableofcontents__contents` class in the content `<div>` ensures the `<h3>` is visible by navigating to a hashbang URL (e.g. `https://yoursite.com/yourpage#2`).
+> 💡 `cds--tableofcontents__contents` class in the content `<div>` ensures the
+> `<h3>` is visible by navigating to a hashbang URL (e.g.
+> `https://yoursite.com/yourpage#2`).
 
 ## Example using imports
 
@@ -33,8 +37,8 @@ import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/index.j
 ### SCSS
 
 ```scss
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars';
+@use '@carbon/ibmdotcom-styles/scss/components/tableofcontents';
 
 body {
   scroll-behaviour: smooth;
@@ -42,21 +46,24 @@ body {
 }
 ```
 
-> 💡 `scroll-behaviour: smooth` ensures that scrolling triggered by `table-of-contents` is smooth.
+> 💡 `scroll-behaviour: smooth` ensures that scrolling triggered by
+> `table-of-contents` is smooth.
 
 ## Example using CDN
 
 <Description markdown={`${cdnJs({ components: ['table-of-contents'] })}`} />
 
-<Description markdown={`${cdnCssAdditional({ components: ['table-of-contents'] })}`} />
+<Description
+  markdown={`${cdnCssAdditional({ components: ['table-of-contents'] })}`}
+/>
 
 <Description markdown={`${cdnCss()}`} />
 
 ## Example HTML
 
 ```html
-<dds-table-of-contents>
-  <div class="bx--tableofcontents__contents">
+<cds-table-of-contents>
+  <div class="cds--tableofcontents__contents">
     <a name="1" data-title="Section - 1"></a>
     <h3>Section - 1</h3>
     <p>Section 1 content</p>
@@ -67,14 +74,14 @@ body {
     <h3>Section - 3</h3>
     <p>Section 3 content</p>
   </div>
-</dds-table-of-contents>
+</cds-table-of-contents>
 ```
 
 ### Horizontal variation
 
 ```html
-<dds-table-of-contents toc-layout="horizontal">
-  <div class="bx--tableofcontents-horizontal__contents">
+<cds-table-of-contents toc-layout="horizontal">
+  <div class="cds--tableofcontents-horizontal__contents">
     <a name="1" data-title="Section - 1"></a>
     <h3>Section - 1</h3>
     <p>Section 1 content</p>
@@ -85,51 +92,56 @@ body {
     <h3>Section - 3</h3>
     <p>Section 3 content</p>
   </div>
-</dds-table-of-contents>
+</cds-table-of-contents>
 ```
 
 ## Harvesting the table of contents
 
-`<dds-table-of-contents>` automatically harvests the table of contents by looking for elements with the `name` attribute.
-The titles in the table of contents are harvested from the text content in the element by default.
-You can add `data-title` attribute to the elements to change the titles.
+`<cds-table-of-contents>` automatically harvests the table of contents by
+looking for elements with the `name` attribute. The titles in the table of
+contents are harvested from the text content in the element by default. You can
+add `data-title` attribute to the elements to change the titles.
 
 ## Adjusting the position of `<select>` box
 
-`<dds-table-of-contents>` uses `<select>` as the table if the browser viewport has narrow width.
-It sticks at the very top by default, but you can adjust the position via CSS.
-This is useful e.g. when you use `<dds-table-of-contents>` with ibm.com masthead.
+`<cds-table-of-contents>` uses `<select>` as the table if the browser viewport
+has narrow width. It sticks at the very top by default, but you can adjust the
+position via CSS. This is useful e.g. when you use `<cds-table-of-contents>`
+with ibm.com masthead.
 
 ```css
-dds-table-of-contents::part(table) {
+cds-table-of-contents::part(table) {
   top: 3rem;
 }
 ```
 
 ## Reharvest the table of contents
 
-Use a dispatched event to trigger a reharvesting of the anchor tags within the Table of Contents.
+Use a dispatched event to trigger a reharvesting of the anchor tags within the
+Table of Contents.
 
 ```js
 document.dispatchEvent(
-  new CustomEvent('dds-table-of-contents-reharvest', {
+  new CustomEvent('cds-table-of-contents-reharvest', {
     bubbles: true,
     cancelable: true,
-    composed: true
+    composed: true,
   })
 );
 ```
 
 ## Slots
 
-<Props of="dds-table-of-contents" />
+<Props of="cds-table-of-contents" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector               | Description |
 | ------------------------- | ------------------------------------ | ----------- |
-| `<dds-table-of-contents>` | `data-autoid="dds--tableofcontents"` | Component   |
+| `<cds-table-of-contents>` | `data-autoid="cds--tableofcontents"` | Component   |
 
 <Description markdown={contributing} />

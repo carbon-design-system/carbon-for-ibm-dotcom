@@ -12,13 +12,13 @@ import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import DDSQuote from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
-import DDSQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
-import DDSQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
-import DDSQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
+import C4DQuote from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
+import C4DQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
+import C4DQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
+import { QUOTE_TYPES } from '../quote';
 import readme from './README.stories.react.mdx';
 
 const types = {
@@ -31,30 +31,19 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-const colorSchemes = {
-  [`${QUOTE_COLOR_SCHEMES.REGULAR}`]: QUOTE_COLOR_SCHEMES.REGULAR,
-  [`${QUOTE_COLOR_SCHEMES.INVERSE}`]: QUOTE_COLOR_SCHEMES.INVERSE,
-};
-
 export const Default = (args) => {
-  const {
-    copy,
-    quoteMark,
-    sourceHeading,
-    sourceCopy,
-    sourceBottomCopy,
-    colorScheme,
-  } = args?.Quote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+    args?.Quote ?? {};
   return (
-    <DDSQuote color-scheme={colorScheme} mark-type={quoteMark}>
+    <C4DQuote mark-type={quoteMark}>
       {copy}
-      <DDSQuoteSourceHeading>{sourceHeading}</DDSQuoteSourceHeading>
-      <DDSQuoteSourceCopy>{sourceCopy}</DDSQuoteSourceCopy>
-      <DDSQuoteSourceBottomCopy>{sourceBottomCopy}</DDSQuoteSourceBottomCopy>
-      <DDSLinkWithIcon slot="footer" href="https://example.com">
+      <C4DQuoteSourceHeading>{sourceHeading}</C4DQuoteSourceHeading>
+      <C4DQuoteSourceCopy>{sourceCopy}</C4DQuoteSourceCopy>
+      <C4DQuoteSourceBottomCopy>{sourceBottomCopy}</C4DQuoteSourceBottomCopy>
+      <C4DLinkWithIcon slot="footer" href="https://example.com">
         Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
-      </DDSLinkWithIcon>
-    </DDSQuote>
+      </C4DLinkWithIcon>
+    </C4DQuote>
   );
 };
 
@@ -83,11 +72,6 @@ Default.story = {
           'Source bottom copy (source-bottom-copy slot)',
           'IBM Cloud'
         ),
-        colorScheme: select(
-          'Color Scheme (color-scheme)',
-          colorSchemes,
-          colorSchemes.regular
-        ),
       }),
     },
     propsSet: {
@@ -108,9 +92,9 @@ export default {
   title: 'Components/Quote',
   decorators: [
     (story) => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-lg-10">{story()}</div>
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--col-lg-10">{story()}</div>
         </div>
       </div>
     ),

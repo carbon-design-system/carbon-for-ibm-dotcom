@@ -3,7 +3,7 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<dds-card-section-offset>`
+# `<cds-card-section-offset>`
 
 > The Card Section - Offset pattern is an L shaped card group with a heading and
 > an optional CTA. 💡 Check our
@@ -29,33 +29,32 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-offset/index
 ### HTML
 
 ```html
-<dds-card-section-offset>
-  <dds-background-media
+<cds-card-section-offset>
+  <cds-background-media
     gradient-direction="left-to-right"
     slot="image-top"
     alt="alt text"
     default-src="https://fpoimg.com/1584x891?bg_color=ee5396&text_color=161616">
-  </dds-background-media>
-  <dds-content-block-heading slot="heading">heading</dds-content-block-heading>
-  <dds-text-cta
+  </cds-background-media>
+  <cds-content-block-heading slot="heading">heading</cds-content-block-heading>
+  <cds-text-cta
     slot="action"
     cta-type="local"
     icon-placement="right"
     href="https://example.com">
     CTA copy
-  </dds-text-cta>
-  <dds-card-group slot="card-group" cards-per-row="2">
-    <dds-card-group-item empty></dds-card-group-item>
-    <dds-card-group-item href="https://example.com">
-      <dds-card-eyebrow>Label</dds-card-eyebrow>
-      <dds-card-heading
-        >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
+  </cds-text-cta>
+  <cds-card-group slot="card-group" cards-per-row="2">
+    <cds-card-group-item href="https://example.com">
+      <cds-card-eyebrow>Label</cds-card-eyebrow>
+      <cds-card-heading
+        >Lorem ipsum dolor sit amet, pro graeco tibique an</cds-card-heading
       >
       <p>
         Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
         democritum ex. Illud ullum graecis
       </p>
-      <dds-card-cta-footer slot="footer">
+      <cds-card-cta-footer slot="footer">
         <svg
           slot="icon"
           focusable="false"
@@ -68,18 +67,18 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-offset/index
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </dds-card-cta-footer>
-    </dds-card-group-item>
-    <dds-card-group-item href="https://example.com">
-      <dds-card-eyebrow>Label</dds-card-eyebrow>
-      <dds-card-heading
-        >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
+      </cds-card-cta-footer>
+    </cds-card-group-item>
+    <cds-card-group-item href="https://example.com">
+      <cds-card-eyebrow>Label</cds-card-eyebrow>
+      <cds-card-heading
+        >Lorem ipsum dolor sit amet, pro graeco tibique an</cds-card-heading
       >
       <p>
         Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
         democritum ex. Illud ullum graecis
       </p>
-      <dds-card-cta-footer slot="footer">
+      <cds-card-cta-footer slot="footer">
         <svg
           slot="icon"
           focusable="false"
@@ -92,18 +91,18 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-offset/index
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </dds-card-cta-footer>
-    </dds-card-group-item>
-    <dds-card-group-item href="https://example.com">
-      <dds-card-eyebrow>Label</dds-card-eyebrow>
-      <dds-card-heading
-        >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
+      </cds-card-cta-footer>
+    </cds-card-group-item>
+    <cds-card-group-item href="https://example.com">
+      <cds-card-eyebrow>Label</cds-card-eyebrow>
+      <cds-card-heading
+        >Lorem ipsum dolor sit amet, pro graeco tibique an</cds-card-heading
       >
       <p>
         Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
         democritum ex. Illud ullum graecis
       </p>
-      <dds-card-cta-footer slot="footer">
+      <cds-card-cta-footer slot="footer">
         <svg
           slot="icon"
           focusable="false"
@@ -116,15 +115,15 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-offset/index
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </dds-card-cta-footer>
-    </dds-card-group-item>
-  </dds-card-group>
-</dds-card-section-offset>
+      </cds-card-cta-footer>
+    </cds-card-group-item>
+  </cds-card-group>
+</cds-card-section-offset>
 ```
 
 ## Props
 
-<Props of="dds-card-section-offset" />
+<Props of="cds-card-section-offset" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -135,6 +134,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector     | Compatibility selector                   | Description |
 | --------------------------- | ---------------------------------------- | ----------- |
-| `<dds-card-section-offset>` | `data-autoid="dds--card-section-offset"` | Component   |
+| `<cds-card-section-offset>` | `data-autoid="cds--card-section-offset"` | Component   |
 
 <Description markdown={contributing} />

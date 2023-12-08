@@ -5,82 +5,84 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/components/accordion/accordion';
+@use 'sass:list';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/components/accordion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
 
 /// Footer nav styles
 /// @access private
 /// @group footer
 
 @mixin footer-nav {
-  :host(#{$dds-prefix}-footer-nav),
-  .#{$prefix}--footer-nav {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include accordion;
-      @include carbon--make-col-ready;
+  :host(#{$c4d-prefix}-footer-nav) {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
+    @include accordion;
+    @include make-col-ready;
+
+    padding: 0;
+    order: 1;
+
+    @include breakpoint(md) {
+      padding: 0 calc($grid-gutter / 2);
+    }
+
+    @include breakpoint(lg) {
+      @include make-col(12, 16);
+    }
+
+    .#{$prefix}--accordion__heading {
+      display: flex;
+      align-items: center;
+      min-height: $spacing-09;
       padding: 0;
-      order: 1;
+    }
 
-      @include carbon--breakpoint('md') {
-        border-top: 1px solid $ui-03;
-        padding: 0 $carbon--grid-gutter / 2;
-      }
-
-      @include carbon--breakpoint-between('md', 'lg') {
-        padding-top: carbon--mini-units(2);
-      }
-
-      @include carbon--breakpoint('lg') {
-        padding-top: $spacing-05;
-        @include carbon--make-col(12, 16);
-        @include carbon--make-col-offset(4, 16);
-      }
-
-      .#{$prefix}--accordion__heading {
-        display: flex;
-        align-items: center;
-        min-height: $carbon--spacing-09;
-        padding: 0;
-      }
+    ::slotted([slot='locale-button']),
+    ::slotted([slot='language-selector']) {
+      display: inline-block;
+      margin-left: 0;
+      width: 100%;
+      max-width: 100%;
     }
   }
 
-  :host(#{$dds-prefix}-footer-nav[disable-locale-button]),
+  :host(#{$c4d-prefix}-footer-nav[disable-locale-button]),
   nav.#{$prefix}--footer-nav__locale-button--disabled {
     border-top: none;
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       padding-top: 0;
-      @include carbon--make-col-offset(2, 16);
+      @include make-col-offset(2, 16);
     }
   }
 
   .#{$prefix}--footer-nav__container {
-    @include carbon--breakpoint('md') {
-      @include carbon--make-row;
+    @include breakpoint(md) {
+      @include make-row;
 
       display: block;
       column-count: 2;
-      column-gap: $carbon--grid-gutter;
+      column-gap: $grid-gutter;
       margin-left: 0;
       margin-right: 0;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       column-count: 3;
-      column-gap: $carbon--grid-gutter;
+      column-gap: $grid-gutter;
     }
   }
 
-  :host(#{$dds-prefix}-footer[size='short'])
-    ::slotted(#{$dds-prefix}-footer-nav),
+  :host(#{$c4d-prefix}-footer[size='short'])
+    ::slotted(#{$c4d-prefix}-footer-nav),
   .#{$prefix}--footer--short .#{$prefix}--footer-nav {
     display: none;
   }
-}
-
-@include exports('footer-nav') {
-  @include footer-nav;
 }

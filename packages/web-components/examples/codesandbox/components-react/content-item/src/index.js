@@ -9,20 +9,20 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import './index.css';
 
 const App = () => (
-  <DDSContentItem>
-    <DDSContentItemHeading>Heading</DDSContentItemHeading>
-    <DDSContentItemCopy>Copy</DDSContentItemCopy>
-    <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+  <C4DContentItem>
+    <C4DContentItemHeading>Heading</C4DContentItemHeading>
+    <C4DContentItemCopy>Copy</C4DContentItemCopy>
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
       CTA text
-    </DDSTextCTA>
-  </DDSContentItem>
+    </C4DLinkWithIcon>
+  </C4DContentItem>
 );
 
 render(<App />, document.getElementById('root'));

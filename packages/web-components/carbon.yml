@@ -2,7 +2,9 @@
 library:
   id: ibmdotcom-web-components
   name: IBM.com Web Components
-  description: Create web experiences that adhere to IBM’s web standards using this primary component library.
+  description:
+    Create web experiences that adhere to IBM’s web standards using this primary
+    component library.
   externalDocsUrl: https://www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: ibmdotcom-styles
   demoLinks:
@@ -103,15 +105,6 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-section-simple
-  card-section-images:
-    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section#card-section-with-images
-    status: stable
-    framework: web-component
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-section-images
   card-section-carousel:
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section-carousel
     status: stable
@@ -193,15 +186,15 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-group
-  content-group-banner:
-    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-banner
+  in-page-banner:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/in-page-banner
     status: stable
     framework: web-component
     demoLinks:
       - type: storybook
         name: Storybook
         action: link
-        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-group-banner
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-in-page-banner
   content-group-cards:
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-cards
     status: stable
@@ -238,15 +231,15 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item
-  content-item-horizontal:
-    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-horizontal
+  content-item-row:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-row
     status: stable
     framework: web-component
     demoLinks:
       - type: storybook
         name: Storybook
         action: link
-        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item-horizontal
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item-row
   content-section:
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-section
     status: stable

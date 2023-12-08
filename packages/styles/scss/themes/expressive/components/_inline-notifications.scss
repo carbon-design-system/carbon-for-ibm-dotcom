@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Inline Notifications  (expressive)
@@ -26,8 +26,8 @@
       padding: 0.8rem 0;
     }
     .#{$prefix}--inline-notification__action-button.#{$prefix}--btn--ghost {
-      padding: calc(0.375rem - 3px) 1rem;
-      margin: 0.25rem 0;
+      padding: calc(0.375rem - 3px) $spacing-05;
+      margin: $spacing-02 0;
     }
   }
 }

@@ -5,9 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/theme-tokens';
+@use '@carbon/styles/scss/theme' as *;
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-pictogram-item svg g {
-  stroke: $text-01;
+cds-pictogram-item svg g {
+  stroke: $text-primary;
 }

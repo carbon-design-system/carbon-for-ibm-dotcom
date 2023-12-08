@@ -62,4 +62,4 @@ const l1Data = {
   ],
 };
 
-document.querySelector('dds-masthead-composite').l1Data = l1Data;
+document.querySelector('cds-masthead-composite').l1Data = l1Data;

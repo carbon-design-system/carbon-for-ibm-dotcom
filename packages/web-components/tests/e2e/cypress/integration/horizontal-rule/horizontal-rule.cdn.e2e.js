@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-horizontal-rule (cdn)', () => {
-  it('should load the default dds-horizontal-rule example', () => {
+describe('cds-horizontal-rule (cdn)', () => {
+  it('should load the default cds-horizontal-rule example', () => {
     cy.visit('/horizontal-rule/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-horizontal-rule | cdn | default');
+    cy.percySnapshot('cds-horizontal-rule | cdn | default');
   });
 });

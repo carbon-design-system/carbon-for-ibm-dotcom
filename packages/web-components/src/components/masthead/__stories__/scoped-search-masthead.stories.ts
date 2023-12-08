@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
-import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import DDSLeftNav from '../left-nav';
+import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links } from './links';
@@ -22,7 +22,7 @@ import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
 } from './profile-items';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -76,34 +76,34 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+          <c4d-masthead-composite
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformData.url)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}></dds-masthead-composite>
+            .scopeParameters=${scopeParameters}></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+          <c4d-masthead-container
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformData.url)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}></dds-masthead-container>
+            .scopeParameters=${scopeParameters}></c4d-masthead-container>
         `}
   `;
 };
@@ -114,9 +114,9 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('c4d-left-nav');
           if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+            (leftNav as c4dLeftNav).expanded = false;
           }
         });
       }
@@ -151,7 +151,7 @@ export default {
           userStatuses.unauthenticated
         ),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN &&
+          C4D_CUSTOM_PROFILE_LOGIN &&
           textNullable(
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'
@@ -159,7 +159,7 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-masthead-container>` load the nav links
+      // Lets `<c4d-masthead-container>` load the nav links
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

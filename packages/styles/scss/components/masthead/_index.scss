@@ -1,0 +1,32 @@
+//
+// Copyright IBM Corp. 2018, 2023
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@forward 'masthead';
+@use 'masthead';
+@forward 'masthead-l1';
+@use 'masthead-l1';
+@forward 'masthead-search';
+@use 'masthead-search';
+@forward '../search-with-typeahead';
+@use '../search-with-typeahead';
+@forward 'masthead-leftnav';
+@use 'masthead-leftnav';
+@forward 'masthead-megamenu';
+@use 'masthead-megamenu';
+@forward 'masthead-megamenu-scroll';
+@use 'masthead-megamenu-scroll';
+@forward 'masthead-top-nav-name';
+@use 'masthead-top-nav-name';
+@forward 'vars';
+
+@include masthead.masthead;
+@include masthead-l1.masthead-l1;
+@include masthead-search.masthead-search;
+@include masthead-leftnav.masthead-leftnav;
+@include masthead-megamenu.masthead-megamenu;
+@include masthead-megamenu-scroll.masthead-megamenu-scroll;
+@include masthead-top-nav-name.masthead-top-nav-name;

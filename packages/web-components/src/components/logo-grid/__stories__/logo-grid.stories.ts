@@ -14,7 +14,7 @@ import '../logo-grid-link';
 import '../../card-link/card-link-heading';
 import '../../card/card-footer';
 import { boolean, text, select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import logos from './data/logos.js';
 import readme from './README.stories.mdx';
@@ -33,30 +33,30 @@ export const Default = (args) => {
   } = args?.LogoGrid ?? {};
 
   return html`
-    <dds-logo-grid
+    <c4d-logo-grid
       ?hide-border="${hideBorder}"
       logo-count="${logoCount}"
       logo-ratio="${logoRatio}">
-      <dds-content-block-heading> ${heading} </dds-content-block-heading>
+      <c4d-content-block-heading> ${heading} </c4d-content-block-heading>
       ${logosGroup &&
       logosGroup.map(
         (elem) => html`
-          <dds-logo-grid-item
+          <c4d-logo-grid-item
             default-src="${elem.imgSrc}"
-            alt="${elem.altText}"></dds-logo-grid-item>
+            alt="${elem.altText}"></c4d-logo-grid-item>
         `
       )}
       ${showCta
         ? html`
-            <dds-logo-grid-link href="${ctaHref}">
-              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-              <dds-card-footer>
+            <c4d-logo-grid-link href="${ctaHref}">
+              <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+              <c4d-card-footer>
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-footer>
-            </dds-logo-grid-link>
+              </c4d-card-footer>
+            </c4d-logo-grid-link>
           `
         : ''}
-    </dds-logo-grid>
+    </c4d-logo-grid>
   `;
 };
 
@@ -64,9 +64,11 @@ export default {
   title: 'Components/Logo grid',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

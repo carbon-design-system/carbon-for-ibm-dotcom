@@ -7,22 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListRow from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-row.js';
-import {} from 'lit-element';
-import { html } from 'lit-html';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import CDSStructuredListRow from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-row.js';
+import { html } from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListRow
  *
- * @element dds-structured-list-row
+ * @element c4d-structured-list-row
  */
-@customElement(`${ddsPrefix}-structured-list-row`)
-class DDSStructuredListRow extends BXStructuredListRow {
+@customElement(`${c4dPrefix}-structured-list-row`)
+class C4DStructuredListRow extends CDSStructuredListRow {
   connectedCallback() {
     super.connectedCallback();
   }
@@ -40,4 +39,4 @@ class DDSStructuredListRow extends BXStructuredListRow {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredListRow;
+export default C4DStructuredListRow;

@@ -1,58 +1,66 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/ratio-base';
-@import '../../internal/content-section/content-section';
-@import '../card/index';
-@import '../image/image';
-@import '../link-with-icon/link-with-icon';
+@use 'sass:math';
 
-@mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
-  .#{$prefix}--card__heading {
-    color: $text-01;
-  }
-  .#{$prefix}--card__copy,
-  .#{$prefix}--card__eyebrow {
-    color: $text-02;
-  }
-  .#{$prefix}--card--inverse {
-    background-color: $inverse-02;
-    height: 100%;
-
-    .#{$prefix}--card__heading {
-      color: $inverse-01;
-    }
-
-    &.#{$prefix}--card--link:hover {
-      background-color: $inverse-hover-ui;
-    }
-    .#{$prefix}--card__cta,
-    .#{$prefix}--card__cta a,
-    .#{$prefix}--card__cta a:visited {
-      color: $inverse-link;
-    }
-  }
-}
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/ratio-base' as *;
+@use '../../internal/content-section';
+@use '../card';
+@use '../image';
+@use '../link-with-icon';
 
 @mixin card-group {
-  :host(#{$dds-prefix}-card-group),
-  .#{$prefix}--card-group {
-    @include themed-items;
+  :host(#{$c4d-prefix}-card-group) {
+    --#{$c4d-prefix}--card-group--cards-in-row: 1;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: none;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(
+        var(--#{$c4d-prefix}--card-group--cards-in-row),
+        1fr
+      );
+    }
   }
 
-  :host(#{$dds-prefix}-card-group-item),
-  .#{$prefix}--card-group__card {
-    // FIXME: CardLink is being used as Card in React, need to separate this
-    .#{$prefix}--card-link .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-03', true);
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode]) {
+    padding-top: 0;
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode='default']) {
+    padding-top: $spacing-07;
+  }
+
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode='narrow']) {
+    padding-top: $spacing-05;
+  }
+
+  :host(#{$c4d-prefix}-card-group-item) {
+    .#{$prefix}--card {
+      border: 0;
+      outline: 1px solid $border-tile-01;
+      outline-offset: 0;
     }
 
     .#{$prefix}--image {
@@ -60,7 +68,7 @@
         height: carbon--mini-units(30);
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         @include ratio-base(4, 3, true);
 
         &__img {
@@ -73,183 +81,71 @@
 
     &:focus,
     &:focus-within {
-      outline: none;
-    }
-  }
-
-  // FIXME: WC only override
-  :host(#{$dds-prefix}-card-group-item)
-    .#{$prefix}--card-link
-    .#{$prefix}--card__heading {
-    @include carbon--type-style('expressive-heading-02', true);
-  }
-
-  :host(#{$dds-prefix}-card-group-item),
-  :host(#{$dds-prefix}-card-group-card-link-item) {
-    padding-bottom: 1px;
-    padding-right: 1px;
-
-    &[border] {
-      border: none;
-    }
-
-    &[empty] {
-      display: none;
-      background-color: $ui-background;
-      outline: 1px solid $ui-background;
-
-      @include carbon--breakpoint('md') {
-        display: block;
-      }
-
-      .#{$prefix}--card__wrapper {
-        height: 100%;
-      }
-
-      .#{$prefix}--card,
-      .#{$prefix}--card__wrapper,
-      &:hover .#{$prefix}--card__wrapper {
-        background: transparent;
-      }
-
-      &[border],
-      &[border]:hover {
-        .#{$prefix}--card__wrapper {
-          background: $ui-background;
-        }
-      }
-    }
-
-    &[pattern-background] {
       .#{$prefix}--card {
-        border-bottom: 1px solid $ui-03;
-      }
-
-      .#{$prefix}--card,
-      .#{$prefix}--card__wrapper {
-        background: $ui-background;
+        outline-offset: -1px;
       }
     }
   }
 
-  // React card focus outline
-  .#{$prefix}--card-group__card {
-    &:focus-within {
+  :host(#{$c4d-prefix}-card-group-item[href='']) {
+    .#{$prefix}--card {
       outline: none;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        outline: 2px solid $focus;
-        outline-offset: -2px;
-        pointer-events: none;
-      }
-
-      .#{$prefix}--card__img {
-        position: absolute;
-        z-index: auto;
-      }
-
-      .#{$prefix}--tile {
-        outline: none;
-      }
     }
   }
 
-  :host(#{$dds-prefix}-card-group),
-  .#{$prefix}--card-group__row,
-  .#{$prefix}--card-group__cards__row {
-    --#{$dds-prefix}--card-group--cards-in-row: 1;
+  :host(#{$c4d-prefix}-card-group-item[empty]) {
+    visibility: hidden;
+  }
 
-    display: grid;
-    grid-template-columns: 1fr;
+  :host(#{$c4d-prefix}-card-group-item[link]) {
+    ::slotted(#{$c4d-prefix}-card-heading) {
+      @include type-style('heading-02');
 
-    @include carbon--breakpoint('md') {
-      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 0;
     }
 
-    @include carbon--breakpoint('lg') {
-      grid-template-columns: repeat(
-        var(--#{$dds-prefix}--card-group--cards-in-row),
-        1fr
-      );
+    .#{$prefix}--card .#{$prefix}--card__copy {
+      margin-top: 0;
     }
   }
 
-  .#{$prefix}--card-group__cards__row {
-    // `@include carbon--make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
-    // Such adjustment has adverse effect when card group is placed in non-Carbon-grid,
-    // but keeps it for React for backward-compatibility reason.
-    margin-left: calc(-1 * #{$carbon--grid-gutter} / 2);
-    margin-right: calc(-1 * #{$carbon--grid-gutter} / 2);
+  :host(#{$c4d-prefix}-card-group)[grid-mode='narrow'] {
+    @include breakpoint(sm) {
+      padding-top: $spacing-03;
+      gap: $spacing-03;
+    }
 
-    position: relative;
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      pointer-events: none;
-      box-shadow: inset 0 0 0 1px $ui-background;
+    @include breakpoint(md) {
+      padding-top: $spacing-05;
+      gap: $spacing-05;
     }
   }
 
-  .#{$prefix}--card-group__cards__col {
-    padding: 0;
-    background: $decorative-01;
-
-    border-right: 1px solid $decorative-01;
-    border-top: 1px solid $decorative-01;
-
-    &:last-of-type {
-      border-right: 0;
-      width: calc(100% - 1px);
+  :host(#{$c4d-prefix}-card-group)[grid-mode='default'] {
+    @include breakpoint(sm) {
+      padding-top: $spacing-03;
+      gap: $spacing-07;
     }
 
-    .#{$prefix}--card--inverse {
-      height: 100%;
+    @include breakpoint(md) {
+      padding-top: $spacing-05;
+      gap: $spacing-07;
     }
   }
 
-  // Add Grid Mode Narrow (16px gutter) style.
-  :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
-  .#{$prefix}--card-group--narrow {
-    @include carbon--breakpoint('sm') {
-      padding-top: $carbon--spacing-03;
-      gap: $carbon--spacing-03;
+  :host(#{$c4d-prefix}-card-group)[grid-mode='condensed'] {
+    @include breakpoint(sm) {
+      padding-top: $spacing-03;
+      gap: 1px;
     }
 
-    @include carbon--breakpoint('md') {
-      padding-top: $carbon--spacing-05;
-      gap: $carbon--spacing-05;
-    }
-
-    @include carbon--breakpoint('lg') {
-      grid-template-columns: repeat(
-        3,
-        calc((100% / 3) - #{carbon--mini-units(2)})
-      );
-    }
-
-    ::slotted(#{$dds-prefix}-card-group-item),
-    ::slotted(#{$dds-prefix}-card-group-card-link-item),
-    .#{$prefix}--card-group__cards__col {
-      border: 0;
-      padding: 0;
+    @include breakpoint(md) {
+      padding-top: $spacing-05;
     }
   }
 
   // card with video focus outline
-  :host(#{$dds-prefix}-card-group-item)[cta-type='video'] {
+  :host(#{$c4d-prefix}-card-group-item)[cta-type='video'] {
     &:focus-within {
       .#{$prefix}--tile {
         outline: none;
@@ -263,118 +159,22 @@
           left: 0;
           bottom: 0;
           right: 0;
-          box-shadow: inset 0 0 0 2px $focus;
+          box-shadow: inset 0 0 0 $spacing-01 $focus;
           pointer-events: none;
         }
       }
     }
   }
 
-  .#{$prefix}--card-group--border {
-    &::after {
-      content: none;
-      box-shadow: none;
-    }
-
-    .#{$prefix}--card-group__cards__col {
-      padding: 0;
-      border: 1px solid $decorative-01;
-      border-bottom: 0;
-    }
-
-    .#{$prefix}--card-group__cards__col:last-of-type {
-      border-bottom: 1px solid $decorative-01;
-      padding-right: 0;
-    }
-
-    @include carbon--breakpoint('md') {
-      .#{$prefix}--card-group__cards__col {
-        border-bottom: 0;
-        border-right: 0;
-      }
-
-      .#{$prefix}--card-group__cards__col:nth-child(2n),
-      .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $decorative-01;
-      }
-
-      .#{$prefix}--card-group__cards__col:last-of-type:not(:nth-child(2n)) {
-        width: calc(100% + 1px);
-      }
-
-      .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
-        border-bottom: 1px solid $decorative-01;
-        height: calc(100% + 1px);
-      }
-    }
-
-    @include carbon--breakpoint('lg') {
-      .#{$prefix}--card-group__cards__col:nth-child(2n),
-      .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
-        border-bottom: 0;
-        border-right: 0;
-        height: auto;
-      }
-
-      .#{$prefix}--card-group__cards__col:nth-child(3n),
-      .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $decorative-01;
-        width: calc(100% + 1px);
-      }
-
-      .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
-        border-bottom: 1px solid $decorative-01;
-        height: calc(100% + 1px);
-      }
-
-      .#{$prefix}--card-group__cards__col:last-of-type:not(:nth-child(3n)) {
-        width: calc(100% + 1px);
-      }
-    }
-  }
-
-  .#{$prefix}--card-group__cards__col .#{$prefix}--card-group__card {
-    // React version of card group has `.bx--card-group__cards__col` surrounding `.bx--card-group__card`.
-    // Ensures that the former takes the whole height of card regardless of how high the card group row ends up with.
-    height: 100%;
-  }
-
-  .#{$prefix}--card-group.#{$prefix}--card-group--g10 {
-    @include carbon--theme(
-      $carbon--theme--g10,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
-  }
-  .#{$prefix}--card-group.#{$prefix}--card-group--g90 {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
-  }
-  .#{$prefix}--card-group.#{$prefix}--card-group--g100 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
-  }
-
   // Print styles
   @media print {
-    :host(#{$dds-prefix}-card-group),
-    .#{$prefix}--card-group__row,
-    .#{$prefix}--card-group__cards__row {
+    :host(#{$c4d-prefix}-card-group) {
       display: flex;
       flex-wrap: nowrap;
 
-      ::slotted(#{$dds-prefix}-card-group-item),
-      ::slotted(#{$dds-prefix}-card-group-card-link-item),
-      .#{$prefix}--card {
+      ::slotted(#{$c4d-prefix}-card-group-item),
+      ::slotted(#{$c4d-prefix}-card-group-card-link-item),
+      .#{$c4d-prefix}--card {
         /* stylelint-disable declaration-no-important */
         // need important since it gets overriden in WC Card Group without it
         background-color: transparent !important;
@@ -385,12 +185,12 @@
       }
     }
 
-    :host(#{$dds-prefix}-card-group-item),
-    :host(#{$dds-prefix}-card-group-card-link-item) {
+    :host(#{$c4d-prefix}-card-group-item),
+    :host(#{$c4d-prefix}-card-group-card-link-item) {
       background-color: transparent;
 
       &[empty] {
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           /* stylelint-disable declaration-no-important */
           // need important since it gets overriden in WC Card Group without it
           display: none !important;
@@ -400,12 +200,8 @@
 
       .#{$prefix}--tile {
         background-color: transparent;
-        border: 1px solid $gray-20;
+        border: 1px solid $border-subtle-01;
       }
     }
   }
-}
-
-@include exports('card-group') {
-  @include card-group;
 }

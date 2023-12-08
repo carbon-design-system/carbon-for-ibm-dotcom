@@ -1,0 +1,19 @@
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 8 | @use '@carbon/styles/scss/config' as *;
+ *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   scss/components/audio-player/_audio-player.scss 8:1  @forward
+ *   scss/components/audio-player/_index.scss 8:1         @use
+ *   scss/ibm-dotcom-styles.scss 13:1                     root stylesheet */
+
+body::before {
+  font-family: 'Source Code Pro', 'SF Mono', Monaco, Inconsolata, 'Fira Mono',
+    'Droid Sans Mono', monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #000000;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 8 \2502  @use '@carbon/styles/scss/config' as *;\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   scss/components/audio-player/_audio-player.scss 8:1  @forward\a   scss/components/audio-player/_index.scss 8:1         @use\a   scss/ibm-dotcom-styles.scss 13:1                     root stylesheet";
+}

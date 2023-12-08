@@ -33,7 +33,7 @@ export enum LINK_LIST_TYPE {
 }
 
 /**
- * Link list item type. Should mirror `LINK_LIST_TYPE` of parent `<dds-link-list>`.
+ * Link list item type. Should mirror `LINK_LIST_TYPE` of parent `<c4d-link-list>`.
  */
 export enum LINK_LIST_ITEM_TYPE {
   /**
@@ -42,7 +42,7 @@ export enum LINK_LIST_ITEM_TYPE {
   DEFAULT = 'default',
 
   /**
-   * End of Section variant - End
+   * End of section
    */
   END = 'end',
 }

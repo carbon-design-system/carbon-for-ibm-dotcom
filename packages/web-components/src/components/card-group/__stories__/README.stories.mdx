@@ -1,8 +1,13 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# Card Group
+# Card group
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-group)
@@ -29,43 +34,236 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 ### HTML
 
 ```html
-<dds-card-group>
-  <dds-card-group-item cta-type="local" href="https://example.com">
-    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+<c4d-card-group>
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <dds-card-cta-footer slot="footer">
-    </dds-card-cta-footer>
-  </dds-card-group-item>
-  <dds-card-group-item cta-type="local" href="https://example.com" color-scheme="inverse">
-    <dds-card-heading>Top level card link</dds-card-heading>
-    <dds-card-cta-footer slot="footer" color-scheme="inverse">
-    </dds-card-cta-footer>
-  </dds-card-group-item>
-</dds-card-group>
+    <c4d-card-cta-footer slot="footer"> </c4d-card-cta-footer>
+  </c4d-card-group-item>
+  <c4d-card-group-item
+    cta-type="local"
+    href="https://example.com"
+    >
+    <c4d-card-heading>Top level card link</c4d-card-heading>
+    <c4d-card-cta-footer slot="footer">
+    </c4d-card-cta-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
+```
+
+### HTML (with Card pictogram)
+
+```html
+
+<c4d-card-group>
+  <c4d-card-group-item
+    href="https://example.com"
+    pictogram-placement="bottom"
+    >
+    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
+    <p>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
+      exercitation.
+    </p>
+    <svg
+      slot="pictogram"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      data-autoid="c4d--card__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 32 32"
+      role="img"
+      class="cds--card__pictogram">
+      <path
+        id="desktop_1_"
+        d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
+  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
+    </svg>
+  </c4d-card-group-item>
+  <c4d-card-group-item
+    href="https://example.com"
+    pictogram-placement="bottom"
+    >
+    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
+    <p>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
+      exercitation.
+    </p>
+    <svg
+      slot="pictogram"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      data-autoid="c4d--card__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 32 32"
+      role="img"
+      class="cds--card__pictogram">
+      <path
+        id="desktop_1_"
+        d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
+  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
+    </svg>
+  </c4d-card-group-item>
+  <c4d-card-group-item
+    href="https://example.com"
+    pictogram-placement="bottom"
+    >
+    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
+    <p>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
+      exercitation.
+    </p>
+    <svg
+      slot="pictogram"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      data-autoid="c4d--card__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 32 32"
+      role="img"
+      class="cds--card__pictogram">
+      <path
+        id="desktop_1_"
+        d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
+  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
+    </svg>
+  </c4d-card-group-item>    
+</c4d-card-group>
+
+```
+
+### HTML (with Card static)
+
+```html
+<c4d-card-group>
+  <c4d-card-group-item cta-type="local">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <c4d-card-cta-footer slot="footer"> </c4d-card-cta-footer>
+  </c4d-card-group-item>
+  <c4d-card-group-item
+    cta-type="local"
+    >
+    <c4d-card-heading>Top level card link</c4d-card-heading>
+    <c4d-card-cta-footer slot="footer">
+    </c4d-card-cta-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
+```
+
+### HTML (with Card link)
+
+```html
+<c4d-card-group grid-mode="narrow">
+  <c4d-card-group-item
+    link
+    cta-type="local"
+    href="https://example.com"
+    pattern-background>
+    <c4d-card-heading>IBM Developer - Card 01</c4d-card-heading>
+    <p>Learn, code and connect with your community</p>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-card-link-item>
+
+  <c4d-card-group-item
+    link
+    cta-type="local"
+    href="https://example.com"
+    pattern-background>
+    <c4d-card-heading>IBM Developer - Card 02</c4d-card-heading>
+    <p>Learn, code and connect with your community</p>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
+
+  <c4d-card-group-item
+    link
+    cta-type="local"
+    href="https://example.com"
+    pattern-background>
+    <c4d-card-heading>IBM Developer - Card 03</c4d-card-heading>
+    <p>Learn, code and connect with your community</p>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
+```
+
+### HTML (with Mixed Media)
+
+In order to have video components, make sure to import `video-cta-container` and
+place `cds-card-group` within.
+
+To set the `cds-card-in-card` to play video, see more details
+[here](https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-in-card--default).
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
+```
+
+```html
+<c4d-video-cta-container>
+  <c4d-card-group>
+    <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
+      <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+      <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
+      </c4d-card-footer>
+    </c4d-card-group-item>
+  </c4d-card-group>
+</c4d-video-cta-container>
 ```
 
 ### HTML (with Card in Card)
 
 ```html
-<dds-card-in-card grid-mode="narrow" href="https://example.com">
-  <dds-card-in-card-image
+<c4d-card-in-card href="https://example.com">
+  <c4d-card-in-card-image
     slot="image"
     alt="Image alt text"
-    default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"
+    default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+    <c4d-image-item
+      media="(min-width: 1312px)"
+      srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
+    </c4d-image-item>
+    <c4d-image-item
+      media="(min-width: 672px)"
+      srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
+    </c4d-image-item>
+    <c4d-image-item
+      media="(min-width: 320px)"
+      srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+    </c4d-image-item>
+  </c4d-card-in-card-image>
+  <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+  <c4d-card-heading
+    >Standard Bank Group prepares to embrace Africa’s AI
+    opportunity</c4d-card-heading
   >
-    <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    </dds-image-item>
-  </dds-card-in-card-image>
-  <dds-card-eyebrow>Label</dds-card-eyebrow>
-  <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-  <dds-card-cta-footer>
+  <c4d-card-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -75,88 +273,53 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-card-cta-footer>
-</dds-card-in-card>
+  </c4d-card-footer>
+</c4d-card-in-card>
 
-<dds-card-group grid-mode="narrow">
-  <dds-card-group-item cta-type="local" href="https://example.com">
-    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+<c4d-card-group grid-mode="narrow">
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <dds-card-cta-footer slot="footer">
-    </dds-card-cta-footer>
-  </dds-card-group-item>
-</dds-card-group>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
 ```
 
-### HTML (with Card Link)
+### Grid mode
 
-```html
-<dds-card-group grid-mode="narrow">
-  <dds-card-group-card-link-item cta-type="local" href="https://example.com" pattern-background>
-    <dds-card-link-heading>IBM Developer - Card 01</dds-card-link-heading>
-    <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
-  </dds-card-group-card-link-item>
+There are three different options for the `grid-mode` property:
 
-  <dds-card-group-card-link-item cta-type="local" href="https://example.com" pattern-background>
-    <dds-card-link-heading>IBM Developer - Card 02</dds-card-link-heading>
-    <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
-  </dds-card-group-card-link-item>
-
-  <dds-card-group-card-link-item cta-type="local" href="https://example.com" pattern-background>
-    <dds-card-link-heading>IBM Developer - Card 03</dds-card-link-heading>
-    <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
-  </dds-card-group-card-link-item>
-</dds-card-group>
-```
-
-### HTML (with Mixed Media)
-
-In order to have video components, make sure to import `video-cta-container` and place `dds-card-group` within.
-
-To set the `dds-card-in-card` to play video, see more details [here](https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-in-card--default).
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
-```
-
-```html
-<dds-video-cta-container>
-  <dds-card-group>
-    <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-      <dds-card-eyebrow>Topic</dds-card-eyebrow>
-      <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
-    </dds-card-group-item>
-  </dds-card-group>
-</dds-video-cta-container>
-```
+* Default (32px gap)
+* Condensed (16px gap)
+* Collapsed (no gap)
 
 ## Props
 
-### `<dds-card-group>`
+### `<c4d-card-group>`
 
-<Props of="dds-card-group" />
+<Props of="cds-card-group" />
 
-### `<dds-card-group-item>`
+### `<c4d-card-group-item>`
 
-<Props of="dds-card-group-item" />
+<Props of="cds-card-group-item" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector               | Description |
 | ----------------------- | ------------------------------------ | ----------- |
-| `<dds-card-group>`      | `data-autoid="dds--card-group"`      | Component   |
-| `<dds-card-group-item>` | `data-autoid="dds--card-group-item"` | Component   |
+| `<c4d-card-group>`      | `data-autoid="cds--card-group"`      | Component   |
+| `<c4d-card-group-item>` | `data-autoid="cds--card-group-item"` | Component   |
 
 <Description markdown={contributing} />

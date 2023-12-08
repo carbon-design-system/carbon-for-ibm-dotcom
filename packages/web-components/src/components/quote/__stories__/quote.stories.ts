@@ -8,9 +8,9 @@
  */
 
 import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
+import { QUOTE_TYPES } from '../quote';
 import '../index';
 import '../quote-link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -18,26 +18,20 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {
-  const {
-    copy,
-    quoteMark,
-    sourceHeading,
-    sourceCopy,
-    sourceBottomCopy,
-    colorScheme,
-  } = args?.Quote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+    args?.Quote ?? {};
   return html`
-    <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
+    <c4d-quote mark-type="${quoteMark}">
       ${copy}
-      <dds-quote-source-heading> ${sourceHeading} </dds-quote-source-heading>
-      <dds-quote-source-copy> ${sourceCopy} </dds-quote-source-copy>
-      <dds-quote-source-bottom-copy>
+      <c4d-quote-source-heading> ${sourceHeading} </c4d-quote-source-heading>
+      <c4d-quote-source-copy> ${sourceCopy} </c4d-quote-source-copy>
+      <c4d-quote-source-bottom-copy>
         ${sourceBottomCopy}
-      </dds-quote-source-bottom-copy>
-      <dds-quote-link-with-icon slot="footer" href="https://example.com">
+      </c4d-quote-source-bottom-copy>
+      <c4d-quote-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
-      </dds-quote-link-with-icon>
-    </dds-quote>
+      </c4d-quote-link-with-icon>
+    </c4d-quote>
   `;
 };
 
@@ -51,18 +45,13 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-const colorSchemes = {
-  [`${QUOTE_COLOR_SCHEMES.REGULAR}`]: QUOTE_COLOR_SCHEMES.REGULAR,
-  [`${QUOTE_COLOR_SCHEMES.INVERSE}`]: QUOTE_COLOR_SCHEMES.INVERSE,
-};
-
 export default {
   title: 'Components/Quote',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-11">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-11">${story()}</div>
         </div>
       </div>
     `,
@@ -94,11 +83,6 @@ export default {
           'Source bottom copy (source-bottom-copy slot)',
           'IBM Cloud'
         ),
-        colorScheme: select(
-          'Color Scheme (color-scheme)',
-          colorSchemes,
-          colorSchemes.regular
-        ),
       }),
     },
     propsSet: {
@@ -111,7 +95,6 @@ export default {
           sourceHeading: 'Lorem ipsum dolor sit amet',
           sourceCopy: 'consectetur adipiscing elit',
           sourceBottomCopy: 'IBM Cloud',
-          colorScheme: 'regular',
         },
       },
     },

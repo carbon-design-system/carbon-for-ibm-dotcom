@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block';
 
@@ -17,59 +22,66 @@ Here's a quick example to get you started.
 ### JS (with image)
 
 ```javascript
-import DDSLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
-import DDSLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading.js';
-import DDSLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
-import DDSLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
-import DDSLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta.js';
-import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item.js';
+import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading.js';
+import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
+import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
+import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button.js';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Download20 from '@carbon/icons-react/es/download/20.js';
 
 function App() {
   return (
-  <DDSLeadspaceBlock>
-    <DDSLeadspaceBlockHeading>Lead Space Block Title</DDSLeadspaceBlockHeading>
-    <DDSLeadspaceBlockContent>
-      <DDSContentBlockHeading>Content Block Heading</DDSContentBlockHeading>
-      <DDSContentBlockCopy>Content Block Copy</DDSContentBlockCopy>
-      <DDSLeadspaceBlockMedia slot="media">
-        <DDSImage
-          alt="Image alt text"
-          default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-          heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        >
-          <DDSImageItem media="(min-width: 672px)" srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"/>
-          <DDSImageItem media="(min-width: 400px)" srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"/>
-          <DDSImageItem media="(min-width: 320px)" srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"/>
-        </DDSImage>
-      </DDSLeadspaceBlockMedia>
-      <DDSLinkList type="end">
-        <DDSLinkListHeading>Featured products</DDSLinkListHeading>
-        <DDSLinkListItem href="https://example.com">
-          IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
-          UrbanCode <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
-          View all products <Download20 slot="icon" />
-        </DDSLinkListItem>
-      </DDSLinkList>
-      <DDSLeadspaceBlockCTA>
-        <DDSButtonGroupItem href="www.ibm.com">
-          Contact sales <ArrowRight20 slot="icon" />
-        </DDSButtonGroupItem>
-      </DDSLeadspaceBlockCTA>
-    </DDSLeadspaceBlockContent>
-  </DDSLeadspaceBlock>
+    <C4DLeadspaceBlock border>
+      <C4DLeadspaceHeading highlight="intelligent IT operations" type-style="fluid-heading-05">Infuse your AIOps platform with intelligent IT operations</C4DLeadspaceHeading>
+      <C4DLeadspaceBlockContent>
+        <C4DContentBlockCopy>
+          Automate your software release process with continuous delivery (CD)—the most
+          critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+          ensuring software is always ready for deployment.
+        </C4DContentBlockCopy>
+        <C4DLeadspaceBlockMedia>
+          <C4DImage
+            alt="Image alt text"
+            default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+            heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+            <C4DImageItem
+              media="(min-width: 672px)"
+              srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+            />
+            <C4DImageItem
+              media="(min-width: 400px)"
+              srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+            />
+            <C4DImageItem
+              media="(min-width: 320px)"
+              srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+            />
+          </C4DImage>
+        </C4DLeadspaceBlockMedia>
+        <C4DLinkList type="end">
+          <C4DLinkListHeading>Featured products</C4DLinkListHeading>
+          <C4DLinkListItem href="https://example.com">
+            IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
+          </C4DLinkListItem>
+          <C4DLinkListItem href="https://example.com">
+            UrbanCode <ArrowRight20 slot="icon" />
+          </C4DLinkListItem>
+          <C4DLinkListItem href="https://example.com">
+            View all products <Download20 slot="icon" />
+          </C4DLinkListItem>
+        </C4DLinkList>
+        <C4DButton cta-type="local" href="https://example.com">
+          Contact sales
+        </C4DButton>
+      </C4DLeadspaceBlockContent>
+    </C4DLeadspaceBlock>
   );
 }
 ```
@@ -77,50 +89,49 @@ function App() {
 ### JS (with video)
 
 ```javascript
-import DDSLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
-import DDSLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading.js';
-import DDSLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
-import DDSLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
-import DDSLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta.js';
-import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item.js';
+import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading.js';
+import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
+import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
+import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button.js';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Download20 from '@carbon/icons-react/es/download/20.js';
 
 function App() {
   return (
-  <DDSLeadspaceBlock>
-    <DDSLeadspaceBlockHeading>Lead Space Block Title</DDSLeadspaceBlockHeading>
-    <DDSLeadspaceBlockContent>
-      <DDSContentBlockHeading>Content Block Heading</DDSContentBlockHeading>
-      <DDSContentBlockCopy>Content Block Copy</DDSContentBlockCopy>
-      <DDSLeadspaceBlockMedia slot="media">
-        <DDSVideoPlayerContainer video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
-      </DDSLeadspaceBlockMedia>
-      <DDSLinkList type="end">
-        <DDSLinkListHeading>Featured products</DDSLinkListHeading>
-        <DDSLinkListItem href="https://example.com">
-          IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
-          UrbanCode <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
-          View all products <Download20 slot="icon" />
-        </DDSLinkListItem>
-      </DDSLinkList>
-      <DDSLeadspaceBlockCTA>
-        <DDSButtonGroupItem href="www.ibm.com">
-          Contact sales <ArrowRight20 slot="icon" />
-        </DDSButtonGroupItem>
-      </DDSLeadspaceBlockCTA>
-    </DDSLeadspaceBlockContent>
-  </DDSLeadspaceBlock>
+    <C4DLeadspaceBlock border>
+      <C4DLeadspaceHeading highlight="intelligent IT operations" type-style="fluid-heading-05">Infuse your AIOps platform with intelligent IT operations</C4DLeadspaceHeading>
+      <C4DLeadspaceBlockContent>
+        <C4DContentBlockCopy>
+          Automate your software release process with continuous delivery (CD)—the most
+          critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+          ensuring software is always ready for deployment.
+        </C4DContentBlockCopy>
+        <C4DLeadspaceBlockMedia>
+          <C4DVideoPlayerContainer video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
+        </C4DLeadspaceBlockMedia>
+        <C4DLinkList type="end">
+          <C4DLinkListHeading>Featured products</C4DLinkListHeading>
+          <C4DLinkListItem href="https://example.com">
+            IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
+          </C4DLinkListItem>
+          <C4DLinkListItem href="https://example.com">
+            UrbanCode <ArrowRight20 slot="icon" />
+          </C4DLinkListItem>
+          <C4DLinkListItem href="https://example.com">
+            View all products <Download20 slot="icon" />
+          </C4DLinkListItem>
+        </C4DLinkList>
+        <C4DButton cta-type="local" href="https://example.com">
+          Contact sales
+        </C4DButton>
+      </C4DLeadspaceBlockContent>
+    </C4DLeadspaceBlock>
   );
 }
 ```
@@ -131,14 +142,16 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector | Description |
-| ----------------------- | ---------------------- | ----------- |
-| `<dds-leadspace-block>`        | N/A                    | Component   |
-| `<dds-leadspace-block-content>`        | N/A                    | Component   |
-| `<dds-leadspace-block-cta>`        | N/A                    | Component   |
-| `<dds-leadspace-block-heading>`        | N/A                    | Component   |
-| `<dds-leadspace-block-media>`        | N/A                    | Component   |
+| Web Components selector         | Compatibility selector | Description |
+| ------------------------------- | ---------------------- | ----------- |
+| `<c4d-leadspace-block>`         | N/A                    | Component   |
+| `<c4d-leadspace-block-content>` | N/A                    | Component   |
+| `<c4d-leadspace-heading>`       | N/A                    | Component   |
+| `<c4d-button>`                  | N/A                    | Component   |
+| `<c4d-leadspace-block-media>`   | N/A                    | Component   |
 
 <Description markdown={contributing} />

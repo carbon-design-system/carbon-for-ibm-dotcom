@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended-media/tabs-extended-media';
 
@@ -17,77 +22,125 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSTabsExtendedMedia from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended-media/tabs-extended-media.js';
+import C4DTabsExtendedMedia from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended-media/tabs-extended-media.js';
 
 function App() {
   return (
-    <DDSTabsExtendedMedia>
-      <DDSContentSectionHeading>Section heading</DDSContentSectionHeading>
-      <DDSTab label="First tab">
-        <DDSContentItemHorizontalMedia align="left">
-          <DDSImage slot="media" alt="Image alt text" default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></DDSImage>
-          <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-            Phasellus at elit sollicitudin.</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+    <C4DTabsExtendedMedia>
+      <C4DContentSectionHeading>Section heading</C4DContentSectionHeading>
+      <C4DTab label="First tab">
+        <C4DContentItemRowMedia align="left">
+          <C4DImage
+            slot="media"
+            alt="Image alt text"
+            default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
+          <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+          <C4DContentItemRowMediaCopy>
+            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+            ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+            elit sollicitudin.
+          </C4DContentItemRowMediaCopy>
+          <C4DLinkList slot="footer" type="vertical">
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="local">
               Learn more
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            </C4DLinkListItemCTA>
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="external">
               Microservices and containers
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
-      <DDSTab label="Second tab">
-        <DDSContentItemHorizontalMedia align="left">
-          <DDSImage slot="media" alt="Image alt text" default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></DDSImage>
-          <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-            Phasellus at elit sollicitudin.</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+            </C4DLinkListItemCTA>
+          </C4DLinkList>
+        </C4DContentItemRowMedia>
+      </C4DTab>
+      <C4DTab label="Second tab">
+        <C4DContentItemRowMedia align="left">
+          <C4DImage
+            slot="media"
+            alt="Image alt text"
+            default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
+          <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+          <C4DContentItemRowMediaCopy>
+            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+            ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+            elit sollicitudin.
+          </C4DContentItemRowMediaCopy>
+          <C4DLinkList slot="footer" type="vertical">
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="local">
               Learn more
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            </C4DLinkListItemCTA>
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="external">
               Microservices and containers
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
-      <DDSTab label="Third tab">
-        <DDSContentItemHorizontalMedia align="left">
-          <DDSImage slot="media" alt="Image alt text" default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></DDSImage>
-          <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-            Phasellus at elit sollicitudin.</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+            </C4DLinkListItemCTA>
+          </C4DLinkList>
+        </C4DContentItemRowMedia>
+      </C4DTab>
+      <C4DTab label="Third tab">
+        <C4DContentItemRowMedia align="left">
+          <C4DImage
+            slot="media"
+            alt="Image alt text"
+            default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
+          <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+          <C4DContentItemRowMediaCopy>
+            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+            ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+            elit sollicitudin.
+          </C4DContentItemRowMediaCopy>
+          <C4DLinkList slot="footer" type="vertical">
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="local">
               Learn more
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            </C4DLinkListItemCTA>
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="external">
               Microservices and containers
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
-      <DDSTab label="Fourth tab">
-        <DDSContentItemHorizontalMedia align="left">
-          <DDSImage slot="media" alt="Image alt text" default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></DDSImage>
-          <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-            Phasellus at elit sollicitudin.</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+            </C4DLinkListItemCTA>
+          </C4DLinkList>
+        </C4DContentItemRowMedia>
+      </C4DTab>
+      <C4DTab label="Fourth tab">
+        <C4DContentItemRowMedia align="left">
+          <C4DImage
+            slot="media"
+            alt="Image alt text"
+            default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
+          <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+          <C4DContentItemRowMediaCopy>
+            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+            ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+            elit sollicitudin.
+          </C4DContentItemRowMediaCopy>
+          <C4DLinkList slot="footer" type="vertical">
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="local">
               Learn more
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            </C4DLinkListItemCTA>
+            <C4DLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="external">
               Microservices and containers
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
-    </DDSTabsExtendedMedia>
+            </C4DLinkListItemCTA>
+          </C4DLinkList>
+        </C4DContentItemRowMedia>
+      </C4DTab>
+    </C4DTabsExtendedMedia>
   );
 }
 ```
@@ -98,10 +151,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector            | Compatibility selector | Description |
-| ---------------------------------- | ---------------------- | ----------- |
-| `<dds-tabs-extended-media>`        | N/A                    | Component   |
+| Web Components selector     | Compatibility selector | Description |
+| --------------------------- | ---------------------- | ----------- |
+| `<cds-tabs-extended-media>` | N/A                    | Component   |
 
 <Description markdown={contributing} />

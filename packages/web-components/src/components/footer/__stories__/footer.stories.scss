@@ -4,18 +4,19 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-footer-container {
+c4d-footer-container {
   display: flex;
   align-items: flex-end;
   min-height: 100vh;
 }
 
 .default-language-only {
-  @include carbon--breakpoint(lg) {
+  @include breakpoint(lg) {
     padding-top: 15rem;
   }
 }

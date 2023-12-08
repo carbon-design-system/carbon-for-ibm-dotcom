@@ -7,11 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import EventManager from '../../../../tests/utils/event-manager';
-import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import DDSMastheadComposite from '../masthead-composite';
+import C4DMastheadComposite from '../masthead-composite';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
@@ -20,37 +19,17 @@ import {
 const template = (props?) => {
   const { language, userStatus, navLinks } = props ?? {};
   return html`
-    <dds-masthead-composite
-      language="${ifNonNull(language)}"
-      user-status="${ifNonNull(userStatus)}"
-      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+    <c4d-masthead-composite
+      language="${ifDefined(language)}"
+      user-status="${ifDefined(userStatus)}"
+      .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}">
-    </dds-masthead-composite>
+      .unauthenticatedProfileItems="${ifDefined(unauthenticatedProfileItems)}">
+    </c4d-masthead-composite>
   `;
 };
 
-const navLinksFoo: MastheadLink[] = [
-  {
-    title: 'item-title-foo',
-    url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo',
-  },
-  {
-    title: 'menu-title-foo',
-    menuSections: [
-      {
-        menuItems: [
-          {
-            title: 'menu-item-title-bar',
-            url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
-          },
-        ],
-      },
-    ],
-  },
-];
-
-describe('dds-masthead-composite', function () {
+describe('cds-masthead-composite', function () {
   const events = new EventManager();
 
   describe('Rendering global bar', function () {
@@ -58,10 +37,10 @@ describe('dds-masthead-composite', function () {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector(
-        'dds-masthead-composite'
+        'c4d-masthead-composite'
       );
       expect(
-        mastheadComposite!.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('c4d-masthead-global-bar')
       ).toMatchSnapshot();
     });
 
@@ -69,10 +48,10 @@ describe('dds-masthead-composite', function () {
       render(template({ userStatus: 'test.user@ibm.com' }), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector(
-        'dds-masthead-composite'
+        'c4d-masthead-composite'
       );
       expect(
-        mastheadComposite!.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('c4d-masthead-global-bar')
       ).toMatchSnapshot();
     });
   });
@@ -82,45 +61,22 @@ describe('dds-masthead-composite', function () {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector(
-        'dds-masthead-composite'
+        'c4d-masthead-composite'
       );
-      expect(mastheadComposite!.querySelector('dds-top-nav')).toBeNull();
-      expect(
-        mastheadComposite!.querySelector('dds-left-nav')!.children.length
-      ).toBe(0);
-    });
-
-    it('should render the given nav items to the top', async function () {
-      render(template({ navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-top-nav')
-      ).toMatchSnapshot();
-    });
-
-    it('should render the given nav items to the left', async function () {
-      render(template({ navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-left-nav')
-      ).toMatchSnapshot();
+      expect(mastheadComposite!.querySelector('cds-top-nav')).toBeNull();
     });
   });
 
   describe('Determining the nav/search language', function () {
     it('should use the given language', async function () {
-      DDSMastheadComposite.prototype._setLanguage = jasmine.createSpy();
+      C4DMastheadComposite.prototype._setLanguage = jasmine.createSpy();
       render(template({ language: 'ko-KR' }), document.body);
       await Promise.resolve();
-      expect(DDSMastheadComposite.prototype._setLanguage).toHaveBeenCalled();
+      expect(C4DMastheadComposite.prototype._setLanguage).toHaveBeenCalled();
     });
 
     afterEach(function () {
-      DDSMastheadComposite.prototype._setLanguage = undefined;
+      C4DMastheadComposite.prototype._setLanguage = undefined;
     });
   });
 

@@ -7,44 +7,35 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
+import { css, html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import C4DCard from '../card/card';
+import { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card in Card.
  *
- * @element dds-card-in-card
+ * @element c4d-card-in-card
  */
-@customElement(`${ddsPrefix}-card-in-card`)
-class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
+@customElement(`${c4dPrefix}-card-in-card`)
+class C4DCardInCard extends StableSelectorMixin(C4DCard) {
   protected _renderImage() {
-    const {
-      ctaType,
-      videoName,
-      videoThumbnailUrl,
-      thumbnail,
-      _hasImage: hasImage,
-    } = this;
+    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
     const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
-            <dds-card-in-card-image
-              alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
-              ${PlayVideo({ slot: 'icon' })}
-            </dds-card-in-card-image>
+            <c4d-card-in-card-image
+              alt="${ifDefined(videoName)}"
+              default-src="${videoThumbnailUrl}">
+            </c4d-card-in-card-image>
           `;
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
@@ -58,27 +49,14 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
       linkNode.classList.add(`${prefix}--card-in-card`);
     }
 
-    const cardInCardImage = this.querySelector(
-      `${ddsPrefix}-card-in-card-image`
-    );
-    const cardInCardImageVideo = this.parentElement
-      ?.querySelector(`${ddsPrefix}-card-in-card`)
-      ?.shadowRoot?.querySelector('dds-card-in-card-image');
-
-    // fires the card cta footer when card image is clicked
-    if (cardInCardImage || cardInCardImageVideo) {
-      (
-        (cardInCardImage as HTMLElement) ||
-        (cardInCardImageVideo as HTMLElement)
-      ).onclick = () =>
-        this.querySelector(`${ddsPrefix}-card-cta-footer`)
-          ?.shadowRoot?.querySelector(`a`)
-          ?.click();
-    }
+    this.onclick = () =>
+      this.querySelector(`${c4dPrefix}-card-footer`)
+        ?.shadowRoot?.querySelector(`a`)
+        ?.click();
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-in-card`;
+    return `${c4dPrefix}--card-in-card`;
   }
 
   static get styles() {
@@ -89,4 +67,4 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardInCard;
+export default C4DCardInCard;

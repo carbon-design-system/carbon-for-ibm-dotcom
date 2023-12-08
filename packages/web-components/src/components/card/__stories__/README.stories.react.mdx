@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 
@@ -18,110 +23,130 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 
 function App() {
   return (
-    <DDSCard href="https://example.com">
-      <DDSCardEyebrow>Eyebrow text</DDSCardEyebrow>
-      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
-      <DDSCardFooter>
-        Card CTA text
+    <C4DCard href="https://example.com">
+      <C4DCardEyebrow>Eyebrow text</C4DCardEyebrow>
+      <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
+      <C4DCardFooter>
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+      </C4DCardFooter>
+    </C4DCard>
   );
 }
 ```
 
 ## Card with pictogram
 
-You can browse the [Carbon Pictogram library](https://www.carbondesignsystem.com/guidelines/pictograms/library/) to find a pictogram that fits your design.
-You can also check out the repo [here](https://github.com/carbon-design-system/carbon/tree/main/packages/pictograms)
+You can browse the
+[Carbon Pictogram library](https://www.carbondesignsystem.com/guidelines/pictograms/library/)
+to find a pictogram that fits your design. You can also check out the repo
+[here](https://github.com/carbon-design-system/carbon/tree/main/packages/pictograms)
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
 
 function App() {
   return (
-    <DDSCard pictogramPlacement="top" href="https://example.com">
-      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+    <C4DCard pictogramPlacement="top" href="https://example.com">
+      <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
       <p>copy text</p>
       <Desktop slot="pictogram" />
-    </DDSCard>
+    </C4DCard>
   );
 }
 ```
 
 ## Card - static
 
-When there is no URL being passed to the `DDSCard`'s href attribute, the static variation will be rendered,
-where the card is no longer clickable and optional `Tag` elements can also be added.
+When there is no URL being passed to the `C4DCard`'s href attribute, the static
+variation will be rendered, where the card is no longer clickable and optional
+`Tag` elements can also be added.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import { Tag } from '@carbon/react';
 
 function App() {
   return (
-    <DDSCard colorScheme="light" border>
-      <DDSCardEyebrow>Eyebrow text</DDSCardEyebrow>
-      <DDSCardHeading>Heading text</DDSCardHeading>
-      <DDSTagGroup>
+    <C4DCard colorScheme="light" border>
+      <C4DCardEyebrow>Eyebrow text</C4DCardEyebrow>
+      <C4DCardHeading>Heading text</C4DCardHeading>
+      <div>
         <Tag>Most popular</Tag>
         <Tag type="purple">Enterprise</Tag>
-      </DDSTagGroup>
-      <DDSCardFooter href="https://example.com">
+      </div>
+      <C4DCardFooter href="https://example.com">
         Card CTA text
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+      </C4DCardFooter>
+    </C4DCard>
+  );
+}
+```
+
+## Card - link
+
+```javascript
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+
+function App() {
+  return (
+    <C4DCard link href={href || undefined}>
+      <C4DCardHeading>Card link heading </C4DCardHeading>
+      <C4DCardFooter></C4DCardFooter>
+    </C4DCard>
   );
 }
 ```
 
 ## Card - logo
 
-If you need to use a Logo image for the Card component, use the Logo variant to ensure the Card
-properly accomodates to the Logo image.
+If you need to use a Logo image for the Card component, use the Logo variant to
+ensure the Card properly accomodates to the Logo image.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import { Tag } from '@carbon/react';
 
 function App() {
   return (
-    <DDSCard border logo href={href || undefined}>
-      <DDSImageLogo slot="image" alt={alt} default-src={defaultSrc}></DDSImageLogo>
-      {eyebrow ? <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow> : ''}
-      {heading ? <DDSCardHeading>{heading}</DDSCardHeading> : ''}
+    <C4DCard border logo href={href || undefined}>
+      <C4DImageLogo
+        slot="image"
+        alt={alt}
+        default-src={defaultSrc}></C4DImageLogo>
+      {eyebrow ? <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow> : ''}
+      {heading ? <C4DCardHeading>{heading}</C4DCardHeading> : ''}
       {copy ? <p>{copy}</p> : ``}
       {tagGroup ? (
-        <DDSTagGroup>
+        <div>
           <Tag>Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </div>
       ) : (
         ''
       )}
-      <DDSCardFooter></DDSCardFooter>
-    </DDSCard>
+      <C4DCardFooter></C4DCardFooter>
+    </C4DCard>
   );
 }
 ```
@@ -131,38 +156,49 @@ function App() {
 An optional light theme is available under `color-scheme`.
 
 ```javascript
-<DDSCard colorScheme='light'>
+<C4DCard colorScheme='light'>
+```
+
+## Tags
+
+If using tags within `dds-card` in tandem with the dark themes, make sure the
+proper styles are imported from `@carbon/styles` in your application.
+
+```
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/components/tag/tokens' as tag-tokens;
+@include add-component-tokens(tag-tokens.$tag-tokens);
 ```
 
 ## Card with image
 
-To add image to the `DDSCard`, import the `DDSImage` component and place `DDSImage` within `DDSCard`:
+To add image to the `C4DCard`, import the `C4DImage` component and place
+`C4DImage` within `C4DCard`:
 
 ```javascript
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import { Tag } from '@carbon/react';
 
 function App() {
   return (
-    <DDSCard colorScheme="light">
-      <DDSImage slot="image" alt="alt text" defaultSrc="../image.png" />
-      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-      <DDSCardHeading>{heading}</DDSCardHeading>
-      <DDSTagGroup>
+    <C4DCard colorScheme="light">
+      <C4DImage slot="image" alt="alt text" defaultSrc="../image.png" />
+      <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+      <C4DCardHeading>{heading}</C4DCardHeading>
+      <div>
         <Tag>Most popular</Tag>
         <Tag type="purple">Enterprise</Tag>
-      </DDSTagGroup>
-      <DDSCardFooter href="https://www.example.com">
+      </div>
+      <C4DCardFooter href="https://www.example.com">
         Sign up for the trial
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+      </C4DCardFooter>
+    </C4DCard>
   );
 }
 ```
@@ -173,11 +209,13 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector            | Description |
 | ----------------------- | --------------------------------- | ----------- |
-| `<dds-card>`            | `data-autoid="dds--card"`         | Component   |
-| `<dds-card-eyebrow>`    | `data-autoid="dds--card-eyebrow"` | Component   |
-| `<dds-card-heading>`    | `data-autoid="dds--card-heading"` | Component   |
-| `<dds-card-footer>`     | `data-autoid="dds--card-footer"`  | Component   |
+| `<c4d-card>`            | `data-autoid="c4d--card"`         | Component   |
+| `<c4d-card-eyebrow>`    | `data-autoid="c4d--card-eyebrow"` | Component   |
+| `<c4d-card-heading>`    | `data-autoid="c4d--card-heading"` | Component   |
+| `<c4d-card-footer>`     | `data-autoid="c4d--card-footer"`  | Component   |

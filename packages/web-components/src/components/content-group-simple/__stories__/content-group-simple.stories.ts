@@ -9,8 +9,8 @@
 
 import '../index';
 import '../../cta/index';
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
@@ -28,7 +28,7 @@ const hrefsForType = {
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]:
     'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {
@@ -97,18 +97,18 @@ const items = [
 ];
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => html`
-  <dds-image
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="${ifNonNull(imageHeading)}">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
-  </dds-image>
+    heading="${ifDefined(imageHeading)}">
+    <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </c4d-image-item>
+  </c4d-image>
 `;
 
 export const Default = (args) => {
@@ -119,33 +119,33 @@ export const Default = (args) => {
   } = args?.ContentGroupSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = args?.CardCTA ?? {};
   return html`
-    <dds-content-group-simple>
-      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+    <c4d-content-group-simple>
+      <c4d-content-group-heading>${groupHeading}</c4d-content-group-heading>
+      <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
       ${mediaType === 'Image' ? image({ heading: groupHeading }) : ``}
       ${mediaType === 'Video'
         ? html`
-            <dds-video-player-container
+            <c4d-video-player-container
               slot="media"
-              video-id="1_9h94wo6b"></dds-video-player-container>
+              video-id="0_ibuqxqbe"></c4d-video-player-container>
           `
         : ``}
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
-          <dds-content-item>
-            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-          </dds-content-item>
+          <c4d-content-item>
+            <c4d-content-item-heading>${itemHeading}</c4d-content-item-heading>
+            <c4d-content-item-copy>${itemCopy}</c4d-content-item-copy>
+          </c4d-content-item>
         `
       )}
-      <dds-card-link-cta
+      <c4d-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
-        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
-    </dds-content-group-simple>
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
+        <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+        <c4d-card-cta-footer></c4d-card-cta-footer>
+      </c4d-card-link-cta>
+    </c4d-content-group-simple>
   `;
 };
 
@@ -153,10 +153,10 @@ export default {
   title: 'Components/Content group simple',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">
+            <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
           </div>
         </div>
       </div>

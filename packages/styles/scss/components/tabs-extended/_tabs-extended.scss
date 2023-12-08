@@ -5,276 +5,165 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../link-list/index';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@import 'carbon-components/scss/components/tabs/tabs';
-@import '@carbon/web-components/scss/components/tooltip/tooltip';
-@import 'carbon-components/scss/components/accordion/accordion';
-@import 'carbon-components/scss/components/accordion/keyframes';
+@use 'sass:math';
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/styles/scss/components/tabs/vars' as *;
+@use '../../../../carbon-web-components/src/components/tabs/tabs';
 
 @mixin tabs-extended {
-  :host(#{$dds-prefix}-tabs-extended),
-  :host(#{$dds-prefix}-tabs-extended-media) {
-    .#{$prefix}--tabs {
-      display: none;
+  :host(#{$c4d-prefix}-tabs-extended),
+  :host(#{$c4d-prefix}-tabs-extended-media) {
+    @extend :host(#{$prefix}-tabs);
+  }
 
-      .#{$prefix}--tabs__nav {
-        position: relative;
-        overflow: visible;
-      }
+  :host(#{$c4d-prefix}-tab) {
+    @extend :host(#{$prefix}-tab);
 
-      .#{$prefix}--tabs__nav-item {
-        min-height: $spacing-09;
-        width: calc(100% / (12 / 2) - (#{$spacing-01} / 2));
-        height: auto;
-
-        p {
-          @include carbon--type-style('body-long-01', true);
-        }
-
-        &:hover:not(.bx--tabs__nav-item--disabled) {
-          box-shadow: none;
-        }
-      }
-
-      .#{$prefix}--tabs__nav-item--selected:not(
-          .#{$prefix}--tabs__nav-item--disabled
-        ) {
-        .#{$prefix}--tabs__nav-link,
-        .#{$prefix}--tabs__nav-link:focus,
-        .#{$prefix}--tabs__nav-link:active {
-          border-bottom: rem(2px) solid $border-interactive;
-
-          p {
-            @include type-style('productive-heading-02');
-
-            color: $text-01;
-          }
-        }
-      }
-
-      .#{$prefix}--tabs__nav-link:hover {
-        p {
-          @include type-style('body-short-02');
-
-          color: $text-01;
-        }
-      }
-
-      .#{$prefix}--tabs__nav-link {
-        height: auto;
-        overflow: visible;
-        white-space: normal;
-        background: none;
-        border: initial;
-        border-bottom: rem(2px) solid $ui-03;
-        display: inline-flex;
-        width: 100%;
-        text-align: left;
-
-        &[hasTooltip] {
-          @include tooltip--trigger('definition', top);
-          @include tooltip--placement('definition', 'bottom', 'start');
-
-          &::before,
-          &::after {
-            display: none;
-          }
-
-          &:hover,
-          &:focus {
-            &::before,
-            &::after {
-              display: flex;
-            }
-          }
-
-          &:focus {
-            @include focus-outline('outline');
-          }
-        }
-
-        div {
-          align-self: flex-start;
-        }
-
-        /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
-        p {
-          display: -webkit-box;
-          white-space: normal;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          height: 100%;
-          line-height: 1.375rem;
-          hyphens: auto;
-
-          @include type-style('body-short-02');
-        }
-        /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
-      }
-
-      @include carbon--breakpoint(lg) {
-        display: block;
-      }
-    }
-
-    .#{$prefix}--tab-content {
-      @include carbon--type-style('body-long-02', true);
-
-      padding: 0;
-      display: none;
-
-      @include carbon--breakpoint(lg) {
-        display: block;
-      }
-    }
-
-    // Add "Vertical" orientation styling.
-    .#{$prefix}--tabs-extended--vertical {
+    .#{$prefix}--tabs__nav-link {
       display: flex;
-      flex-wrap: wrap;
-
-      .#{$prefix}--tabs {
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(3, 16);
-        }
-
-        .#{$prefix}--tabs__nav {
-          @include carbon--breakpoint(md) {
-            flex-direction: column;
-          }
-        }
-
-        .#{$prefix}--tabs__nav-link {
-          width: auto;
-          padding: 0;
-          border-bottom: rem(2px) solid transparent;
-        }
-
-        .#{$prefix}--tabs__nav-item {
-          width: max-content;
-          max-width: calc(100% - #{$spacing-06});
-          min-height: rem(26px);
-          margin-top: $spacing-06;
-        }
-      }
-
-      .#{$prefix}--accordion {
-        flex: 0 0 1;
-      }
-
-      .#{$prefix}--tab-content {
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(12, 16);
-          @include carbon--make-col-offset(1, 16);
-        }
-      }
+      height: $spacing-08;
+      font-size: $spacing-05;
     }
 
-    .#{$prefix}--accordion {
-      display: block;
-      @include carbon--breakpoint(lg) {
-        display: none;
-      }
-    }
+    &[selected] {
+      .#{$prefix}--tabs__nav-link {
+        @include type-style('heading-compact-01');
 
-    .#{$prefix}--accordion__heading {
-      justify-content: space-between;
-      z-index: 0;
-    }
-
-    .#{$prefix}--accordion__title {
-      max-width: rem(640px);
-      margin-right: $spacing-07;
-    }
-
-    .#{$prefix}--accordion__content {
-      p {
-        @include carbon--type-style('body-long-02', true);
+        border-bottom: $spacing-01 solid $border-interactive;
       }
     }
   }
 
-  @media print {
-    :host(#{$dds-prefix}-tabs-extended),
-    :host(#{$dds-prefix}-tabs-extended-media) {
-      .#{$prefix}--accordion__content {
-        display: block;
-      }
+  :host(#{$c4d-prefix}-tab:hover) {
+    background-color: transparent;
+    box-shadow: 0 -1px 0 $background-hover;
+
+    a.#{$prefix}--tabs__nav-link {
+      border-bottom: $tab-underline-color-hover;
+      color: $text-primary;
     }
   }
-}
 
-@include exports('tabs-extended') {
-  @include tabs-extended;
-}
+  :host(#{$c4d-prefix}-tab[disabled][role]),
+  :host(#{$c4d-prefix}-tab[disabled][role]:hover) {
+    background-color: transparent;
+    box-shadow: none;
+    cursor: not-allowed;
+    outline: none;
 
-button.#{$prefix}--tabs__nav-link {
-  @include focus-outline('reset');
-
-  display: inline-block;
-  overflow: hidden;
-  width: calc(100% - #{$spacing-07});
-  height: rem(40px);
-  padding: $spacing-04 0;
-  border-bottom: 1px solid $ui-03;
-  margin: 0 $spacing-05;
-  color: $text-02;
-  font-weight: 400;
-  line-height: $spacing-05;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  transition: border $duration--fast-01 motion(standard, productive),
-    outline $duration--fast-01 motion(standard, productive);
-  white-space: nowrap;
-
-  &:focus,
-  &:active {
-    @include focus-outline('outline');
-
-    width: 100%;
-    padding-left: $spacing-05;
-    margin: 0;
+    .#{$prefix}--tabs__nav-link {
+      color: $tab-text-disabled;
+      pointer-events: none;
+      outline: none;
+      border-bottom: $tab-underline-disabled;
+    }
   }
 
-  @include carbon--breakpoint(md) {
-    width: rem(160px);
-    padding: $spacing-04 $spacing-05 $spacing-03;
-    border-bottom: $tab-underline-color;
-    margin: 0;
-    line-height: inherit;
+  :host(#{$c4d-prefix}-tab[selected]) {
+    display: flex;
+    background-color: transparent;
 
+    .#{$prefix}--tabs__nav-link {
+      @include type-style('heading-01');
+      font-size: $spacing-05;
+    }
+
+    transition: color $duration-fast-01 motion(standard, productive);
+
+    .#{$prefix}--tabs__nav-link {
+      &,
+    // Need to override core Carbon's non-selected focus color
     &:focus,
     &:active {
-      width: rem(160px);
-      border-bottom: rem(2px);
+        color: $text-primary;
+      }
     }
   }
-}
 
-.#{$prefix}--tabs--container button.#{$prefix}--tabs__nav-link {
-  @include carbon--breakpoint(md) {
-    height: rem(48px);
-    padding: $spacing-03 $spacing-05;
-    border-bottom: none;
+  // Disabled tab never gets selected, but we guard for manual addition of `selected` attribute
+  :host(#{$c4d-prefix}-tab[disabled][selected]),
+  :host(#{$c4d-prefix}-tab[disabled][selected]:hover),
+  :host(#{$c4d-prefix}-tab[disabled][in-focus][selected]),
+  :host(#{$c4d-prefix}-tab[disabled][in-focus][selected]:hover) {
+    display: flex;
+    background-color: transparent;
+    box-shadow: none;
+
+    @include focus-outline('reset');
+
+    .#{$prefix}--tabs__nav-link {
+      @include type-style('body-short-01');
+
+      color: $tab-text-disabled;
+      border-bottom: $tab-underline-disabled;
+
+      &:focus,
+      &:active {
+        border-bottom-width: to-rem(3px);
+      }
+    }
   }
-}
 
-.#{$prefix}--tabs__nav-item--disabled button.#{$prefix}--tabs__nav-link:active {
-  border-bottom: $tab-underline-disabled;
-  outline: none;
-}
+  :host(#{$c4d-prefix}-tabs-extended[type='contained']) {
+    @extend :host(#{$prefix}-tabs[type='contained']);
+  }
 
-.#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(
-    .#{$prefix}--tabs__nav-item--disabled
-  ):not(.#{$prefix}--tabs__nav-item--selected)
-  button.#{$prefix}--tabs__nav-link:active {
-  color: $text-02;
-}
+  :host(#{$c4d-prefix}-tab[type='contained']) {
+    background-color: $layer-accent-01;
 
-.#{$prefix}--accordion__title {
-  hyphens: auto;
+    a.#{$prefix}--tabs__nav-link {
+      height: $spacing-09;
+      padding: 0 $spacing-05;
+      font-size: $spacing-05;
+    }
+  }
+
+  :host(#{$c4d-prefix}-tab[type='contained']),
+  :host(#{$c4d-prefix}-tab[type='contained']:hover) {
+    a.#{$prefix}--tabs__nav-link {
+      border-bottom: none;
+      // Draws the border without affecting the inner-content
+      box-shadow: to-rem(-1px) 0 0 0 $border-strong;
+    }
+  }
+
+  :host(#{$c4d-prefix}-tab[type='contained'][hide-divider])
+    a.#{$prefix}--tabs__nav-link {
+    box-shadow: to-rem(-1px) 0 0 0 transparent;
+  }
+
+  :host(#{$c4d-prefix}-tab[type='contained'][disabled][role])
+    .#{$prefix}--tabs__nav-link {
+    background-color: $button-disabled;
+    border-bottom: none;
+    color: $text-on-color-disabled;
+  }
+
+  :host(#{$c4d-prefix}-tab[type='contained'][selected]),
+  :host(#{$c4d-prefix}-tab[type='contained'][selected]:hover) {
+    background-color: $layer-01;
+
+    .#{$prefix}--tabs__nav-link {
+      // Draws the border without affecting the inner-content
+      box-shadow: inset 0 $spacing-01 0 0 $interactive;
+      border-bottom: none;
+    }
+
+    .#{$prefix}--tabs__nav-link:focus,
+    .#{$prefix}--tabs__nav-link:active {
+      box-shadow: none;
+    }
+  }
+
+  :host(#{$c4d-prefix}-tab[type='contained']:hover) {
+    background-color: $layer-accent-hover;
+  }
 }

@@ -7,28 +7,30 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, css } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { css, html } from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentItem from '../content-item/content-item';
+import C4DContentItem from '../content-item/content-item';
 import styles from './content-block-headlines.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Content Block Headlines item
  *
- * @element dds-content-block-headlines-item
+ * @element c4d-content-block-headlines-item
  */
-@customElement(`${ddsPrefix}-content-block-headlines-item`)
-class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
+@customElement(`${c4dPrefix}-content-block-headlines-item`)
+class C4DContentBlockHeadlinesItem extends StableSelectorMixin(C4DContentItem) {
   render() {
     return html`
-      <h4 class="bx--content-block-headlines__heading">
+      <h4 class="cds--content-block-headlines__heading">
         <slot name="heading"></slot>
       </h4>
-      <p class="bx--content-block-headlines__copy"><slot name="copy"></slot></p>
+      <p class="cds--content-block-headlines__copy">
+        <slot name="copy"></slot>
+      </p>
       <slot name="footer"></slot>
     `;
   }
@@ -41,8 +43,8 @@ class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-block-headlines-item`;
+    return `${c4dPrefix}--content-block-headlines-item`;
   }
 }
 
-export default DDSContentBlockHeadlinesItem;
+export default C4DContentBlockHeadlinesItem;

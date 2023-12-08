@@ -1,17 +1,14 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/generated/container';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/generated/icon-size';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/styles';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-family';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/scale';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
+@use '@carbon/styles/scss/theme' as *;
 
 /// Carbon core original size tokens.
 /// Used to theme-zone from expressive back to productive, and thus defines only items that expressive version defines.
@@ -21,21 +18,21 @@
 $carbon-productive-size-tokens: (
   container-01: $carbon--container-01,
   container-02: $carbon--container-02,
-  container-03: $carbon--container-03,
+  $spacing-09: $carbon--$spacing-09,
   container-04: $carbon--container-04,
   container-05: $carbon--container-05,
   icon-size-01: $carbon--icon-size-01,
 );
 
-/// DDS version of size tokens.
+/// C4D version of size tokens.
 /// @type Map
 /// @access public
 /// @group carbon-expressive
 $carbon-expressive-size-tokens: (
-  container-01: 2rem,
-  container-02: 2.5rem,
-  container-03: 3rem,
-  container-04: 3rem,
+  container-01: $spacing-07,
+  container-02: $spacing-08,
+  $spacing-09: $spacing-09,
+  container-04: $spacing-09,
   container-05: 4.5rem,
   icon-size-01: 1.25rem,
 );
@@ -47,134 +44,134 @@ $carbon-expressive-size-tokens: (
 /// @access public
 /// @group carbon-expressive
 $carbon-productive-type-tokens: (
-  body-short-01: (
+  body-compact-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
-  body-long-01: (
+  body-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.16px,
   ),
   label-01: (
     font-size: carbon--type-scale(1),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(16px),
+    line-height: $spacing-05,
     letter-spacing: 0.32px,
   ),
   caption-01: (
     font-size: carbon--type-scale(1),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(16px),
+    line-height: $spacing-05,
     letter-spacing: 0.32px,
   ),
   code-01: (
-    font-family: carbon--font-family('mono'),
+    font-family: font-family('mono'),
     font-size: carbon--type-scale(1),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(16px),
+    line-height: $spacing-05,
     letter-spacing: 0.32px,
   ),
   code-02: (
-    font-family: carbon--font-family('mono'),
+    font-family: font-family('mono'),
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.32px,
   ),
   helper-text-01: (
     font-size: carbon--type-scale(1),
-    line-height: carbon--rem(16px),
+    line-height: $spacing-05,
     letter-spacing: 0.32px,
   ),
   heading-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
-  productive-heading-01: (
+  heading-compact-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
-  expressive-heading-01: (
+  heading-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.16px,
   ),
 );
 
-/// DDS version of type tokens.
+/// C4D version of type tokens.
 /// @type Map
 /// @access public
 /// @group carbon-expressive
 $carbon-expressive-type-tokens: (
-  body-short-01: (
+  body-compact-01: (
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(22px),
+    line-height: to-rem(22px),
     letter-spacing: 0,
   ),
-  body-long-01: (
+  body-01: (
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(24px),
+    line-height: $spacing-06,
     letter-spacing: 0,
   ),
   label-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   caption-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   code-01: (
-    font-family: carbon--font-family('mono'),
+    font-family: font-family('mono'),
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0,
   ),
   code-02: (
-    font-family: carbon--font-family('mono'),
+    font-family: font-family('mono'),
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(24px),
+    line-height: $spacing-06,
     letter-spacing: 0,
   ),
   helper-text-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   heading-01: (
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(22px),
+    line-height: to-rem(22px),
     letter-spacing: 0,
   ),
-  productive-heading-01: (
+  heading-compact-01: (
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(22px),
+    line-height: to-rem(22px),
     letter-spacing: 0,
   ),
-  expressive-heading-01: (
+  heading-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.16px,
   ),
 ) !default;
@@ -197,18 +194,18 @@ $carbon-productive-component-tokens: (
     ),
   button-field-height:
     var(
-      --#{$custom-property-prefix}-container-03,
-      map-get($carbon-productive-size-tokens, 'container-03')
+      --#{$custom-property-prefix}-$spacing-09,
+      map-get($carbon-productive-size-tokens, '$spacing-09')
     ),
   input-height:
     var(
-      --#{$custom-property-prefix}-container-03,
-      map-get($carbon-productive-size-tokens, 'container-03')
+      --#{$custom-property-prefix}-$spacing-09,
+      map-get($carbon-productive-size-tokens, '$spacing-09')
     ),
   tab-height:
     var(
-      --#{$custom-property-prefix}-container-03,
-      map-get($carbon-productive-size-tokens, 'container-03')
+      --#{$custom-property-prefix}-$spacing-09,
+      map-get($carbon-productive-size-tokens, '$spacing-09')
     ),
   tab-container-height:
     var(
@@ -217,7 +214,7 @@ $carbon-productive-component-tokens: (
     ),
 ) !default;
 
-/// DDS version of component tokens.
+/// C4D version of component tokens.
 /// @type Map
 /// @access public
 /// @group carbon-expressive
@@ -234,18 +231,18 @@ $carbon-expressive-component-tokens: (
     ),
   button-field-height:
     var(
-      --#{$custom-property-prefix}-container-03,
-      map-get($carbon-expressive-size-tokens, 'container-03')
+      --#{$custom-property-prefix}-$spacing-09,
+      map-get($carbon-expressive-size-tokens, '$spacing-09')
     ),
   input-height:
     var(
-      --#{$custom-property-prefix}-container-03,
-      map-get($carbon-expressive-size-tokens, 'container-03')
+      --#{$custom-property-prefix}-$spacing-09,
+      map-get($carbon-expressive-size-tokens, '$spacing-09')
     ),
   tab-height:
     var(
-      --#{$custom-property-prefix}-container-03,
-      map-get($carbon-expressive-size-tokens, 'container-03')
+      --#{$custom-property-prefix}-$spacing-09,
+      map-get($carbon-expressive-size-tokens, '$spacing-09')
     ),
   tab-container-height:
     var(
@@ -315,11 +312,11 @@ $carbon-expressive-component-tokens: (
     --#{$custom-property-prefix}-container-02,
     map-get($carbon-expressive-size-tokens, 'container-02')
   ) !global;
-  $container-03: var(
-    --#{$custom-property-prefix}-container-03,
-    map-get($carbon-expressive-size-tokens, 'container-03')
+  $spacing-09: var(
+    --#{$custom-property-prefix}-$spacing-09,
+    map-get($carbon-expressive-size-tokens, '$spacing-09')
   ) !global;
-  $container-04: var(
+  $spacing-09: var(
     --#{$custom-property-prefix}-container-04,
     map-get($carbon-expressive-size-tokens, 'container-04')
   ) !global;
@@ -335,16 +332,13 @@ $carbon-expressive-component-tokens: (
   ) !global;
 
   // Type tokens
-  // For type tokens, Carbon emits CSS custom properties via `@mixin carbon--type-style`
+  // For type tokens, Carbon emits CSS custom properties via `@mixin type-style`
   // Ref: https://github.com/carbon-design-system/carbon/blob/v10.15.0/packages/type/scss/_styles.scss#L705
-  $body-short-01: map-get(
+  $body-compact-01: map-get(
     $carbon-expressive-type-tokens,
-    'body-short-01'
+    'body-compact-01'
   ) !global;
-  $body-long-01: map-get(
-    $carbon-expressive-type-tokens,
-    'body-long-01'
-  ) !global;
+  $body-01: map-get($carbon-expressive-type-tokens, 'body-01') !global;
   $label-01: map-get($carbon-expressive-type-tokens, 'label-01') !global;
   $caption-01: map-get($carbon-expressive-type-tokens, 'caption-01') !global;
   $code-01: map-get($carbon-expressive-type-tokens, 'code-01') !global;
@@ -354,17 +348,14 @@ $carbon-expressive-component-tokens: (
     'helper-text-01'
   ) !global;
   $heading-01: map-get($carbon-expressive-type-tokens, 'heading-01') !global;
-  $productive-heading-01: map-get(
+  $heading-compact-01: map-get(
     $carbon-expressive-type-tokens,
-    'productive-heading-01'
+    'heading-compact-01'
   ) !global;
-  $expressive-heading-01: map-get(
-    $carbon-expressive-type-tokens,
-    'expressive-heading-01'
-  ) !global;
+  $heading-01: map-get($carbon-expressive-type-tokens, 'heading-01') !global;
 
   // Ensures `$carbon--theme` and `$carbon--theme--themename` are in sync to:
-  // 1) Ensure `@include carbon--theme()` call in `_theme-tokens.scss` picks up correct type token values.
+  // 1) Ensure `@include theme()` call in `_theme-tokens.scss` picks up correct type token values.
   //    Ref: https://unpkg.com/browse/@carbon/themes@10.12.0/scss/generated/_mixins.scss
   // 2) Ensure the comparison in `@function get-token-value` works.
   //    Ref: https://github.com/carbon-design-system/carbon/blob/v10.11.0/packages/components/src/globals/scss/_component-tokens.scss#L28
@@ -374,105 +365,105 @@ $carbon-expressive-component-tokens: (
       caption-01: $caption-01,
       label-01: $label-01,
       helper-text-01: $helper-text-01,
-      body-short-01: $body-short-01,
-      body-long-01: $body-long-01,
+      body-compact-01: $body-compact-01,
+      body-01: $body-01,
       code-01: $code-01,
       code-02: $code-02,
       heading-01: $heading-01,
-      productive-heading-01: $productive-heading-01,
-      expressive-heading-01: $expressive-heading-01,
+      heading-compact-01: $heading-compact-01,
+      heading-01: $heading-01,
       container-01: $container-01,
       container-02: $container-02,
-      container-03: $container-03,
-      container-04: $container-04,
+      $spacing-09: $spacing-09,
+      container-04: $spacing-09,
       container-05: $container-05,
       icon-size-01: $icon-size-01,
     )
   ) !global;
 
-  $carbon--theme--white: map-merge(
-    $carbon--theme--white,
+  $white: map-merge(
+    $white,
     (
       caption-01: $caption-01,
       label-01: $label-01,
       helper-text-01: $helper-text-01,
-      body-short-01: $body-short-01,
-      body-long-01: $body-long-01,
+      body-compact-01: $body-compact-01,
+      body-01: $body-01,
       code-01: $code-01,
       code-02: $code-02,
       heading-01: $heading-01,
-      productive-heading-01: $productive-heading-01,
-      expressive-heading-01: $expressive-heading-01,
+      heading-compact-01: $heading-compact-01,
+      heading-01: $heading-01,
       container-01: $container-01,
       container-02: $container-02,
-      container-03: $container-03,
-      container-04: $container-04,
+      $spacing-09: $spacing-09,
+      container-04: $spacing-09,
       container-05: $container-05,
       icon-size-01: $icon-size-01,
     )
   ) !global;
 
-  $carbon--theme--g10: map-merge(
-    $carbon--theme--g10,
+  $g10: map-merge(
+    $g10,
     (
       caption-01: $caption-01,
       label-01: $label-01,
       helper-text-01: $helper-text-01,
-      body-short-01: $body-short-01,
-      body-long-01: $body-long-01,
+      body-compact-01: $body-compact-01,
+      body-01: $body-01,
       code-01: $code-01,
       code-02: $code-02,
       heading-01: $heading-01,
-      productive-heading-01: $productive-heading-01,
-      expressive-heading-01: $expressive-heading-01,
+      heading-compact-01: $heading-compact-01,
+      heading-01: $heading-01,
       container-01: $container-01,
       container-02: $container-02,
-      container-03: $container-03,
-      container-04: $container-04,
+      $spacing-09: $spacing-09,
+      container-04: $spacing-09,
       container-05: $container-05,
       icon-size-01: $icon-size-01,
     )
   ) !global;
 
-  $carbon--theme--g90: map-merge(
-    $carbon--theme--g90,
+  $g90: map-merge(
+    $g90,
     (
       caption-01: $caption-01,
       label-01: $label-01,
       helper-text-01: $helper-text-01,
-      body-short-01: $body-short-01,
-      body-long-01: $body-long-01,
+      body-compact-01: $body-compact-01,
+      body-01: $body-01,
       code-01: $code-01,
       code-02: $code-02,
       heading-01: $heading-01,
-      productive-heading-01: $productive-heading-01,
-      expressive-heading-01: $expressive-heading-01,
+      heading-compact-01: $heading-compact-01,
+      heading-01: $heading-01,
       container-01: $container-01,
       container-02: $container-02,
-      container-03: $container-03,
-      container-04: $container-04,
+      $spacing-09: $spacing-09,
+      container-04: $spacing-09,
       container-05: $container-05,
       icon-size-01: $icon-size-01,
     )
   ) !global;
 
-  $carbon--theme--g100: map-merge(
-    $carbon--theme--g100,
+  $g100: map-merge(
+    $g100,
     (
       caption-01: $caption-01,
       label-01: $label-01,
       helper-text-01: $helper-text-01,
-      body-short-01: $body-short-01,
-      body-long-01: $body-long-01,
+      body-compact-01: $body-compact-01,
+      body-01: $body-01,
       code-01: $code-01,
       code-02: $code-02,
       heading-01: $heading-01,
-      productive-heading-01: $productive-heading-01,
-      expressive-heading-01: $expressive-heading-01,
+      heading-compact-01: $heading-compact-01,
+      heading-01: $heading-01,
       container-01: $container-01,
       container-02: $container-02,
-      container-03: $container-03,
-      container-04: $container-04,
+      $spacing-09: $spacing-09,
+      container-04: $spacing-09,
       container-05: $container-05,
       icon-size-01: $icon-size-01,
     )

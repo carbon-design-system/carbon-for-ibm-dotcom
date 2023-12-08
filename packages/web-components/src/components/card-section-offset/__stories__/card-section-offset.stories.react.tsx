@@ -12,16 +12,16 @@ import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
-import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardSectionOffset from '@carbon/ibmdotcom-web-components/es/components-react/card-section-offset/card-section-offset';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardSectionOffset from '@carbon/ibmdotcom-web-components/es/components-react/card-section-offset/card-section-offset';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import { CTA_TYPE } from '../../cta/defs';
 import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -37,8 +37,9 @@ const ctaTypes = {
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
-  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.DOWNLOAD]:
+    'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {
@@ -49,44 +50,54 @@ const knobNamesForType = {
 };
 
 const defaultCardGroupItem = (
-  <DDSCardGroupItem href="https://example.com">
-    <DDSCardEyebrow>Label</DDSCardEyebrow>
-    <DDSCardHeading>Lorem ipsum dolor sit amet, pro graeco tibique an</DDSCardHeading>
-    <p>Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis democritum ex. Illud ullum graecis</p>
-    <DDSCardCTAFooter slot="footer">
+  <C4DCardGroupItem href="https://example.com">
+    <C4DCardEyebrow>Label</C4DCardEyebrow>
+    <C4DCardHeading>
+      Lorem ipsum dolor sit amet, pro graeco tibique an
+    </C4DCardHeading>
+    <p>
+      Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
+      democritum ex. Illud ullum graecis
+    </p>
+    <C4DCardCTAFooter slot="footer">
       <ArrowRight20 slot="icon" />
-    </DDSCardCTAFooter>
-  </DDSCardGroupItem>
+    </C4DCardCTAFooter>
+  </C4DCardGroupItem>
 );
 
-export const Default = args => {
-  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = args?.CardSectionOffset ?? {};
+export const Default = (args) => {
+  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } =
+    args?.CardSectionOffset ?? {};
   return (
-    <DDSCardSectionOffset>
-      <DDSBackgroundMedia
+    <C4DCardSectionOffset>
+      <C4DBackgroundMedia
         gradient-direction="left-to-right"
         mobile-position="top"
         alt={alt}
-        default-src={defaultSrc}></DDSBackgroundMedia>
-      <DDSContentBlockHeading slot="heading">{heading}</DDSContentBlockHeading>
-      <DDSTextCTA slot="action" icon-placement="right" cta-type={ctaType} download={download} href={href}>
+        default-src={defaultSrc}></C4DBackgroundMedia>
+      <C4DContentBlockHeading slot="heading">{heading}</C4DContentBlockHeading>
+      <C4DTextCTA
+        slot="action"
+        icon-placement="right"
+        cta-type={ctaType}
+        download={download}
+        href={href}>
         {ctaCopy}
-      </DDSTextCTA>
-      <DDSCardGroup slot="card-group" cards-per-row="2">
-        <DDSCardGroupItem empty></DDSCardGroupItem>
+      </C4DTextCTA>
+      <C4DCardGroup slot="card-group" cards-per-row="2">
         {cards}
-      </DDSCardGroup>
-    </DDSCardSectionOffset>
+      </C4DCardGroup>
+    </C4DCardSectionOffset>
   );
 };
 
 export default {
   title: 'Components/Card section offset',
   decorators: [
-    story => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
+    (story) => (
+      <div className="cds--grid">
+        <div className="cds--row">
+          <C4DVideoCTAContainer>{story()}</C4DVideoCTAContainer>
         </div>
       </div>
     ),
@@ -97,15 +108,26 @@ export default {
     knobs: {
       CardSectionOffset: () => {
         const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL);
-        const ctaCopy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
+        const ctaCopy =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable(
+                'Download target (download)',
+                'IBM_Annual_Report_2019.pdf'
+              );
         return {
           heading: 'Aliquam condimentum interdum',
           ctaCopy,
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
           cards: Array.from({
             length: 3,
           }).map(() => defaultCardGroupItem),

@@ -1,21 +1,21 @@
 # `data-table`
 
-## `bx-table-batch-action`
+## `cds-table-batch-action`
 
 ##   `Misc attributes`
 
 ####     `should render with minimum attributes`
 
 ```
-<div class="bx--batch-summary">
-  <p class="bx--batch-summary__para">
-    NaN items selected
+<div class="cds--batch-summary">
+  <p class="cds--batch-summary__para">
+    0 item selected
   </p>
 </div>
-<div class="bx--action-list">
+<div class="cds--action-list">
   <slot>
   </slot>
-  <button class="bx--batch-summary__cancel bx--btn bx--btn--primary">
+  <button class="cds--batch-summary__cancel cds--btn cds--btn--primary">
     <slot name="cancel-button-content">
       Cancel
     </slot>
@@ -27,15 +27,15 @@
 ####     `should render with various attributes`
 
 ```
-<div class="bx--batch-summary">
-  <p class="bx--batch-summary__para">
+<div class="cds--batch-summary">
+  <p class="cds--batch-summary__para">
     3 items selected
   </p>
 </div>
-<div class="bx--action-list">
+<div class="cds--action-list">
   <slot>
   </slot>
-  <button class="bx--batch-summary__cancel bx--btn bx--btn--primary">
+  <button class="cds--batch-summary__cancel cds--btn cds--btn--primary">
     <slot name="cancel-button-content">
       Cancel
     </slot>
@@ -47,15 +47,15 @@
 ####     `should render non-plural selected rows count`
 
 ```
-<div class="bx--batch-summary">
-  <p class="bx--batch-summary__para">
+<div class="cds--batch-summary">
+  <p class="cds--batch-summary__para">
     1 item selected
   </p>
 </div>
-<div class="bx--action-list">
+<div class="cds--action-list">
   <slot>
   </slot>
-  <button class="bx--batch-summary__cancel bx--btn bx--btn--primary">
+  <button class="cds--batch-summary__cancel cds--btn cds--btn--primary">
     <slot name="cancel-button-content">
       Cancel
     </slot>
@@ -64,7 +64,7 @@
 
 ```
 
-## `bx-table-header-cell`
+## `cds-table-header-cell`
 
 ##   `Misc attributes`
 
@@ -80,14 +80,14 @@
 
 ```
 <button
-  class="bx--table-sort"
+  class="cds--table-sort"
   part="sort-button"
   title="
       Name
     "
 >
   <span
-    class="bx--table-header-label"
+    class="cds--table-header-label"
     part="label-text"
   >
     <slot>
@@ -97,7 +97,7 @@
 
 ```
 
-## `bx-table-row`
+## `cds-table-row`
 
 ##   `Misc attributes`
 
@@ -112,12 +112,131 @@
 ####     `should render with various attributes`
 
 ```
+<div class="cds--table-column-checkbox">
+  <cds-checkbox
+    checked=""
+    data-table=""
+    disabled=""
+    hide-label=""
+    label-text="selection-label-foo"
+    name="selection-name-foo"
+    value="selection-value-foo"
+  >
+  </cds-checkbox>
+</div>
+<slot>
+</slot>
+
+```
+
+## `cds-table-toolbar-search`
+
+##   `Misc attributes`
+
+####     `should render with minimum attributes`
+
+```
 <div
-  class="bx--table-column-checkbox"
+  class="cds--search cds--search--lg"
+  tabindex="0"
+>
+  <div class="cds--search-magnifier">
+    <slot name="icon">
+    </slot>
+  </div>
+  <label
+    class="cds--label"
+    for="input"
+    part="label-text"
+  >
+    <slot>
+    </slot>
+  </label>
+  <input
+    autocomplete="off"
+    class="cds--search-input"
+    id="input"
+    part="input"
+    placeholder="Search"
+    role="search"
+  >
+  <button
+    aria-label=""
+    class="cds--search-close cds--search-close--hidden"
+    part="close-button"
+    type="button"
+  >
+  </button>
+</div>
+
+```
+
+####     `should render with various attributes`
+
+```
+<div
+  class="cds--search cds--search--xl"
+  tabindex="-1"
+>
+  <div class="cds--search-magnifier">
+    <slot name="icon">
+    </slot>
+  </div>
+  <label
+    class="cds--label"
+    for="input"
+    part="label-text"
+  >
+    <slot>
+    </slot>
+  </label>
+  <input
+    autocomplete="off"
+    class="cds--search-input"
+    id="input"
+    part="input"
+    placeholder="Search"
+    role="search"
+  >
+  <button
+    aria-label=""
+    class="cds--search-close cds--search-close--hidden"
+    part="close-button"
+    type="button"
+  >
+  </button>
+</div>
+
+```
+
+## `cds-table-expand-row`
+
+##   `Misc attributes`
+
+####     `should render with minimum attributes`
+
+```
+<div class="cds--table-expand">
+  <button class="cds--table-expand__button">
+  </button>
+</div>
+<slot>
+</slot>
+```
+
+####     `should render with various attributes`
+
+```
+<div class="cds--table-expand">
+  <button class="cds--table-expand__button">
+  </button>
+</div>
+<div
+  class="cds--table-column-checkbox"
   part="selection-container"
 >
   <input
-    class="bx--checkbox"
+    class="cds--checkbox"
     disabled=""
     id="selection"
     name="selection-name-foo"
@@ -127,193 +246,25 @@
   >
   <label
     aria-label="selection-label-foo"
-    class="bx--checkbox-label"
+    class="cds--checkbox-label"
     for="selection"
   >
   </label>
-</div>
-<slot>
-</slot>
-
-```
-
-## `bx-table-expand-row`
-
-##   `Misc attributes`
-
-####     `should render with minimum attributes`
-
-```
-<div class="bx--table-expand">
-  <button class="bx--table-expand__button">
-  </button>
-</div>
-<slot>
-</slot>
-
-```
-
-####     `should render with various attributes`
-
-```
-<div class="bx--table-expand">
-  <button class="bx--table-expand__button">
-  </button>
-</div>
-<div
-  class="bx--table-column-checkbox"
-  part="selection-container"
->
-  <input
-    class="bx--checkbox"
+=======
+<div class="cds--table-column-checkbox">
+  <cds-checkbox
+    checked=""
+    data-table=""
     disabled=""
-    id="selection"
+    hide-label=""
+    label-text="selection-label-foo"
     name="selection-name-foo"
-    part="selection"
-    type="checkbox"
     value="selection-value-foo"
   >
-  <label
-    aria-label="selection-label-foo"
-    class="bx--checkbox-label"
-    for="selection"
-  >
-  </label>
+  </cds-checkbox>
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 </div>
 <slot>
 </slot>
-
-```
-
-## `bx-table-toolbar-search`
-
-##   `Misc attributes`
-
-####     `should render with minimum attributes`
-
-```
-<div
-  class="bx--search bx--search--sm"
-  tabindex="0"
->
-  <label
-    class="bx--label"
-    for="input"
-    part="label-text"
-  >
-    <slot>
-    </slot>
-  </label>
-  <input
-    class="bx--search-input"
-    id="input"
-    part="input"
-    role="searchbox"
-  >
-  <button
-    aria-label=""
-    class="bx--search-close bx--search-close--hidden"
-    part="close-button"
-    type="button"
-  >
-  </button>
-</div>
-
-```
-
-####     `should render with various attributes`
-
-```
-<div
-  class="bx--search bx--search--xl"
-  tabindex="-1"
->
-  <label
-    class="bx--label"
-    for="input"
-    part="label-text"
-  >
-    <slot>
-    </slot>
-  </label>
-  <input
-    class="bx--search-input"
-    id="input"
-    part="input"
-    role="searchbox"
-  >
-  <button
-    aria-label=""
-    class="bx--search-close bx--search-close--hidden"
-    part="close-button"
-    type="button"
-  >
-  </button>
-</div>
-
-```
-
-## `Misc attributes`
-
-####   `should render with minimum attributes`
-
-```
-<div
-  class="bx--search bx--search--sm"
-  tabindex="0"
->
-  <label
-    class="bx--label"
-    for="input"
-    part="label-text"
-  >
-    <slot>
-    </slot>
-  </label>
-  <input
-    class="bx--search-input"
-    id="input"
-    part="input"
-    role="searchbox"
-  >
-  <button
-    aria-label=""
-    class="bx--search-close bx--search-close--hidden"
-    part="close-button"
-    type="button"
-  >
-  </button>
-</div>
-```
-
-####   `should render with various attributes`
-
-```
-<div
-  class="bx--search bx--search--xl"
-  tabindex="-1"
->
-  <label
-    class="bx--label"
-    for="input"
-    part="label-text"
-  >
-    <slot>
-    </slot>
-  </label>
-  <input
-    class="bx--search-input"
-    id="input"
-    part="input"
-    role="searchbox"
-  >
-  <button
-    aria-label=""
-    class="bx--search-close bx--search-close--hidden"
-    part="close-button"
-    type="button"
-  >
-  </button>
-</div>
 ```
 

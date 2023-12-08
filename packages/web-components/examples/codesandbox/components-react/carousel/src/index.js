@@ -9,11 +9,10 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import './index.css';
 
 const headingDefault = 'Lorem ipsum dolor sit amet';
@@ -25,23 +24,22 @@ const copyOdd = `
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ copy = copyDefault, heading = headingDefault } = {}) => (
-  <DDSCard href="https://www.ibm.com/standards/carbon">
-    <DDSCardHeading>{heading}</DDSCardHeading>
-    {copy}
-    <DDSCardFooter>
-      <ArrowRight20 slot="icon" />
-    </DDSCardFooter>
-  </DDSCard>
+  <C4DCard href="https://www.ibm.com/standards/carbon" cta-type="local">
+    <C4DCardHeading>{heading}</C4DCardHeading>
+    <p>{copy}</p>
+    <C4DCardFooter>
+    </C4DCardFooter>
+  </C4DCard>
 );
 
 const App = () => (
-  <DDSCarousel>
+  <C4DCarousel>
     <Card />
     <Card copy={copyOdd} />
     <Card />
     <Card copy={copyOdd} />
     <Card />
-  </DDSCarousel>
+  </C4DCarousel>
 );
 
 render(<App />, document.getElementById('root'));

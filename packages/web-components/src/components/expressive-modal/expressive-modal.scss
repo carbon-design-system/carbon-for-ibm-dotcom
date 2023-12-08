@@ -1,82 +1,8 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
-@import '@carbon/web-components/scss/components/modal/modal';
-@import '../../globals/scss/box-sizing';
-
-:host(#{$dds-prefix}-expressive-modal) {
-  @extend :host(#{$prefix}-modal);
-
-  &[open] {
-    @extend :host(#{$prefix}-modal[open]);
-  }
-
-  &[expressive-size='full-width'] {
-    .#{$prefix}--modal-container {
-      max-height: none;
-
-      @include carbon--breakpoint('md') {
-        width: calc(100% - 2rem);
-        height: calc(100% - 2rem);
-      }
-
-      .#{$prefix}--modal-content {
-        padding: 0;
-      }
-    }
-  }
-
-  .#{$prefix}--modal-container {
-    grid-template-rows: 1fr;
-  }
-
-  .#{$prefix}--modal-content {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-  }
-
-  .#{$dds-prefix}-ce--modal__header--with-body {
-    margin-bottom: $spacing-05;
-  }
-
-  .#{$dds-prefix}-ce--modal__body {
-    width: 100%;
-  }
-
-  .#{$dds-prefix}-ce--modal__body--with-footer {
-    margin-bottom: $spacing-09;
-  }
-}
-
-:host(#{$dds-prefix}-expressive-modal-header),
-:host(#{$dds-prefix}-expressive-modal-heading),
-:host(#{$dds-prefix}-expressive-modal-footer) {
-  display: block;
-}
-
-:host(#{$dds-prefix}-expressive-modal-header) {
-  padding: 0;
-}
-
-:host(#{$dds-prefix}-expressive-modal-close-button) {
-  display: inline;
-}
-
-:host(#{$dds-prefix}-expressive-modal-body),
-:host(#{$dds-prefix}-lightbox-media-viewer-body) {
-  @include carbon--type-style('body-long-02');
-}
-
-:host(#{$dds-prefix}-expressive-modal)[mode='lightbox'] {
-  .#{$prefix}--modal-container {
-    @include carbon--breakpoint-down('md') {
-      padding: 0 $spacing-05;
-    }
-  }
-}
+@use '@carbon/ibmdotcom-styles/scss/components/expressive-modal';

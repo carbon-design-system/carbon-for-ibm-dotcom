@@ -12,7 +12,8 @@ import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { withKnobs } from '@storybook/addon-knobs';
-import BXSkipToContent from '../../src/internal/vendor/@carbon/web-components/components-react/skip-to-content/skip-to-content';
+import CDSSkipToContent from '../../src/internal/vendor/@carbon/web-components/components-react/skip-to-content/skip-to-content.js';
+
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
@@ -50,14 +51,14 @@ export const decorators = [
     const result = story();
     const { hasStoryPadding } = parameters;
     const classes = cx({
-      'dds-story-padding': hasStoryPadding,
+      'cds-story-padding': hasStoryPadding,
     });
     return (
       <StrictMode>
         <style>{containerStyles.cssText}</style>
-        <BXSkipToContent href="#main-content">
+        <CDSSkipToContent href="#main-content">
           Skip to main content
-        </BXSkipToContent>
+        </CDSSkipToContent>
         <div
           id="main-content"
           data-floating-menu-container

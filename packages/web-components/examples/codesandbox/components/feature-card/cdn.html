@@ -11,11 +11,10 @@ LICENSE file in the root directory of this source tree.
   <meta charset="UTF-8"/>
   <link rel="stylesheet"
         href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"/>
-  <link rel="stylesheet"
-        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css"/>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-feature-card:not(:defined) {
+    cds-feature-card:not(:defined) {
       display: none;
     }
   </style>
@@ -23,18 +22,18 @@ LICENSE file in the root directory of this source tree.
           src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/feature-card.min.js"></script>
 </head>
 <body>
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-sm-4 bx--col-lg-12">
-      <dds-feature-card href="https://example.com">
-        <dds-image
+<div class="cds--grid">
+  <div class="cds--row">
+    <div class="cds--col-sm-4 cds--col-lg-12">
+      <cds-feature-card href="https://example.com">
+        <cds-image
           slot="image"
           alt="Image alt text"
           default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
         >
-        </dds-image>
-        <dds-card-heading>Lorem ipsum dolor sit amet.</dds-card-heading>
-        <dds-feature-card-footer>
+        </cds-image>
+        <cds-card-heading>Lorem ipsum dolor sit amet.</cds-card-heading>
+        <cds-feature-card-footer>
           <svg
             slot="icon"
             focusable="false"
@@ -48,8 +47,8 @@ LICENSE file in the root directory of this source tree.
             <path
               d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
           </svg>
-        </dds-feature-card-footer>
-      </dds-feature-card>
+        </cds-feature-card-footer>
+      </cds-feature-card>
     </div>
   </div>
 </div>

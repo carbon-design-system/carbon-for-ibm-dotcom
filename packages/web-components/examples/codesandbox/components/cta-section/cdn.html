@@ -12,10 +12,10 @@ LICENSE file in the root directory of this source tree.
   <title>@carbon/ibmdotcom-web-components example</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-cta-section:not(:defined) {
+    cds-cta-section:not(:defined) {
       display: none;
     }
   </style>
@@ -23,21 +23,21 @@ LICENSE file in the root directory of this source tree.
 </head>
 
 <body>
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-lg-12 bx--col-sm-4">
-      <dds-cta-section>
-        <dds-cta-block>
-          <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
-          <dds-content-block-copy
+<div class="cds--grid">
+  <div class="cds--row">
+    <div class="cds--col-lg-12 cds--col-sm-4">
+      <cds-cta-section>
+        <cds-cta-block>
+          <cds-content-block-heading>Curabitur malesuada varius mi eu posuere</cds-content-block-heading>
+          <cds-content-block-copy
           >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis
-            magna.</dds-content-block-copy
+            magna.</cds-content-block-copy
           >
-          <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="https://www.example.com"
-          >Browse tutorials</dds-text-cta
+          <cds-text-cta slot="action" cta-type="local" icon-placement="right" href="https://www.example.com"
+          >Browse tutorials</cds-text-cta
           >
-        </dds-cta-block>
-      </dds-cta-section>
+        </cds-cta-block>
+      </cds-cta-section>
     </div>
   </div>
 </div>

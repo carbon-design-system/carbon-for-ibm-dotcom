@@ -13,7 +13,7 @@
  */
 const _pathDefault = '/iframe.html?id=components-content-group-pictograms--default';
 
-describe('dds-content-group-pictograms | default (desktop)', () => {
+describe('cds-content-group-pictograms | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
@@ -25,13 +25,13 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
   });
 
   it('should load content group heading and copy before the pictograms', () => {
-    cy.get(`dds-pictogram-item`).then(() => {
-      cy.get(`dds-content-group-pictograms`)
-        .find(`dds-content-group-heading`)
+    cy.get(`cds-pictogram-item`).then(() => {
+      cy.get(`cds-content-group-pictograms`)
+        .find(`cds-content-group-heading`)
         .should('be.visible');
 
-      cy.get(`dds-content-group-pictograms`)
-        .find(`dds-content-group-copy`)
+      cy.get(`cds-content-group-pictograms`)
+        .find(`cds-content-group-copy`)
         .should('be.visible');
     });
 
@@ -40,15 +40,15 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
   });
 
   it('should load pictogram item and content', () => {
-    cy.get(`dds-pictogram-item`).each($item => {
+    cy.get(`cds-pictogram-item`).each($item => {
       cy.wrap($item).within(() => {
         cy.get('svg[slot="pictogram"]').should('be.visible');
 
-        cy.get('dds-content-item-heading').should('be.visible');
+        cy.get('cds-content-item-heading').should('be.visible');
 
-        cy.get('dds-content-item-copy').should('be.visible');
+        cy.get('cds-content-item-copy').should('be.visible');
 
-        cy.get('dds-link-with-icon').should('be.visible');
+        cy.get('cds-link-with-icon').should('be.visible');
       });
     });
 
@@ -56,9 +56,9 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
   });
 
   it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
-    cy.get(`dds-pictogram-item`).each($item => {
+    cy.get(`cds-pictogram-item`).each($item => {
       cy.wrap($item).within(() => {
-        cy.get('dds-link-with-icon')
+        cy.get('cds-link-with-icon')
           .shadow()
           .find('a')
           .each($link => {
@@ -86,20 +86,20 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
   });
 });
 
-describe('dds-content-group-pictograms | default (mobile)', () => {
+describe('cds-content-group-pictograms | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
   });
 
   it('should load content group heading and copy before the pictograms', () => {
-    cy.get(`dds-pictogram-item`).then(() => {
-      cy.get(`dds-content-group-pictograms`)
-        .find(`dds-content-group-heading`)
+    cy.get(`cds-pictogram-item`).then(() => {
+      cy.get(`cds-content-group-pictograms`)
+        .find(`cds-content-group-heading`)
         .should('be.visible');
 
-      cy.get(`dds-content-group-pictograms`)
-        .find(`dds-content-group-copy`)
+      cy.get(`cds-content-group-pictograms`)
+        .find(`cds-content-group-copy`)
         .should('be.visible');
     });
 
@@ -108,15 +108,15 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
   });
 
   it('should load pictogram item and content', () => {
-    cy.get(`dds-pictogram-item`).each($item => {
+    cy.get(`cds-pictogram-item`).each($item => {
       cy.wrap($item).within(() => {
         cy.get('svg[slot="pictogram"]').should('be.visible');
 
-        cy.get('dds-content-item-heading').should('be.visible');
+        cy.get('cds-content-item-heading').should('be.visible');
 
-        cy.get('dds-content-item-copy').should('be.visible');
+        cy.get('cds-content-item-copy').should('be.visible');
 
-        cy.get('dds-link-with-icon').should('be.visible');
+        cy.get('cds-link-with-icon').should('be.visible');
       });
     });
 
@@ -124,9 +124,9 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
   });
 
   it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
-    cy.get(`dds-pictogram-item`).each($item => {
+    cy.get(`cds-pictogram-item`).each($item => {
       cy.wrap($item).within(() => {
-        cy.get('dds-link-with-icon')
+        cy.get('cds-link-with-icon')
           .shadow()
           .find('a')
           .each($link => {

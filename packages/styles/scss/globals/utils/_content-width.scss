@@ -5,13 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//Sets the Width and Max-Width of the Card to 90% / carbon--mini-units(80)
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
 
+//Sets the Width and Max-Width of the Card to 90% / carbon--mini-units(80)
 @mixin content-width {
   width: 90%;
   max-width: carbon--mini-units(80);
 
-  @include carbon--breakpoint('md') {
-    width: calc(100% - #{$layout-03});
+  @include breakpoint(md) {
+    width: calc(100% - #{$spacing-07});
   }
 }

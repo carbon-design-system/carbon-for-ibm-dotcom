@@ -10,75 +10,75 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import './index.css';
 
 const App = () => (
-  <DDSCardGroup>
-    <DDSCardGroupItem href="https://example.com">
-      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+  <C4DCardGroup>
+    <C4DCardGroupItem href="https://example.com">
+      <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <DDSCardCTAFooter slot="footer">
+      <C4DCardCTAFooter slot="footer">
         <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
-    </DDSCardGroupItem>
-    <DDSCardGroupItem href="https://example.com">
-      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      </C4DCardCTAFooter>
+    </C4DCardGroupItem>
+    <C4DCardGroupItem href="https://example.com">
+      <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <DDSCardCTAFooter slot="footer">
+      <C4DCardCTAFooter slot="footer">
         <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
-    </DDSCardGroupItem>
-    <DDSCardGroupItem href="https://example.com">
-      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      </C4DCardCTAFooter>
+    </C4DCardGroupItem>
+    <C4DCardGroupItem href="https://example.com">
+      <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <DDSCardCTAFooter slot="footer">
+      <C4DCardCTAFooter slot="footer">
         <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
-    </DDSCardGroupItem>
-    <DDSCardGroupItem href="https://example.com">
-      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      </C4DCardCTAFooter>
+    </C4DCardGroupItem>
+    <C4DCardGroupItem href="https://example.com">
+      <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <DDSCardCTAFooter slot="footer">
+      <C4DCardCTAFooter slot="footer">
         <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
-    </DDSCardGroupItem>
-    <DDSCardGroupItem href="https://example.com">
-      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      </C4DCardCTAFooter>
+    </C4DCardGroupItem>
+    <C4DCardGroupItem href="https://example.com">
+      <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <DDSCardCTAFooter slot="footer">
+      <C4DCardCTAFooter slot="footer">
         <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
-    </DDSCardGroupItem>
-    <DDSCardGroupItem href="https://example.com" colorScheme="inverse">
-      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      </C4DCardCTAFooter>
+    </C4DCardGroupItem>
+    <C4DCardGroupItem href="https://example.com" colorScheme="inverse">
+      <C4DCardHeading>Nunc convallis lobortis</C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <DDSCardCTAFooter slot="footer" colorScheme="inverse">
+      <C4DCardCTAFooter slot="footer" colorScheme="inverse">
         <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
-    </DDSCardGroupItem>
-  </DDSCardGroup>
+      </C4DCardCTAFooter>
+    </C4DCardGroupItem>
+  </C4DCardGroup>
 );
 
 render(<App />, document.getElementById('root'));

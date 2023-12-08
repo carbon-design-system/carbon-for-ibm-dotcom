@@ -31,8 +31,8 @@ const _tests = {
   checkComponentLoad: () => {
     cy.visit(`/${_path}`);
 
-    cy.get('dds-link-list').then(([list]) => {
-      const items = list.querySelectorAll('dds-link-list-item');
+    cy.get('cds-link-list').then(([list]) => {
+      const items = list.querySelectorAll('cds-link-list-item');
       items.forEach(item => {
         cy.get(item)
           .shadow()
@@ -60,7 +60,7 @@ const _tests = {
     let previous, window;
     cy.window()
       .then(win => (window = win))
-      .get('dds-link-list-item')
+      .get('cds-link-list-item')
       .each(([card], i) => {
         if (i !== 0) {
           const cardBox = card.getBoundingClientRect();
@@ -79,7 +79,7 @@ const _tests = {
     let previous, window;
     cy.window()
       .then(win => (window = win))
-      .get('dds-link-list-item')
+      .get('cds-link-list-item')
       .each(([card], i) => {
         if (i !== 0) {
           const cardBox = card.getBoundingClientRect();
@@ -115,7 +115,7 @@ const _tests = {
   },
 };
 
-describe('dds-link-list | default (desktop)', () => {
+describe('cds-link-list | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -126,7 +126,7 @@ describe('dds-link-list | default (desktop)', () => {
   _tests.checkCTATypes();
 });
 
-describe('dds-link-list | default (mobile)', () => {
+describe('cds-link-list | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 780);
   });

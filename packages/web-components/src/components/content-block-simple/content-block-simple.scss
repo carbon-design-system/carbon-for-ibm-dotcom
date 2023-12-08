@@ -5,34 +5,35 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-simple/content-block-simple';
-@import '@carbon/ibmdotcom-styles/scss/components/image/image';
-@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-simple';
+@use '@carbon/ibmdotcom-styles/scss/components/image';
+@use '@carbon/ibmdotcom-styles/scss/components/video-player';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-block-simple) {
+:host(#{$c4d-prefix}-content-block-simple) {
   display: block;
 
-  ::slotted(#{$dds-prefix}-content-block-complementary) {
-    @include carbon--breakpoint-down('lg') {
-      margin: $layout-05 0;
+  ::slotted(#{$c4d-prefix}-content-block-complementary) {
+    @include breakpoint-down(lg) {
+      margin: $spacing-10 0;
     }
   }
 
-  ::slotted(#{$dds-prefix}-card-cta[slot]),
-  ::slotted(#{$dds-prefix}-card-link-cta[slot]) {
+  ::slotted(#{$c4d-prefix}-card-cta[slot]),
+  ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
     width: auto;
   }
 
-  ::slotted(#{$dds-prefix}-card-cta),
-  ::slotted(#{$dds-prefix}-card-link-cta) {
+  ::slotted(#{$c4d-prefix}-card-cta),
+  ::slotted(#{$c4d-prefix}-card-link-cta) {
     width: auto;
     max-width: 320px;
   }
 
   ::slotted([slot='media']) {
-    max-width: rem(640px);
+    max-width: to-rem(640px);
   }
 }

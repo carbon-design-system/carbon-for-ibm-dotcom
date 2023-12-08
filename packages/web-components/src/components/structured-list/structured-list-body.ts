@@ -7,21 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListBody from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-body.js';
-import {} from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import CDSStructuredListBody from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-body.js';
+import {} from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListBody
  *
- * @element dds-structured-list-body
+ * @element c4d-structured-list-body
  */
-@customElement(`${ddsPrefix}-structured-list-body`)
-class DDSStructuredListBody extends BXStructuredListBody {
+@customElement(`${c4dPrefix}-structured-list-body`)
+class C4DStructuredListBody extends CDSStructuredListBody {
   connectedCallback() {
     super.connectedCallback();
   }
@@ -30,4 +30,4 @@ class DDSStructuredListBody extends BXStructuredListBody {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredListBody;
+export default C4DStructuredListBody;

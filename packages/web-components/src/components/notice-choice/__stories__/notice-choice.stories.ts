@@ -10,9 +10,8 @@
 import '../index';
 
 import { select, text } from '@storybook/addon-knobs';
-
 import { action } from '@storybook/addon-actions';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import readme from './README.stories.mdx';
 
 const questionChoices = {
@@ -78,7 +77,7 @@ const props = () => ({
     'https://www.ibm.com/legal'
   ),
   bpidLegalText: text('BPID Legal Text', ''),
-  onChange: action('dds-notice-choice-change'),
+  onChange: action('c4d-notice-choice-change'),
   hideErrorMessages: select('Hide Error Messages', hideErrorMessages, 'false'),
   showLegalNotice: select('Show Legal Notice', showLegalNotices, 'true'),
 });
@@ -99,7 +98,7 @@ export const Default = (args) => {
     hiddenPhone,
   } = args?.NoticeChoice ?? {};
   return html`
-    <dds-notice-choice
+    <c4d-notice-choice
       language="${language}"
       country="${country}"
       question-choices="${questionchoices}"
@@ -112,17 +111,18 @@ export const Default = (args) => {
       bpid-legal-text="${bpidLegalText}"
       .hiddenEmail="${hiddenEmail}"
       .hiddenPhone="${hiddenPhone}"
-      @dds-notice-choice-change=${onChange}></dds-notice-choice>
+      @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };
 
 export default {
-  title: 'Components/Notice Choice',
+  title: 'IBM components/Notice Choice',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-2">
             ${story()}
           </div>
         </div>
@@ -139,7 +139,7 @@ export default {
       default: {
         NoticeChoice: {
           'question-choices': [1, 2],
-          onChange: 'dds-notice-choice-change',
+          onChange: 'c4d-notice-choice-change',
         },
       },
     },

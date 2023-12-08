@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-tag-link', () => {
-  it('should load the default dds-tag-link example', () => {
+describe('cds-tag-link', () => {
+  it('should load the default cds-tag-link example', () => {
     cy.visit('/tag-link');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-tag-link | default');
+    cy.percySnapshot('cds-tag-link | default');
   });
 });

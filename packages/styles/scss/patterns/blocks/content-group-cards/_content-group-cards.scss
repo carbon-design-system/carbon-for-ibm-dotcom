@@ -5,32 +5,32 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../components/link-with-icon/link-with-icon';
+@use 'sass:list';
+
+@use '../../globals/utils/flex-grid' as *;
+@use '../../../components/link-with-icon';
 
 @mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
+  color: $text-primary;
+  background: $background;
 }
 
 @mixin content-group-cards {
   .#{$prefix}--content-group-cards {
     &__row {
-      @include carbon--make-row;
+      @include make-row;
     }
 
     &-item__col {
-      margin-top: $carbon--grid-gutter--condensed / 2;
-      margin-bottom: $carbon--grid-gutter--condensed / 2;
-      @include carbon--make-col-ready;
+      margin-top: list.slash($grid-gutter, 2);
+      margin-bottom: list.slash($grid-gutter, 2);
+      @include make-col-ready;
 
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(8, 16);
+      @include breakpoint(lg) {
+        @include make-col(8, 16);
       }
     }
 
     @include themed-items;
   }
-}
-@include exports('content-group-cards') {
-  @include content-group-cards;
 }

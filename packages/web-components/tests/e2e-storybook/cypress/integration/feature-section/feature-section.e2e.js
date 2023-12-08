@@ -14,7 +14,7 @@
 const _path = '/iframe.html?id=components-feature-section--default';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('dds-feature-section (desktop)', () => {
+describe('cds-feature-section (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
     cy.injectAxe();
@@ -26,13 +26,13 @@ describe('dds-feature-section (desktop)', () => {
   });
 
   it('should have eyebrow, heading, and copy content', () => {
-    cy.get('dds-card-eyebrow')
+    cy.get('cds-card-eyebrow')
       .invoke('text')
       .should('not.be.empty');
-    cy.get('dds-content-block-heading')
+    cy.get('cds-content-block-heading')
       .invoke('text')
       .should('not.be.empty');
-    cy.get('dds-content-item-paragraph')
+    cy.get('cds-content-item-paragraph')
       .invoke('text')
       .should('not.be.empty');
 
@@ -41,7 +41,7 @@ describe('dds-feature-section (desktop)', () => {
 
   it('should have content on the left and image on the right side (media align: right)', () => {
     // content takes the left half
-    cy.get('dds-feature-section')
+    cy.get('cds-feature-section')
       .shadow()
       .find('.bx--feature-section__body')
       .then($content => {
@@ -50,7 +50,7 @@ describe('dds-feature-section (desktop)', () => {
       });
 
     // image takes the right half
-    cy.get('dds-image').then($image => {
+    cy.get('cds-image').then($image => {
       expect($image[0].getBoundingClientRect().left).to.equal(640);
       expect($image[0].getBoundingClientRect().right).to.equal(1280);
     });
@@ -61,7 +61,7 @@ describe('dds-feature-section (desktop)', () => {
   it('should have image on the left and content on the right side (media align: left)', () => {
     cy.visit(`/${_path}&knob-Media%20Alignment=left`);
     // content takes the right half
-    cy.get('dds-feature-section')
+    cy.get('cds-feature-section')
       .shadow()
       .find('.bx--feature-section__body')
       .then($content => {
@@ -70,7 +70,7 @@ describe('dds-feature-section (desktop)', () => {
       });
 
     // image takes the left half
-    cy.get('dds-image').then($image => {
+    cy.get('cds-image').then($image => {
       expect($image[0].getBoundingClientRect().left).to.equal(0);
       expect($image[0].getBoundingClientRect().right).to.equal(640);
     });
@@ -80,17 +80,17 @@ describe('dds-feature-section (desktop)', () => {
 
   it('should have loaded and clickable card link', () => {
     // checks the card link is on the right side
-    cy.get('dds-feature-section-card-link').then($card => {
+    cy.get('cds-feature-section-card-link').then($card => {
       expect($card[0].getBoundingClientRect().right).to.equal(1280 - 16);
     });
 
     // checks the card link has a heading
-    cy.get('dds-feature-section-card-link > dds-card-link-heading')
+    cy.get('cds-feature-section-card-link > cds-card-link-heading')
       .invoke('text')
       .should('not.be.empty');
 
     // checks the entire card link is clickable
-    cy.get('dds-feature-section-card-link > dds-card-cta-footer')
+    cy.get('cds-feature-section-card-link > cds-card-cta-footer')
       .shadow()
       .find('a')
       .then($els => {
@@ -109,7 +109,7 @@ describe('dds-feature-section (desktop)', () => {
   it('should be able to customize card link from local to external', () => {
     cy.visit(`/${_path}&knob-CTA%20type%20(cta-type)=external`);
 
-    cy.get('dds-feature-section-card-link  > dds-card-cta-footer')
+    cy.get('cds-feature-section-card-link  > cds-card-cta-footer')
       .shadow()
       .find('a')
       .then($els => {
@@ -126,7 +126,7 @@ describe('dds-feature-section (desktop)', () => {
   });
 });
 
-describe('dds-feature-section (mobile)', () => {
+describe('cds-feature-section (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
     cy.viewport(320, 780);
@@ -137,7 +137,7 @@ describe('dds-feature-section (mobile)', () => {
 
     let contentRect, imageRect;
 
-    cy.get('dds-feature-section')
+    cy.get('cds-feature-section')
       .shadow()
       .get('.bx--feature-section__body')
       .then(([content]) => {
@@ -161,7 +161,7 @@ describe('dds-feature-section (mobile)', () => {
 
     let contentRect, imageRect;
 
-    cy.get('dds-feature-section')
+    cy.get('cds-feature-section')
       .shadow()
       .get('.bx--feature-section__body')
       .then(([content]) => {
@@ -180,17 +180,17 @@ describe('dds-feature-section (mobile)', () => {
 
   it('should have loaded and clickable card link', () => {
     // checks the card link is on the right side
-    cy.get('dds-feature-section-card-link').then($card => {
+    cy.get('cds-feature-section-card-link').then($card => {
       expect($card[0].getBoundingClientRect().right).to.equal(320);
     });
 
     // checks the card link has a heading
-    cy.get('dds-feature-section-card-link > dds-card-link-heading')
+    cy.get('cds-feature-section-card-link > cds-card-link-heading')
       .invoke('text')
       .should('not.be.empty');
 
     // checks the entire card link is clickable
-    cy.get('dds-feature-section-card-link > dds-card-cta-footer')
+    cy.get('cds-feature-section-card-link > cds-card-cta-footer')
       .shadow()
       .find('a')
       .then($els => {

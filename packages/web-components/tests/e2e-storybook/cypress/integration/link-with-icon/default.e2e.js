@@ -21,7 +21,7 @@ const _path = '/iframe.html?id=components-link-with-icon--default';
  * @type {string}
  * @private
  */
-const _selector = '[data-autoid="dds--link-with-icon"]';
+const _selector = '[data-autoid="cds--link-with-icon"]';
 
 /**
  * Collection of test scenarios.
@@ -125,7 +125,7 @@ const _tests = [
   },
 ];
 
-describe('dds-link-with-icon | default (desktop)', () => {
+describe('cds-link-with-icon | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -133,7 +133,7 @@ describe('dds-link-with-icon | default (desktop)', () => {
   _tests.forEach(test => test());
 });
 
-describe('dds-link-with-icon | default (mobile)', () => {
+describe('cds-link-with-icon | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 720);
   });

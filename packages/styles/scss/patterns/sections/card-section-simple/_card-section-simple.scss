@@ -7,4 +7,4 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/card-section-simple/card-section-simple"
 @warn 'Deprecated scss import for `card-section-simple`, remap to `@carbon/ibmdotcom-styles/scss/components/card-section-simple/card-section-simple`';
-@import '../../../components/card-section-simple/card-section-simple';
+@use '../../../components/card-section-simple';

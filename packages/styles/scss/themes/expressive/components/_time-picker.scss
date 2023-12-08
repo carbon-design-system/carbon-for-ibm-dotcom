@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Time Picker (expressive)
@@ -16,7 +16,7 @@
 /// @group time-picker-expressive
 @mixin time-picker-expressive {
   .#{$prefix}--time-picker__input-field {
-    height: carbon--rem(48px);
-    width: carbon--rem(85px);
+    height: $spacing-09;
+    width: to-rem(85px);
   }
 }

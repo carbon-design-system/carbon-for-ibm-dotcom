@@ -7,23 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { SIDE_NAV_USAGE_MODE } from '../../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import '../left-nav';
-import DDSLeftNavOverlay from '../left-nav-overlay';
+import C4DLeftNavOverlay from '../left-nav-overlay';
 
 const template = (props?) => {
   const { expanded, usageMode } = props ?? {};
   return html`
-    <dds-left-nav
+    <c4d-left-nav
       ?expanded="${expanded}"
-      usage-mode="${ifNonNull(usageMode)}"></dds-left-nav>
-    <dds-left-nav-overlay></dds-left-nav-overlay>
+      usage-mode="${ifDefined(usageMode)}"></c4d-left-nav>
+    <c4d-left-nav-overlay></c4d-left-nav-overlay>
   `;
 };
 
-describe('dds-left-nav', function () {
+describe('c4d-left-nav', function () {
   describe('Toggling', function () {
     it('should hide the overlay if not expanded', async function () {
       render(template(), document.body);
@@ -31,8 +31,8 @@ describe('dds-left-nav', function () {
       expect(
         (
           document.body.querySelector(
-            'dds-left-nav-overlay'
-          ) as DDSLeftNavOverlay
+            'c4d-left-nav-overlay'
+          ) as C4DLeftNavOverlay
         ).active
       ).toBe(false);
     });
@@ -43,8 +43,8 @@ describe('dds-left-nav', function () {
       expect(
         (
           document.body.querySelector(
-            'dds-left-nav-overlay'
-          ) as DDSLeftNavOverlay
+            'c4d-left-nav-overlay'
+          ) as C4DLeftNavOverlay
         ).active
       ).toBe(true);
     });
@@ -58,7 +58,7 @@ describe('dds-left-nav', function () {
       await Promise.resolve();
       // eslint-disable-next-line no-console
       expect(console.warn).toHaveBeenCalledWith(
-        'dds-left-nav supports only `header-nav` for its `usage-mode` attribute or `usageMode` property. The value is ignored:',
+        'c4d-left-nav supports only `header-nav` for its `usage-mode` attribute or `usageMode` property. The value is ignored:',
         SIDE_NAV_USAGE_MODE.REGULAR
       );
     });

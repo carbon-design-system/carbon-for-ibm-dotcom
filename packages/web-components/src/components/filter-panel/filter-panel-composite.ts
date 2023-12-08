@@ -7,45 +7,38 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  LitElement,
-  property,
-  state,
-  TemplateResult,
-  query,
-} from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { html, LitElement, TemplateResult } from 'lit';
+import { property, state, query } from 'lit/decorators.js';
 import Filter from '../../internal/vendor/@carbon/web-components/icons/filter/16.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
-import DDSFilterGroupItem from './filter-group-item';
-import DDSFilterPanelCheckbox from './filter-panel-checkbox';
-import DDSFilterPanelInputSelect from './filter-panel-input-select';
-import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
+import '../../internal/vendor/@carbon/web-components/components/button/button.js';
+import C4DFilterGroupItem from './filter-group-item';
+import C4DFilterPanelCheckbox from './filter-panel-checkbox';
+import C4DFilterPanelInputSelect from './filter-panel-input-select';
+import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
 } from '../../component-mixins/media-query/media-query';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Filter panel composite
  *
- * @element dds-filter-panel-composite
+ * @element c4d-filter-panel-composite
  */
-@customElement(`${ddsPrefix}-filter-panel-composite`)
-class DDSFilterPanelComposite extends MediaQueryMixin(
+@customElement(`${c4dPrefix}-filter-panel-composite`)
+class C4DFilterPanelComposite extends MediaQueryMixin(
   HostListenerMixin(StableSelectorMixin(LitElement)),
   { [MQBreakpoints.LG]: MQDirs.MAX }
 ) {
@@ -59,10 +52,10 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
   protected _handleInputSelectItemStateChange = (event: CustomEvent) => {
     const { value, lastValue, headerValue } = event.detail;
 
-    const { stableSelector } = DDSFilterPanelInputSelectItem;
+    const { stableSelector } = C4DFilterPanelInputSelectItem;
     this._focusElement = `${stableSelector}[value="${value}"]`;
 
-    // Remove the DDSInputSelect (header) value from list to add an inner child instead.
+    // remove the C4DInputSelect (header) value from list to add an inner child instead
     this._selectedValues = this._selectedValues.filter(
       (e) => e !== headerValue
     );
@@ -93,25 +86,25 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
   protected _handleCheckboxStateChange = (event: CustomEvent) => {
     const { value } = event.detail;
 
-    // Toggle checkbox in filter panel modal.
-    this.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`).forEach((e) => {
+    // toggle checkbox in filter panel modal
+    this.querySelectorAll(`${c4dPrefix}-filter-panel-checkbox`).forEach((e) => {
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
-        e.closest(`${ddsPrefix}-filter-group-item`)?.setAttribute('open', '');
+        e.closest(`${c4dPrefix}-filter-group-item`)?.setAttribute('open', '');
 
-        const { stableSelector } = DDSFilterPanelCheckbox;
+        const { stableSelector } = C4DFilterPanelCheckbox;
         this._focusElement = `${stableSelector}[value="${value}"]`;
       }
     });
 
     const filterGroupItems = this.querySelectorAll(
-      `${ddsPrefix}-filter-group-item`
+      `${c4dPrefix}-filter-group-item`
     );
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-group-item`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-group-item`)
       .forEach((filterGroupItem, index) => {
-        if ((filterGroupItem as DDSFilterGroupItem).open) {
-          (filterGroupItems[index] as DDSFilterGroupItem).open = true;
+        if ((filterGroupItem as C4DFilterGroupItem).open) {
+          (filterGroupItems[index] as C4DFilterGroupItem).open = true;
         }
       });
 
@@ -163,20 +156,20 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
   protected _handleInputSelectStateChange = (event: CustomEvent) => {
     const { headerValue } = event.detail;
 
-    const { stableSelector } = DDSFilterPanelInputSelect;
+    const { stableSelector } = C4DFilterPanelInputSelect;
     this._focusElement = `${stableSelector}[header-value="${headerValue}"]`;
 
-    // Toggle checkbox in filter panel modal.
-    this.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(
+    // toggle checkbox in filter panel modal
+    this.querySelectorAll(`${c4dPrefix}-filter-panel-input-select`).forEach(
       (e) => {
         // Capture the element counterpart in Filter Panel Modal.
         if (e.getAttribute('header-value') === headerValue) {
-          const currentGroup = e.closest(`${ddsPrefix}-filter-group-item`);
+          const currentGroup = e.closest(`${c4dPrefix}-filter-group-item`);
           currentGroup?.setAttribute('open', '');
 
           // Clears all other sibling items in the Filter Group
           currentGroup
-            ?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`)
+            ?.querySelectorAll(`${c4dPrefix}-filter-panel-input-select`)
             .forEach((inputSelect) => {
               if (inputSelect === e) return;
               this._selectedValues = this._selectedValues.filter(
@@ -225,18 +218,18 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
     // Handles clear when clearing from the static filter panel modal.
     this._contents.forEach((group) => {
       group
-        .querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`)
+        .querySelectorAll(`${c4dPrefix}-filter-panel-checkbox`)
         .forEach((e) => {
           e.removeAttribute('checked');
         });
       group
-        .querySelectorAll(`${ddsPrefix}-filter-panel-input-select-item`)
+        .querySelectorAll(`${c4dPrefix}-filter-panel-input-select-item`)
         .forEach((e) => {
           e.removeAttribute('selected');
           e.removeAttribute('is-open');
         });
       group
-        .querySelectorAll(`${ddsPrefix}-filter-panel-input-select`)
+        .querySelectorAll(`${c4dPrefix}-filter-panel-input-select`)
         .forEach((e) => {
           e.removeAttribute('selected');
           e.removeAttribute('is-open');
@@ -245,18 +238,18 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
 
     // handles clear when clearing from the filter panel static
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-panel-checkbox`)
       .forEach((e) => {
         e.removeAttribute('checked');
       });
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select-item`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-panel-input-select-item`)
       .forEach((e) => {
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
       });
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-panel-input-select`)
       .forEach((e) => {
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
@@ -354,13 +347,13 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );
     // Calculate initial this._selectedValues. Look at the first node, which is
-    // expected to be <dds-filter-group>.
+    // expected to be <c4d-filter-group>.
     if (this._contents[0] instanceof Element) {
       const items = Array.from(
         this._contents[0].querySelectorAll(
-          `${ddsPrefix}-filter-panel-checkbox[checked],
-            ${ddsPrefix}-filter-panel-input-select[selected],
-            ${ddsPrefix}-filter-panel-input-select-item[selected]`
+          `${c4dPrefix}-filter-panel-checkbox[checked],
+            ${c4dPrefix}-filter-panel-input-select[selected],
+            ${c4dPrefix}-filter-panel-input-select-item[selected]`
         )
       );
       this._selectedValues = items
@@ -417,20 +410,19 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    * content to then be stored in `this._heading` and `this._contents`.
    */
   protected _renderModal = (): TemplateResult => html`
-    <dds-filter-panel-modal
+    <c4d-filter-panel-modal
       ?open=${this.openFilterModal}
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
       <slot @slotchange="${this._handleSlotChange}"></slot>
-    </dds-filter-panel-modal>
+    </c4d-filter-panel-modal>
   `;
 
   protected _renderMobile = (): TemplateResult => html`
-    <button class="bx--filter-button" @click=${this._openModal}>
-      <div class="${prefix}--filter__modal__button">
-        ${this._getComposedHeadingFilterCount()} ${Filter()}
-      </div>
-    </button>
+    <cds-button kind="tertiary" @click=${this._openModal}>
+      ${this._getComposedHeadingFilterCount()} ${Filter({ slot: 'icon' })}
+    </cds-button>
+
     ${this._renderModal()}
   `;
 
@@ -438,11 +430,11 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    * Renders copies of slotted elements into the desktop presentation.
    */
   protected _renderDesktop = (): TemplateResult => html`
-    <dds-filter-panel
+    <c4d-filter-panel
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
       <slot @slotchange="${this._handleSlotChange}"></slot>
-    </dds-filter-panel>
+    </c4d-filter-panel>
   `;
 
   render() {
@@ -478,7 +470,7 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    */
 
   static get eventCheckboxSelect() {
-    return `${ddsPrefix}-checkbox-select`;
+    return `${c4dPrefix}-checkbox-select`;
   }
 
   /**
@@ -486,7 +478,7 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    */
 
   static get eventInputSelectItem() {
-    return `${ddsPrefix}-filter-panel-input-select`;
+    return `${c4dPrefix}-filter-panel-input-select`;
   }
 
   /**
@@ -495,7 +487,7 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    */
 
   static get eventFilterGroupViewAllToggle() {
-    return `${ddsPrefix}-filter-group-view-all-toggle`;
+    return `${c4dPrefix}-filter-group-view-all-toggle`;
   }
 
   /**
@@ -511,7 +503,7 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    */
 
   static get eventInputSelect() {
-    return `${ddsPrefix}-filter-panel-input-select-title`;
+    return `${c4dPrefix}-filter-panel-input-select-title`;
   }
 
   /**
@@ -519,7 +511,7 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    */
 
   static get eventSelectionClear() {
-    return `${ddsPrefix}-selection-clear`;
+    return `${c4dPrefix}-selection-clear`;
   }
 
   /**
@@ -527,15 +519,15 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
    */
 
   static get eventHeadingChange() {
-    return `${ddsPrefix}-filter-panel-heading-change`;
+    return `${c4dPrefix}-filter-panel-heading-change`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-filter-panel-composite`;
+    return `${c4dPrefix}-filter-panel-composite`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelComposite;
+export default C4DFilterPanelComposite;

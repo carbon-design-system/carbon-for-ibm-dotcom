@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/footer/footer-composite';
 
@@ -17,16 +22,16 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSFooterContainer from '@carbon/ibmdotcom-web-components/es/components-react/footer/footer-container';
+import C4DFooterContainer from '@carbon/ibmdotcom-web-components/es/components-react/footer/footer-container';
 
 function App() {
   return (
-    <DDSFooterContainer
+    <C4DFooterContainer
       lang-display='United States - English'
       language-selector-label='Choose a language'
       clear-selection-label='Clear language selection'
       selected-language='English'
-    ></DDSFooterContainer>;
+    ></C4DFooterContainer>;
   );
 }
 ```
@@ -37,10 +42,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector  | Compatibility selector                | Description |
 | ------------------------ | ------------------------------------- | ----------- |
-| `<dds-footer-composite>` | `data-autoid="dds--footer-composite"` | Component   |
+| `<cds-footer-composite>` | `data-autoid="cds--footer-composite"` | Component   |
 
 <Description markdown={contributing} />
