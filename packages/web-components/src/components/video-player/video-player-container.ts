@@ -250,7 +250,7 @@ export const DDSVideoPlayerContainerMixin = <
       videoPlayer.style.setProperty('--native-file-height', `${height}px`);
       videoPlayer.style.setProperty(
         '--native-file-aspect-ratio',
-        `${width / height}`
+        `${width} / ${height}`
       );
 
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
