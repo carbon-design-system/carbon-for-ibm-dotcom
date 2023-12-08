@@ -290,6 +290,12 @@
     }
   }
 
+  :host(#{$c4d-prefix}-filter-group-item:not([open])) {
+    .#{$prefix}--accordion__wrapper {
+      display: none;
+    }
+  }
+
   :host(#{$c4d-prefix}-filter-group-item[open]:not([disabled])) {
     @extend .#{$prefix}--accordion__item--active;
 

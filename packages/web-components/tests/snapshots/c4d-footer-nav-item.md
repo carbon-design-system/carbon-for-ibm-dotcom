@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="cds--footer__link cds--link cds--link--md"
+  class="cds--footer__link cds--link"
   id="link"
   part="link"
   tabindex="0"
@@ -21,7 +21,7 @@
 
 ```
 <a
-  class="cds--footer__link cds--link cds--link--md"
+  class="cds--footer__link cds--link"
   id="link"
   part="link"
   tabindex="0"

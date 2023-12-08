@@ -107,6 +107,8 @@ class CDSAccordionItem extends FocusMixin(LitElement) {
         )
       );
     }
+
+
     const content = this.shadowRoot!.querySelector(
       `.${prefix}--accordion__wrapper`
     ) as HTMLElement;
