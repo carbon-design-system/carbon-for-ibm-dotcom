@@ -14,6 +14,8 @@ import { property, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import FormMixin from '../../globals/mixins/form';
+import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
+import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import styles from './checkbox.scss';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
@@ -86,6 +88,12 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
   disabled = false;
 
   /**
+   * Provide text for the form group for additional help
+   */
+  @property({ type: String, reflect: true, attribute: 'helper-text' })
+  helperText;
+
+  /**
    * Specify whether the checkbox should be present in the DOM,
    * but invisible and uninteractable. Used for data-table purposes.
    */
@@ -124,6 +132,18 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
   readonly = false;
 
   /**
+   * Specify whether the Checkbox is currently invalid
+   */
+  @property({ type: Boolean })
+  invalid = false;
+
+  /**
+   * Provide the text that is displayed when the Checkbox is in an invalid state
+   */
+  @property({ type: String, attribute: 'invalid-text' })
+  invalidText;
+
+  /**
    * Specify a title for the node for the Checkbox
    */
   @property({ attribute: 'title' })
@@ -135,20 +155,53 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
   @property()
   value!: string;
 
+  /**
+   * Specify whether the Checkbox is in a warn state
+   */
+  @property({ type: Boolean })
+  warn = false;
+
+  /**
+   * Provide the text that is displayed when the Checkbox is in a warn state
+   */
+  @property({ type: String, attribute: 'warn-text' })
+  warnText = false;
+
   render() {
     const {
       checked,
       disabled,
+      helperText,
       hideLabel,
       indeterminate,
+      invalid,
+      invalidText,
       labelText,
       name,
       readonly,
       title,
       value,
+      warn,
+      warnText,
       _handleChange: handleChange,
       _handleClick: handleClick,
     } = this;
+
+    const showWarning = !readonly && !invalid && warn;
+    const showHelper = !invalid && !warn;
+
+    const checkboxGroupInstanceId = Math.random().toString(16).slice(2);
+
+    const helperId = !helperText
+      ? undefined
+      : `checkbox-group-helper-text-${checkboxGroupInstanceId}`;
+
+    const helper = helperText
+      ? html` <div id="${helperId}" class="${prefix}--form__helper-text">
+          ${helperText}
+        </div>`
+      : null;
+
     const labelClasses = classMap({
       [`${prefix}--checkbox-label`]: true,
     });
@@ -178,6 +231,25 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
         title="${ifDefined(title)}">
         <span class="${labelTextClasses}"><slot>${labelText}</slot></span>
       </label>
+      <div class="${prefix}--checkbox__validation-msg">
+        ${!readonly && invalid
+          ? html`
+              ${WarningFilled16({
+                class: `${prefix}--checkbox__invalid-icon`,
+              })}
+              <div class="${prefix}--form-requirement">${invalidText}</div>
+            `
+          : undefined}
+        ${showWarning
+          ? html`
+              ${WarningAltFilled16({
+                class: `${prefix}--checkbox__invalid-icon ${prefix}--checkbox__invalid-icon--warning`,
+              })}
+              <div class="${prefix}--form-requirement">${warnText}</div>
+            `
+          : undefined}
+      </div>
+      ${showHelper ? helper : undefined}
     `;
   }
 

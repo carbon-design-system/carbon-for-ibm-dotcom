@@ -23,6 +23,14 @@ $css--plex: true !default;
   @extend .#{$prefix}--checkbox-wrapper--readonly;
 }
 
+:host(#{$prefix}-checkbox:not([readonly])[invalid]) {
+  @extend .#{$prefix}--checkbox-wrapper--invalid;
+}
+
+:host(#{$prefix}-checkbox:not([readonly]):not([invalid])[warn]) {
+  @extend .#{$prefix}--checkbox-wrapper--warning;
+}
+
 :host(#{$prefix}-checkbox[data-table]) {
   margin: 0;
 }
@@ -41,4 +49,7 @@ $css--plex: true !default;
   .#{$prefix}--checkbox-label {
     cursor: default;
   }
+}
+
+:host(#{$prefix}-checkbox-group[data-invalid]) {
 }

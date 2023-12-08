@@ -1,0 +1,169 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2019, 2023
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { prefix } from '../../globals/settings';
+import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
+import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
+import styles from './checkbox.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
+
+/**
+ * Check box.
+ *
+ * @element cds-checkbox
+ * @fires cds-checkbox-changed - The custom event fired after this changebox changes its checked state.
+ * @csspart input The checkbox.
+ * @csspart label The label.
+ */
+@customElement(`${prefix}-checkbox-group`)
+class CDSCheckboxGroup extends LitElement {
+  /**
+   * fieldset `aria-labelledby`
+   */
+  @property({ type: String, reflect: true, attribute: 'aria-labelledby' })
+  ariaLabelledBy;
+
+  /**
+   * Specify whether the form group is currently disabled
+   */
+  @property({ type: Boolean })
+  disabled;
+
+  /**
+   * Provide text for the form group for additional help
+   */
+  @property({ type: String, reflect: true, attribute: 'helper-text' })
+  helperText;
+
+  /**
+   * Specify whether the form group is currently invalid
+   */
+  @property({ type: Boolean, attribute: 'invalid' })
+  invalid;
+
+  /**
+   * Provide the text that is displayed when the form group is in an invalid state
+   */
+  @property({ type: String, reflect: true, attribute: 'invalid-text' })
+  invalidText;
+
+  /**
+   * Provide id for the fieldset <legend> which corresponds to the fieldset
+   * `aria-labelledby`
+   */
+  @property({ type: String, reflect: true, attribute: 'legend-id' })
+  legendId;
+
+  /**
+   * Provide the text to be rendered inside of the fieldset <legend>
+   */
+  @property({ type: String, reflect: true, attribute: 'legend-text' })
+  legendText;
+
+  /**
+   * Whether the CheckboxGroup should be read-only
+   */
+  @property({ type: Boolean, reflect: true })
+  readonly = false;
+
+  /**
+   * Specify whether the form group is currently in warning state
+   */
+  @property({ type: Boolean, reflect: true })
+  warn = false;
+
+  /**
+   * Provide the text that is displayed when the form group is in warning state
+   */
+  @property({ type: String, reflect: true, attribute: 'warn-text' })
+  warnText = '';
+
+  render() {
+    const {
+      ariaLabelledBy,
+      disabled,
+      helperText,
+      invalid,
+      invalidText,
+      legendId,
+      legendText,
+      readonly,
+      warn,
+      warnText,
+    } = this;
+
+    const showWarning = !readonly && !invalid && warn;
+    const showHelper = !invalid && !warn;
+
+    const checkboxGroupInstanceId = Math.random().toString(16).slice(2);
+
+    const helperId = !helperText
+      ? undefined
+      : `checkbox-group-helper-text-${checkboxGroupInstanceId}`;
+
+    const helper = helperText
+      ? html` <div id="${helperId}" class="${prefix}--form__helper-text">
+          ${helperText}
+        </div>`
+      : null;
+
+    const fieldsetClasses = classMap({
+      [`${prefix}--checkbox-group`]: true,
+      [`${prefix}--checkbox-group--readonly`]: readonly,
+      [`${prefix}--checkbox-group--invalid`]: !readonly && invalid,
+      [`${prefix}--checkbox-group--warning`]: showWarning,
+    });
+
+    return html`
+      <fieldset
+        class="${fieldsetClasses}"
+        ?data-invalid=${invalid}
+        ?disabled=${disabled}
+        aria-readonly=${readonly}
+        ?aria-labelledby=${ariaLabelledBy || legendId}
+        ?aria-describedby=${!invalid && !warn && helper ? helperId : undefined}>
+        <legend class="${prefix}--label" id=${legendId || ariaLabelledBy}>
+          ${legendText}
+        </legend>
+        <slot></slot>
+        <div class="${prefix}--checkbox-group__validation-msg">
+          ${!readonly && invalid
+            ? html`
+                ${WarningFilled16({
+                  class: `${prefix}--checkbox__invalid-icon`,
+                })}
+                <div class="${prefix}--form-requirement">${invalidText}</div>
+              `
+            : undefined}
+          ${showWarning
+            ? html`
+                ${WarningAltFilled16({
+                  class: `${prefix}--checkbox__invalid-icon ${prefix}--checkbox__invalid-icon--warning`,
+                })}
+                <div class="${prefix}--form-requirement">${warnText}</div>
+              `
+            : undefined}
+        </div>
+        ${showHelper ? helper : undefined}
+      </fieldset>
+    `;
+  }
+
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
+  static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
+}
+
+export default CDSCheckboxGroup;
