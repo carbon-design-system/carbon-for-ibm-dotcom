@@ -253,6 +253,13 @@
     border-top: 1px solid $layer-accent-01;
     border-bottom: none;
 
+    .#{$prefix}--accordion__wrapper {
+      /* stylelint-disable declaration-no-important */
+      // TODO: see if we can remove. Need important to override accordion inline styles.
+      max-block-size: none !important;
+      /* stylelint-enable declaration-no-important */
+    }
+
     .#{$prefix}--accordion__heading {
       display: flex;
       align-items: center;
@@ -280,6 +287,12 @@
 
     &:last-of-type {
       border-bottom: 1px solid $layer-accent-01;
+    }
+  }
+
+  :host(#{$c4d-prefix}-filter-group-item:not([open])) {
+    .#{$prefix}--accordion__wrapper {
+      display: none;
     }
   }
 

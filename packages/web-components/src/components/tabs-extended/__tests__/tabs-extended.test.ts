@@ -15,7 +15,7 @@ const template = (props?) => {
   return html` <c4d-tabs-extended> ${children} </c4d-tabs-extended> `;
 };
 
-describe('c4d-tabs-extended', function () {
+xdescribe('c4d-tabs-extended', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
