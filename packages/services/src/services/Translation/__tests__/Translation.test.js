@@ -85,7 +85,7 @@ describe('TranslationAPI', () => {
       href: 'https://www.loremipsum.com',
     };
     // Expected endpoint called
-    const endpoint = `${process.env.TRANSLATION_HOST}/common/carbon-for-ibm-dotcom/translations/masthead-footer`;
+    const endpoint = `${process.env.TRANSLATION_HOST}/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1`;
     const fetchUrl = `${endpoint}/usen.json`;
 
     const response = await TranslationAPI.getTranslation({

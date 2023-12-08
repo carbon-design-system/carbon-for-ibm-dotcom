@@ -57,6 +57,9 @@
   >
   </dds-locale-search>
 </dds-locale-modal>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 ```
 
