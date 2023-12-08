@@ -145,9 +145,16 @@ const renderBodyCell = (
     case CELL_TYPES.TEXT:
       return html`
         <dds-pricing-table-cell>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
-          magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere
-          sem vel euismod dignissim.
+          <span class="example-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
+            magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere
+            sem vel euismod dignissim.
+          </span>
+          <span class="example-text">
+            Donec metus dui, pharetra sit amet dui eu, posuere imperdiet leo.
+            Mauris vel quam vitae sem tincidunt pharetra. Etiam luctus placerat
+            orci, non ultricies augue.
+          </span>
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
