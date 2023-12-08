@@ -382,7 +382,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           </div>
           <div part='${prefix}--nc__post-text' class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
-
         </div>
         ${this.getBpidLegalText()}
     </section>`;
