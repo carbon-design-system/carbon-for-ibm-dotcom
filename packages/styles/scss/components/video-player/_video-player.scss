@@ -45,6 +45,21 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       height: 100%;
       padding: 0;
     }
+
+    /**
+     * These styles mock `object-fit: cover;` and `object-position: center`.
+     *   - Aspect ratio forces the shape of the element.
+     *   - Min-width/height force the element to cover the entire parent footprint.
+     *   - inset/translate combine to ensure the element is centered over the parent footprint.
+     */
+     ::slotted(.#{$prefix}--video-player__video),
+     .#{$prefix}--video-player__video {
+       aspect-ratio: var(--native-file-aspect-ratio, 16 / 9);
+       min-width: 100%;
+       min-height: 100%;
+       inset: 50% 0 0 50%; // Inset top & left 50% of the parent
+       translate: -50% -50%; // Translate top & left 50% of this
+     }
   }
 
   .#{$prefix}--video-player

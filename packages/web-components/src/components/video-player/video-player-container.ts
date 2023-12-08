@@ -244,6 +244,13 @@ export const DDSVideoPlayerContainerMixin = <
         playerId,
         this._getPlayerOptions(backgroundMode)
       );
+      const { width, height } = await KalturaPlayerAPI.api(videoId);
+      videoPlayer.style.setProperty('--native-file-width', `${width}px`);
+      videoPlayer.style.setProperty('--native-file-height', `${height}px`);
+      videoPlayer.style.setProperty(
+        '--native-file-aspect-ratio',
+        `${width} / ${height}`
+      );
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;
       if (videoEmbed) {
