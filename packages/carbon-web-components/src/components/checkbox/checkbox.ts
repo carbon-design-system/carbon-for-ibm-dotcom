@@ -190,16 +190,8 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
     const showWarning = !readonly && !invalid && warn;
     const showHelper = !invalid && !warn;
 
-    const checkboxGroupInstanceId = Math.random().toString(16).slice(2);
-
-    const helperId = !helperText
-      ? undefined
-      : `checkbox-group-helper-text-${checkboxGroupInstanceId}`;
-
     const helper = helperText
-      ? html` <div id="${helperId}" class="${prefix}--form__helper-text">
-          ${helperText}
-        </div>`
+      ? html` <div class="${prefix}--form__helper-text">${helperText}</div>`
       : null;
 
     const labelClasses = classMap({
@@ -239,7 +231,7 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
               })}
               <div class="${prefix}--form-requirement">${invalidText}</div>
             `
-          : undefined}
+          : null}
         ${showWarning
           ? html`
               ${WarningAltFilled16({
@@ -247,9 +239,9 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
               })}
               <div class="${prefix}--form-requirement">${warnText}</div>
             `
-          : undefined}
+          : null}
       </div>
-      ${showHelper ? helper : undefined}
+      ${showHelper ? helper : null}
     `;
   }
 

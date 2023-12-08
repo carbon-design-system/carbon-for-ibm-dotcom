@@ -8,12 +8,13 @@
  */
 
 import { classMap } from 'lit/directives/class-map.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
+import FormMixin from '../../globals/mixins/form';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
 import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
+import CDSCheckbox from './checkbox';
 import styles from './checkbox.scss';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
@@ -26,7 +27,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @csspart label The label.
  */
 @customElement(`${prefix}-checkbox-group`)
-class CDSCheckboxGroup extends LitElement {
+class CDSCheckboxGroup extends FormMixin(LitElement) {
   /**
    * fieldset `aria-labelledby`
    */
@@ -88,6 +89,44 @@ class CDSCheckboxGroup extends LitElement {
   @property({ type: String, reflect: true, attribute: 'warn-text' })
   warnText = '';
 
+  /*
+   * Handles `slotchange` event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof CDSCheckboxGroup).slugItem
+            )
+          : false
+      );
+
+    this._hasSlug = Boolean(hasContent);
+    (hasContent[0] as HTMLElement).setAttribute('size', 'mini');
+    this.requestUpdate();
+  }
+
+  /**
+   * `true` if there is a slug.
+   */
+  protected _hasSlug = false;
+
+  updated(changedProperties) {
+    const { selectorCheckbox } = this.constructor as typeof CDSCheckboxGroup;
+    const checkboxes = this.querySelectorAll(selectorCheckbox);
+    ['disabled', 'readonly'].forEach((name) => {
+      if (changedProperties.has(name)) {
+        const { [name as keyof CDSCheckboxGroup]: value } = this;
+        // Propagate the property to descendants until `:host-context()` gets supported in all major browsers
+        checkboxes.forEach((elem) => {
+          (elem as CDSCheckbox)[name] = value;
+        });
+      }
+    });
+  }
+
   render() {
     const {
       ariaLabelledBy,
@@ -100,6 +139,8 @@ class CDSCheckboxGroup extends LitElement {
       readonly,
       warn,
       warnText,
+      _hasSlug: hasSlug,
+      _handleSlotChange: handleSlotChange,
     } = this;
 
     const showWarning = !readonly && !invalid && warn;
@@ -122,6 +163,7 @@ class CDSCheckboxGroup extends LitElement {
       [`${prefix}--checkbox-group--readonly`]: readonly,
       [`${prefix}--checkbox-group--invalid`]: !readonly && invalid,
       [`${prefix}--checkbox-group--warning`]: showWarning,
+      [`${prefix}--checkbox-group--slug`]: hasSlug,
     });
 
     return html`
@@ -134,6 +176,7 @@ class CDSCheckboxGroup extends LitElement {
         ?aria-describedby=${!invalid && !warn && helper ? helperId : undefined}>
         <legend class="${prefix}--label" id=${legendId || ariaLabelledBy}>
           ${legendText}
+          <slot name="slug" @slotchange="${handleSlotChange}"></slot>
         </legend>
         <slot></slot>
         <div class="${prefix}--checkbox-group__validation-msg">
@@ -144,7 +187,7 @@ class CDSCheckboxGroup extends LitElement {
                 })}
                 <div class="${prefix}--form-requirement">${invalidText}</div>
               `
-            : undefined}
+            : null}
           ${showWarning
             ? html`
                 ${WarningAltFilled16({
@@ -152,11 +195,18 @@ class CDSCheckboxGroup extends LitElement {
                 })}
                 <div class="${prefix}--form-requirement">${warnText}</div>
               `
-            : undefined}
+            : null}
         </div>
-        ${showHelper ? helper : undefined}
+        ${showHelper ? helper : null}
       </fieldset>
     `;
+  }
+
+  /**
+   * A selector that will return the checkboxes.
+   */
+  static get selectorCheckbox() {
+    return `${prefix}-checkbox`;
   }
 
   static shadowRootOptions = {
