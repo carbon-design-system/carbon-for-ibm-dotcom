@@ -118,7 +118,7 @@ const Default = args => {
       )}
       {hasVideo && (
         <DDSBackgroundMedia mobilePosition="bottom" opacity="100">
-          <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
+          <DDSVideoPlayerContainer video-id="0_ibuqxqbe" background-mode="true"></DDSVideoPlayerContainer>
         </DDSBackgroundMedia>
       )}
     </DDSLeadspace>
@@ -312,7 +312,7 @@ export const Short = args => {
       )}
       {hasVideo && (
         <DDSBackgroundMedia mobilePosition="bottom" opacity="100">
-          <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
+          <DDSVideoPlayerContainer video-id="0_ibuqxqbe" background-mode="true"></DDSVideoPlayerContainer>
         </DDSBackgroundMedia>
       )}
     </DDSLeadspace>

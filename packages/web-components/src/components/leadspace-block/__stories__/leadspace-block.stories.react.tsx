@@ -94,7 +94,7 @@ export const withVideo = args => {
         <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
         <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
         <DDSLeadspaceBlockMedia slot="media">
-          <DDSVideoPlayerContainer video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
+          <DDSVideoPlayerContainer video-id="0_ibuqxqbe"></DDSVideoPlayerContainer>
         </DDSLeadspaceBlockMedia>
         {linkList} {buttonCTA}
       </DDSLeadspaceBlockContent>

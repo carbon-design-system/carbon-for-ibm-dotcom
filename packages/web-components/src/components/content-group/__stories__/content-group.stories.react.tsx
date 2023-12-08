@@ -85,7 +85,7 @@ export const Default = args => {
       {addChildren.includes('Content item with video') ? (
         <DDSContentItem>
           <DDSContentItemHeading>Natural language understanding</DDSContentItemHeading>
-          <DDSVideoPlayerContainer slot="media" video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
+          <DDSVideoPlayerContainer slot="media" video-id="0_ibuqxqbe"></DDSVideoPlayerContainer>
           <DDSContentItemCopy>
             This are of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using
             formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic

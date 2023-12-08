@@ -34,7 +34,7 @@ const images = {
 
 const videos = {
   none: null,
-  'Speed of AI Test Video': '1_9h94wo6b',
+  'Speed of AI Test Video': '0_ibuqxqbe',
 };
 
 export const Default = (args) => {
@@ -108,7 +108,7 @@ Default.story = {
           `,
           title: 'Curabitur malesuada varius mi eu posuere',
           hideCaption: false,
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
           customVideoName: 'Custom video name',
           customVideoDescription: 'This is a custom video description',
         },

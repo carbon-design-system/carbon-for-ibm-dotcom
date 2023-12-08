@@ -17,7 +17,7 @@ import './index.css';
 const App = () => (
   <>
     <DDSButtonExpressive id="open-modal-btn">Open modal</DDSButtonExpressive>
-    <DDSLightboxVideoPlayerContainer id="my-video" video-id="1_9h94wo6b"></DDSLightboxVideoPlayerContainer>
+    <DDSLightboxVideoPlayerContainer id="my-video" video-id="0_ibuqxqbe"></DDSLightboxVideoPlayerContainer>
   </>
 );
 

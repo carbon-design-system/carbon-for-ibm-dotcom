@@ -33,7 +33,7 @@ export const Default = args => {
       ) : (
         ''
       )}
-      {media === 'video' ? <DDSVideoPlayerContainer slot="media" video-id="1_9h94wo6b"></DDSVideoPlayerContainer> : ''}
+      {media === 'video' ? <DDSVideoPlayerContainer slot="media" video-id="0_ibuqxqbe"></DDSVideoPlayerContainer> : ''}
       <DDSContentItemHeading>{heading}</DDSContentItemHeading>
       {showCopy ? <DDSContentItemCopy>{copy}</DDSContentItemCopy> : ''}
       {ctaStyle === 'text' ? (

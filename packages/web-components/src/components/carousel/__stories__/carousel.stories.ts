@@ -128,11 +128,11 @@ export const CardsWithVideos = (args) => {
   });
   return html`
     <dds-carousel class="${classes}">
-      ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '1_9h94wo6b' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
     </dds-carousel>
   `;
@@ -146,7 +146,7 @@ export const CardsWithMedia = (args) => {
   return html`
     <dds-carousel class="${classes}">
       ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '1_9h94wo6b' })}
+      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
       ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
     </dds-carousel>
   `;

@@ -104,7 +104,7 @@ const contentItemTypeMap = {
   media: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
       <dds-video-player-container
-        video-id="1_9h94wo6b"
+        video-id="0_ibuqxqbe"
         aspect-ratio="4x3"
         slot="media"
         hide-caption

@@ -43,7 +43,7 @@ describe('dds-video-cta-composite', function () {
       );
       videoCTAComposite!.dispatchEvent(
         new CustomEvent('dds-cta-run-action', {
-          detail: { ctaType: 'video', href: '1_9h94wo6b' },
+          detail: { ctaType: 'video', href: '0_ibuqxqbe' },
         })
       );
       await Promise.resolve(); // Update cycle for `<dds-video-cta-composite>`
@@ -65,7 +65,7 @@ describe('dds-video-cta-composite', function () {
       ).toBe(true);
       const { videoId: videoIdInVideoPlayerCompositeOpen } =
         lightboxVideoPlayerComposite;
-      expect(videoIdInVideoPlayerCompositeOpen).toBe('1_9h94wo6b');
+      expect(videoIdInVideoPlayerCompositeOpen).toBe('0_ibuqxqbe');
       (
         lightboxRenderRoot.querySelector(
           'dds-expressive-modal-close-button'

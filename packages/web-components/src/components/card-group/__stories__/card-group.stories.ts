@@ -104,19 +104,19 @@ const cardsDiffLengthPhrase = (
     </dds-card-group-item>
   `;
 
-  const videoCardGroupItem = (videoId = '1_9h94wo6b') => html`
+  const videoCardGroupItem = (videoId = '0_ibuqxqbe') => html`
     <dds-card-group-item
       cta-type="video"
       href="${videoId}"
       color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       ${tagGroup ? tagGroupContent : ''}
-      <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+      <dds-card-cta-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
       </dds-card-cta-footer>
     </dds-card-group-item>
   `;
 
-  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
+  const demoVideoIds = ['0_ibuqxqbe', '0_ibuqxqbe', '1_6b6qjovy'];
 
   count = count > 3 ? 0 : count + 1;
   return media && index % 2
@@ -224,14 +224,14 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
       : html`
           <dds-card-group-item
             cta-type="video"
-            href="1_9h94wo6b"
+            href="0_ibuqxqbe"
             color-scheme=${gridMode === 'border' ? 'light' : null}>
             <dds-card-eyebrow>Topic</dds-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
             <dds-card-cta-footer
               cta-type="video"
               slot="footer"
-              href="1_9h94wo6b">
+              href="0_ibuqxqbe">
             </dds-card-cta-footer>
           </dds-card-group-item>
         `;

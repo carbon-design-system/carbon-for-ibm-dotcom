@@ -92,7 +92,7 @@ export const Default = (args) => {
               >
               <dds-video-player-container
                 slot="media"
-                video-id="1_9h94wo6b"></dds-video-player-container>
+                video-id="0_ibuqxqbe"></dds-video-player-container>
               <dds-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic
                 system for a machine to interpret its meaning, using formal

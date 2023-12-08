@@ -223,7 +223,7 @@ export const tocContent = html`
       </dds-content-block-copy>
       <dds-leadspace-block-media slot="media">
         <dds-video-player-container
-          video-id="1_9h94wo6b"></dds-video-player-container>
+          video-id="0_ibuqxqbe"></dds-video-player-container>
       </dds-leadspace-block-media>
       <dds-link-list type="end">
         <dds-link-list-heading>Featured products</dds-link-list-heading>
@@ -296,7 +296,7 @@ export const tocContent = html`
       velit egestas dui.
     </dds-callout-with-media-copy>
     <dds-callout-with-media-video
-      video-id="1_9h94wo6b"></dds-callout-with-media-video>
+      video-id="0_ibuqxqbe"></dds-callout-with-media-video>
   </dds-callout-with-media>
 
   <a name="4" data-title="Tincidunt ornare massa"></a>
@@ -494,7 +494,7 @@ export const StoryContentNoToC = () =>
             facilisis volutpat est velit egestas dui.
           </dds-callout-with-media-copy>
           <dds-callout-with-media-video
-            video-id="1_9h94wo6b"></dds-callout-with-media-video>
+            video-id="0_ibuqxqbe"></dds-callout-with-media-video>
         </dds-callout-with-media>
 
         <dds-content-block-horizontal>

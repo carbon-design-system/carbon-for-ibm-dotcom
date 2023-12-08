@@ -36,7 +36,7 @@ const hrefsForType = {
   [CTA_TYPE.JUMP]: '#example',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {
@@ -120,7 +120,7 @@ export const Default = args => {
       <DDSContentGroupHeading>{groupHeading}</DDSContentGroupHeading>
       <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
       {mediaType === 'Image' ? image({ heading: groupHeading }) : ``}
-      {mediaType === 'Video' ? <DDSVideoPlayerContainer slot="media" video-id="1_9h94wo6b"></DDSVideoPlayerContainer> : ``}
+      {mediaType === 'Video' ? <DDSVideoPlayerContainer slot="media" video-id="0_ibuqxqbe"></DDSVideoPlayerContainer> : ``}
       {items.map(({ heading: itemHeading, copy: itemCopy }) => (
         <DDSContentItem>
           <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>

@@ -113,7 +113,7 @@ export const Default = (args) => {
           <DDSContentBlockCopy size="sm">{blockCopy}</DDSContentBlockCopy>
           <DDSVideoPlayerContainer
             slot="media"
-            video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
+            video-id="0_ibuqxqbe"></DDSVideoPlayerContainer>
           <DDSTextCTA slot="footer" cta-type="jump" href="https://www.ibm.com">
             Jump to AI ethics and trust
           </DDSTextCTA>
