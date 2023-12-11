@@ -3,7 +3,7 @@ name: deploy-next (Deploy storybook environments to Github Pages)
 on:
   push:
     branches:
-      - release/*
+      - release/v2*
 
 concurrency:
   group: deploy-next-${{ github.ref }}
