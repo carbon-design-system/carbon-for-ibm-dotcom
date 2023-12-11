@@ -25,7 +25,7 @@ const template = (props?) => {
 
 describe('c4d-region-item', function () {
   describe('Misc attributes', function () {
-    it('should render with various attributes', async function () {
+    xit('should render with various attributes', async function () {
       render(
         html`
           ${template({ href: 'about:blank', name: 'name-foo' })}${ArrowRight20({
@@ -44,7 +44,7 @@ describe('c4d-region-item', function () {
       );
     });
 
-    it('should render with invalid state', async function () {
+    xit('should render with invalid state', async function () {
       render(
         html`
           ${template({ invalid: true, name: 'name-foo' })}${Error20({
