@@ -61,8 +61,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       aspect-ratio: var(--native-file-aspect-ratio, 16 / 9);
       min-width: 100%;
       min-height: 100%;
-      inset: 50% 0 0 50%; // Inset top & left 50% of the parent
-      translate: -50% -50%; // Translate top & left 50% of this
+      inset: 50% 0 0 50%;
+      translate: -50% -50%;
     }
   }
 
