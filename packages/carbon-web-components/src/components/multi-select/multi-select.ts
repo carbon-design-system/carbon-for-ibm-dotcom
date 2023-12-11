@@ -135,7 +135,11 @@ class CDSMultiSelect extends CDSDropdown {
       }
     } else if (this._clearButtonNode?.contains(event.target as Node)) {
       this._handleUserInitiatedClearInput();
-    } else {
+    } else if (
+      !(event.target as HTMLElement)?.matches(
+        (this.constructor as typeof CDSMultiSelect).slugItem
+      )
+    ) {
       super._handleClickInner(event);
       if (this.filterable) this._filterInputNode.focus();
     }
@@ -288,7 +292,13 @@ class CDSMultiSelect extends CDSDropdown {
     @returns The main content of the trigger button.
    */
   protected _renderLabel(): TemplateResult {
-    const { label, _selectedItemContent: selectedItemContent } = this;
+    const { label, value, _selectedItemContent: selectedItemContent } = this;
+
+    const inputClasses = classMap({
+      [`${prefix}--text-input`]: true,
+      [`${prefix}--text-input--empty`]: !value,
+    });
+
     return !this.filterable
       ? html`
           <span id="trigger-label" class="${prefix}--list-box__label"
@@ -298,7 +308,7 @@ class CDSMultiSelect extends CDSDropdown {
       : html`
           <input
             id="trigger-label"
-            class="${prefix}--text-input"
+            class="${inputClasses}"
             placeholder="${label}"
             role="combobox"
             aria-controls="menu-body"
@@ -465,7 +475,6 @@ class CDSMultiSelect extends CDSDropdown {
       [`${prefix}--multi-select--invalid`]: invalid,
       [`${prefix}--multi-select--warn`]: warn,
       [`${prefix}--multi-select--inline`]: inline,
-      [`${prefix}--list-box--inline`]: inline,
       [`${prefix}--multi-select--readonly`]: readOnly,
       [`${prefix}--multi-select--selected`]: selectedItemsCount > 0,
     });
@@ -507,7 +516,9 @@ class CDSMultiSelect extends CDSDropdown {
   };
 
   shouldUpdate(changedProperties) {
-    const { selectorItem } = this.constructor as typeof CDSMultiSelect;
+    const { selectorItem, slugItem } = this
+      .constructor as typeof CDSMultiSelect;
+    const slug = this.querySelector(slugItem);
     const items = this.querySelectorAll(selectorItem);
 
     const { value, locale } = this;
@@ -536,6 +547,7 @@ class CDSMultiSelect extends CDSDropdown {
           locale,
         });
 
+        slug ? sortedMenuItems.unshift(slug as Node) : '';
         this.replaceChildren(...sortedMenuItems);
       }
     }
@@ -549,6 +561,7 @@ class CDSMultiSelect extends CDSDropdown {
           locale,
         });
 
+        slug ? sortedMenuItems.unshift(slug as Node) : '';
         this.replaceChildren(...sortedMenuItems);
       }
     }
@@ -556,6 +569,7 @@ class CDSMultiSelect extends CDSDropdown {
   }
 
   updated(changedProperties) {
+    super.updated(changedProperties);
     if (changedProperties.has('open') && this.open && !this.filterable) {
       // move focus to menu body when open for non-filterable mulit-select
       this._menuBodyNode.focus();

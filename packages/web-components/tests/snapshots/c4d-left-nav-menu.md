@@ -9,7 +9,7 @@
   <button
     aria-expanded="false"
     aria-haspopup="true"
-    class="bx--side-nav__submenu"
+    class="cds--side-nav__submenu"
     data-attribute1="headerNav"
     data-attribute2="L0"
     data-attribute3=""
@@ -34,7 +34,7 @@
   <button
     aria-expanded="true"
     aria-haspopup="true"
-    class="bx--side-nav__submenu"
+    class="cds--side-nav__submenu"
     data-attribute1="headerNav"
     data-attribute2="L0"
     data-attribute3="title-foo"
