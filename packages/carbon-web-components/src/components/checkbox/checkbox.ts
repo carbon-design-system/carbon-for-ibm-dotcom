@@ -167,6 +167,39 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
   @property({ type: String, attribute: 'warn-text' })
   warnText = false;
 
+  /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof CDSCheckbox).slugItem
+            )
+          : false
+      );
+
+    this._hasSlug = Boolean(hasContent);
+    const type = (hasContent[0] as HTMLElement).getAttribute('kind');
+    (hasContent[0] as HTMLElement).setAttribute(
+      'size',
+      type === 'inline' ? 'md' : 'mini'
+    );
+    this.requestUpdate();
+  }
+
+  /**
+   * `true` if there is a slug.
+   */
+  protected _hasSlug = false;
+
+  updated() {
+    const { _hasSlug: hasSlug } = this;
+    hasSlug ? this.setAttribute('slug', '') : this.removeAttribute('slug');
+  }
+
   render() {
     const {
       checked,
@@ -221,7 +254,10 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
         part="label"
         class="${labelClasses}"
         title="${ifDefined(title)}">
-        <span class="${labelTextClasses}"><slot>${labelText}</slot></span>
+        <span class="${labelTextClasses}"
+          >${labelText}
+          <slot name="slug" @slotchange="${this._handleSlotChange}"></slot
+        ></span>
       </label>
       <div class="${prefix}--checkbox__validation-msg">
         ${!readonly && invalid
@@ -250,6 +286,13 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
    */
   static get eventChange() {
     return `${prefix}-checkbox-changed`;
+  }
+
+  /**
+   * A selector that will return the slug item.
+   */
+  static get slugItem() {
+    return `${prefix}-slug`;
   }
 
   static shadowRootOptions = {

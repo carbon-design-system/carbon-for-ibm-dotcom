@@ -209,6 +209,13 @@ class CDSCheckboxGroup extends FormMixin(LitElement) {
     return `${prefix}-checkbox`;
   }
 
+  /**
+   * A selector that will return the slug item.
+   */
+  static get slugItem() {
+    return `${prefix}-slug`;
+  }
+
   static shadowRootOptions = {
     ...LitElement.shadowRootOptions,
     delegatesFocus: true,

@@ -54,3 +54,20 @@ $css--plex: true !default;
     cursor: default;
   }
 }
+
+:host(#{$prefix}-checkbox-group) {
+  display: flex;
+}
+
+:host(#{$prefix}-checkbox-group) .#{$prefix}--checkbox-group--slug,
+:host(#{$prefix}-checkbox[slug]) {
+  ::slotted(#{$prefix}-slug) {
+    margin-inline-start: $spacing-03;
+  }
+}
+
+:host(#{$prefix}-checkbox[slug]) {
+  .#{$prefix}--checkbox-label-text {
+    display: flex;
+  }
+}
