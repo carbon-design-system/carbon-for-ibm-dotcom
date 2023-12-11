@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
   "description": "Carbon for IBM.com Utilities",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
