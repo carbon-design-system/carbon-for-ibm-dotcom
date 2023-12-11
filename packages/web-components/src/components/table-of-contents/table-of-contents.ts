@@ -862,9 +862,7 @@ class DDSTableOfContents extends HostListenerMixin(
             <div class="${prefix}--tableofcontents__desktop-container">
               <div
                 class="${prefix}--tableofcontents__desktop"
-                style="${pageIsRTL
-                  ? 'right'
-                  : 'left'}: -${currentScrollPosition}px">
+                style="inset-inline-start: -${currentScrollPosition}px">
                 ${pageIsRTL
                   ? html` <div class="${prefix}--sub-content-right"></div> `
                   : html` <div class="${prefix}--sub-content-left"></div> `}
