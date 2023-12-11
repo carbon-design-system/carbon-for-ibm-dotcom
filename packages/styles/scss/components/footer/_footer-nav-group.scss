@@ -80,6 +80,14 @@
     }
   }
 
+  :host(#{$c4d-prefix}-footer-nav-group:not([open])) {
+    @include breakpoint-down(md) {
+      .#{$prefix}--accordion__content {
+        display: none;
+      }
+    }
+  }
+
   :host(#{$c4d-prefix}-footer-nav-item),
   .#{$prefix}--footer-nav-group {
     .#{$prefix}--link {

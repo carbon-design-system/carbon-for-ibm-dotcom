@@ -159,7 +159,10 @@ function getRollupConfig({
         ]
       }),
       litSCSS({
-        includePaths: [path.resolve(__dirname, '../node_modules')],
+        includePaths: [
+          path.resolve(__dirname, '../node_modules'),
+          path.resolve(__dirname, '../../../node_modules'),
+        ],
         async preprocessor(contents, id) {
           return (await postcss(postCSSPlugins).process(contents, { from: id }))
             .css;
