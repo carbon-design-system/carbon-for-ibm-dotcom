@@ -11,7 +11,6 @@ import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import FormMixin from '../../globals/mixins/form';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
 import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import CDSCheckbox from './checkbox';
@@ -27,7 +26,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @csspart label The label.
  */
 @customElement(`${prefix}-checkbox-group`)
-class CDSCheckboxGroup extends FormMixin(LitElement) {
+class CDSCheckboxGroup extends LitElement {
   /**
    * fieldset `aria-labelledby`
    */
