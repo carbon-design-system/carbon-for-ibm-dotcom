@@ -143,15 +143,6 @@
     }
   }
 
-  .#{$prefix}--content-item-row__content-wrapper_with-media {
-    width: 100%;
-    @include breakpoint(lg) {
-      @include make-col(8, 12);
-
-      padding-left: $spacing-04;
-    }
-  }
-
   :host(#{$c4d-prefix}-content-item-row) ::slotted([slot='media']) {
     display: block;
     padding-top: $spacing-07;
@@ -242,20 +233,6 @@
       @include breakpoint(lg) {
         grid-column: 9 / span 4;
       }
-    }
-  }
-
-  :host(#{$c4d-prefix}-content-item-row) .#{$prefix}--content-item__cta {
-    .#{$prefix}--link-list {
-      padding: 0;
-
-      &:first-of-type {
-        padding: 0;
-      }
-    }
-
-    .#{$prefix}--link-list li:last-of-type {
-      margin-bottom: 0;
     }
   }
 
