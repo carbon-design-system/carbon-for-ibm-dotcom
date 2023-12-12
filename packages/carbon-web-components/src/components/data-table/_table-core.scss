@@ -211,23 +211,32 @@
   }
 }
 
+:host(#{$prefix}-table-header-row),
+:host(#{$prefix}-table-row) {
+  .#{$prefix}--table-column-checkbox div,
+  .#{$prefix}--table-expand div {
+    display: flex;
+    height: 100%;
+  }
+}
+
 :host(#{$prefix}-table-header-row[rows-with-slug]) {
   .#{$prefix}--table-column-checkbox,
   .#{$prefix}--table-expand {
     padding-left: $spacing-08;
   }
 }
-:host(#{$prefix}-table-header-row[rows-with-slug])
-  :host(#{$prefix}-table-row[rows-with-slug]) {
+:host(#{$prefix}-table-header-row[rows-with-slug]),
+:host(#{$prefix}-table-row[rows-with-slug]) {
   #{$prefix}-checkbox {
     padding-left: $spacing-03;
   }
 }
 
-:host(#{$prefix}-table-header-row[selection-name][expandable]),
-:host(#{$prefix}-table-row[selection-name][expandable]) {
+:host(#{$prefix}-table-header-row[rows-with-slug][selection-name][expandable]),
+:host(#{$prefix}-table-row[rows-with-slug][selection-name][expandable]) {
   .#{$prefix}--table-column-checkbox {
-    padding-left: $spacing-03;
+    padding-left: 0;
   }
 }
 

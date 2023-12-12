@@ -174,7 +174,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
     const { _handleClickExpando: handleClickExpando } = this;
     return html`
       <div class="${prefix}--table-expand">
-        <div style="display: flex; height: 100%">
+        <div>
           <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
           <button
             class="${prefix}--table-expand__button"
@@ -223,7 +223,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       ? undefined
       : html`
           <div class="${prefix}--table-column-checkbox">
-            <div style="display: flex; height: 100%">
+            <div>
               <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
               ${radio
                 ? html`<cds-radio-button data-table></cds-radio-button>`
