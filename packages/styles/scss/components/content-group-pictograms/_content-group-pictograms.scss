@@ -27,16 +27,5 @@
   div.#{$prefix}--content-group-pictograms {
     padding-left: 0;
     padding-right: 0;
-
-    .#{$prefix}--content-group__title {
-      padding-left: $spacing-05;
-      padding-right: $spacing-05;
-    }
-  }
-
-  .#{$prefix}--content-group-pictograms__item:last-child {
-    .#{$prefix}--content-item {
-      margin-bottom: 0;
-    }
   }
 }
