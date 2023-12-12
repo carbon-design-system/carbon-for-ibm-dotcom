@@ -11,6 +11,10 @@
 @use '../../globals/vars' as *;
 @use '../../../../carbon-web-components/src/components/button/button';
 
+/**
+ * This file is no longer used by the button-group components.
+ * It remains here, temporarily, as a source for other styles to extend & use.
+ */
 @mixin button {
   :host(#{$c4d-prefix}-button) {
     @extend :host(#{$prefix}-button);
