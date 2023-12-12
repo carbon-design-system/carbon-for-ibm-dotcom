@@ -9,13 +9,13 @@
   <c4d-card-group-item
     color-scheme=""
     data-autoid="c4d--card-group-item"
-    pictogram-placement=""
-    size="md"
+    pictogram-placement="bottom"
+    size=""
   >
   </c4d-card-group-item>
   <c4d-card-group
     data-autoid="c4d--card-group"
-    grid-mode="collapsed"
+    grid-mode="default"
   >
   </c4d-card-group>
   <c4d-content-item data-autoid="c4d--content-item">
@@ -72,22 +72,22 @@
   <c4d-card-group-item
     color-scheme=""
     data-autoid="c4d--card-group-item"
-    pictogram-placement=""
-    size="md"
+    pictogram-placement="bottom"
+    size=""
   >
     heading-foo
   </c4d-card-group-item>
   <c4d-card-group
     data-autoid="c4d--card-group"
-    grid-mode="collapsed"
+    grid-mode="default"
     style="--c4d--card-group--cards-in-row: 3;"
   >
     <c4d-card-group-item
       color-scheme=""
       data-autoid="c4d--card-group-item"
       href="https://example.com"
-      pictogram-placement=""
-      size="md"
+      pictogram-placement="bottom"
+      size=""
     >
       <c4d-card-heading
         aria-level="3"
