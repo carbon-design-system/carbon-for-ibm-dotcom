@@ -12,15 +12,4 @@
 @use '../image';
 
 @mixin content-block-simple {
-  .#{$prefix}--content-block-simple__media-video {
-    max-width: to-rem(640px);
-  }
-
-  .#{$prefix}--content-block-simple__content {
-    .#{$prefix}--content-item {
-      &:first-of-type {
-        margin-top: 0;
-      }
-    }
-  }
 }
