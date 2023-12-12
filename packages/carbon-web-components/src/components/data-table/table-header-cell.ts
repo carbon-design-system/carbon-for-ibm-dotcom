@@ -39,9 +39,11 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
    *
    */
   private _handleClickSortButton(event) {
-    if(!(event.target as HTMLElement).matches(
-      (this.constructor as typeof CDSTableHeaderCell).slugItem
-    )){
+    if (
+      !(event.target as HTMLElement).matches(
+        (this.constructor as typeof CDSTableHeaderCell).slugItem
+      )
+    ) {
       const nextSortDirection = this._getNextSort();
       const init = {
         bubbles: true,
@@ -179,10 +181,10 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
     if (this.isSortable && !changedProperties.has('sortDirection')) {
       this.sortDirection = TABLE_SORT_DIRECTION.NONE;
     }
-    if(this._hasSlug){
+    if (this._hasSlug) {
       this.setAttribute('slug', '');
     } else {
-      this.removeAttribute('slug')
+      this.removeAttribute('slug');
     }
   }
 
@@ -213,14 +215,18 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
             <span part="label-text" class="${prefix}--table-header-label"
               ><slot @slotchange=${this._handleSlotChange}></slot
             ></span>
-            <slot name="slug" @slotchange="${this._handleSlugSlotChange}"></slot>
-          ${sortIcon}
+            <slot
+              name="slug"
+              @slotchange="${this._handleSlugSlotChange}"></slot>
+            ${sortIcon}
           </span>
-
         </button>
       `;
     }
-    return html`<span part="label-text" class="${labelClasses}"> <slot></slot><slot name="slug" @slotchange="${this._handleSlugSlotChange}"></slot></span> `;
+    return html`<span part="label-text" class="${labelClasses}">
+      <slot></slot
+      ><slot name="slug" @slotchange="${this._handleSlugSlotChange}"></slot
+    ></span> `;
   }
 
   /**

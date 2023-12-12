@@ -174,11 +174,14 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
     const { _handleClickExpando: handleClickExpando } = this;
     return html`
       <div class="${prefix}--table-expand">
-        <button
-          class="${prefix}--table-expand__button"
-          @click="${handleClickExpando}">
-          ${ChevronRight16({ class: `${prefix}--table-expand__svg` })}
-        </button>
+        <div style="display: flex; height: 100%">
+          <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
+          <button
+            class="${prefix}--table-expand__button"
+            @click="${handleClickExpando}">
+            ${ChevronRight16({ class: `${prefix}--table-expand__svg` })}
+          </button>
+        </div>
       </div>
     `;
   }
@@ -220,17 +223,20 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       ? undefined
       : html`
           <div class="${prefix}--table-column-checkbox">
-            ${radio
-              ? html`<cds-radio-button data-table></cds-radio-button>`
-              : html`<cds-checkbox
-                  hide-label
-                  ?hide-checkbox="${hideCheckbox}"
-                  label-text="${selectionLabel}"
-                  name=${selectionName}
-                  data-table
-                  ?disabled=${disabled}
-                  ?checked=${selected}
-                  value=${selectionValue}></cds-checkbox> `}
+            <div style="display: flex; height: 100%">
+              <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
+              ${radio
+                ? html`<cds-radio-button data-table></cds-radio-button>`
+                : html`<cds-checkbox
+                    hide-label
+                    ?hide-checkbox="${hideCheckbox}"
+                    label-text="${selectionLabel}"
+                    name=${selectionName}
+                    data-table
+                    ?disabled=${disabled}
+                    ?checked=${selected}
+                    value=${selectionValue}></cds-checkbox> `}
+            </div>
           </div>
         `;
   }
@@ -375,14 +381,10 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       }
     }
 
-    // if(this._hasSlug){
-    //   this.setAttribute("slug", "");
-    // } else {
-    //   this.removeAttribute("slug")
-    // }
-
-    if(this._hasSlug){
-      console.log(this.parentElement?.parentElement?.setAttribute("has-slug", ""))
+    if (this._hasSlug) {
+      this.setAttribute('slug', '');
+    } else {
+      this.removeAttribute('slug');
     }
   }
 
@@ -393,7 +395,6 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       )?.setAttribute('is-selectable', '');
     }
     return html`
-      <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
       ${this.expandable ? this._renderExpandButton() : ''}
       ${this._renderFirstCells()}
       <slot></slot>
@@ -449,7 +450,6 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
   static get slugItem() {
     return `${prefix}-slug`;
   }
-
 
   /**
    * The name of the custom event fired before the expanded state this row is being toggled upon a user gesture.
