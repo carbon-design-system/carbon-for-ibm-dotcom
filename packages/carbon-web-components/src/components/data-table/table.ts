@@ -37,6 +37,8 @@ export { TABLE_SIZE };
  */
 @customElement(`${prefix}-table`)
 class CDSTable extends HostListenerMixin(LitElement) {
+
+  private _rowsWithAI = false;
   /**
    * The map of how sorting direction affects sorting order.
    */

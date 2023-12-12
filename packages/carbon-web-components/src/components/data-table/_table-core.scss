@@ -70,6 +70,20 @@
 :host(#{$prefix}-table-header-cell[sort-direction]) {
   height: $spacing-09;
   position: relative;
+
+  .#{$prefix}--table-sort__flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    block-size: 100%;
+    inline-size: 100%;
+    min-block-size: 3rem;
+  }
+}
+
+:host(#{$prefix}-table-header-cell[slug]),
+:host(#{$prefix}-table-header-cell[slug]) .#{$prefix}--table-sort {
+  @include ai-gradient('top', 100%);
 }
 
 :host(#{$prefix}-table-header-cell[sticky-header]) {
@@ -83,6 +97,17 @@
 
 :host(#{$prefix}-table-header-cell[sticky-header]:not([is-sortable])) {
   padding-top: rem(14px);
+}
+
+:host(#{$prefix}-table-header-cell[slug]){
+  .#{$prefix}--table-header-label--slug {
+    display: flex;
+    align-items: center;
+  }
+
+  ::slotted(#{$prefix}-slug) {
+    margin-inline-start: $spacing-03;
+  }
 }
 
 //

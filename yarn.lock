@@ -3370,7 +3370,7 @@ __metadata:
     "@carbon/motion": "npm:^11.16.1"
     "@carbon/pictograms-react": "npm:11.54.0"
     "@carbon/react": "npm:^1.44.0"
-    "@carbon/styles": "npm:^1.44.0"
+    "@carbon/styles": "npm:^1.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:^11.25.1"
     "@carbon/web-components": "npm:2.0.2-rc.0"
@@ -3648,6 +3648,27 @@ __metadata:
     sass:
       optional: true
   checksum: 5c4fe751a67cf44489354c51219f155722a593001d6667e67626a734896f5c9136af3ab004acfd4c952f80c5b2121e8fcb9d5717c70f52ea81ab0f260e4970e2
+  languageName: node
+  linkType: hard
+
+"@carbon/styles@npm:^1.45.0":
+  version: 1.45.0
+  resolution: "@carbon/styles@npm:1.45.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.20.0"
+    "@carbon/feature-flags": "npm:^0.16.0"
+    "@carbon/grid": "npm:^11.21.0"
+    "@carbon/layout": "npm:^11.20.0"
+    "@carbon/motion": "npm:^11.16.0"
+    "@carbon/themes": "npm:^11.28.0"
+    "@carbon/type": "npm:^11.25.0"
+    "@ibm/plex": "npm:6.0.0-next.6"
+  peerDependencies:
+    sass: ^1.33.0
+  peerDependenciesMeta:
+    sass:
+      optional: true
+  checksum: 8372874f57ecb46dd0bd29065eafe38886615da8a16cd15fe644aa12f824617b25e4ee56c8791ab7b6bc6f9dfc15d182290af183c650354171fbb84785d924db
   languageName: node
   linkType: hard
 
