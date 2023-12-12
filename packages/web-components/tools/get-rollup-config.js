@@ -24,7 +24,7 @@ const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const multiInput = require('rollup-plugin-multi-input').default;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
-const minfyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
+const minifyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
 const ibmdotcomIcon = require('./rollup-plugin-ibmdotcom-icon');
 const litSCSS = require('./rollup-plugin-lit-scss');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
@@ -161,7 +161,7 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
-      minfyHTMLLiterals({
+      minifyHTMLLiterals({
         failOnError: true,
         options: {
           minifyOptions: {

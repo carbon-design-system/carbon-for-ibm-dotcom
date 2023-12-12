@@ -20,7 +20,7 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const rtlcss = require('rtlcss');
 const { promisify } = require('util');
 const { terser } = require('rollup-plugin-terser');
-const minfyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
+const minifyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
 const carbonIcons = require('./rollup-plugin-icons');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
 const license = require('./rollup-plugin-license');
@@ -129,7 +129,7 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
-      minfyHTMLLiterals({
+      minifyHTMLLiterals({
         failOnError: true,
         options: {
           minifyOptions: {
