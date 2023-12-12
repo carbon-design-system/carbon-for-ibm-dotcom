@@ -224,7 +224,7 @@
   }
 }
 
-:host(#{$prefix}-table-header-row[selection-name][rows-with-slug]),
+:host(#{$prefix}-table-header-row[selection-name][expandable]),
 :host(#{$prefix}-table-row[selection-name][expandable]) {
   .#{$prefix}--table-column-checkbox {
     padding-left: $spacing-03;
