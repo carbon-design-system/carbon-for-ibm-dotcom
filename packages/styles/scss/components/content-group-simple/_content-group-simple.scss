@@ -13,13 +13,7 @@
 
 @mixin content-group-simple {
   :host(#{$c4d-prefix}-content-group-simple)
-    ::slotted(#{$c4d-prefix}-content-group-copy),
-  .#{$prefix}--content-group-simple .#{$prefix}--content-group__copy {
+    ::slotted(#{$c4d-prefix}-content-group-copy) {
     margin-bottom: $spacing-07;
-  }
-
-  .bx--content-group__cta {
-    max-width: calc(320px + $spacing-05);
-    padding-right: 0;
   }
 }
