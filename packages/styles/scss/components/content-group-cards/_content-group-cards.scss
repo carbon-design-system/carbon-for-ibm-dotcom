@@ -22,10 +22,8 @@
 }
 
 @mixin content-group-cards {
-  :host(#{$c4d-prefix}-content-group-cards),
-  .#{$prefix}--content-group-cards {
-    ::slotted([slot='copy']),
-    .#{$prefix}--content-group__copy {
+  :host(#{$c4d-prefix}-content-group-cards) {
+    ::slotted([slot='copy']) {
       margin-bottom: $spacing-09;
 
       @include breakpoint(md) {
@@ -48,8 +46,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-content-group-cards-item),
-  .#{$prefix}--content-group-cards-item__col {
+  :host(#{$c4d-prefix}-content-group-cards-item) {
     margin-top: list.slash($grid-gutter, 2);
     margin-bottom: list.slash($grid-gutter, 2);
     padding-left: list.slash($grid-gutter, 2);
