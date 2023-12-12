@@ -26,20 +26,5 @@
         max-width: calc(100% + $spacing-05);
       }
     }
-
-    .#{$prefix}--layout-1-3 {
-      @include breakpoint-down(md) {
-        .#{$prefix}--link-list__list.#{$prefix}--link-list__list--card {
-          margin-right: -$spacing-05;
-        }
-      }
-      @include breakpoint(lg) {
-        @include make-col-offset(1, 12);
-      }
-    }
-
-    .#{$prefix}--content-block__cta-col {
-      max-width: carbon--mini-units(40);
-    }
   }
 }
