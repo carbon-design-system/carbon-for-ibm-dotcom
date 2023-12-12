@@ -20,30 +20,11 @@
 @mixin themed-items {
   color: $text-primary;
   background: $background;
-
-  &.#{$prefix}--content-block-media--with-border
-    .#{$prefix}--content-block-media__divider {
-    border-bottom-color: $toggle-off;
-  }
 }
 
 @mixin content-block-media {
   .#{$prefix}--content-block-media,
   :host(#{$c4d-prefix}-content-block-media) {
-    @include themed-items;
-
-    .#{$prefix}--content-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .#{$prefix}--feature-card {
-      max-width: to-rem(640px);
-    }
-  }
-
-  .#{$prefix}--content-block-media--g100 {
-    @include theme($g100, true);
-
     @include themed-items;
   }
 }
