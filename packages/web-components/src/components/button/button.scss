@@ -5,4 +5,39 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/components/button/index' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../../../carbon-web-components/src/components/button/button.scss';
+
+@mixin button {
+  :host(#{$c4d-prefix}-button) {
+    @extend :host(#{$prefix}-button);
+
+    svg {
+      @extend .#{$prefix}--btn__icon;
+    }
+
+    .#{$prefix}--btn--hidden {
+      display: none;
+      visibility: hidden;
+
+      @media print {
+        display: inline-block;
+        visibility: visible;
+        font-weight: 200;
+        color: $text-primary;
+
+        span {
+          font-weight: 600;
+          margin-left: calc(-1 * #{$spacing-02});
+          margin-right: $spacing-02;
+        }
+      }
+    }
+  }
+}
+
+@include button;
+
