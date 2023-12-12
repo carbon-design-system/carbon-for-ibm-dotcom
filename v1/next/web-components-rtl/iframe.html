@@ -1,0 +1,440 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Webpack App</title><meta name="viewport" content="width=device-width,initial-scale=1"><base target="_parent"><style>/* While we aren't showing the main block yet, but still preparing, we want everything the user
+     has rendered, which may or may not be in #root, to be display none */
+  .sb-show-preparing-story:not(.sb-show-main) > :not(.sb-preparing-story) {
+    display: none;
+  }
+
+  .sb-show-preparing-docs:not(.sb-show-main) > :not(.sb-preparing-docs) {
+    display: none;
+  }
+
+  /* Hide our own blocks when we aren't supposed to be showing them */
+  :not(.sb-show-preparing-story) > .sb-preparing-story,
+  :not(.sb-show-preparing-docs) > .sb-preparing-docs,
+  :not(.sb-show-nopreview) > .sb-nopreview,
+  :not(.sb-show-errordisplay) > .sb-errordisplay {
+    display: none;
+  }
+
+  .sb-show-main.sb-main-centered {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .sb-show-main.sb-main-centered #root {
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1rem;
+    max-height: 100%; /* Hack for centering correctly in IE11 */
+  }
+
+  /* Vertical centering fix for IE11 */
+  @media screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .sb-show-main.sb-main-centered:after {
+      content: '';
+      min-height: inherit;
+      font-size: 0;
+    }
+  }
+
+  .sb-show-main.sb-main-fullscreen {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .sb-show-main.sb-main-padded {
+    margin: 0;
+    padding: 1rem;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .sb-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular', 'San Francisco',
+      BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: auto;
+  }
+
+  .sb-heading {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    margin: 10px 0;
+    padding-right: 25px;
+  }
+
+  .sb-nopreview {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .sb-nopreview_main {
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .sb-nopreview_heading {
+    text-align: center;
+  }
+
+  .sb-errordisplay {
+    border: 20px solid rgb(187, 49, 49);
+    background: #222;
+    color: #fff;
+    z-index: 999999;
+  }
+
+  .sb-errordisplay_code {
+    padding: 10px;
+    background: #000;
+    color: #eee;
+    font-family: 'Operator Mono', 'Fira Code Retina', 'Fira Code', 'FiraCode-Retina', 'Andale Mono',
+      'Lucida Console', Consolas, Monaco, monospace;
+  }
+
+  .sb-errordisplay pre {
+    white-space: pre-wrap;
+  }
+
+  @-webkit-keyframes sb-rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes sb-rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes sb-glow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+  @keyframes sb-glow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  /* We display the preparing loaders *over* the rendering story */
+  .sb-preparing-story,
+  .sb-preparing-docs {
+    background-color: white;
+    /* Maximum possible z-index. It would be better to use stacking contexts to ensure it's always
+    on top, but this isn't possible as it would require making CSS changes that could affect user code */
+    z-index: 2147483647;
+  }
+
+  .sb-loader {
+    -webkit-animation: sb-rotate360 0.7s linear infinite;
+    animation: sb-rotate360 0.7s linear infinite;
+    border-color: rgba(97, 97, 97, 0.29);
+    border-radius: 50%;
+    border-style: solid;
+    border-top-color: #646464;
+    border-width: 2px;
+    display: inline-block;
+    height: 32px;
+    left: 50%;
+    margin-left: -16px;
+    margin-top: -16px;
+    mix-blend-mode: difference;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transition: all 200ms ease-out;
+    vertical-align: top;
+    width: 32px;
+    z-index: 4;
+  }
+
+  .sb-previewBlock {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+    margin: 25px auto 40px;
+    max-width: 600px;
+  }
+
+  .sb-previewBlock_header {
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 0 0 inset;
+    display: flex;
+    gap: 14px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .sb-previewBlock_icon {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    background: #e6e6e6;
+    height: 14px;
+    width: 14px;
+  }
+  .sb-previewBlock_icon:last-child {
+    margin-left: auto;
+  }
+
+  .sb-previewBlock_body {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    height: 182px;
+    position: relative;
+  }
+
+  .sb-argstableBlock {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 25px auto 40px;
+    max-width: 600px;
+    text-align: left;
+    width: 100%;
+  }
+  .sb-argstableBlock th:first-of-type,
+  .sb-argstableBlock td:first-of-type {
+    padding-left: 20px;
+  }
+  .sb-argstableBlock th:nth-of-type(2),
+  .sb-argstableBlock td:nth-of-type(2) {
+    width: 35%;
+  }
+  .sb-argstableBlock th:nth-of-type(3),
+  .sb-argstableBlock td:nth-of-type(3) {
+    width: 15%;
+  }
+  .sb-argstableBlock th:last-of-type,
+  .sb-argstableBlock td:last-of-type {
+    width: 25%;
+    padding-right: 20px;
+  }
+  .sb-argstableBlock th span,
+  .sb-argstableBlock td span {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
+  }
+  .sb-argstableBlock th {
+    padding: 10px 15px;
+  }
+
+  .sb-argstableBlock-body {
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 1px, rgba(0, 0, 0, 0.065) 0 0 0 1px;
+  }
+  .sb-argstableBlock-body tr {
+    background: transparent;
+    overflow: hidden;
+  }
+  .sb-argstableBlock-body tr:not(:first-child) {
+    border-top: 1px solid #e6e6e6;
+  }
+  .sb-argstableBlock-body tr:first-child td:first-child {
+    border-top-left-radius: 4px;
+  }
+  .sb-argstableBlock-body tr:first-child td:last-child {
+    border-top-right-radius: 4px;
+  }
+  .sb-argstableBlock-body tr:last-child td:first-child {
+    border-bottom-left-radius: 4px;
+  }
+  .sb-argstableBlock-body tr:last-child td:last-child {
+    border-bottom-right-radius: 4px;
+  }
+  .sb-argstableBlock-body td {
+    background: #fff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    vertical-align: top;
+  }
+  .sb-argstableBlock-body td:not(:first-of-type) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .sb-argstableBlock-body button {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
+    display: inline;
+    font-size: 12px;
+    line-height: 1;
+    padding: 10px 16px;
+  }
+
+  .sb-argstableBlock-summary {
+    margin-top: 4px;
+  }
+
+  .sb-argstableBlock-code {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding: 2px 5px;
+  }</style><script>/* globals window */
+  /* eslint-disable no-underscore-dangle */
+  try {
+    if (window.top !== window) {
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      window.__VUE_DEVTOOLS_GLOBAL_HOOK__ = window.top.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+      window.top.__VUE_DEVTOOLS_CONTEXT__ = window.document;
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('unable to connect to top frame for connecting dev tools');
+  }
+
+  window.onerror = function onerror(message, source, line, column, err) {
+    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+    // eslint-disable-next-line no-var, vars-on-top
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'preview',
+        /* eslint-enable object-shorthand */
+      })
+    );
+  };</script><link rel="alternate" hreflang="en-ag" href="iframe.html?id=components-dotcom-shell--default&cc=ag&lc=en"><link rel="alternate" hreflang="en-ai" href="iframe.html?id=components-dotcom-shell--default&cc=ai&lc=en"><link rel="alternate" hreflang="en-aw" href="iframe.html?id=components-dotcom-shell--default&cc=aw&lc=en"><link rel="alternate" hreflang="en-bb" href="iframe.html?id=components-dotcom-shell--default&cc=bb&lc=en"><link rel="alternate" hreflang="en-bm" href="iframe.html?id=components-dotcom-shell--default&cc=bm&lc=en"><link rel="alternate" hreflang="en-bs" href="iframe.html?id=components-dotcom-shell--default&cc=bs&lc=en"><link rel="alternate" hreflang="en-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=en"><link rel="alternate" hreflang="en-cw" href="iframe.html?id=components-dotcom-shell--default&cc=cw&lc=en"><link rel="alternate" hreflang="en-dm" href="iframe.html?id=components-dotcom-shell--default&cc=dm&lc=en"><link rel="alternate" hreflang="en-gd" href="iframe.html?id=components-dotcom-shell--default&cc=gd&lc=en"><link rel="alternate" hreflang="en-gy" href="iframe.html?id=components-dotcom-shell--default&cc=gy&lc=en"><link rel="alternate" hreflang="en-jm" href="iframe.html?id=components-dotcom-shell--default&cc=jm&lc=en"><link rel="alternate" hreflang="en-ky" href="iframe.html?id=components-dotcom-shell--default&cc=ky&lc=en"><link rel="alternate" hreflang="en-ms" href="iframe.html?id=components-dotcom-shell--default&cc=ms&lc=en"><link rel="alternate" hreflang="en-tc" href="iframe.html?id=components-dotcom-shell--default&cc=tc&lc=en"><link rel="alternate" hreflang="en-tt" href="iframe.html?id=components-dotcom-shell--default&cc=tt&lc=en"><link rel="alternate" hreflang="en-us" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en"><link rel="alternate" hreflang="en-vc" href="iframe.html?id=components-dotcom-shell--default&cc=vc&lc=en"><link rel="alternate" hreflang="en-vg" href="iframe.html?id=components-dotcom-shell--default&cc=vg&lc=en"><link rel="alternate" hreflang="es-ar" href="iframe.html?id=components-dotcom-shell--default&cc=ar&lc=es"><link rel="alternate" hreflang="es-bo" href="iframe.html?id=components-dotcom-shell--default&cc=bo&lc=es"><link rel="alternate" hreflang="es-cl" href="iframe.html?id=components-dotcom-shell--default&cc=cl&lc=es"><link rel="alternate" hreflang="es-co" href="iframe.html?id=components-dotcom-shell--default&cc=co&lc=es"><link rel="alternate" hreflang="es-cr" href="iframe.html?id=components-dotcom-shell--default&cc=cr&lc=es"><link rel="alternate" hreflang="es-ec" href="iframe.html?id=components-dotcom-shell--default&cc=ec&lc=es"><link rel="alternate" hreflang="es-mx" href="iframe.html?id=components-dotcom-shell--default&cc=mx&lc=es"><link rel="alternate" hreflang="es-pe" href="iframe.html?id=components-dotcom-shell--default&cc=pe&lc=es"><link rel="alternate" hreflang="es-py" href="iframe.html?id=components-dotcom-shell--default&cc=py&lc=es"><link rel="alternate" hreflang="es-uy" href="iframe.html?id=components-dotcom-shell--default&cc=uy&lc=es"><link rel="alternate" hreflang="es-ve" href="iframe.html?id=components-dotcom-shell--default&cc=ve&lc=es"><link rel="alternate" hreflang="fr-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=fr"><link rel="alternate" hreflang="pt-br" href="iframe.html?id=components-dotcom-shell--default&cc=br&lc=pt"><link rel="alternate" hreflang="x-defult" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en"><link rel="alternate" hreflang="en-au" href="iframe.html?id=components-dotcom-shell--default&cc=au&lc=en"><link rel="alternate" hreflang="en-bd" href="iframe.html?id=components-dotcom-shell--default&cc=bd&lc=en"><link rel="alternate" hreflang="en-hk" href="iframe.html?id=components-dotcom-shell--default&cc=hk&lc=en"><link rel="alternate" hreflang="en-id" href="iframe.html?id=components-dotcom-shell--default&cc=id&lc=en"><link rel="alternate" hreflang="en-in" href="iframe.html?id=components-dotcom-shell--default&cc=in&lc=en"><link rel="alternate" hreflang="en-kh" href="iframe.html?id=components-dotcom-shell--default&cc=kh&lc=en"><link rel="alternate" hreflang="en-kn" href="iframe.html?id=components-dotcom-shell--default&cc=kn&lc=en"><link rel="alternate" hreflang="en-lc" href="iframe.html?id=components-dotcom-shell--default&cc=lc&lc=en"><link rel="alternate" hreflang="en-lk" href="iframe.html?id=components-dotcom-shell--default&cc=lk&lc=en"><link rel="alternate" hreflang="en-my" href="iframe.html?id=components-dotcom-shell--default&cc=my&lc=en"><link rel="alternate" hreflang="en-np" href="iframe.html?id=components-dotcom-shell--default&cc=np&lc=en"><link rel="alternate" hreflang="en-nz" href="iframe.html?id=components-dotcom-shell--default&cc=nz&lc=en"><link rel="alternate" hreflang="en-ph" href="iframe.html?id=components-dotcom-shell--default&cc=ph&lc=en"><link rel="alternate" hreflang="en-sg" href="iframe.html?id=components-dotcom-shell--default&cc=sg&lc=en"><link rel="alternate" hreflang="en-th" href="iframe.html?id=components-dotcom-shell--default&cc=th&lc=en"><link rel="alternate" hreflang="en-vn" href="iframe.html?id=components-dotcom-shell--default&cc=vn&lc=en"><link rel="alternate" hreflang="ja-jp" href="iframe.html?id=components-dotcom-shell--default&cc=jp&lc=ja"><link rel="alternate" hreflang="ko-kr" href="iframe.html?id=components-dotcom-shell--default&cc=kr&lc=ko"><link rel="alternate" hreflang="zh-cn" href="iframe.html?id=components-dotcom-shell--default&cc=cn&lc=zh"><link rel="alternate" hreflang="zh-tw" href="iframe.html?id=components-dotcom-shell--default&cc=tw&lc=zh"><link rel="alternate" hreflang="ar-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=ar"><link rel="alternate" hreflang="ar-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=ar"><link rel="alternate" hreflang="en-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=en"><link rel="alternate" hreflang="en-af" href="iframe.html?id=components-dotcom-shell--default&cc=af&lc=en"><link rel="alternate" hreflang="en-bh" href="iframe.html?id=components-dotcom-shell--default&cc=bh&lc=en"><link rel="alternate" hreflang="en-bn" href="iframe.html?id=components-dotcom-shell--default&cc=bn&lc=en"><link rel="alternate" hreflang="en-bw" href="iframe.html?id=components-dotcom-shell--default&cc=bw&lc=en"><link rel="alternate" hreflang="en-eg" href="iframe.html?id=components-dotcom-shell--default&cc=eg&lc=en"><link rel="alternate" hreflang="en-et" href="iframe.html?id=components-dotcom-shell--default&cc=et&lc=en"><link rel="alternate" hreflang="en-gh" href="iframe.html?id=components-dotcom-shell--default&cc=gh&lc=en"><link rel="alternate" hreflang="en-il" href="iframe.html?id=components-dotcom-shell--default&cc=il&lc=en"><link rel="alternate" hreflang="en-iq" href="iframe.html?id=components-dotcom-shell--default&cc=iq&lc=en"><link rel="alternate" hreflang="en-jo" href="iframe.html?id=components-dotcom-shell--default&cc=jo&lc=en"><link rel="alternate" hreflang="en-ke" href="iframe.html?id=components-dotcom-shell--default&cc=ke&lc=en"><link rel="alternate" hreflang="en-kw" href="iframe.html?id=components-dotcom-shell--default&cc=kw&lc=en"><link rel="alternate" hreflang="en-lb" href="iframe.html?id=components-dotcom-shell--default&cc=lb&lc=en"><link rel="alternate" hreflang="en-ly" href="iframe.html?id=components-dotcom-shell--default&cc=ly&lc=en"><link rel="alternate" hreflang="en-mw" href="iframe.html?id=components-dotcom-shell--default&cc=mw&lc=en"><link rel="alternate" hreflang="en-na" href="iframe.html?id=components-dotcom-shell--default&cc=na&lc=en"><link rel="alternate" hreflang="en-ng" href="iframe.html?id=components-dotcom-shell--default&cc=ng&lc=en"><link rel="alternate" hreflang="en-om" href="iframe.html?id=components-dotcom-shell--default&cc=om&lc=en"><link rel="alternate" hreflang="en-pk" href="iframe.html?id=components-dotcom-shell--default&cc=pk&lc=en"><link rel="alternate" hreflang="en-qa" href="iframe.html?id=components-dotcom-shell--default&cc=qa&lc=en"><link rel="alternate" hreflang="en-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=en"><link rel="alternate" hreflang="en-sl" href="iframe.html?id=components-dotcom-shell--default&cc=sl&lc=en"><link rel="alternate" hreflang="en-sr" href="iframe.html?id=components-dotcom-shell--default&cc=sr&lc=en"><link rel="alternate" hreflang="en-tz" href="iframe.html?id=components-dotcom-shell--default&cc=tz&lc=en"><link rel="alternate" hreflang="en-ug" href="iframe.html?id=components-dotcom-shell--default&cc=ug&lc=en"><link rel="alternate" hreflang="en-ye" href="iframe.html?id=components-dotcom-shell--default&cc=ye&lc=en"><link rel="alternate" hreflang="en-za" href="iframe.html?id=components-dotcom-shell--default&cc=za&lc=en"><link rel="alternate" hreflang="en-zm" href="iframe.html?id=components-dotcom-shell--default&cc=zm&lc=en"><link rel="alternate" hreflang="en-zw" href="iframe.html?id=components-dotcom-shell--default&cc=zw&lc=en"><link rel="alternate" hreflang="fr-bf" href="iframe.html?id=components-dotcom-shell--default&cc=bf&lc=fr"><link rel="alternate" hreflang="fr-cd" href="iframe.html?id=components-dotcom-shell--default&cc=cd&lc=fr"><link rel="alternate" hreflang="fr-cg" href="iframe.html?id=components-dotcom-shell--default&cc=cg&lc=fr"><link rel="alternate" hreflang="fr-ci" href="iframe.html?id=components-dotcom-shell--default&cc=ci&lc=fr"><link rel="alternate" hreflang="fr-cm" href="iframe.html?id=components-dotcom-shell--default&cc=cm&lc=fr"><link rel="alternate" hreflang="fr-dz" href="iframe.html?id=components-dotcom-shell--default&cc=dz&lc=fr"><link rel="alternate" hreflang="fr-ga" href="iframe.html?id=components-dotcom-shell--default&cc=ga&lc=fr"><link rel="alternate" hreflang="fr-ma" href="iframe.html?id=components-dotcom-shell--default&cc=ma&lc=fr"><link rel="alternate" hreflang="fr-mg" href="iframe.html?id=components-dotcom-shell--default&cc=mg&lc=fr"><link rel="alternate" hreflang="fr-mu" href="iframe.html?id=components-dotcom-shell--default&cc=mu&lc=fr"><link rel="alternate" hreflang="fr-ne" href="iframe.html?id=components-dotcom-shell--default&cc=ne&lc=fr"><link rel="alternate" hreflang="fr-sc" href="iframe.html?id=components-dotcom-shell--default&cc=sc&lc=fr"><link rel="alternate" hreflang="fr-sn" href="iframe.html?id=components-dotcom-shell--default&cc=sn&lc=fr"><link rel="alternate" hreflang="fr-td" href="iframe.html?id=components-dotcom-shell--default&cc=td&lc=fr"><link rel="alternate" hreflang="fr-tn" href="iframe.html?id=components-dotcom-shell--default&cc=tn&lc=fr"><link rel="alternate" hreflang="pt-ao" href="iframe.html?id=components-dotcom-shell--default&cc=ao&lc=pt"><link rel="alternate" hreflang="pt-mz" href="iframe.html?id=components-dotcom-shell--default&cc=mz&lc=pt"><script>window.digitalData = window.digitalData || {
+    page: {
+      category: {
+        primaryCategory: '',
+      },
+      pageInfo: {
+        effectiveDate: '',
+        expiryDate: '',
+        language: 'en-US',
+        publishDate: '',
+        publisher: '',
+        version: 'Carbon for IBM.com',
+        ibm: {
+          contentDelivery: '',
+          contentProducer: '',
+          country: 'US',
+          industry: '',
+          owner: '',
+          siteID: '',
+          subject: '',
+          type: '',
+        },
+      },
+      isDataLayerReady: true,
+    },
+  };
+
+  var params = new URLSearchParams(window.location.search);
+
+  if (params.has('lc')) {
+    var currentLang = params.get('lc');
+    if (params.has('cc')) {
+      currentLang += '-' + params.get('cc').toUpperCase();
+      digitalData.page.pageInfo.ibm.country = params.get('cc').toUpperCase();
+    } else {
+      digitalData.page.pageInfo.ibm.country = '';
+    }
+    document.getElementsByTagName('html')[0].setAttribute('lang', currentLang);
+    digitalData.page.pageInfo.language = currentLang;
+  }</script><style>@media only percy {
+    [data-autoid='dds--privacy-cp'] {
+      display: none !important;
+    }
+
+    dds-video-player-container,
+    dds-callout-with-media-video {
+      display: none !important;
+    }
+
+    .dds-ce-demo-devenv--ui-shell-content {
+      display: none !important;
+    }
+  }
+
+  .sbdocs.sbdocs-div {
+    width: 100%;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+  }
+
+  .sbdocs.sbdocs-div * {
+    box-sizing: border-box;
+  }
+
+  .sbdocs.sbdocs-h3 {
+    margin-bottom: 1rem;
+  }
+
+  .sbdocs.sbdocs-blockquote {
+    margin-bottom: 1rem;
+  }
+
+  .sbdocs-pre .sbdocs-code {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }</style><style>#root[hidden],
+      #docs-root[hidden] {
+        display: none !important;
+      }</style></head><body><div class="sb-preparing-story sb-wrapper"><div class="sb-loader"></div></div><div class="sb-preparing-docs sb-wrapper"><div class="sb-previewBlock"><div class="sb-previewBlock_header"><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div></div><div class="sb-previewBlock_body"><div class="sb-loader"></div></div></div><table aria-hidden="true" class="sb-argstableBlock"><thead class="sb-argstableBlock-head"><tr><th><span>Name</span></th><th><span>Description</span></th><th><span>Default</span></th><th><span>Control</span></th></tr></thead><tbody class="sb-argstableBlock-body"><tr><td><span>propertyName</span><span title="Required">*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr></tbody></table></div><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
+          
+      
+          
+            window['LOGLEVEL'] = "info";
+          
+      
+          
+            window['FRAMEWORK_OPTIONS'] = {};
+          
+      
+          
+      
+          
+            window['FEATURES'] = {"postcss":true,"emotionAlias":false,"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":false,"modernInlineRender":false,"breakingChangesV7":false,"interactionsDebugger":false,"babelModeV7":false,"argTypeTargetsV7":false,"previewMdx2":false};
+          
+      
+          
+      
+          
+            window['STORIES'] = [{"titlePrefix":"","directory":"./docs","files":"*.mdx","importPathMatcher":"^\\.[\\\\/](?:docs\\/(?!\\.)(?=.)[^/]*?\\.mdx)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.ts","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.ts)$"}];</script><script src="runtime~main.de08bfda.iframe.bundle.js"></script><script src="vendors~main~9722bd1d.212e58df.iframe.bundle.js"></script><script src="vendors~main~ab113cfa.685769fc.iframe.bundle.js"></script><script src="vendors~main~dd551892.429a6452.iframe.bundle.js"></script><script src="vendors~main~5b0bcb4a.9a5471f2.iframe.bundle.js"></script><script src="vendors~main~a353122d.2b2b9681.iframe.bundle.js"></script><script src="vendors~main~041b8ad5.6712a564.iframe.bundle.js"></script><script src="vendors~main~55d7db5f.58ac68a0.iframe.bundle.js"></script><script src="vendors~main~ac14d26b.dea89e40.iframe.bundle.js"></script><script src="main~493df0b3.e4f82071.iframe.bundle.js"></script><script src="main~f075b844.fdb4fa8b.iframe.bundle.js"></script><script src="main~c98f95f3.9c3a67ab.iframe.bundle.js"></script><script src="main~b8f0d581.f98082c2.iframe.bundle.js"></script><script src="main~37e192d6.a93c4a2e.iframe.bundle.js"></script><script src="main~7abc9d19.f56e23f7.iframe.bundle.js"></script><script src="main~75addd31.78dab0f1.iframe.bundle.js"></script><script src="main~f7ff04e2.b760a6d5.iframe.bundle.js"></script><script src="main~c042c822.7dd15be1.iframe.bundle.js"></script><script src="main~adb433b2.46268ba7.iframe.bundle.js"></script><script src="main~80dbf0aa.241a57a7.iframe.bundle.js"></script><script src="main~1b8091f8.2fd30ea1.iframe.bundle.js"></script><script src="main~45cdfe0b.28e3c0f7.iframe.bundle.js"></script><script src="main~449cf3c9.945f2da7.iframe.bundle.js"></script><script src="main~67b152df.1bf65e8b.iframe.bundle.js"></script><script src="main~24eb9ab1.44492216.iframe.bundle.js"></script><script src="main~9445c1ef.4a22e6ac.iframe.bundle.js"></script><script src="main~147acfff.4aa63d02.iframe.bundle.js"></script><script src="main~d114f456.5da46fa7.iframe.bundle.js"></script><script src="main~d7757568.df4218df.iframe.bundle.js"></script><script src="main~5c5a3406.90aec6a0.iframe.bundle.js"></script><script src="main~f8451d1a.24d1817f.iframe.bundle.js"></script><script src="main~3584125e.feff2529.iframe.bundle.js"></script><script src="main~4ef25755.2ca5a912.iframe.bundle.js"></script><script src="main~b2fb3b0a.71a599d2.iframe.bundle.js"></script><script src="main~8a3337aa.5b774ce3.iframe.bundle.js"></script><script src="main~c8a86ea8.bddd4d64.iframe.bundle.js"></script><script src="main~489949da.128c3966.iframe.bundle.js"></script><script src="main~57ea85f2.7de34c69.iframe.bundle.js"></script><script src="main~a015252f.cb083ea5.iframe.bundle.js"></script><script src="main~fdb1c31c.7383fd5f.iframe.bundle.js"></script><script src="main~599a4081.8cf2a21d.iframe.bundle.js"></script><script src="main~ba442f3f.cefbaca7.iframe.bundle.js"></script><script src="main~3032f6e3.c45a6f44.iframe.bundle.js"></script><script src="main~a3a43f27.0f5e8a75.iframe.bundle.js"></script><script src="main~10d499fa.b9c0f4b4.iframe.bundle.js"></script><script src="main~eae10a20.7b7a1fee.iframe.bundle.js"></script><script src="main~fcb00315.7ba2937f.iframe.bundle.js"></script><script src="main~d450a966.10a1fec7.iframe.bundle.js"></script><script src="main~c92e3c67.8007223f.iframe.bundle.js"></script><script src="main~0d6d00eb.bd6bc916.iframe.bundle.js"></script><script src="main~2322a24a.f090cc76.iframe.bundle.js"></script><script src="main~8becc859.8d03b76a.iframe.bundle.js"></script><script src="main~a0fc626b.c789ac70.iframe.bundle.js"></script><script src="main~3d8bc918.5786c185.iframe.bundle.js"></script><script src="main~60846e93.07471930.iframe.bundle.js"></script><script src="main~560538af.95dffe55.iframe.bundle.js"></script><script src="main~34294f34.ea6a6704.iframe.bundle.js"></script><script src="main~12b624ed.a6808984.iframe.bundle.js"></script><script src="main~d9c00257.a6bde639.iframe.bundle.js"></script><script src="main~1dad706a.422f93f8.iframe.bundle.js"></script><script src="main~da3062b8.e43134be.iframe.bundle.js"></script><script src="main~3d928676.5608d5d3.iframe.bundle.js"></script><script src="main~8207a5d1.93b2cb80.iframe.bundle.js"></script><script src="main~ceab0c39.8071c7a5.iframe.bundle.js"></script><script src="main~d1279aa5.2f1cd299.iframe.bundle.js"></script><script src="main~baf24ee2.7d40b2a2.iframe.bundle.js"></script><script src="main~d55cedd4.46646851.iframe.bundle.js"></script><script src="main~03e25bcd.38b39af8.iframe.bundle.js"></script><script src="main~c64e6414.8a0afe2c.iframe.bundle.js"></script><script src="main~32d7a632.6f4c2dfb.iframe.bundle.js"></script><script src="main~611938f3.5358b4e8.iframe.bundle.js"></script><script src="main~6502b731.e9796a65.iframe.bundle.js"></script><script src="main~2d28cbbc.8040bf9f.iframe.bundle.js"></script><script src="main~d908c35e.5d5ff875.iframe.bundle.js"></script><script src="main~4001c224.6f66790b.iframe.bundle.js"></script><script src="main~8e0c9f68.1db4a00b.iframe.bundle.js"></script><script src="main~e435110c.94af67f6.iframe.bundle.js"></script><script src="main~80a1ccca.93fe67cf.iframe.bundle.js"></script><script src="main~a2fa0b5c.bdb15306.iframe.bundle.js"></script><script src="main~f0be0a2d.efa03f68.iframe.bundle.js"></script><script src="main~eb50c575.37b4edf7.iframe.bundle.js"></script><script src="main~54b96c22.90247965.iframe.bundle.js"></script><script src="main~227d378d.c877ba64.iframe.bundle.js"></script><script src="main~f0e4b9a6.939304c2.iframe.bundle.js"></script></body></html>

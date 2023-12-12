@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>Webpack App</title><meta name="viewport" content="width=device-width,initial-scale=1"/><style>html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }</style><script>/* globals window */
+  /* eslint-disable no-underscore-dangle */
+  try {
+    if (window.top !== window) {
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('unable to connect to top frame for connecting dev tools');
+  }
+
+  window.onerror = function onerror(message, source, line, column, err) {
+    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+    // eslint-disable-next-line no-var, vars-on-top
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'manager',
+        /* eslint-enable object-shorthand */
+      })
+    );
+  };</script><meta name="keywords" content="ibm.com, design, system, design system, styleguide, style, guide, components, library, pattern, kit, component, cloud, Web Components, Custom Elements"/><meta name="description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com."/><meta property="og:title" content="Carbon for IBM.com Web Components"/><meta property="og:site_name" content="Carbon for IBM.com Web Components"/><meta property="og:description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com."/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image:alt" content="Carbon Design System"/><meta name="twitter:site" content="@_carbondesign"/><script>document.title = 'Carbon for IBM.com Web Components with React';</script><style>@font-face {
+    font-weight: 400;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    src: local('IBM Plex Sans'), local('IBMPlexSans'),
+      url(https://1www.s81c.com/common/carbon/plex/fonts/IBM-Plex-Sans/fonts/complete/woff/IBMPlexSans-Regular.woff)
+        format('woff');
+    font-display: auto;
+  }
+
+  @font-face {
+    font-weight: 600;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'),
+      url(https://1www.s81c.com/common/carbon/plex/fonts/IBM-Plex-Sans/fonts/complete/woff/IBMPlexSans-SemiBold.woff)
+        format('woff');
+    font-display: auto;
+  }</style><style>#root[hidden],
+      #docs-root[hidden] {
+        display: none !important;
+      }</style></head><body><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
+          
+      
+          
+            window['LOGLEVEL'] = "info";
+          
+      
+          
+            window['FEATURES'] = {"postcss":true,"emotionAlias":false,"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":false,"modernInlineRender":false,"breakingChangesV7":false,"interactionsDebugger":false,"babelModeV7":false,"argTypeTargetsV7":false,"previewMdx2":false};
+          
+      
+          
+      
+          
+      
+          
+            window['DOCS_MODE'] = false;</script><script src="runtime~main.f332a96c7063f82f3692.manager.bundle.js"></script><script src="vendors~main.db282a2e294c5b693eb3.manager.bundle.js"></script><script src="main.61bf569e7c96fd2e1d93.manager.bundle.js"></script></body></html>
