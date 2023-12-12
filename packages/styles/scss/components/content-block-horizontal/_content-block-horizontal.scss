@@ -27,18 +27,6 @@
     }
   }
 
-  .#{$prefix}--content-block-horizontal {
-    .#{$prefix}--content-block {
-      padding-top: $spacing-07;
-      padding-bottom: $spacing-05;
-
-      @include breakpoint(lg) {
-        padding-top: $spacing-10;
-        padding-bottom: $spacing-09;
-      }
-    }
-  }
-
   :host(#{$c4d-prefix}-content-block-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $spacing-07;
