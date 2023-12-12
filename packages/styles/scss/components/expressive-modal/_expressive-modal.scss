@@ -75,11 +75,6 @@
     }
   }
 
-  :host(#{$c4d-prefix}-expressive-modal-footer) .#{$prefix}--modal-footer {
-    justify-content: flex-start;
-    height: $spacing-09;
-  }
-
   :host(#{$c4d-prefix}-expressive-modal-close-button) {
     .#{$prefix}--modal-close {
       position: fixed;
@@ -101,8 +96,7 @@
     @include type-style('body-02');
   }
 
-  :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'],
-  .#{$prefix}--modal--expressive--fullwidth {
+  :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'] {
     @include breakpoint(md) {
       .#{$prefix}--modal-container {
         width: calc(100% - #{$spacing-07});
@@ -130,8 +124,7 @@
   :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
     ::slotted(#{$c4d-prefix}-expressive-modal-body),
   :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
-    ::slotted(#{$c4d-prefix}-lightbox-media-viewer-body),
-  .#{$prefix}--modal--expressive--fullwidth .#{$prefix}--modal-content {
+    ::slotted(#{$c4d-prefix}-lightbox-media-viewer-body) {
     padding-right: 0;
     height: auto;
     min-height: to-rem(500px);
