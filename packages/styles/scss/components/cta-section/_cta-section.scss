@@ -20,158 +20,16 @@
 @mixin themed-items {
   color: $text-primary;
   background: $background;
-
-  .#{$prefix}--content-item__heading {
-    color: $text-primary;
-  }
-
-  .#{$prefix}--content-item__copy {
-    p {
-      color: $text-primary;
-    }
-  }
-
-  .#{$prefix}--content-item__cta {
-    color: $link-primary;
-  }
 }
 
 @mixin cta-section {
-  :host(#{$c4d-prefix}-cta-section),
-  .#{$prefix}--cta-section {
-    .#{$prefix}--cta-section__cta {
-      padding-bottom: $spacing-10;
-
-      @include breakpoint(md) {
-        padding-bottom: $spacing-12;
-      }
-
-      @include breakpoint(lg) {
-        padding-bottom: $spacing-13;
-      }
-
-      .#{$prefix}--buttongroup {
-        @include breakpoint(md) {
-          flex-direction: row;
-        }
-      }
-
-      .#{$prefix}--buttongroup-item {
-        @include breakpoint(md) {
-          padding-right: $spacing-05;
-        }
-      }
-    }
-
-    .#{$prefix}--content-block {
-      padding-top: $spacing-07;
-      padding-bottom: 0;
-
-      @include breakpoint(lg) {
-        padding-top: $spacing-10;
-      }
-    }
-
-    .#{$prefix}--content-block__heading,
-    .#{$prefix}--content-block__copy {
-      width: 90%;
-      max-width: 640px;
-
-      @include breakpoint(sm) {
-        width: 100%;
-      }
-    }
-
-    .#{$prefix}--content-block__heading {
-      @include type-style('fluid-heading-05', true);
-    }
-
-    .#{$prefix}--content-block__copy {
-      p {
-        margin-bottom: 0;
-        @include type-style('fluid-heading-03', true);
-      }
-    }
-
-    .#{$prefix}--content-block__cta-col {
-      margin-top: 0;
-    }
+  :host(#{$c4d-prefix}-cta-section) {
 
     .#{$prefix}--helper-wrapper {
       .#{$prefix}--content-item-wrapper {
         border-top: 1px solid $layer-accent-01;
-
         @include make-row;
 
-        .#{$prefix}--content-item {
-          width: 100%;
-          margin-bottom: 0;
-          padding-bottom: $spacing-05;
-          position: relative;
-
-          @include make-col-ready;
-
-          @include breakpoint(md) {
-            @include make-col(4, 8);
-          }
-
-          &:last-of-type {
-            margin-top: $spacing-05;
-
-            @include breakpoint(md) {
-              margin-top: $spacing-07;
-            }
-          }
-        }
-
-        .#{$prefix}--content-item__heading {
-          width: 100%;
-
-          @include type-style('heading-02', true);
-
-          @include breakpoint(md) {
-            width: 90%;
-          }
-        }
-
-        .#{$prefix}--content-item__copy {
-          width: 100%;
-
-          @include breakpoint(md) {
-            width: 90%;
-          }
-
-          p {
-            width: 100%;
-            margin-bottom: $spacing-05;
-
-            @include type-style('body-02', true);
-          }
-        }
-      }
-    }
-
-    &.#{$prefix}--cta-section__has-items {
-      padding-bottom: $spacing-09;
-
-      @include breakpoint(lg) {
-        padding-bottom: carbon--mini-units(10);
-      }
-
-      .#{$prefix}--cta-section__cta {
-        padding-bottom: $spacing-07;
-
-        @include breakpoint(md) {
-          padding-bottom: $spacing-10;
-        }
-
-        @include breakpoint(lg) {
-          padding-bottom: $spacing-12;
-        }
-      }
-
-      .#{$prefix}--content-block {
-        padding-bottom: 0;
       }
     }
 
@@ -180,18 +38,4 @@
     }
   }
 
-  .#{$prefix}--cta-section--g10 {
-    @include theme($g10, true);
-    @include themed-items;
-  }
-
-  .#{$prefix}--cta-section--g90 {
-    @include theme($g90, true);
-    @include themed-items;
-  }
-
-  .#{$prefix}--cta-section--g100 {
-    @include theme($g100, true);
-    @include themed-items;
-  }
 }
