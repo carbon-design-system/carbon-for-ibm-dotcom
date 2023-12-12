@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utilities/ipcinfoCookie/ipcinfoCookie.js</title>
+    <title>JSDoc: Source: utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utilities/ipcinfoCookie/ipcinfoCookie.js</h1>
+    <h1 class="page-title">Source: utilities/on/on.js</h1>
 
     
 
@@ -27,87 +27,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import Cookies from 'js-cookie';
-
 /**
- * Name of cookie needed to grab cc and lc
  *
- * @type {string}
- * @private
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
  */
-const _cookieName = 'ipcInfo';
 
-/**
- * Utility to set and get the ipcInfo cookie needed to determine country and language code
- */
-class ipcinfoCookie {
-  /**
-   * retreive the ipcInfo cookie that contains the cc and lc
-   * decodes and converts to object
-   *
-   * @example
-   * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
-   *
-   * const info = ipcinfoCookie.get();
-   */
-  static get() {
-    const cookiesDecode = Cookies.withConverter({
-      read: function (value) {
-        return decodeURIComponent(value);
-      },
-    });
-
-    const ipcinfo = cookiesDecode.get(_cookieName);
-    if (ipcinfo) {
-      let cc;
-      let lc;
-      const info = ipcinfo.split(';');
-      info.map((code) => {
-        const itemParts = code.split('=');
-        if (itemParts[0] === 'cc') cc = itemParts[1];
-        if (itemParts[0] === 'lc') lc = itemParts[1];
-      });
-
-      return { cc, lc };
-    }
-  }
-
-  /**
-   * set the ipcInfo cookie with expiration of a year
-   * takes care of converting to string and encoding
-   *
-   * @param {object} params params object
-   * @param {string} params.cc country code
-   * @param {string} params.lc language code
-   * @example
-   * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
-   *
-   * const locale = {cc: 'us', lc: 'en'}
-   * ipcinfoCookie.set(locale);
-   */
-  static set({ cc, lc }) {
-    const info = `cc=${cc};lc=${lc}`;
-
-    const cookiesEncode = Cookies.withConverter({
-      write: function (value) {
-        return encodeURIComponent(value);
-      },
-    });
-
-    cookiesEncode.set(_cookieName, info, {
-      expires: 365,
-      domain: '.ibm.com',
-    });
-  }
+function on(element, ...args) {
+  element.addEventListener(...args);
+  return {
+    release() {
+      element.removeEventListener(...args);
+      return null;
+    },
+  };
 }
 
-export default ipcinfoCookie;
+export default on;
 </code></pre>
         </article>
     </section>
