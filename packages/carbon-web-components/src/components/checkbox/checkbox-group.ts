@@ -124,6 +124,16 @@ class CDSCheckboxGroup extends LitElement {
         });
       }
     });
+    if (changedProperties.has('invalid')) {
+      const { invalid } = this;
+      checkboxes.forEach((elem) => {
+        if (invalid) {
+          (elem as CDSCheckbox).setAttribute('invalid-group', '');
+        } else {
+          (elem as CDSCheckbox).removeAttribute('invalid-group');
+        }
+      });
+    }
   }
 
   render() {

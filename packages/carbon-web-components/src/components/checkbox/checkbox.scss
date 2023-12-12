@@ -27,8 +27,8 @@ $css--plex: true !default;
   @extend .#{$prefix}--checkbox-wrapper--invalid;
 }
 
-:host(#{$prefix}-checkbox[invalid-group]) {
-  @extend .#{$prefix}--checkbox-wrapper--invalid;
+:host(#{$prefix}-checkbox[invalid-group]) .#{$prefix}--checkbox-label::before {
+  border: 1px solid $support-error;
 }
 
 :host(#{$prefix}-checkbox:not([readonly]):not([invalid])[warn]) {
