@@ -105,7 +105,9 @@ $btn-min-width: 26;
 
     .#{$prefix}--buttongroup,
     ::slotted(#{$dds-prefix}-button-group),
-    ::slotted(#{$dds-prefix}-leadspace-block-cta) {
+    ::slotted(#{$dds-prefix}-leadspace-block-cta),
+    ::slotted([slot='action'].#{$prefix}--buttongroup),
+    ::slotted([data-autoid$='button-group']) {
       padding-bottom: $spacing-07;
 
       @include carbon--breakpoint(md) {
@@ -245,7 +247,9 @@ $btn-min-width: 26;
       background-position: center top;
 
       ::slotted(#{$dds-prefix}-button-group),
+      ::slotted([slot='action'].#{$prefix}--buttongroup),
       ::slotted([slot='action']),
+      ::slotted([data-autoid$='button-group']),
       .#{$prefix}--buttongroup {
         padding-top: $carbon--layout-01;
         padding-bottom: calc(#{$layout-03});
