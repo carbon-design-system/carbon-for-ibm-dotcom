@@ -2616,7 +2616,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@npm:2.0.2-rc.1, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:2.0.2-rc.1":
+  version: 2.0.2-rc.1
+  resolution: "@carbon/web-components@npm:2.0.2-rc.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.16.3"
+    "@carbon/styles": "npm:^1.44.0"
+    flatpickr: "npm:4.6.1"
+    lit: "npm:^2.7.6"
+    lodash-es: "npm:^4.17.21"
+  checksum: 3875b649a4bcbd3f34e6d0afb34d721e65c0154e81b156b065205814e0fd0fd41b92d270b636f349eb2e373b077527ab31bc81f80a33601c9b56d681b8e261c9
+  languageName: node
+  linkType: hard
+
+"@carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
