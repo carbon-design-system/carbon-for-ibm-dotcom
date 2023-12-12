@@ -44,68 +44,6 @@ const actions = html`
   <cds-slug-action-button>View Literature</cds-slug-action-button>
 `;
 
-let headerCount = 6;
-let rowCount = 1;
-
-const insertInRandomPosition = (array, element) => {
-  const index = Math.floor(Math.random() * (array.length + 1));
-  return [...array.slice(0, index), element, ...array.slice(index)];
-};
-
-const addRow = () => {
-  const newRow = document.createElement('cds-table-row');
-
-  const templateRow = {
-    name: `New Row ${rowCount}`,
-    protocol: 'HTTP',
-    port: rowCount * 100,
-    rule: rowCount % 2 === 0 ? 'Round robin' : 'DNS delegation',
-    attached_groups: `Row ${rowCount}'s VM Groups`,
-    status: 'Starting',
-  };
-
-  for (let key in templateRow) {
-    if (Object.prototype.hasOwnProperty.call(templateRow, key)) {
-      const cell = document.createElement('cds-table-cell');
-      cell.textContent = templateRow[key];
-      newRow.appendChild(cell);
-    }
-  }
-
-  const rows = document.querySelectorAll('cds-table-row');
-  const diff = headerCount - Object.keys(templateRow).length;
-
-  [...Array(diff)].forEach(() => {
-    const newCell = document.createElement('cds-table-cell');
-    newCell.textContent = `Header ${headerCount - 1}`;
-    newRow.appendChild(newCell);
-  });
-
-  newRow.setAttribute('selection-name', `${rows.length}`);
-
-  const updatedRows = insertInRandomPosition([...rows], newRow);
-  updatedRows.forEach((e) => {
-    document.querySelector('cds-table-body')!.insertBefore(e, null);
-  });
-
-  rowCount++;
-};
-
-const addHeader = () => {
-  const headerRow = document.querySelector('cds-table-header-row');
-  const newHeader = document.createElement('cds-table-header-cell');
-  newHeader.textContent = `Header ${headerCount}`;
-  headerRow?.appendChild(newHeader);
-
-  const rows = document.querySelectorAll('cds-table-row');
-  rows.forEach((e) => {
-    const newCell = document.createElement('cds-table-cell');
-    newCell.textContent = `Header ${headerCount}`;
-    e.appendChild(newCell);
-  });
-  headerCount++;
-};
-
 export default {
   title: 'Experimental/Slug/DataTable',
 };
