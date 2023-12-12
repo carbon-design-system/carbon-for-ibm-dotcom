@@ -5,10 +5,8 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--row">
-  <slot>
-  </slot>
-</div>
+<slot>
+</slot>
 
 ```
 
