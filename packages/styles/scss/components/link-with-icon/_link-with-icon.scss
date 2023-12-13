@@ -49,24 +49,8 @@
       color: $text-disabled;
     }
 
-    &.#{$prefix}--link-with-icon__icon-left,
-    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon.#{$prefix}--link-with-icon__icon-left {
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: row-reverse;
-
-      svg,
-      ::slotted(svg[slot='icon']) {
-        align-self: start;
-        position: relative;
-        margin-left: 0;
-        margin-right: $spacing-03;
-        top: 1px;
-      }
-    }
   }
 
-  .#{$prefix}--link-with-icon__container,
   :host(#{$c4d-prefix}-callout-link-with-icon),
   :host(#{$c4d-prefix}-card-cta-footer),
   :host(#{$c4d-prefix}-card-footer),
@@ -133,8 +117,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-link-with-icon),
-  .#{$prefix}--link-with-icon__container {
+  :host(#{$c4d-prefix}-link-with-icon) {
     display: table;
   }
 }
