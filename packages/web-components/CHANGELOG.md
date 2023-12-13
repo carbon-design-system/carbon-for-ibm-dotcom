@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0...@carbon/ibmdotcom-web-components@1.39.0-rc.0) (2023-12-13)
+
+
+### Bug Fixes
+
+* **carousel:** carousel rtl fixes ([#11030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11030)) ([5ea87bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ea87bd0b417b3f6148a174233e98602c1585da9))
+* **content-group-pictograms:** screen reader issue fix ([#11099](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11099)) ([c42a71f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c42a71faf8db29fe90f6e0115bb1d3bfb4ee5f40)), closes [#9655](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9655)
+* **e2e:** fix harness for e2e integration tests ([#11106](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11106)) ([15673b0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/15673b0bc4dc568830ee2fd8328dee5dd6fe008a))
+* **pricing-table:** cell items were being horizontally squished into … ([#11002](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11002)) ([14f8249](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/14f82491853dbcba7baf799feb3fea4bb07c8826))
+* **storybook:** set dir attribute in storybook for rtl ([#11031](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11031)) ([b4f26f2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b4f26f2e6925e357ec2e219b756e4f47bf37fa36))
+
+
+
+
+
 # [1.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0-rc.2...@carbon/ibmdotcom-web-components@1.38.0) (2023-11-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

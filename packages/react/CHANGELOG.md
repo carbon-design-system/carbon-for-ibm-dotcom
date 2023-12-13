@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.54.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.53.0...@carbon/ibmdotcom-react@1.54.0-rc.0) (2023-12-13)
+
+
+### Bug Fixes
+
+* **e2e:** fix harness for e2e integration tests ([#11106](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11106)) ([15673b0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/15673b0bc4dc568830ee2fd8328dee5dd6fe008a))
+
+
+### Features
+
+* **cdn:** CDN publishing of web components artifacts ([#11148](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11148)) ([b01cc19](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b01cc199a9b2a61fb042f22816e6a5613fe3777b))
+
+
+
+
+
 # [1.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.53.0-rc.2...@carbon/ibmdotcom-react@1.53.0) (2023-11-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
