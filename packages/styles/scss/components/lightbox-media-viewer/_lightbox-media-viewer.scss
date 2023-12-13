@@ -66,20 +66,6 @@
         padding-top: Min(calc(100vh - #{$spacing-13}), 56.25%);
       }
     }
-
-    @include breakpoint(md) {
-      .#{$prefix}--model-container {
-        padding-top: $spacing-10;
-        padding-bottom: 0;
-      }
-    }
-
-    @include breakpoint(lg) {
-      .#{$prefix}--model-container {
-        padding-top: $spacing-09;
-        padding-bottom: $spacing-05;
-      }
-    }
   }
 
   :host(#{$c4d-prefix}-lightbox-media-viewer-body),
