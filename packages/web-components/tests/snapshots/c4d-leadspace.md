@@ -367,10 +367,6 @@
     </slot>
   </div>
 </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 ```
 
 ####   `should render with various attributes`
@@ -410,10 +406,6 @@
     </slot>
   </div>
 </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 ```
 
 ## `Misc attributes - CenteredWithImage`
@@ -455,10 +447,6 @@
     </slot>
   </div>
 </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 ```
 
 ####   `should render with various attributes`
@@ -498,6 +486,5 @@
     </slot>
   </div>
 </section>
-<<<<<<< HEAD
 ```
 
