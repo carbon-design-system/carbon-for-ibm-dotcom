@@ -65,5 +65,9 @@
   <slot>
   </slot>
 </ul>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 ```
 

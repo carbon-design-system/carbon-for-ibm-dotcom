@@ -57,6 +57,10 @@
     </c4d-hr>
   </div>
 </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 ```
 
 ####   `should render with various attributes`
@@ -78,5 +82,9 @@
     </c4d-hr>
   </div>
 </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 ```
 

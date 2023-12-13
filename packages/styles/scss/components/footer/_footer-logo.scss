@@ -64,19 +64,12 @@
   }
 
   :host(#{$c4d-prefix}-footer-logo[size='micro']) {
-    position: relative;
-
-    .#{$c4d-prefix}--footer-logo__link {
-      position: absolute;
-      top: -37px;
-
-      @include breakpoint(lg) {
-        position: relative;
-        top: 0;
-      }
-    }
-
     align-self: center;
     margin: 0;
+
+    @include breakpoint-between(md, lg) {
+      position: absolute;
+      bottom: to-rem(58.5px);
+    }
   }
 }

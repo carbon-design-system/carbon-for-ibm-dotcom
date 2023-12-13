@@ -1,0 +1,64 @@
+/**
+ * Copyright IBM Corp. 2016, 2023
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+
+@mixin horizontal-rule {
+  $subtle-contrast: $border-subtle-01;
+  $strong-contrast: $border-strong-01;
+  $thin-weight: to-rem(1px);
+
+  :host(#{$c4d-prefix}-hr) {
+    display: block;
+    margin: $spacing-05 0;
+    border: none;
+    height: $thin-weight;
+    background: $strong-contrast;
+  }
+
+  :host(
+      #{$c4d-prefix}-hr[type='dashed']:not([size='small']):not(
+          [size='medium']
+        ):not([size='large'])
+    ) {
+    height: $thin-weight;
+    background-color: transparent;
+    background-size: $spacing-05 $thin-weight;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(
+      to right,
+      $strong-contrast 50%,
+      transparent 50%
+    );
+  }
+
+  :host(#{$c4d-prefix}-hr[size='small']) {
+    max-width: $spacing-07;
+  }
+  :host(#{$c4d-prefix}-hr[size='medium']) {
+    max-width: $spacing-09;
+  }
+  :host(#{$c4d-prefix}-hr[size='large']) {
+    max-width: $spacing-10;
+  }
+
+  :host(#{$c4d-prefix}-hr[contrast='subtle']) {
+    background: $subtle-contrast;
+  }
+
+  :host(#{$c4d-prefix}-hr[contrast='strong']) {
+    background: $strong-contrast;
+  }
+
+  :host(#{$c4d-prefix}-hr[weight='thick']) {
+    height: $spacing-01;
+  }
+}

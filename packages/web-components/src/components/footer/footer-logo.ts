@@ -8,11 +8,12 @@
  */
 
 import { html, LitElement } from 'lit';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { property } from 'lit/decorators.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import IBM8BarLogoH65White from '../../../es/icons/IBM-8bar-logo--h65-white.js';
-import IBM8BarLogoH23White from '../../../es/icons/IBM-8bar-logo--h23-white.js';
+import IBM8BarLogoH65White from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h65-white.svg';
+import IBM8BarLogoH23White from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23-white.svg';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { FOOTER_SIZE } from './footer';
@@ -54,8 +55,8 @@ class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
         aria-label="IBM logo"
         href="${ifDefined(href)}">
         ${size !== FOOTER_SIZE.MICRO
-          ? IBM8BarLogoH65White()
-          : IBM8BarLogoH23White()}
+          ? unsafeSVG(IBM8BarLogoH65White)
+          : unsafeSVG(IBM8BarLogoH23White)}
         <slot></slot>
       </a>
     `;
