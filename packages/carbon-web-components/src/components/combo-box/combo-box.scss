@@ -44,7 +44,7 @@ $css--plex: true !default;
 :host(#{$prefix}-combo-box[isClosable]) {
   .#{$prefix}--list-box__invalid-icon {
     /* stylelint-disable declaration-no-important */
-    inset-inline-end: rem(66px) !important;
+    inset-inline-end: to-rem(66px) !important;
     /* stylelint-enable declaration-no-important */
   }
 }
@@ -110,7 +110,7 @@ $css--plex: true !default;
   block-size: $spacing-07;
 
   .#{$prefix}--list-box__menu-item__option {
-    padding-block: rem(7px);
+    padding-block: to-rem(7px);
   }
 }
 
@@ -118,7 +118,7 @@ $css--plex: true !default;
   block-size: $spacing-09;
 
   .#{$prefix}--list-box__menu-item__option {
-    padding-block: rem(15px);
+    padding-block: to-rem(15px);
   }
 }
 

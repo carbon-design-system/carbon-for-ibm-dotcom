@@ -77,8 +77,8 @@ $css--plex: true !default;
   }
 
   ::slotted(.#{$prefix}--search-magnifier) {
-    block-size: rem(48px);
-    inline-size: rem(48px);
+    block-size: to-rem(48px);
+    inline-size: to-rem(48px);
   }
 }
 

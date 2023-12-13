@@ -34,7 +34,7 @@ $css--plex: true !default;
     position: absolute;
     background-color: $border-subtle;
     block-size: $spacing-06;
-    inline-size: rem(1px);
+    inline-size: to-rem(1px);
     inset-block-start: 50%;
     inset-inline-start: 0;
     transform: translateY(-50%);

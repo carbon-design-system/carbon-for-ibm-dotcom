@@ -29,9 +29,9 @@ $css--plex: true !default;
   @extend .#{$prefix}--layout--size-sm;
 
   .#{$prefix}--tag__close-icon {
-    block-size: rem(18px);
-    inline-size: rem(18px);
-    margin-inline-start: rem(5px);
+    block-size: to-rem(18px);
+    inline-size: to-rem(18px);
+    margin-inline-start: to-rem(5px);
   }
 }
 
@@ -118,5 +118,5 @@ $css--plex: true !default;
 
   overflow: hidden;
 
-  inline-size: rem(60px);
+  inline-size: to-rem(60px);
 }

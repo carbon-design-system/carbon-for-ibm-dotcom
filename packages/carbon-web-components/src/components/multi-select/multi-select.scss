@@ -87,7 +87,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-multi-select[type='inline'][warn])
   .#{$prefix}--list-box__field {
-  padding-inline-end: rem(56px);
+  padding-inline-end: to-rem(56px);
 }
 
 :host(#{$prefix}-multi-select-item) {
@@ -99,7 +99,7 @@ $css--plex: true !default;
     display: inline-block;
     overflow: hidden;
     inline-size: 100%;
-    padding-inline-start: rem(28px);
+    padding-inline-start: to-rem(28px);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -132,7 +132,7 @@ $css--plex: true !default;
   block-size: fit-content;
   .#{$prefix}--list-box__menu-item__option {
     block-size: $spacing-07;
-    padding-block: rem(7px);
+    padding-block: to-rem(7px);
   }
 }
 
@@ -140,7 +140,7 @@ $css--plex: true !default;
   block-size: fit-content;
   .#{$prefix}--list-box__menu-item__option {
     block-size: $spacing-09;
-    padding-block: rem(15px);
+    padding-block: to-rem(15px);
   }
 }
 

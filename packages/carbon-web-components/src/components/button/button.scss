@@ -41,8 +41,8 @@ $css--plex: true !default;
 
 :host(#{$prefix}-button[isExpressive]) ::slotted([slot='icon']),
 :host(#{$prefix}-modal-footer-button[isExpressive]) ::slotted([slot='icon']) {
-  block-size: rem(20px);
-  inline-size: rem(20px);
+  block-size: to-rem(20px);
+  inline-size: to-rem(20px);
 }
 
 :host(#{$prefix}-button[pagination]),
@@ -109,7 +109,7 @@ $css--plex: true !default;
   ::slotted(#{$prefix}-button) {
     inline-size: 100%;
     // 196px from design kit
-    max-inline-size: rem(196px);
+    max-inline-size: to-rem(196px);
   }
 }
 

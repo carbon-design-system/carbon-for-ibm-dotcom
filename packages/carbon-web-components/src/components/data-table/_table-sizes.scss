@@ -47,7 +47,7 @@
   }
 
   ::slotted(#{$prefix}-table-cell) {
-    padding-block: rem(7px) rem(6px);
+    padding-block: to-rem(7px) rem(6px);
     padding-inline-start: $spacing-05;
   }
 
@@ -75,7 +75,7 @@
     block-size: $spacing-08;
   }
   ::slotted(#{$prefix}-table-cell) {
-    padding-block: rem(7px) rem(6px);
+    padding-block: to-rem(7px) rem(6px);
     padding-inline-start: $spacing-05;
   }
 
@@ -125,7 +125,7 @@
 
   .#{$prefix}--table-expand,
   .#{$prefix}--table-column-checkbox {
-    padding-block-start: rem(10px);
+    padding-block-start: to-rem(10px);
     vertical-align: top;
   }
 
@@ -198,13 +198,13 @@
 :host(#{$prefix}-table-header-row[selection-name][expandable][size='md']),
 :host(#{$prefix}-table-row[selection-name][expandable][size='md']) {
   .#{$prefix}--table-column-checkbox {
-    padding: rem(3px) rem(6px);
+    padding: to-rem(3px) rem(6px);
   }
 }
 
 :host(#{$prefix}-table-header-row[selection-name][expandable][size='xl']) {
   .#{$prefix}--table-column-checkbox {
-    padding-inline: rem(6px);
+    padding-inline: to-rem(6px);
   }
 }
 

@@ -43,7 +43,7 @@ $css--plex: true !default;
     position: absolute;
     content: counter(item) '.';
     counter-increment: item;
-    inset-inline-start: rem(-24px);
+    inset-inline-start: to-rem(-24px);
   }
 }
 

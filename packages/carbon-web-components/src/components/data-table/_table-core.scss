@@ -84,7 +84,7 @@
 }
 
 :host(#{$prefix}-table-header-cell[sticky-header]:not([is-sortable])) {
-  padding-block-start: rem(14px);
+  padding-block-start: to-rem(14px);
 }
 
 //
@@ -239,7 +239,7 @@
   ::slotted(#{$prefix}-table-cell),
   ::slotted(#{$prefix}-table-cell-skeleton) {
     inline-size: 100%;
-    padding-block-start: rem(14px);
+    padding-block-start: to-rem(14px);
   }
 }
 

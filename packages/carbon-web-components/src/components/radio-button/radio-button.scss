@@ -70,7 +70,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-radio-button[data-table]) {
   .#{$prefix}--radio-button__label {
-    inline-size: rem(28px);
+    inline-size: to-rem(28px);
   }
 
   .#{$prefix}--radio-button__appearance {

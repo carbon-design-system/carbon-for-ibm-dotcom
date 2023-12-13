@@ -38,8 +38,8 @@ $css--plex: true !default;
 
 :host(#{$prefix}-breadcrumb-overflow-menu) {
   position: relative;
-  block-size: rem(18px);
-  inline-size: rem(20px);
+  block-size: to-rem(18px);
+  inline-size: to-rem(20px);
 
   &:focus {
     outline: 1px solid $focus;

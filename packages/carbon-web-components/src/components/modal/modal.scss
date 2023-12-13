@@ -113,7 +113,7 @@
 :host(#{$prefix}-modal-footer-button) {
   .#{$prefix}--btn {
     block-size: 100%;
-    box-shadow: rem(-1px) 0 0 0 $button-separator;
+    box-shadow: to-rem(-1px) 0 0 0 $button-separator;
     inline-size: 100%;
     max-inline-size: none;
 

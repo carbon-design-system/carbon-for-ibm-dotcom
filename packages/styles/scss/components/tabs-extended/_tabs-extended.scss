@@ -70,6 +70,7 @@
   :host(#{$c4d-prefix}-tab[selected]) {
     display: flex;
     background-color: transparent;
+    transition: color $duration-fast-01 motion(standard, productive);
 
     .#{$prefix}--tabs__nav-link {
       @include type-style('heading-01');
@@ -84,8 +85,6 @@
       }
     }
   }
-
-  transition: color $duration-fast-01 motion(standard, productive);
 
   // Disabled tab never gets selected, but we guard for manual addition of `selected` attribute
   :host(#{$c4d-prefix}-tab[disabled][selected]),

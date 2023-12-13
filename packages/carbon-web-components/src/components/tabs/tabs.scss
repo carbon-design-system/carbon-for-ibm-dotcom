@@ -144,13 +144,13 @@ $inset-transition: inset 110ms motion(standard, productive);
   a.#{$prefix}--tabs__nav-link {
     border-block-end: none;
     // Draws the border without affecting the inner-content
-    box-shadow: rem(-1px) 0 0 0 $border-strong;
+    box-shadow: to-rem(-1px) 0 0 0 $border-strong;
   }
 }
 
 :host(#{$prefix}-tab[type='contained'][hide-divider])
   a.#{$prefix}--tabs__nav-link {
-  box-shadow: rem(-1px) 0 0 0 transparent;
+  box-shadow: to-rem(-1px) 0 0 0 transparent;
 }
 
 // `[role]` is only for specificity.
@@ -250,7 +250,7 @@ $inset-transition: inset 110ms motion(standard, productive);
 :host(#{$prefix}-tabs-skeleton) .#{$prefix}--tabs-trigger {
   @include skeleton;
 
-  inline-size: rem(100px);
+  inline-size: to-rem(100px);
 }
 
 :host(#{$prefix}-tab-skeleton) {
@@ -261,7 +261,7 @@ $inset-transition: inset 110ms motion(standard, productive);
 
     block-size: $spacing-04;
 
-    inline-size: rem(75px);
+    inline-size: to-rem(75px);
   }
 }
 
