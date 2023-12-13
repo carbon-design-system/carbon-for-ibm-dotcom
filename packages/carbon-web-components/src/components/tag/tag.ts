@@ -32,15 +32,6 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
   protected _buttonNode!: HTMLButtonElement;
 
   /**
-   * Handler for @slotchange, will only be ran if user sets an element under the "icon" slot.
-   *
-   * @private
-   */
-  private _handleSlotChange() {
-    this.hasCustomIcon = true;
-  }
-
-  /**
    * Handles `slotchange` event.
    */
   protected _handleSlugSlotChange({ target }: Event) {
@@ -143,17 +134,14 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
   render() {
     const {
       disabled,
-      _handleSlotChange: handleSlotChange,
-      hasCustomIcon,
       filter,
+      _handleSlugSlotChange: handleSlugSlotChange,
       title,
     } = this;
     return html`
-      <slot name="icon" aria-label="${title}" @slotchange=${handleSlotChange}>
-        ${hasCustomIcon ? html`` : null}
-      </slot>
+      <slot name="icon"></slot>
       <slot></slot>
-      <slot name="slug" @slotchange="${this._handleSlugSlotChange}"></slot>
+      <slot name="slug" @slotchange="${handleSlugSlotChange}"></slot>
       ${filter
         ? html`
             <button class="${prefix}--tag__close-icon" ?disabled=${disabled}>

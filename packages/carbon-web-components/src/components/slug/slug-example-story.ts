@@ -374,7 +374,7 @@ export const _Tag = (args) => {
       ${tagTypes.map(
         (e) =>
           html`<cds-tag type="${e}">
-            ${Asleep16({ class: `${prefix}--tag__custom-icon` })} Tag
+            ${Asleep16({ slot: 'icon' })} Tag
             <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
           </cds-tag>`
       )}
@@ -384,7 +384,7 @@ export const _Tag = (args) => {
       ${tagTypes.map(
         (e) =>
           html`<cds-tag filter type="${e}">
-            ${Asleep16({ class: `${prefix}--tag__custom-icon` })} Tag
+            ${Asleep16({ slot: 'icon' })} Tag
             <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
           </cds-tag>`
       )}
