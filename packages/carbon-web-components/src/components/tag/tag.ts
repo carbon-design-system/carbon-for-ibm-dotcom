@@ -41,6 +41,27 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlugSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof CDSTag).slugItem
+            )
+          : false
+      );
+    if (hasContent.length > 0) {
+      // this._hasSlug = Boolean(hasContent);
+      (hasContent[0] as HTMLElement).setAttribute('size', 'sm');
+      (hasContent[0] as HTMLElement).setAttribute('kind', 'inline');
+    }
+    this.requestUpdate();
+  }
+
+  /**
    * Handles `click` event on this element.
    *
    * @param event The event.
@@ -128,23 +149,26 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
       title,
     } = this;
     return html`
+      <slot name="icon" aria-label="${title}" @slotchange=${handleSlotChange}>
+        ${hasCustomIcon ? html`` : null}
+      </slot>
       <slot></slot>
-
+      <slot name="slug" @slotchange="${this._handleSlugSlotChange}"></slot>
       ${filter
         ? html`
             <button class="${prefix}--tag__close-icon" ?disabled=${disabled}>
-              <slot
-                name="icon"
-                aria-label="${title}"
-                @slotchange=${handleSlotChange}>
-                ${hasCustomIcon
-                  ? html``
-                  : html`${Close16({ 'aria-label': title })}`}
-              </slot>
+              ${Close16({ 'aria-label': title })}
             </button>
           `
         : ``}
     `;
+  }
+
+  /**
+   * A selector that will return the slug item.
+   */
+  static get slugItem() {
+    return `${prefix}-slug`;
   }
 
   /**
