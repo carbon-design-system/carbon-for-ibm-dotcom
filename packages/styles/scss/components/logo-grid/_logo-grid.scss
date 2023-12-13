@@ -20,7 +20,6 @@
 @use '../../internal/content-block';
 
 @mixin logo-grid {
-  .#{$prefix}--logo-grid,
   :host(#{$c4d-prefix}-logo-grid) {
     .#{$prefix}--content-block {
       padding-top: 0;
@@ -38,10 +37,6 @@
       }
     }
 
-    .#{$prefix}--card__wrapper {
-      width: 100%;
-    }
-
     .#{$prefix}--content-block__cta {
       margin-top: $spacing-09;
 
@@ -55,50 +50,11 @@
       }
     }
 
-    .#{$prefix}--card__CTA {
-      max-width: 100%;
-      margin-left: 0;
-    }
-
-    .#{$prefix}--image {
-      display: block;
-      background: $icon-inverse;
-      overflow-y: hidden;
-      padding-top: aspect-ratio(288px, 216px);
-      position: relative;
-
-      &:active img {
-        border: 1px $layer-accent-01 solid;
-      }
-
-      img {
-        position: absolute;
-        top: 0;
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
   }
 
   :host(#{$c4d-prefix}-logo-grid) {
     .#{$prefix}--content-block__cta-row[hidden] {
       display: none;
-    }
-  }
-
-  .#{$prefix}--logo-grid__no-border {
-    .#{$prefix}--logo-grid__container {
-      border-bottom: none;
-    }
-  }
-
-  .#{$prefix}--logo-grid__link {
-    display: block;
-
-    &:active .#{$prefix}--logo-grid__logo {
-      box-shadow: inset 0 0 0 1px $layer-accent-01;
     }
   }
 
@@ -108,18 +64,8 @@
     margin-right: calc(-1 * math.div($grid-gutter, 2));
     grid-template-columns: repeat(2, 1fr);
 
-    @include breakpoint(md) {
-      &.#{$prefix}--logo-grid__4-columns {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
     @include breakpoint(lg) {
       grid-template-columns: repeat(3, 1fr);
-
-      &.#{$prefix}--logo-grid__4-columns {
-        grid-template-columns: repeat(4, 1fr);
-      }
     }
   }
 
@@ -152,19 +98,10 @@
     }
   }
 
-  .#{$prefix}--logo-grid__heading {
-    @include type-style('fluid-heading-05', true);
-
-    width: 90%;
-    margin-top: $spacing-07;
-    margin-bottom: $spacing-07;
-  }
-
   .#{$prefix}--content-layout__body {
     display: block;
   }
 
-  .#{$prefix}--logo-grid__wrapper,
   .#{$prefix}--content-layout--logo-grid {
     width: 100%;
     margin-bottom: $spacing-13;
