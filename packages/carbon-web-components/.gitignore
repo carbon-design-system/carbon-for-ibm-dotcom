@@ -1,1 +1,29 @@
+# Build folders
+es
+lib
+dist
 /scss
+docs/js
+.DS_Store
+/scss
+storybook-static
+
+# Config files
+.npmrc
+.env
+
+# Runtime data
+custom-elements.json
+
+# Editor
+.DS_Store
+*.swp
+.idea
+.vscode
+
+# Coverage directories
+tests/coverage
+/junit.xml
+
+# Dependency directory
+node_modules

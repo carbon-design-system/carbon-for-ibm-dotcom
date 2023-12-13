@@ -172,11 +172,8 @@
   button {
     @include type-style(body-short-01);
 
-    color: $text-secondary;
-    width: 100%;
-    border: none;
-    text-align: left;
     padding: to-rem(6px) $spacing-05;
+    border: none;
     background-color: $background;
 
     color: $text-secondary;

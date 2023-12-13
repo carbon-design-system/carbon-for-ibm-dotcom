@@ -70,11 +70,11 @@
 
     .#{$c4d-prefix}--footer-logo__link {
       position: absolute;
-      top: -37px;
+      inset-block-start: -37px;
 
       @include breakpoint(lg) {
         position: relative;
-        top: 0;
+        inset-block-start: 0;
       }
     }
 

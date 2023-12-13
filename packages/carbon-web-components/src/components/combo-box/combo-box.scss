@@ -153,12 +153,6 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-combo-box[slug][isclosable]) {
-  ::slotted(#{$prefix}-slug) {
-    inset-inline-end: $spacing-10;
-  }
-}
-
 :host(#{$prefix}-combo-box[warn][isclosable]),
 :host(#{$prefix}-combo-box[invalid][isclosable]) {
   ::slotted(#{$prefix}-slug) {
