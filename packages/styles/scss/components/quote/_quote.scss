@@ -22,11 +22,6 @@
     padding-bottom: $spacing-10;
     display: block;
     @include hang;
-
-    .#{$prefix}--link-with-icon__container {
-      padding-left: $spacing-05;
-      max-width: 80%;
-    }
   }
 
   .#{$prefix}--quote__container {
@@ -68,24 +63,6 @@
     position: absolute;
     // this value was chosen by visually stay the closest as possible from the quotation text in the md and above breakpoints
     left: 0.6rem;
-  }
-
-  .#{$prefix}--quote__mark-corner-bracket {
-    @include breakpoint(sm) {
-      left: 0.6rem;
-    }
-
-    @include breakpoint(md) {
-      left: calc(-1 * #{$spacing-03});
-    }
-
-    @include breakpoint(lg) {
-      left: calc(-1 * #{$spacing-05});
-    }
-
-    @include breakpoint(max) {
-      left: calc(-1 * #{$spacing-07});
-    }
   }
 
   .#{$prefix}--quote__source {
@@ -137,35 +114,8 @@
     }
   }
 
-  .#{$prefix}--callout__container,
   :host(#{$c4d-prefix}-callout) {
     @include make-row;
-  }
-
-  .#{$prefix}--callout__column {
-    @include make-col-ready;
-  }
-
-  .#{$prefix}--callout__content {
-    @include breakpoint(sm) {
-      padding-top: $spacing-07;
-    }
-
-    @include breakpoint(md) {
-      @include make-col-offset(1, 8);
-      @include make-col(6, 8);
-
-      padding-left: $spacing-02;
-      padding-right: $spacing-02;
-      padding-top: $spacing-10;
-    }
-
-    @include breakpoint(lg) {
-      padding-left: $spacing-01;
-      padding-right: $spacing-01;
-      @include make-col-offset(1, 12);
-      @include make-col(10, 12);
-    }
   }
 
   :host(#{$c4d-prefix}-quote) #{$c4d-prefix}-hr {
