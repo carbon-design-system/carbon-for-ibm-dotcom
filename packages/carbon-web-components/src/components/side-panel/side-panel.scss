@@ -1,0 +1,162 @@
+//
+// Copyright IBM Corp. 2020, 2023
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+$css--plex: true !default;
+
+// Other Carbon settings.
+@use '@carbon/styles/scss/reset';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+
+$pkg-prefix: 'cds';
+
+// TODO: When this PR is merged https://github.com/carbon-design-system/ibm-products/pull/3829
+// swap ++++
+// @import './c4p-side-panel-styles';
+// ----
+// for ++++
+@use '@carbon/ibm-products-styles/scss/config' with (
+  $pkg-prefix: #{$pkg-prefix}
+);
+@use '@carbon/ibm-products-styles/scss/components/SidePanel/index';
+// ----
+
+$block-class: #{$pkg-prefix}--side-panel;
+$block-class-action-set: #{$pkg-prefix}--action-set;
+
+:host(#{$prefix}-side-panel) {
+  // ++++++ Replaces use of FIGMA for slide in / out animation
+  --#{$block-class}--displaced: 100%;
+
+  .#{$block-class}__container-left-placement {
+    --#{$block-class}--displaced: -100%;
+  }
+
+  .#{$block-class}__container--opening {
+    transform: translateX(var(--#{$block-class}--displaced));
+  }
+
+  .#{$block-class}__container--open {
+    transform: translateX(0);
+    transition: all $duration-moderate-02 motion(standard, productive);
+  }
+
+  .#{$block-class}__container--closing {
+    transition: all $duration-moderate-01 motion(exit, productive);
+    transform: translateX(var(--#{$block-class}--displaced));
+  }
+
+  .#{$block-class}__overlay--opening {
+    opacity: 0;
+  }
+
+  .#{$block-class}__overlay--open {
+    opacity: 1;
+    transition: all $duration-moderate-02 motion(standard, productive);
+  }
+
+  .#{$block-class}__overlay--closing {
+    transition: all $duration-moderate-01 motion(exit, productive);
+    opacity: 0;
+  }
+  // ----- Replaces use of FIGMA for slide in / out animation
+
+  // ::slotted([slot='action-toolbar']) {
+  //   @extend .cds--side-panel__action-toolbar;
+  // }
+
+  // ::slotted([slot='subtitle']) {
+  //         ${subtitle ? html` <p class=${subtitleClasses}>${subtitle}</p> ` : ''}
+
+  // }
+
+  // .#{$block-class}__actions-container {
+  //   @extend .#{$block-class}__actions-container;
+  // }
+
+  .#{$block-class}__inner-content {
+    --#{$block-class}--title-opacity: 1;
+
+    height: calc(100% - var(--#{$block-class}--actions-height, $spacing-09));
+  }
+
+  .#{$block-class}__label-text {
+    opacity: var(--#{$block-class}--title-opacity, 1);
+  }
+
+  .#{$block-class}__title-container {
+    top: var(--#{$block-class}--container-scroll-top, 0px);
+
+    &::before {
+      opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
+      z-index: 99; // must be higher than action toolbar
+    }
+  }
+
+  .#{$block-class}__title-container--has-action-toolbar {
+    padding-bottom: 0;
+    margin-bottom: $spacing-03;
+  }
+
+  .#{$block-class}__title-container-inner {
+    position: sticky;
+    top: var(--#{$block-class}--title-scroll-top, 0px);
+  }
+
+  .#{$block-class}__title-text,
+  .#{$block-class}__collapsed-title-text {
+    margin-bottom: $spacing-03; // text can show through a padding
+  }
+
+  .#{$block-class}__title-text {
+    opacity: var(--#{$block-class}--title-opacity, 1);
+  }
+
+  .#{$block-class}__collapsed-title-text {
+    margin-top: 2px; // align with main title top
+    opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
+    z-index: 99;
+    top: 0;
+    transform: none;
+  }
+
+  .#{$block-class}__subtitle-text {
+    padding-left: 0;
+    opacity: var(--#{$block-class}--title-opacity, 1);
+  }
+
+  .#{$block-class}__action-toolbar {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .#{$block-class-action-set} {
+    display: flex;
+  }
+
+  .#{$block-class-action-set}[hidden] {
+    display: none;
+  }
+
+  .#{$block-class-action-set}
+    ::slotted(.#{$block-class-action-set}__action-button) {
+    // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
+    max-width: none;
+    flex: var(--#{$block-class}--actions-width-other, initial);
+  }
+
+  .#{$block-class-action-set}
+    ::slotted(.#{$block-class-action-set}__action-button--first) {
+    // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
+    flex: var(--#{$block-class}--actions-width-first, initial);
+  }
+
+  .#{$block-class}__actions-container {
+    display: flex;
+  }
+}

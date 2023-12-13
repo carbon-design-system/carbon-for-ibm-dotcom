@@ -4164,6 +4164,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@carbon/ibm-products-styles@npm:^2.17.2":
+  version: 2.18.1
+  resolution: "@carbon/ibm-products-styles@npm:2.18.1"
+  peerDependencies:
+    "@carbon/grid": ^11.21.1
+    "@carbon/layout": ^11.20.1
+    "@carbon/motion": ^11.16.1
+    "@carbon/themes": ^11.28.0
+    "@carbon/type": ^11.25.1
+  checksum: fa098fffb06301d19f8d75a86f0c9901753d7ccdcde81b2ba2a858a7d07e877195aee6bb8594876af9fa5d0cc46f19fcd2bc66599f914029c7d116e311e852b3
+  languageName: node
+  linkType: hard
+
 "@carbon/ibmdotcom-services-store@npm:1.53.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services-store@workspace:packages/services-store"
@@ -4731,9 +4744,10 @@ __metadata:
     "@babel/runtime": "npm:^7.16.3"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.0"
-    "@carbon/icon-helpers": "npm:10.45.1"
-    "@carbon/icons": "npm:11.31.0"
-    "@carbon/styles": "npm:1.47.0"
+    "@carbon/ibm-products-styles": "npm:^2.17.2"
+    "@carbon/icon-helpers": "npm:^10.45.1"
+    "@carbon/icons": "npm:^11.31.0"
+    "@carbon/styles": "npm:^1.44.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.27.4"
@@ -8999,12 +9013,12 @@ __metadata:
   linkType: hard
 
 "@types/eslint@npm:*":
-  version: 8.44.8
-  resolution: "@types/eslint@npm:8.44.8"
+  version: 8.44.9
+  resolution: "@types/eslint@npm:8.44.9"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: d6e0788eb7bff90e5f5435b0babe057e76a7d3eed1e36080bacd7b749098eddae499ddb3c0ce6438addce98cc6020d9653b5012dec54e47ca96faa7b8e25d068
+  checksum: dd78831339267c2010af9485f15f68c3353f086157527442f0ce8a561b1ef01bc3a8d8dd9f9943b347a80a9a7bff7aa7b5ad1c6d664bcfb80cb6b41933c97981
   languageName: node
   linkType: hard
 
@@ -9467,13 +9481,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*":
-  version: 18.2.43
-  resolution: "@types/react@npm:18.2.43"
+  version: 18.2.45
+  resolution: "@types/react@npm:18.2.45"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: a9d90a93380bb67623f27eba83e2d05b548109f7eb6fd591f5c4a3716bc257cc7cb078455db7ea4308d5f2ff6b4fe48d9a4a560145d9384069a2b5121bc93937
+  checksum: bd27fd8a959fa776965997af89cb04e43e7868416850fdff421b5539f389efa35acae3d55915c9f32d7b00fb388550302bf8a7f06010abf9ad431e5bf58cb774
   languageName: node
   linkType: hard
 
@@ -12719,8 +12733,8 @@ __metadata:
   linkType: hard
 
 "browserstack-cypress-cli@npm:^1.11.1":
-  version: 1.27.0
-  resolution: "browserstack-cypress-cli@npm:1.27.0"
+  version: 1.28.0
+  resolution: "browserstack-cypress-cli@npm:1.28.0"
   dependencies:
     archiver: "npm:5.3.0"
     async: "npm:3.2.3"
@@ -12747,7 +12761,7 @@ __metadata:
     yargs: "npm:14.2.3"
   bin:
     browserstack-cypress: bin/runner.js
-  checksum: e801f0f712a22821d07a57ac70e15185dc645f5082ab43772596616f0c8eee59d68dc7d74212d26053fb832ef40c2a29963d88bc997e8081527c6fe4df4460ba
+  checksum: 20c19d56319e767a71fe67f02109327f2eb361525cec74accb208b2d2fa54eb13816fdb6dcf1158645ecd182ed8ef28e0ce929dfbbb5e27f56367ecc185d0cf6
   languageName: node
   linkType: hard
 
@@ -13280,9 +13294,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001565":
-  version: 1.0.30001568
-  resolution: "caniuse-lite@npm:1.0.30001568"
-  checksum: 27aa9697e8fccf61702962a3cc48ec2355940e94872e4f0dab108d8a88adb0250e5b96572bef08b90a67a8183d1c704448b2fc69d600d7b6405b3f74dc5dbcb6
+  version: 1.0.30001570
+  resolution: "caniuse-lite@npm:1.0.30001570"
+  checksum: a9b939e003dd70580cc18bce54627af84f298af7c774415c8d6c99871e7cee13bd8278b67955a979cd338369c73e8821a10b37e607d1fff2fbc8ff92fc489653
   languageName: node
   linkType: hard
 
@@ -37578,8 +37592,8 @@ __metadata:
   linkType: hard
 
 "ws@npm:^8.0.0, ws@npm:^8.13.0, ws@npm:^8.2.3":
-  version: 8.15.0
-  resolution: "ws@npm:8.15.0"
+  version: 8.15.1
+  resolution: "ws@npm:8.15.1"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ">=5.0.2"
@@ -37588,7 +37602,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 77a106fd0c7284dfb3c2d85e7c8b52f4f898bab0bede8588f443696a6dc95026eb13bda8f390a609340c994c3b88d4839e63c3caf0d0e635575994a3357afdbd
+  checksum: 746a3102d43e8df7b09f5814bec858f12d10185a7abd655537f3291b687d440bb80fc9d1e082f8dee42d4d74307f78a96810e18a2c8e13053b003c6608c1c648
   languageName: node
   linkType: hard
 

@@ -1,0 +1,17 @@
+$story-prefix: 'side-panel-stories__';
+
+.#{$story-prefix}body-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.#{$story-prefix}text-inputs {
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex-basis: 50%;
+  }
+}
