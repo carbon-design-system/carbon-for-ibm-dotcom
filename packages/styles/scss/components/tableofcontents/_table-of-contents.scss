@@ -362,18 +362,6 @@ $hover-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--tableofcontents--g100 {
-    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
-
-    @include themed-items;
-  }
-
-  .#{$prefix}--tableofcontents--g10 {
-    @include theme($g10, feature-flag-enabled('enable-css-custom-properties'));
-
-    @include themed-items;
-  }
-
   .#{$prefix}--toc__print-styles {
     display: none;
   }
