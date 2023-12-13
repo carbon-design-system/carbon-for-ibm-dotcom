@@ -38,7 +38,7 @@ const images = {
 
 const videos = {
   none: null,
-  'Speed of AI Test Video': '1_9h94wo6b',
+  'Speed of AI Test Video': '0_ibuqxqbe',
 };
 
 export const Default = args => {

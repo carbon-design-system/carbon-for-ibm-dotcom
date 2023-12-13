@@ -30,11 +30,11 @@ export const Default = (args) => {
   if (video) {
     return html`
       <dds-video-cta-container>
-        <dds-card-in-card href="1_9h94wo6b" cta-type="video">
+        <dds-card-in-card href="0_ibuqxqbe" cta-type="video">
           <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
           <dds-card-cta-footer
             cta-type="video"
-            href="1_9h94wo6b"></dds-card-cta-footer>
+            href="0_ibuqxqbe"></dds-card-cta-footer>
         </dds-card-in-card>
       </dds-video-cta-container>
     `;

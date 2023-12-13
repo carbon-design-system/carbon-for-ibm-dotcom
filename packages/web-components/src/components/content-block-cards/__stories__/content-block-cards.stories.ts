@@ -50,8 +50,8 @@ const cardGroupItemWithImages = html`
 `;
 
 const cardGroupItemWithVideos = html`
-  <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+  <dds-card-group-item cta-type="video" href="0_ibuqxqbe">
+    <dds-card-cta-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
     </dds-card-cta-footer>
   </dds-card-group-item>
 `;

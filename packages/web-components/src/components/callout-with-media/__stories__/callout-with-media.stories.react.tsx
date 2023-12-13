@@ -31,7 +31,7 @@ const image = (
 );
 
 const video = (
-  <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>
+  <DDSCalloutWithMediaVideo video-id="0_ibuqxqbe"></DDSCalloutWithMediaVideo>
 );
 
 export const Default = (args) => {

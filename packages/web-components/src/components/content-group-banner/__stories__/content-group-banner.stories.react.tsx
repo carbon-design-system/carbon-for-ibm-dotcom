@@ -29,7 +29,7 @@ const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {

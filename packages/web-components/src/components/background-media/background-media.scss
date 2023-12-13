@@ -9,13 +9,6 @@
 @import '@carbon/ibmdotcom-styles/scss/components/background-media/background-media';
 @import '@carbon/web-components/scss/components/tooltip/tooltip';
 
-.#{$prefix}--background-media--video {
-  aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */
-  @include carbon--breakpoint(md) {
-    aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
-  }
-}
-
 .#{$prefix}--video-player__controls[hasTooltip] {
   @include tooltip--trigger('definition', top);
   @include tooltip--placement('definition', 'top', 'end');

@@ -60,7 +60,7 @@ export const Default = args => {
         <DDSContentItemHorizontalMedia align={align}>
           {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage> : ``}
           {type === MEDIA_TYPE.VIDEO ? (
-            <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+            <DDSContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></DDSContentItemHorizontalMediaVideo>
           ) : (
             ``
           )}

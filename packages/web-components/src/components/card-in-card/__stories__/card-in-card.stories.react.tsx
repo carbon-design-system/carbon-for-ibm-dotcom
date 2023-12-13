@@ -38,9 +38,9 @@ export const Default = args => {
   if (video) {
     return (
       <DDSVideoCTAContainer>
-        <DDSCardInCard href="1_9h94wo6b" cta-type="video">
+        <DDSCardInCard href="0_ibuqxqbe" cta-type="video">
           <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-          <DDSCardCTAFooter cta-type="video" href="1_9h94wo6b"></DDSCardCTAFooter>
+          <DDSCardCTAFooter cta-type="video" href="0_ibuqxqbe"></DDSCardCTAFooter>
         </DDSCardInCard>
       </DDSVideoCTAContainer>
     );

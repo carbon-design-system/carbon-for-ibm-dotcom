@@ -173,7 +173,7 @@ export const WithVideo = (args) => {
       >
       <dds-video-player-container
         slot="media"
-        video-id="1_9h94wo6b"></dds-video-player-container>
+        video-id="0_ibuqxqbe"></dds-video-player-container>
       ${ctaStyle === 'card-link'
         ? html`
             <dds-card-link-cta

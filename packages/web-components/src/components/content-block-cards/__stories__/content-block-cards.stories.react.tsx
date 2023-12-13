@@ -55,8 +55,8 @@ const cardGroupItemWithImages = (
 );
 
 const cardGroupItemWithVideos = (
-  <DDSCardGroupItem cta-type="video" href="1_9h94wo6b">
-    <DDSCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b"></DDSCardCTAFooter>
+  <DDSCardGroupItem cta-type="video" href="0_ibuqxqbe">
+    <DDSCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe"></DDSCardCTAFooter>
   </DDSCardGroupItem>
 );
 

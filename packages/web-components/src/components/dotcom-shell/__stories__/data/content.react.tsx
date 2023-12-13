@@ -275,7 +275,7 @@ export const tocContent = (
           nisi ut aliquip ex ea commodo consequat.
         </DDSContentBlockCopy>
         <DDSLeadspaceBlockMedia slot="media">
-          <DDSVideoPlayerContainer video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
+          <DDSVideoPlayerContainer video-id="0_ibuqxqbe"></DDSVideoPlayerContainer>
         </DDSLeadspaceBlockMedia>
         <DDSLinkList type="end">
           <DDSLinkListHeading>Featured products</DDSLinkListHeading>
@@ -348,7 +348,7 @@ export const tocContent = (
         Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est
         velit egestas dui.
       </DDSCalloutWithMediaCopy>
-      <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>
+      <DDSCalloutWithMediaVideo video-id="0_ibuqxqbe"></DDSCalloutWithMediaVideo>
     </DDSCalloutWithMedia>
 
     <DDSContentBlockHorizontal name="4" data-title="Tincidunt ornare massa">
@@ -532,7 +532,7 @@ export const StoryContentNoToC = () => (
           Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat
           est velit egestas dui.
         </DDSCalloutWithMediaCopy>
-        <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>
+        <DDSCalloutWithMediaVideo video-id="0_ibuqxqbe"></DDSCalloutWithMediaVideo>
       </DDSCalloutWithMedia>
 
       <DDSContentBlockHorizontal>
