@@ -81,8 +81,7 @@
   }
 
   :host(#{$c4d-prefix}-leadspace-block-content)
-    ::slotted(#{$c4d-prefix}-link-list),
-  .#{$prefix}--leadspace-block .#{$prefix}--link-list {
+    ::slotted(#{$c4d-prefix}-link-list) {
     display: block;
     padding-bottom: $spacing-09;
     margin-right: 0;
@@ -93,8 +92,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace-block-media),
-  .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
+  :host(#{$c4d-prefix}-leadspace-block-media) {
     display: block;
     max-width: carbon--mini-units(80);
     padding-bottom: $spacing-07;
