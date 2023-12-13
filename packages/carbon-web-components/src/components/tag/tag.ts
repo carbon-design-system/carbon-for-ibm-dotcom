@@ -45,7 +45,7 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
           : false
       );
     if (hasContent.length > 0) {
-      // this._hasSlug = Boolean(hasContent);
+      (hasContent[0] as HTMLElement).setAttribute('tag', `${this.type}`);
       (hasContent[0] as HTMLElement).setAttribute('size', 'sm');
       (hasContent[0] as HTMLElement).setAttribute('kind', 'inline');
     }
