@@ -12,8 +12,7 @@
 @use '../masthead';
 
 @mixin dotcom-shell {
-  :host(#{$c4d-prefix}-dotcom-shell),
-  .#{$prefix}--dotcom-shell {
+  :host(#{$c4d-prefix}-dotcom-shell) {
     display: flex;
     flex-direction: column;
     padding-top: $spacing-09;
