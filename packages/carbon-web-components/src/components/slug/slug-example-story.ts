@@ -425,7 +425,7 @@ const tagTypes = [
   'outline',
 ];
 
-export const _Tag = (args) => {
+export const _Tag = () => {
   return html`
     <style>
       ${styles}
