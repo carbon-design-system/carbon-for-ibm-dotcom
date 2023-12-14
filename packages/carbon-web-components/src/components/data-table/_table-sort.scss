@@ -59,8 +59,8 @@
 }
 
 :host(#{$prefix}-table-header-cell[sort-direction]) {
-    ::slotted(#{$prefix}-slug){
-      margin-inline-end: auto;
-      margin-inline-start: $spacing-03;
+  ::slotted(#{$prefix}-slug) {
+    margin-inline-end: auto;
+    margin-inline-start: $spacing-03;
   }
 }
