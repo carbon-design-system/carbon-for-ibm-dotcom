@@ -335,7 +335,7 @@ export const _SlugWithExpansion = () => {
   `;
 };
 
-export const _SlugWithRadio = () => {
+export const _SlugWithRadioSelection = () => {
   return html`
     <cds-table radio with-row-slugs>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
