@@ -146,7 +146,7 @@
 }
 
 :host(#{$prefix}-modal[has-two-buttons]) .#{$prefix}--modal-container {
-  // @include callout-gradient('default', 64px);
+  @include callout-gradient('default', 64px);
 
   background-color: $layer;
 }
