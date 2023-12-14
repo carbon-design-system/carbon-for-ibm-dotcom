@@ -32,14 +32,16 @@ class CDSModalFooter extends LitElement {
   private _handleSlotChange(event: Event) {
     const { selectorButtons } = this.constructor as typeof CDSModalFooter;
     const length = (event.target as HTMLSlotElement)
-    .assignedNodes()
-    .filter(
-      (node) =>
-        node.nodeType === Node.ELEMENT_NODE &&
-        (node as Element).matches(selectorButtons)
-    ).length;
+      .assignedNodes()
+      .filter(
+        (node) =>
+          node.nodeType === Node.ELEMENT_NODE &&
+          (node as Element).matches(selectorButtons)
+      ).length;
     this.hasThreeButtons = length > 2;
-    length === 2 ? this.parentElement.setAttribute('has-two-buttons', '') : this.parentElement.removeAttribute('has-two-buttons')
+    length === 2
+      ? this.parentElement.setAttribute('has-two-buttons', '')
+      : this.parentElement.removeAttribute('has-two-buttons');
     this.requestUpdate();
   }
 

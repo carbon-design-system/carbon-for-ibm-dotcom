@@ -222,11 +222,12 @@ export const _Dropdown = () => {
 
 export const _Modal = () => {
   return html`
-    <style>${styles}</style>
+    <style>
+      ${styles}
+    </style>
     <cds-modal open prevent-close>
       <cds-modal-header>
         <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
-
         <cds-modal-close-button></cds-modal-close-button>
         <cds-modal-label>Account resources</cds-modal-label>
         <cds-modal-heading>Add a custom domain</cds-modal-heading>
@@ -270,8 +271,8 @@ export const _Modal = () => {
         <cds-modal-footer-button>Add</cds-modal-footer-button>
       </cds-modal-footer>
     </cds-modal>
-  `
-}
+  `;
+};
 
 export const _Multiselect = () => {
   return html` <style>

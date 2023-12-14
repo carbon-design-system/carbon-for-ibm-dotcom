@@ -44,7 +44,7 @@ class CDSModalHeader extends LitElement {
     this.requestUpdate();
   }
 
-  updated(){
+  updated() {
     if (this._hasSlug) {
       this.parentElement.setAttribute('slug', '');
     } else {
@@ -53,7 +53,8 @@ class CDSModalHeader extends LitElement {
   }
 
   render() {
-    return html` <slot></slot> <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>`;
+    return html` <slot></slot>
+      <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>`;
   }
 
   /**
