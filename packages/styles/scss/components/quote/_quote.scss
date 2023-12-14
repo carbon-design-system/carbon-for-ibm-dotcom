@@ -179,7 +179,7 @@
   }
 
   :host(#{$c4d-prefix}-quote-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon !optional;
+    @extend .#{$prefix}--link-with-icon;
 
     display: inline-block;
   }

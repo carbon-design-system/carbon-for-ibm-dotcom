@@ -5,13 +5,6 @@
 ####   `should render with minimum attributes`
 
 ```
-<<<<<<< HEAD
-<div class="cds--tabs-extended cds--tabs-extended--horizontal">
-  <ul class="cds--accordion">
-    <slot>
-    </slot>
-  </ul>
-=======
 <button
   aria-hidden="true"
   class="cds--tab--overflow-nav-button cds--tab--overflow-nav-button--hidden cds--tab--overflow-nav-button--previous cds--tabs__nav-caret-left"
@@ -53,7 +46,6 @@
   class="cds--assistive-text"
   role="status"
 >
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 </div>
 
 ```
@@ -61,13 +53,6 @@
 ####   `should render with various attributes`
 
 ```
-<<<<<<< HEAD
-<div class="cds--tabs-extended cds--tabs-extended--horizontal">
-  <ul class="cds--accordion">
-    <slot>
-    </slot>
-  </ul>
-=======
 <button
   aria-hidden="true"
   class="cds--tab--overflow-nav-button cds--tab--overflow-nav-button--hidden cds--tab--overflow-nav-button--previous cds--tabs__nav-caret-left"
@@ -109,7 +94,6 @@
   class="cds--assistive-text"
   role="status"
 >
->>>>>>> 6575f00934 (fix(web-components): updated web-components tests)
 </div>
 
 ```
