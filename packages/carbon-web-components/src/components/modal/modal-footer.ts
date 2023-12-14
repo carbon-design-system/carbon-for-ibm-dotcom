@@ -40,8 +40,8 @@ class CDSModalFooter extends LitElement {
       ).length;
     this.hasThreeButtons = length > 2;
     length === 2
-      ? this.parentElement.setAttribute('has-two-buttons', '')
-      : this.parentElement.removeAttribute('has-two-buttons');
+      ? this.parentElement?.setAttribute('has-two-buttons', '')
+      : this.parentElement?.removeAttribute('has-two-buttons');
     this.requestUpdate();
   }
 

@@ -46,9 +46,9 @@ class CDSModalHeader extends LitElement {
 
   updated() {
     if (this._hasSlug) {
-      this.parentElement.setAttribute('slug', '');
+      this.parentElement?.setAttribute('slug', '');
     } else {
-      this.parentElement!.removeAttribute('slug');
+      this.parentElement?.removeAttribute('slug');
     }
   }
 

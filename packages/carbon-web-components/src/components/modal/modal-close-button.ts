@@ -32,7 +32,7 @@ class CDSModalCloseButton extends FocusMixin(LitElement) {
   closeButtonLabel = 'Close';
 
   updated() {
-    this.parentElement.setAttribute('close-button', '');
+    this.parentElement?.setAttribute('close-button', '');
   }
 
   render() {
