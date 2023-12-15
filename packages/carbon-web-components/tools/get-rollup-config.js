@@ -20,7 +20,8 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const rtlcss = require('rtlcss');
 const { promisify } = require('util');
 const { terser } = require('rollup-plugin-terser');
-const minifyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
+const minifyHTMLLiterals =
+  require('rollup-plugin-minify-html-literals').default;
 const carbonIcons = require('./rollup-plugin-icons');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
 const license = require('./rollup-plugin-license');
@@ -136,7 +137,7 @@ function getRollupConfig({
             caseSensitive: true,
             collapseInlineTagWhitespace: true,
             collapseWhitespace: true,
-            removeComments: true
+            removeComments: true,
           },
         },
       }),
@@ -156,7 +157,7 @@ function getRollupConfig({
           '@babel/plugin-transform-nullish-coalescing-operator',
           ['@babel/plugin-transform-object-rest-spread', { useBuiltIns: true }],
           '@babel/plugin-transform-optional-chaining',
-        ]
+        ],
       }),
       litSCSS({
         includePaths: [

@@ -24,7 +24,8 @@ const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const multiInput = require('rollup-plugin-multi-input').default;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
-const minifyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
+const minifyHTMLLiterals =
+  require('rollup-plugin-minify-html-literals').default;
 const ibmdotcomIcon = require('./rollup-plugin-ibmdotcom-icon');
 const litSCSS = require('./rollup-plugin-lit-scss');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
@@ -168,7 +169,7 @@ function getRollupConfig({
             caseSensitive: true,
             collapseInlineTagWhitespace: true,
             collapseWhitespace: true,
-            removeComments: true
+            removeComments: true,
           },
         },
       }),
@@ -198,7 +199,7 @@ function getRollupConfig({
           '@babel/plugin-transform-nullish-coalescing-operator',
           ['@babel/plugin-transform-object-rest-spread', { useBuiltIns: true }],
           '@babel/plugin-transform-optional-chaining',
-        ]
+        ],
       }),
       // We are using `carbon-web-components` code merely as the source of inheritance,
       // and we don't want to affect `carbon-web-components`' components application may define elsewhere
