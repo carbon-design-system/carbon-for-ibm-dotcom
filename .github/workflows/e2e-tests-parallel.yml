@@ -90,7 +90,7 @@ jobs:
           cache: 'yarn'
 
       - name: Download the build folders
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: storybook-build
           path: packages/web-components/storybook-static
@@ -139,7 +139,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: web-components-tests
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         continue-on-error: true
         with:
           name: failure-wc
