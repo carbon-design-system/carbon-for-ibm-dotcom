@@ -56,3 +56,9 @@
   .#{$prefix}--table-sort__icon {
   transform: rotate(180deg);
 }
+
+:host(#{$prefix}-table-header-cell[sort-direction]) {
+  ::slotted(#{$prefix}-slug) {
+    margin-inline: $spacing-03 auto;
+  }
+}

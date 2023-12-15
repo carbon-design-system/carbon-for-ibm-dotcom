@@ -47,7 +47,7 @@
   }
 
   ::slotted(#{$prefix}-table-cell) {
-    padding-block: to-rem(7px) rem(6px);
+    padding-block: to-rem(7px) to-rem(6px);
     padding-inline-start: $spacing-05;
   }
 
@@ -75,7 +75,7 @@
     block-size: $spacing-08;
   }
   ::slotted(#{$prefix}-table-cell) {
-    padding-block: to-rem(7px) rem(6px);
+    padding-block: to-rem(7px) to-rem(6px);
     padding-inline-start: $spacing-05;
   }
 
@@ -178,18 +178,11 @@
 //
 // "selection" and "expandable" sizes
 //
-:host(#{$prefix}-table-header-row[selection-name][expandable]),
-:host(#{$prefix}-table-row[selection-name][expandable]) {
-  ::slotted(#{$prefix}-table-header-cell),
-  ::slotted(#{$prefix}-table-cell) {
-    padding-inline-start: $spacing-03;
-  }
-}
 
 :host(#{$prefix}-table-header-row[selection-name][expandable][size='xs']),
 :host(#{$prefix}-table-row[selection-name][expandable][size='xs']) {
   .#{$prefix}--table-column-checkbox {
-    padding: 0 rem(6px);
+    padding: 0 to-rem(6px);
   }
 }
 
@@ -198,7 +191,7 @@
 :host(#{$prefix}-table-header-row[selection-name][expandable][size='md']),
 :host(#{$prefix}-table-row[selection-name][expandable][size='md']) {
   .#{$prefix}--table-column-checkbox {
-    padding: to-rem(3px) rem(6px);
+    padding: to-rem(3px) to-rem(6px);
   }
 }
 

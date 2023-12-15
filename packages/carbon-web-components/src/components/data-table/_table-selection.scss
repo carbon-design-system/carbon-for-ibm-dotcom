@@ -72,3 +72,15 @@
   display: none !important;
   /* stylelint-enable declaration-no-important */
 }
+
+:host(#{$prefix}-table-row[selected][slug]) {
+  .#{$prefix}--table-column-checkbox,
+  ::slotted(#{$prefix}-table-cell),
+  .#{$prefix}--table-expand {
+    background-color: transparent;
+  }
+}
+
+:host(#{$prefix}-table-row[selected][rows-with-slug]) {
+  background-color: $layer-selected;
+}
