@@ -47,27 +47,6 @@ Using the default data provides visitors a consistent navigation experience acro
 ></c4d-masthead-container>
 ```
 
-#### Adopting Masthead v2 with Cloud data endpoint
-
-##### JS (via CDN):
-
-```html
-// Alpha tag using changes from the feature branch (feat/masthead-v2)
-<script
-  type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
-```
-
-##### Markup:
-
-```html
-<c4d-masthead-container
-  data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
-  platform="Cloud"
-  auth-method="cookie"
-  has-contact="true"></c4d-masthead-container>
-```
-
 #### Setting Platform
 
 ```html
@@ -427,16 +406,6 @@ document.querySelector('c4d-search-with-typeahead').placeholderFormatter =
 ### `<c4d-masthead-container>`/`<c4d-masthead-composite>`
 
 <Props of="c4d-masthead-composite" />
-
-For Cloud-specific version of masthead-container,
-`<c4d-cloud-masthead-container>`, we support two user authentication methods,
-via cookie or api. To select between the two, provide the `auth-method` prop
-with a value of either 'cookie' or 'api'.
-
-```html
-<c4d-cloud-masthead-container
-  auth-method="cookie"></c4d-cloud-masthead-container>
-```
 
 ## Stable selectors
 
