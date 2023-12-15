@@ -2302,7 +2302,7 @@ __metadata:
     "@carbon/motion": "npm:^11.16.1"
     "@carbon/pictograms-react": "npm:11.54.0"
     "@carbon/react": "npm:^1.44.0"
-    "@carbon/styles": "npm:^1.44.0"
+    "@carbon/styles": "npm:^1.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:^11.25.1"
     "@carbon/web-components": "npm:2.0.2-rc.1"
