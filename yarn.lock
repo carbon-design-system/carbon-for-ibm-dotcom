@@ -3261,7 +3261,7 @@ __metadata:
   dependencies:
     "@carbon/icons-react": "npm:^11.31.0"
     "@carbon/layout": "npm:^11.20.1"
-    "@carbon/styles": "npm:^1.44.0"
+    "@carbon/styles": "npm:^1.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/themes": "npm:^11.28.0"
     "@carbon/type": "npm:^11.25.1"
@@ -3369,7 +3369,7 @@ __metadata:
     "@carbon/layout": "npm:^11.20.1"
     "@carbon/motion": "npm:^11.16.1"
     "@carbon/pictograms-react": "npm:11.54.0"
-    "@carbon/react": "npm:^1.44.0"
+    "@carbon/react": "npm:^1.45.0"
     "@carbon/styles": "npm:^1.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:^11.25.1"
@@ -3536,6 +3536,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@carbon/icons-react@npm:^11.32.0":
+  version: 11.32.0
+  resolution: "@carbon/icons-react@npm:11.32.0"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.45.0"
+    "@carbon/telemetry": "npm:0.1.0"
+    prop-types: "npm:^15.7.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: 538f83c10ffc2ff232c6f2fa607ab3154a1a01ee7fd574a19404a5a06a3c1cc70b0837f96c1c01cc4a7b389e65572ef6b65c87213afbc4e2acbdc37ac2da1f52
+  languageName: node
+  linkType: hard
+
 "@carbon/icons@npm:^11.31.0":
   version: 11.31.0
   resolution: "@carbon/icons@npm:11.31.0"
@@ -3570,15 +3583,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/react@npm:^1.44.0":
-  version: 1.44.0
-  resolution: "@carbon/react@npm:1.44.0"
+"@carbon/react@npm:^1.45.0":
+  version: 1.45.0
+  resolution: "@carbon/react@npm:1.45.0"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     "@carbon/feature-flags": "npm:^0.16.0"
-    "@carbon/icons-react": "npm:^11.31.0"
+    "@carbon/icons-react": "npm:^11.32.0"
     "@carbon/layout": "npm:^11.20.0"
-    "@carbon/styles": "npm:^1.44.0"
+    "@carbon/styles": "npm:^1.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     classnames: "npm:2.3.2"
     copy-to-clipboard: "npm:^3.3.1"
@@ -3599,7 +3612,7 @@ __metadata:
     react: ^16.8.6 || ^17.0.1 || ^18.2.0
     react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0
     sass: ^1.33.0
-  checksum: 1de7346b30d7aead30665a22bde55eedf918d2f9e0759c8daec4d7183b2291a8bd7a64e7de1741bf88fc37d7e168939293e2f7d93c458452413217adca8aa860
+  checksum: f412e129b712b5799e895f1a4ebaf20e00fe4f1f7393e3cec34d337a3c80fc1381d36ad0aaa26442f2211112e4669b99b4b85f73712e8ca79d4d56eb9294e030
   languageName: node
   linkType: hard
 
@@ -3630,7 +3643,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.44.0, @carbon/styles@npm:^1.44.0":
+"@carbon/styles@npm:1.44.0":
   version: 1.44.0
   resolution: "@carbon/styles@npm:1.44.0"
   dependencies:
@@ -3737,7 +3750,7 @@ __metadata:
     "@babel/traverse": "npm:~7.23.0"
     "@carbon/icon-helpers": "npm:^10.45.1"
     "@carbon/icons": "npm:^11.31.0"
-    "@carbon/styles": "npm:^1.44.0"
+    "@carbon/styles": "npm:^1.45.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.8.1"
