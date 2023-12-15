@@ -135,7 +135,7 @@
     "@carbon/icons": "^11.31.0",
     "@carbon/icons-react": "10.49.2",
     "@carbon/pictograms-react": "11.54.0",
-    "@carbon/react": "^1.44.0",
+    "@carbon/react": "^1.45.0",
     "@carbon/type": "^11.25.1",
     "@open-wc/semantic-dom-diff": "~0.18.0",
     "@percy-io/in-percy": "^0.1.11",
