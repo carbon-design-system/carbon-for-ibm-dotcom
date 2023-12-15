@@ -38,13 +38,6 @@
       @include make-col(12, 16);
     }
 
-    .#{$prefix}--accordion__heading {
-      display: flex;
-      align-items: center;
-      min-height: $spacing-09;
-      padding: 0;
-    }
-
     ::slotted([slot='locale-button']),
     ::slotted([slot='language-selector']) {
       display: inline-block;

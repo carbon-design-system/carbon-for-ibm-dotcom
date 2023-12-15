@@ -96,110 +96,12 @@
         @include breakpoint(lg) {
           border-top: none;
         }
-
-        .#{$prefix}--legal-nav__list-item {
-          margin-right: 0;
-          padding-top: 0;
-          height: $spacing-09;
-          display: flex;
-          align-items: center;
-
-          @include breakpoint(md) {
-            margin-right: $spacing-07;
-          }
-
-          a {
-            display: flex;
-            align-items: center;
-            width: 100%;
-          }
-        }
       }
-
-      .#{$prefix}--locale-btn__container,
-      .#{$prefix}--language-selector__container {
-        margin: 0;
-
-        @include breakpoint(md) {
-          align-self: flex-end;
-          width: 50%;
-          border-left: 1px solid $layer-accent-01;
-        }
-
-        @include breakpoint(lg) {
-          margin: 0;
-        }
-
-        .#{$prefix}--btn--secondary,
-        .#{$prefix}--list-box,
-        .#{$prefix}--select-input {
-          background-color: $background;
-          max-width: 100%;
-
-          &:hover {
-            background-color: $background-hover;
-          }
-
-          &:active {
-            background-color: $layer-active-01;
-          }
-        }
-
-        .#{$prefix}--select {
-          max-width: 100%;
-        }
-
-        .#{$prefix}--text-input,
-        .#{$prefix}--list-box,
-        .#{$prefix}--select-input {
-          border-bottom: none;
-        }
-      }
-    }
-  }
-
-  .#{$prefix}--legal-nav__holder {
-    padding-top: 0;
-    margin-left: 0;
-
-    @include breakpoint(md) {
-      padding-top: $spacing-03;
-      column-count: 2;
-    }
-
-    @include breakpoint(lg) {
-      column-count: 3;
-    }
-  }
-
-  .#{$prefix}--adjunct-links__holder {
-    margin-left: 0;
-    margin-top: $spacing-09;
-    padding: 0 $spacing-09 0 $spacing-05;
-    width: 100%;
-
-    @include breakpoint(md) {
-      width: 50%;
-    }
-
-    @include breakpoint(lg) {
-      margin-left: 25%;
-      width: 25%;
-    }
-
-    .#{$prefix}--legal-nav__list-item {
-      padding-top: 0;
-      margin-right: 0;
-    }
-
-    .#{$prefix}--legal-nav__list-item:not(:first-of-type) {
-      padding-top: $spacing-03;
     }
   }
 
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div,
-  .#{$prefix}--legal-nav__list-item {
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div {
     margin-right: $spacing-07;
     padding: $spacing-03 0 0 0;
     @include type-style('body-01');

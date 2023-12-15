@@ -21,8 +21,7 @@
 /// @group footer
 
 @mixin footer-logo {
-  :host(#{$c4d-prefix}-footer-logo),
-  .#{$prefix}--footer-logo {
+  :host(#{$c4d-prefix}-footer-logo) {
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     &:focus-visible {
