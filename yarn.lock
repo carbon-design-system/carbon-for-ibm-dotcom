@@ -2193,7 +2193,7 @@ __metadata:
   dependencies:
     "@carbon/icons-react": "npm:^11.31.0"
     "@carbon/layout": "npm:^11.20.1"
-    "@carbon/styles": "npm:^1.44.0"
+    "@carbon/styles": "npm:^1.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/themes": "npm:^11.28.0"
     "@carbon/type": "npm:^11.25.1"
@@ -2301,7 +2301,7 @@ __metadata:
     "@carbon/layout": "npm:^11.20.1"
     "@carbon/motion": "npm:^11.16.1"
     "@carbon/pictograms-react": "npm:11.54.0"
-    "@carbon/react": "npm:^1.44.0"
+    "@carbon/react": "npm:^1.45.0"
     "@carbon/styles": "npm:^1.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:^11.25.1"
@@ -2457,7 +2457,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:^11.31.0, @carbon/icons-react@npm:^11.32.0":
+"@carbon/icons-react@npm:^11.31.0":
   version: 11.32.0
   resolution: "@carbon/icons-react@npm:11.32.0"
   dependencies:
@@ -2467,6 +2467,19 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 538f83c10ffc2ff232c6f2fa607ab3154a1a01ee7fd574a19404a5a06a3c1cc70b0837f96c1c01cc4a7b389e65572ef6b65c87213afbc4e2acbdc37ac2da1f52
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:^11.33.0":
+  version: 11.33.0
+  resolution: "@carbon/icons-react@npm:11.33.0"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.45.0"
+    "@carbon/telemetry": "npm:0.1.0"
+    prop-types: "npm:^15.7.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: beb78e827e0eb81a55ae7b2d3ee7f07cf89e664445d6c4be01095d78d72f15b2ab5889109cf77add940c2c1e221747cbcaad62d28ec57d13ccf7a489493fecb9
   languageName: node
   linkType: hard
 
@@ -2504,16 +2517,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/react@npm:^1.44.0":
-  version: 1.45.0
-  resolution: "@carbon/react@npm:1.45.0"
+"@carbon/react@npm:^1.45.0":
+  version: 1.46.0
+  resolution: "@carbon/react@npm:1.46.0"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     "@carbon/feature-flags": "npm:^0.16.0"
-    "@carbon/icons-react": "npm:^11.32.0"
+    "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:^11.20.0"
-    "@carbon/styles": "npm:^1.45.0"
-    "@carbon/telemetry": "npm:0.1.0"
+    "@carbon/styles": "npm:^1.46.0"
     classnames: "npm:2.3.2"
     copy-to-clipboard: "npm:^3.3.1"
     downshift: "npm:8.2.3"
@@ -2533,7 +2545,7 @@ __metadata:
     react: ^16.8.6 || ^17.0.1 || ^18.2.0
     react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0
     sass: ^1.33.0
-  checksum: f412e129b712b5799e895f1a4ebaf20e00fe4f1f7393e3cec34d337a3c80fc1381d36ad0aaa26442f2211112e4669b99b4b85f73712e8ca79d4d56eb9294e030
+  checksum: 7a7805f58a7bdabe46ab9b5b97622133a5a6195889fa13abb600124f71851739cf3a8fb5e22b81363e38693dc0d9b345af424ba0fb26a9fb5e8c76464ad92cda
   languageName: node
   linkType: hard
 
@@ -2582,6 +2594,27 @@ __metadata:
     sass:
       optional: true
   checksum: 8372874f57ecb46dd0bd29065eafe38886615da8a16cd15fe644aa12f824617b25e4ee56c8791ab7b6bc6f9dfc15d182290af183c650354171fbb84785d924db
+  languageName: node
+  linkType: hard
+
+"@carbon/styles@npm:^1.46.0":
+  version: 1.46.0
+  resolution: "@carbon/styles@npm:1.46.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.20.0"
+    "@carbon/feature-flags": "npm:^0.16.0"
+    "@carbon/grid": "npm:^11.21.0"
+    "@carbon/layout": "npm:^11.20.0"
+    "@carbon/motion": "npm:^11.16.0"
+    "@carbon/themes": "npm:^11.28.0"
+    "@carbon/type": "npm:^11.25.0"
+    "@ibm/plex": "npm:6.0.0-next.6"
+  peerDependencies:
+    sass: ^1.33.0
+  peerDependenciesMeta:
+    sass:
+      optional: true
+  checksum: e403d3890da3d3286f7c28b5e9420c2a3ea3ac8a9886c560b51c8e48047fc06cf3ccabe22eb7f7f8e86ceb246ca1717186d53b95473017af4e42e78143763a44
   languageName: node
   linkType: hard
 
@@ -2650,7 +2683,7 @@ __metadata:
     "@babel/traverse": "npm:~7.23.0"
     "@carbon/icon-helpers": "npm:^10.45.1"
     "@carbon/icons": "npm:^11.31.0"
-    "@carbon/styles": "npm:^1.44.0"
+    "@carbon/styles": "npm:^1.45.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.27.4"
