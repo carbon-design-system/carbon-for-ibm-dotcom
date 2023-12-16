@@ -2105,7 +2105,7 @@ __metadata:
     async-done: "npm:^1.3.0"
     babel-eslint: "npm:^10.1.0"
     babel-jest: "npm:^24.0.0"
-    carbon-components: "npm:10.58.3"
+    carbon-components: "npm:10.58.12"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
     gulp-babel: "npm:^8.0.0"
@@ -11008,18 +11008,6 @@ __metadata:
     lodash.debounce: "npm:^4.0.8"
     warning: "npm:^3.0.0"
   checksum: 5ebf03f54aefcf906a568d7fa7303517a89b8ff0fd6211850d6e5bb08ad4837c1eff18ccafb2773fdb4a1ecbe9011ce52ee850f56baf6615546be27472076e57
-  languageName: node
-  linkType: hard
-
-"carbon-components@npm:10.58.3":
-  version: 10.58.3
-  resolution: "carbon-components@npm:10.58.3"
-  dependencies:
-    "@carbon/telemetry": "npm:0.1.0"
-    flatpickr: "npm:4.6.1"
-    lodash.debounce: "npm:^4.0.8"
-    warning: "npm:^3.0.0"
-  checksum: 6b3a2f8b184016671ba4ae8f35e6e1db67d1debe778d46882b5d8ace39bc3fb8b0138a741645dddf8f08631e4832604ce5e6bdf8dbfa3eaff154ba1d1cd5cdb4
   languageName: node
   linkType: hard
 
