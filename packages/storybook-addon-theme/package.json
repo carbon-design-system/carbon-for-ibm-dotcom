@@ -30,7 +30,7 @@
     "react-dom": "16.14.0"
   },
   "devDependencies": {
-    "@babel/cli": "~7.12.0",
+    "@babel/cli": "~7.23.0",
     "rimraf": "^3.0.0"
   }
 }
