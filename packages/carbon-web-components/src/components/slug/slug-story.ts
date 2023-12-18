@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 import View16 from '@carbon/icons/lib/view/16';
 import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
 import Folders16 from '@carbon/icons/lib/folders/16';
@@ -19,6 +19,7 @@ import { prefix } from '../../globals/settings';
 import './index';
 import '../icon-button/index';
 import styles from './slug-story.scss';
+import storyDocs from './slug-story.mdx';
 
 import { POPOVER_ALIGNMENT } from '../popover/defs';
 import { SLUG_SIZE } from './defs';
@@ -195,7 +196,7 @@ export const Default = () => {
 };
 
 export const Playground = (args) => {
-  const { alignment, aiTextLabel, size, kind, dotType } =
+  const { alignment, aiTextLabel, size, kind, dotType, revertActive } =
     args?.[`${prefix}-slug`] ?? {};
   return html`
     <style>
@@ -207,7 +208,8 @@ export const Playground = (args) => {
         size="${size}"
         kind="${kind}"
         dot-type="${dotType}"
-        ai-text-label="${aiTextLabel}">
+        ai-text-label="${aiTextLabel}"
+        ?revert-active="${revertActive}">
         ${kind === 'hollow' || dotType === 'hollow' ? hollowContent : content}
         ${kind === 'hollow' || dotType === 'hollow' ? '' : actions}
       </cds-slug>
@@ -238,6 +240,7 @@ Playground.parameters = {
         kind,
         dotType,
         aiTextLabel: textNullable('Ai text label', ''),
+        revertActive: boolean('Revert active', false),
       };
     },
   },
@@ -245,4 +248,7 @@ Playground.parameters = {
 
 export default {
   title: 'Experimental/Slug',
+  parameters: {
+    ...storyDocs.parameters,
+  },
 };

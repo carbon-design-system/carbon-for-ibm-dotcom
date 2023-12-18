@@ -11,14 +11,14 @@
   <img
     alt=""
     aria-describedby="image-caption long-description"
-    class="cds--image__img"
+    class="c4d--image__img"
     loading="lazy"
     part="image"
     src=""
   >
 </picture>
 <div
-  class="cds--image__longdescription"
+  class="c4d--image__longdescription"
   id="long-description"
 >
   <slot name="long-description">
@@ -38,14 +38,14 @@
   <img
     alt=""
     aria-describedby="image-caption long-description"
-    class="cds--image__img"
+    class="c4d--image__img"
     loading="lazy"
     part="image"
     src=""
   >
 </picture>
 <div
-  class="cds--image__longdescription"
+  class="c4d--image__longdescription"
   id="long-description"
 >
   <slot name="long-description">

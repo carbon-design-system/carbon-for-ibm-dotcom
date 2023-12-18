@@ -152,3 +152,30 @@ $css--plex: true !default;
     @include skeleton;
   }
 }
+
+:host(#{$prefix}-dropdown[slug]) {
+  @extend .#{$prefix}--list-box__wrapper--slug;
+
+  ::slotted(#{$prefix}-slug) {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: $spacing-08;
+  }
+
+  ::slotted(#{$prefix}-slug:not([revert-active])) {
+    transform: translateY(-50%);
+  }
+}
+
+:host(#{$prefix}-dropdown[slug][warn]),
+:host(#{$prefix}-dropdown[slug][invalid]) {
+  .#{$prefix}--list-box {
+    .#{$prefix}--list-box__field {
+      padding-inline-end: $spacing-12;
+    }
+  }
+
+  ::slotted(#{$prefix}-slug) {
+    inset-inline-end: $spacing-10;
+  }
+}
