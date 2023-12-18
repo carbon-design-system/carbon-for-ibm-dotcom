@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,17 +20,17 @@
   :host(cds-content-block-mixed),
   .#{$prefix}--content-block-mixed {
     .#{$prefix}--content-group-pictograms {
-      margin-inline-start: -$spacing-05;
+      margin-left: -$spacing-05;
       .#{$prefix}--pictogram-item__row {
-        inline-size: calc(100% + $spacing-05);
-        max-inline-size: calc(100% + $spacing-05);
+        width: calc(100% + $spacing-05);
+        max-width: calc(100% + $spacing-05);
       }
     }
 
     .#{$prefix}--layout-1-3 {
       @include breakpoint-down(md) {
         .#{$prefix}--link-list__list.#{$prefix}--link-list__list--card {
-          margin-inline-end: -$spacing-05;
+          margin-right: -$spacing-05;
         }
       }
       @include breakpoint(lg) {
@@ -39,7 +39,7 @@
     }
 
     .#{$prefix}--content-block__cta-col {
-      max-inline-size: carbon--mini-units(40);
+      max-width: carbon--mini-units(40);
     }
   }
 }

@@ -41,8 +41,7 @@ $css--plex: true !default;
 :host(#{$prefix}-accordion-item-skeleton[size='sm']) {
   button {
     @extend .#{$prefix}--layout--size-sm;
-
-    min-block-size: var(--cds-layout-size-height-context);
+    min-height: var(--cds-layout-size-height-context);
   }
 }
 
@@ -50,8 +49,7 @@ $css--plex: true !default;
 :host(#{$prefix}-accordion-item-skeleton[size='lg']) {
   button {
     @extend .#{$prefix}--layout--size-lg;
-
-    min-block-size: var(--cds-layout-size-height-context);
+    min-height: var(--cds-layout-size-height-context);
   }
 }
 
@@ -77,15 +75,15 @@ $css--plex: true !default;
   @extend .#{$prefix}--accordion__item--active;
 
   .#{$prefix}--accordion__content {
-    padding-inline-end: $spacing-05;
+    padding-right: $spacing-05;
   }
 
   .#{$prefix}-ce--accordion__content--sm {
-    padding-inline-end: $spacing-09;
+    padding-right: $spacing-09;
   }
 
   .#{$prefix}-ce--accordion__content--md {
-    padding-inline-end: 25%;
+    padding-right: 25%;
   }
 }
 
@@ -93,7 +91,6 @@ $css--plex: true !default;
 :host(#{$prefix}-accordion-item-skeleton) {
   .#{$prefix}--accordion__heading {
     cursor: default;
-
     &:hover::before {
       background: transparent;
     }

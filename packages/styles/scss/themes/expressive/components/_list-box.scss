@@ -16,21 +16,21 @@
 /// @group list-box-expressive
 @mixin list-box-expressive {
   .#{$prefix}--list-box {
-    block-size: $spacing-09; /* $carbon--container-04 */
-    max-block-size: $spacing-09; /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
+    max-height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__field {
-    block-size: $spacing-09; /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__menu-item {
-    block-size: $spacing-09; /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__menu-item__option {
+    height: $spacing-09; /* $carbon--container-04 */
     padding: to-rem(14px) 0;
-    block-size: $spacing-09; /* $carbon--container-04 */
 
     &:focus {
       padding: to-rem(14px) $spacing-05;
@@ -38,6 +38,6 @@
   }
 
   .#{$prefix}--list-box__menu-icon > svg {
-    inline-size: to-rem(20px);
+    width: to-rem(20px);
   }
 }

@@ -26,27 +26,27 @@
   .#{$prefix}--side-nav__link,
   .#{$prefix}--switcher__item,
   .#{$prefix}--switcher__item-link {
+    height: $container-02;
     display: flex;
     align-items: center;
-    block-size: $container-02;
   }
 
   .#{$prefix}--switcher__item-link {
-    inline-size: 100%;
+    width: 100%;
   }
 
   .#{$prefix}--header__action {
     padding: 0;
 
     &--active {
-      border-block-start: to-rem(1px) solid $button-secondary;
+      border-top: to-rem(1px) solid $button-secondary;
       outline: none;
     }
   }
 
   .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger:focus {
+    outline: none;
     border-color: $layer-01;
     box-shadow: none;
-    outline: none;
   }
 }

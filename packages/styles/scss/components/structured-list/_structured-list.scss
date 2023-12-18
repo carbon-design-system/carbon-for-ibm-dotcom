@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2023
+// Copyright IBM Corp. 2019, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -19,9 +19,8 @@
     --cols: var(--col-span-#{$colNumber}, 2);
     --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
+    max-width: var(--width);
     flex: 0 0 var(--width);
-
-    max-inline-size: var(--width);
   }
 
   @include breakpoint(md) {
@@ -32,9 +31,8 @@
       );
       --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
+      max-width: var(--width);
       flex: 0 0 var(--width);
-
-      max-inline-size: var(--width);
     }
   }
 
@@ -49,9 +47,8 @@
       );
       --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
+      max-width: var(--width);
       flex: 0 0 var(--width);
-
-      max-inline-size: var(--width);
     }
   }
 }
@@ -75,17 +72,16 @@
   // Inherited Table Styles
   .#{$prefix}--structured-list-header-row,
   :host(#{$c4d-prefix}-structured-list-header-row) {
-    border-block-end: none;
+    border-bottom: none;
   }
 
   .#{$prefix}--structured-list-header-cell,
   :host(#{$c4d-prefix}-structured-list-header-cell) {
     @extend .#{$prefix}--structured-list-th;
 
-    border-block-end: 1px solid $layer-accent-01;
-    padding-block-end: $spacing-05;
-
     padding-inline: $spacing-05;
+    padding-block-end: $spacing-05;
+    border-bottom: 1px solid $layer-accent-01;
   }
 
   .#{$prefix}--structured-list-group,
@@ -96,9 +92,8 @@
       @extend .#{$prefix}--structured-list-row;
 
       background-color: $layer-accent-01;
-
-      border-block-end: 1px solid $layer-accent-01;
       color: $text-primary;
+      border-bottom: 1px solid $layer-accent-01;
 
       @include breakpoint-down(md) {
         box-shadow: extended-box-shadow();
@@ -109,11 +104,10 @@
       @extend .#{$prefix}--structured-list-td;
 
       color: $text-primary;
+      text-align: left;
       font-weight: bold;
-
-      max-inline-size: 100%;
       padding-inline: $spacing-05;
-      text-align: start;
+      max-width: 100%;
     }
   }
 
@@ -121,9 +115,8 @@
   :host(#{$c4d-prefix}-structured-list-cell) {
     @extend .#{$prefix}--structured-list-td;
 
-    border-block-end: 1px solid $layer-accent-01;
-
     padding-inline: $spacing-05;
+    border-bottom: 1px solid $layer-accent-01;
   }
 
   // Default Carbon Rows/Columns
@@ -153,7 +146,7 @@
 
     ::slotted(*:last-child) {
       flex-grow: 1;
-      max-inline-size: none;
+      max-width: none;
     }
   }
 
@@ -161,7 +154,7 @@
   :host(#{$c4d-prefix}-structured-list-header-cell),
   :host(#{$c4d-prefix}-structured-list-cell),
   :host(#{$c4d-prefix}-structured-list-group) td {
-    block-size: auto;
+    height: auto;
     scroll-snap-align: start;
 
     @include breakpoint(sm) {
@@ -180,90 +173,54 @@
   // Internal components
   .#{$c4d-prefix}--structured-list,
   :host(#{$c4d-prefix}-structured-list) {
-    position: relative;
     display: flex;
     flex-wrap: nowrap;
-    margin-inline: -#{$spacing-05};
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    margin-left: -#{$spacing-05};
+    margin-right: -#{$spacing-05};
     overflow-x: auto;
-    padding-inline: $spacing-05;
     scroll-snap-type: x;
+    position: relative;
 
     .#{$prefix}--structured-list {
-      flex: 0 0 1;
       margin: 0;
-    }
-    @media screen and (prefers-reduced-motion: reduce) {
-      .overflow-indicator {
-        position: sticky;
-        z-index: 2;
-        flex: 0 0 1;
-        inline-size: 0;
-        opacity: 0;
-        transition: none;
-
-        &::before {
-          position: absolute;
-          block-size: 100%;
-          content: '';
-          inline-size: $spacing-06;
-          inset-block-start: 0;
-        }
-
-        &.left {
-          inset-inline-start: 0;
-          transform: translateX(-$spacing-05);
-
-          &::before {
-            background-image: linear-gradient(90deg, $layer-01, transparent);
-            inset-inline-start: 0;
-          }
-        }
-
-        &.right {
-          inset-inline-start: calc(100%);
-          transform: translateX($spacing-05);
-
-          &::before {
-            background-image: linear-gradient(90deg, transparent, $layer-01);
-            inset-inline-end: 0;
-          }
-        }
-      }
+      flex: 0 0 1;
     }
 
     .overflow-indicator {
+      width: 0;
+      flex: 0 0 1;
       position: sticky;
       z-index: 2;
-      flex: 0 0 1;
-      inline-size: 0;
       opacity: 0;
       transition: opacity 0.25s ease-in-out;
 
       &::before {
-        position: absolute;
-        block-size: 100%;
         content: '';
-        inline-size: $spacing-06;
-        inset-block-start: 0;
+        width: $spacing-06;
+        height: 100%;
+        position: absolute;
+        top: 0;
       }
 
       &.left {
-        inset-inline-start: 0;
+        left: 0;
         transform: translateX(-$spacing-05);
 
         &::before {
+          left: 0;
           background-image: linear-gradient(90deg, $layer-01, transparent);
-          inset-inline-start: 0;
         }
       }
 
       &.right {
-        inset-inline-start: calc(100%);
+        left: calc(100%);
         transform: translateX($spacing-05);
 
         &::before {
+          right: 0;
           background-image: linear-gradient(90deg, transparent, $layer-01);
-          inset-inline-end: 0;
         }
       }
     }

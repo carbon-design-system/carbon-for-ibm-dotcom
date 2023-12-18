@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,27 +33,29 @@
     .#{$c4d-prefix}--locale-btn {
       @include emit-layout-tokens();
 
-      align-items: center;
-
-      inline-size: 100%;
-
-      max-inline-size: 100%;
-
-      // Forces the style of text + icon button style
-      padding-inline-end: $spacing-04;
+      max-width: 100%;
+      width: 100%;
       @include type-style('body-compact-01');
 
+      align-items: center;
+
+      // Forces the style of text + icon button style
+      padding-right: $spacing-04;
+
       @include breakpoint(md) {
-        min-inline-size: 13.5rem;
+        min-width: 13.5rem;
       }
     }
 
     @include breakpoint(md) {
       align-self: end;
-      margin-block: 0 $spacing-10;
-      padding-inline: 0;
+      margin-bottom: $spacing-10;
       @include make-col(4, 8);
       @include make-col-offset(2, 8);
+
+      padding-left: 0;
+      padding-right: 0;
+      margin-top: 0;
     }
 
     @include breakpoint(lg) {
@@ -65,14 +67,14 @@
   :host(#{$c4d-prefix}-footer[size='short'])
     ::slotted(#{$c4d-prefix}-locale-button),
   .#{$prefix}--footer--short .#{$prefix}--locale-btn__container {
-    margin-block-start: $spacing-09;
+    margin-top: $spacing-09;
 
     @include breakpoint(md) {
-      margin-block-start: 0;
+      margin-top: 0;
       @include make-col-offset(2, 8);
 
       .#{$prefix}--locale-btn {
-        float: inline-end;
+        float: right;
       }
     }
 

@@ -44,8 +44,8 @@ $css--plex: true !default;
 
   .#{$prefix}--checkbox-label::before,
   .#{$prefix}--checkbox-label::after {
-    border-color: transparent;
     background-color: transparent;
+    border-color: transparent;
   }
 }
 
@@ -68,12 +68,14 @@ $css--plex: true !default;
 
 :host(#{$prefix}-checkbox[slug]) {
   flex-direction: row;
-
-  .#{$prefix}--checkbox-label-text {
-    display: flex;
-  }
 }
 
 :host(#{$prefix}-checkbox[slug]) ::slotted(#{$prefix}-slug) {
   align-self: center;
+}
+
+:host(#{$prefix}-checkbox[slug]) {
+  .#{$prefix}--checkbox-label-text {
+    display: flex;
+  }
 }

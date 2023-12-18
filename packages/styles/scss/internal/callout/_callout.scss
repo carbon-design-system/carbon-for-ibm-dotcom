@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -79,17 +79,19 @@
     box-sizing: border-box;
 
     @include breakpoint(sm) {
-      padding-block-start: $layout-03;
+      padding-top: $layout-03;
     }
     @include breakpoint(md) {
       @include make-col-offset(1, 8);
       @include make-col(6, 8);
 
-      padding-block-start: $layout-05;
-      padding-inline: $spacing-02;
+      padding-left: $spacing-02;
+      padding-right: $spacing-02;
+      padding-top: $layout-05;
     }
     @include breakpoint(lg) {
-      padding-inline: $spacing-01;
+      padding-left: $spacing-01;
+      padding-right: $spacing-01;
       @include make-col-offset(1, 12);
       @include make-col(10, 12);
     }

@@ -40,8 +40,8 @@ $css--plex: true !default;
   cursor: not-allowed;
 
   svg {
-    cursor: not-allowed;
     fill: $icon-disabled;
+    cursor: not-allowed;
   }
 }
 
@@ -53,8 +53,8 @@ $css--plex: true !default;
 :host(#{$prefix}-overflow-menu[open]),
 :host(#{$prefix}-breadcrumb-overflow-menu[open]) {
   background-color: $layer-01;
-  box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
   transition: none;
+  box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
 
   :hover {
     background-color: $layer;
@@ -66,7 +66,8 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-overflow-menu-body[direction='top']) {
-  margin-block: 0 $spacing-02;
+  margin-top: 0;
+  margin-bottom: $spacing-02;
 }
 
 :host(#{$prefix}-overflow-menu-body[open]) {
@@ -92,11 +93,11 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-overflow-menu-item[size='sm']) {
-  block-size: $spacing-07;
+  height: $spacing-07;
 }
 
 :host(#{$prefix}-overflow-menu-item[size='lg']) {
-  block-size: $spacing-09;
+  height: $spacing-09;
 }
 
 :host(#{$prefix}-overflow-menu-item[danger]) {

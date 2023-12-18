@@ -18,9 +18,7 @@
 
   &:hover {
     ::slotted(button) {
-      /* stylelint-disable declaration-no-important */
       background-color: $layer-selected-hover !important;
-      /* stylelint-enable declaration-no-important */
     }
   }
 }
@@ -28,17 +26,13 @@
 :host(#{$prefix}-tooltip[data-table][size='xs']),
 :host(#{$prefix}-tooltip[data-table][size='sm']) {
   ::slotted(button) {
-    /* stylelint-disable declaration-no-important */
-    block-size: calc(100% + 1px) !important;
-    /* stylelint-enable declaration-no-important */
+    height: calc(100% + 1px) !important;
   }
 }
 
 :host(#{$prefix}-tooltip[toolbar-action]) {
   ::slotted(button) {
-    /* stylelint-disable declaration-no-important */
     outline: none !important;
-    /* stylelint-enable declaration-no-important */
   }
 }
 

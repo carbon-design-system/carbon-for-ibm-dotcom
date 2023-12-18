@@ -18,12 +18,12 @@
 @use '../feature-card';
 
 @mixin themed-items {
-  background: $background;
   color: $text-primary;
+  background: $background;
 
   &.#{$prefix}--content-block-media--with-border
     .#{$prefix}--content-block-media__divider {
-    border-block-end-color: $toggle-off;
+    border-bottom-color: $toggle-off;
   }
 }
 
@@ -33,11 +33,11 @@
     @include themed-items;
 
     .#{$prefix}--content-group:last-child {
-      margin-block-end: 0;
+      margin-bottom: 0;
     }
 
     .#{$prefix}--feature-card {
-      max-inline-size: to-rem(640px);
+      max-width: to-rem(640px);
     }
   }
 

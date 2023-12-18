@@ -15,6 +15,7 @@
 
   // TODO: Define the padding on `<cds-content-item>` by default
   ::slotted(#{$c4d-prefix}-content-item) {
-    margin-inline: $spacing-05;
+    margin-left: $spacing-05;
+    margin-right: $spacing-05;
   }
 }

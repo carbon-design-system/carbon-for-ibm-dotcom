@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,10 +18,10 @@
   $cds--slide-distance: $spacing-07;
 
   .#{$prefix}--fade-in {
-    opacity: 1;
-    transition-delay: var(--#{$c4d-prefix}--fade-in-out-delay);
-    transition-duration: $duration-slow-01;
     transition-timing-function: motion(entrance, expressive);
+    transition-duration: $duration-slow-01;
+    transition-delay: var(--#{$c4d-prefix}--fade-in-out-delay);
+    opacity: 1;
   }
 
   .#{$prefix}--fade-out {
@@ -31,56 +31,56 @@
   .#{$prefix}--slide {
     &-in {
       position: relative;
-      inset-block-start: 0;
-      inset-inline-start: 0;
+      top: 0;
+      left: 0;
       opacity: 1;
-      transition-delay: var(--#{$c4d-prefix}--fade-in-out-delay);
-      transition-duration: $duration-slow-01;
 
       transition-timing-function: motion(entrance, expressive);
+      transition-duration: $duration-slow-01;
+      transition-delay: var(--#{$c4d-prefix}--fade-in-out-delay);
     }
 
     &-up {
-      inset-block-start: $cds--slide-distance;
+      top: $cds--slide-distance;
       opacity: 0;
     }
 
     &-up-right {
-      inset-block-start: $cds--slide-distance;
-      inset-inline-start: -$cds--slide-distance;
+      top: $cds--slide-distance;
+      left: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-right {
-      inset-inline-start: -$cds--slide-distance;
+      left: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-down-right {
-      inset-block-start: -$cds--slide-distance;
-      inset-inline-start: -$cds--slide-distance;
+      top: -$cds--slide-distance;
+      left: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-down {
-      inset-block-start: -$cds--slide-distance;
+      top: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-down-left {
-      inset-block-start: -$cds--slide-distance;
-      inset-inline-start: $cds--slide-distance;
+      top: -$cds--slide-distance;
+      left: $cds--slide-distance;
       opacity: 0;
     }
 
     &-left {
-      inset-inline-start: $cds--slide-distance;
+      left: $cds--slide-distance;
       opacity: 0;
     }
 
     &-up-left {
-      inset-block-start: $cds--slide-distance;
-      inset-inline-start: $cds--slide-distance;
+      top: $cds--slide-distance;
+      left: $cds--slide-distance;
       opacity: 0;
     }
   }

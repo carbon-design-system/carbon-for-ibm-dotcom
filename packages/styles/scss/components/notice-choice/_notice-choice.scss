@@ -11,12 +11,11 @@
 
 @mixin notice-choice {
   .#{$prefix}--nc {
-    max-inline-size: 640px;
+    max-width: 640px;
     p,
     .#{$prefix}--checkbox-group {
-      margin-block-end: $spacing-06;
+      margin-bottom: $spacing-06;
     }
-
     a {
       color: $link-primary;
     }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,10 +22,11 @@
   }
 
   .#{$prefix}--feature-section {
-    position: relative;
     box-sizing: border-box;
+    position: relative;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
     outline: none;
-    padding-inline: $spacing-05;
 
     &:hover {
       ::slotted([slot='image']),
@@ -48,8 +49,8 @@
   }
 
   .#{$prefix}--feature-section__container {
-    display: block;
     background-color: $layer-01;
+    display: block;
 
     div[class^='#{$prefix}--col'] {
       box-sizing: border-box;
@@ -83,90 +84,92 @@
 
   .#{$prefix}--feature-section__body {
     position: relative;
-    padding-block-start: $spacing-07;
-    padding-inline: 0;
+    padding-top: $spacing-07;
+    padding-left: 0;
+    padding-right: 0;
 
     @include breakpoint(max) {
-      padding-block-start: $spacing-08;
+      padding-top: $spacing-08;
     }
 
     ::slotted(#{$c4d-prefix}-content-item-paragraph) {
-      margin-block-end: $spacing-07;
+      margin-bottom: $spacing-07;
 
       @include breakpoint(md) {
-        margin-block-end: $spacing-09;
+        margin-bottom: $spacing-09;
       }
     }
 
     ::slotted([slot='footer']) {
       position: relative;
       display: inline-block;
-      margin-inline-start: 25%;
+      margin-left: 25%;
 
       @include breakpoint(md) {
-        margin-inline-start: 50%;
+        margin-left: 50%;
       }
 
       @include breakpoint(lg) {
         position: absolute;
-        margin-inline-start: 0;
+        margin-left: 0;
       }
     }
   }
 
   .#{$prefix}--feature-section__image {
     position: relative;
+    padding-left: 0;
+    padding-right: 0;
     border: 1px solid $border-subtle-01;
-    padding-inline: 0;
 
     ::slotted(#{$c4d-prefix}-image) {
       overflow: hidden;
 
       @include breakpoint(sm) {
-        block-size: aspect-ratio(1, 1);
+        height: aspect-ratio(1, 1);
       }
 
       @include breakpoint(md) {
-        block-size: aspect-ratio(4, 3);
+        height: aspect-ratio(4, 3);
       }
 
       @include breakpoint(lg) {
-        block-size: aspect-ratio(1, 1);
+        height: aspect-ratio(1, 1);
       }
     }
   }
 
   ::slotted(#{$c4d-prefix}-card-eyebrow) {
     display: inline-block;
-    margin-block-end: $spacing-03;
+    margin-bottom: $spacing-03;
   }
 
   ::slotted([slot='footer']) {
     position: absolute;
-    block-size: auto;
-    inline-size: 75%;
-    inset-block-end: -1px;
-    inset-inline-end: 0;
+    right: 0;
+    bottom: -1px;
+    width: 75%;
+    height: auto;
 
     @include breakpoint(md) {
-      inline-size: calc(50% - #{$spacing-05});
-      inset-inline-end: $spacing-05;
+      width: calc(50% - #{$spacing-05});
+      right: $spacing-05;
     }
 
     @include breakpoint(lg) {
-      inline-size: calc(50% - #{$spacing-03});
+      width: calc(50% - #{$spacing-03});
     }
 
     @include breakpoint(max) {
-      inline-size: calc(50% - #{$spacing-04});
+      width: calc(50% - #{$spacing-04});
     }
 
     .#{$prefix}--card {
-      max-inline-size: inherit;
+      max-width: inherit;
     }
 
     @include breakpoint(max) {
-      inset-inline-end: $spacing-06;
+      right: $spacing-06;
     }
   }
 }

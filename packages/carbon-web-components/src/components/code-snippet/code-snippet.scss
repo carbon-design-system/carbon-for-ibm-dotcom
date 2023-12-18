@@ -54,10 +54,9 @@ $css--plex: true !default;
     @include font-family('sans');
 
     position: absolute;
-    inset-block-start: 0;
-    inset-inline-end: 0;
+    top: 0;
+    right: 0;
 
-    /* stylelint-disable-next-line */
     code: {
       overflow: hidden;
     }
@@ -84,24 +83,24 @@ $css--plex: true !default;
   }
 
   pre {
-    padding: 0 $spacing-08 $spacing-06 0;
     margin: 0;
+    padding: 0 $spacing-08 $spacing-06 0;
     overflow-x: auto;
   }
 
   pre::after {
     position: absolute;
+    top: 0;
+    right: 0;
+    width: $spacing-05;
+    height: 100%;
     background-image: linear-gradient(to right, transparent, $layer);
-    block-size: 100%;
     content: '';
-    inline-size: $spacing-05;
-    inset-block-start: 0;
-    inset-inline-end: 0;
   }
 
   #{$prefix}-button {
     .#{$prefix}--snippet__icon {
-      margin-inline-start: $spacing-03;
+      margin-left: $spacing-03;
     }
 
     &[disabled] {
@@ -113,14 +112,14 @@ $css--plex: true !default;
 
   #{$prefix}-copy-button {
     position: absolute;
-    inset-block-start: $spacing-03;
-    inset-inline-end: $spacing-03;
+    top: $spacing-03;
+    right: $spacing-03;
   }
 }
 
 :host(#{$prefix}-code-snippet[type='multi'][expanded-code]) {
   .#{$prefix}--snippet-container {
-    padding-block-end: $spacing-05;
+    padding-bottom: $spacing-05;
     transition: max-height $duration-moderate-01 motion(standard, productive);
   }
 
@@ -146,22 +145,21 @@ $css--plex: true !default;
   span {
     @include skeleton;
 
+    width: 100%;
+    height: $spacing-05;
     display: block;
-    block-size: $spacing-05;
-
-    inline-size: 100%;
-    margin-block-start: $spacing-03;
+    margin-top: $spacing-03;
 
     &:first-child {
       margin: 0;
     }
 
     &:nth-child(2) {
-      inline-size: 85%;
+      width: 85%;
     }
 
     &:nth-child(3) {
-      inline-size: 95%;
+      width: 95%;
     }
   }
 }

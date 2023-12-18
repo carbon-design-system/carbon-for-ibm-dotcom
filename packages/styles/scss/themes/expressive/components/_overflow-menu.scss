@@ -16,21 +16,21 @@
 /// @group overflow-menu-expressive
 @mixin overflow-menu-expressive {
   .#{$prefix}--overflow-menu {
-    block-size: $spacing-08;
-    inline-size: $spacing-08;
+    height: $spacing-08;
+    width: $spacing-08;
 
     &-options__option {
-      block-size: $spacing-09;
+      height: $spacing-09;
     }
 
     &-options--open[data-floating-menu-direction='bottom']::after,
     &-options--open[data-floating-menu-direction='top']::after {
-      inline-size: $spacing-08;
+      width: $spacing-08;
     }
 
     &__icon {
-      block-size: to-rem(20px);
-      inline-size: to-rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
 }

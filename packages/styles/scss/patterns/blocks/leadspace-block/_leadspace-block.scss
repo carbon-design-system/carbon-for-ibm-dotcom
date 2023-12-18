@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,28 +12,28 @@
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
     &__title {
+      width: 90%;
       color: $text-primary;
-      inline-size: 90%;
-      padding-block-start: $layout-03;
+      padding-top: $layout-03;
       @include type-style('fluid-heading-06', true);
 
       @include breakpoint(md) {
-        padding-block-start: $layout-03;
+        padding-top: $layout-03;
       }
 
       @include breakpoint(lg) {
-        padding-block-start: $layout-05;
+        padding-top: $layout-05;
       }
     }
 
     &__media {
-      inline-size: 100%;
-      max-inline-size: carbon--mini-units(80);
+      width: 100%;
+      max-width: carbon--mini-units(80);
     }
 
     .#{$prefix}--content-block {
-      padding-block: 0 $layout-01;
-
+      padding-top: 0;
+      padding-bottom: $layout-01;
       &__copy {
         p {
           @include type-style('fluid-heading-03', true);
@@ -41,38 +41,38 @@
       }
 
       @include breakpoint(md) {
-        padding-block-end: $layout-06;
+        padding-bottom: $layout-06;
       }
       @include breakpoint(lg) {
-        padding-block-end: $layout-07;
+        padding-bottom: $layout-07;
       }
 
       .#{$prefix}--image-with-caption {
-        margin-block-end: 0;
+        margin-bottom: 0;
       }
 
       .#{$prefix}--link-list {
-        max-inline-size: carbon--mini-units(80);
-        padding-block: $spacing-09;
-
+        padding-top: $spacing-09;
+        padding-bottom: $spacing-09;
+        max-width: carbon--mini-units(80);
         &__list__CTA {
-          max-inline-size: none;
+          max-width: none;
         }
       }
 
       .#{$prefix}--leadspace-block__media {
         @include breakpoint(md) {
-          padding-block-start: $spacing-05;
+          padding-top: $spacing-05;
         }
 
         .#{$prefix}--image-with-caption {
-          margin-block-start: 0;
+          margin-top: 0;
         }
       }
     }
     .#{$prefix}--hr {
       border-color: $toggle-off;
-      margin-block-start: 0;
+      margin-top: 0;
     }
   }
 }

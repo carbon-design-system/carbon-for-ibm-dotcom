@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,21 +12,18 @@ c4d-cta-section-item {
   &:nth-of-type(3n) {
     --c4d--fade-in-out-delay: 0;
   }
-
   &:nth-of-type(3n + 1) {
     --c4d--fade-in-out-delay: 250ms;
   }
-
   &:nth-of-type(3n + 2) {
     --c4d--fade-in-out-delay: 500ms;
   }
-
   &:nth-of-type(3n + 3) {
     --c4d--fade-in-out-delay: 750ms;
   }
 }
 
 c4d-table-of-contents::part(table) {
-  inset-block-start: 0;
+  top: 0;
 }
 /* stylelint-enable selector-type-no-unknown, selector-pseudo-element-no-unknown */

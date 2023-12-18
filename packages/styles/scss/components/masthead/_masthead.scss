@@ -27,82 +27,19 @@
 
 /// @access private
 @mixin masthead-logo {
+  height: 100%;
   z-index: 2;
   background-color: $background;
-  block-size: 100%;
-  @media screen and (prefers-reduced-motion: reduce) {
-    a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 0 $spacing-07;
-      border: solid $spacing-01 transparent;
-      block-size: 100%;
-      outline: none;
-      transition: none;
-
-      &:hover {
-        background-color: $background-hover;
-      }
-
-      &:active,
-      &:focus {
-        border-color: $focus;
-        background-color: $layer-01;
-      }
-
-      @include breakpoint-up(max) {
-        padding: 0 $spacing-08;
-      }
-
-      @include breakpoint-down(xlg) {
-        padding: 0 $spacing-07;
-      }
-
-      @include breakpoint-down(lg) {
-        padding: 0 $spacing-05;
-      }
-
-      svg {
-        block-size: 23px;
-        inline-size: 58px;
-
-        g,
-        path {
-          fill: $layer-selected-inverse;
-
-          /* stylelint-disable-next-line media-feature-name-no-unknown */
-          @media (prefers-contrast: more) {
-            fill: ButtonText;
-          }
-        }
-      }
-
-      &::after {
-        @include breakpoint-up(800px) {
-          position: absolute;
-          display: block;
-          background-color: $layer-accent-01;
-          block-size: $spacing-06;
-          content: '';
-          inline-size: to-rem(1px);
-          inset-block-start: 50%;
-          inset-inline-end: to-rem(-3px);
-          transform: translateY(-50%);
-        }
-      }
-    }
-  }
 
   a {
     position: relative;
     display: flex;
+    height: 100%;
     align-items: center;
     padding: 0 $spacing-07;
     border: solid $spacing-01 transparent;
-    block-size: 100%;
-    outline: none;
     transition: $button-transition;
+    outline: none;
 
     &:hover {
       background-color: $background-hover;
@@ -127,8 +64,8 @@
     }
 
     svg {
-      block-size: 23px;
-      inline-size: 58px;
+      width: 58px;
+      height: 23px;
 
       g,
       path {
@@ -143,15 +80,15 @@
 
     &::after {
       @include breakpoint-up(800px) {
-        position: absolute;
-        display: block;
-        background-color: $layer-accent-01;
-        block-size: $spacing-06;
         content: '';
-        inline-size: to-rem(1px);
-        inset-block-start: 50%;
-        inset-inline-end: to-rem(-3px);
+        display: block;
+        position: absolute;
+        right: to-rem(-3px);
+        top: 50%;
         transform: translateY(-50%);
+        height: $spacing-06;
+        width: to-rem(1px);
+        background-color: $layer-accent-01;
       }
     }
   }
@@ -165,7 +102,7 @@
     border: none;
 
     &.#{$prefix}--tooltip--a11y {
-      block-size: 100%;
+      height: 100%;
     }
   }
 
@@ -180,21 +117,21 @@
 /// @access private
 @mixin masthead-top-nav-menu-item {
   position: relative;
-  block-size: 100%;
+  height: 100%;
 
   &::before {
-    position: absolute;
-    block-size: 100%;
-    border-block-start: 1px solid $layer-accent-01;
     content: '';
-    inline-size: 100%;
-    inset-block-start: 0;
-    inset-inline-start: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-top: 1px solid $layer-accent-01;
   }
 
   &:first-of-type {
     &::before {
-      border-block-start: none;
+      border-top: none;
     }
   }
 
@@ -202,20 +139,20 @@
     background-color: $layer-01;
 
     &::before {
-      border-block-start: 1px solid $layer-01;
+      border-top: 1px solid $layer-01;
     }
 
     + li {
       &::before {
-        border-block-start: 1px solid $layer-01;
+        border-top: 1px solid $layer-01;
       }
     }
   }
 
   &:focus {
     &::before {
-      box-sizing: border-box;
       border: $spacing-01 solid $background-brand;
+      box-sizing: border-box;
     }
   }
 }
@@ -224,9 +161,8 @@
 @mixin masthead-top-nav-link {
   @include type-style(body-compact-02, true);
 
-  padding: to-rem(13px) $spacing-05;
-
   border: none;
+  padding: to-rem(13px) $spacing-05;
   color: $text-secondary;
   white-space: nowrap;
 
@@ -270,7 +206,7 @@
   :host(#{$c4d-prefix}-cloud-masthead-container) {
     position: relative;
     z-index: 900;
-    padding-block-start: $spacing-09;
+    padding-top: $spacing-09;
   }
 
   .#{$prefix}--masthead,
@@ -279,17 +215,17 @@
     @include font-family('sans');
 
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 99;
-    background-color: $background;
-    inline-size: 100%;
-    inset-block-start: 0;
-    inset-inline-start: 0;
     transition-delay: 200ms;
-    transition-duration: 300ms;
     transition-timing-function: $search-transition;
+    transition-duration: 300ms;
+    background-color: $background;
 
     &[with-banner] {
-      inset-block-start: $spacing-13;
+      top: $spacing-13;
     }
 
     &[has-l1] {
@@ -304,48 +240,48 @@
   :host(#{$c4d-prefix}-megamenu-overlay),
   .#{$prefix}--masthead__overlay {
     position: fixed;
+    left: 0;
+    top: $spacing-09;
+    height: 100%;
+    width: 100%;
     z-index: -1;
+    visibility: hidden;
     background-color: none;
-    block-size: 100%;
-    inline-size: 100%;
-    inset-block-start: $spacing-09;
-    inset-inline-start: 0;
     opacity: 0;
     transition: opacity $transition-expansion $standard-easing,
       visibility $transition-expansion $standard-easing,
       background-color $transition-expansion $standard-easing;
-    visibility: hidden;
   }
 
   :host(#{$c4d-prefix}-megamenu-overlay)[active],
   .#{$prefix}--masthead__overlay-show {
     background-color: $overlay;
-    block-size: 100vh;
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
+    height: 100vh;
   }
 
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
-    inset-block-start: -98px;
+    top: -98px;
 
     @include breakpoint-up(800px) {
-      inset-block-start: -$spacing-09;
+      top: -$spacing-09;
     }
   }
 
   .#{$prefix}--masthead--sticky__l1
     + .#{$prefix}--dotcom-shell
     .#{$prefix}--tableofcontents__sidebar {
-    inset-block-start: 98px;
+    top: 98px;
   }
 
   .#{$prefix}--masthead--sticky__l1.#{$prefix}--masthead--sticky
     + .#{$prefix}--dotcom-shell
     .#{$prefix}--tableofcontents__sidebar {
-    inset-block-start: 0;
+    top: 0;
 
     @include breakpoint-up(800px) {
-      inset-block-start: $spacing-09;
+      top: $spacing-09;
     }
   }
 
@@ -356,47 +292,48 @@
     background: $background;
 
     &::after {
-      position: absolute;
-      background-color: $layer-accent-01;
-      block-size: 1px;
       content: '';
-      inline-size: 100vw;
-      inset-block-end: -1px;
-      inset-inline-start: 0;
+      position: absolute;
+      width: 100vw;
+      height: 1px;
+      bottom: -1px;
+      left: 0;
+      background-color: $layer-accent-01;
     }
   }
 
   .#{$prefix}--header,
   .#{$prefix}--masthead__l0 #{$prefix}-header {
+    transition-timing-function: $search-transition;
+    background: $background;
+    border: none;
+    max-width: to-rem(1584px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1px;
     position: relative;
     z-index: 5999;
-    border: none;
-    background: $background;
-    margin-block-end: 1px;
-    margin-inline: auto;
-    max-inline-size: to-rem(1584px);
-    transition-timing-function: $search-transition;
 
     &::before {
+      content: '';
       position: absolute;
+      background-color: $background;
+      height: $spacing-09;
+      left: calc(-50vw + 50%);
+      right: 100%;
       z-index: 1;
-      background-color: $background;
-      block-size: $spacing-09;
-      content: '';
-      inset-inline: calc(-50vw + 50%) 100%;
     }
-
     &::after {
+      content: '';
       position: absolute;
       background-color: $background;
-      block-size: $spacing-09;
-      content: '';
-      inset-inline: 100% calc(-50vw + 50%);
+      height: $spacing-09;
+      left: 100%;
+      right: calc(-50vw + 50%);
     }
 
     .#{$prefix}--header__menu-arrow {
       fill: $icon-secondary;
-
       &:hover {
         fill: $icon-secondary;
       }
@@ -404,7 +341,7 @@
   }
 
   .#{$prefix}--skip-to-content:focus {
-    block-size: to-rem(49px);
+    height: to-rem(49px);
   }
 
   .#{$prefix}--header__logo {
@@ -416,18 +353,18 @@
   }
 
   .#{$prefix}--header__nav-container {
+    height: 100%;
+    overflow-x: visible;
     position: relative;
     display: flex;
     flex: 1;
-    block-size: 100%;
-    overflow-x: visible;
   }
 
   /* Set to zero-slecificity so it can be overridden by dynamic stylesheet */
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   :where(.#{$prefix}--header__nav-content) {
     position: absolute;
-    block-size: 100%;
+    height: 100%;
     inset-inline-start: 0;
     transition: inset $transition-base motion(standard, productive);
   }
@@ -449,7 +386,7 @@
       &:focus,
       &:active {
         &[data-selected='true'] {
-          border-block-end-color: transparent;
+          border-bottom-color: transparent;
         }
 
         &::after {
@@ -462,7 +399,7 @@
       &:focus,
       &:active {
         &[data-selected='true'][aria-expanded='false'] {
-          border-block-end-color: transparent;
+          border-bottom-color: transparent;
 
           &::after {
             background-color: $focus;
@@ -477,22 +414,23 @@
 
     a.#{$prefix}--header__menu-item[data-selected='true']::after,
     a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-title[data-selected='true'][aria-expanded='false']::after {
-      position: absolute;
-      display: block;
-      box-sizing: border-box;
-      background-color: var(--c4d-active-l0-border-color, $link-primary);
-      block-size: to-rem(3px);
       content: '';
-      inset-block-end: 0;
-      inset-inline: 0;
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: to-rem(3px);
+      background-color: var(--c4d-active-l0-border-color, $link-primary);
     }
   }
 
   :host(#{$c4d-prefix}-top-nav-menu),
   :host(#{$c4d-prefix}-megamenu-top-nav-menu) {
     a.#{$prefix}--header__menu-item {
+      border-bottom: $spacing-01 solid transparent;
       padding: to-rem(13px) $spacing-05 to-rem(11px);
-      border-block-end: $spacing-01 solid transparent;
     }
   }
 
@@ -504,37 +442,37 @@
       + .#{$prefix}--header__menu {
         background-color: $layer-02;
         box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
-        inline-size: to-rem(256px);
-        inset-block-end: -1px;
+        bottom: -1px;
+        width: to-rem(256px);
 
         li {
           @include masthead-top-nav-menu-item;
         }
 
         .#{$prefix}--header__menu-item {
-          position: relative;
           border: none;
-          block-size: 100%;
+          position: relative;
+          height: 100%;
 
           &:hover {
-            background-color: $background-hover;
             color: $text-primary;
+            background-color: $background-hover;
           }
 
           &:focus {
             &::before {
-              box-sizing: border-box;
               border: $spacing-01 solid $background-brand;
+              box-sizing: border-box;
             }
           }
 
           &::before {
-            position: absolute;
-            block-size: 100%;
             content: '';
-            inline-size: 100%;
-            inset-block-start: 0;
-            inset-inline-start: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
           }
         }
       }
@@ -544,7 +482,7 @@
     .#{$prefix}--masthead__megamenu__l1-nav {
       .#{$prefix}--header__menu-title[aria-expanded='true']
         + .#{$prefix}--header__menu {
-        inline-size: 100%;
+        width: 100%;
       }
     }
 
@@ -553,12 +491,11 @@
     }
   }
   .#{$prefix}--header__action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     border: $spacing-01 solid transparent;
     background-color: $background;
-
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
       background-color: $background-hover;
       transition-duration: $search-transition-timing;
@@ -580,8 +517,8 @@
     }
 
     .#{$prefix}--overflow-menu {
-      block-size: 100%;
-      inline-size: 100%;
+      width: 100%;
+      height: 100%;
 
       &.#{$prefix}--overflow-menu--open {
         box-shadow: none;
@@ -594,72 +531,67 @@
       }
 
       &:focus {
-        box-shadow: none;
         outline: none;
+        box-shadow: none;
       }
     }
   }
 
   .#{$prefix}--sub-content-left {
     position: absolute;
-    block-size: 100%;
-    inline-size: 1px;
-    inset-block-start: 0;
-    inset-inline-start: 0;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
   }
 
   .#{$prefix}--sub-content-right {
     position: absolute;
-    block-size: 100%;
-    inline-size: 1px;
-    inset-block-start: 0;
-    inset-inline-end: 1px;
+    top: 0;
+    right: 1px;
+    width: 1px;
+    height: 100%;
   }
 
   .#{$prefix}--header__nav-caret-left,
   .#{$prefix}--header__nav-caret-right {
-    position: absolute;
+    width: $spacing-08;
+    height: 100%;
     display: none;
-    border: none;
+    position: absolute;
+    top: 0;
     background-color: $background;
-    block-size: 100%;
-    inline-size: $spacing-08;
-    inset-block-start: 0;
-
+    border: none;
     > {
       svg {
         position: absolute;
         fill: currentColor;
-        inset-block-start: 50%;
-        inset-inline-start: 50%;
+        top: 50%;
+        left: 50%;
         transform: translateX(-50%) translateY(-50%);
       }
     }
-
     &:hover {
       background-color: $background-hover;
       transition-duration: $search-transition-timing;
-
       > {
         svg {
           fill: $text-primary;
         }
       }
     }
-
     &:focus,
     &:active {
       display: block;
       background-color: $background-hover;
       outline: $spacing-01 solid $background-brand;
       outline-offset: -#{$spacing-01};
-
       &::before,
       &::after {
         display: none;
       }
     }
-    @media (width >= 800px) {
+    @media (min-width: 800px) {
       display: block;
     }
   }
@@ -668,56 +600,55 @@
     display: none;
   }
   .#{$prefix}--header__nav-caret-left {
-    inset-inline-start: 0;
-
+    left: 0;
     &::before {
-      position: absolute;
-      display: block;
-      background-color: #dcdcdc;
-      block-size: $spacing-06;
       content: '';
-      inline-size: to-rem(1px);
-      inset-block-start: 50%;
-      inset-inline-start: 0;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 50%;
       transform: translateY(-50%);
+      height: $spacing-06;
+      width: to-rem(1px);
+      background-color: #dcdcdc;
     }
   }
 
   .#{$prefix}--header__nav-caret-left-gradient {
-    position: absolute;
-    z-index: 1;
     display: block;
+    position: absolute;
+    left: $spacing-08;
+    top: 0;
+    height: 100%;
+    width: $spacing-03;
     background: linear-gradient(to right, $background, rgba(255, 255, 255, 0));
-    block-size: 100%;
-    inline-size: $spacing-03;
-    inset-block-start: 0;
-    inset-inline-start: $spacing-08;
+    z-index: 1;
   }
 
   .#{$prefix}--header__nav-caret-right {
-    inset-inline-end: 0;
+    right: 0;
 
     &::after {
-      position: absolute;
-      display: block;
-      background-color: #dcdcdc;
-      block-size: $spacing-06;
       content: '';
-      inline-size: to-rem(1px);
-      inset-block-start: 50%;
-      inset-inline-end: 0;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
       transform: translateY(-50%);
+      height: $spacing-06;
+      width: to-rem(1px);
+      background-color: #dcdcdc;
     }
   }
 
   .#{$prefix}--header__nav-caret-right-gradient {
-    position: absolute;
     display: block;
+    position: absolute;
+    top: 0;
+    right: $spacing-08;
+    height: 100%;
+    width: $spacing-03;
     background: linear-gradient(to left, $background, rgba(255, 255, 255, 0));
-    block-size: 100%;
-    inline-size: $spacing-03;
-    inset-block-start: 0;
-    inset-inline-end: $spacing-08;
   }
 
   .#{$prefix}--header__action--active {
@@ -726,8 +657,8 @@
     background-color: $background-hover;
 
     @include breakpoint-up(sm) {
+      top: 0;
       z-index: 6001;
-      inset-block-start: 0;
     }
   }
 
@@ -752,10 +683,10 @@
   }
 
   button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
-    display: none;
     overflow: hidden;
+    width: 0;
     border: none;
-    inline-size: 0;
+    display: none;
 
     svg {
       position: relative;
@@ -763,18 +694,17 @@
   }
 
   .#{$prefix}--header__search--search {
-    inline-size: $spacing-09;
     outline: none;
+    width: $spacing-09;
   }
 
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
     @include theme($white, true);
 
+    background-color: $background;
     position: fixed;
     z-index: 99999;
-
-    background-color: $background;
     /* !rtl:raw:
     left: 0 !important;
     */
@@ -800,19 +730,18 @@
   }
 
   .#{$prefix}--overflow-menu-options__option {
-    block-size: $spacing-09;
-
+    height: $spacing-09;
     &:hover {
       background-color: $layer-01;
     }
   }
 
   .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open {
-    background-color: $background-hover;
     box-shadow: none;
+    background-color: $background-hover;
   }
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
-    block-size: $spacing-09;
+    height: $spacing-09;
   }
 
   @include breakpoint-up(800px) {

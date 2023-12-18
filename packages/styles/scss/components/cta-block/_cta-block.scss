@@ -18,8 +18,8 @@
 @use '../button-group';
 
 @mixin themed-items {
-  background: $background;
   color: $text-primary;
+  background: $background;
 
   .#{$prefix}--content-item__heading {
     color: $text-primary;
@@ -39,18 +39,19 @@
 @mixin cta-block {
   :host(#{$c4d-prefix}-cta-block),
   .#{$prefix}--cta-block {
-    padding-block: $spacing-07 $spacing-10;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-10;
     @include breakpoint(lg) {
-      padding-block-start: $spacing-10;
+      padding-top: $spacing-10;
     }
 
     .#{$prefix}--cta-block__cta {
-      padding-block-end: $spacing-10;
+      padding-bottom: $spacing-10;
       @include breakpoint(md) {
-        padding-block-end: $spacing-12;
+        padding-bottom: $spacing-12;
       }
       @include breakpoint(lg) {
-        padding-block-end: $spacing-13;
+        padding-bottom: $spacing-13;
       }
 
       .#{$prefix}--buttongroup {
@@ -61,26 +62,27 @@
 
       .#{$prefix}--buttongroup-item {
         @include breakpoint(md) {
-          padding-inline-end: $spacing-07;
+          padding-right: $spacing-07;
         }
       }
     }
 
     .#{$prefix}--content-block {
-      padding-block: $spacing-07 0;
+      padding-top: $spacing-07;
+      padding-bottom: 0;
 
       @include breakpoint(lg) {
-        padding-block-start: $spacing-10;
+        padding-top: $spacing-10;
       }
     }
 
     .#{$prefix}--content-block__heading,
     .#{$prefix}--content-block__copy {
-      inline-size: 90%;
-      max-inline-size: to-rem(640px);
+      width: 90%;
+      max-width: to-rem(640px);
 
       @include breakpoint(sm) {
-        inline-size: 100%;
+        width: 100%;
       }
     }
 
@@ -90,13 +92,13 @@
 
     .#{$prefix}--content-block__copy {
       p {
-        margin-block-end: 0;
+        margin-bottom: 0;
         @include type-style('fluid-heading-03', true);
       }
     }
 
     .#{$prefix}--content-block__cta-col {
-      margin-block-start: 0;
+      margin-top: 0;
     }
 
     .#{$prefix}--helper-wrapper {
@@ -104,10 +106,10 @@
         @include make-row;
 
         .#{$prefix}--content-item {
+          width: 100%;
+          margin-bottom: 0;
+          padding-bottom: $spacing-05;
           position: relative;
-          inline-size: 100%;
-          margin-block-end: 0;
-          padding-block-end: $spacing-05;
 
           @include make-col-ready;
 
@@ -116,34 +118,34 @@
           }
 
           &:last-of-type {
-            margin-block-start: $spacing-05;
+            margin-top: $spacing-05;
 
             @include breakpoint(md) {
-              margin-block-start: $spacing-07;
+              margin-top: $spacing-07;
             }
           }
         }
 
         .#{$prefix}--content-item__heading {
-          inline-size: 100%;
+          width: 100%;
 
           @include type-style('heading-02', true);
 
           @include breakpoint(md) {
-            inline-size: 90%;
+            width: 90%;
           }
         }
 
         .#{$prefix}--content-item__copy {
-          inline-size: 100%;
+          width: 100%;
 
           @include breakpoint(md) {
-            inline-size: 90%;
+            width: 90%;
           }
 
           p {
-            inline-size: 100%;
-            margin-block-end: $spacing-05;
+            width: 100%;
+            margin-bottom: $spacing-05;
 
             @include type-style('body-02', true);
           }
@@ -152,26 +154,26 @@
     }
 
     &.#{$prefix}--cta-block__has-items {
-      padding-block-end: $spacing-09;
+      padding-bottom: $spacing-09;
 
       @include breakpoint(lg) {
-        padding-block-end: carbon--mini-units(10);
+        padding-bottom: carbon--mini-units(10);
       }
 
       .#{$prefix}--cta-block__cta {
-        padding-block-end: $spacing-07;
+        padding-bottom: $spacing-07;
 
         @include breakpoint(md) {
-          padding-block-end: $spacing-10;
+          padding-bottom: $spacing-10;
         }
 
         @include breakpoint(lg) {
-          padding-block-end: $spacing-12;
+          padding-bottom: $spacing-12;
         }
       }
 
       .#{$prefix}--content-block {
-        padding-block-end: 0;
+        padding-bottom: 0;
       }
     }
   }

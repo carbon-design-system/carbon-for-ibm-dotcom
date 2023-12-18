@@ -27,14 +27,16 @@
   :host(#{$c4d-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    padding-block: $spacing-07 $spacing-10;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-10;
 
     @include breakpoint(md) {
-      padding-block: $spacing-10 $spacing-12;
+      padding-top: $spacing-10;
+      padding-bottom: $spacing-12;
     }
 
     @include breakpoint(max) {
-      padding-block-end: $spacing-13;
+      padding-bottom: $spacing-13;
     }
 
     .#{$prefix}--card__CTA {
@@ -47,7 +49,7 @@
     @include breakpoint(lg) {
       .#{$prefix}--link-list {
         &:first-of-type {
-          padding-block-start: 0;
+          padding-top: 0;
         }
       }
     }
@@ -69,14 +71,17 @@
     }
 
     &.#{$prefix}--layout--border {
-      margin-inline: 0;
-      padding-inline: 0;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     // Most slotted contents have margins aligning to Carbon grid gutters.
     // Note: Child contents define their margin by their own
     ::slotted([slot]) {
-      margin-inline: $spacing-05;
+      margin-left: $spacing-05;
+      margin-right: $spacing-05;
     }
 
     // Cards and link lists are the exceptions of above
@@ -84,25 +89,28 @@
     ::slotted(#{$c4d-prefix}-card[slot]),
     ::slotted(#{$c4d-prefix}-card-cta[slot]),
     ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
-      margin-inline: 0;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     &__aside,
     ::slotted([slot='complementary']) {
       grid-area: complementary;
-      margin-block: $layout-05;
+      margin-top: $layout-05;
+      margin-bottom: $layout-05;
 
       @include breakpoint(lg) {
-        margin-block: 0;
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
 
     ::slotted([slot='footer']) {
-      margin-block-start: $spacing-09;
+      margin-top: $spacing-09;
 
       @include breakpoint(md) {
-        inline-size: 50%;
-        margin-block-start: $spacing-10;
+        width: 50%;
+        margin-top: $spacing-10;
       }
     }
 
@@ -111,7 +119,7 @@
     }
 
     ::slotted([slot='media']) {
-      margin-block-start: $spacing-07;
+      margin-top: $spacing-07;
     }
 
     ::slotted(#{$c4d-prefix}-video-player-container) {
@@ -136,44 +144,44 @@
     }
 
     @include breakpoint(lg) {
+      grid-template-columns: repeat(12, 1fr);
       grid-template-areas:
         'heading heading heading heading heading heading heading heading . . . .'
         'body body body body body body body body . complementary complementary complementary'
         'footer footer footer footer footer footer footer footer . complementary complementary complementary';
-      grid-template-columns: repeat(12, 1fr);
     }
   }
 
   .#{$prefix}--content-layout__body {
     display: grid;
     grid-area: body;
-
     .bx--content-group-cards__row {
-      margin-inline: 0;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 
   :host(#{$c4d-prefix}-content-block-horizontal) #{$c4d-prefix}-hr {
     margin: 0;
-    margin-block-start: $layout-03;
+    margin-top: $layout-03;
 
     @include breakpoint(md) {
-      margin-block-start: 0;
+      margin-top: 0;
     }
     @include breakpoint(lg) {
-      margin-block-start: $layout-05;
+      margin-top: $layout-05;
     }
   }
 
   .#{$prefix}--content-block .#{$prefix}--hr {
-    margin-block-start: $layout-03;
+    margin-top: $layout-03;
 
     @include hang;
     @include breakpoint(md) {
-      margin-block-start: $layout-01;
+      margin-top: $layout-01;
     }
     @include breakpoint(lg) {
-      margin-block-start: calc(#{$layout-04} + #{$spacing-03});
+      margin-top: calc(#{$layout-04} + #{$spacing-03});
     }
   }
 
@@ -190,23 +198,21 @@
     @include type-style('fluid-heading-05', true);
 
     color: $text-primary;
-
-    margin-block-end: $spacing-07;
+    margin-bottom: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-content-block-paragraph),
   .#{$prefix}--content-block__copy p {
     @include type-style('fluid-heading-03', true);
 
+    margin-bottom: $spacing-07;
     color: $text-primary;
-
-    margin-block-end: $spacing-07;
   }
 
   .#{$prefix}--content-block__cta {
-    margin-block-start: $spacing-09;
+    margin-top: $spacing-09;
     @include breakpoint(md) {
-      margin-block-start: $spacing-10;
+      margin-top: $spacing-10;
     }
 
     .#{$prefix}--feature-card {
@@ -228,19 +234,20 @@
   .#{$prefix}--content-block__cta-col {
     @include make-col-ready;
 
-    max-inline-size: calc(320px + #{$spacing-10});
+    max-width: calc(320px + #{$spacing-10});
 
     @include breakpoint(sm) {
       .#{$prefix}--card__CTA {
-        margin-inline-start: -($spacing-05);
+        margin-left: -($spacing-05);
       }
     }
 
     @include breakpoint(md) {
       @include make-col(4, 8);
 
-      max-inline-size: calc(320px + #{$spacing-10});
-      padding-inline: $spacing-05;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
+      max-width: calc(320px + #{$spacing-10});
     }
   }
 }

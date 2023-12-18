@@ -28,10 +28,9 @@
 :host(#{$c4d-prefix}-cloud-masthead-global-bar) {
   @extend :host(#{$c4d-prefix}-masthead-global-bar);
 
-  z-index: 0;
-  flex: none;
-
   background-color: $background;
+  flex: none;
+  z-index: 0;
 }
 
 :host(#{$c4d-prefix}-cloud-masthead-global-bar)
@@ -45,11 +44,10 @@
   @extend :host(#{$c4d-prefix}-button-cta);
 
   margin: 0;
-
-  padding-inline-end: 0;
+  padding-right: 0;
 
   &.console .#{$prefix}--btn--ghost {
-    border-inline-start: 1px solid $button-separator;
+    border-left: 1px solid $button-separator;
     color: $link-secondary;
   }
 
@@ -68,30 +66,30 @@
 }
 
 :host(#{$c4d-prefix}-cloud-top-nav-name) {
+  outline: none;
   position: relative;
   z-index: 1;
   background-color: $background;
-  outline: none;
 
   a.#{$prefix}--header__name {
-    margin-inline-start: 0;
+    margin-left: 0;
 
     @include masthead-top-nav-name;
 
     @include breakpoint-down(800px) {
-      position: absolute;
       display: flex;
-      inset-block-start: 0;
-      inset-inline-start: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     @include breakpoint(lg) {
-      margin-inline-start: 0;
+      margin-left: 0;
     }
 
     @include breakpoint(xlg) {
+      margin-left: $spacing-05;
       position: relative;
-      margin-inline-start: $spacing-05;
     }
   }
 }
@@ -103,22 +101,20 @@
   position: relative;
 
   &::after {
+    content: '';
     position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: $spacing-09;
     background: linear-gradient(
       rgba(255, 255, 255, 0.001),
       $background
     ); /* transparent keyword is broken in Safari */
-
-    block-size: $spacing-09;
-
-    content: '';
-    inline-size: 100%;
-    inset-block-end: 0;
   }
 
   .#{$prefix}--masthead__megamenu__container {
-    block-size: 100%;
-    inline-size: 100%;
+    width: 100%;
+    height: 100%;
     overflow-x: hidden;
   }
 
@@ -136,14 +132,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-inline-end: to-rem(1px) solid $border-subtle-01;
+  border-right: to-rem(1px) solid $border-subtle-01;
 
   @include breakpoint(md) {
-    min-block-size: to-rem(580px);
+    min-height: to-rem(580px);
   }
 
   @include breakpoint(xlg) {
-    min-block-size: to-rem(475px);
+    min-height: to-rem(475px);
   }
 }
 
@@ -152,14 +148,15 @@
 
   display: flex;
   flex-direction: column;
-  margin-block-end: $spacing-07;
-  padding-block-start: $spacing-06;
+  padding-top: $spacing-06;
+  margin-bottom: $spacing-07;
 }
 
 :host(#{$c4d-prefix}-cloud-megamenu-tabs) {
   display: flex;
   flex-direction: column;
-  margin-block: to-rem(18px);
+  margin-top: to-rem(18px);
+  margin-bottom: to-rem(18px);
 
   .#{$prefix}--tabs-trigger {
     display: none;
@@ -172,15 +169,13 @@
   button {
     @include type-style(body-short-01);
 
-    padding: to-rem(6px) $spacing-05;
-    border: none;
-    background-color: $background;
-
     color: $text-secondary;
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: to-rem(6px) $spacing-05;
+    background-color: $background;
     cursor: pointer;
-
-    inline-size: 100%;
-    text-align: start;
 
     &:hover,
     &:focus {
@@ -210,18 +205,18 @@
 }
 
 :host(#{$c4d-prefix}-cloud-megamenu-category-link) {
-  inline-size: 100%;
-  max-inline-size: 50%;
+  width: 100%;
+  max-width: 50%;
   outline: 0;
 
   @include breakpoint(xlg) {
-    max-inline-size: 33.33%;
+    max-width: 33.33%;
   }
 
   a {
     display: block;
     padding: $spacing-04 $spacing-05;
-    block-size: 100%;
+    height: 100%;
 
     p {
       @include type-style('heading-01');
@@ -232,15 +227,14 @@
     span {
       @include type-style(body-short-01);
 
-      display: block;
-
       color: $text-secondary;
-      inline-size: 90%;
+      display: block;
+      width: 90%;
     }
 
     &:hover {
-      background-color: $background-hover;
       text-decoration: none;
+      background-color: $background-hover;
 
       span {
         color: $text-primary;
@@ -257,26 +251,26 @@
 :host(#{$c4d-prefix}-cloud-megamenu-category-heading) {
   display: block;
   padding: 0 $spacing-05;
-  inline-size: 66.66%;
-  margin-block-end: $spacing-07;
+  margin-bottom: $spacing-07;
+  width: 66.66%;
 
   @include breakpoint(lg) {
-    inline-size: auto;
+    width: auto;
   }
 
   h2 {
     display: flex;
-    margin-block-end: $spacing-03;
+    margin-bottom: $spacing-03;
 
     a {
-      align-self: center;
       color: $text-primary;
       text-decoration: none;
+      align-self: center;
 
       svg {
         margin: 0 $spacing-03;
+        padding-top: $spacing-02;
         fill: $icon-primary;
-        padding-block-start: $spacing-02;
 
         /* stylelint-disable-next-line comment-whitespace-inside */
         /* !rtl:raw:
@@ -302,7 +296,7 @@
     color: $text-secondary;
 
     @include breakpoint(lg) {
-      inline-size: 40%;
+      width: 40%;
     }
   }
 }
@@ -335,7 +329,7 @@
   .#{$prefix}--header__menu-title[aria-expanded='true']
   + .#{$prefix}--header__menu {
   @include breakpoint-down(md) {
-    inline-size: 100vw;
+    width: 100vw;
   }
 }
 

@@ -26,21 +26,21 @@
   }
 
   .#{$prefix}--filter-panel__section {
-    overflow: initial;
     box-sizing: border-box;
     background-color: $layer-01;
-    margin-block-start: $spacing-05;
-    padding-block-end: to-rem(112px);
+    padding-bottom: to-rem(112px);
+    margin-top: $spacing-05;
+    overflow: initial;
 
     @include breakpoint(md) {
-      block-size: 80%;
-      inline-size: 60%;
+      height: 80%;
+      width: 60%;
     }
 
     @include breakpoint(lg) {
-      block-size: auto;
-      inline-size: auto;
-      padding-block-end: $spacing-09;
+      height: auto;
+      width: auto;
+      padding-bottom: $spacing-09;
     }
   }
 
@@ -54,9 +54,9 @@
 
   .#{$prefix}--input-container__heading {
     position: relative;
+    cursor: pointer;
     padding: $spacing-03 $spacing-05;
     color: $text-secondary;
-    cursor: pointer;
     @include type-style('body-compact-01');
 
     &:hover {
@@ -64,16 +64,17 @@
     }
 
     &:focus-visible {
-      z-index: 1;
-      margin-inline: $spacing-01;
       outline: $spacing-01 solid $focus;
-      padding-inline-start: to-rem(14px);
+      margin-left: $spacing-01;
+      margin-right: $spacing-01;
+      padding-left: to-rem(14px);
+      z-index: 1;
     }
 
     .#{$prefix}--close__icon {
       position: absolute;
-      inset-block-start: to-rem(10px);
-      inset-inline-end: $spacing-05;
+      right: $spacing-05;
+      top: to-rem(10px);
     }
   }
 
@@ -87,22 +88,23 @@
     }
   }
 
-  @media (width >= 640px) {
+  @media (min-width: 640px) {
     .#{$prefix}--accordion__content {
-      padding-inline-end: 0;
+      padding-right: 0;
     }
   }
 
   .#{$prefix}--accordion__content {
-    padding-inline: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .#{$prefix}--clear {
-    border: 0;
-    background-color: $layer-01;
-    color: $link-primary;
     cursor: pointer;
-    padding-inline-end: $spacing-05;
+    padding-right: $spacing-05;
+    border: 0;
+    color: $link-primary;
+    background-color: $layer-01;
     @include type-style('body-compact-01');
   }
 
@@ -112,8 +114,8 @@
   }
 
   .#{$prefix}--reset__icon {
-    padding-block-start: $spacing-01;
-    padding-inline-start: $spacing-03;
+    padding-top: $spacing-01;
+    padding-left: $spacing-03;
   }
 
   .#{$prefix}--clear__container {
@@ -126,9 +128,10 @@
       display: block;
 
       &:focus-visible {
-        margin-block: $spacing-01;
-        margin-inline-end: $spacing-01;
         outline: $spacing-01 solid $focus;
+        margin-bottom: $spacing-01;
+        margin-right: $spacing-01;
+        margin-top: $spacing-01;
       }
 
       &:hover {
@@ -158,11 +161,12 @@
   }
 
   :host(#{$c4d-prefix}-filter-panel-checkbox) {
-    color: $text-secondary;
-    padding-block-end: to-rem(6px);
-    padding-inline-start: to-rem(14px);
+    padding-left: to-rem(14px);
+    padding-bottom: to-rem(6px);
     @extend .#{$prefix}--checkbox-label;
     @include type-style('body-compact-01');
+
+    color: $text-secondary;
 
     &:hover,
     &[checked] {
@@ -170,8 +174,8 @@
     }
 
     label.#{$prefix}--checkbox-label {
-      padding-block-start: $spacing-01;
-      padding-inline-start: $spacing-06;
+      padding-top: $spacing-01;
+      padding-left: $spacing-06;
 
       &::before {
         border: 1px solid $icon-secondary;
@@ -198,12 +202,11 @@
   :host(#{$c4d-prefix}-filter-panel-input-select-item) {
     @include type-style('body-compact-01');
 
-    position: relative;
-    padding: $spacing-03 $spacing-06;
-
     background-color: $layer-01;
-    color: $text-secondary;
     cursor: pointer;
+    position: relative;
+    color: $text-secondary;
+    padding: $spacing-03 $spacing-06;
 
     &:hover {
       background-color: $background-hover;
@@ -221,8 +224,8 @@
 
     .#{$prefix}--close__icon {
       position: absolute;
-      inset-block-start: to-rem(10px);
-      inset-inline-end: $spacing-05;
+      right: $spacing-05;
+      top: to-rem(10px);
     }
   }
 
@@ -237,7 +240,7 @@
   :host(#{$c4d-prefix}-filter-group:first-of-type) {
     ::slotted(#{$prefix}-filter-group-item:first-of-type) {
       @include breakpoint-down(md) {
-        margin-block-start: $spacing-05;
+        margin-top: $spacing-05;
       }
     }
   }
@@ -246,9 +249,9 @@
     @extend :host(#{$prefix}-accordion-item);
 
     display: block;
-    border-block-end: none;
-    border-block-start: 1px solid $layer-accent-01;
     outline: none;
+    border-top: 1px solid $layer-accent-01;
+    border-bottom: none;
 
     .#{$prefix}--accordion__wrapper {
       /* stylelint-disable declaration-no-important */
@@ -269,22 +272,21 @@
     .#{$c4d-prefix}-filter-group-item__view-all {
       @include font-family('sans');
 
+      width: 100%;
       padding: $spacing-03 $spacing-05;
+      text-align: left;
       cursor: pointer;
 
-      inline-size: 100%;
-      text-align: start;
-
       &:focus-visible {
+        outline: none;
         border-color: $focus;
         box-shadow: inset 0 0 0 $button-outline-width $focus,
           inset 0 0 0 $button-border-width $background;
-        outline: none;
       }
     }
 
     &:last-of-type {
-      border-block-end: 1px solid $layer-accent-01;
+      border-bottom: 1px solid $layer-accent-01;
     }
   }
 
@@ -298,41 +300,42 @@
     @extend .#{$prefix}--accordion__item--active;
 
     .#{$prefix}--accordion__content {
-      padding-inline: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
   :host(#{$c4d-prefix}-filter-modal-footer) {
-    position: absolute;
-    z-index: 999;
     display: flex;
+    z-index: 999;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     overflow: auto;
-    inline-size: 100%;
-    inset-block-end: 0;
   }
 
   :host(#{$c4d-prefix}-filter-modal-heading) {
     @include type-style('heading-01');
 
     display: block;
-    padding-block-end: $spacing-03;
+    padding-bottom: $spacing-03;
   }
 
   :host(#{$c4d-prefix}-filter-panel-modal) {
     @extend :host(#{$prefix}-modal);
 
-    inset-inline-start: 0;
+    left: 0;
 
     @include breakpoint(lg) {
       display: none;
     }
 
     .#{$prefix}--filter-panel__section.#{$prefix}--modal-container {
-      overflow: initial;
       transform: translate3d(0, 0, 0);
+      overflow: initial;
       @include breakpoint(md) {
-        block-size: 80%;
-        inline-size: 60%;
+        height: 80%;
+        width: 60%;
       }
     }
   }
@@ -346,16 +349,16 @@
 
   :host(#{$c4d-prefix}-filter-panel-modal[expressive-size='full-width']) {
     .#{$prefix}--modal-container {
-      max-block-size: none;
+      max-height: none;
 
       @include breakpoint(lg) {
-        block-size: calc(100% - $spacing-07);
-        inline-size: calc(100% - $spacing-07);
+        width: calc(100% - $spacing-07);
+        height: calc(100% - $spacing-07);
       }
 
       .#{$prefix}--modal-content {
-        padding: 0;
         margin: $spacing-09 $spacing-07;
+        padding: 0;
       }
     }
   }

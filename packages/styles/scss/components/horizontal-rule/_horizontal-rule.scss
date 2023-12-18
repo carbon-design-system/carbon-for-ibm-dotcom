@@ -19,10 +19,10 @@
 
   :host(#{$c4d-prefix}-hr) {
     display: block;
-    border: none;
     margin: $spacing-05 0;
+    border: none;
+    height: $thin-weight;
     background: $strong-contrast;
-    block-size: $thin-weight;
   }
 
   :host(
@@ -30,25 +30,25 @@
           [size='medium']
         ):not([size='large'])
     ) {
+    height: $thin-weight;
     background-color: transparent;
+    background-size: $spacing-05 $thin-weight;
+    background-repeat: repeat-x;
     background-image: linear-gradient(
       to right,
       $strong-contrast 50%,
       transparent 50%
     );
-    background-repeat: repeat-x;
-    background-size: $spacing-05 $thin-weight;
-    block-size: $thin-weight;
   }
 
   :host(#{$c4d-prefix}-hr[size='small']) {
-    max-inline-size: $spacing-07;
+    max-width: $spacing-07;
   }
   :host(#{$c4d-prefix}-hr[size='medium']) {
-    max-inline-size: $spacing-09;
+    max-width: $spacing-09;
   }
   :host(#{$c4d-prefix}-hr[size='large']) {
-    max-inline-size: $spacing-10;
+    max-width: $spacing-10;
   }
 
   :host(#{$c4d-prefix}-hr[contrast='subtle']) {
@@ -60,6 +60,6 @@
   }
 
   :host(#{$c4d-prefix}-hr[weight='thick']) {
-    block-size: $spacing-01;
+    height: $spacing-01;
   }
 }

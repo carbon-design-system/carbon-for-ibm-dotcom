@@ -15,7 +15,7 @@
 @mixin inline-loading-expressive {
   .#{$prefix}--inline-loading__checkmark-container,
   .#{$prefix}--inline-loading--error {
-    block-size: to-rem(20px);
-    inline-size: to-rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
   }
 }

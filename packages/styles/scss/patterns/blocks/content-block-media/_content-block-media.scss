@@ -1,17 +1,17 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 @mixin themed-items {
-  background: $background;
   color: $text-primary;
+  background: $background;
 
   &.#{$prefix}--content-block-media--with-border
     .#{$prefix}--content-block-media__divider {
-    border-block-end-color: $toggle-off;
+    border-bottom-color: $toggle-off;
   }
 }
 
@@ -20,7 +20,7 @@
     @include themed-items;
 
     .#{$prefix}--content-group:last-child {
-      margin-block-end: 0;
+      margin-bottom: 0;
     }
   }
 

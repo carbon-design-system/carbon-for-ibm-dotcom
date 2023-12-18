@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,67 +13,66 @@
           @include type-style('display-03', true);
 
           color: $icon-inverse;
-
-          padding-block: $layout-01 $layout-05;
+          padding-top: $layout-01;
+          padding-bottom: $layout-05;
         }
 
         &__copy {
           @include type-style('fluid-heading-03', true);
 
           color: $icon-inverse;
-          margin-block-start: auto;
-
-          padding-block-end: $layout-01;
+          margin-top: auto;
+          padding-bottom: $layout-01;
         }
 
         &__source {
           @include type-style('body-compact-01', true);
 
-          color: $text-helper;
-
-          inline-size: 90%;
-          max-inline-size: carbon--mini-units(80);
-
-          padding-block: $spacing-03 $layout-03;
+          width: 90%;
+          max-width: carbon--mini-units(80);
+          padding-bottom: $layout-03;
 
           @include breakpoint(md) {
-            padding-block-end: $layout-05;
+            padding-bottom: $layout-05;
           }
 
           @include breakpoint(lg) {
-            padding-block-end: $layout-06;
+            padding-bottom: $layout-06;
           }
+
+          padding-top: $spacing-03;
+          color: $text-helper;
         }
       }
 
       &__column {
-        block-size: auto;
+        height: auto;
 
         @include breakpoint(md) {
-          block-size: carbon--mini-units(40);
+          height: carbon--mini-units(40);
         }
 
         @include breakpoint(lg) {
-          block-size: carbon--mini-units(50);
+          height: carbon--mini-units(50);
         }
 
         @include breakpoint(xlg) {
-          block-size: carbon--mini-units(60);
+          height: carbon--mini-units(60);
         }
 
         @include breakpoint(max) {
-          block-size: carbon--mini-units(70);
+          height: carbon--mini-units(70);
         }
       }
 
       &__content {
+        padding-left: 0;
+        margin-left: 0;
         display: flex;
+        height: 100%;
         flex-direction: column;
-        block-size: 100%;
-        inline-size: 90%;
-        margin-inline-start: 0;
-        max-inline-size: 640px;
-        padding-inline-start: 0;
+        width: 90%;
+        max-width: 640px;
       }
     }
   }

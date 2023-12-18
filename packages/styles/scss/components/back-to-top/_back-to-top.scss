@@ -15,29 +15,29 @@
 @mixin back-to-top {
   :host(#{$c4d-prefix}-back-to-top) {
     position: sticky;
-    z-index: 9999;
+    bottom: 0;
     display: flex;
-    block-size: 0;
-    inset-block-end: 0;
+    padding-right: $spacing-05;
     outline: none;
-    padding-inline-end: $spacing-05;
+    height: 0;
+    z-index: 9999;
 
     .#{$prefix}--back-to-top__btn {
       position: relative;
+      bottom: $spacing-10;
       border-radius: 50%;
-      block-size: $spacing-09;
-      inline-size: $spacing-09;
-      inset-block-end: $spacing-10;
-      margin-inline-start: auto;
+      width: $spacing-09;
+      height: $spacing-09;
+      margin-left: auto;
+      visibility: visible;
       opacity: 1;
       transition: all $duration-fast-02 motion(standard, productive);
-      visibility: visible;
     }
 
     &[hidden] {
       .#{$prefix}--back-to-top__btn {
-        opacity: 0;
         visibility: hidden;
+        opacity: 0;
       }
     }
   }

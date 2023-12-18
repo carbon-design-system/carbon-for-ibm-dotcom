@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,8 +30,8 @@ $layout-spacings: $spacing-05, $spacing-06, $spacing-07, $spacing-09,
   .#{$prefix}--layout--sticky-mobile {
     @include breakpoint(lg) {
       position: sticky;
+      top: 0;
       z-index: 1;
-      inset-block-start: 0;
       transform: translate3d(0, 0, 0);
     }
   }
@@ -39,8 +39,8 @@ $layout-spacings: $spacing-05, $spacing-06, $spacing-07, $spacing-09,
   .#{$prefix}--layout--sticky {
     @include breakpoint(lg) {
       position: sticky;
+      top: 0;
       z-index: 1;
-      inset-block-start: 0;
     }
   }
 
@@ -48,37 +48,39 @@ $layout-spacings: $spacing-05, $spacing-06, $spacing-07, $spacing-09,
     $i: index($layout-spacings, $layout);
     .#{$prefix}--layout--top {
       &-layout-0#{$i} {
-        margin-block-start: $layout;
+        margin-top: $layout;
       }
     }
     .#{$prefix}--layout--bottom {
       &-layout-0#{$i} {
-        margin-block-end: $layout;
+        margin-bottom: $layout;
       }
     }
   }
 
   .#{$prefix}--layout--border {
     @include breakpoint(sm) {
-      padding-block-end: $spacing-10;
+      padding-bottom: $spacing-10;
     }
 
     @include breakpoint(md) {
-      margin-inline: -$spacing-07;
-      padding-block-end: $spacing-12;
-      padding-inline: $spacing-05;
+      margin-left: -$spacing-07;
+      margin-right: -$spacing-07;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
+      padding-bottom: $spacing-12;
     }
 
     @include breakpoint(lg) {
-      margin-inline-start: -$spacing-05;
-      padding-block-end: $spacing-13;
+      margin-left: -$spacing-05;
+      padding-bottom: $spacing-13;
     }
 
     @include breakpoint(max) {
-      margin-inline-end: -$spacing-05;
+      margin-right: -$spacing-05;
     }
 
-    border-block-end: solid 1px $toggle-off;
+    border-bottom: solid 1px $toggle-off;
   }
 
   .#{$prefix}--layout-2-3 {

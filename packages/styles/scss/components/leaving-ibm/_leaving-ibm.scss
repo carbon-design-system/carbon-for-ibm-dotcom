@@ -15,13 +15,13 @@
 @mixin leaving-ibm {
   :host(#{$c4d-prefix}-leaving-ibm-composite),
   :host(#{$c4d-prefix}-leaving-ibm-container) {
-    inline-size: 100%;
+    width: 100%;
   }
 
   :host(#{$c4d-prefix}-leaving-ibm-modal) {
     @extend :host(#{$prefix}-modal);
 
-    max-block-size: 100%;
+    max-height: 100%;
   }
   :host(#{$c4d-prefix}-leaving-ibm-modal)[open] {
     @extend :host(#{$prefix}-modal[open]);
@@ -34,29 +34,27 @@
   :host(#{$c4d-prefix}-leaving-ibm-modal-body) {
     @extend :host(#{$prefix}-modal-body);
 
+    padding-right: 20%;
     z-index: 1;
-
-    padding-inline-end: 20%;
 
     ::slotted(#{$c4d-prefix}-leaving-ibm-modal-supplemental),
     ::slotted(slot[name='supplemental']) {
       display: block;
+      margin-top: $spacing-07;
       color: $text-secondary;
-      margin-block-start: $spacing-07;
       @include type-style('label-02');
     }
 
     > p {
+      padding-right: 0;
       margin: 0;
-      padding-inline-end: 0;
     }
-
     ::slotted(:last-child) {
-      padding-block-end: 0;
+      padding-bottom: 0;
     }
     #{$prefix}-link {
+      min-height: 24px;
       display: inline-block;
-      min-block-size: 24px;
     }
   }
   .#{$prefix}--modal-container {

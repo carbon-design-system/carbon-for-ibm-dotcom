@@ -16,22 +16,22 @@
 /// @group number-input-expressive
 @mixin number-input-expressive {
   .#{$prefix}--number input[type='number'] {
-    block-size: $spacing-09; /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--number__input-wrapper .#{$prefix}--number__invalid {
-    block-size: to-rem(20px);
-    inline-size: to-rem(20px);
+    width: to-rem(20px);
+    height: to-rem(20px);
   }
 
   .#{$prefix}--number__control-btn.up-icon,
   .#{$prefix}--number__control-btn.down-icon {
-    block-size: 100%;
-    inline-size: 100%;
+    width: 100%;
+    height: 100%;
 
     svg {
-      block-size: to-rem(20px);
-      inline-size: to-rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
 }

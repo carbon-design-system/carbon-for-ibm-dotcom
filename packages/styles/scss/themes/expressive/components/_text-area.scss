@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@
 /// @group text-area-expressive
 @mixin text-area-expressive {
   .#{$prefix}--text-area__invalid-icon {
-    block-size: 1.25rem;
-    inline-size: 1.25rem;
+    height: 1.25rem;
+    width: 1.25rem;
   }
 }

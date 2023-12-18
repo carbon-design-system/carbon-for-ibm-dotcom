@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2022, 2023
+// Copyright IBM Corp. 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -22,11 +22,10 @@
 
 @keyframes sticky-header-slide-in {
   from {
-    inset-block-start: -100%;
+    top: -100%;
   }
-
   to {
-    inset-block-start: var(--#{$c4d-prefix}-sticky-header-height);
+    top: var(--#{$c4d-prefix}-sticky-header-height);
   }
 }
 
@@ -38,10 +37,10 @@
     overflow-y: hidden;
 
     .#{$c4d-prefix}-pricing-table-sentinel {
-      position: relative;
       display: block;
-      block-size: 1px;
-      margin-block-start: -1px;
+      height: 1px;
+      margin-top: -1px;
+      position: relative;
     }
   }
 
@@ -60,33 +59,31 @@
 
     // Pseudo full width background activated when row is sticky.
     &::before {
-      position: absolute;
       content: '';
-      inline-size: 0;
-      inset-block: 0;
-      inset-inline-start: 0;
+      position: absolute;
+      width: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
       transition: $duration-slow-01 motion(standard, productive),
         box-shadow 0 motion(standard, productive);
-
-      @media screen and (prefers-reduced-motion: reduce) {
-        transition: none;
-      }
     }
 
     &.#{$prefix}--pricing-table-header-row--sticky {
       position: sticky;
-      z-index: 1;
       animation: sticky-header-slide-in $duration-slow-01
         motion(standard, productive);
+      top: var(--#{$c4d-prefix}-sticky-header-height);
       background-color: $background;
-      inset-block-start: var(--#{$c4d-prefix}-sticky-header-height);
+      z-index: 1;
 
       &::before {
         @include breakpoint(md) {
+          width: 100vw;
+          left: calc(50% - 50vw);
+          right: calc(50% - 50vw);
           background-color: $background;
           box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
-          inline-size: 100vw;
-          inset-inline: calc(50% - 50vw);
           transition: $duration-fast-02 motion(standard, productive),
             box-shadow $duration-slow-01 motion(standard, productive);
         }
@@ -112,16 +109,15 @@
      * Add pseudo border to ensure border extends to end of row even if there
      * aren't enough cells to fill row width.
      */
-
     &::after {
-      position: absolute;
-      display: block;
-      background-color: $layer-accent-01;
-      block-size: 1px;
       content: '';
-      inline-size: 100%;
-      inset-block-end: 0;
-      inset-inline-end: 0;
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $layer-accent-01;
     }
   }
 
@@ -131,7 +127,7 @@
   :host(#{$c4d-prefix}-pricing-table-row) {
     ::slotted(:last-child) {
       flex-grow: none;
-      max-inline-size: var(--width);
+      max-width: var(--width);
     }
   }
 
@@ -158,9 +154,9 @@
     }
 
     .#{$prefix}--pricing-table-cell-inner {
+      width: 100%;
       display: flex;
       justify-content: space-between;
-      inline-size: 100%;
     }
   }
 
@@ -175,7 +171,7 @@
     transition: padding-block-end $duration-slow-01 motion(standard, productive);
 
     &.#{$prefix}--pricing-table-header-cell--sticky {
-      border-block-end-color: transparent;
+      border-bottom-color: transparent;
 
       &::after {
         @include breakpoint-down(md) {
@@ -185,13 +181,13 @@
            */
           $shadow-height: 6px;
 
-          position: absolute;
-          background: linear-gradient(rgba(0, 0, 0, 0.3), transparent);
-          block-size: $shadow-height;
-
           content: '';
-          inset-block-end: $shadow-height * -1;
-          inset-inline: 0;
+          position: absolute;
+          height: $shadow-height;
+          left: 0;
+          right: 0;
+          bottom: $shadow-height * -1;
+          background: linear-gradient(rgba(0, 0, 0, 0.3), transparent);
         }
       }
     }
@@ -226,10 +222,10 @@
     }
 
     .#{$prefix}--pricing-table-header-cell-inner {
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      block-size: 100%;
     }
   }
 
@@ -240,16 +236,16 @@
     &.annotation-visible {
       ::slotted(#{$c4d-prefix}-pricing-table-cell-annotation) {
         display: block;
-        block-size: auto;
-        margin-block-start: $spacing-05;
+        height: auto;
         opacity: 1;
+        margin-block-start: $spacing-05;
         transform: translateY(0);
       }
     }
 
     &.annotation-visible.no-cell-content {
       ::slotted(#{$c4d-prefix}-pricing-table-cell-annotation) {
-        margin-block-start: 0;
+        margin-top: 0;
       }
     }
   }
@@ -264,30 +260,29 @@
   :host(#{$c4d-prefix}-pricing-table-highlight-label) {
     @include type-style('body-compact-01');
 
-    position: absolute;
-
     display: none;
-    padding: $spacing-03 $spacing-05;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
     background-color: $border-inverse;
     color: $icon-inverse;
-    inset-block-end: 100%;
-    inset-inline: 0;
+    padding: $spacing-03 $spacing-05;
   }
 
   .#{$prefix}--pricing-table-header-cell-headline,
   :host(#{$c4d-prefix}-pricing-table-header-cell-headline) {
-    display: block;
     // @include type-style('fluid-heading-03');
     color: $text-primary;
+    display: block;
   }
 
   .#{$prefix}--pricing-table-header-cell-caption,
   :host(#{$c4d-prefix}-pricing-table-header-cell-caption) {
     @include type-style('heading-compact-01');
 
-    display: block;
-
     color: $text-primary;
+    display: block;
   }
 
   .#{$prefix}--pricing-table-header-cell-tag,
@@ -296,9 +291,8 @@
     @extend .#{$prefix}--tag--green;
     @extend .#{$prefix}--tag--sm;
 
-    margin: $spacing-05 0 0;
-
     text-decoration: none;
+    margin: $spacing-05 0 0;
 
     &[href] {
       cursor: pointer;
@@ -310,8 +304,8 @@
     @include type-style('body-01');
 
     display: block;
-    color: $text-primary;
     margin-block-start: $spacing-05;
+    color: $text-primary;
   }
 
   .#{$prefix}--pricing-table-header-cell-cta,
@@ -323,8 +317,8 @@
 
     .#{$prefix}--btn svg {
       position: absolute;
-      inset-block-start: 50%;
-      inset-inline-end: $spacing-05;
+      right: $spacing-05;
+      top: 50%;
       transform: translateY(-50%);
     }
   }
@@ -334,9 +328,9 @@
     padding-inline-end: $spacing-03;
 
     button {
-      padding: 0;
-      border: none;
       background: none;
+      border: none;
+      padding: 0;
     }
 
     svg {
@@ -347,10 +341,10 @@
   .#{$prefix}--pricing-table-cell-annotation,
   :host(#{$c4d-prefix}-pricing-table-cell-annotation) {
     display: block;
-    block-size: 0;
     color: $text-secondary;
+    transition: $duration-fast-02 motion(standard, productive);
+    height: 0;
     opacity: 0;
     transform: translateY(-#{$spacing-05});
-    transition: $duration-fast-02 motion(standard, productive);
   }
 }

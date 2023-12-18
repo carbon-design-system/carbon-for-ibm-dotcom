@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,15 +17,15 @@
 @mixin code-snippet-expressive {
   // Single Line Snippet
   .#{$prefix}--snippet--single {
-    block-size: $spacing-09;
+    height: $spacing-09;
 
     #{$prefix}--snippet-container {
-      block-size: 100%;
-      padding-inline-start: $spacing-05;
+      height: 100%;
+      padding-left: $spacing-05;
     }
 
     .bx--snippet__overflow-indicator--right {
-      inset-inline-end: $spacing-09;
+      right: $spacing-09;
     }
   }
 
@@ -34,7 +34,7 @@
   }
 
   .#{$prefix}--snippet--multi .#{$prefix}--snippet-button {
-    block-size: $spacing-09;
-    inline-size: $spacing-09;
+    height: $spacing-09;
+    width: $spacing-09;
   }
 }

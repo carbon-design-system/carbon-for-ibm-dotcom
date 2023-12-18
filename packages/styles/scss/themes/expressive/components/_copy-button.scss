@@ -16,12 +16,11 @@
 /// @group copy-button-expressive
 @mixin copy-button-expressive {
   .#{$prefix}--copy-btn {
-    block-size: $spacing-09;
-    inline-size: $spacing-09;
-
+    height: $spacing-09;
+    width: $spacing-09;
     svg {
-      block-size: to-rem(20px);
-      inline-size: to-rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
 }

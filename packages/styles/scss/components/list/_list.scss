@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,28 +18,28 @@
   }
 
   .#{$prefix}--list--ordered {
-    margin-inline-start: $spacing-05;
+    margin-left: $spacing-05;
 
     &:not(.#{$prefix}--list--nested) {
       > .#{$prefix}--list__item {
         &::before {
-          inset-inline-start: -$spacing-05;
+          left: -$spacing-05;
         }
       }
     }
   }
 
   .#{$prefix}--list--unordered {
-    margin-inline-start: $spacing-05;
+    margin-left: $spacing-05;
 
     .#{$prefix}--list__item {
       &::before {
-        inset-inline-start: -$spacing-05;
+        left: -$spacing-05;
       }
     }
   }
 
   .#{$prefix}--list__item {
-    margin-block-start: $spacing-02;
+    margin-top: $spacing-02;
   }
 }

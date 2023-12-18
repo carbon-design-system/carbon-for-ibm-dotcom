@@ -18,21 +18,21 @@
 
 @mixin leadspace-with-search {
   :host(#{$c4d-prefix}-leadspace-with-search) {
-    position: relative;
     display: block;
+    position: relative;
 
     .#{$prefix}--content-layout {
       position: relative;
       padding: $spacing-07 0 $spacing-07;
 
       &::before {
-        position: absolute;
-        z-index: -1;
-        background-color: $background;
-        block-size: 100%;
+        right: calc(50% - 50vw);
         content: '';
-        inline-size: 100vw;
-        inset-inline-end: calc(50% - 50vw);
+        background-color: $background;
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
       }
 
       @include breakpoint(md) {
@@ -58,19 +58,19 @@
 
     .#{$prefix}--search-container {
       position: relative;
+      padding-bottom: $spacing-10;
       z-index: 11;
-      padding-block-end: $spacing-10;
       transform: translateY(0);
-      transition-duration: 0s;
       transition-property: transform;
       transition-timing-function: motion(entrance, productive);
+      transition-duration: 0s;
 
       @include breakpoint-down(md) {
         margin: 0 $spacing-05;
       }
 
       @include breakpoint(md) {
-        padding-block-end: $spacing-12;
+        padding-bottom: $spacing-12;
       }
 
       &-dual-theme {
@@ -89,46 +89,47 @@
       }
 
       &::before {
-        position: absolute;
-        z-index: -1;
-        background-color: $background;
-        block-size: 100%;
+        top: 0;
+        right: calc(50% - 50vw);
         content: '';
-        inline-size: 100vw;
-        inset-block-start: 0;
-        inset-inline-end: calc(50% - 50vw);
+        background-color: $background;
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
       }
     }
 
     ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      margin-bottom: 0;
+      padding-left: 0;
       color: $text-primary;
-      margin-block-end: 0;
-      max-inline-size: to-rem(640px);
-      padding-inline-start: 0;
+
+      max-width: to-rem(640px);
 
       @include breakpoint(md) {
-        inline-size: calc(75% - $spacing-07);
+        width: calc(75% - $spacing-07);
       }
 
       @include breakpoint(lg) {
-        inline-size: calc(100% - $spacing-07);
+        width: calc(100% - $spacing-07);
       }
     }
 
     ::slotted(#{$c4d-prefix}-search-with-typeahead) {
       @include breakpoint(md) {
-        inline-size: calc(75% - $spacing-07);
-        margin-inline-start: $spacing-05;
+        margin-left: $spacing-05;
+        width: calc(75% - $spacing-07);
       }
 
       @include breakpoint(lg) {
-        inline-size: calc(100% - $spacing-07);
+        width: calc(100% - $spacing-07);
       }
     }
 
     ::slotted(#{$c4d-prefix}-hr) {
-      position: relative;
       margin: 0 calc(50% - 50vw);
+      position: relative;
       background: $layer-accent-01;
     }
   }
@@ -176,11 +177,11 @@
   :host(#{$c4d-prefix}-leadspace-with-search[sticky-search]) {
     .#{$prefix}--search-container {
       position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
       padding: $spacing-05 0;
       margin: 0;
-      inline-size: 100%;
-      inset-block-start: 0;
-      inset-inline-start: 0;
       transform: translateY(-100%);
     }
 
@@ -188,7 +189,8 @@
       @include make-container;
       @include make-row;
 
-      margin-inline: auto;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .#{$prefix}--sticky-header {
@@ -213,7 +215,7 @@
     ) {
     .#{$prefix}--search-container {
       &::before {
-        border-block-end: 1px solid $layer-accent-01;
+        border-bottom: 1px solid $layer-accent-01;
       }
     }
   }
@@ -223,23 +225,23 @@
     @include type-style('fluid-heading-03', true);
 
     display: block;
-    margin-block-end: 0;
-    max-inline-size: to-rem(640px);
-    padding-block-start: $spacing-07;
+    padding-top: $spacing-07;
+    margin-bottom: 0;
+    max-width: to-rem(640px);
 
     @include breakpoint(md) {
-      inline-size: calc(75% - #{$spacing-07});
-      padding-inline-end: $spacing-05;
+      width: calc(75% - #{$spacing-07});
+      padding-right: $spacing-05;
     }
 
     @include breakpoint(lg) {
-      inline-size: calc(100% - #{$spacing-07});
-      padding-inline-end: $spacing-05;
+      width: calc(100% - #{$spacing-07});
+      padding-right: $spacing-05;
     }
 
     // !important required to override slotted styling from block-content component
     @include breakpoint-down(md) {
-      padding-block-start: $spacing-06;
+      padding-top: $spacing-06;
     }
   }
 }

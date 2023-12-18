@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2021, 2023
+// Copyright IBM Corp. 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/tableofcontents';
 
 body {
-  overflow-y: scroll;
   /* stylelint-disable-next-line */
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,11 +28,10 @@
     .#{$prefix}--card__wrapper {
       .#{$prefix}--link-with-icon {
         svg {
+          margin-left: 0;
           color: $text-disabled;
-          margin-inline-start: 0;
         }
       }
-
       ::slotted(svg[slot='footer']),
       svg {
         fill: $text-disabled;
@@ -46,6 +45,6 @@
   }
 
   :host(#{$c4d-prefix}-card-link-heading) {
-    margin-block-end: 0;
+    margin-bottom: 0;
   }
 }

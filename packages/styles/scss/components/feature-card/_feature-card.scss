@@ -34,8 +34,11 @@ $feature-flags: (
 
 @mixin card {
   @include breakpoint-down(md) {
-    inset: 0;
-    padding-block-start: 0;
+    padding-top: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   @include breakpoint(md) {
@@ -44,7 +47,7 @@ $feature-flags: (
 
   .#{$prefix}--card__heading,
   ::slotted(#{$c4d-prefix}-card-heading) {
-    margin-block-end: $spacing-07;
+    margin-bottom: $spacing-07;
   }
 
   &:focus-within {
@@ -52,17 +55,17 @@ $feature-flags: (
     outline-offset: 0;
 
     &::before {
+      content: '';
+      display: block;
       position: absolute;
       z-index: 1;
-      display: block;
-      border: $spacing-01 solid $focus;
-      content: '';
       inset: -1px;
+      border: $spacing-01 solid $focus;
       outline: 1px solid $focus-inset;
       outline-offset: -3px;
 
       @include breakpoint-down(md) {
-        min-block-size: 292px;
+        min-height: 292px;
       }
     }
   }
@@ -75,11 +78,11 @@ $feature-flags: (
   .#{$prefix}--feature-card-large,
   .#{$prefix}--feature-card {
     position: relative;
-    // breaks on Firefox with `rem` function
-    border-width: 1px;
-    border-style: solid;
     // avoid shorthand for border to render correctly
     border-color: $border-subtle-selected;
+    border-style: solid;
+    // breaks on Firefox with `rem` function
+    border-width: 1px;
 
     &:hover {
       ::slotted([slot='image']),
@@ -107,31 +110,18 @@ $feature-flags: (
     ::slotted([slot='image']),
     #{$c4d-prefix}-image,
     .#{$prefix}--image {
-      block-size: aspect-ratio(2, 1);
-      inline-size: 100%;
-      @media screen and (prefers-reduced-motion: reduce) {
-        &::before {
-          position: absolute;
-          z-index: 1;
-          block-size: 100%;
-          content: '';
-          inline-size: 100%;
-          inset-block-start: 0;
-          inset-inline-start: 0;
-          opacity: 0;
-          transition: none;
-        }
-      }
+      width: 100%;
+      height: aspect-ratio(2, 1);
 
       &::before {
-        position: absolute;
-        z-index: 1;
-        block-size: 100%;
         content: '';
-        inline-size: 100%;
-        inset-block-start: 0;
-        inset-inline-start: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
         opacity: 0;
+        z-index: 1;
         transition: opacity $duration-moderate-01 motion(standard, productive);
       }
     }
@@ -147,12 +137,12 @@ $feature-flags: (
 
       .#{$prefix}--card__wrapper {
         display: flex;
-        block-size: auto;
-        min-block-size: 0;
+        min-height: 0;
+        height: auto;
 
         .#{$prefix}--card__content {
+          height: 100%;
           padding: $spacing-05;
-          block-size: 100%;
         }
       }
 
@@ -168,28 +158,28 @@ $feature-flags: (
   :host(#{$c4d-prefix}-feature-cta:not([size='large'])) {
     @include breakpoint-down(md) {
       .#{$prefix}--card__content {
-        justify-content: space-between;
+        height: 100%;
         padding: carbon--mini-units(2);
-        block-size: 100%;
+        justify-content: space-between;
       }
 
       #{$prefix}--card__heading {
-        padding: carbon--mini-units(2);
         margin: 0;
-        inline-size: 100%;
-        padding-block-end: $spacing-07;
-        padding-inline-end: 10%;
+        width: 100%;
+        padding: carbon--mini-units(2);
+        padding-right: 10%;
+        padding-bottom: $spacing-07;
       }
 
       .#{$prefix}--card__footer {
-        margin-block-start: carbon--mini-units(-4);
-        padding-block-start: 0;
+        padding-top: 0;
+        margin-top: carbon--mini-units(-4);
       }
 
       .#{$prefix}--card__wrapper {
         display: flex;
-        block-size: auto;
-        min-block-size: 0;
+        min-height: 0;
+        height: auto;
       }
       .#{$prefix}--card {
         display: block;
@@ -203,21 +193,21 @@ $feature-flags: (
     }
 
     .#{$prefix}--card__heading {
-      margin-block-end: $spacing-07;
+      margin-bottom: $spacing-07;
     }
 
     .#{$prefix}--card__wrapper {
-      block-size: aspect-ratio(2, 1);
-      inline-size: 100%;
+      width: 100%;
+      height: aspect-ratio(2, 1);
 
       @include breakpoint(md) {
-        block-size: auto;
-        inline-size: 50%;
+        width: 50%;
+        height: auto;
       }
 
       .#{$prefix}--card__content {
-        block-size: auto;
-        min-block-size: 100%;
+        height: auto;
+        min-height: 100%;
       }
     }
 
@@ -229,9 +219,9 @@ $feature-flags: (
       z-index: 0;
 
       @include breakpoint(md) {
-        block-size: 100%;
-        inline-size: 50%;
-        padding-block-start: aspect-ratio(2, 1);
+        width: 50%;
+        height: 100%;
+        padding-top: aspect-ratio(2, 1);
       }
     }
 
@@ -245,69 +235,69 @@ $feature-flags: (
 
       svg {
         @include breakpoint(sm) {
-          block-size: to-rem(20px);
-          inline-size: to-rem(20px);
+          width: to-rem(20px);
+          height: to-rem(20px);
         }
 
         @include breakpoint(md) {
-          block-size: $spacing-06;
-          inline-size: $spacing-06;
+          width: $spacing-06;
+          height: $spacing-06;
         }
 
         @include breakpoint(max) {
-          block-size: $spacing-07;
-          inline-size: $spacing-07;
+          width: $spacing-07;
+          height: $spacing-07;
         }
       }
     }
 
     ::slotted(svg[slot='footer']) {
-      margin-block-start: auto;
-      margin-inline-start: auto;
+      margin-top: auto;
+      margin-left: auto;
     }
   }
 
   // feature cards that are size large
   :host(#{$c4d-prefix}-feature-card[size='large']),
   :host(#{$c4d-prefix}-feature-cta[size='large']) {
-    position: relative;
-    background-color: $layer-01;
+    margin-bottom: $spacing-07;
     color: $text-primary;
-    margin-block-end: $spacing-07;
+    background-color: $layer-01;
+    position: relative;
     @include hang;
 
     @include breakpoint(md) {
-      margin-block-end: $spacing-10;
-      padding-block-start: aspect-ratio(2, 1);
+      margin-bottom: $spacing-10;
+      padding-top: aspect-ratio(2, 1);
     }
 
     @include breakpoint(lg) {
-      margin-block-end: $spacing-12;
+      margin-bottom: $spacing-12;
     }
 
     @include breakpoint(xlg) {
-      padding-block-start: aspect-ratio(2, 1);
+      padding-top: aspect-ratio(2, 1);
     }
 
     .#{$prefix}--card {
-      block-size: 100%;
+      height: 100%;
 
       &:focus-within {
         outline: none;
         outline-offset: 0;
 
         &::before {
+          content: '';
+          display: block;
           position: absolute;
           z-index: 1;
-          display: block;
-          border: $spacing-01 solid $focus;
-          content: '';
           inset: -1px;
+          border: $spacing-01 solid $focus;
           outline: 1px solid $focus-inset;
           outline-offset: -3px;
 
           @include breakpoint-down(md) {
-            min-block-size: 292px;
+            min-height: 292px;
           }
         }
       }
@@ -324,13 +314,13 @@ $feature-flags: (
         z-index: 0;
 
         @include breakpoint(md) {
-          block-size: 100%;
-          inline-size: 50%;
-          padding-block-start: aspect-ratio(2, 1);
+          width: 50%;
+          height: 100%;
+          padding-top: aspect-ratio(2, 1);
         }
 
         @include breakpoint(xlg) {
-          block-size: 100%;
+          height: 100%;
         }
       }
 
@@ -340,14 +330,14 @@ $feature-flags: (
     }
 
     .#{$prefix}--card__wrapper {
-      block-size: auto;
-      min-block-size: 50%;
+      min-height: 50%;
+      height: auto;
 
       &::before {
-        padding-block-start: 0;
+        padding-top: 0;
 
         @include breakpoint(md) {
-          padding-block-start: 50%;
+          padding-top: 50%;
         }
       }
 
@@ -356,11 +346,11 @@ $feature-flags: (
       .#{$prefix}--card__copy,
       ::slotted(#{$c4d-prefix}-card-eyebrow),
       ::slotted(#{$c4d-prefix}-card-heading) {
-        inline-size: 100%;
-        max-inline-size: to-rem(480px);
+        width: 100%;
+        max-width: to-rem(480px);
 
         @include breakpoint(md) {
-          inline-size: 90%;
+          width: 90%;
         }
       }
 
@@ -383,7 +373,7 @@ $feature-flags: (
 
       .#{$prefix}--card__heading,
       ::slotted(#{$c4d-prefix}-card-heading) {
-        margin-block-end: $spacing-07;
+        margin-bottom: $spacing-07;
 
         @include breakpoint(sm) {
           @include type-style('heading-03');
@@ -406,17 +396,17 @@ $feature-flags: (
         }
 
         @include breakpoint-down(md) {
-          margin-block-end: $spacing-07;
+          margin-bottom: $spacing-07;
         }
 
         /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
         @include breakpoint-between(md, lg) {
           ::slotted(*) {
             display: -webkit-box;
-            block-size: 100%;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 8;
             white-space: normal;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            height: 100%;
             word-break: break-word;
           }
         }
@@ -435,19 +425,22 @@ $feature-flags: (
     // special breakpoint for no copy present
     &.#{$prefix}--feature-card-large_no-copy-text {
       @include breakpoint($fcb-large-custom-bp-nocopy) {
-        padding-block-start: aspect-ratio(2, 1);
+        padding-top: aspect-ratio(2, 1);
       }
 
       .#{$prefix}--card {
         @include breakpoint($fcb-large-custom-bp-nocopy) {
           position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
           flex-direction: row;
-          inset: 0;
 
           &__wrapper,
           .#{$prefix}--image {
-            block-size: 100%;
-            inline-size: 50%;
+            width: 50%;
+            height: 100%;
           }
         }
       }
@@ -463,22 +456,22 @@ $feature-flags: (
   .#{$prefix}--feature-card-large
     .#{$prefix}--feature-card-large__card.#{$prefix}--tile
     .#{$prefix}--card__cta:visited {
+    margin-top: auto;
     float: none;
-    margin-block-start: auto;
 
     @include breakpoint(sm) {
-      block-size: to-rem(20px);
-      inline-size: to-rem(20px);
+      width: to-rem(20px);
+      height: to-rem(20px);
     }
 
     @include breakpoint(md) {
-      block-size: $spacing-06;
-      inline-size: $spacing-06;
+      width: $spacing-06;
+      height: $spacing-06;
     }
 
     @include breakpoint(max) {
-      block-size: $spacing-07;
-      inline-size: $spacing-07;
+      width: $spacing-07;
+      height: $spacing-07;
     }
 
     @include type-style('productive-heading-05');
@@ -590,8 +583,8 @@ $feature-flags: (
     &[size='large'] {
       .dds-ce--card__footer ::slotted(svg[slot='icon']) {
         @include breakpoint(max) {
-          block-size: $spacing-10;
-          inline-size: $spacing-10;
+          width: $spacing-10;
+          height: $spacing-10;
         }
       }
     }

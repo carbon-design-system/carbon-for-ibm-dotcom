@@ -21,10 +21,12 @@
 @mixin leadspace-block {
   :host(#{$c4d-prefix}-leadspace-block) {
     display: block;
-    margin-block: $spacing-07 $spacing-12;
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-12;
 
     @include breakpoint(md) {
-      margin-block: $spacing-10 $spacing-13;
+      margin-top: $spacing-10;
+      margin-bottom: $spacing-13;
     }
 
     ::slotted(#{$c4d-prefix}-leadspace-block-content) {
@@ -42,10 +44,11 @@
 
   :host(#{$c4d-prefix}-leadspace-block[border])
     ::slotted(#{$c4d-prefix}-leadspace-block-content) {
-    padding-block: 0 $spacing-10;
+    padding-top: 0;
+    padding-bottom: $spacing-10;
 
     @include breakpoint(md) {
-      padding-block-end: $spacing-12;
+      padding-bottom: $spacing-12;
     }
   }
 
@@ -57,23 +60,23 @@
   :host(#{$c4d-prefix}-leadspace-block-content)
     ::slotted(#{$c4d-prefix}-content-block-copy) {
     display: block;
-    inline-size: 100%;
+    width: 100%;
 
     @include breakpoint(md) {
-      max-inline-size: to-rem(640px);
-      padding-inline-end: $spacing-07;
+      max-width: to-rem(640px);
+      padding-right: $spacing-07;
     }
   }
 
   :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot='heading']) {
-    inline-size: 100%;
+    width: 100%;
+    padding-left: 0;
 
-    margin-block-end: $spacing-07;
-    margin-inline-start: 0;
-    padding-inline-start: 0;
+    margin-bottom: $spacing-07;
+    margin-left: 0;
 
     @include breakpoint-down(md) {
-      padding-inline-end: 0;
+      padding-right: 0;
     }
   }
 
@@ -81,23 +84,24 @@
     ::slotted(#{$c4d-prefix}-link-list),
   .#{$prefix}--leadspace-block .#{$prefix}--link-list {
     display: block;
-    margin-inline-end: 0;
-    max-inline-size: none;
-    padding-block-end: $spacing-09;
+    padding-bottom: $spacing-09;
+    margin-right: 0;
+    max-width: none;
 
     @include breakpoint(md) {
-      max-inline-size: carbon--mini-units(80);
+      max-width: carbon--mini-units(80);
     }
   }
 
   :host(#{$c4d-prefix}-leadspace-block-media),
   .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
     display: block;
-    max-inline-size: carbon--mini-units(80);
-    padding-block-end: $spacing-07;
+    max-width: carbon--mini-units(80);
+    padding-bottom: $spacing-07;
 
     ::slotted(#{$c4d-prefix}-image) {
-      margin-block: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }

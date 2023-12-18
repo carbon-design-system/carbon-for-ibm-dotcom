@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,9 +27,8 @@
     @include accordion;
     @include make-col-ready;
 
-    order: 1;
-
     padding: 0;
+    order: 1;
 
     @include breakpoint(md) {
       padding: 0 calc($grid-gutter / 2);
@@ -42,24 +41,24 @@
     .#{$prefix}--accordion__heading {
       display: flex;
       align-items: center;
+      min-height: $spacing-09;
       padding: 0;
-      min-block-size: $spacing-09;
     }
 
     ::slotted([slot='locale-button']),
     ::slotted([slot='language-selector']) {
       display: inline-block;
-      inline-size: 100%;
-      margin-inline-start: 0;
-      max-inline-size: 100%;
+      margin-left: 0;
+      width: 100%;
+      max-width: 100%;
     }
   }
 
   :host(#{$c4d-prefix}-footer-nav[disable-locale-button]),
   nav.#{$prefix}--footer-nav__locale-button--disabled {
-    border-block-start: none;
+    border-top: none;
     @include breakpoint(lg) {
-      padding-block-start: 0;
+      padding-top: 0;
       @include make-col-offset(2, 16);
     }
   }
@@ -71,7 +70,8 @@
       display: block;
       column-count: 2;
       column-gap: $grid-gutter;
-      margin-inline: 0;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     @include breakpoint(lg) {

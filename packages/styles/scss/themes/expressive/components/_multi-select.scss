@@ -17,11 +17,10 @@
 @mixin multi-select-expressive {
   .#{$prefix}--multi-select.#{$prefix}--list-box {
     .#{$prefix}--list-box__menu-icon {
-      inset-block-start: $spacing-04;
-
+      top: $spacing-04;
       svg {
-        block-size: to-rem(20px);
-        inline-size: to-rem(20px);
+        height: to-rem(20px);
+        width: to-rem(20px);
       }
     }
   }

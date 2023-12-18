@@ -16,7 +16,7 @@
 /// @group progressive-indicator-expressive
 @mixin progressive-indicator-expressive {
   .#{$prefix}--progress-step svg {
-    block-size: to-rem(20px);
-    inline-size: to-rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
   }
 }

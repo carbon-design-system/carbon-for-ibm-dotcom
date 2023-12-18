@@ -29,14 +29,14 @@
 
 @mixin footer {
   :host(#{$c4d-prefix}-footer) {
-    background-color: $background;
-
-    color: $text-primary;
-    inline-size: 100%;
+    width: 100%;
     padding-block: $spacing-09;
-    padding-block-start: $spacing-09;
 
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+
+    color: $text-primary;
+    background-color: $background;
+    padding-top: $spacing-09;
 
     .#{$prefix}--modal-content {
       .#{$prefix}--link {
@@ -49,20 +49,20 @@
 
     @include breakpoint-down(md) {
       ::slotted([slot='brand']) {
-        margin-block-end: $spacing-09;
+        margin-bottom: $spacing-09;
       }
     }
   }
 
   :host(#{$c4d-prefix}-footer[size='short']) {
     .#{$prefix}--footer__logo-container {
-      inline-size: 100%;
+      width: 100%;
     }
 
     .#{$prefix}--language-selector__container {
-      margin-block-start: $spacing-09;
+      margin-top: $spacing-09;
       @include breakpoint(md) {
-        margin-block-start: 0;
+        margin-top: 0;
       }
       @include breakpoint(max) {
         @include make-col-offset(10, 16);
@@ -71,19 +71,20 @@
 
     @include breakpoint-down(md) {
       ::slotted([slot='brand']) {
-        margin-block-end: 0;
+        margin-bottom: 0;
       }
     }
   }
 
   :host(#{$c4d-prefix}-footer[size='micro']) {
     @include breakpoint(md) {
-      padding-block: 0;
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
     @include breakpoint-down(md) {
       ::slotted([slot='locale-button']) {
-        margin-block-start: 0;
+        margin-top: 0;
       }
     }
 
@@ -99,14 +100,13 @@
 
     .#{$prefix}--locale-btn__container {
       flex-basis: auto;
-
       button {
         border: none;
       }
     }
 
     .#{$prefix}--legal-nav {
-      border-block-start: 0;
+      border-top: 0;
     }
   }
 
@@ -120,7 +120,6 @@
 
     .#{$prefix}--footer__link.#{$prefix}--link {
       @include type-style('body-01');
-
       &,
       &:visited {
         color: $text-secondary;
@@ -181,16 +180,19 @@
   .#{$prefix}--footer__logo-container {
     @include make-container;
 
-    margin-inline: 0;
+    margin-right: 0;
+    margin-left: 0;
 
     @include breakpoint(md) {
-      margin-block-end: 0;
-      padding-inline: $spacing-05;
+      margin-bottom: 0;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
     }
 
     @include breakpoint(lg) {
-      inline-size: 100%;
-      margin-inline: auto;
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     .#{$prefix}--footer__logo-row {
@@ -215,7 +217,7 @@
     display: block;
     .#{$c4d-prefix}--adjunct-links__container {
       list-style: none;
-      margin-block-start: $spacing-07;
+      margin-top: $spacing-07;
       @include breakpoint-down(md) {
         @include make-container;
       }
@@ -231,21 +233,21 @@
 
   :host(#{$c4d-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
     display: block;
-    padding-block-start: 0;
+    padding-top: 0;
   }
 
   :host(#{$c4d-prefix}-footer-nav-group) {
     .#{$prefix}--accordion__heading {
-      align-items: center;
+      border-top: 1px solid $border-subtle-01;
       padding: 0;
-      border-block-start: 1px solid $border-subtle-01;
-      min-block-size: $spacing-09;
+      align-items: center;
+      min-height: $spacing-09;
     }
   }
 
   :host(#{$c4d-prefix}-footer-nav-group:last-of-type) {
     @include breakpoint-down(md) {
-      border-block-end: 1px solid $border-subtle-01;
+      border-bottom: 1px solid $border-subtle-01;
     }
   }
 
@@ -254,17 +256,18 @@
   :host(#{$c4d-prefix}-legal-nav):not([size='micro']) {
     .#{$c4d-prefix}--adjunct-links__container,
     .#{$c4d-prefix}--legal-nav__list {
-      padding-block: 0;
+      padding-bottom: 0;
+      padding-top: 0;
 
       @include breakpoint(md) {
-        padding-block-start: $spacing-03;
+        padding-top: $spacing-03;
       }
       @include breakpoint(lg) {
         @include make-col-offset(4, 16);
       }
 
       > ul {
-        inline-size: 100%;
+        width: 100%;
         @include breakpoint(md) {
           display: block;
           column-count: 2;
@@ -285,7 +288,7 @@
         display: flex;
         align-items: center;
         padding: 0;
-        min-block-size: $spacing-09;
+        min-height: $spacing-09;
       }
     }
 
@@ -295,13 +298,13 @@
 
     .#{$c4d-prefix}--legal-nav {
       display: block;
-      border-block-start: 0;
+      border-top: 0;
     }
 
     // The style of legal nav deviates from the one of React, so we can make the markup simpler.
     // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
     .#{$c4d-prefix}--legal-nav__list {
-      inline-size: 100%;
+      width: 100%;
 
       div {
         @include breakpoint(lg) {
@@ -310,11 +313,11 @@
       }
 
       div > ul {
+        border-top: 1px solid $border-subtle-01;
         padding: 0 $spacing-05;
-        border-block-start: 1px solid $border-subtle-01;
 
         @include breakpoint-down(md) {
-          padding-block-start: $spacing-03;
+          padding-top: $spacing-03;
         }
 
         @include breakpoint(md) {
@@ -323,8 +326,8 @@
         }
 
         @include breakpoint(lg) {
+          border-top: none;
           padding: 0 $spacing-05 0 $spacing-07;
-          border-block-start: none;
         }
       }
     }
@@ -332,20 +335,20 @@
 
   :host(#{$c4d-prefix}-locale-button[size='micro']) {
     @include breakpoint(md) {
+      margin: 0;
       flex-shrink: 1;
       padding: 0;
-      margin: 0;
 
-      margin-inline-start: 50%;
+      margin-left: 50%;
 
       .#{$prefix}--btn--tertiary {
-        border: none;
-        margin: 0;
         background-color: $background;
+        margin: 0;
+        border: none;
         @include type-style('body-short-01');
         @include breakpoint(md) {
           align-self: flex-end;
-          border-inline-start: 1px solid $border-subtle-01;
+          border-left: 1px solid $border-subtle-01;
         }
 
         @include breakpoint(lg) {
@@ -362,7 +365,7 @@
         .#{$prefix}--list-box,
         .#{$prefix}--select-input {
           background-color: $background;
-          max-inline-size: 100%;
+          max-width: 100%;
 
           &:hover {
             background-color: $background-hover;
@@ -374,36 +377,38 @@
         }
 
         .#{$prefix}--select {
-          max-inline-size: 100%;
+          max-width: 100%;
         }
 
         .#{$prefix}--text-input,
         .#{$prefix}--list-box,
         .#{$prefix}--select-input {
-          border-block-end: none;
+          border-bottom: none;
         }
       }
     }
     @include breakpoint(lg) {
-      margin-inline-start: 0;
+      margin-left: 0;
     }
 
     .#{$prefix}--btn {
-      padding-block: $spacing-04;
+      padding-top: $spacing-04;
+      padding-bottom: $spacing-04;
     }
 
     .#{$prefix}--locale-btn {
-      max-inline-size: 100%;
+      max-width: 100%;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-desktop),
   :host(#{$c4d-prefix}-language-selector-mobile) {
     position: relative;
-    padding: 0 $spacing-05;
-    margin-block: $spacing-09;
-    max-block-size: $spacing-09;
     outline: none;
+    margin-top: $spacing-09;
+    margin-bottom: $spacing-09;
+    max-height: $spacing-09;
+    padding: 0 $spacing-05;
     @include make-col(4, 4);
 
     .#{$prefix}--list-box__field {
@@ -411,13 +416,14 @@
     }
 
     .#{$prefix}--combo-box {
-      inset-block-end: $spacing-05;
+      bottom: $spacing-05;
     }
 
     .#{$prefix}--list-box__menu {
       position: absolute;
-      inset-block: auto 47px;
-      max-block-size: 13.5rem;
+      top: auto;
+      bottom: 47px;
+      max-height: 13.5rem;
     }
 
     .#{$prefix}--text-input {
@@ -426,8 +432,8 @@
     }
 
     @include breakpoint(md) {
+      margin-top: 0;
       padding: 0;
-      margin-block-start: 0;
       @include make-col(4, 8);
       @include make-col-offset(2, 8);
     }
@@ -437,42 +443,41 @@
       @include make-col-offset(10, 16);
 
       order: 1;
-
-      min-inline-size: 13.5rem;
+      min-width: 13.5rem;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-desktop) {
     .#{$prefix}--list-box__menu-icon {
-      inset-inline-end: $spacing-04;
+      right: $spacing-04;
     }
 
     .#{$prefix}--list-box__selection {
-      inset-inline-end: 2.25rem;
+      right: 2.25rem;
     }
 
     .#{$prefix}--label-visually-hidden {
-      block-size: 0;
       visibility: hidden;
+      height: 0;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-desktop[size='micro']) {
-    align-self: flex-end;
-    padding: 0;
     margin: 0;
-    border-inline-start: 1px solid $border-subtle-01;
-    inline-size: 100%;
-    margin-block-end: 0;
+    padding: 0;
+    border-left: 1px solid $border-subtle-01;
+    align-self: flex-end;
+    margin-bottom: 0;
+    width: 100%;
 
     .#{$prefix}--dropdown {
       background-color: $background;
-      block-size: $spacing-09;
-      max-block-size: $spacing-09;
+      max-height: $spacing-09;
+      height: $spacing-09;
 
       .#{$prefix}--list-box__field {
+        height: inherit;
         background-color: $background;
-        block-size: inherit;
       }
 
       &:hover {
@@ -481,23 +486,23 @@
     }
 
     .#{$prefix}--list-box__menu {
-      inset-block-end: to-rem($spacing-09);
+      bottom: to-rem($spacing-09);
     }
 
     .#{$prefix}--dropdown,
     .#{$prefix}--text-input {
-      border-block-end: none;
+      border-bottom: none;
     }
 
     @include breakpoint(sm) {
       .#{$prefix}--select-input__wrapper {
-        block-size: 100%;
+        height: 100%;
       }
 
       .#{$prefix}--select-input {
+        height: 100%;
         background-color: $background;
-        block-size: 100%;
-        border-block-end: none;
+        border-bottom: none;
 
         &:hover {
           background-color: $background-hover;
@@ -506,25 +511,25 @@
     }
 
     @include breakpoint(md) {
-      border-inline-start: 1px solid $border-subtle-01;
-      max-inline-size: 50%;
+      max-width: 50%;
+      border-left: 1px solid $border-subtle-01;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-mobile[size='micro']) {
     align-self: flex-end;
-    border-inline-start: 1px solid $border-subtle-01;
-    inline-size: 100%;
-    margin-block-start: 0;
+    border-left: 1px solid $border-subtle-01;
+    width: 100%;
+    margin-top: 0;
 
     .#{$prefix}--select {
       display: block;
     }
 
     .#{$prefix}--select-input {
-      block-size: 100%;
-      inline-size: 100%;
-      max-inline-size: 100%;
+      height: 100%;
+      width: 100%;
+      max-width: 100%;
 
       &:hover {
         background-color: $background-hover;
@@ -532,21 +537,21 @@
     }
 
     @include breakpoint(md) {
-      padding: 0;
       margin: 0;
-      max-inline-size: 50%;
+      max-width: 50%;
+      padding: 0;
 
       .#{$prefix}--select-input {
         background-color: $background;
-        border-block-end: none;
+        border-bottom: none;
       }
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-mobile) {
     .#{$prefix}--select-input__wrapper {
-      block-size: $spacing-09;
-      margin-block-start: -#{$spacing-05};
+      height: $spacing-09;
+      margin-top: -#{$spacing-05};
     }
   }
 }

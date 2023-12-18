@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -11,35 +11,36 @@
 
 :host(#{$c4d-prefix}-content-block-card-static) {
   display: block;
-  margin-block-end: $spacing-10;
+  margin-bottom: $spacing-10;
 
   @include breakpoint(md) {
-    margin-block-end: $spacing-12;
+    margin-bottom: $spacing-12;
   }
 
   @include breakpoint(max) {
-    margin-block-end: $spacing-13;
+    margin-bottom: $spacing-13;
   }
 
   ::slotted(#{$c4d-prefix}-content-block-heading) {
-    margin-block-start: $spacing-07;
+    margin-top: $spacing-07;
 
     @include breakpoint(max) {
-      margin-block-start: $spacing-10;
+      margin-top: $spacing-10;
     }
   }
 
   ::slotted(#{$c4d-prefix}-content-item) {
-    margin-block: $spacing-10 $spacing-07;
-    margin-inline-start: $spacing-05;
+    margin-top: $spacing-10;
+    margin-left: $spacing-05;
+    margin-bottom: $spacing-07;
 
     @include breakpoint(md) {
-      margin-block-end: $spacing-09;
+      margin-bottom: $spacing-09;
     }
   }
 
   ::slotted([slot='footer']) {
-    inline-size: auto;
-    margin-block-start: -$spacing-05;
+    width: auto;
+    margin-top: -$spacing-05;
   }
 }

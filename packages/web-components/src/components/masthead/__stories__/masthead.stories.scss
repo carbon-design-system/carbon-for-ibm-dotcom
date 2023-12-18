@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 
 @include breakpoint-down(lg) {
   .cds--offset-lg-3 {
-    margin-inline-start: 0;
+    margin-left: 0;
   }
 }
 
@@ -18,21 +18,21 @@
   padding: $spacing-12 0 $spacing-07;
 
   @include breakpoint-down(lg) {
-    padding-block-start: 0;
+    padding-top: 0;
   }
 
   &.has-leadspace {
-    padding-block-start: 0;
+    padding-top: 0;
   }
 
   &.has-l1 {
     @include breakpoint-down(lg) {
-      padding-block-start: $spacing-09;
+      padding-top: $spacing-09;
     }
   }
 
   &.has-leadspace.has-l1 {
-    padding-block-start: $spacing-09;
+    padding-top: $spacing-09;
   }
 
   &.cds-ce-demo-devenv--ui-shell-content {
@@ -40,7 +40,7 @@
       margin: 30px 0;
 
       &:first-of-type {
-        margin-block-start: 0;
+        margin-top: 0;
       }
     }
   }

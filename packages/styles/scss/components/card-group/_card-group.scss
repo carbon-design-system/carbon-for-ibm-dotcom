@@ -26,9 +26,9 @@
     --#{$c4d-prefix}--card-group--cards-in-row: 1;
 
     display: grid;
-    background: none;
-    gap: 1px;
     grid-template-columns: 1fr;
+    gap: 1px;
+    background: none;
 
     @include breakpoint(md) {
       grid-template-columns: repeat(2, 1fr);
@@ -43,16 +43,17 @@
   }
 
   :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode]) {
-    padding-block-start: 0;
-    padding-inline: 1px;
+    padding-top: 0;
+    padding-left: 1px;
+    padding-right: 1px;
   }
 
   :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode='default']) {
-    padding-block-start: $spacing-07;
+    padding-top: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode='narrow']) {
-    padding-block-start: $spacing-05;
+    padding-top: $spacing-05;
   }
 
   :host(#{$c4d-prefix}-card-group-item) {
@@ -64,7 +65,7 @@
 
     .#{$prefix}--image {
       &__img {
-        block-size: carbon--mini-units(30);
+        height: carbon--mini-units(30);
       }
 
       @include breakpoint(lg) {
@@ -72,8 +73,8 @@
 
         &__img {
           position: absolute;
-          block-size: 100%;
-          inset-block-start: 0;
+          height: 100%;
+          top: 0;
         }
       }
     }
@@ -100,46 +101,46 @@
     ::slotted(#{$c4d-prefix}-card-heading) {
       @include type-style('heading-02');
 
-      margin-block-end: 0;
+      margin-bottom: 0;
     }
 
     .#{$prefix}--card .#{$prefix}--card__copy {
-      margin-block-start: 0;
+      margin-top: 0;
     }
   }
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='narrow'] {
     @include breakpoint(sm) {
+      padding-top: $spacing-03;
       gap: $spacing-03;
-      padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
+      padding-top: $spacing-05;
       gap: $spacing-05;
-      padding-block-start: $spacing-05;
     }
   }
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='default'] {
     @include breakpoint(sm) {
+      padding-top: $spacing-03;
       gap: $spacing-07;
-      padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
+      padding-top: $spacing-05;
       gap: $spacing-07;
-      padding-block-start: $spacing-05;
     }
   }
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='condensed'] {
     @include breakpoint(sm) {
+      padding-top: $spacing-03;
       gap: 1px;
-      padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
-      padding-block-start: $spacing-05;
+      padding-top: $spacing-05;
     }
   }
 
@@ -147,15 +148,18 @@
   :host(#{$c4d-prefix}-card-group-item)[cta-type='video'] {
     &:focus-within {
       .#{$prefix}--tile {
-        position: relative;
         outline: none;
+        position: relative;
 
         &::after {
+          content: '';
           position: absolute;
           z-index: 2;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
           box-shadow: inset 0 0 0 $spacing-01 $focus;
-          content: '';
-          inset: 0;
           pointer-events: none;
         }
       }
@@ -171,13 +175,13 @@
       ::slotted(#{$c4d-prefix}-card-group-item),
       ::slotted(#{$c4d-prefix}-card-group-card-link-item),
       .#{$c4d-prefix}--card {
-        border: 0 none;
-        margin: 0 $spacing-03 $spacing-05;
         /* stylelint-disable declaration-no-important */
         // need important since it gets overriden in WC Card Group without it
         background-color: transparent !important;
-        inline-size: 23%;
         /* stylelint-enable declaration-no-important */
+        border: 0 none;
+        margin: 0 $spacing-03 $spacing-05;
+        width: 23%;
       }
     }
 
@@ -195,8 +199,8 @@
       }
 
       .#{$prefix}--tile {
-        border: 1px solid $border-subtle-01;
         background-color: transparent;
+        border: 1px solid $border-subtle-01;
       }
     }
   }

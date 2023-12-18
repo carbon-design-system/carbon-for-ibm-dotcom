@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -24,16 +24,16 @@
 
   ::slotted(#{$c4d-prefix}-card-cta[slot]),
   ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
-    inline-size: auto;
+    width: auto;
   }
 
   ::slotted(#{$c4d-prefix}-card-cta),
   ::slotted(#{$c4d-prefix}-card-link-cta) {
-    inline-size: auto;
-    max-inline-size: 320px;
+    width: auto;
+    max-width: 320px;
   }
 
   ::slotted([slot='media']) {
-    max-inline-size: to-rem(640px);
+    max-width: to-rem(640px);
   }
 }

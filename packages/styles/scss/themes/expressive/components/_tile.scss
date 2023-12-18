@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,20 +20,20 @@
   }
 
   .#{$prefix}--tile__checkmark {
-    block-size: $icon-size-01;
+    height: $icon-size-01;
 
     svg {
-      block-size: $icon-size-01;
-      inline-size: $icon-size-01;
+      height: $icon-size-01;
+      width: $icon-size-01;
     }
   }
 
   .#{$prefix}--tile__chevron {
-    block-size: $icon-size-01;
+    height: $icon-size-01;
 
     svg {
-      block-size: $icon-size-01;
-      inline-size: $icon-size-01;
+      height: $icon-size-01;
+      width: $icon-size-01;
     }
   }
 }

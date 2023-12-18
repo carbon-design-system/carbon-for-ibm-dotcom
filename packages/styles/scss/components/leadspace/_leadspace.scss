@@ -24,15 +24,13 @@
 
 $btn-min-width: 26;
 
-@keyframes loading-animation {
+@keyframes loadingAnimation {
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }
@@ -65,11 +63,11 @@ $btn-min-width: 26;
   .#{$c4d-prefix}--leadspace__title,
   .#{$c4d-prefix}--leadspace__desc {
     color: $text-primary;
-    padding-inline-end: 0;
+    padding-right: 0;
   }
 
   .#{$c4d-prefix}--leadspace--centered .#{$c4d-prefix}--leadspace__desc {
-    inline-size: 100%;
+    width: 100%;
   }
 
   @include breakpoint(md) {
@@ -81,37 +79,23 @@ $btn-min-width: 26;
 
 @mixin leadspace {
   ::slotted([slot='action']) {
-    padding-block-start: $spacing-07;
+    padding-top: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-leadspace) {
-    position: relative;
     display: block;
-    @media screen and (prefers-reduced-motion: reduce) {
-      &::before {
-        position: absolute;
-        z-index: -1;
-        animation: none;
-        background: linear-gradient(270deg, #c6c6c6, #a8a8a8);
-        background-size: 100% 100%;
-        block-size: 100%;
-        content: '';
-        inline-size: 100%;
-        opacity: 0;
-        transition: none;
-      }
-    }
+    position: relative;
 
     &::before {
+      content: '';
+      opacity: 0;
       position: absolute;
+      width: 100%;
+      height: 100%;
       z-index: -1;
-      animation: loading-animation 2000ms ease infinite;
       background: linear-gradient(270deg, #c6c6c6, #a8a8a8);
       background-size: 100% 100%;
-      block-size: 100%;
-      content: '';
-      inline-size: 100%;
-      opacity: 0;
+      animation: loadingAnimation 2000ms ease infinite;
       transition: all 800ms cubic-bezier(0.4, 0.14, 0.3, 1);
     }
 
@@ -123,14 +107,14 @@ $btn-min-width: 26;
     }
 
     ::slotted(#{$c4d-prefix}-background-media) {
+      height: auto;
       aspect-ratio: 4 / 3; /* stylelint-disable-line property-no-unknown */
-      block-size: auto;
 
       @include breakpoint(lg) {
         position: absolute;
-        aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
-        block-size: 100%;
         inset: 0;
+        height: 100%;
+        aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
       }
     }
   }
@@ -144,8 +128,8 @@ $btn-min-width: 26;
       */
 
       picture {
-        inline-size: 100%;
-        max-inline-size: to-rem(1584px);
+        width: 100%;
+        max-width: to-rem(1584px);
       }
     }
 
@@ -153,13 +137,13 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      block-size: 100%;
-      margin-block-end: $spacing-07;
+      height: 100%;
+      margin-bottom: $spacing-07;
     }
 
     .#{$c4d-prefix}--leadspace__container {
       position: relative;
-      inline-size: 100%;
+      width: 100%;
 
       @include breakpoint(lg) {
         position: static;
@@ -184,16 +168,16 @@ $btn-min-width: 26;
       @include make-container;
 
       position: relative;
-      z-index: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      inline-size: 100%;
-      max-inline-size: none;
-      padding-block-start: $spacing-05;
+      padding-top: $spacing-05;
+      z-index: 1;
+      width: 100%;
+      max-width: none;
 
       @include breakpoint-down(md) {
-        inline-size: auto;
+        width: auto;
       }
     }
 
@@ -210,18 +194,18 @@ $btn-min-width: 26;
       @include type-style(fluid-heading-03, true);
       @include make-col(4, 4);
 
-      margin-block-end: 0;
+      margin-bottom: 0;
 
       @include breakpoint-down(lg) {
-        margin-block-start: 0;
+        margin-top: 0;
       }
 
       @include breakpoint(md) {
-        inline-size: calc(60% - $spacing-07);
+        width: calc(60% - $spacing-07);
       }
 
       @include breakpoint(lg) {
-        inline-size: calc(30% - $spacing-07);
+        width: calc(30% - $spacing-07);
       }
     }
 
@@ -239,18 +223,19 @@ $btn-min-width: 26;
 
     @include breakpoint(md) {
       .#{$c4d-prefix}--leadspace__overlay {
-        inset-block-start: 0;
-        padding-block-start: $spacing-07;
+        padding-top: $spacing-07;
+        top: 0;
       }
 
       .#{$prefix}--image {
-        block-size: 100%;
+        height: 100%;
       }
 
       ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$c4d-prefix}--leadspace__title {
+        width: percentage(math.div(6, 8));
+
         flex-shrink: 1;
-        inline-size: percentage(math.div(6, 8));
       }
 
       .#{$c4d-prefix}--leadspace__desc {
@@ -259,25 +244,28 @@ $btn-min-width: 26;
     }
 
     @include breakpoint(lg) {
-      position: relative;
+      width: 100vw;
       overflow: hidden;
-      inline-size: 100vw;
-      inset-inline: 50%;
-      margin-inline: -50vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
 
       .#{$c4d-prefix}--leadspace__section {
+        margin-right: auto;
+        margin-left: auto;
         position: relative;
-        margin-inline: auto;
-        max-inline-size: 99rem;
+        max-width: 99rem;
       }
 
       .#{$c4d-prefix}--leadspace__container {
-        inline-size: 100%;
+        width: 100%;
       }
 
       ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$c4d-prefix}--leadspace__title {
-        inline-size: percentage(math.div(8, 16));
+        width: percentage(math.div(8, 16));
       }
 
       .#{$c4d-prefix}--leadspace__desc {
@@ -293,46 +281,48 @@ $btn-min-width: 26;
     }
 
     .#{$c4d-prefix}--leadspace--centered {
-      background-position: center top;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 99rem;
       background-repeat: no-repeat;
       background-size: cover;
-      margin-inline: auto;
-      max-inline-size: 99rem;
+      background-position: center top;
 
       ::slotted(#{$c4d-prefix}-button-group),
       ::slotted([slot='action']) {
-        padding-block: $spacing-05 0;
+        padding-top: $spacing-05;
+        padding-bottom: 0;
 
         @include breakpoint(lg) {
-          padding-block-end: calc(#{$spacing-12} + #{$spacing-13});
+          padding-bottom: calc(#{$spacing-12} + #{$spacing-13});
         }
       }
 
       &.#{$c4d-prefix}--leadspace__section {
-        min-block-size: to-rem(560px);
-        padding-block-start: 0;
+        min-height: to-rem(560px);
+        padding-top: 0;
       }
 
       .#{$c4d-prefix}--leadspace--content__container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-block-end: $spacing-07;
+        margin-bottom: $spacing-07;
 
         @include make-col-ready;
         @include make-col(4, 4);
       }
 
       .#{$c4d-prefix}--leadspace__desc {
-        inline-size: 95%;
-        padding-block-start: $spacing-09;
+        width: 95%;
+        padding-top: $spacing-09;
 
         @include type-style(fluid-heading-03, true);
       }
 
       ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$c4d-prefix}--leadspace__title {
-        margin-block-end: 0;
+        margin-bottom: 0;
       }
 
       .#{$c4d-prefix}--leadspace__desc,
@@ -356,7 +346,7 @@ $btn-min-width: 26;
 
         .#{$c4d-prefix}--leadspace--content__container {
           margin: 0 auto;
-          padding-inline-start: $spacing-06;
+          padding-left: $spacing-06;
           @include breakpoint(lg) {
             @include make-col(4, 8);
           }
@@ -369,14 +359,14 @@ $btn-min-width: 26;
         }
 
         .#{$c4d-prefix}--leadspace__desc {
-          padding-block-start: $spacing-09;
+          padding-top: $spacing-09;
         }
       }
 
       @include breakpoint(lg) {
         .#{$c4d-prefix}--leadspace__overlay {
+          height: 100%;
           padding: $spacing-10 0 0 0;
-          block-size: 100%;
         }
       }
     }
@@ -394,13 +384,13 @@ $btn-min-width: 26;
     }
 
     .#{$c4d-prefix}--leadspace__gradient {
-      position: absolute;
       display: block;
-      block-size: 100%;
-      inline-size: calc(100% + 1px);
-      inset-block-start: 0;
-      inset-inline-start: -1px;
-      padding-block-end: 0;
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: calc(100% + 1px);
+      height: 100%;
+      padding-bottom: 0;
 
       @media print {
         display: none;
@@ -465,10 +455,10 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
     /* stylelint-disable declaration-no-important */
-    padding-block-end: $spacing-05 !important;
-    padding-inline: $spacing-05 !important;
-    /* stylelint-enable declaration-no-important */
     // need the !important to prevent CSS reset styles from overwritting margin for tags
+    padding-left: $spacing-05 !important;
+    padding-right: $spacing-05 !important;
+    padding-bottom: $spacing-05 !important;
   }
 
   :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
@@ -482,17 +472,18 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-leadspace-image) {
     @include breakpoint(lg) {
-      block-size: 100%;
+      height: 100%;
     }
   }
 
   :host(#{$c4d-prefix}-leadspace-heading),
   .#{$c4d-prefix}--leadspace__title {
+    padding-top: 0;
+    margin-bottom: $spacing-09;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    width: 95%;
     z-index: 1;
-    inline-size: 95%;
-    margin-block-end: $spacing-09;
-    padding-block-start: 0;
-    padding-inline: $spacing-05;
 
     ::slotted(span) {
       color: $link-primary;
@@ -514,13 +505,13 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 40rem;
+        height: 40rem;
       }
     }
 
     .#{$c4d-prefix}--leadspace__section {
       @include breakpoint(lg) {
-        min-block-size: 40rem;
+        min-height: 40rem;
       }
     }
   }
@@ -528,19 +519,19 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 30rem;
+        height: 30rem;
       }
     }
 
     ::slotted(#{$c4d-prefix}-leadspace-heading) {
       @include breakpoint(lg) {
-        margin-block-end: $spacing-10;
+        margin-bottom: $spacing-10;
       }
     }
 
     .#{$c4d-prefix}--leadspace__section {
       @include breakpoint(lg) {
-        min-block-size: 30rem;
+        min-height: 30rem;
       }
     }
   }
@@ -548,21 +539,21 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 20rem;
+        height: 20rem;
       }
     }
 
     ::slotted(#{$c4d-prefix}-leadspace-heading) {
-      margin-block-end: $spacing-07;
+      margin-bottom: $spacing-07;
 
       @include breakpoint(lg) {
-        margin-block-end: $spacing-10;
+        margin-bottom: $spacing-10;
       }
     }
 
     .#{$c4d-prefix}--leadspace__section {
       @include breakpoint(lg) {
-        min-block-size: 20rem;
+        min-height: 20rem;
       }
     }
   }
@@ -571,7 +562,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     ::slotted(#{$c4d-prefix}-leadspace-heading) {
       @include breakpoint(lg) {
-        margin-block-end: $spacing-12;
+        margin-bottom: $spacing-12;
       }
     }
   }
@@ -579,13 +570,13 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 35rem;
+        height: 35rem;
       }
     }
 
     .#{$c4d-prefix}--leadspace__section {
-      block-size: auto;
-      min-block-size: 35rem;
+      height: auto;
+      min-height: 35rem;
     }
   }
 
@@ -607,16 +598,16 @@ $btn-min-width: 26;
 
     @include breakpoint(lg) {
       position: absolute;
-      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
       padding: 0;
-      inline-size: 100%;
-      inset-block-start: 0;
-      inset-inline-start: 0;
+      display: block;
 
       .#{$prefix}--image__img {
-        display: block;
         object-fit: cover;
         object-position: 50% 50%;
+        display: block;
       }
     }
 

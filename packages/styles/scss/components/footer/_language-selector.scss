@@ -30,10 +30,10 @@
     @include select;
     @include text-input;
 
-    order: 0;
-
     margin: $spacing-09 0;
-    padding-inline: 0;
+    padding-left: 0;
+    padding-right: 0;
+    order: 0;
 
     @include type-style('body-compact-01');
     @include breakpoint-down(md) {
@@ -41,34 +41,34 @@
     }
 
     @include breakpoint(md) {
-      margin-block-start: 0;
+      margin-top: 0;
       @include make-col(4, 8);
       @include make-col-offset(2, 8);
     }
 
     .#{$prefix}--language-selector {
-      block-size: $spacing-09;
-      inline-size: 100%;
-      margin-inline-end: 0;
-      max-inline-size: 100%;
+      max-width: 100%;
+      width: 100%;
+      height: $spacing-09;
+      margin-right: 0;
 
       .#{$prefix}--list-box__menu-icon {
-        inset-inline-end: $spacing-04;
+        right: $spacing-04;
       }
 
       .#{$prefix}--list-box__selection {
-        inset-inline-end: 2.25rem;
+        right: 2.25rem;
       }
 
       .#{$prefix}--list-box__field {
-        block-size: inherit;
+        height: inherit;
       }
 
       @include breakpoint(md) {
-        min-inline-size: carbon--mini-units(27);
+        min-width: carbon--mini-units(27);
 
         .#{$prefix}--footer--short & {
-          float: inline-end;
+          float: right;
         }
       }
 
@@ -80,13 +80,13 @@
     }
 
     .#{$prefix}--footer--short & {
-      margin-block-start: 0;
+      margin-top: 0;
     }
 
     @include breakpoint(md) {
       @include make-col(4, 8);
 
-      margin-block-end: carbon--mini-units(2);
+      margin-bottom: carbon--mini-units(2);
 
       .#{$prefix}--footer--short & {
         @include make-col-offset(2, 8);
@@ -113,17 +113,17 @@
     .#{$prefix}--list-box--up {
       .#{$prefix}--list-box__menu {
         z-index: 1;
-        inset-block-end: to-rem(47px);
+        bottom: to-rem(47px);
       }
     }
 
     .#{$prefix}--select-input__wrapper {
-      inline-size: 100%;
+      width: 100%;
 
       .#{$prefix}--select-input {
-        block-size: $spacing-09;
-        inline-size: 100%;
-        max-inline-size: 100%;
+        width: 100%;
+        max-width: 100%;
+        height: $spacing-09;
       }
     }
 
@@ -147,10 +147,10 @@
     }
 
     .#{$prefix}--label {
-      display: block;
+      height: 0;
       padding: 0;
       margin: 0;
-      block-size: 0;
+      display: block;
       visibility: hidden;
     }
   }

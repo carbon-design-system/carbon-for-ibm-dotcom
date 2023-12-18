@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,29 +14,31 @@
   .#{$prefix}--content-block-cards {
     &__content {
       .#{$prefix}--card__CTA {
+        max-width: none;
         margin: 0;
-        max-inline-size: none;
       }
     }
     .#{$prefix}--content-block {
-      padding-block: $spacing-07 $spacing-10;
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-10;
       @include breakpoint(md) {
-        padding-block: $spacing-07 $spacing-12;
+        padding-top: $spacing-07;
+        padding-bottom: $spacing-12;
       }
       @include breakpoint(lg) {
-        padding-block: $spacing-10 $spacing-13;
+        padding-top: $spacing-10;
+        padding-bottom: $spacing-13;
       }
 
       &__heading {
-        margin-block-end: $spacing-07;
+        margin-bottom: $spacing-07;
         @include breakpoint(md) {
-          margin-block-end: $spacing-09;
+          margin-bottom: $spacing-09;
         }
         @include breakpoint(lg) {
-          margin-block-end: $spacing-10;
+          margin-bottom: $spacing-10;
         }
       }
-
       &__cta {
         @include breakpoint(lg) {
           @include make-col(4, 12);

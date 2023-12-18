@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,8 @@
 }
 @mixin content-group {
   :host(#{$c4d-prefix}-content-group) ::slotted(:not([slot])) {
-    margin-inline: $spacing-05;
+    margin-left: $spacing-05;
+    margin-right: $spacing-05;
   }
 
   :host(#{$c4d-prefix}-content-group),
@@ -31,10 +32,11 @@
   :host(#{$c4d-prefix}-content-group-pictograms),
   .#{$prefix}--content-group {
     display: block;
-    margin-block: $spacing-07;
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-07;
 
     @include breakpoint(md) {
-      margin-block-end: $spacing-09;
+      margin-bottom: $spacing-09;
     }
 
     .#{$prefix}--card__CTA {
@@ -50,7 +52,7 @@
     @include type-style('fluid-heading-04', true);
 
     display: block;
-    margin-block-end: $spacing-07;
+    margin-bottom: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-content-group-heading),
@@ -62,12 +64,12 @@
 
   :host(#{$c4d-prefix}-content-group-copy),
   .#{$prefix}--content-group__copy {
-    margin-block-end: $layout-03;
+    margin-bottom: $layout-03;
   }
 
   :host(#{$c4d-prefix}-content-group) ::slotted([slot='footer']),
   .#{$prefix}--content-group__cta {
-    margin-block-start: $spacing-09;
+    margin-top: $spacing-09;
 
     @include breakpoint(md) {
       @include make-col-ready;
@@ -77,7 +79,7 @@
 
   :host(#{$c4d-prefix}-content-group) ::slotted([slot='footer']) {
     @include breakpoint(md) {
-      margin-inline-start: -$spacing-05;
+      margin-left: -$spacing-05;
     }
   }
 

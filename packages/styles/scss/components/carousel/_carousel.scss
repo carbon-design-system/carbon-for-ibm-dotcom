@@ -33,19 +33,19 @@
     }
 
     display: flex;
+    flex-direction: column;
 
     overflow: hidden;
-    flex-direction: column;
     inline-size: calc(
       100% + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
     margin-inline-end: calc(
       -1 * var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
-    padding-inline: $spacing-05
-      calc(
-        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-      );
+    padding-inline-start: $spacing-05;
+    padding-inline-end: calc(
+      #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+    );
 
     @include breakpoint(md) {
       padding-inline-start: 0;
@@ -64,9 +64,9 @@
     }
 
     .#{$prefix}--carousel__scroll-container {
+      grid-area: body;
       position: relative;
       overflow: hidden;
-      grid-area: body;
       margin-inline-end: calc(
         -1 * (#{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05}))
       );
@@ -74,13 +74,13 @@
 
     .#{$prefix}--carousel__scroll-contents {
       position: relative;
+      margin-inline-end: calc(
+        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      );
       display: flex;
       // Achieves `sameHeight` effect for card group.
       // The cards must have `height:auto`.
       align-items: stretch;
-      margin-inline-end: calc(
-        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-      );
     }
 
     .#{$prefix}--carousel__scroll-contents--scrolling {
@@ -91,21 +91,20 @@
     .#{$prefix}--carousel__navigation {
       @include type-style('body-02', true);
 
-      display: grid;
-      align-items: center;
-      justify-content: flex-end;
-      gap: $spacing-05;
-
       grid-area: navigation;
+      display: grid;
       grid-template-columns: auto auto auto;
+      justify-content: flex-end;
+      align-items: center;
+      gap: $spacing-05;
       margin-block-start: $spacing-05;
     }
 
     .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
       padding: 0;
-      block-size: $spacing-09;
-      inline-size: $spacing-09;
       min-block-size: $spacing-09;
+      inline-size: $spacing-09;
+      block-size: $spacing-09;
 
       svg {
         margin: auto;
@@ -115,8 +114,8 @@
 
   :host(#{$c4d-prefix}-carousel[in-modal]) {
     padding: 0 0 $spacing-05;
-    block-size: 100%;
     inline-size: 100%;
+    block-size: 100%;
 
     @include breakpoint(md) {
       padding-block-end: 0;
@@ -150,21 +149,21 @@
     --#{$c4d-prefix}--carousel--page-size: 4;
 
     flex-flow: row wrap;
-    padding: 0;
     margin: 0;
-    inline-size: 100%;
+    padding: 0;
     max-inline-size: 100%;
+    inline-size: 100%;
 
     .#{$prefix}--carousel__scroll-container {
-      overflow: visible;
       margin: 0;
+      overflow: visible;
     }
 
     .#{$prefix}--carousel__scroll-contents {
-      position: initial;
       flex-wrap: wrap;
-      margin: 0;
       gap: $spacing-05;
+      margin: 0;
+      position: initial;
     }
 
     .#{$prefix}--carousel__navigation {

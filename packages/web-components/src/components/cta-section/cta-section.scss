@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -20,46 +20,47 @@
   .#{$prefix}--content-section {
     @include hang;
 
-    padding-block: 0 $spacing-09;
-    padding-inline-start: $spacing-06;
+    padding-top: 0;
+    padding-left: $spacing-06;
+    padding-bottom: $spacing-09;
 
     @include breakpoint(sm) {
-      padding-inline-start: 0;
+      padding-left: 0;
     }
   }
 
   .#{$prefix}--content-section__leading {
-    padding-block-end: 0;
+    padding-bottom: 0;
 
     @include breakpoint(md) {
+      margin-top: $spacing-09;
       padding: $spacing-05;
-      margin-block-start: $spacing-09;
-      padding-block-end: 0;
+      padding-bottom: 0;
     }
 
     @include breakpoint(lg) {
-      margin-block-end: $spacing-09;
-      padding-inline-start: $spacing-05;
+      padding-left: $spacing-05;
+      margin-bottom: $spacing-09;
     }
   }
 
   .#{$prefix}--content-section__body {
-    padding-block-start: $spacing-09;
+    padding-top: $spacing-09;
   }
 
   ::slotted(#{$c4d-prefix}-content-section-heading) {
-    margin-block-end: $spacing-07;
+    margin-bottom: $spacing-07;
 
     @include breakpoint(md) {
-      margin-block-end: $spacing-06;
+      margin-bottom: $spacing-06;
     }
   }
 
   ::slotted(#{$c4d-prefix}-cta-block) {
-    padding-block-start: 0;
+    padding-top: 0;
 
     @include breakpoint(md) {
-      padding-block-start: $spacing-09;
+      padding-top: $spacing-09;
     }
   }
 }

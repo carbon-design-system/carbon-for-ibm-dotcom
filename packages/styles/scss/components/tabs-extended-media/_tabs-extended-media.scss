@@ -15,28 +15,31 @@
 
 @mixin tabs-extended-media {
   :host(#{$c4d-prefix}-tabs-extended-media) {
-    display: flex;
     margin: 0;
+    display: flex;
     overflow-x: hidden;
 
     @include breakpoint(sm) {
-      padding-block: $spacing-07 $spacing-12;
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-12;
     }
     @include breakpoint(lg) {
-      padding-block: $spacing-10 $spacing-13;
+      padding-top: $spacing-10;
+      padding-bottom: $spacing-13;
     }
 
     ::slotted([slot='heading']) {
-      margin-block-end: $spacing-09;
-      padding-inline: $spacing-05;
+      margin-bottom: $spacing-09;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
 
       @include breakpoint(lg) {
-        padding-block-start: $spacing-04;
+        padding-top: $spacing-04;
       }
     }
 
     .#{$prefix}--tabs-extended-media {
-      inline-size: 100%;
+      width: 100%;
 
       @include breakpoint(lg) {
         display: flex;
@@ -50,11 +53,12 @@
     }
 
     .#{$prefix}--accordion__content {
+      margin-top: -$spacing-07;
+      margin-bottom: $spacing-05;
       padding: $spacing-07 0 0;
-      margin-block: -$spacing-07 $spacing-05;
 
       @include breakpoint(md) {
-        margin-block-end: -$spacing-05;
+        margin-bottom: -$spacing-05;
       }
     }
   }

@@ -16,26 +16,27 @@
 
 @mixin content-item-row-media {
   :host(#{$c4d-prefix}-content-item-row-media) {
-    display: block;
     padding: $spacing-07 0 $spacing-10;
+    display: block;
 
     @include breakpoint(md) {
-      padding-block-end: $spacing-10;
+      padding-bottom: $spacing-10;
     }
 
     @include breakpoint(lg) {
-      padding-block: $spacing-07 $spacing-10;
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-10;
     }
 
     ::slotted([slot='media']) {
-      margin-block-start: $spacing-07;
+      margin-top: $spacing-07;
 
       @include breakpoint(md) {
-        margin-block-start: $spacing-09;
+        margin-top: $spacing-09;
       }
 
       @include breakpoint(lg) {
-        margin-block-start: 0;
+        margin-top: 0;
       }
     }
   }
@@ -45,14 +46,14 @@
     ::slotted([slot='heading']),
   :host(#{$c4d-prefix}-content-item-row-media-copy) ::slotted(:not([slot])),
   :host(#{$c4d-prefix}-content-item-row-eyebrow) {
-    inline-size: 100%;
-    max-inline-size: 100%;
-    min-inline-size: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   :host(#{$c4d-prefix}-content-item-row-eyebrow) {
     color: $text-helper;
-    padding-block-end: $spacing-03;
+    padding-bottom: $spacing-03;
     @include type-style('label-01');
   }
 
@@ -61,13 +62,12 @@
     ::slotted([slot='heading']) {
     display: block;
     color: $text-primary;
-    margin-block-end: $spacing-07;
+    margin-bottom: $spacing-07;
     @include type-style('fluid-heading-03', true);
   }
 
   :host(#{$c4d-prefix}-content-item-row-media-copy) ::slotted(:not([slot])) {
-    max-inline-size: to-rem(640px);
-
+    max-width: to-rem(640px);
     p {
       color: $text-primary;
     }
@@ -75,17 +75,16 @@
 
   :host(#{$c4d-prefix}-content-item-row-media-video) {
     position: relative;
-    text-align: start;
+    text-align: left;
   }
 
   :host(#{$c4d-prefix}-content-item-row-media) .#{$prefix}--content-item__cta,
   :host(#{$c4d-prefix}-content-item-row-media-featured)
     .#{$prefix}--content-item__cta {
-    margin-block-start: auto;
+    margin-top: auto;
 
     .#{$prefix}--link-list {
       padding: 0;
-
       &:first-of-type {
         padding: 0;
       }
@@ -93,25 +92,25 @@
 
     .#{$prefix}--link-list li {
       @include breakpoint(md) {
-        margin-block-end: $spacing-05;
+        margin-bottom: $spacing-05;
       }
     }
   }
 
   .#{$prefix}--content-item-row__row {
+    width: 100%;
     display: grid;
-    column-gap: $spacing-07;
     grid-auto-flow: dense;
     grid-template-columns: repeat(4, 1fr);
-    inline-size: 100%;
+    column-gap: $spacing-07;
 
     @include breakpoint(lg) {
       grid-template-columns: repeat(12, 1fr);
     }
 
     .#{$prefix}--content-item-row__col {
+      text-align: left;
       grid-column: 1 / span 4;
-      text-align: start;
 
       &:first-of-type {
         margin-inline-end: $spacing-07;
@@ -119,8 +118,8 @@
 
       &:last-of-type {
         @include breakpoint(lg) {
-          grid-column: 5 / span 8;
           margin-block-start: 0;
+          grid-column: 5 / span 8;
         }
       }
     }
@@ -129,15 +128,15 @@
       .#{$prefix}--content-item-row__col {
         &:first-of-type {
           @include breakpoint(lg) {
-            grid-column: 1 / span 8;
             margin-inline-end: 0;
+            grid-column: 1 / span 8;
           }
         }
 
         &:last-of-type {
           @include breakpoint(lg) {
-            grid-column: 9 / span 4;
             margin-inline-end: $spacing-07;
+            grid-column: 9 / span 4;
           }
         }
       }
@@ -145,18 +144,19 @@
   }
 
   :host(#{$c4d-prefix}-content-item-row-media-featured) {
-    position: relative;
     display: block;
-    margin-block-end: $spacing-10;
+    position: relative;
     padding-block-start: $spacing-07;
+    margin-block-end: $spacing-10;
 
     &::before {
-      position: absolute;
-      background-color: $layer-accent-01;
-      block-size: 1px;
       content: '';
-      inset-block-start: 0;
-      inset-inline: $spacing-05 * -1;
+      position: absolute;
+      top: 0;
+      left: $spacing-05 * -1;
+      right: $spacing-05 * -1;
+      height: 1px;
+      background-color: $layer-accent-01;
     }
 
     .#{$prefix}--content-item-row__row {
@@ -171,10 +171,10 @@
 
     ::slotted([slot='media']) {
       grid-column: 1 / span 4;
-      margin-block-start: $spacing-07;
+      margin-top: $spacing-07;
 
       @include breakpoint(md) {
-        margin-block-start: $spacing-09;
+        margin-top: $spacing-09;
       }
 
       @include breakpoint(lg) {
@@ -183,8 +183,8 @@
     }
 
     ::slotted(#{$c4d-prefix}-image) {
-      margin-block-start: 0;
-      max-inline-size: none;
+      max-width: none;
+      margin-top: 0;
     }
   }
 }

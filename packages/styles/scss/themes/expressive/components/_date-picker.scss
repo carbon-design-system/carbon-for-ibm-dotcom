@@ -16,28 +16,28 @@
 /// @group date-picker-expressive
 @mixin date-picker-expressive {
   .#{$prefix}--date-picker__input {
-    block-size: $spacing-09; /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--date-picker.#{$prefix}--date-picker--simple {
     .#{$prefix}--date-picker__input {
-      inline-size: to-rem(128px);
+      width: to-rem(128px);
     }
   }
 
   .#{$prefix}--date-picker__icon {
-    block-size: to-rem(20px);
-    inline-size: to-rem(20px);
+    width: to-rem(20px);
+    height: to-rem(20px);
   }
 
   .#{$prefix}--date-picker--range .#{$prefix}--date-picker-container,
   .#{$prefix}--date-picker--range .#{$prefix}--date-picker__input {
-    inline-size: $spacing-13;
+    width: $spacing-13;
   }
 
   .flatpickr-prev-month svg,
   .flatpickr-next-month svg {
-    block-size: to-rem(20px);
-    inline-size: to-rem(20px);
+    width: to-rem(20px);
+    height: to-rem(20px);
   }
 }

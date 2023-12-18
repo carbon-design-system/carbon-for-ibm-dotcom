@@ -17,7 +17,7 @@
 
 @mixin link-list {
   :host(#{$c4d-prefix}-link-list) {
-    padding-block-end: 0;
+    padding-bottom: 0;
 
     ul {
       padding: 0;
@@ -47,8 +47,8 @@
     @include breakpoint(md) {
       .#{$c4d-prefix}-ce--link-list__heading--split
         ::slotted(#{$c4d-prefix}-link-list-heading) {
-        inline-size: 33.3%;
-        padding-inline-end: 10%;
+        width: 33.3%;
+        padding-right: 10%;
       }
     }
 
@@ -65,7 +65,8 @@
         grid-column-gap: $spacing-07;
 
         ::slotted(#{$c4d-prefix}-link-list-item) {
-          margin-inline: -$spacing-05 0;
+          margin-left: -$spacing-05;
+          margin-right: 0;
         }
       }
     }
@@ -95,9 +96,9 @@
   }
 
   :host(#{$c4d-prefix}-link-list-heading) {
-    display: block;
+    margin-bottom: $spacing-05;
     color: $text-primary;
-    margin-block-end: $spacing-05;
+    display: block;
 
     .#{$prefix}--link {
       cursor: pointer;
@@ -106,11 +107,11 @@
     @include type-style('heading-02');
 
     @include breakpoint(md) {
-      margin-inline-start: -$spacing-05;
+      margin-left: -$spacing-05;
     }
 
     @include breakpoint(lg) {
-      margin-inline-start: 0;
+      margin-left: 0;
     }
   }
 
@@ -119,8 +120,8 @@
   :host(#{$c4d-prefix}-link-list-item)[type='end'] {
     .#{$prefix}--link {
       display: flex;
+      width: 100%;
       padding: $spacing-05 0;
-      inline-size: 100%;
     }
   }
 
@@ -128,23 +129,24 @@
     ::slotted(#{$c4d-prefix}-link-list-item),
     ::slotted(#{$c4d-prefix}-link-list-item-cta) {
       display: flex;
-      border-block-start: 1px solid $border-subtle-01;
+      border-top: 1px solid $border-subtle-01;
     }
 
     &:last-of-type {
-      border-block-end: 1px solid $border-subtle-01;
+      border-bottom: 1px solid $border-subtle-01;
     }
   }
 
   .#{$c4d-prefix}-ce--link-list__list--end {
     ::slotted(#{$c4d-prefix}-link-list-item),
     ::slotted(#{$c4d-prefix}-link-list-item-cta) {
-      border-block-end: 1px solid $border-subtle-01;
-      border-block-start: 1px solid $border-subtle-01;
-      margin-block-start: -1px;
+      border-top: 1px solid $border-subtle-01;
+      border-bottom: 1px solid $border-subtle-01;
+      margin-top: -1px;
 
       @include breakpoint(lg) {
-        margin-inline: -$spacing-05;
+        margin-left: -$spacing-05;
+        margin-right: -$spacing-05;
       }
     }
   }
@@ -152,19 +154,19 @@
   .#{$c4d-prefix}--link-list__list--horizontal {
     ::slotted(#{$c4d-prefix}-link-list-item),
     ::slotted(#{$c4d-prefix}-link-list-item-cta) {
-      float: inline-start;
-      padding-block-end: $spacing-05;
-      padding-inline-end: $spacing-07;
+      float: left;
+      padding-right: $spacing-07;
+      padding-bottom: $spacing-05;
 
       @include breakpoint(md) {
-        padding-block-end: 0;
+        padding-bottom: 0;
       }
     }
   }
 
   .#{$c4d-prefix}--link-list__list--vertical {
     ::slotted(*) {
-      margin-block-end: $spacing-05;
+      margin-bottom: $spacing-05;
     }
   }
 
@@ -174,11 +176,11 @@
   :host(#{$c4d-prefix}-link-list-item-cta)
     .#{$prefix}--link-with-icon__icon-left
     ::slotted(svg[slot='icon']) {
-    min-block-size: 20px;
-    min-inline-size: 20px;
+    min-width: 20px;
+    min-height: 20px;
   }
 
   :host(#{$c4d-prefix}-link-list):last-of-type {
-    padding-block-end: $spacing-10;
+    padding-bottom: $spacing-10;
   }
 }

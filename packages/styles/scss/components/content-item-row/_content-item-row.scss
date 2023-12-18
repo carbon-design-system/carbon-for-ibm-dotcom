@@ -19,31 +19,32 @@
   :host(#{$c4d-prefix}-content-item-row) {
     @include make-row;
 
+    border-top: 1px solid $layer-accent-01;
     margin: 0;
 
-    border-block-start: 1px solid $layer-accent-01;
-
     @include breakpoint(sm) {
-      padding-block: $spacing-07 $spacing-10;
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-10;
     }
 
     @include breakpoint(lg) {
-      padding-block: $spacing-07 $spacing-10;
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-10;
     }
   }
 
   .#{$prefix}--content-item-row__row {
+    min-height: $spacing-13;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    inline-size: 100%;
-    min-block-size: $spacing-13;
     @include breakpoint(md) {
       flex-direction: row;
     }
 
     :host(#{$c4d-prefix}-content-item-row)[thumbnail] & {
       justify-content: space-between;
-      min-block-size: auto;
+      min-height: auto;
     }
   }
 
@@ -60,11 +61,9 @@
       @include breakpoint(md) {
         @include make-row;
 
-        padding: 0;
-
         margin: 0;
-
-        inline-size: auto;
+        padding: 0;
+        width: auto;
       }
 
       :host(#{$c4d-prefix}-content-item-row)[thumbnail] & {
@@ -82,7 +81,8 @@
 
     &--2 {
       grid-column: 1 / span 4;
-      padding-inline: 0;
+      padding-left: 0;
+      padding-right: 0;
       @include breakpoint(md) {
         grid-column: 5 / span 4;
         grid-row: 1 / span 2;
@@ -116,7 +116,8 @@
 
   .#{$prefix}--content-item-row__heading-wrapper {
     grid-column: 1 / span 4;
-    padding-inline: 0;
+    padding-left: 0;
+    padding-right: 0;
 
     @include breakpoint(md) {
       @include make-col(6, 12);
@@ -127,114 +128,114 @@
   }
 
   .#{$prefix}--content-item-row__content-wrapper {
-    display: flex;
     box-sizing: border-box;
+    display: flex;
     flex-direction: column;
+    width: 100%;
     grid-column: 1 / span 4;
-    inline-size: 100%;
 
     @include breakpoint(lg) {
       @include make-col(8, 12);
 
       display: flex;
       grid-column: 5 / span 4;
-      padding-inline-start: $spacing-04;
+      padding-left: $spacing-04;
     }
   }
 
   .#{$prefix}--content-item-row__content-wrapper_with-media {
-    inline-size: 100%;
+    width: 100%;
     @include breakpoint(lg) {
       @include make-col(8, 12);
 
-      padding-inline-start: $spacing-04;
+      padding-left: $spacing-04;
     }
   }
 
   :host(#{$c4d-prefix}-content-item-row) ::slotted([slot='media']) {
     display: block;
-    padding-block-start: $spacing-07;
+    padding-top: $spacing-07;
     @include breakpoint(md) {
-      padding-block-start: $spacing-09;
+      padding-top: $spacing-09;
     }
   }
 
   :host(#{$c4d-prefix}-content-item-row-copy) ::slotted(:not([slot])) {
-    max-inline-size: to-rem(640px);
+    max-width: to-rem(640px);
   }
 
   :host(#{$c4d-prefix}-content-item-row-eyebrow) {
     display: block;
     color: $text-helper;
-    padding-block-end: $spacing-03;
+    padding-bottom: $spacing-03;
     @include type-style('label-02');
   }
 
   :host(#{$c4d-prefix}-content-item-row) ::slotted([slot='heading']) {
     display: block;
     color: $text-primary;
-    margin-block-end: $spacing-07;
+    margin-bottom: $spacing-07;
 
     @include type-style('fluid-heading-03', true);
   }
 
   ::slotted([slot='heading']) {
-    margin-block-end: $spacing-07;
-    max-inline-size: 100%;
+    margin-bottom: $spacing-07;
+    max-width: 100%;
     @include breakpoint(lg) {
-      padding-inline-start: 0;
+      padding-left: 0;
     }
   }
 
   :host(#{$c4d-prefix}-content-item-row)[thumbnail] {
     display: grid;
-    grid-auto-flow: dense;
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
 
     @include breakpoint(md) {
-      column-gap: $spacing-07;
+      min-height: to-rem(306px);
       grid-template-columns: repeat(8, 1fr);
-      min-block-size: to-rem(306px);
+      column-gap: $spacing-07;
     }
 
     @include breakpoint(lg) {
+      min-height: to-rem(272px);
       grid-template-columns: repeat(12, 1fr);
-      min-block-size: to-rem(272px);
     }
 
     @include breakpoint(xlg) {
-      min-block-size: to-rem(252px);
+      min-height: to-rem(252px);
     }
   }
 
   :host(#{$c4d-prefix}-content-item-row[thumbnail])
     .#{$prefix}--content-item-row__heading-wrapper {
-    max-inline-size: 100%;
+    max-width: 100%;
   }
 
   :host(#{$c4d-prefix}-content-item-row[thumbnail])
     .#{$prefix}--content-item-row__content-wrapper {
     @include breakpoint-down(md) {
-      margin-block-end: $spacing-07;
+      margin-bottom: $spacing-07;
     }
 
-    max-inline-size: 100%;
-    padding-inline-start: 0;
+    max-width: 100%;
+    padding-left: 0;
   }
 
   :host(#{$c4d-prefix}-content-item-row[thumbnail]) {
     .#{$prefix}--content-item-row__body-wrapper {
       grid-column: 1 / span 4;
-      max-inline-size: 100%;
+      max-width: 100%;
 
       @include breakpoint(lg) {
-        display: contents;
         grid-column: 1 / span 8;
+        display: contents;
       }
     }
     .#{$prefix}--content-item-row__col--2 {
+      max-width: 100%;
       grid-column: 1 / span 4;
-      max-inline-size: 100%;
       @include breakpoint(md) {
         grid-column: 5 / span 4;
       }
@@ -254,7 +255,7 @@
     }
 
     .#{$prefix}--link-list li:last-of-type {
-      margin-block-end: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -262,9 +263,8 @@
     @include breakpoint(md) {
       @include make-col(3, 3);
 
-      margin-block-start: 0;
-
-      padding-inline-end: 0;
+      margin-top: 0;
+      padding-right: 0;
     }
   }
 }
