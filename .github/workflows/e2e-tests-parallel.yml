@@ -58,7 +58,7 @@ jobs:
         run: yarn build-storybook
 
       - name: Save build folder
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook-build
           path: packages/web-components/storybook-static
@@ -90,7 +90,7 @@ jobs:
           cache: 'yarn'
 
       - name: Download the build folders
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: storybook-build
           path: packages/web-components/storybook-static
@@ -125,7 +125,7 @@ jobs:
 
       - name: Save failure file
         if: steps.cypress-tests-wc.outcome == 'failure'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: failure-wc
           path: failure-wc.txt
@@ -139,7 +139,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: web-components-tests
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         continue-on-error: true
         with:
           name: failure-wc
