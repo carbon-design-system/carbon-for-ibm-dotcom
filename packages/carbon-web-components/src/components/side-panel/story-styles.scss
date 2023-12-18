@@ -1,3 +1,5 @@
+@use '@carbon/styles/scss/theme' as *;
+
 $story-prefix: 'side-panel-stories__';
 
 .#{$story-prefix}body-content {
@@ -14,4 +16,25 @@ $story-prefix: 'side-panel-stories__';
   > * {
     flex-basis: 50%;
   }
+}
+
+.#{$story-prefix}__story-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-rows: 3rem 1fr;
+  width: 100vw;
+  height: 100vh;
+}
+
+.#{$story-prefix}__story-header {
+  background: $background-inverse;
+}
+
+.#{$story-prefix}__story-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

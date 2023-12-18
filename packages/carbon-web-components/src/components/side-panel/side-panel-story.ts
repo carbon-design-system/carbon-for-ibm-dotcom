@@ -277,12 +277,9 @@ const DefaultTemplate = (args) => {
   };
 
   return html`
-    <div
-      style="position: fixed; top: 0; left: 0; display: grid; grid-template-rows: 3rem 1fr; width: 100vw; height: 100vh;">
-      <div style="background: black;"></div>
-      <div
-        id="page-content-selector"
-        style="position: relative; display: flex; justify-content: center; align-items: center;">
+    <div class="${storyPrefix}__story-container">
+      <div class="${storyPrefix}__story-header"></div>
+      <div id="page-content-selector" class="${storyPrefix}__story-content">
         <cds-button @click="${toggleButton}">Toggle side-panel</cds-button>
       </div>
     </div>
