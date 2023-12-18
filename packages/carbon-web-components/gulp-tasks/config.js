@@ -8,7 +8,7 @@
  */
 
 const path = require('path');
-const program = require('commander');
+const { program } = require('commander');
 
 const collect = (v, a) => a.add(v);
 

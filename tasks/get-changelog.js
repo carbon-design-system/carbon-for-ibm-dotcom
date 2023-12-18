@@ -10,7 +10,7 @@
 'use strict';
 
 const child = require('child_process');
-const program = require('commander');
+const { program } = require('commander');
 
 program
   .option('-f, --tagFrom <git tag from>', 'Git tag range from')
