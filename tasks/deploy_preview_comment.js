@@ -158,6 +158,7 @@ const getComments = () => {
     res.on('end', () => {
       response = JSON.parse(response);
 
+      console.log('typeof', typeof response);
       console.log(response);
 
       const results = response.filter((comment) => {
