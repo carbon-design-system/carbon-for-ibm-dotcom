@@ -99,7 +99,6 @@
     "@carbon/telemetry": "0.1.0",
     "@carbon/web-components": "2.0.2-rc.1",
     "gulp-minify-html-literals": "^1.1.22",
-
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",
     "redux": "^4.0.0",
