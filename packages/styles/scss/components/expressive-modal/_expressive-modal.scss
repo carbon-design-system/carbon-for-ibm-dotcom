@@ -26,7 +26,7 @@
   $icon-size: to-rem(20px);
 
   :host(#{$c4d-prefix}-expressive-modal) {
-    @extend .#{$prefix}--modal;
+    @extend .#{$prefix}--modal !optional;
 
     .#{$prefix}--modal-container {
       grid-template-rows: 1fr;
@@ -58,7 +58,7 @@
   }
 
   :host(#{$c4d-prefix}-expressive-modal[open]) {
-    @extend .#{$prefix}--modal;
+    @extend .#{$prefix}--modal !optional;
 
     opacity: 1;
     transition: opacity $duration-moderate-02 motion(entrance, expressive),

@@ -11,9 +11,8 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
-import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+import PlayVideo from '../../../es/icons/play-video.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -86,7 +85,7 @@ class C4DVideoPlayer extends FocusMixin(
               class="${c4dPrefix}--video-player__image-overlay"
               @click="${this._handleClickOverlay}">
               <c4d-image default-src="${thumbnailUrl}" alt="${ifDefined(name)}">
-                ${unsafeSVG(PlayVideo)}
+                ${PlayVideo()}
               </c4d-image>
             </button>
           </div>
