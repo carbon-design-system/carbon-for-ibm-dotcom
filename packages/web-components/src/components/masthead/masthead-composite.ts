@@ -70,21 +70,6 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * Rendering target for masthead navigation items.
- */
-export enum NAV_ITEMS_RENDER_TARGET {
-  /**
-   * For top navigation.
-   */
-  TOP_NAV = 'top-nav',
-
-  /**
-   * For left navigation.
-   */
-  LEFT_NAV = 'left-nav',
-}
-
-/**
  * Globally-scoped Contact Module variable.
  *
  * @see https://github.ibm.com/live-advisor/cm-app
@@ -115,7 +100,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data & screen width.
    *
-   * @returns {TemplateResult | undefined} The L1 nav.
+   * @returns {TemplateResult | undefined}
    */
   protected _renderL1() {
     const { l1Data, selectedMenuItemL1 } = this;
@@ -133,7 +118,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders masthead logo
    *
-   * @returns TemplateResult
+   * @returns {TemplateResult} A template fragment representing the logo.
    */
   protected _renderLogo() {
     if (!this.logoData) {
@@ -161,7 +146,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param menu megamenu data object
    * @param _parentKey parent key
    * @param layout layout selection to render the megamenu with
-   * @returns TemplateResult
+   * @returns {TemplateResult}
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegaMenu(
@@ -181,7 +166,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menu megamenu data object
    * @param _parentKey key that identifies parent nav item
-   * @returns TemplateResult
+   * @returns {TemplateResult}
    */
   protected _renderMegaMenuTabbed(menu: L0Megamenu, _parentKey) {
     const { viewAll, sections } = menu;
@@ -234,6 +219,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     `;
   }
 
+  /**
+   * Render individual tabpanel in a tabbed megamenu.
+   *
+   * @param menuItem menuItem data object
+   * @returns {TemplateResult}
+   */
   protected _renderMegamenuTabPanel(menuItem) {
     const { itemKey, groups, heading, viewAll: itemViewAll } = menuItem;
     return html`
@@ -283,7 +274,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menu megamenu data object
    * @param _parentKey key that identifies parent nav item
-   * @returns TemplateResult
+   * @returns {TemplateResult}
    */
   // eslint-disable-next-line
   protected _renderMegaMenuListing(menu: L0Megamenu, _parentKey) {
@@ -355,7 +346,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * Render a Megapanel link group.
    *
    * @param group megamenu link group
-   * @returns TemplateResult
+   * @returns {TemplateResult}
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegapanelLinkGroup(
@@ -414,6 +405,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param object.sectionTitle title of menu section
    * @param object.sectionUrl section title url of menu section
    * @param object.sectionId id of menu section
+   * @returns {TemplateResult}
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNavMenuSections({
@@ -553,6 +545,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menuItems The options.
    * @param autoid Base autoid to be applied to the menu items
+   * @returns {TemplateResult}
    */
   protected _renderLeftNav() {
     const { ctaButtons, platform } = this;
@@ -819,7 +812,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders the mobile menu button.
    *
-   * @returns A template fragment representing the menu button.
+   * @returns {TemplateResult} A template fragment representing the menu button.
    */
   protected _renderMenuButton() {
     const {
@@ -902,7 +895,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders the top navigation bar.
    *
-   * @returns A template fragment representing the top nav.
+   * @returns {TemplateResult} A template fragment representing the top nav.
    */
   protected _renderTopNav() {
     const { selectedMenuItem, menuBarAssistiveText, activateSearch } = this;
@@ -926,7 +919,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param item The item to render
    * @param i The index of the item in a series
    * @param autoid The unique id to assign to the item
-   * @returns A template fragment representing a nav item.
+   * @returns {TemplateResult} A template fragment representing a nav item.
    */
   protected _renderNavItem(item: L0MenuItem, i, autoid): TemplateResult {
     const { selectedMenuItem, currentUrlPath, _activeMegamenuIndex } = this;
@@ -1075,6 +1068,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
   /**
    * Renders the platform title.
+   *
+   * @returns {TemplateResult} A template fragment representing the platform title.
    */
   protected _renderPlatformTitle() {
     const { l1Data, platform } = this;
@@ -1090,7 +1085,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders the masthead search.
    *
-   * @returns A template fragment representing the search bar.
+   * @returns {TemplateResult} A template fragment representing the search bar.
    */
   protected _renderSearch() {
     const {
@@ -1123,7 +1118,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders the contact button.
    *
-   * @returns A template fragment representing the contact button.
+   * @returns {TemplateResult} A template fragment representing the contact button.
    */
   protected _renderContact() {
     const { contactUsButton, hasContact } = this;
@@ -1174,7 +1169,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders the profile menu.
    *
-   * @returns A template fragment representing the profile menu.
+   * @returns {TemplateResult} A template fragment representing the profile menu.
    */
   protected _renderProfileMenu() {
     const { hasProfile, userIsAuthenticated } = this;
@@ -1197,7 +1192,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders the CTA buttons.
    *
-   * @returns A template fragment representing the CTA buttons.
+   * @returns {TemplateResult} A template fragment representing the CTA buttons.
    */
   protected _renderCtaButtons() {
     const { ctaButtons } = this;

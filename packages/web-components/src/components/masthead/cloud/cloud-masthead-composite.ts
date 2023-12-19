@@ -32,15 +32,28 @@ import {
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import { MASTHEAD_AUTH_METHOD } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import styles from './cloud-masthead.scss';
-import C4DMastheadComposite, {
-  NAV_ITEMS_RENDER_TARGET,
-} from '../masthead-composite';
+import C4DMastheadComposite from '../masthead-composite';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
 // Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
 const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
+
+/**
+ * Rendering target for masthead navigation items.
+ */
+export enum NAV_ITEMS_RENDER_TARGET {
+  /**
+   * For top navigation.
+   */
+  TOP_NAV = 'top-nav',
+
+  /**
+   * For left navigation.
+   */
+  LEFT_NAV = 'left-nav',
+}
 
 /**
  * Component that renders masthead from links, etc. data.
