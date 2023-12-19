@@ -250,11 +250,26 @@ class C4DExpressiveModal extends StableSelectorMixin(
   /* eslint-enable no-bitwise */
 
   @HostListener('document:keydown')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to.
   private _handleKeydown = ({ key, target }: KeyboardEvent) => {
     if (key === 'Esc' || key === 'Escape') {
       this._handleUserInitiatedClose(target);
     }
+  };
+
+  /**
+   * Handles an open event.
+   *
+   * This may be bubbled up from a child element that contains some custom
+   * logic around when the modal should be open. For instance the
+   * lightbox-media-viewer component contains logic to detect the presence of a
+   * URL fragment meant to trigger the display of the modal and begin media
+   * playback.
+   */
+  @HostListener('eventOpen')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to.
+  private _handleOpen = () => {
+    this.open = true;
   };
 
   /**
@@ -543,6 +558,13 @@ class C4DExpressiveModal extends StableSelectorMixin(
    */
   static get eventClose() {
     return `${c4dPrefix}-expressive-modal-closed`;
+  }
+
+  /**
+   * The name of the custom event fired on request to open the modal.
+   */
+  static get eventOpen() {
+    return `${c4dPrefix}-expressive-modal-opened`;
   }
 
   /**

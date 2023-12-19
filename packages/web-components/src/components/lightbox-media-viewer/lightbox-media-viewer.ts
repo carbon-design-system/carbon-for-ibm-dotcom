@@ -138,6 +138,29 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
       undefined;
   }
 
+  /**
+   * Detect the presence of a URL fragment meant to trigger the parent modal.
+   */
+  firstUpdated() {
+    // Without a video id, there is nothing to do here.
+    if (!this.videoId) {
+      return;
+    }
+    const { eventOpen } = this.constructor as typeof C4DLightboxMediaViewer;
+    const hash = window.location.hash;
+    const lightboxOpenToken = `lightbox-video-${this.videoId}`;
+
+    if (hash.includes(lightboxOpenToken)) {
+      this.dispatchEvent(
+        new CustomEvent(eventOpen, {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+        })
+      );
+    }
+  }
+
   update(changedProperties) {
     if (this.videoId) {
       const { videoId, caption, hideCaption, thumbnail } = this;
@@ -209,6 +232,13 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
    */
   static get eventBeforeModalClose() {
     return `${c4dPrefix}-expressive-modal-beingclosed`;
+  }
+
+  /**
+   * The name of the custom event fired on request to open the modal.
+   */
+  static get eventOpen() {
+    return `${c4dPrefix}-expressive-modal-opened`;
   }
 }
 
