@@ -13,6 +13,7 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/button/tokens' as *;
 @use '../../globals/vars' as *;
 @use 'vars' as *;
