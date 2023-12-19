@@ -63,9 +63,9 @@ export interface MastheadContainerState {
  */
 export interface MastheadContainerStateProps {
   /**
-   * The nav links.
+   * The L0 data.
    */
-  navLinks?: L0MenuItem[];
+  l0Data?: L0MenuItem[];
 
   /**
    * The user authentication status.
@@ -95,7 +95,7 @@ export function mapStateToProps(
   const { request } = profileAPI ?? {};
   return pickBy(
     {
-      navLinks: !language
+      l0Data: !language
         ? undefined
         : translations?.[language]?.mastheadNav?.links,
       authenticatedProfileItems: !language

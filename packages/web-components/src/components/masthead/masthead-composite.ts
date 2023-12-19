@@ -881,9 +881,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    const { navLinks, customNavLinks, l1Data } = this;
-    let menu: L0MenuItem[] | L1MenuItem[] | undefined =
-      customNavLinks || navLinks;
+    const { l1Data } = this;
+    let menu: L0MenuItem[] | L1MenuItem[] | undefined = this._getl0Data();
     const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
     if (hasL1) {
@@ -891,14 +890,16 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     }
 
     if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
-      return !navLinks
+      return !this._getl0Data()
         ? undefined
         : menu?.map((link, i) => {
             return this._renderNavItem(link, i, autoid);
           });
     }
 
-    return !navLinks ? undefined : this._renderLeftNav(navLinks, autoid);
+    return !this._getl0Data()
+      ? undefined
+      : this._renderLeftNav(this._getl0Data(), autoid);
   }
 
   /**
@@ -1250,16 +1251,37 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   language?: string;
 
   /**
+   * Logo data
+   */
+  @property({ attribute: false })
+  logoData?: MastheadLogoData;
+
+  /**
    * The navigation links.
+   *
+   * @deprecated This property name is ambiguous. Use the l0Data prop instead.
    */
   @property({ attribute: false })
   navLinks?: L0MenuItem[];
 
   /**
-   * Logo data
+   * Data for l0.
    */
   @property({ attribute: false })
-  logoData?: MastheadLogoData;
+  l0Data?: L0MenuItem[];
+
+  /**
+   * Temporary getter to fetch data until navLinks prop is phased out.
+   */
+  _getl0Data() {
+    const { l0Data, navLinks } = this;
+    if (navLinks) {
+      console.warn(
+        `Warning: ${c4dPrefix}-masthead's "navLinks" property is deprecated. Use "l0Data" property instead.`
+      );
+    }
+    return (l0Data || navLinks) as L0MenuItem[];
+  }
 
   /**
    * Data for l1.
@@ -1290,12 +1312,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: 'auth-method' })
   authMethod = MASTHEAD_AUTH_METHOD.DEFAULT;
-
-  /**
-   * Custom navigation links
-   */
-  @property()
-  customNavLinks?: L0MenuItem[];
 
   /**
    * The user authentication status.
@@ -1369,28 +1385,27 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       currentSearchResults,
       customTypeaheadAPI,
       customProfileLogin,
-      platform,
-      platformUrl,
+      // _getl0Data: getl0Data,
+      l1Data,
+      language,
+      hasContact,
       hasProfile,
+      hasSearch,
       inputTimeout,
-      userIsAuthenticated,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
-      navLinks,
-      customNavLinks,
-      language,
       openSearchDropdown,
-      hasSearch,
+      platform,
+      platformUrl,
       scopeParameters,
       searchPlaceholder,
       selectedMenuItem,
       skipToContentText,
       skipToContentHref,
       unauthenticatedProfileItems,
-      l1Data,
-      hasContact,
+      userIsAuthenticated,
     } = this;
 
     let profileItems;
@@ -1470,7 +1485,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                 >${platform}</c4d-top-nav-name
               >
             `}
-        ${(navLinks || customNavLinks) && !isMobileVersion
+        ${this._getl0Data() && !isMobileVersion
           ? html`
               <c4d-top-nav
                 selected-menu-item=${selectedMenuItem}

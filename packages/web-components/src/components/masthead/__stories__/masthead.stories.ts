@@ -110,7 +110,7 @@ export const Default = (args) => {
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
@@ -154,7 +154,7 @@ export const withCloudData = (args) => {
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-search="${hasSearch}"
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -200,7 +200,7 @@ export const WithCustomTypeahead = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -246,7 +246,7 @@ export const searchOpenOnload = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -293,7 +293,7 @@ export const withPlatform = (args) => {
       ? html`
           <c4d-masthead-composite
             platform="${ifNonEmpty(platform)}"
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -350,7 +350,7 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -414,7 +414,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -474,7 +474,7 @@ export const WithScopedSearch = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${links}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
