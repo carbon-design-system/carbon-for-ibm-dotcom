@@ -16,7 +16,7 @@ import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
+import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
@@ -110,7 +110,7 @@ export const Default = (args) => {
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
@@ -154,7 +154,7 @@ export const withCloudData = (args) => {
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-search="${hasSearch}"
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -200,7 +200,7 @@ export const WithCustomTypeahead = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -246,7 +246,7 @@ export const searchOpenOnload = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -293,7 +293,7 @@ export const withPlatform = (args) => {
       ? html`
           <c4d-masthead-composite
             platform="${ifNonEmpty(platform)}"
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -350,7 +350,7 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -414,7 +414,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -422,14 +422,14 @@ export const withAlternateLogoAndTooltip = (args) => {
               unauthenticatedProfileItems
             )}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
-              ? logoData
+              ? mastheadLogoData
               : null}"></c4d-masthead-composite>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
-              ? logoData
+              ? mastheadLogoData
               : null}"></c4d-masthead-container>
         `}
   `;
@@ -474,7 +474,7 @@ export const WithScopedSearch = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .l0Data="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
