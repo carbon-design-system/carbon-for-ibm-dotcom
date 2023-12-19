@@ -555,9 +555,11 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param menuItems The options.
    * @param autoid Base autoid to be applied to the menu items
    */
-  protected _renderLeftNav(menuItems: L0MenuItem[], autoid) {
-    const { ctaButtons } = this;
+  protected _renderLeftNav() {
+    const { ctaButtons, platform } = this;
     const menu: any[] = [];
+    const menuItems = this._getl0Data();
+    const autoid = `${c4dPrefix}--masthead__l0`;
     const level0Items = menuItems.map((elem: L0MenuItem, i) => {
       // Instantiate bucket for first level submenus.
       const level1Items: {
@@ -795,13 +797,43 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     });
 
     return html`
-      ${this._renderLeftNavMenuSections({
-        ctas: ctaButtons,
-        menuItems: level0Items,
-        sectionId: '-1, -1',
-        heading: false,
-      })}
-      ${menu}
+      <c4d-left-nav-overlay></c4d-left-nav-overlay>
+      <c4d-left-nav>
+        ${!platform
+          ? undefined
+          : html`
+              <c4d-left-nav-name href="${ifNonEmpty(this._getPlatformUrl())}">
+                ${platform}
+              </c4d-left-nav-name>
+            `}
+        ${this._renderLeftNavMenuSections({
+          ctas: ctaButtons,
+          menuItems: level0Items,
+          sectionId: '-1, -1',
+          heading: false,
+        })}
+        ${menu}
+      </c4d-left-nav>
+    `;
+  }
+
+  /**
+   * Renders the mobile menu button.
+   *
+   * @returns A template fragment representing the menu button.
+   */
+  protected _renderMenuButton() {
+    const {
+      activateSearch,
+      menuButtonAssistiveTextActive,
+      menuButtonAssistiveTextInactive,
+    } = this;
+    return html`
+      <c4d-masthead-menu-button
+        button-label-active="${ifNonEmpty(menuButtonAssistiveTextActive)}"
+        button-label-inactive="${ifNonEmpty(menuButtonAssistiveTextInactive)}"
+        ?hide-menu-button="${activateSearch}">
+      </c4d-masthead-menu-button>
     `;
   }
 
@@ -869,38 +901,24 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * @param options The options.
-   * @param [options.selectedMenuItem] The selected nav item.
-   * @param options.target The target of rendering navigation items.
-   * @param options.hasL1 If an L1 menu is present
-   * @returns The nav items.
+   * Renders the top navigation bar.
+   *
+   * @returns A template fragment representing the top nav.
    */
-  protected _renderNavItems({
-    target,
-    hasL1,
-  }: {
-    target: NAV_ITEMS_RENDER_TARGET;
-    hasL1: boolean;
-  }) {
-    const { l1Data } = this;
-    let menu: L0MenuItem[] | L1MenuItem[] | undefined = this._getl0Data();
-    const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
-
-    if (hasL1) {
-      menu = l1Data?.menuItems;
-    }
-
-    if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
-      return !this._getl0Data()
-        ? undefined
-        : menu?.map((link, i) => {
-            return this._renderNavItem(link, i, autoid);
-          });
-    }
-
+  protected _renderTopNav() {
+    const { selectedMenuItem, menuBarAssistiveText, activateSearch } = this;
     return !this._getl0Data()
       ? undefined
-      : this._renderLeftNav(this._getl0Data(), autoid);
+      : html`
+          <c4d-top-nav
+            selected-menu-item=${selectedMenuItem}
+            menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
+            ?hideNav="${activateSearch}">
+            ${this._getl0Data().map((link, i) => {
+              return this._renderNavItem(link, i, `${c4dPrefix}--masthead__l0`);
+            })}
+          </c4d-top-nav>
+        `;
   }
 
   /**
@@ -1544,72 +1562,22 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     const {
       _isMobileVersion: isMobileVersion,
       activateSearch,
-      l1Data,
       mastheadAssistiveText,
-      menuBarAssistiveText,
-      menuButtonAssistiveTextActive,
-      menuButtonAssistiveTextInactive,
-      platform,
-      selectedMenuItem,
       skipToContentText,
       skipToContentHref,
     } = this;
 
     return html`
-      ${isMobileVersion
-        ? html`
-            <c4d-left-nav-overlay></c4d-left-nav-overlay>
-            <c4d-left-nav>
-              ${!platform
-                ? undefined
-                : html`
-                    <c4d-left-nav-name
-                      href="${ifNonEmpty(this._getPlatformUrl())}"
-                      >${platform}</c4d-left-nav-name
-                    >
-                  `}
-              ${this._renderNavItems({
-                target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
-                hasL1: !!l1Data,
-              })}
-            </c4d-left-nav>
-          `
-        : ''}
+      ${isMobileVersion ? this._renderLeftNav() : ''}
       <c4d-masthead
         ?has-l1=${this.l1Data}
         aria-label="${ifNonEmpty(mastheadAssistiveText)}">
         <c4d-skip-to-content
           href="${skipToContentHref}"
           link-assistive-text="${skipToContentText}"></c4d-skip-to-content>
-
-        ${isMobileVersion
-          ? html`
-              <c4d-masthead-menu-button
-                button-label-active="${ifNonEmpty(
-                  menuButtonAssistiveTextActive
-                )}"
-                button-label-inactive="${ifNonEmpty(
-                  menuButtonAssistiveTextInactive
-                )}"
-                ?hide-menu-button="${activateSearch}">
-              </c4d-masthead-menu-button>
-            `
-          : ''}
-        ${this._renderLogo()} ${this._renderPlatformTitle()}
-        ${this._getl0Data() && !isMobileVersion
-          ? html`
-              <c4d-top-nav
-                selected-menu-item=${selectedMenuItem}
-                menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
-                ?hideNav="${activateSearch}">
-                ${this._renderNavItems({
-                  target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-                  hasL1: false,
-                })}
-              </c4d-top-nav>
-            `
-          : ''}
-
+        ${isMobileVersion ? this._renderMenuButton() : ''} ${this._renderLogo()}
+        ${this._renderPlatformTitle()}
+        ${!isMobileVersion ? this._renderTopNav() : ''}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
           ${this._renderContact()} ${this._renderProfileMenu()}
           ${this._renderCtaButtons()}
