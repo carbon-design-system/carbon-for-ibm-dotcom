@@ -322,6 +322,53 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
         this._updateVideoThumbnailUrl();
       }
+
+      // Once the eventRequestVideoData finishes and has set the videoName,
+      // check for the URL trigger meant to fire eventRunAction.
+      if (
+        ctaType === CTA_TYPE.VIDEO &&
+        href &&
+        changedProperties.has('videoName') &&
+        videoName
+      ) {
+        this._checkUrlVideoTrigger();
+      }
+    }
+
+    /**
+     * Check the URL for a fragment including the video id.
+     *
+     * If we find a URL fragment that includes the video id, we trigger the
+     * eventRunAction event, which for video will open the video and start
+     * playback in a lightbox. This is the same thing that happens when the user
+     * clicks on the CTA.
+     */
+    _checkUrlVideoTrigger() {
+      const { ctaType, disabled, href, videoDescription, videoName } = this;
+      // Without a video id, or if the button is disabled, there is nothing to
+      // do here.
+      if (ctaType !== CTA_TYPE.VIDEO || !href || disabled) {
+        return;
+      }
+      const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
+      const hash = window.location.hash;
+      const urlTrigger = `cta-video-trigger-${href}`;
+
+      if (hash.includes(urlTrigger)) {
+        this.dispatchEvent(
+          new CustomEvent(eventRunAction, {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+            detail: {
+              href,
+              ctaType,
+              videoName,
+              videoDescription,
+            },
+          })
+        );
+      }
     }
 
     /**
