@@ -29,7 +29,6 @@ import {
   L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
-  L1MenuItem,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import {
   UNAUTHENTICATED_STATUS,
