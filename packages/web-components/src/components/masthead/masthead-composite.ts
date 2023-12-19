@@ -119,15 +119,16 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns {TemplateResult | undefined} The L1 nav.
    */
   protected _renderL1() {
-    if (!this.l1Data) return undefined;
-
-    return html`
-      <c4d-masthead-l1
-        slot="masthead-l1"
-        .l1Data=${this.l1Data}
-        selected-menu-item=${this.selectedMenuItemL1 || ''}>
-      </c4d-masthead-l1>
-    `;
+    const { l1Data, selectedMenuItemL1 } = this;
+    return !l1Data
+      ? undefined
+      : html`
+          <c4d-masthead-l1
+            slot="masthead-l1"
+            .l1Data=${l1Data}
+            selected-menu-item=${selectedMenuItemL1 || ''}>
+          </c4d-masthead-l1>
+        `;
   }
 
   /**
@@ -1034,6 +1035,170 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   contactModuleApp?: CMApp;
 
   /**
+   * Gets localized platform URL.
+   *
+   * @returns {string} A URL.
+   */
+  private _getPlatformUrl(): string {
+    const { language, platformUrl } = this;
+    const formattedLang = language
+      ?.toLowerCase()
+      .replace(/-(.*)/, (m) => m.toUpperCase());
+    let url = platformUrl;
+    if (platformUrl && formattedLang) {
+      if (
+        typeof platformUrl === 'object' &&
+        Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)
+      ) {
+        url = platformUrl[formattedLang].url || platformUrl;
+      }
+    }
+    return url;
+  }
+
+  /**
+   * Renders the platform title.
+   */
+  protected _renderPlatformTitle() {
+    const { l1Data, platform } = this;
+    return !platform || l1Data
+      ? undefined
+      : html`
+          <c4d-top-nav-name href="${ifDefined(this._getPlatformUrl())}">
+            ${platform}
+          </c4d-top-nav-name>
+        `;
+  }
+
+  /**
+   * Renders the masthead search.
+   *
+   * @returns A template fragment representing the search bar.
+   */
+  protected _renderSearch() {
+    const {
+      activateSearch,
+      currentSearchResults,
+      customTypeaheadAPI,
+      hasSearch,
+      inputTimeout,
+      language,
+      openSearchDropdown,
+      scopeParameters,
+      searchPlaceholder,
+    } = this;
+    return hasSearch === 'false'
+      ? ''
+      : html`
+          <c4d-search-with-typeahead
+            ?active="${activateSearch}"
+            .currentSearchResults="${ifDefined(currentSearchResults)}"
+            ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
+            input-timeout="${inputTimeout}"
+            language="${ifDefined(language)}"
+            ?open="${openSearchDropdown}"
+            placeholder="${ifDefined(searchPlaceholder)}"
+            .scopeParameters="${ifDefined(scopeParameters)}"
+            ?searchOpenOnload="${activateSearch}"></c4d-search-with-typeahead>
+        `;
+  }
+
+  /**
+   * Renders the contact button.
+   *
+   * @returns A template fragment representing the contact button.
+   */
+  protected _renderContact() {
+    const { contactUsButton, hasContact } = this;
+    return hasContact === 'false'
+      ? undefined
+      : html`
+          <c4d-masthead-contact
+            data-ibm-contact="contact-link"
+            trigger-label="${ifDefined(
+              contactUsButton?.title
+            )}"></c4d-masthead-contact>
+        `;
+  }
+
+  /**
+   * Gets the appropriate profile items for the current masthead state.
+   *
+   * @returns An array of profile items or undefined.
+   */
+  protected _getProfileItems(): MastheadProfileItem[] | undefined {
+    const {
+      customProfileLogin,
+      userIsAuthenticated,
+      authenticatedProfileItems,
+      unauthenticatedProfileItems,
+    } = this;
+
+    let profileItems;
+    if (
+      C4D_CUSTOM_PROFILE_LOGIN &&
+      customProfileLogin &&
+      !userIsAuthenticated
+    ) {
+      profileItems = unauthenticatedProfileItems?.map((item) => {
+        if (item?.id === 'signin') {
+          return { ...item, url: customProfileLogin };
+        }
+        return item;
+      });
+    } else {
+      profileItems = userIsAuthenticated
+        ? authenticatedProfileItems
+        : unauthenticatedProfileItems;
+    }
+    return profileItems;
+  }
+
+  /**
+   * Renders the profile menu.
+   *
+   * @returns A template fragment representing the profile menu.
+   */
+  protected _renderProfileMenu() {
+    const { hasProfile, userIsAuthenticated } = this;
+    return hasProfile === 'false'
+      ? ''
+      : html`
+          <c4d-masthead-profile ?authenticated="${userIsAuthenticated}">
+            ${this._getProfileItems()?.map(
+              ({ title, url }) =>
+                html`
+                  <c4d-masthead-profile-item href="${ifDefined(url)}">
+                    ${title}
+                  </c4d-masthead-profile-item>
+                `
+            )}
+          </c4d-masthead-profile>
+        `;
+  }
+
+  /**
+   * Renders the CTA buttons.
+   *
+   * @returns A template fragment representing the CTA buttons.
+   */
+  protected _renderCtaButtons() {
+    const { ctaButtons } = this;
+    return !ctaButtons
+      ? undefined
+      : html`
+          ${ctaButtons?.map(
+            ({ title, url }) =>
+              html`
+                <c4d-masthead-button-cta href="${ifNonEmpty(url)}" kind="ghost">
+                  ${title}
+                </c4d-masthead-button-cta>
+              `
+          )}
+        `;
+  }
+
+  /**
    * Whether or not a nav item has automatically been designated as "selected".
    *
    * @internal
@@ -1273,7 +1438,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Temporary getter to fetch data until navLinks prop is phased out.
    */
-  _getl0Data() {
+  private _getl0Data() {
     const { l0Data, navLinks } = this;
     if (navLinks) {
       console.warn(
@@ -1379,64 +1544,16 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     const {
       _isMobileVersion: isMobileVersion,
       activateSearch,
-      authenticatedProfileItems,
-      ctaButtons,
-      contactUsButton,
-      currentSearchResults,
-      customTypeaheadAPI,
-      customProfileLogin,
-      // _getl0Data: getl0Data,
       l1Data,
-      language,
-      hasContact,
-      hasProfile,
-      hasSearch,
-      inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
-      openSearchDropdown,
       platform,
-      platformUrl,
-      scopeParameters,
-      searchPlaceholder,
       selectedMenuItem,
       skipToContentText,
       skipToContentHref,
-      unauthenticatedProfileItems,
-      userIsAuthenticated,
     } = this;
-
-    let profileItems;
-    if (
-      C4D_CUSTOM_PROFILE_LOGIN &&
-      customProfileLogin &&
-      !userIsAuthenticated
-    ) {
-      profileItems = unauthenticatedProfileItems?.map((item) => {
-        if (item?.id === 'signin') {
-          return { ...item, url: customProfileLogin };
-        }
-        return item;
-      });
-    } else {
-      profileItems = userIsAuthenticated
-        ? authenticatedProfileItems
-        : unauthenticatedProfileItems;
-    }
-    const formattedLang = language
-      ?.toLowerCase()
-      .replace(/-(.*)/, (m) => m.toUpperCase());
-    let platformAltUrl = platformUrl;
-    if (platformUrl && formattedLang) {
-      if (
-        typeof platformUrl === 'object' &&
-        Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)
-      ) {
-        platformAltUrl = platformUrl[formattedLang].url || platformUrl;
-      }
-    }
 
     return html`
       ${isMobileVersion
@@ -1446,7 +1563,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               ${!platform
                 ? undefined
                 : html`
-                    <c4d-left-nav-name href="${ifNonEmpty(platformAltUrl)}"
+                    <c4d-left-nav-name
+                      href="${ifNonEmpty(this._getPlatformUrl())}"
                       >${platform}</c4d-left-nav-name
                     >
                   `}
@@ -1477,14 +1595,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               </c4d-masthead-menu-button>
             `
           : ''}
-        ${this._renderLogo()}
-        ${!platform || l1Data
-          ? undefined
-          : html`
-              <c4d-top-nav-name href="${ifDefined(platformAltUrl)}"
-                >${platform}</c4d-top-nav-name
-              >
-            `}
+        ${this._renderLogo()} ${this._renderPlatformTitle()}
         ${this._getl0Data() && !isMobileVersion
           ? html`
               <c4d-top-nav
@@ -1498,56 +1609,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               </c4d-top-nav>
             `
           : ''}
-        ${hasSearch === 'false'
-          ? ''
-          : html`
-              <c4d-search-with-typeahead
-                ?active="${activateSearch}"
-                input-timeout="${inputTimeout}"
-                language="${ifDefined(language)}"
-                ?open="${openSearchDropdown}"
-                ?searchOpenOnload="${activateSearch}"
-                placeholder="${ifDefined(searchPlaceholder)}"
-                .currentSearchResults="${ifDefined(currentSearchResults)}"
-                ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
-                .scopeParameters="${ifDefined(
-                  scopeParameters
-                )}"></c4d-search-with-typeahead>
-            `}
+
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${hasContact === 'false'
-            ? ''
-            : html`
-                <c4d-masthead-contact
-                  data-ibm-contact="contact-link"
-                  trigger-label="${ifDefined(
-                    contactUsButton?.title
-                  )}"></c4d-masthead-contact>
-              `}
-          ${hasProfile === 'false'
-            ? ''
-            : html`
-                <c4d-masthead-profile ?authenticated="${userIsAuthenticated}">
-                  ${profileItems?.map(
-                    ({ title, url }) =>
-                      html`
-                        <c4d-masthead-profile-item href="${ifDefined(url)}"
-                          >${title}</c4d-masthead-profile-item
-                        >
-                      `
-                  )}
-                </c4d-masthead-profile>
-              `}
-          ${ctaButtons?.map(
-            ({ title, url }) =>
-              html`
-                <c4d-masthead-button-cta href="${ifNonEmpty(url)}" kind="ghost">
-                  ${title}
-                </c4d-masthead-button-cta>
-              `
-          )}
+          ${this._renderContact()} ${this._renderProfileMenu()}
+          ${this._renderCtaButtons()}
         </c4d-masthead-global-bar>
-        ${!l1Data ? undefined : this._renderL1()}
+        ${this._renderL1()}
         <c4d-megamenu-overlay></c4d-megamenu-overlay>
       </c4d-masthead>
     `;
