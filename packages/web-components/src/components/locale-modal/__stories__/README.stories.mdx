@@ -15,10 +15,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 > to those region languages, if available.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/locale-modal)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/locale-modal)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/locale-modal)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/locale-modal)
 
 ## Getting started
 
@@ -35,12 +35,12 @@ import '@carbon/ibmdotcom-web-components/es/components/locale-modal/index.js';
 ### HTML
 
 ```html
-<cds-locale-modal-container open></cds-locale-modal-container>
+<c4d-locale-modal-container open></c4d-locale-modal-container>
 ```
 
 ## Props
 
-<Props of="cds-locale-modal-container" />
+<Props of="c4d-locale-modal-container" />
 
 ## Stable selectors
 
@@ -50,7 +50,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                       | Compatibility selector                 | Description |
 | --------------------------------------------- | -------------------------------------- | ----------- |
-| `<cds-locale-modal>`                          | `cds--locale-modal`                    | Component   |
-| `<cds-region-item name="${region}">`          | `cds--locale-modal__geo-btn-${region}` | Interactive |
-| `::part(searchbox)` in `<cds-locale-search>`  | `cds--locale-modal__filter`            | Interactive |
-| `::part(back-button)` in `<cds-locale-modal>` | `cds--locale-modal__region-back`       | Interactive |
+| `<c4d-locale-modal>`                          | `cds--locale-modal`                    | Component   |
+| `<c4d-region-item name="${region}">`          | `cds--locale-modal__geo-btn-${region}` | Interactive |
+| `::part(searchbox)` in `<c4d-locale-search>`  | `cds--locale-modal__filter`            | Interactive |
+| `::part(back-button)` in `<c4d-locale-modal>` | `cds--locale-modal__region-back`       | Interactive |
