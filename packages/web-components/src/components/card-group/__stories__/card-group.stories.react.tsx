@@ -114,7 +114,7 @@ const cardsDiffLengthPhrase = (
     </DDSCardGroupItem>
   );
 
-  const videoCardGroupItem = (videoId = '1_9h94wo6b') => (
+  const videoCardGroupItem = (videoId = '0_ibuqxqbe') => (
     <DDSCardGroupItem
       cta-type="video"
       href={videoId}
@@ -128,7 +128,7 @@ const cardsDiffLengthPhrase = (
     </DDSCardGroupItem>
   );
 
-  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
+  const demoVideoIds = ['0_ibuqxqbe', '0_ibuqxqbe', '1_6b6qjovy'];
 
   count = count > 3 ? 0 : count + 1;
   return media && index % 2
@@ -217,11 +217,11 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
     ) : (
       <DDSCardGroupItem
         cta-type="video"
-        href="1_9h94wo6b"
+        href="0_ibuqxqbe"
         colorScheme={gridMode === 'border' ? 'light' : null}>
         <DDSCardEyebrow>Topic</DDSCardEyebrow>
         {tagGroup ? tagGroupContent : ''}
-        <DDSCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b" />
+        <DDSCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
       </DDSCardGroupItem>
     );
   }

@@ -17,7 +17,7 @@ const App = () => (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--offset-lg-3 bx--col-lg-13">
-          <DDSVideoPlayerContainer aspectRatio="1x1" videoId="1_9h94wo6b" />
+          <DDSVideoPlayerContainer aspectRatio="1x1" videoId="0_ibuqxqbe" />
         </div>
       </div>
     </div>

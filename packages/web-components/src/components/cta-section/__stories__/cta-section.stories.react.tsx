@@ -73,7 +73,7 @@ const contentItemTypeMap = {
   ),
   media: ({ heading, copy, links }) => (
     <DDSCTABlockItem>
-      <DDSVideoPlayerContainer video-id="1_9h94wo6b" aspect-ratio="4x3" slot="media" hide-caption playing-mode="lightbox" />
+      <DDSVideoPlayerContainer video-id="0_ibuqxqbe" aspect-ratio="4x3" slot="media" hide-caption playing-mode="lightbox" />
       <DDSContentItemHeading>{heading}</DDSContentItemHeading>
       <DDSContentItemCopy>{copy}</DDSContentItemCopy>
       {links.map(elem => (
