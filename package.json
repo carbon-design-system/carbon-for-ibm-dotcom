@@ -73,7 +73,6 @@
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.17.1",
     "through2": "^3.0.0",
-    "vite": "^5.0.7",
     "webpack": "^4.46.0"
   },
   "dependencies": {
