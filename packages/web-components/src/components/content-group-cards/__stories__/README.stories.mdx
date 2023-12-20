@@ -2,16 +2,16 @@ import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-group-cards>`
+# `<c4d-content-group-cards>`
 
-> The Content Group – Cards pattern is a variant of `<cds-content-group>`, and
+> The Content Group – Cards pattern is a variant of `<c4d-content-group>`, and
 > includes a heading, copy, and card items.
 >
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-group-cards)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-group-cards)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-group-cards)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-group-cards)
 
 ## Getting started
 
@@ -30,44 +30,44 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/index
 ### HTML
 
 ```html
-<cds-content-group-cards>
-  <cds-content-group-heading>${heading}</cds-content-group-heading>
-  <cds-content-group-copy
+<c4d-content-group-cards>
+  <c4d-content-group-heading>${heading}</c4d-content-group-heading>
+  <c4d-content-group-copy
     >Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit.</cds-content-group-copy
+    elit.</c4d-content-group-copy
   >
-  <cds-content-group-cards-item href="www.ibm.com">
-    <cds-card-heading
+  <c4d-content-group-cards-item href="www.ibm.com">
+    <c4d-card-heading
       >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt</cds-card-heading
+      tempor incididunt</c4d-card-heading
     >
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
-    <cds-card-footer icon-placement="left">
+    <c4d-card-footer icon-placement="left">
       <svg slot="icon" ...>...</svg>
-    </cds-card-footer>
-  </cds-content-group-cards-item>
-  <cds-content-group-cards-item href="www.ibm.com">
-    <cds-card-heading
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
+  <c4d-content-group-cards-item href="www.ibm.com">
+    <c4d-card-heading
       >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt</cds-card-heading
+      tempor incididunt</c4d-card-heading
     >
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
-    <cds-card-footer icon-placement="left">
+    <c4d-card-footer icon-placement="left">
       <svg slot="icon" ...>...</svg>
-    </cds-card-footer>
-  </cds-content-group-cards-item>
-</cds-content-group-cards>
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
+</c4d-content-group-cards>
 ```
 
 ## Props
 
-<Props of="cds-content-group-cards" />
+<Props of="c4d-content-group-cards" />
 
 ## Stable selectors
 
@@ -77,8 +77,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector          | Compatibility selector                        | Description |
 | -------------------------------- | --------------------------------------------- | ----------- |
-| `<cds-content-group-cards>`      | `data-autoid="cds--content-group-cards"`      | Component   |
-| `<cds-content-group-heading>`    | `data-autoid="cds--content-group__title"`     | Component   |
-| `<cds-content-group-cards-item>` | `data-autoid="cds--content-group-cards-item"` | Component   |
+| `<c4d-content-group-cards>`      | `data-autoid="c4d--content-group-cards"`      | Component   |
+| `<c4d-content-group-heading>`    | `data-autoid="c4d--content-group__title"`     | Component   |
+| `<c4d-content-group-cards-item>` | `data-autoid="c4d--content-group-cards-item"` | Component   |
 
 <Description markdown={contributing} />
