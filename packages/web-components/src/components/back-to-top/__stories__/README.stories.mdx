@@ -1,0 +1,56 @@
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+# Back to top
+
+> 💡 Check our
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/back-to-top)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/back-to-top)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/back-to-top/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['back-to-top'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
+
+The `<c4d-back-to-top>` component is set to position itself above `<c4d-footer>`
+if it is present – it will not scroll into the footer. For easiest
+implementation place `<c4d-back-to-top>` within the page's main content area.
+
+```html
+<c4d-back-to-top></c4d-back-to-top>
+```
+
+## Props
+
+<Props of="c4d-back-to-top" />
+
+## Stable selectors
+
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector           | Description |
+| ----------------------- | -------------------------------- | ----------- |
+| `<c4d-back-to-top>`     | `data-autoid="c4d--back-to-top"` | Component   |
+
+<Description markdown={contributing} />
