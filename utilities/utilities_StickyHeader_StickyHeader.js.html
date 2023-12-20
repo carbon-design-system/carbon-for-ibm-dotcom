@@ -34,13 +34,10 @@
  */
 
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import ddsSettings from '../settings/settings.js';
 import root from 'window-or-global';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from '../settings/settings.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
-
+const { prefix, stablePrefix: c4dPrefix } = settings;
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 class StickyHeader {
@@ -76,7 +73,7 @@ class StickyHeader {
   }
 
   static get customPropertyName() {
-    return `--${ddsPrefix}-sticky-header-height`;
+    return `--${c4dPrefix}-sticky-header-height`;
   }
 
   get height() {
@@ -105,7 +102,7 @@ class StickyHeader {
 
     const tocRoot = toc.shadowRoot;
 
-    const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
+    const desktopSelector = `.${c4dPrefix}-ce--table-of-contents__items-container`;
 
     if (window.innerWidth > gridBreakpoint) {
       if (toc.layout === 'horizontal') {
@@ -124,7 +121,7 @@ class StickyHeader {
   }
 
   set banner(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-universal-banner`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-global-banner`)) {
       this._banner = component;
       this.hasBanner = true;
 
@@ -138,7 +135,7 @@ class StickyHeader {
 
   set leadspaceWithSearch(component) {
     if (
-      this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
+      this._validateComponent(component, `${c4dPrefix}-leadspace-with-search`)
     ) {
       this._leadspaceWithSearch = component;
       const leadspaceSearchBar = component.shadowRoot.querySelector(
@@ -146,7 +143,7 @@ class StickyHeader {
       );
       this._leadspaceSearchBar = leadspaceSearchBar;
       this._leadspaceWithSearchInput = component.querySelector(
-        `${ddsPrefix}-search-with-typeahead`
+        `${c4dPrefix}-search-with-typeahead`
       );
       this._leadspaceWithSearchStickyThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
@@ -156,27 +153,27 @@ class StickyHeader {
   }
 
   set localeModal(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-locale-modal`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-locale-modal`)) {
       this._localeModal = component;
       this._calculateCumulativeHeight();
     }
   }
 
   set masthead(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-masthead`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-masthead`)) {
       this._masthead = component;
       if (this._banner) this._masthead.setAttribute('with-banner', '');
 
       this._mastheadL0 = component.shadowRoot.querySelector(
         `.${prefix}--masthead__l0`
       );
-      this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
+      this._mastheadL1 = component.querySelector(`${c4dPrefix}-masthead-l1`);
       this._calculateCumulativeHeight();
     }
   }
 
   set tableOfContents(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-table-of-contents`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-table-of-contents`)) {
       this._tableOfContents = component;
       this._tableOfContentsStickyUpdate();
       this._resizeObserver.observe(this._tableOfContents);
@@ -403,13 +400,13 @@ export default StickyHeader;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="ipcinfoCookie.html">ipcinfoCookie</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="ipcinfoCookie.html">ipcinfoCookie</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#on">on</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Dec 20 2023 15:11:23 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Dec 20 2023 17:17:11 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

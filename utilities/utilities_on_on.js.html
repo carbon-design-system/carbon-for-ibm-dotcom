@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utilities/removeHtmlTagEntities/removeHtmlTagEntities.js</title>
+    <title>JSDoc: Source: utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utilities/removeHtmlTagEntities/removeHtmlTagEntities.js</h1>
+    <h1 class="page-title">Source: utilities/on/on.js</h1>
 
     
 
@@ -27,46 +27,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import striptags from 'striptags';
-
-const _cleanStringRegex = /\n|\s{2,}|&amp;([a-zA-Z]+);/g;
-
-/**
- * Cleans string by replacing multiple spaces with a single space
- * and removing single new lines.
- *
- * @param {string} str String to be checked
- * @returns {string} String with multiple spaces and single new lines removed
- * @private
- */
-const _cleanString = (str) => str.replace(_cleanStringRegex, ' ');
-
 /**
  *
- * @param {string} str html string passed in to remove html tags and entities
- * @param {object} [options={}] Object with options for the conversion
- * @param {boolean} [options.removeEntities=true] Defines if should remove html entities
- * @returns {string} String removed of html tags
- * @example
- * import { removeHtmlTagEntities } from '@carbon/ibmdotcom-utilities';
- *
- * markdownToHtml('&lt;p>example string&lt;/p>&amp;nbsp;&lt;p>here&lt;/>')
- * // 'example string here'
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
  */
-function removeHtmlTagEntities(str, { removeEntities = true } = {}) {
-  let removedTags = striptags(str);
-  removedTags = removeEntities ? _cleanString(removedTags) : removedTags;
 
-  return removedTags;
+function on(element, ...args) {
+  element.addEventListener(...args);
+  return {
+    release() {
+      element.removeEventListener(...args);
+      return null;
+    },
+  };
 }
 
-export default removeHtmlTagEntities;
+export default on;
 </code></pre>
         </article>
     </section>
