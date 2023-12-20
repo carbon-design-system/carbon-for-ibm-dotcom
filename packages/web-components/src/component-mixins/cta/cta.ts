@@ -352,7 +352,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       }
       const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
       const hash = window.location.hash;
-      const urlTrigger = `cta-video-trigger-${href}`;
+      const urlTrigger = `cta-video-${href}`;
 
       if (hash.includes(urlTrigger)) {
         this.dispatchEvent(
