@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
-import { mastheadL1Data, logoData } from './links';
+import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 
@@ -54,17 +54,24 @@ const scopeParameters = [
   },
 ];
 
-async function customTypeaheadApiFunction(searchVal) {
-  return fetch(
-    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
-  )
+async function customTypeaheadApiFunction(query) {
+  return fetch(`https://www-api.ibm.com/search/typeahead/v1?query=${query}`)
     .then((response) => response.json())
     .then((data) => {
-      const searchResults = [
-        data.hints,
+      let searchResults = [
+        // Results not including "carbon"
+        data.response
+          .filter(result => !result[0].toLowerCase().includes('carbon'))
+          .map(result => result[0]),
+        // optional grouped category results including "carbon"
         {
-          title: 'Product pages',
-          items: data.products,
+          title: 'Carbon',
+          items: data.response
+            .filter(result => result[0].toLowerCase().includes('carbon'))
+            .map(result => ({
+              name: result[0],
+              href: `https://www.example.com/${encodeURIComponent(result[0])}`
+            })),
         },
       ];
       return searchResults;
@@ -79,14 +86,22 @@ export const Default = (args) => {
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
-    navLinks,
+    useMock,
   } = args?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
       document
-        .querySelector('cds-masthead-container')
+        .querySelector('c4d-masthead-container')
         ?.removeAttribute('has-search');
+    }, 1000);
+  }
+  if (useMock) {
+    setTimeout(() => {
+      const masthead = document.querySelector('c4d-masthead-container')
+      if (masthead) {
+        (masthead as any).navLinks = links;
+      }
     }, 1000);
   }
   return (
@@ -94,7 +109,6 @@ export const Default = (args) => {
       selected-menu-item={selectedMenuItem}
       user-status={userStatus}
       searchPlaceholder={searchPlaceholder}
-      navLinks={navLinks}
       has-profile={hasProfile}
       has-search={hasSearch}
       custom-profile-login={customProfileLogin}></C4DMastheadContainer>
@@ -103,13 +117,13 @@ export const Default = (args) => {
 
 export const WithCustomTypeahead = () => {
   document.documentElement.addEventListener(
-    'cds-search-with-typeahead-input',
+    'c4d-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
         (e as CustomEvent).detail.value
       );
       document.dispatchEvent(
-        new CustomEvent('cds-custom-typeahead-api-results', { detail: results })
+        new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
       );
     }
   );
@@ -155,11 +169,16 @@ searchOpenOnload.story = {
 export const withPlatform = (args) => {
   const { platform, platformUrl } = args?.WithPlatform ?? {};
 
-  return (
-    <C4DMastheadContainer
-      platform={platform}
-      platformUrl={platformUrl}></C4DMastheadContainer>
-  );
+  if (platformUrl) {
+    setTimeout(() => {
+      const masthead = document.querySelector('c4d-masthead-container')
+      if (masthead) {
+        (masthead as any).platformUrl = platformUrl;
+      }
+    }, 1000);
+  }
+
+  return <C4DMastheadContainer platform={platform}></C4DMastheadContainer>;
 };
 
 withPlatform.story = {
@@ -180,10 +199,17 @@ withPlatform.story = {
 
 export const withL1 = (args) => {
   const { selectedMenuItem } = args?.MastheadComposite ?? {};
+
+  setTimeout(() => {
+    const masthead = document.querySelector('c4d-masthead-container')
+    if (masthead) {
+      (masthead as any).l1Data = mastheadL1Data;
+    }
+  }, 1000);
+
   return (
     <C4DMastheadContainer
-      selected-menu-item={selectedMenuItem}
-      l1Data={mastheadL1Data}></C4DMastheadContainer>
+      selected-menu-item={selectedMenuItem}></C4DMastheadContainer>
   );
 };
 
@@ -204,12 +230,16 @@ withL1.story = {
 export const withAlternateLogoAndTooltip = (args) => {
   const { mastheadLogo } = args?.MastheadComposite ?? {};
 
-  return (
-    <C4DMastheadContainer
-      logoData={
-        mastheadLogo === 'alternateWithTooltip' ? logoData : null
-      }></C4DMastheadContainer>
-  );
+  if (mastheadLogo === 'alternateWithTooltip') {
+    setTimeout(() => {
+      const masthead = document.querySelector('c4d-masthead-container')
+      if (masthead) {
+        (masthead as any).logoData = logoData;
+      }
+    }, 1000);
+  }
+
+  return <C4DMastheadContainer></C4DMastheadContainer>;
 };
 
 withAlternateLogoAndTooltip.story = {
@@ -231,10 +261,14 @@ withAlternateLogoAndTooltip.story = {
 };
 
 export const WithScopedSearch = () => {
-  return (
-    <C4DMastheadContainer
-      scopeParameters={scopeParameters}></C4DMastheadContainer>
-  );
+  setTimeout(() => {
+    const masthead = document.querySelector('c4d-masthead-container')
+    if (masthead) {
+      (masthead as any).scopeParameters = scopeParameters;
+    }
+  }, 1000);
+
+  return <C4DMastheadContainer></C4DMastheadContainer>;
 };
 
 WithScopedSearch.story = {
@@ -287,6 +321,7 @@ export default {
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'
           ),
+        useMock: boolean('use mock nav data', false),
       }),
     },
   },
