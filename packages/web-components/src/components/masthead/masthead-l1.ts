@@ -453,6 +453,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
           ${title}${ChevronDown16()}
         </button>
         <div
+          data-dropdown-target
           class="${prefix}--masthead__l1-dropdown ${prefix}--masthead__l1-dropdown__${columns}-col">
           ${announcement
             ? html`<div class="${prefix}--masthead__l1-dropdown-announcement">
@@ -557,7 +558,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       <button class="${prefix}--masthead__l1-title" @click=${toggleSubsection}>
         ${title}${ChevronDown16()}
       </button>
-      <ul class="${prefix}--masthead__l1-dropdown">
+      <ul data-dropdown-target class="${prefix}--masthead__l1-dropdown">
         ${url
           ? html` <li>
               <a class="${prefix}--masthead__l1-dropdown-item" href="${url}">
@@ -623,7 +624,9 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
           @click=${toggleSubsection}>
           ${title}${ChevronDown16()}
         </button>
-        <div class="${prefix}--masthead__l1-dropdown-subsection">
+        <div
+          data-dropdown-target
+          class="${prefix}--masthead__l1-dropdown-subsection">
           ${announcement
             ? html`<div class="${prefix}--masthead__l1-dropdown-announcement">
                 ${unsafeHTML(announcement)}
@@ -680,7 +683,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const { currentTarget } = event;
     const button = currentTarget as HTMLElement;
     const dropdown = button.parentNode?.querySelector(
-      `.${prefix}--masthead__l1-dropdown`
+      '[data-dropdown-target]'
     ) as HTMLElement;
     const isOpen = dropdown?.classList.contains('is-open');
 
