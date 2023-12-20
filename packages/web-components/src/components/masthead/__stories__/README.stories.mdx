@@ -1,8 +1,6 @@
 import {
-  Preview,
   Props,
   Description,
-  Story,
 } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
@@ -14,6 +12,7 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 > profile services for IBM.com.
 
 ## Examples
+
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead)
 > example implementations.
@@ -26,9 +25,9 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead-l1)
 
-## Getting Started
+## Getting started
 
-##### Note: Masthead uses the Carbon White theme by design. Using other themes will not change the Masthead color scheme.
+**Note: Masthead uses the Carbon White theme by design. Using other themes will not change the Masthead color scheme.**
 
 ### JS (via import)
 
@@ -47,25 +46,25 @@ Using the default data provides visitors a consistent navigation experience acro
 ></c4d-masthead-container>
 ```
 
-#### Setting Platform
+## Modifying the masthead
 
+### Setting platform name
 ```html
 <c4d-masthead-container platform="Lorem Ipsum"></c4d-masthead-container>
 ```
 
-#### Setting Platform URL
-
+### Setting platform URL
 ```html
 <c4d-masthead-container
   platform="Lorem Ipsum"
-  id="masthead-container"></c4d-masthead-container>
+  id="masthead"></c4d-masthead-container>
 ```
 
 ```javascript
-document.getElementById('masthead-container').platformUrl = 'https://www.example.com';
+document.getElementById('masthead').platformUrl = 'https://www.example.com';
 ```
 
-##### Localized platform URLs:
+#### Localized platform URLs
 
 The component will show a specific URL depending on the locale if you set the `platformUrl` property to an object, like so:
 
@@ -82,12 +81,12 @@ const urlObject = {
   },
 };
 
-document.getElementById('masthead-container').platformUrl = urlObject;
+document.getElementById('masthead').platformUrl = urlObject;
 ```
 
-#### Custom Navigation
+### Custom navigation
 
-In order to set custom navigation for the masthead, use JavaScript to set the `navLinks` property of the masthead-composite component. This property should be a L0Menu object as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
+In order to set custom navigation for the masthead, use JavaScript to set the `navLinks` property of the masthead-composite component. This property should be an array of L0MenuItem objects as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
 
 ```html
 <c4d-masthead-composite
@@ -95,65 +94,41 @@ In order to set custom navigation for the masthead, use JavaScript to set the `n
 ```
 
 ```javascript
-const customNavData = {
-  items: [
-    {
-      title: 'Basic Link',
-      titleEnglish: 'Basic Link',
-      url: 'https://www.example.com/',
-    },
-    {
-      title: 'Dropdown',
-      titleEnglish: 'Dropdown',
-      submenu: [
-        {
-          title: 'Dropdown Link',
-          titleEnglish: 'Dropdown Link',
-          url: 'https://www.example.com/demo',
-        },
-        {
-          title: 'Dropdown Link 2',
-          titleEnglish: 'Dropdown Link 2',
-          url: 'https://www.example.com/demo-2',
-        },
-      ],
-    },
-    {
-      title: 'Megamenu',
-      titleEnglish: 'Megamenu',
-      submenu: {
-        sections: [...],
-        vieAll: {...},
+const customNavData = [
+  {
+    title: 'Basic Link',
+    titleEnglish: 'Basic Link',
+    url: 'https://www.example.com/',
+  },
+  {
+    title: 'Dropdown',
+    titleEnglish: 'Dropdown',
+    submenu: [
+      {
+        title: 'Dropdown Link',
+        titleEnglish: 'Dropdown Link',
+        url: 'https://www.example.com/demo',
       },
+      {
+        title: 'Dropdown Link 2',
+        titleEnglish: 'Dropdown Link 2',
+        url: 'https://www.example.com/demo-2',
+      },
+    ],
+  },
+  {
+    title: 'Megamenu',
+    titleEnglish: 'Megamenu',
+    submenu: {
+      sections: [...],
+      viewAll: {...},
     },
-  ],
-};
+  },
+];
 document.getElementById('masthead').navLinks = customNavData;
 ```
 
-#### Using L1 nav
-
-To use L1 nav, set `l1Data` property in JavaScript. It property should be a MastheadL1 object, as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
-
-```html
-<c4d-masthead-container
-  id="masthead-container"></c4d-masthead-container>
-```
-
-```javascipt
-const l1Data = {
-  platform: {
-    name: 'Stock Charts',
-    url: 'https://example.com/',
-  },
-  menuItems: [...],
-  actions: {...},
-}
-```
-
-```html
-<c4d-masthead-container id="masthead-container"></c4d-masthead-container>
-```
+#### Custom data endpoint
 
 To set a custom endpoint for the translation service to fetch from, set either
 the `data-endpoint` attribute like below or `C4D_TRANSLATION_ENDPOINT`
@@ -164,15 +139,35 @@ environment variable.
   data-endpoint="/custom-endpoint"></c4d-masthead-container>
 ```
 
+### Using L1 Nav
+
+To use L1 nav, set `l1Data` property in JavaScript. It property should be a MastheadL1 object, as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
+
+```html
+<c4d-masthead-container
+  id="masthead"></c4d-masthead-container>
+```
+
+```javascript
+const l1Data = {
+  platform: {
+    name: 'Stock Charts',
+    url: 'https://example.com/',
+  },
+  menuItems: [...],
+  actions: {...},
+}
+
+document.getElementById('masthead').l1Data = l1Data;
+```
+
 ### Setting the active menu item
 
 The active menu item receives a unique style treatment to indicate where the
 current page is within the navigation hierarchy.
 
-#### Manually
-
-Manually set the active item by using the `selected-menu-item` property. See
-[the Props table](#props).
+> Note: If no menu items are marked active and the optional `platformUrl` property
+has been set, the platform link will be marked active.
 
 #### Automatically
 
@@ -180,8 +175,14 @@ The first menu item whose `href` value matches the browser window's current URL
 will automatically be marked active if the `selected-menu-item` property has not
 been set.
 
-If no other menu items are marked active and the optional `platformUrl` property
-has been set, the platform link will be marked active.
+#### Manually
+
+Manually set the active item by using the `selected-menu-item` property. Any navigation items with a matching `titleEnglish` value from the `navLinks` data will be marked active.
+
+```html
+<c4d-masthead-container
+  selected-nav-item="Basic Link"></c4d-masthead-container>
+```
 
 ### Understanding the different authentication method types
 
@@ -201,7 +202,9 @@ method. See below for more context on each available value.
   console API user login response. This method is designed and intended for
   Cloud Docs (https://cloud.ibm.com) team usage only.
 
-### Using custom search with typeahead API
+### Customizing search
+
+#### Using custom search with typeahead API
 
 Using a search API other than the default provided from IBM Search is supported.
 
@@ -241,7 +244,7 @@ document.addEventListener('c4d-search-with-typeahead-input', async (e) => {
 });
 ```
 
-### Grouped Search
+#### Grouped search
 
 Some APIs contain grouped results in addition to regular search suggestions,
 which can also be displayed upon search.
@@ -258,16 +261,16 @@ async function customTypeaheadApiFunction(query) {
     .then((data) => {
       let searchResults = [
         // Results not including "carbon"
-        data.response.data
-          .filter(result => !result[0].toLowerCase().contains('carbon'))
+        data.response
+          .filter(result => !result[0].toLowerCase().includes('carbon'))
           .map(result => result[0]),
         // optional grouped category results including "carbon"
         {
           title: 'Carbon',
-          items: data.response.data
-            .filter(result => result[0].toLowerCase().contains('carbon'))
+          items: data.response
+            .filter(result => result[0].toLowerCase().includes('carbon'))
             .map(result => ({
-              title: result[0],
+              name: result[0],
               href: `https://www.example.com/${encodeURIComponent(result[0])}`
             })),
         },
@@ -281,7 +284,7 @@ As mentioned above, the two events `c4d-search-with-typeahead-input` and
 `c4d-custom-typeahead-api-results` must be handled for suggestions to be
 rendered -- the same code for the event listener can be reused.
 
-#### Note
+##### Note
 
 The API results must match the following structure:
 
@@ -326,9 +329,9 @@ The API results must match the following structure:
 ```
 
 The first array element is required to render the basic search
-suggestions, abd the following JSON objects are optional grouped sections.
+suggestions, and the following JSON objects are optional grouped sections.
 
-## Scoped search
+#### Scoped search
 
 Scoped searches are also supported, returning results from specifically targeted
 IBM pages and products.
@@ -368,7 +371,7 @@ const scopeParameters = [
 ];
 ```
 
-### Note
+##### Note
 
 A list of the available scoped categories can be found
 [here](https://github.ibm.com/digital-marketplace/columbus/blob/master/docs/SCOPED.MD).
