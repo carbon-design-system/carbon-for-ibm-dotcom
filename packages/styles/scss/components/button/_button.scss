@@ -25,14 +25,13 @@
 
       @media print {
         display: inline-block;
-        visibility: visible;
-        font-weight: 200;
         color: $text-primary;
+        font-weight: 200;
+        visibility: visible;
 
         span {
           font-weight: 600;
-          margin-left: calc(-1 * #{$spacing-02});
-          margin-right: $spacing-02;
+          margin-inline: calc(-1 * #{$spacing-02}) $spacing-02;
         }
       }
     }

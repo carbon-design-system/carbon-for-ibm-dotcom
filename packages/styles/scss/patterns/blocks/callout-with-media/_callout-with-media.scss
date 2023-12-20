@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2016, 2020
+// Copyright IBM Corp. 2016, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -8,31 +8,31 @@
 @mixin callout-with-media {
   .#{$prefix}--callout-with-media {
     .#{$prefix}--callout__content {
-      padding-top: 0;
+      padding-block-start: 0;
     }
 
     .#{$prefix}--content-block {
-      padding-bottom: $layout-05;
+      padding-block-end: $layout-05;
 
       &-simple__media-video {
         @include breakpoint-down(md) {
-          margin-top: -16px;
+          margin-block-start: -16px;
         }
 
-        margin-top: $spacing-07;
+        margin-block-start: $spacing-07;
       }
 
       &-simple__media-image {
         @include breakpoint-down(md) {
-          margin-top: 0;
+          margin-block-start: 0;
         }
 
-        margin-top: $spacing-09;
+        margin-block-start: $spacing-09;
       }
     }
 
     .#{$prefix}--video-player__video-caption {
-      padding-top: $spacing-03;
+      padding-block-start: $spacing-03;
     }
   }
 }

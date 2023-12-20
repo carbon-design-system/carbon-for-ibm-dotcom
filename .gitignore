@@ -6,8 +6,6 @@ packages/*/tests/e2e/dist/
 packages/carbon-web-components/scss/
 es
 lib
-!packages/eslint-plugin-react-prop-type-comments/lib
-!packages/eslint-plugin-ibmdotcom-import-rules/lib
 dist
 umd
 css

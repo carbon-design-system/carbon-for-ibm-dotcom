@@ -18,15 +18,16 @@
   .#{$prefix}--tag {
     @include type-style('label-01');
 
+    padding: 6px $spacing-05;
+
+    block-size: $spacing-07; /* carbon--container-02 */
+
     /* stylelint-disable-next-line declaration-property-unit-allowed-list */
     line-height: to-rem(20px);
-
-    height: $spacing-07; /* carbon--container-02 */
-    padding: 6px $spacing-05;
   }
 
   .#{$prefix}--tag--filter {
-    padding-right: $spacing-04;
+    padding-inline-end: $spacing-04;
   }
 
   .#{$prefix}--tag--disabled,
@@ -36,17 +37,17 @@
 
   .#{$prefix}--tag__close-icon {
     position: relative;
-    left: 6px;
-
-    width: $icon-size-01;
-    height: $icon-size-01;
-
-    margin-left: 0;
     padding: $spacing-01;
+    block-size: $icon-size-01;
+
+    inline-size: $icon-size-01;
+    inset-inline-start: 6px;
+
+    margin-inline-start: 0;
 
     &:focus,
     &:hover {
-      padding-left: $spacing-01;
+      padding-inline-start: $spacing-01;
     }
   }
 }

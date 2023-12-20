@@ -6,7 +6,7 @@ es
 lib
 umd
 packages/*/examples/*
-storybook-static
+storybook-static*
 
 node_modules
 
