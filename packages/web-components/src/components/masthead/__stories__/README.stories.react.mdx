@@ -14,16 +14,16 @@ import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-rea
 > profile services for IBM.com.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/masthead)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components-react/masthead)
 > example implementation.
 
 ### Masthead (L0):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/masthead)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/masthead)
 
 ### Masthead (L1):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/masthead-l1)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/masthead-l1)
 
 ## Getting Started
 
@@ -344,7 +344,7 @@ document.querySelector('cds-search-with-typeahead').placeholderFormatter =
 [cds-masthead-container props](https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/?path=/docs/components-masthead--with-alternate-logo-and-tooltip#props)
 
 For Cloud-specific version of masthead-container,
-`<cds-cloud-masthead-container>`, we support two user authentication methods,
+`<c4d-cloud-masthead-container>`, we support two user authentication methods,
 via cookie or api. To select between the two, provide the `auth-method` prop
 with a value of either 'cookie' or 'api'.
 
@@ -362,14 +362,14 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                                                                   | Compatibility selector                                                   | Description |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
-| `<cds-masthead>`                                                                          | `data-autoid="cds--masthead"`                                            | Component   |
-| `<cds-masthead-menu-button>`                                                              | `data-autoid="cds--masthead__hamburger"`                                 | Interactive |
-| `<cds-top-nav-name>`                                                                      | `data-autoid="cds--masthead__platform-name"`                             | Interactive |
-| `<cds-top-nav>`                                                                           | `data-autoid="cds--masthead__l0-nav"`                                    | Component   |
-| `<cds-top-nav-menu trigger-content="${item}">` and `<cds-top-nav-item title="${item}">`   | `data-autoid="cds--masthead__l0-nav--nav${item}"`                        | Interactive |
-| `<cds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="cds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
-| `<cds-left-nav>`                                                                          | `data-autoid="cds--masthead__l0-sidenav"`                                | Component   |
-| `<cds-left-nav-menu trigger-content="${item}">`                                           | `data-autoid="cds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
-| `<cds-left-nav-menu-item title="${item}">`                                                | `data-autoid="cds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
+| `<c4d-masthead>`                                                                          | `data-autoid="c4d--masthead"`                                            | Component   |
+| `<c4d-masthead-menu-button>`                                                              | `data-autoid="c4d--masthead__hamburger"`                                 | Interactive |
+| `<c4d-top-nav-name>`                                                                      | `data-autoid="c4d--masthead__platform-name"`                             | Interactive |
+| `<c4d-top-nav>`                                                                           | `data-autoid="c4d--masthead__l0-nav"`                                    | Component   |
+| `<c4d-top-nav-menu trigger-content="${item}">` and `<c4d-top-nav-item title="${item}">`   | `data-autoid="c4d--masthead__l0-nav--nav${item}"`                        | Interactive |
+| `<c4d-top-nav-menu-item title="${item}">`                                                 | `data-autoid="c4d--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
+| `<c4d-left-nav>`                                                                          | `data-autoid="c4d--masthead__l0-sidenav"`                                | Component   |
+| `<c4d-left-nav-menu trigger-content="${item}">`                                           | `data-autoid="c4d--masthead__l0-sidenav--nav${item}"`                    | Interactive |
+| `<c4d-left-nav-menu-item title="${item}">`                                                | `data-autoid="c4d--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
 
 <Description markdown={contributing} />
