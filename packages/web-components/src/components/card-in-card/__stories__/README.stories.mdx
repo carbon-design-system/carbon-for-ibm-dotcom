@@ -10,10 +10,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Card in Card
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-in-card)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/card-in-card)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-in-card)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-in-card)
 
 ## Getting started
 
@@ -31,30 +31,30 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 ### HTML
 
 ```html
-<cds-card-in-card href="https://example.com">
-  <cds-card-in-card-image
+<c4d-card-in-card href="https://example.com">
+  <c4d-card-in-card-image
     slot="image"
     alt="Image alt text"
     default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    <cds-image-item
+    <c4d-image-item
       media="(min-width: 1312px)"
       srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 672px)"
       srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 320px)"
       srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-  </cds-card-in-card-image>
-  <cds-card-eyebrow>Label</cds-card-eyebrow>
-  <cds-card-heading
+    </c4d-image-item>
+  </c4d-card-in-card-image>
+  <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+  <c4d-card-heading
     >Standard Bank Group prepares to embrace Africa’s AI
-    opportunity</cds-card-heading
+    opportunity</c4d-card-heading
   >
-  <cds-card-cta-footer>
+  <c4d-card-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -68,8 +68,8 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </cds-card-cta-footer>
-</cds-card-in-card>
+  </c4d-card-footer>
+</c4d-card-in-card>
 ```
 
 To render the video variation, make sure to wrap `card-in-card` with
@@ -81,22 +81,22 @@ NOTE: The default video title can be overwritten by passing in the `video-name`
 attribute to `card-in-card`.
 
 ```html
-<cds-video-cta-container>
-  <cds-card-in-card
+<c4d-video-cta-container>
+  <c4d-card-in-card
     video-name="custom card title"
     href="0_ibuqxqbe"
     cta-type="video">
-    <cds-card-eyebrow>${eyebrow}</cds-card-eyebrow>
-    <cds-card-cta-footer
+    <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+    <c4d-card-footer
       cta-type="video"
-      href="0_ibuqxqbe"></cds-card-cta-footer>
-  </cds-card-in-card>
-</cds-video-cta-container>
+      href="0_ibuqxqbe"></c4d-card-footer>
+  </c4d-card-in-card>
+</c4d-video-cta-container>
 ```
 
 ## Props
 
-<Props of="cds-card-in-card" />
+<Props of="c4d-card-in-card" />
 
 ## Stable selectors
 
@@ -106,6 +106,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector            | Description |
 | ----------------------- | --------------------------------- | ----------- |
-| `<cds-card-in-card>`    | `data-autoid="cds--card-in-card"` | Component   |
+| `<c4d-card-in-card>`    | `data-autoid="c4d--card-in-card"` | Component   |
 
 <Description markdown={contributing} />

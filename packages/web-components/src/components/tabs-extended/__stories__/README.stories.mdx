@@ -3,15 +3,15 @@ import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-tabs-extended>`
+# `<c4d-tabs-extended>`
 
-> The Tabs Extended - Tabbed collection of `<cds-tab>` content items.
+> The Tabs Extended - Tabbed collection of `<c4d-tab>` content items.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/tabs-extended)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/tabs-extended)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/tabs-extended)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/tabs-extended)
 
 ## Getting started
 
@@ -30,23 +30,23 @@ import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/index.js';
 ### HTML
 
 ```html
-<cds-tabs-extended orientation="horizontal">
-  <cds-tab label="First tab">
+<c4d-tabs-extended orientation="horizontal">
+  <c4d-tab label="First tab">
     <p>Content for first tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Second tab">
+  </c4d-tab>
+  <c4d-tab label="Second tab">
     <p>Content for second tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Third tab" selected="true">
+  </c4d-tab>
+  <c4d-tab label="Third tab" selected="true">
     <p>Content for third tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Fourth tab">
+  </c4d-tab>
+  <c4d-tab label="Fourth tab">
     <p>Content for fourth tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Fifth tab" disabled="true">
+  </c4d-tab>
+  <c4d-tab label="Fifth tab" disabled="true">
     <p>Content for fifth tab goes here.</p>
-  </cds-tab>
-</cds-tabs-extended>
+  </c4d-tab>
+</c4d-tabs-extended>
 ```
 
 ## Setting active tab
@@ -58,30 +58,30 @@ Here's an example targetting the third tab. Note that the indexing starts at 0,
 which means the third tab is the one at index 2.
 
 ```html
-<cds-tabs-extended active-tab="2" orientation="horizontal">
-  <cds-tab label="First tab">
+<c4d-tabs-extended active-tab="2" orientation="horizontal">
+  <c4d-tab label="First tab">
     <p>Content for first tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Second tab">
+  </c4d-tab>
+  <c4d-tab label="Second tab">
     <p>Content for second tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Third tab" selected="true">
+  </c4d-tab>
+  <c4d-tab label="Third tab" selected="true">
     <p>Content for third tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Fourth tab">
+  </c4d-tab>
+  <c4d-tab label="Fourth tab">
     <p>Content for fourth tab goes here.</p>
-  </cds-tab>
-  <cds-tab label="Fifth tab" disabled="true">
+  </c4d-tab>
+  <c4d-tab label="Fifth tab" disabled="true">
     <p>Content for fifth tab goes here.</p>
-  </cds-tab>
-</cds-tabs-extended>
+  </c4d-tab>
+</c4d-tabs-extended>
 ```
 
 ## Props
 
-### `<cds-tab>`
+### `<c4d-tab>`
 
-<Props of="cds-tab" />
+<Props of="c4d-tab" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -92,7 +92,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector             | Description |
 | ----------------------- | ---------------------------------- | ----------- |
-| `<cds-tabs-extended>`   | `data-autoid="cds--tabs-extended"` | Component   |
-| `<cds-tab>`             | `data-autoid="cds--tab"`           | Component   |
+| `<c4d-tabs-extended>`   | `data-autoid="c4d--tabs-extended"` | Component   |
+| `<c4d-tab>`             | `data-autoid="c4d--tab"`           | Component   |
 
 <Description markdown={contributing} />
