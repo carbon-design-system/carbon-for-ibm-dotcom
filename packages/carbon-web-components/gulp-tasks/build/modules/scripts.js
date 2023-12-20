@@ -12,7 +12,7 @@ const filter = require('gulp-filter');
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const stripComments = require('strip-comments');
-
+const minifyHTMLLiterals = require('gulp-minify-html-literals');
 const babelPluginResourceJSPaths = require('../../../tools/babel-plugin-resource-js-paths');
 const config = require('../../config');
 
@@ -32,28 +32,23 @@ function scripts() {
         `!${config.srcDir}/index-with-polyfills.ts`,
       ])
       .pipe(sourcemaps.init())
+      .pipe(minifyHTMLLiterals({
+        failOnError: true,
+        options: {
+          minifyOptions: {
+            caseSensitive: true,
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            removeComments: true
+          },
+        },
+      }))
       .pipe(
         babel({
           presets: ['@babel/preset-modules'],
           // `version` field ensures `@babel/plugin-transform-runtime` is applied to newer helpers like decorator
           plugins: [
             ['@babel/plugin-transform-runtime', { useESModules: true, version: '7.8.0' }],
-            [
-              'template-html-minifier',
-              {
-                modules: {
-                  'lit-html': ['html'],
-                  'lit-element': ['html'],
-                },
-                htmlMinifier: {
-                  collapseWhitespace: true,
-                  conservativeCollapse: true,
-                  removeComments: true,
-                  caseSensitive: true,
-                  minifyCSS: true,
-                },
-              },
-            ],
             babelPluginResourceJSPaths,
           ],
         })
