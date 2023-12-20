@@ -3,13 +3,13 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-section>`
+# `<c4d-content-section>`
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-section)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-section)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-section)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-section)
 
 ## Getting started
 
@@ -28,13 +28,13 @@ import '@carbon/ibmdotcom-web-components/es/components/content-section/index.js'
 ### HTML
 
 ```html
-<cds-content-section>
-  <cds-content-section-heading>Heading</cds-content-section-heading>
-  <cds-content-section-copy>Copy</cds-content-section-copy>
-  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</cds-text-cta
+<c4d-content-section>
+  <c4d-content-section-heading>Heading</c4d-content-section-heading>
+  <c4d-content-section-copy>Copy</c4d-content-section-copy>
+  <c4d-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</c4d-text-cta
   >
-</cds-content-section>
+</c4d-content-section>
 ```
 
 As part of the ongoing upgrade to Carbon for IBM.com v2, we have consolidated
@@ -49,74 +49,74 @@ need to be provided with proper grid class as shown below in order for the
 component to render correctly within the grid.
 
 ```html
-<cds-content-section children-custom-class="cds--col-lg-16 cds--no-gutter">
-  <cds-content-section-heading>Heading</cds-content-section-heading>
-  <cds-content-section-copy>Copy</cds-content-section-copy>
-  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</cds-text-cta
+<c4d-content-section children-custom-class="cds--col-lg-16 cds--no-gutter">
+  <c4d-content-section-heading>Heading</c4d-content-section-heading>
+  <c4d-content-section-copy>Copy</c4d-content-section-copy>
+  <c4d-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</c4d-text-cta
   >
-  <cds-content-block-simple>
-    <cds-content-block-heading
-      >Content block simple heading</cds-content-block-heading
+  <c4d-content-block-simple>
+    <c4d-content-block-heading
+      >Content block simple heading</c4d-content-block-heading
     >
-    <cds-content-block-copy size="sm"
-      >Content block simple copy</cds-content-block-copy
+    <c4d-content-block-copy size="sm"
+      >Content block simple copy</c4d-content-block-copy
     >
-    <cds-video-player-container
+    <c4d-video-player-container
       slot="media"
-      video-id="0_ibuqxqbe"></cds-video-player-container>
-    <cds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com"
-      >Jump to AI ethics and trust</cds-text-cta
+      video-id="0_ibuqxqbe"></c4d-video-player-container>
+    <c4d-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com"
+      >Jump to AI ethics and trust</c4d-text-cta
     >
-  </cds-content-block-simple>
-</cds-content-section>
+  </c4d-content-block-simple>
+</c4d-content-section>
 ```
 
 ### Card group
 
 ```html
-<cds-content-section>
-  <cds-content-section-heading>Heading</cds-content-section-heading>
-  <cds-content-section-copy>Copy</cds-content-section-copy>
-  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</cds-text-cta
+<c4d-content-section>
+  <c4d-content-section-heading>Heading</c4d-content-section-heading>
+  <c4d-content-section-copy>Copy</c4d-content-section-copy>
+  <c4d-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</c4d-text-cta
   >
-  <cds-card-group>
-    <cds-card-group-item href="https://example.com" cta-type="local">
-      <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+  <c4d-card-group>
+    <c4d-card-group-item href="https://example.com" cta-type="local">
+      <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-    </cds-card-group-item>
-  </cds-card-group>
-</cds-content-section>
+      <c4d-card-footer slot="footer"> </c4d-card-footer>
+    </c4d-card-group-item>
+  </c4d-card-group>
+</c4d-content-section>
 ```
 
 ### Carousel
 
 ```html
-<cds-content-section>
-  <cds-content-section-heading>Heading</cds-content-section-heading>
-  <cds-content-section-copy>Copy</cds-content-section-copy>
-  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</cds-text-cta
+<c4d-content-section>
+  <c4d-content-section-heading>Heading</c4d-content-section-heading>
+  <c4d-content-section-copy>Copy</c4d-content-section-copy>
+  <c4d-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</c4d-text-cta
   >
-  <cds-content-section-heading
-    >Lorem ipsum dolor sit amet</cds-content-section-heading
+  <c4d-content-section-heading
+    >Lorem ipsum dolor sit amet</c4d-content-section-heading
   >
-  <cds-content-section-copy>
+  <c4d-content-section-copy>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
     est.
-  </cds-content-section-copy>
-  <cds-carousel>
-    <cds-card href="https://example.com">
-      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+  </c4d-content-section-copy>
+  <c4d-carousel>
+    <c4d-card href="https://example.com">
+      <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.
-      <cds-card-footer>
+      <c4d-card-footer>
         <svg
           slot="footer"
           focusable="false"
@@ -130,13 +130,13 @@ component to render correctly within the grid.
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-footer>
-    </cds-card>
-    <cds-card href="https://example.com">
-      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      </c4d-card-footer>
+    </c4d-card>
+    <c4d-card href="https://example.com">
+      <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.
-      <cds-card-footer>
+      <c4d-card-footer>
         <svg
           slot="footer"
           focusable="false"
@@ -150,13 +150,13 @@ component to render correctly within the grid.
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-footer>
-    </cds-card>
-    <cds-card href="https://example.com">
-      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      </c4d-card-footer>
+    </c4d-card>
+    <c4d-card href="https://example.com">
+      <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.
-      <cds-card-footer>
+      <c4d-card-footer>
         <svg
           slot="footer"
           focusable="false"
@@ -170,13 +170,13 @@ component to render correctly within the grid.
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-footer>
-    </cds-card>
-    <cds-card href="https://example.com">
-      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      </c4d-card-footer>
+    </c4d-card>
+    <c4d-card href="https://example.com">
+      <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.
-      <cds-card-footer>
+      <c4d-card-footer>
         <svg
           slot="footer"
           focusable="false"
@@ -190,13 +190,13 @@ component to render correctly within the grid.
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-footer>
-    </cds-card>
-    <cds-card href="https://example.com">
-      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      </c4d-card-footer>
+    </c4d-card>
+    <c4d-card href="https://example.com">
+      <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.
-      <cds-card-footer>
+      <c4d-card-footer>
         <svg
           slot="footer"
           focusable="false"
@@ -210,13 +210,13 @@ component to render correctly within the grid.
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-footer>
-    </cds-card>
-    <cds-card href="https://example.com">
-      <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
+      </c4d-card-footer>
+    </c4d-card>
+    <c4d-card href="https://example.com">
+      <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est.
-      <cds-card-footer>
+      <c4d-card-footer>
         <svg
           slot="footer"
           focusable="false"
@@ -230,50 +230,50 @@ component to render correctly within the grid.
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-footer>
-    </cds-card>
-  </cds-carousel>
-</cds-content-section>
+      </c4d-card-footer>
+    </c4d-card>
+  </c4d-carousel>
+</c4d-content-section>
 ```
 
 ### Link list
 
 ```html
-<cds-content-section>
-  <cds-content-section-heading>Heading</cds-content-section-heading>
-  <cds-content-section-copy>Copy</cds-content-section-copy>
-  <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
-    CTA text</cds-text-cta
+<c4d-content-section>
+  <c4d-content-section-heading>Heading</c4d-content-section-heading>
+  <c4d-content-section-copy>Copy</c4d-content-section-copy>
+  <c4d-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</c4d-text-cta
   >
-  <cds-content-section-heading
-    >Lorem ipsum dolor sit amet</cds-content-section-heading
+  <c4d-content-section-heading
+    >Lorem ipsum dolor sit amet</c4d-content-section-heading
   >
-  <cds-content-section-copy>
+  <c4d-content-section-copy>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
     est.
-  </cds-content-section-copy>
-  <cds-link-list>
-    <cds-link-list-item href="https://example.com">
+  </c4d-content-section-copy>
+  <c4d-link-list>
+    <c4d-link-list-item href="https://example.com">
       Learn more about Kubernetes and automating deployment ${ArrowRight20({
       slot: 'icon' })}
-    </cds-link-list-item>
-    <cds-link-list-item href="https://example.com">
+    </c4d-link-list-item>
+    <c4d-link-list-item href="https://example.com">
       Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-    </cds-link-list-item>
-    <cds-link-list-item href="https://example.com">
+    </c4d-link-list-item>
+    <c4d-link-list-item href="https://example.com">
       Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-    </cds-link-list-item>
-    <cds-link-list-item href="https://example.com">
+    </c4d-link-list-item>
+    <c4d-link-list-item href="https://example.com">
       Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-    </cds-link-list-item>
-    <cds-link-list-item href="https://example.com">
+    </c4d-link-list-item>
+    <c4d-link-list-item href="https://example.com">
       Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-    </cds-link-list-item>
-    <cds-link-list-item href="https://example.com">
+    </c4d-link-list-item>
+    <c4d-link-list-item href="https://example.com">
       Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-    </cds-link-list-item>
-  </cds-link-list>
-</cds-content-section>
+    </c4d-link-list-item>
+  </c4d-link-list>
+</c4d-content-section>
 ```
 
 As part of the ongoing upgrade to Carbon for IBM.com v2, we have consolidated some of the other `Content section` variants under a single one.
@@ -468,7 +468,7 @@ Some of the components that are compatible with the `Content section` component 
 
 ## Props
 
-<Props of="cds-content-section" />
+<Props of="c4d-content-section" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -479,8 +479,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector         | Compatibility selector                        | Description |
 | ------------------------------- | --------------------------------------------- | ----------- |
-| `<cds-content-section>`         | `data-autoid="cds--content-section"`          | Component   |
-| `<cds-content-section-copy>`    | `data-autoid="cds--content-section__copy"`    | Component   |
-| `<cds-content-section-heading>` | `data-autoid="cds--content-section__heading"` | Component   |
+| `<c4d-content-section>`         | `data-autoid="c4d--content-section"`          | Component   |
+| `<c4d-content-section-copy>`    | `data-autoid="c4d--content-section__copy"`    | Component   |
+| `<c4d-content-section-heading>` | `data-autoid="c4d--content-section__heading"` | Component   |
 
 <Description markdown={contributing} />

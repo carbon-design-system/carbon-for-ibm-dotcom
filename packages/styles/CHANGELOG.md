@@ -3,7 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.0.0-rc.3...@carbon/ibmdotcom-styles@2.0.0) (2023-12-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.0.0-rc.2...@carbon/ibmdotcom-styles@2.0.0-rc.3) (2023-12-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [2.0.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.0.0-rc.1...@carbon/ibmdotcom-styles@2.0.0-rc.2) (2023-11-30)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.0.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.0.0-rc.0...@carbon/ibmdotcom-styles@2.0.0-rc.1) (2023-11-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
 
@@ -16,7 +40,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **deps:** update dependency @carbon/layout to v10.37.2 ([#10949](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10949)) ([369a0c2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/369a0c2b4d35cab348e2a571e035c9c9a0d0a8da))
 * **back-to-top:** remove border-color rule ([#10891](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10891)) ([75175c0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/75175c0b7b840e19c98d2deba393acb2338d5026))
 * **card:** heading/copy spacing ([#11018](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11018)) ([97c1418](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/97c1418060baee3e65300b591d649825a97d151e))
 * **carousel:** update v2 styles and fix broken video cards ([#11006](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11006)) ([e34be4c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e34be4cf0d8499001191c1826b446bdef8431830))

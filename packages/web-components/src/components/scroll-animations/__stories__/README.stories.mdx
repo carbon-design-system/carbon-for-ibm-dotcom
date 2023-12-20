@@ -16,10 +16,10 @@ import {
 > Function component that handles fade transition for selected elements.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/scroll-animations)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/scroll-animations)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/scroll-animations)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/scroll-animations)
 
 ## Getting started
 
@@ -27,7 +27,7 @@ import {
 
 ##### (Note: Animation effect won't be noticeable unless the page is long enough to scroll through)
 
-In order to use the `<cds-scroll-animations>` component, it needs to be wrapped
+In order to use the `<c4d-scroll-animations>` component, it needs to be wrapped
 around the elements that need to be targeted, passing in a querystring
 containing the exact identifiers to control which elements it should target.
 
@@ -60,7 +60,7 @@ import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.j
 ## Example HTML
 
 ```html
-<cds-scroll-animations animation="fade" selector-targets=".targeted-class">
+<c4d-scroll-animations animation="fade" selector-targets=".targeted-class">
   <div class="targeted-class">
     <p>This content will fade in upon scrolled into view.</p>
   </div>
@@ -68,7 +68,7 @@ import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.j
   <div>
     <p>This content is not included in the selector, it will not fade.</p>
   </div>
-</cds-scroll-animations>
+</c4d-scroll-animations>
 ```
 
 ### Customizing Delay
@@ -100,6 +100,6 @@ attribute (e.g. `animation='slide-left'`):
 
 ## Props
 
-<Props of="cds-scroll-animations" />
+<Props of="c4d-scroll-animations" />
 
 <Description markdown={contributing} />

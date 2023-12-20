@@ -3,13 +3,13 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-block>`
+# `<c4d-content-block>`
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block)
 
 ## Getting started
 
@@ -27,22 +27,22 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block/index.js';
 ### HTML
 
 ```html
-<cds-content-block>
-  <cds-content-block-heading>Heading text</cds-content-block-heading>
-  <cds-content-block-copy>Copy test</cds-content-block-copy>
-  <cds-card-link-cta
+<c4d-content-block>
+  <c4d-content-block-heading>Heading text</c4d-content-block-heading>
+  <c4d-content-block-copy>Copy test</c4d-content-block-copy>
+  <c4d-card link
     slot="footer"
     cta-type="local"
     href="https://www.example.com">
-    <cds-card-link-heading>cta copy</cds-card-link-heading>
-    <cds-card-cta-footer></cds-card-cta-footer>
-  </cds-card-link-cta>
-</cds-content-block>
+    <c4d-card-link-heading>cta copy</c4d-card-link-heading>
+    <c4d-card-footer></c4d-card-footer>
+  </c4d-card>
+</c4d-content-block>
 ```
 
 ## Props
 
-<Props of="cds-content-block" />
+<Props of="c4d-content-block" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -53,9 +53,9 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector             | Compatibility selector                            | Description |
 | ----------------------------------- | ------------------------------------------------- | ----------- |
-| `<cds-content-block>`               | `data-autoid="cds--content-block"`                | Component   |
-| `<cds-content-block-copy>`          | `data-autoid="cds--content-block__copy"`          | Component   |
-| `<cds-content-block-heading>`       | `data-autoid="cds--content-block__heading"`       | Component   |
-| `<cds-content-block-complementary>` | `data-autoid="cds--content-block__complementary"` | Component   |
+| `<c4d-content-block>`               | `data-autoid="c4d--content-block"`                | Component   |
+| `<c4d-content-block-copy>`          | `data-autoid="c4d--content-block__copy"`          | Component   |
+| `<c4d-content-block-heading>`       | `data-autoid="c4d--content-block__heading"`       | Component   |
+| `<c4d-content-block-complementary>` | `data-autoid="c4d--content-block__complementary"` | Component   |
 
 <Description markdown={contributing} />

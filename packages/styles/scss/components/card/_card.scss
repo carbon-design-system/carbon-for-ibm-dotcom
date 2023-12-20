@@ -148,6 +148,12 @@
     .#{$prefix}--card__img {
       transition: $duration-moderate-01 motion(standard, productive);
     }
+
+    .#{$prefix}--card__link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
   }
 
   // Card with pictogram placement style
