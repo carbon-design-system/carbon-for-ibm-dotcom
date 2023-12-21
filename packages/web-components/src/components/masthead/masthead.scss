@@ -214,8 +214,7 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$c4d-prefix}-masthead-profile),
-:host(#{$c4d-prefix}-masthead-contact),
-:host(#{$c4d-prefix}-cloud-masthead-profile) {
+:host(#{$c4d-prefix}-masthead-contact) {
   background-color: $background;
   inline-size: $spacing-09;
 
@@ -308,8 +307,7 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-top-nav-menu),
 :host(#{$c4d-prefix}-megamenu-top-nav-menu),
 :host(#{$c4d-prefix}-masthead-profile),
-:host(#{$c4d-prefix}-masthead-contact),
-:host(#{$c4d-prefix}-cloud-masthead-profile) {
+:host(#{$c4d-prefix}-masthead-contact) {
   // @extend :host(#{$prefix}-header-menu);
   position: relative;
 
@@ -321,8 +319,7 @@ $breakpoint--desktop-nav: 799px;
 
 :host(#{$c4d-prefix}-top-nav-menu),
 :host(#{$c4d-prefix}-masthead-profile),
-:host(#{$c4d-prefix}-masthead-contact),
-:host(#{$c4d-prefix}-cloud-masthead-profile) {
+:host(#{$c4d-prefix}-masthead-contact) {
   .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
     background-color: $background;

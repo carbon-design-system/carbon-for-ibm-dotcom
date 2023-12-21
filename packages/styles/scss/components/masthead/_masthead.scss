@@ -268,8 +268,7 @@
   }
 
   :host(#{$c4d-prefix}-masthead-composite),
-  :host(#{$c4d-prefix}-masthead-container),
-  :host(#{$c4d-prefix}-cloud-masthead-container) {
+  :host(#{$c4d-prefix}-masthead-container) {
     @include layout.emit-layout-tokens();
 
     position: relative;

@@ -252,9 +252,7 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
 
       const masthead: HTMLElement | null | undefined = doc
         ?.querySelector(
-          `${c4dPrefix}-cloud-masthead-container,
-          ${c4dPrefix}-cloud-masthead-composite,
-          ${c4dPrefix}-masthead-container,
+          `${c4dPrefix}-masthead-container,
           ${c4dPrefix}-masthead-composite`
         )
         ?.querySelector(`${c4dPrefix}-masthead`);
