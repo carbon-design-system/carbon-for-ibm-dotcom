@@ -99,10 +99,28 @@ export const Default = (args) => {
         : ((childCta as HTMLElement).innerText = customVideoTitle);
     }
   }
+  if (ctaType !== 'video') {
+    const childCta = document.querySelector('c4d-cta')?.shadowRoot!.children[0];
+    const headingComponent =
+    childCta?.shadowRoot?.querySelector('c4d-card-heading') ||
+    childCta?.querySelector('c4d-card-heading');
+  headingComponent && !duration
+    ? (duration = headingComponent!.textContent!.match(/\((.*)\)/)?.pop())
+    : null;
+  if (headingComponent?.textContent) {
+    duration
+      ? (headingComponent!.textContent = `${heading} (${duration})`)
+      : (headingComponent!.textContent = heading);
+  }
+  }
 
   const childCta = document.querySelector('c4d-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
-
+  const childCtaRoot = document.querySelector('c4d-cta')?.shadowRoot;
+  const ctaFeatured = childCtaRoot?.querySelector('c4d-feature-cta');
+  const c4dImage = ctaFeatured?.querySelectorAll('c4d-image') || [];
+  const c4dHeading = ctaFeatured?.querySelectorAll('c4d-card-heading') || [];
+  console.log(c4dImage);
   return html`
     ${ctaStyle === 'button'
       ? html`
@@ -153,18 +171,22 @@ export const Default = (args) => {
               : ''}
             ${ctaStyle === 'feature'
               ? html`
-                  ${ctaType !== 'video'
+                  ${(c4dHeading?.length < 1) ? html `
+                    ${ctaType !== 'video'
                     ? html` <c4d-card-heading>${heading}</c4d-card-heading> `
                     : ''}
-                  ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
-                    ? html`
-                        <c4d-image
-                          slot="image"
-                          alt="Image alt text"
-                          default-src="${imgLg1x1}">
-                        </c4d-image>
-                      `
+                  ` : ''}
+                  ${(c4dImage?.length < 1) ? html `
+                    ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
+                      ? html`
+                          <c4d-image
+                            slot="image"
+                            alt="Image alt text"
+                            default-src="${imgLg1x1}">
+                          </c4d-image>
+                        `
                     : ''}
+                  ` : ''}
                   <c4d-feature-cta-footer
                     cta-type="${ifDefined(ctaType)}"
                     download="${ifDefined(footerDownload)}"
