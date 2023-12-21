@@ -24,8 +24,8 @@ import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components
 import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
-import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
-import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
+import imgXlg4x3 from '../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import logoMicrosoft2x1 from '../../../../.storybook/storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
 import { CTA_TYPE } from '../../cta/defs';
@@ -85,27 +85,30 @@ export const Default = (args) => {
         cta-type={ctaType}
         color-scheme={cardStyles === 'Inverse card' ? 'inverse' : ''}
         href={href || undefined}>
-        {image
-          ?
-            <C4DImage
-                slot="image"
-                alt={alt || undefined}
-                default-src={defaultSrc || undefined}></C4DImage>
-          : ``}
+        {image ? (
+          <C4DImage
+            slot="image"
+            alt={alt || undefined}
+            default-src={defaultSrc || undefined}></C4DImage>
+        ) : (
+          ``
+        )}
         <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
         <C4DCardHeading>{videoCopy ?? heading}</C4DCardHeading>
         {copy ? <p></p> : ``}
         {tagGroup ? (
-        <div>
-          <Tag type="green">Most popular</Tag>
-          <Tag type="purple">Enterprise</Tag>
-        </div>
-      ) : (
-        ''
-      )}
-        {ctaType === CTA_TYPE.VIDEO
-          ? <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
-          : <C4DCardFooter></C4DCardFooter>}
+          <div>
+            <Tag type="green">Most popular</Tag>
+            <Tag type="purple">Enterprise</Tag>
+          </div>
+        ) : (
+          ''
+        )}
+        {ctaType === CTA_TYPE.VIDEO ? (
+          <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
+        ) : (
+          <C4DCardFooter></C4DCardFooter>
+        )}
       </C4DCard>
     </C4DVideoCTAContainer>
   );
@@ -224,13 +227,14 @@ export const Static = (args) => {
     args?.StaticCard ?? {};
   return (
     <C4DCard>
-      {image
-          ?
-            <C4DImage
-                slot="image"
-                alt={alt || undefined}
-                default-src={defaultSrc || undefined}></C4DImage>
-          : ``}
+      {image ? (
+        <C4DImage
+          slot="image"
+          alt={alt || undefined}
+          default-src={defaultSrc || undefined}></C4DImage>
+      ) : (
+        ``
+      )}
       <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
       <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
@@ -328,7 +332,7 @@ export const Link = (args) => {
     } else {
       videoCopy = customVideoTitle;
     }
-    
+
     card.querySelector('c4d-card-footer')!.innerHTML = duration ?? '';
   }
 

@@ -16,8 +16,8 @@
 @use '../../globals/vars' as *;
 
 @mixin masthead-megamenu-limit-height {
-  max-height: var(--#{$c4d-prefix}-masthead-max-height);
   overflow: var(--#{$c4d-prefix}-masthead-overflow);
+  max-block-size: var(--#{$c4d-prefix}-masthead-max-height);
 }
 
 @mixin masthead-megamenu {
@@ -26,22 +26,22 @@
 
   @keyframes expand {
     0% {
+      max-block-size: 0;
       overflow-y: hidden;
-      max-height: 0;
     }
 
     100% {
-      max-height: 100%;
+      max-block-size: 100%;
     }
   }
 
   @keyframes collapse {
     0% {
-      max-height: 100vh;
+      max-block-size: 100vh;
     }
 
     100% {
-      max-height: 0;
+      max-block-size: 0;
     }
   }
 
@@ -57,8 +57,8 @@
     .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
     background-color: transparent;
-    bottom: 0;
     box-shadow: none;
+    inset-block-end: 0;
   }
 
   :host(#{$c4d-prefix}-megamenu-top-nav-menu),
@@ -67,12 +67,12 @@
     .#{$prefix}--header__menu {
       position: fixed;
       display: block;
-      visibility: hidden;
-      margin-bottom: $spacing-10;
-      left: 0;
-      width: 100vw;
+      inline-size: 100vw;
+      inset-inline-start: 0;
+      margin-block-end: $spacing-10;
       transform: translateZ(0.0001px);
       transition: visibility $transition-expansion $standard-easing;
+      visibility: hidden;
     }
 
     .#{$prefix}--header__menu-title[aria-expanded='false']
@@ -87,16 +87,16 @@
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
       position: fixed;
-      left: 0;
       // TODO: come up with solution to fix height for cloud drupal without hardcoding
-      height: calc(100vh - #{$spacing-10} - #{$spacing-09});
-      transform: translateZ(0);
-      visibility: visible;
-      margin-bottom: $spacing-10;
+      block-size: calc(100vh - #{$spacing-10} - #{$spacing-09});
       // `100vw` in Shadow DOM causes delayed rendering bug in Safari
       // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-      width: var(--#{$c4d-prefix}-ce--viewport-width, 100vw);
-      min-height: 320px;
+      inline-size: var(--#{$c4d-prefix}-ce--viewport-width, 100vw);
+      inset-inline-start: 0;
+      margin-block-end: $spacing-10;
+      min-block-size: 320px;
+      transform: translateZ(0);
+      visibility: visible;
 
       ::slotted(#{$c4d-prefix}-megamenu),
       ::slotted(#{$c4d-prefix}-cloud-megamenu),
@@ -110,14 +110,14 @@
   .#{$prefix}--masthead__megamenu__l0-nav {
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
-      top: $l0-nav-height;
+      inset-block-start: $l0-nav-height;
     }
   }
 
   .#{$prefix}--masthead__megamenu__l1-nav
     .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
-    top: $l1-nav-height;
+    inset-block-start: $l1-nav-height;
   }
 
   :host(#{$c4d-prefix}-megamenu),
@@ -130,8 +130,7 @@
     --#{$c4d-prefix}-masthead-overflow: overlay;
 
     display: block;
-    overflow-y: overlay;
-    overflow-x: hidden;
+    overflow: hidden overlay;
     background-color: $background;
 
     &:focus {
@@ -141,7 +140,7 @@
     .#{$prefix}--masthead__megamenu__container {
       @include make-container;
 
-      width: 100vw;
+      inline-size: 100vw;
     }
 
     .#{$prefix}--masthead__megamenu__container--row {
@@ -173,12 +172,13 @@
           --#{$c4d-prefix}-view-all-container-position: initial;
           --#{$c4d-prefix}-view-all-container-transform: initial;
 
-          // Set containing block for fixed position view all CTA.
-          transform: rotate(0deg);
           position: relative;
           z-index: 1;
 
           margin-inline: calc(#{$spacing-09} * -1);
+
+          // Set containing block for fixed position view all CTA.
+          transform: rotate(0deg);
         }
 
         @include breakpoint-up(lg) {
@@ -195,17 +195,18 @@
             --#{$c4d-prefix}-masthead-max-height: initial;
             --#{$c4d-prefix}-masthead-overflow: initial;
 
-            width: 100%;
-            max-width: initial;
-            margin-inline: initial;
-            padding-inline: $spacing-07;
-            border-bottom: to-rem(1px) solid $layer-accent-01;
             overflow: initial;
-            max-height: initial;
+            border-block-end: to-rem(1px) solid $layer-accent-01;
+
+            inline-size: 100%;
+            margin-inline: initial;
+            max-block-size: initial;
+            max-inline-size: initial;
+            padding-inline: $spacing-07;
 
             .#{$prefix}--masthead__megamenu-container {
-              max-height: initial;
               overflow: initial;
+              max-block-size: initial;
             }
           }
         }
@@ -224,7 +225,7 @@
           @include breakpoint-down(lg) {
             --#{$c4d-prefix}-view-all-display: none;
 
-            border-bottom: none;
+            border-block-end: none;
           }
 
           @include breakpoint-up(lg) {
@@ -237,9 +238,9 @@
 
           position: sticky;
           z-index: 1;
-          inset-block-end: 0;
           background-color: $background;
-          border-top: to-rem(1px) solid $layer-accent-01;
+          border-block-start: to-rem(1px) solid $layer-accent-01;
+          inset-block-end: 0;
 
           @include breakpoint-up(lg) {
             display: none;
@@ -249,7 +250,7 @@
     }
 
     ::slotted([role='tabpanel']) {
-      width: 100%;
+      inline-size: 100%;
     }
   }
 
@@ -257,17 +258,17 @@
   .#{$prefix}--masthead__megamenu__highlight-section,
   :host(#{$c4d-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
+    position: relative;
+    display: block;
     background-color: $background;
     padding-block-start: $spacing-06;
-    display: block;
-    position: relative;
 
     .#{$prefix}--masthead__megamenu-container {
       @include masthead-megamenu-limit-height;
 
       position: var(--#{$c4d-prefix}-view-all-container-position, relative);
-      height: 100%;
       z-index: 1;
+      block-size: 100%;
 
       // Set containing block for fixed position view all CTA.
       transform: var(
@@ -281,21 +282,21 @@
         justify-content: space-between;
 
         .#{$prefix}--masthead__megamenu-container-inner {
-          max-height: 100%;
           overflow: overlay;
+          max-block-size: 100%;
         }
 
         .#{$prefix}--masthead__megamenu__view-all {
-          display: var(--#{$c4d-prefix}-view-all-display, inherit);
           position: relative;
+          display: var(--#{$c4d-prefix}-view-all-display, inherit);
           background-color: $background;
         }
 
         .#{$prefix}--masthead__megamenu__view-all__border {
           position: absolute;
-          top: 0;
-          height: to-rem(1px);
           background: $layer-accent-01;
+          block-size: to-rem(1px);
+          inset-block-start: 0;
         }
       }
     }
@@ -305,11 +306,12 @@
   .#{$prefix}--masthead__megamenu__highlight-section {
     @include make-col(4, 16);
 
-    min-height: 100%;
+    margin-inline-start: calc(#{$spacing-05} * -1);
+
+    min-block-size: 100%;
 
     // Shift border left without breaking Carbon grid alignment.
     padding-inline-start: $spacing-05;
-    margin-inline-start: calc(#{$spacing-05} * -1);
 
     .#{$prefix}--masthead__megamenu__categories {
       columns: var(--#{$c4d-prefix}-left-nav-columns, 'initial');
@@ -324,10 +326,10 @@
   :host(#{$c4d-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
     display: block;
-    width: 100%;
+    inline-size: 100%;
 
     &.#{$c4d-prefix}--masthead__tabpanel-child {
-      height: 100%;
+      block-size: 100%;
     }
 
     &[style-scheme='has-sidebar'] {
@@ -365,9 +367,9 @@
     }
 
     .#{$prefix}--masthead__megamenu__categories {
-      padding-block-end: $spacing-07;
       column-count: 2;
       column-gap: 0;
+      padding-block-end: $spacing-07;
 
       @include breakpoint-up('lg') {
         column-count: 4;
@@ -394,10 +396,12 @@
   :host(#{$c4d-prefix}-megamenu-heading) {
     span {
       display: block;
-      max-width: calc((1 / var(--heading-description-column-count, 2)) * 100%);
+      max-inline-size: calc(
+        (1 / var(--heading-description-column-count, 2)) * 100%
+      );
 
       @include breakpoint-up('lg') {
-        max-width: calc(
+        max-inline-size: calc(
           (1 / var(--heading-description-column-count-lg, 4)) * 100%
         );
       }
@@ -409,9 +413,9 @@
     @include type-style('body-short-01');
 
     display: block;
-    color: $text-secondary;
     margin: to-rem(6px) $spacing-05 to-rem(10px);
-    max-width: to-rem(272px);
+    color: $text-secondary;
+    max-inline-size: to-rem(272px);
   }
 
   :host(#{$c4d-prefix}-megamenu-category-group),
@@ -443,8 +447,8 @@
     }
 
     .#{$prefix}--masthead__megamenu__category-group-content-wrapper {
-      width: 100%;
       display: inline-block;
+      inline-size: 100%;
       padding-block-end: $spacing-06;
     }
 
@@ -452,8 +456,9 @@
     ::slotted(#{$c4d-prefix}-megamenu-category-group-copy) {
       @include type-style('body-short-01');
 
-      color: $text-secondary;
       margin: to-rem(-6px) $spacing-05 $spacing-06;
+
+      color: $text-secondary;
     }
   }
 
@@ -474,13 +479,13 @@
   :host(
       #{$c4d-prefix}-megamenu-link-with-icon
     )[style-scheme='category-headline'] {
-    width: 100%;
+    inline-size: 100%;
 
     p,
     a,
     .#{$prefix}--link-with-icon {
-      width: 100%;
       padding: to-rem(6px) $spacing-05;
+      inline-size: 100%;
       margin-block-end: $spacing-06;
     }
 
@@ -503,7 +508,7 @@
     ::slotted(svg),
     svg {
       fill: $text-secondary;
-      min-width: $spacing-05;
+      min-inline-size: $spacing-05;
     }
 
     &:visited,
@@ -516,10 +521,11 @@
   .#{$prefix}--masthead__megamenu__category-sublink {
     @include type-style('body-short-01');
 
+    display: block;
+    padding: to-rem(6px) $spacing-05;
+
     color: $text-secondary;
     text-decoration: none;
-    padding: to-rem(6px) $spacing-05;
-    display: block;
 
     &:visited {
       color: $text-secondary;
@@ -538,11 +544,11 @@
     )[style-scheme='category-sublink'] {
     @include type-style('body-compact-01');
 
-    width: 100%;
+    inline-size: 100%;
 
     a {
-      width: 100%;
       padding: to-rem(7px) $spacing-05;
+      inline-size: 100%;
     }
 
     span {
@@ -552,8 +558,8 @@
 
   :host(#{$c4d-prefix}-megamenu-link-with-icon)[part*='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
-    width: 100%;
     display: flex;
+    inline-size: 100%;
 
     &[part*='view-all-left'] {
       [part='link'] {
@@ -562,11 +568,11 @@
     }
 
     [part='link'] {
-      text-decoration: none;
-      width: 100%;
+      block-size: $spacing-09;
+      inline-size: 100%;
       padding-inline: var(--#{$c4d-prefix}-view-all-padding, #{$spacing-07})
         $spacing-05;
-      height: $spacing-09;
+      text-decoration: none;
 
       &:hover {
         color: $link-primary-hover;
@@ -574,8 +580,8 @@
     }
 
     ::slotted(span) {
-      vertical-align: middle;
       align-self: center;
+      vertical-align: middle;
     }
 
     span {
@@ -594,8 +600,9 @@
     &:active {
       @include focus-outline;
 
-      outline-width: $spacing-01;
       outline-offset: -#{$spacing-01};
+
+      outline-width: $spacing-01;
     }
 
     &:active,

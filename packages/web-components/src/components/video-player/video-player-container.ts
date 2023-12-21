@@ -159,7 +159,7 @@ export const C4DVideoPlayerContainerMixin = <
       };
     }
 
-    _setAutoplayPreference(preference: Boolean) {
+    _setAutoplayPreference(preference: boolean) {
       const updatedValue = preference ? '1' : '0';
       localStorage.setItem(`${this.prefersAutoplayStorageKey}`, updatedValue);
     }
@@ -294,7 +294,7 @@ export const C4DVideoPlayerContainerMixin = <
       });
     }
 
-    prefersAutoplayStorageKey: String = `${c4dPrefix}-background-video-prefers-autoplay`;
+    prefersAutoplayStorageKey = `${c4dPrefix}-background-video-prefers-autoplay`;
   }
 
   return C4DVideoPlayerContainerMixinImpl;
