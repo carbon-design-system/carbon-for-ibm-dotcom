@@ -100,16 +100,17 @@ export function mapStateToProps(
         : translations?.[language]?.mastheadNav?.links,
       authenticatedProfileItems: !language
         ? undefined
-        : translations?.[language]?.profileMenu.signedin,
+        : translations?.[language]?.profileMenu?.signedin,
       unauthenticatedProfileItems: !language
         ? undefined
-        : translations?.[language]?.profileMenu.signedout,
+        : translations?.[language]?.profileMenu?.signedout,
       authenticatedCtaButtons: !language
         ? undefined
-        : translations?.[language]?.masthead?.profileMenu.signedin.ctaButtons,
+        : translations?.[language]?.masthead?.profileMenu?.signedin?.ctaButtons,
       unauthenticatedCtaButtons: !language
         ? undefined
-        : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
+        : translations?.[language]?.masthead?.profileMenu?.signedout
+            ?.ctaButtons,
       contactUsButton: !language
         ? undefined
         : translations?.[language]?.masthead?.contact,
