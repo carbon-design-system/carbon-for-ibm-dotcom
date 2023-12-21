@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
@@ -380,21 +379,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const target = e.target as HTMLSlotElement;
     const actions = target?.assignedElements();
 
-    // // wraps target with a button set
-    // let wrapper = target.querySelector(`.${blockClass}__actions-container`);
-    // if (!wrapper) {
-    //   target.insertAdjacentHTML(
-    //     'afterbegin',
-    //     '<cds-button-set></cds-button-set>'
-    //   );
-
-    //   wrapper = target.children[0];
-    // }
-    // wrapper.classList.add(`${blockClass}__actions-container`);
-
-    // for (let i = 0; i < actions.length; i++) {
-    //   wrapper.appendChild(actions[i]);
-    // }
     const actionsCount = actions?.length ?? 0;
     if (actionsCount === 0) return;
 
@@ -438,13 +422,13 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   private _resizeObserver = new ResizeObserver(() => {
     if (this._sidePanel) {
       const actionsContainer = this._sidePanel.querySelector(
-        `.${blockClass}__actions-container`
+        `#actions`
       ) as HTMLElement;
 
       const actionHeightPx = actionsContainer?.offsetHeight + 16; // add additional 1rem spacing to bottom padding
       const actionsHeight = `${Math.round(actionHeightPx / 16)}rem`;
       this._sidePanel.style?.setProperty(
-        `--${blockClass}--content-bottom-padding`,
+        `--${blockClass}--content-bottom-padding  `,
         actionsHeight
       );
 
@@ -637,83 +621,18 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       return html``;
     }
 
-    const containerClass = this.containerClass
-      .split(' ')
-      .filter(Boolean)
-      .reduce((acc, item) => ({ ...acc, [item]: true }), {});
-
-    const containerClasses = classMap({
-      [`${blockClass}__container`]: true,
-      [`${blockClass}__container--${size}`]: true,
-      [`${blockClass}__container--open`]: this._isOpen,
-      [`${blockClass}__container--opening`]: open && !this._isOpen,
-      [`${blockClass}__container--closing`]: !open && this._isOpen,
-      [`${blockClass}__container-${placement}-placement`]: true,
-      [`${blockClass}__container-without-overlay`]: !includeOverlay && !slideIn,
-      // [`${blockClass}__container-with-action-toolbar`]:
-      //   actionToolbarButtons && actionToolbarButtons.length,
-      // [`${blockClass}__container-without-overlay`]: !includeOverlay && !slideIn,
-      // [`${blockClass}__container-is-animating`]: !animationComplete || !open,
-      // [`${blockClass}__container--has-slug`]: slug,
-      ...containerClass,
-    });
-
-    const overlayClasses = classMap({
-      [`${blockClass}__overlay`]: true,
-      [`${blockClass}__overlay--open`]: this._isOpen,
-      [`${blockClass}__overlay--opening`]: open && !this._isOpen,
-      [`${blockClass}__overlay--closing`]: !open && this._isOpen,
-    });
-
-    const titleContainerClasses = classMap({
-      [`${blockClass}__title-container`]: true,
-      [`${blockClass}__on-detail-step`]: currentStep > 0,
-      [`${blockClass}__on-detail-step-without-title`]:
-        currentStep > 0 && !title,
-      [`${blockClass}__title-container--no-title-animation`]: !animateTitle,
-      [`${blockClass}__title-container-without-title`]: !title,
-      [`${blockClass}__title-container--reduced-motion`]:
-        this._reducedMotion.matches,
-      [`${blockClass}__title-container--has-action-toolbar`]:
-        this._hasActionToolbar,
-    });
-
-    const subtitleClasses = classMap({
-      [`${prefix}--visually-hidden`]: !this._hasSubtitle,
-      [`${blockClass}__subtitle-text`]: true,
-      [`${blockClass}__subtitle-text-no-animation`]: !animateTitle,
-      // [`${blockClass}__subtitle-text-no-animation-no-action-toolbar`]:
-      //   !animateTitle &&
-      //   (!actionToolbarButtons || !actionToolbarButtons.length),
-      // [`${blockClass}__subtitle-text-is-animating`]:
-      //   !animationComplete && animateTitle,
-      [`${blockClass}__subtitle-without-title`]: !title,
-    });
-
-    const innerContentClasses = classMap({
-      [`${blockClass}__inner-content`]: true,
-      [`${blockClass}__static-inner-content`]: !animateTitle,
-      [`${blockClass}__static-inner-content-no-actions`]:
-        !animateTitle && this._actionsCount === 0,
-      [`${blockClass}__inner-content-with-actions`]: this._actionsCount > 0,
-    });
-
     const actionsMultiple = ['', 'single', 'double', 'triple'][
       this._actionsCount
     ];
-    const actionClasses = classMap({
-      [`${prefix}--visually-hidden`]: this._actionsCount === 0,
-      [`${blockClass}__actions-container`]: true,
-      [`${blockClass}__actions-container-condensed`]: condensedActions,
-      [`${blockClassActionSet}`]: true,
-      [`${blockClassActionSet}--row-${actionsMultiple}`]: !this._actionsStacked,
-      [`${blockClassActionSet}--stacking`]:
-        this._actionsStacked && actionsMultiple,
-      [`${blockClassActionSet}--${size === 'xs' ? 'sm' : size}`]: true,
-    });
 
     const titleTemplate = html`
-      <div id="title-container" class=${titleContainerClasses}>
+      <div
+        id="title-container"
+        ?detail-step=${currentStep > 0}
+        ?has-title=${!!title}
+        ?no-title-animation=${!animateTitle}
+        ?reduced-motion=${this._reducedMotion.matches}
+        ?has-action-toolbar=${this._hasActionToolbar}>
         <!-- render back button -->
         ${currentStep > 0
           ? html`<cds-button
@@ -721,7 +640,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
               kind="ghost"
               size="sm"
               tooltip-text=${navigationBackIconDescription}
-              class="${blockClass}__navigation-back-button"
+              id="nav-back-button"
               @click=${this._handleNavigateBack}>
               ${ArrowLeft16({ slot: 'icon' })}
             </cds-button>`
@@ -729,63 +648,52 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
         <!-- render title label -->
         ${title?.length && labelText?.length
-          ? html` <p id="label" class="${blockClass}__label-text">
-              ${labelText}
-            </p>`
+          ? html` <p id="label-text">${labelText}</p>`
           : ''}
 
-        <div class="${blockClass}__title-container-inner">
+        <div id="title-container-inner">
           <!-- render collapsed title -->
           ${animateTitle && title?.length && !this._reducedMotion.matches
-            ? html`<h2
-                id="collapsed-title"
-                class="${blockClass}__collapsed-title-text"
-                title=${title}
-                aria-hidden="true">
+            ? html`<h2 id="collapsed-title" title=${title} aria-hidden="true">
                 ${title}
               </h2>`
             : ''}
 
           <!-- render title -->
           ${title?.length
-            ? html`<h2
-                id="title"
-                class="${blockClass}__title-text"
-                title=${title}>
-                ${title}
-              </h2>`
+            ? html`<h2 id="title" title=${title}>${title}</h2>`
             : ''}
         </div>
 
         <!-- render close button area -->
-        <div class="${blockClass}__slug-and-close">
+        <div id="slug-and-close">
           <!-- {normalizedSlug} -->
           <cds-button
             aria-label=${closeIconDescription}
             kind="ghost"
             size="sm"
             tooltip-text=${closeIconDescription}
-            class="${blockClass}__close-button"
+            id="close-button"
             @click=${this._handleCloseClick}>
             ${Close20({ slot: 'icon' })}
           </cds-button>
         </div>
 
         <!-- render sub title -->
-        <p class=${subtitleClasses} ?hidden=${!this._hasSubtitle}>
+        <p
+          id="sub-title"
+          ?hidden=${!this._hasSubtitle}
+          ?no-title-animation=${!animateTitle}
+          ?no-title=${!title}>
           <slot
             name="subtitle"
             @slotchange=${this._handleSubtitleChange}></slot>
         </p>
 
         <div
-          id="actions-toolbar"
-          class=${classMap({
-            [`${prefix}--visually-hidden`]: !this._hasActionToolbar,
-            [`${blockClass}__action-toolbar`]: true,
-            [`${blockClass}__action-toolbar-no-animation`]: !animateTitle,
-          })}
-          ?hidden=${this._hasActionToolbar}>
+          id="action-toolbar"
+          ?hidden=${!this._hasActionToolbar}
+          ?no-title-animation=${!animateTitle}>
           <slot
             name="action-toolbar"
             @slotchange=${this._handleActionToolbarChange}></slot>
@@ -793,32 +701,46 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       </div>
     `;
 
+    const hasOverlay = includeOverlay || !slideIn;
+
     return html`
       <div
         id="side-panel"
         part="dialog"
-        class=${containerClasses}
-        role="complementary">
+        class=${this.containerClass}
+        role="complementary"
+        placement="${placement}"
+        ?open=${this._isOpen}
+        ?opening=${open && !this._isOpen}
+        ?closing=${!open && this._isOpen}
+        ?overlay=${hasOverlay}
+        size=${size}>
         <cds-layer level="1">
           <a
             id="start-sentinel"
-            class="${prefix}--visually-hidden"
+            class="sentinel"
+            hidden
             href="javascript:void 0"
             role="navigation"></a>
 
           ${!animateTitle ? titleTemplate : ''}
 
-          <div id="inner-content" class=${innerContentClasses}>
+          <div
+            id="inner-content"
+            ?no-title-animation=${!animateTitle}
+            ?has-actions=${this._actionsCount > 0}>
             ${animateTitle ? titleTemplate : ''}
-            <div class="${blockClass}__body-content">
+            <div id="body-content">
               <slot></slot>
             </div>
 
             <cds-button-set
               id="actions"
-              class=${actionClasses}
               ?hidden=${this._actionsCount === 0}
-              ?stacked=${this._actionsStacked}>
+              ?condensed=${condensedActions}
+              ?actions-multiple=${actionsMultiple}
+              ?stacked=${this._actionsStacked && actionsMultiple}
+              size=${size}>
               <slot
                 name="actions"
                 @slotchange=${this._handleActionsChange}></slot>
@@ -827,15 +749,22 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
           <a
             id="end-sentinel"
-            class="${prefix}--visually-hidden"
+            class="sentinel"
+            hidden
             href="javascript:void 0"
             role="navigation"></a>
         </cds-layer>
       </div>
-      <div
-        class="${overlayClasses}"
+
+      ${hasOverlay &&
+      html`<div
+        ?slide-in=${slideIn}
+        id="overlay"
+        ?open=${this.open}
+        ?opening=${open && !this._isOpen}
+        ?closing=${!open && this._isOpen}
         tabindex="-1"
-        @click=${this._handleClickOnOverlay}></div>
+        @click=${this._handleClickOnOverlay}></div>`}
     `;
   }
 
@@ -928,7 +857,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       }
 
       // monitor scroll
-      this._innerContent.addEventListener('scroll', this._scrollObserver);
+      if (this._innerContent) {
+        this._innerContent.addEventListener('scroll', this._scrollObserver);
+      }
 
       // measures for sticky
       try {

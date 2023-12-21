@@ -277,9 +277,9 @@ const DefaultTemplate = (args) => {
   };
 
   return html`
-    <div class="${storyPrefix}__story-container">
-      <div class="${storyPrefix}__story-header"></div>
-      <div id="page-content-selector" class="${storyPrefix}__story-content">
+    <div class="${storyPrefix}story-container">
+      <div class="${storyPrefix}story-header"></div>
+      <div id="page-content-selector" class="${storyPrefix}story-content">
         <cds-button @click="${toggleButton}">Toggle side-panel</cds-button>
       </div>
     </div>
@@ -329,7 +329,7 @@ Default.parameters = {
       // numberOfButtons: select('Number of buttons', buttons, 2),
       content: select('Side panel contents', contents, 1),
       label: select('SidePanel label', labels, 1),
-      open: boolean('Open (open)', true),
+      open: boolean('Open (open)', false),
       placement: select(
         'SidePanel placement',
         placements,

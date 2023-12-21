@@ -18,7 +18,7 @@ $story-prefix: 'side-panel-stories__';
   }
 }
 
-.#{$story-prefix}__story-container {
+.#{$story-prefix}story-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -28,11 +28,11 @@ $story-prefix: 'side-panel-stories__';
   height: 100vh;
 }
 
-.#{$story-prefix}__story-header {
+.#{$story-prefix}story-header {
   background: $background-inverse;
 }
 
-.#{$story-prefix}__story-content {
+.#{$story-prefix}story-content {
   position: relative;
   display: flex;
   justify-content: center;

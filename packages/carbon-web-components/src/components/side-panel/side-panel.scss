@@ -12,6 +12,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
 
 $pkg-prefix: 'cds';
 
@@ -24,139 +25,260 @@ $pkg-prefix: 'cds';
   $pkg-prefix: #{$pkg-prefix}
 );
 @use '@carbon/ibm-products-styles/scss/components/SidePanel/index';
+@use '@carbon/ibm-products-styles/scss/components/SidePanel/side-panel-variables'
+  as spv;
 // ----
 
 $block-class: #{$pkg-prefix}--side-panel;
 $block-class-action-set: #{$pkg-prefix}--action-set;
 
 :host(#{$prefix}-side-panel) {
-  // ++++++ Replaces use of FIGMA for slide in / out animation
+  // Replaces use of FIGMA for slide in / out animation
   --#{$block-class}--displaced: 100%;
 
-  .#{$block-class}__container-left-placement {
-    --#{$block-class}--displaced: -100%;
+  #side-panel {
+    @extend .#{$block-class}__container;
+
+    &[placement='left'] {
+      --#{$block-class}--displaced: -100%;
+    }
+
+    &[opening] {
+      transform: translateX(var(--#{$block-class}--displaced));
+    }
+
+    &[open] {
+      transform: translateX(0);
+      transition: all $duration-moderate-02 motion(standard, productive);
+    }
+
+    &[closing] {
+      transition: all $duration-moderate-01 motion(exit, productive);
+      transform: translateX(var(--#{$block-class}--displaced));
+    }
+
+    &[placement='right'] {
+      @extend .#{$block-class}__container-right-placement;
+
+      /* remove if https://github.com/carbon-design-system/ibm-products/pull/3983 merged */
+      right: 0;
+      border-right: 1px solid $border-subtle-02;
+    }
+
+    &[placement='left'] {
+      @extend .#{$block-class}__container-left-placement;
+
+      /* remove if https://github.com/carbon-design-system/ibm-products/pull/3983 merged */
+      left: 0;
+      border-right: 1px solid $border-subtle-02;
+    }
+
+    @each $size, $size_value in spv.$side-panel-sizes {
+      &[size='#{$size}'] {
+        @extend .#{$block-class}__container--#{$size};
+      }
+    }
+
+    &:not([overlay]) {
+      @extend .#{$block-class}__container-without-overlay;
+    }
   }
 
-  .#{$block-class}__container--opening {
-    transform: translateX(var(--#{$block-class}--displaced));
+  #overlay {
+    @extend .#{$block-class}__overlay;
+
+    &[opening] {
+      opacity: 0;
+    }
+
+    &[open] {
+      opacity: 1;
+      transition: all $duration-moderate-02 motion(standard, productive);
+    }
+
+    &[closing] {
+      transition: all $duration-moderate-01 motion(exit, productive);
+      opacity: 0;
+    }
   }
 
-  .#{$block-class}__container--open {
-    transform: translateX(0);
-    transition: all $duration-moderate-02 motion(standard, productive);
-  }
+  #title-container {
+    @extend .#{$block-class}__title-container;
 
-  .#{$block-class}__container--closing {
-    transition: all $duration-moderate-01 motion(exit, productive);
-    transform: translateX(var(--#{$block-class}--displaced));
-  }
-
-  .#{$block-class}__overlay--opening {
-    opacity: 0;
-  }
-
-  .#{$block-class}__overlay--open {
-    opacity: 1;
-    transition: all $duration-moderate-02 motion(standard, productive);
-  }
-
-  .#{$block-class}__overlay--closing {
-    transition: all $duration-moderate-01 motion(exit, productive);
-    opacity: 0;
-  }
-  // ----- Replaces use of FIGMA for slide in / out animation
-
-  // ::slotted([slot='action-toolbar']) {
-  //   @extend .cds--side-panel__action-toolbar;
-  // }
-
-  // ::slotted([slot='subtitle']) {
-  //         ${subtitle ? html` <p class=${subtitleClasses}>${subtitle}</p> ` : ''}
-
-  // }
-
-  // .#{$block-class}__actions-container {
-  //   @extend .#{$block-class}__actions-container;
-  // }
-
-  .#{$block-class}__inner-content {
-    --#{$block-class}--title-opacity: 1;
-
-    height: calc(100% - var(--#{$block-class}--actions-height, $spacing-09));
-  }
-
-  .#{$block-class}__label-text {
-    opacity: var(--#{$block-class}--title-opacity, 1);
-  }
-
-  .#{$block-class}__title-container {
     top: var(--#{$block-class}--container-scroll-top, 0px);
 
     &::before {
       opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
       z-index: 99; // must be higher than action toolbar
     }
+
+    &[detail-step] {
+      @extend .#{$block-class}__on-detail-step;
+    }
+
+    &:not([has-title]) {
+      @extend .#{$block-class}__title-container-without-title;
+    }
+
+    &[detail-step]:not([has-title]) {
+      @extend .#{$block-class}__on-detail-step-without-title;
+    }
+
+    &[no-title-animation] {
+      @extend .#{$block-class}__title-container--no-title-animation;
+    }
+
+    &[reduced-motion] {
+      @extend .#{$block-class}__title-container--reduced-motion;
+    }
+
+    &[has-action-toolbar] {
+      padding-bottom: 0;
+      margin-bottom: $spacing-03;
+    }
   }
 
-  .#{$block-class}__title-container--has-action-toolbar {
-    padding-bottom: 0;
-    margin-bottom: $spacing-03;
-  }
-
-  .#{$block-class}__title-container-inner {
+  #title-container-inner {
     position: sticky;
     top: var(--#{$block-class}--title-scroll-top, 0px);
   }
 
-  .#{$block-class}__title-text,
-  .#{$block-class}__collapsed-title-text {
+  #nav-back-button {
+    @extend .#{$block-class}__navigation-back-button;
+  }
+
+  #collapsed-title {
+    @extend .#{$block-class}__collapsed-title-text;
+
+    top: 0;
     margin-bottom: $spacing-03; // text can show through a padding
-  }
-
-  .#{$block-class}__title-text {
-    opacity: var(--#{$block-class}--title-opacity, 1);
-  }
-
-  .#{$block-class}__collapsed-title-text {
     margin-top: 2px; // align with main title top
     opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
     z-index: 99;
-    top: 0;
     transform: none;
   }
 
-  .#{$block-class}__subtitle-text {
-    padding-left: 0;
+  #title {
+    @extend .#{$block-class}__title-text;
+
+    margin-bottom: $spacing-03; // text can show through a padding
     opacity: var(--#{$block-class}--title-opacity, 1);
   }
 
-  .#{$block-class}__action-toolbar {
+  #slug-and-close {
+    @extend .#{$block-class}__slug-and-close;
+  }
+
+  #close-button {
+    @extend .#{$block-class}__close-button;
+  }
+
+  #label-text {
+    @extend .#{$block-class}__label-text;
+    opacity: var(--#{$block-class}--title-opacity, 1);
+  }
+
+  #subtitle {
+    @extend .#{$block-class}__subtitle-text;
+
+    padding-left: 0;
+    opacity: var(--#{$block-class}--title-opacity, 1);
+
+    &[hidden] {
+      @extend .#{$prefix}--visually-hidden;
+    }
+
+    &[no-title-animation] {
+      @extend .#{$block-class}__subtitle-text-no-animation;
+    }
+
+    &[no-title] {
+      @extend .#{$block-class}__subtitle-without-title;
+    }
+  }
+
+  #action-toolbar {
+    @extend .#{$block-class}__action-toolbar;
+
     padding-left: 0;
     margin-bottom: 0;
+
+    &[hidden] {
+      @extend .#{$prefix}--visually-hidden;
+    }
+
+    &[no-title-animation] {
+      @extend .#{$block-class}__action-toolbar-no-animation;
+    }
   }
 
-  .#{$block-class-action-set} {
+  #inner-content {
+    --#{$block-class}--title-opacity: 1;
+    @extend .#{$block-class}__inner-content;
+
+    height: calc(100% - var(--#{$block-class}--actions-height, $spacing-09));
+
+    &[no-title-animation] {
+      @extend .#{$block-class}__static-inner-content;
+    }
+
+    &[has-actions] {
+      @extend .#{$block-class}__inner-content-with-actions;
+    }
+
+    &[no-title-animation]:not([has-actions]) {
+      @extend .#{$block-class}__static-inner-content-no-actions;
+    }
+  }
+
+  #body-content {
+    @extend .#{$block-class}__body-content;
+  }
+
+  #actions {
+    @extend .#{$block-class}__actions-container;
+    @extend .#{$block-class-action-set};
+
     display: flex;
-  }
-
-  .#{$block-class-action-set}[hidden] {
-    display: none;
-  }
-
-  .#{$block-class-action-set}
-    ::slotted(.#{$block-class-action-set}__action-button) {
-    // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
-    max-width: none;
-    flex: var(--#{$block-class}--actions-width-other, initial);
-  }
-
-  .#{$block-class-action-set}
     ::slotted(.#{$block-class-action-set}__action-button--first) {
-    // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
-    flex: var(--#{$block-class}--actions-width-first, initial);
+      // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
+      flex: var(--#{$block-class}--actions-width-first, initial);
+    }
+
+    ::slotted(.#{$block-class-action-set}__action-button) {
+      // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
+      max-width: none;
+      flex: var(--#{$block-class}--actions-width-other, initial);
+    }
+
+    &[hidden] {
+      @extend .#{$prefix}--visually-hidden;
+      display: none;
+    }
+
+    &[condensed] {
+      @extend .#{$block-class}__actions-container-condensed;
+    }
+    &[stacked] {
+      @extend .#{$block-class-action-set}--stacking;
+    }
+
+    $multiples: 'single' 'double' 'triple';
+    @each $m in $multiples {
+      &[actions-multiple='#{$m}'] {
+        @extend .#{$prefix}--action-set--row-#{$m};
+      }
+    }
+
+    $sizes: 'xs' 'sm';
+    @each $s in $sizes {
+      &[size='#{$s}'] {
+        @extend .#{$block-class-action-set}--#{$s};
+      }
+    }
   }
 
-  .#{$block-class}__actions-container {
-    display: flex;
+  .sentinel {
+    @extend .#{$prefix}--visually-hidden;
   }
 }
