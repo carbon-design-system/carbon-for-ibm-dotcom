@@ -5,10 +5,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Structured List
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/pricing-table)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/pricing-table)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/pricing-table)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/pricing-table)
 
 ## Getting started
 
@@ -27,121 +27,121 @@ import '@carbon/ibmdotcom-web-components/es/components/pricing-table/index.js';
 ### HTML
 
 ```html
-<cds-pricing-table highlight-column="2" highlight-label="Featured">
-  <cds-pricing-table-head>
-    <cds-pricing-table-header-row>
-      <cds-pricing-table-header-cell type="simple"
-        >Optional table header</cds-pricing-table-header-cell
+<c4d-pricing-table highlight-column="2" highlight-label="Featured">
+  <c4d-pricing-table-head>
+    <c4d-pricing-table-header-row>
+      <c4d-pricing-table-header-cell type="simple"
+        >Optional table header</c4d-pricing-table-header-cell
       >
-      <cds-pricing-table-header-cell>
-        <cds-pricing-table-header-cell-headline
-          >Variation 1</cds-pricing-table-header-cell-headline
+      <c4d-pricing-table-header-cell>
+        <c4d-pricing-table-header-cell-headline
+          >Variation 1</c4d-pricing-table-header-cell-headline
         >
-        <cds-pricing-table-header-cell-caption
-          >Starting at $X.XX per user</cds-pricing-table-header-cell-caption
+        <c4d-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</c4d-pricing-table-header-cell-caption
         >
-        <cds-pricing-table-header-cell-tag
+        <c4d-pricing-table-header-cell-tag
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Merchandising</cds-pricing-table-header-cell-tag
+          >Merchandising</c4d-pricing-table-header-cell-tag
         >
-        <cds-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <cds-unordered-list>
-            <cds-list-item>Lorem ipsum dolor</cds-list-item>
-            <cds-list-item>sit amet</cds-list-item>
-            <cds-list-item
+          <c4d-unordered-list>
+            <c4d-list-item>Lorem ipsum dolor</c4d-list-item>
+            <c4d-list-item>sit amet</c4d-list-item>
+            <c4d-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</cds-list-item
+              tempor</c4d-list-item
             >
-          </cds-unordered-list>
-        </cds-pricing-table-header-cell-description>
-        <cds-pricing-table-header-cell-cta
+          </c4d-unordered-list>
+        </c4d-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-cta
           cta-type="local"
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Call to action</cds-pricing-table-header-cell-cta
+          >Call to action</c4d-pricing-table-header-cell-cta
         >
-      </cds-pricing-table-header-cell>
-      <cds-pricing-table-header-cell>
-        <cds-pricing-table-header-cell-headline
-          >Variation 2</cds-pricing-table-header-cell-headline
+      </c4d-pricing-table-header-cell>
+      <c4d-pricing-table-header-cell>
+        <c4d-pricing-table-header-cell-headline
+          >Variation 2</c4d-pricing-table-header-cell-headline
         >
-        <cds-pricing-table-header-cell-caption
-          >Starting at $X.XX per user</cds-pricing-table-header-cell-caption
+        <c4d-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</c4d-pricing-table-header-cell-caption
         >
-        <cds-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <cds-unordered-list>
-            <cds-list-item>Lorem ipsum dolor</cds-list-item>
-            <cds-list-item>sit amet</cds-list-item>
-            <cds-list-item
+          <c4d-unordered-list>
+            <c4d-list-item>Lorem ipsum dolor</c4d-list-item>
+            <c4d-list-item>sit amet</c4d-list-item>
+            <c4d-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</cds-list-item
+              tempor</c4d-list-item
             >
-          </cds-unordered-list>
-        </cds-pricing-table-header-cell-description>
-        <cds-pricing-table-header-cell-cta
+          </c4d-unordered-list>
+        </c4d-pricing-table-header-cell-description>
+        <c4d-pricing-table-header-cell-cta
           cta-type="local"
           href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-          >Call to action</cds-pricing-table-header-cell-cta
+          >Call to action</c4d-pricing-table-header-cell-cta
         >
-      </cds-pricing-table-header-cell>
-    </cds-pricing-table-header-row>
-  </cds-pricing-table-head>
-  <cds-pricing-table-body>
-    <cds-pricing-table-row>
-      <cds-pricing-table-header-cell scope="row"
-        >Row 1</cds-pricing-table-header-cell
+      </c4d-pricing-table-header-cell>
+    </c4d-pricing-table-header-row>
+  </c4d-pricing-table-head>
+  <c4d-pricing-table-body>
+    <c4d-pricing-table-row>
+      <c4d-pricing-table-header-cell scope="row"
+        >Row 1</c4d-pricing-table-header-cell
       >
-      <cds-pricing-table-cell icon="checkmark">
-        <cds-pricing-table-cell-annotation>
+      <c4d-pricing-table-cell icon="checkmark">
+        <c4d-pricing-table-cell-annotation>
           Sed quis neque ultrices, convallis augue non, scelerisque massa.
-        </cds-pricing-table-cell-annotation>
-      </cds-pricing-table-cell>
-      <cds-pricing-table-cell>
+        </c4d-pricing-table-cell-annotation>
+      </c4d-pricing-table-cell>
+      <c4d-pricing-table-cell>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna,
         finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel
         euismod dignissim.
-        <cds-pricing-table-cell-annotation>
+        <c4d-pricing-table-cell-annotation>
           Sed quis neque ultrices, convallis augue non, scelerisque massa.
-        </cds-pricing-table-cell-annotation>
-      </cds-pricing-table-cell>
-    </cds-pricing-table-row>
-    <cds-pricing-table-row>
-      <cds-pricing-table-header-cell scope="row"
-        >Row 2</cds-pricing-table-header-cell
+        </c4d-pricing-table-cell-annotation>
+      </c4d-pricing-table-cell>
+    </c4d-pricing-table-row>
+    <c4d-pricing-table-row>
+      <c4d-pricing-table-header-cell scope="row"
+        >Row 2</c4d-pricing-table-header-cell
       >
-      <cds-pricing-table-cell icon="checkmark"> </cds-pricing-table-cell>
-      <cds-pricing-table-cell>
+      <c4d-pricing-table-cell icon="checkmark"> </c4d-pricing-table-cell>
+      <c4d-pricing-table-cell>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna,
         finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel
         euismod dignissim.
-      </cds-pricing-table-cell>
-    </cds-pricing-table-row>
-    <cds-pricing-table-row>
-      <cds-pricing-table-header-cell scope="row"
-        >Row 3</cds-pricing-table-header-cell
+      </c4d-pricing-table-cell>
+    </c4d-pricing-table-row>
+    <c4d-pricing-table-row>
+      <c4d-pricing-table-header-cell scope="row"
+        >Row 3</c4d-pricing-table-header-cell
       >
-      <cds-pricing-table-cell>
-        <cds-pricing-table-cell-annotation>
+      <c4d-pricing-table-cell>
+        <c4d-pricing-table-cell-annotation>
           Sed quis neque ultrices, convallis augue non, scelerisque massa.
-        </cds-pricing-table-cell-annotation>
-      </cds-pricing-table-cell>
-      <cds-pricing-table-cell>
+        </c4d-pricing-table-cell-annotation>
+      </c4d-pricing-table-cell>
+      <c4d-pricing-table-cell>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna,
         finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel
         euismod dignissim.
-        <cds-pricing-table-cell-annotation>
+        <c4d-pricing-table-cell-annotation>
           Sed quis neque ultrices, convallis augue non, scelerisque massa.
-        </cds-pricing-table-cell-annotation>
-      </cds-pricing-table-cell>
-    </cds-pricing-table-row>
-  </cds-pricing-table-body>
-</cds-pricing-table>
+        </c4d-pricing-table-cell-annotation>
+      </c4d-pricing-table-cell>
+    </c4d-pricing-table-row>
+  </c4d-pricing-table-body>
+</c4d-pricing-table>
 ```
 
 ## Props
 
-<Props of="cds-pricing-table" />
+<Props of="c4d-pricing-table" />
 
 ## Stable selectors
 
@@ -151,6 +151,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector             | Description |
 | ----------------------- | ---------------------------------- | ----------- |
-| `<cds-pricing-table>`   | `data-autoid="cds--pricing-table"` | Component   |
+| `<c4d-pricing-table>`   | `data-autoid="c4d--pricing-table"` | Component   |
 
 <Description markdown={contributing} />
