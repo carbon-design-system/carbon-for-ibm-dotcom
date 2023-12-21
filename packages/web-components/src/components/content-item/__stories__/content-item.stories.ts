@@ -12,8 +12,8 @@ import '../index';
 import { select, boolean } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
-import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
+import logoMicrosoft2x1 from '../../../../.storybook/storybook-images/assets/logos/logo-microsoft--2x1.png';
 
 const contentItemTypeOptions = {
   Text: 'text',

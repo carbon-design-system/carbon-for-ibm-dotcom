@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -16,9 +16,9 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 
-@media (min-width: 66rem) {
+@media (width >= 66rem) {
   .cds--offset-lg-3 {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }
 

@@ -36,8 +36,8 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-masthead-menu-button) {
   // @extend :host(#{$prefix}-header-menu-button);
   position: relative;
-  width: $spacing-09;
-  height: $spacing-09;
+  block-size: $spacing-09;
+  inline-size: $spacing-09;
 
   &[hide-menu-button] {
     @include breakpoint-down(md) {
@@ -63,22 +63,22 @@ $breakpoint--desktop-nav: 799px;
   padding-inline-end: 0;
 
   &.console .#{$prefix}--btn--ghost {
-    border-left: 1px solid $button-separator;
+    border-inline-start: 1px solid $button-separator;
     color: $link-secondary;
   }
 
   &:first-of-type {
     .#{$prefix}--btn--ghost::before {
       @include breakpoint-up(800px) {
-        content: '';
-        display: block;
         position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: rem(24px);
-        width: rem(1px);
+        display: block;
         background-color: $button-separator;
+        block-size: rem(24px);
+        content: '';
+        inline-size: rem(1px);
+        inset-block-start: 50%;
+        inset-inline-start: 0;
+        transform: translateY(-50%);
       }
     }
   }
@@ -115,8 +115,8 @@ $breakpoint--desktop-nav: 799px;
   }
 
   a ::slotted(svg) {
-    width: 58px;
-    height: 23px;
+    block-size: 23px;
+    inline-size: 58px;
   }
 
   .#{$c4d-prefix}-ce--header__logo--has-search-active {
@@ -133,30 +133,30 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$c4d-prefix}-top-nav-name) {
-  outline: none;
   position: relative;
   z-index: 1;
   background: $background;
+  outline: none;
 
   a.#{$prefix}--header__name {
     @include masthead-top-nav-name;
 
-    margin-left: 0;
+    margin-inline-start: 0;
 
     @include breakpoint-down($breakpoint--desktop-nav) {
-      display: flex;
       position: absolute;
-      top: 0;
-      left: 0;
+      display: flex;
+      inset-block-start: 0;
+      inset-inline-start: 0;
     }
 
     @include breakpoint-up('lg') {
-      margin-left: 0;
+      margin-inline-start: 0;
     }
 
     @include breakpoint-up('xlg') {
-      margin-left: $spacing-05;
       position: relative;
+      margin-inline-start: $spacing-05;
     }
   }
 }
@@ -165,12 +165,12 @@ $breakpoint--desktop-nav: 799px;
   outline: none;
 
   .#{$c4d-prefix}-ce--masthead__search__list {
-    height: 0;
     overflow: hidden;
+    block-size: 0;
   }
 
   &[open] .#{$c4d-prefix}-ce--masthead__search__list {
-    height: auto;
+    block-size: auto;
   }
 }
 
@@ -183,11 +183,12 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
 
-  background-color: $background;
-  flex: none;
   z-index: 0;
   display: flex;
-  height: 100%;
+  flex: none;
+
+  background-color: $background;
+  block-size: 100%;
 
   ::slotted(#{$c4d-prefix}-button-cta) {
     @include breakpoint-down('md') {
@@ -216,21 +217,21 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-masthead-contact),
 :host(#{$c4d-prefix}-cloud-masthead-profile) {
   background-color: $background;
-  width: $spacing-09;
+  inline-size: $spacing-09;
 
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
-    color: $icon-primary;
     justify-content: center;
     padding: 0;
+
+    color: $icon-primary;
   }
 
   .#{$prefix}--header__menu-title[aria-expanded='true'] {
     + .#{$prefix}--header__menu {
-      left: auto;
-      right: 0;
-      width: $spacing-13;
+      inline-size: $spacing-13;
+      inset-inline: auto 0;
     }
   }
 }
@@ -241,37 +242,37 @@ $breakpoint--desktop-nav: 799px;
   background-color: $background;
 
   @include breakpoint-up($breakpoint--desktop-nav) {
-    flex: 1;
     display: flex;
+    flex: 1;
     align-items: stretch;
   }
 
   .#{$prefix}--header__nav {
     @include breakpoint-up($breakpoint--desktop-nav) {
-      display: block;
       position: absolute;
+      display: block;
     }
   }
 
   &[hide-divider] .#{$prefix}--header__nav {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   .#{$c4d-prefix}-ce--header__nav-content-container {
-    flex: 1;
     position: relative;
+    flex: 1;
   }
 
   .#{$prefix}--header__nav-caret-left-container,
   .#{$prefix}--header__nav-caret-right-container {
-    bottom: 0;
-    z-index: 1;
     position: relative;
+    z-index: 1;
     background-color: $background;
+    inset-block-end: 0;
   }
 
   .#{$prefix}--header__nav-caret-right-container {
-    right: 0;
+    inset-inline-end: 0;
     /* stylelint-disable-next-line comment-whitespace-inside */
     /* !rtl:raw:
     position: absolute !important;
@@ -279,7 +280,7 @@ $breakpoint--desktop-nav: 799px;
   }
 
   .#{$prefix}--header__nav-caret-left-container {
-    left: 0;
+    inset-inline-start: 0;
     /* stylelint-disable-next-line comment-whitespace-inside */
     /* !rtl:raw:
     right: initial;
@@ -291,7 +292,7 @@ $breakpoint--desktop-nav: 799px;
   .#{$prefix}--header__nav-caret-right {
     position: relative;
     // 40px caret width & 8px gradient
-    height: $spacing-09;
+    block-size: $spacing-09;
   }
 
   .#{$c4d-prefix}-ce--header__nav-caret-container--hidden {
@@ -313,8 +314,8 @@ $breakpoint--desktop-nav: 799px;
   position: relative;
 
   .#{$prefix}--header__menu-title[aria-expanded='true'] {
-    background-color: $layer-01;
     z-index: 0;
+    background-color: $layer-01;
   }
 }
 
@@ -326,10 +327,10 @@ $breakpoint--desktop-nav: 799px;
     + .#{$prefix}--header__menu {
     background-color: $background;
     box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
-    bottom: -1px;
+    inset-block-end: -1px;
 
     @include breakpoint-down('md') {
-      width: 100vw;
+      inline-size: 100vw;
     }
   }
 }
@@ -340,8 +341,8 @@ $breakpoint--desktop-nav: 799px;
   @include masthead-top-nav-menu-item;
 
   a.#{$prefix}--header__menu-item {
-    height: 100%;
     background-color: transparent;
+    block-size: 100%;
   }
 }
 
@@ -351,8 +352,8 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-top-nav-menu-item),
 :host(#{$c4d-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
-    width: 20px;
-    height: 20px;
+    block-size: 20px;
+    inline-size: 20px;
   }
 
   a.#{$prefix}--header__menu-item {
@@ -371,9 +372,9 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-megamenu-top-nav-menu) {
   .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
-    bottom: auto;
-    height: auto;
-    min-height: 0;
+    block-size: auto;
+    inset-block-end: auto;
+    min-block-size: 0;
   }
 }
 
@@ -382,54 +383,62 @@ $breakpoint--desktop-nav: 799px;
 
   display: block;
   overflow: hidden;
-  margin-top: calc(#{$spacing-09} + 1px);
-  height: calc(100% - #{$spacing-09} - 1px);
-  width: 16rem;
+  block-size: calc(100% - #{$spacing-09} - 1px);
+  inline-size: 16rem;
+  margin-block-start: calc(#{$spacing-09} + 1px);
 
   @include breakpoint-down(md) {
-    width: 100vw;
-    max-width: 100vw;
+    inline-size: 100vw;
+    max-inline-size: 100vw;
   }
 
   &[usage-mode='header-nav'],
   &[collapse-mode][usage-mode='header-nav'] {
     inset-inline-start: -100vw;
-    visibility: hidden;
     /* stylelint-disable-next-line  time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) $duration-fast-02,
       left $duration-fast-02 motion(exit, productive) 1ms;
+    visibility: hidden;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
     overflow: hidden auto;
     inset-inline-start: 0;
-    visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) 0ms,
       inset-inline-start $duration-fast-02 motion(exit, productive) 1ms;
+    visibility: visible;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   .#{$prefix}--side-nav__wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    block-size: 100%;
   }
 
   .#{$prefix}--side-nav__platform-name {
-    flex-shrink: 0;
     flex-grow: 0;
+    flex-shrink: 0;
   }
 
   .#{$prefix}--side-nav__menu-sections {
+    position: relative;
     flex-basis: 100%;
     flex-shrink: 1;
-    position: relative;
   }
 
   ::slotted(#{$c4d-prefix}-left-nav-menu-section) {
     overflow: hidden;
-    height: auto;
+    block-size: auto;
   }
 }
 
@@ -443,13 +452,13 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-left-nav-name) {
   .#{$prefix}--side-nav__submenu-platform {
     display: flex;
-    align-items: center;
-    height: $spacing-09;
-    padding: 0 $spacing-05;
-    border-bottom: 1px solid $border-strong-01;
-    text-decoration: none;
-    color: $text-primary;
     flex-direction: row;
+    align-items: center;
+    padding: 0 $spacing-05;
+    block-size: $spacing-09;
+    border-block-end: 1px solid $border-strong-01;
+    color: $text-primary;
+    text-decoration: none;
 
     &::after {
       content: none;
@@ -496,9 +505,10 @@ $breakpoint--desktop-nav: 799px;
   a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
     @include type-style(body-short-02, true);
 
-    color: $link-primary;
     display: flex;
     justify-content: space-between;
+
+    color: $link-primary;
 
     > svg {
       flex-shrink: 0;
@@ -514,9 +524,9 @@ $breakpoint--desktop-nav: 799px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: $spacing-05;
-  height: $spacing-09;
-  width: 100%;
+  block-size: $spacing-09;
+  inline-size: 100%;
+  padding-inline-start: $spacing-05;
 }
 
 :host(#{$c4d-prefix}-left-nav-item),
@@ -535,32 +545,24 @@ $breakpoint--desktop-nav: 799px;
   .#{$prefix}--side-nav__submenu,
   a.#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__submenu .#{$prefix}--side-nav__submenu-content {
-    height: auto;
-    min-height: $spacing-09;
+    block-size: auto;
+    min-block-size: $spacing-09;
   }
 
   .#{$prefix}--side-nav__submenu-title,
   a.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text,
   button.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text {
-    height: auto;
-    white-space: normal;
     padding: 0.8rem 0;
+    block-size: auto;
+    white-space: normal;
   }
 }
 
 @mixin left-nav-overlay {
   position: fixed;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(22, 22, 22, 0.5);
-  opacity: 1;
-  transition: opacity $transition-expansion $standard-easing,
-    background-color $transition-expansion $standard-easing;
-
-  // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
-  top: 0;
-  left: 0;
   z-index: calc(#{z('header')} - 1);
+  background-color: rgba(22, 22, 22, 0.5);
+  block-size: 100vh;
   clip-path: polygon(
       $spacing-09 0,
       100% 0,
@@ -572,11 +574,22 @@ $breakpoint--desktop-nav: 799px;
     #{'/*!rtl:polygon(0 0, calc(100% - ' + $spacing-09 + ') 0, calc(100% - ' +
     $spacing-09 + ') calc(' + $spacing-09 + ' + 1px), 100% calc(' + $spacing-09 +
     ' + 1px), 100% 100%, 0 100%)*/'};
+  inline-size: 100%;
+
+  // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  opacity: 1;
+  transition: opacity $transition-expansion $standard-easing,
+    background-color $transition-expansion $standard-easing;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 :host(#{$c4d-prefix}-left-nav-overlay) {
   // @extend .#{$prefix}--side-nav__overlay;
-
   &[active] {
     @include breakpoint-down($breakpoint--desktop-nav) {
       @include left-nav-overlay;
@@ -610,18 +623,18 @@ $breakpoint--desktop-nav: 799px;
   position: relative;
 
   &[overflowing]::after {
-    content: '';
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: rem(48px);
     background: linear-gradient(transparent, $background);
+    block-size: rem(48px);
+    content: '';
+    inline-size: 100%;
+    inset-block-end: 0;
     pointer-events: none;
   }
 
   .#{$prefix}--masthead__megamenu__container {
-    width: 100%;
-    height: 100%;
+    block-size: 100%;
+    inline-size: 100%;
     overflow-x: hidden;
   }
 }
@@ -637,7 +650,7 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-megamenu-tabs) {
   display: flex;
   flex-direction: column;
-  margin-bottom: $spacing-05;
+  margin-block-end: $spacing-05;
 
   .#{$prefix}--tabs-trigger {
     display: none;
@@ -650,13 +663,15 @@ $breakpoint--desktop-nav: 799px;
   button {
     @include type-style(body-long-01);
 
-    color: $text-secondary;
-    width: 100%;
-    border: none;
-    text-align: left;
     padding: rem(6px) $spacing-05;
+    border: none;
     background-color: $background;
+
+    color: $text-secondary;
     cursor: pointer;
+
+    inline-size: 100%;
+    text-align: start;
 
     &:hover,
     &:focus {
@@ -688,11 +703,11 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-megamenu-category-link) {
   a:has([part='link-heading']) {
     padding: $spacing-04 $spacing-05;
-    height: 100%;
+    block-size: 100%;
 
     > span {
       display: block;
-      max-width: rem(272px);
+      max-inline-size: rem(272px);
     }
 
     &:active,
@@ -729,10 +744,10 @@ $breakpoint--desktop-nav: 799px;
     margin-block: 0;
 
     a {
+      display: flex;
+      align-self: center;
       color: inherit;
       text-decoration: none;
-      align-self: center;
-      display: flex;
 
       &:hover {
         text-decoration: underline;
@@ -746,9 +761,9 @@ $breakpoint--desktop-nav: 799px;
 
     svg {
       position: relative;
+      flex-shrink: 0;
       margin: 0 $spacing-03;
       fill: $icon-primary;
-      flex-shrink: 0;
 
       /* stylelint-disable-next-line comment-whitespace-inside */
       /*!rtl:raw:
@@ -773,17 +788,17 @@ $breakpoint--desktop-nav: 799px;
     @include type-style(body-short-01);
 
     display: block;
-    margin-top: $spacing-03;
     color: $text-secondary;
+    margin-block-start: $spacing-03;
 
     &[data-has-content] {
-      margin-bottom: $spacing-06;
+      margin-block-end: $spacing-06;
     }
   }
 }
 
 :host(#{$c4d-prefix}-megamenu-heading) {
-  margin-bottom: $spacing-06;
+  margin-block-end: $spacing-06;
 
   h2,
   h3,
@@ -793,13 +808,13 @@ $breakpoint--desktop-nav: 799px;
     @include type-style(heading-05, true);
 
     svg {
-      top: $spacing-03;
+      inset-block-start: $spacing-03;
     }
   }
 }
 
 :host(#{$c4d-prefix}-megamenu-category-heading) {
-  margin-bottom: $spacing-05;
+  margin-block-end: $spacing-05;
 
   h2,
   h3,
@@ -809,11 +824,11 @@ $breakpoint--desktop-nav: 799px;
     @include type-style(heading-03, true);
 
     svg {
-      top: $spacing-02;
+      inset-block-start: $spacing-02;
     }
   }
 }
 
 :host(#{$c4d-prefix}-megamenu-category-heading.has-content) {
-  margin-bottom: $spacing-06;
+  margin-block-end: $spacing-06;
 }
