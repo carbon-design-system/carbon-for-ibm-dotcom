@@ -131,11 +131,14 @@
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
       "prettier --cache --write",
-      "yarn lint:license:staged"
+      "yarn lint:license:staged",
+      "yarn lint:scripts:staged",
+      "eslint"
     ],
     "**/*.scss": [
       "prettier --cache --write",
-      "yarn lint:license:staged"
+      "yarn lint:license:staged",
+      "stylelint '**/*.scss'"
     ],
     "*.md": [
       "prettier --cache --write"

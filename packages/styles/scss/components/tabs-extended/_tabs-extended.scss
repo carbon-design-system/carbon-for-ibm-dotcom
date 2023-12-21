@@ -36,6 +36,11 @@
   //       display: none;
   //     }
   //   }
+  // .#{$prefix}--tabs__nav-link {
+  //   display: flex;
+  //   block-size: $spacing-08;
+  //   font-size: $spacing-05;
+  // }
 
   //   /* Set to zero-specificity so it can be overridden by dynamic stylesheet */
   //   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
@@ -50,6 +55,10 @@
   //     position: absolute;
   //     display: block;
   //   }
+  //       border-block-end: $spacing-01 solid $border-interactive;
+  //     }
+  //   }
+  // }
 
   //   .#{$prefix}--tab--overflow-nav-button {
   //     z-index: 1;
@@ -58,6 +67,11 @@
 
   //   :host(#{$c4d-prefix}-tab) {
   //     @extend .#{$prefix}--tabs;
+  //   a.#{$prefix}--tabs__nav-link {
+  //     border-block-end: $tab-underline-color-hover;
+  //     color: $text-primary;
+  //   }
+  // }
 
   //   .#{$prefix}--tabs-nav-content-container {
   //     position: relative;
@@ -95,6 +109,32 @@
   //       block-size: $spacing-08;
   //       font-size: $spacing-05;
   //     }
+  //   .#{$prefix}--tabs__nav-link {
+  //     border-block-end: $tab-underline-disabled;
+  //     color: $tab-text-disabled;
+  //     outline: none;
+  //     pointer-events: none;
+  //   }
+  // }
+
+  // :host(#{$c4d-prefix}-tab[selected]) {
+  //   display: flex;
+  //   background-color: transparent;
+  //   transition: color $duration-fast-01 motion(standard, productive);
+
+  //   .#{$prefix}--tabs__nav-link {
+  //     @include type-style('heading-01');
+
+  //     font-size: $spacing-05;
+
+  //     &,
+  //     // Need to override core Carbon's non-selected focus color
+  //     &:focus,
+  //     &:active {
+  //       color: $text-primary;
+  //     }
+  //   }
+  // }
 
   //     &[selected] {
   //       .#{$prefix}--tabs__nav-link {
@@ -121,6 +161,16 @@
   //     box-shadow: none;
   //     cursor: not-allowed;
   //     outline: none;
+  //     border-block-end: $tab-underline-disabled;
+
+  //     color: $tab-text-disabled;
+
+  //     &:focus,
+  //     &:active {
+  //       border-block-end-width: to-rem(3px);
+  //     }
+  //   }
+  // }
 
   //     .#{$prefix}--tabs__nav-link {
   //       border-block-end: $tab-underline-disabled;
@@ -139,6 +189,21 @@
   //       @include type-style('heading-01');
 
   //       font-size: $spacing-05;
+  //   a.#{$prefix}--tabs__nav-link {
+  //     padding: 0 $spacing-05;
+  //     block-size: $spacing-09;
+  //     font-size: $spacing-05;
+  //   }
+  // }
+
+  // :host(#{$c4d-prefix}-tab[type='contained']),
+  // :host(#{$c4d-prefix}-tab[type='contained']:hover) {
+  //   a.#{$prefix}--tabs__nav-link {
+  //     border-block-end: none;
+  //     // Draws the border without affecting the inner-content
+  //     box-shadow: to-rem(-1px) 0 0 0 $border-strong;
+  //   }
+  // }
 
   //       &,
   //       // Need to override core Carbon's non-selected focus color
@@ -157,11 +222,22 @@
   //     display: flex;
   //     background-color: transparent;
   //     box-shadow: none;
+  // :host(#{$c4d-prefix}-tab[type='contained'][disabled][role])
+  //   .#{$prefix}--tabs__nav-link {
+  //   background-color: $button-disabled;
+  //   border-block-end: none;
+  //   color: $text-on-color-disabled;
+  // }
 
   //     @include focus-outline('reset');
 
   //     .#{$prefix}--tabs__nav-link {
   //       @include type-style('body-short-01');
+  // .#{$prefix}--tabs__nav-link {
+  //   border-block-end: none;
+  //   // Draws the border without affecting the inner-content
+  //   box-shadow: inset 0 $spacing-01 0 0 $interactive;
+  // }
 
   //       border-block-end: $tab-underline-disabled;
 

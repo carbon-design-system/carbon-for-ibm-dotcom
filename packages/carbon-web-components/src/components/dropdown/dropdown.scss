@@ -101,12 +101,6 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-dropdown-item:first-child) {
-  .#{$prefix}--list-box__menu-item__option {
-    border-block-start-width: 0;
-  }
-}
-
 :host(#{$prefix}-dropdown-item:hover) {
   background-color: $layer-hover;
 }

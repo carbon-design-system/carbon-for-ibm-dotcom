@@ -22,6 +22,8 @@
   @extend .#{$prefix}--table-toolbar;
 
   z-index: 1;
+
+  display: table-caption;
 }
 
 :host(#{$prefix}-table-toolbar-content) {

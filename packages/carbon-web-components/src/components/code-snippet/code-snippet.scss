@@ -113,7 +113,6 @@ $css--plex: true !default;
 
   #{$prefix}-copy-button {
     position: absolute;
-    z-index: 10;
     inset-block-start: $spacing-03;
     inset-inline-end: $spacing-03;
   }
