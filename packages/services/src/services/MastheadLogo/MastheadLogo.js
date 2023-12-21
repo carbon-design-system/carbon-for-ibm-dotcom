@@ -16,7 +16,9 @@ class MastheadLogoAPI {
    * const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
    */
   static setMastheadLogo(logoData) {
-    if (logoData === undefined) return false;
+    if (logoData === undefined) {
+      return false;
+    }
 
     const currentTime = new Date().getTime();
     const expireTime = logoData.end ? Date.parse(logoData.end) : null;

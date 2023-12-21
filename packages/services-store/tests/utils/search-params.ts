@@ -9,7 +9,7 @@
 
 /**
  * @param {string} url A URL.
- * @returns {object<string, string>} The key-value pair of the search params of the given URL.
+ * @returns {[key: string]: string} The key-value pair of the search params of the given URL.
  */
 function getSearchParams(url) {
   const index = url.indexOf('?');

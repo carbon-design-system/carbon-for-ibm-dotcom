@@ -17,15 +17,16 @@
 @mixin combo-box-expressive {
   .#{$prefix}--list-box__invalid-icon,
   .#{$prefix}--list-box__selection svg {
-    width: to-rem(20px);
-    height: to-rem(20px);
+    block-size: to-rem(20px);
+    inline-size: to-rem(20px);
   }
   .#{$prefix}--combo-box.#{$prefix}--list-box {
     .#{$prefix}--list-box__menu-icon {
-      top: $spacing-04;
+      inset-block-start: $spacing-04;
+
       svg {
-        height: to-rem(20px);
-        width: to-rem(20px);
+        block-size: to-rem(20px);
+        inline-size: to-rem(20px);
       }
     }
   }

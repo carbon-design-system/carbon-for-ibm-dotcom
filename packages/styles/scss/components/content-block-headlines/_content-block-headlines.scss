@@ -1,5 +1,5 @@
 /**
-* Copyright IBM Corp. 2016, 2021
+* Copyright IBM Corp. 2016, 2023
 *
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
@@ -21,11 +21,11 @@
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {
       @include breakpoint(md) {
-        padding-top: $spacing-07;
+        padding-block-start: $spacing-07;
       }
 
       @include breakpoint(lg) {
-        padding-top: $spacing-10;
+        padding-block-start: $spacing-10;
       }
     }
 
@@ -40,12 +40,13 @@
 
     ::slotted(#{$c4d-prefix}-content-block-copy),
     .#{$prefix}--content-block__copy {
-      margin-bottom: $spacing-12;
+      margin-block-end: $spacing-12;
+
       p {
-        margin-bottom: $spacing-10;
+        margin-block-end: $spacing-10;
 
         @include breakpoint(lg) {
-          margin-bottom: $spacing-12;
+          margin-block-end: $spacing-12;
         }
       }
     }
@@ -59,14 +60,14 @@
     @include make-col-ready;
 
     &:last-of-type {
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
 
       @include breakpoint(md) {
-        margin-bottom: $spacing-07;
+        margin-block-end: $spacing-07;
       }
 
       @include breakpoint(lg) {
-        margin-bottom: $spacing-12;
+        margin-block-end: $spacing-12;
       }
     }
 
@@ -91,16 +92,15 @@
     display: flex;
     flex-direction: column;
 
-    border-top: 1px solid $layer-accent-01;
-    padding-top: $spacing-05;
-    padding-bottom: $spacing-07;
+    border-block-start: 1px solid $layer-accent-01;
+    padding-block: $spacing-05 $spacing-07;
 
     @include make-col-ready;
 
     .#{$prefix}--content-block-headlines__heading,
     .#{$prefix}--content-block-headlines__copy {
-      max-width: 90%;
       color: $text-primary;
+      max-inline-size: 90%;
     }
 
     .#{$prefix}--content-block-headlines__copy {
@@ -115,16 +115,15 @@
     }
 
     .#{$prefix}--content-block-headlines__cta-container {
-      margin-top: auto;
+      margin-block-start: auto;
     }
 
     .#{$prefix}--link {
-      margin-top: $spacing-05;
+      margin-block-start: $spacing-05;
     }
 
     @include breakpoint(md) {
-      padding-top: $spacing-05;
-      padding-bottom: $spacing-10;
+      padding-block: $spacing-05 $spacing-10;
     }
   }
 
