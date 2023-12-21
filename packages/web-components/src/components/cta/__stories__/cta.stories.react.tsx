@@ -31,7 +31,7 @@ import {
   types,
 } from './ctaTypeConfig';
 import { CTA_TYPE } from '../defs';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 
 let duration;
 

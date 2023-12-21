@@ -67,7 +67,9 @@ class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
       ? -1
       : findIndex(items, this._testItemWithQueryText, this);
     forEach(items, (item, i) => {
-      if (i === index) item.scrollIntoView();
+      if (i === index) {
+        item.scrollIntoView();
+      }
       (item as CDSComboBoxItem).highlighted = i === index;
     });
     const { _filterInputNode: filterInput } = this;

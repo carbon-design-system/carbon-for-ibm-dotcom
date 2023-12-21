@@ -72,9 +72,11 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
       ) as Element[];
 
     if (this._childItems.length > 3) {
-      if (this._childItems.length < 7)
+      if (this._childItems.length < 7) {
         this._endTypeLayout = END_TYPE_LAYOUT.TWO_COLUMNS;
-      else this._endTypeLayout = END_TYPE_LAYOUT.THREE_COLUMNS;
+      } else {
+        this._endTypeLayout = END_TYPE_LAYOUT.THREE_COLUMNS;
+      }
     } else {
       this._endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
     }

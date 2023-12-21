@@ -53,7 +53,9 @@ class C4DPricingTableHeaderRow extends StableSelectorMixin(
         const tag = cell.shadowRoot.querySelector(
           `.${C4DPricingTableHeaderCell.tagWrapperSelector}`
         );
-        if (tag) acc.push(tag);
+        if (tag) {
+          acc.push(tag);
+        }
       }
       return acc;
     }, []);

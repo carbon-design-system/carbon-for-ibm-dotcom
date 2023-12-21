@@ -19,10 +19,10 @@ import '../../expressive-modal/index';
 import styles from './lightbox-media-viewer.stories.scss?lit';
 import readme from './README.stories.mdx';
 
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
-import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
-import imgMax16x9 from '../../../../../storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgXlg16x9 from '../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
+import imgXlg2x1 from '../../../../.storybook/storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
+import imgMax16x9 from '../../../../.storybook/storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 
 const images = {
   none: null,

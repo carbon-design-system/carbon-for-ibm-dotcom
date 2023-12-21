@@ -74,6 +74,7 @@ class C4DFooterNavGroup extends MediaQueryMixin(
    * Handles the `keydown` event on the expando button.
    *
    * @param event The event.
+   * @param event.key The event key.
    */
   private _handleKeydownExpando = ({ key }: KeyboardEvent) => {
     if (this.open && (key === 'Esc' || key === 'Escape')) {

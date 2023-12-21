@@ -27,13 +27,13 @@ import '../../../callout-quote/index';
 import '../../../callout-with-media/index';
 import '../../../table-of-contents/index';
 
-import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
-import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
-import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
-import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import imgSm16x9 from '../../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import imgMd16x9 from '../../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgLg16x9 from '../../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
+import imgXlg4x3 from '../../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
-import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import leadspaceImg from '../../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
 
 export const image = html`
   <c4d-image

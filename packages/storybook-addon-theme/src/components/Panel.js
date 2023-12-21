@@ -53,16 +53,16 @@ const Panel = ({ api, active }) => {
 
 Panel.propTypes = {
   /**
+   * `true` if this Storybook add-on panel is active.
+   */
+  active: PropTypes.bool.isRequired,
+
+  /**
    * The Storybook API object.
    */
   api: PropTypes.shape({
     getChannel: PropTypes.func,
   }).isRequired,
-
-  /**
-   * `true` if this Storybook add-on panel is active.
-   */
-  active: PropTypes.bool.isRequired,
 };
 
 export default Panel;

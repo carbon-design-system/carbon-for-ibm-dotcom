@@ -387,7 +387,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         mandatoryCheckboxes
       )) {
         const legalTextName = key.replace(/([A-Z]+)/g, '-$1').toLowerCase();
-        let mandatoryCheckboxTemplate = html`
+        const mandatoryCheckboxTemplate = html`
           <span>
             <div class="${prefix}--form-item bx--checkbox-wrapper">
               <p part=${legalTextName} class=${legalTextName}>
@@ -487,7 +487,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       }
 
       if (!this.termsConditionLink.strings && this.termsConditionLink) {
-        let originalValue = OtherPreferences;
+        const originalValue = OtherPreferences;
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');

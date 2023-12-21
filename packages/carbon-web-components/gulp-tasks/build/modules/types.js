@@ -23,7 +23,8 @@ const config = require('../../config');
 function types() {
   const tsProject = typescript.createProject(path.resolve(__dirname, '../../../tsconfig.json'));
   const { dts } = gulp
-    .src([`${config.srcDir}/**/*.ts`, `!${config.srcDir}/**/*.stories.ts*`, `!${config.srcDir}/**/stories/**/*.ts*`])
+    // Ignore *-story.ts files until they get converted/added to SB7 stories
+    .src([`${config.srcDir}/**/*.ts`, `!${config.srcDir}/**/*.stories.ts*`, `!${config.srcDir}/**/stories/**/*.ts*`, `!${config.srcDir}/**/*-story.ts*`,])
     .pipe(sourcemaps.init())
     .pipe(tsProject());
   return dts

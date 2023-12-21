@@ -15,7 +15,7 @@ import readme from './README.stories.mdx';
 import '../index';
 import { GRID_MODE } from '../../card-group/defs';
 import { CTA_TYPE } from '../../cta/defs';
-import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
+import image from '../../../../.storybook/storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {

@@ -47,13 +47,13 @@ class C4DFilterPanelInputSelect extends FocusMixin(
    * sets the selected value attribute to selected
    */
   @property({ attribute: 'selected', type: Boolean, reflect: true })
-  selected: boolean = false;
+  selected = false;
 
   /**
    * property for setting the value to a string
    */
   @property()
-  value: string = '';
+  value = '';
 
   /**
    * targets the last selected item
@@ -105,6 +105,7 @@ class C4DFilterPanelInputSelect extends FocusMixin(
    * Ensures the click header handler gets called upon clicking enter if focused.
    *
    * @param event captures the inputed key
+   * @param event.key The event key.
    * @private
    */
   private _handleKeydown = ({ key }: KeyboardEvent) => {
@@ -135,7 +136,7 @@ class C4DFilterPanelInputSelect extends FocusMixin(
    * sets header-value attribute to the input selected header
    */
   @property({ attribute: 'header-value' })
-  headerValue: string = '';
+  headerValue = '';
 
   /**
    * Toggles the input select dropdown and sets the header to selected and sets the value
@@ -162,6 +163,7 @@ class C4DFilterPanelInputSelect extends FocusMixin(
    * Handles `slotchange` event.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   protected _handleSlotChange({ target }: Event) {
     this._items = (target as HTMLSlotElement)

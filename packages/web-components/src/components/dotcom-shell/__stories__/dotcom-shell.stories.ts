@@ -41,8 +41,8 @@ import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotc
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports
-import img4Col from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
-import img8Col from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
+import img4Col from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
+import img8Col from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
 
 const userStatuses = {
   authenticated: 'test.user@ibm.com',

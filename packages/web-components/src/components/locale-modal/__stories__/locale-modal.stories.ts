@@ -16,7 +16,7 @@ import styles from './locale-modal.stories.scss?lit';
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {
-  const { langDisplay, localeList } = args?.LocaleModalComposite;
+  const { langDisplay, localeList } = args.LocaleModalComposite;
   const { useMock } = args?.Other ?? {};
   return html`
     <style>

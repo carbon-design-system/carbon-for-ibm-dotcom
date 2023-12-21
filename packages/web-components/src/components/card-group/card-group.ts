@@ -175,7 +175,7 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
       'md'
     );
 
-    let tagGroupHeight: number = 0;
+    let tagGroupHeight = 0;
 
     // get tallest height of tag groups
     this._childItemTagGroup.forEach((item) => {

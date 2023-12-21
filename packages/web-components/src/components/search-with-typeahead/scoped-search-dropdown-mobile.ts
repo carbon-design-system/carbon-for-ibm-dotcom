@@ -41,6 +41,7 @@ class C4DScopedSearchDropdownMobile extends CDSSelect {
    * Handles `oninput` event on the `<input>`
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   private _handleInputMobile({ target }: Event) {
     const { value } = target as HTMLSelectElement;
