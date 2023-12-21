@@ -10,10 +10,10 @@ import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-rea
 # Table Of Contents
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/table-of-contents)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components-react/table-of-contents)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/table-of-contents)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/table-of-contents)
 
 ## Getting started
 
@@ -67,16 +67,16 @@ function App() {
 
 ## Harvesting the table of contents
 
-`<cds-table-of-contents>` automatically harvests the table of contents by
+`<c4d-table-of-contents>` automatically harvests the table of contents by
 looking for `<a>`s with their `name` attribute. The titles in the table of
 contents are harvested from the text content in `<a>` by default. You can add
 `data-title` attribute to the `<a>`s to change the titles.
 
 ## Adjusting the position of `<select>` box
 
-`<cds-table-of-contents>` uses `<select>` as the table if the browser viewport
+`<c4d-table-of-contents>` uses `<select>` as the table if the browser viewport
 has narrow width. It sticks at the very top by default, but you can adjust the
-position via CSS. This is useful e.g. when you use `<cds-table-of-contents>`
+position via CSS. This is useful e.g. when you use `<c4d-table-of-contents>`
 with ibm.com masthead.
 
 ```css
@@ -97,6 +97,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector | Description |
 | ------------------------- | ---------------------- | ----------- |
-| `<cds-table-of-contents>` | N/A                    | Component   |
+| `<c4d-table-of-contents>` | N/A                    | Component   |
 
 <Description markdown={contributing} />
