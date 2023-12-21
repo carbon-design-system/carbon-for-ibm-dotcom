@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,8 +11,8 @@
 @use '../../../components/link-with-icon';
 
 @mixin themed-items {
-  color: $text-primary;
   background: $background;
+  color: $text-primary;
 }
 
 @mixin content-group-cards {
@@ -22,8 +22,7 @@
     }
 
     &-item__col {
-      margin-top: list.slash($grid-gutter, 2);
-      margin-bottom: list.slash($grid-gutter, 2);
+      margin-block: list.slash($grid-gutter, 2);
       @include make-col-ready;
 
       @include breakpoint(lg) {

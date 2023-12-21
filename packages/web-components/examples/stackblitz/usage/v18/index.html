@@ -1,0 +1,95 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <link rel="shortcut icon" href="https://www.ibm.com/favicon.ico" />
+
+    <title>@carbon/ibmdotcom-web-components example with v18</title>
+
+    <!-- Initialize Northstar -->
+    <script>
+      digitalData = { page: { pageInfo: { ibm: {} } } };
+    </script>
+    <script src="https://1.www.s81c.com/common/stats/ida_stats.js"></script>
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/v18/css/www.css" />
+    <script src="https://1.www.s81c.com/common/v18/js/www.js"></script>
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" />
+
+    <!-- Configurable Northstar options -->
+    <script type="text/javascript">
+      IBMCore.common.util.config.set({
+        // configurations go here
+      });
+    </script>
+
+    <!-- Stylesheet to override Northstar -->
+    <style type="text/css">
+      #ibm-content {
+        padding-top: calc(3rem + 1px);
+      }
+    </style>
+
+    <!-- Application module that imports Carbon for IBM.com Web Components masthead module -->
+    <script type="module">
+      import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
+    </script>
+  </head>
+  <body id="ibm-com" class="ibm-type">
+    <div id="ibm-top" class="ibm-landing-page">
+      <c4d-masthead-container></c4d-masthead-container>
+      <div id="ibm-content-wrapper">
+        <!-- HEADER WITH L1 NAVIGATION, LEADSPACE, TAB NAVIGATION -->
+
+        <main role="main" aria-labelledby="ibm-pagetitle-h1">
+          <div id="ibm-pcon">
+            <div id="ibm-content">
+              <div id="ibm-content-body">
+                <div id="ibm-content-main">
+                  <!-- CONTENT & COMPONENTS START -->
+                  <div class="ibm-fluid ibm-padding-bottom-3">
+                    <div class="ibm-col-12-4">
+                      <h1 class="ibm-h1 ibm-large ibm-light">
+                        Northstar v18 Starter Kit
+                      </h1>
+                      <p class="ibm-textcolor-gray-50">
+                        Page content and other components go here
+                      </p>
+                    </div>
+                  </div>
+                  <!-- CONTENT & COMPONENTS END -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- FOOTER_BEGIN -->
+      <footer role="contentinfo" aria-label="IBM">
+        <div id="ibm-footer">
+          <h2 class="ibm-access">Footer links</h2>
+          <ul>
+            <li><a href="https://www.ibm.com/contact/us/en/">Contact</a></li>
+            <li><a href="https://www.ibm.com/privacy/us/en/">Privacy</a></li>
+            <li><a href="https://www.ibm.com/legal/us/en/">Terms of use</a></li>
+            <li>
+              <a href="https://www.ibm.com/accessibility/us/en/">Accessibility</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+      <!-- FOOTER_END -->
+    </div>
+  </body>
+</html>

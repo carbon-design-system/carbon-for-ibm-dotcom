@@ -47,6 +47,7 @@ class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
    * Handles `slotchange` event.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;

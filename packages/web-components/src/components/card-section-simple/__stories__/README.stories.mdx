@@ -3,13 +3,13 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-card-section-simple>`
+# `<c4d-card-section-simple>`
 
 > The Card Section - Simple pattern is a collection of cards presented in a
 > section with a left-column header. 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-section-simple)
 > example implementation.
-> [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-section-simple)
+> [![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-section-simple)
 
 ## Getting started
 
@@ -28,46 +28,46 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-simple/index
 ### HTML
 
 ```html
-<cds-card-section-simple>
-  <cds-content-section-heading
-    >Aliquam condimentum interdum</cds-content-section-heading
+<c4d-card-section-simple>
+  <c4d-content-section-heading
+    >Aliquam condimentum interdum</c4d-content-section-heading
   >
-  <cds-card-group>
-    <cds-card-group-item href="https://example.com" cta-type="local">
-      <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+  <c4d-card-group>
+    <c4d-card-group-item href="https://example.com" cta-type="local">
+      <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-    </cds-card-group-item>
-  </cds-card-group>
-</cds-card-section-simple>
+      <c4d-card-footer slot="footer"> </c4d-card-footer>
+    </c4d-card-group-item>
+  </c4d-card-group>
+</c4d-card-section-simple>
 ```
 
 ### HTML (with images)
 
 ```html
-<cds-card-section-simple heading="Aliquam condimentum interdum">
-  <cds-card-group>
-    <cds-card-group-item href="https://example.com" cta-type="local">
-      <cds-image
+<c4d-card-section-simple heading="Aliquam condimentum interdum">
+  <c4d-card-group>
+    <c4d-card-group-item href="https://example.com" cta-type="local">
+      <c4d-image
         slot="image"
         alt="Image alt text"
         default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3">
-      </cds-image>
-      <cds-card-eyebrow>Topic</cds-card-eyebrow>
-      <cds-card-heading>Natural Language Processing.</cds-card-heading>
-      <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-    </cds-card-group-item>
-  </cds-card-group>
-</cds-card-section-simple>
+      </c4d-image>
+      <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+      <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
+      <c4d-card-footer slot="footer"> </c4d-card-footer>
+    </c4d-card-group-item>
+  </c4d-card-group>
+</c4d-card-section-simple>
 ```
 
 ## Props
 
-<Props of="cds-card-section-simple" />
+<Props of="c4d-card-section-simple" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -78,6 +78,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector     | Compatibility selector                   | Description |
 | --------------------------- | ---------------------------------------- | ----------- |
-| `<cds-card-section-simple>` | `data-autoid="cds--card-section-simple"` | Component   |
+| `<c4d-card-section-simple>` | `data-autoid="c4d--card-section-simple"` | Component   |
 
 <Description markdown={contributing} />
