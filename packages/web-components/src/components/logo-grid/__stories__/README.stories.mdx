@@ -11,10 +11,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Logo Grid
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/logo-grid)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/logo-grid)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/logo-grid)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/logo-grid)
 
 ## Getting started
 
@@ -33,13 +33,13 @@ import '@carbon/ibmdotcom-web-components/es/components/logo-grid/index.js';
 ### HTML
 
 ```html
-<cds-logo-grid>
-  <cds-content-block-heading> Our customers </cds-content-block-heading>
-  <cds-logo-grid-item
+<c4d-logo-grid>
+  <c4d-content-block-heading> Our customers </c4d-content-block-heading>
+  <c4d-logo-grid-item
     default-src="https://fpoimg.com/288x216?text=Example%20Logo&bg_color=ee5396&text_color=161616"
-    alt=""></cds-logo-grid-item>
-  <cds-logo-grid-link href="https://example.com">
-    <cds-card-link-heading>Lorem Ipsum</cds-card-link-heading>
+    alt=""></c4d-logo-grid-item>
+  <c4d-logo-grid-link href="https://example.com">
+    <c4d-card-link-heading>Lorem Ipsum</c4d-card-link-heading>
     <svg
       slot="footer"
       focusable="false"
@@ -53,13 +53,13 @@ import '@carbon/ibmdotcom-web-components/es/components/logo-grid/index.js';
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </cds-logo-grid-link>
-</cds-logo-grid>
+  </c4d-logo-grid-link>
+</c4d-logo-grid>
 ```
 
 ## Props
 
-<Props of="cds-logo-grid" />
+<Props of="c4d-logo-grid" />
 
 ## Stable selectors
 
@@ -69,8 +69,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector              | Description                     |
 | ----------------------- | ----------------------------------- | ------------------------------- |
-| `<cds-logo-grid>`       | `data-autoid="cds--logo-grid"`      | Logo Grid main component        |
-| `<cds-logo-link>`       | `data-autoid="cds--logo-grid-link"` | Logo Grid bottom link component |
-| `<cds-logo-item>`       | `data-autoid="cds--logo-grid-item"` | Logo Grid item component        |
+| `<c4d-logo-grid>`       | `data-autoid="c4d--logo-grid"`      | Logo Grid main component        |
+| `<c4d-logo-link>`       | `data-autoid="c4d--logo-grid-link"` | Logo Grid bottom link component |
+| `<c4d-logo-item>`       | `data-autoid="c4d--logo-grid-item"` | Logo Grid item component        |
 
 <Description markdown={contributing} />

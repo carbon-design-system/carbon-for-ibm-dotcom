@@ -12,10 +12,10 @@ import contributing from '../../../../../../docs/contributing-license.md';
 > across our different components.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/background-media)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/background-media)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/background-media)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/background-media)
 
 ## Getting started
 
@@ -32,51 +32,51 @@ import '@carbon/ibmdotcom-web-components/es/components/background-media/index.js
 #### With Background Image
 
 ```html
-<cds-background-media
+<c4d-background-media
   gradient-direction="left-to-right"
   alt="Image alt text"
   default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616">
-  <cds-image-item
+  <c4d-image-item
     media="(min-width: 1584px)"
     srcset="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616">
-  </cds-image-item>
-  <cds-image-item
+  </c4d-image-item>
+  <c4d-image-item
     media="(min-width: 1312px)"
     srcset="https://fpoimg.com/1594x887?text=16:9&bg_color=ee5396&text_color=161616">
-  </cds-image-item>
-  <cds-image-item
+  </c4d-image-item>
+  <c4d-image-item
     media="(min-width: 672px)"
     srcset="https://fpoimg.com/1594x887?text=16:9&bg_color=ee5396&text_color=161616">
-  </cds-image-item>
-  <cds-image-item
+  </c4d-image-item>
+  <c4d-image-item
     media="(min-width: 320px)"
     srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-  </cds-image-item>
-  <cds-image-item
+  </c4d-image-item>
+  <c4d-image-item
     media="(min-width: 0px)"
     srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-  </cds-image-item>
-</cds-background-media>
+  </c4d-image-item>
+</c4d-background-media>
 ```
 
 #### With Background Video
 
 ```html
-<cds-background-media
+<c4d-background-media
   gradient-direction="left-to-right"
   alt="Image alt text"
   default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616">
-  <cds-video-player-container
+  <c4d-video-player-container
     playing-mode="inline"
     video-id="0_ibuqxqbe"
     background-mode="true">
-  </cds-video-player-container>
-</cds-background-media>
+  </c4d-video-player-container>
+</c4d-background-media>
 ```
 
 ## Props
 
-<Props of="cds-background-media" />
+<Props of="c4d-background-media" />
 
 ## Stable selectors
 
@@ -86,6 +86,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector  | Compatibility selector                | Description |
 | ------------------------ | ------------------------------------- | ----------- |
-| `<cds-background-media>` | `data-autoid="cds--background-media"` | Component   |
+| `<c4d-background-media>` | `data-autoid="c4d--background-media"` | Component   |
 
 <Description markdown={contributing} />
