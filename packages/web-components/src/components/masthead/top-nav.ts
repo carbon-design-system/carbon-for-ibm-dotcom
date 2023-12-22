@@ -122,6 +122,12 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   importedMegamenu = false;
 
   /**
+   * The `aria-label` attribute for the nav element.
+   */
+  @property({ attribute: 'nav-label' })
+  navLabel: string = 'Primary navigation';
+
+  /**
    * The English title of the selected nav item.
    */
   @property({ attribute: 'selected-menu-item' })
@@ -557,7 +563,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                 </div>
                 <div class="${ddsPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content">
-                    <nav part="nav" class="${prefix}--header__nav">
+                    <nav
+                      part="nav"
+                      class="${prefix}--header__nav"
+                      aria-label="${ifNonNull(this.navLabel)}">
                       <div class="${prefix}--sub-content-right"></div>
                       <div
                         part="menubar"
@@ -597,7 +606,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                 </div>
                 <div class="${ddsPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content">
-                    <nav part="nav" class="${prefix}--header__nav">
+                    <nav
+                      part="nav"
+                      class="${prefix}--header__nav"
+                      aria-label="${ifNonNull(this.navLabel)}">
                       <div class="${prefix}--sub-content-left"></div>
                       <div
                         part="menubar"
