@@ -146,7 +146,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param menu megamenu data object
    * @param _parentKey parent key
    * @param layout layout selection to render the megamenu with
-   * @returns {TemplateResult}
+   * @returns {TemplateResult} A template fragment representing a megamenu.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegaMenu(
@@ -166,7 +166,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menu megamenu data object
    * @param _parentKey key that identifies parent nav item
-   * @returns {TemplateResult}
+   * @returns {TemplateResult} A template fragment representing a tabbed megamenu.
    */
   protected _renderMegaMenuTabbed(menu: L0Megamenu, _parentKey) {
     const { viewAll, sections } = menu;
@@ -223,7 +223,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * Render individual tabpanel in a tabbed megamenu.
    *
    * @param menuItem menuItem data object
-   * @returns {TemplateResult}
+   * @returns {TemplateResult} A template fragment representing a megamenu tabpanel.
    */
   protected _renderMegamenuTabPanel(menuItem) {
     const { itemKey, groups, heading, viewAll: itemViewAll } = menuItem;
@@ -274,7 +274,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menu megamenu data object
    * @param _parentKey key that identifies parent nav item
-   * @returns {TemplateResult}
+   * @returns {TemplateResult} A template fragment representing a listing megamenu.
    */
   // eslint-disable-next-line
   protected _renderMegaMenuListing(menu: L0Megamenu, _parentKey) {
@@ -346,7 +346,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * Render a Megapanel link group.
    *
    * @param group megamenu link group
-   * @returns {TemplateResult}
+   * @returns {TemplateResult} A template fragment representing a megapanel link group.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegapanelLinkGroup(
@@ -405,7 +405,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param object.sectionTitle title of menu section
    * @param object.sectionUrl section title url of menu section
    * @param object.sectionId id of menu section
-   * @returns {TemplateResult}
+   * @returns {TemplateResult} A template fragment representing the left nav menu
+   *   sections.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNavMenuSections({
@@ -545,7 +546,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menuItems The options.
    * @param autoid Base autoid to be applied to the menu items
-   * @returns {TemplateResult}
+   * @returns {TemplateResult} A template fragment representing the left nav.
    */
   protected _renderLeftNav() {
     const { ctaButtons, platform } = this;
