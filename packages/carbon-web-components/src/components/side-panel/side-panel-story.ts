@@ -273,6 +273,7 @@ const DefaultTemplate = (args) => {
 
   const handleStackingChange = ({ detail }) => {
     actionsStacked = !actionsStacked; // detail.stacked;
+    console.log('actionsStacked', actionsStacked);
     CDSSidePanel.sortActions(actions, actionsStacked);
   };
 

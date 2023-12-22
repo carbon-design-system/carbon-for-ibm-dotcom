@@ -138,7 +138,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   private _endSentinelNode!: HTMLAnchorElement;
 
   /**
-   * Node to track focus going outside of side-panel content.
+   * Node to track side panel.
    */
   @query('#side-panel')
   private _sidePanel!: HTMLDivElement;
@@ -352,11 +352,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     let stacked =
       /(xs)|(sm)/.test(this.size) ||
       (/md/.test(this.size) && this._actionsCount > 2);
-
-    if (!stacked && window && this._actions) {
-      const styles = window.getComputedStyle(this._actions);
-      stacked = styles['flex-direction'] === 'column';
-    }
 
     if (this._actionsStacked !== stacked) {
       this._actionsStacked = stacked;
@@ -582,13 +577,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     );
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.disconnectedCallback();
-    this.connectObservers();
-  }
-
-  disconnectedCallback() {
+  disconnectObservers() {
     if (this._hObserveResize) {
       this._hObserveResize = this._hObserveResize.release();
     }
@@ -599,6 +588,17 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     if (this._innerContent) {
       this._innerContent.removeEventListener('scroll', this._scrollObserver);
     }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.disconnectObservers();
+    this.connectObservers();
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.disconnectObservers();
   }
 
   render() {
@@ -827,7 +827,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
 
     if (changedProperties.has('open')) {
+      this.disconnectObservers();
       if (this.open) {
+        this.connectObservers();
         this._launcher = this.ownerDocument!.activeElement;
         const primaryFocusNode = this.querySelector(
           (this.constructor as typeof CDSSidePanel).selectorPrimaryFocus

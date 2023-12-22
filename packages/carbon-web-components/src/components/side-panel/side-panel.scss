@@ -240,15 +240,17 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     @extend .#{$block-class-action-set};
 
     display: flex;
-    ::slotted(.#{$block-class-action-set}__action-button--first) {
-      // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
-      flex: var(--#{$block-class}--actions-width-first, initial);
-    }
+    width: 100%;
 
     ::slotted(.#{$block-class-action-set}__action-button) {
       // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
       max-width: none;
       flex: var(--#{$block-class}--actions-width-other, initial);
+    }
+
+    ::slotted(.#{$block-class-action-set}__action-button--first) {
+      // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
+      flex: var(--#{$block-class}--actions-width-first, initial);
     }
 
     &[hidden] {
