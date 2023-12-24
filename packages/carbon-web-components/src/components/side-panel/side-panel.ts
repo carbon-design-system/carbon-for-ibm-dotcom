@@ -529,7 +529,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   /**
    * SidePanel placement.
    */
-  @property({ reflect: true })
+  @property({ reflect: true, type: String })
   placement = SIDE_PANEL_PLACEMENT.RIGHT;
 
   /**
@@ -547,7 +547,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   /**
    * SidePanel size.
    */
-  @property({ reflect: true })
+  @property({ reflect: true, type: String })
   size = SIDE_PANEL_SIZE.MEDIUM;
 
   /**
@@ -565,7 +565,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   /**
    * Sets the subtitle text
    */
-  @property({ reflect: false })
+  @property({ reflect: false, type: String })
   title;
 
   async connectObservers() {
