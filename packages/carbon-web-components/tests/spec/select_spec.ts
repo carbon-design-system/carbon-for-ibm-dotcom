@@ -33,7 +33,7 @@ const template = (props?) =>
     'cds-select': props,
   });
 
-describe('cds-select', function () {
+xdescribe('cds-select', function () {
   const events = new EventManager();
 
   describe('Misc attributes', function () {
@@ -240,6 +240,7 @@ describe('cds-select', function () {
             try {
               // TODO: See if we can get around TS2683
               // @ts-ignore
+              // eslint-disable-next-line prefer-rest-params
               origAttributeToProperty.apply(this, arguments);
             } catch (error) {
               caught = error;

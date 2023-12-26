@@ -71,8 +71,15 @@
 ####     `should render with minimum attributes`
 
 ```
-<slot>
-</slot>
+<span
+  class="cds--table-header-label"
+  part="label-text"
+>
+  <slot>
+  </slot>
+  <slot name="slug">
+  </slot>
+</span>
 
 ```
 
@@ -86,11 +93,15 @@
       Name
     "
 >
-  <span
-    class="cds--table-header-label"
-    part="label-text"
-  >
-    <slot>
+  <span class="cds--table-sort__flex">
+    <span
+      class="cds--table-header-label"
+      part="label-text"
+    >
+      <slot>
+      </slot>
+    </span>
+    <slot name="slug">
     </slot>
   </span>
 </button>
@@ -112,73 +123,21 @@
 ####     `should render with various attributes`
 
 ```
-<div
-  class="cds--table-column-checkbox"
-  part="selection-container"
->
-  <input
-    class="cds--checkbox"
-    disabled=""
-    id="selection"
-    name="selection-name-foo"
-    part="selection"
-    type="checkbox"
-    value="selection-value-foo"
-  >
-  <label
-    aria-label="selection-label-foo"
-    class="cds--checkbox-label"
-    for="selection"
-  >
-  </label>
-</div>
-<slot>
-</slot>
-
-```
-
-## `cds-table-expand-row`
-
-##   `Misc attributes`
-
-####     `should render with minimum attributes`
-
-```
-<div class="cds--table-expand">
-  <button class="cds--table-expand__button">
-  </button>
-</div>
-<slot>
-</slot>
-
-```
-
-####     `should render with various attributes`
-
-```
-<div class="cds--table-expand">
-  <button class="cds--table-expand__button">
-  </button>
-</div>
-<div
-  class="cds--table-column-checkbox"
-  part="selection-container"
->
-  <input
-    class="cds--checkbox"
-    disabled=""
-    id="selection"
-    name="selection-name-foo"
-    part="selection"
-    type="checkbox"
-    value="selection-value-foo"
-  >
-  <label
-    aria-label="selection-label-foo"
-    class="cds--checkbox-label"
-    for="selection"
-  >
-  </label>
+<div class="cds--table-column-checkbox">
+  <div>
+    <slot name="slug">
+    </slot>
+    <cds-checkbox
+      checked=""
+      data-table=""
+      disabled=""
+      hide-label=""
+      label-text="selection-label-foo"
+      name="selection-name-foo"
+      value="selection-value-foo"
+    >
+    </cds-checkbox>
+  </div>
 </div>
 <slot>
 </slot>
@@ -193,7 +152,7 @@
 
 ```
 <div
-  class="cds--search cds--search--sm"
+  class="cds--search cds--search--lg"
   tabindex="0"
 >
   <div class="cds--search-magnifier">
@@ -265,67 +224,51 @@
 
 ```
 
+## `cds-table-expand-row`
+
 ##   `Misc attributes`
 
-####   `should render with minimum attributes`
+####     `should render with minimum attributes`
 
 ```
-<div
-  class="bx--search bx--search--sm"
-  tabindex="0"
->
-  <label
-    class="bx--label"
-    for="input"
-    part="label-text"
-  >
-    <slot>
-    </slot>
-  </label>
-  <input
-    class="bx--search-input"
-    id="input"
-    part="input"
-    role="searchbox"
-  >
-  <button
-    aria-label=""
-    class="bx--search-close bx--search-close--hidden"
-    part="close-button"
-    type="button"
-  >
+<div class="cds--table-expand">
+  <button class="cds--table-expand__button">
   </button>
 </div>
+<slot>
+</slot>
 ```
 
-####   `should render with various attributes`
+####     `should render with various attributes`
 
 ```
-<div
-  class="bx--search bx--search--xl"
-  tabindex="-1"
->
-  <label
-    class="bx--label"
-    for="input"
-    part="label-text"
-  >
-    <slot>
-    </slot>
-  </label>
-  <input
-    class="bx--search-input"
-    id="input"
-    part="input"
-    role="searchbox"
-  >
-  <button
-    aria-label=""
-    class="bx--search-close bx--search-close--hidden"
-    part="close-button"
-    type="button"
-  >
+<div class="cds--table-expand">
+  <button class="cds--table-expand__button">
   </button>
 </div>
+<div
+  class="cds--table-column-checkbox"
+  part="selection-container"
+>
+  <input
+    class="cds--checkbox"
+    disabled=""
+    hide-label=""
+    label-text="selection-label-foo"
+    name="selection-name-foo"
+    value="selection-value-foo"
+  >
+</div>
+<slot>
+</slot>
+  <label
+    aria-label="selection-label-foo"
+    class="cds--checkbox-label"
+    for="selection"
+  >
+  </label>
+</div>
+<slot>
+</slot>
 ```
 

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -14,16 +14,15 @@
 :host(#{$c4d-prefix}-content-block-segmented) {
   ::slotted(:not([slot])) {
     display: block;
-    margin-top: $spacing-10;
-    margin-bottom: $spacing-10;
+    margin-block: $spacing-10;
   }
 
   ::slotted(:not([slot]):last-of-type) {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   ::slotted([slot='media']) {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   ::slotted(#{$c4d-prefix}-content-block-complementary) {
@@ -34,20 +33,19 @@
 }
 
 :host(#{$c4d-prefix}-content-block-segmented-item) ::slotted(*) {
-  margin-left: $spacing-05;
-  margin-right: $spacing-05;
+  margin-inline: $spacing-05;
 }
 
 // TODO: Consider applying this rule in general
 :host(#{$c4d-prefix}-content-block-segmented-item) {
   ::slotted(#{$c4d-prefix}-content-item-copy) {
     @include breakpoint(md) {
-      width: calc((100% - 2 * #{$spacing-05}) * 0.9);
+      inline-size: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
   }
 
   ::slotted([slot='footer']) {
-    margin-top: $spacing-07;
+    margin-block-start: $spacing-07;
   }
 }
 
@@ -55,5 +53,5 @@
   ::slotted([slot='heading']) {
   // In this condition, given the heading content and child content are in different grid area, both margins will be in effect.
   // Uses the margin of child content and cancels one of the heading to get the right margin.
-  margin-bottom: 0;
+  margin-block-end: 0;
 }

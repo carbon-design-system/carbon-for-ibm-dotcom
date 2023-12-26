@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,7 +37,7 @@ import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 
 import readme from './README.stories.react.mdx';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-row/defs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const mediaAlign = {
@@ -53,7 +53,7 @@ const mediaType = {
 export const Default = (args) => {
   const { sectionHeading, sectionHeadingText, align, type } =
     args?.TabsExtendedMedia ?? {};
-  const tabs: any[] = [];
+  let tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
     tabs.push(

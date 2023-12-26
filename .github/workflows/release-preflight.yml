@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - release/*
+      - release/v2*
 
 concurrency:
   group: release-preflight-${{ github.ref }}

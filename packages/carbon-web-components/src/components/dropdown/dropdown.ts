@@ -67,6 +67,11 @@ class CDSDropdown extends ValidityMixin(
   HostListenerMixin(FormMixin(FocusMixin(LitElement)))
 ) {
   /**
+   * `true` if there is a slug.
+   */
+  protected _hasSlug = false;
+
+  /**
    * The latest status of this dropdown, for screen reader to accounce.
    */
   protected _assistiveStatusText?: string;
@@ -247,6 +252,25 @@ class CDSDropdown extends ValidityMixin(
   }
 
   /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlugSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof CDSDropdown).slugItem
+            )
+          : false
+      );
+
+    this._hasSlug = Boolean(hasContent);
+    (hasContent[0] as HTMLElement).setAttribute('size', 'mini');
+    this.requestUpdate();
+  }
+
+  /**
    * Handles user-initiated selection of a dropdown item.
    *
    * @param [item] The dropdown item user wants to select. Absense of this argument means clearing selection.
@@ -282,7 +306,7 @@ class CDSDropdown extends ValidityMixin(
    *
    * @param [force] If specified, forces the open state to the given one.
    */
-  protected _handleUserInitiatedToggle(force: boolean = !this.open) {
+  protected _handleUserInitiatedToggle(force = !this.open) {
     const { eventBeforeToggle, eventToggle } = this
       .constructor as typeof CDSDropdown;
 
@@ -647,6 +671,13 @@ class CDSDropdown extends ValidityMixin(
     return true;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  updated(_changedProperties) {
+    this._hasSlug
+      ? this.setAttribute('slug', '')
+      : this.removeAttribute('slug');
+  }
+
   /**
    * The CSS class list for dropdown listbox
    */
@@ -692,6 +723,7 @@ class CDSDropdown extends ValidityMixin(
       _handleKeydownInner: handleKeydownInner,
       _handleKeypressInner: handleKeypressInner,
       _handleSlotchangeHelperText: handleSlotchangeHelperText,
+      _handleSlugSlotChange: handleSlugSlotChange,
       _slotHelperTextNode: slotHelperTextNode,
     } = this;
     const inline = type === DROPDOWN_TYPE.INLINE;
@@ -760,6 +792,7 @@ class CDSDropdown extends ValidityMixin(
             ${ChevronDown16({ 'aria-label': toggleLabel })}
           </div>
         </div>
+        <slot name="slug" @slotchange=${handleSlugSlotChange}></slot>
         ${menuBody}
       </div>
       <div
@@ -834,6 +867,13 @@ class CDSDropdown extends ValidityMixin(
    */
   static get eventToggle() {
     return `${prefix}-dropdown-toggled`;
+  }
+
+  /**
+   * A selector that will return the slug item.
+   */
+  static get slugItem() {
+    return `${prefix}-slug`;
   }
 
   static shadowRootOptions = {

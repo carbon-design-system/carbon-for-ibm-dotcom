@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,20 +8,20 @@
 @mixin content-group-pictograms {
   .#{$prefix}--content-group-pictograms {
     .#{$prefix}--content-group__copy {
-      margin-bottom: $spacing-05;
+      margin-block-end: $spacing-05;
 
       @include breakpoint(md) {
-        margin-bottom: $spacing-07;
+        margin-block-end: $spacing-07;
       }
     }
 
     .#{$prefix}--content-group {
-      margin-bottom: $layout-05;
+      margin-block-end: $layout-05;
     }
 
     &__item:last-child {
       .#{$prefix}--content-item {
-        margin-bottom: 0;
+        margin-block-end: 0;
       }
     }
   }

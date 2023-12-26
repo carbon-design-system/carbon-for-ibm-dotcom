@@ -10,10 +10,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Link List
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/link-list)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/link-list)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/link-list)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/link-list)
 
 ## Getting started
 
@@ -32,9 +32,9 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
 ### HTML
 
 ```html
-<cds-link-list>
-  <cds-link-list-heading>Tutorial</cds-link-list-heading>
-  <cds-link-list-item href="https://example.com">
+<c4d-link-list>
+  <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+  <c4d-link-list-item href="https://example.com">
     <p>Copy text</p>
     <svg
       slot="icon"
@@ -49,13 +49,13 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </cds-link-list-item>
-</cds-link-list>
+  </c4d-link-list-item>
+</c4d-link-list>
 ```
 
 ## Props
 
-<Props of="cds-link-list" />
+<Props of="c4d-link-list" />
 
 ## Stable selectors
 
@@ -65,6 +65,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector       | Description |
 | ----------------------- | ---------------------------- | ----------- |
-| `<cds-link-list>`       | data-autoid="cds--link-list" | Component   |
+| `<c4d-link-list>`       | data-autoid="c4d--link-list" | Component   |
 
 <Description markdown={contributing} />

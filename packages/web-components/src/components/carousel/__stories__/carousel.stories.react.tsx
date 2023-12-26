@@ -23,8 +23,8 @@ import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 // @ts-ignore
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
-import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
+import imgLg2x1 from '../../../../.storybook/storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+import imgLg4x3 from '../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 
 import styles from './carousel.stories.scss';
 import readme from './README.stories.react.mdx';
@@ -74,7 +74,6 @@ const CardWithLongHeading = ({
   </C4DCard>
 );
 
-
 const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => (
   <C4DVideoCTAContainer>
     <C4DCard href={href} cta-type="video">
@@ -85,20 +84,52 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => (
 );
 
 export const Default = () => {
-      return ( <>{Card()}{Card({copy: copyOdd})}{CardWithLongHeading()}{Card({copy: copyOdd})}{Card()}</> );
+  return (
+    <>
+      {Card()}
+      {Card({ copy: copyOdd })}
+      {CardWithLongHeading()}
+      {Card({ copy: copyOdd })}
+      {Card()}
+    </>
+  );
 };
 
 export const CardsWithImages = () => {
-  return ( <>{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}</> );
-}
+  return (
+    <>
+      {Card({ image: imgLg2x1 })}
+      {Card({ image: imgLg2x1, copy: copyOdd })}
+      {Card({ image: imgLg2x1 })}
+      {Card({ image: imgLg2x1, copy: copyOdd })}
+      {Card({ image: imgLg2x1 })}
+    </>
+  );
+};
 
 export const CardsWithVideos = () => {
-  return ( <>{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}</> );
-}
+  return (
+    <>
+      {CardWithVideo({ href: '0_ibuqxqbe' })}
+      {CardWithVideo({ href: '0_ibuqxqbe' })}
+      {CardWithVideo({ href: '0_ibuqxqbe' })}
+      {CardWithVideo({ href: '0_ibuqxqbe' })}
+    </>
+  );
+};
 
 export const CardsWithMedia = () => {
-  return (<>{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}</>)
-}
+  return (
+    <>
+      {Card({ image: imgLg4x3 })}
+      {CardWithVideo({ href: '0_ibuqxqbe' })}
+      {Card({ image: imgLg4x3 })}
+      {CardWithVideo({ href: '0_ibuqxqbe' })}
+      {Card({ image: imgLg4x3 })}
+      {CardWithVideo({ href: '0_ibuqxqbe' })}
+    </>
+  );
+};
 
 export default {
   title: 'Components/Carousel',
@@ -109,10 +140,8 @@ export default {
           <style type="text/css">{styles.cssText}</style>
           <div className="cds--grid">
             <div className="cds--row">
-              <C4DCarousel>
-                {story()}
-              </C4DCarousel>
-              </div>
+              <C4DCarousel>{story()}</C4DCarousel>
+            </div>
           </div>
         </>
       );
