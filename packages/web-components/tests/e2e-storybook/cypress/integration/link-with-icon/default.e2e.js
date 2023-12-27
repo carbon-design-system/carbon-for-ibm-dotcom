@@ -79,7 +79,9 @@ const _tests = [
 
           expect($link.prop('href')).not.to.be.empty;
         })
-        .visit(`${_path}&knob-Link%20href%20(href)=${customHrefInput}`)
+        .visit(
+          `${_path}&knob-Content%20link%20href%20(href)=${customHrefInput}`
+        )
         .get(_selector)
         .shadow()
         .find('a')
