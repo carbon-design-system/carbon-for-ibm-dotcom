@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,9 +15,8 @@
     padding: $spacing-03;
 
     .#{$prefix}--content-block {
-      padding-top: 0;
-      padding-bottom: 0;
       background: $icon-inverse;
+      padding-block: 0;
     }
 
     .#{$prefix}--content-block__heading {
@@ -28,27 +27,26 @@
         margin: $layout-05 0;
       }
     }
+
     &__container {
-      border-bottom: 1px $toggle-off solid;
+      border-block-end: 1px $toggle-off solid;
     }
 
     &__no-border {
       .#{$prefix}--logo-grid__container {
-        border-bottom: none;
+        border-block-end: none;
       }
     }
 
     .#{$prefix}--card__wrapper {
-      width: 100%;
+      inline-size: 100%;
     }
 
     .#{$prefix}--content-block__cta {
-      margin-top: $layout-01;
-      margin-bottom: $layout-07;
+      margin-block: $layout-01 $layout-07;
+      padding-inline-start: $spacing-05;
       @include make-col-ready;
       @include make-col(1, 1);
-
-      padding-left: $spacing-05;
 
       @include breakpoint(md) {
         @include make-col(1, 3);
@@ -60,8 +58,8 @@
     }
 
     a.#{$prefix}--card__CTA {
-      max-width: 100%;
-      margin-left: 0;
+      margin-inline-start: 0;
+      max-inline-size: 100%;
     }
 
     &__link {
@@ -82,7 +80,7 @@
       @include make-col-ready;
       @include make-col(1, 2);
 
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
 
       @include breakpoint(md) {
         @include make-col(1, 3);
@@ -92,35 +90,35 @@
     &__heading {
       @include type-style('fluid-heading-05', true);
 
-      width: 90%;
-      margin-top: $spacing-07;
-      margin-bottom: $spacing-07;
+      inline-size: 90%;
+      margin-block: $spacing-07;
     }
 
     &__wrapper {
-      width: 100%;
+      inline-size: 100%;
     }
 
     .#{$prefix}--image {
+      position: relative;
       display: block;
       background: $icon-inverse;
       overflow-y: hidden;
-      padding-top: aspect-ratio(288px, 216px);
-      position: relative;
+      padding-block-start: aspect-ratio(288px, 216px);
 
       &:hover img {
         border: 1px $toggle-off solid;
       }
+
       &:active img {
         border: 1px $layer-accent-01 solid;
       }
 
       img {
         position: absolute;
-        top: 0;
         display: block;
-        width: 100%;
-        height: auto;
+        block-size: auto;
+        inline-size: 100%;
+        inset-block-start: 0;
         object-fit: contain;
       }
     }
