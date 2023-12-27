@@ -22,6 +22,8 @@ const stories = glob.sync(
     // add mdx/story files as they are being worked on
     '../src/**/combo-box.stories.ts',
     '../src/**/combo-box.mdx',
+    '../src/**/date-picker.mdx',
+    '../src/**/date-picker.stories.ts',
     '../src/**/dropdown.stories.ts',
     '../src/**/dropdown.mdx',
     '../src/**/data-table-*.stories.ts',
