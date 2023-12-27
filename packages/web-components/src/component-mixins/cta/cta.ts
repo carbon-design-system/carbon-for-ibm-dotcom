@@ -350,6 +350,10 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       if (ctaType !== CTA_TYPE.VIDEO || !href || disabled) {
         return;
       }
+      // Only trigger for the first CTA with the video id in the page.
+      if (this.ownerDocument.querySelector(`[href='${href}']`) !== this) {
+        return;
+      }
       const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
       const hash = window.location.hash;
       const urlTrigger = `cta-video-${href}`;
