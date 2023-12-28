@@ -9,11 +9,26 @@
 
 'use strict';
 
+const fs = require('fs');
 const gulp = require('gulp');
+const path = require('path');
 const { rollup } = require('rollup');
 const getRollupConfig = require('../../tools/get-rollup-config');
 
 const config = require('../config');
+
+/**
+ * Gets all of the folders and returns out
+ *
+ * @param {string} dir Directory to check
+ * @returns {string[]} List of folders
+ * @private
+ */
+function _getFolders(dir) {
+  return fs.readdirSync(dir).filter(file => {
+    return fs.statSync(path.join(dir, file)).isDirectory();
+  });
+}
 
 /**
  * Builds a Rollup bundle.
@@ -24,7 +39,9 @@ const config = require('../config');
  * @private
  */
 async function _buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
-  const conf = getRollupConfig({ mode, dir });
+  let folders = _getFolders(`${config.srcDir}/components`);
+
+  const conf = getRollupConfig({ mode, dir, folders });
   const bundle = await rollup(conf);
   await bundle.write({
     format: 'es',
