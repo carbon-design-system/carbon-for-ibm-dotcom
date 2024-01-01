@@ -53,13 +53,13 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
    * Specify the duration in milliseconds to delay before displaying the tooltip
    */
   @property({ attribute: 'enter-delay-ms', type: Number })
-  enterDelayMs = 500;
+  enterDelayMs = 100;
 
   /**
    * Specify the duration in milliseconds to delay before hiding the tooltip
    */
   @property({ attribute: 'leave-delay-ms', type: Number })
-  leaveDelayMs = 100;
+  leaveDelayMs = 300;
 
   /**
    * Specify the size of the tooltip
