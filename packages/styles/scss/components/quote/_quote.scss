@@ -18,14 +18,14 @@
 
 @mixin quote {
   :host(#{$c4d-prefix}-quote) {
-    background: $background;
-    padding-bottom: $spacing-10;
     display: block;
+    background: $background;
+    padding-block-end: $spacing-10;
     @include hang;
 
     .#{$prefix}--link-with-icon__container {
-      padding-left: $spacing-05;
-      max-width: 80%;
+      max-inline-size: 80%;
+      padding-inline-start: $spacing-05;
     }
   }
 
@@ -42,12 +42,13 @@
     @include type-style('quotation-01', true);
     @include font-family('serif');
 
-    word-break: break-word;
     padding: 0 $spacing-07 $spacing-07 $spacing-07;
     margin: 0;
 
+    word-break: break-word;
+
     @include breakpoint(md) {
-      padding-bottom: $spacing-09;
+      padding-block-end: $spacing-09;
       @include type-style('quotation-02', true);
     }
   }
@@ -58,7 +59,7 @@
 
     @include breakpoint-down(md) {
       // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
-      left: 1.4rem;
+      inset-inline-start: 1.4rem;
     }
 
     @include breakpoint(md) {
@@ -67,24 +68,24 @@
 
     position: absolute;
     // this value was chosen by visually stay the closest as possible from the quotation text in the md and above breakpoints
-    left: 0.6rem;
+    inset-inline-start: 0.6rem;
   }
 
   .#{$prefix}--quote__mark-corner-bracket {
     @include breakpoint(sm) {
-      left: 0.6rem;
+      inset-inline-start: 0.6rem;
     }
 
     @include breakpoint(md) {
-      left: calc(-1 * #{$spacing-03});
+      inset-inline-start: calc(-1 * #{$spacing-03});
     }
 
     @include breakpoint(lg) {
-      left: calc(-1 * #{$spacing-05});
+      inset-inline-start: calc(-1 * #{$spacing-05});
     }
 
     @include breakpoint(max) {
-      left: calc(-1 * #{$spacing-07});
+      inset-inline-start: calc(-1 * #{$spacing-07});
     }
   }
 
@@ -92,11 +93,11 @@
     @include make-col-ready;
 
     @include breakpoint-down(md) {
-      padding-bottom: $spacing-05;
+      padding-block-end: $spacing-05;
     }
 
-    max-width: 80%;
-    padding-bottom: $spacing-09;
+    max-inline-size: 80%;
+    padding-block-end: $spacing-09;
   }
 
   :host(#{$c4d-prefix}-quote-source-bottom-copy),
@@ -106,34 +107,33 @@
   }
 
   :host(#{$c4d-prefix}-quote-source-heading) {
-    padding-left: $spacing-05;
+    padding-inline-start: $spacing-05;
     @include type-style(heading-02, true);
   }
 
   :host(#{$c4d-prefix}-quote-source-copy) {
-    padding-left: $spacing-05;
+    padding-inline-start: $spacing-05;
     @include type-style(body-02, true);
   }
 
   :host(#{$c4d-prefix}-quote-source-bottom-copy) {
-    padding-left: $spacing-05;
+    padding-inline-start: $spacing-05;
     @include type-style(body-02, true);
   }
 
   .#{$prefix}--quote__mark-closing {
-    margin-left: calc(-1 * #{$spacing-02});
+    margin-inline-start: calc(-1 * #{$spacing-02});
 
     @include breakpoint(md) {
-      margin-left: calc(-1 * #{$spacing-03});
+      margin-inline-start: calc(-1 * #{$spacing-03});
     }
   }
 
   :host(#{$c4d-prefix}-quote) .#{$prefix}--quote__footer {
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
+    padding-inline: $spacing-05;
 
     ::slotted(#{$c4d-prefix}-quote-link-with-icon) {
-      margin-left: $spacing-05;
+      margin-inline-start: $spacing-05;
     }
   }
 
@@ -148,21 +148,19 @@
 
   .#{$prefix}--callout__content {
     @include breakpoint(sm) {
-      padding-top: $spacing-07;
+      padding-block-start: $spacing-07;
     }
 
     @include breakpoint(md) {
       @include make-col-offset(1, 8);
       @include make-col(6, 8);
 
-      padding-left: $spacing-02;
-      padding-right: $spacing-02;
-      padding-top: $spacing-10;
+      padding-block-start: $spacing-10;
+      padding-inline: $spacing-02;
     }
 
     @include breakpoint(lg) {
-      padding-left: $spacing-01;
-      padding-right: $spacing-01;
+      padding-inline: $spacing-01;
       @include make-col-offset(1, 12);
       @include make-col(10, 12);
     }
