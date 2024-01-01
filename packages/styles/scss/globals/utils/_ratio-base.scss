@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,25 +12,26 @@
   @if ($fixed) {
     // fixed ratio overflow hidden
     position: relative;
-    padding-top: aspect-ratio($height, $width);
-    height: 0;
     overflow: hidden;
+    block-size: 0;
+    padding-block-start: aspect-ratio($height, $width);
   } @else {
     // graceful ratio overflow similar to a min-height
     display: flex;
 
     &::before {
+      block-size: 0;
       content: '';
-      width: 1px;
-      margin-left: -1px;
-      float: left;
-      height: 0;
-      padding-top: aspect-ratio($height, $width);
+      float: inline-start;
+      inline-size: 1px;
+      margin-inline-start: -1px;
+      padding-block-start: aspect-ratio($height, $width);
     }
+
     &::after {
-      content: '';
       display: table;
       clear: both;
+      content: '';
     }
   }
 }

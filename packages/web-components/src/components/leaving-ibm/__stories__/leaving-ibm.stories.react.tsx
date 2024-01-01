@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,7 +24,7 @@ import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import Launch20 from '@carbon/icons-react/es/launch/20';
 import C4DLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
-import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+import mediumImgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import readme from './README.stories.react.mdx';
 import styles from './leaving-ibm.stories.scss';
 
