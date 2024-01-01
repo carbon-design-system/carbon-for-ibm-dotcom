@@ -53,13 +53,13 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
    * Specify the duration in milliseconds to delay before displaying the tooltip
    */
   @property({ attribute: 'enter-delay-ms', type: Number })
-  enterDelayMs = 100;
+  enterDelayMs = 500;
 
   /**
    * Specify the duration in milliseconds to delay before hiding the tooltip
    */
   @property({ attribute: 'leave-delay-ms', type: Number })
-  leaveDelayMs = 300;
+  leaveDelayMs = 100;
 
   /**
    * Specify the size of the tooltip
@@ -93,6 +93,7 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
    * Handles `mouseleave` event on this element.
    */
   private _handleHoverOut = async () => {
+    this.leaveDelayMs = this.enterDelayMs > this.leaveDelayMs ? this.leaveDelayMs + this.enterDelayMs : this.leaveDelayMs; 
     setTimeout(async () => {
       const { open } = this;
       if (open) {
