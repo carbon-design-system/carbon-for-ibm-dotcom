@@ -21,7 +21,9 @@ function calculateTotalWidth(elements) {
   let totalWidth = 0;
   elements.forEach((ele) => {
     const item = document.getElementsByClassName(ele);
-    if (item[0]) totalWidth += item[0].offsetWidth;
+    if (item[0]) {
+      totalWidth += item[0].offsetWidth;
+    }
   });
   return totalWidth;
 }

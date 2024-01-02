@@ -21,16 +21,16 @@
 
 @mixin masthead-leftnav {
   .#{$prefix}--masthead__focus {
-    opacity: 0;
-    border: none;
     position: absolute;
+    border: none;
+    opacity: 0;
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
-    height: calc(100% - #{$spacing-09});
+    block-size: calc(100% - #{$spacing-09});
 
     > nav {
-      height: 100%;
+      block-size: 100%;
     }
 
     @include breakpoint-up(800px) {
@@ -39,7 +39,7 @@
   }
 
   .#{$prefix}--header__menu-trigger {
-    margin-right: 0;
+    margin-inline-end: 0;
 
     .#{$prefix}--side-nav__close {
       display: none;
@@ -56,7 +56,7 @@
 
       + .#{$prefix}--header__logo {
         z-index: 6001;
-        margin-left: $spacing-09;
+        margin-inline-start: $spacing-09;
       }
 
       .#{$prefix}--side-nav__close {
@@ -84,56 +84,56 @@
   }
 
   .#{$prefix}--side-nav__header-navigation {
-    height: 100%;
-    margin-bottom: 0;
+    block-size: 100%;
+    margin-block-end: 0;
   }
 
   .#{$prefix}--masthead {
     .#{$prefix}--side-nav {
       inset-inline-start: -100vw;
-      visibility: hidden;
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line  time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) $duration-fast-02,
         inset-inline-start $duration-fast-02 motion(exit, productive) 1ms;
+      visibility: hidden;
 
       &:not(.#{$prefix}--side-nav--fixed):hover {
         @include breakpoint-down(md) {
-          max-width: 100vw;
-          width: 100vw;
+          inline-size: 100vw;
+          max-inline-size: 100vw;
         }
       }
 
       .#{$prefix}--header__logo {
-        height: $spacing-09;
-        padding-left: $spacing-09;
+        block-size: $spacing-09;
+        padding-inline-start: $spacing-09;
       }
     }
 
     // need to set width so transition works on tablet
     .#{$prefix}--side-nav,
     .#{$prefix}--side-nav--expanded {
-      max-width: 16rem;
-      width: 16rem;
+      inline-size: 16rem;
+      max-inline-size: 16rem;
     }
 
     .#{$prefix}--side-nav__items {
-      padding-top: 0;
-      height: 100%;
+      block-size: 100%;
+      padding-block-start: 0;
     }
 
     .#{$prefix}--side-nav__item {
-      height: auto;
-      min-height: $spacing-09;
+      block-size: auto;
+      min-block-size: $spacing-09;
 
       .#{$prefix}--side-nav__submenu {
-        height: 100%;
+        block-size: 100%;
       }
     }
 
     .#{$prefix}--side-nav__overlay {
-      top: 0;
       z-index: 1000;
+      inset-block-start: 0;
       @include breakpoint-down(md) {
         background-color: $background;
       }
@@ -148,22 +148,22 @@
     }
 
     .#{$prefix}--side-nav--expanded {
-      overflow-y: auto;
       inset-inline-start: 0;
-      visibility: visible;
+      overflow-y: auto;
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) 0ms,
         inset-inline-start $duration-fast-02 motion(exit, productive) 1ms;
+      visibility: visible;
     }
 
     .#{$prefix}--side-nav--ux,
     .#{$prefix}--side-nav,
     .#{$prefix}--side-nav--expanded {
       @include breakpoint-down(md) {
-        max-width: 100vw;
-        width: 100vw;
-        border-top: 1px solid $layer-accent-01;
+        border-block-start: 1px solid $layer-accent-01;
+        inline-size: 100vw;
+        max-inline-size: 100vw;
       }
     }
   }
@@ -173,13 +173,13 @@
     @include theme($white, true);
 
     position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
     z-index: 0;
-    inset-inline-start: -100%;
     background-color: $background;
-    padding-bottom: $spacing-09;
+    block-size: 100%;
+    inline-size: 100%;
+    inset-inline-start: -100%;
+    overflow-y: auto;
+    padding-block-end: $spacing-09;
     transform: translateZ(0.0001px);
     transition: inset-inline-start $duration-moderate-01
       motion(exit, productive);
@@ -187,12 +187,13 @@
     a {
       @include type-style(body-compact-02);
 
-      padding-left: $spacing-05;
-      height: $spacing-09;
+      block-size: $spacing-09;
+
+      padding-inline-start: $spacing-05;
 
       &:hover {
-        text-decoration: none;
         background-color: $background-hover;
+        text-decoration: none;
       }
     }
 
@@ -200,12 +201,12 @@
       @include type-style(heading-compact-02);
 
       display: flex;
-      color: $text-primary;
-      padding: 0.8rem $spacing-05;
-      height: auto;
-      min-height: $spacing-09;
-      border-bottom: 1px solid $toggle-off;
       align-items: center;
+      padding: 0.8rem $spacing-05;
+      block-size: auto;
+      border-block-end: 1px solid $toggle-off;
+      color: $text-primary;
+      min-block-size: $spacing-09;
       text-decoration: none;
 
       &:focus {
@@ -216,35 +217,35 @@
 
     .#{$prefix}--side-nav__item
       .#{$prefix}--masthead__side-nav--submemu-section-title {
-      height: auto;
-      min-height: $spacing-09;
       padding: 0;
+      block-size: auto;
+      min-block-size: $spacing-09;
 
       span {
         @include type-style(heading-compact-02);
 
         display: flex;
-        width: 100%;
         padding: 0.8rem $spacing-05;
+        border-block-end: 1px solid $toggle-off;
         color: $text-primary;
-        border-bottom: 1px solid $toggle-off;
+        inline-size: 100%;
       }
     }
 
     .#{$prefix}--masthead__side-nav--submemu-section-title__icon {
       display: flex;
       flex: 1;
-      justify-content: flex-end;
       align-items: center;
       align-self: flex-start;
-      margin-top: $spacing-01;
+      justify-content: flex-end;
+      margin-block-start: $spacing-01;
     }
   }
 
   a,
   button {
     &.#{$prefix}--side-nav__link {
-      height: $spacing-09;
+      block-size: $spacing-09;
       @include type-style(body-short-01);
 
       > {
@@ -253,9 +254,9 @@
 
           display: flex;
           align-items: center;
+          block-size: 100%;
           color: $text-secondary;
-          width: 100%;
-          height: 100%;
+          inline-size: 100%;
           text-overflow: ellipsis;
         }
       }
@@ -272,6 +273,7 @@
 
     &.#{$prefix}--side-nav__link--current {
       background-color: $background;
+
       > {
         .#{$prefix}--side-nav__link-text {
           color: $text-primary;
@@ -282,22 +284,22 @@
 
   .#{$prefix}--masthead__side-nav--submemu-back {
     position: sticky;
-    top: 0;
-    background-color: $background;
     z-index: 1;
+    background-color: $background;
+    inset-block-start: 0;
 
     button {
-      width: 100%;
-      border: none;
-      cursor: pointer;
-      outline: $spacing-01 solid transparent;
-      outline-offset: -#{$spacing-01};
       position: relative;
       display: flex;
       align-items: center;
-      min-height: $spacing-07;
       padding: 0 $spacing-05;
+      border: none;
       background-color: $background;
+      cursor: pointer;
+      inline-size: 100%;
+      min-block-size: $spacing-07;
+      outline: $spacing-01 solid transparent;
+      outline-offset: -#{$spacing-01};
 
       &:hover {
         background-color: $background-hover;
@@ -319,14 +321,16 @@
       > .#{$prefix}--side-nav__link-text {
         @include type-style(body-short-01);
 
-        color: $link-primary;
         display: flex;
-        border-bottom: none;
         align-items: center;
+        border-block-end: none;
+
+        color: $link-primary;
       }
 
       svg {
-        margin-right: 5px;
+        margin-inline-end: 5px;
+
         path {
           fill: currentColor;
         }
@@ -371,27 +375,28 @@
     @include theme($white, true);
 
     .#{$prefix}--side-nav__submenu-content {
-      width: 100%;
-      height: auto;
-      min-height: $spacing-09;
       display: flex;
+      block-size: auto;
+      inline-size: 100%;
+      min-block-size: $spacing-09;
     }
 
     .#{$prefix}--side-nav__submenu-title {
       @include type-style(body-short-01);
 
-      color: $text-secondary;
       align-self: center;
+
+      color: $text-secondary;
     }
 
     &[aria-haspopup='true'] {
-      height: $spacing-09;
+      block-size: $spacing-09;
       &.#{$prefix}--side-nav__submenu-platform {
-        border-top: 1px solid $layer-accent-01;
-        border-bottom: 1px solid $toggle-off;
-        text-decoration: none;
+        block-size: $spacing-09;
+        border-block-end: 1px solid $toggle-off;
+        border-block-start: 1px solid $layer-accent-01;
         color: $text-primary;
-        height: $spacing-09;
+        text-decoration: none;
 
         @include type-style(heading-02);
       }
@@ -408,9 +413,9 @@
   .#{$prefix}--side-nav__submenu-title,
   a.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text,
   button.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text {
+    padding: 0.8rem 0;
     text-overflow: initial;
     white-space: normal;
-    padding: 0.8rem 0;
   }
 
   .#{$prefix}--masthead__side-nav--submemu-heading,
@@ -429,8 +434,8 @@
     }
 
     .#{$prefix}--side-nav__heading {
-      height: auto;
       padding: $spacing-05 0;
+      block-size: auto;
     }
 
     .#{$prefix}--side-nav__heading-title {
@@ -438,10 +443,10 @@
       padding: 0 $spacing-05;
 
       &:where(a) {
-        color: inherit;
         display: inline-flex;
-        gap: $spacing-03;
         align-items: center;
+        color: inherit;
+        gap: $spacing-03;
         text-decoration: none;
 
         &:hover {
@@ -449,9 +454,9 @@
         }
 
         &:focus {
+          color: $text-primary;
           outline: 2px solid $focus;
           outline-offset: -2px;
-          color: $text-primary;
         }
       }
     }
@@ -461,7 +466,7 @@
     }
 
     ::slotted(:first-child) {
-      padding-top: $spacing-03;
+      padding-block-start: $spacing-03;
     }
 
     h2 {
@@ -486,7 +491,7 @@
   :host(#{$c4d-prefix}-left-nav-menu),
   :host(#{$c4d-prefix}-left-nav-menu-item) {
     display: block;
-    border-bottom: 1px solid $layer-accent-01;
+    border-block-end: 1px solid $layer-accent-01;
   }
   /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
@@ -494,10 +499,10 @@
     .#{$prefix}--side-nav__link {
       display: flex;
       align-items: center;
-      padding-left: $spacing-05;
-      height: auto;
-      min-height: $spacing-09;
-      width: 100%;
+      block-size: auto;
+      inline-size: 100%;
+      min-block-size: $spacing-09;
+      padding-inline-start: $spacing-05;
 
       &:not(:is(a)):hover {
         background-color: transparent;
@@ -506,16 +511,17 @@
 
     &.#{$prefix}--side-nav__group-header {
       &:not(:first-of-type) {
-        margin-top: $spacing-07;
+        margin-block-start: $spacing-07;
       }
 
       .#{$prefix}--side-nav__link-text {
         @include type-style(productive-heading-01);
 
-        color: $text-primary;
         display: inline-flex;
         align-items: center;
         justify-content: space-between;
+
+        color: $text-primary;
         gap: $spacing-03;
 
         svg {
@@ -532,10 +538,10 @@
       }
 
       .#{$prefix}--side-nav__link-text {
-        color: $button-primary;
         display: inline-flex;
         align-items: center;
         justify-content: space-between;
+        color: $button-primary;
         gap: $spacing-03;
 
         svg {
@@ -558,8 +564,8 @@
   .#{$prefix}--side-nav__submenu[aria-expanded='true']
     .#{$prefix}--side-nav__submenu-chevron {
     > svg {
-      transform: rotate(-90deg);
       fill: $text-primary;
+      transform: rotate(-90deg);
 
       :host([dir='rtl']) & {
         transform: rotate(90deg) scale(1.25);
@@ -575,10 +581,10 @@
     a.#{$prefix}--side-nav__link,
   :host(#{$c4d-prefix}-left-nav-item) a.#{$prefix}--side-nav__link {
     display: flex;
-    padding-left: $spacing-05;
-    height: auto;
-    min-height: $spacing-09;
-    width: 100%;
+    block-size: auto;
+    inline-size: 100%;
+    min-block-size: $spacing-09;
+    padding-inline-start: $spacing-05;
   }
 
   .#{$prefix}--side-nav__submenu-platform {

@@ -12,6 +12,7 @@ import { boolean } from '@storybook/addon-knobs';
 import View16 from '@carbon/icons/lib/view/16';
 import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
 import Folders16 from '@carbon/icons/lib/folders/16';
+import Asleep16 from '@carbon/icons/lib/asleep/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { prefix } from '../../globals/settings';
 import './index';
@@ -98,9 +99,9 @@ export const _Checkbox = (args) => {
         ?warn="${warn}"
         warn-text="${warnText}">
         <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
-        <cds-checkbox label-text="Checkbox label"></cds-checkbox>
-        <cds-checkbox label-text="Checkbox label"></cds-checkbox>
-        <cds-checkbox label-text="Checkbox label"></cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
       </cds-checkbox-group>
 
       <cds-checkbox-group
@@ -110,13 +111,15 @@ export const _Checkbox = (args) => {
         invalid-text="${invalidText}"
         ?warn="${warn}"
         warn-text="${warnText}">
-        <cds-checkbox label-text="Checkbox label">
+        <cds-checkbox>
+          Checkbox label
           <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
         </cds-checkbox>
-        <cds-checkbox label-text="Checkbox label">
+        <cds-checkbox>
+          Checkbox label
           <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
         </cds-checkbox>
-        <cds-checkbox label-text="Checkbox label"></cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
       </cds-checkbox-group>
 
       <cds-checkbox-group
@@ -126,17 +129,19 @@ export const _Checkbox = (args) => {
         invalid-text="${invalidText}"
         ?warn="${warn}"
         warn-text="${warnText}">
-        <cds-checkbox label-text="Checkbox label">
+        <cds-checkbox>
+          Checkbox label
           <cds-slug alignment="bottom-left" kind="inline">
             ${content}${actions}
           </cds-slug>
         </cds-checkbox>
-        <cds-checkbox label-text="Checkbox label">
+        <cds-checkbox>
+          Checkbox label
           <cds-slug alignment="bottom-left" kind="inline">
             ${content}${actions}
           </cds-slug>
         </cds-checkbox>
-        <cds-checkbox label-text="Checkbox label"></cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
       </cds-checkbox-group>
     </div>
   `;
@@ -218,6 +223,60 @@ export const _Dropdown = () => {
         )}
       </cds-dropdown>
     </div>`;
+};
+
+export const _Modal = () => {
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <cds-modal open prevent-close>
+      <cds-modal-header>
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        <cds-modal-close-button></cds-modal-close-button>
+        <cds-modal-label>Account resources</cds-modal-label>
+        <cds-modal-heading>Add a custom domain</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body>
+        <cds-modal-body-content description>
+          Custom domains direct requests for your apps in this Cloud Foundry
+          organization to a URL that you own. A custom domain can be a shared
+          domain, a shared subdomain, or a shared domain and host.
+        </cds-modal-body-content>
+        <cds-form-item>
+          <cds-text-input placeholder="e.g. github.com" label="Domain name">
+          </cds-text-input>
+        </cds-form-item>
+
+        <cds-form-item>
+          <cds-select placeholder="US South" label-text="Region">
+            <cds-select-item value="us-south">US South</cds-select-item>
+            <cds-select-item value="us-east">US East</cds-select-item>
+          </cds-select>
+        </cds-form-item>
+
+        <cds-dropdown label="Dropdown" title-text="Dropdown">
+          <cds-dropdown-item value="one">One</cds-dropdown-item>
+          <cds-dropdown-item value="two">Two</cds-dropdown-item>
+        </cds-dropdown>
+
+        <cds-multi-select label="Multiselect" title-text="Multiselect">
+          <cds-multi-select-item value="option-1"
+            >Option 1</cds-multi-select-item
+          >
+          <cds-multi-select-item value="option-2"
+            >Option 2</cds-multi-select-item
+          >
+        </cds-multi-select>
+      </cds-modal-body>
+      <cds-modal-footer>
+        <cds-modal-footer-button kind="secondary"
+          >Cancel</cds-modal-footer-button
+        >
+        <cds-modal-footer-button>Add</cds-modal-footer-button>
+      </cds-modal-footer>
+    </cds-modal>
+  `;
 };
 
 export const _Multiselect = () => {
@@ -407,6 +466,67 @@ export const _Select = () => {
         </cds-select-item-group>
       </cds-select>
     </div> `;
+};
+
+const tagTypes = [
+  'red',
+  'magenta',
+  'purple',
+  'blue',
+  'cyan',
+  'teal',
+  'green',
+  'gray',
+  'cool-gray',
+  'warm-gray',
+  'high-contrast',
+  'outline',
+];
+
+export const _Tag = () => {
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) => html`<cds-tag type="${e}"
+          >Tag
+          <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        </cds-tag>`
+      )}
+    </div>
+
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) =>
+          html`<cds-tag filter type="${e}">
+            Tag
+            <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+          </cds-tag>`
+      )}
+    </div>
+
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) =>
+          html`<cds-tag type="${e}">
+            ${Asleep16({ slot: 'icon' })} Tag
+            <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+          </cds-tag>`
+      )}
+    </div>
+
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) =>
+          html`<cds-tag filter type="${e}">
+            ${Asleep16({ slot: 'icon' })} Tag
+            <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+          </cds-tag>`
+      )}
+    </div>
+  `;
 };
 
 export const _TextInput = () => {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,8 +17,8 @@
 @use '../card';
 
 @mixin themed-items {
-  color: $text-primary;
   background: $background;
+  color: $text-primary;
 }
 
 @mixin content-group-cards {
@@ -26,10 +26,10 @@
   .#{$prefix}--content-group-cards {
     ::slotted([slot='copy']),
     .#{$prefix}--content-group__copy {
-      margin-bottom: $spacing-09;
+      margin-block-end: $spacing-09;
 
       @include breakpoint(md) {
-        margin-bottom: $spacing-10;
+        margin-block-end: $spacing-10;
       }
     }
 
@@ -37,23 +37,19 @@
   }
 
   .#{$prefix}--content-group-cards__row {
-    margin-left: -$spacing-05;
-    margin-right: -$spacing-05;
-
     display: grid;
+    margin-inline: -$spacing-05;
 
     @include breakpoint(md) {
-      grid-template-columns: 1fr 1fr;
       grid-auto-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
   :host(#{$c4d-prefix}-content-group-cards-item),
   .#{$prefix}--content-group-cards-item__col {
-    margin-top: list.slash($grid-gutter, 2);
-    margin-bottom: list.slash($grid-gutter, 2);
-    padding-left: list.slash($grid-gutter, 2);
-    padding-right: list.slash($grid-gutter, 2);
+    margin-block: list.slash($grid-gutter, 2);
+    padding-inline: list.slash($grid-gutter, 2);
 
     &:focus {
       outline: none;
