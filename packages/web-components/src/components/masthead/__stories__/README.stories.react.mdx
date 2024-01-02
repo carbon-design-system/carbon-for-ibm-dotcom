@@ -83,7 +83,7 @@ document.querySelector('c4d-masthead-container').platformUrl = urlObject;
 
 ### Custom navigation
 
-In order to set custom navigation for the masthead, set the `navLinks` property of the masthead-composite component. This property should be an array of L0MenuItem objects as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
+In order to set custom navigation for the masthead, set the `navLinks` property of the masthead-composite component. This property should be an array of `L0MenuItem` objects as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
 
 ```javascript
 function App() {
@@ -141,7 +141,7 @@ function App() {
 
 ### Using L1 nav
 
-To use L1 nav, set `l1Data` property. It property should be a MastheadL1 object, as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
+To use L1 nav, set `l1Data` property. It should be a `MastheadL1` object, as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
 
 ```javascript
 function App() {
@@ -255,7 +255,7 @@ async function customTypeaheadApiFunction(query) {
         data.response
           .filter(result => !result[0].toLowerCase().includes('carbon'))
           .map(result => result[0]),
-        // optional grouped category results including "carbon"
+        // Optional grouped category results including "carbon"
         {
           title: 'Carbon',
           items: data.response

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -61,16 +61,16 @@ async function customTypeaheadApiFunction(query) {
       let searchResults = [
         // Results not including "carbon"
         data.response
-          .filter(result => !result[0].toLowerCase().includes('carbon'))
-          .map(result => result[0]),
-        // optional grouped category results including "carbon"
+          .filter((result) => !result[0].toLowerCase().includes('carbon'))
+          .map((result) => result[0]),
+        // Optional grouped category results including "carbon"
         {
           title: 'Carbon',
           items: data.response
-            .filter(result => result[0].toLowerCase().includes('carbon'))
-            .map(result => ({
+            .filter((result) => result[0].toLowerCase().includes('carbon'))
+            .map((result) => ({
               name: result[0],
-              href: `https://www.example.com/${encodeURIComponent(result[0])}`
+              href: `https://www.example.com/${encodeURIComponent(result[0])}`,
             })),
         },
       ];
@@ -98,7 +98,7 @@ export const Default = (args) => {
   }
   if (useMock) {
     setTimeout(() => {
-      const masthead = document.querySelector('c4d-masthead-container')
+      const masthead = document.querySelector('c4d-masthead-container');
       if (masthead) {
         (masthead as any).navLinks = links;
       }
@@ -171,7 +171,7 @@ export const withPlatform = (args) => {
 
   if (platformUrl) {
     setTimeout(() => {
-      const masthead = document.querySelector('c4d-masthead-container')
+      const masthead = document.querySelector('c4d-masthead-container');
       if (masthead) {
         (masthead as any).platformUrl = platformUrl;
       }
@@ -201,7 +201,7 @@ export const withL1 = (args) => {
   const { selectedMenuItem } = args?.MastheadComposite ?? {};
 
   setTimeout(() => {
-    const masthead = document.querySelector('c4d-masthead-container')
+    const masthead = document.querySelector('c4d-masthead-container');
     if (masthead) {
       (masthead as any).l1Data = mastheadL1Data;
     }
@@ -232,7 +232,7 @@ export const withAlternateLogoAndTooltip = (args) => {
 
   if (mastheadLogo === 'alternateWithTooltip') {
     setTimeout(() => {
-      const masthead = document.querySelector('c4d-masthead-container')
+      const masthead = document.querySelector('c4d-masthead-container');
       if (masthead) {
         (masthead as any).logoData = logoData;
       }
@@ -262,7 +262,7 @@ withAlternateLogoAndTooltip.story = {
 
 export const WithScopedSearch = () => {
   setTimeout(() => {
-    const masthead = document.querySelector('c4d-masthead-container')
+    const masthead = document.querySelector('c4d-masthead-container');
     if (masthead) {
       (masthead as any).scopeParameters = scopeParameters;
     }
