@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -129,51 +129,6 @@ export const Default = (args) => {
             has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${authMethod}"></c4d-masthead-container>
-        `}
-  `;
-};
-
-export const withCloudData = (args) => {
-  const {
-    customProfileLogin,
-    hasSearch,
-    selectedMenuItem,
-    searchPlaceholder,
-    useMock,
-  } = args?.MastheadComposite ?? {};
-
-  return html`
-    <style>
-      ${styles}
-    </style>
-    ${useMock
-      ? html`
-          <c4d-masthead-composite
-            platform="Cloud"
-            .platformUrl="https://www.ibm.com/cloud"
-            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
-            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
-            has-search="${hasSearch}"
-            .l0Data="${mastheadL0Data}"
-            .authenticatedProfileItems="${ifNonEmpty(
-              authenticatedProfileItems
-            )}"
-            .unauthenticatedProfileItems="${ifNonEmpty(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-composite>
-        `
-      : html`
-          <c4d-masthead-container
-            data-endpoint="${dataEndpoints['cloud']}"
-            platform="Cloud"
-            .platformUrl="https://www.ibm.com/cloud"
-            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
-            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
-            has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-container>
         `}
   `;
 };
