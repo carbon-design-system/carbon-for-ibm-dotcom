@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,7 +25,7 @@ import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-r
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 import { CTA_TYPE } from '../../cta/defs';
-import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
+import imgLg4x3 from '../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 import readme from './README.stories.react.mdx';
 
 const ctaTypes = {
