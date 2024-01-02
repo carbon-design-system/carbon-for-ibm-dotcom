@@ -183,7 +183,7 @@ class C4DVideoPlayer extends FocusMixin(
    * `true` to autoplay, mute video, and hide UI
    */
   @property({ attribute: 'background-mode', reflect: true })
-  backgroundMode: boolean = false;
+  backgroundMode = false;
 
   /**
    * Custom video description. This property should only be set when using `playing-mode="lightbox"`
