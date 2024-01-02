@@ -97,7 +97,6 @@ export function mapStateToProps(
   // Attempt to collect data from current/new and deprecated locations.
   let l0Data;
   let profileItems;
-  let ctaButtons;
   if (language) {
     l0Data = {
       current: translations?.[language]?.masthead?.nav,
@@ -115,21 +114,6 @@ export function mapStateToProps(
         deprecated: translations?.[language]?.profileMenu?.signedout,
       },
     };
-
-    ctaButtons = {
-      authenticated: {
-        current: translations?.[language]?.masthead?.ctaButtons?.authenticated,
-        deprecated:
-          translations?.[language]?.masthead?.profileMenu?.signedin?.ctaButtons,
-      },
-      unauthenticated: {
-        current:
-          translations?.[language]?.masthead?.ctaButtons?.unauthenticated,
-        deprecated:
-          translations?.[language]?.masthead?.profileMenu?.signedout
-            ?.ctaButtons,
-      },
-    };
   }
 
   return pickBy(
@@ -145,15 +129,6 @@ export function mapStateToProps(
         ? undefined
         : profileItems.unauthenticated.current ||
           profileItems.unauthenticated.deprecated,
-      // Progressively enhance to new CTA buttons shape.
-      authenticatedCtaButtons: !language
-        ? undefined
-        : ctaButtons.authenticated.current ||
-          ctaButtons.authenticated.deprecated,
-      unauthenticatedCtaButtons: !language
-        ? undefined
-        : ctaButtons.unauthenticated.current ||
-          ctaButtons.unauthenticated.deprecated,
       contactUsButton: !language
         ? undefined
         : translations?.[language]?.masthead?.contact,

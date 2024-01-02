@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,7 +41,6 @@ import C4DMastheadLogo from './masthead-logo';
 import C4DMegaMenuTabs from './megamenu-tabs';
 import C4DMegamenuTopNavMenu from './megamenu-top-nav-menu';
 import './masthead';
-import './masthead-button-cta';
 import './masthead-l1';
 import './masthead-l1-name';
 import './masthead-menu-button';
@@ -397,7 +396,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * Renders the left nav menus sections
    *
    * @param object heading heading of menu section
-   * @param object.ctas cta items
    * @param object.menuItems menu items
    * @param object.heading heading heading of menu section
    * @param object.isSubmenu determines whether menu section is a submenu section
@@ -410,7 +408,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNavMenuSections({
-    ctas,
     menuItems,
     heading,
     isSubmenu = false,
@@ -465,16 +462,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
           `
         );
       }
-    }
-
-    if (ctas) {
-      ctas.forEach((cta) => {
-        items.push(html`
-          <c4d-left-nav-cta-item href="${ifNonEmpty(cta.url)}">
-            ${cta.title}
-          </c4d-left-nav-cta-item>
-        `);
-      });
     }
 
     return html`
@@ -549,7 +536,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns {TemplateResult} A template fragment representing the left nav.
    */
   protected _renderLeftNav() {
-    const { ctaButtons, platform } = this;
+    const { platform } = this;
     const menu: any[] = [];
     const menuItems = this._getl0Data();
     const autoid = `${c4dPrefix}--masthead__l0`;
@@ -586,7 +573,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         if (level1Items.length !== 0) {
           menu.push(
             this._renderLeftNavMenuSections({
-              ctas: undefined,
               menuItems: level1Items,
               isSubmenu: true,
               showBackButton: true,
@@ -686,7 +672,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
             if (level2Items.length !== 0) {
               menu.push(
                 this._renderLeftNavMenuSections({
-                  ctas: undefined,
                   menuItems: level2Items,
                   isSubmenu: true,
                   showBackButton: true,
@@ -765,7 +750,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
           menu.push(
             this._renderLeftNavMenuSections({
-              ctas: undefined,
               menuItems: level1Items,
               isSubmenu: true,
               showBackButton: true,
@@ -800,7 +784,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               </c4d-left-nav-name>
             `}
         ${this._renderLeftNavMenuSections({
-          ctas: ctaButtons,
           menuItems: level0Items,
           sectionId: '-1, -1',
           heading: false,
@@ -1191,27 +1174,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * Renders the CTA buttons.
-   *
-   * @returns {TemplateResult} A template fragment representing the CTA buttons.
-   */
-  protected _renderCtaButtons() {
-    const { ctaButtons } = this;
-    return !ctaButtons
-      ? undefined
-      : html`
-          ${ctaButtons?.map(
-            ({ title, url }) =>
-              html`
-                <c4d-masthead-button-cta href="${ifNonEmpty(url)}" kind="ghost">
-                  ${title}
-                </c4d-masthead-button-cta>
-              `
-          )}
-        `;
-  }
-
-  /**
    * Whether or not a nav item has automatically been designated as "selected".
    *
    * @internal
@@ -1298,12 +1260,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: false })
   authenticatedProfileItems?: MastheadProfileItem[];
-
-  /**
-   * The cta buttons for authenticated state.
-   */
-  @property({ attribute: false })
-  authenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
    * Text for Contact us button
@@ -1405,12 +1361,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * The cta buttons for authenticated state.
-   */
-  @property({ attribute: false })
-  unauthenticatedCtaButtons?: MastheadProfileItem[];
-
-  /**
    * Specify translation endpoint if not using default c4d endpoint.
    */
   @property({ attribute: 'data-endpoint' })
@@ -1508,17 +1458,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     );
   }
 
-  get ctaButtons(): MastheadProfileItem[] | undefined {
-    const {
-      userIsAuthenticated,
-      authenticatedCtaButtons,
-      unauthenticatedCtaButtons,
-    } = this;
-    return userIsAuthenticated
-      ? authenticatedCtaButtons
-      : unauthenticatedCtaButtons;
-  }
-
   firstUpdated() {
     const { language, dataEndpoint } = this;
     globalInit();
@@ -1575,7 +1514,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ${!isMobileVersion ? this._renderTopNav() : ''}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
           ${this._renderContact()} ${this._renderProfileMenu()}
-          ${this._renderCtaButtons()}
         </c4d-masthead-global-bar>
         ${this._renderL1()}
         <c4d-megamenu-overlay></c4d-megamenu-overlay>

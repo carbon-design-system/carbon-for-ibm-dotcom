@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -53,55 +53,6 @@ $breakpoint--desktop-nav: 799px;
     @include breakpoint-down(md) {
       display: none;
     }
-  }
-}
-
-:host(#{$c4d-prefix}-masthead-button-cta) {
-  @extend :host(#{$c4d-prefix}-button-cta);
-
-  margin: 0;
-  padding-inline-end: 0;
-
-  &.console .#{$prefix}--btn--ghost {
-    border-inline-start: 1px solid $button-separator;
-    color: $link-secondary;
-  }
-
-  &:first-of-type {
-    .#{$prefix}--btn--ghost::before {
-      @include breakpoint-up(800px) {
-        position: absolute;
-        display: block;
-        background-color: $button-separator;
-        block-size: rem(24px);
-        content: '';
-        inline-size: rem(1px);
-        inset-block-start: 50%;
-        inset-inline-start: 0;
-        transform: translateY(-50%);
-      }
-    }
-  }
-
-  .#{$prefix}--btn {
-    padding: calc(0.875rem - 3px) rem(15px);
-  }
-
-  .#{$prefix}--btn--ghost {
-    color: $link-primary;
-    @include type-style('body-short-02');
-
-    &:hover,
-    &:focus {
-      color: $link-secondary;
-    }
-  }
-}
-
-:host(#{$c4d-prefix}-masthead-global-bar)
-  ::slotted(#{$c4d-prefix}-masthead-button-cta) {
-  @include breakpoint-down('md') {
-    display: none;
   }
 }
 
@@ -489,28 +440,8 @@ $breakpoint--desktop-nav: 799px;
   }
 }
 
-:host(#{$c4d-prefix}-left-nav-menu-item),
-:host(#{$c4d-prefix}-left-nav-cta-item) {
+:host(#{$c4d-prefix}-left-nav-menu-item) {
   @extend :host(#{$prefix}-side-nav-menu-item);
-}
-
-:host(#{$c4d-prefix}-left-nav-cta-item) {
-  @include breakpoint-up(md) {
-    display: none;
-  }
-
-  a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-    @include type-style(body-short-02, true);
-
-    display: flex;
-    justify-content: space-between;
-
-    color: $link-primary;
-
-    > svg {
-      flex-shrink: 0;
-    }
-  }
 }
 
 :host(#{$c4d-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
