@@ -190,10 +190,6 @@ export interface Translation {
       signedin: MastheadProfileContent;
       signedout: MastheadProfileContent;
     };
-    ctaButtons: {
-      unauthenticated: MastheadProfileItem[];
-      authenticated: MastheadProfileItem[];
-    };
   };
 
   /**
