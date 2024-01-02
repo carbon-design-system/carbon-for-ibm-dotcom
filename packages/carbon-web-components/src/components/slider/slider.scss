@@ -26,6 +26,10 @@ $css--plex: true !default;
 
   .#{$prefix}--slider__thumb {
     transform: translate(-50%, -50%) #{'/*rtl:ignore*/'};
+
+    z-index: 3;
+    width: 0.875rem;
+    height: 0.875rem;
   }
 
   .#{$prefix}--slider__thumb:focus
