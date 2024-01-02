@@ -112,6 +112,17 @@
   }
 }
 
+:host(#{$prefix}-table-header-cell[slug]) {
+  .#{$prefix}--table-header-label--slug {
+    display: flex;
+    align-items: center;
+  }
+
+  ::slotted(#{$prefix}-slug) {
+    margin-inline-start: $spacing-03;
+  }
+}
+
 //
 // Common style for table cell and table header cell
 //
