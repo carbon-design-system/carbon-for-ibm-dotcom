@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,7 +8,6 @@
 import { html } from 'lit';
 import { INPUT_SIZE } from '../text-input/text-input';
 import './date-picker';
-import storyDocs from './date-picker.mdx';
 import './date-picker-input-skeleton';
 import '../layer/index';
 
@@ -291,11 +290,6 @@ export const Playground = {
 
 const meta = {
   title: 'Components/Date picker',
-  parameters: {
-    docs: {
-      page: storyDocs,
-    },
-  },
 };
 
 export default meta;
