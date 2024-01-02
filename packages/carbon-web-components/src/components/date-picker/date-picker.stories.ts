@@ -36,28 +36,77 @@ const defaultArgs = {
   size: INPUT_SIZE.MEDIUM,
 };
 
-const controls = {
+const argTypes = {
+  allowInput: {
+    control: 'boolean',
+    description:
+      'Flatpickr prop passthrough enables direct date input, and when set to false, we must clear dates manually by resetting the value prop to empty string making it a controlled input.',
+  },
+  closeOnSelect: {
+    control: 'boolean',
+    description:
+      'Flatpickr prop passthrough. Controls whether the calendar dropdown closes upon selection.',
+  },
   dateFormat: {
     control: 'text',
+    description: 'The date format.',
+  },
+  datePickerType: {
+    control: 'radio',
+    options: { Single: 'single', Simple: 'simple', Range: 'range' },
+    description: `The type of the date picker:
+    <ul>
+      <li><code>simple</code>
+        <ul><li>Without calendar dropdown.</li></ul>
+      </li>
+      <li><code>single</code>
+        <ul><li>With calendar dropdown and single date.</li></ul>
+      </li>
+      <li><code>range</code>
+        <ul><li>With calendar dropdown and a date range.</li></ul>
+      </li>
+    </ul>`,
   },
   disabled: { control: 'boolean' },
-  allowInput: { control: 'boolean' },
-  closeOnSelect: { control: 'boolean' },
-  minDate: { control: 'text' },
-  maxDate: { control: 'text' },
-  datePickerType: {
-    control: 'select',
-    options: { Single: 'single', Simple: 'simple', Range: 'range' },
-  },
-  readonly: { control: 'boolean' },
-  short: { control: 'boolean' },
   helperText: { control: 'text' },
-  warning: { control: 'boolean' },
-  warningText: { control: 'text' },
-  invalid: { control: 'boolean' },
-  invalidText: { control: 'text' },
+  invalid: {
+    control: 'boolean',
+    description: 'Specify whether or not the control is invalid (Fluid only).',
+  },
+  invalidText: {
+    control: 'text',
+    description:
+      'Provide the text that is displayed when the control is in error state (Fluid Only).',
+  },
+  maxDate: {
+    control: 'text',
+    description: 'The maximum date that a user can pick to.',
+  },
+  minDate: {
+    control: 'text',
+    description: 'The minimum date that a user can start picking from.',
+  },
   placeholder: { control: 'text' },
+  readonly: {
+    control: 'boolean',
+    description:
+      'Whether the DatePicker is to be readOnly if boolean applies to all inputs if array applies to each input in order.',
+  },
+  short: {
+    control: 'boolean',
+    description: '<code>true</code> to use the short version.',
+  },
   size: { control: 'select', options: sizes },
+  warning: {
+    control: 'boolean',
+    description:
+      'Specify whether the control is currently in warning state (Fluid only).',
+  },
+  warningText: {
+    control: 'text',
+    description:
+      'Provide the text that is displayed when the control is in warning state (Fluid only).',
+  },
 };
 
 export const Simple = {
@@ -203,7 +252,7 @@ export const Skeleton = {
 
 export const Playground = {
   decorators: [(story) => html` <div>${story()}</div> `],
-  argTypes: controls,
+  argTypes,
   args: defaultArgs,
   render: (args) => {
     const {
