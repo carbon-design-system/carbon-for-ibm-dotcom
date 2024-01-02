@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -136,12 +136,13 @@ export interface MastheadLogoData {
 
 /**
  * Cloud Masthead Profile content
+ *
+ * @deprecated
  */
 export interface MastheadProfileContent {
   iconLabel: string;
   links: MastheadProfileItem[];
   ctaButtons: MastheadProfileItem[];
-  contactUsButton: string;
 }
 
 /**
@@ -154,6 +155,11 @@ export interface MiscLabels {
  * The translation data for ibm.com sites
  */
 export interface Translation {
+  /**
+   * Main masthead navigation data.
+   *
+   * @deprecated Use masthead.nav instead.
+   */
   mastheadNav: {
     /**
      * The nav links.
@@ -172,7 +178,28 @@ export interface Translation {
   footerThin: BasicLink[];
 
   /**
+   * Masthead items other than main navigation
+   */
+  masthead: {
+    logo: MastheadLogoData;
+    nav: L0MenuItem[];
+    contact: MastheadProfileItem;
+    profileMenu: {
+      unauthenticated: MastheadProfileItem[];
+      authenticated: MastheadProfileItem[];
+      signedin: MastheadProfileContent;
+      signedout: MastheadProfileContent;
+    };
+    ctaButtons: {
+      unauthenticated: MastheadProfileItem[];
+      authenticated: MastheadProfileItem[];
+    };
+  };
+
+  /**
    * The profile menus.
+   *
+   * @deprecated Use masthead.profileMenu instead.
    */
   profileMenu: {
     /**
