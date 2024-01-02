@@ -13,11 +13,9 @@
   "module": "es/index.js",
   "exports": {
     "./es/components/*": {
-      "node": "./lib/components/*",
       "default": "./es/components/*"
     },
     "./es/globals/": {
-      "node": "./lib/globals/",
       "default": "./es/globals/"
     },
     "./es": "./es/index.js",
