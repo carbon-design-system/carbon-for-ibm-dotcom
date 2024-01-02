@@ -18,9 +18,6 @@ $css--plex: true !default;
 
   .#{$prefix}--slider {
     transform: rotate(0) #{'/*rtl:rotate(180deg)*/'};
-
-    // TODO when updating to core carbon's #15129
-    padding: 0;
   }
 
   .#{$prefix}-ce--slider__filled-track-container {
@@ -34,6 +31,7 @@ $css--plex: true !default;
     z-index: 3;
     width: 0.875rem;
     height: 0.875rem;
+    inset: inherit;
   }
 
   .#{$prefix}--slider__thumb:focus
