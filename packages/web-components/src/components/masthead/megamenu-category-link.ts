@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
 import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';

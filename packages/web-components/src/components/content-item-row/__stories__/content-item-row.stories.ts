@@ -16,8 +16,8 @@ import '../index';
 import '../content-item-row-media-video';
 import '../../image/image';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../defs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgMd4x3 from '../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
 
 const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,

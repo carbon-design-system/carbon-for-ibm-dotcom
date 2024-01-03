@@ -33,6 +33,7 @@ class CDSTextarea extends CDSTextInput {
    * Handles `oninput` event on the `<input>`.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   protected _handleInput({ target }: Event) {
     this.value = (target as HTMLTextAreaElement).value;
@@ -98,6 +99,7 @@ class CDSTextarea extends CDSTextInput {
       [`${prefix}--text-area__wrapper`]: true,
       [`${prefix}--text-area__wrapper--warn`]: this.warn,
       [`${prefix}--text-area__wrapper--readonly`]: this.readonly,
+      [`${prefix}--text-area__wrapper--slug`]: this._hasSlug,
     });
 
     const labelClasses = classMap({
@@ -156,6 +158,7 @@ class CDSTextarea extends CDSTextInput {
           .value="${this.value}"
           maxlength="${ifNonEmpty(this.maxCount)}"
           @input="${this._handleInput}"></textarea>
+        <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
       </div>
       <div class="${helperTextClasses}" ?hidden="${this.invalid || this.warn}">
         <slot name="helper-text"> ${this.helperText} </slot>

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,7 +28,7 @@ $legal-01: (
 $subbody-compact-01: (
   font-size: carbon--type-scale(2),
   font-weight: carbon--font-weight('regular'),
-  line-height: rem(18px),
+  line-height: to-rem(18px),
   letter-spacing: 0.16px,
 ) !default;
 
@@ -38,6 +38,6 @@ $subbody-compact-01: (
 $subbody-01: (
   font-size: carbon--type-scale(2),
   font-weight: carbon--font-weight('regular'),
-  line-height: rem(18px),
+  line-height: to-rem(18px),
   letter-spacing: 0.16px,
 ) !default;

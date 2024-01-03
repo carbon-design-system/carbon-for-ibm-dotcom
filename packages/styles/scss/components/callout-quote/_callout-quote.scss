@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,11 +28,11 @@
       @include hang;
     }
 
-    padding-bottom: $spacing-10;
+    padding-block-end: $spacing-10;
 
     ::slotted(#{$c4d-prefix}-callout-link-with-icon) {
-      padding-left: $spacing-07;
       outline: transparent;
+      padding-inline-start: $spacing-07;
     }
   }
 
@@ -56,7 +56,7 @@
   }
 
   :host(#{$c4d-prefix}-callout-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon;
+    @extend .#{$c4d-prefix}--link-with-icon !optional;
 
     display: inline-block;
     a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {

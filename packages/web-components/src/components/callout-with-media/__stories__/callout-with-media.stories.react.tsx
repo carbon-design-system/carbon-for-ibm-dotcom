@@ -20,7 +20,7 @@ import C4DCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/compon
 import C4DCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -31,7 +31,6 @@ const colorSchemeTypes = {
   [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
   [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
 };
-
 
 const image = (
   <C4DCalloutWithMediaImage
@@ -45,7 +44,8 @@ const video = (
 );
 
 export const Default = (args) => {
-  const { copy, heading, mediaType, colorScheme } = args?.CalloutWithMedia ?? {};
+  const { copy, heading, mediaType, colorScheme } =
+    args?.CalloutWithMedia ?? {};
   const headingComponent = document.querySelector('c4d-content-block-heading');
 
   if (headingComponent) {
@@ -92,11 +92,11 @@ export default {
           Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
           nulla quis, *consequat* libero. Here are
           some common categories:`,
-          colorScheme: select(
-            'Color scheme:',
-            colorSchemeTypes,
-            COLOR_SCHEME.REGULAR
-          ),
+        colorScheme: select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
+        ),
       }),
     },
   },

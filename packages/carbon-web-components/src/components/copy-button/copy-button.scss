@@ -9,10 +9,10 @@ $css--plex: true !default;
 
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/keyframes' as *;
 @use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/components/button';
 @use '@carbon/styles/scss/components/tooltip';
 @use '@carbon/styles/scss/components/code-snippet/code-snippet' as *;
@@ -29,9 +29,9 @@ $css--plex: true !default;
 }
 
 .#{$prefix}--snippet__icon {
-  width: $spacing-05;
-  height: $spacing-05;
+  block-size: $spacing-05;
   fill: $icon-primary;
+  inline-size: $spacing-05;
   transition: all $duration-fast-01 motion(standard, productive);
 }
 

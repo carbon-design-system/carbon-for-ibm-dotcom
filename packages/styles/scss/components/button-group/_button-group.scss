@@ -20,35 +20,37 @@
   :host(#{$c4d-prefix}-button-cta) {
     @extend :host(#{$c4d-prefix}-button);
 
+    max-inline-size: 100%;
+
+    min-inline-size: 0;
+
     outline: none;
-    max-width: 100%;
-    min-width: 0;
 
     @media print {
-      max-width: 100%;
-      margin-bottom: $spacing-05;
       display: block;
+      margin-block-end: $spacing-05;
+      max-inline-size: 100%;
     }
 
     .#{$prefix}--btn {
-      width: 100%;
-      word-break: break-word;
+      inline-size: 100%;
+      max-inline-size: 100%;
       transition: all $duration-fast-01 motion(entrance, productive), width 0s,
         height 0s;
-      max-width: 100%;
+      word-break: break-word;
 
       @media print {
+        display: block;
+        border: to-rem(1px) solid $gray-100;
         background: $white-0;
-        border: rem(1px) solid $gray-100;
         color: $gray-100;
         font-weight: 600;
-        display: block;
-        max-width: inherit;
+        max-inline-size: inherit;
       }
 
       .#{$prefix}--btn__icon {
-        width: auto;
-        height: auto;
+        block-size: auto;
+        inline-size: auto;
       }
 
       .#{$prefix}--btn--hidden {
@@ -57,14 +59,13 @@
 
         @media print {
           display: inline-block;
-          visibility: visible;
-          font-weight: 200;
           color: $gray-100;
+          font-weight: 200;
+          visibility: visible;
 
           span {
             font-weight: 600;
-            margin-left: calc(-1 * #{$spacing-02});
-            margin-right: $spacing-02;
+            margin-inline: calc(-1 * #{$spacing-02}) $spacing-02;
           }
         }
       }
@@ -80,9 +81,9 @@
     --#{$c4d-prefix}--button-group--item-count: 3;
 
     display: grid;
-    grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
     grid-gap: $spacing-05;
+    grid-template-columns: 1fr;
 
     @include breakpoint(md) {
       display: inline-grid;

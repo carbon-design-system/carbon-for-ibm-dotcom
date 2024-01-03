@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,15 +17,16 @@
 @mixin dropdown-expressive {
   .#{$prefix}--dropdown.#{$prefix}--list-box--sm,
   .#{$prefix}--dropdown.#{$prefix}--list-box--sm .#{$prefix}--list-box__field {
-    height: $spacing-08;
+    block-size: $spacing-08;
   }
 
   .#{$prefix}--dropdown.#{$prefix}--list-box {
     .#{$prefix}--list-box__menu-icon {
-      top: $spacing-04;
+      inset-block-start: $spacing-04;
+
       svg {
-        height: rem(20px);
-        width: rem(20px);
+        block-size: to-rem(20px);
+        inline-size: to-rem(20px);
       }
     }
   }

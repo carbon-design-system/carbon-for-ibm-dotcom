@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, html, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -110,9 +111,9 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleButtonGroupupdate = async (event: FocusEvent) => {
     if (event) {
-      const button = this.shadowRoot?.querySelector(`${c4dPrefix}-button-cta`)!;
+      const button = this.shadowRoot?.querySelector(`${c4dPrefix}-button-cta`);
       if (this.ctaStyle === 'button' && button && this.getAttribute('kind')) {
-        button.setAttribute('kind', this?.getAttribute('kind')!);
+        button.setAttribute('kind', this.getAttribute('kind')!);
       }
     }
   };

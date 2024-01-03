@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import on from 'carbon-components/es/globals/js/misc/on.js';
+import on from '../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';

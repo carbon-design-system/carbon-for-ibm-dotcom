@@ -8,7 +8,7 @@
   </slot>
 </div>
 <ul
-  class="cds--link-list__list cds--link-list__list--card"
+  class="c4d--link-list__list"
   name="list"
 >
   <slot>
@@ -25,7 +25,7 @@
   </slot>
 </div>
 <ul
-  class="cds--link-list__list cds--link-list__list--horizontal"
+  class="c4d--link-list__list--horizontal"
   name="list"
 >
   <slot>
@@ -42,7 +42,7 @@
   </slot>
 </div>
 <ul
-  class="cds--link-list__list cds--link-list__list--vertical"
+  class="c4d--link-list__list--vertical"
   name="list"
 >
   <slot>
@@ -65,6 +65,5 @@
   <slot>
   </slot>
 </ul>
-
 ```
 

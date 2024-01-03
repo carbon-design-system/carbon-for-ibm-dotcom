@@ -10,9 +10,8 @@
 import '../index';
 
 import { select, text } from '@storybook/addon-knobs';
-
 import { action } from '@storybook/addon-actions';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import readme from './README.stories.mdx';
 
 const questionChoices = {

@@ -33,22 +33,22 @@
     }
 
     display: flex;
-    flex-direction: column;
 
     overflow: hidden;
-    width: calc(
+    flex-direction: column;
+    inline-size: calc(
       100% + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
-    margin-right: calc(
+    margin-inline-end: calc(
       -1 * var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
-    padding-left: $spacing-05;
-    padding-right: calc(
-      #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-    );
+    padding-inline: $spacing-05
+      calc(
+        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      );
 
     @include breakpoint(md) {
-      padding-left: 0;
+      padding-inline-start: 0;
     }
 
     ::slotted(:not([name])) {
@@ -58,52 +58,54 @@
               100% - (var(--#{$c4d-prefix}--carousel--page-size, 1) - 1) * #{$spacing-05}
             ) / var(--#{$c4d-prefix}--carousel--page-size, 1)
         );
-      height: auto;
-      margin-right: $spacing-05;
+      block-size: auto;
+      margin-inline-end: $spacing-05;
       vertical-align: middle;
     }
 
     .#{$prefix}--carousel__scroll-container {
-      grid-area: body;
       position: relative;
       overflow: hidden;
-      margin-right: calc(
+      grid-area: body;
+      margin-inline-end: calc(
         -1 * (#{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05}))
       );
     }
 
     .#{$prefix}--carousel__scroll-contents {
       position: relative;
-      margin-right: calc(
-        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-      );
       display: flex;
       // Achieves `sameHeight` effect for card group.
       // The cards must have `height:auto`.
       align-items: stretch;
+      margin-inline-end: calc(
+        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      );
     }
 
     .#{$prefix}--carousel__scroll-contents--scrolling {
-      transition: left $duration-slow-01 motion(standard, productive);
+      transition: inset-inline-start $duration-slow-01
+        motion(standard, productive);
     }
 
     .#{$prefix}--carousel__navigation {
       @include type-style('body-02', true);
 
-      grid-area: navigation;
       display: grid;
-      grid-template-columns: auto auto auto;
-      justify-content: flex-end;
       align-items: center;
+      justify-content: flex-end;
       gap: $spacing-05;
-      margin-top: $spacing-05;
+
+      grid-area: navigation;
+      grid-template-columns: auto auto auto;
+      margin-block-start: $spacing-05;
     }
 
     .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
       padding: 0;
-      min-height: $spacing-09;
-      width: $spacing-09;
-      height: $spacing-09;
+      block-size: $spacing-09;
+      inline-size: $spacing-09;
+      min-block-size: $spacing-09;
 
       svg {
         margin: auto;
@@ -113,11 +115,11 @@
 
   :host(#{$c4d-prefix}-carousel[in-modal]) {
     padding: 0 0 $spacing-05;
-    width: 100%;
-    height: 100%;
+    block-size: 100%;
+    inline-size: 100%;
 
     @include breakpoint(md) {
-      padding-bottom: 0;
+      padding-block-end: 0;
     }
 
     .#{$prefix}--carousel__scroll-container {
@@ -125,7 +127,19 @@
     }
 
     .#{$prefix}--carousel__scroll-contents {
-      height: 100%;
+      block-size: 100%;
+    }
+  }
+
+  .#{$prefix}--carousel__navigation__status {
+    direction: ltr;
+  }
+}
+
+:host(#{$c4d-prefix}-carousel[dir='rtl']) {
+  .#{$prefix}--btn.#{$c4d-prefix}--carousel__navigation__btn {
+    svg {
+      transform: rotate(180deg);
     }
   }
 }
@@ -136,21 +150,21 @@
     --#{$c4d-prefix}--carousel--page-size: 4;
 
     flex-flow: row wrap;
-    margin: 0;
     padding: 0;
-    max-width: 100%;
-    width: 100%;
+    margin: 0;
+    inline-size: 100%;
+    max-inline-size: 100%;
 
     .#{$prefix}--carousel__scroll-container {
-      margin: 0;
       overflow: visible;
+      margin: 0;
     }
 
     .#{$prefix}--carousel__scroll-contents {
-      flex-wrap: wrap;
-      gap: $spacing-05;
-      margin: 0;
       position: initial;
+      flex-wrap: wrap;
+      margin: 0;
+      gap: $spacing-05;
     }
 
     .#{$prefix}--carousel__navigation {

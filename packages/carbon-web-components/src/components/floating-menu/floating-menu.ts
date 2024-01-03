@@ -121,7 +121,7 @@ abstract class CDSFloatingMenu extends HostListenerMixin(
 
   @HostListener('click')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _click = (event: MouseEvent) => {
+  private _click = () => {
     const { parent } = this;
     if (parent) {
       parent.open = false;

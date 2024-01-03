@@ -15,6 +15,7 @@ export * from './formatVideoCaption';
 export * from './ipcinfoCookie';
 export * from './loadNonLatinPlex';
 export * from './markdownToHtml';
+export * from './on';
 export * from './removeHtmlTagEntities';
 export * from './sameHeight';
 export * from './serialize';

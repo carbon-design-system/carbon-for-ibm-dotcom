@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,10 +30,10 @@
     @include select;
     @include text-input;
 
-    margin: $spacing-09 0;
-    padding-left: 0;
-    padding-right: 0;
     order: 0;
+
+    margin: $spacing-09 0;
+    padding-inline: 0;
 
     @include type-style('body-compact-01');
     @include breakpoint-down(md) {
@@ -41,34 +41,34 @@
     }
 
     @include breakpoint(md) {
-      margin-top: 0;
+      margin-block-start: 0;
       @include make-col(4, 8);
       @include make-col-offset(2, 8);
     }
 
     .#{$prefix}--language-selector {
-      max-width: 100%;
-      width: 100%;
-      height: $spacing-09;
-      margin-right: 0;
+      block-size: $spacing-09;
+      inline-size: 100%;
+      margin-inline-end: 0;
+      max-inline-size: 100%;
 
       .#{$prefix}--list-box__menu-icon {
-        right: $spacing-04;
+        inset-inline-end: $spacing-04;
       }
 
       .#{$prefix}--list-box__selection {
-        right: 2.25rem;
+        inset-inline-end: 2.25rem;
       }
 
       .#{$prefix}--list-box__field {
-        height: inherit;
+        block-size: inherit;
       }
 
       @include breakpoint(md) {
-        min-width: carbon--mini-units(27);
+        min-inline-size: carbon--mini-units(27);
 
         .#{$prefix}--footer--short & {
-          float: right;
+          float: inline-end;
         }
       }
 
@@ -80,13 +80,13 @@
     }
 
     .#{$prefix}--footer--short & {
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     @include breakpoint(md) {
       @include make-col(4, 8);
 
-      margin-bottom: carbon--mini-units(2);
+      margin-block-end: carbon--mini-units(2);
 
       .#{$prefix}--footer--short & {
         @include make-col-offset(2, 8);
@@ -113,17 +113,17 @@
     .#{$prefix}--list-box--up {
       .#{$prefix}--list-box__menu {
         z-index: 1;
-        bottom: rem(47px);
+        inset-block-end: to-rem(47px);
       }
     }
 
     .#{$prefix}--select-input__wrapper {
-      width: 100%;
+      inline-size: 100%;
 
       .#{$prefix}--select-input {
-        width: 100%;
-        max-width: 100%;
-        height: $spacing-09;
+        block-size: $spacing-09;
+        inline-size: 100%;
+        max-inline-size: 100%;
       }
     }
 
@@ -147,10 +147,10 @@
     }
 
     .#{$prefix}--label {
-      height: 0;
+      display: block;
       padding: 0;
       margin: 0;
-      display: block;
+      block-size: 0;
       visibility: hidden;
     }
   }

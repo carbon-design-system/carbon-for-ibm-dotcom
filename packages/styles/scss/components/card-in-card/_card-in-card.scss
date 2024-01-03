@@ -20,22 +20,19 @@
 
 @mixin card-in-card {
   :host(#{$c4d-prefix}-card-in-card) {
-    height: auto;
+    block-size: auto;
 
     .#{$prefix}--card:focus-within {
-      outline: none;
       border-color: $background;
+      outline: none;
 
       &::before {
-        content: '';
-        display: block;
         position: absolute;
         z-index: 1;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        display: block;
         border: $spacing-01 solid $focus;
+        content: '';
+        inset: 0;
         outline: 1px solid $focus-inset;
         outline-offset: -3px;
       }
@@ -45,43 +42,43 @@
       cursor: pointer;
 
       &::after {
-        content: '';
-        opacity: 0.08;
-        background: $card-background;
         position: absolute;
-        width: 100%;
-        height: 100%;
+        background: $card-background;
+        block-size: 100%;
+        content: '';
+        inline-size: 100%;
+        opacity: 0.08;
       }
     }
 
     .#{$prefix}--card-in-card__container {
-      color: $text-primary;
-      background: $background;
       position: relative;
+      background: $background;
+      color: $text-primary;
     }
 
     .#{$prefix}--card__wrapper {
-      background-color: $layer-01;
-      height: auto;
       padding: $spacing-05;
-      border-left: 1px solid $border-tile;
-      border-top: 1px solid $border-tile;
+      background-color: $layer-01;
+      block-size: auto;
+      border-block-start: 1px solid $border-tile;
+      border-inline-start: 1px solid $border-tile;
 
       @include breakpoint(md) {
-        width: 50%;
         position: absolute;
-        bottom: 0;
-        right: 0;
+        inline-size: 50%;
+        inset-block-end: 0;
+        inset-inline-end: 0;
       }
 
       @include breakpoint(lg) {
-        width: 33.33%;
+        inline-size: 33.33%;
       }
 
       ::slotted(#{$c4d-prefix}-card-eyebrow),
       ::slotted(#{$c4d-prefix}-card-heading) {
         @include breakpoint(md) {
-          width: 90%;
+          inline-size: 90%;
         }
       }
 
@@ -90,8 +87,8 @@
       }
 
       ::slotted(#{$c4d-prefix}-card-eyebrow) {
-        margin-bottom: $spacing-02;
         color: $text-secondary;
+        margin-block-end: $spacing-02;
       }
     }
   }
@@ -99,9 +96,10 @@
   :host(#{$c4d-prefix}-card-in-card-image) {
     @extend .#{$prefix}--image;
 
-    display: block;
     position: relative;
     z-index: 0;
+
+    display: block;
 
     @include ratio-base(4, 3, true);
 
@@ -113,31 +111,45 @@
       @extend :host(#{$c4d-prefix}-image::slotted(svg[slot='icon']));
 
       @include breakpoint(md) {
-        right: calc(75% - #{$spacing-07});
+        inset-inline-end: calc(75% - #{$spacing-07});
       }
 
       @include breakpoint(lg) {
-        right: calc(50% - #{$spacing-04});
+        inset-inline-end: calc(50% - #{$spacing-04});
+      }
+    }
+    @media screen and (prefers-reduced-motion: reduce) {
+      &::before {
+        position: absolute;
+        z-index: 1;
+        background-color: $background-inverse;
+        block-size: 100%;
+        content: '';
+        inline-size: 100%;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        opacity: 0;
+        transition: none;
       }
     }
 
     &::before {
-      content: '';
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
       z-index: 1;
       background-color: $background-inverse;
+      block-size: 100%;
+      content: '';
+      inline-size: 100%;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      opacity: 0;
       transition: opacity $duration-moderate-01 motion('standard', 'productive');
     }
 
     .#{$c4d-prefix}--image__img {
       position: absolute;
-      height: 100%;
-      top: 0;
+      block-size: 100%;
+      inset-block-start: 0;
     }
   }
 
@@ -145,16 +157,16 @@
   :host(#{$c4d-prefix}-card-in-card)[grid-mode='narrow'],
   .#{$prefix}--card-in-card--narrow {
     @include breakpoint(lg) {
-      width: calc(100% - #{carbon--mini-units(2)});
+      inline-size: calc(100% - #{carbon--mini-units(2)});
     }
 
     .#{$prefix}--card__wrapper {
       @include breakpoint(md) {
-        width: calc(50% - #{$spacing-04} + #{rem(5px)});
+        inline-size: calc(50% - #{$spacing-04} + #{to-rem(5px)});
       }
 
       @include breakpoint(lg) {
-        width: calc(33.33% - #{$spacing-04} + #{rem(2px)});
+        inline-size: calc(33.33% - #{$spacing-04} + #{to-rem(2px)});
       }
     }
   }
@@ -164,24 +176,24 @@
   .#{$prefix}--card-in-card--narrow {
     .#{$prefix}--card__wrapper {
       @include breakpoint(md) {
-        width: calc(50% - #{$spacing-05} + #{rem(1px)});
+        inline-size: calc(50% - #{$spacing-05} + #{to-rem(1px)});
       }
 
       @include breakpoint(lg) {
-        width: calc(33.33% - #{rem(20.5px)});
+        inline-size: calc(33.33% - #{to-rem(20.5px)});
       }
 
       &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
         position: absolute;
-        left: 0;
-        bottom: -1px;
-        pointer-events: none;
         z-index: 1;
+        display: block;
         background-color: $layer-accent-01;
+        block-size: 1px;
+        content: '';
+        inline-size: 100%;
+        inset-block-end: -1px;
+        inset-inline-start: 0;
+        pointer-events: none;
       }
     }
   }

@@ -37,7 +37,9 @@ class C4DCardSectionOffset extends StableSelectorMixin(C4DContentBlock) {
         (elem as HTMLElement).querySelectorAll(`${c4dPrefix}-card-group-item`)
           .length === 3
       ) {
-        const emptyCard = document.createElement(`${c4dPrefix}-card-group-item`);
+        const emptyCard = document.createElement(
+          `${c4dPrefix}-card-group-item`
+        );
         emptyCard.setAttribute('empty', '');
         this.querySelector(`${c4dPrefix}-card-group`)?.prepend(emptyCard);
         return true;

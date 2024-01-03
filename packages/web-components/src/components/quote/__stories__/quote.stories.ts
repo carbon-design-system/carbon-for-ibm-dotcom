@@ -18,13 +18,8 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {
-  const {
-    copy,
-    quoteMark,
-    sourceHeading,
-    sourceCopy,
-    sourceBottomCopy
-  } = args?.Quote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+    args?.Quote ?? {};
   return html`
     <c4d-quote mark-type="${quoteMark}">
       ${copy}

@@ -29,7 +29,7 @@
 
     .#{$prefix}--tabs__nav-link {
       display: flex;
-      height: $spacing-08;
+      block-size: $spacing-08;
       font-size: $spacing-05;
     }
 
@@ -37,7 +37,7 @@
       .#{$prefix}--tabs__nav-link {
         @include type-style('heading-compact-01');
 
-        border-bottom: $spacing-01 solid $border-interactive;
+        border-block-end: $spacing-01 solid $border-interactive;
       }
     }
   }
@@ -47,7 +47,7 @@
     box-shadow: 0 -1px 0 $background-hover;
 
     a.#{$prefix}--tabs__nav-link {
-      border-bottom: $tab-underline-color-hover;
+      border-block-end: $tab-underline-color-hover;
       color: $text-primary;
     }
   }
@@ -60,29 +60,27 @@
     outline: none;
 
     .#{$prefix}--tabs__nav-link {
+      border-block-end: $tab-underline-disabled;
       color: $tab-text-disabled;
-      pointer-events: none;
       outline: none;
-      border-bottom: $tab-underline-disabled;
+      pointer-events: none;
     }
   }
 
   :host(#{$c4d-prefix}-tab[selected]) {
     display: flex;
     background-color: transparent;
-
-    .#{$prefix}--tabs__nav-link {
-      @include type-style('heading-01');
-      font-size: $spacing-05;
-    }
-
     transition: color $duration-fast-01 motion(standard, productive);
 
     .#{$prefix}--tabs__nav-link {
+      @include type-style('heading-01');
+
+      font-size: $spacing-05;
+
       &,
-    // Need to override core Carbon's non-selected focus color
-    &:focus,
-    &:active {
+      // Need to override core Carbon's non-selected focus color
+      &:focus,
+      &:active {
         color: $text-primary;
       }
     }
@@ -102,12 +100,13 @@
     .#{$prefix}--tabs__nav-link {
       @include type-style('body-short-01');
 
+      border-block-end: $tab-underline-disabled;
+
       color: $tab-text-disabled;
-      border-bottom: $tab-underline-disabled;
 
       &:focus,
       &:active {
-        border-bottom-width: rem(3px);
+        border-block-end-width: to-rem(3px);
       }
     }
   }
@@ -120,8 +119,8 @@
     background-color: $layer-accent-01;
 
     a.#{$prefix}--tabs__nav-link {
-      height: $spacing-09;
       padding: 0 $spacing-05;
+      block-size: $spacing-09;
       font-size: $spacing-05;
     }
   }
@@ -129,21 +128,21 @@
   :host(#{$c4d-prefix}-tab[type='contained']),
   :host(#{$c4d-prefix}-tab[type='contained']:hover) {
     a.#{$prefix}--tabs__nav-link {
-      border-bottom: none;
+      border-block-end: none;
       // Draws the border without affecting the inner-content
-      box-shadow: rem(-1px) 0 0 0 $border-strong;
+      box-shadow: to-rem(-1px) 0 0 0 $border-strong;
     }
   }
 
   :host(#{$c4d-prefix}-tab[type='contained'][hide-divider])
     a.#{$prefix}--tabs__nav-link {
-    box-shadow: rem(-1px) 0 0 0 transparent;
+    box-shadow: to-rem(-1px) 0 0 0 transparent;
   }
 
   :host(#{$c4d-prefix}-tab[type='contained'][disabled][role])
     .#{$prefix}--tabs__nav-link {
     background-color: $button-disabled;
-    border-bottom: none;
+    border-block-end: none;
     color: $text-on-color-disabled;
   }
 
@@ -152,9 +151,9 @@
     background-color: $layer-01;
 
     .#{$prefix}--tabs__nav-link {
+      border-block-end: none;
       // Draws the border without affecting the inner-content
       box-shadow: inset 0 $spacing-01 0 0 $interactive;
-      border-bottom: none;
     }
 
     .#{$prefix}--tabs__nav-link:focus,

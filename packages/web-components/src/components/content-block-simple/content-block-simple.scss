@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -7,6 +7,7 @@
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/content-block-simple';
 @use '@carbon/ibmdotcom-styles/scss/components/image';
 @use '@carbon/ibmdotcom-styles/scss/components/video-player';
@@ -23,16 +24,16 @@
 
   ::slotted(#{$c4d-prefix}-card-cta[slot]),
   ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
-    width: auto;
+    inline-size: auto;
   }
 
   ::slotted(#{$c4d-prefix}-card-cta),
   ::slotted(#{$c4d-prefix}-card-link-cta) {
-    width: auto;
-    max-width: 320px;
+    inline-size: auto;
+    max-inline-size: 320px;
   }
 
   ::slotted([slot='media']) {
-    max-width: rem(640px);
+    max-inline-size: to-rem(640px);
   }
 }

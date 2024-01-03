@@ -15,10 +15,10 @@ import { html } from 'lit';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 // eslint-disable-next-line sort-imports
-import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
+import imgXlg4x3 from '../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import imgXlg16x9 from '../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
+import imgMd16x9 from '../../../../.storybook/storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
+import imgSm4x3 from '../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import { GRID_MODE } from '../defs';
 import styles from './card-group.stories.scss';
 
@@ -64,18 +64,11 @@ const imageContent = html`
     default-src="${imgXlg4x3}"></c4d-image>
 `;
 
-const cardsDiffLengthPhrase = (
-  index,
-  tagGroup,
-  media,
-  cardType,
-  addCta
-) => {
+const cardsDiffLengthPhrase = (index, tagGroup, media, cardType, addCta) => {
   const defaultCardGroupItem = html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
-      href=${cardType === 'Card static' ? '' : 'https://example.com'}
-      >
+      href=${cardType === 'Card static' ? '' : 'https://example.com'}>
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -88,16 +81,16 @@ const cardsDiffLengthPhrase = (
         ultricies est.'
       </p>
       ${tagGroup ? tagGroupContent : ''}
-      ${cardType === 'Card static' ? (addCta ? textCTAContent : '') 
-      : html` <c4d-card-footer slot="footer"></c4d-card-footer> `}
+      ${cardType === 'Card static'
+        ? addCta
+          ? textCTAContent
+          : ''
+        : html` <c4d-card-footer slot="footer"></c4d-card-footer> `}
     </c4d-card-group-item>
   `;
 
   const videoCardGroupItem = (videoId = '1_9h94wo6b') => html`
-    <c4d-card-group-item
-      cta-type="video"
-      href="${videoId}"
-      >
+    <c4d-card-group-item cta-type="video" href="${videoId}">
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
@@ -114,17 +107,11 @@ const cardsDiffLengthPhrase = (
     : defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = (
-  tagGroup,
-  media,
-  cardType,
-  addCta
-) => {
+const longHeadingCardGroupItem = (tagGroup, media, cardType, addCta) => {
   return html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
-      href=${cardType === 'Card static' ? '' : 'https://example.com'}
-      >
+      href=${cardType === 'Card static' ? '' : 'https://example.com'}>
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -137,17 +124,17 @@ const longHeadingCardGroupItem = (
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       ${tagGroup ? tagGroupContent : ''}
-      ${cardType === 'Card static' ? (addCta ? textCTAContent : '') 
+      ${cardType === 'Card static'
+        ? addCta
+          ? textCTAContent
+          : ''
         : html` <c4d-card-footer slot="footer"></c4d-card-footer> `}
     </c4d-card-group-item>
   `;
 };
 
 const pictogramCard = () => html`
-  <c4d-card-group-item
-    href="https://example.com"
-    pictogram-placement="bottom"
-    >
+  <c4d-card-group-item href="https://example.com" pictogram-placement="bottom">
     <c4d-card-heading>Aerospace and defence</c4d-card-heading>
     <p>
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -192,10 +179,7 @@ const cardInCardItems = (i, tagGroup, media) => {
   if (media) {
     return i % 2 === 0
       ? html`
-          <c4d-card-group-item
-            cta-type="local"
-            href="https://example.com"
-            >
+          <c4d-card-group-item cta-type="local" href="https://example.com">
             ${imageContent}
             <c4d-card-eyebrow>Label</c4d-card-eyebrow>
             <c4d-card-heading
@@ -207,10 +191,7 @@ const cardInCardItems = (i, tagGroup, media) => {
           </c4d-card-group-item>
         `
       : html`
-          <c4d-card-group-item
-            cta-type="video"
-            href="0_ibuqxqbe"
-            >
+          <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
             <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
             <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
@@ -219,10 +200,7 @@ const cardInCardItems = (i, tagGroup, media) => {
         `;
   }
   return html`
-    <c4d-card-group-item
-      cta-type="local"
-      href="https://example.com"
-      >
+    <c4d-card-group-item cta-type="local" href="https://example.com">
       <c4d-card-eyebrow>Label</c4d-card-eyebrow>
       <c4d-card-heading
         >The United Nations Environment Program works with IBM to reduce marine
@@ -235,22 +213,13 @@ const cardInCardItems = (i, tagGroup, media) => {
 };
 
 export const Default = (args) => {
-  const {
-    cards,
-    cardType,
-    media,
-    tagGroup,
-    gridMode,
-    cta,
-    addCta,
-  } = args?.CardGroup ?? {};
+  const { cards, cardType, media, tagGroup, gridMode, cta, addCta } =
+    args?.CardGroup ?? {};
 
   const allCards: object[] = [];
 
   if (cardType === 'Card - default') {
-    allCards.push(
-      longHeadingCardGroupItem(tagGroup, media, cardType, addCta)
-    );
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, cardType, addCta));
     for (let i = 1; i < cards; i++) {
       allCards.push(
         cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta)
@@ -259,12 +228,9 @@ export const Default = (args) => {
     if (cta) {
       allCards.push(
         html`
-          <c4d-card-group-item
-            cta-type="local"
-            href="https://example.com">
+          <c4d-card-group-item cta-type="local" href="https://example.com">
             <c4d-card-heading>Top level card link</c4d-card-heading>
-            <c4d-card-footer slot="footer">
-            </c4d-card-footer>
+            <c4d-card-footer slot="footer"> </c4d-card-footer>
           </c4d-card-group-item>
         `
       );
@@ -278,9 +244,7 @@ export const Default = (args) => {
   }
 
   if (cardType === 'Card static') {
-    allCards.push(
-      longHeadingCardGroupItem(tagGroup, media, cardType, addCta)
-    );
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, cardType, addCta));
     for (let i = 1; i < cards; i++) {
       allCards.push(
         cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta)
@@ -289,13 +253,9 @@ export const Default = (args) => {
     if (cta) {
       allCards.push(
         html`
-          <c4d-card-group-item
-            cta-type="local"
-            href="https://example.com"
-            >
+          <c4d-card-group-item cta-type="local" href="https://example.com">
             <c4d-card-heading>Top level card link</c4d-card-heading>
-            <c4d-card-footer slot="footer">
-            </c4d-card-footer>
+            <c4d-card-footer slot="footer"> </c4d-card-footer>
           </c4d-card-group-item>
         `
       );
@@ -446,7 +406,12 @@ export default {
           cardType === 'Card static' ? boolean('Add CTA Links:', false) : '';
         const cards = number('Number of cards:', 5, { min: 2, max: 6 });
         const gridMode =
-             cardType === 'Card static' ? select('Grid mode:', staticGridModes, staticGridModes['Default (32px)']) 
+          cardType === 'Card static'
+            ? select(
+                'Grid mode:',
+                staticGridModes,
+                staticGridModes['Default (32px)']
+              )
             : select('Grid mode:', gridModes, gridModes['Default (32px)']);
         const cta = media ? '' : boolean('Add CTA card:', false);
         return {

@@ -101,9 +101,8 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
       this._childItems.forEach((e) => {
-
-        if(!e.hasAttribute('href') && this.gridMode === GRID_MODE.CONDENSED) {
-          this.gridMode = GRID_MODE.DEFAULT
+        if (!e.hasAttribute('href') && this.gridMode === GRID_MODE.CONDENSED) {
+          this.gridMode = GRID_MODE.DEFAULT;
         }
         this._childItemEyebrows.push(
           (e as HTMLElement).querySelector(
@@ -152,7 +151,7 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     if (!this.pictograms) {
       window.requestAnimationFrame(() => {
         this._setSameHeight();
-      })
+      });
     }
   };
 
@@ -176,7 +175,7 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
       'md'
     );
 
-    let tagGroupHeight: number = 0;
+    let tagGroupHeight = 0;
 
     // get tallest height of tag groups
     this._childItemTagGroup.forEach((item) => {
@@ -191,7 +190,7 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     this._childItemHeadings.forEach((e) => {
       // add tag group height to heading to the cards lacking tag group
       if (
-        e && 
+        e &&
         !e.parentElement.hasAttribute('link') &&
         !e.nextElementSibling?.matches(
           (this.constructor as typeof C4DCardGroup).selectorItemTagGroup
@@ -257,9 +256,11 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   firstUpdated() {
     super.connectedCallback();
 
-    if(this.previousElementSibling?.matches?.(
-      (this.constructor as typeof C4DCardGroup).selectorCardInCard
-    )) {
+    if (
+      this.previousElementSibling?.matches?.(
+        (this.constructor as typeof C4DCardGroup).selectorCardInCard
+      )
+    ) {
       this.setAttribute('with-card-in-card', '');
     }
     this._cleanAndCreateObserverResize({ create: true });
@@ -270,9 +271,7 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html`
-      <slot @slotchange="${this._handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
   /**
@@ -291,7 +290,7 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
    */
   static get selectorCardInCard() {
     return `${c4dPrefix}-card-in-card`;
-  }  
+  }
 
   /**
    * A selector that will return the card item.

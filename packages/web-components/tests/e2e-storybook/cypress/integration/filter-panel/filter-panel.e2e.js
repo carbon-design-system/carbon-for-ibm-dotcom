@@ -19,7 +19,7 @@ const _path = '/iframe.html?id=components-filter-panel--default';
  * @type {string}
  * @private
  */
-const _selector = '[data-autoid="cds-filter-panel-composite"]';
+const _selector = '[data-autoid="c4d-filter-panel-composite"]';
 
 /**
  * Defines viewport dimensions.
@@ -39,7 +39,7 @@ const _checkOptions = { force: true };
  */
 const _screenshotOptions = { capture: 'viewport' };
 
-describe('cds-filter-panel | (desktop)', () => {
+describe('c4d-filter-panel | (desktop)', () => {
   beforeEach(() => {
     cy.viewport(..._viewportWidths.desktop);
   });
@@ -55,10 +55,10 @@ describe('cds-filter-panel | (desktop)', () => {
     cy.visit(_path)
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .click()
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .first()
       .shadow()
       .find('input[type="checkbox"]')
@@ -72,9 +72,9 @@ describe('cds-filter-panel | (desktop)', () => {
       .click();
     // Verify box is checked
     cy.get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .first()
       .shadow()
       .find('input[type="checkbox"]')
@@ -87,10 +87,10 @@ describe('cds-filter-panel | (desktop)', () => {
     cy.visit(_path)
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .eq(1)
       .click()
-      .find('cds-filter-panel-input-select')
+      .find('c4d-filter-panel-input-select')
       .first()
       .click();
     cy.screenshot(_screenshotOptions);
@@ -102,9 +102,9 @@ describe('cds-filter-panel | (desktop)', () => {
       .click();
     // Verify box is checked
     cy.get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .eq(1)
-      .find('cds-filter-panel-input-select')
+      .find('c4d-filter-panel-input-select')
       .first()
       .should('have.attr', 'selected');
     cy.screenshot(_screenshotOptions);
@@ -118,11 +118,11 @@ describe('cds-filter-panel | (desktop)', () => {
     )
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .click()
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .should('have.length', 1)
       .click()
       .get('@filterGroupItem')
@@ -133,10 +133,10 @@ describe('cds-filter-panel | (desktop)', () => {
     )
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .click()
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .should('have.length', 0);
   });
 
@@ -146,10 +146,10 @@ describe('cds-filter-panel | (desktop)', () => {
     cy.visit(`${_path}&knob-View%20all%20text=${customText}`)
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .click()
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .should('have.text', customText);
     cy.screenshot(_screenshotOptions);
   });
@@ -158,7 +158,7 @@ describe('cds-filter-panel | (desktop)', () => {
     cy.visit(_path)
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .shadow()
@@ -166,10 +166,10 @@ describe('cds-filter-panel | (desktop)', () => {
       .as('toggle')
       .click()
       .get('@filterGroupItem')
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .click()
       .get('@filterGroupItem')
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .last()
       .as('lastCheckbox')
       .get('@toggle')
@@ -184,7 +184,7 @@ describe('cds-filter-panel | (desktop)', () => {
     cy.visit(_path)
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .shadow()
@@ -192,10 +192,10 @@ describe('cds-filter-panel | (desktop)', () => {
       .as('toggle')
       .click()
       .get('@filterGroupItem')
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .click()
       .get('@filterGroupItem')
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .last()
       .as('lastCheckbox')
       .shadow()
@@ -210,7 +210,7 @@ describe('cds-filter-panel | (desktop)', () => {
   });
 });
 
-describe('cds-filter-panel | (mobile)', () => {
+describe('c4d-filter-panel | (mobile)', () => {
   beforeEach(() => {
     cy.viewport(..._viewportWidths.mobile);
   });
@@ -228,10 +228,10 @@ describe('cds-filter-panel | (mobile)', () => {
       .find('.bx--filter-button')
       .click()
       .get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .click()
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .first()
       .shadow()
       .find('input[type="checkbox"]')
@@ -242,9 +242,9 @@ describe('cds-filter-panel | (mobile)', () => {
     cy.viewport(..._viewportWidths['desktop'])
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .first()
       .shadow()
       .find('input[type="checkbox"]')
@@ -259,10 +259,10 @@ describe('cds-filter-panel | (mobile)', () => {
       .find('.bx--filter-button')
       .click()
       .get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .eq(1)
       .click()
-      .find('cds-filter-panel-input-select')
+      .find('c4d-filter-panel-input-select')
       .first()
       .click();
     cy.screenshot(_screenshotOptions);
@@ -271,9 +271,9 @@ describe('cds-filter-panel | (mobile)', () => {
     cy.viewport(..._viewportWidths['desktop'])
       .get(_selector)
       .shadow()
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .eq(1)
-      .find('cds-filter-panel-input-select')
+      .find('c4d-filter-panel-input-select')
       .first()
       .should('have.attr', 'selected');
     cy.screenshot(_screenshotOptions);
@@ -289,11 +289,11 @@ describe('cds-filter-panel | (mobile)', () => {
       .find('.bx--filter-button')
       .click()
       .get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .click()
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .should('have.length', 1)
       .click()
       .get('@filterGroupItem')
@@ -306,10 +306,10 @@ describe('cds-filter-panel | (mobile)', () => {
       .find('.bx--filter-button')
       .click()
       .get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .click()
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .should('have.length', 0);
   });
 
@@ -321,10 +321,10 @@ describe('cds-filter-panel | (mobile)', () => {
       .find('.bx--filter-button')
       .click()
       .get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .click()
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .should('have.text', customText);
     cy.screenshot(_screenshotOptions);
   });
@@ -335,7 +335,7 @@ describe('cds-filter-panel | (mobile)', () => {
       .find('.bx--filter-button')
       .click()
       .get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .shadow()
@@ -343,10 +343,10 @@ describe('cds-filter-panel | (mobile)', () => {
       .as('toggle')
       .click()
       .get('@filterGroupItem')
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .click()
       .get('@filterGroupItem')
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .last()
       .as('lastCheckbox')
       .get('@toggle')
@@ -363,7 +363,7 @@ describe('cds-filter-panel | (mobile)', () => {
       .find('.bx--filter-button')
       .click()
       .get(_selector)
-      .find('cds-filter-group-item')
+      .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .shadow()
@@ -371,10 +371,10 @@ describe('cds-filter-panel | (mobile)', () => {
       .as('toggle')
       .click()
       .get('@filterGroupItem')
-      .find('.cds-filter-group-item__view-all')
+      .find('.c4d-filter-group-item__view-all')
       .click()
       .get('@filterGroupItem')
-      .find('cds-filter-panel-checkbox')
+      .find('c4d-filter-panel-checkbox')
       .last()
       .as('lastCheckbox')
       .shadow()

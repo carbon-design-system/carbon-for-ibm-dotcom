@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,7 @@
   .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--right.#{$prefix}--tooltip--align-start
     .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--right.#{$prefix}--tooltip--align-end {
     &::before {
-      border-width: $spacing-02 rem(5.5px) $spacing-02 0;
+      border-width: $spacing-02 to-rem(5.5px) $spacing-02 0;
     }
   }
 
@@ -27,7 +27,7 @@
   .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--left.#{$prefix}--tooltip--align-start
     .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--left.#{$prefix}--tooltip--align-end {
     &::before {
-      border-width: $spacing-02 0 $spacing-02 rem(5.5px);
+      border-width: $spacing-02 0 $spacing-02 to-rem(5.5px);
     }
   }
   .#{$prefix}--tooltip .#{$prefix}--link {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -47,13 +47,13 @@ $carbon-productive-type-tokens: (
   body-compact-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   body-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.16px,
   ),
   label-01: (
@@ -79,7 +79,7 @@ $carbon-productive-type-tokens: (
     font-family: font-family('mono'),
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.32px,
   ),
   helper-text-01: (
@@ -90,19 +90,19 @@ $carbon-productive-type-tokens: (
   heading-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   heading-compact-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   heading-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.16px,
   ),
 );
@@ -115,7 +115,7 @@ $carbon-expressive-type-tokens: (
   body-compact-01: (
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(22px),
+    line-height: to-rem(22px),
     letter-spacing: 0,
   ),
   body-01: (
@@ -127,20 +127,20 @@ $carbon-expressive-type-tokens: (
   label-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   caption-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   code-01: (
     font-family: font-family('mono'),
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0,
   ),
   code-02: (
@@ -153,25 +153,25 @@ $carbon-expressive-type-tokens: (
   helper-text-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
-    line-height: rem(18px),
+    line-height: to-rem(18px),
     letter-spacing: 0.16px,
   ),
   heading-01: (
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('semibold'),
-    line-height: rem(22px),
+    line-height: to-rem(22px),
     letter-spacing: 0,
   ),
   heading-compact-01: (
     font-size: carbon--type-scale(3),
     font-weight: carbon--font-weight('semibold'),
-    line-height: rem(22px),
+    line-height: to-rem(22px),
     letter-spacing: 0,
   ),
   heading-01: (
     font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('semibold'),
-    line-height: rem(20px),
+    line-height: to-rem(20px),
     letter-spacing: 0.16px,
   ),
 ) !default;

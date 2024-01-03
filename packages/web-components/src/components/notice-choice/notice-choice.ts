@@ -8,7 +8,8 @@
  */
 
 import { checkPreferencesv3, loadContent } from './services';
-import { html, LitElement, property, TemplateResult } from 'lit-element';
+import { TemplateResult, html, LitElement } from 'lit';
+import { property } from 'lit/decorators.js';
 import {
   emailRegExp,
   pwsValueMap,
@@ -20,7 +21,7 @@ import countrySettings from './country-settings';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { worldWideContent } from './world-wide-content';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -386,7 +387,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         mandatoryCheckboxes
       )) {
         const legalTextName = key.replace(/([A-Z]+)/g, '-$1').toLowerCase();
-        let mandatoryCheckboxTemplate = html`
+        const mandatoryCheckboxTemplate = html`
           <span>
             <div class="${prefix}--form-item bx--checkbox-wrapper">
               <p part=${legalTextName} class=${legalTextName}>
@@ -486,7 +487,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       }
 
       if (!this.termsConditionLink.strings && this.termsConditionLink) {
-        let originalValue = OtherPreferences;
+        const originalValue = OtherPreferences;
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');

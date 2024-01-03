@@ -52,4 +52,3 @@
 </dds-masthead-global-bar>
 
 ```
-

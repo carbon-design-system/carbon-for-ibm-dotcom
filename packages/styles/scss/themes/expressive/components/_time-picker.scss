@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@
 /// @group time-picker-expressive
 @mixin time-picker-expressive {
   .#{$prefix}--time-picker__input-field {
-    height: $spacing-09;
-    width: rem(85px);
+    block-size: $spacing-09;
+    inline-size: to-rem(85px);
   }
 }

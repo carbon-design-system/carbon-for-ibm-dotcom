@@ -48,7 +48,9 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
 
       this._cleanAndCreateMutationObserver({ create: true });
       window.requestAnimationFrame(() => {
-        if (!this.linkNode) this.transposeAttributes();
+        if (!this.linkNode) {
+          this.transposeAttributes();
+        }
       });
     }
 
@@ -102,7 +104,6 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       }
 
       if (create) {
-        const element = this;
         this._mutationObserver = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
             if (mutation.type === 'attributes') {
@@ -112,7 +113,7 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
             }
           });
         });
-        this._mutationObserver?.observe(element, { attributes: true });
+        this._mutationObserver?.observe(this, { attributes: true });
       }
     }
 

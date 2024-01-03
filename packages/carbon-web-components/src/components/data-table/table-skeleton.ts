@@ -139,11 +139,11 @@ class CDSTableSkeleton extends LitElement {
         </thead>
         <tbody>
           ${Array.from(new Array(rowCount)).map(
-            (_) =>
+            () =>
               html`
                 <tr>
                   ${Array.from(new Array(columnCount)).map(
-                    (_) =>
+                    () =>
                       html`
                         <td>
                           <span></span>

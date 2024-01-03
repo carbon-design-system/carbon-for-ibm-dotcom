@@ -15,7 +15,7 @@ import readme from './README.stories.mdx';
 import '../index';
 import { GRID_MODE } from '../../card-group/defs';
 import { CTA_TYPE } from '../../cta/defs';
-import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
+import image from '../../../../.storybook/storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
@@ -63,8 +63,17 @@ const defaultCardGroupItem = html`
 `;
 
 export const Default = (args) => {
-  const { heading, cards, ctaType, ctaCopy, download, gridMode, href, alt, defaultSrc } =
-    args?.CardSectionOffset ?? {};
+  const {
+    heading,
+    cards,
+    ctaType,
+    ctaCopy,
+    download,
+    gridMode,
+    href,
+    alt,
+    defaultSrc,
+  } = args?.CardSectionOffset ?? {};
   return html`
     <c4d-card-section-offset>
       <c4d-background-media
@@ -84,7 +93,10 @@ export const Default = (args) => {
         href="${ifDefined(href)}">
         ${ctaCopy}
       </c4d-text-cta>
-      <c4d-card-group slot="card-group" cards-per-row="2" grid-mode="${gridMode}">
+      <c4d-card-group
+        slot="card-group"
+        cards-per-row="2"
+        grid-mode="${gridMode}">
         ${cards}
       </c4d-card-group>
     </c4d-card-section-offset>
@@ -112,7 +124,11 @@ export default {
           ctaType === CTA_TYPE.VIDEO
             ? undefined
             : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
-        const gridMode = select('Grid mode:', gridModes, gridModes['Default (32px)']);            
+        const gridMode = select(
+          'Grid mode:',
+          gridModes,
+          gridModes['Default (32px)']
+        );
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined

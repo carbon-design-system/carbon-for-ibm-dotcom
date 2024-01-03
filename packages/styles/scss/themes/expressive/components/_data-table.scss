@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,41 +16,41 @@
 /// @group data-table-expressive
 @mixin data-table-expressive {
   .#{$prefix}--data-table--compact td {
-    height: $spacing-07;
+    block-size: $spacing-07;
   }
   .#{$prefix}--data-table--short td {
-    height: $spacing-08;
+    block-size: $spacing-08;
   }
   .#{$prefix}--data-table--tall td {
-    height: rem(70px);
+    block-size: to-rem(70px);
   }
   .#{$prefix}--table-expand__svg {
-    height: rem(20px);
-    width: rem(20px);
+    block-size: to-rem(20px);
+    inline-size: to-rem(20px);
   }
   .#{$prefix}--data-table tbody td {
     &.#{$prefix}--table-column-checkbox {
-      padding-right: $spacing-05;
+      padding-inline-end: $spacing-05;
     }
   }
 
   .#{$prefix}--action-list .#{$prefix}--btn__icon {
-    height: rem(20px);
-    width: rem(20px);
+    block-size: to-rem(20px);
+    inline-size: to-rem(20px);
   }
   .#{$prefix}--toolbar-search-container-expandable
     .#{$prefix}--search
     .#{$prefix}--search-magnifier {
-    height: var(--cds-layout-04, 3.25rem);
-    width: var(--cds-layout-04, 3.25rem);
+    block-size: var(--cds-layout-04, 3.25rem);
+    inline-size: var(--cds-layout-04, 3.25rem);
   }
   .#{$prefix}--action-list .#{$prefix}--btn .#{$prefix}--btn__icon {
-    height: rem(20px);
-    width: rem(20px);
+    block-size: to-rem(20px);
+    inline-size: to-rem(20px);
   }
   .#{$prefix}--overflow-menu__icon {
-    height: 1.25rem;
-    width: 1.25rem;
+    block-size: 1.25rem;
+    inline-size: 1.25rem;
   }
   .#{$prefix}--overflow-menu.#{$prefix}--toolbar-action {
     padding: 0.875rem;

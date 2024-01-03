@@ -3,7 +3,7 @@ name: deploy-next (Deploy storybook environments to Github Pages)
 on:
   push:
     branches:
-      - release/*
+      - release/v2*
 
 concurrency:
   group: deploy-next-${{ github.ref }}
@@ -82,7 +82,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache
       - name: Build project
-        run: yarn lerna run --ignore @carbon/ibmdotcom-react build
+        run: yarn lerna run build
 
       - name: Set env vars
         uses: ./.github/actions/set-dotenv

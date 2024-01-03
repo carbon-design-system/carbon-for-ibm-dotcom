@@ -9,9 +9,7 @@
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import CDSLink, {
-  LINK_SIZE,
-} from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -52,7 +50,7 @@ class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * @internal
    */
   @property()
-  size = LINK_SIZE.LARGE;
+  size = 'lg';
 
   /**
    * `true` if there is a non-empty default slot content.

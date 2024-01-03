@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,28 +16,28 @@
 /// @group list-box-expressive
 @mixin list-box-expressive {
   .#{$prefix}--list-box {
-    height: $spacing-09; /* $carbon--container-04 */
-    max-height: $spacing-09; /* $carbon--container-04 */
+    block-size: $spacing-09; /* $carbon--container-04 */
+    max-block-size: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__field {
-    height: $spacing-09; /* $carbon--container-04 */
+    block-size: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__menu-item {
-    height: $spacing-09; /* $carbon--container-04 */
+    block-size: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__menu-item__option {
-    height: $spacing-09; /* $carbon--container-04 */
-    padding: rem(14px) 0;
+    padding: to-rem(14px) 0;
+    block-size: $spacing-09; /* $carbon--container-04 */
 
     &:focus {
-      padding: rem(14px) $spacing-05;
+      padding: to-rem(14px) $spacing-05;
     }
   }
 
   .#{$prefix}--list-box__menu-icon > svg {
-    width: rem(20px);
+    inline-size: to-rem(20px);
   }
 }

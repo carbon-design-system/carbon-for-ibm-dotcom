@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,8 +44,8 @@ import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../defs';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgMd4x3 from '../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 
 const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,
@@ -75,14 +75,11 @@ dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 id est laborum.`;
 
 export const Default = (args) => {
-  const { eyebrow, heading, copy, withMedia } =
-    args?.ContentItemRow ?? {};
+  const { eyebrow, heading, copy, withMedia } = args?.ContentItemRow ?? {};
 
   return (
     <C4DContentItemRow>
-      <C4DContentItemRowEyebrow>
-        {eyebrow}
-      </C4DContentItemRowEyebrow>
+      <C4DContentItemRowEyebrow>{eyebrow}</C4DContentItemRowEyebrow>
       <C4DContentItemHeading>{heading}</C4DContentItemHeading>
       <C4DContentItemRowCopy>{copy}</C4DContentItemRowCopy>
       <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
@@ -124,9 +121,7 @@ export const withThumbnail = (args) => {
   return (
     <C4DContentItemRow thumbnail>
       <C4DContentItemHeading>{heading}</C4DContentItemHeading>
-      <C4DContentItemRowThumbnailCopy>
-        {copy}
-      </C4DContentItemRowThumbnailCopy>
+      <C4DContentItemRowThumbnailCopy>{copy}</C4DContentItemRowThumbnailCopy>
       <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
         Learn more
       </C4DTextCTA>
@@ -170,13 +165,9 @@ export const withMedia = (args) => {
       ) : (
         ''
       )}
-      <C4DContentItemRowEyebrow>
-        {eyebrow}
-      </C4DContentItemRowEyebrow>
+      <C4DContentItemRowEyebrow>{eyebrow}</C4DContentItemRowEyebrow>
       <C4DContentItemHeading>{heading}</C4DContentItemHeading>
-      <C4DContentItemRowMediaCopy>
-        {copy}
-      </C4DContentItemRowMediaCopy>
+      <C4DContentItemRowMediaCopy>{copy}</C4DContentItemRowMediaCopy>
       <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
         Learn more
       </C4DTextCTA>
@@ -219,13 +210,9 @@ export const withFeaturedMedia = (args) => {
       ) : (
         ''
       )}
-      <C4DContentItemRowEyebrow>
-        {eyebrow}
-      </C4DContentItemRowEyebrow>
+      <C4DContentItemRowEyebrow>{eyebrow}</C4DContentItemRowEyebrow>
       <C4DContentItemHeading>{heading}</C4DContentItemHeading>
-      <C4DContentItemRowMediaCopy>
-        {copy}
-      </C4DContentItemRowMediaCopy>
+      <C4DContentItemRowMediaCopy>{copy}</C4DContentItemRowMediaCopy>
       <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
         Learn more
       </C4DTextCTA>

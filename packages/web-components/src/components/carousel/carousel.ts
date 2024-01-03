@@ -277,6 +277,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * Stops the container from scrolling when focusing on a card outside the viewport.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   // eslint-disable-next-line class-methods-use-this
   private _handleScrollFocus({ target }: Event) {
@@ -287,6 +288,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * Handles card focus throughout pages.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -527,7 +529,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       'sm'
     );
 
-    let tagGroupHeight: number = 0;
+    let tagGroupHeight = 0;
 
     // Get the tallest height of tag groups.
     this._childItemTagGroup.forEach((item) => {
@@ -569,6 +571,30 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               0
             )) /
           (elems.length - 1);
+  }
+
+  private _updateContentsPosition(changedProperties) {
+    // The calculation of the contents position is base on start,
+    // _contentsBaseWidth, _gap and pageSize. If none of them changed, we've
+    // got nothing to do.
+    if (
+      !changedProperties.has('start') &&
+      !changedProperties.has('_contentsBaseWidth') &&
+      !changedProperties.has('_gap') &&
+      !changedProperties.has('pageSize')
+    ) {
+      return;
+    }
+
+    // Hard to update the contents node if it hasn't yet been populated. Return
+    // early if it's falsy.
+    if (!this._contentsNode) {
+      return;
+    }
+
+    const contentsPosition =
+      (-this.start * (this._contentsBaseWidth + this._gap)) / this.pageSize;
+    this._contentsNode.style.insetInlineStart = `${contentsPosition}px`;
   }
 
   get focusableElements() {
@@ -670,6 +696,16 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
     this._cleanAndCreateObserverIntersection({ create: true });
+    // Reflect the current writing mode in the dir attribute so that we can
+    // make styling adjustments.
+    this.setAttribute(
+      'dir',
+      window.getComputedStyle(this).getPropertyValue('direction')
+    );
+  }
+
+  updated(changedProperties) {
+    this._updateContentsPosition(changedProperties);
   }
 
   render() {
@@ -681,8 +717,6 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       prevButtonText,
       _defaultPrevButtonText: defaultPrevButtonText,
       start,
-      _contentsBaseWidth: contentsBaseWidth,
-      _gap: gap,
       _pageSize: pageSizeExplicit,
       _total: total,
       _getStatus: status,
@@ -720,9 +754,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               ? null
               : `${customPropertyPageSize}: ${pageSizeExplicit}`
           )}">
-          <div
-            class="${scrollContentsClasses}"
-            style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
+          <div class="${scrollContentsClasses}">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
@@ -738,7 +770,11 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             title="${prevButtonText || defaultPrevButtonText}">
             ${CaretLeft20()}
           </button>
-          <span aria-hidden="true">${formatStatus(status)}</span>
+          <span
+            class="${prefix}--carousel__navigation__status"
+            aria-hidden="true"
+            >${formatStatus(status)}</span
+          >
           <span class="${prefix}--visually-hidden" aria-live="polite"></span>
           <button
             part="next-button"

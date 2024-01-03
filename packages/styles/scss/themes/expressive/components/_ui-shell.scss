@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,27 +26,27 @@
   .#{$prefix}--side-nav__link,
   .#{$prefix}--switcher__item,
   .#{$prefix}--switcher__item-link {
-    height: $container-02;
     display: flex;
     align-items: center;
+    block-size: $container-02;
   }
 
   .#{$prefix}--switcher__item-link {
-    width: 100%;
+    inline-size: 100%;
   }
 
   .#{$prefix}--header__action {
     padding: 0;
 
     &--active {
-      border-top: rem(1px) solid $button-secondary;
+      border-block-start: to-rem(1px) solid $button-secondary;
       outline: none;
     }
   }
 
   .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger:focus {
-    outline: none;
     border-color: $layer-01;
     box-shadow: none;
+    outline: none;
   }
 }

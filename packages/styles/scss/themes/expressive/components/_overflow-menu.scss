@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,21 +16,21 @@
 /// @group overflow-menu-expressive
 @mixin overflow-menu-expressive {
   .#{$prefix}--overflow-menu {
-    height: $spacing-08;
-    width: $spacing-08;
+    block-size: $spacing-08;
+    inline-size: $spacing-08;
 
     &-options__option {
-      height: $spacing-09;
+      block-size: $spacing-09;
     }
 
     &-options--open[data-floating-menu-direction='bottom']::after,
     &-options--open[data-floating-menu-direction='top']::after {
-      width: $spacing-08;
+      inline-size: $spacing-08;
     }
 
     &__icon {
-      height: rem(20px);
-      width: rem(20px);
+      block-size: to-rem(20px);
+      inline-size: to-rem(20px);
     }
   }
 }

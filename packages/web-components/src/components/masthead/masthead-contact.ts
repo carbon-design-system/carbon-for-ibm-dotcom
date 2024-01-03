@@ -7,14 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { html, customElement, property } from 'lit-element';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import C4DMastheadProfile from './masthead-profile';
 import C4DMastheadContainer from './masthead-container';
 import { CMApp } from './masthead-composite';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

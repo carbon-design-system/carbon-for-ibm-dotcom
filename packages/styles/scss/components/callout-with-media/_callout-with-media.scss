@@ -27,13 +27,13 @@
     display: flex;
 
     ::slotted([slot='heading']) {
-      margin-bottom: $spacing-07;
-      margin-left: 0;
+      margin-block-end: $spacing-07;
+      margin-inline-start: 0;
     }
 
     ::slotted([slot='copy']) {
-      margin-bottom: $spacing-05;
-      margin-left: 0;
+      margin-block-end: $spacing-05;
+      margin-inline-start: 0;
     }
 
     ::slotted([slot='media']) {
@@ -128,19 +128,19 @@
 
   :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
   :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='copy']) {
-    padding-right: $spacing-07;
-    max-width: rem(640px);
-    width: auto;
+    inline-size: auto;
+    max-inline-size: to-rem(640px);
+    padding-inline-end: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-callout-with-media-video),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-video {
-    margin-top: 0;
+    margin-block-start: 0;
 
     @include breakpoint-down(md) {
-      margin-top: -16px;
+      margin-block-start: -16px;
     }
   }
 
@@ -148,10 +148,10 @@
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-image {
-    margin-top: $spacing-07;
+    margin-block-start: $spacing-07;
 
     @include breakpoint-down(md) {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 
@@ -172,14 +172,14 @@
     .#{$prefix}--image__caption {
       @include type-style('caption-02');
 
-      margin-top: $spacing-03;
+      margin-block-start: $spacing-03;
     }
     .#{$prefix}--video-player__video-caption {
-      padding-top: $spacing-03;
+      padding-block-start: $spacing-03;
     }
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__img {
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,59 +15,14 @@
 @use '../../globals/vars' as *;
 
 @mixin content-section-themed-items {
-  color: $text-primary;
   background: $background;
+  color: $text-primary;
 }
 
 @mixin content-section {
-  :host(#{$c4d-prefix}-content-section),
-  :host(#{$c4d-prefix}-card-section-carousel),
-  :host(#{$c4d-prefix}-content-section-heading),
-  :host(#{$c4d-prefix}-content-section-copy) {
-    display: block;
-    overflow-x: hidden;
-  }
-
-  :host(#{$c4d-prefix}-content-section) {
-    margin: $spacing-10 0 $spacing-13;
-
-    ::slotted([slot='cta']) {
-      @include breakpoint(md) {
-        width: 50%;
-      }
-    }
-
-    ::slotted(*) {
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-
-    ::slotted(#{$c4d-prefix}-link-list) {
-      @include breakpoint-down(md) {
-        display: block;
-        margin: 0 $spacing-05;
-      }
-    }
-  }
-
-  :host(#{$c4d-prefix}-content-section[with-link-list]) {
-    .#{$prefix}--content-section__body {
-      padding: 0 $spacing-05;
-    }
-  }
-
-  :host(#{$c4d-prefix}-content-section[border]) {
-    margin-bottom: $spacing-10;
-
-    .#{$prefix}--content-section__body {
-      border-bottom: 1px solid $border-subtle-01;
-      padding-bottom: $spacing-12;
-    }
-  }
-
-  :host(#{$c4d-prefix}-link-list-section) {
-    padding-top: $spacing-09;
-    padding-bottom: $spacing-10;
+  :host(#{$c4d-prefix}-link-list-section),
+  .#{$prefix}--content-section {
+    padding-block: $spacing-09 $spacing-10;
   }
 
   .#{$prefix}--content-section-layout {
@@ -78,10 +33,10 @@
 
   .#{$prefix}--content-section__leading {
     padding: $spacing-05;
-    padding-top: 0;
+    padding-block-start: 0;
 
     @include breakpoint-down(lg) {
-      padding-bottom: $spacing-07;
+      padding-block-end: $spacing-07;
     }
 
     @include breakpoint(lg) {
@@ -118,15 +73,14 @@
     @include breakpoint(lg) {
       @include make-col(4, 16);
 
-      padding-top: $spacing-05;
+      padding-block-start: $spacing-05;
     }
   }
 
   :host(#{$c4d-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
-    margin-top: 0;
-    margin-bottom: 0;
     color: $text-primary;
+    margin-block: 0;
 
     @include type-style('heading-02');
   }
@@ -136,7 +90,8 @@
     @include type-style('body-compact-02');
 
     color: $text-secondary;
-    margin-bottom: $spacing-06;
+
+    margin-block-end: $spacing-06;
   }
 
   :host(#{$c4d-prefix}-content-section-heading),
@@ -146,31 +101,31 @@
   :host(#{$c4d-prefix}-content-section) ::slotted([slot='footer']),
   .#{$prefix}--content-section__cta {
     @include breakpoint(md) {
-      padding-right: $spacing-07;
+      padding-inline-end: $spacing-07;
     }
   }
 
   .#{$prefix}--content-section__children {
-    margin-top: $spacing-06;
+    margin-block-start: $spacing-06;
 
     @include breakpoint(lg) {
       @include make-col(12, 16);
 
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 
   .#{$prefix}--content-section__children > :first-child {
     .#{$prefix}--content-block,
     .#{$prefix}--content-group {
-      padding-top: 0;
-      margin-top: 0;
+      margin-block-start: 0;
+      padding-block-start: 0;
     }
   }
 
   .#{$prefix}--content-section__body ::slotted(*:first-of-type) {
-    padding-top: 0;
-    margin-top: 0;
+    margin-block-start: 0;
+    padding-block-start: 0;
   }
 
   .#{$prefix}--content-section--g10 {

@@ -14,8 +14,8 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
-import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
+import imgXlg4x3 from '../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import logoMicrosoft2x1 from '../../../../.storybook/storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -28,6 +28,7 @@ import {
   typeOptions,
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 const tagGroupContent = html`
   <div>
@@ -185,17 +186,13 @@ export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
     args?.CardPictogram ?? {};
 
-  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
-  if (copyComponent) {
-    copyComponent!.innerHTML = copy;
-  }
   return html`
     <c4d-card
       pictogram-placement="${pictogramPlacement}"
       href=${ifDefined(href || undefined)}
       color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      ${copy ? html` <p></p> ` : ``}
+      ${copy ? unsafeHTML(`<p>${copy}</p>`) : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <svg
         slot="pictogram"
@@ -283,11 +280,6 @@ export const Static = (args) => {
     ctaCopy,
   } = args?.Card ?? {};
 
-  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
-  if (copyComponent) {
-    copyComponent!.innerHTML = copy;
-  }
-
   return html`
     <c4d-card>
       ${image
@@ -300,7 +292,7 @@ export const Static = (args) => {
         : ``}
       ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
       <c4d-card-heading>${heading}</c4d-card-heading>
-      ${copy ? html` <p></p> ` : ``}
+      ${copy ? unsafeHTML(`<p>${copy}</p>`) : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       ${cta
         ? html`
@@ -382,11 +374,6 @@ export const Link = (args) => {
     card.querySelector('c4d-card-footer')!.innerHTML = duration ?? '';
   }
 
-  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
-  if (copyComponent) {
-    copyComponent!.innerHTML = copy;
-  }
-
   return html`
     <c4d-video-cta-container>
       <c4d-card
@@ -396,7 +383,7 @@ export const Link = (args) => {
         cta-type=${ctaType}
         href=${ifDefined(href || undefined)}>
         <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        ${copy ? html` <p></p> ` : ``}
+        ${copy ? unsafeHTML(`<p>${copy}</p>`) : ``}
         <c4d-card-footer></c4d-card-footer>
       </c4d-card>
     </c4d-video-cta-container>
@@ -446,11 +433,6 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
 
-  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
-  if (copyComponent) {
-    copyComponent!.innerHTML = copy;
-  }
-
   return html`
     <c4d-card logo href=${ifDefined(href || undefined)}>
       <c4d-image-logo
@@ -459,7 +441,7 @@ export const Logo = (args) => {
         default-src="${ifDefined(defaultSrc)}"></c4d-image-logo>
       ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
       ${heading ? html` <c4d-card-heading>${heading}</c4d-card-heading> ` : ``}
-      ${copy ? html` <p></p> ` : ``}
+      ${copy ? unsafeHTML(`<p>${copy}</p>`) : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
 
       <c4d-card-footer></c4d-card-footer>

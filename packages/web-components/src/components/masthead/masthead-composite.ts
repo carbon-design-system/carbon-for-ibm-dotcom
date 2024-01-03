@@ -7,19 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  state,
-  customElement,
-  LitElement,
-  TemplateResult,
-} from 'lit-element';
-import { nothing } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { LitElement, html, TemplateResult } from 'lit';
+import { state, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
-import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -73,6 +66,7 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -156,7 +150,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ?hasTooltip="${tooltip}"
         aria-label="${ifDefined(tooltip)}"
         href="${href || C4DMastheadLogo.hrefDefault}"
-        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</c4d-masthead-logo
+        >${useAlternateLogo ? unsafeSVG(svg) : ''}</c4d-masthead-logo
       >
     `;
   }

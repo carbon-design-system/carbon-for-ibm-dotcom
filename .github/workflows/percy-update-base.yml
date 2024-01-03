@@ -2,7 +2,7 @@ name: percy-update-base
 
 on:
   push:
-    branches: [ main, release/*, feat/*, fix/content-updates ]
+    branches: [ main, release/v2*, feat/*, fix/content-updates ]
 
 concurrency:
   group: percy-update-base-${{ github.ref }}
@@ -57,7 +57,7 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-styles --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-utilities --ignore @carbon/ibmdotcom-services build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-styles --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-utilities --ignore @carbon/ibmdotcom-services build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:

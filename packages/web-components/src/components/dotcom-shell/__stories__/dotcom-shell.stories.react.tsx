@@ -8,7 +8,7 @@
  */
 
 import { text, select, boolean, object } from '@storybook/addon-knobs';
-import on from 'carbon-components/es/globals/js/misc/on.js';
+import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
 import React from 'react';
 
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
@@ -40,8 +40,8 @@ import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotc
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports
-import img4Col from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
-import img8Col from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
+import img4Col from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
+import img8Col from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import {
   authenticatedProfileItems,

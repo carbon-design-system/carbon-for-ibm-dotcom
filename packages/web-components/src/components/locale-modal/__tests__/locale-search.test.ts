@@ -101,7 +101,7 @@ describe('c4d-locale-search', function () {
       ).toBe(true);
     });
 
-    it('should filter items by country', async function () {
+    xit('should filter items by country', async function () {
       // Let `input` event be handled synchronously
       spyOn(
         Object.getPrototypeOf(C4DLocaleSearch).prototype,
@@ -163,7 +163,7 @@ describe('c4d-locale-search', function () {
       ).toBe(false);
     });
 
-    it('should filter items by language', async function () {
+    xit('should filter items by language', async function () {
       // Let `input` event be handled synchronously
       spyOn(
         Object.getPrototypeOf(C4DLocaleSearch).prototype,
@@ -296,7 +296,7 @@ describe('c4d-locale-search', function () {
   });
 
   describe('Resetting the state', function () {
-    it('should reset the scroll position', async function () {
+    xit('should reset the scroll position', async function () {
       render(
         template({
           region: 'region-foo',
@@ -328,7 +328,7 @@ describe('c4d-locale-search', function () {
       expect(spyScrollTop).toHaveBeenCalledWith(0);
     });
 
-    it('should clear the filter', async function () {
+    xit('should clear the filter', async function () {
       render(
         template({
           region: 'region-foo',

@@ -10,13 +10,14 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/card';
 @use '@carbon/ibmdotcom-styles/scss/components/card-link';
 
 :host(#{$c4d-prefix}-card-link),
 :host(#{$c4d-prefix}-card-link-cta) {
-  max-width: rem(364px);
+  max-inline-size: to-rem(364px);
 
   .#{$prefix}--card__wrapper {
     .#{$prefix}--card__copy {
@@ -31,7 +32,7 @@
 
 :host(#{$c4d-prefix}-feature-section-card-link) {
   .#{$prefix}--card {
-    max-width: inherit;
+    max-inline-size: inherit;
   }
 
   .#{$prefix}--card__wrapper {
