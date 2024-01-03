@@ -18,9 +18,9 @@
   :host(#{$c4d-prefix}-background-media) {
     position: relative;
     display: block;
+    overflow: clip;
     block-size: 100%;
     outline: none;
-    overflow: clip;
 
     .#{$c4d-prefix}--image__img {
       display: block;
