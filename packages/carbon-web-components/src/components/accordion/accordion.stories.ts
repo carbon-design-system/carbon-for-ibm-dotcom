@@ -11,7 +11,6 @@ import { html } from 'lit';
 import { prefix } from '../../globals/settings';
 import { ACCORDION_SIZE } from './accordion';
 import './index';
-import './accordion-skeleton';
 import '../button/index';
 
 const sizes = {
