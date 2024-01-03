@@ -20,6 +20,12 @@ import '../../../.storybook/templates/with-layer';
 
 const noop = () => {};
 
+const sizes = {
+  'Medium (md - default)': null,
+  [`Small (${CONTENT_SWITCHER_SIZE.SMALL})`]: CONTENT_SWITCHER_SIZE.SMALL,
+  [`Large (${CONTENT_SWITCHER_SIZE.LARGE})`]: CONTENT_SWITCHER_SIZE.LARGE,
+};
+
 const args = {
   value: '',
   size: null,
@@ -33,6 +39,7 @@ const argTypes = {
   },
   size: {
     control: 'select',
+    options: sizes,
     description: 'Button size (size)',
   },
   disableSelection: {
@@ -45,12 +52,6 @@ const argTypes = {
   onSelect: {
     action: `${prefix}-content-switcher-selected`,
   },
-};
-
-const sizes = {
-  'Medium (md - default)': null,
-  [`Small (${CONTENT_SWITCHER_SIZE.SMALL})`]: CONTENT_SWITCHER_SIZE.SMALL,
-  [`Large (${CONTENT_SWITCHER_SIZE.LARGE})`]: CONTENT_SWITCHER_SIZE.LARGE,
 };
 
 export const Default = {
