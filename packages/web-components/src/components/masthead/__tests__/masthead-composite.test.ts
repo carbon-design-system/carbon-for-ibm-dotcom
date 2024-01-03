@@ -63,7 +63,7 @@ describe('c4d-masthead-composite', function () {
       const mastheadComposite = document.body.querySelector(
         'c4d-masthead-composite'
       );
-      expect(mastheadComposite!.querySelector('cds-top-nav')).toBeNull();
+      expect(mastheadComposite!.querySelector('c4d-top-nav')).toBeNull();
     });
   });
 
