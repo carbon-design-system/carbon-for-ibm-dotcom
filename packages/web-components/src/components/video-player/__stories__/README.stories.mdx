@@ -25,8 +25,8 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/index.js';
 ### HTML
 
 ```html
-<cds-video-player-container id="my-video" video-id="0_ibuqxqbe">
-</cds-video-player-container>
+<c4d-video-player-container id="my-video" video-id="0_ibuqxqbe">
+</c4d-video-player-container>
 ```
 
 ## Manual usage of Kaltura API
@@ -57,7 +57,7 @@ KalturaPlayerAPI.checkScript().then(() => {
 });
 ```
 
-> 💡 We don't test `<cds-video-player>` against arbitrary usage of Kaltura API.
+> 💡 We don't test `<c4d-video-player>` against arbitrary usage of Kaltura API.
 > Use this technique at your own risk.
 
 ## Video player with onClick Lightbox Trigger
@@ -80,20 +80,20 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 ### HTML
 
 ```html
-<cds-video-player-container
+<c4d-video-player-container
   video-id="0_ibuqxqbe"
   aspect-ratio="16x9"
-  playing-mode="lightbox"></cds-video-player-container>
-<cds-lightbox-video-player-container></cds-lightbox-video-player-container>
+  playing-mode="lightbox"></c4d-video-player-container>
+<c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
 ```
 
 ## Under the Hood
 
-### `<cds-video-player>`
+### `<c4d-video-player>`
 
-`<cds-video-player>` works as the video player in lightbox media viewer.
+`<c4d-video-player>` works as the video player in lightbox media viewer.
 
-<Props of="cds-video-player" />
+<Props of="c4d-video-player" />
 
 ## Stable selectors
 
@@ -103,6 +103,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<cds-video-player>`    | N/A                    | Component   |
+| `<c4d-video-player>`    | N/A                    | Component   |
 
 <Description markdown={contributing} />

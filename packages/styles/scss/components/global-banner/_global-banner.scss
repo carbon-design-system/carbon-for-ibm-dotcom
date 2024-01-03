@@ -30,14 +30,15 @@
       @include make-container;
 
       box-sizing: border-box;
-      max-height: $spacing-13;
+
+      max-block-size: $spacing-13;
 
       /* stylelint-disable selector-pseudo-class-no-unknown */
       &:where(a) {
         /* stylelint-enable selector-pseudo-class-no-unknown */
         display: block;
-        text-decoration: none;
         border: $spacing-01 solid transparent;
+        text-decoration: none;
 
         &:hover,
         &:active {
@@ -46,9 +47,9 @@
 
         &:focus,
         &:active {
+          border-color: $focus;
           outline: to-rem(1px) solid $background;
           outline-offset: to-rem(-1px);
-          border-color: $focus;
         }
       }
     }
@@ -65,20 +66,20 @@
     }
 
     .#{$prefix}--global-banner-image-container {
-      box-sizing: border-box;
-      max-height: $spacing-13;
-      padding-inline-end: $spacing-05;
       position: relative;
+      box-sizing: border-box;
+      max-block-size: $spacing-13;
+      padding-inline-end: $spacing-05;
 
       ::slotted(#{$c4d-prefix}-global-banner-image) {
         position: absolute;
-        width: calc(100% + #{$spacing-05});
-        height: 100%;
-        inset-inline-end: 0;
+        block-size: 100%;
+        inline-size: calc(100% + #{$spacing-05});
         inset-block-start: 0;
+        inset-inline-end: 0;
 
         @include breakpoint(max) {
-          width: 100%;
+          inline-size: 100%;
         }
       }
     }
@@ -86,8 +87,9 @@
     .#{$prefix}--global-banner-text-container {
       @include make-col(4, 4);
 
+      max-inline-size: calc(100% - (20px + #{$spacing-05}));
+
       padding-inline: $spacing-05;
-      max-width: calc(100% - (20px + #{$spacing-05}));
 
       @include breakpoint(md) {
         @include make-col(7, 8);
@@ -115,13 +117,13 @@
     }
 
     .#{$prefix}--global-banner-icon {
-      width: calc(20px + #{$spacing-05});
-      padding-inline-end: $spacing-05;
       color: $text-primary;
-      text-align: right;
+      inline-size: calc(20px + #{$spacing-05});
+      padding-inline-end: $spacing-05;
+      text-align: end;
 
       svg {
-        margin-top: $spacing-01;
+        margin-block-start: $spacing-01;
       }
 
       @include breakpoint(md) {
@@ -190,12 +192,13 @@
     ::slotted(#{$c4d-prefix}-button) {
       @include theme($g100, true);
 
-      width: 100%;
       display: flex;
-      max-width: 320px;
+
+      inline-size: 100%;
+      max-inline-size: 320px;
 
       @include breakpoint(xlg) {
-        width: calc(100% + #{$spacing-05});
+        inline-size: calc(100% + #{$spacing-05});
       }
     }
 
@@ -211,18 +214,18 @@
 
     display: block;
     color: $text-primary;
-    max-width: 960px;
+    max-inline-size: 960px;
 
     @include breakpoint(lg) {
-      width: calc(100% - #{$spacing-10});
+      inline-size: calc(100% - #{$spacing-10});
     }
 
     @include breakpoint(lg) {
-      width: calc(100% - #{$spacing-10});
+      inline-size: calc(100% - #{$spacing-10});
     }
 
     @include breakpoint(xlg) {
-      width: calc(100% - #{$spacing-07});
+      inline-size: calc(100% - #{$spacing-07});
     }
   }
 

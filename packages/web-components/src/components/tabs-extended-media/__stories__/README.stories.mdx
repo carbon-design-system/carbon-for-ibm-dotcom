@@ -3,15 +3,15 @@ import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-tabs-extended-media>`
+# `<c4d-tabs-extended-media>`
 
-> The Tabs extended with media - Tabbed collection of `<cds-tab>` content items.
+> The Tabs extended with media - Tabbed collection of `<c4d-tab>` content items.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/tabs-extended-media)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/tabs-extended-media)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/tabs-extended-media)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/tabs-extended-media)
 
 ## Getting started
 
@@ -30,44 +30,44 @@ import '@carbon/ibmdotcom-web-components/es/components/tabs-extended-media/index
 ### HTML
 
 ```html
-<cds-tabs-extended-media>
-  <cds-content-section-heading>Section heading</cds-content-section-heading>
-  <cds-tab label="First tab">
-    <cds-content-item-row-media align="right">
-      <cds-image
+<c4d-tabs-extended-media>
+  <c4d-content-section-heading>Section heading</c4d-content-section-heading>
+  <c4d-tab label="First tab">
+    <c4d-content-item-row-media align="right">
+      <c4d-image
         slot="media"
         alt="Lorem ipsum"
-        default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></cds-image>
-      <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
-      <cds-content-item-row-copy
+        default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></c4d-image>
+      <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
+      <c4d-content-item-row-copy
         >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
-        elit sollicitudin.</cds-content-item-row-copy
+        elit sollicitudin.</c4d-content-item-row-copy
       >
-      <cds-link-list slot="footer" type="vertical">
-        <cds-link-list-item-cta
+      <c4d-link-list slot="footer" type="vertical">
+        <c4d-link-list-item-cta
           icon-placement="right"
           href="https://www.ibm.com"
           cta-type="local">
           Learn more
-        </cds-link-list-item-cta>
-        <cds-link-list-item-cta
+        </c4d-link-list-item-cta>
+        <c4d-link-list-item-cta
           icon-placement="right"
           href="https://www.ibm.com"
           cta-type="external">
           Microservices and containers
-        </cds-link-list-item-cta>
-      </cds-link-list>
-    </cds-content-item-row-media>
-  </cds-tab>
-</cds-tabs-extended-media>
+        </c4d-link-list-item-cta>
+      </c4d-link-list>
+    </c4d-content-item-row-media>
+  </c4d-tab>
+</c4d-tabs-extended-media>
 ```
 
 ## Props
 
-### `<cds-tab>`
+### `<c4d-tab>`
 
-<Props of="cds-tab" />
+<Props of="c4d-tab" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -78,6 +78,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector     | Compatibility selector                   | Description |
 | --------------------------- | ---------------------------------------- | ----------- |
-| `<cds-tabs-extended-media>` | `data-autoid="cds--tabs-extended-media"` | Component   |
+| `<c4d-tabs-extended-media>` | `data-autoid="c4d--tabs-extended-media"` | Component   |
 
 <Description markdown={contributing} />

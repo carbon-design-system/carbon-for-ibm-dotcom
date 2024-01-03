@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,11 +23,11 @@ import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
-import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
-import imgMd4x3 from '../../../../../storybook-images/assets/960/fpo--4x3--960x720--002.jpg';
-import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
-import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
+import imgXlg1x1 from '../../../../.storybook/storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
+import imgMd4x3 from '../../../../.storybook/storybook-images/assets/960/fpo--4x3--960x720--002.jpg';
+import imgSm1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgXs1x1 from '../../../../.storybook/storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
 import { CTA_TYPE } from '../../cta/defs';
 import { COLOR_SCHEME } from '../defs';
 
@@ -49,16 +49,24 @@ const colorSchemeTypes = {
 };
 
 export const Default = (args) => {
-  const { alt, colorScheme, eyebrow, heading, copy, href, ctaType, defaultSrc } =
-    args?.FeatureSection ?? {};
-    let videoFooterCopy;
+  const {
+    alt,
+    colorScheme,
+    eyebrow,
+    heading,
+    copy,
+    href,
+    ctaType,
+    defaultSrc,
+  } = args?.FeatureSection ?? {};
+  let videoFooterCopy;
 
-    if (ctaType === CTA_TYPE.VIDEO) {
-      const card = document.querySelector('c4d-card') as any;
-      const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('c4d-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
 
-      videoFooterCopy = duration;
-    }
+    videoFooterCopy = duration;
+  }
   return (
     <C4DVideoCTAContainer>
       <C4DFeatureSection color-scheme={colorScheme}>
@@ -75,23 +83,23 @@ export const Default = (args) => {
           <C4DImageItem
             media="(min-width: 320px)"
             srcset={imgSm1x1}></C4DImageItem>
-          <C4DImageItem media="(min-width: 0px)" srcset={imgXs1x1}></C4DImageItem>
+          <C4DImageItem
+            media="(min-width: 0px)"
+            srcset={imgXs1x1}></C4DImageItem>
         </C4DImage>
         <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
         <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
         <C4DContentItemParagraph slot="copy">{copy}</C4DContentItemParagraph>
 
-        <C4DCard
-          link
-          slot="footer"
-          href={href}
-          cta-type={ctaType}>
+        <C4DCard link slot="footer" href={href} cta-type={ctaType}>
           <C4DCardHeading>
             Try a free virtual business framing session with IBM Garage
           </C4DCardHeading>
-          {ctaType === CTA_TYPE.VIDEO
-            ? <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
-            : <C4DCardFooter></C4DCardFooter>}
+          {ctaType === CTA_TYPE.VIDEO ? (
+            <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
+          ) : (
+            <C4DCardFooter></C4DCardFooter>
+          )}
         </C4DCard>
       </C4DFeatureSection>
     </C4DVideoCTAContainer>

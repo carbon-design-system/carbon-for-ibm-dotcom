@@ -19,28 +19,36 @@
 @use '../masthead/vars' as *;
 
 @mixin react-autosuggest-suggestion {
-  color: $text-primary;
-  height: $spacing-09;
   display: flex;
+  block-size: $spacing-09;
+  color: $text-primary;
+
   span {
     font-weight: 600;
   }
 
   .#{$prefix}--container-class {
     display: flex;
-    border-bottom: 1px solid $layer-01;
     flex: 1;
-    padding: 0 $spacing-05;
     align-items: center;
+    padding: 0 $spacing-05;
+    border-block-end: 1px solid $layer-01;
 
     &:focus {
       outline: none;
     }
   }
+  @media screen and (prefers-reduced-motion: reduce) {
+    &:hover {
+      background-color: $background-hover;
+      cursor: pointer;
+      transition: none;
+    }
+  }
 
   &:hover {
-    cursor: pointer;
     background-color: $background-hover;
+    cursor: pointer;
     transition: $search-transition-timing;
   }
 
@@ -53,7 +61,7 @@
 
   &:last-of-type {
     .#{$prefix}--container-class {
-      border-bottom: none;
+      border-block-end: none;
     }
   }
 }
@@ -63,15 +71,15 @@
   // profile and logo icons for masthead use
   :host(#{$c4d-prefix}-top-nav),
   .#{$prefix}--header__search {
+    position: relative;
     display: flex;
     flex: 1;
     align-items: center;
-    position: relative;
-    height: 100%;
+    block-size: 100%;
 
     &.#{$prefix}--masthead__platform {
       .#{$prefix}--header__nav {
-        padding-left: 0;
+        padding-inline-start: 0;
 
         &::before {
           display: none;
@@ -80,8 +88,8 @@
 
       .#{$prefix}--masthead__platform-name {
         z-index: 1;
-        height: 100%;
         background: $background;
+        block-size: 100%;
       }
     }
 
@@ -109,20 +117,23 @@
   }
 
   .#{$prefix}--header__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: $spacing-01 solid transparent;
     background-color: $background;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+
     > {
       svg {
         position: relative;
         fill: $icon-secondary;
       }
     }
+
     &:hover {
       background-color: $background-hover;
       transition-duration: $search-transition-timing;
+
       > {
         svg {
           fill: $icon-primary;
@@ -139,20 +150,21 @@
 
   .#{$prefix}--header__search--actions {
     position: absolute;
-    top: 0;
-    right: 0;
     display: flex;
     background-color: $background;
+    inset-block-start: 0;
+    inset-inline-end: 0;
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
-      color: $icon-secondary;
+      padding: 0;
 
       background-color: $background;
-      padding: 0;
+      color: $icon-secondary;
 
       &:hover {
         background-color: $background-hover;
+
         svg[focusable='false'][aria-hidden='true'] {
           fill: $icon-primary;
         }
@@ -175,10 +187,10 @@
   }
 
   button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
-    overflow: hidden;
-    width: 0;
-    border: none;
     display: none;
+    overflow: hidden;
+    border: none;
+    inline-size: 0;
 
     svg {
       position: relative;
@@ -186,36 +198,36 @@
   }
 
   .#{$prefix}--header__search--search {
+    inline-size: $spacing-09;
     outline: none;
-    width: $spacing-09;
   }
 
   :host(#{$c4d-prefix}-search-with-typeahead) {
-    display: block;
     position: relative;
+    display: block;
+    block-size: $spacing-09;
+    margin-inline-start: $spacing-09;
     outline: none;
-    height: $spacing-09;
-    margin-left: $spacing-09;
 
     .#{$c4d-prefix}-ce__search__list {
-      height: 0;
       overflow: hidden;
       margin: 0;
+      block-size: 0;
     }
 
     &[open] .#{$c4d-prefix}-ce__search__list {
-      height: auto;
       padding: 0;
+      block-size: auto;
     }
 
     &[active] {
       z-index: 999;
-      width: 100%;
-      margin-left: 0;
+      inline-size: 100%;
+      margin-inline-start: 0;
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
-        min-width: $spacing-09;
+        min-inline-size: $spacing-09;
       }
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action.#{$prefix}--header__search--hide {
@@ -228,41 +240,41 @@
 
       .react-autosuggest__container {
         &::after {
-          content: '';
           position: absolute;
-          bottom: 0;
-          left: 0;
-          display: block;
-          border-bottom: $spacing-01 solid $border-interactive;
-          width: 100%;
-          height: $spacing-01;
           z-index: 10002;
+          display: block;
+          block-size: $spacing-01;
+          border-block-end: $spacing-01 solid $border-interactive;
+          content: '';
+          inline-size: 100%;
+          inset-block-end: 0;
+          inset-inline-start: 0;
         }
       }
 
       .#{$prefix}--header__search--input {
+        z-index: 10000;
         display: flex;
         flex: 1;
         padding: 0 $spacing-05;
+        background-color: $layer-01;
+        block-size: carbon--mini-units(6);
+        color: $text-primary;
         outline: $spacing-01 solid transparent;
         outline-offset: -#{$spacing-01};
-        background-color: $layer-01;
-        color: $text-primary;
-        height: carbon--mini-units(6);
-        z-index: 10000;
 
         &::placeholder {
-          left: 0;
-          opacity: 1;
-          transition-duration: 112ms;
-          transition-delay: 200ms;
           color: $text-placeholder;
+          inset-inline-start: 0;
+          opacity: 1;
+          transition-delay: 200ms;
+          transition-duration: 112ms;
         }
       }
 
       .#{$prefix}--header__search--close {
-        width: $spacing-09;
         display: inline-flex;
+        inline-size: $spacing-09;
       }
 
       .#{$prefix}--header__search--close,
@@ -277,64 +289,164 @@
 
       .#{$prefix}--header__action {
         background-color: $layer-01;
-        transition-property: width;
         transition-delay: 380ms;
         transition-duration: 112ms;
+        transition-property: width;
       }
     }
 
     &[scope-value] {
       .react-autosuggest__suggestions-container {
         @include breakpoint-down(lg) {
-          left: $spacing-09;
-          width: calc(100% - #{$spacing-09});
+          inline-size: calc(100% - #{$spacing-09});
+          inset-inline-start: $spacing-09;
+        }
+      }
+    }
+    @media screen and (prefers-reduced-motion: reduce) {
+      &[leadspace-search] {
+        background: $layer-01;
+        inset-block-start: 0;
+        outline: $spacing-01 solid transparent;
+        transition: none;
+
+        &:focus {
+          outline: $spacing-01 solid $focus;
+          .#{$prefix}--header__search--actions {
+            border-block-end: none;
+          }
+        }
+
+        &[unfocused] {
+          outline: none;
+          .#{$prefix}--header__search--actions {
+            border-block-end: 1px solid $toggle-off;
+          }
+        }
+
+        .#{$prefix}--header__search--actions {
+          display: flex;
+          border-block-end: 1px solid $toggle-off;
+          inline-size: 100%;
+        }
+
+        .#{$prefix}--search-magnifier-icon {
+          position: absolute;
+          z-index: 2;
+          fill: var(--cds-icon-secondary, #525252);
+          inset-block-start: 50%;
+          inset-inline-start: $spacing-05;
+          pointer-events: none;
+          transform: translateY(-50%);
+        }
+
+        form {
+          inline-size: 100%;
+          padding-inline-start: $spacing-09;
+        }
+
+        .react-autosuggest__container {
+          &::after {
+            content: none;
+          }
+        }
+
+        .react-autosuggest__suggestions-container {
+          inset-block-start: calc($spacing-09 + 2px);
+
+          @include breakpoint(md) {
+            inset-block-start: to-rem(66px);
+          }
+        }
+
+        .react-autosuggest__suggestions-list {
+          background-color: $layer-01;
+        }
+
+        .#{$prefix}--header__search--input {
+          border-block-end: none;
+          color: $text-primary;
+        }
+
+        &[large] {
+          @include breakpoint(md) {
+            block-size: $spacing-09;
+          }
+
+          form {
+            inline-size: 100%;
+            padding-inline-start: $spacing-09;
+
+            @include breakpoint(md) {
+              block-size: $spacing-09;
+            }
+          }
+
+          .#{$prefix}--header__search--input {
+            @include breakpoint(md) {
+              block-size: $spacing-09;
+            }
+          }
+
+          .#{$prefix}--header__search--close {
+            @include breakpoint(md) {
+              block-size: $spacing-09;
+            }
+          }
+
+          .react-autosuggest__suggestions-container {
+            inset-block-start: to-rem(50px);
+
+            @include breakpoint(md) {
+              inset-block-start: to-rem(50px);
+            }
+          }
         }
       }
     }
 
     &[leadspace-search] {
       background: $layer-01;
+      inset-block-start: 0;
       outline: $spacing-01 solid transparent;
       transition: background-color $duration-fast-02
           motion(standard, productive),
         outline $duration-fast-02 motion(standard, productive),
         top $duration-fast-02 motion(entrance, productive);
 
-      top: 0;
-
       &:focus {
         outline: $spacing-01 solid $focus;
         .#{$prefix}--header__search--actions {
-          border-bottom: none;
+          border-block-end: none;
         }
       }
 
       &[unfocused] {
         outline: none;
         .#{$prefix}--header__search--actions {
-          border-bottom: 1px solid $toggle-off;
+          border-block-end: 1px solid $toggle-off;
         }
       }
 
       .#{$prefix}--header__search--actions {
         display: flex;
-        width: 100%;
-        border-bottom: 1px solid $toggle-off;
+        border-block-end: 1px solid $toggle-off;
+        inline-size: 100%;
       }
 
       .#{$prefix}--search-magnifier-icon {
         position: absolute;
         z-index: 2;
-        top: 50%;
-        left: $spacing-05;
         fill: var(--cds-icon-secondary, #525252);
+        inset-block-start: 50%;
+        inset-inline-start: $spacing-05;
         pointer-events: none;
         transform: translateY(-50%);
       }
 
       form {
-        width: 100%;
-        padding-left: $spacing-09;
+        inline-size: 100%;
+        padding-inline-start: $spacing-09;
       }
 
       .react-autosuggest__container {
@@ -344,10 +456,10 @@
       }
 
       .react-autosuggest__suggestions-container {
-        top: calc($spacing-09 + 2px);
+        inset-block-start: calc($spacing-09 + 2px);
 
         @include breakpoint(md) {
-          top: to-rem(66px);
+          inset-block-start: to-rem(66px);
         }
       }
 
@@ -356,77 +468,77 @@
       }
 
       .#{$prefix}--header__search--input {
+        border-block-end: none;
         color: $text-primary;
-        border-bottom: none;
       }
 
       &[large] {
         @include breakpoint(md) {
-          height: $spacing-09;
+          block-size: $spacing-09;
         }
 
         form {
-          width: 100%;
-          padding-left: $spacing-09;
+          inline-size: 100%;
+          padding-inline-start: $spacing-09;
 
           @include breakpoint(md) {
-            height: $spacing-09;
+            block-size: $spacing-09;
           }
         }
 
         .#{$prefix}--header__search--input {
           @include breakpoint(md) {
-            height: $spacing-09;
+            block-size: $spacing-09;
           }
         }
 
         .#{$prefix}--header__search--close {
           @include breakpoint(md) {
-            height: $spacing-09;
+            block-size: $spacing-09;
           }
         }
 
         .react-autosuggest__suggestions-container {
-          top: to-rem(50px);
+          inset-block-start: to-rem(50px);
 
           @include breakpoint(md) {
-            top: to-rem(50px);
+            inset-block-start: to-rem(50px);
           }
         }
       }
     }
 
     &[sticky-search] {
-      top: $spacing-11;
+      inset-block-start: $spacing-11;
     }
 
     &[theme-sticky] {
-      top: $spacing-05;
+      inset-block-start: $spacing-05;
 
       @include breakpoint(md) {
-        top: $spacing-07;
+        inset-block-start: $spacing-07;
       }
 
       @include breakpoint(lg) {
-        top: $spacing-09;
+        inset-block-start: $spacing-09;
       }
     }
   }
 
   .react-autosuggest__container {
+    position: relative;
     display: flex;
     justify-content: flex-end;
-    position: relative;
-    height: $spacing-09;
+    block-size: $spacing-09;
   }
 
   .react-autosuggest__suggestions-container {
     position: absolute;
-    top: $spacing-09;
-    left: 0;
-    width: 100%;
     box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
-    max-height: 80vh;
+    inline-size: 100%;
+    inset-block-start: $spacing-09;
+    inset-inline-start: 0;
+    max-block-size: 80vh;
     overflow-y: auto;
   }
 
@@ -435,14 +547,14 @@
   }
 
   .react-autosuggest__section-title {
-    height: $spacing-09;
     display: flex;
     align-items: center;
-    color: $text-secondary;
     padding: 0 $spacing-05;
-    border-top: solid 1px $toggle-off;
-    border-bottom: solid 1px $layer-01;
     background-color: $background;
+    block-size: $spacing-09;
+    border-block-end: solid 1px $layer-01;
+    border-block-start: solid 1px $toggle-off;
+    color: $text-secondary;
 
     @include type-style('body-compact-01');
   }
@@ -454,17 +566,19 @@
   .#{$prefix}--header__search--input {
     @include font-family('sans');
 
-    font-size: $spacing-05;
-    line-height: 1.375rem;
-    border: none;
-    width: 0;
-    transition: 120ms;
-    border-bottom: 1px solid $layer-accent-01;
     padding: 0;
+    border: none;
+    border-block-end: 1px solid $layer-accent-01;
+
+    font-size: $spacing-05;
+
+    inline-size: 0;
+    line-height: 1.375rem;
+    transition: 120ms;
 
     &::placeholder {
       position: relative;
-      left: $spacing-11;
+      inset-inline-start: $spacing-11;
       opacity: 0;
     }
   }
@@ -487,30 +601,30 @@
     }
 
     &:hover {
-      cursor: auto;
       background: none;
+      cursor: auto;
     }
   }
 
   &[lastBeforeGroup] {
     .#{$prefix}--container-class {
-      border-bottom-color: $toggle-off;
+      border-block-end-color: $toggle-off;
     }
   }
 }
 
 :host(#{$c4d-prefix}-search-with-typeahead-item[alternate]) {
-  border-top: 1px solid $border-subtle-01;
+  border-block-start: 1px solid $border-subtle-01;
 }
 
 :host(#{$c4d-prefix}-scoped-search-dropdown),
 :host(#{$c4d-prefix}-scoped-search-dropdown-mobile) {
   display: flex;
-  border-right: 1px solid $layer-accent-01;
+  border-inline-end: 1px solid $layer-accent-01;
 
   .#{$prefix}--list-box {
-    height: $spacing-09;
-    max-height: none;
+    block-size: $spacing-09;
+    max-block-size: none;
   }
 
   .#{$prefix}--list-box__field:focus {
@@ -524,12 +638,12 @@
   }
 
   .#{$prefix}--list-box__menu {
-    width: fit-content;
+    inline-size: fit-content;
   }
 }
 
 :host(#{$c4d-prefix}-scoped-search-dropdown-mobile) {
-  width: $spacing-09;
+  inline-size: $spacing-09;
 
   .#{$prefix}--select-input {
     padding: 0;
@@ -538,15 +652,13 @@
 
   .#{$prefix}--select__arrow {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+    inset-inline: 0;
+    margin-inline: auto;
     text-align: center;
   }
 
   .#{$prefix}--form__helper-text {
-    width: 0;
+    inline-size: 0;
   }
 
   @include breakpoint(lg) {

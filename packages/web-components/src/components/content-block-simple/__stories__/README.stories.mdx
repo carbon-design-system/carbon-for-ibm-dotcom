@@ -3,16 +3,16 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-block-simple>`
+# `<c4d-content-block-simple>`
 
-> The Content Block - Simple pattern is a variant of `<cds-content-block>`, and
+> The Content Block - Simple pattern is a variant of `<c4d-content-block>`, and
 > includes a single content item, optional media (image), and ends with a CTA.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-simple)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-simple)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-simple)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-simple)
 
 ## Getting started
 
@@ -36,34 +36,34 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 ### HTML
 
 ```html
-<cds-content-block-simple>
-  <cds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
+<c4d-content-block-simple>
+  <c4d-content-block-heading
+    >Curabitur malesuada varius mi eu posuere</c4d-content-block-heading
   >
-  <cds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</cds-content-block-copy
+  <c4d-content-block-copy size="sm"
+    >Lorem ipsum *dolor* sit amet</c4d-content-block-copy
   >
-  <cds-image
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-    <cds-image-item
+    <c4d-image-item
       media="(min-width: 672px)"
       srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 400px)"
       srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 320px)"
       srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-  </cds-image>
-  <cds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
-    >Lorem ipsum dolor sit amet</cds-text-cta
+    </c4d-image-item>
+  </c4d-image>
+  <c4d-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
+    >Lorem ipsum dolor sit amet</c4d-text-cta
   >
-</cds-content-block-simple>
+</c4d-content-block-simple>
 ```
 
 ## With Card Link CTA
@@ -81,33 +81,33 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 ### HTML
 
 ```html
-<cds-content-block-simple>
-  <cds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
+<c4d-content-block-simple>
+  <c4d-content-block-heading
+    >Curabitur malesuada varius mi eu posuere</c4d-content-block-heading
   >
-  <cds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</cds-content-block-copy
+  <c4d-content-block-copy size="sm"
+    >Lorem ipsum *dolor* sit amet</c4d-content-block-copy
   >
-  <cds-image
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-    <cds-image-item
+    <c4d-image-item
       media="(min-width: 672px)"
       srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 400px)"
       srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 320px)"
       srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-  </cds-image>
-  <cds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-    <cds-card-link-heading>Lorem ipsum dolor sit amet</cds-card-link-heading>
-    <cds-card-cta-footer>
+    </c4d-image-item>
+  </c4d-image>
+  <c4d-card link slot="footer" cta-type="local" href="https://www.ibm.com/">
+    <c4d-card-link-heading>Lorem ipsum dolor sit amet</c4d-card-link-heading>
+    <c4d-card-footer>
       <svg
         slot="icon"
         focusable="false"
@@ -121,9 +121,9 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
         <path
           d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
-    </cds-card-cta-footer>
-  </cds-card-link-cta>
-</cds-content-block-simple>
+    </c4d-card-footer>
+  </c4d-card>
+</c4d-content-block-simple>
 ```
 
 ## With Link List
@@ -144,56 +144,56 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 ### HTML
 
 ```html
-<cds-content-block-simple>
-  <cds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
+<c4d-content-block-simple>
+  <c4d-content-block-heading
+    >Curabitur malesuada varius mi eu posuere</c4d-content-block-heading
   >
-  <cds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</cds-content-block-copy
+  <c4d-content-block-copy size="sm"
+    >Lorem ipsum *dolor* sit amet</c4d-content-block-copy
   >
-  <cds-image
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-    <cds-image-item
+    <c4d-image-item
       media="(min-width: 672px)"
       srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 400px)"
       srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 320px)"
       srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-  </cds-image>
+    </c4d-image-item>
+  </c4d-image>
 
-  <cds-link-list type="default" slot="complementary">
-    <cds-link-list-heading>Tutorial</cds-link-list-heading>
-    <cds-link-list-item-cta
+  <c4d-link-list type="default" slot="complementary">
+    <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+    <c4d-link-list-item-cta
       href="${ifDefined(href)}"
       cta-type="local"
       type="default">
       <p>Containerization A Complete Guide</p>
-    </cds-link-list-item-cta>
-    <cds-link-list-item-cta
+    </c4d-link-list-item-cta>
+    <c4d-link-list-item-cta
       href="${ifDefined(href)}"
       cta-type="external"
       type="default">
       <p>Why should you use microservices and containers</p>
-    </cds-link-list-item-cta>
-  </cds-link-list>
+    </c4d-link-list-item-cta>
+  </c4d-link-list>
 
-  <cds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
-    >Lorem ipsum dolor sit amet</cds-text-cta
+  <c4d-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
+    >Lorem ipsum dolor sit amet</c4d-text-cta
   >
-</cds-content-block-simple>
+</c4d-content-block-simple>
 ```
 
 ## Props
 
-<Props of="cds-content-block-simple" />
+<Props of="c4d-content-block-simple" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -204,8 +204,8 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                      | Description |
 | ----------------------------- | ------------------------------------------- | ----------- |
-| `<cds-content-block-simple>`  | `data-autoid="cds--content-block-simple"`   | Component   |
-| `<cds-content-block-copy>`    | `data-autoid="cds--content-block__copy"`    | Component   |
-| `<cds-content-block-heading>` | `data-autoid="cds--content-block__heading"` | Component   |
+| `<c4d-content-block-simple>`  | `data-autoid="c4d--content-block-simple"`   | Component   |
+| `<c4d-content-block-copy>`    | `data-autoid="c4d--content-block__copy"`    | Component   |
+| `<c4d-content-block-heading>` | `data-autoid="c4d--content-block__heading"` | Component   |
 
 <Description markdown={contributing} />

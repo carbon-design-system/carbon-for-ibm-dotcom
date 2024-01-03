@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,12 +18,12 @@ import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--002.jpg';
-import imgMax2x1 from '../../../../../storybook-images/assets/1584/fpo--2x1--1312x656--002.jpg';
-import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--002.jpg';
-import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
+import mediumImgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgLg2x1 from '../../../../.storybook/storybook-images/assets/720/fpo--2x1--720x360--002.jpg';
+import imgMax2x1 from '../../../../.storybook/storybook-images/assets/1584/fpo--2x1--1312x656--002.jpg';
+import imgSm2x1 from '../../../../.storybook/storybook-images/assets/320/fpo--2x1--320x160--002.jpg';
+import imgXlg2x1 from '../../../../.storybook/storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
 
 import readme from './README.stories.react.mdx';
 
