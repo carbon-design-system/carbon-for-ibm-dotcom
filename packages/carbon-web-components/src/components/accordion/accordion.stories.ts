@@ -8,8 +8,6 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
-import { boolean, select } from '@storybook/addon-knobs';
 import { prefix } from '../../globals/settings';
 import { ACCORDION_SIZE } from './accordion';
 import './index';
@@ -22,7 +20,52 @@ const sizes = {
   [`Large size (${ACCORDION_SIZE.LARGE})`]: ACCORDION_SIZE.LARGE,
 };
 
+const args = {
+  alignment: 'end',
+  disabled: false,
+  isFlush: false,
+  size: ACCORDION_SIZE.MEDIUM,
+  disableToggle: false,
+};
+
+const argTypes = {
+  alignment: {
+    control: 'select',
+    description:
+      'Specify the alignment of the accordion heading title and chevron.',
+    options: ['start', 'end'],
+  },
+  disabled: {
+    control: 'boolean',
+    description:
+      'Specify whether an individual AccordionItem should be disabled.',
+  },
+  isFlush: {
+    control: 'boolean',
+    description:
+      'Specify whether Accordion text should be flush, default is false, does not work with align="start".',
+  },
+  size: {
+    control: 'select',
+    description: 'Specify the size of the Accordion.',
+    options: sizes,
+  },
+  disableToggle: {
+    control: 'boolean',
+    description: `Disable user-initiated toggle action (Call event.preventDefault() in ${prefix}-accordion-beingtoggled event).`,
+  },
+  onBeforeToggle: {
+    action: `${prefix}-accordion-item-beingtoggled`,
+  },
+  onToggle: {
+    action: `${prefix}-accordion-item-toggled`,
+  },
+};
+
 export const Default = {
+  // This story doesn't accept any args.
+  args: {},
+  argTypes: {},
   render: () => {
     return html`
       <cds-accordion>
@@ -64,12 +107,13 @@ export const Default = {
 };
 
 export const Skeleton = {
-  render: (args) => {
-    const { alignment, isFlush } = args?.[`${prefix}-accordion-skeleton`] ?? {};
-    return html`
-      <cds-accordion-skeleton alignment="${alignment}" ?isFlush="${isFlush}">
-      </cds-accordion-skeleton>
-    `;
+  args: {
+    alignment: args['alignment'],
+    isFlush: args['isFlush'],
+  },
+  argTypes: {
+    alignment: argTypes['alignment'],
+    isFlush: argTypes['isFlush'],
   },
   decorators: [
     (story) => {
@@ -80,22 +124,26 @@ export const Skeleton = {
     percy: {
       skip: true,
     },
-    knobs: {
-      [`${prefix}-accordion-skeleton`]: () => ({
-        alignment: select(
-          'Accordion alignment (alignment)',
-          ['start', 'end'],
-          'end'
-        ),
-        isFlush: boolean('isFlush', false),
-      }),
-    },
+  },
+  render: (args) => {
+    const { alignment, isFlush } = args ?? {};
+    return html`
+      <cds-accordion-skeleton alignment="${alignment}" ?isFlush="${isFlush}">
+      </cds-accordion-skeleton>
+    `;
   },
 };
 
 const noop = () => {};
 
 export const Playground = {
+  args,
+  argTypes,
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
   render: (args) => {
     const {
       disabled,
@@ -105,7 +153,7 @@ export const Playground = {
       size,
       alignment,
       isFlush,
-    } = args?.[`${prefix}-accordion-playground`] ?? {};
+    } = args ?? {};
     const handleBeforeToggle = (event: CustomEvent) => {
       onBeforeToggle(event);
       if (disableToggle) {
@@ -152,39 +200,6 @@ export const Playground = {
         </cds-accordion-item>
       </cds-accordion>
     `;
-  },
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      [`${prefix}-accordion-playground`]: () => ({
-        alignment: select(
-          'Specify the alignment of the accordion heading title and chevron (alignment)',
-          ['start', 'end'],
-          'end'
-        ),
-        disabled: boolean(
-          'Specify whether an individual AccordionItem should be disabled (disabled)',
-          false
-        ),
-        isFlush: boolean(
-          'Specify whether Accordion text should be flush, default is false, does not work with align="start" (isFlush)',
-          false
-        ),
-        size: select(
-          'Specify the size of the Accordion (size)',
-          sizes,
-          ACCORDION_SIZE.MEDIUM
-        ),
-        disableToggle: boolean(
-          `Disable user-initiated toggle action (Call event.preventDefault() in ${prefix}-accordion-beingtoggled event)`,
-          false
-        ),
-        onBeforeToggle: action(`${prefix}-accordion-item-beingtoggled`),
-        onToggle: action(`${prefix}-accordion-item-toggled`),
-      }),
-    },
   },
 };
 
