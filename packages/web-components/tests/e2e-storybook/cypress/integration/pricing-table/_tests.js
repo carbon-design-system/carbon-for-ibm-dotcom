@@ -53,7 +53,7 @@ export const createTests = path => [
   },
   () => {
     it('should render user-entered content next to the icon feature, when it is enabled', () => {
-      const iconText = 'Lorem Ipsum elit sed do eiusm'
+      const iconText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.'
 
       cy.visit(`${path}&knob-icon-text=${iconText}`)
       .get('.cds--pricing-table-cell-content').should('be.visible').then(($content) => {
@@ -71,6 +71,8 @@ export const createTests = path => [
 
                 // Checking if the elements are rendered side by side by comparing if they have the same vertical position, allowing a tolerance of 15 px of difference.
                 expect(spanRect.top).to.be.closeTo(svgRect.top, 15);
+                // Same logic as above but now to check if all content is vertically aligned.
+                expect(spanRect.left).to.be.closeTo(svgRect.left, 1);
               });
           });
       });
