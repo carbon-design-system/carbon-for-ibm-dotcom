@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,7 @@ const carbonIcons = require('./rollup-plugin-icons');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
 const license = require('./rollup-plugin-license');
 const litSCSS = require('./rollup-plugin-lit-scss');
+const scssImport = require('./rollup-plugin-scss-import');
 
 const readFile = promisify(fs.readFile);
 
@@ -129,6 +130,7 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
+      scssImport(),
       carbonIcons(),
       babel.babel({
         babelHelpers: 'runtime',
