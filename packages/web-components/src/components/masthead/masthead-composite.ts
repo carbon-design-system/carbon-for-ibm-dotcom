@@ -416,7 +416,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     sectionUrl = '',
     sectionId = '',
   }) {
-    const items = menuItems.map((elem) => {
+    const items = menuItems?.map((elem) => {
       if (elem.menu) {
         return html`
           <c4d-left-nav-menu
