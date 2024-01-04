@@ -9,112 +9,159 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
-import { boolean, select } from '@storybook/addon-knobs';
-import textNullable from '../../../.storybook/knob-text-nullable';
 import { NOTIFICATION_KIND } from './inline-notification';
 import './actionable-notification';
 import './actionable-notification-button';
-import storyDocs from './notification-story.mdx';
+import storyDocs from './notification.mdx';
 import { prefix } from '../../globals/settings';
 import kinds from './stories/helper';
 import '../button/button';
 
 const noop = () => {};
 
-export const Default = () => {
-  return html`
-    <cds-actionable-notification
-      kind="${NOTIFICATION_KIND.ERROR}"
-      title="Notification title"
-      subtitle="Subtitle text goes here">
-      <cds-actionable-notification-button slot="action"
-        >Action</cds-actionable-notification-button
-      >
-    </cds-actionable-notification>
-  `;
+const args = {
+  actionButtonLabel: 'Action',
+  closeOnEscape: true,
+  hasFocus: false,
+  hideCloseButton: false,
+  inline: false,
+  kind: NOTIFICATION_KIND.ERROR,
+  lowContrast: false,
+  role: 'alertdialog',
+  subtitle: 'Subtitle text goes here',
+  statusIconDescription: 'notification',
+  title: 'Notification title',
 };
 
-export const Playground = (args) => {
-  const {
-    actionButtonLabel,
-    closeOnEscape,
-    hasFocus,
-    kind,
-    title,
-    subtitle,
-    hideCloseButton,
-    lowContrast,
-    role,
-    inline,
-    statusIconDescription,
-    disableClose,
-    onBeforeClose = noop,
-    onClose = noop,
-  } = args?.[`${prefix}-actionable-notification`] ?? {};
-  const handleBeforeClose = (event: CustomEvent) => {
-    onBeforeClose(event);
-    if (disableClose) {
-      event.preventDefault();
-    }
-  };
-  return html`
-    <cds-actionable-notification
-      ?close-on-escape="${closeOnEscape}"
-      ?has-focus="${hasFocus}"
-      kind="${ifDefined(kind)}"
-      title="${ifDefined(title)}"
-      subtitle="${ifDefined(subtitle)}"
-      role="${ifDefined(role)}"
-      ?inline="${inline}"
-      ?hide-close-button="${hideCloseButton}"
-      ?low-contrast="${lowContrast}"
-      status-icon-description="${ifDefined(statusIconDescription)}"
-      @cds-notification-beingclosed="${handleBeforeClose}"
-      @cds-notification-closed="${onClose}">
-      <cds-actionable-notification-button slot="action"
-        >${actionButtonLabel}</cds-actionable-notification-button
-      >
-    </cds-actionable-notification>
-  `;
-};
-
-Playground.parameters = {
-  knobs: {
-    [`${prefix}-actionable-notification`]: () => ({
-      actionButtonLabel: textNullable(
-        'Action button label (action-button-label)',
-        'Action'
-      ),
-      closeOnEscape: boolean('Close on escape (close-on-escape)', true),
-      hasFocus: boolean('Has focus (has-focus)', false),
-      hideCloseButton: boolean(
-        'Hide the close button (hide-close-button)',
-        false
-      ),
-      inline: boolean('Inline (inline)', false),
-      kind: select(
-        'The notification kind (kind)',
-        kinds,
-        NOTIFICATION_KIND.ERROR
-      ),
-      lowContrast: boolean('Use low contrast variant (low-contrast)', false),
-      role: textNullable('Role (role)', 'alertdialog'),
-      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here'),
-      statusIconDescription: textNullable(
-        'statusIconDescription (status-icon-description)',
-        'notification'
-      ),
-      title: textNullable('Title (title)', 'Notification title'),
-      onBeforeClose: action(`${prefix}-notification-beingclosed`),
-      onClose: action(`${prefix}-notification-closed`),
-    }),
+const argTypes = {
+  actionButtonLabel: {
+    control: 'text',
+    description:
+      'Pass in the action button label that will be rendered within the ActionableNotification.',
+  },
+  closeOnEscape: {
+    control: 'boolean',
+    description:
+      'Specify if pressing the escape key should close notifications.',
+  },
+  hasFocus: {
+    control: 'boolean',
+    description:
+      'Specify if focus should be moved to the component when the notification contains actions.',
+  },
+  hideCloseButton: {
+    control: 'boolean',
+    description: 'Specify the close button should be disabled, or not.',
+  },
+  inline: {
+    control: 'boolean',
+  },
+  kind: {
+    control: 'select',
+    description: 'Specify what state the notification represents.',
+    options: kinds,
+  },
+  lowContrast: {
+    control: 'boolean',
+    description:
+      'Specify whether you are using the low contrast variant of the ActionableNotification.',
+  },
+  role: {
+    control: 'text',
+    description:
+      'By default, this value is "alertdialog". You can also provide an alternate role if it makes sense from from an accessibility perspective.',
+  },
+  subtitle: {
+    control: 'text',
+    description: 'Specify the subtitle.',
+  },
+  statusIconDescription: {
+    control: 'text',
+    description:
+      'Provide a description for "status" icon that can be read by screen readers.',
+  },
+  title: {
+    control: 'text',
+    description: 'Specify the title.',
+  },
+  onBeforeClose: {
+    action: `${prefix}-notification-beingclosed`,
+  },
+  onClose: {
+    action: `${prefix}-notification-closed`,
   },
 };
 
-export default {
+export const Default = {
+  render: () => {
+    return html`
+      <cds-actionable-notification
+        kind="${NOTIFICATION_KIND.ERROR}"
+        title="Notification title"
+        subtitle="Subtitle text goes here">
+        <cds-actionable-notification-button slot="action"
+          >Action</cds-actionable-notification-button
+        >
+      </cds-actionable-notification>
+    `;
+  },
+};
+
+export const Playground = {
+  args,
+  argTypes,
+  render: (args) => {
+    const {
+      actionButtonLabel,
+      closeOnEscape,
+      hasFocus,
+      kind,
+      title,
+      subtitle,
+      hideCloseButton,
+      lowContrast,
+      role,
+      inline,
+      statusIconDescription,
+      disableClose,
+      onBeforeClose = noop,
+      onClose = noop,
+    } = args ?? {};
+    const handleBeforeClose = (event: CustomEvent) => {
+      onBeforeClose(event);
+      if (disableClose) {
+        event.preventDefault();
+      }
+    };
+    return html`
+      <cds-actionable-notification
+        ?close-on-escape="${closeOnEscape}"
+        ?has-focus="${hasFocus}"
+        kind="${ifDefined(kind)}"
+        title="${ifDefined(title)}"
+        subtitle="${ifDefined(subtitle)}"
+        role="${ifDefined(role)}"
+        ?inline="${inline}"
+        ?hide-close-button="${hideCloseButton}"
+        ?low-contrast="${lowContrast}"
+        status-icon-description="${ifDefined(statusIconDescription)}"
+        @cds-notification-beingclosed="${handleBeforeClose}"
+        @cds-notification-closed="${onClose}">
+        <cds-actionable-notification-button slot="action"
+          >${actionButtonLabel}</cds-actionable-notification-button
+        >
+      </cds-actionable-notification>
+    `;
+  },
+};
+
+const meta = {
   title: 'Components/Notifications/Actionable',
   parameters: {
-    ...storyDocs.parameters,
+    docs: {
+      page: storyDocs,
+    },
   },
 };
+
+export default meta;

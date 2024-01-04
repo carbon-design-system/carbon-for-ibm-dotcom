@@ -15,6 +15,10 @@ const stories = glob.sync(
     '../src/**/link.stories.ts',
     '../src/**/file-uploader.mdx',
     '../src/**/file-uploader.stories.ts',
+    '../src/**/notification.mdx',
+    '../src/**/actionable-notification.stories.ts',
+    '../src/**/inline-notification.stories.ts',
+    '../src/**/toast-notification.stories.ts',
   ],
   {
     ignore: ['../src/**/docs/*.mdx'],

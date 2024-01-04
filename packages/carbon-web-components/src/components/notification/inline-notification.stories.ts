@@ -8,96 +8,125 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { boolean, select } from '@storybook/addon-knobs';
-import storyDocs from './notification-story.mdx';
+import storyDocs from './notification.mdx';
 import { NOTIFICATION_KIND } from './inline-notification';
 import { prefix } from '../../globals/settings';
-import textNullable from '../../../.storybook/knob-text-nullable';
 import kinds from './stories/helper';
 
 const noop = () => {};
 
-export const Default = () => {
-  return html`
-    <cds-inline-notification
-      kind="${NOTIFICATION_KIND.ERROR}"
-      title="Notification title"
-      subtitle="Subtitle text goes here">
-    </cds-inline-notification>
-  `;
+const args = {
+  hideCloseButton: false,
+  kind: NOTIFICATION_KIND.INFO,
+  lowContrast: false,
+  role: 'status',
+  statusIconDescription: 'notification',
+  subtitle: 'Subtitle text goes here',
+  title: 'Notification title',
 };
 
-export const Playground = (args) => {
-  const {
-    kind,
-    title,
-    subtitle,
-    hideCloseButton,
-    lowContrast,
-    role,
-    statusIconDescription,
-    timeout,
-    disableClose,
-    onBeforeClose = noop,
-    onClose = noop,
-  } = args?.[`${prefix}-inline-notification`] ?? {};
-  const handleBeforeClose = (event: CustomEvent) => {
-    onBeforeClose(event);
-    if (disableClose) {
-      event.preventDefault();
-    }
-  };
-  return html`
-    <cds-inline-notification
-      kind="${ifDefined(kind)}"
-      title="${ifDefined(title)}"
-      subtitle="${ifDefined(subtitle)}"
-      ?hide-close-button="${hideCloseButton}"
-      ?low-contrast="${lowContrast}"
-      role="${ifDefined(role)}"
-      status-icon-description="${ifDefined(statusIconDescription)}"
-      timeout="${ifDefined(timeout)}"
-      @cds-notification-beingclosed="${handleBeforeClose}"
-      @cds-notification-closed="${onClose}">
-    </cds-inline-notification>
-  `;
-};
-
-Playground.parameters = {
-  knobs: {
-    [`${prefix}-inline-notification`]: () => ({
-      hideCloseButton: boolean(
-        'Hide the close button (hide-close-button)',
-        false
-      ),
-      kind: select(
-        'The notification kind (kind)',
-        kinds,
-        NOTIFICATION_KIND.INFO
-      ),
-      lowContrast: boolean('Use low contrast variant (low-contrast)', false),
-      role: select(
-        'Role (role)',
-        { alert: 'alert', log: 'log', status: 'status' },
-        'status'
-      ),
-      statusIconDescription: textNullable(
-        'statusIconDescription (status-icon-description)',
-        'notification'
-      ),
-      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here'),
-      title: textNullable('Title (title)', 'Notification title'),
-      onBeforeClose: action(`${prefix}-notification-beingclosed`),
-      onClose: action(`${prefix}-notification-closed`),
-    }),
+const argTypes = {
+  hideCloseButton: {
+    control: 'boolean',
+    description: 'Specify the close button should be disabled, or not.',
+  },
+  kind: {
+    control: 'select',
+    description: 'Specify what state the notification represents.',
+    options: kinds,
+  },
+  lowContrast: {
+    control: 'boolean',
+    description:
+      'Specify whether you are using the low contrast variant of the InlineNotification.',
+  },
+  role: {
+    control: 'select',
+    description:
+      'By default, this value is "status". You can also provide an alternate role if it makes sense from the accessibility-side.',
+    options: { alert: 'alert', log: 'log', status: 'status' },
+  },
+  statusIconDescription: {
+    control: 'text',
+    description:
+      'Provide a description for "status" icon that can be read by screen readers.',
+  },
+  subtitle: {
+    control: 'text',
+    description: 'Specify the subtitle.',
+  },
+  title: {
+    control: 'text',
+    description: 'Specify the title.',
+  },
+  onBeforeClose: {
+    action: `${prefix}-notification-beingclosed`,
+  },
+  onClose: {
+    action: `${prefix}-notification-closed`,
   },
 };
 
-export default {
+export const Default = {
+  render: () => {
+    return html`
+      <cds-inline-notification
+        kind="${NOTIFICATION_KIND.ERROR}"
+        title="Notification title"
+        subtitle="Subtitle text goes here">
+      </cds-inline-notification>
+    `;
+  },
+};
+
+export const Playground = {
+  args,
+  argTypes,
+  render: (args) => {
+    const {
+      kind,
+      title,
+      subtitle,
+      hideCloseButton,
+      lowContrast,
+      role,
+      statusIconDescription,
+      timeout,
+      disableClose,
+      onBeforeClose = noop,
+      onClose = noop,
+    } = args ?? {};
+    const handleBeforeClose = (event: CustomEvent) => {
+      onBeforeClose(event);
+      if (disableClose) {
+        event.preventDefault();
+      }
+    };
+    return html`
+      <cds-inline-notification
+        kind="${ifDefined(kind)}"
+        title="${ifDefined(title)}"
+        subtitle="${ifDefined(subtitle)}"
+        ?hide-close-button="${hideCloseButton}"
+        ?low-contrast="${lowContrast}"
+        role="${ifDefined(role)}"
+        status-icon-description="${ifDefined(statusIconDescription)}"
+        timeout="${ifDefined(timeout)}"
+        @cds-notification-beingclosed="${handleBeforeClose}"
+        @cds-notification-closed="${onClose}">
+      </cds-inline-notification>
+    `;
+  },
+};
+
+const meta = {
   title: 'Components/Notifications/Inline',
   parameters: {
-    ...storyDocs.parameters,
+    docs: {
+      page: storyDocs,
+    },
   },
 };
+
+export default meta;
