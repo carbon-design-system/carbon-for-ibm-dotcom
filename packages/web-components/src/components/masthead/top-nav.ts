@@ -565,7 +565,7 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                     <nav
                       part="nav"
                       class="${prefix}--header__nav"
-                      aria-label="${ifNonNull(this.navLabel)}">
+                      aria-label="${ifDefined(this.navLabel)}">
                       <div class="${prefix}--sub-content-right"></div>
                       <div
                         part="menubar"
