@@ -13,6 +13,8 @@ const stories = glob.sync(
     // add mdx/story files as they are being worked on
     '../src/**/link.mdx',
     '../src/**/link.stories.ts',
+    '../src/**/layer.stories.ts',
+    '../src/**/layer.mdx',
   ],
   {
     ignore: ['../src/**/docs/*.mdx'],

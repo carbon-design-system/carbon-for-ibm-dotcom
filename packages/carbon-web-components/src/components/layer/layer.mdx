@@ -1,5 +1,8 @@
-import { Props, Description } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Description, Meta } from '@storybook/addon-docs/blocks';
 import { cdnJs, cdnCss } from '../../globals/internal/storybook-cdn';
+import * as LayerStories from './layer.stories';
+
+<Meta of={LayerStories} /> 
 
 # Layer
 
@@ -108,4 +111,4 @@ like the Layer component to be seen as a section you could write the following:
 
 ## `<cds-layer>` attributes, properties and events
 
-<Props of="cds-layer" />
+<ArgsTable of="cds-layer" />
