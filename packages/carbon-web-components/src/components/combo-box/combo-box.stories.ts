@@ -53,7 +53,7 @@ const sizes = {
 };
 
 const defaultArgs = {
-  direction: 'bottom',
+  direction: DROPDOWN_DIRECTION.BOTTOM,
   disabled: false,
   hideLabel: false,
   helperText: 'This is some helper text',
@@ -71,7 +71,7 @@ const defaultArgs = {
 const controls = {
   disabled: {
     control: 'boolean',
-    description: `Specify if the dropdown should be disabled, or not`,
+    description: `Specify if the dropdown should be disabled, or not.`,
   },
   direction: {
     control: 'select', options: directionOptions,
@@ -79,7 +79,7 @@ const controls = {
   },
   hideLabel: {
     control: 'boolean',
-    description: `Specify if the title text should be hidden, or not`,
+    description: `Specify if the title text should be hidden, or not.`,
   },
   helperText: {
     control: 'text',
@@ -87,7 +87,7 @@ const controls = {
   },
   invalid: {
     control: 'boolean',
-    description: `Specify if the dropdown should display an invalid icon, or not`,
+    description: `Specify if the dropdown should display an invalid icon, or not.`,
   },
   invalidText: {
     control: 'text',
@@ -99,11 +99,11 @@ const controls = {
   },
   readOnly: {
     control: 'boolean',
-    description: `Specify if the dropdown should be read only, or not`,
+    description: `Specify if the dropdown should be read only, or not.`,
   },
   size: {
     control: 'select', options: sizes,
-    description: `Dropdown size`
+    description: `Dropdown size.`
   },
   titleText: {
     control: 'text',
@@ -115,7 +115,7 @@ const controls = {
   },
   warn: {
     control: 'boolean',
-    description: `Specify whether the control is currently in warning state`,
+    description: `Specify whether the control is currently in warning state.`,
   },
   warnText: {
     control: 'text',

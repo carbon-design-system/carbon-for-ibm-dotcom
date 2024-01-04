@@ -86,6 +86,11 @@ export const UseLayer = {
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
   render: ({level}) => html`
     <cds-layer level="${level}">
       <div class="example-layer-test-component">Test component</div>
