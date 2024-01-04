@@ -540,7 +540,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     const menu: any[] = [];
     const menuItems = this._getl0Data();
     const autoid = `${c4dPrefix}--masthead__l0`;
-    const level0Items = menuItems.map((elem: L0MenuItem, i) => {
+    const level0Items = menuItems?.map((elem: L0MenuItem, i) => {
       // Instantiate bucket for first level submenus.
       const level1Items: {
         title: string;
