@@ -38,7 +38,7 @@ import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-rea
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import TouchScreen from '@carbon/pictograms-react/es/touch--screen/index.js';
 
 import readme from './README.stories.react.mdx';
@@ -129,7 +129,7 @@ export const Default = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
         <C4DContentGroupCardsItem href="www.ibm.com">
@@ -142,7 +142,7 @@ export const Default = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
       </C4DContentGroupCards>
@@ -156,7 +156,7 @@ export const Default = (args) => {
               <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
               <C4DContentItemCopy>{itemCopy}</C4DContentItemCopy>
               <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
-                {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+                {linkWithIcon.copy} <ArrowRight size="20" slot="icon" />
               </C4DLinkWithIcon>
             </C4DPictogramItem>
           )
@@ -210,7 +210,7 @@ export const withLinkList = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
         <C4DContentGroupCardsItem href="www.ibm.com">
@@ -223,7 +223,7 @@ export const withLinkList = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
       </C4DContentGroupCards>
@@ -237,7 +237,7 @@ export const withLinkList = (args) => {
               <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
               <C4DContentItemCopy>{itemCopy}</C4DContentItemCopy>
               <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
-                {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+                {linkWithIcon.copy} <ArrowRight size="20" slot="icon" />
               </C4DLinkWithIcon>
             </C4DPictogramItem>
           )

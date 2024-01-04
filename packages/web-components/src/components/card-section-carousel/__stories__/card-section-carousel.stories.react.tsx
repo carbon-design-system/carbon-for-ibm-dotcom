@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -50,7 +50,7 @@ const Card = ({
     <C4DCardHeading>{heading}</C4DCardHeading>
     <p>{copy}</p>
     <C4DCardFooter>
-      <ArrowRight20 slot="icon" />
+      <ArrowRight size="20" slot="icon" />
     </C4DCardFooter>
   </C4DCard>
 );
@@ -67,7 +67,7 @@ export const Default = () => {
       </C4DContentSectionCopy>
       <C4DLinkWithIcon slot="footer" href={hrefDefault}>
         Link text
-        <ArrowRight20 slot="icon" />
+        <ArrowRight size="20" slot="icon" />
       </C4DLinkWithIcon>
       <C4DCarousel>
         <Card />

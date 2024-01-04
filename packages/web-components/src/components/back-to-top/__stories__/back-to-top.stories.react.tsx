@@ -8,7 +8,7 @@
  */
 
 // @ts-nocheck
-import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
+import { ArrowDown, ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 import C4DBackToTop from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/back-to-top';
@@ -26,7 +26,6 @@ import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-reac
 /* eslint-disable max-len */
 import C4DContentBlockSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-block-simple/content-block-simple';
 import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import React from 'react';
 import readme from './README.stories.react.mdx';
 import styles from './back-to-top.stories.scss';
@@ -129,7 +128,7 @@ export const Default = () => {
             data-target="#section-1"
             href="#section-1">
             Scroll down
-            <ArrowDown20 slot="icon" />
+            <ArrowDown size="20" slot="icon" />
           </C4DButtonGroupItem>
         </C4DButtonGroup>
       </C4DLeadspace>
@@ -162,11 +161,11 @@ export const Default = () => {
           <C4DButtonGroup slot="action">
             <C4DButtonGroupItem href="#">
               Try it on premises
-              <ArrowRight20 slot="icon" />
+              <ArrowRight size="20" slot="icon" />
             </C4DButtonGroupItem>
             <C4DButtonGroupItem href="#">
               Try it on cloud
-              <ArrowRight20 slot="icon" />
+              <ArrowRight size="20" slot="icon" />
             </C4DButtonGroupItem>
           </C4DButtonGroup>
           <C4DLinkList slot="link-list" type="end">
@@ -174,31 +173,31 @@ export const Default = () => {
               More ways to explore Linux servers
             </C4DLinkListHeading>
             <C4DLinkListItem href="https://example.com">
-              Products <ArrowRight20 slot="icon" />
+              Products <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Key concepts <ArrowRight20 slot="icon" />
+              Key concepts <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Analyst insights <ArrowRight20 slot="icon" />
+              Analyst insights <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Blogs <ArrowRight20 slot="icon" />
+              Blogs <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Client stories <ArrowRight20 slot="icon" />
+              Client stories <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Events <ArrowRight20 slot="icon" />
+              Events <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Latest Research <ArrowRight20 slot="icon" />
+              Latest Research <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Training <ArrowRight20 slot="icon" />
+              Training <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
             <C4DLinkListItem href="https://example.com">
-              Partners <ArrowRight20 slot="icon" />
+              Partners <ArrowRight size="20" slot="icon" />
             </C4DLinkListItem>
           </C4DLinkList>
         </C4DCTABlock>

@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // eslint-disable-next-line max-len
 import C4DContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
@@ -30,7 +30,7 @@ const card1 = (
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <C4DCardFooter icon-placement="left">
-      <ArrowRight20 slot="icon" />
+      <ArrowRight size="20" slot="icon" />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );
@@ -42,7 +42,7 @@ const card2 = (
     </C4DCardHeading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <C4DCardFooter icon-placement="left">
-      <ArrowRight20 slot="icon" />
+      <ArrowRight size="20" slot="icon" />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );

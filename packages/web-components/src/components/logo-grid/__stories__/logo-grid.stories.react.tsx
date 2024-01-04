@@ -12,7 +12,7 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
@@ -57,7 +57,7 @@ export const Default = (args) => {
         <C4DLogoGridLink href={ctaHref}>
           <C4DCardLinkHeading>{ctaCopy}</C4DCardLinkHeading>
           <C4DCardFooter>
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DCardFooter>
         </C4DLogoGridLink>
       ) : (

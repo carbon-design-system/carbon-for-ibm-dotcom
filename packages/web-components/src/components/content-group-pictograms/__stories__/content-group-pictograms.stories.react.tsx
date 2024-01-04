@@ -16,7 +16,7 @@ import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-r
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import C4DPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import { TouchScreen, Pattern, Touch } from '@carbon/pictograms-react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import readme from './README.stories.react.mdx';
@@ -127,7 +127,7 @@ export const Default = (args) => {
                   <C4DContentItemCopy>{copy}</C4DContentItemCopy>
                   {cta && (
                     <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
-                      {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+                      {linkWithIcon.copy} <ArrowRight size="20" slot="icon" />
                     </C4DLinkWithIcon>
                   )}
                 </C4DPictogramItem>

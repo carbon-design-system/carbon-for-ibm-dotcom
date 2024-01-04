@@ -11,7 +11,7 @@ import { text } from '@storybook/addon-knobs';
 import React from 'react';
 
 // @ts-ignore
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import C4DFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
 import C4DFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
@@ -34,7 +34,7 @@ export const Medium = (args) => {
       <C4DImage alt="Image alt text" defaultSrc={mediumImgLg1x1} slot="image" />
       <C4DCardHeading>{heading}</C4DCardHeading>
       <C4DFeatureCardFooter>
-        <ArrowRight20 slot="icon" />
+        <ArrowRight size="20" slot="icon" />
       </C4DFeatureCardFooter>
     </C4DFeatureCard>
   );
@@ -55,7 +55,7 @@ export const Large = (args) => {
       <C4DCardHeading>{heading}</C4DCardHeading>
       <p>{copy}</p>
       <C4DFeatureCardFooter>
-        <ArrowRight20 slot="icon" />
+        <ArrowRight size="20" slot="icon" />
       </C4DFeatureCardFooter>
     </C4DFeatureCard>
   );

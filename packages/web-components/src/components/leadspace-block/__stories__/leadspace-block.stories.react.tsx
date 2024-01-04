@@ -9,8 +9,7 @@
 
 import { text, boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import Download20 from '@carbon/icons-react/es/download/20.js';
+import { ArrowRight, Download } from '@carbon/icons-react';
 
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -55,13 +54,13 @@ const linkList = (
   <C4DLinkList type="end">
     <C4DLinkListHeading>Featured products</C4DLinkListHeading>
     <C4DLinkListItem href="https://example.com">
-      IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
+      IBM Cloud Continuous Delivery <ArrowRight size="20" slot="icon" />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      UrbanCode <ArrowRight20 slot="icon" />
+      UrbanCode <ArrowRight size="20" slot="icon" />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      View all products <Download20 slot="icon" />
+      View all products <Download size="20" slot="icon" />
     </C4DLinkListItem>
   </C4DLinkList>
 );

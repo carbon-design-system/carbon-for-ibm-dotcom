@@ -30,7 +30,7 @@ import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/compone
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 
 import readme from './README.stories.react.mdx';
 import content from './content';
@@ -250,22 +250,22 @@ export const WithLinkList = (args) => {
         <C4DLinkList slot="link-list" type="end">
           <C4DLinkListHeading>More ways to explore DevOps</C4DLinkListHeading>
           <C4DLinkListItem href="https://example.com">
-            Events <ArrowRight20 slot="icon" />
+            Events <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Blogs <ArrowRight20 slot="icon" />
+            Blogs <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Training <ArrowRight20 slot="icon" />
+            Training <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Developer resources <ArrowRight20 slot="icon" />
+            Developer resources <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Research <ArrowRight20 slot="icon" />
+            Research <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            News <ArrowRight20 slot="icon" />
+            News <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
         </C4DLinkList>
       </C4DCTABlock>

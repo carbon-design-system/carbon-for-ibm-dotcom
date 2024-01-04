@@ -11,7 +11,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // @ts-ignore
 /* eslint-disable max-len */
 import C4DExpressiveModal from '../../../../es/components-react/expressive-modal/expressive-modal.js';
@@ -64,7 +64,7 @@ export const Default = (args) => {
       </C4DExpressiveModalBody>
       <C4DExpressiveModalFooter>
         <C4DButton href="https://www.example.com">
-          {buttonContent} <ArrowRight20 slot="icon" />
+          {buttonContent} <ArrowRight size="20" slot="icon" />
         </C4DButton>
       </C4DExpressiveModalFooter>
     </C4DExpressiveModal>

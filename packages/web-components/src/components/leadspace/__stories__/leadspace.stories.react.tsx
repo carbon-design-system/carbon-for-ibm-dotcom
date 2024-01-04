@@ -9,9 +9,7 @@
 
 import React from 'react';
 import { text, select, number } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
-import Pdf20 from '@carbon/icons-react/es/PDF/20.js';
+import { ArrowDown, ArrowRight, Pdf } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -72,9 +70,9 @@ const navigationWithBreadcrumbs = (
 
 const getAriaLabel = (type) => {
   switch (type) {
-    case 'ArrowDown20':
+    case 'ArrowDown':
       return 'anchor link';
-    case 'Pdf20':
+    case 'Pdf':
       return 'pdf link';
     default:
       return '';
@@ -82,16 +80,16 @@ const getAriaLabel = (type) => {
 };
 
 const iconMap = {
-  ArrowRight20: <ArrowRight20 slot="icon" />,
-  ArrowDown20: <ArrowDown20 slot="icon" />,
-  Pdf20: <Pdf20 slot="icon" />,
+  ArrowRight: <ArrowRight size="20" slot="icon" />,
+  ArrowDown: <ArrowDown size="20" slot="icon" />,
+  Pdf: <Pdf size="20" slot="icon" />,
 };
 
 const iconOptions = {
   None: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
+  'Arrow Right': 'ArrowRight',
+  'Arrow Down': 'ArrowDown',
+  PDF: 'Pdf',
 };
 
 const Default = (args) => {

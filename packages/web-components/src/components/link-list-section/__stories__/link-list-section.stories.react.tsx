@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -31,22 +31,22 @@ export const Default = (args) => {
       <C4DLinkList>
         <C4DLinkListItem href="https://example.com">
           Learn more about Kubernetes and automating deployment{' '}
-          <ArrowRight20 slot="icon" />
+          <ArrowRight size="20" slot="icon" />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Containerization A Complete Guide <ArrowRight20 slot="icon" />
+          Containerization A Complete Guide <ArrowRight size="20" slot="icon" />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Microservices and containers <ArrowRight20 slot="icon" />
+          Microservices and containers <ArrowRight size="20" slot="icon" />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Learn more about Kubernetes <ArrowRight20 slot="icon" />
+          Learn more about Kubernetes <ArrowRight size="20" slot="icon" />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Containerization A Complete Guide <ArrowRight20 slot="icon" />
+          Containerization A Complete Guide <ArrowRight size="20" slot="icon" />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Microservices and containers <ArrowRight20 slot="icon" />
+          Microservices and containers <ArrowRight size="20" slot="icon" />
         </C4DLinkListItem>
       </C4DLinkList>
     </C4DLinkListSection>

@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 import C4DQuote from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote';
@@ -41,7 +41,7 @@ export const Default = (args) => {
       <C4DQuoteSourceCopy>{sourceCopy}</C4DQuoteSourceCopy>
       <C4DQuoteSourceBottomCopy>{sourceBottomCopy}</C4DQuoteSourceBottomCopy>
       <C4DLinkWithIcon slot="footer" href="https://example.com">
-        Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
+        Link with icon <ArrowRight size="20" slot="icon" />
       </C4DLinkWithIcon>
     </C4DQuote>
   );

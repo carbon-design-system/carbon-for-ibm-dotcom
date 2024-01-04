@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
@@ -60,7 +60,7 @@ const defaultCardGroupItem = (
       democritum ex. Illud ullum graecis
     </p>
     <C4DCardCTAFooter slot="footer">
-      <ArrowRight20 slot="icon" />
+      <ArrowRight size="20" slot="icon" />
     </C4DCardCTAFooter>
   </C4DCardGroupItem>
 );

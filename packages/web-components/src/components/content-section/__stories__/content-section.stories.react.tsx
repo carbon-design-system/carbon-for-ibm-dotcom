@@ -13,7 +13,7 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import C4DContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
 import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
@@ -55,7 +55,7 @@ const card1 = (
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <C4DCardFooter icon-placemenet="left">
-      <ArrowRight20 slot="icon" />
+      <ArrowRight size="20" slot="icon" />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );
@@ -68,7 +68,7 @@ const card2 = (
     </C4DCardHeading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <C4DCardFooter icon-placemenet="left">
-      <ArrowRight20 slot="icon" />
+      <ArrowRight size="20" slot="icon" />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );
@@ -91,7 +91,7 @@ const Card = ({
     <C4DCardHeading>{heading}</C4DCardHeading>
     {copy}
     <C4DCardFooter>
-      <ArrowRight20 slot="icon" />
+      <ArrowRight size="20" slot="icon" />
     </C4DCardFooter>
   </C4DCard>
 );
@@ -135,27 +135,27 @@ export const Default = (args) => {
         <C4DLinkList>
           <C4DLinkListItem href="https://example.com">
             Learn more about Kubernetes and automating deployment
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Containerization A Complete Guide
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Microservices and container
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Learn more about Kubernetes and automating deployment
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Containerization A Complete Guide
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Microservices and container
-            <ArrowRight20 slot="icon" />
+            <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
         </C4DLinkList>
       ) : (

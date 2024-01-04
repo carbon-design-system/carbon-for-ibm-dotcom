@@ -66,7 +66,7 @@ import C4DCTABlockItemRow from '@carbon/ibmdotcom-web-components/es/components-r
 import C4DCTABlockItem from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block-item';
 import C4DTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
@@ -250,13 +250,13 @@ export const tocContent = (
         <C4DLinkList type="end">
           <C4DLinkListHeading>Featured products</C4DLinkListHeading>
           <C4DLinkListItem href="https://example.com">
-            IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
+            IBM Cloud Continuous Delivery <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            UrbanCode <ArrowRight20 slot="icon" />
+            UrbanCode <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            View all products <ArrowRight20 slot="icon" />
+            View all products <ArrowRight size="20" slot="icon" />
           </C4DLinkListItem>
         </C4DLinkList>
         <C4DButton href="https://example.com" cta-type="local">
@@ -286,7 +286,7 @@ export const tocContent = (
         morbu tristique.
       </p>
       <C4DFeatureCardFooter>
-        <ArrowRight20 slot="icon" />
+        <ArrowRight size="20" slot="icon" />
       </C4DFeatureCardFooter>
     </C4DFeatureCard>
 
@@ -368,10 +368,10 @@ export const tocContent = (
       </C4DContentBlockCopy>
       <C4DButtonGroup slot="action">
         <C4DButtonGroupItem href="https://example.com">
-          Secondary Button <ArrowRight20 slot="icon" />
+          Secondary Button <ArrowRight size="20" slot="icon" />
         </C4DButtonGroupItem>
         <C4DButtonGroupItem href="https://example.com">
-          Primary button <ArrowRight20 slot="icon" />
+          Primary button <ArrowRight size="20" slot="icon" />
         </C4DButtonGroupItem>
       </C4DButtonGroup>
       <C4DCTABlockItemRow no-border>
@@ -468,7 +468,7 @@ export const StoryContentNoToC = () => (
           Habitant morbu tristique.
         </p>
         <C4DFeatureCardFooter>
-          <ArrowRight20 slot="icon" />
+          <ArrowRight size="20" slot="icon" />
         </C4DFeatureCardFooter>
       </C4DFeatureCard>
 
@@ -546,10 +546,10 @@ export const StoryContentNoToC = () => (
 
         <C4DButtonGroup slot="action">
           <C4DButtonGroupItem href="https://example.com">
-            Secondary Button <ArrowRight20 slot="icon" />
+            Secondary Button <ArrowRight size="20" slot="icon" />
           </C4DButtonGroupItem>
           <C4DButtonGroupItem href="https://example.com">
-            Primary button <ArrowRight20 slot="icon" />
+            Primary button <ArrowRight size="20" slot="icon" />
           </C4DButtonGroupItem>
         </C4DButtonGroup>
 

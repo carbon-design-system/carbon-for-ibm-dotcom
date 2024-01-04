@@ -9,7 +9,7 @@
 
 import { text, select } from '@storybook/addon-knobs';
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
@@ -72,7 +72,7 @@ export const Default = (args) => {
             href="https://example.com">
             <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
             <C4DCardFooter>
-              <ArrowRight20 slot="icon" />
+              <ArrowRight size="20" slot="icon" />
             </C4DCardFooter>
           </C4DCardLink>
         ) : (
