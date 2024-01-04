@@ -66,6 +66,11 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
    */
   @property({ reflect: true })
   size = false;
+  /**
+   * Specify the timeout reference for the tooltip
+   */
+  @property({ reflect: true})
+  timeoutId = 0;
 
   /**
    * Specify whether the tooltip should be open when it first renders
@@ -77,7 +82,8 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
    * Handles `mouseover` event on this element.
    */
   private _handleHover = async () => {
-    setTimeout(async () => {
+    window.clearTimeout(this.timeoutId);
+    this.timeoutId = window.setTimeout(async () => {
       this.open = true;
       const { open, updateComplete } = this;
       if (open) {
@@ -93,8 +99,8 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
    * Handles `mouseleave` event on this element.
    */
   private _handleHoverOut = async () => {
-    this.leaveDelayMs = this.enterDelayMs > this.leaveDelayMs ? this.leaveDelayMs + this.enterDelayMs : this.leaveDelayMs; 
-    setTimeout(async () => {
+    window.clearTimeout(this.timeoutId);
+    this.timeoutId = window.setTimeout(async () => {
       const { open } = this;
       if (open) {
         this.open = false;
