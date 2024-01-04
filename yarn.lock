@@ -4341,7 +4341,7 @@ __metadata:
     karma-sourcemap-loader: "npm:^0.4.0"
     karma-spec-reporter: "npm:0.0.36"
     karma-webpack: "npm:^4.0.2"
-    lit: "npm:^2.7.6"
+    lit: "npm:^3.1.0"
     lodash-es: "npm:^4.17.21"
     magic-string: "npm:^0.30.0"
     mini-css-extract-plugin: "npm:~2.7.0"
@@ -6160,12 +6160,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/ssr-dom-shim@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.1.2"
+  checksum: a930f7de57b952dc21317a5754aa0411e000bb4991053cde771c111b7792c4a4cdc896922f0353c832215bed71400431c5ab5a6252c8f4f70bb9ce0b37fe4752
+  languageName: node
+  linkType: hard
+
 "@lit/reactive-element@npm:^1.3.0, @lit/reactive-element@npm:^1.6.0":
   version: 1.6.2
   resolution: "@lit/reactive-element@npm:1.6.2"
   dependencies:
     "@lit-labs/ssr-dom-shim": "npm:^1.0.0"
   checksum: 765c38691743e3729a4e7511cb5ff2fcb105321805dedfdc43d214b137d45a8050640a3e235a23e1008e7d8642308a14cb6f20fe716c0a08d1f3db3abae6549b
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^2.0.0":
+  version: 2.0.2
+  resolution: "@lit/reactive-element@npm:2.0.2"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.1.2"
+  checksum: 2b74234f041740a8e0ab65980e2ac949533f067e43a6a512171a2b5f8ecd2116996f728776adc8ab94c1dddb679235cceb463a9c9ceb0f34a00fe95966646eff
   languageName: node
   linkType: hard
 
@@ -26869,12 +26885,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lit-element@npm:^4.0.0":
+  version: 4.0.2
+  resolution: "lit-element@npm:4.0.2"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.1.2"
+    "@lit/reactive-element": "npm:^2.0.0"
+    lit-html: "npm:^3.1.0"
+  checksum: 185e8b916516c87d337d0491e572af412a3f7c60f751b5432d2f671ab1615f515683c49f2a28aeae81264072a8d6f80cfdcf39ca9521b2a6dd96d2f83e929bf6
+  languageName: node
+  linkType: hard
+
 "lit-html@npm:^2.7.0":
   version: 2.7.5
   resolution: "lit-html@npm:2.7.5"
   dependencies:
     "@types/trusted-types": "npm:^2.0.2"
   checksum: 3e4b2d0822ee0c1227b3042e219b22c65ba4e1f232005dd741f52cfdbe84acdfacaeae7b54b9a3dd6fd65c71dab957c842235572c48b45f76d694de6979ee311
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "lit-html@npm:3.1.0"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 2831f48e82bc75a27e329a844faf0b0324f006c004e2bbc2c5cc8632429ec79a5401aae31866fba9befae7861bf40c7513a7a39227ceafe2dc7a069f617ef875
   languageName: node
   linkType: hard
 
@@ -26886,6 +26922,17 @@ __metadata:
     lit-element: "npm:^3.3.0"
     lit-html: "npm:^2.7.0"
   checksum: 1bae959a3283f31a6448c5efeb1ebd3b4b82ef91c90e1e77bbfe67bf3dbb1cc56c7ef4d052661a4c2b493187fa2ce4b868943bed69a61e4d022fdd1e31ca05b8
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "lit@npm:3.1.0"
+  dependencies:
+    "@lit/reactive-element": "npm:^2.0.0"
+    lit-element: "npm:^4.0.0"
+    lit-html: "npm:^3.1.0"
+  checksum: cf46959d909a5dce2ac4bff3d9f8aa942be223c30ce1d4e86e66eda55d53f2886e4ae6092f9ab825c1a26d56d1a57c360981040cb579d53a73869d07ec04bad9
   languageName: node
   linkType: hard
 
