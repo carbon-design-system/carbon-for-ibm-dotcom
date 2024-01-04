@@ -6,3 +6,9 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/imports';
+
+.example-text + .example-text {
+  margin-top: $spacing-05;
+  display: block;
+}

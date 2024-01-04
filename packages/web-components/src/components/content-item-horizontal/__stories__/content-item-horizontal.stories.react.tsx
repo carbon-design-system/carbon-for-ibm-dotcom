@@ -87,7 +87,7 @@ export const Default = args => {
       </DDSTextCTA>
       {withMedia === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt="image alt text" default-src={imgLg16x9}></DDSImage> : ''}
       {withMedia === MEDIA_TYPE.VIDEO ? (
-        <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+        <DDSContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></DDSContentItemHorizontalMediaVideo>
       ) : (
         ''
       )}
@@ -143,7 +143,7 @@ export const withMedia = args => {
     <DDSContentItemHorizontalMedia align={align}>
       {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
       {type === MEDIA_TYPE.VIDEO ? (
-        <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+        <DDSContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></DDSContentItemHorizontalMediaVideo>
       ) : (
         ''
       )}
@@ -184,7 +184,7 @@ export const withFeaturedMedia = args => {
         ''
       )}
       {type === MEDIA_TYPE.VIDEO ? (
-        <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+        <DDSContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></DDSContentItemHorizontalMediaVideo>
       ) : (
         ''
       )}

@@ -14,7 +14,7 @@
 const _defaultPath = '/iframe.html?id=components-lightbox-media-viewer--default';
 
 const _args = {
-  video: '&knob-Video%20ID%20(video-id)=1_9h94wo6b',
+  video: '&knob-Video%20ID%20(video-id)=0_ibuqxqbe',
   img1x1: '&knob-Image%20(default-src)=23163c123ccb40d86a8b44fae716c453.jpg',
   img16x9: '&knob-Image%20(default-src)=3a7714edad00ad8b4f6f19f94ab56dd1.jpg',
 };

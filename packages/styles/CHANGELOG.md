@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.53.0...@carbon/ibmdotcom-styles@1.54.0) (2023-12-20)
+
+
+### Bug Fixes
+
+* **carousel:** carousel rtl fixes ([#11030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11030)) ([5ea87bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ea87bd0b417b3f6148a174233e98602c1585da9))
+* **Leadspace:** dds-leadspace styling of slotted button group ([#11111](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11111)) ([bdb8a10](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bdb8a105297de7bed31d0dcdfdfccb882cc5308e))
+* **pricing-table:** cell items were being horizontally squished into … ([#11002](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11002)) ([14f8249](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/14f82491853dbcba7baf799feb3fea4bb07c8826))
+
+
+
+
+
+# [1.54.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.53.0...@carbon/ibmdotcom-styles@1.54.0-rc.0) (2023-12-13)
+
+
+### Bug Fixes
+
+* **carousel:** carousel rtl fixes ([#11030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11030)) ([5ea87bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ea87bd0b417b3f6148a174233e98602c1585da9))
+* **Leadspace:** dds-leadspace styling of slotted button group ([#11111](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11111)) ([bdb8a10](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bdb8a105297de7bed31d0dcdfdfccb882cc5308e))
+* **pricing-table:** cell items were being horizontally squished into … ([#11002](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11002)) ([14f8249](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/14f82491853dbcba7baf799feb3fea4bb07c8826))
+
+
+
+
+
 # [1.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.53.0-rc.2...@carbon/ibmdotcom-styles@1.53.0) (2023-11-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

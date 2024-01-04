@@ -251,6 +251,10 @@
     }
   }
 
+  .#{$prefix}--structured-list-cell-icon-text-container {
+    display: flex;
+  }
+
   .#{$prefix}--structured-list-cell-icon-text,
   :host(#{$dds-prefix}-structured-list-cell)
     .#{$prefix}--structured-list-cell-icon-text {

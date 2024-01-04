@@ -20,6 +20,7 @@ import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x7
 import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
 import { MEDIA_ALIGNMENT } from '../defs';
 import { CTA_TYPE } from '../../cta/defs';
+import { typeOptions } from '../../cta/__stories__/ctaTypeConfig';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -27,11 +28,6 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 const mediaAlignment = {
   [`Left`]: MEDIA_ALIGNMENT.LEFT,
   [`Right`]: MEDIA_ALIGNMENT.RIGHT,
-};
-
-const types = {
-  [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
 };
 
 export const Default = (args) => {
@@ -61,7 +57,8 @@ export const Default = (args) => {
         slot="footer"
         href="${href}"
         cta-type="${ifNonNull(ctaType)}"
-        color-scheme="inverse">
+        color-scheme="inverse"
+        no-poster>
         <dds-card-link-heading
           >Try a free virtual business framing session with IBM
           Garage</dds-card-link-heading
@@ -74,7 +71,10 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Feature section',
-  decorators: [(story) => html` ${story()} `],
+  decorators: [
+    (story) =>
+      html`<dds-video-cta-container>${story()}</dds-video-cta-container>`,
+  ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
@@ -100,7 +100,7 @@ export default {
           You decide how you want to work and where to focus our expertise.`
         ),
         alt: textNullable('Image Alt Text (alt):', 'Image alt text'),
-        ctaType: select('CTA type (cta-type)', types, CTA_TYPE.LOCAL),
+        ctaType: select('CTA type (cta-type)', typeOptions, CTA_TYPE.LOCAL),
         href: textNullable('CTA Href (href):', 'https://example.com'),
       }),
     },

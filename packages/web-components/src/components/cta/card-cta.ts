@@ -61,7 +61,9 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       )
     );
 
-    const heading = this.querySelector('dds-card-heading')
+    const heading = this.querySelector(
+      'dds-card-heading, dds-card-link-heading'
+    )
       ? html``
       : html` <dds-card-heading>${caption}</dds-card-heading> `;
     return html` <slot name="heading"></slot>${heading} `;

@@ -17,6 +17,7 @@ import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from 'carbon-components/es/globals/js/settings';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -57,10 +58,13 @@ class DDSStructuredListCell extends BXStructuredListCell {
   private _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
 
-    return html`${iconMap[icon!.toLowerCase()].call()}
+    return html` <div
+      class="${prefix}--structured-list-cell-icon-text-container">
+      ${iconMap[icon!.toLowerCase()].call()}
       <span class="${prefix}--structured-list-cell-icon-text">
         <slot></slot>
-      </span>`;
+      </span>
+    </div>`;
   }
 
   private _renderTags() {
@@ -81,7 +85,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
     return html`
       <bx-tooltip-icon
         alignment="start"
-        body-text="${tooltip}"
+        body-text="${ifDefined(tooltip)}"
         direction="right">
         ${Info16()}
       </bx-tooltip-icon>
