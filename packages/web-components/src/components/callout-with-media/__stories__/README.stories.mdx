@@ -11,10 +11,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Callout with Media
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/callout-with-media)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/callout-with-media)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/callout-with-media)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/callout-with-media)
 
 **Note:** as of release v1.18.0 the copy in `C4DCalloutWithMedia` has been
 updated to use `C4DCalloutWithMediaCopy` and no longer using
@@ -55,19 +55,19 @@ You can do this for example by adding the following:
 ### HTML
 
 ```html
-<cds-callout-with-media>
-  <cds-content-block-heading
-    >lorum ipsum dolor sit ameet</cds-content-block-heading
+<c4d-callout-with-media>
+  <c4d-content-block-heading
+    >lorum ipsum dolor sit ameet</c4d-content-block-heading
   >
-  <cds-callout-with-media-copy size="sm"
-    >lorum ipsum dolor sit ameet</cds-callout-with-media-copy
+  <c4d-callout-with-media-copy size="sm"
+    >lorum ipsum dolor sit ameet</c4d-callout-with-media-copy
   >
-  <cds-callout-with-media-image
+  <c4d-callout-with-media-image
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-  </cds-callout-with-media-image>
-</cds-callout-with-media>
+  </c4d-callout-with-media-image>
+</c4d-callout-with-media>
 ```
 
 ## Callout with Media (Video)
@@ -90,32 +90,32 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callou
 ### HTML
 
 ```html
-<cds-callout-with-media>
-  <cds-content-block-heading
-    >lorum ipsum dolor sit ameet</cds-content-block-heading
+<c4d-callout-with-media>
+  <c4d-content-block-heading
+    >lorum ipsum dolor sit ameet</c4d-content-block-heading
   >
-  <cds-callout-with-media-copy size="sm"
-    >lorum ipsum dolor sit ameet</cds-callout-with-media-copy
+  <c4d-callout-with-media-copy size="sm"
+    >lorum ipsum dolor sit ameet</c4d-callout-with-media-copy
   >
-  <cds-callout-with-media-video
+  <c4d-callout-with-media-video
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-  </cds-callout-with-media-video>
-</cds-callout-with-media>
+  </c4d-callout-with-media-video>
+</c4d-callout-with-media>
 ```
 
 ## Props
 
-<Props of="cds-content-block-simple" />
+<Props of="c4d-content-block-simple" />
 
-### `<cds-callout-with-media-image>`
+### `<c4d-callout-with-media-image>`
 
-<Props of="cds-callout-with-media-image" />
+<Props of="c4d-callout-with-media-image" />
 
-### `<cds-callout-with-media-video>`
+### `<c4d-callout-with-media-video>`
 
-<Props of="cds-callout-with-media-video" />
+<Props of="c4d-callout-with-media-video" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -126,9 +126,9 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector          | Compatibility selector                        | Description |
 | -------------------------------- | --------------------------------------------- | ----------- |
-| `<cds-callout-with-media>`       | `data-autoid="cds--callout-with-media"`       | Component   |
-| `<cds-callout-with-media-copy>`  | `data-autoid="cds--callout-with-media-copy"`  | Component   |
-| `<cds-callout-with-media-image>` | `data-autoid="cds--callout-with-media-image"` | Component   |
-| `<cds-callout-with-media-video>` | `data-autoid="cds--callout-with-media-video"` | Component   |
+| `<c4d-callout-with-media>`       | `data-autoid="c4d--callout-with-media"`       | Component   |
+| `<c4d-callout-with-media-copy>`  | `data-autoid="c4d--callout-with-media-copy"`  | Component   |
+| `<c4d-callout-with-media-image>` | `data-autoid="c4d--callout-with-media-image"` | Component   |
+| `<c4d-callout-with-media-video>` | `data-autoid="c4d--callout-with-media-video"` | Component   |
 
 <Description markdown={contributing} />

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,29 +20,29 @@
     .#{$prefix}--row {
       &.#{$prefix}--layout--border {
         @include breakpoint(lg) {
-          padding-bottom: $spacing-13;
+          padding-block-end: $spacing-13;
         }
 
         .#{$prefix}--content-block__cta-row {
-          margin-bottom: 0;
+          margin-block-end: 0;
         }
 
         .#{$prefix}--layout-2-3 {
-          padding-left: 0;
+          padding-inline-start: 0;
         }
       }
     }
 
     .#{$prefix}--content-group__cta-row {
       @include breakpoint-down(md) {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     }
 
     .#{$prefix}--content-block__cta-row {
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
       @include breakpoint(lg) {
-        margin-bottom: $spacing-13;
+        margin-block-end: $spacing-13;
       }
     }
   }
@@ -51,17 +51,17 @@
   .#{$prefix}--content-block-segmented {
     &-border {
       .#{$prefix}--content-block {
-        padding-bottom: 0;
+        padding-block-end: 0;
       }
     }
 
     .#{$prefix}--content-block__cta-row {
-      margin-bottom: 0;
+      margin-block-end: 0;
 
       &-border {
-        margin-bottom: $spacing-07;
+        margin-block-end: $spacing-07;
         @include breakpoint(lg) {
-          margin-bottom: $spacing-13;
+          margin-block-end: $spacing-13;
         }
       }
     }
@@ -72,24 +72,22 @@
     .#{$prefix}--content-block-segmented__media
     ::slotted(:not([slot])) {
     display: block;
-    margin-top: $spacing-10;
-    margin-bottom: $spacing-10;
+    margin-block: $spacing-10;
   }
 
   :host(#{$c4d-prefix}-content-block-segmented)
     .#{$prefix}--content-block__children
     .#{$prefix}--content-block-segmented__media
     ::slotted(:not([slot]):last-of-type) {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   .#{$prefix}--content-block-segmented .#{$prefix}--content-group {
     display: block;
-    margin-top: $spacing-10;
-    margin-bottom: $spacing-10;
+    margin-block: $spacing-10;
 
     &:last-of-type {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
   }
 }

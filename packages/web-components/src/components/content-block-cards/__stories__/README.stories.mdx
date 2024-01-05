@@ -3,16 +3,16 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-block-cards>`
+# `<c4d-content-block-cards>`
 
-> The Content Block - Cards pattern is a variant of `<cds-content-block>`, and
+> The Content Block - Cards pattern is a variant of `<c4d-content-block>`, and
 > includes a heading, a group of cards with media options, and ends with a CTA.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-cards)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-cards)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-cards)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-cards)
 
 ## Getting started
 
@@ -31,19 +31,19 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index
 ### HTML
 
 ```html
-<cds-content-block-cards>
-  <cds-content-block-heading
-    >Lorem ipsum dolor sit amet</cds-content-block-heading
+<c4d-content-block-cards>
+  <c4d-content-block-heading
+    >Lorem ipsum dolor sit amet</c4d-content-block-heading
   >
-  <cds-card-group slot="content">
-    <cds-card-group-item href="https://example.com">
-      <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+  <c4d-card-group slot="content">
+    <c4d-card-group-item href="https://example.com">
+      <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <cds-card-cta-footer slot="footer">
+      <c4d-card-footer slot="footer">
         <svg
           slot="icon"
           focusable="false"
@@ -57,16 +57,16 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-cta-footer>
-    </cds-card-group-item>
-    <cds-card-group-item href="https://example.com">
-      <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+      </c4d-card-footer>
+    </c4d-card-group-item>
+    <c4d-card-group-item href="https://example.com">
+      <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <cds-card-cta-footer slot="footer">
+      <c4d-card-footer slot="footer">
         <svg
           slot="icon"
           focusable="false"
@@ -80,16 +80,16 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-cta-footer>
-    </cds-card-group-item>
-    <cds-card-group-item href="https://example.com">
-      <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+      </c4d-card-footer>
+    </c4d-card-group-item>
+    <c4d-card-group-item href="https://example.com">
+      <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <cds-card-cta-footer slot="footer">
+      <c4d-card-footer slot="footer">
         <svg
           slot="icon"
           focusable="false"
@@ -103,11 +103,11 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index
           <path
             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
-      </cds-card-cta-footer>
-    </cds-card-group-item>
-  </cds-card-group>
-  <cds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com">
-    <cds-card-link-heading>Lorem ipsum dolor sit ametttt</cds-card-link-heading>
+      </c4d-card-footer>
+    </c4d-card-group-item>
+  </c4d-card-group>
+  <c4d-card link slot="footer" cta-type="local" href="https://www.ibm.com">
+    <c4d-card-link-heading>Lorem ipsum dolor sit ametttt</c4d-card-link-heading>
     <svg
       slot="footer"
       focusable="false"
@@ -121,13 +121,13 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </cds-card-link-cta>
-</cds-content-block-cards>
+  </c4d-card>
+</c4d-content-block-cards>
 ```
 
 ## Props
 
-<Props of="cds-content-block-cards" />
+<Props of="c4d-content-block-cards" />
 
 ## Stable selectors
 
@@ -137,7 +137,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                       | Description |
 | ----------------------------- | -------------------------------------------- | ----------- |
-| `<cds-content-block-cards>`   | `data-autoid="cds--content-block-cards"`     | Component   |
-| `<cds-content-block-heading>` | `data-autoid="cds--content-block__heading"f` | Component   |
+| `<c4d-content-block-cards>`   | `data-autoid="c4d--content-block-cards"`     | Component   |
+| `<c4d-content-block-heading>` | `data-autoid="c4d--content-block__heading"f` | Component   |
 
 <Description markdown={contributing} />

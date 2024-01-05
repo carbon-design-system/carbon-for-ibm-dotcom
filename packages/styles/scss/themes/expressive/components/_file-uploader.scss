@@ -15,18 +15,18 @@
 /// @group file-uploader-expressive
 @mixin file-uploader-expressive {
   .#{$prefix}--file__state-container .#{$prefix}--file-close svg {
-    height: to-rem(20px);
-    width: to-rem(20px);
+    block-size: to-rem(20px);
+    inline-size: to-rem(20px);
   }
   .#{$prefix}--file__state-container .#{$prefix}--file-complete {
-    height: to-rem(20px);
-    width: to-rem(20px);
+    block-size: to-rem(20px);
+    inline-size: to-rem(20px);
   }
   .#{$prefix}--file__state-container .#{$prefix}--btn--tertiary {
-    width: to-rem(142px);
+    inline-size: to-rem(142px);
   }
   .#{$prefix}--file__state-container .#{$prefix}--file-invalid {
-    height: to-rem(20px);
-    width: to-rem(20px);
+    block-size: to-rem(20px);
+    inline-size: to-rem(20px);
   }
 }

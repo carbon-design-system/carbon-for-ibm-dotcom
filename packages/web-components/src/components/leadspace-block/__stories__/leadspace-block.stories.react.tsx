@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,9 +30,9 @@ import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
+import imgSm16x9 from '../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
+import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 
 import readme from './README.stories.react.mdx';
 
@@ -76,14 +76,18 @@ export const Default = (args) => {
   const { title, copy, media, border, highlight } = args?.LeadSpaceBlock ?? {};
   return (
     <C4DLeadspaceBlock border={border || undefined}>
-      <C4DLeadspaceHeading highlight={highlight} type-style="fluid-heading-05">{title}</C4DLeadspaceHeading>
+      <C4DLeadspaceHeading highlight={highlight} type-style="fluid-heading-05">
+        {title}
+      </C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
         <C4DContentBlockCopy>{copy}</C4DContentBlockCopy>
-        {media !== 'none' ?
-        <C4DLeadspaceBlockMedia>
-          {media === 'image' ? image : media === 'video' ? video : ''}
-        </C4DLeadspaceBlockMedia>
-        : ``}
+        {media !== 'none' ? (
+          <C4DLeadspaceBlockMedia>
+            {media === 'image' ? image : media === 'video' ? video : ''}
+          </C4DLeadspaceBlockMedia>
+        ) : (
+          ``
+        )}
         {linkList} {buttonCTA}
       </C4DLeadspaceBlockContent>
     </C4DLeadspaceBlock>
@@ -110,13 +114,16 @@ export default {
     hasStoryPadding: true,
     knobs: {
       LeadSpaceBlock: () => ({
-        title: text('title (title)', 'Infuse your AIOps platform with intelligent IT operations'),
+        title: text(
+          'title (title)',
+          'Infuse your AIOps platform with intelligent IT operations'
+        ),
         highlight: text('Highlight:', 'intelligent IT operations'),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,
         media: select('Media:', ['none', 'image', 'video'], 'image'),
-        border: boolean('Border:', true)
+        border: boolean('Border:', true),
       }),
     },
   },

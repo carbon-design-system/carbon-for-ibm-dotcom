@@ -3,16 +3,16 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-block-card-static>`
+# `<c4d-content-block-card-static>`
 
-> The Content Block - Card Static pattern is a variant of `<cds-content-block>`,
+> The Content Block - Card Static pattern is a variant of `<c4d-content-block>`,
 > and includes a card group, a single content item, and ends with a CTA.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-card-static)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-card-static)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-card-static)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-card-static)
 
 ## Feature Flag
 
@@ -49,52 +49,52 @@ import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
 ### HTML
 
 ```html
-<cds-content-block-card-static>
-  <cds-content-block-heading>Ways to buy</cds-content-block-heading>
-  <cds-card-group>
-    <cds-card-group-item>
-      <cds-card-heading>Nunc convallis</cds-card-heading>
+<c4d-content-block-card-static>
+  <c4d-content-block-heading>Ways to buy</c4d-content-block-heading>
+  <c4d-card-group>
+    <c4d-card-group-item>
+      <c4d-card-heading>Nunc convallis</c4d-card-heading>
       <div>
-        <cds-tag>Most popular</cds-tag>
+        <c4d-tag>Most popular</c4d-tag>
       </div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-    </cds-card-group-item>
-    <cds-card-group-item>
-      <cds-card-heading>Nunc convallis</cds-card-heading>
+    </c4d-card-group-item>
+    <c4d-card-group-item>
+      <c4d-card-heading>Nunc convallis</c4d-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-    </cds-card-group-item>
-  </cds-card-group>
-  <cds-content-item>
-    <cds-content-item-heading
-      >Lorem ipsum dolor si amett</cds-content-item-heading
+    </c4d-card-group-item>
+  </c4d-card-group>
+  <c4d-content-item>
+    <c4d-content-item-heading
+      >Lorem ipsum dolor si amett</c4d-content-item-heading
     >
-    <cds-content-item-copy
+    <c4d-content-item-copy
       >Contact us for a customized quote, discounted pricing, and financing
       options - or get started with a free trial today
-    </cds-content-item-copy>
-  </cds-content-item>
-  <cds-button-group slot="footer">
-    <cds-button-group-item href="https://example.com">
+    </c4d-content-item-copy>
+  </c4d-content-item>
+  <c4d-button-group slot="footer">
+    <c4d-button-group-item href="https://example.com">
       Contact us ${Chat20({ slot: 'icon' })}
-    </cds-button-group-item>
-    <cds-button-group-item href="https://example.com">
+    </c4d-button-group-item>
+    <c4d-button-group-item href="https://example.com">
       Free trial ${ArrowRight20({ slot: 'icon' })}
-    </cds-button-group-item>
-  </cds-button-group>
-</cds-content-block-card-static>
+    </c4d-button-group-item>
+  </c4d-button-group>
+</c4d-content-block-card-static>
 ```
 
 ## Props
 
-<Props of="cds-content-block-card-static" />
+<Props of="c4d-content-block-card-static" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -105,6 +105,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector           | Compatibility selector                         | Description |
 | --------------------------------- | ---------------------------------------------- | ----------- |
-| `<cds-content-block-card-static>` | `data-autoid="cds--content-block-card-static"` | Component   |
+| `<c4d-content-block-card-static>` | `data-autoid="c4d--content-block-card-static"` | Component   |
 
 <Description markdown={contributing} />

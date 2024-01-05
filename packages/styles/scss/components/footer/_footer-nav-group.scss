@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,26 +24,26 @@
   .#{$prefix}--footer-nav-group.#{$prefix}--accordion__item {
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
-    padding-left: 0;
     display: block;
 
+    padding-inline-start: 0;
+
     &:last-child {
-      margin-bottom: $spacing-09;
-      border-bottom: 1px solid $layer-accent-01;
+      border-block-end: 1px solid $layer-accent-01;
+      margin-block-end: $spacing-09;
 
       @include breakpoint(md) {
-        border-bottom: none;
+        border-block-end: none;
       }
     }
 
     .#{$prefix}--accordion__content {
-      padding-left: 0;
-      padding-right: 0;
+      padding-inline: 0;
 
       ul {
+        margin: 0;
         list-style: none;
         padding-inline-start: 0;
-        margin: 0;
       }
     }
 
@@ -54,12 +54,13 @@
     @include breakpoint(md) {
       @include make-col-ready;
 
-      padding-left: 0;
       display: inline-block;
-      margin-bottom: $spacing-09;
+      margin-block-end: $spacing-09;
+
+      padding-inline-start: 0;
 
       &.#{$prefix}--accordion__item {
-        border-top: 0 transparent;
+        border-block-start: 0 transparent;
       }
 
       .#{$prefix}--accordion__heading {
@@ -68,7 +69,7 @@
 
       .#{$prefix}--accordion__content {
         display: block;
-        height: auto;
+        block-size: auto;
         opacity: 1;
         visibility: visible;
       }
@@ -92,9 +93,9 @@
   .#{$prefix}--footer-nav-group {
     .#{$prefix}--link {
       @include breakpoint-down(md) {
-        margin-top: 0;
         display: block;
         padding: $spacing-05;
+        margin-block-start: 0;
 
         &:hover,
         &:active {
@@ -110,8 +111,8 @@
         }
 
         &:focus {
-          outline-width: 0;
           box-shadow: inset 0 0 0 1px $focus;
+          outline-width: 0;
         }
       }
     }
@@ -135,7 +136,7 @@
 
     :host(#{$c4d-prefix}-footer-nav-item),
     .#{$prefix}--footer-nav-group__item {
-      margin-top: $spacing-03;
+      margin-block-start: $spacing-03;
     }
   }
 }

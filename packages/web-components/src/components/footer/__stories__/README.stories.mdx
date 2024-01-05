@@ -13,22 +13,22 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 > displays consistently at the bottom of each page.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/footer)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/footer)
 > example implementation.
 
 ### Footer (locale selector):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/footer)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/footer)
 
 ### Footer (language selector):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/footer-language-only)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/footer-language-only)
 
 ## Getting started
 
 ### Quick start
 
-`<cds-footer-container>` automatically renders contents of footer from default
+`<c4d-footer-container>` automatically renders contents of footer from default
 service data. If you want change in services/data integration, etc., see
 ["Customizing data integration" section](#customizing-data-integration) below.
 
@@ -45,15 +45,15 @@ import '@carbon/ibmdotcom-web-components/es/components/footer/index';
 ### HTML
 
 ```html
-<cds-footer-container></cds-footer-container>
+<c4d-footer-container></c4d-footer-container>
 ```
 
 > 💡 You can get size variants of footer with `size="short"` or `size="micro"`
 > attribute.
 
-#### Attributes and properties `<cds-footer-container>`
+#### Attributes and properties `<c4d-footer-container>`
 
-<Props of="cds-footer-composite" />
+<Props of="c4d-footer-composite" />
 
 ## Stable selectors
 
@@ -63,13 +63,13 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                          | Compatibility selector                 | Description |
 | ------------------------------------------------ | -------------------------------------- | ----------- |
-| `<cds-footer>`                                   | `data-autoid="cds--footer"`            | Component   |
-| `<cds-footer-nav>`                               | `data-autoid="cds--footer-nav"`        | Component   |
-| `<cds-footer-nav-group>`                         | `data-autoid="cds--footer-nav-group"`  | Component   |
-| `<cds-footer-logo>`                              | `data-autoid="cds--footer-logo"`       | Component   |
-| `<cds-locale-button>`                            | `data-autoid="cds--footer-locale-btn"` | Interactive |
-| `<cds-legal-nav>`                                | `data-autoid="cds--legal-nav"`         | Component   |
-| `<cds-legal-nav-cookie-preferences-placeholder>` | `data-autoid="cds--privacy-cp"`        | Component   |
+| `<c4d-footer>`                                   | `data-autoid="c4d--footer"`            | Component   |
+| `<c4d-footer-nav>`                               | `data-autoid="c4d--footer-nav"`        | Component   |
+| `<c4d-footer-nav-group>`                         | `data-autoid="c4d--footer-nav-group"`  | Component   |
+| `<c4d-footer-logo>`                              | `data-autoid="c4d--footer-logo"`       | Component   |
+| `<c4d-locale-button>`                            | `data-autoid="c4d--footer-locale-btn"` | Interactive |
+| `<c4d-legal-nav>`                                | `data-autoid="c4d--legal-nav"`         | Component   |
+| `<c4d-legal-nav-cookie-preferences-placeholder>` | `data-autoid="c4d--privacy-cp"`        | Component   |
 
 ### Language selector
 
@@ -87,11 +87,11 @@ The following attributes are needed:
 Example implementation:
 
 ```html
-<cds-footer-container
+<c4d-footer-container
   size="regular"
   language-selector-label="Choose a language"
   clear-selection-label="Clear language selection"
-  selected-language="English"></cds-footer-container>
+  selected-language="English"></c4d-footer-container>
 ```
 
 ```javascript
