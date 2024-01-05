@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,11 @@ import C4DLogoGridItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import logos from './data/logos.js';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 export const Default = (args) => {
   const {
@@ -57,7 +62,7 @@ export const Default = (args) => {
         <C4DLogoGridLink href={ctaHref}>
           <C4DCardLinkHeading>{ctaCopy}</C4DCardLinkHeading>
           <C4DCardFooter>
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DCardFooter>
         </C4DLogoGridLink>
       ) : (

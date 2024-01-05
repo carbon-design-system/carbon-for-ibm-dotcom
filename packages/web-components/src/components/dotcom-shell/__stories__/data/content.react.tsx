@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -77,6 +77,11 @@ import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/720/fpo-
 import imgXlg4x3 from '../../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
 import leadspaceImg from '../../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 export const image = (
   <C4DImage
@@ -250,13 +255,13 @@ export const tocContent = (
         <C4DLinkList type="end">
           <C4DLinkListHeading>Featured products</C4DLinkListHeading>
           <C4DLinkListItem href="https://example.com">
-            IBM Cloud Continuous Delivery <ArrowRight size="20" slot="icon" />
+            IBM Cloud Continuous Delivery <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            UrbanCode <ArrowRight size="20" slot="icon" />
+            UrbanCode <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            View all products <ArrowRight size="20" slot="icon" />
+            View all products <ArrowRight {...iconProps} />
           </C4DLinkListItem>
         </C4DLinkList>
         <C4DButton href="https://example.com" cta-type="local">
@@ -286,7 +291,7 @@ export const tocContent = (
         morbu tristique.
       </p>
       <C4DFeatureCardFooter>
-        <ArrowRight size="20" slot="icon" />
+        <ArrowRight {...iconProps} />
       </C4DFeatureCardFooter>
     </C4DFeatureCard>
 
@@ -368,10 +373,10 @@ export const tocContent = (
       </C4DContentBlockCopy>
       <C4DButtonGroup slot="action">
         <C4DButtonGroupItem href="https://example.com">
-          Secondary Button <ArrowRight size="20" slot="icon" />
+          Secondary Button <ArrowRight {...iconProps} />
         </C4DButtonGroupItem>
         <C4DButtonGroupItem href="https://example.com">
-          Primary button <ArrowRight size="20" slot="icon" />
+          Primary button <ArrowRight {...iconProps} />
         </C4DButtonGroupItem>
       </C4DButtonGroup>
       <C4DCTABlockItemRow no-border>
@@ -468,7 +473,7 @@ export const StoryContentNoToC = () => (
           Habitant morbu tristique.
         </p>
         <C4DFeatureCardFooter>
-          <ArrowRight size="20" slot="icon" />
+          <ArrowRight {...iconProps} />
         </C4DFeatureCardFooter>
       </C4DFeatureCard>
 
@@ -546,10 +551,10 @@ export const StoryContentNoToC = () => (
 
         <C4DButtonGroup slot="action">
           <C4DButtonGroupItem href="https://example.com">
-            Secondary Button <ArrowRight size="20" slot="icon" />
+            Secondary Button <ArrowRight {...iconProps} />
           </C4DButtonGroupItem>
           <C4DButtonGroupItem href="https://example.com">
-            Primary button <ArrowRight size="20" slot="icon" />
+            Primary button <ArrowRight {...iconProps} />
           </C4DButtonGroupItem>
         </C4DButtonGroup>
 

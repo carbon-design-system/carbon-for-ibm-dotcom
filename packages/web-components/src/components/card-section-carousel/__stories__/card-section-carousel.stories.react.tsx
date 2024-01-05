@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,6 +40,10 @@ const copyOdd = `
   ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const Card = ({
   copy = copyDefault,
@@ -50,7 +54,7 @@ const Card = ({
     <C4DCardHeading>{heading}</C4DCardHeading>
     <p>{copy}</p>
     <C4DCardFooter>
-      <ArrowRight size="20" slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardFooter>
   </C4DCard>
 );
@@ -67,7 +71,7 @@ export const Default = () => {
       </C4DContentSectionCopy>
       <C4DLinkWithIcon slot="footer" href={hrefDefault}>
         Link text
-        <ArrowRight size="20" slot="icon" />
+        <ArrowRight {...iconProps} />
       </C4DLinkWithIcon>
       <C4DCarousel>
         <Card />

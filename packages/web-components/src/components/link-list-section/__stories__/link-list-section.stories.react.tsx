@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,11 @@ import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 export const Default = (args) => {
   const { heading } = args?.LinkListSection ?? {};
   return (
@@ -31,22 +36,22 @@ export const Default = (args) => {
       <C4DLinkList>
         <C4DLinkListItem href="https://example.com">
           Learn more about Kubernetes and automating deployment{' '}
-          <ArrowRight size="20" slot="icon" />
+          <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Containerization A Complete Guide <ArrowRight size="20" slot="icon" />
+          Containerization A Complete Guide <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Microservices and containers <ArrowRight size="20" slot="icon" />
+          Microservices and containers <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Learn more about Kubernetes <ArrowRight size="20" slot="icon" />
+          Learn more about Kubernetes <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Containerization A Complete Guide <ArrowRight size="20" slot="icon" />
+          Containerization A Complete Guide <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Microservices and containers <ArrowRight size="20" slot="icon" />
+          Microservices and containers <ArrowRight {...iconProps} />
         </C4DLinkListItem>
       </C4DLinkList>
     </C4DLinkListSection>

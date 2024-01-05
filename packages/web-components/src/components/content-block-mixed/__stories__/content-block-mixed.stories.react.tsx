@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -47,6 +47,11 @@ import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--1
 import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
 import imgSm16x9 from '../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 import { CTA_TYPE } from '../../cta/defs';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const pictogramsItems = [
   {
@@ -129,7 +134,7 @@ export const Default = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
         <C4DContentGroupCardsItem href="www.ibm.com">
@@ -142,7 +147,7 @@ export const Default = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
       </C4DContentGroupCards>
@@ -156,7 +161,7 @@ export const Default = (args) => {
               <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
               <C4DContentItemCopy>{itemCopy}</C4DContentItemCopy>
               <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
-                {linkWithIcon.copy} <ArrowRight size="20" slot="icon" />
+                {linkWithIcon.copy} <ArrowRight {...iconProps} />
               </C4DLinkWithIcon>
             </C4DPictogramItem>
           )
@@ -210,7 +215,7 @@ export const withLinkList = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
         <C4DContentGroupCardsItem href="www.ibm.com">
@@ -223,7 +228,7 @@ export const withLinkList = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <C4DCardFooter>
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DCardFooter>
         </C4DContentGroupCardsItem>
       </C4DContentGroupCards>
@@ -237,7 +242,7 @@ export const withLinkList = (args) => {
               <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
               <C4DContentItemCopy>{itemCopy}</C4DContentItemCopy>
               <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
-                {linkWithIcon.copy} <ArrowRight size="20" slot="icon" />
+                {linkWithIcon.copy} <ArrowRight {...iconProps} />
               </C4DLinkWithIcon>
             </C4DPictogramItem>
           )

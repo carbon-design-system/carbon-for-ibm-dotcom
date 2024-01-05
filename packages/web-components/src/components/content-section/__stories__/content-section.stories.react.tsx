@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,6 +44,11 @@ And here's an intriguing paradox: over time, as our assumptions shift about what
 For example: optical scan of documents (to create a text file out of an image of text) used to be considered artificial intelligence before it became common in our everyday lives. Observers of the history of AI call this phenomenon "the AI effect."
 `;
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const card1 = (
   <C4DContentGroupCardsItem href="https://www.example.com">
     <C4DCardHeading>
@@ -55,7 +60,7 @@ const card1 = (
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <C4DCardFooter icon-placemenet="left">
-      <ArrowRight size="20" slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );
@@ -68,7 +73,7 @@ const card2 = (
     </C4DCardHeading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <C4DCardFooter icon-placemenet="left">
-      <ArrowRight size="20" slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );
@@ -91,7 +96,7 @@ const Card = ({
     <C4DCardHeading>{heading}</C4DCardHeading>
     {copy}
     <C4DCardFooter>
-      <ArrowRight size="20" slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardFooter>
   </C4DCard>
 );
@@ -135,27 +140,27 @@ export const Default = (args) => {
         <C4DLinkList>
           <C4DLinkListItem href="https://example.com">
             Learn more about Kubernetes and automating deployment
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Containerization A Complete Guide
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Microservices and container
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Learn more about Kubernetes and automating deployment
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Containerization A Complete Guide
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
             Microservices and container
-            <ArrowRight size="20" slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DLinkListItem>
         </C4DLinkList>
       ) : (

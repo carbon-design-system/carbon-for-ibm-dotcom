@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,6 +28,11 @@ import mediumImgLg1x1 from '../../../../.storybook/storybook-images/assets/720/f
 import readme from './README.stories.react.mdx';
 import styles from './leaving-ibm.stories.scss';
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 export const Default = (args) => {
   const { href, ctaText, ctaType } = args?.LeavingIBM ?? {};
   return (
@@ -36,14 +41,14 @@ export const Default = (args) => {
       {ctaType === 'Link' ? (
         <C4DLinkWithIcon iconPlacement="right" href={href} data-leaving-ibm>
           {ctaText}
-          <Launch size="20" slot="icon" />
+          <Launch {...iconProps} />
         </C4DLinkWithIcon>
       ) : null}
       {ctaType === 'Button' ? (
         <C4DButtonGroup>
           <C4DButtonGroupItem href={href} data-leaving-ibm>
             {ctaText}
-            <Launch size="20" slot="icon" />
+            <Launch {...iconProps} />
           </C4DButtonGroupItem>
         </C4DButtonGroup>
       ) : null}
@@ -52,7 +57,7 @@ export const Default = (args) => {
           <C4DCardLinkHeading>{ctaText}</C4DCardLinkHeading>
           <p>Lorem ipsum dolor sit</p>
           <C4DCardFooter>
-            <Launch size="20" slot="icon" />
+            <Launch {...iconProps} />
           </C4DCardFooter>
         </C4DCardLink>
       ) : null}
@@ -65,7 +70,7 @@ export const Default = (args) => {
           />
           <C4DCardHeading>{ctaText}</C4DCardHeading>
           <C4DFeatureCardFooter>
-            <Launch size="20" slot="icon" />
+            <Launch {...iconProps} />
           </C4DFeatureCardFooter>
         </C4DFeatureCard>
       ) : null}

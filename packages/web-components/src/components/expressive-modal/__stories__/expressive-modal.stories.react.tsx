@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,11 @@ import { action } from '@storybook/addon-actions';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const sizes = {
   [`Regular size`]: null,
@@ -64,7 +69,7 @@ export const Default = (args) => {
       </C4DExpressiveModalBody>
       <C4DExpressiveModalFooter>
         <C4DButton href="https://www.example.com">
-          {buttonContent} <ArrowRight size="20" slot="icon" />
+          {buttonContent} <ArrowRight {...iconProps} />
         </C4DButton>
       </C4DExpressiveModalFooter>
     </C4DExpressiveModal>

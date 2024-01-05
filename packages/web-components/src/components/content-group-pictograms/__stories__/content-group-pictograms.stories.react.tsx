@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,6 +20,11 @@ import { ArrowRight } from '@carbon/icons-react';
 import { TouchScreen, Pattern, Touch } from '@carbon/pictograms-react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const pictograms = {
   TouchScreen: 'TouchScreen',
@@ -127,7 +132,7 @@ export const Default = (args) => {
                   <C4DContentItemCopy>{copy}</C4DContentItemCopy>
                   {cta && (
                     <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
-                      {linkWithIcon.copy} <ArrowRight size="20" slot="icon" />
+                      {linkWithIcon.copy} <ArrowRight {...iconProps} />
                     </C4DLinkWithIcon>
                   )}
                 </C4DPictogramItem>

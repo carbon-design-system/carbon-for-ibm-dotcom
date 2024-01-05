@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,6 +20,11 @@ import C4DQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/compon
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { QUOTE_TYPES } from '../quote';
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const types = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
@@ -41,7 +46,7 @@ export const Default = (args) => {
       <C4DQuoteSourceCopy>{sourceCopy}</C4DQuoteSourceCopy>
       <C4DQuoteSourceBottomCopy>{sourceBottomCopy}</C4DQuoteSourceBottomCopy>
       <C4DLinkWithIcon slot="footer" href="https://example.com">
-        Link with icon <ArrowRight size="20" slot="icon" />
+        Link with icon <ArrowRight {...iconProps} />
       </C4DLinkWithIcon>
     </C4DQuote>
   );

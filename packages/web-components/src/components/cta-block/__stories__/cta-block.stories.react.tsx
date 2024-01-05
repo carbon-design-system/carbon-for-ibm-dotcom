@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,9 +36,14 @@ import content from '../../cta-section/__stories__/content';
 import readme from './README.stories.react.mdx';
 import styles from './cta-block.stories.scss';
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const iconMap = {
-  ArrowRight: <ArrowRight size="20" slot="icon" />,
-  Launch: <Launch size="20" slot="icon" />,
+  ArrowRight: <ArrowRight {...iconProps} />,
+  Launch: <Launch {...iconProps} />,
 };
 
 const iconOptions = {
@@ -176,22 +181,22 @@ export const WithLinkList = (args) => {
       <C4DLinkList slot="link-list" type="end">
         <C4DLinkListHeading>More ways to explore DevOps</C4DLinkListHeading>
         <C4DLinkListItem href="https://example.com">
-          Events <ArrowRight size="20" slot="icon" />
+          Events <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Blogs <ArrowRight size="20" slot="icon" />
+          Blogs <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Training <ArrowRight size="20" slot="icon" />
+          Training <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Developer resources <ArrowRight size="20" slot="icon" />
+          Developer resources <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Research <ArrowRight size="20" slot="icon" />
+          Research <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          News <ArrowRight size="20" slot="icon" />
+          News <ArrowRight {...iconProps} />
         </C4DLinkListItem>
       </C4DLinkList>
     </C4DCTABlock>

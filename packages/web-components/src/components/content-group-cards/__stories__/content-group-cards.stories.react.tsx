@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,6 +19,11 @@ import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-
 import { text } from '@storybook/addon-knobs';
 import readme from './README.stories.react.mdx';
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const card1 = (
   <C4DContentGroupCardsItem href="https://www.example.com">
     <C4DCardHeading>
@@ -30,7 +35,7 @@ const card1 = (
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <C4DCardFooter icon-placement="left">
-      <ArrowRight size="20" slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );
@@ -42,7 +47,7 @@ const card2 = (
     </C4DCardHeading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <C4DCardFooter icon-placement="left">
-      <ArrowRight size="20" slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardFooter>
   </C4DContentGroupCardsItem>
 );

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,6 +26,11 @@ import { CTA_TYPE } from '../../cta/defs';
 import image from '../../../../.storybook/storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -60,7 +65,7 @@ const defaultCardGroupItem = (
       democritum ex. Illud ullum graecis
     </p>
     <C4DCardCTAFooter slot="footer">
-      <ArrowRight size="20" slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardCTAFooter>
   </C4DCardGroupItem>
 );

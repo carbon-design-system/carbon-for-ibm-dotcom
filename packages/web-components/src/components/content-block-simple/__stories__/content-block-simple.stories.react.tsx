@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -45,6 +45,11 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
         - list item 2a.a
 `;
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
@@ -72,7 +77,7 @@ export const Default = (args) => {
             href="https://example.com">
             <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
             <C4DCardFooter>
-              <ArrowRight size="20" slot="icon" />
+              <ArrowRight {...iconProps} />
             </C4DCardFooter>
           </C4DCardLink>
         ) : (

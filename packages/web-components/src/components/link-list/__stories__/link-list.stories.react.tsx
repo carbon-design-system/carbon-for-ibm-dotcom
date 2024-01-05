@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,6 +31,11 @@ import { CTA_TYPE } from '../../cta/defs';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -66,11 +71,11 @@ export const Default = (args) => {
       <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
       <C4DLinkListItem href="https://example.com" type="default">
         <p>Learn more about Kubernetes</p>
-        <ArrowRight size="20" slot="icon" />
+        <ArrowRight {...iconProps} />
       </C4DLinkListItem>
       <C4DLinkListItem href="https://example.com" type="default">
         <p>Containerization A Complete Guide</p>
-        <ArrowRight size="20" slot="icon" />
+        <ArrowRight {...iconProps} />
       </C4DLinkListItem>
     </C4DLinkList>
   ) : (
@@ -142,12 +147,12 @@ export const Horizontal = (args) => {
       <C4DLinkListItem
         icon-placement={iconPlacement}
         href="https://example.com">
-        Learn more about Kubernetes <ArrowRight size="20" slot="icon" />
+        Learn more about Kubernetes <ArrowRight {...iconProps} />
       </C4DLinkListItem>
       <C4DLinkListItem
         icon-placement={iconPlacement}
         href="https://example.com">
-        Containerization A Complete Guide <ArrowRight size="20" slot="icon" />
+        Containerization A Complete Guide <ArrowRight {...iconProps} />
       </C4DLinkListItem>
     </C4DLinkList>
   ) : (
@@ -220,14 +225,14 @@ export const Vertical = (args) => {
         icon-placement={iconPlacement}
         href="https://example.com">
         <p>
-          Learn more about Kubernetes <ArrowRight size="20" slot="icon" />
+          Learn more about Kubernetes <ArrowRight {...iconProps} />
         </p>
       </C4DLinkListItem>
       <C4DLinkListItem
         icon-placement={iconPlacement}
         href="https://example.com">
         <p>
-          Containerization A Complete Guide <ArrowRight size="20" slot="icon" />
+          Containerization A Complete Guide <ArrowRight {...iconProps} />
         </p>
       </C4DLinkListItem>
     </C4DLinkList>

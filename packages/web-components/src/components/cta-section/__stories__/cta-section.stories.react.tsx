@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,6 +34,11 @@ import { ArrowRight } from '@carbon/icons-react';
 
 import readme from './README.stories.react.mdx';
 import content from './content';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const contentItemTypeMap = {
   text: ({ heading, copy, links }) => (
@@ -250,22 +255,22 @@ export const WithLinkList = (args) => {
         <C4DLinkList slot="link-list" type="end">
           <C4DLinkListHeading>More ways to explore DevOps</C4DLinkListHeading>
           <C4DLinkListItem href="https://example.com">
-            Events <ArrowRight size="20" slot="icon" />
+            Events <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Blogs <ArrowRight size="20" slot="icon" />
+            Blogs <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Training <ArrowRight size="20" slot="icon" />
+            Training <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Developer resources <ArrowRight size="20" slot="icon" />
+            Developer resources <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            Research <ArrowRight size="20" slot="icon" />
+            Research <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            News <ArrowRight size="20" slot="icon" />
+            News <ArrowRight {...iconProps} />
           </C4DLinkListItem>
         </C4DLinkList>
       </C4DCTABlock>

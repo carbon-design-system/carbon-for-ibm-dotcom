@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,6 +35,11 @@ import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--1
 
 import readme from './README.stories.react.mdx';
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const image = (
   <C4DImage
     alt="Image alt text"
@@ -54,13 +59,13 @@ const linkList = (
   <C4DLinkList type="end">
     <C4DLinkListHeading>Featured products</C4DLinkListHeading>
     <C4DLinkListItem href="https://example.com">
-      IBM Cloud Continuous Delivery <ArrowRight size="20" slot="icon" />
+      IBM Cloud Continuous Delivery <ArrowRight {...iconProps} />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      UrbanCode <ArrowRight size="20" slot="icon" />
+      UrbanCode <ArrowRight {...iconProps} />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      View all products <Download size="20" slot="icon" />
+      View all products <Download {...iconProps} />
     </C4DLinkListItem>
   </C4DLinkList>
 );
