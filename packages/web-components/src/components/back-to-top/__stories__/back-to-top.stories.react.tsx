@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// @ts-nocheck
 import { ArrowDown, ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
