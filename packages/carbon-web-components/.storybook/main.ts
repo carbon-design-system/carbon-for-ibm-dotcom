@@ -16,6 +16,8 @@ const stories = glob.sync(
     '../src/**/link.mdx',
     '../src/**/link.stories.ts',
     '../src/**/file-uploader.mdx',
+    '../src/**/modal.stories.ts',
+    '../src/**/modal.mdx',
     '../src/**/file-uploader.stories.ts',
   ],
   {

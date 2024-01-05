@@ -8,11 +8,10 @@
  */
 
 import { html } from 'lit';
-import { boolean, select, text } from '@storybook/addon-knobs';
-import '../button/button';
+import '../structured-list';
 import { MODAL_SIZE } from './modal';
 import './index';
-import storyDocs from './modal-story.mdx';
+import storyDocs from './modal.mdx';
 
 const toggleButton = () => {
   document.querySelector('cds-modal')?.toggleAttribute('open');
@@ -31,8 +30,87 @@ const buttons = {
   'Three (3)': 3,
 };
 
-export const Default = () => {
-  return html`
+const defaultArgs = {
+  alert: false,
+  ariaLabel: "",
+  closeButtonLabel: "Close",
+  danger: false,
+  fullWidth: false,
+  hasScrollingContent: false,
+  modalHeading: "Add a custom domain",
+  modalLabel: "",
+  numberOfButtons: 2,
+  open: true,
+  passiveModal: false,
+  preventCloseOnClickOutside: false,
+  primaryButtonDisabled: false,
+  size: null
+};
+
+const controls = {
+  alert: {
+    control: "boolean",
+    description: "Specify whether the Modal is displaying an alert, error or warning Should go hand in hand with the danger prop."
+  },
+  ariaLabel: {
+    control: "text",
+    description: "Required props for the accessibility label of the header."
+  },
+  closeButtonLabel: {
+    control: "text",
+    description: "Required props for the accessibility label of the header."
+  },
+  danger: {
+    control: "boolean",
+    description: "Specify whether the Modal is for dangerous actions."
+  },
+  fullWidth: {
+    control: "boolean",
+    description: "Specify whether or not the Modal content should have any inner padding."
+  },
+  hasScrollingContent: {
+    control: "boolean",
+    description: "Specify whether the modal contains scrolling content."
+  },
+  modalHeading: {
+    control: "text",
+    description: "Specify the content of the modal header title."
+  },
+  modalLabel: {
+    control: "text",
+    description: "Specify the content of the modal header label."
+  },
+  numberOfButtons: {
+    control: "radio",
+    description: "Count of Footer Buttons",
+    options: buttons
+  },
+  open: {
+    control: "boolean",
+    description: "Specify whether the modal is currently open."
+  },
+  passiveModal: {
+    control: "boolean",
+    description: "Specify whether the Modal should be passive, or not."
+  },
+  preventCloseOnClickOutside: {
+    control: "boolean",
+    description: "Prevent close on click outside."
+  },
+  primaryButtonDisabled: {
+    control: "boolean",
+    description: "Primary button disabled."
+  },
+  size: {
+    control: "select",
+    description: "Modal size.",
+    options: sizes
+  }
+};
+
+
+export const Default = {
+  render: () => html`
     <cds-modal open prevent-close>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
@@ -78,11 +156,11 @@ export const Default = () => {
         <cds-modal-footer-button>Add</cds-modal-footer-button>
       </cds-modal-footer>
     </cds-modal>
-  `;
+  `
 };
 
-export const DangerModal = () => {
-  return html`
+export const DangerModal = {
+  render: () => html`
     <cds-modal open prevent-close>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
@@ -99,11 +177,11 @@ export const DangerModal = () => {
         <cds-modal-footer-button kind="danger">Delete</cds-modal-footer-button>
       </cds-modal-footer>
     </cds-modal>
-  `;
+  `
 };
 
-export const FullWidth = () => {
-  return html`
+export const FullWidth = {
+  render: () => html`
     <cds-modal open full-width prevent-close>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
@@ -166,11 +244,11 @@ export const FullWidth = () => {
         <cds-modal-footer-button>Add</cds-modal-footer-button>
       </cds-modal-footer>
     </cds-modal>
-  `;
+  `
 };
 
-export const PassiveModal = () => {
-  return html`
+export const PassiveModal = {
+  render: () => html`
     <cds-modal open prevent-close>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
@@ -180,11 +258,11 @@ export const PassiveModal = () => {
       </cds-modal-header>
       <cds-modal-body></cds-modal-body>
     </cds-modal>
-  `;
+  `
 };
 
-export const WithStateManager = () => {
-  return html`
+export const WithStateManager = {
+  render: () => html`
     <cds-modal>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
@@ -214,12 +292,13 @@ export const WithStateManager = () => {
       </cds-modal-footer>
     </cds-modal>
     <cds-button @click="${toggleButton}">Launch modal</cds-button>
-  `;
+  `
 };
 
-export const Playground = (args) => {
-  const {
-    alert,
+export const Playground = {
+  args: defaultArgs,
+  argTypes: controls,
+  render: ({alert,
     ariaLabel,
     danger,
     open,
@@ -233,8 +312,8 @@ export const Playground = (args) => {
     preventCloseOnClickOutside,
     primaryButtonDisabled,
     size,
-  } = args?.['cds-modal'] ?? {};
-  return html`
+  }) =>
+  html`
     <cds-modal
       aria-label=${ariaLabel}
       ?prevent-close-on-click-outside=${preventCloseOnClickOutside}
@@ -349,44 +428,16 @@ export const Playground = (args) => {
             >
           </cds-modal-footer>`}
     </cds-modal>
-  `;
-};
+  `
+}
 
-Playground.parameters = {
-  ...storyDocs.parameters,
-  knobs: {
-    'cds-modal': () => ({
-      alert: boolean('Alert (alert)', false),
-      ariaLabel: text('Aria label (aria-label)', ''),
-      closeButtonLabel: text(
-        'Close button label (close-button-label)',
-        'Close'
-      ),
-      danger: boolean('Danger mode (danger)', false),
-      fullWidth: boolean('Full width (full-width)', false),
-      hasScrollingContent: boolean(
-        'Has scrolling content (has-scrolling-content)',
-        false
-      ),
-      modalHeading: text('Modal heading', 'Add a custom domain'),
-      modalLabel: text('Modal label', ''),
-      numberOfButtons: select('Number of buttons', buttons, 2),
-      open: boolean('Open (open)', true),
-      passiveModal: boolean('Passive modal (passive-modal)', false),
-      preventCloseOnClickOutside: boolean(
-        'Prevent close on click outside',
-        false
-      ),
-      primaryButtonDisabled: boolean('Primary button disabled', false),
-      size: select('Modal size (size)', sizes, null),
-    }),
-  },
-};
-
-export default {
+const meta = {
   title: 'Components/Modal',
-  decorators: [(story) => html` ${story()} `],
   parameters: {
-    ...storyDocs.parameters,
+    docs: {
+      page: storyDocs,
+    },
   },
 };
+
+export default meta;
