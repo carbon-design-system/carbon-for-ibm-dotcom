@@ -53,7 +53,6 @@ const meta: Meta = {
 };
 
 export const Default = {
-  name: 'Default',
   parameters: {
     controls: { exclude: /(.*?)/ },
   },
