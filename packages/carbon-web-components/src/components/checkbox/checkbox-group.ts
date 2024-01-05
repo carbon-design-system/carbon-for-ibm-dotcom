@@ -14,7 +14,7 @@ import { prefix } from '../../globals/settings';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
 import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import CDSCheckbox from './checkbox';
-import styles from './checkbox.scss';
+import styles from './checkbox.scss?lit';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 /**

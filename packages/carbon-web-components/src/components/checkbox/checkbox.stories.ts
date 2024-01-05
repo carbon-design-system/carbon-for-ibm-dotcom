@@ -8,36 +8,78 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs';
 import { prefix } from '../../globals/settings';
-import textNullable from '../../../.storybook/knob-text-nullable';
+import storyDocs from './checkbox.mdx';
 import './index';
-import storyDocs from './checkbox-story.mdx';
 
 const checkboxLabel = 'Checkbox label';
 
-export const Default = () => {
-  return html`
+const defaultArgs = {
+  "disabled": false,
+  "helperText": "Helper text goes here",
+  "invalid": false,
+  "invalidText": "Invalid message goes here",
+  "legendText": "Group label",
+  "readonly": false,
+  "warn": false,
+  "warnText": "Warn message goes here"
+};
+
+const controls = {
+  "disabled": {
+    "control": "boolean",
+    "description": "Specify whether the checkbox should be disabled."
+  },
+  "helperText": {
+    "control": "textNullable",
+    "description": "Provide text for the form group for additional help."
+  },
+  "invalid": {
+    "control": "boolean",
+    "description": "Specify whether the form group is currently invalid."
+  },
+  "invalidText": {
+    "control": "textNullable",
+    "description": "Provide the text that is displayed when the form group is in an invalid state."
+  },
+  "legendText": {
+    "control": "textNullable",
+    "description": "Provide the text to be rendered inside of the fieldset."
+  },
+  "readonly": {
+    "control": "boolean",
+    "description": "Specify whether the checkbox group is read-only."
+  },
+  "warn": {
+    "control": "boolean",
+    "description": "Specify whether the form group is currently in warning state."
+  },
+  "warnText": {
+    "control": "textNullable",
+    "description": "Provide the text that is displayed when the form group is in warning state."
+  }
+};
+
+
+export const Default = {
+  render: () => html`
     <cds-checkbox-group legend-text="Group label">
       <cds-checkbox>${checkboxLabel}</cds-checkbox>
       <cds-checkbox>${checkboxLabel}</cds-checkbox>
     </cds-checkbox-group>
-  `;
+  `,
 };
 
-Default.storyName = 'Default';
-
-export const Skeleton = () => {
-  return html`
+export const Skeleton = {
+  render: () => html`
     <fieldset class="${prefix}--fieldset">
       <cds-checkbox-skeleton>${checkboxLabel}</cds-checkbox-skeleton>
     </fieldset>
-  `;
+  `
 };
 
-export const Single = () => {
-  return html`
+export const Single = {
+  render: () => html`
     <cds-checkbox helper-text="Helper text goes here"
       >${checkboxLabel}</cds-checkbox
     >
@@ -51,11 +93,13 @@ export const Single = () => {
     >
     <br /><br />
     <cds-checkbox readonly>${checkboxLabel}</cds-checkbox>
-  `;
+  `
 };
 
-export const Playground = (args) => {
-  const {
+export const Playground = {
+  args: defaultArgs,
+  argTypes: controls,
+  render: ({
     disabled,
     readonly,
     onChange,
@@ -65,8 +109,8 @@ export const Playground = (args) => {
     legendText,
     warn,
     warnText,
-  } = args?.[`${prefix}-checkbox`] ?? {};
-  return html`
+  }) =>
+  html`
     <cds-checkbox-group
       helper-text="${helperText}"
       ?disabled="${disabled}"
@@ -86,34 +130,17 @@ export const Playground = (args) => {
         >Checkbox label</cds-checkbox
       >
     </cds-checkbox-group>
-  `;
+  `
 };
 
-Playground.parameters = {
-  knobs: {
-    [`${prefix}-checkbox`]: () => ({
-      onChange: action(`${prefix}-checkbox-changed`),
-      disabled: boolean('Disabled (disabled)', false),
-      helperText: textNullable(
-        'Helper text (helper-text)',
-        'Helper text goes here'
-      ),
-      invalid: boolean('Invalid (invalid)', false),
-      invalidText: textNullable(
-        'Invalid text (invalid-text)',
-        'Invalid message goes here'
-      ),
-      legendText: textNullable('Legend text (legend-text)', 'Group label'),
-      readonly: boolean('Read only (readonly)', false),
-      warn: boolean('Warn (warn)', false),
-      warnText: textNullable('Warn text (warn-text)', 'Warn message goes here'),
-    }),
-  },
-};
-
-export default {
+const meta = {
   title: 'Components/Checkbox',
   parameters: {
-    ...storyDocs.parameters,
+    actions: { argTypesRegex: '^on.*' },
+    docs: {
+      page: storyDocs,
+    },
   },
 };
+
+export default meta;
