@@ -124,11 +124,14 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
    * Handles hiding search suggestions if focusing on other buttons.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocus = async ({ target }: FocusEvent) => {
-    if (!this._searchSuggestions) return;
+    if (!this._searchSuggestions) {
+      return;
+    }
 
     if (target === this._searchInputNode) {
       this._searchSuggestions.removeAttribute('hidden');
@@ -416,10 +419,11 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
 
     if (value) {
       this.open = true;
-      if (this.leadspaceSearch)
+      if (this.leadspaceSearch) {
         this._closeButtonNode?.classList.remove(
           `${prefix}--header__search--hide`
         );
+      }
     }
 
     // accomodate search results box's width with the scope dropdown

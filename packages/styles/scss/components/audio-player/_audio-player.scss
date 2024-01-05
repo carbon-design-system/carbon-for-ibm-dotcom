@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,9 +17,9 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: $spacing-09;
     padding: 0 $spacing-03 0 0;
     background-color: $layer-01;
+    block-size: $spacing-09;
 
     /* For Accessibility on the buttons, when focusing the button */
     .#{$prefix}--btn {
@@ -27,10 +27,8 @@
 
       &.#{$prefix}--btn--icon-only {
         &:not(.#{prefix}--audio-player__play-button) {
-          padding-left: $spacing-03;
-          padding-right: $spacing-03;
-
-          min-width: var(--cds-icon-size-01, 1.25rem);
+          min-inline-size: var(--cds-icon-size-01, 1.25rem);
+          padding-inline: $spacing-03;
         }
 
         &.#{$prefix}--btn--ghost {
@@ -59,62 +57,62 @@
 
   .#{$prefix}--audio-player__captions {
     position: absolute;
-    bottom: $spacing-09;
-    left: 0;
     display: flex;
     align-items: center;
-    width: 100%;
     padding: $spacing-05;
     background-color: $layer-01;
-    border-bottom: 1px solid $layer-accent-01;
+    border-block-end: 1px solid $layer-accent-01;
+    inline-size: 100%;
+    inset-block-end: $spacing-09;
+    inset-inline-start: 0;
   }
 
   .#{$prefix}--audio-player__captions-text {
-    min-height: calc(#{$spacing-05} + #{$spacing-01});
     color: $text-primary;
+    min-block-size: calc(#{$spacing-05} + #{$spacing-01});
   }
 
   .#{$prefix}--audio-player__thumbnail {
-    width: $spacing-09;
-    height: $spacing-09;
+    box-sizing: border-box;
     border: 1px solid $layer-accent-01;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    box-sizing: border-box;
+    block-size: $spacing-09;
+    inline-size: $spacing-09;
   }
 
   /* To hide the original player */
   .#{$prefix}--audio-player__embedded-player {
-    display: none;
-    width: 0;
-    height: 0;
     z-index: -1;
+    display: none;
+    block-size: 0;
+    inline-size: 0;
   }
 
   .#{$prefix}--audio-player__play-button {
     &.#{$prefix}--btn {
       &.#{$prefix}--btn--icon-only {
         padding: $spacing-03;
-        margin-left: $spacing-03;
+        margin-inline-start: $spacing-03;
       }
     }
+
     svg {
       &.#{$prefix}--btn__icon {
-        width: $spacing-07;
-        height: $spacing-07;
+        block-size: $spacing-07;
+        inline-size: $spacing-07;
       }
     }
   }
 
   .#{$prefix}--audio-player__audio-time {
-    min-width: 17.5rem;
-    height: $spacing-08;
+    block-size: $spacing-08;
+    min-inline-size: 17.5rem;
 
     .#{$prefix}--slider__range-label:first-of-type {
-      margin-left: $spacing-05;
+      margin-inline-start: $spacing-05;
     }
   }
 
@@ -139,15 +137,15 @@
   }
   .#{$prefix}--audio-player__volume-control-menu {
     position: absolute;
-    bottom: calc(#{$spacing-09} + #{$spacing-03});
-    right: 0;
+    z-index: 2;
     display: flex;
     align-items: center;
-    max-width: 15.5rem;
-    height: $spacing-09;
     padding: 0 $spacing-03 $spacing-03;
     background-color: $field-02;
-    z-index: 2;
+    block-size: $spacing-09;
+    inset-block-end: calc(#{$spacing-09} + #{$spacing-03});
+    inset-inline-end: 0;
+    max-inline-size: 15.5rem;
   }
 
   .#{$prefix}--audio-player__shadow {
@@ -156,12 +154,12 @@
   }
 
   .#{$prefix}--audio-player__overflow-menu-container {
-    width: calc(#{$spacing-07} + #{$spacing-02});
-    height: $spacing-09;
+    block-size: $spacing-09;
+    inline-size: calc(#{$spacing-07} + #{$spacing-02});
 
     button {
-      width: 100%;
-      height: 100%;
+      block-size: 100%;
+      inline-size: 100%;
     }
   }
 }

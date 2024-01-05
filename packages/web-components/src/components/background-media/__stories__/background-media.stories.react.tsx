@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,9 +15,9 @@ import React from 'react';
 import C4DBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
-import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
-import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
+import imgMax from '../../../../.storybook/storybook-images/assets/leadspace/leadspaceMax.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
+import imgSm4x3 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
 import { GRADIENT_DIRECTION } from '../defs';
 import readme from './README.stories.react.mdx';
 

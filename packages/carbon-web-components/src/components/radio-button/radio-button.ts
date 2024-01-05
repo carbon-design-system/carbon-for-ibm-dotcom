@@ -153,6 +153,18 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
           )
         );
       }
+      this.dispatchEvent(
+        new CustomEvent(
+          (this.constructor as typeof CDSRadioButton).eventChange,
+          {
+            bubbles: true,
+            composed: true,
+            detail: {
+              checked: this.checked,
+            },
+          }
+        )
+      );
     }
   };
 
@@ -359,7 +371,7 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
       <label for="input" class="${prefix}--radio-button__label">
         <span class="${prefix}--radio-button__appearance"></span>
         <span class="${innerLabelClasses}"
-          >${labelText}
+          ><slot>${labelText}</slot>
           <slot name="slug" @slotchange="${this._handleSlotChange}"></slot
         ></span>
       </label>

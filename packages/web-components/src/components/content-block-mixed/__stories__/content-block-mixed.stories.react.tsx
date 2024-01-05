@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,9 +43,9 @@ import TouchScreen from '@carbon/pictograms-react/es/touch--screen/index.js';
 
 import readme from './README.stories.react.mdx';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/defs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgSm16x9 from '../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 import { CTA_TYPE } from '../../cta/defs';
 
 const pictogramsItems = [
