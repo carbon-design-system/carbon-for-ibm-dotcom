@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -264,6 +264,35 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
   }
 
   /**
+   * Builds a redirect href string with appropriate query params.
+   *
+   * @param targetQuery An optional query string value.
+   * @returns {string} An href string.
+   */
+  private _buildRedirect(targetQuery: string | undefined = undefined) {
+    const [primary, country] = this.language.split('-');
+    const tokens = this.redirectUrl.split('?');
+    const base = tokens.shift();
+    const searchParams = new URLSearchParams(tokens.join('?'));
+    // Setting `this.searchQueryString` as the default value of `targetQuery` seems to cause a Babel bug
+    searchParams.append('q', targetQuery ?? this.searchQueryString);
+    searchParams.append('lang', primary);
+    searchParams.append('cc', country);
+
+    if (this.appId) {
+      searchParams.append('scope-domain', 'scope');
+      searchParams.append('scope-value', this.scopeValue);
+      searchParams.append('scope-type', this.appId);
+
+      if (this.scopeLabel) {
+        searchParams.append('scope-label', this.scopeLabel ?? '');
+      }
+    }
+
+    return `${base}?${searchParams.toString()}`;
+  }
+
+  /**
    * Handles user-initiated redirect to the search query page.
    *
    * @param [options] The options.
@@ -276,15 +305,6 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
   }: { targetQuery?: string; targetHref?: string } = {}) {
     const { eventBeforeRedirect, eventInput } = this
       .constructor as typeof C4DSearchWithTypeahead;
-    const { language, redirectUrl } = this;
-    const [primary, country] = language.split('-');
-    const tokens = redirectUrl.split('?');
-    const base = tokens.shift();
-    const searchParams = new URLSearchParams(tokens.join('?'));
-    // Setting `this._searchInputNode?.value` as the default value of `targetQuery` seems to cause a Babel bug
-    searchParams.append('q', targetQuery ?? this._searchInputNode?.value);
-    searchParams.append('lang', primary);
-    searchParams.append('cc', country);
 
     this.dispatchEvent(
       new CustomEvent(eventInput, {
@@ -297,19 +317,8 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       })
     );
 
-    if (this.appId) {
-      searchParams.append('scope-domain', 'scope');
-      searchParams.append('scope-value', this.scopeValue);
-      searchParams.append('scope-type', this.appId);
-
-      if (this.scopeLabel) {
-        searchParams.append('scope-label', this.scopeLabel ?? '');
-      }
-    }
-
-    const redirectUrlWithSearch = targetHref
-      ? `${targetHref}`
-      : `${base}?${searchParams.toString()}`;
+    const redirectUrlWithSearch =
+      targetHref ?? this._buildRedirect(targetQuery);
     if (
       this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
@@ -464,6 +473,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     if (highlightedItem || !this._searchInputNode.value) {
       event.preventDefault();
     }
+    const redirectUrlWithSearch = this._buildRedirect();
     if (
       !this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
@@ -471,7 +481,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
           cancelable: true,
           composed: true,
           detail: {
-            redirectUrl: this.redirectUrl,
+            redirectUrl: redirectUrlWithSearch,
           },
         })
       )
