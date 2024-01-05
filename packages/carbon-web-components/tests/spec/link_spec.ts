@@ -16,7 +16,7 @@ const template = (props?) =>
     'cds-link': props,
   });
 
-xdescribe('cds-link', function () {
+describe('cds-link', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template({ href: 'about:blank' }), document.body);
