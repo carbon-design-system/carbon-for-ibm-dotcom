@@ -20,12 +20,11 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const rtlcss = require('rtlcss');
 const { promisify } = require('util');
 const { terser } = require('rollup-plugin-terser');
-
+const alias = require('@rollup/plugin-alias');
 const carbonIcons = require('./rollup-plugin-icons');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
 const license = require('./rollup-plugin-license');
 const litSCSS = require('./rollup-plugin-lit-scss');
-const scssImport = require('./rollup-plugin-scss-import');
 
 const readFile = promisify(fs.readFile);
 
@@ -119,6 +118,9 @@ function getRollupConfig({
   return {
     input: _generateInputs(mode, dir, folders),
     plugins: [
+      alias({
+        entries: [{ find: /^(.*)\.scss\?lit$/, replacement: '$1.scss' }],
+      }),
       multiInput(),
       nodeResolve({
         browser: true,
@@ -130,7 +132,6 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
-      scssImport(),
       carbonIcons(),
       babel.babel({
         babelHelpers: 'runtime',
