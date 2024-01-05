@@ -18,6 +18,7 @@
   :host(#{$c4d-prefix}-background-media) {
     position: relative;
     display: block;
+    overflow: clip;
     block-size: 100%;
     outline: none;
 
@@ -92,13 +93,6 @@
     inset-block-end: $spacing-07;
     inset-inline-end: $spacing-07;
     line-height: 0;
-  }
-
-  .#{$prefix}--background-media--video {
-    aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */
-    @include breakpoint(md) {
-      aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
-    }
   }
 
   .#{$prefix}--video-player__controls[hasTooltip] {
