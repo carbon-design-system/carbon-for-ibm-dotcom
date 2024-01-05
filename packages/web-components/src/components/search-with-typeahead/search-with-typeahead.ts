@@ -27,6 +27,7 @@ import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import C4DSearchWithTypeaheadItem from './search-with-typeahead-item';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
@@ -157,9 +158,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
   }
 
   /**
-   * Handles `click` event on the top-level element in the shadow DOM.
-   *
-   * @param event The event.
+   * @inheritdoc
    */
   protected _handleClickInner(event: MouseEvent) {
     if (
@@ -167,7 +166,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       event.target
     ) {
       this._handleUserInitiatedToggle();
-      if (this._searchInputNode.value && this.leadspaceSearch) {
+      if (this.searchQueryString && this.leadspaceSearch) {
         this._closeButtonNode?.classList.remove(
           `${prefix}--header__search--hide`
         );
@@ -189,7 +188,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     const { active } = this;
 
     if (active) {
-      if (this._searchInputNode.value) {
+      if (this.searchQueryString) {
         this._handleUserInitiatedRedirect();
       }
     } else {
@@ -336,9 +335,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
   }
 
   /**
-   * Handles component reset if focusing outside.
-   *
-   * @param event The event.
+   * @inheritdoc
    */
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -470,7 +467,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     const highlightedItem = this.shadowRoot!.querySelector(
       selectorItemHighlighted
     ) as CDSDropdownItem;
-    if (highlightedItem || !this._searchInputNode.value) {
+    if (highlightedItem || !this.searchQueryString) {
       event.preventDefault();
     }
     const redirectUrlWithSearch = this._buildRedirect();
@@ -490,18 +487,23 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     }
   }
 
-  protected _handleUserInitiatedSelectItem(item?: CDSDropdownItem) {
-    if (item) {
-      this._searchInputNode.value = (item as unknown as any).text;
+  /**
+   * @inheritdoc
+   */
+  protected _handleUserInitiatedSelectItem(
+    item?: CDSDropdownItem | C4DSearchWithTypeaheadItem
+  ) {
+    if (item && item instanceof C4DSearchWithTypeaheadItem) {
+      this._searchInputNode.value = item.text;
       this._handleUserInitiatedRedirect({
-        targetQuery: (item as unknown as any).text,
-        targetHref: (item as unknown as any).href,
+        targetQuery: item.text,
+        targetHref: item.href,
       });
     }
   }
 
   /**
-   * Handler for the `keypress` event on the top-level element in the shadow DOM.
+   * @inheritdoc
    */
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
@@ -518,9 +520,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       switch (action) {
         case DROPDOWN_KEYBOARD_ACTION.TRIGGERING:
           {
-            const constructor = this.constructor as typeof CDSDropdown;
+            const { selectorItemHighlighted } = this
+              .constructor as typeof CDSDropdown;
             const highlightedItem = this.shadowRoot!.querySelector(
-              constructor.selectorItemHighlighted
+              selectorItemHighlighted
             ) as CDSDropdownItem;
             if (highlightedItem) {
               this._handleUserInitiatedSelectItem(highlightedItem);
@@ -621,8 +624,9 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
    * @param event The event.
    */
   protected _handleClickItem(event: MouseEvent) {
+    const { selectorItem } = this.constructor as typeof CDSDropdown;
     const item = (event.target as Element).closest(
-      (this.constructor as typeof CDSDropdown).selectorItem
+      selectorItem
     ) as CDSDropdownItem;
     if (this.shadowRoot!.contains(item)) {
       this._handleUserInitiatedSelectItem(item);
