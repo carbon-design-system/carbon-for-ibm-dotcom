@@ -1,3 +1,12 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2023, 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import type { StorybookConfig } from '@storybook/web-components-vite';
 import { mergeConfig } from 'vite';
 import { litStyleLoader, litTemplateLoader } from '@mordech/vite-lit-loader';
@@ -15,6 +24,8 @@ const stories = glob.sync(
     '../src/**/link.stories.ts',
     '../src/**/file-uploader.mdx',
     '../src/**/file-uploader.stories.ts',
+    '../src/**/overflow-menu.mdx',
+    '../src/**/overflow-menu.stories.ts',
   ],
   {
     ignore: ['../src/**/docs/*.mdx'],
