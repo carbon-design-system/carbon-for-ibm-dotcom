@@ -120,7 +120,6 @@ export const Default = (args) => {
   const ctaFeatured = childCtaRoot?.querySelector('c4d-feature-cta');
   const c4dImage = ctaFeatured?.querySelectorAll('c4d-image') || [];
   const c4dHeading = ctaFeatured?.querySelectorAll('c4d-card-heading') || [];
-  console.log(c4dImage);
   return html`
     ${ctaStyle === 'button'
       ? html`
