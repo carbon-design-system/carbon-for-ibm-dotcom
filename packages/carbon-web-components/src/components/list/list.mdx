@@ -1,10 +1,7 @@
 import { ArgsTable, Description, Meta } from '@storybook/addon-docs/blocks';
 import { cdnJs, cdnCss } from '../../globals/internal/storybook-cdn';
-import * as ListStories from './unordered-list.stories';
 
-<Meta of={ListStories} />
-
-# Unordered list
+# List
 
 Represents a list.
 
@@ -30,6 +27,26 @@ import '@carbon/web-components/es/components/list/index.js';
 ### HTML
 
 ```html
+<h3>cds-ordered-list</h3>
+
+<cds-ordered-list>
+  <cds-list-item>
+    Ordered List level 1
+    <cds-ordered-list>
+      <cds-list-item>Ordered List level 2</cds-list-item>
+      <cds-list-item>
+        Ordered List level 2
+        <cds-ordered-list>
+          <cds-list-item>Ordered List level 2</cds-list-item>
+          <cds-list-item>Ordered List level 2</cds-list-item>
+        </cds-ordered-list>
+      </cds-list-item>
+    </cds-ordered-list>
+  </cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+</cds-ordered-list>
+
 <h3>cds-unordered-list</h3>
 
 <cds-unordered-list>
