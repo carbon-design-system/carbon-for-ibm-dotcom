@@ -6,9 +6,39 @@
 
 ```
 <input
-  aria-checked="false"
+  aria-checked="true"
   aria-readonly="false"
   class="cds--checkbox"
+  id="checkbox"
+  part="input"
+  type="checkbox"
+>
+<label
+  class="cds--checkbox-label"
+  for="checkbox"
+  part="label"
+  title=""
+>
+  <span class="cds--checkbox-label-text">
+    <slot>
+    </slot>
+  </span>
+</label>
+<slot name="slug">
+</slot>
+<div class="cds--checkbox__validation-msg">
+</div>
+
+```
+
+####   `Should render with various attributes`
+
+```
+<input
+  aria-checked="true"
+  aria-readonly="false"
+  class="cds--checkbox"
+  disabled=""
   id="checkbox"
   part="input"
   type="checkbox"
@@ -25,33 +55,10 @@
     </slot>
   </span>
 </label>
-
-```
-
-####   `Should render with various attributes`
-
-```
-<input
-  aria-checked="mixed"
-  aria-readonly="false"
-  class="cds--checkbox"
-  disabled=""
-  id="checkbox"
-  part="input"
-  type="checkbox"
->
-<label
-  class="cds--checkbox-label"
-  for="checkbox"
-  part="label"
-  title=""
->
-  <span class="cds--checkbox-label-text cds--visually-hidden">
-    <slot>
-      label-text-foo
-    </slot>
-  </span>
-</label>
+<slot name="slug">
+</slot>
+<div class="cds--checkbox__validation-msg">
+</div>
 
 ```
 

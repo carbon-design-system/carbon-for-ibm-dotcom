@@ -120,6 +120,7 @@
   <div class="cds--modal-content">
     <div id="cds--modal-header">
       <c4d-expressive-modal-header
+        close-button=""
         data-autoid="c4d--expressive-modal-header"
         slot="header"
       >

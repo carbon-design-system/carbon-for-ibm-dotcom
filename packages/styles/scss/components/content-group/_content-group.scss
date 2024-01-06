@@ -23,12 +23,12 @@
   }
   :host(#{$c4d-prefix}-content-group-heading),
   :host(#{$c4d-prefix}-content-group-copy) {
-    max-width: 40rem;
+    max-inline-size: 40rem;
   }
   :host(#{$c4d-prefix}-content-group) {
     ::slotted([slot='footer']) {
       background: none;
-      height: auto;
+      block-size: auto;
     }
   }
   .#{$prefix}--content-layout__body {

@@ -37,7 +37,7 @@ class C4DPricingTable extends HostListenerMixin(
   highlightClass = 'highlighted';
 
   @property()
-  highlightGap: number = 0;
+  highlightGap = 0;
 
   /**
    * This table's C4DPricingTableHead node.

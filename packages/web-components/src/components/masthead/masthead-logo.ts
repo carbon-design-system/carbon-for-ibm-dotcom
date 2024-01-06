@@ -9,12 +9,11 @@
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
-import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
+import IBM8BarLogoH23 from '../../../es/icons/IBM-8bar-logo--h23.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -70,7 +69,7 @@ class C4DMastheadLogo extends FocusMixin(
 
   // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
-    return html` <slot>${unsafeSVG(IBM8BarLogoH23)}</slot> `;
+    return html` <slot>${IBM8BarLogoH23()}</slot> `;
   }
 
   updated(changedProperties) {
