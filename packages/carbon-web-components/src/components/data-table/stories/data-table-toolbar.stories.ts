@@ -8,13 +8,12 @@
  */
 
 import { html } from 'lit';
-import { boolean, select, text } from '@storybook/addon-knobs';
 import { prefix } from '../../../globals/settings';
 import { TABLE_SIZE } from '../table';
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
 import OverflowMenuVertical16 from '@carbon/icons/lib/overflow-menu--vertical/16';
+import storyDocs from './data-table.mdx';
 import '../index';
-import storyDocs from './data-table-story.mdx';
 
 const sizes = {
   [`xs (${TABLE_SIZE.XS})`]: TABLE_SIZE.XS,
@@ -24,7 +23,51 @@ const sizes = {
   [`xl (${TABLE_SIZE.XL})`]: TABLE_SIZE.XL,
 };
 
-export const Default = () => {
+const defaultArgs = {
+  isSortable: false,
+  locale: 'en',
+  overflowMenuOnHover: false,
+  radio: false,
+  size: TABLE_SIZE.LG,
+  useStaticWidth: false,
+  useZebraStyles: false
+};
+
+const controls = {
+  isSortable: {
+    control: 'boolean',
+    description: 'Is sortable'
+  },
+  locale: {
+    control: 'text',
+    description: 'Locale'
+  },
+  overflowMenuOnHover: {
+    control: 'boolean',
+    description: 'Overflow menu on hover'
+  },
+  radio: {
+    control: 'boolean',
+    description: 'Radio'
+  },
+  size: {
+    control: 'select',
+    description: 'Size',
+    options: sizes
+  },
+  useStaticWidth: {
+    control: 'boolean',
+    description: 'Use static width'
+  },
+  useZebraStyles: {
+    control: 'boolean',
+    description: 'Use zebra styles'
+  }
+};
+
+
+export const Default = {
+render: () => {
   return html`
     <cds-table>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
@@ -123,10 +166,11 @@ export const Default = () => {
       </cds-table-body>
     </cds-table>
   `;
-};
+}
+}
 
-export const PersistentToolbar = () => {
-  return html`
+export const PersistentToolbar = {
+render: () => html`
     <cds-table>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
@@ -224,11 +268,11 @@ export const PersistentToolbar = () => {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `;
-};
+  `
+}
 
-export const SmallPersistentToolbar = () => {
-  return html`
+export const SmallPersistentToolbar = {
+  render: () => html`
     <cds-table size="sm">
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
@@ -320,11 +364,11 @@ export const SmallPersistentToolbar = () => {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `;
+  `
 };
 
-export const WithOverflowMenu = () => {
-  return html`
+export const WithOverflowMenu = {
+render: () => html`
     <cds-table overflow-menu-on-hover>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
@@ -494,20 +538,22 @@ export const WithOverflowMenu = () => {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `;
-};
+  `
+}
 
-export const Playground = (args) => {
-  const {
-    isSortable,
-    locale,
-    radio,
-    overflowMenuOnHover,
-    size,
-    useStaticWidth,
-    useZebraStyles,
-  } = args?.[`${prefix}-table`] ?? {};
-  return html`
+export const Playground = {
+  args: defaultArgs,
+  argTypes: controls,
+
+render: ({
+  isSortable,
+  locale,
+  radio,
+  overflowMenuOnHover,
+  size,
+  useStaticWidth,
+  useZebraStyles,
+}) => html`
     <cds-table
       ?is-sortable=${isSortable}
       locale="${locale}"
@@ -678,26 +724,16 @@ export const Playground = (args) => {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `;
-};
+  `
+}
 
-Playground.parameters = {
-  knobs: {
-    [`${prefix}-table`]: () => ({
-      isSortable: boolean('Is sortable', false),
-      locale: text('Locale', 'en'),
-      overflowMenuOnHover: boolean('Overflow menu on hover', false),
-      radio: boolean('Radio', false),
-      size: select('Size', sizes, TABLE_SIZE.LG),
-      useStaticWidth: boolean('Use static width', false),
-      useZebraStyles: boolean('Use zebra styles', false),
-    }),
-  },
-};
-
-export default {
+const meta = {
   title: 'Components/DataTable/Toolbar',
   parameters: {
-    ...storyDocs.parameters,
+    docs: {
+      page: storyDocs,
+    },
   },
 };
+
+export default meta;
