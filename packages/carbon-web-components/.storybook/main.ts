@@ -16,6 +16,8 @@ const stories = glob.sync(
     '../src/**/unordered-list.mdx',
     '../src/**/ordered-list.mdx',
     '../src/**/checkbox.stories.ts',
+    '../src/**/inline-loading.mdx',
+    '../src/**/inline-loading.stories.ts',
     '../src/**/checkbox.mdx',
     '../src/**/loading.stories.ts',
     '../src/**/loading.mdx',
