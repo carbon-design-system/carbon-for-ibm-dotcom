@@ -8,33 +8,46 @@
  */
 
 import { html } from 'lit';
-import './ordered-list';
-import './list-item';
-import { boolean } from '@storybook/addon-knobs';
-import storyDocs from './list-story.mdx';
-import { prefix } from '../../globals/settings';
+import storyDocs from './ordered-list.mdx';
+import './index'
 
-export const Default = () => html`<cds-ordered-list>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-  <cds-list-item>Ordered List level 1</cds-list-item>
-</cds-ordered-list>`;
-
-export default {
-  title: 'Components/Ordered List',
+const defaultArgs = {
+  "isExpressive": false,
+  "native": false
 };
 
-export const NativeListStyles = () => html`<cds-ordered-list native>
+const controls = {
+  "isExpressive": {
+    "control": "boolean",
+    "description": "Specify whether this ordered list expressive or not."
+  },
+  "native": {
+    "control": "boolean",
+    "description": "Specify whether this ordered list should use native list styles instead of custom counter."
+  }
+};
+
+
+export const Default = {
+  render: () => html`<cds-ordered-list>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+  <cds-list-item>Ordered List level 1</cds-list-item>
+</cds-ordered-list>`
+}
+
+export const NativeListStyles = {
+  render: () => html`<cds-ordered-list native>
   <cds-list-item>Ordered List level 1</cds-list-item>
   <cds-list-item>Ordered List level 1</cds-list-item>
   <cds-list-item>Ordered List level 1</cds-list-item>
@@ -55,9 +68,11 @@ export const NativeListStyles = () => html`<cds-ordered-list native>
   <cds-list-item>Ordered List level 1</cds-list-item>
   <cds-list-item>Ordered List level 1</cds-list-item>
   <cds-list-item>Ordered List level 1</cds-list-item>
-</cds-ordered-list>`;
+</cds-ordered-list>`
+}
 
-export const Nested = () => html`<cds-ordered-list>
+export const Nested = {
+  render: () => html`<cds-ordered-list>
   <cds-list-item>
     Ordered List level 1
     <cds-ordered-list native>
@@ -73,11 +88,13 @@ export const Nested = () => html`<cds-ordered-list>
   </cds-list-item>
   <cds-list-item>Ordered List level 1</cds-list-item>
   <cds-list-item>Ordered List level 1</cds-list-item>
-</cds-ordered-list>`;
+</cds-ordered-list>`
+} 
 
-export const Playground = (args) => {
-  const { isExpressive, native } = args?.[`${prefix}-list`] ?? {};
-  return html`
+export const Playground = {
+  args: defaultArgs,
+  argTypes: controls,
+  render: ({ isExpressive, native }) => html`
     <cds-ordered-list ?isExpressive="${isExpressive}" ?native="${native}">
       <cds-list-item>
         Ordered List level 1
@@ -106,15 +123,16 @@ export const Playground = (args) => {
       <cds-list-item>Ordered List level 1</cds-list-item>
     </cds-ordered-list>
   </cds-ordered-list>
-  `;
+  `
 };
 
-Playground.parameters = {
-  ...storyDocs.parameters,
-  knobs: {
-    [`${prefix}-list`]: () => ({
-      isExpressive: boolean('Expressive (isExpressive)', false),
-      native: boolean('Native (native)', false),
-    }),
+const meta = {
+  title: 'Components/Ordered list',
+  parameters: {
+    docs: {
+      page: storyDocs,
+    },
   },
 };
+
+export default meta;
