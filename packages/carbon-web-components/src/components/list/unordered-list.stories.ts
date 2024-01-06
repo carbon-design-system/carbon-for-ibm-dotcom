@@ -12,51 +12,49 @@ import storyDocs from './unordered-list.mdx';
 import './index';
 
 const defaultArgs = {
-  "isExpressive": false
+  isExpressive: false,
 };
 
 const controls = {
-  "isExpressive": {
-    "control": "boolean",
-    "description": "Specify whether this ordered list expressive or not."
-  }
+  isExpressive: {
+    control: 'boolean',
+    description: 'Specify whether this ordered list expressive or not.',
+  },
 };
 
 export const Default = {
-
   render: () => html`<cds-unordered-list>
     <cds-list-item>Unordered List level 1</cds-list-item>
     <cds-list-item>Unordered List level 1</cds-list-item>
     <cds-list-item>Unordered List level 1</cds-list-item>
-  </cds-unordered-list>`
-}
+  </cds-unordered-list>`,
+};
 
 export const Nested = {
-
-render: () => html`<cds-unordered-list>
-  <cds-list-item>
-    Unordered List level 1
-    <cds-unordered-list>
-      <cds-list-item>Unordered List level 2</cds-list-item>
-      <cds-list-item>
-        Unordered List level 2
-        <cds-unordered-list>
-          <cds-list-item>Unordered List level 3</cds-list-item>
-          <cds-list-item>Unordered List level 3</cds-list-item>
-        </cds-unordered-list>
-      </cds-list-item>
-    </cds-unordered-list>
-  </cds-list-item>
-  <cds-list-item>Unordered List level 1</cds-list-item>
-  <cds-list-item>Unordered List level 1</cds-list-item>
-</cds-unordered-list>`
-}
+  render: () => html`<cds-unordered-list>
+    <cds-list-item>
+      Unordered List level 1
+      <cds-unordered-list>
+        <cds-list-item>Unordered List level 2</cds-list-item>
+        <cds-list-item>
+          Unordered List level 2
+          <cds-unordered-list>
+            <cds-list-item>Unordered List level 3</cds-list-item>
+            <cds-list-item>Unordered List level 3</cds-list-item>
+          </cds-unordered-list>
+        </cds-list-item>
+      </cds-unordered-list>
+    </cds-list-item>
+    <cds-list-item>Unordered List level 1</cds-list-item>
+    <cds-list-item>Unordered List level 1</cds-list-item>
+  </cds-unordered-list>`,
+};
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
 
-render: ({isExpressive}) => html`
+  render: ({ isExpressive }) => html`
     <cds-unordered-list ?isExpressive="${isExpressive}">
       <cds-list-item>
         Unordered List level 1
@@ -74,8 +72,8 @@ render: ({isExpressive}) => html`
       <cds-list-item>Unordered List level 1</cds-list-item>
       <cds-list-item>Unordered List level 1</cds-list-item>
     </cds-unordered-list>
-  `
-}
+  `,
+};
 
 const meta = {
   title: 'Components/Unordered list',

@@ -22,7 +22,7 @@ const defaultArgs = {
   assistiveText: 'Loading',
   type: null,
   withOverlay: false,
-}
+};
 
 const controls = {
   inactive: {
@@ -34,30 +34,31 @@ const controls = {
     description: `Specify a description that would be used to best describe the loading state.`,
   },
   type: {
-    control: 'radio', options: types,
-    description: `Specify the spinner type.`
+    control: 'radio',
+    options: types,
+    description: `Specify the spinner type.`,
   },
   withOverlay: {
     control: 'boolean',
     description: `Specify whether the loading should be an overlay.`,
   },
-}
+};
 
 export const Default = {
-  render: () => html` <cds-loading></cds-loading> `
-}
+  render: () => html` <cds-loading></cds-loading> `,
+};
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
-  render: ({ inactive, assistiveText, type, withOverlay }) => 
-  html`
-    <cds-loading
-      ?inactive=${inactive}
-      assistive-text=${assistiveText}
-      type=${ifDefined(type)}
-      ?overlay=${withOverlay}></cds-loading>
-  `
+  render: ({ inactive, assistiveText, type, withOverlay }) =>
+    html`
+      <cds-loading
+        ?inactive=${inactive}
+        assistive-text=${assistiveText}
+        type=${ifDefined(type)}
+        ?overlay=${withOverlay}></cds-loading>
+    `,
 };
 
 const meta = {

@@ -26,45 +26,45 @@ const defaultArgs = {
   rowCount: 5,
   showHeader: true,
   showToolbar: true,
-  zebra: false
+  zebra: false,
 };
 
 const controls = {
   compact: {
     control: 'boolean',
-    description: 'Compact'
+    description: 'Compact',
   },
   columnCount: {
     control: 'number',
-    description: 'Column count'
+    description: 'Column count',
   },
   rowCount: {
     control: 'number',
-    description: 'Row count'
+    description: 'Row count',
   },
   showHeader: {
     control: 'boolean',
-    description: 'Show header'
+    description: 'Show header',
   },
   showToolbar: {
     control: 'boolean',
-    description: 'Show toolbar'
+    description: 'Show toolbar',
   },
   zebra: {
     control: 'boolean',
-    description: 'Use zebra styles'
-  }
+    description: 'Use zebra styles',
+  },
 };
 
-
 export const Default = {
-  render: () => html` <cds-table-skeleton .headers=${headers}> </cds-table-skeleton>`
+  render: () =>
+    html` <cds-table-skeleton .headers=${headers}> </cds-table-skeleton>`,
 };
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
-  render: ({ columnCount, rowCount, showHeader, showToolbar, zebra }) =>  html`
+  render: ({ columnCount, rowCount, showHeader, showToolbar, zebra }) => html`
     <cds-table-skeleton
       .headers=${headers}
       column-count=${columnCount}
@@ -73,7 +73,7 @@ export const Playground = {
       ?show-toolbar=${showToolbar}
       ?zebra=${zebra}>
     </cds-table-skeleton>
-  `
+  `,
 };
 
 const meta = {

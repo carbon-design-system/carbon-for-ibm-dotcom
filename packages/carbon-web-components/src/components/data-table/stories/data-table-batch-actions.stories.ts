@@ -17,7 +17,7 @@ import TrashCan from '@carbon/web-components/es/icons/trash-can/16';
 import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
-import '../../overflow-menu'
+import '../../overflow-menu';
 import '../index';
 import storyDocs from './data-table.mdx';
 
@@ -35,40 +35,39 @@ const defaultArgs = {
   radio: false,
   size: TABLE_SIZE.LG,
   useStaticWidth: false,
-  useZebraStyles: false
+  useZebraStyles: false,
 };
 
 const controls = {
   isSortable: {
     control: 'boolean',
-    description: 'Is sortable'
+    description: 'Is sortable',
   },
   locale: {
     control: 'text',
-    description: 'Locale'
+    description: 'Locale',
   },
   radio: {
     control: 'boolean',
-    description: 'Radio'
+    description: 'Radio',
   },
   size: {
     control: 'radio',
     description: 'Size',
-    options: sizes
+    options: sizes,
   },
   useStaticWidth: {
     control: 'boolean',
-    description: 'Use static width'
+    description: 'Use static width',
   },
   useZebraStyles: {
     control: 'boolean',
-    description: 'Use zebra styles'
-  }
+    description: 'Use zebra styles',
+  },
 };
 
-
 export const Default = {
-render: () =>  html`
+  render: () => html`
     <cds-table>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
@@ -182,13 +181,20 @@ render: () =>  html`
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 export const Playground = {
   args: defaultArgs,
   argsType: controls,
-  render: ({ isSortable, locale, radio, size, useStaticWidth, useZebraStyles }) => html`
+  render: ({
+    isSortable,
+    locale,
+    radio,
+    size,
+    useStaticWidth,
+    useZebraStyles,
+  }) => html`
     <cds-table
       ?is-sortable=${isSortable}
       locale="${locale}"
@@ -298,7 +304,7 @@ export const Playground = {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 const meta = {

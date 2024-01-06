@@ -34,37 +34,36 @@ const defaultArgs = {
   radio: false,
   size: TABLE_SIZE.LG,
   useStaticWidth: false,
-  useZebraStyles: false
+  useZebraStyles: false,
 };
 
 const controls = {
   isSortable: {
     control: 'boolean',
-    description: 'Is sortable'
+    description: 'Is sortable',
   },
   locale: {
     control: 'text',
-    description: 'Locale'
+    description: 'Locale',
   },
   radio: {
     control: 'boolean',
-    description: 'Radio'
+    description: 'Radio',
   },
   size: {
     control: 'radio',
     description: 'Size',
-    options: sizes
+    options: sizes,
   },
   useStaticWidth: {
     control: 'boolean',
-    description: 'Use static width'
+    description: 'Use static width',
   },
   useZebraStyles: {
     control: 'boolean',
-    description: 'Use zebra styles'
-  }
+    description: 'Use zebra styles',
+  },
 };
-
 
 let headerCount = 6;
 let rowCount = 1;
@@ -235,13 +234,20 @@ export const Default = {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
-render: ({ isSortable, locale, radio, size, useStaticWidth, useZebraStyles }) => html`
+  render: ({
+    isSortable,
+    locale,
+    radio,
+    size,
+    useStaticWidth,
+    useZebraStyles,
+  }) => html`
     <cds-table
       expandable
       ?is-sortable=${isSortable}
@@ -373,7 +379,7 @@ render: ({ isSortable, locale, radio, size, useStaticWidth, useZebraStyles }) =>
         </cds-table-expanded-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 const meta = {

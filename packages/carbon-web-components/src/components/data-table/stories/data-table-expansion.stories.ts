@@ -25,33 +25,32 @@ const defaultArgs = {
   locale: 'en',
   size: TABLE_SIZE.LG,
   useStaticWidth: false,
-  useZebraStyles: false
+  useZebraStyles: false,
 };
 
 const controls = {
   isSortable: {
     control: 'boolean',
-    description: 'Is sortable'
+    description: 'Is sortable',
   },
   locale: {
     control: 'text',
-    description: 'Locale'
+    description: 'Locale',
   },
   size: {
     control: 'radio',
     description: 'Size',
-    options: sizes
+    options: sizes,
   },
   useStaticWidth: {
     control: 'boolean',
-    description: 'Use static width'
+    description: 'Use static width',
   },
   useZebraStyles: {
     control: 'boolean',
-    description: 'Use zebra styles'
-  }
+    description: 'Use zebra styles',
+  },
 };
-
 
 export const Default = {
   render: () => html`
@@ -150,11 +149,11 @@ export const Default = {
         </cds-table-expanded-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 export const BatchExpansion = {
-render: () => html`
+  render: () => html`
     <cds-table expandable batch-expansion>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
@@ -250,13 +249,19 @@ render: () => html`
         </cds-table-expanded-row>
       </cds-table-body>
     </cds-table>
-  `
-}
+  `,
+};
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
-render: ({ isSortable, locale, size, useStaticWidth, useZebraStyles }) => html`
+  render: ({
+    isSortable,
+    locale,
+    size,
+    useStaticWidth,
+    useZebraStyles,
+  }) => html`
     <cds-table
       expandable
       ?is-sortable=${isSortable}
@@ -358,7 +363,7 @@ render: ({ isSortable, locale, size, useStaticWidth, useZebraStyles }) => html`
         </cds-table-expanded-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 const meta = {

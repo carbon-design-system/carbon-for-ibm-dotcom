@@ -28,33 +28,32 @@ const defaultArgs = {
   locale: 'en',
   size: TABLE_SIZE.LG,
   useStaticWidth: false,
-  useZebraStyles: false
+  useZebraStyles: false,
 };
 
 const controls = {
   isSortable: {
     control: 'boolean',
-    description: 'Is sortable'
+    description: 'Is sortable',
   },
   locale: {
     control: 'text',
-    description: 'Locale'
+    description: 'Locale',
   },
   size: {
     control: 'radio',
     description: 'Size',
-    options: sizes
+    options: sizes,
   },
   useStaticWidth: {
     control: 'boolean',
-    description: 'Use static width'
+    description: 'Use static width',
   },
   useZebraStyles: {
     control: 'boolean',
-    description: 'Use zebra styles'
-  }
+    description: 'Use zebra styles',
+  },
 };
-
 
 export const Default = {
   render: () => html`
@@ -148,13 +147,20 @@ export const Default = {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
-  render: ( { isSortable, locale, radio, size, useStaticWidth, useZebraStyles }) => html`
+  render: ({
+    isSortable,
+    locale,
+    radio,
+    size,
+    useStaticWidth,
+    useZebraStyles,
+  }) => html`
     <cds-table
       ?is-sortable=${isSortable}
       locale="${locale}"
@@ -251,7 +257,7 @@ export const Playground = {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 const meta = {

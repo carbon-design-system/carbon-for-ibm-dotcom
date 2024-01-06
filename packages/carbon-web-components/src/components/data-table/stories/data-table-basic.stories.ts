@@ -24,29 +24,28 @@ const defaultArgs = {
   locale: 'en',
   size: TABLE_SIZE.LG,
   useStaticWidth: false,
-  useZebraStyles: false
+  useZebraStyles: false,
 };
 
 const controls = {
   locale: {
     control: 'text',
-    description: 'Provide a string for the current locale.'
+    description: 'Provide a string for the current locale.',
   },
   size: {
     control: 'radio',
     description: 'Change the row height of table.',
-    options: sizes
+    options: sizes,
   },
   useStaticWidth: {
     control: 'boolean',
-    description: 'Use static width.'
+    description: 'Use static width.',
   },
   useZebraStyles: {
     control: 'boolean',
-    description: 'Use zebra styles.'
-  }
+    description: 'Use zebra styles.',
+  },
 };
-
 
 export const Default = {
   render: () => html`
@@ -112,7 +111,7 @@ export const Default = {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 export const XLWithTwoLines = {
@@ -200,9 +199,8 @@ export const XLWithTwoLines = {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
-
 
 export const Playground = {
   args: defaultArgs,
@@ -274,7 +272,7 @@ export const Playground = {
         </cds-table-row>
       </cds-table-body>
     </cds-table>
-  `
+  `,
 };
 
 const meta = {

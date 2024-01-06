@@ -21,32 +21,31 @@ const states = {
 };
 
 const defaultArgs = {
-  "description": "Loading data...",
-  "assistiveText": "Loading",
-  "status": INLINE_LOADING_STATE.ACTIVE
+  description: 'Loading data...',
+  assistiveText: 'Loading',
+  status: INLINE_LOADING_STATE.ACTIVE,
 };
 
 const controls = {
-  "description": {
-    "control": "text",
-    "description": "Specify the description for the inline loading text."
+  description: {
+    control: 'text',
+    description: 'Specify the description for the inline loading text.',
   },
-  "assistiveText": {
-    "control": "text",
-    "description": "Specify a description that would be used to best describe the loading state."
+  assistiveText: {
+    control: 'text',
+    description:
+      'Specify a description that would be used to best describe the loading state.',
   },
-  "status": {
-    "control": "select",
-    "description": "Specify the loading status.",
-    "options": states
-  }
+  status: {
+    control: 'select',
+    description: 'Specify the loading status.',
+    options: states,
+  },
 };
 
-
 export const Default = {
-render: () =>
-  html`<cds-inline-loading>Loading data...</cds-inline-loading>`,
-}
+  render: () => html`<cds-inline-loading>Loading data...</cds-inline-loading>`,
+};
 
 export const Playground = {
   args: defaultArgs,
@@ -55,13 +54,11 @@ export const Playground = {
     percy: { skip: true },
   },
   render: ({ assistiveText, description, status }) =>
-  html`
-    <cds-inline-loading
-      status="${status}"
-      assistive-text=${assistiveText}>
-      ${description}
-    </cds-inline-loading>
-  `
+    html`
+      <cds-inline-loading status="${status}" assistive-text=${assistiveText}>
+        ${description}
+      </cds-inline-loading>
+    `,
 };
 
 const meta = {
