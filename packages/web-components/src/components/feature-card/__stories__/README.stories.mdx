@@ -10,10 +10,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Feature Card
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/feature-card)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/feature-card)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/feature-card)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/feature-card)
 
 ## Getting started
 
@@ -32,10 +32,10 @@ import '@carbon/ibmdotcom-web-components/es/components/feature-card/index.js';
 ### HTML
 
 ```html
-<cds-feature-card href="https://example.com">
+<c4d-feature-card href="https://example.com">
   <img />
-  <cds-card-heading>Explore AI use cases in all industries</cds-card-heading>
-  <cds-feature-card-footer>
+  <c4d-card-heading>Explore AI use cases in all industries</c4d-card-heading>
+  <c4d-feature-card-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -49,23 +49,23 @@ import '@carbon/ibmdotcom-web-components/es/components/feature-card/index.js';
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </cds-feature-card-footer>
-</cds-feature-card>
+  </c4d-feature-card-footer>
+</c4d-feature-card>
 ```
 
 Here's an example using the Feature Card Large variant (previously known as
 `FeatureCardBlockLarge`)
 
 ```html
-<cds-feature-card size="large" href="https://example.com">
+<c4d-feature-card size="large" href="https://example.com">
   <img />
-  <cds-card-eyebrow>This is an eyebrow</cds-card-eyebrow>
-  <cds-card-heading>Explore AI use cases in all industries</cds-card-heading>
-  <cds-card-copy
+  <c4d-card-eyebrow>This is an eyebrow</c4d-card-eyebrow>
+  <c4d-card-heading>Explore AI use cases in all industries</c4d-card-heading>
+  <c4d-card-copy
     >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</cds-card-copy
+    tempor incididunt ut labore et dolore magna aliqua.</c4d-card-copy
   >
-  <cds-feature-card-footer>
+  <c4d-feature-card-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -79,8 +79,8 @@ Here's an example using the Feature Card Large variant (previously known as
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </cds-feature-card-footer>
-</cds-feature-card>
+  </c4d-feature-card-footer>
+</c4d-feature-card>
 ```
 
 ### CTA features
@@ -115,7 +115,7 @@ Notes:
 
 ## Props
 
-<Props of="cds-feature-card" />
+<Props of="c4d-feature-card" />
 
 ## Stable selectors
 
@@ -125,6 +125,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector            | Description |
 | ----------------------- | --------------------------------- | ----------- |
-| `<cds-feature-card>`    | `data-autoid="cds--feature-card"` | Component   |
+| `<c4d-feature-card>`    | `data-autoid="c4d--feature-card"` | Component   |
 
 <Description markdown={contributing} />

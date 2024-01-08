@@ -3,16 +3,16 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-block-horizontal>`
+# `<c4d-content-block-horizontal>`
 
 > The Content Block - Horizontal block pattern contains a collection of
-> `<cds-content-item-row>` content items.
+> `<c4d-content-item-row>` content items.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-horizontal)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-horizontal)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-horizontal)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-horizontal)
 
 ## Getting started
 
@@ -33,41 +33,41 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-horizontal/
 ### HTML
 
 ```html
-<cds-content-block-horizontal>
-  <cds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
+<c4d-content-block-horizontal>
+  <c4d-content-block-heading
+    >Curabitur malesuada varius mi eu posuere</c4d-content-block-heading
   >
-  <cds-content-item-row>
-    <cds-content-item-row-eyebrow
-      >Lorem ipsum</cds-content-item-row-eyebrow
+  <c4d-content-item-row>
+    <c4d-content-item-row-eyebrow
+      >Lorem ipsum</c4d-content-item-row-eyebrow
     >
-    <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
-    <cds-content-item-row-copy
+    <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
+    <c4d-content-item-row-copy
       >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-      sollicitudin.</cds-content-item-row-copy
+      sollicitudin.</c4d-content-item-row-copy
     >
-    <cds-link-list slot="footer" type="vertical">
-      <cds-link-list-item-cta
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </cds-link-list-item-cta>
-      <cds-link-list-item-cta
+      </c4d-link-list-item-cta>
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="external">
         External link text
-      </cds-link-list-item-cta>
-    </cds-link-list>
-  </cds-content-item-row>
-</cds-content-block-horizontal>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-item-row>
+</c4d-content-block-horizontal>
 ```
 
 ## Props
 
-<Props of="cds-content-block-horizontal" />
+<Props of="c4d-content-block-horizontal" />
 
 <Description markdown={markdownContents} />
 
@@ -79,9 +79,9 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector              | Compatibility selector                            | Description |
 | ------------------------------------ | ------------------------------------------------- | ----------- |
-| `<cds-content-block-horizontal>`     | `data-autoid="cds--content-block-simple"`         | Component   |
-| `<cds-content-block-heading>`        | `data-autoid="cds--content-block__heading"`       | Component   |
-| `<cds-content-item-row>`      | `data-autoid="cds--content-item-row"`      | Component   |
-| `<cds-content-item-row-copy>` | `data-autoid="cds--content-item-row-copy"` | Component   |
+| `<c4d-content-block-horizontal>`     | `data-autoid="c4d--content-block-simple"`         | Component   |
+| `<c4d-content-block-heading>`        | `data-autoid="c4d--content-block__heading"`       | Component   |
+| `<c4d-content-item-row>`      | `data-autoid="c4d--content-item-row"`      | Component   |
+| `<c4d-content-item-row-copy>` | `data-autoid="c4d--content-item-row-copy"` | Component   |
 
 <Description markdown={contributing} />

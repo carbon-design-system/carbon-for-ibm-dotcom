@@ -36,6 +36,7 @@
    * The reason for this being that the current placeholder color fails contrast testing,
    * while this replacement color passes testing.
    */
+
   ::placeholder {
     color: $text-secondary;
   }

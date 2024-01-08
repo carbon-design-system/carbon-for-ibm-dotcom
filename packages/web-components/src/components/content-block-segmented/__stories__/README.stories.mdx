@@ -3,16 +3,16 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-content-block-segmented>`
+# `<c4d-content-block-segmented>`
 
-> The Content Block - Segmented pattern is a variant of `<cds-content-block>`,
+> The Content Block - Segmented pattern is a variant of `<c4d-content-block>`,
 > and includes media, two content group items, and ends with a CTA.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-segmented)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-segmented)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-segmented)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block-segmented)
 
 ## Getting started
 
@@ -33,20 +33,20 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/i
 ### HTML
 
 ```html
-<cds-content-block-segmented>
-  <cds-content-block-heading>heading</cds-content-block-heading>
-  <cds-content-block-copy>copy</cds-content-block-copy>
-  <cds-image
+<c4d-content-block-segmented>
+  <c4d-content-block-heading>heading</c4d-content-block-heading>
+  <c4d-content-block-copy>copy</c4d-content-block-copy>
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
     heading="Mauris iaculis eget dolor nec hendrerit.">
-  </cds-image>
-  <cds-content-block-segmented-item>
-    <cds-content-group-heading
-      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+  </c4d-image>
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
+      >Lorem ipsum dolor sit amet.</c4d-content-group-heading
     >
-    <cds-content-item-copy
+    <c4d-content-item-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed
       interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus
       efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et,
@@ -56,21 +56,21 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/i
       pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu.
       Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem.
       Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in
-      dignissim sapien.</cds-content-item-copy
+      dignissim sapien.</c4d-content-item-copy
     >
-    <cds-text-cta
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</cds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </cds-content-block-segmented-item>
-  <cds-content-block-segmented-item>
-    <cds-content-group-heading
-      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+  </c4d-content-block-segmented-item>
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
+      >Lorem ipsum dolor sit amet.</c4d-content-group-heading
     >
-    <cds-content-item-copy
+    <c4d-content-item-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed
       interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus
       efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et,
@@ -80,27 +80,27 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/i
       pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu.
       Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem.
       Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in
-      dignissim sapien.</cds-content-item-copy
+      dignissim sapien.</c4d-content-item-copy
     >
-    <cds-image
+    <c4d-image
       slot="media"
       alt="Image alt text"
       default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
       heading="Mauris iaculis eget dolor nec hendrerit.">
-    </cds-image>
-    <cds-text-cta
+    </c4d-image>
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</cds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </cds-content-block-segmented-item>
-  <cds-card-link-cta slot="footer" cta-type="local" href="https://example.com">
-    <cds-card-link-heading>Lorem ipsum dolor</cds-card-link-heading>
-    <cds-card-cta-footer></cds-card-cta-footer>
-  </cds-card-link-cta>
-</cds-content-block-segmented>
+  </c4d-content-block-segmented-item>
+  <c4d-card link slot="footer" cta-type="local" href="https://example.com">
+    <c4d-card-link-heading>Lorem ipsum dolor</c4d-card-link-heading>
+    <c4d-card-footer></c4d-card-footer>
+  </c4d-card>
+</c4d-content-block-segmented>
 ```
 
 ## With Video
@@ -117,60 +117,60 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player
 ### HTML
 
 ```html
-<cds-content-block-segmented complementary-style-scheme="with-border">
-  <cds-content-block-heading
-    >Lorem ipsum dolor sit amet.</cds-content-block-heading
+<c4d-content-block-segmented complementary-style-scheme="with-border">
+  <c4d-content-block-heading
+    >Lorem ipsum dolor sit amet.</c4d-content-block-heading
   >
-  <cds-content-block-copy>Lorem ipsum dolor sit amet</cds-content-block-copy>
+  <c4d-content-block-copy>Lorem ipsum dolor sit amet</c4d-content-block-copy>
 
-  <cds-video-player-container
+  <c4d-video-player-container
     slot="media"
-    video-id="0_uka1msg4"></cds-video-player-container>
+    video-id="0_uka1msg4"></c4d-video-player-container>
 
-  <cds-content-block-segmented-item>
-    <cds-content-group-heading
-      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
+      >Lorem ipsum dolor sit amet.</c4d-content-group-heading
     >
-    <cds-content-item-copy>copy</cds-content-item-copy>
-    <cds-text-cta
+    <c4d-content-item-copy>copy</c4d-content-item-copy>
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</cds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </cds-content-block-segmented-item>
-  <cds-content-block-segmented-item>
-    <cds-content-group-heading
-      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+  </c4d-content-block-segmented-item>
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
+      >Lorem ipsum dolor sit amet.</c4d-content-group-heading
     >
-    <cds-content-item-copy>copy</cds-content-item-copy>
-    <cds-image
+    <c4d-content-item-copy>copy</c4d-content-item-copy>
+    <c4d-image
       slot="media"
       alt="Image alt text"
       default-src="image.jpg"
       heading="Mauris iaculis eget dolor nec hendrerit.">
-      <cds-image-item media="(min-width: 672px)" srcset="image-large.jpg">
-      </cds-image-item>
-      <cds-image-item media="(min-width: 400px)" srcset="image-medium.jpg">
-      </cds-image-item>
-      <cds-image-item media="(min-width: 320px)" srcset="image-small.jpg">
-      </cds-image-item>
-    </cds-image>
-    <cds-text-cta
+      <c4d-image-item media="(min-width: 672px)" srcset="image-large.jpg">
+      </c4d-image-item>
+      <c4d-image-item media="(min-width: 400px)" srcset="image-medium.jpg">
+      </c4d-image-item>
+      <c4d-image-item media="(min-width: 320px)" srcset="image-small.jpg">
+      </c4d-image-item>
+    </c4d-image>
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</cds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </cds-content-block-segmented-item>
+  </c4d-content-block-segmented-item>
 
-  <cds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-    <cds-card-link-heading>Lorem ipsum dolor</cds-card-link-heading>
-    <cds-card-cta-footer></cds-card-cta-footer>
-  </cds-card-link-cta>
-</cds-content-block-segmented>
+  <c4d-card link slot="footer" cta-type="local" href="https://www.ibm.com/">
+    <c4d-card-link-heading>Lorem ipsum dolor</c4d-card-link-heading>
+    <c4d-card-footer></c4d-card-footer>
+  </c4d-card>
+</c4d-content-block-segmented>
 ```
 
 ## With Aside Items
@@ -187,71 +187,71 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
 ### HTML
 
 ```html
-<cds-content-block-segmented complementary-style-scheme="with-border">
-  <cds-content-block-heading
-    >Lorem ipsum dolor sit amet.</cds-content-block-heading
+<c4d-content-block-segmented complementary-style-scheme="with-border">
+  <c4d-content-block-heading
+    >Lorem ipsum dolor sit amet.</c4d-content-block-heading
   >
-  <cds-content-block-copy>Lorem ipsum dolor sit amet</cds-content-block-copy>
+  <c4d-content-block-copy>Lorem ipsum dolor sit amet</c4d-content-block-copy>
 
-  <cds-image
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
     heading="Mauris iaculis eget dolor nec hendrerit.">
-  </cds-image>
+  </c4d-image>
 
-  <cds-content-block-segmented-item>
-    <cds-content-group-heading
-      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
+      >Lorem ipsum dolor sit amet.</c4d-content-group-heading
     >
-    <cds-content-item-copy>copy</cds-content-item-copy>
-    <cds-text-cta
+    <c4d-content-item-copy>copy</c4d-content-item-copy>
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</cds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </cds-content-block-segmented-item>
-  <cds-content-block-segmented-item>
-    <cds-content-group-heading
-      >Lorem ipsum dolor sit amet.</cds-content-group-heading
+  </c4d-content-block-segmented-item>
+  <c4d-content-block-segmented-item>
+    <c4d-content-group-heading
+      >Lorem ipsum dolor sit amet.</c4d-content-group-heading
     >
-    <cds-content-item-copy>copy</cds-content-item-copy>
+    <c4d-content-item-copy>copy</c4d-content-item-copy>
     ${image}
-    <cds-text-cta
+    <c4d-text-cta
       slot="footer"
       cta-type="local"
       icon-placement="right"
       href="https://example.com"
-      >Lorem Ipsum dolor sit</cds-text-cta
+      >Lorem Ipsum dolor sit</c4d-text-cta
     >
-  </cds-content-block-segmented-item>
-  <cds-link-list type="default" slot="complementary">
-    <cds-link-list-heading>Lorem Ipsum</cds-link-list-heading>
-    <cds-link-list-item-cta
+  </c4d-content-block-segmented-item>
+  <c4d-link-list type="default" slot="complementary">
+    <c4d-link-list-heading>Lorem Ipsum</c4d-link-list-heading>
+    <c4d-link-list-item-cta
       href="https://example.com"
       cta-type="local"
       type="default">
       <p>Containerization A Complete Guide</p>
-    </cds-link-list-item-cta>
-    <cds-link-list-item-cta
+    </c4d-link-list-item-cta>
+    <c4d-link-list-item-cta
       href="https://example.com"
       cta-type="external"
       type="default">
       <p>Why should you use microservices and containers</p>
-    </cds-link-list-item-cta>
-  </cds-link-list>
-  <cds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-    <cds-card-link-heading>Lorem ipsum dolor</cds-card-link-heading>
-    <cds-card-cta-footer></cds-card-cta-footer>
-  </cds-card-link-cta>
-</cds-content-block-segmented>
+    </c4d-link-list-item-cta>
+  </c4d-link-list>
+  <c4d-card link slot="footer" cta-type="local" href="https://www.ibm.com/">
+    <c4d-card-link-heading>Lorem ipsum dolor</c4d-card-link-heading>
+    <c4d-card-footer></c4d-card-footer>
+  </c4d-card>
+</c4d-content-block-segmented>
 ```
 
 ## Props
 
-<Props of="cds-content-block-segmented" />
+<Props of="c4d-content-block-segmented" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -262,7 +262,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector              | Compatibility selector                            | Description |
 | ------------------------------------ | ------------------------------------------------- | ----------- |
-| `<cds-content-block-segmented>`      | `data-autoid="cds--content-block-segmented"`      | Component   |
-| `<cds-content-block-segmented-item>` | `data-autoid="cds--content-block-segmented-item"` | Component   |
+| `<c4d-content-block-segmented>`      | `data-autoid="c4d--content-block-segmented"`      | Component   |
+| `<c4d-content-block-segmented-item>` | `data-autoid="c4d--content-block-segmented-item"` | Component   |
 
 <Description markdown={contributing} />

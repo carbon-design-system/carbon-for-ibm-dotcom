@@ -70,13 +70,13 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
-import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
-import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
-import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
-import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import imgSm16x9 from '../../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import imgMd16x9 from '../../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgLg16x9 from '../../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
+import imgXlg4x3 from '../../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
-import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import leadspaceImg from '../../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
 
 export const image = (
   <C4DImage
@@ -142,9 +142,7 @@ export const contentBlockSegmentedItemsWithImage = (
 
 export const contentItemHorizontal = (
   <C4DContentItemRow>
-    <C4DContentItemRowEyebrow>
-      Lorem ipsum
-    </C4DContentItemRowEyebrow>
+    <C4DContentItemRowEyebrow>Lorem ipsum</C4DContentItemRowEyebrow>
     <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
     <C4DContentItemRowCopy>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
@@ -173,9 +171,7 @@ export const globalBanner = (srcImage) => (
     <C4DGlobalBannerImage
       slot="image"
       default-src={srcImage}></C4DGlobalBannerImage>
-    <C4DGlobalBannerHeading slot="heading">
-      heading
-    </C4DGlobalBannerHeading>
+    <C4DGlobalBannerHeading slot="heading">heading</C4DGlobalBannerHeading>
     <C4DGlobalBannerCopy slot="copy">copy</C4DGlobalBannerCopy>
     <C4DButton
       slot="cta"
@@ -242,9 +238,7 @@ export const contentLeadspaceSearch = (
 export const tocContent = (
   <>
     <C4DLeadspaceBlock name="1" data-title="Lorem ipsum dolor sit amet">
-      <C4DLeadspaceHeading>
-        Lorem ipsum dolor sit amet
-      </C4DLeadspaceHeading>
+      <C4DLeadspaceHeading>Lorem ipsum dolor sit amet</C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
         <C4DContentBlockCopy slot="copy">
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -355,7 +349,10 @@ export const tocContent = (
       <C4DQuoteSourceHeading>Lorem ipsum dolor sit amet</C4DQuoteSourceHeading>
       <C4DQuoteSourceCopy>consectetur adipiscing elit</C4DQuoteSourceCopy>
       <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
-      <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+      <C4DCalloutLinkWithIcon
+        slot="footer"
+        href="https://example.com"
+        cta-type="local">
         Link with Icon
       </C4DCalloutLinkWithIcon>
     </C4DCalloutQuote>
@@ -532,7 +529,10 @@ export const StoryContentNoToC = () => (
         </C4DQuoteSourceHeading>
         <C4DQuoteSourceCopy>consectetur adipiscing elit</C4DQuoteSourceCopy>
         <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
-        <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+        <C4DCalloutLinkWithIcon
+          slot="footer"
+          href="https://example.com"
+          cta-type="local">
           Link with Icon
         </C4DCalloutLinkWithIcon>
       </C4DCalloutQuote>

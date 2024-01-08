@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,21 +16,21 @@ import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 
 import readme from './README.stories.react.mdx';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
-import imgLg3x2 from '../../../../../storybook-images/assets/720/fpo--3x2--720x480--005.jpg';
-import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
-import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
-import imgMd3x2 from '../../../../../storybook-images/assets/480/fpo--3x2--480x320--005.jpg';
-import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
-import imgMd1x1 from '../../../../../storybook-images/assets/480/fpo--1x1--480x480--005.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
-import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
-import imgSm3x2 from '../../../../../storybook-images/assets/320/fpo--3x2--320x213--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/320/fpo--4x3--320x160--004.jpg';
-import imgSm1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--005.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+import imgLg2x1 from '../../../../.storybook/storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+import imgLg3x2 from '../../../../.storybook/storybook-images/assets/720/fpo--3x2--720x480--005.jpg';
+import imgLg4x3 from '../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
+import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
+import imgMd2x1 from '../../../../.storybook/storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
+import imgMd3x2 from '../../../../.storybook/storybook-images/assets/480/fpo--3x2--480x320--005.jpg';
+import imgMd4x3 from '../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
+import imgMd1x1 from '../../../../.storybook/storybook-images/assets/480/fpo--1x1--480x480--005.jpg';
+import imgSm16x9 from '../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
+import imgSm2x1 from '../../../../.storybook/storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
+import imgSm3x2 from '../../../../.storybook/storybook-images/assets/320/fpo--3x2--320x213--005.jpg';
+import imgSm4x3 from '../../../../.storybook/storybook-images/assets/320/fpo--4x3--320x160--004.jpg';
+import imgSm1x1 from '../../../../.storybook/storybook-images/assets/320/fpo--1x1--320x320--005.jpg';
 import chartSvg from './chart-svg.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { LIGHTBOX_CONTRAST } from '../image';
