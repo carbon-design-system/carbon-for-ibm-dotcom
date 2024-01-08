@@ -128,6 +128,11 @@ const controls = {
     description: 'Optional prop to specify the type of the Button',
     options: types,
   },
+  onClick: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
 export const Default = {
@@ -273,6 +278,7 @@ export const IconButton = {
     tooltipAlignment,
     tooltipPosition,
     type,
+    onClick,
   }) => html` <cds-button
     button-class-name="${buttonClassName}"
     danger-description="${dangerDescription}"
@@ -286,7 +292,8 @@ export const IconButton = {
     tooltip-alignment="${tooltipAlignment}"
     tooltip-position="${tooltipPosition}"
     tooltip-text="Icon Description"
-    type="${type}">
+    type="${type}"
+    @click="${onClick}">
     ${Add16({ slot: 'icon' })}
   </cds-button>`,
 };
@@ -412,6 +419,7 @@ export const Tertiary = {
 const meta = {
   title: 'Components/Button',
   parameters: {
+    actions: { argTypesRegex: '^on.*' },
     docs: {
       page: storyDocs,
     },
