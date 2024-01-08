@@ -355,7 +355,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const hash = window.location.hash;
       const urlTrigger = `cta-video-${href}`;
 
-      if (hash.includes(urlTrigger)) {
+      if (hash === `#${urlTrigger}`) {
         this.dispatchEvent(
           new CustomEvent(eventRunAction, {
             bubbles: true,
