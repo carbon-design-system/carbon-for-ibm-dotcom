@@ -10,6 +10,7 @@
 import { html } from 'lit';
 import storyDocs from './code-snippet.mdx';
 import './index';
+import '../../../.storybook/templates/with-layer';
 
 const args = {
   copyButtonDescription: 'Copy to clipboard',
