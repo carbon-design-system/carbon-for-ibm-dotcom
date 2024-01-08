@@ -10,6 +10,7 @@ import { INPUT_SIZE } from '../text-input/text-input';
 import './date-picker';
 import './date-picker-input-skeleton';
 import '../layer/index';
+import '../../../.storybook/templates/with-layer';
 
 const sizes = {
   [`Small (${INPUT_SIZE.SMALL})`]: INPUT_SIZE.SMALL,
