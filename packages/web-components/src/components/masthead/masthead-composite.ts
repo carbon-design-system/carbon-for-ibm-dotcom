@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html, TemplateResult } from 'lit';
-import { state, property } from 'lit/decorators.js';
+import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
@@ -41,6 +41,7 @@ import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import C4DMastheadLogo from './masthead-logo';
 import C4DMegaMenuTabs from './megamenu-tabs';
 import C4DMegamenuTopNavMenu from './megamenu-top-nav-menu';
+import C4DMastheadL1 from './masthead-l1';
 import './masthead';
 import './masthead-button-cta';
 import './masthead-l1';
@@ -94,6 +95,7 @@ export interface CMApp {
   version: string;
   ready: boolean;
   init: Function;
+  minimize: Function;
   refresh: Function;
   register: Function;
   deregister: Function;
@@ -992,6 +994,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     // any previously opened megamenu.
     if (active && menuIndex !== undefined) {
       this._activeMegamenuIndex = menuIndex;
+
+      // Close the Contact Module upon opening megamenu.
+      this.contactModuleApp?.minimize();
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
@@ -1007,6 +1012,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
     resolveFn();
   };
+
+  @HostListener(C4DMastheadL1.dropDownToggleEvent)
+  protected _handleL1DropdownToggle({ detail }: CustomEvent) {
+    const { isOpen } = detail;
+    if (isOpen) {
+      this.contactModuleApp?.minimize();
+    }
+  }
 
   /**
    * Sets the active megamenu tabpanel upon user interaction.
@@ -1325,6 +1338,47 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       : unauthenticatedCtaButtons;
   }
 
+  /**
+   * A reference to the c4d-masthead element.
+   */
+  @query(`${c4dPrefix}-masthead`)
+  mastheadRef;
+
+  /**
+   * Resize observer to trigger container height recalculations.
+   *
+   * @private
+   */
+  private _heightResizeObserver = new ResizeObserver(
+    this._resizeObserverCallback.bind(this)
+  );
+
+  /**
+   * Prevents resize observer from blocking main thread.
+   */
+  private _resizeObserverThrottle?: NodeJS.Timeout;
+
+  /**
+   * Throttled callback for _heightResizeObserver.
+   */
+  protected _resizeObserverCallback() {
+    clearTimeout(this._resizeObserverThrottle);
+    this._resizeObserverThrottle = setTimeout(
+      this._setContainerHeight.bind(this),
+      100
+    );
+  }
+
+  /**
+   * Sets root element's height equal to the height of the fixed masthead elements.
+   */
+  protected _setContainerHeight() {
+    const { mastheadRef } = this;
+    if (mastheadRef) {
+      this.style.display = 'block';
+      this.style.height = `${mastheadRef.getBoundingClientRect().height}px`;
+    }
+  }
   firstUpdated() {
     const { language, dataEndpoint } = this;
     globalInit();
@@ -1344,6 +1398,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       this._isMobileVersion = layoutBreakpoint.matches;
       this.requestUpdate();
     });
+
+    // Keep render root's height in sync with c4d-masthead.
+    this._heightResizeObserver.observe(this.mastheadRef);
   }
 
   updated(changedProperties) {
@@ -1357,6 +1414,11 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._heightResizeObserver.disconnect();
   }
 
   render() {
