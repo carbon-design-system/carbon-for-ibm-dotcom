@@ -273,7 +273,6 @@ export const IconButton = {
     tooltipAlignment,
     tooltipPosition,
     type,
-    onclick,
   }) => html` <cds-button
     button-class-name="${buttonClassName}"
     danger-description="${dangerDescription}"
