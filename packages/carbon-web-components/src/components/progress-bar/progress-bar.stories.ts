@@ -17,7 +17,6 @@ import {
 import './progress-bar';
 import '../../../.storybook/templates/with-layer';
 import storyDocs from './progress-bar.mdx';
-import { prefix } from '../../globals/settings';
 
 const sizes = {
   [`Small size (${PROGRESS_BAR_SIZE.SMALL})`]: PROGRESS_BAR_SIZE.SMALL,
