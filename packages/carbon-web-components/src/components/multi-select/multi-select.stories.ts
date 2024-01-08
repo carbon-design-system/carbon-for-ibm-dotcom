@@ -9,7 +9,6 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { prefix } from '../../globals/settings';
 import {
   DROPDOWN_SIZE,
   DROPDOWN_TYPE,
@@ -17,6 +16,7 @@ import {
   SELECTION_FEEDBACK_OPTION,
 } from './multi-select';
 import './multi-select-item';
+import '../layer/index';
 import '../../../.storybook/templates/with-layer';
 import storyDocs from './multi-select.mdx';
 
