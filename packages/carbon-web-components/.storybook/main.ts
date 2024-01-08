@@ -28,6 +28,8 @@ const stories = glob.sync(
     '../src/**/overflow-menu.stories.ts',
     '../src/**/search.mdx',
     '../src/**/search.stories.ts',
+    '../src/**/select.mdx',
+    '../src/**/select.stories.ts',
   ],
   {
     ignore: ['../src/**/docs/*.mdx'],
