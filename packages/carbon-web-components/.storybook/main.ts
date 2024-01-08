@@ -19,6 +19,8 @@ const stories = glob.sync(
     '../src/**/actionable-notification.stories.ts',
     '../src/**/inline-notification.stories.ts',
     '../src/**/toast-notification.stories.ts',
+    '../src/**/overflow-menu.mdx',
+    '../src/**/overflow-menu.stories.ts',
   ],
   {
     ignore: ['../src/**/docs/*.mdx'],
