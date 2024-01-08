@@ -6,6 +6,7 @@
  */
 
 import { html } from 'lit';
+import { prefix } from '../../globals/settings';
 import { INPUT_SIZE } from '../text-input/text-input';
 import './date-picker';
 import './date-picker-input-skeleton';
@@ -107,6 +108,12 @@ const argTypes = {
     control: 'text',
     description:
       'Provide the text that is displayed when the control is in warning state (Fluid only).',
+  },
+  onChange: {
+    action: `${prefix}-date-picker-changed`,
+  },
+  onInput: {
+    action: 'input',
   },
 };
 
