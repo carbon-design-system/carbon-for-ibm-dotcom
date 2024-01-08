@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2023, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -74,10 +74,7 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
  * @param reverse `true` to go through the list in reverse order.
  * @returns `true` if one of the attempts is successful, `false` otherwise.
  */
-function tryFocusElems(
-  elems: NodeListOf<HTMLElement>,
-  reverse: boolean = false
-) {
+function tryFocusElems(elems: NodeListOf<HTMLElement>, reverse: boolean) {
   if (!reverse) {
     for (let i = 0; i < elems.length; ++i) {
       const elem = elems[i];
@@ -177,12 +174,14 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
    * Handles `blur` event on this element.
    *
    * @param event The event.
+   * @param event.target The event target.
+   * @param event.relatedTarget The event relatedTarget.
    */
   @HostListener('shadowRoot:focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleBlur = async ({ target, relatedTarget }: FocusEvent) => {
     const {
-      condensedActions,
+      // condensedActions,
       open,
       _startSentinelNode: startSentinelNode,
       _endSentinelNode: endSentinelNode,
@@ -335,7 +334,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     this._hasActionToolbar = actions && actions.length > 0;
 
     if (this._hasActionToolbar) {
-      for (let action of actions) {
+      for (const action of actions) {
         // action size should always be md
         action.setAttribute('size', 'sm');
       }
@@ -349,7 +348,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   _actionsCount = 0;
 
   private checkSetActionsStacked() {
-    let stacked =
+    const stacked =
       /(xs)|(sm)/.test(this.size) ||
       (/md/.test(this.size) && this._actionsCount > 2);
 
@@ -375,7 +374,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const actions = target?.assignedElements();
 
     const actionsCount = actions?.length ?? 0;
-    if (actionsCount === 0) return;
+    if (actionsCount === 0) {
+      return;
+    }
 
     this.checkSetActionsStacked();
 
@@ -772,7 +773,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const { _sidePanel: sidePanel } = this;
     if (sidePanel && this._isOpen) {
       // wait until the side panel has transitioned off the screen to remove
-      sidePanel.addEventListener('transitionend', (e) => {
+      sidePanel.addEventListener('transitionend', () => {
         this._isOpen = false;
       });
     } else {
@@ -915,7 +916,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
    * @param ms The number of milliseconds.
    * @returns A promise that is resolves after the given milliseconds.
    */
-  private static _delay(ms: number = 0) {
+  private static _delay(ms: number) {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
     });
@@ -992,7 +993,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     // but I'm unsure how to achieve this. Lit uses comments in the DOM to keep track of
     // things it manages so it may be unwise to do so.
 
-    if (!actions) return;
+    if (!actions) {
+      return;
+    }
 
     const actionOrder = (kind) =>
       ({

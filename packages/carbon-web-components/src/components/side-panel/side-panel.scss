@@ -1,13 +1,13 @@
-//
-// Copyright IBM Corp. 2020, 2023
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/*
+* Copyright IBM Corp. 2023, 2024
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
 
 $css--plex: true !default;
 
-// Other Carbon settings.
+/* Other Carbon settings. */
 @use '@carbon/styles/scss/reset';
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
@@ -16,24 +16,25 @@ $css--plex: true !default;
 
 $pkg-prefix: 'cds';
 
-// TODO: When this PR is merged https://github.com/carbon-design-system/ibm-products/pull/3829
-// swap ++++
-// @import './c4p-side-panel-styles';
-// ----
-// for ++++
+/* TODO: When this PR is merged https://github.com/carbon-design-system/ibm-products/pull/3829
+* swap ++++
+* @import './c4p-side-panel-styles';
+* ----
+* for ++++
+*/
 @use '@carbon/ibm-products-styles/scss/config' with (
   $pkg-prefix: #{$pkg-prefix}
 );
 @use '@carbon/ibm-products-styles/scss/components/SidePanel/index';
 @use '@carbon/ibm-products-styles/scss/components/SidePanel/side-panel-variables'
   as spv;
-// ----
+/* ---- */
 
 $block-class: #{$pkg-prefix}--side-panel;
 $block-class-action-set: #{$pkg-prefix}--action-set;
 
 :host(#{$prefix}-side-panel) {
-  // Replaces use of FIGMA for slide in / out animation
+  /* Replaces use of FIGMA for slide in / out animation */
   --#{$block-class}--displaced: 100%;
 
   #side-panel {
@@ -52,25 +53,38 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
       transition: all $duration-moderate-02 motion(standard, productive);
     }
 
+    @media screen and (prefers-reduced-motion: reduce) {
+      &[open] {
+        transition: none;
+      }
+    }
+
     &[closing] {
-      transition: all $duration-moderate-01 motion(exit, productive);
       transform: translateX(var(--#{$block-class}--displaced));
+      transition: all $duration-moderate-01 motion(exit, productive);
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      &[closing] {
+        transition: none;
+      }
     }
 
     &[placement='right'] {
       @extend .#{$block-class}__container-right-placement;
 
       /* remove if https://github.com/carbon-design-system/ibm-products/pull/3983 merged */
-      right: 0;
-      border-right: 1px solid $border-subtle-02;
+      border-inline-end: 1px solid $border-subtle-02;
+      inset-inline-end: 0;
     }
 
+    /* stylelint-disable-next-line no-duplicate-selectors -- disabled to keep close to 'right' setting */
     &[placement='left'] {
       @extend .#{$block-class}__container-left-placement;
 
       /* remove if https://github.com/carbon-design-system/ibm-products/pull/3983 merged */
-      left: 0;
-      border-right: 1px solid $border-subtle-02;
+      border-inline-end: 1px solid $border-subtle-02;
+      inset-inline-start: 0;
     }
 
     @each $size, $size_value in spv.$side-panel-sizes {
@@ -90,26 +104,38 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     &[opening] {
       opacity: 0;
     }
+    @media screen and (prefers-reduced-motion: reduce) {
+      &[open] {
+        opacity: 1;
+        transition: none;
+      }
+    }
 
     &[open] {
       opacity: 1;
       transition: all $duration-moderate-02 motion(standard, productive);
     }
+    @media screen and (prefers-reduced-motion: reduce) {
+      &[closing] {
+        opacity: 0;
+        transition: none;
+      }
+    }
 
     &[closing] {
-      transition: all $duration-moderate-01 motion(exit, productive);
       opacity: 0;
+      transition: all $duration-moderate-01 motion(exit, productive);
     }
   }
 
   #title-container {
     @extend .#{$block-class}__title-container;
 
-    top: var(--#{$block-class}--container-scroll-top, 0px);
+    inset-block-start: var(--#{$block-class}--container-scroll-top, 0);
 
     &::before {
+      z-index: 99; /* must be higher than action toolbar */
       opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
-      z-index: 99; // must be higher than action toolbar
     }
 
     &[detail-step] {
@@ -133,14 +159,14 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
 
     &[has-action-toolbar] {
-      padding-bottom: 0;
-      margin-bottom: $spacing-03;
+      margin-block-end: $spacing-03;
+      padding-block-end: 0;
     }
   }
 
   #title-container-inner {
     position: sticky;
-    top: var(--#{$block-class}--title-scroll-top, 0px);
+    inset-block-start: var(--#{$block-class}--title-scroll-top, 0);
   }
 
   #nav-back-button {
@@ -150,18 +176,18 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   #collapsed-title {
     @extend .#{$block-class}__collapsed-title-text;
 
-    top: 0;
-    margin-bottom: $spacing-03; // text can show through a padding
-    margin-top: 2px; // align with main title top
-    opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
     z-index: 99;
+
+    inset-block-start: 0;
+    margin-block: 2px $spacing-03; /* align with main title top // text can show through a padding */
+    opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
     transform: none;
   }
 
   #title {
     @extend .#{$block-class}__title-text;
 
-    margin-bottom: $spacing-03; // text can show through a padding
+    margin-block-end: $spacing-03; /* text can show through a padding */
     opacity: var(--#{$block-class}--title-opacity, 1);
   }
 
@@ -175,14 +201,15 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
   #label-text {
     @extend .#{$block-class}__label-text;
+
     opacity: var(--#{$block-class}--title-opacity, 1);
   }
 
   #subtitle {
     @extend .#{$block-class}__subtitle-text;
 
-    padding-left: 0;
     opacity: var(--#{$block-class}--title-opacity, 1);
+    padding-inline-start: 0;
 
     &[hidden] {
       @extend .#{$prefix}--visually-hidden;
@@ -200,8 +227,8 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   #action-toolbar {
     @extend .#{$block-class}__action-toolbar;
 
-    padding-left: 0;
-    margin-bottom: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
 
     &[hidden] {
       @extend .#{$prefix}--visually-hidden;
@@ -216,7 +243,9 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     --#{$block-class}--title-opacity: 1;
     @extend .#{$block-class}__inner-content;
 
-    height: calc(100% - var(--#{$block-class}--actions-height, $spacing-09));
+    block-size: calc(
+      100% - var(--#{$block-class}--actions-height, $spacing-09)
+    );
 
     &[no-title-animation] {
       @extend .#{$block-class}__static-inner-content;
@@ -240,27 +269,29 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     @extend .#{$block-class-action-set};
 
     display: flex;
-    width: 100%;
+    inline-size: 100%;
 
     ::slotted(.#{$block-class-action-set}__action-button) {
-      // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
-      max-width: none;
+      /* @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn; */
       flex: var(--#{$block-class}--actions-width-other, initial);
+      max-inline-size: none;
     }
 
     ::slotted(.#{$block-class-action-set}__action-button--first) {
-      // @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn;
+      /* @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn; */
       flex: var(--#{$block-class}--actions-width-first, initial);
     }
 
     &[hidden] {
       @extend .#{$prefix}--visually-hidden;
+
       display: none;
     }
 
     &[condensed] {
       @extend .#{$block-class}__actions-container-condensed;
     }
+
     &[stacked] {
       @extend .#{$block-class-action-set}--stacking;
     }

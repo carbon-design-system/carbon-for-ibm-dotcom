@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2023, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,7 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
-import {
-  property,
-  queryAssignedElements,
-  queryAssignedNodes,
-  state,
-} from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import '../button/index';
@@ -132,7 +127,7 @@ class CDSSidePanelHeader extends LitElement {
     const actions = actionSlot?.children;
 
     if (actions) {
-      for (let action of actions) {
+      for (const action of actions) {
         // action size should always be md
         action.setAttribute('size', 'md');
       }
