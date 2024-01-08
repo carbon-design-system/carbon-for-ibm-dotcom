@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -119,6 +119,12 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
    */
   @property({ type: Boolean })
   importedMegamenu = false;
+
+  /**
+   * The `aria-label` attribute for the nav element.
+   */
+  @property({ attribute: 'nav-label' })
+  navLabel: string = 'Primary navigation';
 
   /**
    * The English title of the selected nav item.
@@ -556,7 +562,10 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                 </div>
                 <div class="${c4dPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content">
-                    <nav part="nav" class="${prefix}--header__nav">
+                    <nav
+                      part="nav"
+                      class="${prefix}--header__nav"
+                      aria-label="${ifDefined(this.navLabel)}">
                       <div class="${prefix}--sub-content-right"></div>
                       <div
                         part="menubar"
@@ -599,7 +608,7 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                     <nav
                       part="nav"
                       class="${prefix}--header__nav"
-                      aria-label="Main Navigation">
+                      aria-label="${ifDefined(this.navLabel)}">
                       <div class="${prefix}--sub-content-left"></div>
                       <div
                         part="menubar"
