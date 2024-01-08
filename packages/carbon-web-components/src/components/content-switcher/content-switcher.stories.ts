@@ -16,6 +16,7 @@ import { prefix } from '../../globals/settings';
 import TableOfContents16 from '@carbon/web-components/es/icons/table-of-contents/16';
 import Workspace16 from '@carbon/web-components/es/icons/workspace/16';
 import ViewMode2_16 from '@carbon/web-components/es/icons/view--mode-2/16';
+import '../layer/index';
 import '../../../.storybook/templates/with-layer';
 
 const noop = () => {};
