@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -201,6 +201,14 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       `;
     }
 
+    firstUpdated() {
+      const { ctaType, href } = this;
+      // Check for the URL trigger meant to fire eventRunAction.
+      if (ctaType === CTA_TYPE.VIDEO && href) {
+        this._checkUrlVideoTrigger();
+      }
+    }
+
     /**
      * Handles `.updated()` method of `lit-element`.
      */
@@ -321,17 +329,6 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
 
       if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
         this._updateVideoThumbnailUrl();
-      }
-
-      // Once the eventRequestVideoData finishes and has set the videoName,
-      // check for the URL trigger meant to fire eventRunAction.
-      if (
-        ctaType === CTA_TYPE.VIDEO &&
-        href &&
-        changedProperties.has('videoName') &&
-        videoName
-      ) {
-        this._checkUrlVideoTrigger();
       }
     }
 
