@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,36 +14,34 @@
 
 @mixin content-block-horizontal {
   :host(#{$c4d-prefix}-content-block-horizontal) {
-    padding-top: $spacing-07;
-    padding-bottom: $spacing-07;
+    padding-block: $spacing-07;
 
     @include breakpoint(md) {
-      padding-bottom: $spacing-07;
+      padding-block-end: $spacing-07;
     }
 
     @include breakpoint(lg) {
-      padding-top: $spacing-10;
-      padding-bottom: $spacing-10;
+      padding-block: $spacing-10;
     }
   }
 
   :host(#{$c4d-prefix}-content-block-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
-    margin-bottom: $spacing-07;
+    margin-block-end: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-content-item-row):last-child {
     @include breakpoint(max) {
-      padding-bottom: $spacing-13;
+      padding-block-end: $spacing-13;
     }
     @include breakpoint(lg) {
-      padding-bottom: $spacing-13;
+      padding-block-end: $spacing-13;
     }
     @include breakpoint(md) {
-      padding-bottom: $spacing-10;
+      padding-block-end: $spacing-10;
     }
     @include breakpoint(sm) {
-      padding-bottom: $spacing-07;
+      padding-block-end: $spacing-07;
     }
   }
 }

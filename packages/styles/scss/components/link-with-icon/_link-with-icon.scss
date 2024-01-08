@@ -21,17 +21,17 @@
   :host(#{$c4d-prefix}-link-list-item-cta),
   :host(#{$c4d-prefix}-text-cta) {
     span {
-      vertical-align: middle;
-      align-self: center;
       flex: 1;
+      align-self: center;
+      vertical-align: middle;
     }
 
     svg,
     ::slotted(svg[slot='icon']) {
       display: inline;
-      margin-left: $spacing-03;
       align-self: middle;
       fill: currentColor;
+      margin-inline-start: $spacing-03;
     }
 
     &.#{$prefix}--link--visited {
@@ -88,17 +88,15 @@
   :host(#{$c4d-prefix}-link-with-icon),
   :host(#{$c4d-prefix}-text-cta) {
     &:not(:first-of-type) {
-      margin-left: $spacing-07;
+      margin-inline-start: $spacing-07;
     }
 
     .#{$prefix}--link-with-icon__icon-left::slotted(svg[slot='icon']) {
-      margin-right: $spacing-03;
-      margin-left: 0;
+      margin-inline: 0 $spacing-03;
     }
 
     .#{$prefix}--link-with-icon__icon-right::slotted(svg[slot='icon']) {
-      margin-left: $spacing-03;
-      margin-right: 0;
+      margin-inline: $spacing-03 0;
     }
 
     &:focus {

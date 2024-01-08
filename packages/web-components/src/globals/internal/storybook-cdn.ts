@@ -49,6 +49,7 @@ function _renderStyle(components, tag) {
  * This is the markdown block for JS via CDN
  *
  * @param {Array} components array of components to render
+ * @param components.components components to render
  */
 export const cdnJs = ({ components }) => {
   return `
@@ -90,6 +91,7 @@ ${_renderScript(components, 'tag/v1/next', true)}
  * This is the markdown block for Additional CSS via CDN
  *
  * @param {Array} components array of components to render
+ * @param components.components components to render
  */
 export const cdnCssAdditional = ({ components }) => {
   return `

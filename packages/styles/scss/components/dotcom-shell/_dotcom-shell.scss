@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,19 +15,19 @@
   :host(#{$c4d-prefix}-dotcom-shell) {
     display: flex;
     flex-direction: column;
-    padding-top: $spacing-09;
-    width: 100%;
+    inline-size: 100%;
+    padding-block-start: $spacing-09;
 
     .#{$prefix}--tableofcontents__sidebar {
-      top: $spacing-09;
+      inset-block-start: $spacing-09;
     }
   }
 
   .#{$prefix}--dotcom-shell__content {
     flex: 1;
     margin: auto;
-    max-width: 99rem;
-    width: 100%;
+    inline-size: 100%;
+    max-inline-size: 99rem;
   }
 
   :host(#{$c4d-prefix}-dotcom-shell-container),

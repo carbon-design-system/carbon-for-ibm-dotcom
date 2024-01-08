@@ -20,12 +20,12 @@
 @mixin content-item {
   :host(#{$c4d-prefix}-content-item) {
     display: block;
-    margin-top: $spacing-07;
-    margin-bottom: $spacing-07;
-    max-width: to-rem(640px);
+    margin-block: $spacing-07;
+    margin-block-end: $spacing-07;
+    max-inline-size: to-rem(640px);
 
     @include breakpoint(md) {
-      padding-right: $spacing-05;
+      padding-inline-end: $spacing-05;
     }
 
     .#{$c4d-prefix}--content-item__horizontal {
@@ -33,39 +33,39 @@
         display: flex;
       }
       .#{$c4d-prefix}--content-item__media {
-        margin-right: $spacing-07;
+        margin-inline-end: $spacing-07;
       }
     }
 
     .#{$c4d-prefix}--content-item__statitics {
       @include type-style('fluid-display-01', true);
 
-      margin-bottom: $spacing-05;
+      margin-block-end: $spacing-05;
     }
 
     .#{$c4d-prefix}--content-item__media {
-      margin-bottom: $spacing-05;
+      margin-block-end: $spacing-05;
     }
 
     ::slotted(#{$c4d-prefix}-image-logo) {
+      margin: 0;
       /* stylelint-disable */
       aspect-ratio: var(--logo-ratio);
       /* stylelint-enable */
-      margin: 0;
-      margin-bottom: $spacing-06;
+      margin-block-end: $spacing-06;
     }
 
     ::slotted(svg) {
-      width: $spacing-10;
-      height: $spacing-10;
+      block-size: $spacing-10;
+      inline-size: $spacing-10;
     }
   }
 
   :host(#{$c4d-prefix}-content-item)
     ::slotted(#{$c4d-prefix}-video-player-container) {
-    margin-top: $spacing-05;
-    margin-bottom: $spacing-07;
-    max-width: 40rem;
+    margin-block: $spacing-05;
+    margin-block-end: $spacing-07;
+    max-inline-size: 40rem;
   }
 
   :host(#{$c4d-prefix}-content-item-heading),
@@ -90,18 +90,18 @@
     @include type-style('body-02');
 
     color: $text-primary;
-    margin-bottom: $spacing-05;
+    margin-block-end: $spacing-05;
   }
 
   :host(#{$c4d-prefix}-content-item[horizontal])
     ::slotted(#{$c4d-prefix}-image) {
-    width: 100%;
+    inline-size: 100%;
     @include breakpoint(md) {
-      width: to-rem(128px);
+      inline-size: to-rem(128px);
     }
   }
 
   :host(#{$c4d-prefix}-content-item) ::slotted([slot='footer']) {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }

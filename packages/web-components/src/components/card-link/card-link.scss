@@ -17,7 +17,7 @@
 
 :host(#{$c4d-prefix}-card-link),
 :host(#{$c4d-prefix}-card-link-cta) {
-  max-width: to-rem(364px);
+  max-inline-size: to-rem(364px);
 
   .#{$prefix}--card__wrapper {
     .#{$prefix}--card__copy {
@@ -32,7 +32,7 @@
 
 :host(#{$c4d-prefix}-feature-section-card-link) {
   .#{$prefix}--card {
-    max-width: inherit;
+    max-inline-size: inherit;
   }
 
   .#{$prefix}--card__wrapper {

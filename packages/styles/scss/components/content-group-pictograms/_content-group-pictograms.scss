@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,17 +15,15 @@
   :host(#{$c4d-prefix}-content-group-pictograms)
     ::slotted(#{$c4d-prefix}-content-group-copy),
   .#{$prefix}--content-group-pictograms .#{$prefix}--content-group__copy {
-    margin-bottom: $spacing-05;
-    margin-left: $spacing-05;
-    margin-right: $spacing-05;
+    margin-block-end: $spacing-05;
+    margin-inline: $spacing-05;
 
     @include breakpoint(md) {
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
     }
   }
 
   div.#{$prefix}--content-group-pictograms {
-    padding-left: 0;
-    padding-right: 0;
+    padding-inline: 0;
   }
 }

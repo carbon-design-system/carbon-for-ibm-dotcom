@@ -29,9 +29,9 @@
     @extend .#{$prefix}--modal !optional;
 
     .#{$prefix}--modal-container {
-      grid-template-rows: 1fr;
       padding: $spacing-05;
-      min-height: $spacing-10 + to-rem($icon-size);
+      grid-template-rows: 1fr;
+      min-block-size: $spacing-10 + to-rem($icon-size);
 
       @include breakpoint(md) {
         padding: $spacing-07;
@@ -41,19 +41,19 @@
     .#{$prefix}--modal-content {
       display: grid;
       grid-template-rows: auto 1fr auto;
-      padding-bottom: 0;
+      padding-block-end: 0;
     }
 
     .#{$c4d-prefix}-ce--modal__header--with-body {
-      margin-bottom: $spacing-05;
+      margin-block-end: $spacing-05;
     }
 
     .#{$c4d-prefix}-ce--modal__body {
-      width: 100%;
+      inline-size: 100%;
     }
 
     .#{$c4d-prefix}-ce--modal__body--with-footer {
-      margin-bottom: $spacing-09;
+      margin-block-end: $spacing-09;
     }
   }
 
@@ -99,10 +99,10 @@
   :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'] {
     @include breakpoint(md) {
       .#{$prefix}--modal-container {
-        width: calc(100% - #{$spacing-07});
-        max-width: 96rem;
-        height: calc(100% - #{$spacing-07});
-        max-height: none;
+        block-size: calc(100% - #{$spacing-07});
+        inline-size: calc(100% - #{$spacing-07});
+        max-block-size: none;
+        max-inline-size: 96rem;
       }
     }
   }
@@ -125,8 +125,8 @@
     ::slotted(#{$c4d-prefix}-expressive-modal-body),
   :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
     ::slotted(#{$c4d-prefix}-lightbox-media-viewer-body) {
-    padding-right: 0;
-    height: auto;
-    min-height: to-rem(500px);
+    block-size: auto;
+    min-block-size: to-rem(500px);
+    padding-inline-end: 0;
   }
 }

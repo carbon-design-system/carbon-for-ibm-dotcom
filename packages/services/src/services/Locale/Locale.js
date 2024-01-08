@@ -126,8 +126,9 @@ function _getLocaleFromDDO() {
       lang.cc = ddoLocal.page.pageInfo.ibm.country.toLowerCase().trim();
 
       // If there are multiple countries use just the first one for the CC value
-      if (lang.cc.indexOf(',') > -1)
+      if (lang.cc.indexOf(',') > -1) {
         lang.cc = lang.cc.substring(0, lang.cc.indexOf(',')).trim();
+      }
 
       // Gb will be uk elsewhere
       if (lang.cc === 'gb') {

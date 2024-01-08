@@ -18,8 +18,8 @@
 @use '../button-group';
 
 @mixin themed-items {
-  color: $text-primary;
   background: $background;
+  color: $text-primary;
 
   .#{$prefix}--content-item__cta {
     color: $link-primary;
@@ -28,10 +28,9 @@
 
 @mixin cta-block {
   :host(#{$c4d-prefix}-cta-block) {
-    padding-top: $spacing-07;
-    padding-bottom: $spacing-10;
+    padding-block: $spacing-07 $spacing-10;
     @include breakpoint(lg) {
-      padding-top: $spacing-10;
+      padding-block-start: $spacing-10;
     }
 
     .#{$prefix}--helper-wrapper {

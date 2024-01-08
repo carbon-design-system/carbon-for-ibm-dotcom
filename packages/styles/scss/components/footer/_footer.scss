@@ -29,31 +29,31 @@
 
 @mixin footer {
   :host(#{$c4d-prefix}-footer) {
-    width: 100%;
+    background-color: $background;
+
+    color: $text-primary;
+    inline-size: 100%;
     padding-block: $spacing-09;
+    padding-block-start: $spacing-09;
 
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
-    color: $text-primary;
-    background-color: $background;
-    padding-top: $spacing-09;
-
     @include breakpoint-down(md) {
       ::slotted([slot='brand']) {
-        margin-bottom: $spacing-09;
+        margin-block-end: $spacing-09;
       }
     }
   }
 
   :host(#{$c4d-prefix}-footer[size='short']) {
     .#{$prefix}--footer__logo-container {
-      width: 100%;
+      inline-size: 100%;
     }
 
     .#{$prefix}--language-selector__container {
-      margin-top: $spacing-09;
+      margin-block-start: $spacing-09;
       @include breakpoint(md) {
-        margin-top: 0;
+        margin-block-start: 0;
       }
       @include breakpoint(max) {
         @include make-col-offset(10, 16);
@@ -62,20 +62,19 @@
 
     @include breakpoint-down(md) {
       ::slotted([slot='brand']) {
-        margin-bottom: 0;
+        margin-block-end: 0;
       }
     }
   }
 
   :host(#{$c4d-prefix}-footer[size='micro']) {
     @include breakpoint(md) {
-      padding-top: 0;
-      padding-bottom: 0;
+      padding-block: 0;
     }
 
     @include breakpoint-down(md) {
       ::slotted([slot='locale-button']) {
-        margin-top: 0;
+        margin-block-start: 0;
       }
     }
 
@@ -86,7 +85,7 @@
     }
 
     .#{$prefix}--legal-nav {
-      border-top: 0;
+      border-block-start: 0;
     }
   }
 
@@ -100,6 +99,7 @@
 
     .#{$prefix}--footer__link.#{$prefix}--link {
       @include type-style('body-01');
+
       &,
       &:visited {
         color: $text-secondary;
@@ -147,19 +147,16 @@
   .#{$prefix}--footer__logo-container {
     @include make-container;
 
-    margin-right: 0;
-    margin-left: 0;
+    margin-inline: 0;
 
     @include breakpoint(md) {
-      margin-bottom: 0;
-      padding-left: $spacing-05;
-      padding-right: $spacing-05;
+      margin-block-end: 0;
+      padding-inline: $spacing-05;
     }
 
     @include breakpoint(lg) {
-      width: 100%;
-      margin-right: auto;
-      margin-left: auto;
+      inline-size: 100%;
+      margin-inline: auto;
     }
 
     .#{$prefix}--footer__logo-row {
@@ -184,7 +181,7 @@
     display: block;
     .#{$c4d-prefix}--adjunct-links__container {
       list-style: none;
-      margin-top: $spacing-07;
+      margin-block-start: $spacing-07;
       @include breakpoint-down(md) {
         @include make-container;
       }
@@ -200,12 +197,12 @@
 
   :host(#{$c4d-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
     display: block;
-    padding-top: 0;
+    padding-block-start: 0;
   }
 
   :host(#{$c4d-prefix}-footer-nav-group:last-of-type) {
     @include breakpoint-down(md) {
-      border-bottom: 1px solid $border-subtle-01;
+      border-block-end: 1px solid $border-subtle-01;
     }
   }
 
@@ -214,18 +211,17 @@
   :host(#{$c4d-prefix}-legal-nav):not([size='micro']) {
     .#{$c4d-prefix}--adjunct-links__container,
     .#{$c4d-prefix}--legal-nav__list {
-      padding-bottom: 0;
-      padding-top: 0;
+      padding-block: 0;
 
       @include breakpoint(md) {
-        padding-top: $spacing-03;
+        padding-block-start: $spacing-03;
       }
       @include breakpoint(lg) {
         @include make-col-offset(4, 16);
       }
 
       > ul {
-        width: 100%;
+        inline-size: 100%;
         @include breakpoint(md) {
           display: block;
           column-count: 2;
@@ -246,7 +242,7 @@
         display: flex;
         align-items: center;
         padding: 0;
-        min-height: $spacing-09;
+        min-block-size: $spacing-09;
       }
     }
 
@@ -256,13 +252,13 @@
 
     .#{$c4d-prefix}--legal-nav {
       display: block;
-      border-top: 0;
+      border-block-start: 0;
     }
 
     // The style of legal nav deviates from the one of React, so we can make the markup simpler.
     // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
     .#{$c4d-prefix}--legal-nav__list {
-      width: 100%;
+      inline-size: 100%;
 
       div {
         @include breakpoint(lg) {
@@ -271,11 +267,11 @@
       }
 
       div > ul {
-        border-top: 1px solid $border-subtle-01;
         padding: 0 $spacing-05;
+        border-block-start: 1px solid $border-subtle-01;
 
         @include breakpoint-down(md) {
-          padding-top: $spacing-03;
+          padding-block-start: $spacing-03;
         }
 
         @include breakpoint(md) {
@@ -284,8 +280,8 @@
         }
 
         @include breakpoint(lg) {
-          border-top: none;
           padding: 0 $spacing-05 0 $spacing-07;
+          border-block-start: none;
         }
       }
     }
@@ -293,20 +289,20 @@
 
   :host(#{$c4d-prefix}-locale-button[size='micro']) {
     @include breakpoint(md) {
-      margin: 0;
       flex-shrink: 1;
       padding: 0;
+      margin: 0;
 
-      margin-left: 50%;
+      margin-inline-start: 50%;
 
       .#{$prefix}--btn--tertiary {
-        background-color: $background;
-        margin: 0;
         border: none;
+        margin: 0;
+        background-color: $background;
         @include type-style('body-short-01');
         @include breakpoint(md) {
           align-self: flex-end;
-          border-left: 1px solid $border-subtle-01;
+          border-inline-start: 1px solid $border-subtle-01;
         }
 
         @include breakpoint(lg) {
@@ -323,7 +319,7 @@
         .#{$prefix}--list-box,
         .#{$prefix}--select-input {
           background-color: $background;
-          max-width: 100%;
+          max-inline-size: 100%;
 
           &:hover {
             background-color: $background-hover;
@@ -335,38 +331,36 @@
         }
 
         .#{$prefix}--select {
-          max-width: 100%;
+          max-inline-size: 100%;
         }
 
         .#{$prefix}--text-input,
         .#{$prefix}--list-box,
         .#{$prefix}--select-input {
-          border-bottom: none;
+          border-block-end: none;
         }
       }
     }
     @include breakpoint(lg) {
-      margin-left: 0;
+      margin-inline-start: 0;
     }
 
     .#{$prefix}--btn {
-      padding-top: $spacing-04;
-      padding-bottom: $spacing-04;
+      padding-block: $spacing-04;
     }
 
     .#{$prefix}--locale-btn {
-      max-width: 100%;
+      max-inline-size: 100%;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-desktop),
   :host(#{$c4d-prefix}-language-selector-mobile) {
     position: relative;
-    outline: none;
-    margin-top: $spacing-09;
-    margin-bottom: $spacing-09;
-    max-height: $spacing-09;
     padding: 0 $spacing-05;
+    margin-block: $spacing-09;
+    max-block-size: $spacing-09;
+    outline: none;
     @include make-col(4, 4);
 
     .#{$prefix}--list-box__field {
@@ -374,14 +368,13 @@
     }
 
     .#{$prefix}--combo-box {
-      bottom: $spacing-05;
+      inset-block-end: $spacing-05;
     }
 
     .#{$prefix}--list-box__menu {
       position: absolute;
-      top: auto;
-      bottom: 47px;
-      max-height: 13.5rem;
+      inset-block: auto 47px;
+      max-block-size: 13.5rem;
     }
 
     .#{$prefix}--text-input {
@@ -390,8 +383,8 @@
     }
 
     @include breakpoint(md) {
-      margin-top: 0;
       padding: 0;
+      margin-block-start: 0;
       @include make-col(4, 8);
       @include make-col-offset(2, 8);
     }
@@ -401,41 +394,42 @@
       @include make-col-offset(10, 16);
 
       order: 1;
-      min-width: 13.5rem;
+
+      min-inline-size: 13.5rem;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-desktop) {
     .#{$prefix}--list-box__menu-icon {
-      right: $spacing-04;
+      inset-inline-end: $spacing-04;
     }
 
     .#{$prefix}--list-box__selection {
-      right: 2.25rem;
+      inset-inline-end: 2.25rem;
     }
 
     .#{$prefix}--label-visually-hidden {
+      block-size: 0;
       visibility: hidden;
-      height: 0;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-desktop[size='micro']) {
-    margin: 0;
-    padding: 0;
-    border-left: 1px solid $border-subtle-01;
     align-self: flex-end;
-    margin-bottom: 0;
-    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-inline-start: 1px solid $border-subtle-01;
+    inline-size: 100%;
+    margin-block-end: 0;
 
     .#{$prefix}--dropdown {
       background-color: $background;
-      max-height: $spacing-09;
-      height: $spacing-09;
+      block-size: $spacing-09;
+      max-block-size: $spacing-09;
 
       .#{$prefix}--list-box__field {
-        height: inherit;
         background-color: $background;
+        block-size: inherit;
       }
 
       &:hover {
@@ -444,23 +438,23 @@
     }
 
     .#{$prefix}--list-box__menu {
-      bottom: to-rem($spacing-09);
+      inset-block-end: to-rem($spacing-09);
     }
 
     .#{$prefix}--dropdown,
     .#{$prefix}--text-input {
-      border-bottom: none;
+      border-block-end: none;
     }
 
     @include breakpoint(sm) {
       .#{$prefix}--select-input__wrapper {
-        height: 100%;
+        block-size: 100%;
       }
 
       .#{$prefix}--select-input {
-        height: 100%;
         background-color: $background;
-        border-bottom: none;
+        block-size: 100%;
+        border-block-end: none;
 
         &:hover {
           background-color: $background-hover;
@@ -469,25 +463,25 @@
     }
 
     @include breakpoint(md) {
-      max-width: 50%;
-      border-left: 1px solid $border-subtle-01;
+      border-inline-start: 1px solid $border-subtle-01;
+      max-inline-size: 50%;
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-mobile[size='micro']) {
     align-self: flex-end;
-    border-left: 1px solid $border-subtle-01;
-    width: 100%;
-    margin-top: 0;
+    border-inline-start: 1px solid $border-subtle-01;
+    inline-size: 100%;
+    margin-block-start: 0;
 
     .#{$prefix}--select {
       display: block;
     }
 
     .#{$prefix}--select-input {
-      height: 100%;
-      width: 100%;
-      max-width: 100%;
+      block-size: 100%;
+      inline-size: 100%;
+      max-inline-size: 100%;
 
       &:hover {
         background-color: $background-hover;
@@ -495,21 +489,21 @@
     }
 
     @include breakpoint(md) {
-      margin: 0;
-      max-width: 50%;
       padding: 0;
+      margin: 0;
+      max-inline-size: 50%;
 
       .#{$prefix}--select-input {
         background-color: $background;
-        border-bottom: none;
+        border-block-end: none;
       }
     }
   }
 
   :host(#{$c4d-prefix}-language-selector-mobile) {
     .#{$prefix}--select-input__wrapper {
-      height: $spacing-09;
-      margin-top: -#{$spacing-05};
+      block-size: $spacing-09;
+      margin-block-start: -#{$spacing-05};
     }
   }
 }

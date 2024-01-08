@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,10 +20,10 @@
   :host(cds-content-block-mixed),
   .#{$prefix}--content-block-mixed {
     .#{$prefix}--content-group-pictograms {
-      margin-left: -$spacing-05;
+      margin-inline-start: -$spacing-05;
       .#{$prefix}--pictogram-item__row {
-        width: calc(100% + $spacing-05);
-        max-width: calc(100% + $spacing-05);
+        inline-size: calc(100% + $spacing-05);
+        max-inline-size: calc(100% + $spacing-05);
       }
     }
   }

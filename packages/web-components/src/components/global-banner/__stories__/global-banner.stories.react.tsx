@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,12 +22,12 @@ import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 import readme from './README.stories.react.mdx';
 
 // eslint-disable-next-line sort-imports
-import img4Col from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
-import img8Col from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
-import img4ColLg from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-lg.jpg';
-import img8ColLg from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-lg.jpg';
-import img4ColXlg from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-xlg.jpg';
-import img8ColXlg from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-xlg.jpg';
+import img4Col from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
+import img8Col from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
+import img4ColLg from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-4-col-lg.jpg';
+import img8ColLg from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-8-col-lg.jpg';
+import img4ColXlg from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-4-col-xlg.jpg';
+import img8ColXlg from '../../../../.storybook/storybook-images/assets/global-banner/global-banner-8-col-xlg.jpg';
 
 // import StoryContent from '../../back-to-top/__stories__/data/content';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -81,9 +81,7 @@ export const Default = (args) => {
       ) : (
         ''
       )}
-      <C4DGlobalBannerHeading>
-        {heading}
-      </C4DGlobalBannerHeading>
+      <C4DGlobalBannerHeading>{heading}</C4DGlobalBannerHeading>
       <C4DGlobalBannerCopy></C4DGlobalBannerCopy>
       <C4DButton
         slot="cta"

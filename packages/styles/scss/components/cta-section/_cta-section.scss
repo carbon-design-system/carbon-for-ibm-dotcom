@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,24 +18,21 @@
 @use '../button-group';
 
 @mixin themed-items {
-  color: $text-primary;
   background: $background;
+  color: $text-primary;
 }
 
 @mixin cta-section {
   :host(#{$c4d-prefix}-cta-section) {
-
     .#{$prefix}--helper-wrapper {
       .#{$prefix}--content-item-wrapper {
-        border-top: 1px solid $layer-accent-01;
+        border-block-start: 1px solid $layer-accent-01;
         @include make-row;
-
       }
     }
 
     @include breakpoint(lg) {
-      padding-bottom: $spacing-10;
+      padding-block-end: $spacing-10;
     }
   }
-
 }

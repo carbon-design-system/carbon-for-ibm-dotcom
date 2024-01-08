@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,24 +29,24 @@
 
     .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
       @include breakpoint-down(md) {
-        border-top: 0;
+        border-block-start: 0;
       }
     }
   }
 
   .#{$c4d-prefix}--adjunct-links__container,
   .#{$c4d-prefix}--legal-nav__list {
-    width: 100%;
-    padding-left: $spacing-05;
+    inline-size: 100%;
+    padding-inline-start: $spacing-05;
 
     ul {
-      list-style: none;
       padding: 0;
       margin: 0;
+      list-style: none;
     }
 
     @include breakpoint(md) {
-      border-top: 1px solid $layer-accent-01;
+      border-block-start: 1px solid $layer-accent-01;
     }
 
     @include breakpoint(lg) {
@@ -59,10 +59,10 @@
       );
 
       display: flex;
-      padding-bottom: 0;
-      padding-left: 0;
       flex-direction: column-reverse;
-      margin-right: 0;
+      margin-inline-end: 0;
+      padding-block-end: 0;
+      padding-inline-start: 0;
 
       @include breakpoint-down(md) {
         ::slotted([slot='locale']),
@@ -72,20 +72,20 @@
       }
 
       @include breakpoint(md) {
-        padding-left: 0;
+        padding-inline-start: 0;
       }
 
       @include breakpoint(lg) {
-        justify-content: space-between;
         flex-direction: row;
-        margin-left: 0;
+        justify-content: space-between;
+        margin-inline-start: 0;
       }
 
       .#{$prefix}--legal-nav__holder {
-        column-count: inherit;
-        margin-left: 0;
-        border-top: 1px solid $layer-accent-01;
         padding: 0 $spacing-05;
+        border-block-start: 1px solid $layer-accent-01;
+        column-count: inherit;
+        margin-inline-start: 0;
 
         @include breakpoint(md) {
           display: flex;
@@ -94,7 +94,7 @@
         }
 
         @include breakpoint(lg) {
-          border-top: none;
+          border-block-start: none;
         }
       }
     }
@@ -102,18 +102,18 @@
 
   :host(#{$c4d-prefix}-legal-nav-item),
   :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div {
-    margin-right: $spacing-07;
     padding: $spacing-03 0 0 0;
+    margin-inline-end: $spacing-07;
     @include type-style('body-01');
 
     @include breakpoint-down(md) {
       &:first-child {
-        padding-top: 0;
+        padding-block-start: 0;
       }
     }
 
     &:last-child {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
   }
 }
