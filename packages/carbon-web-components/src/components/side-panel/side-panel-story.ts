@@ -262,21 +262,6 @@ const DefaultTemplate = (args) => {
     subtitle,
   } = args?.['cds-side-panel'] ?? {};
 
-  const actions = [
-    { kind: BUTTON_KIND.GHOST, label: 'Ghost' },
-    { kind: BUTTON_KIND.SECONDARY, label: 'Secondary' },
-    { kind: BUTTON_KIND.PRIMARY, label: 'Primary' },
-  ];
-  let actionsStacked = false;
-
-  CDSSidePanel.sortActions(actions, actionsStacked);
-
-  const handleStackingChange = ({ detail }) => {
-    actionsStacked = !actionsStacked; // detail.stacked;
-    console.log('actionsStacked', actionsStacked);
-    CDSSidePanel.sortActions(actions, actionsStacked);
-  };
-
   return html`
     <div class="${storyPrefix}story-container">
       <div class="${storyPrefix}story-header"></div>
@@ -295,8 +280,7 @@ const DefaultTemplate = (args) => {
       title="This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed."
       ?open=${open}
       selector-page-content=${selectorPageContent}
-      ?slide-in=${slideIn}
-      @cds-side-panel-action-stack="${handleStackingChange}">
+      ?slide-in=${slideIn}>
       ${getContent(content)}
 
       <!-- slotted subtitle slotted content -->

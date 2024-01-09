@@ -13,6 +13,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use 'sass:map';
 
 $pkg-prefix: 'cds';
 
@@ -39,6 +40,10 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
   #side-panel {
     @extend .#{$block-class}__container;
+
+    /* for actions container query - note this changes the size calculation */
+    container-name: side-panel;
+    container-type: inline-size;
 
     &[placement='left'] {
       --#{$block-class}--displaced: -100%;
@@ -264,9 +269,29 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     @extend .#{$block-class}__body-content;
   }
 
+  @mixin actions-placement() {
+    /* non carbon for IBM Products adjustment */
+    flex-direction: row;
+
+    &[stacked] {
+      flex-direction: column;
+    }
+
+    @container (width <= #{map.get(spv.$side-panel-sizes, 'md')}) {
+      &[actions-multiple='triple'] {
+        flex-direction: column;
+      }
+    }
+
+    @container (width <= #{map.get(spv.$side-panel-sizes, 'sm')}) {
+      flex-direction: column;
+    }
+  }
+
   #actions {
     @extend .#{$block-class}__actions-container;
     @extend .#{$block-class-action-set};
+    @include actions-placement();
 
     display: flex;
     inline-size: 100%;
@@ -290,10 +315,6 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
     &[condensed] {
       @extend .#{$block-class}__actions-container-condensed;
-    }
-
-    &[stacked] {
-      @extend .#{$block-class-action-set}--stacking;
     }
 
     $multiples: 'single' 'double' 'triple';
