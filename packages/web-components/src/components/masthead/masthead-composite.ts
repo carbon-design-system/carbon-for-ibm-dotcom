@@ -1574,7 +1574,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
           link-assistive-text="${skipToContentText}"></c4d-skip-to-content>
         ${isMobileVersion ? this._renderMenuButton() : ''} ${this._renderLogo()}
         ${this._renderPlatformTitle()}
-        ${!isMobileVersion ? this._renderTopNav() : ''}
+        ${!isMobileVersion ? this._renderTopNav() : ''} ${this._renderSearch()}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
           ${this._renderContact()} ${this._renderProfileMenu()}
         </c4d-masthead-global-bar>
