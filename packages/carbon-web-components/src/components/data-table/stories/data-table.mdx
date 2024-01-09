@@ -1,4 +1,4 @@
-import { ArgsTable, Description } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Markdown } from '@storybook/addon-docs/blocks';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Data table
@@ -51,8 +51,8 @@ Here's a quick example to get you started.
 import '@carbon/web-components/es/components/data-table/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['data-table'] })}`} />
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnJs({ components: ['data-table'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

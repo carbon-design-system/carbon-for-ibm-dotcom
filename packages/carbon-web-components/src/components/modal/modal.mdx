@@ -1,4 +1,4 @@
-import { ArgsTable, Description, Meta } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Markdown, Meta } from '@storybook/addon-docs/blocks';
 import { cdnJs, cdnCss } from '../../globals/internal/storybook-cdn';
 
 import * as ModalStories from './modal.stories';
@@ -40,8 +40,8 @@ import '@carbon/web-components/es/components/modal/index.js';
 import '@carbon/web-components/es/components/button/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['modal', 'button'] })}`} />
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnJs({ components: ['modal', 'button'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
