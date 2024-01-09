@@ -21,11 +21,11 @@
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {
       @include breakpoint('md') {
-        margin-top: $spacing-07;
+        margin-block: $spacing-07;
       }
 
       @include breakpoint('lg') {
-        margin-top: $spacing-10;
+        margin-block: $spacing-10;
       }
     }
 

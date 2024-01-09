@@ -17,12 +17,12 @@
     padding-block: $spacing-07;
 
     @include breakpoint('md') {
-      margin-bottom: $layout-03;
+      margin-block-end: $layout-03;
     }
 
     @include breakpoint('lg') {
-      margin-top: $layout-05;
-      margin-bottom: $layout-05;
+      margin-block: $layout-05;
+      margin-block-end: $layout-05;
     }
   }
 

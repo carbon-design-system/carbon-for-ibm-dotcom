@@ -11,7 +11,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
-@use '../../globals/utils/content-width' as *;
+@use '../../globals/utils/content-inline-size' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/utils/hang' as *;
 
@@ -27,18 +27,18 @@
   :host(#{$c4d-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    margin-top: $spacing-07;
-    margin-bottom: $spacing-12;
+    margin-block: $spacing-07;
+    margin-block-end: $spacing-12;
 
     @include breakpoint('lg') {
-      margin-top: $spacing-10;
-      margin-bottom: $spacing-13;
+      margin-block: $spacing-10;
+      margin-block-end: $spacing-13;
     }
 
     &[complementary-style-scheme='with-border'] {
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
       @include breakpoint('lg') {
-        margin-bottom: $spacing-10;
+        margin-block-end: $spacing-10;
       }
     }
 
@@ -73,7 +73,7 @@
     }
 
     &.#{$prefix}--layout--border {
-      margin-left: 0;
+      margin-inline: 0;
       margin-right: 0;
       padding-left: 0;
       padding-right: 0;
@@ -95,7 +95,7 @@
     ::slotted(#{$c4d-prefix}-video-player-container),
     ::slotted(#{$c4d-prefix}-structured-list),
     ::slotted(#{$c4d-prefix}-tabs-extended) {
-      margin-left: $spacing-05;
+      margin-inline: $spacing-05;
       margin-right: $spacing-05;
     }
 
@@ -111,7 +111,7 @@
 
     ::slotted([slot='footer']) {
       @include breakpoint(md) {
-        width: 50%;
+        inline-size: 50%;
       }
     }
 
@@ -191,7 +191,7 @@
   :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
-    @include content-width;
+    @include content-inline-size;
   }
 
   :host(#{$c4d-prefix}-content-block-heading),
@@ -268,32 +268,32 @@
     ::slotted(#{$c4d-prefix}-callout-with-media-copy),
     ::slotted(#{$c4d-prefix}-content-block-copy) {
       @include breakpoint(md) {
-        width: calc((100% - 2 * #{$spacing-05}) * 0.9);
+        inline-size: calc((100% - 2 * #{$spacing-05}) * 0.9);
       }
     }
   }
 
   :host(#{$c4d-prefix}-callout-with-media-copy[size='sm']),
   :host(#{$c4d-prefix}-content-block-copy[size='sm']) {
-    width: auto;
-    max-width: none;
+    inline-size: auto;
+    max-inline-size: none;
 
     @include breakpoint(md) {
-      @include content-width;
+      @include content-inline-size;
     }
 
     ::slotted(#{$c4d-prefix}-content-block-paragraph) {
       @include type-style('body-02');
 
-      margin-bottom: $spacing-06;
+      margin-block-end: $spacing-06;
     }
   }
 
   .#{$c4d-prefix}--content-block-footer {
-    margin-top: $spacing-09;
+    margin-block: $spacing-09;
 
     @include breakpoint(md) {
-      margin-top: $spacing-10;
+      margin-block: $spacing-10;
     }
   }
 }

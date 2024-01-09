@@ -45,7 +45,7 @@
   }
 
   .#{$prefix}--content-section__body {
-    width: 100%;
+    inline-size: 100%;
 
     @include breakpoint-down(md) {
       // TODO: `display:block` or `display:flex` here causes broken carousel if `<cds-carousel>` is slotted in as the child,
