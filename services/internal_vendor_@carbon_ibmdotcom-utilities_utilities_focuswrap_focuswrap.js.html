@@ -33,13 +33,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol &amp;&amp; arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) &amp;&amp; (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n &amp;&amp; null != _i.return &amp;&amp; (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import on from 'carbon-components/es/globals/js/misc/on';
+import { on } from '../on';
 
 /**
  * Fires the given event if focus goes out of the given element.
@@ -48,11 +48,11 @@ import on from 'carbon-components/es/globals/js/misc/on';
  * @param {Element[]} sentinelNodes
  *   The focus sentinel nodes.
  *   If these nodes gets focus, we see it as focus went out of the `element`.
- * @param {string} [eventRequestFocusWrap=dds-request-focus-wrap] The event name.
+ * @param {string} [eventRequestFocusWrap=cds-request-focus-wrap] The event name.
  * @returns {Function} The handle to remove the event handler.
  */
 function focuswrap(element, sentinelNodes) {
-  var eventRequestFocusWrap = arguments.length > 2 &amp;&amp; arguments[2] !== undefined ? arguments[2] : 'dds-request-focus-wrap';
+  var eventRequestFocusWrap = arguments.length > 2 &amp;&amp; arguments[2] !== undefined ? arguments[2] : 'cds-request-focus-wrap';
   return on(element, 'focusout', function handleFocusout(event) {
     var _event$currentTarget$, _event$currentTarget$2;
     var target = event.target,
@@ -94,13 +94,13 @@ export default focuswrap;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#on">on</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Dec 20 2023 15:20:58 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Tue Jan 09 2024 17:58:45 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
