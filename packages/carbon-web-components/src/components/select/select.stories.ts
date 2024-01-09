@@ -14,10 +14,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 // @ts-ignore
 import { prefix } from '../../globals/settings';
 import { INPUT_SIZE } from '../text-input/text-input';
-import './select';
-import './select-item-group';
-import './select-item';
-import './select-skeleton';
+import './index';
 import '../form/form-item';
 import '../layer';
 import '../../../.storybook/templates/with-layer';
