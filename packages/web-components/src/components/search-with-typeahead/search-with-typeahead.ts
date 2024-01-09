@@ -455,10 +455,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
   }
 
   /**
-   * Prevents form submission if there is a highlighted item.
-   * In such case, `._handleUserInitiatedRedirect()` should have navigated the user to the search result page.
+   * Handles search form submission and cancels event execution in circumstances
+   * where user action is handled elsewhere.
    *
-   * @param event The event.
+   * @param event The form submission event.
    */
   private _handleSubmit(event: Event) {
     const { eventBeforeRedirect } = this
@@ -467,18 +467,22 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     const highlightedItem = this.shadowRoot!.querySelector(
       selectorItemHighlighted
     ) as CDSDropdownItem;
+
+    // Prevents form submission in certain circumstances. In the case where there
+    // is a highlighted item, `._handleUserInitiatedRedirect()` should have navigated
+    // the user to the search result page.
+    // Otherwise, gives users an opportunity to react to the event before
+    // executing the form's action.
     if (highlightedItem || !this.searchQueryString) {
       event.preventDefault();
-    }
-    const redirectUrlWithSearch = this._buildRedirect();
-    if (
+    } else if (
       !this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
           bubbles: true,
           cancelable: true,
           composed: true,
           detail: {
-            redirectUrl: redirectUrlWithSearch,
+            redirectUrl: this._buildRedirect(),
           },
         })
       )
