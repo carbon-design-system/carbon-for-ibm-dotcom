@@ -424,7 +424,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       const actionHeightPx = actionsContainer?.offsetHeight + 16; // add additional 1rem spacing to bottom padding
       const actionsHeight = `${Math.round(actionHeightPx / 16)}rem`;
       this._sidePanel.style?.setProperty(
-        `--${blockClass}--content-bottom-padding  `,
+        `--${blockClass}--content-bottom-padding`,
         actionsHeight
       );
 
