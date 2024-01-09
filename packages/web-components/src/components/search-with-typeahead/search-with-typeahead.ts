@@ -317,7 +317,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     );
 
     const redirectUrlWithSearch =
-      targetHref ?? this._buildRedirect(targetQuery);
+      targetHref || this._buildRedirect(targetQuery);
     if (
       this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
