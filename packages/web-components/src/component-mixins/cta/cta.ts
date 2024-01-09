@@ -29,6 +29,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+import root from 'window-or-global';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -352,7 +353,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         return;
       }
       const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
-      const hash = window.location.hash;
+      const hash = root.location.hash;
       const urlTrigger = `cta-video-${href}`;
 
       if (hash === `#${urlTrigger}`) {
