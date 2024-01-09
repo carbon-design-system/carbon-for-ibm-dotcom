@@ -1,4 +1,4 @@
-import { ArgsTable, Description, Meta } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Markdown, Meta } from '@storybook/addon-docs/blocks';
 import { cdnJs, cdnCss } from '../../globals/internal/storybook-cdn';
 import * as DropdownStories from './dropdown.stories';
 
@@ -25,8 +25,8 @@ Here's a quick example to get you started.
 import '@carbon/web-components/es/components/dropdown/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['dropdown'] })}`} />
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnJs({ components: ['dropdown'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
