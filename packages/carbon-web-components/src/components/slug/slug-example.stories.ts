@@ -99,23 +99,18 @@ export const _Checkbox = {
   argTypes: {
     disabled: {
       control: 'boolean',
-      description: 'Disabled (disabled)',
     },
     invalid: {
       control: 'boolean',
-      description: 'Invalid (invalid)',
     },
     invalidText: {
       control: 'text',
-      description: 'Invalid text (invalid-text)',
     },
     warn: {
       control: 'boolean',
-      description: 'Warn (warn)',
     },
     warnText: {
       control: 'text',
-      description: 'Warn text (warn-text)',
     },
   },
   render: (args) => {
@@ -339,23 +334,18 @@ export const _RadioButton = {
   argTypes: {
     disabled: {
       control: 'boolean',
-      description: 'Disabled (disabled)',
     },
     invalid: {
       control: 'boolean',
-      description: 'Invalid (invalid)',
     },
     invalidText: {
       control: 'text',
-      description: 'Invalid text (invalid-text)',
     },
     warn: {
       control: 'boolean',
-      description: 'Warn (warn)',
     },
     warnText: {
       control: 'text',
-      description: 'Warn text (warn-text)',
     },
   },
   render: (args) => {
@@ -557,11 +547,10 @@ export const _Tile = {
   argTypes: {
     hasRoundedCorners: {
       control: 'boolean',
-      description: 'hasRoundedCorners (has-rounded-corners)',
     },
   },
   render: (args) => {
-    const { hasRoundedCorners } = args?.['cds-tile'] ?? {};
+    const { hasRoundedCorners } = args ?? {};
     return html`<style>
         ${styles}
       </style>

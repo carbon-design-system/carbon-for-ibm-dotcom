@@ -71,6 +71,7 @@ const stories = glob.sync(
     '../src/**/slug.stories.ts',
     '../src/**/slug-example.stories.ts',
     '../src/**/slug-data-table.stories.ts',
+    '../src/**/slug-form.stories.ts',
     '../src/**/tag.mdx',
     '../src/**/tag.stories.ts',
     '../src/**/tooltip.mdx',
