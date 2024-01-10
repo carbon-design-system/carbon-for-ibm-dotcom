@@ -63,7 +63,6 @@ export function pwsValueMap(value) {
       countyBasedCheckedNo: 'false',
       NC_HIDDEN_PERMISSION: 'PERMISSION',
       NC_HIDDEN_SUPPRESSION: 'SUPPRESSION',
-      NC_HIDDEN_UNCHANGED: 'UNCHANGED',
     }[value] || null
   );
 }

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { checkPreferencesv3, loadContent } from './services';
+import { checkPreferencesv3, loadContent, loadSettings } from './services';
 import { TemplateResult, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import {
@@ -17,7 +17,7 @@ import {
   supportedLanguages,
   specialCountryBasedText,
 } from './utils';
-import countrySettings from './country-settings';
+// import this.countrySettings from './country-settings';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
@@ -94,6 +94,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: Object, attribute: false })
   isMandatoryCheckboxDisplayed = { countryCode: '', isDisplayed: false };
 
+  @property({ type: Object, attribute: false })
+  countrySettings: any;
+
+  @property({ type: Boolean, attribute: false })
+  emailPrechecked = false;
+
+  @property({ type: Boolean, attribute: false })
+  telephonePrechecked = false;
+
   /**
    * End properties for passed attributes.
    */
@@ -121,6 +130,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   hiddenPhone = '';
 
+  @property({ reflect: true, attribute: 'nc-tele-detail' })
+  ncTeleDetail = '';
+
+  @property({ reflect: true, attribute: 'nc-email-detail' })
+  ncEmailDetail = '';
+
   prepareCheckboxes() {
     if (this.ncData) {
       const OptInContent = this.ncData;
@@ -138,6 +153,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.ncData = ncData;
         this.prepareCheckboxes();
         this.countryChanged();
+      },
+      (error) => {
+        console.error('error loading content', error);
+      }
+    );
+  }
+  defaultLoadSettings() {
+    loadSettings(
+      (countryPreferencesSettings) => {
+        this.countrySettings = countryPreferencesSettings;
       },
       (error) => {
         console.error('error loading content', error);
@@ -164,6 +189,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       },
       () => {
         this.defaultLoadContent();
+      }
+    );
+    loadSettings(
+      (countryPreferencesSettings) => {
+        this.countrySettings = countryPreferencesSettings;
+      },
+      () => {
+        this.defaultLoadSettings();
       }
     );
   }
@@ -279,7 +312,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         if (
           hasValue &&
           oldVal !== newVal &&
-          countrySettings[newVal.toLocaleLowerCase()]
+          this.countrySettings[newVal.toLocaleLowerCase()]
         ) {
           this.countryChanged();
         }
@@ -335,6 +368,32 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
     this.values[id] = {};
     this.values[id]['checkBoxStatus'] = hiddenFieldStatus;
+    let statusPrechecked = '';
+    switch (id) {
+      case 'EMAIL':
+        statusPrechecked =
+          this.emailPrechecked && !checked
+            ? 'CU'
+            : !this.emailPrechecked && checked
+            ? 'UC'
+            : this.emailPrechecked && checked
+            ? 'CC'
+            : 'UU';
+
+        break;
+      case 'PHONE':
+        statusPrechecked =
+          this.telephonePrechecked && checked
+            ? 'CC'
+            : this.telephonePrechecked && !checked
+            ? 'CU'
+            : !this.telephonePrechecked && checked
+            ? 'UC'
+            : 'UU';
+
+        break;
+    }
+    this.values[id]['punsStatus'] = statusPrechecked;
     this._onChange(hiddenFieldName, hiddenFieldStatus);
     this._onChange(
       `${hiddenFieldName}_VALUE`,
@@ -553,10 +612,32 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                         ? this.values[key]['checkBoxStatus']
                         : this.values[key]
                         ? 'PERMISSION'
-                        : 'UNCHANGED',
+                        : 'SUPPRESSION',
                     };
-                    key === 'EMAIL' ? (this.hiddenEmail = hiddenBox.value) : '';
-                    key === 'PHONE' ? (this.hiddenPhone = hiddenBox.value) : '';
+                    switch (key) {
+                      case 'EMAIL':
+                        this.hiddenEmail = hiddenBox.value;
+                        this.ncEmailDetail = this.values[key]['punsStatus']
+                          ? this.values[key]['punsStatus']
+                          : checked
+                          ? 'CC'
+                          : 'UU';
+                        if (typeof checked !== 'object') {
+                          this.emailPrechecked = checked ? true : false;
+                        }
+                        break;
+                      case 'PHONE':
+                        this.hiddenPhone = hiddenBox.value;
+                        this.ncTeleDetail = this.values[key]['punsStatus']
+                          ? this.values[key]['punsStatus']
+                          : checked
+                          ? 'CC'
+                          : 'UU';
+                        if (typeof checked !== 'object') {
+                          this.telephonePrechecked = checked ? true : false;
+                        }
+                        break;
+                    }
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
                 : ''
@@ -576,13 +657,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (this.changed === false) {
       checkPreferencesv3(email).then((response) => {
         const questionChoiceStatus =
-          countrySettings[this.country.toLocaleLowerCase()];
+          this.countrySettings[this.country.toLocaleLowerCase()];
 
         if (response === 'S' && questionChoiceStatus.email === 'opt-out') {
           this.values = {
             ...this.values,
             EMAIL: false,
-            ...{ checkBoxStatus: 'UNCHANGED' },
+            ...{ checkBoxStatus: 'SUPPRESSION', punsStatus: 'CU' },
           };
           this._onChange('NC_HIDDEN_EMAIL', null);
         } else {
@@ -593,7 +674,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
               checkBoxStatus:
                 questionChoiceStatus.email === 'opt-out'
                   ? 'PERMISSION'
-                  : 'UNCHANGED',
+                  : 'SUPPRESSION',
             },
           };
           this._onChange('NC_HIDDEN_EMAIL', null);
@@ -603,7 +684,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   protected _getOptionByQuestion = (question) => {
     const questionChoiceStatus = this.country
-      ? countrySettings[this.country.toLocaleLowerCase()]
+      ? this.countrySettings[this.country.toLocaleLowerCase()]
       : { email: 'opt-in', phone: 'opt-in' };
 
     let option;
