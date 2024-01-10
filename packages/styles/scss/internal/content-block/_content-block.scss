@@ -74,18 +74,18 @@
 
     &.#{$prefix}--layout--border {
       margin-inline: 0;
-      margin-right: 0;
+      margin-inline-end: 0;
       padding-left: 0;
       padding-right: 0;
-      padding-bottom: $spacing-10;
+      padding-block-end: $spacing-10;
 
       @include breakpoint('lg') {
-        padding-bottom: $spacing-12;
+        padding-block-end: $spacing-12;
       }
     }
 
     ::slotted(*) {
-      padding-bottom: 0;
+      padding-block-end: 0;
     }
 
     ::slotted(#{$c4d-prefix}-content-item),
@@ -96,7 +96,7 @@
     ::slotted(#{$c4d-prefix}-structured-list),
     ::slotted(#{$c4d-prefix}-tabs-extended) {
       margin-inline: $spacing-05;
-      margin-right: $spacing-05;
+      margin-inline-end: $spacing-05;
     }
 
     &__aside,

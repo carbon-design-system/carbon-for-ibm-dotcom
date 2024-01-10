@@ -18,16 +18,16 @@
   .#{$prefix}--content-block-cards .#{$prefix}--content-block {
     display: block;
     margin-block: $layout-03;
-    margin-bottom: $layout-05;
+    margin-block-end: $layout-05;
 
     @include breakpoint('md') {
       margin-block: $layout-03;
-      margin-bottom: $layout-06;
+      margin-block-end: $layout-06;
     }
 
     @include breakpoint('lg') {
       margin-block: $layout-05;
-      margin-bottom: $layout-07;
+      margin-block-end: $layout-07;
     }
   }
 
