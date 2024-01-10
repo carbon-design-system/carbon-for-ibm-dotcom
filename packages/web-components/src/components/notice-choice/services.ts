@@ -49,3 +49,27 @@ export function loadContent(locale: string, onSuccess: any, onError: any) {
     }
   };
 }
+
+export function loadSettings(onSuccess: any, onError: any) {
+  const script = document.createElement('script');
+  script.async = false;
+  script.charset = 'utf-8';
+  script.src = `https://1.wwwstage.s81c.com/common/noticechoice/settings.js`; // URL for the third-party library being loaded.
+  document.body.appendChild(script);
+  script.onload = () => {
+    try {
+      if (onSuccess) {
+        onSuccess(window.NoticeChoice.settings?.preferences);
+      }
+    } catch (e) {
+      if (onError) {
+        onError(e);
+      }
+    }
+  };
+  script.onerror = () => {
+    if (onError) {
+      onError();
+    }
+  };
+}

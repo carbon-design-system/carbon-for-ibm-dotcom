@@ -96,6 +96,8 @@ export const Default = (args) => {
     bpidLegalText,
     hiddenEmail,
     hiddenPhone,
+    ncTeleDetail,
+    ncEmailDetail,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -111,6 +113,8 @@ export const Default = (args) => {
       bpid-legal-text="${bpidLegalText}"
       .hiddenEmail="${hiddenEmail}"
       .hiddenPhone="${hiddenPhone}"
+      .nc-tele-detail="${ncTeleDetail}"
+      .nc-email-detail="${ncEmailDetail}"
       @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };
