@@ -9,7 +9,6 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { prefix } from '../../globals/settings';
 import { SKELETON_TEXT_TYPE } from './skeleton-text';
 import storyDocs from './skeleton-text.mdx';
 
