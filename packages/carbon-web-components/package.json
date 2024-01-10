@@ -74,7 +74,7 @@
     "@babel/runtime": "^7.16.3",
     "@carbon/styles": "^1.45.0",
     "flatpickr": "4.6.1",
-    "lit": "^2.7.6",
+    "lit": "^3.1.0",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
@@ -100,6 +100,7 @@
     "@percy/cli": "^1.27.4",
     "@percy/cypress": "^3.1.2",
     "@percy/dom": "^1.27.5",
+    "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-node-resolve": "^8.4.0",
