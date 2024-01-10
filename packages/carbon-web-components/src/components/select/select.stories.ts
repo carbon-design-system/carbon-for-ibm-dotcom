@@ -37,7 +37,7 @@ const args = {
   labelText: 'Select an option',
   placeholder: 'Choose an option',
   size: INPUT_SIZE.MEDIUM,
-  readonly: false,
+  readOnly: false,
   warn: false,
   warnText: 'Warning message',
   value: '',
