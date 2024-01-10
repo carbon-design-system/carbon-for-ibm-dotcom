@@ -76,7 +76,7 @@ const argTypes = {
       'Specify the text that should be read for screen readers to clear selection.',
   },
   disabled: {
-    control: 'bool',
+    control: 'boolean',
     description: 'Disable the control.',
   },
   direction: {
@@ -100,7 +100,7 @@ const argTypes = {
       'Specify the locale of the control. Used for the default <code>compareItems</code> used for sorting the list of items in the control.',
   },
   invalid: {
-    control: 'bool',
+    control: 'boolean',
     description: 'Is the current selection invalid?',
   },
   invalidText: {
@@ -130,7 +130,7 @@ const argTypes = {
     options: selectionFeedbackOptions,
   },
   readOnly: {
-    control: 'bool',
+    control: 'boolean',
     description: 'Whether or not the Dropdown is readonly.',
   },
   type: {
