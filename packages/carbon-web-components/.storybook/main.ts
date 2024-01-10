@@ -69,6 +69,7 @@ const stories = glob.sync(
     '../src/**/slider.stories.ts',
     '../src/**/slug.mdx',
     '../src/**/slug.stories.ts',
+    '../src/**/slug-example.stories.ts',
     '../src/**/tag.mdx',
     '../src/**/tag.stories.ts',
     '../src/**/tooltip.mdx',
