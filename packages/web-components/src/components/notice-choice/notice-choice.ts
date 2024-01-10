@@ -381,7 +381,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             : 'UU';
 
         break;
-
       case 'PHONE':
         statusPrechecked =
           this.telephonePrechecked && checked
