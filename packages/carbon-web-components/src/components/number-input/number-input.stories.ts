@@ -32,7 +32,7 @@ const args = {
   invalid: false,
   invalidText: 'Number is not valid',
   label: 'number-input label',
-  readonly: false,
+  readOnly: false,
   value: 50,
   warn: false,
   warnText: 'Warning text',
@@ -88,7 +88,7 @@ const argTypes = {
     description:
       'Generic <code>label</code> that will be used as the textual representation of what this field is for.',
   },
-  readonly: {
+  readOnly: {
     control: 'boolean',
     description: 'Specify if the component should be read-only.',
   },
@@ -170,7 +170,7 @@ export const Playground = {
       invalid,
       invalidText,
       label,
-      readonly,
+      readOnly,
       warn,
       warnText,
       value,
@@ -196,7 +196,7 @@ export const Playground = {
           ?invalid="${invalid}"
           invalid-text="${ifDefined(invalidText)}"
           label="${ifDefined(label)}"
-          ?readonly="${readonly}"
+          ?readonly="${readOnly}"
           value="${ifDefined(value)}"
           ?warn="${warn}"
           warn-text="${ifDefined(warnText)}"
