@@ -29,7 +29,7 @@ const controls = {
 };
 
 export const Default = {
-  render: () => html`<cds-ordered-list>
+  render: () => html`<cds-ordered-list native>
     <cds-list-item>Ordered List level 1</cds-list-item>
     <cds-list-item>Ordered List level 1</cds-list-item>
     <cds-list-item>Ordered List level 1</cds-list-item>
