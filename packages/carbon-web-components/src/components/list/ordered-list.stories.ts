@@ -13,7 +13,7 @@ import './index';
 
 const defaultArgs = {
   isExpressive: false,
-  native: false,
+  native: true,
 };
 
 const controls = {
