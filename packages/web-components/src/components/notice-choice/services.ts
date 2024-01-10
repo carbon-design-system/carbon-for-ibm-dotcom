@@ -54,7 +54,7 @@ export function loadSettings(onSuccess: any, onError: any) {
   const script = document.createElement('script');
   script.async = false;
   script.charset = 'utf-8';
-  script.src = `https://1.wwwstage.s81c.com/common/noticechoice/settings.js`; // URL for the third-party library being loaded.
+  script.src = ` https://1.www.s81c.com/common/noticechoice/settings.js`; // URL for the third-party library being loaded.
   document.body.appendChild(script);
   script.onload = () => {
     try {
