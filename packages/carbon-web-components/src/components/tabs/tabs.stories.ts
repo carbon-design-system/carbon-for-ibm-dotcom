@@ -8,26 +8,63 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
-import { boolean, select } from '@storybook/addon-knobs';
-import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { TABS_TYPE } from './tabs';
-import './tab';
-import './tabs-skeleton';
-import './tab-skeleton';
 import styles from './tabs-story.scss?lit';
-import storyDocs from './tabs-story.mdx';
+import storyDocs from './tabs.mdx';
 import { prefix } from '../../globals/settings';
-
-const noop = () => {};
+import '../button';
+import '../checkbox';
+import './index';
+import '../text-input';
 
 const types = {
   'Regular type': null,
   [`Container type (${TABS_TYPE.CONTAINED})`]: TABS_TYPE.CONTAINED,
 };
 
-export const Default = () => html`
+const args = {
+  triggerContent: 'Select an item',
+  type: null,
+  value: 'all',
+  disableSelection: false,
+};
+
+const argTypes = {
+  triggerContent: {
+    control: 'text',
+    description: 'The default content of the trigger button for narrow screen (trigger-content)'
+  },
+  type: {
+    control: 'select',
+    description: 'Tabs type (type)',
+    options: types
+  },
+  value: {
+    control: 'text',
+    description: 'The value of the selected item (value)'
+  },
+  disableSelection: {
+    control: 'boolean',
+    description: `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-content-switcher-beingselected event)`
+  },
+  onBeforeSelect: {
+    action: `${prefix}-tabs-beingselected`,
+    table: {
+      disable: true,
+    },
+  },
+  onSelect: {
+    action: `${prefix}-tabs-selected`,
+    table: {
+      disable: true,
+    },
+  }
+};
+
+
+export const Default = {
+  render: () => html`
   <style>
     ${styles}
   </style>
@@ -77,9 +114,11 @@ export const Default = () => html`
       Tab Panel 4
     </div>
   </div>
-`;
+`
+}
 
-export const Contained = () => html`
+export const Contained = {
+  render: () => html`
   <style>
     ${styles}
   </style>
@@ -135,9 +174,16 @@ export const Contained = () => html`
       Tab Panel 5
     </div>
   </div>
-`;
+`
+}
 
-export const skeleton = () => html`
+export const skeleton = {
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
+render: () => html`
   <cds-tabs-skeleton>
     <cds-tab-skeleton></cds-tab-skeleton>
     <cds-tab-skeleton></cds-tab-skeleton>
@@ -145,23 +191,20 @@ export const skeleton = () => html`
     <cds-tab-skeleton></cds-tab-skeleton>
     <cds-tab-skeleton></cds-tab-skeleton>
   </cds-tabs-skeleton>
-`;
+`
+}
 
-skeleton.parameters = {
-  percy: {
-    skip: true,
-  },
-};
-
-export const Playground = (args) => {
-  const {
-    triggerContent,
-    type,
-    value,
-    disableSelection,
-    onBeforeSelect = noop,
-    onSelect = noop,
-  } = args?.[`${prefix}-tabs`] || {};
+export const Playground = {
+  args,
+  argTypes,
+  render: ({
+  triggerContent,
+  type,
+  value,
+  disableSelection,
+  onBeforeSelect,
+  onSelect,
+}) => {
   const handleBeforeSelected = (event: CustomEvent) => {
     onBeforeSelect(event);
     if (disableSelection) {
@@ -227,29 +270,16 @@ export const Playground = (args) => {
         Tab Panel 4
       </div>
     </div>
-  `;
-};
-
-Playground.parameters = {
-  ...storyDocs.parameters,
-  knobs: {
-    [`${prefix}-tabs`]: () => ({
-      triggerContent: textNullable(
-        'The default content of the trigger button for narrow screen (trigger-content)',
-        'Select an item'
-      ),
-      type: select('Tabs type (type)', types, null),
-      value: textNullable('The value of the selected item (value)', 'all'),
-      disableSelection: boolean(
-        `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-content-switcher-beingselected event)`,
-        false
-      ),
-      onBeforeSelect: action(`${prefix}-tabs-beingselected`),
-      onSelect: action(`${prefix}-tabs-selected`),
-    }),
-  },
-};
+  `
+}
+}
 
 export default {
   title: 'Components/Tabs',
+  actions: { argTypesRegex: '^on.*' },
+  parameters: {
+    docs: {
+      page: storyDocs
+    }
+  },
 };
