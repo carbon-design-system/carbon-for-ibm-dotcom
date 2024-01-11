@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -63,9 +63,9 @@ export interface MastheadContainerState {
  */
 export interface MastheadContainerStateProps {
   /**
-   * The nav links.
+   * The L0 data.
    */
-  navLinks?: L0MenuItem[];
+  l0Data?: L0MenuItem[];
 
   /**
    * The user authentication status.
@@ -93,24 +93,42 @@ export function mapStateToProps(
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = profileAPI ?? {};
+
+  // Attempt to collect data from current/new and deprecated locations.
+  let l0Data;
+  let profileItems;
+  if (language) {
+    l0Data = {
+      current: translations?.[language]?.masthead?.nav,
+      deprecated: translations?.[language]?.mastheadNav?.links,
+    };
+
+    profileItems = {
+      authenticated: {
+        current: translations?.[language]?.masthead?.profileMenu?.authenticated,
+        deprecated: translations?.[language]?.profileMenu?.signedin,
+      },
+      unauthenticated: {
+        current:
+          translations?.[language]?.masthead?.profileMenu?.unauthenticated,
+        deprecated: translations?.[language]?.profileMenu?.signedout,
+      },
+    };
+  }
+
   return pickBy(
     {
-      navLinks: !language
-        ? undefined
-        : translations?.[language]?.mastheadNav?.links,
+      // Progressively enhance to new L0 data shape.
+      l0Data: !language ? undefined : l0Data.current || l0Data.deprecated,
+      // Progressively enhance to new profile items shape.
       authenticatedProfileItems: !language
         ? undefined
-        : translations?.[language]?.profileMenu?.signedin,
+        : profileItems.authenticated.current ||
+          profileItems.authenticated.deprecated,
       unauthenticatedProfileItems: !language
         ? undefined
-        : translations?.[language]?.profileMenu?.signedout,
-      authenticatedCtaButtons: !language
-        ? undefined
-        : translations?.[language]?.masthead?.profileMenu?.signedin?.ctaButtons,
-      unauthenticatedCtaButtons: !language
-        ? undefined
-        : translations?.[language]?.masthead?.profileMenu?.signedout
-            ?.ctaButtons,
+        : profileItems.unauthenticated.current ||
+          profileItems.unauthenticated.deprecated,
       contactUsButton: !language
         ? undefined
         : translations?.[language]?.masthead?.contact,
