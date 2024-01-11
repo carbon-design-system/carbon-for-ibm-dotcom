@@ -29,78 +29,77 @@ const args = {
   rows: 4,
   value: '',
   warn: false,
-  warnText: 'This is a warning message.'
+  warnText: 'This is a warning message.',
 };
 
 const argTypes = {
   cols: {
     control: 'number',
-    description: 'Number of columns (cols)'
+    description: 'Number of columns (cols)',
   },
   disabled: {
     control: 'boolean',
-    description: 'Disabled (disabled)'
+    description: 'Disabled (disabled)',
   },
   enableCounter: {
     control: 'boolean',
-    description: 'Enable character counter (enable-counter)'
+    description: 'Enable character counter (enable-counter)',
   },
   helperText: {
     control: 'text',
-    description: 'Helper text (helper-text)'
+    description: 'Helper text (helper-text)',
   },
   hideLabel: {
     control: 'boolean',
-    description: 'Hide label (hide-label)'
+    description: 'Hide label (hide-label)',
   },
   invalid: {
     control: 'boolean',
-    description: 'Invalid (invalid)'
+    description: 'Invalid (invalid)',
   },
   invalidText: {
     control: 'text',
-    description: 'Invalid text (invalid-text)'
+    description: 'Invalid text (invalid-text)',
   },
   label: {
     control: 'text',
-    description: 'Label (label)'
+    description: 'Label (label)',
   },
   maxCount: {
     control: 'number',
-    description: 'Max character count (max-count)'
+    description: 'Max character count (max-count)',
   },
   onInput: {
     action: `input`,
     table: {
       disable: true,
-    }
+    },
   },
   placeholder: {
     control: 'text',
-    description: 'Placeholder text (placeholder)'
+    description: 'Placeholder text (placeholder)',
   },
   readonly: {
     control: 'boolean',
-    description: 'Read only (readonly)'
+    description: 'Read only (readonly)',
   },
   rows: {
     control: 'number',
-    description: 'Number of rows (rows)'
+    description: 'Number of rows (rows)',
   },
   value: {
     control: 'text',
-    description: 'Value (value)'
+    description: 'Value (value)',
   },
   warn: {
     control: 'boolean',
-    description: 'Warn (warn)'
+    description: 'Warn (warn)',
   },
   warnText: {
     control: 'text',
-    description: 'Warn text (warn-text)'
-  }
+    description: 'Warn text (warn-text)',
+  },
 };
-
 
 export const Default = {
   render: () => html`
@@ -108,7 +107,7 @@ export const Default = {
       <cds-textarea label="Textarea label" helper-text="Optional helper text">
       </cds-textarea>
     </cds-form-item>
-  `
+  `,
 };
 
 export const skeleton = {
@@ -117,9 +116,8 @@ export const skeleton = {
       skip: true,
     },
   },
-render: () =>
-  html` <cds-textarea-skeleton></cds-textarea-skeleton> `
-}
+  render: () => html` <cds-textarea-skeleton></cds-textarea-skeleton> `,
+};
 
 export const WithLayer = {
   render: () => html`
@@ -134,23 +132,23 @@ export const Playground = {
   args,
   argTypes,
   render: ({
-  cols,
-  disabled,
-  enableCounter,
-  helperText,
-  hideLabel,
-  invalid,
-  invalidText,
-  label,
-  maxCount,
-  onInput,
-  placeholder,
-  readonly,
-  rows,
-  value,
-  warn,
-  warnText,
-}) => html`
+    cols,
+    disabled,
+    enableCounter,
+    helperText,
+    hideLabel,
+    invalid,
+    invalidText,
+    label,
+    maxCount,
+    onInput,
+    placeholder,
+    readonly,
+    rows,
+    value,
+    warn,
+    warnText,
+  }) => html`
     <cds-form-item>
       <cds-textarea
         ?enable-counter="${enableCounter}"
@@ -172,7 +170,7 @@ export const Playground = {
         ${value}
       </cds-textarea>
     </cds-form-item>
-  `
+  `,
 };
 
 export default {
@@ -180,6 +178,6 @@ export default {
   parameters: {
     docs: {
       page: storyDocs,
-    }
+    },
   },
 };

@@ -37,51 +37,52 @@ const args = {
   readonly: false,
   type: 'text',
   warn: false,
-  warnText: 'Warning message that is really long can wrap to more lines but should not be excessively long.',
+  warnText:
+    'Warning message that is really long can wrap to more lines but should not be excessively long.',
   value: '',
-  onInput: `${prefix}-select-selected`
+  onInput: `${prefix}-select-selected`,
 };
 
 const argTypes = {
   disabled: {
     control: 'boolean',
-    description: 'Disabled (disabled)'
+    description: 'Disabled (disabled)',
   },
   enableCounter: {
     control: 'boolean',
-    description: 'Enable counter (enable-counter)'
+    description: 'Enable counter (enable-counter)',
   },
   helperText: {
     control: 'text',
-    description: 'Helper text (helper-text)'
+    description: 'Helper text (helper-text)',
   },
   hideLabel: {
     control: 'boolean',
-    description: 'Hide label (hide-label)'
+    description: 'Hide label (hide-label)',
   },
   inline: {
     control: 'boolean',
-    description: 'Inline (inline)'
+    description: 'Inline (inline)',
   },
   invalid: {
     control: 'boolean',
-    description: 'Invalid (invalid)'
+    description: 'Invalid (invalid)',
   },
   invalidText: {
     control: 'text',
-    description: 'Invalid text (invalid-text)'
+    description: 'Invalid text (invalid-text)',
   },
   labelText: {
     control: 'text',
-    description: 'Label text (label)'
+    description: 'Label text (label)',
   },
   maxCount: {
     control: 'text',
-    description: 'Max count (max-count)'
+    description: 'Max count (max-count)',
   },
   placeholder: {
     control: 'text',
-    description: 'Placeholder (placeholder)'
+    description: 'Placeholder (placeholder)',
   },
   playgroundWidth: {
     control: 'number',
@@ -90,48 +91,47 @@ const argTypes = {
       range: true,
       min: 300,
       max: 800,
-      step: 50
-    }
+      step: 50,
+    },
   },
   size: {
     control: 'select',
     description: 'Size (size)',
-    options: sizes
+    options: sizes,
   },
   readonly: {
     control: 'boolean',
-    description: 'Read only (readonly)'
+    description: 'Read only (readonly)',
   },
   type: {
     control: 'text',
-    description: 'Type (type)'
+    description: 'Type (type)',
   },
   warn: {
     control: 'boolean',
-    description: 'Warn (warn)'
+    description: 'Warn (warn)',
   },
   warnText: {
     control: 'text',
-    description: 'Warn text (warn-text)'
+    description: 'Warn text (warn-text)',
   },
   value: {
     control: 'text',
-    description: 'Value of input (value)'
+    description: 'Value of input (value)',
   },
   onInput: {
     action: `${prefix}-select-selected`,
     table: {
       disable: true,
-    }
-  }
+    },
+  },
 };
-
 
 export const Default = {
   render: () => html`
     <cds-text-input label="Text input label" helper-text="Optional help text">
     </cds-text-input>
-  `
+  `,
 };
 
 export const ReadOnly = {
@@ -142,11 +142,11 @@ export const ReadOnly = {
       label="Text input label"
       helper-text="Optional help text">
     </cds-text-input>
-  `
+  `,
 };
 
 export const Skeleton = {
-  render: () => html` <cds-text-input-skeleton></cds-text-input-skeleton> `
+  render: () => html` <cds-text-input-skeleton></cds-text-input-skeleton> `,
 };
 
 export const TogglePasswordVisibility = {
@@ -157,7 +157,7 @@ export const TogglePasswordVisibility = {
       label="Text input label"
       helper-text="Optional help text">
     </cds-text-input>
-  `
+  `,
 };
 
 export const WithLayer = {
@@ -166,32 +166,32 @@ export const WithLayer = {
       <cds-text-input label="Text input label" helper-text="Optional help text">
       </cds-text-input>
     </sb-template-layers>
-  `
+  `,
 };
 
 export const Playground = {
   args,
   argTypes,
   render: ({
-  disabled,
-  enableCounter,
-  helperText,
-  hideLabel,
-  inline,
-  invalid,
-  invalidText,
-  labelText,
-  maxCount,
-  placeholder,
-  playgroundWidth,
-  readonly,
-  size,
-  type,
-  value,
-  warn,
-  warnText,
-  onInput,
-}) => html`
+    disabled,
+    enableCounter,
+    helperText,
+    hideLabel,
+    inline,
+    invalid,
+    invalidText,
+    labelText,
+    maxCount,
+    placeholder,
+    playgroundWidth,
+    readonly,
+    size,
+    type,
+    value,
+    warn,
+    warnText,
+    onInput,
+  }) => html`
     <div style="width: ${playgroundWidth}px;">
       <cds-text-input
         ?disabled="${disabled}"
@@ -221,7 +221,7 @@ export default {
   actions: { argTypesRegex: '^on.*' },
   parameters: {
     docs: {
-      page: storyDocs
-    }
+      page: storyDocs,
+    },
   },
 };

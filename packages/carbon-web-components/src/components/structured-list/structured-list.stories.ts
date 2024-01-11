@@ -22,39 +22,43 @@ import storyDocs from './structured-list.mdx';
 const defaultArgs = {
   condensed: false,
   flush: false,
-  hasSelection: false
+  hasSelection: false,
 };
 
 const controls = {
   condensed: {
     control: 'boolean',
-    description: 'Condensed (condensed)'
+    description: 'Condensed (condensed)',
   },
   flush: {
     control: 'boolean',
-    description: 'Flush (flush)'
+    description: 'Flush (flush)',
   },
   hasSelection: {
     control: 'boolean',
-    description: 'Supports selection feature (has-selection)'
-  }
+    description: 'Supports selection feature (has-selection)',
+  },
 };
 
 export const Default = {
-  argTypes: {  hasSelection: {
-    control: 'boolean',
-    description: 'Supports selection feature (has-selection)'
-  }},
-  args: {hasSelection: false},
+  argTypes: {
+    hasSelection: {
+      control: 'boolean',
+      description: 'Supports selection feature (has-selection)',
+    },
+  },
+  args: { hasSelection: false },
   render: ({ hasSelection }) => {
-  const selectionName = !hasSelection ? undefined : 'structured-list-selection';
-  const selectionValues = !hasSelection
-    ? []
-    : [
-        'structured-list-selection-0',
-        'structured-list-selection-1',
-        'structured-list-selection-2',
-      ];
+    const selectionName = !hasSelection
+      ? undefined
+      : 'structured-list-selection';
+    const selectionValues = !hasSelection
+      ? []
+      : [
+          'structured-list-selection-0',
+          'structured-list-selection-1',
+          'structured-list-selection-2',
+        ];
     return html`
       <cds-structured-list selection-name=${ifDefined(selectionName)}>
         <cds-structured-list-head>
@@ -107,48 +111,48 @@ export const Selection = {
     ];
 
     return html`
-    <cds-structured-list selection-name=${ifDefined(selectionName)}>
-      <cds-structured-list-head>
-        <cds-structured-list-header-row>
-          <cds-structured-list-header-cell>
-            ColumnA
-          </cds-structured-list-header-cell>
-          <cds-structured-list-header-cell>
-            ColumnB
-          </cds-structured-list-header-cell>
-          <cds-structured-list-header-cell>
-            ColumnC
-          </cds-structured-list-header-cell>
-        </cds-structured-list-header-row>
-      </cds-structured-list-head>
-      <cds-structured-list-body>
-        ${selectionValues.map(
-          (selectionValue, index) => html` <cds-structured-list-row
-            selection-value=${ifDefined(selectionValue)}>
-            <cds-structured-list-cell>Row ${index}</cds-structured-list-cell>
-            <cds-structured-list-cell>Row ${index}</cds-structured-list-cell>
-            <cds-structured-list-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
-              magna, finibus id tortor sed, aliquet bibendum augue. Aenean
-              posuere sem vel euismod dignissim. Nulla ut cursus dolor.
-              Pellentesque vulputate nisl a porttitor
-              interdum.</cds-structured-list-cell
-            >
-          </cds-structured-list-row>`
-        )}
-      </cds-structured-list-body>
-    </cds-structured-list>
-  `;
-  }
-
-
+      <cds-structured-list selection-name=${ifDefined(selectionName)}>
+        <cds-structured-list-head>
+          <cds-structured-list-header-row>
+            <cds-structured-list-header-cell>
+              ColumnA
+            </cds-structured-list-header-cell>
+            <cds-structured-list-header-cell>
+              ColumnB
+            </cds-structured-list-header-cell>
+            <cds-structured-list-header-cell>
+              ColumnC
+            </cds-structured-list-header-cell>
+          </cds-structured-list-header-row>
+        </cds-structured-list-head>
+        <cds-structured-list-body>
+          ${selectionValues.map(
+            (selectionValue, index) => html` <cds-structured-list-row
+              selection-value=${ifDefined(selectionValue)}>
+              <cds-structured-list-cell>Row ${index}</cds-structured-list-cell>
+              <cds-structured-list-cell>Row ${index}</cds-structured-list-cell>
+              <cds-structured-list-cell>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean
+                posuere sem vel euismod dignissim. Nulla ut cursus dolor.
+                Pellentesque vulputate nisl a porttitor
+                interdum.</cds-structured-list-cell
+              >
+            </cds-structured-list-row>`
+          )}
+        </cds-structured-list-body>
+      </cds-structured-list>
+    `;
+  },
 };
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
   render: ({ condensed, flush, hasSelection }) => {
-    const selectionName = !hasSelection ? undefined : 'structured-list-selection';
+    const selectionName = !hasSelection
+      ? undefined
+      : 'structured-list-selection';
     const selectionValues = !hasSelection
       ? []
       : [
@@ -197,7 +201,7 @@ export const Playground = {
         </cds-structured-list-body>
       </cds-structured-list>
     `;
-  }
+  },
 };
 
 export const skeleton = {
@@ -235,13 +239,13 @@ export const skeleton = {
       )}
     </div>
   `,
-}
+};
 
 export default {
   title: 'Components/Structured list',
   parameters: {
     docs: {
-      page: storyDocs
-    }
+      page: storyDocs,
+    },
   },
 };
