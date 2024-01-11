@@ -614,7 +614,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                         }
                         break;
                     }
-                    this._onChange(`NC_${key}_DETAIL`, `${key}_${punsStatus}`);
+                    const punsValue = key === 'PHONE' ? 'TELE' : key;
+                    this._onChange(
+                      `NC_${punsValue}_DETAIL`,
+                      `${key}_${punsStatus}`
+                    );
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
                 : ''
