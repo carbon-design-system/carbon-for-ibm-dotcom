@@ -155,9 +155,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @query('#title')
   private _title!: HTMLElement;
 
-  @query('#collapsed-title')
-  private _collapsedTitle!: HTMLElement;
-
   @query('#subtitle')
   private _subtitle!: HTMLElement;
 
@@ -166,9 +163,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
   @query('#inner-content')
   private _innerContent!: HTMLElement;
-
-  @query('#body-content')
-  private _bodyContent!: HTMLElement;
 
   @state()
   _isOpen = false;
@@ -232,7 +226,10 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       ) {
         await (this.constructor as typeof CDSSidePanel)._delay();
         if (
-          !tryFocusElems(this.querySelectorAll(selectorTabbableForSidePanel))
+          !tryFocusElems(
+            this.querySelectorAll(selectorTabbableForSidePanel),
+            true
+          )
         ) {
           this.focus();
         }
@@ -248,10 +245,11 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   };
 
-  private _reducedMotion =
-    typeof window !== 'undefined' && window?.matchMedia
-      ? window.matchMedia('(prefers-reduced-motion: reduce)')
-      : { matches: true };
+  private _reducedMotion = { matches: false };
+  // private _reducedMotion =
+  //   typeof window !== 'undefined' && window?.matchMedia
+  //     ? window.matchMedia('(prefers-reduced-motion: reduce)')
+  //     : { matches: true };
 
   /**
    * Handles `click` event on the side-panel container.
@@ -418,7 +416,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   // @ts-ignore
   private _resizeObserver = new ResizeObserver(() => {
     if (this._sidePanel) {
-      console.log('this sidePanel', this._sidePanel);
       const actionsContainer = this._sidePanel.querySelector(
         `#actions`
       ) as HTMLElement;
@@ -449,37 +446,36 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         ? this._innerContent?.scrollHeight - this._innerContent?.clientHeight
         : subtitleHeight;
 
-    this._innerContent.style.setProperty(
+    this._sidePanel.style.setProperty(
       `--${blockClass}scroll-y`,
       `${scrollY}px`
     );
 
-    this._innerContent.style.setProperty(
+    this._sidePanel.style.setProperty(
       `--${blockClass}--title-height`,
       `${titleHeight + 16}px`
     );
 
     const scrolled = scrollY > 0;
 
-    console.log('set subtitle opacity', transitionDistance, scrollY);
-    this._innerContent.style.setProperty(
+    this._sidePanel.style.setProperty(
       `--${blockClass}--subtitle-opacity`,
       !scrolled
         ? '1'
         : `${1 - Math.min(transitionDistance, scrollY) / transitionDistance}`
     );
 
-    this._innerContent.style.setProperty(
+    this._sidePanel.style.setProperty(
       `--${blockClass}--divider-opacity`,
       !scrolled ? '0' : `${scrollAnimationProgress}`
     );
 
-    this._innerContent.style.setProperty(
+    this._sidePanel.style.setProperty(
       `--${blockClass}--title-y-position`,
       !scrolled ? '0' : `${-Math.abs(Math.min(1, scrollY / subtitleHeight))}rem`
     );
 
-    this._innerContent.style.setProperty(
+    this._sidePanel.style.setProperty(
       `--${blockClass}--collapsed-title-y-position`,
       !scrolled
         ? '1rem'
@@ -489,29 +485,30 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const reduceTitleContainerHeightAmount =
       ((labelTextHeight * scrollAnimationProgress) / titleContainerHeight) *
       100;
-    this._innerContent.style.setProperty(
+
+    this._sidePanel.style.setProperty(
       `--${blockClass}--label-text-height`,
       !scrolled ? '0' : `${Math.trunc(reduceTitleContainerHeightAmount)}px`
     );
-    this._innerContent.style.setProperty(
+    this._sidePanel.style.setProperty(
       `--${blockClass}--title-container-height`,
       !scrolled ? '0' : `${titleContainerHeight}px`
     );
   };
 
   private _updateActionSizes() {
-    if (this?._innerContent && this?._actions) {
-      this._innerContent.style.setProperty(
+    if (this?._sidePanel && this?._actions) {
+      this._sidePanel.style.setProperty(
         `--${blockClass}--actions-height`,
         `${this._actions.offsetHeight}px`
       );
 
-      this._innerContent.style.setProperty(
+      this._sidePanel.style.setProperty(
         `--${blockClass}--actions-width-first`,
         `${this._actionsStacked ? '0 0 100%' : '1 1 50%'}`
       );
 
-      this._innerContent.style.setProperty(
+      this._sidePanel.style.setProperty(
         `--${blockClass}--actions-width-other`,
         `${this._actionsStacked ? '0 0 100%' : '0 1 25%'}`
       );
@@ -541,7 +538,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   /**
    * Determines whether the side panel should render the condensed version (affects action buttons primarily)
    */
-  @property({ type: Boolean, reflect: true, attribute: 'condense-acdtions' })
+  @property({ type: Boolean, reflect: true, attribute: 'condense-actions' })
   condensedActions = false;
 
   /**
@@ -702,7 +699,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
         <!-- render title label -->
         ${title?.length && labelText?.length
-          ? html` <p id="label-text">${labelText}</p>`
+          ? html` <p id="label">${labelText}</p>`
           : ''}
 
         <!-- render collapsed title -->
@@ -836,7 +833,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
   adjustPageContent = () => {
     // sets/resets styles based on slideIn property and selectorPageContent;
-    if (this.selectorPageContent && !this._reducedMotion.matches) {
+    if (this.selectorPageContent) {
       const pageContentEl: HTMLElement | null = document.querySelector(
         this.selectorPageContent
       );
@@ -846,7 +843,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
           marginInlineStart: '',
           marginInlineEnd: '',
           inlineSize: '',
-          transition: `all ${moderate02}`,
+          transition: this._reducedMotion.matches
+            ? 'none'
+            : `all ${moderate02}`,
           transitionProperty: 'margin-inline-start, margin-inline-end',
         };
         if (this.open) {
@@ -944,16 +943,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
             containerPaddingTop -
             containerHeight,
           this._innerContent.offsetHeight - this._innerContent.scrollHeight
-        );
-        console.log(
-          'setting containerScrollTop',
-          titleHeight,
-          actionToolbarHeight,
-          containerPaddingTop,
-          containerHeight,
-          this._innerContent.offsetHeight,
-          this._innerContent.scrollHeight,
-          this._containerScrollTop
         );
         this._titleContainer.style.setProperty(
           `--${blockClass}--container-scroll-top`,

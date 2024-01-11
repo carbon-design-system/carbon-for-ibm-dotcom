@@ -250,6 +250,7 @@ const DefaultTemplate = (args) => {
   const {
     actionItems,
     actionToolbarItems,
+    animateTitle,
     content,
     label,
     open,
@@ -270,17 +271,18 @@ const DefaultTemplate = (args) => {
       </div>
     </div>
     <cds-side-panel
-      class="permanent"
+      ?animate-title=${animateTitle}
       ?containerClass=${containerClass}
+      ?open=${open}
       ?prevent-close-on-click-outside=${preventCloseOnClickOutside}
-      placement=${placement}
-      size=${size}
+      ?slide-in=${slideIn}
+      class="permanent"
       current-step="0"
       label-text="${getLabel(label)}"
-      title="This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed."
-      ?open=${open}
+      placement=${placement}
       selector-page-content=${selectorPageContent}
-      ?slide-in=${slideIn}>
+      size=${size}
+      title="This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.">
       ${getContent(content)}
 
       <!-- slotted subtitle slotted content -->
@@ -302,6 +304,7 @@ Default.parameters = {
     'cds-side-panel': () => ({
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
+      animateTitle: boolean('Title animates on scroll', true),
       containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
@@ -312,7 +315,7 @@ Default.parameters = {
       // sidePanelHeading: text('SidePanel heading', 'Add a custom domain'),
       // sidePanelLabel: text('SidePanel label', ''),
       // numberOfButtons: select('Number of buttons', buttons, 2),
-      content: select('Side panel contents', contents, 1),
+      content: select('Side panel contents', contents, 2),
       label: select('SidePanel label', labels, 1),
       open: boolean('Open (open)', false),
       placement: select(
@@ -337,6 +340,7 @@ SlideIn.parameters = {
     'cds-side-panel': () => ({
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
+      animateTitle: boolean('Title animates on scroll', true),
       containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
@@ -347,7 +351,7 @@ SlideIn.parameters = {
       // sidePanelHeading: text('SidePanel heading', 'Add a custom domain'),
       // sidePanelLabel: text('SidePanel label', ''),
       // numberOfButtons: select('Number of buttons', buttons, 2),
-      content: select('Side panel contents', contents, 1),
+      content: select('Side panel contents', contents, 2),
       label: select('SidePanel label', labels, 1),
       open: boolean('Open (open)', true),
       placement: select(
@@ -374,6 +378,7 @@ WithActionToolbar.parameters = {
     'cds-side-panel': () => ({
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 1),
+      animateTitle: boolean('Title animates on scroll', true),
       containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
@@ -384,7 +389,7 @@ WithActionToolbar.parameters = {
       // sidePanelHeading: text('SidePanel heading', 'Add a custom domain'),
       // sidePanelLabel: text('SidePanel label', ''),
       // numberOfButtons: select('Number of buttons', buttons, 2),
-      content: select('Side panel contents', contents, 1),
+      content: select('Side panel contents', contents, 2),
       label: select('SidePanel label', labels, 1),
       open: boolean('Open (open)', true),
       placement: select(

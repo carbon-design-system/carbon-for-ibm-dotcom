@@ -191,7 +191,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     @extend .#{$block-class}__close-button;
   }
 
-  #label-text {
+  #label {
     @extend .#{$block-class}__label-text;
 
     // opacity: var(--#{$block-class}--subtitle-opacity, 1);
@@ -229,7 +229,6 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   }
 
   #inner-content {
-    --#{$block-class}--subtitle-opacity: 1;
     @extend .#{$block-class}__inner-content;
 
     block-size: calc(
