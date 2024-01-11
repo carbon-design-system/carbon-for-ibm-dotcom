@@ -279,7 +279,7 @@
     max-inline-size: none;
 
     @include breakpoint(md) {
-      @include content-inline-size;
+      @include content-width;
     }
 
     ::slotted(#{$c4d-prefix}-content-block-paragraph) {
