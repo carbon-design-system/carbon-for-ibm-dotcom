@@ -13,7 +13,7 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
-import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
+import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 
@@ -100,7 +100,7 @@ export const Default = (args) => {
     setTimeout(() => {
       const masthead = document.querySelector('c4d-masthead-container');
       if (masthead) {
-        (masthead as any).navLinks = links;
+        (masthead as any).navLinks = mastheadL0Data;
       }
     }, 1000);
   }
@@ -234,7 +234,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     setTimeout(() => {
       const masthead = document.querySelector('c4d-masthead-container');
       if (masthead) {
-        (masthead as any).logoData = logoData;
+        (masthead as any).logoData = mastheadLogoData;
       }
     }, 1000);
   }
