@@ -191,7 +191,7 @@
   :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
-    @include content-inline-size;
+    @include content-width;
   }
 
   :host(#{$c4d-prefix}-content-block-heading),
