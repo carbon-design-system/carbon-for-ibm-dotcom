@@ -15,7 +15,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * Cloud Megamenu category link group
+ * Megamenu category link group
  *
  * @element c4d-megamenu-category-link-group
  */

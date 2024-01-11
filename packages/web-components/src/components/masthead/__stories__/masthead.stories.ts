@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ import '../masthead-container';
 import { L1_CTA_TYPES } from '../defs';
 import styles from './masthead.stories.scss?lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
+import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
@@ -116,7 +116,7 @@ export const Default = (args) => {
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
-            .navLinks="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
@@ -135,51 +135,6 @@ export const Default = (args) => {
             has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${authMethod}"></c4d-masthead-container>
-        `}
-  `;
-};
-
-export const withCloudData = (args) => {
-  const {
-    customProfileLogin,
-    hasSearch,
-    selectedMenuItem,
-    searchPlaceholder,
-    useMock,
-  } = args?.MastheadComposite ?? {};
-
-  return html`
-    <style>
-      ${styles}
-    </style>
-    ${useMock
-      ? html`
-          <c4d-masthead-composite
-            platform="Cloud"
-            .platformUrl="https://www.ibm.com/cloud"
-            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
-            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
-            has-search="${hasSearch}"
-            .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(
-              authenticatedProfileItems
-            )}"
-            .unauthenticatedProfileItems="${ifNonEmpty(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-composite>
-        `
-      : html`
-          <c4d-masthead-container
-            data-endpoint="${dataEndpoints['cloud']}"
-            platform="Cloud"
-            .platformUrl="https://www.ibm.com/cloud"
-            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
-            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
-            has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-container>
         `}
   `;
 };
@@ -206,7 +161,7 @@ export const WithCustomTypeahead = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -252,7 +207,7 @@ export const searchOpenOnload = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -299,7 +254,7 @@ export const withPlatform = (args) => {
       ? html`
           <c4d-masthead-composite
             platform="${ifNonEmpty(platform)}"
-            .navLinks="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -364,7 +319,7 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -432,7 +387,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"
@@ -440,14 +395,14 @@ export const withAlternateLogoAndTooltip = (args) => {
               unauthenticatedProfileItems
             )}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
-              ? logoData
+              ? mastheadLogoData
               : null}"></c4d-masthead-composite>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
-              ? logoData
+              ? mastheadLogoData
               : null}"></c4d-masthead-container>
         `}
   `;
@@ -492,7 +447,7 @@ export const WithScopedSearch = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            .navLinks="${links}"
+            .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
             )}"

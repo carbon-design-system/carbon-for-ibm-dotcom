@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -252,14 +252,11 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
 
       const masthead: HTMLElement | null | undefined = doc
         ?.querySelector(
-          `${c4dPrefix}-cloud-masthead-container,
-          ${c4dPrefix}-cloud-masthead-composite,
-          ${c4dPrefix}-masthead-container,
+          `${c4dPrefix}-masthead-container,
           ${c4dPrefix}-masthead-composite`
         )
         ?.querySelector(`${c4dPrefix}-masthead`);
       if (expanded && !this._importedSideNav) {
-        import('./left-nav-cta-item');
         import('./left-nav-name');
         import('./left-nav-menu');
         import('./left-nav-menu-section');

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,7 @@ import {
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss?lit';
 import { FOOTER_SIZE } from '../../footer/footer';
 import {
-  mastheadLinksV2 as l0Data,
+  mastheadL0Data as l0Data,
   mastheadL1Data as l1Data,
 } from '../../masthead/__stories__/links';
 import mockLangList from '../../footer/__stories__/language-list';

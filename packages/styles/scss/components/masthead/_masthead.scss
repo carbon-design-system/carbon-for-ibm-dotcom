@@ -17,7 +17,9 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/layout' as layout;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
 @use '../link-with-icon';
 @use 'vars' as *;
@@ -266,8 +268,9 @@
   }
 
   :host(#{$c4d-prefix}-masthead-composite),
-  :host(#{$c4d-prefix}-masthead-container),
-  :host(#{$c4d-prefix}-cloud-masthead-container) {
+  :host(#{$c4d-prefix}-masthead-container) {
+    @include layout.emit-layout-tokens();
+
     position: relative;
     z-index: 900;
     display: block;

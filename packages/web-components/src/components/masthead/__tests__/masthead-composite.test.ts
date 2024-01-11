@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,13 +23,13 @@ const template = (props?) => {
       language="${ifDefined(language)}"
       user-status="${ifDefined(userStatus)}"
       .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
-      .navLinks="${navLinks}"
+      .l0Data="${navLinks}"
       .unauthenticatedProfileItems="${ifDefined(unauthenticatedProfileItems)}">
     </c4d-masthead-composite>
   `;
 };
 
-describe('cds-masthead-composite', function () {
+describe('c4d-masthead-composite', function () {
   const events = new EventManager();
 
   describe('Rendering global bar', function () {
@@ -63,7 +63,7 @@ describe('cds-masthead-composite', function () {
       const mastheadComposite = document.body.querySelector(
         'c4d-masthead-composite'
       );
-      expect(mastheadComposite!.querySelector('cds-top-nav')).toBeNull();
+      expect(mastheadComposite!.querySelector('c4d-top-nav')).toBeNull();
     });
   });
 

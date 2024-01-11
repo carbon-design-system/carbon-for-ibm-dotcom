@@ -16,7 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss?lit';
-import { mastheadLinks as links } from './links';
+import { mastheadL0Data } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import {
   authenticatedProfileItems,
@@ -57,6 +57,9 @@ const scopeParameters = [
   },
 ];
 
+const dataEndpoint =
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
+
 export const Default = (args) => {
   const {
     customProfileLogin,
@@ -66,7 +69,6 @@ export const Default = (args) => {
     searchPlaceholder,
     hasProfile,
     hasSearch,
-    navLinks,
   } = args?.MastheadComposite ?? {};
   const { useMock } = args?.Other ?? {};
 
@@ -85,7 +87,7 @@ export const Default = (args) => {
             .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .navLinks="${navLinks}"
+            .l0Data="${mastheadL0Data}"
             .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
@@ -99,7 +101,7 @@ export const Default = (args) => {
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
-            .navLinks="${navLinks}"
+            data-endpoint=${dataEndpoint}
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
@@ -163,9 +165,6 @@ export default {
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
-        MastheadComposite: {
-          navLinks: !useMock ? undefined : links,
-        },
         Other: {
           useMock,
         },
@@ -181,7 +180,6 @@ export default {
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
           customProfileLogin: 'https://www.example.com/',
-          navLinks: links,
         },
       },
     },
