@@ -38,14 +38,10 @@ const mockTranslation: Partial<Translation> = {
       },
       {
         title: 'menu-title-foo',
-        menuSections: [
+        submenu: [
           {
-            menuItems: [
-              {
-                title: 'menu-item-title-bar',
-                url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
-              },
-            ],
+            title: 'menu-item-title-bar',
+            url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
           },
         ],
       },
@@ -54,7 +50,7 @@ const mockTranslation: Partial<Translation> = {
 };
 
 const endpoint =
-  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2';
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
 
 describe('Redux actions for `TranslateAPI`', () => {
   it('dispatches the action to set translation data', () => {

@@ -25,14 +25,10 @@ const mockTranslation: Partial<Translation> = {
       },
       {
         title: 'menu-title-foo',
-        menuSections: [
+        submenu: [
           {
-            menuItems: [
-              {
-                title: 'menu-item-title-bar',
-                url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
-              },
-            ],
+            title: 'menu-item-title-bar',
+            url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
           },
         ],
       },
