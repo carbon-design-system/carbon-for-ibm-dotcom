@@ -30,7 +30,7 @@ const tooltipAlignments = {
 
 const defaultArgs = {
   alignment: 'bottom',
-  open: false,
+  open: true,
 };
 
 const controls = {
@@ -64,7 +64,7 @@ export const Default = {
       <br />
       <div style="display: flex; align-items: center">
         <cds-toggletip alignment="bottom" open>
-          Toggletip label -- using <code>defaultOpen</code> prop
+          Toggletip label -- using <code>open</code> prop
 
           <p slot="body-text">
             Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed
@@ -83,7 +83,7 @@ export const Playground = {
   args: defaultArgs,
   render: ({ alignment, open }) => html`
     <cds-toggletip alignment="${alignment}" ?open="${open}">
-      Toggletip label
+      Toggletip label -- using <code>open</code> prop
 
       <p slot="body-text">
         Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed do
