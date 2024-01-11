@@ -70,7 +70,7 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   /**
    * Specify the timeout reference for the tooltip
    */
-  @property({ reflect: true})
+  @property({ reflect: true })
   timeoutId = 0;
 
   /**
