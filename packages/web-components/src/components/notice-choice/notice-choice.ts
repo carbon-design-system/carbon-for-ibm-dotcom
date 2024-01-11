@@ -606,6 +606,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                   Object.keys(this.checkboxes).map((key) => {
                     const checked = this.values[key];
                     const checkbox = this.checkboxes[key];
+                    const punsStatus = this.values[key]['punsStatus']
+                      ? this.values[key]['punsStatus']
+                      : checked
+                      ? 'CC'
+                      : 'UU';
                     const hiddenBox = {
                       id: 'NC_HIDDEN_' + key,
                       value: this.values[key]['checkBoxStatus']
@@ -617,27 +622,20 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                     switch (key) {
                       case 'EMAIL':
                         this.hiddenEmail = hiddenBox.value;
-                        this.ncEmailDetail = this.values[key]['punsStatus']
-                          ? this.values[key]['punsStatus']
-                          : checked
-                          ? 'CC'
-                          : 'UU';
+                        this.ncEmailDetail = punsStatus;
                         if (typeof checked !== 'object') {
                           this.emailPrechecked = checked ? true : false;
                         }
                         break;
                       case 'PHONE':
                         this.hiddenPhone = hiddenBox.value;
-                        this.ncTeleDetail = this.values[key]['punsStatus']
-                          ? this.values[key]['punsStatus']
-                          : checked
-                          ? 'CC'
-                          : 'UU';
+                        this.ncTeleDetail = punsStatus;
                         if (typeof checked !== 'object') {
                           this.telephonePrechecked = checked ? true : false;
                         }
                         break;
                     }
+                    this._onChange(`NC_${key}_DETAIL`, `${key}_${punsStatus}`);
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
                 : ''
@@ -757,6 +755,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       Q_CHINA_PIPL: 'Q_CHINA_PIPL',
       NC_HIDDEN_EMAIL_VALUE: 'NC_HIDDEN_EMAIL',
       NC_HIDDEN_PHONE_VALUE: 'NC_HIDDEN_PHONE',
+      EMAIL_CU: 'EMAIL_CU',
+      EMAIL_CC: 'EMAIL_CC',
+      EMAIL_UC: 'EMAIL_UC',
+      EMAIL_UU: 'EMAIL_UU',
+      PHONE_CU: 'PHONE_CU',
+      PHONE_CC: 'PHONE_CC',
+      PHONE_UC: 'PHONE_UC',
+      PHONE_UU: 'PHONE_UU',
     };
 
     if (Object.prototype.hasOwnProperty.call(pwsFieldsMap, field)) {
