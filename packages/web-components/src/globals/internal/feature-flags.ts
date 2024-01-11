@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,14 +44,6 @@ export const C4D_CONTENT_BLOCK_CARD_STATIC: boolean =
  */
 export const C4D_SCOPED_SEARCH: boolean =
   process!.env.C4D_SCOPED_SEARCH === 'true' || C4D_FLAGS_ALL || false;
-
-/**
- * Enables Cloud Masthead Components
- *
- * @type {boolean}
- */
-export const C4D_CLOUD_MASTHEAD: boolean =
-  process!.env.C4D_CLOUD_MASTHEAD === 'true' || C4D_FLAGS_ALL || false;
 
 /**
  * Enables custom profile login url in Masthead
