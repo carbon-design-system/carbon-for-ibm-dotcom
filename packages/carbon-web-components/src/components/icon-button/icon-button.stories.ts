@@ -104,7 +104,10 @@ const argTypes = {
 export const Default = {
   render: () => {
     return html`
-      <cds-icon-button> ${Edit16({ slot: 'icon' })} </cds-icon-button>
+      <cds-icon-button>
+        ${Edit16({ slot: 'icon' })}
+        <span slot="tooltip-content">label</span>
+      </cds-icon-button>
     `;
   },
 };
