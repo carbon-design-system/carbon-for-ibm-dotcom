@@ -81,6 +81,8 @@ const stories = glob.sync(
     '../src/**/tabs.mdx',
     '../src/**/tag.mdx',
     '../src/**/tag.stories.ts',
+    '../src/**/text-input.mdx',
+    '../src/**/text-input.stories.ts',
     '../src/**/tooltip.mdx',
     '../src/**/tooltip.stories.ts',
     '../src/**/ui-shell.mdx',
