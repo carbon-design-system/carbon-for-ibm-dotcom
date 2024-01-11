@@ -7,11 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { checkPreferencesv3, loadContent, loadSettings } from './services';
+import { loadContent, loadSettings } from './services';
 import { TemplateResult, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import {
-  emailRegExp,
   pwsValueMap,
   resetToWorldWideContent,
   supportedLanguages,
@@ -63,9 +62,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ attribute: 'default-values' })
   defaultValues = {};
-
-  @property({ type: String, attribute: 'email' })
-  email = '';
 
   @property({ type: Boolean, attribute: 'hide-error-message' })
   hideErrorMessage = false;
@@ -321,23 +317,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       case 'enable-all-opt-in':
         this.setDefaultSelections();
         break;
-      case 'email': {
-        if (newVal) {
-          if (newVal !== this.fetchedPref) {
-            // Handle throttle using debounce approach.
-            if (emailRegExp.test(newVal)) {
-              setTimeout(() => {
-                this.emailChanged(newVal);
-              }, 1000);
-            }
-          }
-        } else {
-          if (this.fetchedPref) {
-            this.fetchedPref = newVal;
-          }
-        }
-        break;
-      }
       case 'hide-error-message': {
         if (oldVal !== newVal) {
           this.hideErrorMessage = JSON.parse(newVal);
@@ -651,35 +630,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         ${this.getBpidLegalText()}
     </section>`;
   }
-  protected emailChanged(email) {
-    if (this.changed === false) {
-      checkPreferencesv3(email).then((response) => {
-        const questionChoiceStatus =
-          this.countrySettings[this.country.toLocaleLowerCase()];
 
-        if (response === 'S' && questionChoiceStatus.email === 'opt-out') {
-          this.values = {
-            ...this.values,
-            EMAIL: false,
-            ...{ checkBoxStatus: 'SUPPRESSION', punsStatus: 'CU' },
-          };
-          this._onChange('NC_HIDDEN_EMAIL', null);
-        } else {
-          this.values = {
-            ...this.values,
-            EMAIL: questionChoiceStatus.email === 'opt-out' ? true : false,
-            ...{
-              checkBoxStatus:
-                questionChoiceStatus.email === 'opt-out'
-                  ? 'PERMISSION'
-                  : 'SUPPRESSION',
-            },
-          };
-          this._onChange('NC_HIDDEN_EMAIL', null);
-        }
-      });
-    }
-  }
   protected _getOptionByQuestion = (question) => {
     const questionChoiceStatus = this.country
       ? this.countrySettings[this.country.toLocaleLowerCase()]
