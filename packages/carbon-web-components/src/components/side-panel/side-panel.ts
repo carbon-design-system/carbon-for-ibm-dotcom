@@ -158,11 +158,17 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @query('#collapsed-title')
   private _collapsedTitle!: HTMLElement;
 
+  @query('#subtitle')
+  private _subtitle!: HTMLElement;
+
   @query('#actions-toolbar')
   private _actionsToolbar!: HTMLElement;
 
   @query('#inner-content')
   private _innerContent!: HTMLElement;
+
+  @query('#body-content')
+  private _bodyContent!: HTMLElement;
 
   @state()
   _isOpen = false;
@@ -354,16 +360,16 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
     if (this._actionsStacked !== stacked) {
       this._actionsStacked = stacked;
-      this.dispatchEvent(
-        new CustomEvent(
-          (this.constructor as typeof CDSSidePanel).eventActionsStackingChange,
-          {
-            detail: {
-              stacked: stacked,
-            },
-          }
-        )
-      );
+      // this.dispatchEvent(
+      //   new CustomEvent(
+      //     (this.constructor as typeof CDSSidePanel).eventActionsStackingChange,
+      //     {
+      //       detail: {
+      //         stacked: stacked,
+      //       },
+      //     }
+      //   )
+      // );
       // actions may stack automatically based on button set component
       this._updateActionSizes();
     }
@@ -412,6 +418,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   // @ts-ignore
   private _resizeObserver = new ResizeObserver(() => {
     if (this._sidePanel) {
+      console.log('this sidePanel', this._sidePanel);
       const actionsContainer = this._sidePanel.querySelector(
         `#actions`
       ) as HTMLElement;
@@ -423,22 +430,72 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         actionsHeight
       );
 
-      console.log('actionsHeight', actionsHeight);
       this.requestUpdate();
     }
   });
 
   private _scrollObserver = (event) => {
     const scrollY = event.target.scrollTop;
-    const transitionDistance = -1 * this?._containerScrollTop;
+    const transitionDistance = -1 * this!._containerScrollTop;
+
+    let subtitleHeight = this._subtitle?.offsetHeight || 0; // set default subtitle height if a subtitle is not provided to enable scrolling animation
+    const titleContainerHeight = this._titleContainer?.offsetHeight || 0;
+    const titleHeight = this._title?.offsetHeight || 0;
+    const labelTextHeight = this._label?.offsetHeight || 0;
+    const scrollAnimationProgress = Math.min(1, scrollY / transitionDistance);
+
+    subtitleHeight =
+      subtitleHeight < 0
+        ? this._innerContent?.scrollHeight - this._innerContent?.clientHeight
+        : subtitleHeight;
 
     this._innerContent.style.setProperty(
       `--${blockClass}scroll-y`,
       `${scrollY}px`
     );
+
     this._innerContent.style.setProperty(
-      `--${blockClass}--title-opacity`,
-      `${1 - Math.min(transitionDistance, scrollY) / transitionDistance}`
+      `--${blockClass}--title-height`,
+      `${titleHeight + 16}px`
+    );
+
+    const scrolled = scrollY > 0;
+
+    console.log('set subtitle opacity', transitionDistance, scrollY);
+    this._innerContent.style.setProperty(
+      `--${blockClass}--subtitle-opacity`,
+      !scrolled
+        ? '1'
+        : `${1 - Math.min(transitionDistance, scrollY) / transitionDistance}`
+    );
+
+    this._innerContent.style.setProperty(
+      `--${blockClass}--divider-opacity`,
+      !scrolled ? '0' : `${scrollAnimationProgress}`
+    );
+
+    this._innerContent.style.setProperty(
+      `--${blockClass}--title-y-position`,
+      !scrolled ? '0' : `${-Math.abs(Math.min(1, scrollY / subtitleHeight))}rem`
+    );
+
+    this._innerContent.style.setProperty(
+      `--${blockClass}--collapsed-title-y-position`,
+      !scrolled
+        ? '1rem'
+        : `${Math.max(0, subtitleHeight - scrollY) / subtitleHeight}rem`
+    );
+
+    const reduceTitleContainerHeightAmount =
+      ((labelTextHeight * scrollAnimationProgress) / titleContainerHeight) *
+      100;
+    this._innerContent.style.setProperty(
+      `--${blockClass}--label-text-height`,
+      !scrolled ? '0' : `${Math.trunc(reduceTitleContainerHeightAmount)}px`
+    );
+    this._innerContent.style.setProperty(
+      `--${blockClass}--title-container-height`,
+      !scrolled ? '0' : `${titleContainerHeight}px`
     );
   };
 
@@ -632,7 +689,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         ?has-action-toolbar=${this._hasActionToolbar}>
         <!-- render back button -->
         ${currentStep > 0
-          ? html`<cds-button
+          ? html`<cds-icon-button
               aria-label=${navigationBackIconDescription}
               kind="ghost"
               size="sm"
@@ -640,7 +697,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
               id="nav-back-button"
               @click=${this._handleNavigateBack}>
               ${ArrowLeft16({ slot: 'icon' })}
-            </cds-button>`
+            </cds-icon-button>`
           : ''}
 
         <!-- render title label -->
@@ -648,53 +705,49 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
           ? html` <p id="label-text">${labelText}</p>`
           : ''}
 
-        <div id="title-container-inner">
-          <!-- render collapsed title -->
-          ${animateTitle && title?.length && !this._reducedMotion.matches
-            ? html`<h2 id="collapsed-title" title=${title} aria-hidden="true">
-                ${title}
-              </h2>`
-            : ''}
+        <!-- render collapsed title -->
+        ${animateTitle && title?.length && !this._reducedMotion.matches
+          ? html`<h2 id="collapsed-title" title=${title} aria-hidden="true">
+              ${title}
+            </h2>`
+          : ''}
 
-          <!-- render title -->
-          ${title?.length
-            ? html`<h2 id="title" title=${title}>${title}</h2>`
-            : ''}
-        </div>
+        <!-- render title -->
+        ${title?.length
+          ? html`<h2 id="title" title=${title}>${title}</h2>`
+          : ''}
+      </div>
 
-        <!-- render close button area -->
-        <div id="slug-and-close">
-          <!-- {normalizedSlug} -->
-          <cds-button
-            aria-label=${closeIconDescription}
-            kind="ghost"
-            size="sm"
-            tooltip-text=${closeIconDescription}
-            id="close-button"
-            @click=${this._handleCloseClick}>
-            ${Close20({ slot: 'icon' })}
-          </cds-button>
-        </div>
+      <!-- render close button area -->
+      <div id="slug-and-close">
+        <!-- {normalizedSlug} -->
+        <cds-icon-button
+          aria-label=${closeIconDescription}
+          kind="ghost"
+          size="sm"
+          tooltip-text=${closeIconDescription}
+          id="close-button"
+          @click=${this._handleCloseClick}>
+          ${Close20({ slot: 'icon' })}
+        </cds-icon-button>
+      </div>
 
-        <!-- render sub title -->
-        <p
-          id="sub-title"
-          ?hidden=${!this._hasSubtitle}
-          ?no-title-animation=${!animateTitle}
-          ?no-title=${!title}>
-          <slot
-            name="subtitle"
-            @slotchange=${this._handleSubtitleChange}></slot>
-        </p>
+      <!-- render sub title -->
+      <p
+        id="subtitle"
+        ?hidden=${!this._hasSubtitle}
+        ?no-title-animation=${!animateTitle}
+        ?no-title=${!title}>
+        <slot name="subtitle" @slotchange=${this._handleSubtitleChange}></slot>
+      </p>
 
-        <div
-          id="action-toolbar"
-          ?hidden=${!this._hasActionToolbar}
-          ?no-title-animation=${!animateTitle}>
-          <slot
-            name="action-toolbar"
-            @slotchange=${this._handleActionToolbarChange}></slot>
-        </div>
+      <div
+        id="action-toolbar"
+        ?hidden=${!this._hasActionToolbar}
+        ?no-title-animation=${!animateTitle}>
+        <slot
+          name="action-toolbar"
+          @slotchange=${this._handleActionToolbarChange}></slot>
       </div>
     `;
 
@@ -753,15 +806,16 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         </cds-layer>
       </div>
 
-      ${hasOverlay &&
-      html`<div
-        ?slide-in=${slideIn}
-        id="overlay"
-        ?open=${this.open}
-        ?opening=${open && !this._isOpen}
-        ?closing=${!open && this._isOpen}
-        tabindex="-1"
-        @click=${this._handleClickOnOverlay}></div>`}
+      ${hasOverlay
+        ? html`<div
+            ?slide-in=${slideIn}
+            id="overlay"
+            ?open=${this.open}
+            ?opening=${open && !this._isOpen}
+            ?closing=${!open && this._isOpen}
+            tabindex="-1"
+            @click=${this._handleClickOnOverlay}></div>`
+        : ''}
     `;
   }
 
@@ -890,6 +944,16 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
             containerPaddingTop -
             containerHeight,
           this._innerContent.offsetHeight - this._innerContent.scrollHeight
+        );
+        console.log(
+          'setting containerScrollTop',
+          titleHeight,
+          actionToolbarHeight,
+          containerPaddingTop,
+          containerHeight,
+          this._innerContent.offsetHeight,
+          this._innerContent.scrollHeight,
+          this._containerScrollTop
         );
         this._titleContainer.style.setProperty(
           `--${blockClass}--container-scroll-top`,

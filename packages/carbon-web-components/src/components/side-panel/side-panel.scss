@@ -140,7 +140,6 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
     &::before {
       z-index: 99; /* must be higher than action toolbar */
-      opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
     }
 
     &[detail-step] {
@@ -169,31 +168,19 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #title-container-inner {
-    position: sticky;
-    inset-block-start: var(--#{$block-class}--title-scroll-top, 0);
-  }
-
   #nav-back-button {
     @extend .#{$block-class}__navigation-back-button;
   }
 
   #collapsed-title {
     @extend .#{$block-class}__collapsed-title-text;
-
-    z-index: 99;
-
-    inset-block-start: 0;
-    margin-block: 2px $spacing-03; /* align with main title top // text can show through a padding */
-    opacity: calc(1 - var(--#{$block-class}--title-opacity, 1));
-    transform: none;
   }
 
   #title {
     @extend .#{$block-class}__title-text;
 
     margin-block-end: $spacing-03; /* text can show through a padding */
-    opacity: var(--#{$block-class}--title-opacity, 1);
+    margin-inline-end: 0;
   }
 
   #slug-and-close {
@@ -207,14 +194,11 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   #label-text {
     @extend .#{$block-class}__label-text;
 
-    opacity: var(--#{$block-class}--title-opacity, 1);
+    // opacity: var(--#{$block-class}--subtitle-opacity, 1);
   }
 
   #subtitle {
     @extend .#{$block-class}__subtitle-text;
-
-    opacity: var(--#{$block-class}--title-opacity, 1);
-    padding-inline-start: 0;
 
     &[hidden] {
       @extend .#{$prefix}--visually-hidden;
@@ -245,7 +229,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   }
 
   #inner-content {
-    --#{$block-class}--title-opacity: 1;
+    --#{$block-class}--subtitle-opacity: 1;
     @extend .#{$block-class}__inner-content;
 
     block-size: calc(
