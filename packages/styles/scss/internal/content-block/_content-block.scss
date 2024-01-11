@@ -75,8 +75,8 @@
     &.#{$prefix}--layout--border {
       margin-inline: 0;
       margin-inline-end: 0;
-      padding-left: 0;
-      padding-right: 0;
+      padding-inline: 0;
+      padding-inline-end: 0;
       padding-block-end: $spacing-10;
 
       @include breakpoint('lg') {
