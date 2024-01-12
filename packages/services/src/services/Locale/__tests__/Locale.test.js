@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,7 +37,7 @@ describe('LocaleAPI', () => {
       data: response,
     }));
 
-    root.digitalData = mockDigitalDataResponse;
+    root.digitalData = JSON.parse(JSON.stringify(mockDigitalDataResponse));
 
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: '',
@@ -45,6 +45,15 @@ describe('LocaleAPI', () => {
     });
 
     LocaleAPI.clearCache();
+  });
+
+  afterEach(() => {
+    for (let handle = handles.pop(); handle; handle = handles.pop()) {
+      handle.release();
+    }
+    // Restore any mocks back to a predictable state.
+    jest.restoreAllMocks();
+    jest.clearAllMocks();
   });
 
   it('should fetch the lang from the html attribute when there is no ddo defined', async () => {
@@ -271,7 +280,6 @@ describe('LocaleAPI', () => {
   });
 
   it('should get countries list from session cache', async () => {
-    mockAxios.get.mockClear();
     const countries1 = await LocaleAPI.getList({
       cc: 'testCC',
       lc: 'testLC',
@@ -287,7 +295,6 @@ describe('LocaleAPI', () => {
   });
 
   it('should get default countries list on inital reject', async () => {
-    mockAxios.get.mockClear();
     mockAxios.get
       .mockReturnValueOnce(Promise.reject())
       .mockReturnValueOnce(Promise.resolve({ data: response }));
@@ -453,7 +460,6 @@ describe('LocaleAPI', () => {
   });
 
   it('should get locale from DDO on missing cookie lc', async () => {
-    DDOAPI.getLocation.mockClear();
     ipcinfoCookie.get.mockImplementation(() => ({ cc: 'testCC' }));
 
     await LocaleAPI.getLocale();
@@ -462,7 +468,6 @@ describe('LocaleAPI', () => {
   });
 
   it('should get locale from DDO on missing cookie cc', async () => {
-    DDOAPI.getLocation.mockClear();
     ipcinfoCookie.get.mockImplementation(() => ({ lc: 'testLC' }));
 
     await LocaleAPI.getLocale();
@@ -471,7 +476,6 @@ describe('LocaleAPI', () => {
   });
 
   it('should get locale from DDO', async () => {
-    ipcinfoCookie.set.mockClear();
     ipcinfoCookie.get.mockImplementation(() => false);
 
     const locale = await LocaleAPI.getLocale();
@@ -489,8 +493,6 @@ describe('LocaleAPI', () => {
   });
 
   it('should use the cache for the country list, keyed by locale', async () => {
-    mockAxios.get.mockClear();
-    LocaleAPI.getList.mockRestore();
     await LocaleAPI.getList({ cc: 'us', lc: 'en' });
     await LocaleAPI.getList({ cc: 'us', lc: 'en' });
     await LocaleAPI.getList({ cc: 'kr', lc: 'ko' });
@@ -543,11 +545,5 @@ describe('LocaleAPI', () => {
 
     // fresh cached data would lack this property
     expect(newSession).not.toHaveProperty('CACHE');
-  });
-
-  afterEach(() => {
-    for (let handle = handles.pop(); handle; handle = handles.pop()) {
-      handle.release();
-    }
   });
 });
