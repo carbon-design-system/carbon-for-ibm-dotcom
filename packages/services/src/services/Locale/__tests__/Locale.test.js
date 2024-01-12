@@ -415,10 +415,10 @@ describe('LocaleAPI', () => {
     expect(display).toEqual('testName — testDisplay');
   });
 
-  it('should get lang for display', async () => {
+  it('should get default lang for display with no langCode argument', async () => {
     const display = await LocaleAPI.getLangDisplay(false);
 
-    expect(display).toEqual('testName — testDisplay');
+    expect(display).toEqual('United States — English');
   });
 
   it('should get default lang display', async () => {
