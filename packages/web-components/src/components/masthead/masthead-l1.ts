@@ -18,7 +18,11 @@ import {
   L1SubmenuSection as _L1SubmenuSection,
   L1SubmenuSectionHeading,
   MastheadL1,
+  L1CtaLink,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import { CTA_TYPE } from '../cta/defs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
@@ -26,6 +30,8 @@ import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arr
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
+import Chat16 from '../../internal/vendor/@carbon/web-components/icons/chat/16.js';
+import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
 import { classMap } from 'lit/directives/class-map.js';
 import layoutBreakpoint from './masthead-breakpoint';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -88,7 +94,7 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
  * @slot profile - The right hand area.
  */
 @customElement(`${c4dPrefix}-masthead-l1`)
-class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
+class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The L1 menu data, passed from the masthead-composite.
    */
@@ -118,6 +124,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   @state()
   selectedElements: Element[] = [];
+
+  /**
+   * The `aria-label` attribute for the Contact CTA trigger button.
+   */
+  @state()
+  contactCtaLabel = 'Contact';
 
   /**
    * The translated label for the overview links visible on mobile
@@ -157,6 +169,28 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   @queryAll(`.${prefix}--masthead__l1-menu-container-scroller`)
   menuScrollerButtons?: NodeListOf<HTMLButtonElement>;
+
+  /**
+   * Handles cm-app-pane-displayed event fired by CM_APP.
+   *
+   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
+   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
+   */
+  @HostListener('document:cm-app-pane-displayed')
+  protected _handleCMAppDisplayed = (_event: CustomEvent) => {
+    this.contactCtaLabel = 'Close contact window';
+  };
+
+  /**
+   * Handles cm-app-pane-hidden event fired by CM_APP.
+   *
+   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
+   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
+   */
+  @HostListener('document:cm-app-pane-hidden')
+  protected _handleCMAppHidden = (_event: CustomEvent) => {
+    this.contactCtaLabel = 'Show contact window';
+  };
 
   /**
    * Resize Observer responsible for show/hiding the scrolling buttons.
@@ -314,6 +348,41 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Renders the L1 CTA.
+   *
+   * @returns {_TemplateResult} A template fragment representing the L1 CTA
+   */
+  protected _renderCta(cta: L1CtaLink | undefined): _TemplateResult | '' {
+    const { isMobileVersion, contactCtaLabel } = this;
+    const classes = isMobileVersion
+      ? `${prefix}--masthead__l1-dropdown-cta`
+      : `${prefix}--masthead__l1-cta`;
+
+    if (cta && cta?.title) {
+      if (cta?.ctaType === CTA_TYPE.CHAT) {
+        const icon = isMobileVersion ? Chat16() : Chat20();
+        return html`
+          <a
+            class="${classes}
+            data-ibm-contact="contact-link"
+            href="javascript:void 0"
+            aria-label="${ifDefined(contactCtaLabel)}"
+          >
+            ${cta.title}${icon}
+          </a>
+        `;
+      } else if (cta?.url) {
+        const icon = isMobileVersion ? ArrowRight16() : '';
+        return html`
+          <a class="${classes}" href="${cta.url}"> ${cta.title}${icon} </a>
+        `;
+      }
+    }
+
+    return '';
+  }
+
+  /**
    * Renders L1 for desktop screensizes
    *
    * @returns {_TemplateResult} L1 for desktop screensizes
@@ -371,13 +440,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
             </div>
           `
         : ''}
-      ${cta && cta.url && cta.title
-        ? html`
-            <a class="${prefix}--masthead__l1-cta" href="${ifDefined(cta.url)}"
-              >${cta.title}</a
-            >
-          `
-        : ''}
+      ${this._renderCta(cta)}
       <div
         class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--end"></div>
     `;
@@ -570,15 +633,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
               </a>
             </li>`
           : ''}
-        ${cta && cta.url && cta.title
-          ? html`<li>
-              <a
-                class="${prefix}--masthead__l1-dropdown-cta"
-                href="${ifDefined(cta.url)}">
-                ${cta.title}${ArrowRight16()}
-              </a>
-            </li>`
-          : ''}
+        ${cta ? html`<li>${this._renderCta(cta)}</li>` : ''}
       </ul>
     `;
   }
@@ -916,6 +971,21 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     }
 
     return renderedHeading;
+  }
+
+  protected shouldUpdate(changedProperties) {
+    const { l1Data } = this;
+    // We don't need to perform updates related to the Contact Module if the CTA
+    // isn't configured to interact with it and it's the only update.
+    if (
+      changedProperties.has('contactCtaLabel') &&
+      changedProperties.length === 1
+    ) {
+      if (!(l1Data?.actions?.cta?.ctaType === CTA_TYPE.CHAT)) {
+        return false;
+      }
+    }
+    return true;
   }
 
   protected firstUpdated() {
