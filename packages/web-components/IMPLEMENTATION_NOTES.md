@@ -202,6 +202,12 @@ There are some common behaviors in CTA components that are implemented by
   attribute of `<a>` for `external` CTA types.
 - [Use a hash link](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/cta.ts#L113-L122)
   for `video` CTA types.
+- Trigger a CTA video on page load using a `#cta-video-[video-id]` URL fragment.
+  For any page that includes a CTA component composed with `CTAMixin`, the CTA
+  will look for a URL fragment following the pattern `#cta-video-[video-id]`,
+  where `[video-id]` is the video id configured for the component. If there is a
+  match, the CTA will automatically be triggered, which in most cases will open
+  a lightbox and begin video playback (subject to browser auto-play policies).
 
 ### Video CTA
 

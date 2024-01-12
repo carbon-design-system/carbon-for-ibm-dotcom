@@ -46,14 +46,6 @@ export const C4D_SCOPED_SEARCH: boolean =
   process!.env.C4D_SCOPED_SEARCH === 'true' || C4D_FLAGS_ALL || false;
 
 /**
- * Enables Cloud Masthead Components
- *
- * @type {boolean}
- */
-export const C4D_CLOUD_MASTHEAD: boolean =
-  process!.env.C4D_CLOUD_MASTHEAD === 'true' || C4D_FLAGS_ALL || false;
-
-/**
  * Enables custom profile login url in Masthead
  *
  * @type {boolean}
