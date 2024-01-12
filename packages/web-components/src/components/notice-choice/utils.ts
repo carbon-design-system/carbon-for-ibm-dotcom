@@ -75,13 +75,6 @@ export function pwsValueMap(value) {
   );
 }
 
-export function specialCountryBasedText(countryCode) {
-  const countryBasedText = {
-    cn: 'chinaPIPLtext',
-  };
-  return countryBasedText[countryCode.toLocaleLowerCase()];
-}
-
 export function supportedLanguages(language) {
   const languageMapping = {
     en: 'en',

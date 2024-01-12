@@ -14,7 +14,6 @@ import {
   pwsValueMap,
   resetToWorldWideContent,
   supportedLanguages,
-  specialCountryBasedText,
 } from './utils';
 // import this.countrySettings from './country-settings';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -228,11 +227,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     this.preventFormSubmission = false;
     if (this.ncData?.mandatoryCheckbox[this.country?.toLocaleLowerCase()]) {
       const countyCode = this.country?.toLocaleLowerCase();
-      const countryBasedText = specialCountryBasedText(countyCode);   
-      this._onChange(
-        this.ncData?.mandatoryCheckbox[countyCode][countryBasedText].mrs_field,
-        'countyBasedCheckedNo'
-      );
+      const mrsField = this.ncData?.mandatoryCheckbox[countyCode]
+        .countryTransferText
+        ? this.ncData?.mandatoryCheckbox[countyCode].countryTransferText
+            .mrs_field
+        : this.ncData?.mandatoryCheckbox[countyCode].chinaPIPLtext.mrs_field;
+      this._onChange(mrsField, 'countyBasedCheckedNo');
 
       this.isMandatoryCheckboxDisplayed.countryCode = countyCode;
       this.isMandatoryCheckboxDisplayed.isDisplayed = true;
@@ -396,18 +396,20 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
 
     const countyCode = this.country?.toLocaleLowerCase();
-    const countryBasedText = specialCountryBasedText(countyCode);
 
+    const mrsField = this.ncData?.mandatoryCheckbox[countyCode]
+      .countryTransferText
+      ? this.ncData?.mandatoryCheckbox[
+          this.isMandatoryCheckboxDisplayed.countryCode
+        ].countryTransferText.mrs_field
+      : this.ncData?.mandatoryCheckbox[countyCode].chinaPIPLtext.mrs_field;
     legalCheckbox.value = isChecked ? 1 : 0;
     this.preventFormSubmission = !isChecked;
     const preventFormSubmissionValue = isChecked
       ? 'formSubmissionYes'
       : 'formSubmissionNo';
     this._onChange('preventFormSubmission', preventFormSubmissionValue);
-    this._onChange(
-      this.ncData?.mandatoryCheckbox[countyCode][countryBasedText].mrs_field,
-      countyBasedText
-    );
+    this._onChange(mrsField, countyBasedText);
   }
 
   countryBasedLegalNotice() {
@@ -563,16 +565,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this.country.toLocaleLowerCase() !==
         this.isMandatoryCheckboxDisplayed.countryCode
     ) {
-      const countryBasedText = specialCountryBasedText(
+      const mrsField = this.ncData?.mandatoryCheckbox[
         this.isMandatoryCheckboxDisplayed.countryCode
-      );
-
-      this._onChange(
-        this.ncData?.mandatoryCheckbox[
-          this.isMandatoryCheckboxDisplayed.countryCode
-        ][countryBasedText].mrs_field,
-        'countyBasedCheckedNo'
-      );
+      ].countryTransferText
+        ? this.ncData?.mandatoryCheckbox[
+            this.isMandatoryCheckboxDisplayed.countryCode
+          ].countryTransferText.mrs_field
+        : this.ncData?.mandatoryCheckbox[
+            this.isMandatoryCheckboxDisplayed.countryCode
+          ].chinaPIPLtext.mrs_field;
+      this._onChange(mrsField, 'countyBasedCheckedNo');
     }
     return html`<section class="${prefix}--nc">
     <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${
@@ -708,7 +710,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       NC_HIDDEN_PHONE: 'permission_phone',
       preventFormSubmission: 'preventFormSubmission',
       Q_CHINA_PIPL: 'Q_CHINA_PIPL',
-      Q_COUNTRY_TRANSFER:'Q_COUNTRY_TRANSFER',
+      Q_COUNTRY_TRANSFER: 'Q_COUNTRY_TRANSFER',
       NC_HIDDEN_EMAIL_VALUE: 'NC_HIDDEN_EMAIL',
       NC_HIDDEN_PHONE_VALUE: 'NC_HIDDEN_PHONE',
       EMAIL_CU: 'EMAIL_CU',
