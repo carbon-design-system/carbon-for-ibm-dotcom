@@ -228,7 +228,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     this.preventFormSubmission = false;
     if (this.ncData?.mandatoryCheckbox[this.country?.toLocaleLowerCase()]) {
       const countyCode = this.country?.toLocaleLowerCase();
-      const countryBasedText = specialCountryBasedText(countyCode);
+      const countryBasedText = specialCountryBasedText(countyCode);   
       this._onChange(
         this.ncData?.mandatoryCheckbox[countyCode][countryBasedText].mrs_field,
         'countyBasedCheckedNo'
@@ -708,6 +708,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       NC_HIDDEN_PHONE: 'permission_phone',
       preventFormSubmission: 'preventFormSubmission',
       Q_CHINA_PIPL: 'Q_CHINA_PIPL',
+      Q_COUNTRY_TRANSFER:'Q_COUNTRY_TRANSFER',
       NC_HIDDEN_EMAIL_VALUE: 'NC_HIDDEN_EMAIL',
       NC_HIDDEN_PHONE_VALUE: 'NC_HIDDEN_PHONE',
       EMAIL_CU: 'EMAIL_CU',
