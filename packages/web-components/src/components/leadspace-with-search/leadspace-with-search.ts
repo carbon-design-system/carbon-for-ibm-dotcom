@@ -77,11 +77,11 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
    * Returns a class-name based on the Adjacent theme type
    */
   protected _getSearchClass() {
-    return classMap({
+    return {
       [`${prefix}--search-container`]: true,
       [`${prefix}--search-container-dual-theme`]:
         this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME,
-    });
+    };
   }
 
   protected firstUpdated() {
@@ -123,7 +123,7 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
           <slot name="copy"></slot>
         </div>
       </div>
-      <div class="${this._getSearchClass()}">
+      <div class="${classMap(this._getSearchClass())}">
         <div class="${prefix}--search-container-inner">
           <div class="${prefix}--sticky-header">${this._heading}</div>
           <slot name="search"></slot>

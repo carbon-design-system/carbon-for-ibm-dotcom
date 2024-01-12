@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
 import { css, html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DContentBlock, {
@@ -34,7 +33,7 @@ class C4DContentBlockSegmented extends C4DContentBlock {
       _hasHeading: hasHeading,
       _hasMedia: hasMedia,
     } = this;
-    return classMap({
+    return {
       [`${prefix}--content-layout`]: true,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
       [`${c4dPrefix}-ce--content-layout--with-adjacent-heading-content`]:
@@ -42,7 +41,7 @@ class C4DContentBlockSegmented extends C4DContentBlock {
       [`${prefix}--layout--border`]:
         complementaryStyleScheme ===
         CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-    });
+    };
   }
 
   protected _renderInnerBody() {
