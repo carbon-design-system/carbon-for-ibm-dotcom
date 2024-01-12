@@ -452,7 +452,7 @@ describe('LocaleAPI', () => {
   });
 
   it('should get locale from DDO on missing cookie', async () => {
-    ipcinfoCookie.get.mockImplementation(() => false);
+    ipcinfoCookie.get.mockImplementation(() => undefined);
 
     await LocaleAPI.getLocale();
 
@@ -476,7 +476,7 @@ describe('LocaleAPI', () => {
   });
 
   it('should get locale from DDO', async () => {
-    ipcinfoCookie.get.mockImplementation(() => false);
+    ipcinfoCookie.get.mockImplementation(() => undefined);
 
     const locale = await LocaleAPI.getLocale();
 
