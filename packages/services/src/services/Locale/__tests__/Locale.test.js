@@ -480,9 +480,9 @@ describe('LocaleAPI', () => {
 
     const locale = await LocaleAPI.getLocale();
 
-    expect(locale).toEqual('testVerified');
+    expect(locale).toEqual({ lc: 'en' });
     expect(ipcinfoCookie.set).toHaveBeenCalledTimes(1);
-    expect(ipcinfoCookie.set).toHaveBeenCalledWith('testVerified');
+    expect(ipcinfoCookie.set).toHaveBeenCalledWith({ lc: 'en' });
   });
 
   it('should get undefined locale on no cc', async () => {
