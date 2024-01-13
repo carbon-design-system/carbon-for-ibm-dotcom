@@ -4372,7 +4372,7 @@ __metadata:
     "@carbon/ibmdotcom-utilities": "npm:2.1.0-rc.0"
     "@carbon/icon-helpers": "npm:10.45.1"
     "@carbon/icons": "npm:11.31.0"
-    "@carbon/icons-react": "npm:10.49.2"
+    "@carbon/icons-react": "npm:10.49.3"
     "@carbon/layout": "npm:11.20.1"
     "@carbon/motion": "npm:11.16.1"
     "@carbon/pictograms-react": "npm:11.55.0"
@@ -4519,16 +4519,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:10.49.2":
-  version: 10.49.2
-  resolution: "@carbon/icons-react@npm:10.49.2"
+"@carbon/icons-react@npm:10.49.3":
+  version: 10.49.3
+  resolution: "@carbon/icons-react@npm:10.49.3"
   dependencies:
     "@carbon/icon-helpers": "npm:^10.28.2"
     "@carbon/telemetry": "npm:0.1.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: 9b591d2f5c9f0ff061273974367f17da5156c7fa86e89ac71516fb819bc33fabc13bb01f3e06b4869753147fec7bd04ffb43cf8e7770c2c1093c408dbd635b0c
+  checksum: 89ca6fb777fe654a08b81694c6c90d5f6422aebf49060800f134ceb1e31f6c49da5036546b6db9b88540b4c3f8ade75b2d2b7a21870679d3421a4b17697d3416
   languageName: node
   linkType: hard
 
