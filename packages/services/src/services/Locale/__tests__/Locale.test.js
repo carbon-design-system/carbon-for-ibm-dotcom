@@ -73,6 +73,8 @@ describe('LocaleAPI', () => {
   });
 
   it('should default to value from the html lang attribute if cc and lc are not defined', async () => {
+    root.digitalData.page = false;
+
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'it',
       configurable: true,
