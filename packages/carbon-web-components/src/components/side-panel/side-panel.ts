@@ -158,11 +158,14 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @query('#subtitle')
   private _subtitle!: HTMLElement;
 
-  @query('#actions-toolbar')
-  private _actionsToolbar!: HTMLElement;
+  @query('#action-toolbar')
+  private _actionToolbar!: HTMLElement;
 
   @query('#inner-content')
   private _innerContent!: HTMLElement;
+
+  @query('#body-content')
+  private _bodyContent!: HTMLElement;
 
   @state()
   _isOpen = false;
@@ -324,6 +327,8 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const target = e.target as HTMLSlotElement;
     const subtitle = target?.assignedNodes();
 
+    console.log(e.target);
+
     this._hasSubtitle = subtitle.length > 0;
   }
 
@@ -431,69 +436,145 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   });
 
-  private _scrollObserver = (event) => {
-    const scrollY = event.target.scrollTop;
-    const transitionDistance = -1 * this!._containerScrollTop;
+  private _setMeasuredCustomProperties = async (reason, scrollY = 0) => {
+    await this.updateComplete;
+
+    console.log('reason', reason);
+    if (!this._sidePanel || (!this.open && !this._innerContent)) {
+      return;
+    }
 
     let subtitleHeight = this._subtitle?.offsetHeight || 0; // set default subtitle height if a subtitle is not provided to enable scrolling animation
+    const panelHeight = this._sidePanel?.offsetHeight || 0;
+    const scrollSectionHeight = this._bodyContent?.offsetHeight || 0;
     const titleContainerHeight = this._titleContainer?.offsetHeight || 0;
     const titleHeight = this._title?.offsetHeight || 0;
-    const labelTextHeight = this._label?.offsetHeight || 0;
-    const scrollAnimationProgress = Math.min(1, scrollY / transitionDistance);
+    const labelHeight = this._label?.offsetHeight || 0;
+    const totalScrollingHeight =
+      titleContainerHeight + subtitleHeight + scrollSectionHeight;
+    const actionToolbarHeight = this?._actionToolbar?.offsetHeight || 0;
 
-    subtitleHeight =
-      subtitleHeight < 0
-        ? this._innerContent?.scrollHeight - this._innerContent?.clientHeight
-        : subtitleHeight;
+    if (!this.animateTitle) {
+      this._innerContent.style.setProperty(
+        `--${blockClass}--title-text-height`,
+        `${titleHeight}px`
+      );
+      this._innerContent.style.setProperty(
+        `--${blockClass}--subtitle-container-height`,
+        `${subtitleHeight}px`
+      );
+      this._innerContent.style.setProperty(
+        `--${blockClass}--action-bar-container-height`,
+        `${actionToolbarHeight}px`
+      );
+      this._innerContent.style.setProperty(
+        `--${blockClass}--label-text-height`,
+        `${labelHeight}px`
+      );
+    } else {
+      const titlePaddingTop = parseInt(
+        (this._titleContainer &&
+          window &&
+          window?.getComputedStyle?.(this._titleContainer)?.['padding-top']) ??
+          '0',
+        10
+      );
 
-    this._sidePanel.style.setProperty(
-      `--${blockClass}scroll-y`,
-      `${scrollY}px`
-    );
+      const transitionDistance =
+        -1 *
+        Math.max(
+          titleHeight +
+            actionToolbarHeight +
+            titlePaddingTop -
+            titleContainerHeight,
+          this._innerContent?.offsetHeight - this._innerContent?.scrollHeight
+        );
+      const scrollAnimationProgress = Math.min(1, scrollY / transitionDistance);
 
-    this._sidePanel.style.setProperty(
-      `--${blockClass}--title-height`,
-      `${titleHeight + 16}px`
-    );
+      // if the difference between the total scrolling height and the panel height is less than
+      // the subtitleElement height OR if the subtitle element height is 0, use that difference
+      // as the length of the scroll animation (otherwise the animation will not be able to complete
+      // because there is not enough scrolling distance to complete it).
+      subtitleHeight =
+        totalScrollingHeight - panelHeight < subtitleHeight
+          ? totalScrollingHeight - panelHeight
+          : subtitleHeight === 0
+          ? 16
+          : subtitleHeight;
+      subtitleHeight =
+        subtitleHeight < 0
+          ? this._innerContent?.scrollHeight - this._innerContent?.clientHeight
+          : subtitleHeight;
 
-    const scrolled = scrollY > 0;
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--scroll-y`,
+        `${scrollY}px`
+      );
 
-    this._sidePanel.style.setProperty(
-      `--${blockClass}--subtitle-opacity`,
-      !scrolled
-        ? '1'
-        : `${1 - Math.min(transitionDistance, scrollY) / transitionDistance}`
-    );
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--action-bar-container-height`,
+        `${actionToolbarHeight || 0}px`
+      );
 
-    this._sidePanel.style.setProperty(
-      `--${blockClass}--divider-opacity`,
-      !scrolled ? '0' : `${scrollAnimationProgress}`
-    );
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--title-height`,
+        `${titleHeight + 16}px`
+      );
 
-    this._sidePanel.style.setProperty(
-      `--${blockClass}--title-y-position`,
-      !scrolled ? '0' : `${-Math.abs(Math.min(1, scrollY / subtitleHeight))}rem`
-    );
+      const scrolled = scrollY > 0;
 
-    this._sidePanel.style.setProperty(
-      `--${blockClass}--collapsed-title-y-position`,
-      !scrolled
-        ? '1rem'
-        : `${Math.max(0, subtitleHeight - scrollY) / subtitleHeight}rem`
-    );
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--subtitle-opacity`,
+        !scrolled
+          ? '1'
+          : `${1 - Math.min(transitionDistance, scrollY) / transitionDistance}`
+      );
 
-    const reduceTitleContainerHeightAmount =
-      ((labelTextHeight * scrollAnimationProgress) / titleContainerHeight) *
-      100;
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--divider-opacity`,
+        !scrolled ? '0' : `${scrollAnimationProgress}`
+      );
 
-    this._sidePanel.style.setProperty(
-      `--${blockClass}--label-text-height`,
-      !scrolled ? '0' : `${Math.trunc(reduceTitleContainerHeightAmount)}px`
-    );
-    this._sidePanel.style.setProperty(
-      `--${blockClass}--title-container-height`,
-      !scrolled ? '0' : `${titleContainerHeight}px`
-    );
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--title-y-position`,
+        !scrolled
+          ? '0rem'
+          : `${-Math.abs(Math.min(1, scrollY / subtitleHeight))}rem`
+      );
+
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--collapsed-title-y-position`,
+        !scrolled
+          ? '1rem'
+          : `${Math.max(0, subtitleHeight - scrollY) / subtitleHeight}rem`
+      );
+
+      const reduceTitleContainerHeightAmount =
+        ((labelHeight * scrollAnimationProgress) / titleContainerHeight) * 100;
+
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--label-text-height`,
+        !scrolled ? '0px' : `${Math.trunc(reduceTitleContainerHeightAmount)}px`
+      );
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--title-container-height`,
+        !scrolled ? '0px' : `${titleContainerHeight}px`
+      );
+
+      this._sidePanel?.style.setProperty(
+        `--${blockClass}--title-text-height`,
+        this.animateTitle ? '0' : `${titleHeight + 24}px`
+      );
+
+      this._sidePanel?.style.setProperty(
+        `--${blockClass}--subtitle-container-height`,
+        this.animateTitle ? '0' : `${subtitleHeight}px`
+      );
+    }
+  };
+
+  private _scrollObserver = (event) => {
+    this._setMeasuredCustomProperties('scroll', event.target.scrollTop);
   };
 
   private _updateActionSizes() {
@@ -738,14 +819,16 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         <slot name="subtitle" @slotchange=${this._handleSubtitleChange}></slot>
       </p>
 
-      <div
-        id="action-toolbar"
-        ?hidden=${!this._hasActionToolbar}
-        ?no-title-animation=${!animateTitle}>
-        <slot
-          name="action-toolbar"
-          @slotchange=${this._handleActionToolbarChange}></slot>
-      </div>
+      ${this._hasActionToolbar
+        ? html`<div
+            id="action-toolbar"
+            ?hidden=${!this._hasActionToolbar}
+            ?no-title-animation=${!animateTitle}>
+            <slot
+              name="action-toolbar"
+              @slotchange=${this._handleActionToolbarChange}></slot>
+          </div>`
+        : ''}
     `;
 
     const hasOverlay = includeOverlay || !slideIn;
@@ -867,6 +950,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   firstUpdated() {
     this.checkSetOpen();
     this.adjustPageContent();
+    // setTimeout(() => {
+    this._setMeasuredCustomProperties('first update');
+    // }, 50);
   }
 
   async updated(changedProperties) {
@@ -875,11 +961,12 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     if (changedProperties.has('slide-in') || changedProperties.has('open')) {
       this.adjustPageContent();
     }
-
     if (changedProperties.has('open')) {
       this.disconnectObservers();
       if (this.open) {
         this.connectObservers();
+        this._setMeasuredCustomProperties('update');
+
         this._launcher = this.ownerDocument!.activeElement;
         const primaryFocusNode = this.querySelector(
           (this.constructor as typeof CDSSidePanel).selectorPrimaryFocus
@@ -911,52 +998,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       // monitor scroll
       if (this._innerContent) {
         this._innerContent.addEventListener('scroll', this._scrollObserver);
-      }
-
-      // measures for sticky
-      try {
-        const labelHeight = this?._label?.offsetHeight ?? 0;
-        const containerHeight = this?._titleContainer?.offsetHeight ?? 0;
-        const containerPaddingTop = parseInt(
-          window?.getComputedStyle?.(this._titleContainer)?.['padding-top'] ??
-            '0',
-          10
-        );
-        const titleHeight = this._title?.offsetHeight ?? 0;
-        // const collapsedTitleHeight = this?._collapsedTitle?.offsetHeight ?? 0;
-        const actionToolbarHeight = this?._actionsToolbar?.offsetHeight ?? 0;
-
-        const titleScrollNudge = 2;
-
-        // how far the title will move when collapsing
-        const titleScrollDistance = labelHeight + titleScrollNudge;
-        this._titleContainer.style.setProperty(
-          `--${blockClass}--title-scroll-distance`,
-          `${titleScrollDistance}px`
-        );
-
-        // when the container will shrink scrolling
-
-        this._containerScrollTop = Math.max(
-          titleHeight +
-            actionToolbarHeight +
-            containerPaddingTop -
-            containerHeight,
-          this._innerContent.offsetHeight - this._innerContent.scrollHeight
-        );
-        this._titleContainer.style.setProperty(
-          `--${blockClass}--container-scroll-top`,
-          `${this._containerScrollTop}px`
-        );
-
-        // When the title will stop scrolling
-        // assumes collapsed title is not greater in height than title
-        this._titleContainer.style.setProperty(
-          `--${blockClass}--title-scroll-top`,
-          `${containerPaddingTop - titleScrollNudge}px`
-        );
-      } catch (e) {
-        // no op
       }
     }
   }

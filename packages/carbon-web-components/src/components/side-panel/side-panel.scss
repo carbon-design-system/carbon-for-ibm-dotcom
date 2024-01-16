@@ -136,8 +136,6 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   #title-container {
     @extend .#{$block-class}__title-container;
 
-    inset-block-start: var(--#{$block-class}--container-scroll-top, 0);
-
     &::before {
       z-index: 99; /* must be higher than action toolbar */
     }
@@ -156,6 +154,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
     &[no-title-animation] {
       @extend .#{$block-class}__title-container--no-title-animation;
+      // inset-block-start: 0;
     }
 
     &[reduced-motion] {
@@ -221,6 +220,10 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
     &[hidden] {
       @extend .#{$prefix}--visually-hidden;
+
+      padding: 0;
+      border: 0;
+      margin: 0;
     }
 
     &[no-title-animation] {

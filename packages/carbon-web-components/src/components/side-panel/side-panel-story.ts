@@ -133,6 +133,7 @@ const subtitles = {
   'Longer subtitle': 2,
 };
 const getSubTitle = (index) => {
+  console.log('get subtitle index', index);
   switch (index) {
     case 1:
       return html`<div slot="subtitle">This is your subtitle slot.</div>`;
@@ -328,7 +329,7 @@ Default.parameters = {
         false
       ),
       size: select('SidePanel size (size)', sizes, SIDE_PANEL_SIZE.MEDIUM),
-      subtitle: select('Side panel subtitle', subtitles, 1),
+      subtitle: select('Side panel subtitle', subtitles, 2),
     }),
   },
 };
