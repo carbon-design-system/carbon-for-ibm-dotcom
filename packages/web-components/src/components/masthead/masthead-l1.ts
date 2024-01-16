@@ -979,7 +979,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     // isn't configured to interact with it and it's the only update.
     if (
       changedProperties.has('contactCtaLabel') &&
-      changedProperties.length === 1
+      changedProperties.size === 1
     ) {
       if (!(l1Data?.actions?.cta?.ctaType === CTA_TYPE.CHAT)) {
         return false;
