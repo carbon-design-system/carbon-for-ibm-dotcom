@@ -327,8 +327,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const target = e.target as HTMLSlotElement;
     const subtitle = target?.assignedNodes();
 
-    console.log(e.target);
-
     this._hasSubtitle = subtitle.length > 0;
   }
 
@@ -439,7 +437,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   private _setMeasuredCustomProperties = async (reason, scrollY = 0) => {
     await this.updateComplete;
 
-    console.log('reason', reason);
     if (!this._sidePanel || (!this.open && !this._innerContent)) {
       return;
     }
@@ -454,20 +451,20 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       titleContainerHeight + subtitleHeight + scrollSectionHeight;
     const actionToolbarHeight = this?._actionToolbar?.offsetHeight || 0;
 
+    this._sidePanel?.style.setProperty(
+      `--${blockClass}--title-text-height`,
+      this.animateTitle ? '0' : `${titleHeight + 24}px`
+    );
+    this._sidePanel?.style.setProperty(
+      `--${blockClass}--subtitle-container-height`,
+      this.animateTitle ? '0' : `${subtitleHeight}px`
+    );
+    this._sidePanel.style.setProperty(
+      `--${blockClass}--action-bar-container-height`,
+      this.animateTitle ? '0' : `${actionToolbarHeight}px`
+    );
     if (!this.animateTitle) {
-      this._innerContent.style.setProperty(
-        `--${blockClass}--title-text-height`,
-        `${titleHeight}px`
-      );
-      this._innerContent.style.setProperty(
-        `--${blockClass}--subtitle-container-height`,
-        `${subtitleHeight}px`
-      );
-      this._innerContent.style.setProperty(
-        `--${blockClass}--action-bar-container-height`,
-        `${actionToolbarHeight}px`
-      );
-      this._innerContent.style.setProperty(
+      this._sidePanel.style.setProperty(
         `--${blockClass}--label-text-height`,
         `${labelHeight}px`
       );
@@ -559,16 +556,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       this._sidePanel.style.setProperty(
         `--${blockClass}--title-container-height`,
         !scrolled ? '0px' : `${titleContainerHeight}px`
-      );
-
-      this._sidePanel?.style.setProperty(
-        `--${blockClass}--title-text-height`,
-        this.animateTitle ? '0' : `${titleHeight + 24}px`
-      );
-
-      this._sidePanel?.style.setProperty(
-        `--${blockClass}--subtitle-container-height`,
-        this.animateTitle ? '0' : `${subtitleHeight}px`
       );
     }
   };
@@ -815,6 +802,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         id="subtitle"
         ?hidden=${!this._hasSubtitle}
         ?no-title-animation=${!animateTitle}
+        ?no-action-toolbar=${!this._hasActionToolbar}
         ?no-title=${!title}>
         <slot name="subtitle" @slotchange=${this._handleSubtitleChange}></slot>
       </p>

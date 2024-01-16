@@ -133,7 +133,6 @@ const subtitles = {
   'Longer subtitle': 2,
 };
 const getSubTitle = (index) => {
-  console.log('get subtitle index', index);
   switch (index) {
     case 1:
       return html`<div slot="subtitle">This is your subtitle slot.</div>`;

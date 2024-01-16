@@ -38,6 +38,11 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   /* Replaces use of FIGMA for slide in / out animation */
   --#{$block-class}--displaced: 100%;
 
+  * {
+    /* not sure why things are coming out as content-box */
+    box-sizing: border-box;
+  }
+
   #side-panel {
     @extend .#{$block-class}__container;
 
@@ -205,6 +210,12 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
     &[no-title-animation] {
       @extend .#{$block-class}__subtitle-text-no-animation;
+    }
+
+    &[no-title-animation][no-action-toolbar] {
+      /* not working  @extend .#{$block-class}__subtitle-text-no-animation-no-action-toolbar; */
+      border-block-end: 1px solid $layer-active-01;
+      margin-block-end: $spacing-05;
     }
 
     &[no-title] {
