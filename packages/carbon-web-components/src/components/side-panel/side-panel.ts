@@ -30,7 +30,6 @@ export { SIDE_PANEL_SIZE };
 // - story knobs not working as expected even when changing stories
 // - multi-step side panel (including navigate back)
 // - check without overlay operation
-// - preventCloseOnClickOutside
 // - selectorPrimaryFocus
 // - slug
 // - additional stories (Panel with second step, initial focus, static title, static title and action bar)
@@ -257,7 +256,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
    * @param event The event.
    */
   private _handleClickOnOverlay(event: MouseEvent) {
-    this._handleUserInitiatedClose(event.target);
+    if (!this.preventCloseOnClickOutside) {
+      this._handleUserInitiatedClose(event.target);
+    }
   }
 
   /**
