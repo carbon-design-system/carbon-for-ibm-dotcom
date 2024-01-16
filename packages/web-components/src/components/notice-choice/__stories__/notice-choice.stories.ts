@@ -71,7 +71,6 @@ const props = () => ({
   country: select('Country', countryList, 'US'),
   state: select('State', stateList, ''),
   questionchoices: select('Question Choices', questionChoices, '1,2'),
-  email: text('Email', ''),
   termsConditionLink: text(
     'Terms & Condition Link',
     'https://www.ibm.com/legal'
@@ -87,7 +86,6 @@ export const Default = (args) => {
     language,
     country,
     state,
-    email,
     termsConditionLink,
     questionchoices,
     hideErrorMessages,
@@ -96,6 +94,8 @@ export const Default = (args) => {
     bpidLegalText,
     hiddenEmail,
     hiddenPhone,
+    ncTeleDetail,
+    ncEmailDetail,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -103,7 +103,6 @@ export const Default = (args) => {
       country="${country}"
       question-choices="${questionchoices}"
       state="${state}"
-      email=${email}
       terms-condition-link="${termsConditionLink || ''}"
       hide-error-message="${hideErrorMessages}"
       show-legal-notice=${showLegalNotice}
@@ -111,6 +110,8 @@ export const Default = (args) => {
       bpid-legal-text="${bpidLegalText}"
       .hiddenEmail="${hiddenEmail}"
       .hiddenPhone="${hiddenPhone}"
+      .nc-tele-detail="${ncTeleDetail}"
+      .nc-email-detail="${ncEmailDetail}"
       @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };
