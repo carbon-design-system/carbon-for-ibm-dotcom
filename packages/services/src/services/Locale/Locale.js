@@ -124,7 +124,7 @@ function _getLocaleFromLangAttr() {
  * are present.
  *
  * @async
- * @returns {(Locale | boolean)} The cookie object if 'cc' and 'lc' values are present, otherwise false.
+ * @returns {Promise<Locale|boolean>} The cookie object if 'cc' and 'lc' values are present, otherwise false.
  */
 const _getLocaleFromCookie = async () => {
   const cookie = ipcinfoCookie.get();
