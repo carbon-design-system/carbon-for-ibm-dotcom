@@ -253,6 +253,7 @@ const DefaultTemplate = (args) => {
     animateTitle,
     condensedActions,
     content,
+    includeOverlay,
     label,
     open,
     containerClass,
@@ -275,6 +276,7 @@ const DefaultTemplate = (args) => {
       ?animate-title=${animateTitle}
       ?containerClass=${containerClass}
       ?condense-actions=${condensedActions}
+      ?include-overlay=${includeOverlay}
       ?open=${open}
       ?prevent-close-on-click-outside=${preventCloseOnClickOutside}
       ?slide-in=${slideIn}
@@ -319,6 +321,7 @@ Default.parameters = {
       // sidePanelLabel: text('SidePanel label', ''),
       // numberOfButtons: select('Number of buttons', buttons, 2),
       content: select('Side panel contents', contents, 2),
+      includeOverlay: boolean('Include overlay', true),
       label: select('SidePanel label', labels, 1),
       open: boolean('Open (open)', false),
       placement: select(
@@ -396,6 +399,7 @@ WithActionToolbar.parameters = {
       // numberOfButtons: select('Number of buttons', buttons, 2),
       content: select('Side panel contents', contents, 2),
       label: select('SidePanel label', labels, 1),
+      includeOverlay: boolean('Include overlay', true),
       open: boolean('Open (open)', true),
       placement: select(
         'SidePanel placement',

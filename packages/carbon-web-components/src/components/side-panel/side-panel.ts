@@ -816,8 +816,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         : ''}
     `;
 
-    const hasOverlay = includeOverlay || !slideIn;
-
     return html`
       <div
         id="side-panel"
@@ -828,7 +826,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         ?open=${this._isOpen}
         ?opening=${open && !this._isOpen}
         ?closing=${!open && this._isOpen}
-        ?overlay=${hasOverlay}
+        ?overlay=${includeOverlay || slideIn}
         size=${size}>
         <cds-layer level="1">
           <a
@@ -871,7 +869,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         </cds-layer>
       </div>
 
-      ${hasOverlay
+      ${includeOverlay
         ? html`<div
             ?slide-in=${slideIn}
             id="overlay"
@@ -943,7 +941,11 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   async updated(changedProperties) {
     this.checkSetOpen();
 
-    if (changedProperties.has('slide-in') || changedProperties.has('open')) {
+    if (
+      changedProperties.has('slide-in') ||
+      changedProperties.has('open') ||
+      changedProperties.has('include-overlay')
+    ) {
       this.adjustPageContent();
     }
     if (changedProperties.has('open')) {
