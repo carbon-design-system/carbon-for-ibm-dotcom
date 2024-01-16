@@ -48,7 +48,20 @@
     .#{$prefix}--link--disabled {
       color: $text-disabled;
     }
+    &.#{$prefix}--link-with-icon__icon-left,
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon.#{$prefix}--link-with-icon__icon-left {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
 
+      svg,
+      ::slotted(svg[slot='icon']) {
+        position: relative;
+        align-self: start;
+        inset-block-start: 1px;
+        margin-inline: 0 $spacing-03;
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-callout-link-with-icon),
