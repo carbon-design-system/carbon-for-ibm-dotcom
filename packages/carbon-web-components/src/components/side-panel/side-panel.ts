@@ -325,6 +325,8 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const target = e.target as HTMLSlotElement;
     const subtitle = target?.assignedNodes();
 
+    console.log('handling subtitle change');
+
     this._hasSubtitle = subtitle.length > 0;
   }
 
@@ -333,6 +335,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
   // eslint-disable-next-line class-methods-use-this
   private _handleActionToolbarChange(e: Event) {
+    console.log('_handleActionToolbarChange');
     const target = e.target as HTMLSlotElement;
     const actions = target?.assignedElements();
 
@@ -736,6 +739,8 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       this._actionsCount
     ];
 
+    console.log('_hasActionToolbar', this._actionToolbar);
+
     const titleTemplate = html`
       <div
         id="title-container"
@@ -799,16 +804,14 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         <slot name="subtitle" @slotchange=${this._handleSubtitleChange}></slot>
       </p>
 
-      ${this._hasActionToolbar
-        ? html`<div
-            id="action-toolbar"
-            ?hidden=${!this._hasActionToolbar}
-            ?no-title-animation=${!animateTitle}>
-            <slot
-              name="action-toolbar"
-              @slotchange=${this._handleActionToolbarChange}></slot>
-          </div>`
-        : ''}
+      <div
+        id="action-toolbar"
+        ?hidden=${!this._hasActionToolbar}
+        ?no-title-animation=${!animateTitle}>
+        <slot
+          name="action-toolbar"
+          @slotchange=${this._handleActionToolbarChange}></slot>
+      </div>
     `;
 
     return html`

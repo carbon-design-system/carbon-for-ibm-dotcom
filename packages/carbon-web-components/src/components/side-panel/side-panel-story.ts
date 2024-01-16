@@ -246,19 +246,39 @@ export default {
   },
 };
 
-const DefaultTemplate = (args) => {
-  const {
-    actionItems,
-    actionToolbarItems,
-    animateTitle,
-    content,
-    label,
-    preventCloseOnClickOutside,
-    selectorPageContent,
-    selectorPrimaryFocus,
-    slideIn,
-    subtitle,
-  } = args?.['cds-side-panel'] ?? {};
+const DefaultTemplate = (argsIn) => {
+  const args = {
+    actionItems: getActionItems(select('Slot (actions)', actionItems, 1)),
+    actionToolbarItems: getActionToolbarItems(
+      select('Slot (action-toolbar)', actionToolbarItems, 0)
+    ),
+    animateTitle: boolean('animate-title (Title animates on scroll)', true),
+    class: text('class', 'a-user-class'),
+    condenseActions: boolean('condense-actions', false),
+    content: getContent(select('Slot (default), panel contents', contents, 2)),
+    includeOverlay: boolean('include-overlay', true),
+    label: getLabel(select('label', labels, 2)),
+    open: boolean('open', false),
+    placement: select('placement', placements, SIDE_PANEL_PLACEMENT.RIGHT),
+    preventCloseOnClickOutside: boolean(
+      'prevent-close-on-click-outside',
+      false
+    ),
+    selectorPageContent: text(
+      'selector-page-content',
+      '#page-content-selector'
+    ),
+    selectorPrimaryFocus: text('selector-primary-focus', ''),
+    size: select('size', sizes, SIDE_PANEL_SIZE.MEDIUM),
+    slideIn: boolean('slide-in', false),
+    subtitle: getSubTitle(select('Slot (subtitle)', subtitles, 1)),
+    title: text(
+      'title',
+      'This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.'
+    ),
+
+    ...(argsIn?.['cds-side-panel'] ?? {}),
+  };
 
   return html`
     <div class="${storyPrefix}story-container">
@@ -268,40 +288,31 @@ const DefaultTemplate = (args) => {
       </div>
     </div>
     <cds-side-panel
-      ?animate-title=${typeof animateTitle === 'boolean'
-        ? animateTitle
-        : boolean('animate-title (Title animates on scroll)', true)}
-      class=${text('class', 'a-user-class')}
-      ?condense-actions=${boolean('condense-actions', false)}
+      ?animate-title=${args.animateTitle}
+      class=${args.class}
+      ?condense-actions=${args.condensedActions}
       current-step="0"
-      ?include-overlay=${boolean('include-overlay', true)}
-      label-text="${getLabel(label)}"
-      ?open=${boolean('Open (open)', false)}
-      placement=${select('placement', placements, SIDE_PANEL_PLACEMENT.RIGHT)}
-      ?prevent-close-on-click-outside=${boolean(
-        'prevent-close-on-click-outside',
-        false
-      )}
-      selector-page-content=${selectorPageContent}
-      selector-primary-focus=${selectorPrimaryFocus}
-      size=${select('size', sizes, SIDE_PANEL_SIZE.MEDIUM)}
-      ?slide-in=${typeof slideIn === 'boolean'
-        ? slideIn
-        : boolean('slide-in', true)}
-      title=${text(
-        'title',
-        'This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.'
-      )}>
-      ${getContent(content)}
+      ?include-overlay=${args.includeOverlay}
+      label-text="${args.label}"
+      ?open=${args.open}
+      placement=${args.placement}
+      ?prevent-close-on-click-outside=${args.preventCloseOnClickOutside}
+      selector-page-content=${args.selectorPageContent}
+      selector-primary-focus=${args.selectorPrimaryFocus}
+      size=${args.size}
+      ?slide-in=${args.slideIn}
+      title=${args.title}>
+      <!-- default slotted content -->
+      ${args.content}
 
       <!-- slotted subtitle slotted content -->
-      ${getSubTitle(subtitle)}
+      ${args.subtitle}
 
       <!-- slotted action toolbar cds-buttons -->
-      ${getActionToolbarItems(actionToolbarItems)}
+      ${args.actionToolbarItems}
 
       <!-- slotted action items cds-buttons -->
-      ${getActionItems(actionItems)}
+      ${args.actionItems}
     </cds-side-panel>
   `;
 };
@@ -310,22 +321,7 @@ export const SlideOver = DefaultTemplate.bind({});
 SlideOver.parameters = {
   ...storyDocs.parameters,
   knobs: {
-    'cds-side-panel': () => ({
-      actionItems: select('Actions slot', actionItems, 1),
-      actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
-      // closeButtonLabel: text(
-      //   'Close button label (close-button-label)',
-      //   'Close'
-      // ),
-      // danger: boolean('Danger mode (danger)', false),
-      // fullWidth: boolean('Full width (full-width)', false),
-      // sidePanelHeading: text('SidePanel heading', 'Add a custom domain'),
-      // sidePanelLabel: text('SidePanel label', ''),
-      // numberOfButtons: select('Number of buttons', buttons, 2),
-      content: select('Side panel contents', contents, 2),
-      label: select('SidePanel label', labels, 1),
-      subtitle: select('Side panel subtitle', subtitles, 2),
-    }),
+    'cds-side-panel': () => ({}),
   },
 };
 
@@ -334,22 +330,7 @@ SlideIn.parameters = {
   ...storyDocs.parameters,
   knobs: {
     'cds-side-panel': () => ({
-      actionItems: select('Actions slot', actionItems, 1),
-      actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
-      // closeButtonLabel: text(
-      //   'Close button label (close-button-label)',
-      //   'Close'
-      // ),
-      // danger: boolean('Danger mode (danger)', false),
-      // fullWidth: boolean('Full width (full-width)', false),
-      // sidePanelHeading: text('SidePanel heading', 'Add a custom domain'),
-      // sidePanelLabel: text('SidePanel label', ''),
-      // numberOfButtons: select('Number of buttons', buttons, 2),
-      content: select('Side panel contents', contents, 2),
-      label: select('SidePanel label', labels, 1),
-      selectorPageContent: '#page-content-selector',
       slideIn: boolean('slide-in', true),
-      subtitle: select('Side panel subtitle', subtitles, 1),
     }),
   },
 };
@@ -359,22 +340,9 @@ WithActionToolbar.parameters = {
   ...storyDocs.parameters,
   knobs: {
     'cds-side-panel': () => ({
-      actionItems: select('Actions slot', actionItems, 1),
-      actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 1),
-      // closeButtonLabel: text(
-      //   'Close button label (close-button-label)',
-      //   'Close'
-      // ),
-      // danger: boolean('Danger mode (danger)', false),
-      // fullWidth: boolean('Full width (full-width)', false),
-      // sidePanelHeading: text('SidePanel heading', 'Add a custom domain'),
-      // sidePanelLabel: text('SidePanel label', ''),
-      // numberOfButtons: select('Number of buttons', buttons, 2),
-      content: select('Side panel contents', contents, 2),
-      label: select('SidePanel label', labels, 1),
-      selectorPageContent: '#page-content-selector',
-      slideIn: boolean('Slides in', true),
-      subtitle: select('Side panel subtitle', subtitles, 1),
+      actionToolbarItems: getActionToolbarItems(
+        select('Action toolbar slot', actionToolbarItems, 1)
+      ),
     }),
   },
 };
