@@ -257,10 +257,9 @@ const DefaultTemplate = (args) => {
     label,
     open,
     containerClass,
-    placement,
     preventCloseOnClickOutside,
     selectorPageContent,
-    size,
+    selectorPrimaryFocus,
     slideIn,
     subtitle,
   } = args?.['cds-side-panel'] ?? {};
@@ -283,10 +282,14 @@ const DefaultTemplate = (args) => {
       class="permanent"
       current-step="0"
       label-text="${getLabel(label)}"
-      placement=${placement}
+      placement=${select('placement', placements, SIDE_PANEL_PLACEMENT.RIGHT)}
       selector-page-content=${selectorPageContent}
-      size=${size}
-      title="This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.">
+      selector-primary-focus=${selectorPrimaryFocus}
+      size=${select('size', sizes, SIDE_PANEL_SIZE.MEDIUM)}
+      title=${text(
+        'title',
+        'This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.'
+      )}>
       ${getContent(content)}
 
       <!-- slotted subtitle slotted content -->
@@ -301,8 +304,8 @@ const DefaultTemplate = (args) => {
   `;
 };
 
-export const Default = DefaultTemplate.bind({});
-Default.parameters = {
+export const SlideOver = DefaultTemplate.bind({});
+SlideOver.parameters = {
   ...storyDocs.parameters,
   knobs: {
     'cds-side-panel': () => ({
@@ -324,16 +327,10 @@ Default.parameters = {
       includeOverlay: boolean('Include overlay', true),
       label: select('SidePanel label', labels, 1),
       open: boolean('Open (open)', false),
-      placement: select(
-        'SidePanel placement',
-        placements,
-        SIDE_PANEL_PLACEMENT.RIGHT
-      ),
       preventCloseOnClickOutside: boolean(
         'Prevent close on click outside',
         false
       ),
-      size: select('SidePanel size (size)', sizes, SIDE_PANEL_SIZE.MEDIUM),
       subtitle: select('Side panel subtitle', subtitles, 2),
     }),
   },
@@ -361,17 +358,11 @@ SlideIn.parameters = {
       content: select('Side panel contents', contents, 2),
       label: select('SidePanel label', labels, 1),
       open: boolean('Open (open)', true),
-      placement: select(
-        'SidePanel placement',
-        placements,
-        SIDE_PANEL_PLACEMENT.RIGHT
-      ),
       preventCloseOnClickOutside: boolean(
         'Prevent close on click outside',
         false
       ),
       selectorPageContent: '#page-content-selector',
-      size: select('SidePanel size (size)', sizes, SIDE_PANEL_SIZE.MEDIUM),
       slideIn: boolean('Slides in', true),
       subtitle: select('Side panel subtitle', subtitles, 1),
     }),
@@ -401,17 +392,11 @@ WithActionToolbar.parameters = {
       label: select('SidePanel label', labels, 1),
       includeOverlay: boolean('Include overlay', true),
       open: boolean('Open (open)', true),
-      placement: select(
-        'SidePanel placement',
-        placements,
-        SIDE_PANEL_PLACEMENT.RIGHT
-      ),
       preventCloseOnClickOutside: boolean(
         'Prevent close on click outside',
         false
       ),
       selectorPageContent: '#page-content-selector',
-      size: select('SidePanel size (size)', sizes, SIDE_PANEL_SIZE.MEDIUM),
       slideIn: boolean('Slides in', true),
       subtitle: select('Side panel subtitle', subtitles, 1),
     }),
