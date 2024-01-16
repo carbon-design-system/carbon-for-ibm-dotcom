@@ -608,12 +608,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   condensedActions = false;
 
   /**
-   * The additional CSS class names for the container <div> of the element.
-   */
-  @property({ attribute: 'container-class' })
-  containerClass = '';
-
-  /**
    * Sets the current step of the side panel
    */
   @property({ reflect: true, attribute: 'current-step', type: Number })
@@ -821,7 +815,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       <div
         id="side-panel"
         part="dialog"
-        class=${this.containerClass}
         role="complementary"
         placement="${placement}"
         ?open=${this._isOpen}

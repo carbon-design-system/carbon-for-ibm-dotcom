@@ -251,12 +251,8 @@ const DefaultTemplate = (args) => {
     actionItems,
     actionToolbarItems,
     animateTitle,
-    condensedActions,
     content,
-    includeOverlay,
     label,
-    open,
-    containerClass,
     preventCloseOnClickOutside,
     selectorPageContent,
     selectorPrimaryFocus,
@@ -272,20 +268,26 @@ const DefaultTemplate = (args) => {
       </div>
     </div>
     <cds-side-panel
-      ?animate-title=${animateTitle}
-      ?containerClass=${containerClass}
-      ?condense-actions=${condensedActions}
-      ?include-overlay=${includeOverlay}
-      ?open=${open}
-      ?prevent-close-on-click-outside=${preventCloseOnClickOutside}
-      ?slide-in=${slideIn}
-      class="permanent"
+      ?animate-title=${typeof animateTitle === 'boolean'
+        ? animateTitle
+        : boolean('animate-title (Title animates on scroll)', true)}
+      class=${text('class', 'a-user-class')}
+      ?condense-actions=${boolean('condense-actions', false)}
       current-step="0"
+      ?include-overlay=${boolean('include-overlay', true)}
       label-text="${getLabel(label)}"
+      ?open=${boolean('Open (open)', false)}
       placement=${select('placement', placements, SIDE_PANEL_PLACEMENT.RIGHT)}
+      ?prevent-close-on-click-outside=${boolean(
+        'prevent-close-on-click-outside',
+        false
+      )}
       selector-page-content=${selectorPageContent}
       selector-primary-focus=${selectorPrimaryFocus}
       size=${select('size', sizes, SIDE_PANEL_SIZE.MEDIUM)}
+      ?slide-in=${typeof slideIn === 'boolean'
+        ? slideIn
+        : boolean('slide-in', true)}
       title=${text(
         'title',
         'This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.'
@@ -311,9 +313,6 @@ SlideOver.parameters = {
     'cds-side-panel': () => ({
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
-      animateTitle: boolean('Title animates on scroll', true),
-      condensedActions: boolean('Condensed actions', false),
-      containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
       //   'Close'
@@ -324,13 +323,7 @@ SlideOver.parameters = {
       // sidePanelLabel: text('SidePanel label', ''),
       // numberOfButtons: select('Number of buttons', buttons, 2),
       content: select('Side panel contents', contents, 2),
-      includeOverlay: boolean('Include overlay', true),
       label: select('SidePanel label', labels, 1),
-      open: boolean('Open (open)', false),
-      preventCloseOnClickOutside: boolean(
-        'Prevent close on click outside',
-        false
-      ),
       subtitle: select('Side panel subtitle', subtitles, 2),
     }),
   },
@@ -343,9 +336,6 @@ SlideIn.parameters = {
     'cds-side-panel': () => ({
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
-      animateTitle: boolean('Title animates on scroll', true),
-      condensedActions: boolean('Condensed actions', false),
-      containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
       //   'Close'
@@ -357,13 +347,8 @@ SlideIn.parameters = {
       // numberOfButtons: select('Number of buttons', buttons, 2),
       content: select('Side panel contents', contents, 2),
       label: select('SidePanel label', labels, 1),
-      open: boolean('Open (open)', true),
-      preventCloseOnClickOutside: boolean(
-        'Prevent close on click outside',
-        false
-      ),
       selectorPageContent: '#page-content-selector',
-      slideIn: boolean('Slides in', true),
+      slideIn: boolean('slide-in', true),
       subtitle: select('Side panel subtitle', subtitles, 1),
     }),
   },
@@ -376,9 +361,6 @@ WithActionToolbar.parameters = {
     'cds-side-panel': () => ({
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 1),
-      animateTitle: boolean('Title animates on scroll', true),
-      condensedActions: boolean('Condensed actions', false),
-      containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
       //   'Close'
@@ -390,12 +372,6 @@ WithActionToolbar.parameters = {
       // numberOfButtons: select('Number of buttons', buttons, 2),
       content: select('Side panel contents', contents, 2),
       label: select('SidePanel label', labels, 1),
-      includeOverlay: boolean('Include overlay', true),
-      open: boolean('Open (open)', true),
-      preventCloseOnClickOutside: boolean(
-        'Prevent close on click outside',
-        false
-      ),
       selectorPageContent: '#page-content-selector',
       slideIn: boolean('Slides in', true),
       subtitle: select('Side panel subtitle', subtitles, 1),
