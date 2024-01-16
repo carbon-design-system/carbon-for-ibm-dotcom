@@ -26,11 +26,8 @@ import Handle from '../../globals/internal/handle';
 export { SIDE_PANEL_SIZE };
 
 // todo:
-// - use published styles
 // - button set does not re-order when stacked
 // - story knobs not working as expected even when changing stories
-// - option to not animate title
-// - condensed actions
 // - multi-step side panel (including navigate back)
 // - check without overlay operation
 // - preventCloseOnClickOutside

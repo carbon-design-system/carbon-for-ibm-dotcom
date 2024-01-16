@@ -251,6 +251,7 @@ const DefaultTemplate = (args) => {
     actionItems,
     actionToolbarItems,
     animateTitle,
+    condensedActions,
     content,
     label,
     open,
@@ -273,6 +274,7 @@ const DefaultTemplate = (args) => {
     <cds-side-panel
       ?animate-title=${animateTitle}
       ?containerClass=${containerClass}
+      ?condense-actions=${condensedActions}
       ?open=${open}
       ?prevent-close-on-click-outside=${preventCloseOnClickOutside}
       ?slide-in=${slideIn}
@@ -305,6 +307,7 @@ Default.parameters = {
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
       animateTitle: boolean('Title animates on scroll', true),
+      condensedActions: boolean('Condensed actions', false),
       containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
@@ -341,6 +344,7 @@ SlideIn.parameters = {
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 0),
       animateTitle: boolean('Title animates on scroll', true),
+      condensedActions: boolean('Condensed actions', false),
       containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
@@ -379,6 +383,7 @@ WithActionToolbar.parameters = {
       actionItems: select('Actions slot', actionItems, 1),
       actionToolbarItems: select('Action toolbar slot', actionToolbarItems, 1),
       animateTitle: boolean('Title animates on scroll', true),
+      condensedActions: boolean('Condensed actions', false),
       containerClass: 'container-class',
       // closeButtonLabel: text(
       //   'Close button label (close-button-label)',
