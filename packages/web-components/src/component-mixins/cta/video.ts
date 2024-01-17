@@ -16,6 +16,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
+import root from 'window-or-global';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -116,6 +117,14 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     abstract videoThumbnailUrl?: never | string;
 
+    firstUpdated() {
+      const { ctaType, href } = this;
+      // Check for the URL trigger meant to fire eventRunAction.
+      if (ctaType === CTA_TYPE.VIDEO && href) {
+        this._checkUrlVideoTrigger();
+      }
+    }
+
     /**
      * Handles `.updated()` method of `lit-element`.
      */
@@ -166,6 +175,59 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
         this._updateVideoThumbnailUrl();
       }
+    }
+
+    /**
+     * Check the URL for a fragment including the video id.
+     *
+     * If we find a URL fragment that includes the video id, we trigger the
+     * eventRunAction event, which for video will open the video and start
+     * playback in a lightbox. This is the same thing that happens when the user
+     * clicks on the CTA.
+     */
+    _checkUrlVideoTrigger() {
+      const { ctaType, disabled, href, videoDescription, videoName } = this;
+      // Without a video id, or if the button is disabled, there is nothing to
+      // do here.
+      if (ctaType !== CTA_TYPE.VIDEO || !href || disabled) {
+        return;
+      }
+      // Only trigger for the first CTA with the video id in the page.
+      if (!this._isFirstInPageForVideoId(href)) {
+        return;
+      }
+      const { eventRunAction } = this.constructor as typeof VideoCTAMixinImpl;
+      const hash = root.location.hash;
+      const urlTrigger = `cta-video-${href}`;
+
+      if (hash === `#${urlTrigger}`) {
+        this.dispatchEvent(
+          new CustomEvent(eventRunAction, {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+            detail: {
+              href,
+              ctaType,
+              videoName,
+              videoDescription,
+            },
+          })
+        );
+      }
+    }
+
+    /**
+     * Is this component is the first in the page for the given video id?
+     *
+     * @param {string} videoId Video id.
+     * @returns {boolean} true if this is the first CTA in the page with the
+     *   given video id, otherwise false.
+     */
+    _isFirstInPageForVideoId(videoId: string): boolean {
+      const ctaParent = this.ownerDocument.querySelector(`[href='${videoId}']`);
+      const ctaChild = ctaParent?.shadowRoot?.querySelector(`[href='${videoId}']`);
+      return ctaChild === this;
     }
 
     /**
