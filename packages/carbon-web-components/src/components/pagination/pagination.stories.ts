@@ -168,7 +168,7 @@ export const Playground = {
     } = args ?? {};
     return html`
       <cds-pagination
-        background-text=${backwardText}
+        backward-text=${backwardText}
         ?disabled=${disabled}
         forward-text=${forwardText}
         ?is-last-page=${isLastPage}
