@@ -316,7 +316,7 @@ export default class BXNumberInput extends BXInput {
         ?readonly="${this.readonly}"
         ?required="${this.required}"
         type="number"
-        .value="${this._value}"
+        .value="${this.value}"
         @input="${handleInput}"
         min="${ifNonEmpty(this.min)}"
         max="${ifNonEmpty(this.max)}"
