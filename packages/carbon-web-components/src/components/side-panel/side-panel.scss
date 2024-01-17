@@ -231,15 +231,15 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
     &[hidden] {
       @extend .#{$prefix}--visually-hidden;
-
-      padding: 0;
-      border: 0;
-      margin: 0;
     }
 
     &[no-title-animation] {
       @extend .#{$block-class}__action-toolbar-no-animation;
     }
+  }
+
+  #side-panel #action-toolbar[hidden] {
+    @extend .#{$prefix}--visually-hidden;
   }
 
   #inner-content {

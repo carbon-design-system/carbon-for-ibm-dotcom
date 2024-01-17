@@ -268,7 +268,7 @@ const DefaultTemplate = (argsIn) => {
       'selector-page-content',
       '#page-content-selector'
     ),
-    selectorPrimaryFocus: text('selector-primary-focus', ''),
+    selectorInitialFocus: text('selector-initial-focus', ''),
     size: select('size', sizes, SIDE_PANEL_SIZE.MEDIUM),
     slideIn: boolean('slide-in', false),
     subtitle: getSubTitle(select('Slot (subtitle)', subtitles, 1)),
@@ -293,12 +293,12 @@ const DefaultTemplate = (argsIn) => {
       ?condense-actions=${args.condensedActions}
       current-step="0"
       ?include-overlay=${args.includeOverlay}
+      selector-initial-focus=${args.selectorInitialFocus}
       label-text="${args.label}"
       ?open=${args.open}
       placement=${args.placement}
       ?prevent-close-on-click-outside=${args.preventCloseOnClickOutside}
       selector-page-content=${args.selectorPageContent}
-      selector-primary-focus=${args.selectorPrimaryFocus}
       size=${args.size}
       ?slide-in=${args.slideIn}
       title=${args.title}>
@@ -342,6 +342,19 @@ WithActionToolbar.parameters = {
     'cds-side-panel': () => ({
       actionToolbarItems: getActionToolbarItems(
         select('Action toolbar slot', actionToolbarItems, 1)
+      ),
+    }),
+  },
+};
+
+export const SpecifyElementToHaveFocus = DefaultTemplate.bind({});
+SpecifyElementToHaveFocus.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-side-panel': () => ({
+      focusSelector: text(
+        'selector-primary-focus',
+        '#side-panel-story-text-input-a'
       ),
     }),
   },
