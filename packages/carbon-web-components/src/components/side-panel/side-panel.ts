@@ -34,7 +34,8 @@ export { SIDE_PANEL_SIZE };
 // - multi-step side panel (including navigate back)
 // - slug
 // - additional stories (Panel with second step, initial focus, static title, static title and action bar)
-// - action bar refresh bug
+// - action bar refresh bug - this is a circular resize/scroll issue in reality the HTML needs a refactor to correctly use sticky
+//  - but that involves changing the IBM Products code https://github.com/carbon-design-system/ibm-products/issues/4065
 
 // eslint-disable-next-line no-bitwise
 const PRECEDING =
@@ -443,8 +444,14 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       return;
     }
 
+    await (this.constructor as typeof CDSSidePanel)._delay(); // measure after brief delay for render
+    this._measurements.subtitleHeight = this._subtitle?.offsetHeight || 0; // set default subtitle height if a subtitle is not provided to enable scrolling animation
+    this._sidePanel?.style.setProperty(
+      `--${blockClass}--subtitle-container-height`,
+      `${this._measurements.subtitleHeight}px`
+    );
+
     if (reason !== 'scroll') {
-      this._measurements.subtitleHeight = this._subtitle?.offsetHeight || 0; // set default subtitle height if a subtitle is not provided to enable scrolling animation
       this._measurements.panelHeight = this._sidePanel?.offsetHeight || 0;
       this._measurements.scrollSectionHeight =
         this._bodyContent?.offsetHeight || 0;
@@ -464,22 +471,16 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         this.animateTitle ? '0' : `${this._measurements.titleHeight + 24}px`
       );
 
-      this._sidePanel?.style.setProperty(
-        `--${blockClass}--subtitle-container-height`,
-        this.animateTitle ? '0' : `${this._measurements.subtitleHeight}px`
-      );
-
       this._sidePanel.style.setProperty(
         `--${blockClass}--action-bar-container-height`,
         this.animateTitle ? '0' : `${this._measurements.actionToolbarHeight}px`
       );
 
-      if (!this.animateTitle) {
-        this._sidePanel.style.setProperty(
-          `--${blockClass}--label-text-height`,
-          `${this._measurements.labelHeight}px`
-        );
-      } else {
+      this._sidePanel.style.setProperty(
+        `--${blockClass}--label-text-height`,
+        `${this._measurements.labelHeight}px`
+      );
+      if (this.animateTitle) {
         this._measurements.titlePaddingTop = parseInt(
           (this._titleContainer &&
             window &&
@@ -530,67 +531,77 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         );
       }
     } else {
-      const scrollAnimationProgress = Math.min(
-        1,
-        scrollY / this._measurements.transitionDistance
-      );
+      if (this.animateTitle) {
+        const scrollAnimationProgress =
+          this._measurements.transitionDistance &&
+          this._measurements.transitionDistance > scrollY
+            ? scrollY / this._measurements.transitionDistance
+            : 1;
 
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--scroll-y`,
-        `${scrollY}px`
-      );
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--scroll-y`,
+          `${scrollY}px`
+        );
 
-      const scrolled = scrollY > 0;
+        const scrolled = scrollY > 0;
 
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--subtitle-opacity`,
-        !scrolled
-          ? '1'
-          : `${
-              1 -
-              Math.min(this._measurements.transitionDistance, scrollY) /
-                this._measurements.transitionDistance
-            }`
-      );
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--subtitle-opacity`,
+          !scrolled
+            ? '1'
+            : `${
+                1 -
+                Math.min(this._measurements.transitionDistance, scrollY) /
+                  this._measurements.transitionDistance
+              }`
+        );
 
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--divider-opacity`,
-        !scrolled ? '0' : `${scrollAnimationProgress}`
-      );
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--divider-opacity`,
+          !scrolled ? '0' : `${scrollAnimationProgress}`
+        );
 
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--title-y-position`,
-        !scrolled
-          ? '0rem'
-          : `${-Math.abs(
-              Math.min(1, scrollY / this._measurements.subtitleHeight)
-            )}rem`
-      );
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--title-y-position`,
+          !scrolled
+            ? '0rem'
+            : `${-Math.abs(
+                Math.min(1, scrollY / this._measurements.subtitleHeight)
+              )}rem`
+        );
 
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--collapsed-title-y-position`,
-        !scrolled
-          ? '1rem'
-          : `${
-              Math.max(0, this._measurements.subtitleHeight - scrollY) /
-              this._measurements.subtitleHeight
-            }rem`
-      );
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--collapsed-title-y-position`,
+          !scrolled
+            ? '1rem'
+            : `${
+                Math.max(0, this._measurements.subtitleHeight - scrollY) /
+                this._measurements.subtitleHeight
+              }rem`
+        );
 
-      const reduceTitleContainerHeightAmount =
-        ((this._measurements.labelHeight * scrollAnimationProgress) /
-          this._measurements.titleContainerHeight) *
-        100;
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--title-container-height`,
+          !scrolled ? '0px' : `${this._measurements.titleContainerHeight}px`
+        );
 
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--label-text-height`,
-        !scrolled ? '0px' : `${Math.trunc(reduceTitleContainerHeightAmount)}px`
-      );
+        const reduceTitleContainerHeightAmount =
+          ((this._measurements.labelHeight * scrollAnimationProgress) /
+            this._measurements.titleContainerHeight) *
+          100;
 
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--title-container-height`,
-        !scrolled ? '0px' : `${this._measurements.titleContainerHeight}px`
-      );
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--reduce-titles-by`,
+          !scrolled && !this.animateTitle
+            ? '0px'
+            : `${Math.trunc(reduceTitleContainerHeightAmount)}px`
+        );
+      } else {
+        this._sidePanel.style.setProperty(
+          `--${blockClass}--reduce-titles-by`,
+          '0px'
+        );
+      }
     }
   };
 
@@ -769,7 +780,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       navigationBackIconDescription,
       open,
       placement,
-      selectorInitialFocus,
       size,
       slideIn,
       title,
@@ -778,8 +788,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     if (!open && !this._isOpen) {
       return html``;
     }
-
-    console.log(selectorInitialFocus);
 
     const actionsMultiple = ['', 'single', 'double', 'triple'][
       this._actionsCount

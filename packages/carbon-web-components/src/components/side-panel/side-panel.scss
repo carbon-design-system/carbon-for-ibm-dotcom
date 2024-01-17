@@ -172,6 +172,10 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
+  #side-panel #title-container[has-action-toolbar]::before {
+    content: initial; /* remove border below */
+  }
+
   #nav-back-button {
     @extend .#{$block-class}__navigation-back-button;
   }
@@ -182,9 +186,10 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
   #title {
     @extend .#{$block-class}__title-text;
+  }
 
-    margin-block-end: $spacing-03; /* text can show through a padding */
-    margin-inline-end: 0;
+  #side-panel #title {
+    margin-block-end: calc(-1 * var(--#{$block-class}--reduce-titles-by));
   }
 
   #slug-and-close {
@@ -235,6 +240,17 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
     &[no-title-animation] {
       @extend .#{$block-class}__action-toolbar-no-animation;
+    }
+
+    &::after {
+      position: absolute;
+      background-color: $border-subtle-02;
+      block-size: 1px;
+      content: '';
+      inline-size: 100%;
+      inset-block-end: 0;
+      inset-inline-start: 0;
+      opacity: var(--#{$block-class}--divider-opacity);
     }
   }
 
