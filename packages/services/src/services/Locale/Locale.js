@@ -142,21 +142,25 @@ const _getLocaleFromCookie = async () => {
  * @returns {Promise<Locale|boolean>} The verified locale or false if not found.
  */
 const _getLocaleFromBrowser = async () => {
-  const cc = await DDOAPI.getLocation();
+  try {
+    const cc = await DDOAPI.getLocation();
 
-  // Language preference from browser can return in either 'en-US' format or
-  // 'en' so will need to extract language only.
-  const lang = root.navigator.language;
-  const lc = lang.split('-')[0];
+    // Language preference from browser can return in either 'en-US' format or
+    // 'en' so will need to extract language only.
+    const lang = root.navigator.language;
+    const lc = lang.split('-')[0];
 
-  if (cc && lc) {
-    const list = await LocaleAPI.getList({ cc, lc });
-    const verifiedCodes = LocaleAPI.verifyLocale(cc, lc, list);
+    if (cc && lc) {
+      const list = await LocaleAPI.getList({ cc, lc });
+      const verifiedCodes = LocaleAPI.verifyLocale(cc, lc, list);
 
-    // Set the ipcInfo cookie.
-    ipcinfoCookie.set(verifiedCodes);
+      // Set the ipcInfo cookie.
+      ipcinfoCookie.set(verifiedCodes);
 
-    return verifiedCodes;
+      return verifiedCodes;
+    }
+  } catch (e) {
+    // Intentionally throw away the exception in favor of returning false.
   }
   return false;
 };
