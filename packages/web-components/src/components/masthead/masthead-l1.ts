@@ -363,11 +363,10 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         const icon = isMobileVersion ? Chat16() : Chat20();
         return html`
           <a
-            class="${classes}
+            class="${classes}"
             data-ibm-contact="contact-link"
             href="javascript:void 0"
-            aria-label="${ifDefined(contactCtaLabel)}"
-          >
+            aria-label="${ifDefined(contactCtaLabel)}">
             ${cta.title}${icon}
           </a>
         `;
