@@ -59,7 +59,6 @@ const controls = {
 };
 
 export const TabTip = {
-  name: 'TabTip',
   render: () => {
     const handleClick = (id) => {
       const popover = document.querySelector(id);
