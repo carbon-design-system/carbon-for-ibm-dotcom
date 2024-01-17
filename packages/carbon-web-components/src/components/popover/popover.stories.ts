@@ -58,45 +58,6 @@ const controls = {
   },
 };
 
-export const Playground = {
-  name: 'Playground',
-  argTypes: controls,
-  args: {
-    caret: true,
-    highContrast: false,
-    align: POPOVER_ALIGNMENT.BOTTOM,
-    dropShadow: true,
-    open: true,
-  },
-
-  decorators: [
-    (story) => html`<div class="mt-10 flex justify-center">${story()}</div>`,
-  ],
-  render: (args) => {
-    return html`
-      <style>
-        ${styles}
-      </style>
-      <cds-popover
-        ?open=${args.open}
-        ?caret=${args.caret}
-        ?highContrast=${args.highContrast}
-        align=${args.align}
-        ?dropShadow=${args.dropShadow}>
-        <div class="playground-trigger">${Checkbox16()}</div>
-        <cds-popover-content>
-          <div class="p-3">
-            <p class="popover-title">Available storage</p>
-            <p class="popover-details">
-              This server has 150 GB of block storage remaining.
-            </p>
-          </div>
-        </cds-popover-content>
-      </cds-popover>
-    `;
-  },
-};
-
 export const TabTip = {
   name: 'TabTip',
   render: () => {
@@ -202,6 +163,44 @@ export const TabTip = {
           </cds-popover-content>
         </cds-popover>
       </div>
+    `;
+  },
+};
+
+export const Playground = {
+  argTypes: controls,
+  args: {
+    caret: true,
+    highContrast: false,
+    align: POPOVER_ALIGNMENT.BOTTOM,
+    dropShadow: true,
+    open: true,
+  },
+
+  decorators: [
+    (story) => html`<div class="mt-10 flex justify-center">${story()}</div>`,
+  ],
+  render: (args) => {
+    return html`
+      <style>
+        ${styles}
+      </style>
+      <cds-popover
+        ?open=${args.open}
+        ?caret=${args.caret}
+        ?highContrast=${args.highContrast}
+        align=${args.align}
+        ?dropShadow=${args.dropShadow}>
+        <div class="playground-trigger">${Checkbox16()}</div>
+        <cds-popover-content>
+          <div class="p-3">
+            <p class="popover-title">Available storage</p>
+            <p class="popover-details">
+              This server has 150 GB of block storage remaining.
+            </p>
+          </div>
+        </cds-popover-content>
+      </cds-popover>
     `;
   },
 };
