@@ -161,6 +161,27 @@ describe('LocaleAPI', () => {
     });
   });
 
+  it('should fallback to default when ddo, lang, cookie, and browser are undefined and the DDOAPI timeouts', async () => {
+    root.digitalData = undefined;
+    Object.defineProperty(root.document.documentElement, 'lang', {
+      value: '',
+      configurable: true,
+    });
+    ipcinfoCookie.get.mockImplementationOnce(() => undefined);
+    DDOAPI.getLocation.mockImplementation(() => Promise.reject(new Error()));
+    Object.defineProperty(root, 'navigator', {
+      value: { language: '' },
+      writable: true,
+    });
+
+    const lang = await LocaleAPI.getLocale();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
   it('should fallback to the locale from the html lang attribute when no ddo.page', async () => {
     root.digitalData.page = false;
     Object.defineProperty(root.document.documentElement, 'lang', {
