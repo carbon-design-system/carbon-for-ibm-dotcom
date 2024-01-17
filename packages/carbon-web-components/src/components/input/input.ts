@@ -45,11 +45,6 @@ export default class BXInput extends ValidityMixin(FormMixin(LitElement)) {
   protected _input!: HTMLInputElement;
 
   /**
-   * The internal value.
-   */
-  protected _value = '';
-
-  /**
    * Set initial value of input
    */
   @property({ reflect: true })
@@ -301,7 +296,7 @@ export default class BXInput extends ValidityMixin(FormMixin(LitElement)) {
           ?readonly="${this.readonly}"
           ?required="${this.required}"
           type="${ifNonEmpty(this.type)}"
-          .value="${this._value}"
+          .value="${this.value}"
           @input="${handleInput}" />
         ${this.showPasswordVisibilityToggle &&
         (this.type === INPUT_TYPE.PASSWORD || this.type === INPUT_TYPE.TEXT)
