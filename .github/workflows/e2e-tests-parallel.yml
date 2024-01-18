@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Download any existing cache
         id: yarn-cache
         with:
@@ -95,7 +95,7 @@ jobs:
           name: storybook-build
           path: packages/web-components/storybook-static
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Retrieve yarn cache
         id: yarn-cache
         with:
