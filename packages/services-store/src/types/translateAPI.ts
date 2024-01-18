@@ -7,8 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
-
 /**
  * A link item.
  * Used for masthead, footer, etc.
@@ -70,7 +68,7 @@ export interface MastheadL1 {
 }
 
 export interface L1CtaLink extends BasicLink {
-  ctaType?: CTA_TYPE;
+  ctaType?: string;
 }
 
 export interface L1MenuItem extends BasicLink {
