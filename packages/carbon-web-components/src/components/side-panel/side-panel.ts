@@ -31,10 +31,8 @@ export { SIDE_PANEL_SIZE };
 // - story knobs not working as expected even when changing stories
 // - selector-initial-focus does not work
 // - multi-step side panel (including navigate back)
-// - slug
-// - additional stories (Panel with second step, initial focus, static title, static title and action bar)
 // - action bar refresh bug - this is a circular resize/scroll issue in reality the HTML needs a refactor to correctly use sticky
-//  - but that involves changing the IBM Products code https://github.com/carbon-design-system/ibm-products/issues/4065
+//   but that involves changing the IBM Products code https://github.com/carbon-design-system/ibm-products/issues/4065
 
 // eslint-disable-next-line no-bitwise
 const PRECEDING =
