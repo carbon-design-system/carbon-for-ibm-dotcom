@@ -239,7 +239,7 @@ const getActionItems = (index) => {
 };
 
 export default {
-  title: 'Components/SidePanel',
+  title: 'Experimental/SidePanel',
   decorators: [(story) => html` ${story()} `],
   parameters: {
     ...storyDocs.parameters,
