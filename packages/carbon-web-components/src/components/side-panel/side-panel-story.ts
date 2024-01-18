@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit';
+import { TemplateResult, html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import '../button/button';
-import CDSSidePanel, { SIDE_PANEL_SIZE } from './side-panel';
+import { SIDE_PANEL_SIZE } from './side-panel';
 import './index';
 import '../text-input/index';
 import '../textarea/index';
@@ -40,12 +40,6 @@ const placements = {
   // 'default (right)': null,
   left: SIDE_PANEL_PLACEMENT.LEFT,
   'right (default)': SIDE_PANEL_PLACEMENT.RIGHT,
-};
-
-const buttons = {
-  'One (1)': 1,
-  'Two (2)': 2,
-  'Three (3)': 3,
 };
 
 const contents = {
@@ -349,7 +343,12 @@ const DefaultTemplate = (argsIn) => {
   `;
 };
 
-export const SlideOver = DefaultTemplate.bind({});
+type TemplateType = {
+  (args: any): TemplateResult<1>;
+  parameters: { knobs: { [key: string]: any } };
+};
+
+export const SlideOver = DefaultTemplate.bind({}) as TemplateType;
 SlideOver.parameters = {
   ...storyDocs.parameters,
   knobs: {
@@ -357,7 +356,7 @@ SlideOver.parameters = {
   },
 };
 
-export const SlideIn = DefaultTemplate.bind({});
+export const SlideIn = DefaultTemplate.bind({}) as TemplateType;
 SlideIn.parameters = {
   ...storyDocs.parameters,
   knobs: {
@@ -367,7 +366,7 @@ SlideIn.parameters = {
   },
 };
 
-export const WithActionToolbar = DefaultTemplate.bind({});
+export const WithActionToolbar = DefaultTemplate.bind({}) as TemplateType;
 WithActionToolbar.parameters = {
   ...storyDocs.parameters,
   knobs: {
@@ -379,7 +378,9 @@ WithActionToolbar.parameters = {
   },
 };
 
-export const SpecifyElementToHaveFocus = DefaultTemplate.bind({});
+export const SpecifyElementToHaveFocus = DefaultTemplate.bind(
+  {}
+) as TemplateType;
 SpecifyElementToHaveFocus.parameters = {
   ...storyDocs.parameters,
   knobs: {
@@ -393,7 +394,7 @@ SpecifyElementToHaveFocus.parameters = {
   },
 };
 
-export const WithStaticTitle = DefaultTemplate.bind({});
+export const WithStaticTitle = DefaultTemplate.bind({}) as TemplateType;
 WithStaticTitle.parameters = {
   ...storyDocs.parameters,
   knobs: {
@@ -404,7 +405,9 @@ WithStaticTitle.parameters = {
   },
 };
 
-export const WithStaticTitleAndActionToolbar = DefaultTemplate.bind({});
+export const WithStaticTitleAndActionToolbar = DefaultTemplate.bind(
+  {}
+) as TemplateType;
 WithStaticTitleAndActionToolbar.parameters = {
   ...storyDocs.parameters,
   knobs: {
@@ -418,7 +421,7 @@ WithStaticTitleAndActionToolbar.parameters = {
   },
 };
 
-export const WithoutTitle = DefaultTemplate.bind({});
+export const WithoutTitle = DefaultTemplate.bind({}) as TemplateType;
 WithoutTitle.parameters = {
   ...storyDocs.parameters,
   knobs: {
