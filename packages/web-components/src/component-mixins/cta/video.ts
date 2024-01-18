@@ -226,7 +226,9 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     _isFirstInPageForVideoId(videoId: string): boolean {
       const ctaParent = this.ownerDocument.querySelector(`[href='${videoId}']`);
-      const ctaChild = ctaParent?.shadowRoot?.querySelector(`[href='${videoId}']`);
+      const ctaChild = ctaParent?.shadowRoot?.querySelector(
+        `[href='${videoId}']`
+      );
       return ctaChild === this;
     }
 
