@@ -453,6 +453,7 @@ class CDSDropdown extends ValidityMixin(
 
     return html`
       <label
+        id="label"
         part="title-text"
         class="${labelClasses}"
         ?hidden="${!hasTitleText}">
@@ -780,6 +781,7 @@ class CDSDropdown extends ValidityMixin(
       <div
         role="listbox"
         class="${classes}"
+        aria-labelledby="label"
         ?data-invalid=${invalid}
         @click=${handleClickInner}
         @keydown=${handleKeydownInner}
