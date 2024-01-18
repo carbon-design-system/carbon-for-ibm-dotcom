@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,7 @@
 
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import Launch20 from '@carbon/icons-react/es/launch/20.js';
+import { ArrowRight, Launch } from '@carbon/icons-react';
 
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -37,21 +36,26 @@ import content from '../../cta-section/__stories__/content';
 import readme from './README.stories.react.mdx';
 import styles from './cta-block.stories.scss?lit';
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const iconMap = {
-  ArrowRight20: <ArrowRight20 slot="icon" />,
-  Launch20: <Launch20 slot="icon" />,
+  ArrowRight: <ArrowRight {...iconProps} />,
+  Launch: <Launch {...iconProps} />,
 };
 
 const iconOptions = {
-  'Arrow Right': 'ArrowRight20',
-  'External Launch': 'Launch20',
+  'Arrow Right': 'ArrowRight',
+  'External Launch': 'Launch',
 };
 
 const renderCTA = {
   text: (renderIcon) => (
     <C4DTextCTA
       slot="action"
-      cta-type={renderIcon === iconMap.Launch20 ? 'external' : 'local'}
+      cta-type={renderIcon === iconMap.Launch ? 'external' : 'local'}
       href="https://example.com">
       CTA text link
     </C4DTextCTA>
@@ -59,7 +63,7 @@ const renderCTA = {
   button: (renderIcon) => (
     <C4DButtonCTA
       slot="action"
-      cta-type={renderIcon === iconMap.Launch20 ? 'external' : 'local'}
+      cta-type={renderIcon === iconMap.Launch ? 'external' : 'local'}
       href="https://example.com">
       CTA text link
     </C4DButtonCTA>
@@ -106,7 +110,7 @@ const renderItems = (item, count) => (
 
 export const Default = (args) => {
   const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+  const target = renderIcon === iconMap.Launch ? '_blank' : '';
 
   const headingComponent = document.querySelector('cds-content-block-heading');
 
@@ -126,7 +130,7 @@ export const Default = (args) => {
 export const WithContentItems = (args) => {
   const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+  const target = renderIcon === iconMap.Launch ? '_blank' : '';
 
   const headingComponent = document.querySelector('cds-content-block-heading');
 
@@ -160,7 +164,7 @@ WithContentItems.story = {
 
 export const WithLinkList = (args) => {
   const { border, heading, copy, renderIcon, cta } = args?.CTABlock ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+  const target = renderIcon === iconMap.Launch ? '_blank' : '';
 
   const headingComponent = document.querySelector('cds-content-block-heading');
 
@@ -177,22 +181,22 @@ export const WithLinkList = (args) => {
       <C4DLinkList slot="link-list" type="end">
         <C4DLinkListHeading>More ways to explore DevOps</C4DLinkListHeading>
         <C4DLinkListItem href="https://example.com">
-          Events <ArrowRight20 slot="icon" />
+          Events <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Blogs <ArrowRight20 slot="icon" />
+          Blogs <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Training <ArrowRight20 slot="icon" />
+          Training <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Developer resources <ArrowRight20 slot="icon" />
+          Developer resources <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          Research <ArrowRight20 slot="icon" />
+          Research <ArrowRight {...iconProps} />
         </C4DLinkListItem>
         <C4DLinkListItem href="https://example.com">
-          News <ArrowRight20 slot="icon" />
+          News <ArrowRight {...iconProps} />
         </C4DLinkListItem>
       </C4DLinkList>
     </C4DCTABlock>
