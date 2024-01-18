@@ -763,19 +763,18 @@ class CDSDropdown extends ValidityMixin(
             'aria-label': toggleLabel,
           });
     const helperMessage = invalid ? invalidText : warn ? warnText : helperText;
-    const menuBody = !open
-      ? undefined
-      : html`
-          <div
-            aria-label="${ariaLabel}"
-            id="menu-body"
-            part="menu-body"
-            class="${prefix}--list-box__menu"
-            role="listbox"
-            tabindex="-1">
-            <slot></slot>
-          </div>
-        `;
+    const menuBody = html`
+      <div
+        aria-label="${ariaLabel}"
+        id="menu-body"
+        part="menu-body"
+        class="${prefix}--list-box__menu"
+        role="listbox"
+        tabindex="-1"
+        ?hidden=${!open}>
+        <slot></slot>
+      </div>
+    `;
     return html`
       ${this._renderTitleLabel()}
       <div
