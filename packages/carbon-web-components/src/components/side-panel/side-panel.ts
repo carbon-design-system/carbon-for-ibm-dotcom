@@ -30,7 +30,6 @@ export { SIDE_PANEL_SIZE };
 // - @extend seems to get an extra #side-panel selector in CSS (higher specificity) than following CSS
 // - story knobs not working as expected even when changing stories
 // - selector-initial-focus does not work
-//
 // - multi-step side panel (including navigate back)
 // - slug
 // - additional stories (Panel with second step, initial focus, static title, static title and action bar)
