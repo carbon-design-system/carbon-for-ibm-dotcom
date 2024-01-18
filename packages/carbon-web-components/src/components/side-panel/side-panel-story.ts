@@ -356,6 +356,43 @@ SpecifyElementToHaveFocus.parameters = {
         'selector-primary-focus',
         '#side-panel-story-text-input-a'
       ),
+      label: getLabel(select('label', labels, 0)),
+    }),
+  },
+};
+
+export const WithStaticTitle = DefaultTemplate.bind({});
+WithStaticTitle.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-side-panel': () => ({
+      animateTitle: boolean('animate-title (Title animates on scroll)', false),
+      label: getLabel(select('label', labels, 0)),
+    }),
+  },
+};
+
+export const WithStaticTitleAndActionToolbar = DefaultTemplate.bind({});
+WithStaticTitleAndActionToolbar.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-side-panel': () => ({
+      actionToolbarItems: getActionToolbarItems(
+        select('Action toolbar slot', actionToolbarItems, 1)
+      ),
+      animateTitle: boolean('animate-title (Title animates on scroll)', false),
+      label: getLabel(select('label', labels, 0)),
+    }),
+  },
+};
+
+export const WithoutTitle = DefaultTemplate.bind({});
+WithoutTitle.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-side-panel': () => ({
+      label: getLabel(select('label', labels, 0)),
+      title: text('title', ''),
     }),
   },
 };
