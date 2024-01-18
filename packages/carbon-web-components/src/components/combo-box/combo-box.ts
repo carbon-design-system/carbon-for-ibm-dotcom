@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -214,6 +214,7 @@ class CDSComboBox extends CDSDropdown {
       disabled,
       inputLabel,
       label,
+      open,
       readOnly,
       value,
       _filterInputValue: filterInputValue,
@@ -227,7 +228,7 @@ class CDSComboBox extends CDSDropdown {
 
     return html`
       <input
-        id="trigger-label"
+        id="trigger-button"
         class="${inputClasses}"
         ?disabled=${disabled}
         placeholder="${label}"
@@ -236,6 +237,7 @@ class CDSComboBox extends CDSDropdown {
         aria-label="${inputLabel}"
         aria-controls="menu-body"
         aria-autocomplete="list"
+        aria-expanded="${String(open)}"
         ?readonly=${readOnly}
         @input=${handleInput} />
     `;
