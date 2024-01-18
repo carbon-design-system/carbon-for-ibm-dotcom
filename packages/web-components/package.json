@@ -107,7 +107,7 @@
     "window-or-global": "^1.0.1"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "^11.31.0",
+    "@carbon/icons-react": "^11.33.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -133,7 +133,7 @@
     "@carbon/ibmdotcom-services-store": "1.53.0",
     "@carbon/icon-helpers": "10.45.1",
     "@carbon/icons": "^11.31.0",
-    "@carbon/icons-react": "^11.31.0",
+    "@carbon/icons-react": "^11.33.0",
     "@carbon/pictograms-react": "11.55.0",
     "@carbon/react": "^1.46.0",
     "@carbon/type": "^11.25.1",
