@@ -350,14 +350,11 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   };
 
-  private _handleSlugChange() {
+  private _handleSlugChange(e: Event) {
     this._checkUpdateIconButtonSizes();
-    // const childItems = (e.target as HTMLSlotElement).assignedNodes();
-    // if (childItems.length) {
-    //   const slug = childItems[0] as HTMLElement;
+    const childItems = (e.target as HTMLSlotElement).assignedNodes();
 
-    //   slug.setAttribute('size', 'md');
-    // }
+    this._hasSlug = childItems.length > 0;
   }
 
   private _handleSubtitleChange(e: Event) {
@@ -366,6 +363,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
     this._hasSubtitle = subtitle.length > 0;
   }
+
+  @state()
+  _hasSlug = false;
 
   @state()
   _hasActionToolbar = false;
@@ -909,6 +909,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         part="dialog"
         role="complementary"
         placement="${placement}"
+        ?has-slug=${this._hasSlug}
         ?open=${this._isOpen}
         ?opening=${open && !this._isOpen}
         ?closing=${!open && this._isOpen}

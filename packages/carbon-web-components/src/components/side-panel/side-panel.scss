@@ -13,6 +13,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/ai-gradient' as *;
 @use 'sass:map';
 
 $pkg-prefix: 'cds';
@@ -276,6 +277,10 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     &[no-title-animation]:not([has-actions]) {
       @extend .#{$block-class}__static-inner-content-no-actions;
     }
+  }
+
+  #side-panel[has-slug] .#{$block-class}__inner-content {
+    @include callout-gradient('default');
   }
 
   #body-content {
