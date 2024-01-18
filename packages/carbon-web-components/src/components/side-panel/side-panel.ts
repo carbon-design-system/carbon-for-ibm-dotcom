@@ -323,6 +323,43 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @state()
   _hasSubtitle = false;
 
+  private _checkUpdateIconButtonSizes = () => {
+    const slug = this.querySelector('cds-slug');
+    const otherButtons = this?.shadowRoot?.querySelectorAll(
+      '#nav-back-button, #close-button'
+    );
+
+    let iconButtonSize = 'sm';
+
+    if (slug || otherButtons?.length) {
+      const actions = this?.querySelectorAll?.('cds-button[slot="actions"]');
+
+      if (actions?.length && /l/.test(this.size)) {
+        iconButtonSize = 'md';
+      }
+    }
+
+    if (slug) {
+      slug?.setAttribute('size', iconButtonSize);
+    }
+
+    if (otherButtons) {
+      [...otherButtons].forEach((btn) => {
+        btn.setAttribute('size', iconButtonSize);
+      });
+    }
+  };
+
+  private _handleSlugChange() {
+    this._checkUpdateIconButtonSizes();
+    // const childItems = (e.target as HTMLSlotElement).assignedNodes();
+    // if (childItems.length) {
+    //   const slug = childItems[0] as HTMLElement;
+
+    //   slug.setAttribute('size', 'md');
+    // }
+  }
+
   private _handleSubtitleChange(e: Event) {
     const target = e.target as HTMLSlotElement;
     const subtitle = target?.assignedNodes();
@@ -354,6 +391,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @state()
   _actionsCount = 0;
 
+  @state()
+  _slugCloseSize = 'sm';
+
   private checkSetActionsStacked() {
     const stacked =
       /(xs)|(sm)/.test(this.size) ||
@@ -379,6 +419,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   private _handleActionsChange(e: Event) {
     const target = e.target as HTMLSlotElement;
     const actions = target?.assignedElements();
+
+    // update slug size
+    this._checkUpdateIconButtonSizes();
 
     const actionsCount = actions?.length ?? 0;
     if (actionsCount === 0) {
@@ -723,12 +766,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @property({ attribute: 'slide-in', type: Boolean, reflect: true })
   slideIn = false;
 
-  // /**
-  //  * Provide a `Slug` component to be rendered inside the `SidePanel` component
-  //  */
-  // @property({ reflect: true })
-  // slug;
-
   /**
    * Sets the subtitle text
    */
@@ -833,6 +870,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
       <!-- render close button area -->
       <div id="slug-and-close">
+        <slot name="slug" @slotchange=${this._handleSlugChange}></slot>
         <!-- {normalizedSlug} -->
         <cds-icon-button
           aria-label=${closeIconDescription}

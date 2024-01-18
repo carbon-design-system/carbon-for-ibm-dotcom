@@ -238,6 +238,33 @@ const getActionItems = (index) => {
   }
 };
 
+const slugs = {
+  'No Slug': 0,
+  'With Slug': 1,
+};
+
+const getSlug = (index) => {
+  switch (index) {
+    case 1:
+      return html`<cds-slug slot="slug" className="slug-container" size="xs">
+        <div slot="body-text">
+          <p class="secondary">AI Explained</p>
+          <h1>84%</h1>
+          <p class="secondary bold">Confidence score</p>
+          <p class="secondary">
+            Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.
+          </p>
+          <hr />
+          <p class="secondary">Model type</p>
+          <p class="bold">Foundation model</p>
+        </div>
+      </cds-slug>`;
+    default:
+      return null;
+  }
+};
+
 export default {
   title: 'Experimental/SidePanel',
   decorators: [(story) => html` ${story()} `],
@@ -271,6 +298,7 @@ const DefaultTemplate = (argsIn) => {
     selectorInitialFocus: text('selector-initial-focus', ''),
     size: select('size', sizes, SIDE_PANEL_SIZE.MEDIUM),
     slideIn: boolean('slide-in', false),
+    slug: getSlug(select('slug (AI slug)', slugs, 0)),
     subtitle: getSubTitle(select('Slot (subtitle)', subtitles, 1)),
     title: text(
       'title',
@@ -301,6 +329,7 @@ const DefaultTemplate = (argsIn) => {
       selector-page-content=${args.selectorPageContent}
       size=${args.size}
       ?slide-in=${args.slideIn}
+      slug=${args.slug}
       title=${args.title}>
       <!-- default slotted content -->
       ${args.content}
@@ -313,6 +342,9 @@ const DefaultTemplate = (argsIn) => {
 
       <!-- slotted action items cds-buttons -->
       ${args.actionItems}
+
+      <!-- slotted slug -->
+      ${args.slug}
     </cds-side-panel>
   `;
 };
