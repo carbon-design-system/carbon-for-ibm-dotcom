@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,13 @@ import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/uti
 import root from 'window-or-global';
 
 /**
- * @constant {string | string} Host for the Locale API call
+ * @typedef {object} Locale
+ * @property {string} cc The country code.
+ * @property {string} lc The language code.
+ */
+
+/**
+ * @constant {string | string} Host for the Locale API call.
  * @private
  */
 const _host =
@@ -21,9 +27,9 @@ const _host =
   'https://1.www.s81c.com';
 
 /**
- * Sets the default location if nothing is returned
+ * Sets the default location if nothing is returned.
  *
- * @type {object}
+ * @type {Locale}
  * @private
  */
 const _localeDefault = {
@@ -32,7 +38,7 @@ const _localeDefault = {
 };
 
 /**
- * Default display name for lang combination
+ * Default display name for lang combination.
  *
  * @type {string}
  * @private
@@ -40,7 +46,7 @@ const _localeDefault = {
 const _localeNameDefault = 'United States — English';
 
 /**
- * Locale API endpoint
+ * Locale API endpoint.
  *
  * @type {string}
  * @private
@@ -48,7 +54,7 @@ const _localeNameDefault = 'United States — English';
 const _endpoint = `${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
 
 /**
- * Configuration for axios
+ * Configuration for axios.
  *
  * @type {{headers: {'Content-Type': string}}}
  * @private
@@ -60,7 +66,7 @@ const _axiosConfig = {
 };
 
 /**
- * Session Storage key for country list
+ * Session Storage key for country list.
  *
  * @type {string}
  * @private
@@ -76,27 +82,8 @@ const _sessionListKey = 'cds-countrylist';
 const _twoHours = 60 * 60 * 2000;
 
 /**
- * Use the <html> lang attr to determine a return locale object
- *
- * @type {object}
- * @private
- */
-const _getLocaleByLangAttr = () => {
-  if (root.document?.documentElement?.lang) {
-    const lang = root.document.documentElement.lang.toLowerCase();
-    if (lang.indexOf('-') === -1) {
-      return { lc: lang };
-    } else {
-      const codes = lang.split('-');
-      return { cc: codes[1], lc: codes[0] };
-    }
-  } else {
-    return _localeDefault;
-  }
-};
-
-/**
- * The cache for in-flight or resolved requests for the country list, keyed by the initiating locale.
+ * The cache for in-flight or resolved requests for the country list, keyed by
+ * the initiating locale.
  *
  * @type {object}
  * @private
@@ -104,10 +91,86 @@ const _getLocaleByLangAttr = () => {
 const _requestsList = {};
 
 /**
- * Return a locale object based on the DDO API, or "false"
- * so the consumer can decide what to do next
+ * Retrieves the default locale.
  *
- * @type {(object | boolean)}
+ * @returns {Locale} The default locale.
+ */
+const _getLocaleDefault = () => _localeDefault;
+
+/**
+ * Use the <html> lang attr to determine a return locale object, or "false"
+ * when it's not available so the consumer can decide what to do next.
+ *
+ * @type {(Locale | boolean)}
+ * @private
+ */
+function _getLocaleFromLangAttr() {
+  if (root.document?.documentElement?.lang) {
+    const lang = root.document.documentElement.lang.toLowerCase();
+    const locale = {};
+    if (lang.indexOf('-') === -1) {
+      locale.lc = lang;
+    } else {
+      const codes = lang.split('-');
+      locale.cc = codes[1];
+      locale.lc = codes[0];
+    }
+    return locale;
+  }
+  return false;
+}
+
+/**
+ * Gets the locale from the cookie and returns it if both 'cc' and 'lc' values
+ * are present.
+ *
+ * @async
+ * @returns {Promise<Locale|boolean>} The cookie object if 'cc' and 'lc' values are present, otherwise false.
+ */
+const _getLocaleFromCookie = async () => {
+  const cookie = ipcinfoCookie.get();
+  if (cookie && cookie.cc && cookie.lc) {
+    await LocaleAPI.getList(cookie);
+    return cookie;
+  }
+  return false;
+};
+
+/**
+ * Get the locale from the user's browser.
+ *
+ * @async
+ * @returns {Promise<Locale|boolean>} The verified locale or false if not found.
+ */
+const _getLocaleFromBrowser = async () => {
+  try {
+    const cc = await DDOAPI.getLocation();
+
+    // Language preference from browser can return in either 'en-US' format or
+    // 'en' so will need to extract language only.
+    const lang = root.navigator.language;
+    const lc = lang.split('-')[0];
+
+    if (cc && lc) {
+      const list = await LocaleAPI.getList({ cc, lc });
+      const verifiedCodes = LocaleAPI.verifyLocale(cc, lc, list);
+
+      // Set the ipcInfo cookie.
+      ipcinfoCookie.set(verifiedCodes);
+
+      return verifiedCodes;
+    }
+  } catch (e) {
+    // Intentionally throw away the exception in favor of returning false.
+  }
+  return false;
+};
+
+/**
+ * Return a locale object based on the DDO API, or "false" so the consumer can
+ * decide what to do next.
+ *
+ * @returns {(Locale | boolean)} Locale from the DDO, or "false" if not present.
  * @private
  */
 function _getLocaleFromDDO() {
@@ -151,8 +214,7 @@ function _getLocaleFromDDO() {
 }
 
 /**
- * Locale API class with method of fetching user's locale for
- * ibm.com
+ * Locale API class with method of fetching user's locale for ibm.com.
  */
 class LocaleAPI {
   /**
@@ -171,14 +233,18 @@ class LocaleAPI {
   }
 
   /**
-   * Gets the user's locale
+   * Gets the user's locale.
    *
-   * Grab the locale from the `lang` attribute from html, else
-   * check if ipcinfo cookie exists (ipcinfoCookie util)
-   * if not, retrieve the user's locale through DDO service + gets user's
-   * browser language preference then set the cookie
+   * Grab the locale from the available information on the page in the following
+   * order:
    *
-   * @returns {object} object with lc and cc
+   * 1. DDO
+   * 2. HTML lang attribute
+   * 3. ipcInfo cookie
+   * 4. Browser (navigator.language)
+   * 5. Default (us-EN)
+   *
+   * @returns {Promise<Locale>} Locale object.
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
@@ -188,69 +254,46 @@ class LocaleAPI {
    * }
    */
   static async getLocale() {
-    const cookie = ipcinfoCookie.get();
-    const lang = await this.getLang();
-
-    if (lang) {
-      return lang;
-    }
-    // grab the locale from the cookie
-    else if (cookie && cookie.cc && cookie.lc) {
-      await this.getList(cookie);
-      return cookie;
-    } else {
-      const cc = await DDOAPI.getLocation();
-      /**
-       * get language preference from browser
-       * can return in either 'en-US' format or 'en' so will need to extract language only
-       */
-      const lang = root.navigator.language;
-      const lc = lang.split('-')[0];
-
-      if (cc && lc) {
-        const list = await this.getList({ cc, lc });
-        const verifiedCodes = this.verifyLocale(cc, lc, list);
-
-        // set the ipcInfo cookie
-        ipcinfoCookie.set(verifiedCodes);
-
-        return verifiedCodes;
+    const localeGetters = [
+      _getLocaleFromDDO,
+      _getLocaleFromLangAttr,
+      _getLocaleFromCookie,
+      _getLocaleFromBrowser,
+    ];
+    for (const getter of localeGetters) {
+      const locale = await getter();
+      if (locale) {
+        return locale;
       }
     }
+    return _getLocaleDefault();
   }
 
   /**
-   * Checks for DDO object to return the correct cc and lc
-   * Otherwise gets those values from the <html> lang attribute
+   * Gets the user's locale.
    *
-   * @returns {object} locale object
+   * @returns {Promise<Locale>} Locale object.
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
    * function async getLocale() {
    *    const locale = await LocaleAPI.getLang();
    * }
+   *
+   * @deprecated in favor of LocalAPI.getLocale.
    */
-  static getLang() {
-    return new Promise((resolve) => {
-      const getLocaleFromDDO = _getLocaleFromDDO();
-
-      if (getLocaleFromDDO) {
-        resolve(getLocaleFromDDO);
-      } else {
-        resolve(_getLocaleByLangAttr());
-      }
-    });
+  static async getLang() {
+    return this.getLocale();
   }
 
   /**
-   * This fetches the language display name based on language/locale combo
+   * This fetches the language display name based on locale.
    *
-   * @param {object} langCode lang code with cc and lc
-   * @returns {Promise<string>} Display name of locale/language
+   * @param {(Locale | boolean)} locale (optional) If not given, uses LocaleAPI.getLocale logic.
+   * @returns {Promise<string>} Display name of locale/language.
    */
-  static async getLangDisplay(langCode) {
-    const lang = langCode ? langCode : await this.getLang();
+  static async getLangDisplay(locale) {
+    const lang = locale ? locale : await this.getLocale();
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
@@ -282,12 +325,12 @@ class LocaleAPI {
 
   /**
    * Get the country list of all supported countries and their languages
-   * if it is not already stored in session storage
+   * if it is not already stored in session storage.
    *
-   * @param {object} params params object
-   * @param {string} params.cc country code
-   * @param {string} params.lc language code
-   * @returns {Promise<any>} promise object
+   * @param {Locale} locale Locale object.
+   * @param {string} locale.cc Country code.
+   * @param {string} locale.lc Language code.
+   * @returns {Promise<any>} Promise object.
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
@@ -303,12 +346,12 @@ class LocaleAPI {
   }
 
   /**
-   * Fetches the list data based on cc/lc combination
+   * Fetches the list data based on cc/lc combination.
    *
-   * @param {string} cc country code
-   * @param {string} lc language code
-   * @param {Function} resolve resolves the Promise
-   * @param {Function} reject rejects the promise
+   * @param {string} cc Country code.
+   * @param {string} lc Language code.
+   * @param {Function} resolve Resolves the Promise.
+   * @param {Function} reject Rejects the promise.
    */
   static fetchList(cc, lc, resolve, reject) {
     const key = cc !== 'undefined' ? `${lc}-${cc}` : `${lc}`;
@@ -346,13 +389,12 @@ class LocaleAPI {
   }
 
   /**
-   * Verify that the cc and lc combo is in the list of
-   * supported cc-lc combos
+   * Verify that the cc and lc combo is in the list of supported cc-lc combos.
    *
-   * @param {string} cc country code
-   * @param {string} lc language code
-   * @param {object} list country list
-   * @returns {object} object with lc and cc
+   * @param {string} cc Country code.
+   * @param {string} lc Language code.
+   * @param {object} list Country list.
+   * @returns {object} Object with lc and cc.
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
@@ -370,8 +412,8 @@ class LocaleAPI {
       list.regionList.forEach((region) =>
         region.countryList.forEach((country) => {
           const code = country.locale[0][0].split('-');
-          const countryCode = code[1];
           const languageCode = code[0];
+          const countryCode = code[1];
           if (countryCode === cc && languageCode === lc) {
             locale = { cc, lc };
           }
@@ -390,7 +432,7 @@ class LocaleAPI {
   /**
    * Retrieves session cache and checks if cache needs to be refreshed
    *
-   * @param   {string} key session storage key
+   * @param {string} key Session storage key.
    */
   static getSessionCache(key) {
     const session =

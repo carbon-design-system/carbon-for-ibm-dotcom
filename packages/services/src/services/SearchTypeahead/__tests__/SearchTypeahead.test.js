@@ -1,19 +1,17 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import mockAxios from 'axios';
 import responseSuccess from './data/response.json';
-import root from 'window-or-global';
 import SearchTypeaheadAPI from '../SearchTypeahead';
+import { LocaleAPI } from '../../Locale';
 
 const _lc = 'en'; // TODO: bake in tests where lc changes
 const _cc = 'us'; // TODO: bake in tests where cc changes
-const mockDigitalDataResponse = digitalDataResponse;
 
 describe('SearchTypeaheadAPI', () => {
   beforeEach(function () {
@@ -23,10 +21,16 @@ describe('SearchTypeaheadAPI', () => {
       })
     );
 
-    root.digitalData = mockDigitalDataResponse;
+    // Restore any mocks back to a predictable state.
+    jest.restoreAllMocks();
   });
 
   it('should search for ibm.com results with just lc param', async () => {
+    jest.spyOn(LocaleAPI, 'getLang').mockReturnValue(
+      Promise.resolve({
+        lc: 'en',
+      })
+    );
     const query = 'red hat';
     const endpoint = `${
       import.meta.env.SEARCH_TYPEAHEAD_API
@@ -46,15 +50,12 @@ describe('SearchTypeaheadAPI', () => {
   });
 
   it('should search for ibm.com results with both cc and lc param', async () => {
-    root.digitalData = {
-      page: {
-        pageInfo: {
-          ibm: {
-            country: 'us',
-          },
-        },
-      },
-    };
+    jest.spyOn(LocaleAPI, 'getLang').mockReturnValue(
+      Promise.resolve({
+        lc: 'en',
+        cc: 'us',
+      })
+    );
 
     const query = 'red hat';
     const endpoint = `${
