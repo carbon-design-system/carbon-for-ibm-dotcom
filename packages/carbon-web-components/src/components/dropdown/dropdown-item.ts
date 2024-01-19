@@ -70,6 +70,7 @@ class CDSDropdownItem extends LitElement {
           .id++}`
       );
     }
+    this.setAttribute('aria-selected', String(this.selected));
   }
 
   render() {

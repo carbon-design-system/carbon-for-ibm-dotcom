@@ -72,7 +72,7 @@ class CDSDropdown extends ValidityMixin(
   protected _hasSlug = false;
 
   /**
-   * The latest status of this dropdown, for screen reader to accounce.
+   * The latest status of this dropdown, for screen reader to announce.
    */
   protected _assistiveStatusText?: string;
 
@@ -131,9 +131,11 @@ class CDSDropdown extends ValidityMixin(
         ),
         (item) => {
           (item as CDSDropdownItem).selected = false;
+          item.setAttribute('aria-selected', 'false');
         }
       );
       itemToSelect.selected = true;
+      itemToSelect.setAttribute('aria-selected', 'true');
       this._assistiveStatusText = this.selectedItemAssistiveText;
       this._handleUserInitiatedToggle(false);
     }
