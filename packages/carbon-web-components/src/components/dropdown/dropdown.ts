@@ -741,7 +741,7 @@ class CDSDropdown extends ValidityMixin(
     if (open && !activeDescendant) {
       const constructor = this.constructor as typeof CDSDropdown;
       const items = this.querySelectorAll(constructor.selectorItem);
-      activeDescendantFallback = items[0].id;
+      activeDescendantFallback = items[0]?.id;
     }
 
     const helperClasses = classMap({
