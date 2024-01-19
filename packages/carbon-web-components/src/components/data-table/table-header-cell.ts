@@ -174,18 +174,12 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'columnheader');
     }
+    this.sortAction(this.sortDirection);
     super.connectedCallback();
   }
 
   updated(changedProperties) {
-    if (this.isSortable && !changedProperties.has('sortDirection')) {
-      this.sortDirection = TABLE_SORT_DIRECTION.NONE;
-    }
-    if (this._hasSlug) {
-      this.setAttribute('slug', '');
-    } else {
-      this.removeAttribute('slug');
-    }
+    this.sortAction(changedProperties.has('sortDirection'));
   }
 
   render() {
@@ -227,6 +221,20 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
       <slot></slot
       ><slot name="slug" @slotchange="${this._handleSlugSlotChange}"></slot
     ></span> `;
+  }
+
+  /**
+   * Enables sort action for cells.
+   */
+  sortAction(sortDirection){
+    if (this.isSortable && !sortDirection) {
+      this.sortDirection = TABLE_SORT_DIRECTION.NONE;
+    }
+    if (this._hasSlug) {
+      this.setAttribute('slug', '');
+    } else {
+      this.removeAttribute('slug');
+    }
   }
 
   /**

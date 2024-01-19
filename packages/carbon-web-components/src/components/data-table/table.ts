@@ -578,6 +578,9 @@ class CDSTable extends HostListenerMixin(LitElement) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'table');
     }
+    if(this.hasAttribute('is-sortable')){
+      this.enableSortAction();
+    }
     super.connectedCallback();
   }
 
@@ -636,15 +639,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
     }
 
     if (changedProperties.has('isSortable')) {
-      const headerCells = this.querySelectorAll(
-        (this.constructor as typeof CDSTable).selectorHeaderCell
-      );
-      headerCells.forEach((e) => {
-        (e as CDSTableHeaderCell).isSortable = this.isSortable;
-        (e as CDSTableHeaderCell).removeAttribute('sort-direction');
-        (e as CDSTableHeaderCell).isSelectable = this.isSelectable;
-        (e as CDSTableHeaderCell).isExpandable = this.expandable;
-      });
+      this.enableSortAction();
     }
 
     if (changedProperties.has('locale')) {
@@ -762,6 +757,22 @@ class CDSTable extends HostListenerMixin(LitElement) {
         : html`<slot></slot>`}
     `;
   }
+
+  /**
+   * Adds isSortable value for table header cells.
+   */
+  enableSortAction(){
+    const headerCells = this.querySelectorAll(
+      (this.constructor as typeof CDSTable).selectorHeaderCell
+    );
+    headerCells.forEach((e) => {
+      (e as CDSTableHeaderCell).isSortable = this.isSortable;
+      (e as CDSTableHeaderCell).removeAttribute('sort-direction');
+      (e as CDSTableHeaderCell).isSelectable = this.isSelectable;
+      (e as CDSTableHeaderCell).isExpandable = this.expandable;
+    });
+  }
+
   /* eslint-enable no-constant-condition */
 
   /**
