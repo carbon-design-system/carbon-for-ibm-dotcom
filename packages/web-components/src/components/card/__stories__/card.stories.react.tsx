@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -35,6 +35,11 @@ import {
   typeOptions,
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 export const Default = (args) => {
   const {
@@ -249,7 +254,7 @@ export const Static = (args) => {
       {cta ? (
         <C4DCardFooter href="https://www.example.com">
           Sign up for the trial
-          <ArrowRight20 slot="icon" />
+          <ArrowRight {...iconProps} />
         </C4DCardFooter>
       ) : (
         ''
