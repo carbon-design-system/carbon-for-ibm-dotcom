@@ -63,6 +63,13 @@ class CDSDropdownItem extends LitElement {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'option');
     }
+    if (!this.hasAttribute('id')) {
+      this.setAttribute(
+        'id',
+        `${prefix}-dropdown-item-${(this.constructor as typeof CDSDropdownItem)
+          .id++}`
+      );
+    }
   }
 
   render() {
@@ -79,6 +86,13 @@ class CDSDropdownItem extends LitElement {
       </div>
     `;
   }
+
+  /**
+   * Store an identifier for use in composing this item's id.
+   *
+   * Auto-increments anytime a new dropdown-item appears.
+   */
+  static id = 0;
 
   static styles = styles;
 }

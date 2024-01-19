@@ -76,6 +76,8 @@ class CDSDropdown extends ValidityMixin(
    */
   protected _assistiveStatusText?: string;
 
+  protected _activeDescendant?: string;
+
   /**
    * The content of the selected item.
    */
@@ -402,8 +404,12 @@ class CDSDropdown extends ValidityMixin(
     nextItem.scrollIntoView({ block: 'nearest' });
 
     const nextItemText = nextItem.textContent;
+    const nextItemId = nextItem.id;
     if (nextItemText) {
       this._assistiveStatusText = nextItemText;
+    }
+    if (nextItemId) {
+      this._activeDescendant = nextItemId;
     }
     this.requestUpdate();
   }
@@ -719,6 +725,7 @@ class CDSDropdown extends ValidityMixin(
       warn,
       warnText,
       _assistiveStatusText: assistiveStatusText,
+      _activeDescendant: activeDescendant,
       _shouldTriggerBeFocusable: shouldTriggerBeFocusable,
       _handleClickInner: handleClickInner,
       _handleKeydownInner: handleKeydownInner,
@@ -728,6 +735,13 @@ class CDSDropdown extends ValidityMixin(
       _slotHelperTextNode: slotHelperTextNode,
     } = this;
     const inline = type === DROPDOWN_TYPE.INLINE;
+
+    let activeDescendantFallback: string | undefined;
+    if (open && !activeDescendant) {
+      const constructor = this.constructor as typeof CDSDropdown;
+      const items = this.querySelectorAll(constructor.selectorItem);
+      activeDescendantFallback = items[0].id;
+    }
 
     const helperClasses = classMap({
       [`${prefix}--form__helper-text`]: true,
@@ -795,11 +809,15 @@ class CDSDropdown extends ValidityMixin(
           aria-haspopup="${ifDefined(
             !shouldTriggerBeFocusable ? undefined : 'listbox'
           )}"
-          aria-owns="${ifDefined(
-            !shouldTriggerBeFocusable ? undefined : 'menu-body'
-          )}"
           aria-controls="${ifDefined(
             !shouldTriggerBeFocusable ? undefined : 'menu-body'
+          )}"
+          aria-activedescendant="${ifDefined(
+            !shouldTriggerBeFocusable
+              ? undefined
+              : open
+              ? activeDescendant ?? activeDescendantFallback
+              : ''
           )}">
           ${this._renderPrecedingLabel()}${this._renderLabel()}${validityIcon}${warningIcon}${this._renderFollowingLabel()}
           <div id="trigger-caret" class="${iconContainerClasses}">
@@ -894,6 +912,7 @@ class CDSDropdown extends ValidityMixin(
     ...LitElement.shadowRootOptions,
     delegatesFocus: true,
   };
+
   static styles = styles;
 
   /**
