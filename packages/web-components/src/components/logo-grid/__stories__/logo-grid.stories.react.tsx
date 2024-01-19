@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
@@ -23,6 +23,11 @@ import C4DLogoGridItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import logos from './data/logos.js';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 export const Default = (args) => {
   const {
@@ -57,7 +62,7 @@ export const Default = (args) => {
         <C4DLogoGridLink href={ctaHref}>
           <C4DCardLinkHeading>{ctaCopy}</C4DCardLinkHeading>
           <C4DCardFooter>
-            <ArrowRight20 slot="icon" />
+            <ArrowRight {...iconProps} />
           </C4DCardFooter>
         </C4DLogoGridLink>
       ) : (

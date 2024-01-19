@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 
@@ -78,7 +79,6 @@
     .#{$prefix}--header__menu-title[aria-expanded='false']
       + .#{$prefix}--header__menu {
       ::slotted(#{$c4d-prefix}-megamenu),
-      ::slotted(#{$c4d-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition-expansion motion(standard, expressive) collapse;
       }
@@ -99,7 +99,6 @@
       visibility: visible;
 
       ::slotted(#{$c4d-prefix}-megamenu),
-      ::slotted(#{$c4d-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition-expansion motion(standard, expressive) expand;
       }
@@ -121,7 +120,6 @@
   }
 
   :host(#{$c4d-prefix}-megamenu),
-  :host(#{$c4d-prefix}-cloud-megamenu),
   .#{$prefix}--masthead__megamenu {
     @include box-shadow;
     --#{$c4d-prefix}-masthead-max-height: calc(
