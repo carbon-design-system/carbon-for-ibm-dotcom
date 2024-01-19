@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,11 @@ import { globalInit } from '../';
 jest.mock('../../DDO', () => ({
   DDOAPI: {
     setVersion: jest.fn(async () => {}),
+  },
+}));
+jest.mock('../../Locale', () => ({
+  LocaleAPI: {
+    getLang: jest.fn(async () => ({ lc: 'en', cc: 'us' })),
   },
 }));
 jest.mock('../../Analytics', () => ({

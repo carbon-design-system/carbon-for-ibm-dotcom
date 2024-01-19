@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.1.0-rc.0",
+  "version": "2.1.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -90,14 +90,14 @@
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "2.1.0-rc.0",
-    "@carbon/ibmdotcom-styles": "2.1.0-rc.0",
-    "@carbon/ibmdotcom-utilities": "2.1.0-rc.0",
+    "@carbon/ibmdotcom-services": "2.1.0",
+    "@carbon/ibmdotcom-styles": "2.1.0",
+    "@carbon/ibmdotcom-utilities": "2.1.0",
     "@carbon/layout": "11.20.1",
     "@carbon/motion": "11.16.1",
     "@carbon/styles": "1.47.0",
     "@carbon/telemetry": "0.1.0",
-    "@carbon/web-components": "2.0.2-rc.1",
+    "@carbon/web-components": "2.1.2",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",
     "redux": "^4.0.0",
@@ -107,7 +107,7 @@
     "window-or-global": "^1.0.1"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.49.2",
+    "@carbon/icons-react": "^11.33.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -132,8 +132,8 @@
     "@babel/traverse": "~7.23.0",
     "@carbon/ibmdotcom-services-store": "1.53.0",
     "@carbon/icon-helpers": "10.45.1",
-    "@carbon/icons": "11.31.0",
-    "@carbon/icons-react": "10.49.2",
+    "@carbon/icons": "11.33.0",
+    "@carbon/icons-react": "^11.33.0",
     "@carbon/pictograms-react": "11.55.0",
     "@carbon/react": "1.47.0",
     "@carbon/type": "11.25.1",
