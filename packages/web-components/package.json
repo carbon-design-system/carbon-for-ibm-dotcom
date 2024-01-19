@@ -50,7 +50,7 @@
     "build:components": "gulp build:components",
     "build:dist": "gulp build:dist",
     "build:sass:cdn": "gulp build:sass:cdn",
-    "build-storybook": "build-storybook",
+    "build-storybook": "storybook build",
     "build-storybook:experimental": "C4D_FLAGS_ALL=true build-storybook -o storybook-static-experimental",
     "build-storybook:react": "gulp build:modules:react && node --max-old-space-size=8192 node_modules/@storybook/react/bin/build.js -c .storybook/react -o storybook-static-react",
     "build-storybook:rtl": "STORYBOOK_USE_RTL=true build-storybook -o storybook-static-rtl",

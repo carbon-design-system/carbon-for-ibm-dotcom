@@ -41,8 +41,8 @@
     "test:integration": "yarn test:integration:build && yarn test:integration:ui",
     "test:integration:build": "jest -c tests/integration/build/jest.config.js --runInBand",
     "test:integration:ui": "jest -c tests/integration/ui/jest.config.js --runInBand",
-    "test:unit": "cross-env NODE_OPTIONS=--openssl-legacy-provider gulp test:unit",
-    "test:unit:updateSnapshot": "NODE_OPTIONS=--openssl-legacy-provider gulp test:unit --update-snapshot",
+    "test:unit": "gulp test:unit",
+    "test:unit:updateSnapshot": "gulp test:unit --update-snapshot",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "visual-snapshot": "yarn build-storybook && percy storybook:start ./storybook-static",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
