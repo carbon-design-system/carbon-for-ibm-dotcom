@@ -45,19 +45,19 @@ const { tagFrom } = args;
  */
 const { tagTo } = args;
 
-/**
- * Web Components release version (-v)
- *
- * @type {string}
- */
-const { wcVersion } = args;
+// /**
+//  * Web Components release version (-v)
+//  *
+//  * @type {string}
+//  */
+// const { wcVersion } = args;
 
-/**
- * Web Components release version (-v)
- *
- * @type {string}
- */
-const { cwcVersion } = args;
+// /**
+//  * Web Components release version (-v)
+//  *
+//  * @type {string}
+//  */
+// const { cwcVersion } = args;
 
 /**
  * Uses a delimiter for splitting the comments into an array
@@ -125,14 +125,14 @@ function getChangelog(pkgName, folder) {
   // Stores the changelog
   let changelog = `## ${pkgName}\n`;
 
-  // Set Web Components version next to package name
-  if (pkgName === 'Web Components') {
-    changelog = `## ${pkgName} (${wcVersion})\n`;
-  }
+  // // Set Web Components version next to package name
+  // if (pkgName === 'Web Components') {
+  //   changelog = `## ${pkgName} (${wcVersion})\n`;
+  // }
 
-  if (pkgName === 'Carbon Web Components') {
-    changelog = `## ${pkgName} (${cwcVersion})\n`;
-  }
+  // if (pkgName === 'Carbon Web Components') {
+  //   changelog = `## ${pkgName} (${cwcVersion})\n`;
+  // }
 
   // Stores the list of features
   const features = {};
@@ -235,7 +235,7 @@ function generateLog() {
     './packages/carbon-web-components'
   );
   log += getChangelog('Web Components', './packages/web-components');
-  log += getChangelog('React', './packages/react');
+  // log += getChangelog('React', './packages/react');
   log += getChangelog('Styles', './packages/styles');
   log += getChangelog('Services', './packages/services');
   log += getChangelog('Services Store', './packages/services-store');
