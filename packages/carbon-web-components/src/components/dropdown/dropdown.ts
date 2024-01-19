@@ -494,6 +494,13 @@ class CDSDropdown extends ValidityMixin(
   }
 
   /**
+   * 'aria-label' of the ListBox component.
+   * Specify a label to be read by screen readers on the container node
+   */
+  @property({ type: String, reflect: true, attribute: 'aria-label' })
+  ariaLabel = '';
+
+  /**
    * Specify the direction of the dropdown. Can be either top or bottom.
    */
   @property({ type: String, reflect: true })
@@ -706,6 +713,7 @@ class CDSDropdown extends ValidityMixin(
 
   render() {
     const {
+      ariaLabel,
       _classes: classes,
       disabled,
       helperText,
@@ -765,7 +773,8 @@ class CDSDropdown extends ValidityMixin(
     const helperMessage = invalid ? invalidText : warn ? warnText : helperText;
     const menuBody = html`
       <div
-        aria-labelledby="dropdown-label"
+        aria-labelledby="${ifDefined(ariaLabel ? undefined : 'dropdown-label')}"
+        aria-label="${ifDefined(ariaLabel ? ariaLabel : undefined)}"
         id="menu-body"
         part="menu-body"
         class="${prefix}--list-box__menu"
