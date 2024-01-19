@@ -136,7 +136,7 @@ class CDSDropdown extends ValidityMixin(
       );
       itemToSelect.selected = true;
       itemToSelect.setAttribute('aria-selected', 'true');
-      this._assistiveStatusText = this.selectedItemAssistiveText;
+      this._assistiveStatusText = `${itemToSelect.textContent} has been selected.`;
       this._handleUserInitiatedToggle(false);
     }
   }
@@ -326,9 +326,7 @@ class CDSDropdown extends ValidityMixin(
     if (!disabled) {
       if (this.dispatchEvent(new CustomEvent(eventBeforeToggle, init))) {
         this.open = force;
-        if (this.open) {
-          this._assistiveStatusText = this.selectingItemsAssistiveText;
-        } else {
+        if (!this.open) {
           const {
             selectedItemAssistiveText,
             label,
@@ -566,13 +564,6 @@ class CDSDropdown extends ValidityMixin(
    */
   @property({ attribute: 'required-validity-message' })
   requiredValidityMessage = 'Please fill out this field.';
-
-  /**
-   * An assistive text for screen reader to announce, telling the open state.
-   */
-  @property({ attribute: 'selecting-items-assistive-text' })
-  selectingItemsAssistiveText =
-    'Selecting items. Use up and down arrow keys to navigate.';
 
   /**
    * An assistive text for screen reader to announce, telling that an item is selected.
@@ -840,7 +831,7 @@ class CDSDropdown extends ValidityMixin(
       <div
         class="${prefix}--assistive-text"
         role="status"
-        aria-live="assertive"
+        aria-live="polite"
         aria-relevant="additions text">
         ${assistiveStatusText}
       </div>
