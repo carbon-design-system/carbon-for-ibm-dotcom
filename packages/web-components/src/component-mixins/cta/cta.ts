@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,6 +29,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+import root from 'window-or-global';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -201,6 +202,14 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       `;
     }
 
+    firstUpdated() {
+      const { ctaType, href } = this;
+      // Check for the URL trigger meant to fire eventRunAction.
+      if (ctaType === CTA_TYPE.VIDEO && href) {
+        this._checkUrlVideoTrigger();
+      }
+    }
+
     /**
      * Handles `.updated()` method of `lit-element`.
      */
@@ -321,6 +330,46 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
 
       if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
         this._updateVideoThumbnailUrl();
+      }
+    }
+
+    /**
+     * Check the URL for a fragment including the video id.
+     *
+     * If we find a URL fragment that includes the video id, we trigger the
+     * eventRunAction event, which for video will open the video and start
+     * playback in a lightbox. This is the same thing that happens when the user
+     * clicks on the CTA.
+     */
+    _checkUrlVideoTrigger() {
+      const { ctaType, disabled, href, videoDescription, videoName } = this;
+      // Without a video id, or if the button is disabled, there is nothing to
+      // do here.
+      if (ctaType !== CTA_TYPE.VIDEO || !href || disabled) {
+        return;
+      }
+      // Only trigger for the first CTA with the video id in the page.
+      if (this.ownerDocument.querySelector(`[href='${href}']`) !== this) {
+        return;
+      }
+      const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
+      const hash = root.location.hash;
+      const urlTrigger = `cta-video-${href}`;
+
+      if (hash === `#${urlTrigger}`) {
+        this.dispatchEvent(
+          new CustomEvent(eventRunAction, {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+            detail: {
+              href,
+              ctaType,
+              videoName,
+              videoDescription,
+            },
+          })
+        );
       }
     }
 

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,10 +16,15 @@ import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-r
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import C4DPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import { TouchScreen, Pattern, Touch } from '@carbon/pictograms-react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const pictograms = {
   TouchScreen: 'TouchScreen',
@@ -127,7 +132,7 @@ export const Default = (args) => {
                   <C4DContentItemCopy>{copy}</C4DContentItemCopy>
                   {cta && (
                     <C4DLinkWithIcon href={linkWithIcon.href} slot="footer">
-                      {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+                      {linkWithIcon.copy} <ArrowRight {...iconProps} />
                     </C4DLinkWithIcon>
                   )}
                 </C4DPictogramItem>
