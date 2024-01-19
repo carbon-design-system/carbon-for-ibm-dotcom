@@ -578,7 +578,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'table');
     }
-    if(this.hasAttribute('is-sortable')){
+    if (this.hasAttribute('is-sortable')) {
       this.enableSortAction();
     }
     super.connectedCallback();
@@ -761,7 +761,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
   /**
    * Adds isSortable value for table header cells.
    */
-  enableSortAction(){
+  enableSortAction() {
     const headerCells = this.querySelectorAll(
       (this.constructor as typeof CDSTable).selectorHeaderCell
     );

@@ -226,7 +226,7 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
   /**
    * Enables sort action for cells.
    */
-  sortAction(sortDirection){
+  sortAction(sortDirection) {
     if (this.isSortable && !sortDirection) {
       this.sortDirection = TABLE_SORT_DIRECTION.NONE;
     }
