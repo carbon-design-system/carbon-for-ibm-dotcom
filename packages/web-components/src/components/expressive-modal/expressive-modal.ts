@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -184,6 +184,8 @@ class C4DExpressiveModal extends StableSelectorMixin(
    * Handles the `focusin` event on the start and end sentinels
    *
    * @param event The event.
+   * @param event.target The event target.
+   * @param event.relatedTarget The event relatedTarget.
    */
   protected _handleFocusIn = ({ target, relatedTarget }) => {
     const { tryFocusElems } = this.constructor as typeof C4DExpressiveModal;
@@ -219,14 +221,20 @@ class C4DExpressiveModal extends StableSelectorMixin(
    * Handles `focusout` event on this element.
    *
    * @param event The event.
+   * @param event.target The event target.
+   * @param event.relatedTarget The event relatedTarget.
    */
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocusOut = ({ target, relatedTarget }) => {
     // Don't attempt to wrap focus if the modal isn't open.
-    if (!this.open) return;
+    if (!this.open) {
+      return;
+    }
     // If no target/relatedTarget, focus has entered/left the window. Do nothing.
-    if (!target || !relatedTarget) return;
+    if (!target || !relatedTarget) {
+      return;
+    }
 
     const { tryFocusElems } = this.constructor as typeof C4DExpressiveModal;
     const { _focusableElements: focusableElements } = this;
@@ -324,7 +332,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
    * @param timeout The number of milliseconds as the longest time waiting for `transitionend` event.
    * @returns A promise that is resolves when `transitionend` on the host element fires.
    */
-  private _waitForTransitionEnd(timeout: number = 1000) {
+  private _waitForTransitionEnd(timeout = 1000) {
     return new Promise((resolve) => {
       let done = false;
       let hTransitionEnd;
@@ -522,7 +530,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
   static get selectorPrimaryFocus() {
     return `
       [data-modal-primary-focus],
-      ${c4dPrefix}-expressive-modal-footer ${c4dPrefix}-button[kind="primary"],
+      ${c4dPrefix}-expressive-modal-footer ${c4dPrefix}-button[kind="primary"]
     `;
   }
 
@@ -555,7 +563,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
    */
   static tryFocusElems(
     elems: NodeListOf<HTMLElement> | [HTMLElement],
-    reverse: boolean = false,
+    reverse = false,
     fallback: HTMLElement | null = null
   ) {
     if (!reverse) {

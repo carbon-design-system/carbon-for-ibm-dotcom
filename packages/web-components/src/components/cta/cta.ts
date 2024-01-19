@@ -111,9 +111,9 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleButtonGroupupdate = async (event: FocusEvent) => {
     if (event) {
-      const button = this.shadowRoot?.querySelector(`${c4dPrefix}-button-cta`)!;
+      const button = this.shadowRoot?.querySelector(`${c4dPrefix}-button-cta`);
       if (this.ctaStyle === 'button' && button && this.getAttribute('kind')) {
-        button.setAttribute('kind', this?.getAttribute('kind')!);
+        button.setAttribute('kind', this.getAttribute('kind')!);
       }
     }
   };

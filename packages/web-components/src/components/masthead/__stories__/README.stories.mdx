@@ -1,8 +1,6 @@
 import {
-  Preview,
   Props,
   Description,
-  Story,
 } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
@@ -13,104 +11,62 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 > displays consistently at the top of each page. It also includes search and
 > profile services for IBM.com.
 
+## Examples
+
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/masthead)
 > example implementation.
 
 ### Masthead (L0):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/masthead)
 
 ### Masthead (L1):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead-l1)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/masthead-l1)
 
-## Getting Started
+## Getting started
 
-##### Note: Masthead uses the Carbon White theme by design. Using other themes will not change the Masthead color scheme.
+**Note: Masthead uses the Carbon White theme by design. Using other themes will not change the Masthead color scheme.**
 
 ### JS (via import)
 
-````javascript
-import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
-```<Description markdown={`\${cdnJs({ components: ['masthead'] })}`} />
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/masthead';
+```
+
+<Description markdown={`${cdnJs({ components: ['masthead'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
-
-```html
-<c4d-masthead-container></c4d-masthead-container>
-````
-
-#### Adopting Masthead v2 with new data endpoint
-
-###### JS (via CDN):
-
-```html
-// Alpha tag using changes from the feature branch (feat/masthead-v2)
-<script
-  type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
-```
-
-###### Markup:
-
+Using the default data provides visitors a consistent navigation experience across web properties.
 ```html
 <c4d-masthead-container
-  data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
-  auth-method="profile-api"
-  has-contact="false"></c4d-masthead-container>
+  data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
+></c4d-masthead-container>
 ```
 
-#### Adopting Masthead v2 with Cloud data endpoint
+## Modifying the masthead
 
-###### JS (via CDN):
-
-```html
-// Alpha tag using changes from the feature branch (feat/masthead-v2)
-<script
-  type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
-```
-
-###### Markup:
-
-```html
-<c4d-masthead-container
-  data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
-  platform="Cloud"
-  auth-method="cookie"
-  has-contact="true"></c4d-masthead-container>
-```
-
-#### Setting Platform
-
+### Setting platform name
 ```html
 <c4d-masthead-container platform="Lorem Ipsum"></c4d-masthead-container>
 ```
 
-#### Setting Platform URL
-
-The `platformUrl` property accepts a single URL as string or an object with a
-specific URL for each locale. This property has to be set via javascript.
-
-###### Setting a single platform URL:
-
+### Setting platform URL
 ```html
 <c4d-masthead-container
   platform="Lorem Ipsum"
-  id="masthead-container"></c4d-masthead-container>
+  id="masthead"></c4d-masthead-container>
 ```
 
 ```javascript
-const singleUrl = 'https://www.example.com';
-
-document.getElementById('masthead-container').platformUrl = singleUrl;
+document.getElementById('masthead').platformUrl = 'https://www.example.com';
 ```
 
-###### Setting multiple platform URLs with an object:
+#### Localized platform URLs
 
-With an object, the component will show a specific URL depending on the locale:
+The component will show a specific URL depending on the locale if you set the `platformUrl` property to an object, like so:
 
 ```javascript
 const urlObject = {
@@ -125,45 +81,54 @@ const urlObject = {
   },
 };
 
-document.getElementById('masthead-container').platformUrl = urlObject;
+document.getElementById('masthead').platformUrl = urlObject;
 ```
+
+### Custom navigation
+
+In order to set custom navigation for the masthead, use JavaScript to set the `navLinks` property of the masthead-composite component. This property should be an array of `L0MenuItem` objects as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
 
 ```html
-<c4d-masthead-container
-  platform="Lorem Ipsum"
-  id="masthead-container"></c4d-masthead-container>
+<c4d-masthead-composite
+  id="masthead"></c4d-masthead-composite>
 ```
-
-#### Custom Navigation
-
-In order to set custom navigation for the masthead, set the custom navigation
-data to the `customNavLinks` property of the masthead-container component.
 
 ```javascript
-const links = [...menu items...];
-document.getElementById('masthead-container').customNavLinks = links;
-```
-
-#### Using L1 nav
-
-To use L1 nav, set `l1Data` prop. `l1Data` prop should be a MastheadL1 object,
-as defined in packages/services-store/src/actions/translateAPI.ts that contains
-the navigation data of L1 nav:
-
-```javascipt
-const l1Data = {
-  platform: {
-    name: 'Stock Charts',
-    url: 'https://example.com/',
+const customNavData = [
+  {
+    title: 'Basic Link',
+    titleEnglish: 'Basic Link',
+    url: 'https://www.example.com/',
   },
-  menuItems: [...],
-  actions: {...},
-}
+  {
+    title: 'Dropdown',
+    titleEnglish: 'Dropdown',
+    submenu: [
+      {
+        title: 'Dropdown Link',
+        titleEnglish: 'Dropdown Link',
+        url: 'https://www.example.com/demo',
+      },
+      {
+        title: 'Dropdown Link 2',
+        titleEnglish: 'Dropdown Link 2',
+        url: 'https://www.example.com/demo-2',
+      },
+    ],
+  },
+  {
+    title: 'Megamenu',
+    titleEnglish: 'Megamenu',
+    submenu: {
+      sections: [...],
+      viewAll: {...},
+    },
+  },
+];
+document.getElementById('masthead').navLinks = customNavData;
 ```
 
-```html
-<c4d-masthead-container id="masthead-container"></c4d-masthead-container>
-```
+#### Custom data endpoint
 
 To set a custom endpoint for the translation service to fetch from, set either
 the `data-endpoint` attribute like below or `C4D_TRANSLATION_ENDPOINT`
@@ -174,24 +139,50 @@ environment variable.
   data-endpoint="/custom-endpoint"></c4d-masthead-container>
 ```
 
+### Using L1 Nav
+
+To use L1 nav, set `l1Data` property in JavaScript. It should be a `MastheadL1` object, as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
+
+```html
+<c4d-masthead-container
+  id="masthead"></c4d-masthead-container>
+```
+
+```javascript
+const l1Data = {
+  platform: {
+    name: 'Stock Charts',
+    url: 'https://example.com/',
+  },
+  menuItems: [...],
+  actions: {...},
+}
+
+document.getElementById('masthead').l1Data = l1Data;
+```
+
 ### Setting the active menu item
 
 The active menu item receives a unique style treatment to indicate where the
 current page is within the navigation hierarchy.
 
-##### Manually
+> Note: If no menu items are marked active and the optional `platformUrl` property
+has been set, the platform link will be marked active.
 
-Manually set the active item by using the `selected-menu-item` property. See
-[the Props table](#props).
-
-##### Automatically
+#### Automatically
 
 The first menu item whose `href` value matches the browser window's current URL
 will automatically be marked active if the `selected-menu-item` property has not
 been set.
 
-If no other menu items are marked active and the optional `platformUrl` property
-has been set, the platform link will be marked active.
+#### Manually
+
+Manually set the active item by using the `selected-menu-item` property. Any navigation items with a matching `titleEnglish` value from the `navLinks` data will be marked active.
+
+```html
+<c4d-masthead-container
+  selected-nav-item="Basic Link"></c4d-masthead-container>
+```
 
 ### Understanding the different authentication method types
 
@@ -211,7 +202,9 @@ method. See below for more context on each available value.
   console API user login response. This method is designed and intended for
   Cloud Docs (https://cloud.ibm.com) team usage only.
 
-## Using custom search with typeahead API
+### Customizing search
+
+#### Using custom search with typeahead API
 
 Using a search API other than the default provided from IBM Search is supported.
 
@@ -226,14 +219,11 @@ As an example, we will be using the IBM Docs API to fetch the data, retrieving
 an array of result suggestions.
 
 ```javascript
-async function customTypeaheadApiFunction(searchVal) {
-  return fetch(
-    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      let searchResults = [data.hints];
-      return searchResults;
+async function customTypeaheadApiFunction(query) {
+  return fetch(`https://www-api.ibm.com/search/typeahead/v1?query=${query}`)
+    .then(response => response.json())
+    .then(data => {
+      return [data.response.map(result => result[0])];
     });
 }
 ```
@@ -241,8 +231,8 @@ async function customTypeaheadApiFunction(searchVal) {
 To query the current masthead search input, we need to create an event listener
 to listen for the `c4d-search-with-typeahead-input` event. Once captured, we
 need to call our asynchronous function to fetch the custom API results based on
-the query. Once the results are retrieved, a new custom event
-`c4d-custom-typeahead-api-results` needs to be dispatched containing the results
+the query. Once the results are retrieved, a new custom event -
+`c4d-custom-typeahead-api-results` - needs to be dispatched containing the results
 for the component to render the search suggestions.
 
 ```javascript
@@ -254,30 +244,35 @@ document.addEventListener('c4d-search-with-typeahead-input', async (e) => {
 });
 ```
 
-### Grouped Search
+#### Grouped search
 
 Some APIs contain grouped results in addition to regular search suggestions,
 which can also be displayed upon search.
 
 As before, create a function that fetches the query and make sure to include a
 JSON object containing the section's `title` and the array of retrieved section
-suggestions in `items`. In the example below, the section `Product pages` is
+suggestions in `items`. In the example below, the `Carbon` section is
 added to the results array.
 
 ```javascript
-async function customTypeaheadApiFunction(searchVal) {
-  return fetch(
-    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
-  )
+async function customTypeaheadApiFunction(query) {
+  return fetch(`https://www-api.ibm.com/search/typeahead/v1?query=${query}`)
     .then((response) => response.json())
     .then((data) => {
       let searchResults = [
-        data.hints,
-
-        // optional category results fetched from API
+        // Results not including "carbon"
+        data.response
+          .filter(result => !result[0].toLowerCase().includes('carbon'))
+          .map(result => result[0]),
+        // Optional grouped category results including "carbon"
         {
-          title: 'Product pages',
-          items: data.products,
+          title: 'Carbon',
+          items: data.response
+            .filter(result => result[0].toLowerCase().includes('carbon'))
+            .map(result => ({
+              name: result[0],
+              href: `https://www.example.com/${encodeURIComponent(result[0])}`
+            })),
         },
       ];
       return searchResults;
@@ -289,7 +284,7 @@ As mentioned above, the two events `c4d-search-with-typeahead-input` and
 `c4d-custom-typeahead-api-results` must be handled for suggestions to be
 rendered -- the same code for the event listener can be reused.
 
-#### Note
+##### Note
 
 The API results must match the following structure:
 
@@ -298,19 +293,45 @@ The API results must match the following structure:
   ['result 1', 'result 2', 'result 3'],
   {
     title: 'Example group 1'
-    items: ['result a', 'result b', 'result c']
+    items: [
+      {
+        name: 'result a',
+        url: 'https://www.example.com/a',
+      },
+      {
+        name: 'result b',
+        url: 'https://www.example.com/b',
+      },
+      {
+        name: 'result c',
+        url: 'https://www.example.com/c',
+      },
+    ]
   },
   {
     title: "Example group 2",
-    items: ['result d', 'result e', 'result f']
+    items: [
+      {
+        name: 'result d',
+        url: 'https://www.example.com/d',
+      },
+      {
+        name: 'result e',
+        url: 'https://www.example.com/e',
+      },
+      {
+        name: 'result f',
+        url: 'https://www.example.com/f',
+      },
+    ],
   }
 ]
 ```
 
-Note that only the first array element is necessary to render the basic search
-suggestions, the following JSON objects are optional Grouped sections.
+The first array element is required to render the basic search
+suggestions, and the following JSON objects are optional grouped sections.
 
-## Scoped search
+#### Scoped search
 
 Scoped searches are also supported, returning results from specifically targeted
 IBM pages and products.
@@ -350,7 +371,7 @@ const scopeParameters = [
 ];
 ```
 
-#### Note
+##### Note
 
 A list of the available scoped categories can be found
 [here](https://github.ibm.com/digital-marketplace/columbus/blob/master/docs/SCOPED.MD).
@@ -388,16 +409,6 @@ document.querySelector('c4d-search-with-typeahead').placeholderFormatter =
 ### `<c4d-masthead-container>`/`<c4d-masthead-composite>`
 
 <Props of="c4d-masthead-composite" />
-
-For Cloud-specific version of masthead-container,
-`<c4d-cloud-masthead-container>`, we support two user authentication methods,
-via cookie or api. To select between the two, provide the `auth-method` prop
-with a value of either 'cookie' or 'api'.
-
-```html
-<c4d-cloud-masthead-container
-  auth-method="cookie"></c4d-cloud-masthead-container>
-```
 
 ## Stable selectors
 

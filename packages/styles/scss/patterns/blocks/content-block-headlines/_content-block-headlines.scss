@@ -1,5 +1,5 @@
 /**
-* Copyright IBM Corp. 2016, 2020
+* Copyright IBM Corp. 2016, 2023
 *
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
@@ -23,20 +23,20 @@
 
       &__copy {
         p {
-          margin-bottom: $spacing-10;
+          margin-block-end: $spacing-10;
 
           @include breakpoint(lg) {
-            margin-bottom: $spacing-12;
+            margin-block-end: $spacing-12;
           }
         }
       }
 
       @include breakpoint(md) {
-        padding-top: $spacing-07;
+        padding-block-start: $spacing-07;
       }
 
       @include breakpoint(lg) {
-        padding-top: $spacing-10;
+        padding-block-start: $spacing-10;
       }
     }
 
@@ -48,19 +48,19 @@
       @include make-col-ready;
 
       &:last-of-type {
-        margin-bottom: $spacing-07;
+        margin-block-end: $spacing-07;
 
         @include breakpoint(md) {
-          margin-bottom: $spacing-07;
+          margin-block-end: $spacing-07;
         }
 
         @include breakpoint(lg) {
-          margin-bottom: $spacing-12;
+          margin-block-end: $spacing-12;
         }
       }
 
       @include breakpoint(md) {
-        border-top: 1px solid $layer-accent-01;
+        border-block-start: 1px solid $layer-accent-01;
 
         @include make-col(12, 12);
       }
@@ -77,14 +77,14 @@
 
       @include make-col-ready;
 
-      border-top: 1px solid $layer-accent-01;
-      padding-top: $spacing-05;
-      padding-bottom: $spacing-07;
+      border-block-start: 1px solid $layer-accent-01;
+
+      padding-block: $spacing-05 $spacing-07;
 
       h4,
       p {
-        max-width: 90%;
         color: $text-primary;
+        max-inline-size: 90%;
       }
 
       p {
@@ -98,15 +98,15 @@
       }
 
       .#{$prefix}--link {
-        margin-top: $spacing-05;
+        margin-block-start: $spacing-05;
       }
 
       @include breakpoint(md) {
         @include make-col(4, 8);
 
-        border-top: none;
-        padding-top: $spacing-05;
-        padding-bottom: $spacing-10;
+        border-block-start: none;
+
+        padding-block: $spacing-05 $spacing-10;
       }
     }
   }

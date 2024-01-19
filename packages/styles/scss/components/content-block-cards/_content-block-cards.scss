@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,30 +17,27 @@
   :host(#{$c4d-prefix}-content-block-cards),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block {
     display: block;
-    padding-top: $spacing-07;
-    padding-bottom: $spacing-10;
+    padding-block: $spacing-07 $spacing-10;
 
     @include breakpoint(md) {
-      padding-top: $spacing-07;
-      padding-bottom: $spacing-12;
+      padding-block: $spacing-07 $spacing-12;
     }
 
     @include breakpoint(lg) {
-      padding-top: $spacing-10;
-      padding-bottom: $spacing-13;
+      padding-block: $spacing-10 $spacing-13;
     }
   }
 
   :host(#{$c4d-prefix}-content-block-cards) ::slotted([slot='heading']),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__heading {
-    margin-bottom: $spacing-07;
+    margin-block-end: $spacing-07;
 
     @include breakpoint(md) {
-      margin-bottom: $spacing-09;
+      margin-block-end: $spacing-09;
     }
 
     @include breakpoint(lg) {
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
     }
   }
 
@@ -57,8 +54,8 @@
 
   .#{$prefix}--content-block-cards__content {
     .#{$prefix}--card__CTA {
-      max-width: none;
       margin: 0;
+      max-inline-size: none;
     }
   }
 }

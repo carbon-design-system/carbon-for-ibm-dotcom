@@ -10,7 +10,7 @@ For Carbon v11 migration guidance, see their
 [migration guide](https://github.com/carbon-design-system/carbon/blob/main/docs/migration/v11.md).
 
 
-> When using @carbon/web-components v2 you need to include theming to get all the token values necessary for the components. This includes using white theme, see the accordion codesandbox example [here](https://codesandbox.io/p/sandbox/github/carbon-design-system/carbon-for-ibm-dotcom/tree/feat/cwc-v2/packages/carbon-web-components/examples/codesandbox/basic/components/accordion?file=/index.html:1,1)
+> When using @carbon/web-components v2 you need to include theming to get all the token values necessary for the components. This includes using white theme, see the accordion codesandbox example [here](https://codesandbox.io/p/sandbox/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/accordion?file=/index.html:1,1)
 
 ## List of component changes
 
@@ -97,7 +97,7 @@ For Carbon v11 migration guidance, see their
 - `direction` property expects 'top' or 'bottom' value
 - `size="md"` is now used instead of `size=""`
 - `label-text` is now `title-text`
-- `trigger-content` is now `label` 
+- `trigger-content` is now `label`
 - New attributes: `hide-label`, `invalid`, `invalid-text`, `read-only`, `warn`, `warn-text`
 - Removed `color-scheme` property
 
@@ -117,7 +117,7 @@ For Carbon v11 migration guidance, see their
 
 - New optional `table-head` component
 - New and old interactive features/logic are now built-in to the component -- can still be customizable
-- New properties: `batch-expansion`, `collator`, `expandable`, `filterRows`, `is-selectable`, `is-sortable`, `locale`, 
+- New properties: `batch-expansion`, `collator`, `expandable`, `filterRows`, `is-selectable`, `is-sortable`, `locale`,
 `overflow-menu-on-hover`, `radio`, `use-static-width`, `use-zebra-styles`
 - `size` now accepts `xs`, `sm`, `md`, `lg`, and `xl`, instead of `compact`, `short`, `''`, and `tall`
 - `table-toolbar` can now be further customized with extra features
@@ -174,7 +174,7 @@ For Carbon v11 migration guidance, see their
 - `size` property expected values have been changed from '' (default), 'sm' --> 'sm', 'md' (default)
 - New a11y `clear-selection-description` and `clear-selection-text` properties
 - New `locale` property to specify locale of the multi-select, used when sorting the list of items
-- New `selection-feedback` property: `'fixed', 'top', 'top-after-reopen'` options for sorting list items once selection occurs 
+- New `selection-feedback` property: `'fixed', 'top', 'top-after-reopen'` options for sorting list items once selection occurs
 - New `warn` and `warn-text` properties for warn state
 
 ### notification
@@ -236,7 +236,7 @@ For Carbon v11 migration guidance, see their
 ### slider
 
 - New `required` property to specify if slider is required
-- New `readonly` property 
+- New `readonly` property
 - New `max-label` and `min-label` a11y properties
 - New `invalid` and `invalid-text` property for invalid state - when input entered in the text-input is above or lower than given max / min, the invalid state will be triggered automatically
 - New `step-multiplier` property to determine how much the value should increase / decrease by Shift + arrow keys
@@ -249,7 +249,7 @@ For Carbon v11 migration guidance, see their
 - `size` property expected values have been changed from '' (default), 'sm', and 'xl' --> 'sm', 'md' (default), and 'lg'
 - Can use custom icon over magnifying glass
 - `closeButtonAssistiveText` is now `closeButtonLabelText`
-- New properties: `autocomplete`, `expandable`, 
+- New properties: `autocomplete`, `expandable`,
 
 ### select
 

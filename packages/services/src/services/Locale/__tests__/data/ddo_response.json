@@ -1,0 +1,247 @@
+{
+  "page": {
+    "attributes": {
+      "pageidQueryStrings": ["q", "s", "tabType[0]", "tabType%5B0%5D"],
+      "agentMobileOS": "unknown"
+    },
+    "category": {
+      "ibm": {},
+      "primaryCategory": "null",
+      "iniPrimaryCategory": "null"
+    },
+    "pageInfo": {
+      "analytics": {
+        "category": "Uncategorized"
+      },
+      "convertro": {
+        "enabled": "false"
+      },
+      "coremetrics": {
+        "visitorID": null,
+        "visitorId": null,
+        "clientID": "50200000|IBMTESTWWW",
+        "isEluminateLoaded": false,
+        "enabled": true
+      },
+      "demandbase": {
+        "enabled": true
+      },
+      "hotjar": {
+        "enabled": "false"
+      },
+      "ibm": {
+        "siteID": "IBMTESTWWW",
+        "country": "br",
+        "industry": "",
+        "owner": "",
+        "subject": "",
+        "type": "",
+        "iniSiteID": "IBMTESTWWW"
+      },
+      "lotame": {
+        "activeAudience": null,
+        "audience": "240097",
+        "pid": "446689ed8a1d9791b415f537e490d3af"
+      },
+      "metrics": {},
+      "medallia": {
+        "triggerFired": "true"
+      },
+      "optimizely": {
+        "enabled": "false",
+        "projectID": ""
+      },
+      "segment": {
+        "enabled": "false",
+        "key": ""
+      },
+      "tealium": {
+        "collect": {}
+      },
+      "trustarc": {
+        "enabled": "true"
+      },
+      "urx": {},
+      "destinationURL": "https://www.ibm.com/standards/carbon/react/",
+      "destinationDomain": "carbon-design-system.github.io",
+      "description": "A collection of IBM.com components implemented using React and Carbon Design System.",
+      "effectiveDate": "",
+      "expiryDate": "",
+      "keywords": "IBM, design, system, Carbon, design system, Bluemix, styleguide, style, guide, components, library, pattern, kit, component, cloud, React, React.js",
+      "language": "pt-BR",
+      "publishDate": "",
+      "publisher": "",
+      "rights": "",
+      "source": "",
+      "referrer": "",
+      "referrerDomain": "",
+      "referrerID": "",
+      "urlID": "www.ibm.com/standards/carbon/react",
+      "clickableURLID": "https://www.ibm.com/standards/carbon/react",
+      "pageID": "www.ibm.com/standards/carbon/react",
+      "dleID": "6804808e6d33a5e4e0eed41c0771f7e9d725a0a8f50799b3c9bec2e488e72c8e",
+      "dleURL": "https://tags.tiqcdn.com/dle/ibm/web/p_6804808e6d33a5e4e0eed41c0771f7e9d725a0a8f50799b3c9bec2e488e72c8e.js",
+      "contentId": "url-6804808e6d33a5e4e0eed41c0771f7e9d725a0a8f50799b3c9bec2e488e72c8e",
+      "canonical": "www.ibm.com/standards/carbon/react",
+      "onsiteSearchTerm": "",
+      "onsiteSearchResult": "",
+      "pageHeader": null,
+      "pageName": "Storybook",
+      "title": "Storybook",
+      "google": {
+        "gtag": {
+          "pageURL": "https://www.ibm.com/standards/carbon/react/",
+          "pageReferrerURL": "",
+          "pagePath": "www.ibm.com/standards/carbon/react",
+          "pageTitle": "",
+          "customDimension1": 1,
+          "customDimension2": "IBMTESTWWW",
+          "customDimension4": "",
+          "customDimension5": "5f3e204f-8dca-41f7-873b-3c608634cfdd",
+          "customDimension7": "",
+          "customDimension12": "www.ibm.com/standards/carbon/react",
+          "customDimension13": "https://www.ibm.com/standards/carbon/react/",
+          "customDimension16": "",
+          "customDimension17": "",
+          "customDimension3": "",
+          "customDimension6": "",
+          "customDimension8": "",
+          "customDimension9": "",
+          "customDimension10": "",
+          "customDimension11": "",
+          "customDimension14": "",
+          "customDimension15": "S:628|T:2,162,46,28,93,53,45,94|L:100|IP:f|IPC:us|DBC:us",
+          "customDimension18": "bf43c6e1-0681-49fd-8945-50a64c60fc92"
+        }
+      },
+      "productTitle": "Unnamed Product"
+    },
+    "session": {
+      "engagement": {
+        "isEngaged": false,
+        "isPageEngaged": false,
+        "scorePage": 0,
+        "scoreVisit": 0,
+        "events": 0,
+        "pages": 0,
+        "totalPages": 1
+      },
+      "pageloadEpoch": 1569589572001,
+      "pageviewId": "5f3e204f-8dca-41f7-873b-3c608634cfdd",
+      "uPageViewID": "5f3e204f-8dca-41f7-873b-3c608634cfdd",
+      "issuedInitialPageview": true,
+      "event": "profile"
+    },
+    "isDataLayerReady": true
+  },
+  "events": {
+    "processed": [],
+    "current": {}
+  },
+  "content": {
+    "drivers": {},
+    "nbo": {}
+  },
+  "user": {
+    "gdpr": {
+      "state": "ny",
+      "country": "us",
+      "latitude": 40.75,
+      "longitude": -73.9967,
+      "isCountryMemberOfEU": false,
+      "isCountryRequiringExplicitConsent": false
+    },
+    "location": {
+      "country": "US",
+      "stateProvince": "NJ",
+      "city": "NEWARK"
+    },
+    "profile": {
+      "dw": {},
+      "ex": {},
+      "ng": {
+        "iuiHashed": null
+      },
+      "topics": []
+    },
+    "segment": {
+      "30": true,
+      "31": true,
+      "11241": true,
+      "18192": true,
+      "isIBMer": 1
+    },
+    "userInfo": {
+      "registry_country_code": "us",
+      "browserLanguage": "en-US",
+      "annual_sales": 79590000000,
+      "audience_segment": "software & technology",
+      "audience": "enterprise business",
+      "b2b": true,
+      "b2c": true,
+      "city": "poughkeepsie",
+      "company_name": "ibm corporation",
+      "country_name": "united states",
+      "country": "us",
+      "demandbase_sid": 50918973,
+      "employee_count": 351000,
+      "employee_range": "enterprise",
+      "forbes_2000": false,
+      "fortune_1000": false,
+      "industry": "software & technology",
+      "information_level": "detailed",
+      "ip": "129.42.208.183",
+      "isp": false,
+      "latitude": 41.66,
+      "longitude": -73.93,
+      "marketing_alias": "ibm",
+      "phone": "845-433-1234",
+      "primary_naics": "334111",
+      "primary_sic": "3571",
+      "region_name": "new york",
+      "registry_city": "new york",
+      "registry_company_name": "advanced workstations division, ibm corporation",
+      "registry_country": "united states",
+      "registry_dma_code": 501,
+      "registry_latitude": 40.77,
+      "registry_longitude": -73.99,
+      "registry_state": "ny",
+      "registry_zip_code": "10019",
+      "revenue_range": "over $5b",
+      "state": "ny",
+      "street_address": "2455 south rd",
+      "sub_industry": "computer & mobile devices",
+      "traffic": "very high",
+      "web_site": "ibm.com",
+      "zip": "12601",
+      "ipLastOctet": "184"
+    }
+  },
+  "util": {
+    "cp": {
+      "cmTPSet": "Y",
+      "_ga": "GA1.3.781956925.1569442431",
+      "_gid": "GA1.3.1110946260.1569442431",
+      "CMAVID": "none",
+      "notice_behavior": "implied|eu",
+      "pageviewContext": "5f3e204f-8dca-41f7-873b-3c608634cfdd"
+    },
+    "meta": {
+      "viewport": "width=device-width,initial-scale=1",
+      "keywords": "IBM, design, system, Carbon, design system, Bluemix, styleguide, style, guide, components, library, pattern, kit, component, cloud, React, React.js",
+      "description": "A collection of IBM.com components implemented using React and Carbon Design System.",
+      "og:title": "Carbon for IBM.com React",
+      "og:site_name": "Carbon for IBM.com React",
+      "og:description": "A collection of IBM.com components implemented using React and Carbon Design System.",
+      "og:image": "https://media.github.ibm.com/user/525/files/59e3bfde-b990-11e7-87ef-072e89a87719",
+      "og:url": "https://www.ibm.com/standards/carbon/react",
+      "twitter:card": "summary_large_image",
+      "twitter:image:alt": "Carbon for IBM.com",
+      "twitter:site": "@_IBM",
+      "og:type": "website",
+      "og:locale": "en-US"
+    },
+    "qp": {},
+    "referrer": {}
+  }
+}

@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.1.0-rc.0...@carbon/ibmdotcom-utilities@2.1.0) (2024-01-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.1.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.0.0...@carbon/ibmdotcom-utilities@2.1.0-rc.0) (2024-01-09)
+
+
+
+# 1.53.0 (2023-11-15)
+
+
+
+# 1.53.0-rc.2 (2023-11-06)
+
+
+
+# 1.53.0-rc.1 (2023-11-02)
+
+
+
+# 1.53.0-rc.0 (2023-10-30)
+
+
+
+# 1.52.0-rc.0 (2023-10-03)
+
+
+
+# 1.51.0 (2023-09-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.0.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.0.0-rc.3...@carbon/ibmdotcom-utilities@2.0.0) (2023-12-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.0.0-rc.2...@carbon/ibmdotcom-utilities@2.0.0-rc.3) (2023-12-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [2.0.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.0.0-rc.1...@carbon/ibmdotcom-utilities@2.0.0-rc.2) (2023-11-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
@@ -14,6 +70,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # [2.0.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.0.0-rc.0...@carbon/ibmdotcom-utilities@2.0.0-rc.1) (2023-11-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.0.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.51.0-rc.0...@carbon/ibmdotcom-utilities@2.0.0-rc.0) (2023-11-20)
+
+
+### Bug Fixes
+
+* add missed extensions to on imports ([#10288](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10288)) ([e3ab4a7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e3ab4a7bc7917f016e2c5d4abc4a8df90f9642f2))
+
+
+### Features
+
+* **card:** v2 card style updates ([#10903](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10903)) ([cd84259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cd8425991d16f1598af8a4eb6f84669d1bc82d28))
+* **global-banner:** v2 ([#10997](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10997)) ([97fda38](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/97fda38cf57bf02a9687ca6ecc1d0642c79304f8))
+* **masthead-v2:** integrate alpha branch ([#10952](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10952)) ([d3374d1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d3374d10728884caac00eaa16b32c741ecbf09f0))
+* **package:** update packages to Carbon v11 ([#10779](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10779)) ([1c88604](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1c88604ba0129a308c978ddf0ec7a73abebe8a67))
+* upgrade to Carbon 11 ([#10196](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10196)) ([2976ac5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2976ac51d8db5953f56464c24b49b5e73a3073c3)), closes [#9948](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9948)
 
 
 
@@ -38,29 +114,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # [1.53.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.52.0-rc.0...@carbon/ibmdotcom-utilities@1.53.0-rc.1) (2023-11-02)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
-
-
-
-
-
-# 1.53.0-rc.0 (2023-10-30)
-
-**Note:** Version bump only for package @carbon/ibmdotcom-utilities
-# [2.0.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.51.0-rc.0...@carbon/ibmdotcom-utilities@2.0.0-rc.0) (2023-11-20)
-
-
-### Bug Fixes
-
-* add missed extensions to on imports ([#10288](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10288)) ([e3ab4a7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e3ab4a7bc7917f016e2c5d4abc4a8df90f9642f2))
-
-
-### Features
-
-* **card:** v2 card style updates ([#10903](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10903)) ([cd84259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cd8425991d16f1598af8a4eb6f84669d1bc82d28))
-* **global-banner:** v2 ([#10997](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10997)) ([97fda38](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/97fda38cf57bf02a9687ca6ecc1d0642c79304f8))
-* **masthead-v2:** integrate alpha branch ([#10952](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10952)) ([d3374d1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d3374d10728884caac00eaa16b32c741ecbf09f0))
-* **package:** update packages to Carbon v11 ([#10779](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10779)) ([1c88604](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1c88604ba0129a308c978ddf0ec7a73abebe8a67))
-* upgrade to Carbon 11 ([#10196](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10196)) ([2976ac5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2976ac51d8db5953f56464c24b49b5e73a3073c3)), closes [#9948](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9948)
 
 
 

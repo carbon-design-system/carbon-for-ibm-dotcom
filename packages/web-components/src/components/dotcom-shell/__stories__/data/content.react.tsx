@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -66,17 +66,22 @@ import C4DCTABlockItemRow from '@carbon/ibmdotcom-web-components/es/components-r
 import C4DCTABlockItem from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block-item';
 import C4DTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
-import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
-import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
-import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
-import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import imgSm16x9 from '../../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import imgMd16x9 from '../../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgLg16x9 from '../../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
+import imgXlg4x3 from '../../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
-import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import leadspaceImg from '../../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 export const image = (
   <C4DImage
@@ -142,9 +147,7 @@ export const contentBlockSegmentedItemsWithImage = (
 
 export const contentItemHorizontal = (
   <C4DContentItemRow>
-    <C4DContentItemRowEyebrow>
-      Lorem ipsum
-    </C4DContentItemRowEyebrow>
+    <C4DContentItemRowEyebrow>Lorem ipsum</C4DContentItemRowEyebrow>
     <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
     <C4DContentItemRowCopy>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
@@ -173,9 +176,7 @@ export const globalBanner = (srcImage) => (
     <C4DGlobalBannerImage
       slot="image"
       default-src={srcImage}></C4DGlobalBannerImage>
-    <C4DGlobalBannerHeading slot="heading">
-      heading
-    </C4DGlobalBannerHeading>
+    <C4DGlobalBannerHeading slot="heading">heading</C4DGlobalBannerHeading>
     <C4DGlobalBannerCopy slot="copy">copy</C4DGlobalBannerCopy>
     <C4DButton
       slot="cta"
@@ -242,9 +243,7 @@ export const contentLeadspaceSearch = (
 export const tocContent = (
   <>
     <C4DLeadspaceBlock name="1" data-title="Lorem ipsum dolor sit amet">
-      <C4DLeadspaceHeading>
-        Lorem ipsum dolor sit amet
-      </C4DLeadspaceHeading>
+      <C4DLeadspaceHeading>Lorem ipsum dolor sit amet</C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
         <C4DContentBlockCopy slot="copy">
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -256,13 +255,13 @@ export const tocContent = (
         <C4DLinkList type="end">
           <C4DLinkListHeading>Featured products</C4DLinkListHeading>
           <C4DLinkListItem href="https://example.com">
-            IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
+            IBM Cloud Continuous Delivery <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            UrbanCode <ArrowRight20 slot="icon" />
+            UrbanCode <ArrowRight {...iconProps} />
           </C4DLinkListItem>
           <C4DLinkListItem href="https://example.com">
-            View all products <ArrowRight20 slot="icon" />
+            View all products <ArrowRight {...iconProps} />
           </C4DLinkListItem>
         </C4DLinkList>
         <C4DButton href="https://example.com" cta-type="local">
@@ -292,7 +291,7 @@ export const tocContent = (
         morbu tristique.
       </p>
       <C4DFeatureCardFooter>
-        <ArrowRight20 slot="icon" />
+        <ArrowRight {...iconProps} />
       </C4DFeatureCardFooter>
     </C4DFeatureCard>
 
@@ -355,7 +354,10 @@ export const tocContent = (
       <C4DQuoteSourceHeading>Lorem ipsum dolor sit amet</C4DQuoteSourceHeading>
       <C4DQuoteSourceCopy>consectetur adipiscing elit</C4DQuoteSourceCopy>
       <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
-      <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+      <C4DCalloutLinkWithIcon
+        slot="footer"
+        href="https://example.com"
+        cta-type="local">
         Link with Icon
       </C4DCalloutLinkWithIcon>
     </C4DCalloutQuote>
@@ -371,10 +373,10 @@ export const tocContent = (
       </C4DContentBlockCopy>
       <C4DButtonGroup slot="action">
         <C4DButtonGroupItem href="https://example.com">
-          Secondary Button <ArrowRight20 slot="icon" />
+          Secondary Button <ArrowRight {...iconProps} />
         </C4DButtonGroupItem>
         <C4DButtonGroupItem href="https://example.com">
-          Primary button <ArrowRight20 slot="icon" />
+          Primary button <ArrowRight {...iconProps} />
         </C4DButtonGroupItem>
       </C4DButtonGroup>
       <C4DCTABlockItemRow no-border>
@@ -471,7 +473,7 @@ export const StoryContentNoToC = () => (
           Habitant morbu tristique.
         </p>
         <C4DFeatureCardFooter>
-          <ArrowRight20 slot="icon" />
+          <ArrowRight {...iconProps} />
         </C4DFeatureCardFooter>
       </C4DFeatureCard>
 
@@ -532,7 +534,10 @@ export const StoryContentNoToC = () => (
         </C4DQuoteSourceHeading>
         <C4DQuoteSourceCopy>consectetur adipiscing elit</C4DQuoteSourceCopy>
         <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
-        <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+        <C4DCalloutLinkWithIcon
+          slot="footer"
+          href="https://example.com"
+          cta-type="local">
           Link with Icon
         </C4DCalloutLinkWithIcon>
       </C4DCalloutQuote>
@@ -546,10 +551,10 @@ export const StoryContentNoToC = () => (
 
         <C4DButtonGroup slot="action">
           <C4DButtonGroupItem href="https://example.com">
-            Secondary Button <ArrowRight20 slot="icon" />
+            Secondary Button <ArrowRight {...iconProps} />
           </C4DButtonGroupItem>
           <C4DButtonGroupItem href="https://example.com">
-            Primary button <ArrowRight20 slot="icon" />
+            Primary button <ArrowRight {...iconProps} />
           </C4DButtonGroupItem>
         </C4DButtonGroup>
 

@@ -17,7 +17,7 @@ $css--plex: true !default;
 :host(#{$prefix}-number-input),
 :host(#{$prefix}-number-input-skeleton) {
   // the base text-input class has a 100% so we need to propagate it up to the host element
-  width: 100%;
+  inline-size: 100%;
   outline: none;
 
   .#{$prefix}--form-requirement[hidden] {
@@ -34,6 +34,14 @@ $css--plex: true !default;
   + .#{$prefix}--number__controls
   .#{$prefix}--number__rule-divider:first-of-type {
   background-color: $border-subtle;
+}
+
+.#{$prefix}--number--readonly {
+  .#{$prefix}--number__controls {
+    .#{$prefix}--number__control-btn {
+      border-block-end: 0;
+    }
+  }
 }
 
 :host(#{$prefix}-number-input) {

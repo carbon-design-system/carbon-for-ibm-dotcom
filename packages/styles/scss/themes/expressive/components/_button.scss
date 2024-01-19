@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,13 +18,7 @@
 /// @group button-expressive
 @mixin button-expressive {
   .#{$prefix}--btn {
-    padding-top: calc(
-      list.slash(
-          #{$button-md-height} - #{map-get($body-compact-01, 'line-height')},
-          2
-        ) - #{$button-outline-width}
-    );
-    padding-bottom: calc(
+    padding-block: calc(
       list.slash(
           #{$button-md-height} - #{map-get($body-compact-01, 'line-height')},
           2
@@ -32,22 +26,13 @@
     );
 
     .#{$prefix}--btn__icon {
-      width: $icon-size-01;
-      height: $icon-size-01;
+      block-size: $icon-size-01;
+      inline-size: $icon-size-01;
     }
 
     &.#{$prefix}--btn--field {
-      min-height: $button-field-height;
-      padding-top: calc(
-        list.slash(
-            #{$button-field-height} - #{map-get(
-                $body-compact-01,
-                'line-height'
-              )},
-            2
-          ) - #{$button-outline-width}
-      );
-      padding-bottom: calc(
+      min-block-size: $button-field-height;
+      padding-block: calc(
         list.slash(
             #{$button-field-height} - #{map-get(
                 $body-compact-01,
@@ -59,14 +44,8 @@
     }
 
     &.#{$prefix}--btn--sm {
-      min-height: $button-sm-height;
-      padding-top: calc(
-        list.slash(
-            #{$button-sm-height} - #{map-get($body-compact-01, 'line-height')},
-            2
-          ) - #{$button-outline-width}
-      );
-      padding-bottom: calc(
+      min-block-size: $button-sm-height;
+      padding-block: calc(
         list.slash(
             #{$button-sm-height} - #{map-get($body-compact-01, 'line-height')},
             2
@@ -76,23 +55,23 @@
   }
 
   .#{$prefix}--btn--icon-only {
-    min-width: $button-md-height;
     padding: calc(
       list.slash(#{$button-md-height} - #{$icon-size-01}, 2) - #{$button-outline-width}
     );
+    min-inline-size: $button-md-height;
 
     &.#{$prefix}--btn--field {
-      min-width: $button-field-height;
       padding: calc(
         list.slash(#{$button-field-height} - #{$icon-size-01}, 2) - #{$button-outline-width}
       );
+      min-inline-size: $button-field-height;
     }
 
     &.#{$prefix}--btn--sm {
-      min-width: $button-sm-height;
       padding: calc(
         list.slash(#{$button-sm-height} - #{$icon-size-01}, 2) - #{$button-outline-width}
       );
+      min-inline-size: $button-sm-height;
     }
   }
 }

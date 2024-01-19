@@ -3,11 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-<<<<<<< HEAD
-# [1.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0-rc.2...@carbon/ibmdotcom-web-components@1.38.0) (2023-11-15)
-=======
-# [2.0.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.0.0-rc.1...@carbon/ibmdotcom-web-components@2.0.0-rc.2) (2023-11-30)
->>>>>>> 73a006506d4343b2ed5f31da826aeb9e9f7139bd
+# [2.1.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.1.0-rc.0...@carbon/ibmdotcom-web-components@2.1.0) (2024-01-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
 
@@ -15,9 +11,120 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-<<<<<<< HEAD
-# [1.38.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0-rc.1...@carbon/ibmdotcom-web-components@1.38.0-rc.2) (2023-11-06)
-=======
+# [2.1.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.0.0...@carbon/ibmdotcom-web-components@2.1.0-rc.0) (2024-01-09)
+
+
+### Bug Fixes
+
+* **carousel:** carousel rtl fixes ([#11030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11030)) ([5ea87bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ea87bd0b417b3f6148a174233e98602c1585da9))
+* **stackblitz:** versions pointing to v2 ([#11277](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11277)) ([bd01c71](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bd01c71ed1c691a75bff692e26b6797752bd8753))
+* **tests:** fix unit test snapshots and misc fixes ([#11203](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11203)) ([766682c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/766682cb732c86950f2a345bdbd5ad871dd5d9c5))
+
+
+### Features
+
+* **card:** use link instead of button for pictogram card ([#11225](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11225)) ([5d531a2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5d531a2ff8596fcb31fefe6f43ebb52cfddf6f8f)), closes [#10960](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10960) [#10960](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10960) [/css-tricks.com/block-links-the-search-for-a-perfect-solution/#aa-method-3](https://github.com//css-tricks.com/block-links-the-search-for-a-perfect-solution//issues/aa-method-3)
+* **modal:** with slug ([#11247](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11247)) ([209142a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/209142a44187788965dd5b193f31491de8b12c0b)), closes [#11142](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11142)
+* **video-player:** Improve usage as background media ([#11188](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11188)) ([375a57b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/375a57b0d9abef4539f891c3ebf5a882e7d52d0c))
+
+
+
+# 1.53.0 (2023-11-15)
+
+
+### Bug Fixes
+
+* **content-group-pictograms:** screen reader issue fix ([#11099](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11099)) ([c42a71f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c42a71faf8db29fe90f6e0115bb1d3bfb4ee5f40)), closes [#9655](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9655)
+* **e2e:** fix harness for e2e integration tests ([#11106](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11106)) ([15673b0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/15673b0bc4dc568830ee2fd8328dee5dd6fe008a))
+
+
+
+# 1.53.0-rc.2 (2023-11-06)
+
+
+### Bug Fixes
+
+* **link-with-icon:** remove property set-by-enum ([#11092](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11092)) ([885ed65](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/885ed656ff6f0dcf58ebcd684e0b6c6c8878d247))
+
+
+
+# 1.53.0-rc.1 (2023-11-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/layout to v10.37.2 ([#11076](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11076)) ([a641446](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a641446796354a9d405e9afd55922441466a10a6))
+* **language-selector:** remove internal decorator ([#11069](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11069)) ([d61199d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d61199d5c9e03671aa08f9a0b774f470900dfd0c)), closes [#10885](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10885)
+* **masthead-a11y:** navigation role do not have unique labels ([#10881](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10881)) ([2c9d0ab](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2c9d0ab2ea97e6cdce58c41a677714077196b480))
+* **quote:** make quote-link-with-icon available in quote cdn bundle ([#11020](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11020)) ([8e6b754](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8e6b754ee49aaf8c4704ed6ff34da155a26a8f21))
+* **storybook:** set dir attribute in storybook for rtl ([#11031](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11031)) ([b4f26f2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b4f26f2e6925e357ec2e219b756e4f47bf37fa36))
+* **ui-shell:** a11y issue with side nav item ([#11044](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11044)) ([9eb94ea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9eb94ea097dcf9610a72900468008373cfec3bbe)), closes [#10918](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10918)
+* **video-player:** move updateThumbnailUrl callback after updateComplete ([#11067](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11067)) ([b9445ec](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b9445eccfc896d261f310bba57a0aafe6b6c8dcd)), closes [#7914](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7914) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/video-player/video-player-composite.ts#L230-L234](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/video-player/video-player-composite.ts/issues/L230-L234)
+
+
+### Features
+
+* **locale-modal:** only render modal when its called by user click ([#10892](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10892)) ([317d2be](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/317d2bee88f8a704a56a4e10492a936fd29bdfe4)), closes [#10657](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10657)
+
+
+
+# 1.52.0-rc.2 (2023-10-12)
+
+
+### Bug Fixes
+
+* **callout-quote:** content off grid ([#10869](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10869)) ([3f94c14](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3f94c14bbac86ce847b4cee3b7fc4d01d17a1601))
+* **lightbox-media-viewer:** add cdn link ([#11005](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11005)) ([ef5e0de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ef5e0de95b17214233b3928f694e1662246600c4))
+
+
+
+# 1.52.0-rc.1 (2023-10-04)
+
+
+
+# 1.52.0-rc.0 (2023-10-03)
+
+
+### Bug Fixes
+
+* **carousel:** delay instantiation of IntersectionObserver ([#10971](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10971)) ([4dc0f91](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4dc0f9129d5cc6033b562a1d682f5493555390b5)), closes [#10929](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10929)
+* **masthead:** new property for custom nav links ([#10986](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10986)) ([b512715](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b512715e936f0d729646b434020f535588fe27ff)), closes [#10984](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10984)
+* **notice-choice:** fixed onclick hidden values ([#10917](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10917)) ([#10956](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10956)) ([f316c10](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f316c1090366fefc0832caf3f9510c3cf74486a9))
+* **package:** update web components component exports ([#10955](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10955)) ([8b188bf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8b188bfc150eb66772a3e0708974bff51eff8f77))
+* **video-player-composite:** fix isPlaying boolean ([#10957](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10957)) ([78ee219](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/78ee2198042234cf1266676c8ba82d0b9b267327))
+
+
+
+# 1.51.0 (2023-09-19)
+
+
+
+
+
+# [2.0.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.0.0-rc.3...@carbon/ibmdotcom-web-components@2.0.0) (2023-12-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.0.0-rc.2...@carbon/ibmdotcom-web-components@2.0.0-rc.3) (2023-12-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.0.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.0.0-rc.1...@carbon/ibmdotcom-web-components@2.0.0-rc.2) (2023-11-30)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [2.0.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.0.0-rc.0...@carbon/ibmdotcom-web-components@2.0.0-rc.1) (2023-11-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
@@ -27,32 +134,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 # [2.0.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.36.0-rc.0...@carbon/ibmdotcom-web-components@2.0.0-rc.0) (2023-11-20)
->>>>>>> 73a006506d4343b2ed5f31da826aeb9e9f7139bd
 
 
 ### Bug Fixes
 
-<<<<<<< HEAD
-* **link-with-icon:** remove property set-by-enum ([#11092](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11092)) ([885ed65](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/885ed656ff6f0dcf58ebcd684e0b6c6c8878d247))
-
-
-
-
-
-# [1.38.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.37.0-rc.2...@carbon/ibmdotcom-web-components@1.38.0-rc.1) (2023-11-02)
-
-
-### Bug Fixes
-
-* **callout-quote:** content off grid ([#10869](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10869)) ([3f94c14](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3f94c14bbac86ce847b4cee3b7fc4d01d17a1601))
-* **deps:** update dependency @carbon/layout to v10.37.2 ([#11076](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11076)) ([a641446](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a641446796354a9d405e9afd55922441466a10a6))
-* **language-selector:** remove internal decorator ([#11069](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11069)) ([d61199d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d61199d5c9e03671aa08f9a0b774f470900dfd0c)), closes [#10885](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10885)
-* **lightbox-media-viewer:** add cdn link ([#11005](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11005)) ([ef5e0de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ef5e0de95b17214233b3928f694e1662246600c4))
-* **masthead-a11y:** navigation role do not have unique labels ([#10881](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10881)) ([2c9d0ab](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2c9d0ab2ea97e6cdce58c41a677714077196b480))
-* **quote:** make quote-link-with-icon available in quote cdn bundle ([#11020](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11020)) ([8e6b754](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8e6b754ee49aaf8c4704ed6ff34da155a26a8f21))
-* **ui-shell:** a11y issue with side nav item ([#11044](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11044)) ([9eb94ea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9eb94ea097dcf9610a72900468008373cfec3bbe)), closes [#10918](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10918)
-* **video-player:** move updateThumbnailUrl callback after updateComplete ([#11067](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11067)) ([b9445ec](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b9445eccfc896d261f310bba57a0aafe6b6c8dcd)), closes [#7914](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7914) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/video-player/video-player-composite.ts#L230-L234](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/video-player/video-player-composite.ts/issues/L230-L234)
-=======
 * **card:** heading/copy spacing ([#11018](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11018)) ([97c1418](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/97c1418060baee3e65300b591d649825a97d151e))
 * **carousel:** update v2 styles and fix broken video cards ([#11006](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11006)) ([e34be4c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e34be4cf0d8499001191c1826b446bdef8431830))
 * **components:** format ([b6f5ec0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6f5ec0bae2f583daa6e61e9f0bdedc92bf8be6a))
@@ -74,14 +159,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **styles:** update var interpolation causing warnings ([#11003](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11003)) ([1239c87](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1239c8789e34fbfccfc054328c00768c8ce35908))
 * **tabs-extended:** deprecate orientation prop ([#10762](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10762)) ([3d67309](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3d673090e87c9e6d55f1ab6054c97c550855cbca))
 * **web-component:** storybook grid ([#10801](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10801)) ([b94a2a9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b94a2a955fa79e4a13c01e5f91793c7bde0d620d))
->>>>>>> 73a006506d4343b2ed5f31da826aeb9e9f7139bd
 
 
 ### Features
 
-<<<<<<< HEAD
-* **locale-modal:** only render modal when its called by user click ([#10892](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10892)) ([317d2be](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/317d2bee88f8a704a56a4e10492a936fd29bdfe4)), closes [#10657](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10657)
-=======
 * **background-media:** move styles to styles package ([fbda54d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fbda54d5415ce249d0f3c8f722cf0023909ef433))
 * **button-group:** update to v2 ([#10904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10904)) ([0d510cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0d510cdf190b631612dc5ec62687644f3da04549))
 * **callout-with-media:** v2 styles updates ([#10939](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10939)) ([facbd3e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/facbd3ead8cab338a0c2ded61e3039becbab6e0e))
@@ -131,7 +212,48 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **toc:** v2 updates ([#10932](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10932)) ([ba12f0e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ba12f0e8231e0ad7850d05979afc25bde96dfb20))
 * upgrade to Carbon 11 ([#10196](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10196)) ([2976ac5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2976ac51d8db5953f56464c24b49b5e73a3073c3)), closes [#9948](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9948)
 * **video-player:** update video player v2 ([#10934](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10934)) ([6154221](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/61542213cbe744e96d06149553e0fa4ca4b62f05))
->>>>>>> 73a006506d4343b2ed5f31da826aeb9e9f7139bd
+
+
+
+
+
+# [1.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0-rc.2...@carbon/ibmdotcom-web-components@1.38.0) (2023-11-15)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.38.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0-rc.1...@carbon/ibmdotcom-web-components@1.38.0-rc.2) (2023-11-06)
+
+
+### Bug Fixes
+
+* **link-with-icon:** remove property set-by-enum ([#11092](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11092)) ([885ed65](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/885ed656ff6f0dcf58ebcd684e0b6c6c8878d247))
+
+
+
+
+
+# [1.38.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.37.0-rc.2...@carbon/ibmdotcom-web-components@1.38.0-rc.1) (2023-11-02)
+
+
+### Bug Fixes
+
+* **callout-quote:** content off grid ([#10869](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10869)) ([3f94c14](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3f94c14bbac86ce847b4cee3b7fc4d01d17a1601))
+* **deps:** update dependency @carbon/layout to v10.37.2 ([#11076](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11076)) ([a641446](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a641446796354a9d405e9afd55922441466a10a6))
+* **language-selector:** remove internal decorator ([#11069](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11069)) ([d61199d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d61199d5c9e03671aa08f9a0b774f470900dfd0c)), closes [#10885](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10885)
+* **lightbox-media-viewer:** add cdn link ([#11005](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11005)) ([ef5e0de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ef5e0de95b17214233b3928f694e1662246600c4))
+* **masthead-a11y:** navigation role do not have unique labels ([#10881](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10881)) ([2c9d0ab](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2c9d0ab2ea97e6cdce58c41a677714077196b480))
+* **quote:** make quote-link-with-icon available in quote cdn bundle ([#11020](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11020)) ([8e6b754](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8e6b754ee49aaf8c4704ed6ff34da155a26a8f21))
+* **ui-shell:** a11y issue with side nav item ([#11044](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11044)) ([9eb94ea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9eb94ea097dcf9610a72900468008373cfec3bbe)), closes [#10918](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10918)
+* **video-player:** move updateThumbnailUrl callback after updateComplete ([#11067](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11067)) ([b9445ec](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b9445eccfc896d261f310bba57a0aafe6b6c8dcd)), closes [#7914](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7914) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/video-player/video-player-composite.ts#L230-L234](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/video-player/video-player-composite.ts/issues/L230-L234)
+
+
+### Features
+
+* **locale-modal:** only render modal when its called by user click ([#10892](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10892)) ([317d2be](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/317d2bee88f8a704a56a4e10492a936fd29bdfe4)), closes [#10657](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10657)
 
 
 

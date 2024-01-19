@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -24,8 +24,8 @@ import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components
 import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
-import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
-import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
+import imgXlg4x3 from '../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import logoMicrosoft2x1 from '../../../../.storybook/storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
 import { CTA_TYPE } from '../../cta/defs';
@@ -35,6 +35,11 @@ import {
   typeOptions,
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 export const Default = (args) => {
   const {
@@ -85,27 +90,30 @@ export const Default = (args) => {
         cta-type={ctaType}
         color-scheme={cardStyles === 'Inverse card' ? 'inverse' : ''}
         href={href || undefined}>
-        {image
-          ?
-            <C4DImage
-                slot="image"
-                alt={alt || undefined}
-                default-src={defaultSrc || undefined}></C4DImage>
-          : ``}
+        {image ? (
+          <C4DImage
+            slot="image"
+            alt={alt || undefined}
+            default-src={defaultSrc || undefined}></C4DImage>
+        ) : (
+          ``
+        )}
         <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
         <C4DCardHeading>{videoCopy ?? heading}</C4DCardHeading>
         {copy ? <p></p> : ``}
         {tagGroup ? (
-        <div>
-          <Tag type="green">Most popular</Tag>
-          <Tag type="purple">Enterprise</Tag>
-        </div>
-      ) : (
-        ''
-      )}
-        {ctaType === CTA_TYPE.VIDEO
-          ? <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
-          : <C4DCardFooter></C4DCardFooter>}
+          <div>
+            <Tag type="green">Most popular</Tag>
+            <Tag type="purple">Enterprise</Tag>
+          </div>
+        ) : (
+          ''
+        )}
+        {ctaType === CTA_TYPE.VIDEO ? (
+          <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
+        ) : (
+          <C4DCardFooter></C4DCardFooter>
+        )}
       </C4DCard>
     </C4DVideoCTAContainer>
   );
@@ -224,13 +232,14 @@ export const Static = (args) => {
     args?.StaticCard ?? {};
   return (
     <C4DCard>
-      {image
-          ?
-            <C4DImage
-                slot="image"
-                alt={alt || undefined}
-                default-src={defaultSrc || undefined}></C4DImage>
-          : ``}
+      {image ? (
+        <C4DImage
+          slot="image"
+          alt={alt || undefined}
+          default-src={defaultSrc || undefined}></C4DImage>
+      ) : (
+        ``
+      )}
       <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
       <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
@@ -245,7 +254,7 @@ export const Static = (args) => {
       {cta ? (
         <C4DCardFooter href="https://www.example.com">
           Sign up for the trial
-          <ArrowRight20 slot="icon" />
+          <ArrowRight {...iconProps} />
         </C4DCardFooter>
       ) : (
         ''
@@ -328,7 +337,7 @@ export const Link = (args) => {
     } else {
       videoCopy = customVideoTitle;
     }
-    
+
     card.querySelector('c4d-card-footer')!.innerHTML = duration ?? '';
   }
 

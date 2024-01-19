@@ -12,6 +12,8 @@ import { boolean } from '@storybook/addon-knobs';
 import View16 from '@carbon/icons/lib/view/16';
 import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
 import Folders16 from '@carbon/icons/lib/folders/16';
+import Asleep16 from '@carbon/icons/lib/asleep/16';
+import textNullable from '../../../.storybook/knob-text-nullable';
 import { prefix } from '../../globals/settings';
 import './index';
 import '../icon-button/index';
@@ -80,6 +82,89 @@ export default {
   title: 'Experimental/Slug/Examples',
 };
 
+export const _Checkbox = (args) => {
+  const { disabled, invalid, invalidText, warn, warnText } =
+    args?.['cds-checkbox'] ?? {};
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <div style="width: 400px">
+      <cds-checkbox-group
+        legend-text="Group label"
+        ?disabled="${disabled}"
+        ?invalid="${invalid}"
+        invalid-text="${invalidText}"
+        ?warn="${warn}"
+        warn-text="${warnText}">
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+      </cds-checkbox-group>
+
+      <cds-checkbox-group
+        legend-text="Group label"
+        ?disabled="${disabled}"
+        ?invalid="${invalid}"
+        invalid-text="${invalidText}"
+        ?warn="${warn}"
+        warn-text="${warnText}">
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+      </cds-checkbox-group>
+
+      <cds-checkbox-group
+        legend-text="Group label"
+        ?disabled="${disabled}"
+        ?invalid="${invalid}"
+        invalid-text="${invalidText}"
+        ?warn="${warn}"
+        warn-text="${warnText}">
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left" kind="inline">
+            ${content}${actions}
+          </cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left" kind="inline">
+            ${content}${actions}
+          </cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+      </cds-checkbox-group>
+    </div>
+  `;
+};
+
+_Checkbox.parameters = {
+  knobs: {
+    [`${prefix}-checkbox`]: () => ({
+      disabled: boolean('Disabled (disabled)', false),
+      invalid: boolean('Invalid (invalid)', false),
+      invalidText: textNullable(
+        'Invalid text (invalid-text)',
+        'Error message goes here'
+      ),
+      warn: boolean('Warn (warn)', false),
+      warnText: textNullable(
+        'Warn text (warn-text)',
+        'Warning message that is really long can wrap to more lines but should not be excessively long.'
+      ),
+    }),
+  },
+};
+
 export const _Combobox = () => {
   return html` <style>
       ${styles}
@@ -138,6 +223,60 @@ export const _Dropdown = () => {
         )}
       </cds-dropdown>
     </div>`;
+};
+
+export const _Modal = () => {
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <cds-modal open prevent-close>
+      <cds-modal-header>
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        <cds-modal-close-button></cds-modal-close-button>
+        <cds-modal-label>Account resources</cds-modal-label>
+        <cds-modal-heading>Add a custom domain</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body>
+        <cds-modal-body-content description>
+          Custom domains direct requests for your apps in this Cloud Foundry
+          organization to a URL that you own. A custom domain can be a shared
+          domain, a shared subdomain, or a shared domain and host.
+        </cds-modal-body-content>
+        <cds-form-item>
+          <cds-text-input placeholder="e.g. github.com" label="Domain name">
+          </cds-text-input>
+        </cds-form-item>
+
+        <cds-form-item>
+          <cds-select placeholder="US South" label-text="Region">
+            <cds-select-item value="us-south">US South</cds-select-item>
+            <cds-select-item value="us-east">US East</cds-select-item>
+          </cds-select>
+        </cds-form-item>
+
+        <cds-dropdown label="Dropdown" title-text="Dropdown">
+          <cds-dropdown-item value="one">One</cds-dropdown-item>
+          <cds-dropdown-item value="two">Two</cds-dropdown-item>
+        </cds-dropdown>
+
+        <cds-multi-select label="Multiselect" title-text="Multiselect">
+          <cds-multi-select-item value="option-1"
+            >Option 1</cds-multi-select-item
+          >
+          <cds-multi-select-item value="option-2"
+            >Option 2</cds-multi-select-item
+          >
+        </cds-multi-select>
+      </cds-modal-body>
+      <cds-modal-footer>
+        <cds-modal-footer-button kind="secondary"
+          >Cancel</cds-modal-footer-button
+        >
+        <cds-modal-footer-button>Add</cds-modal-footer-button>
+      </cds-modal-footer>
+    </cds-modal>
+  `;
 };
 
 export const _Multiselect = () => {
@@ -210,6 +349,102 @@ export const _NumberItem = () => {
     </div> `;
 };
 
+export const _RadioButton = (args) => {
+  const { disabled, invalid, invalidText, warn, warnText } =
+    args?.['cds-radio-button'] ?? {};
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <cds-radio-button-group
+      legend-text="Group label"
+      name="radio-group"
+      value="radio-1"
+      orientation="vertical"
+      ?disabled="${disabled}"
+      ?invalid="${invalid}"
+      invalid-text="${invalidText}"
+      ?warn="${warn}"
+      warn-text="${warnText}">
+      <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-1"></cds-radio-button>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-2"></cds-radio-button>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-3"></cds-radio-button>
+    </cds-radio-button-group>
+
+    <cds-radio-button-group
+      legend-text="Group label"
+      name="radio-group-2"
+      value="radio-4"
+      orientation="vertical"
+      ?disabled="${disabled}"
+      ?invalid="${invalid}"
+      invalid-text="${invalidText}"
+      ?warn="${warn}"
+      warn-text="${warnText}">
+      <cds-radio-button label-text="Radio button label" value="radio-4">
+        <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
+      </cds-radio-button>
+      <cds-radio-button label-text="Radio button label" value="radio-5">
+        <cds-slug alignment="bottom-left"> ${content}${actions} </cds-slug>
+      </cds-radio-button>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-6"></cds-radio-button>
+    </cds-radio-button-group>
+
+    <cds-radio-button-group
+      legend-text="Group label"
+      name="radio-group-3"
+      value="radio-7"
+      orientation="vertical"
+      ?disabled="${disabled}"
+      ?invalid="${invalid}"
+      invalid-text="${invalidText}"
+      ?warn="${warn}"
+      warn-text="${warnText}">
+      <cds-radio-button label-text="Radio button label" value="radio-7">
+        <cds-slug alignment="bottom-left" kind="inline">
+          ${content}${actions}
+        </cds-slug>
+      </cds-radio-button>
+      <cds-radio-button label-text="Radio button label" value="radio-8">
+        <cds-slug alignment="bottom-left" kind="inline">
+          ${content}${actions}
+        </cds-slug>
+      </cds-radio-button>
+      <cds-radio-button
+        label-text="Radio button label"
+        value="radio-9"></cds-radio-button>
+    </cds-radio-button-group>
+  `;
+};
+
+_RadioButton.parameters = {
+  knobs: {
+    [`${prefix}-radio-button`]: () => ({
+      disabled: boolean('Disabled (disabled)', false),
+      invalid: boolean('Invalid (invalid)', false),
+      invalidText: textNullable(
+        'Invalid text (invalid-text)',
+        'Error message goes here'
+      ),
+      warn: boolean('Warn (warn)', false),
+      warnText: textNullable(
+        'Warn text (warn-text)',
+        'Warning message that is really long can wrap to more lines but should not be excessively long.'
+      ),
+    }),
+  },
+};
+
 export const _Select = () => {
   return html`<style>
       ${styles}
@@ -231,6 +466,67 @@ export const _Select = () => {
         </cds-select-item-group>
       </cds-select>
     </div> `;
+};
+
+const tagTypes = [
+  'red',
+  'magenta',
+  'purple',
+  'blue',
+  'cyan',
+  'teal',
+  'green',
+  'gray',
+  'cool-gray',
+  'warm-gray',
+  'high-contrast',
+  'outline',
+];
+
+export const _Tag = () => {
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) => html`<cds-tag type="${e}"
+          >Tag
+          <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        </cds-tag>`
+      )}
+    </div>
+
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) =>
+          html`<cds-tag filter type="${e}">
+            Tag
+            <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+          </cds-tag>`
+      )}
+    </div>
+
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) =>
+          html`<cds-tag type="${e}">
+            ${Asleep16({ slot: 'icon' })} Tag
+            <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+          </cds-tag>`
+      )}
+    </div>
+
+    <div class="slug-tag-container">
+      ${tagTypes.map(
+        (e) =>
+          html`<cds-tag filter type="${e}">
+            ${Asleep16({ slot: 'icon' })} Tag
+            <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+          </cds-tag>`
+      )}
+    </div>
+  `;
 };
 
 export const _TextInput = () => {

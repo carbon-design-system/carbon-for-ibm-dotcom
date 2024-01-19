@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,21 +11,26 @@ import { text } from '@storybook/addon-knobs';
 import React from 'react';
 
 // @ts-ignore
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 import C4DFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
 import C4DFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--002.jpg';
-import imgMax2x1 from '../../../../../storybook-images/assets/1584/fpo--2x1--1312x656--002.jpg';
-import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--002.jpg';
-import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
+import mediumImgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgLg2x1 from '../../../../.storybook/storybook-images/assets/720/fpo--2x1--720x360--002.jpg';
+import imgMax2x1 from '../../../../.storybook/storybook-images/assets/1584/fpo--2x1--1312x656--002.jpg';
+import imgSm2x1 from '../../../../.storybook/storybook-images/assets/320/fpo--2x1--320x160--002.jpg';
+import imgXlg2x1 from '../../../../.storybook/storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
 
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 export const Medium = (args) => {
   const { heading, href } = args?.FeatureCard ?? {};
@@ -34,7 +39,7 @@ export const Medium = (args) => {
       <C4DImage alt="Image alt text" defaultSrc={mediumImgLg1x1} slot="image" />
       <C4DCardHeading>{heading}</C4DCardHeading>
       <C4DFeatureCardFooter>
-        <ArrowRight20 slot="icon" />
+        <ArrowRight {...iconProps} />
       </C4DFeatureCardFooter>
     </C4DFeatureCard>
   );
@@ -55,7 +60,7 @@ export const Large = (args) => {
       <C4DCardHeading>{heading}</C4DCardHeading>
       <p>{copy}</p>
       <C4DFeatureCardFooter>
-        <ArrowRight20 slot="icon" />
+        <ArrowRight {...iconProps} />
       </C4DFeatureCardFooter>
     </C4DFeatureCard>
   );

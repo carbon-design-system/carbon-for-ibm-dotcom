@@ -13,6 +13,7 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/button/tokens' as *;
 @use '../../globals/vars' as *;
 @use 'vars' as *;
@@ -24,15 +25,15 @@ $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
 @mixin mobile-button-base {
-  border: none;
-  border-bottom: 1px solid $layer-accent-01;
-  text-decoration: none;
   display: flex;
   justify-content: space-between;
   padding: $spacing-05;
-  width: 100%;
-  min-height: $spacing-07;
+  border: none;
+  border-block-end: 1px solid $layer-accent-01;
   gap: $spacing-06;
+  inline-size: 100%;
+  min-block-size: $spacing-07;
+  text-decoration: none;
 
   &:focus-visible {
     outline: $spacing-01 solid $focus;
@@ -41,13 +42,13 @@ $search-transition-timing: 95ms;
 }
 
 @mixin desktop-button-base {
+  padding: $spacing-05;
+  border: none;
   appearance: none;
   background: transparent;
-  border: none;
-  text-decoration: none;
-  height: 100%;
+  block-size: 100%;
   column-gap: $spacing-03;
-  padding: $spacing-05;
+  text-decoration: none;
 }
 
 @mixin masthead-l1 {
@@ -81,29 +82,30 @@ $search-transition-timing: 95ms;
     @include theme($white, true);
 
     position: relative;
+    overflow: visible;
     background-color: $layer-02;
     transition-timing-function: $search-transition;
-    overflow: visible;
   }
 
   // L1 Mobile Styles
-  @media screen and (max-width: 799px) {
+  @media screen and (width <= 799px) {
     .#{$prefix}--masthead__l1-inner-container {
-      width: 100%;
+      inline-size: 100%;
     }
 
     .#{$prefix}--masthead__l1-title {
       @include type-style(productive-heading-01);
 
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid $layer-accent-01;
-      color: $text-primary;
       display: flex;
       justify-content: space-between;
       padding: $spacing-05;
-      width: 100%;
+      border: none;
+
+      background-color: transparent;
+      border-block-end: 1px solid $layer-accent-01;
+      color: $text-primary;
       gap: $spacing-06;
+      inline-size: 100%;
 
       &:hover {
         background-color: $background-hover;
@@ -120,12 +122,12 @@ $search-transition-timing: 95ms;
       }
 
       &:disabled {
+        border-block-end-color: $border-disabled;
         color: $text-disabled;
-        border-bottom-color: $border-disabled;
       }
 
       &[active] {
-        border-bottom: 3px solid $focus;
+        border-block-end: 3px solid $focus;
       }
 
       &.is-open {
@@ -145,7 +147,7 @@ $search-transition-timing: 95ms;
       }
 
       // Height of viewport, minus the L0/L1 combo, minus additional space to match L0 megapanels
-      max-height: calc(100vh - 98px - #{$spacing-10} - #{$spacing-09});
+      max-block-size: calc(100vh - 98px - #{$spacing-10} - #{$spacing-09});
       overflow-y: auto;
     }
 
@@ -173,21 +175,21 @@ $search-transition-timing: 95ms;
       }
 
       &:disabled {
+        border-block-end-color: $border-disabled;
         color: $text-disabled;
-        border-bottom-color: $border-disabled;
       }
 
       &[active] {
         position: relative;
 
         &::after {
-          content: '';
-          display: block;
           position: absolute;
-          inset-inline-start: 0;
-          inset-block: 0;
-          width: 3px;
+          display: block;
           background-color: $focus;
+          content: '';
+          inline-size: 3px;
+          inset-block: 0;
+          inset-inline-start: 0;
         }
       }
 
@@ -196,8 +198,8 @@ $search-transition-timing: 95ms;
         color: $text-primary;
 
         svg {
-          transform: rotateX(180deg);
           color: $icon-primary;
+          transform: rotateX(180deg);
         }
       }
 
@@ -211,15 +213,15 @@ $search-transition-timing: 95ms;
         display: none;
       }
 
-      padding-bottom: $spacing-07;
-      border-bottom: 1px solid $layer-accent-01;
+      border-block-end: 1px solid $layer-accent-01;
+
+      padding-block-end: $spacing-07;
 
       .#{$prefix}--masthead__l1-dropdown-item {
-        padding-block: $spacing-04;
-        padding-inline-start: $spacing-05;
-        padding-inline-end: $spacing-08;
-        border-bottom: none;
+        border-block-end: none;
         color: $text-secondary;
+        padding-block: $spacing-04;
+        padding-inline: $spacing-05 $spacing-08;
 
         &:hover,
         &:active {
@@ -228,16 +230,17 @@ $search-transition-timing: 95ms;
       }
 
       .#{$prefix}--masthead__l1-dropdown-viewall {
-        margin-top: $spacing-07;
+        margin-block-start: $spacing-07;
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-announcement {
       @include type-style(body-short-01);
 
-      margin: 0 $spacing-05 $spacing-05;
       padding: $spacing-05 0;
-      border-bottom: 1px solid $layer-accent-01;
+
+      margin: 0 $spacing-05 $spacing-05;
+      border-block-end: 1px solid $layer-accent-01;
     }
 
     .#{$prefix}--masthead__l1-dropdown-heading {
@@ -247,24 +250,24 @@ $search-transition-timing: 95ms;
 
       // Headings that are not links.
       &.#{$prefix}--masthead__l1-dropdown-heading--no-link {
+        inline-size: 100%;
+        min-block-size: $spacing-07;
         padding-block: $spacing-04;
-        padding-inline-start: $spacing-05;
-        padding-inline-end: $spacing-08;
-        width: 100%;
-        min-height: $spacing-07;
+        padding-inline: $spacing-05 $spacing-08;
       }
 
       .#{$prefix}--masthead__l1-dropdown-item {
         @include type-style(productive-heading-01);
 
-        color: inherit;
         justify-content: flex-start;
-        padding-block: $spacing-04;
-        padding-inline-start: $spacing-05;
-        padding-inline-end: $spacing-08;
-        width: 100%;
-        min-height: $spacing-07;
+
+        color: inherit;
         gap: $spacing-03;
+
+        inline-size: 100%;
+        min-block-size: $spacing-07;
+        padding-block: $spacing-04;
+        padding-inline: $spacing-05 $spacing-08;
 
         svg {
           fill: $icon-primary;
@@ -272,21 +275,22 @@ $search-transition-timing: 95ms;
       }
 
       &:not(:nth-of-type(1)) {
-        margin-top: $spacing-07;
+        margin-block-start: $spacing-07;
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-viewall {
       @include type-style(body-short-01);
 
-      background-color: transparent;
-      text-decoration: none;
       display: flex;
       justify-content: flex-start;
       padding: $spacing-05;
-      width: 100%;
-      min-height: $spacing-07;
+
+      background-color: transparent;
       gap: $spacing-03;
+      inline-size: 100%;
+      min-block-size: $spacing-07;
+      text-decoration: none;
 
       &:focus {
         text-decoration: underline;
@@ -320,8 +324,8 @@ $search-transition-timing: 95ms;
       }
 
       &:hover {
-        color: $link-primary-hover;
         background-color: $background-hover;
+        color: $link-primary-hover;
       }
 
       &:focus-visible {
@@ -329,8 +333,8 @@ $search-transition-timing: 95ms;
       }
 
       &:active {
-        color: $button-primary-active;
         background-color: $background-active;
+        color: $button-primary-active;
       }
     }
 
@@ -355,8 +359,8 @@ $search-transition-timing: 95ms;
       }
 
       &:active {
-        color: $layer-02;
         background-color: $button-primary-active;
+        color: $layer-02;
       }
 
       &:disabled {
@@ -366,23 +370,23 @@ $search-transition-timing: 95ms;
   }
 
   // L1 Desktop Styles
-  @media screen and (min-width: 800px) {
+  @media screen and (width >= 800px) {
     .#{$prefix}--masthead__l1,
     :host(#{$c4d-prefix}-masthead-l1) {
       display: block;
-      border-bottom: 1px solid $layer-accent-01;
+      border-block-end: 1px solid $layer-accent-01;
     }
 
     .#{$prefix}--masthead__l1-inner-container {
-      width: 100%;
-      max-width: 98rem;
-      margin: 0 auto;
-      height: $spacing-10;
-      display: grid;
-      grid-template-areas: 'padding platform menu spacer login cta';
-      grid-template-columns: $spacing-05 auto minmax(1px, 1fr) $spacing-08 auto auto;
       position: relative;
       z-index: 1;
+      display: grid;
+      margin: 0 auto;
+      block-size: $spacing-10;
+      grid-template-areas: 'padding platform menu spacer login cta';
+      grid-template-columns: $spacing-05 auto minmax(1px, 1fr) $spacing-08 auto auto;
+      inline-size: 100%;
+      max-inline-size: 98rem;
 
       > * {
         position: relative;
@@ -390,31 +394,29 @@ $search-transition-timing: 95ms;
       }
 
       > .#{$prefix}--masthead__l1-menu-container-mask {
-        content: '';
         position: absolute;
+        z-index: 2;
         display: block;
         background-color: $background;
-        z-index: 2;
+        content: '';
         inset-block: 0;
 
         &--start {
-          inset-inline-start: -50vw;
-          inset-inline-end: 100%;
+          inset-inline: -50vw 100%;
         }
 
         &--end {
-          inset-inline-start: 100%;
-          inset-inline-end: -50vw;
+          inset-inline: 100% -50vw;
         }
       }
 
       &::before,
       &::after {
-        content: '';
-        display: block;
         position: relative;
         z-index: 1;
+        display: block;
         background-color: $background;
+        content: '';
       }
 
       &::before {
@@ -435,16 +437,16 @@ $search-transition-timing: 95ms;
       @include desktop-button-base;
 
       display: inline-flex;
-      grid-area: platform;
-      height: 100%;
-      color: $text-primary;
-      border-bottom: 3px solid transparent;
-      padding-bottom: calc(#{$spacing-05} - #{$spacing-01});
       align-items: flex-end;
       background-color: $background;
+      block-size: 100%;
+      border-block-end: 3px solid transparent;
+      color: $text-primary;
+      grid-area: platform;
+      padding-block-end: calc(#{$spacing-05} - #{$spacing-01});
 
       &[active] {
-        border-bottom-color: $focus;
+        border-block-end-color: $focus;
       }
 
       &:hover {
@@ -463,36 +465,37 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-menu-container-outer {
-      grid-area: menu;
-      display: flex;
       z-index: 0;
+      display: flex;
+      grid-area: menu;
     }
 
     .#{$prefix}--masthead__l1-menu-container-scroller {
       @include desktop-button-base;
 
+      z-index: 1;
+
       padding: 0;
       background-color: $background;
-      z-index: 1;
     }
 
     .#{$prefix}--masthead__l1-menu-container-scroller-inner {
       display: inline-flex;
-      background-color: $background;
       flex-shrink: 0;
-      padding: $spacing-05 $spacing-03;
       align-items: flex-end;
-      height: 100%;
-      width: 100%;
+      padding: $spacing-05 $spacing-03;
+      background-color: $background;
+      block-size: 100%;
+      inline-size: 100%;
 
       &:hover {
-        color: $text-primary;
         background-color: $background-hover;
+        color: $text-primary;
       }
 
       &:active {
-        color: $text-primary;
         background-color: $background-active;
+        color: $text-primary;
       }
 
       &:active,
@@ -508,16 +511,16 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-menu-container-inner {
-      height: 100%;
-      flex-shrink: 1;
-      flex-grow: 1;
       z-index: 0;
+      flex-grow: 1;
+      flex-shrink: 1;
+      block-size: 100%;
     }
 
     .#{$prefix}--masthead__l1-menu {
       position: absolute;
       display: flex;
-      height: 100%;
+      block-size: 100%;
       transition: translate $search-transition-timing $search-transition;
 
       > li {
@@ -530,31 +533,30 @@ $search-transition-timing: 95ms;
       @include desktop-button-base;
 
       display: inline-flex;
-      background-color: $background;
-      color: $text-secondary;
-      border: 1px solid transparent;
-      border-top: none;
       align-items: flex-end;
+      border: 1px solid transparent;
+      background-color: $background;
+      border-block-start: none;
+      color: $text-secondary;
       white-space: nowrap;
 
       &[active]::after {
-        content: '';
         position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 3px;
         background-color: $focus;
+        block-size: 3px;
+        content: '';
+        inset-block-end: 0;
+        inset-inline: 0;
       }
 
       &:hover {
-        color: $text-primary;
         background-color: $background-hover;
+        color: $text-primary;
       }
 
       &:active {
-        color: $text-primary;
         background-color: $background-active;
+        color: $text-primary;
       }
 
       &:active,
@@ -568,9 +570,8 @@ $search-transition-timing: 95ms;
       }
 
       &.is-open {
-        height: calc(100% + 3px);
-        padding-bottom: calc(#{$spacing-05} + 3px);
         border-color: #c6c6c6;
+        block-size: calc(100% + 3px);
         box-shadow: 0 0 6px #c6c6c6;
         clip-path: polygon(
           calc(0% - 6px) calc(0% - 6px),
@@ -578,6 +579,7 @@ $search-transition-timing: 95ms;
           calc(100% + 6px) 100%,
           calc(0% - 6px) 100%
         );
+        padding-block-end: calc(#{$spacing-05} + 3px);
 
         svg {
           rotate: 180deg;
@@ -591,12 +593,10 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-dropdown {
       position: absolute;
-      inset-block-start: calc(100% + 1px);
-      inset-inline-start: 0;
-      width: 320;
-      background-color: $background;
+      padding: $spacing-05 0 0;
       border: 1px solid #c6c6c6;
-      border-top: none;
+      background-color: $background;
+      border-block-start: none;
       box-shadow: 0 0 6px #c6c6c6;
       clip-path: polygon(
         calc(0% - 6px) 0%,
@@ -604,45 +604,47 @@ $search-transition-timing: 95ms;
         calc(100% + 6px) calc(100% + 6px),
         calc(0% - 6px) calc(100% + 6px)
       );
-      padding: $spacing-05 0 0;
-      max-width: calc(100vw - (2 * #{$spacing-05}));
-      visibility: hidden;
+      inline-size: 320;
+      inset-block-start: calc(100% + 1px);
+      inset-inline-start: 0;
+      max-inline-size: calc(100vw - (2 * #{$spacing-05}));
       overflow-y: auto;
+      visibility: hidden;
 
       &.is-open {
         visibility: visible;
       }
 
       &.#{$prefix}--masthead__l1-dropdown__1-col {
-        width: calc(2 * var(--column-width));
+        inline-size: calc(2 * var(--column-width));
       }
 
       &.#{$prefix}--masthead__l1-dropdown__2-col {
-        width: calc(4 * var(--column-width));
+        inline-size: calc(4 * var(--column-width));
       }
 
       &.#{$prefix}--masthead__l1-dropdown__3-col {
-        width: calc(6 * var(--column-width));
+        inline-size: calc(6 * var(--column-width));
       }
 
-      @media screen and (min-width: 66rem) {
+      @media screen and (width >= 66rem) {
         &.#{$prefix}--masthead__l1-dropdown__1-col {
-          width: calc(4 * var(--column-width));
+          inline-size: calc(4 * var(--column-width));
         }
 
         &.#{$prefix}--masthead__l1-dropdown__2-col {
-          width: calc(8 * var(--column-width));
+          inline-size: calc(8 * var(--column-width));
         }
 
         &.#{$prefix}--masthead__l1-dropdown__3-col {
-          width: calc(12 * var(--column-width));
+          inline-size: calc(12 * var(--column-width));
         }
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-links {
       column-rule: 1px solid $layer-accent-01;
-      padding-bottom: $spacing-08;
+      padding-block-end: $spacing-08;
 
       .#{$prefix}--masthead__l1-dropdown__2-col & {
         column-count: 2;
@@ -667,8 +669,8 @@ $search-transition-timing: 95ms;
           grid-column: span 2;
 
           .#{$prefix}--masthead__l1-dropdown-menu-items {
-            columns: 2;
             column-gap: 0;
+            columns: 2;
           }
         }
 
@@ -682,8 +684,9 @@ $search-transition-timing: 95ms;
       @include type-style(body-short-01);
 
       margin: 0 $spacing-05 $spacing-05;
-      padding-bottom: $spacing-05;
-      border-bottom: 1px solid $layer-accent-01;
+      border-block-end: 1px solid $layer-accent-01;
+
+      padding-block-end: $spacing-05;
 
       :is(h1, h2, h3, h4, h5, h6, strong, b) {
         @include type-style(productive-heading-01);
@@ -696,7 +699,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-menu-items {
-      padding-bottom: $spacing-06;
+      padding-block-end: $spacing-06;
     }
 
     .#{$prefix}--masthead__l1-dropdown-heading {
@@ -708,22 +711,23 @@ $search-transition-timing: 95ms;
         @include type-style(productive-heading-03);
         @include desktop-button-base;
 
-        color: inherit;
         padding: $spacing-03 $spacing-05;
-        margin-bottom: $spacing-03;
+
+        color: inherit;
+        margin-block-end: $spacing-03;
 
         svg {
-          vertical-align: middle;
           position: relative;
-          bottom: to-rem(2px);
+          inset-block-end: to-rem(2px);
           margin-inline-start: $spacing-03;
+          vertical-align: middle;
         }
       }
 
       // Headings that do not contain links.
       &.#{$prefix}--masthead__l1-dropdown-heading--no-link {
         padding: $spacing-03 $spacing-05;
-        margin-bottom: $spacing-03;
+        margin-block-end: $spacing-03;
       }
     }
 
@@ -731,9 +735,9 @@ $search-transition-timing: 95ms;
       @include type-style(body-short-01);
 
       display: block;
-      color: $text-secondary;
       padding: 0 $spacing-05;
       margin: calc(-1 * #{$spacing-03}) 0 $spacing-03;
+      color: $text-secondary;
     }
 
     .#{$prefix}--masthead__l1-dropdown-item {
@@ -743,11 +747,11 @@ $search-transition-timing: 95ms;
       display: inline-block;
       padding: $spacing-03 $spacing-05;
       color: $text-secondary;
-      width: 100%;
+      inline-size: 100%;
 
       &:hover {
-        color: $text-primary;
         background-color: $background-hover;
+        color: $text-primary;
       }
 
       &:active {
@@ -759,6 +763,7 @@ $search-transition-timing: 95ms;
         outline: $spacing-01 solid $focus;
         outline-offset: calc(-1 * #{$spacing-01});
       }
+
       svg {
         color: inherit;
       }
@@ -771,8 +776,8 @@ $search-transition-timing: 95ms;
 
       .#{$prefix}--masthead__l1-dropdown-item-description {
         display: block;
-        white-space: break-spaces;
         color: $text-secondary;
+        white-space: break-spaces;
       }
     }
 
@@ -780,12 +785,12 @@ $search-transition-timing: 95ms;
       @include type-style(body-short-01);
 
       display: flex;
-      gap: $spacing-03;
       align-content: center;
       padding: $spacing-05;
-      text-decoration: none;
+      border-block-start: 1px solid $layer-accent-01;
       color: $link-primary;
-      border-top: 1px solid $layer-accent-01;
+      gap: $spacing-03;
+      text-decoration: none;
 
       &:hover {
         color: $link-primary-hover;
@@ -818,10 +823,10 @@ $search-transition-timing: 95ms;
       @include type-style(body-short-01);
 
       display: inline-flex;
-      grid-area: cta;
+      align-items: flex-end;
       background-color: $background-brand;
       color: $layer-02;
-      align-items: flex-end;
+      grid-area: cta;
 
       svg {
         color: inherit;
@@ -837,8 +842,8 @@ $search-transition-timing: 95ms;
       }
 
       &:active {
-        color: $layer-02;
         background-color: $button-primary-active;
+        color: $layer-02;
       }
 
       &:disabled {
@@ -851,18 +856,18 @@ $search-transition-timing: 95ms;
       @include type-style(body-short-01);
 
       display: inline-flex;
-      grid-area: login;
-      color: $button-primary;
-      background-color: $background;
       align-items: flex-end;
+      background-color: $background;
+      color: $button-primary;
+      grid-area: login;
 
       svg {
         color: inherit;
       }
 
       &:hover {
-        color: $link-primary-hover;
         background-color: $background-hover;
+        color: $link-primary-hover;
       }
 
       &:focus-visible {
@@ -872,8 +877,8 @@ $search-transition-timing: 95ms;
       }
 
       &:active {
-        color: $button-primary-active;
         background-color: $background-active;
+        color: $button-primary-active;
         outline: $spacing-01 solid $focus;
         outline-offset: calc(-1 * #{$spacing-01});
       }

@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { boolean } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
-import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
+import imgLg4x3 from '../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 

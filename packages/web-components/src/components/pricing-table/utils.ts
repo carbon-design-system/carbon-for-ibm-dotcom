@@ -75,7 +75,7 @@ export const slideUnhidden = (element: HTMLElement) => {
 /**
  * Splits a style attribute string into an object full of properties and values.
  */
-export const convertStyleToObject = (styleString: string): {} => {
+export const convertStyleToObject = (styleString: string): object => {
   return styleString.split(';').reduce((acc, styleRule) => {
     if (styleRule !== '') {
       const pair = styleRule.split(':');
