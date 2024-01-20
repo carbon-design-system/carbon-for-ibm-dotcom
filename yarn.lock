@@ -4400,7 +4400,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": "npm:2.2.0-rc.0"
     "@carbon/ibmdotcom-utilities": "npm:2.2.0-rc.0"
     "@carbon/icon-helpers": "npm:10.45.1"
-    "@carbon/icons": "npm:11.33.0"
+    "@carbon/icons": "npm:11.34.0"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.20.1"
     "@carbon/motion": "npm:11.16.1"
@@ -4574,10 +4574,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:11.33.0":
-  version: 11.33.0
-  resolution: "@carbon/icons@npm:11.33.0"
-  checksum: a13b314eec94c696ccea500e29ff42cc79f5b128d843ebd32eb4b30ed9315fdfa8295bb57841c160c6050a6e65a04654578489a2d9de092d00c2f293a43794d0
+"@carbon/icons@npm:11.34.0":
+  version: 11.34.0
+  resolution: "@carbon/icons@npm:11.34.0"
+  checksum: e0e8df64715501c776ce3dbf646201e31b045ab5cc23d4b10da89804574ad7aa072764a5b097b5a24ec593e605a8dc4cdda14dc4bf8cef0899cd66306e03422c
   languageName: node
   linkType: hard
 
@@ -4727,7 +4727,7 @@ __metadata:
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
     "@carbon/icon-helpers": "npm:10.45.1"
-    "@carbon/icons": "npm:11.33.0"
+    "@carbon/icons": "npm:11.34.0"
     "@carbon/styles": "npm:1.47.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
