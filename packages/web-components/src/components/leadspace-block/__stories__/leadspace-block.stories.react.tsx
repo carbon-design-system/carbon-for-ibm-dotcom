@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,7 @@
 
 import { text, boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import Download20 from '@carbon/icons-react/es/download/20.js';
+import { ArrowRight, Download } from '@carbon/icons-react';
 
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -36,6 +35,11 @@ import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--1
 
 import readme from './README.stories.react.mdx';
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const image = (
   <C4DImage
     alt="Image alt text"
@@ -55,13 +59,13 @@ const linkList = (
   <C4DLinkList type="end">
     <C4DLinkListHeading>Featured products</C4DLinkListHeading>
     <C4DLinkListItem href="https://example.com">
-      IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
+      IBM Cloud Continuous Delivery <ArrowRight {...iconProps} />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      UrbanCode <ArrowRight20 slot="icon" />
+      UrbanCode <ArrowRight {...iconProps} />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      View all products <Download20 slot="icon" />
+      View all products <Download {...iconProps} />
     </C4DLinkListItem>
   </C4DLinkList>
 );
