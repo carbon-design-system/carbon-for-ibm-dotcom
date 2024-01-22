@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit-element';
-
 import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import imgLg16x9 from '../../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import imgXlg16x9 from '../../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
