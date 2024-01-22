@@ -8,11 +8,13 @@
  */
 
 import { html } from 'lit-element';
-import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
-import imgXlg16x9 from '../../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
-import imgMd16x9 from '../../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
-import imgLg4x3 from '../../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
-import imgSm4x3 from '../../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
+
+import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
+import imgLg16x9 from '../../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+import imgXlg16x9 from '../../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
+import imgMd16x9 from '../../../../../.storybook/storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
+import imgLg4x3 from '../../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
+import imgSm4x3 from '../../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 
 export const cardGroupItem1 = html`
