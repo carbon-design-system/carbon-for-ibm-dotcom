@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // @ts-ignore
 /* eslint-disable max-len */
 import C4DExpressiveModal from '../../../../es/components-react/expressive-modal/expressive-modal.js';
@@ -25,6 +25,11 @@ import { action } from '@storybook/addon-actions';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const sizes = {
   [`Regular size`]: null,
@@ -64,7 +69,7 @@ export const Default = (args) => {
       </C4DExpressiveModalBody>
       <C4DExpressiveModalFooter>
         <C4DButton href="https://www.example.com">
-          {buttonContent} <ArrowRight20 slot="icon" />
+          {buttonContent} <ArrowRight {...iconProps} />
         </C4DButton>
       </C4DExpressiveModalFooter>
     </C4DExpressiveModal>

@@ -63,16 +63,16 @@ export function pwsValueMap(value) {
       countyBasedCheckedNo: 'false',
       NC_HIDDEN_PERMISSION: 'PERMISSION',
       NC_HIDDEN_SUPPRESSION: 'SUPPRESSION',
-      NC_HIDDEN_UNCHANGED: 'UNCHANGED',
+      EMAIL_CU: 'CU',
+      EMAIL_CC: 'CC',
+      EMAIL_UU: 'UU',
+      EMAIL_UC: 'UC',
+      PHONE_CU: 'CU',
+      PHONE_CC: 'CC',
+      PHONE_UC: 'UC',
+      PHONE_UU: 'UU',
     }[value] || null
   );
-}
-
-export function specialCountryBasedText(countryCode) {
-  const countryBasedText = {
-    cn: 'chinaPIPLtext',
-  };
-  return countryBasedText[countryCode.toLocaleLowerCase()];
 }
 
 export function supportedLanguages(language) {
