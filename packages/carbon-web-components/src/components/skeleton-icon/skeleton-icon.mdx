@@ -1,5 +1,8 @@
-import { Props, Description } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Meta, Markdown } from '@storybook/addon-docs/blocks';
 import { cdnJs, cdnCss } from '../../globals/internal/storybook-cdn';
+import * as SkeletonIconStories from './skeleton-icon.stories';
+
+<Meta of={SkeletonIconStories} />
 
 # Skeleton icon
 
@@ -19,8 +22,8 @@ Here's a quick example to get you started.
 import '@carbon/web-components/es/components/skeleton-icon/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['skeleton-icon'] })}`} />
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnJs({ components: ['skeleton-placeholder'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
@@ -30,4 +33,4 @@ import '@carbon/web-components/es/components/skeleton-icon/index.js';
 
 ## `<cds-skeleton-icon>` attributes, properties and events
 
-<Props of="cds-skeleton-icon" />
+<ArgsTable of="cds-skeleton-icon" />
