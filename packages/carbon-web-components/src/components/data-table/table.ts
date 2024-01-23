@@ -241,7 +241,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
       console.log('filtered', filtered);
       (elem as any).filtered = filtered;
 
-      if (filtered) {
+      if (filtered && this.expandable) {
         rowText = (elem as any).nextElementSibling.textContent?.trim();
         filtered = this.filterRows(rowText as string, this._searchValue);
         (elem as any).filtered = filtered;
