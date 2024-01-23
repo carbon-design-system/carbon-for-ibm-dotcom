@@ -9,92 +9,156 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
-import { boolean, select } from '@storybook/addon-knobs';
-import { prefix } from '../../globals/settings';
-import textNullable from '../../../.storybook/knob-text-nullable';
 import { TILE_COLOR_SCHEME } from './tile';
 import './index';
-import storyDocs from './tile-story.mdx';
-import '../../../.storybook/templates/with-layer';
+import storyDocs from './tile.mdx';
 
 const colorSchemes = {
   [`Regular`]: null,
   [`Light (${TILE_COLOR_SCHEME.LIGHT})`]: TILE_COLOR_SCHEME.LIGHT,
 };
 
-export const Default = (args) => {
-  const { colorScheme } = args?.[`${prefix}-tile`] ?? {};
-  return html`
+const defaultArgs = {
+  checkmarkLabel: '',
+  colorScheme: null,
+  name: 'selectable-tile',
+  value: '',
+  onInput: 'input'
+};
+
+const colorSchemeControl = {
+  colorScheme: {
+    control: 'select',
+    description: 'Color scheme (color-scheme)',
+    options: colorSchemes
+  },
+}
+
+const defaultHref = {
+  href: 'https://example.com'
+};
+
+const hrefControl = {
+  href: {
+    control: 'text',
+    description: 'Href for clickable UI (href)'
+  }
+};
+
+const radioControls = {
+  checkmarkLabel: {
+    control: 'text',
+    description: 'Label text for the checkmark icon (checkmark-label)'
+  },
+  ...colorSchemeControl,
+  name: {
+    control: 'text',
+    description: 'Name (name)'
+  },
+  value: {
+    control: 'text',
+    description: 'Value (value)'
+  },
+  onInput: {
+    action: `input`,
+    table: {
+      disable: true,
+    },
+  },
+};
+
+const multiSelectableControls = {
+  ...radioControls,
+  selected: {
+    control: 'boolean',
+    description: 'Selected (selected)'
+  }
+}
+
+const expandableArgs = {
+  colorScheme: null,
+  expanded: false,
+  disableChange: false,
+  onBeforeChange: 'cds-expandable-tile-beingchanged',
+  onChange: 'cds-expandable-tile-changed'
+};
+
+const expandableControls = {
+  ...colorSchemeControl,
+  expanded: {
+    control: 'boolean',
+    description: 'Expanded (expanded)'
+  },
+  disableChange: {
+    control: 'boolean',
+    description: 'Disable user-initiated change in expanded state (Call event.preventDefault() in cds-expandable-tile-beingchanged event)'
+  },
+  onBeforeChange: {
+    action: 'cds-expandable-tile-beingchanged',
+    table: {
+      disable: true,
+    },
+  },
+  onChange: {
+    action: 'cds-expandable-tile-changed',
+    table: {
+      disable: true,
+    },
+  }
+};
+
+
+
+export const Default = {
+  argTypes: colorSchemeControl,
+  render: ({ colorScheme }) => html`
     <cds-tile color-scheme="${ifDefined(colorScheme)}">
       Default tile
       <a href="https://example.com">Link</a>
     </cds-tile>
-  `;
+  `
 };
 
-Default.storyName = 'Default';
-
-export const DefaultWithLayer = (args) => {
-  const { colorScheme } = args?.[`${prefix}-tile`] ?? {};
-  return html`
+export const DefaultWithLayer = {
+  argTypes: colorSchemeControl,
+  render: ({ colorScheme }) => html`
     <sb-template-layers>
       <cds-tile color-scheme="${ifDefined(colorScheme)}">
         Default layer
         <a href="https://example.com">Link</a>
       </cds-tile>
     </sb-template-layers>
-  `;
+  `
 };
 
-export const clickable = (args) => {
-  const { download, href, hreflang, ping, rel, target, type } =
-    args?.[`${prefix}-clickable-tile`] ?? {};
-  return html`
+export const clickable = {
+  args: defaultHref,
+  argTypes: hrefControl,
+  render: ({href}) => html`
     <cds-clickable-tile
-      download="${ifDefined(download)}"
-      href="${ifDefined(href)}"
-      hreflang="${ifDefined(hreflang)}"
-      ping="${ifDefined(ping)}"
-      rel="${ifDefined(rel)}"
-      target="${ifDefined(target)}"
-      type="${ifDefined(type)}">
+      href="${ifDefined(href)}">
       Clickable tile
     </cds-clickable-tile>
-  `;
+  `
 };
 
-clickable.parameters = {
-  knobs: {
-    [`${prefix}-clickable-tile`]: () => ({
-      href: textNullable('Href for clickable UI (href)', 'https://example.com'),
-    }),
-  },
-};
-
-export const ClickableWithLayer = (args) => {
-  const { download, href, hreflang, ping, rel, target, type } =
-    args?.[`${prefix}-clickable-tile`] ?? {};
-  return html`
+export const ClickableWithLayer = {
+  args: defaultHref,
+  argTypes: hrefControl,
+  render: ({href}) => html`
     <sb-template-layers>
       <cds-clickable-tile
-        download="${ifDefined(download)}"
-        href="${ifDefined(href)}"
-        hreflang="${ifDefined(hreflang)}"
-        ping="${ifDefined(ping)}"
-        rel="${ifDefined(rel)}"
-        target="${ifDefined(target)}"
-        type="${ifDefined(type)}">
+        href="${ifDefined(href)}">
         Clickable tile
       </cds-clickable-tile>
     </sb-template-layers>
-  `;
+  `
 };
 
-export const Radio = (args) => {
-  const { checkmarkLabel, colorScheme, name, value, onInput } =
-    args?.[`${prefix}-radio-tile`] ?? {};
-  return html`
+export const Radio = {
+  args: defaultArgs,
+  argTypes: radioControls,
+  render: ({ checkmarkLabel, colorScheme, name, value, onInput }) => html`
     <cds-tile-group>
       <legend slot="legend">Radio tile group</legend>
       <cds-radio-tile
@@ -122,28 +186,11 @@ export const Radio = (args) => {
         Option 3
       </cds-radio-tile>
     </cds-tile-group>
-  `;
+  `
 };
 
-Radio.storyName = 'Radio';
-
-Radio.parameters = {
-  knobs: {
-    [`${prefix}-radio-tile`]: () => ({
-      checkmarkLabel: textNullable(
-        'Label text for the checkmark icon (checkmark-label)',
-        ''
-      ),
-      colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
-      name: textNullable('Name (name)', 'selectable-tile'),
-      value: textNullable('Value (value)', ''),
-      onInput: action('input'),
-    }),
-  },
-};
-
-export const RadioWithLayer = () => {
-  return html`
+export const RadioWithLayer = {
+  render: () => html`
     <sb-template-layers>
       <cds-tile-group>
         <legend slot="legend">Radio tile group</legend>
@@ -151,13 +198,13 @@ export const RadioWithLayer = () => {
         <cds-radio-tile name="option-2a"> Option 2 </cds-radio-tile>
       </cds-tile-group>
     </sb-template-layers>
-  `;
+  `
 };
 
-export const multiSelectable = (args) => {
-  const { checkmarkLabel, colorScheme, name, selected, value, onInput } =
-    args?.[`${prefix}-selectable-tile`] ?? {};
-  return html`
+export const MultiSelect = {
+  args: defaultArgs,
+  argTypes: multiSelectableControls,
+  render: ({ checkmarkLabel, colorScheme, name, selected, value, onInput }) => html`
     <cds-tile-group>
       <cds-selectable-tile
         checkmark-label="${ifDefined(checkmarkLabel)}"
@@ -187,23 +234,13 @@ export const multiSelectable = (args) => {
         Option 3
       </cds-selectable-tile>
     </cds-tile-group>
-  `;
+  `
 };
 
-multiSelectable.storyName = 'Multi Select';
-
-multiSelectable.parameters = {
-  knobs: {
-    [`${prefix}-selectable-tile`]: () => ({
-      ...Radio.parameters.knobs[`${prefix}-radio-tile`](),
-      selected: boolean('Selected (selected)', false),
-    }),
-  },
-};
-
-export const expandable = (args) => {
-  const { colorScheme, expanded, disableChange, onBeforeChange, onChange } =
-    args?.[`${prefix}-expandable-tile`] ?? {};
+export const expandable = {
+  args: expandableArgs,
+  argTypes: expandableControls,
+  render: ({ colorScheme, expanded, disableChange, onBeforeChange, onChange }) => {
   const handleBeforeChanged = (event: CustomEvent) => {
     onBeforeChange(event);
     if (disableChange) {
@@ -226,11 +263,13 @@ export const expandable = (args) => {
       </cds-tile-below-the-fold-content>
     </cds-expandable-tile>
   `;
+}
 };
 
-export const ExpandableWithInteractive = (args) => {
-  const { colorScheme, expanded, disableChange, onBeforeChange, onChange } =
-    args?.[`${prefix}-expandable-tile`] ?? {};
+export const ExpandableWithInteractive = {
+  args: expandableArgs,
+  argTypes: expandableControls,
+  render: ({ colorScheme, expanded, disableChange, onBeforeChange, onChange }) => {
   const handleBeforeChanged = (event: CustomEvent) => {
     onBeforeChange(event);
     if (disableChange) {
@@ -258,11 +297,11 @@ export const ExpandableWithInteractive = (args) => {
       </cds-tile-below-the-fold-content>
     </cds-expandable-tile>
   `;
+}
 };
 
-export const ExpandableWithLayer = (args) => {
-  const { colorScheme, expanded, disableChange, onBeforeChange, onChange } =
-    args?.[`${prefix}-expandable-tile`] ?? {};
+export const ExpandableWithLayer = {
+  render: ({ colorScheme, expanded, disableChange, onBeforeChange, onChange } ) => {
   const handleBeforeChanged = (event: CustomEvent) => {
     onBeforeChange(event);
     if (disableChange) {
@@ -288,34 +327,21 @@ export const ExpandableWithLayer = (args) => {
       </cds-expandable-tile>
     </sb-template-layers>
   `;
+}};
+
+export const Selectable = {
+  render: () => html` <cds-selectable-tile> Default tile </cds-selectable-tile> `
 };
 
-expandable.parameters = {
-  knobs: {
-    [`${prefix}-expandable-tile`]: () => ({
-      colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
-      expanded: boolean('Expanded (expanded)', false),
-      disableChange: boolean(
-        'Disable user-initiated change in expanded state ' +
-          '(Call event.preventDefault() in cds-expandable-tile-beingchanged event)',
-        false
-      ),
-      onBeforeChange: action('cds-expandable-tile-beingchanged'),
-      onChange: action('cds-expandable-tile-changed'),
-    }),
-  },
-};
-
-export const Selectable = () => {
-  return html` <cds-selectable-tile> Default tile </cds-selectable-tile> `;
-};
-
-Selectable.storyName = 'Selectable';
-
-export default {
+const meta = {
   title: 'Components/Tile',
   decorators: [(story) => html` <div>${story()}</div> `],
   parameters: {
-    ...storyDocs.parameters,
+    actions: { argTypesRegex: '^on.*' },
+    docs: {
+      page: storyDocs,
+    },
   },
 };
+
+export default meta;
