@@ -22,20 +22,6 @@
 // importing tag color tokens for the styling slug in tag component
 @use '@carbon/styles/scss/components/tag/index' as *;
 
-$tag-colors: (
-  'red',
-  'magenta',
-  'purple',
-  'blue',
-  'cyan',
-  'teal',
-  'green',
-  'gray',
-  'cool-gray',
-  'warm-gray',
-  'high-contrast'
-);
-
 $colorMap: (
   'red': $tag-color-red,
   'magenta': $tag-color-magenta,
@@ -45,7 +31,7 @@ $colorMap: (
   'teal': $tag-color-teal,
   'green': $tag-color-green,
   'gray': $tag-color-gray,
-  'cool'-gray: $tag-color-cool-gray,
+  'cool-gray': $tag-color-cool-gray,
   'warm-gray': $tag-color-warm-gray,
   'high-contrast': $text-inverse,
 );
@@ -391,7 +377,7 @@ $colorMap: (
   }
 }
 
-@each $color in $tag-colors {
+@each $color, $token in $colorMap {
   :host(#{$prefix}-slug[tag='#{$color}']) {
     .#{$prefix}--slug__text {
       color: map.get($colorMap, $color);
