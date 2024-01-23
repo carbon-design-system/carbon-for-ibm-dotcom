@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -342,6 +342,14 @@ class CDSSelect extends FormMixin(LitElement) {
       // given reflecting `value` requires child `<option>`s/`<optgroup>`s being there beforehand
       this._selectNode.value = !value ? placeholderItemValue : value;
     }
+
+    this.querySelector('cds-slug')?.hasAttribute('revert-active')
+      ? this.shadowRoot
+          ?.querySelector("slot[name='slug']")
+          ?.classList.add('cds--slug--revert')
+      : this.shadowRoot
+          ?.querySelector("slot[name='slug']")
+          ?.classList.remove('cds--slug--revert');
   }
 
   render() {

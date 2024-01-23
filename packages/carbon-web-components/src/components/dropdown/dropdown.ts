@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -676,6 +676,14 @@ class CDSDropdown extends ValidityMixin(
     this._hasSlug
       ? this.setAttribute('slug', '')
       : this.removeAttribute('slug');
+
+    this.querySelector('cds-slug')?.hasAttribute('revert-active')
+      ? this.shadowRoot
+          ?.querySelector("slot[name='slug']")
+          ?.classList.add('cds--slug--revert')
+      : this.shadowRoot
+          ?.querySelector("slot[name='slug']")
+          ?.classList.remove('cds--slug--revert');
   }
 
   /**
