@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { text, select } from '@storybook/addon-knobs';
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
@@ -45,6 +45,11 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
         - list item 2a.a
 `;
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
@@ -72,7 +77,7 @@ export const Default = (args) => {
             href="https://example.com">
             <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
             <C4DCardFooter>
-              <ArrowRight20 slot="icon" />
+              <ArrowRight {...iconProps} />
             </C4DCardFooter>
           </C4DCardLink>
         ) : (
