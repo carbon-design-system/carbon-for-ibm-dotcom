@@ -468,21 +468,6 @@ export const _Select = () => {
     </div> `;
 };
 
-const tagTypes = [
-  'red',
-  'magenta',
-  'purple',
-  'blue',
-  'cyan',
-  'teal',
-  'green',
-  'gray',
-  'cool-gray',
-  'warm-gray',
-  'high-contrast',
-  'outline',
-];
-
 export const _Tag = () => {
   return html` <style>
       ${styles}
