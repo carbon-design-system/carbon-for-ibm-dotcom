@@ -29,14 +29,14 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/layout @carbon/styles @carbon/themes @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/icons-react": "11.34.0",
+    "@carbon/icons-react": "11.34.1",
     "@carbon/layout": "11.20.1",
-    "@carbon/styles": "1.47.0",
+    "@carbon/styles": "1.48.1",
     "@carbon/telemetry": "0.1.0",
     "@carbon/type": "11.25.1"
   },
   "devDependencies": {
-    "@carbon/themes": "11.29.0",
+    "@carbon/themes": "11.29.1",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
