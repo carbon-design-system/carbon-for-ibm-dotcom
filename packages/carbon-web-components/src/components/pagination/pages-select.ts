@@ -89,12 +89,13 @@ class BXPagesSelect extends FocusMixin(LitElement) {
     // https://github.com/Polymer/lit-html/issues/1052
     return html`
       <div class="${prefix}--select__page-number">
-        <label for="select" class="${prefix}--label ${prefix}--visually-hidden">
+        <label for="select-page" class="${prefix}--label ${prefix}--visually-hidden">
           ${formatLabelText({ count: total })}
         </label>
         <select
           class="${prefix}--select-input"
           .value="${value}"
+          id="select-page"
           @change="${handleChange}">
           ${Array.from(new Array(total)).map(
             (_item, index) =>
