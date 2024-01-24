@@ -1526,6 +1526,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(c4d-masthead-container) in stylesheets
     this.style.zIndex = '900';
+    this.style.position = 'relative';
 
     // Allows conditional rendering of left/top navs.
     layoutBreakpoint.addEventListener('change', () => {
