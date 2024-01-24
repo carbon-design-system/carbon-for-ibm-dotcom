@@ -246,6 +246,42 @@ export const ExpandableWithLayer = {
   `;
 }};
 
+export const MultiSelect = {
+  args: defaultArgs,
+  argTypes: multiSelectableControls,
+  render: ({ checkmarkLabel, colorScheme, name, selected, value, onInput }) => html`
+    <cds-tile-group>
+      <cds-selectable-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        ?selected="${selected}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 1
+      </cds-selectable-tile>
+      <cds-selectable-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        ?selected="${selected}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 2
+      </cds-selectable-tile>
+      <cds-selectable-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        ?selected="${selected}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 3
+      </cds-selectable-tile>
+    </cds-tile-group>
+  `
+};
+
 export const Radio = {
   args: defaultArgs,
   argTypes: radioControls,
