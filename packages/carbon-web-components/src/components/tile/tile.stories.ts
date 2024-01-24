@@ -12,6 +12,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { TILE_COLOR_SCHEME } from './tile';
 import './index';
 import storyDocs from './tile.mdx';
+import '../../../.storybook/templates/with-layer';
 
 const colorSchemes = {
   [`Regular`]: null,
@@ -107,30 +108,6 @@ const expandableControls = {
   }
 };
 
-
-
-export const Default = {
-  argTypes: colorSchemeControl,
-  render: ({ colorScheme }) => html`
-    <cds-tile color-scheme="${ifDefined(colorScheme)}">
-      Default tile
-      <a href="https://example.com">Link</a>
-    </cds-tile>
-  `
-};
-
-export const DefaultWithLayer = {
-  argTypes: colorSchemeControl,
-  render: ({ colorScheme }) => html`
-    <sb-template-layers>
-      <cds-tile color-scheme="${ifDefined(colorScheme)}">
-        Default layer
-        <a href="https://example.com">Link</a>
-      </cds-tile>
-    </sb-template-layers>
-  `
-};
-
 export const clickable = {
   args: defaultHref,
   argTypes: hrefControl,
@@ -155,85 +132,25 @@ export const ClickableWithLayer = {
   `
 };
 
-export const Radio = {
-  args: defaultArgs,
-  argTypes: radioControls,
-  render: ({ checkmarkLabel, colorScheme, name, value, onInput }) => html`
-    <cds-tile-group>
-      <legend slot="legend">Radio tile group</legend>
-      <cds-radio-tile
-        checkmark-label="${ifDefined(checkmarkLabel)}"
-        color-scheme="${ifDefined(colorScheme)}"
-        name="${ifDefined(name)}"
-        value="${ifDefined(value)}"
-        @input="${onInput}">
-        Option 1
-      </cds-radio-tile>
-      <cds-radio-tile
-        checkmark-label="${ifDefined(checkmarkLabel)}"
-        color-scheme="${ifDefined(colorScheme)}"
-        name="${ifDefined(name)}"
-        value="${ifDefined(value)}"
-        @input="${onInput}">
-        Option 2
-      </cds-radio-tile>
-      <cds-radio-tile
-        checkmark-label="${ifDefined(checkmarkLabel)}"
-        color-scheme="${ifDefined(colorScheme)}"
-        name="${ifDefined(name)}"
-        value="${ifDefined(value)}"
-        @input="${onInput}">
-        Option 3
-      </cds-radio-tile>
-    </cds-tile-group>
+export const Default = {
+  argTypes: colorSchemeControl,
+  render: ({ colorScheme }) => html`
+    <cds-tile color-scheme="${ifDefined(colorScheme)}">
+      Default tile
+      <a href="https://example.com">Link</a>
+    </cds-tile>
   `
 };
 
-export const RadioWithLayer = {
-  render: () => html`
+export const DefaultWithLayer = {
+  argTypes: colorSchemeControl,
+  render: ({ colorScheme }) => html`
     <sb-template-layers>
-      <cds-tile-group>
-        <legend slot="legend">Radio tile group</legend>
-        <cds-radio-tile name="option-1a"> Option 1 </cds-radio-tile>
-        <cds-radio-tile name="option-2a"> Option 2 </cds-radio-tile>
-      </cds-tile-group>
+      <cds-tile color-scheme="${ifDefined(colorScheme)}">
+        Default layer
+        <a href="https://example.com">Link</a>
+      </cds-tile>
     </sb-template-layers>
-  `
-};
-
-export const MultiSelect = {
-  args: defaultArgs,
-  argTypes: multiSelectableControls,
-  render: ({ checkmarkLabel, colorScheme, name, selected, value, onInput }) => html`
-    <cds-tile-group>
-      <cds-selectable-tile
-        checkmark-label="${ifDefined(checkmarkLabel)}"
-        color-scheme="${ifDefined(colorScheme)}"
-        name="${ifDefined(name)}"
-        ?selected="${selected}"
-        value="${ifDefined(value)}"
-        @input="${onInput}">
-        Option 1
-      </cds-selectable-tile>
-      <cds-selectable-tile
-        checkmark-label="${ifDefined(checkmarkLabel)}"
-        color-scheme="${ifDefined(colorScheme)}"
-        name="${ifDefined(name)}"
-        ?selected="${selected}"
-        value="${ifDefined(value)}"
-        @input="${onInput}">
-        Option 2
-      </cds-selectable-tile>
-      <cds-selectable-tile
-        checkmark-label="${ifDefined(checkmarkLabel)}"
-        color-scheme="${ifDefined(colorScheme)}"
-        name="${ifDefined(name)}"
-        ?selected="${selected}"
-        value="${ifDefined(value)}"
-        @input="${onInput}">
-        Option 3
-      </cds-selectable-tile>
-    </cds-tile-group>
   `
 };
 
@@ -328,6 +245,88 @@ export const ExpandableWithLayer = {
     </sb-template-layers>
   `;
 }};
+
+export const Radio = {
+  args: defaultArgs,
+  argTypes: radioControls,
+  render: ({ checkmarkLabel, colorScheme, name, value, onInput }) => html`
+    <cds-tile-group>
+      <legend slot="legend">Radio tile group</legend>
+      <cds-radio-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 1
+      </cds-radio-tile>
+      <cds-radio-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 2
+      </cds-radio-tile>
+      <cds-radio-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 3
+      </cds-radio-tile>
+    </cds-tile-group>
+  `
+};
+
+export const RadioWithLayer = {
+  render: () => html`
+    <sb-template-layers>
+      <cds-tile-group>
+        <legend slot="legend">Radio tile group</legend>
+        <cds-radio-tile name="option-1a"> Option 1 </cds-radio-tile>
+        <cds-radio-tile name="option-2a"> Option 2 </cds-radio-tile>
+      </cds-tile-group>
+    </sb-template-layers>
+  `
+};
+
+export const MultiSelect = {
+  args: defaultArgs,
+  argTypes: multiSelectableControls,
+  render: ({ checkmarkLabel, colorScheme, name, selected, value, onInput }) => html`
+    <cds-tile-group>
+      <cds-selectable-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        ?selected="${selected}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 1
+      </cds-selectable-tile>
+      <cds-selectable-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        ?selected="${selected}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 2
+      </cds-selectable-tile>
+      <cds-selectable-tile
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        ?selected="${selected}"
+        value="${ifDefined(value)}"
+        @input="${onInput}">
+        Option 3
+      </cds-selectable-tile>
+    </cds-tile-group>
+  `
+};
 
 export const Selectable = {
   render: () => html` <cds-selectable-tile> Default tile </cds-selectable-tile> `
