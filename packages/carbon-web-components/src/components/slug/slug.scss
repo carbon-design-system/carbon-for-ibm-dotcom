@@ -277,121 +277,69 @@ $colorMap: (
       border-end-end-radius: 50%;
       border-start-end-radius: 50%;
       inset-block-start: to-rem(-1px);
-      inset-inline-start: $spacing-01;
+      inset-inline-start: -$spacing-01;
     }
   }
 }
 
 // override for specific alignments
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='left-bottom']
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='right-bottom']
-  ) {
-  .#{$prefix}--popover-caret::after {
-    background: transparent;
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
+  &[alignment='left-bottom'],
+  &[alignment='right-bottom'] {
+    .#{$prefix}--popover-caret::after {
+      background: transparent;
+    }
   }
 }
 
 // Change caret color / border when it is near the bottom of the callout
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='left-bottom']
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='right-bottom']
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='top']
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='top-right']
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='top-left']
-  ) {
-  .#{$prefix}--popover-caret::before {
-    border-color: $slug-callout-caret-bottom;
-    background: $slug-callout-caret-bottom-background;
-  }
-}
-
-// Adjust background if actions are present
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='left-bottom'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='right-bottom'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='top'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='top-right'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='top-left'][has-actions]
-  ) {
-  .#{$prefix}--popover-caret::before {
-    background: $slug-callout-caret-bottom-background-actions;
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
+  &[alignment='left-bottom'],
+  &[alignment='right-bottom'],
+  &[alignment='top'],
+  &[alignment='top-right'],
+  &[alignment='top-left'] {
+    .#{$prefix}--popover-caret::before {
+      border-color: $slug-callout-caret-bottom;
+      background: $slug-callout-caret-bottom-background;
+    }
+    // Adjust background if actions are present
+    &[has-actions] {
+      .#{$prefix}--popover-caret::before {
+        background: $slug-callout-caret-bottom-background-actions;
+      }
+    }
   }
 }
 
 // Change the caret border when it is near the middle of the callout
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='left']
-  ),
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='right']
-  ) {
-  .#{$prefix}--popover-caret::before {
-    border-color: $slug-callout-caret-center;
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
+  &[alignment='left'],
+  &[alignment='right'] {
+    .#{$prefix}--popover-caret::before {
+      border-color: $slug-callout-caret-center;
+    }
   }
 }
 
 @each $color, $token in $colorMap {
   :host(#{$prefix}-slug[tag='#{$color}']) {
     .#{$prefix}--slug__text {
-      color: map.get($colorMap, $color);
+      color: $token;
     }
 
     .#{$prefix}--slug__text::before {
-      background: map.get($colorMap, $color);
+      background: $token;
     }
 
     button:hover {
-      border-color: map.get($colorMap, $color);
+      border-color: $token;
 
       .#{$prefix}--slug__text::before {
-        background-color: map.get($colorMap, $color);
+        background-color: $token;
       }
     }
   }

@@ -677,13 +677,12 @@ class CDSDropdown extends ValidityMixin(
       ? this.setAttribute('slug', '')
       : this.removeAttribute('slug');
 
-    this.querySelector('cds-slug')?.hasAttribute('revert-active')
-      ? this.shadowRoot
-          ?.querySelector("slot[name='slug']")
-          ?.classList.add('cds--slug--revert')
-      : this.shadowRoot
-          ?.querySelector("slot[name='slug']")
-          ?.classList.remove('cds--slug--revert');
+    this.shadowRoot
+      ?.querySelector("slot[name='slug']")
+      ?.classList.toggle(
+        'cds--slug--revert',
+        this.querySelector('cds-slug')?.hasAttribute('revert-active')
+      );
   }
 
   /**
