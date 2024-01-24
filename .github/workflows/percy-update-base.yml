@@ -37,7 +37,7 @@ jobs:
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
       - name: Run percy storybook
-        run: yarn visual-snapshot
+        run: yarn build-storybook && visual-snapshot
         working-directory: packages/web-components
   carbon-web-components:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
@@ -67,5 +67,5 @@ jobs:
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_CARBONWEBCOMPONENTS }}
       - name: Run percy storybook
-        run: yarn visual-snapshot
+        run: yarn build-storybook && visual-snapshot
         working-directory: packages/carbon-web-components
