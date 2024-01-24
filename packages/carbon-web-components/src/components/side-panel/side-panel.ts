@@ -25,15 +25,6 @@ import Handle from '../../globals/internal/handle';
 
 export { SIDE_PANEL_SIZE };
 
-// todo:
-// - button set does not re-order when stacked
-// - @extend seems to get an extra #side-panel selector in CSS (higher specificity) than following CSS
-// - story knobs not working as expected even when changing stories
-// - selector-initial-focus does not work
-// - multi-step side panel (including navigate back)
-// - action bar refresh bug - this is a circular resize/scroll issue in reality the HTML needs a refactor to correctly use sticky
-//   but that involves changing the IBM Products code https://github.com/carbon-design-system/ibm-products/issues/4065
-
 // eslint-disable-next-line no-bitwise
 const PRECEDING =
   Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
@@ -169,6 +160,24 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @state()
   _containerScrollTop = -16;
 
+  @state()
+  _hasSubtitle = false;
+
+  @state()
+  _hasSlug = false;
+
+  @state()
+  _hasActionToolbar = false;
+
+  @state()
+  _actionsStacked = false;
+
+  @state()
+  _actionsCount = 0;
+
+  @state()
+  _slugCloseSize = 'sm';
+
   /**
    * Handles `blur` event on this element.
    *
@@ -244,11 +253,10 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   };
 
-  private _reducedMotion = { matches: false };
-  // private _reducedMotion =
-  //   typeof window !== 'undefined' && window?.matchMedia
-  //     ? window.matchMedia('(prefers-reduced-motion: reduce)')
-  //     : { matches: true };
+  private _reducedMotion =
+    typeof window !== 'undefined' && window?.matchMedia
+      ? window.matchMedia('(prefers-reduced-motion: reduce)')
+      : { matches: true };
 
   /**
    * Handles `click` event on the side-panel container.
@@ -318,9 +326,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     );
   }
 
-  @state()
-  _hasSubtitle = false;
-
   private _checkUpdateIconButtonSizes = () => {
     const slug = this.querySelector('cds-slug');
     const otherButtons = this?.shadowRoot?.querySelectorAll(
@@ -362,12 +367,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     this._hasSubtitle = subtitle.length > 0;
   }
 
-  @state()
-  _hasSlug = false;
-
-  @state()
-  _hasActionToolbar = false;
-
   // eslint-disable-next-line class-methods-use-this
   private _handleActionToolbarChange(e: Event) {
     const target = e.target as HTMLSlotElement;
@@ -383,15 +382,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   }
 
-  @state()
-  _actionsStacked = false;
-
-  @state()
-  _actionsCount = 0;
-
-  @state()
-  _slugCloseSize = 'sm';
-
   private checkSetActionsStacked() {
     const stacked =
       /(xs)|(sm)/.test(this.size) ||
@@ -399,17 +389,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
     if (this._actionsStacked !== stacked) {
       this._actionsStacked = stacked;
-      // this.dispatchEvent(
-      //   new CustomEvent(
-      //     (this.constructor as typeof CDSSidePanel).eventActionsStackingChange,
-      //     {
-      //       detail: {
-      //         stacked: stacked,
-      //       },
-      //     }
-      //   )
-      // );
-      // actions may stack automatically based on button set component
+
       this._updateActionSizes();
     }
   }
