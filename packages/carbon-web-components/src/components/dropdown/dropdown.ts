@@ -680,8 +680,8 @@ class CDSDropdown extends ValidityMixin(
     this.shadowRoot
       ?.querySelector("slot[name='slug']")
       ?.classList.toggle(
-        'cds--slug--revert',
-        this.querySelector('cds-slug')?.hasAttribute('revert-active')
+        `${prefix}--slug--revert`,
+        this.querySelector(`${prefix}-slug`)?.hasAttribute('revert-active')
       );
   }
 
