@@ -36,7 +36,7 @@
     "@carbon/type": "11.25.1"
   },
   "devDependencies": {
-    "@carbon/themes": "11.28.0",
+    "@carbon/themes": "11.29.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
