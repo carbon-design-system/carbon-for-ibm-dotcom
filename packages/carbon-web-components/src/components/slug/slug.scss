@@ -204,15 +204,11 @@ $colorMap: (
       inset-inline-start: to-rem(-1px);
     }
   }
-}
 
-:host(
-    #{$prefix}-slug:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment^='top'][has-actions]
-  ) {
-  .#{$prefix}--popover-caret::after {
-    display: none;
+  &[has-actions] {
+    .#{$prefix}--popover-caret::after {
+      display: none;
+    }
   }
 }
 
