@@ -4772,6 +4772,7 @@ __metadata:
     "@babel/runtime": "npm:^7.16.3"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
+    "@carbon/ibm-products-styles": "npm:^2.17.2"
     "@carbon/icon-helpers": "npm:10.45.1"
     "@carbon/icons": "npm:11.34.0"
     "@carbon/styles": "npm:1.47.0"
