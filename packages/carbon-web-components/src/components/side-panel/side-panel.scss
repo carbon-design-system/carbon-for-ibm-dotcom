@@ -18,25 +18,19 @@ $css--plex: true !default;
 
 $pkg-prefix: 'cds';
 
-/* TODO: When this PR is merged https://github.com/carbon-design-system/ibm-products/pull/3829
-* swap ++++
-* @import './c4p-side-panel-styles';
-* ----
-* for ++++
-*/
 @use '@carbon/ibm-products-styles/scss/config' with (
   $pkg-prefix: #{$pkg-prefix}
 );
-@use '@carbon/ibm-products-styles/scss/components/SidePanel/index';
+@use '@carbon/ibm-products-styles/scss/components/ActionSet/index' as *;
+@use '@carbon/ibm-products-styles/scss/components/SidePanel/index' as *;
 @use '@carbon/ibm-products-styles/scss/components/SidePanel/side-panel-variables'
   as spv;
-/* ---- */
 
 $block-class: #{$pkg-prefix}--side-panel;
 $block-class-action-set: #{$pkg-prefix}--action-set;
 
 :host(#{$prefix}-side-panel) {
-  /* Replaces use of FIGMA for slide in / out animation */
+  /* Replaces use of Framer for slide in / out animation */
   --#{$block-class}--displaced: 100%;
 
   * {
@@ -288,21 +282,51 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
   }
 
   @mixin actions-placement() {
+    --flex-direction: row;
     /* non carbon for IBM Products adjustment */
-    flex-direction: row;
+    flex-direction: var(--flex-direction);
 
-    &[stacked] {
-      flex-direction: column;
+    /* stylelint-disable-next-line selector-type-no-unknown */
+    ::slotted(cds-button) {
+      flex: 0 1 25%;
     }
 
-    @container (width <= #{map.get(spv.$side-panel-sizes, 'md')}) {
-      &[actions-multiple='triple'] {
-        flex-direction: column;
+    // -1 in @container query is for 1px left border
+    @container (width <= calc(#{map.get(spv.$side-panel-sizes, lg)} + 1px)) {
+      /* stylelint-disable-next-line selector-type-no-unknown */
+      &:not([actions-multiple='triple']) ::slotted(cds-button) {
+        // double and single on lg use 50%
+        flex: 0 1 50%;
       }
     }
 
-    @container (width <= #{map.get(spv.$side-panel-sizes, 'sm')}) {
-      flex-direction: column;
+    // -1 in @container query is for 1px left border
+    @container (width <= calc(#{map.get(spv.$side-panel-sizes, md)} - 1px)) {
+      // md is 50% for two and 100% for one
+      // column for tripple
+      /* stylelint-disable-next-line selector-type-no-unknown */
+      &[actions-multiple] ::slotted(cds-button) {
+        flex: 0 0 100%;
+      }
+
+      /* stylelint-disable-next-line selector-type-no-unknown */
+      &[actions-multiple='double'] ::slotted(cds-button) {
+        flex: 0 1 50%;
+      }
+
+      &[actions-multiple='triple'] {
+        --flex-direction: column;
+      }
+    }
+
+    // -1 in @container query is for 1px left border
+    @container (width <= calc(#{map.get(spv.$side-panel-sizes, sm)} - 1px)) {
+      --flex-direction: column;
+
+      /* stylelint-disable-next-line selector-type-no-unknown */
+      &[actions-multiple] ::slotted(cds-button) {
+        flex: 0 0 100%;
+      }
     }
   }
 
@@ -314,15 +338,11 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     display: flex;
     inline-size: 100%;
 
-    ::slotted(.#{$block-class-action-set}__action-button) {
-      /* @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn; */
-      flex: var(--#{$block-class}--actions-width-other, initial);
-      max-inline-size: none;
-    }
+    /* stylelint-disable-next-line selector-type-no-unknown */
+    ::slotted(cds-button) {
+      @extend .#{$block-class-action-set}__action-button;
 
-    ::slotted(.#{$block-class-action-set}__action-button--first) {
-      /* @extend .#{$block-class-action-set}__action-button, .#{$prefix}--btn; */
-      flex: var(--#{$block-class}--actions-width-first, initial);
+      max-inline-size: none;
     }
 
     &[hidden] {

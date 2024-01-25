@@ -170,9 +170,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   _hasActionToolbar = false;
 
   @state()
-  _actionsStacked = false;
-
-  @state()
   _actionsCount = 0;
 
   @state()
@@ -382,18 +379,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   }
 
-  private checkSetActionsStacked() {
-    const stacked =
-      /(xs)|(sm)/.test(this.size) ||
-      (/md/.test(this.size) && this._actionsCount > 2);
-
-    if (this._actionsStacked !== stacked) {
-      this._actionsStacked = stacked;
-
-      this._updateActionSizes();
-    }
-  }
-
   private _handleActionsChange(e: Event) {
     const target = e.target as HTMLSlotElement;
     const actions = target?.assignedElements();
@@ -410,8 +395,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     } else {
       this._actionsCount = actionsCount;
     }
-
-    this.checkSetActionsStacked();
 
     for (let i = 0; i < actionsCount; i++) {
       if (i > 3) {
@@ -628,33 +611,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   private _scrollObserver = (event) => {
     this._setMeasuredCustomProperties('scroll', event.target.scrollTop);
   };
-
-  private _updateActionSizes() {
-    if (this?._sidePanel && this?._actions) {
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--actions-height`,
-        `${this._actions.offsetHeight}px`
-      );
-
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--actions-width-first`,
-        `${this._actionsStacked ? '0 0 100%' : '1 1 50%'}`
-      );
-
-      this._sidePanel.style.setProperty(
-        `--${blockClass}--actions-width-other`,
-        `${this._actionsStacked ? '0 0 100%' : '0 1 25%'}`
-      );
-    }
-  }
-
-  /**
-   * Observes the size of the actions container
-   */
-  private _resizeActionsObserver = new ResizeObserver(() => {
-    this.checkSetActionsStacked();
-    this._updateActionSizes();
-  });
 
   /**
    * Determines if the title will animate on scroll
@@ -917,7 +873,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
               ?hidden=${this._actionsCount === 0}
               ?condensed=${condensedActions}
               actions-multiple=${actionsMultiple}
-              ?stacked=${this._actionsStacked && actionsMultiple}
               size=${size}>
               <slot
                 name="actions"
@@ -1037,7 +992,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         ) {
           this.focus();
         }
-        this._updateActionSizes();
       } else if (
         this._launcher &&
         typeof (this._launcher as HTMLElement).focus === 'function'
