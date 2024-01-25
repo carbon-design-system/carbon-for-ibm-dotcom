@@ -709,10 +709,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   async connectObservers() {
     await this.updateComplete;
     this._hObserveResize = observeResize(this._resizeObserver, this._sidePanel);
-    this._hObserveActionsResize = observeResize(
-      this._resizeActionsObserver,
-      this._actions
-    );
   }
 
   disconnectObservers() {
