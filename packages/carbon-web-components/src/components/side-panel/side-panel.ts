@@ -429,7 +429,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   private _resizeObserver = new ResizeObserver(() => {
     if (this._sidePanel) {
       this._checkUpdateBottomPadding();
-      // this.requestUpdate();
     }
   });
 
