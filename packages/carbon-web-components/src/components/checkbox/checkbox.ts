@@ -130,7 +130,6 @@ class BXCheckbox extends FocusMixin(FormMixin(LitElement)) {
         type="checkbox"
         part="input"
         class="${`${prefix}--checkbox`}"
-        aria-checked="${indeterminate ? 'mixed' : String(Boolean(checked))}"
         .checked="${checked}"
         ?disabled="${disabled}"
         .indeterminate="${indeterminate}"
