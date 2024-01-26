@@ -100,11 +100,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   private _hObserveResize: Handle | null = null;
 
   /**
-   * The handle for observing actions resize
-   */
-  private _hObserveActionsResize: Handle | null = null;
-
-  /**
    * The element that had focus before this side-panel gets open.
    */
   private _launcher: Element | null = null;
@@ -379,6 +374,16 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   }
 
+  private _checkUpdateBottomPadding = () => {
+    const actionHeightPx = this._actions?.offsetHeight + 16; // add additional 1rem spacing to bottom padding
+    const actionsHeight = `${Math.round(actionHeightPx / 16)}rem`;
+
+    this._sidePanel.style?.setProperty(
+      `--${blockClass}--content-bottom-padding`,
+      actionsHeight
+    );
+  };
+
   private _handleActionsChange(e: Event) {
     const target = e.target as HTMLSlotElement;
     const actions = target?.assignedElements();
@@ -407,13 +412,13 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       } else {
         actions[i].setAttribute('size', this.condensedActions ? 'lg' : 'xl');
         actions[i].classList.add(`${blockClassActionSet}__action-button`);
-        if (i === 0) {
-          actions[i].classList.add(
-            `${blockClassActionSet}__action-button--first`
-          );
-        }
       }
     }
+
+    setTimeout(() => {
+      // update after the updates above are applied
+      this._checkUpdateBottomPadding();
+    }, 1);
   }
 
   /**
@@ -423,18 +428,8 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   // @ts-ignore
   private _resizeObserver = new ResizeObserver(() => {
     if (this._sidePanel) {
-      const actionsContainer = this._sidePanel.querySelector(
-        `#actions`
-      ) as HTMLElement;
-
-      const actionHeightPx = actionsContainer?.offsetHeight + 16; // add additional 1rem spacing to bottom padding
-      const actionsHeight = `${Math.round(actionHeightPx / 16)}rem`;
-      this._sidePanel.style?.setProperty(
-        `--${blockClass}--content-bottom-padding`,
-        actionsHeight
-      );
-
-      this.requestUpdate();
+      this._checkUpdateBottomPadding();
+      // this.requestUpdate();
     }
   });
 
@@ -714,9 +709,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   disconnectObservers() {
     if (this._hObserveResize) {
       this._hObserveResize = this._hObserveResize.release();
-    }
-    if (this._hObserveActionsResize) {
-      this._hObserveActionsResize = this._hObserveActionsResize.release();
     }
 
     if (this._innerContent) {
