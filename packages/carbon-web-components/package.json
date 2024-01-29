@@ -1,7 +1,6 @@
 {
   "name": "@carbon/web-components",
-  "private": true,
-  "version": "2.1.0",
+  "version": "2.2.0",
   "publishConfig": {
     "access": "public"
   },
@@ -66,7 +65,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.3",
-    "@carbon/styles": "1.47.0",
+    "@carbon/styles": "1.48.1",
     "flatpickr": "4.6.1",
     "lit": "^3.1.0",
     "lodash-es": "^4.17.21"

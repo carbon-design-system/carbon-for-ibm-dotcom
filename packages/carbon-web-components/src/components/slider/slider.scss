@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2023
+// Copyright IBM Corp. 2019, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -25,13 +25,13 @@ $css--plex: true !default;
   }
 
   .#{$prefix}--slider__thumb {
-    transform: translate(-50%, -50%) #{'/*rtl:ignore*/'};
-
     // TODO when updating to core carbon's #15129
     z-index: 3;
-    width: 0.875rem;
-    height: 0.875rem;
+    block-size: 0.875rem;
+    inline-size: 0.875rem;
     inset: inherit;
+
+    transform: translate(-50%, -50%) #{'/*rtl:ignore*/'};
   }
 
   .#{$prefix}--slider__thumb:focus
