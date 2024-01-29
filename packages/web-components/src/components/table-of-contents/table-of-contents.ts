@@ -796,9 +796,7 @@ class C4DTableOfContents extends MediaQueryMixin(
             <div class="${prefix}--tableofcontents-container">
               <div
                 class="${prefix}--tableofcontents"
-                style="${pageIsRTL
-                  ? 'right'
-                  : 'left'}: -${currentScrollPosition}px">
+                style="inset-inline-start: -${currentScrollPosition}px">
                 ${pageIsRTL
                   ? html` <div class="${prefix}--sub-content-right"></div> `
                   : html` <div class="${prefix}--sub-content-left"></div> `}
