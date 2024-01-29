@@ -147,7 +147,7 @@ jobs:
       - name: Check failure file existence
         continue-on-error: true
         id: check_files
-        uses: andstor/file-existence-action@v2
+        uses: andstor/file-existence-action@v3
         with:
           files: "failure-wc.txt"
 
