@@ -160,7 +160,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * @param event The event.
    */
   protected _handleClickInner(event: MouseEvent) {
-    console.log('MATT', 'click event', (event.target as any)?.nodeName, (event.target as any)?.href);
+    console.log('MATT', 'click event', event.target.nodeName, event.target.href);
     if (
       (event.target as HTMLElement).closest('.bx--header__search--input') ===
       event.target
