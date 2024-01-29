@@ -141,7 +141,7 @@
 // Slug
 
 :host(#{$prefix}-modal) .#{$prefix}--modal-container {
-  @include callout-gradient('default');
+  @include callout-gradient('');
 
   background-color: $layer;
 }
