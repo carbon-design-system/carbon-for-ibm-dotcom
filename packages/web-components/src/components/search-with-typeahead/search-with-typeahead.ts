@@ -160,6 +160,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * @param event The event.
    */
   protected _handleClickInner(event: MouseEvent) {
+    console.log('MATT', 'click event', event.target.nodeName, event.target.href);
     if (
       (event.target as HTMLElement).closest('.bx--header__search--input') ===
       event.target
@@ -308,6 +309,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     const redirectUrlWithSearch = targetHref
       ? `${targetHref}`
       : `${base}?${searchParams.toString()}`;
+    console.log('MATT', redirectUrlWithSearch);
     if (
       this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
