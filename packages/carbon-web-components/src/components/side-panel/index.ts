@@ -8,4 +8,3 @@
  */
 
 import './side-panel';
-// import './side-panel-header';
