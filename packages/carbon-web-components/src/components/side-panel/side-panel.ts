@@ -22,6 +22,7 @@ import { moderate02 } from '@carbon/motion';
 import '../button/index';
 import '../layer/index';
 import Handle from '../../globals/internal/handle';
+import './side-panel-button-set';
 
 export { SIDE_PANEL_SIZE };
 
@@ -855,7 +856,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
               <slot></slot>
             </div>
 
-            <cds-button-set
+            <cds-side-panel-button-set
               id="actions"
               ?hidden=${this._actionsCount === 0}
               ?condensed=${condensedActions}
@@ -864,7 +865,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
               <slot
                 name="actions"
                 @slotchange=${this._handleActionsChange}></slot>
-            </cds-button-set>
+            </cds-side-panel-button-set>
           </div>
 
           <a

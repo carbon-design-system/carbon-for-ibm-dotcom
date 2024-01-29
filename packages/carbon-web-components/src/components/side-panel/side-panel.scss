@@ -289,6 +289,13 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     /* stylelint-disable-next-line selector-type-no-unknown */
     ::slotted(cds-button) {
       flex: 0 1 25%;
+      max-inline-size: to-rem(232px);
+    }
+
+    /* stylelint-disable-next-line selector-type-no-unknown */
+    ::slotted(cds-button[kind='ghost']) {
+      flex: 1 1 25%;
+      max-inline-size: none;
     }
 
     // -1 in @container query is for 1px left border
@@ -297,6 +304,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
       &:not([actions-multiple='triple']) ::slotted(cds-button) {
         // double and single on lg use 50%
         flex: 0 1 50%;
+        max-inline-size: none;
       }
     }
 
@@ -307,11 +315,13 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
       /* stylelint-disable-next-line selector-type-no-unknown */
       &[actions-multiple] ::slotted(cds-button) {
         flex: 0 0 100%;
+        max-inline-size: none;
       }
 
       /* stylelint-disable-next-line selector-type-no-unknown */
       &[actions-multiple='double'] ::slotted(cds-button) {
         flex: 0 1 50%;
+        max-inline-size: none;
       }
 
       &[actions-multiple='triple'] {
@@ -326,6 +336,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
       /* stylelint-disable-next-line selector-type-no-unknown */
       &[actions-multiple] ::slotted(cds-button) {
         flex: 0 0 100%;
+        max-inline-size: none;
       }
     }
   }
@@ -341,8 +352,6 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     /* stylelint-disable-next-line selector-type-no-unknown */
     ::slotted(cds-button) {
       @extend .#{$block-class-action-set}__action-button;
-
-      max-inline-size: none;
     }
 
     &[hidden] {
