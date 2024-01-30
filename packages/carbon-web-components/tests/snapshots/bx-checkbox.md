@@ -6,7 +6,6 @@
 
 ```
 <input
-  aria-checked="false"
   class="bx--checkbox"
   id="checkbox"
   part="input"
@@ -29,7 +28,6 @@
 
 ```
 <input
-  aria-checked="mixed"
   class="bx--checkbox"
   disabled=""
   id="checkbox"
