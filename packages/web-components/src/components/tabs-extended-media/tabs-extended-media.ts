@@ -31,7 +31,7 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
   sectionHeading = 'true';
 
   render() {
-    const { _isMobileVersion: isMobileVersion } = this;
+    const { _isLargeOrGreater: isLargeOrGreater } = this;
 
     return html`
       <div class="${prefix}--tabs-extended-media">
@@ -43,7 +43,7 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
             `
           : undefined}
         <div class="${prefix}--tabs-extended">
-          ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
+          ${isLargeOrGreater ? this._renderTabs() : this._renderAccordion()}
         </div>
       </div>
     `;
