@@ -32,14 +32,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSFooterNavGroup extends MediaQueryMixin(
   StableSelectorMixin(LitElement),
   {
-    [MQBreakpoints.MD]: MQDirs.MAX,
+    [MQBreakpoints.MD]: MQDirs.MIN,
   }
 ) {
   @state()
-  private _isMobile = this.carbonBreakpoints.md.matches;
+  private _isMediumOrGreater = this.carbonBreakpoints.md.matches;
 
-  protected mediaQueryCallbackMaxMD() {
-    this._isMobile = this.carbonBreakpoints.md.matches;
+  protected mediaQueryCallbackMD() {
+    this._isMediumOrGreater = this.carbonBreakpoints.md.matches;
   }
 
   /**
@@ -105,11 +105,11 @@ class DDSFooterNavGroup extends MediaQueryMixin(
     const {
       titleText,
       open,
-      _isMobile: isMobile,
+      _isMediumOrGreater: isMediumOrGreater,
       _handleClickExpando: handleClickExpando,
       _handleKeydownExpando: handleKeydownExpando,
     } = this;
-    const heading = !isMobile
+    const heading = isMediumOrGreater
       ? html`
           <h2 class="${prefix}--footer-nav-group__title">
             <slot name="title">${titleText}</slot>

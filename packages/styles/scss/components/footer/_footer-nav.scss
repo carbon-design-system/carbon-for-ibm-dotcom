@@ -26,10 +26,7 @@
 
       @include carbon--breakpoint('md') {
         border-top: 1px solid $ui-03;
-        padding: 0 $carbon--grid-gutter / 2;
-      }
-
-      @include carbon--breakpoint-between('md', 'lg') {
+        padding-inline: $carbon--grid-gutter / 2;
         padding-top: carbon--mini-units(2);
       }
 
