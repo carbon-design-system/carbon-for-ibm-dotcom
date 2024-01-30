@@ -31,16 +31,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
 class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
-  [MQBreakpoints.LG]: MQDirs.MAX,
+  [MQBreakpoints.LG]: MQDirs.MIN,
 }) {
   /**
    * Whether we're viewing smaller or larger window.
    */
   @state()
-  _isMobileVersion = this.carbonBreakpoints.lg.matches;
+  _isLargeOrGreater = this.carbonBreakpoints.lg.matches;
 
-  mediaQueryCallbackMaxLG() {
-    this._isMobileVersion = this.carbonBreakpoints.lg.matches;
+  mediaQueryCallbackLG() {
+    this._isLargeOrGreater = this.carbonBreakpoints.lg.matches;
   }
 
   /**
@@ -182,7 +182,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   updated(changedProperties) {
-    const { _isMobileVersion, _tabItems } = this;
+    const { _isLargeOrGreater, _tabItems } = this;
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
@@ -190,7 +190,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       _tabItems.forEach((tab, index) => {
         (tab as DDSTab).setIndex(index);
 
-        if (_isMobileVersion) {
+        if (!_isLargeOrGreater) {
           tab.addEventListener('click', this._handleAccordionClick.bind(this));
         }
       });
@@ -206,8 +206,8 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     }
 
     if (
-      (changedProperties.has('_isMobileVersion') && !_isMobileVersion) ||
-      (changedProperties.has('_tabItems') && !_isMobileVersion)
+      (changedProperties.has('_isLargeOrGreater') && _isLargeOrGreater) ||
+      (changedProperties.has('_tabItems') && _isLargeOrGreater)
     ) {
       // Set aria-label on tabs for desktop.
       _tabItems.forEach((tab, index) => {
@@ -295,10 +295,10 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   orientation = ORIENTATION.HORIZONTAL;
 
   render() {
-    const { _isMobileVersion: isMobileVersion } = this;
+    const { _isLargeOrGreater: isLargeOrGreater } = this;
     return html`
       <div class="${this._getOrientationClass()}">
-        ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
+        ${isLargeOrGreater ? this._renderTabs() : this._renderAccordion()}
       </div>
     `;
   }
