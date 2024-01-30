@@ -4295,7 +4295,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/icons-react": "npm:11.34.0"
+    "@carbon/icons-react": "npm:11.34.1"
     "@carbon/layout": "npm:11.20.1"
     "@carbon/styles": "npm:1.49.0-rc.0"
     "@carbon/telemetry": "npm:0.1.0"
@@ -4404,7 +4404,7 @@ __metadata:
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.20.1"
     "@carbon/motion": "npm:11.16.1"
-    "@carbon/pictograms-react": "npm:11.56.0"
+    "@carbon/pictograms-react": "npm:11.56.1"
     "@carbon/react": "npm:1.49.0-rc.0"
     "@carbon/styles": "npm:1.49.0-rc.0"
     "@carbon/telemetry": "npm:0.1.0"
@@ -4555,16 +4555,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:11.34.0":
-  version: 11.34.0
-  resolution: "@carbon/icons-react@npm:11.34.0"
+"@carbon/icons-react@npm:11.34.1":
+  version: 11.34.1
+  resolution: "@carbon/icons-react@npm:11.34.1"
   dependencies:
     "@carbon/icon-helpers": "npm:^10.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: e9a07606ebd5dea71811972b6325c01c0687d9b34a3adc783f62db86c04a5e19ad805f802931d5306d0840083eeeed36f0387c44ed5bb87747fae618a11dd350
+  checksum: 970581fdaee75b626416a18728c0362cb29a8719288cd2e01203672fa17c64265a67257f3e8b7d7e941c633c1b690db616d31930fbdaff83f00b3284aaa6b93e
   languageName: node
   linkType: hard
 
@@ -4615,16 +4615,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/pictograms-react@npm:11.56.0":
-  version: 11.56.0
-  resolution: "@carbon/pictograms-react@npm:11.56.0"
+"@carbon/pictograms-react@npm:11.56.1":
+  version: 11.56.1
+  resolution: "@carbon/pictograms-react@npm:11.56.1"
   dependencies:
     "@carbon/icon-helpers": "npm:^10.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: fe9ce8e53aee211bd5ff16531f37fa36345869fbdcbd8dc246d0e634d3f87d63149ce222b9ed14915e50163cd8208c9ca0828ef516e5773bd4b5f00a4d3294f3
+  checksum: bdb847921ec8b85b807169715ae7bf1bbfebb3c84fff8c50024942091f7cf84864c4303bf936994ec50a931abc6bb2a3cb9c2596a467cfe56d6ba7778acbaf1b
   languageName: node
   linkType: hard
 
