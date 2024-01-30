@@ -363,14 +363,14 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   // eslint-disable-next-line class-methods-use-this
   private _handleActionToolbarChange(e: Event) {
     const target = e.target as HTMLSlotElement;
-    const actions = target?.assignedElements();
+    const toolbarActions = target?.assignedElements();
 
-    this._hasActionToolbar = actions && actions.length > 0;
+    this._hasActionToolbar = toolbarActions && toolbarActions.length > 0;
 
     if (this._hasActionToolbar) {
-      for (const action of actions) {
-        // action size should always be md
-        action.setAttribute('size', 'sm');
+      for (const toolbarAction of toolbarActions) {
+        // toolbar actions size should always be sm
+        toolbarAction.setAttribute('size', 'sm');
       }
     }
   }
