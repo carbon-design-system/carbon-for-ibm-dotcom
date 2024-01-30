@@ -30,16 +30,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-tab`)
 class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
-  [MQBreakpoints.LG]: MQDirs.MAX,
+  [MQBreakpoints.LG]: MQDirs.MIN,
 }) {
   /**
    * Whether we're viewing smaller or larger window.
    */
   @state()
-  _isMobileVersion = this.carbonBreakpoints.lg.matches;
+  _isLargeOrGreater = this.carbonBreakpoints.lg.matches;
 
-  mediaQueryCallbackMaxLG() {
-    this._isMobileVersion = this.carbonBreakpoints.lg.matches;
+  mediaQueryCallbackLG() {
+    this._isLargeOrGreater = this.carbonBreakpoints.lg.matches;
   }
 
   /**
@@ -144,9 +144,9 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   render() {
-    return this._isMobileVersion
-      ? this._renderAccordionItem()
-      : this._renderTabItem();
+    return this._isLargeOrGreater
+      ? this._renderTabItem()
+      : this._renderAccordionItem();
   }
 
   static get stableSelector() {
