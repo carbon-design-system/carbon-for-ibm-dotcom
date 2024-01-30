@@ -38,7 +38,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     box-sizing: border-box;
   }
 
-  #side-panel {
+  .#{$block-class} {
     @extend .#{$block-class}__container;
 
     /* for actions container query - note this changes the size calculation */
@@ -103,7 +103,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #overlay {
+  .#{$block-class}__overlay {
     @extend .#{$block-class}__overlay;
 
     &[opening] {
@@ -133,7 +133,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #title-container {
+  .#{$block-class}__title-container {
     @extend .#{$block-class}__title-container;
 
     &::before {
@@ -167,41 +167,42 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #side-panel #title-container[has-action-toolbar]::before {
+  .#{$block-class}
+    .#{$block-class}__title-container[has-action-toolbar]::before {
     content: initial; /* remove border below */
   }
 
-  #nav-back-button {
+  .#{$block-class}__nav-back-button {
     @extend .#{$block-class}__navigation-back-button;
   }
 
-  #collapsed-title {
+  .#{$block-class}__collapsed-title {
     @extend .#{$block-class}__collapsed-title-text;
   }
 
-  #title {
+  .#{$block-class}__title {
     @extend .#{$block-class}__title-text;
   }
 
-  #side-panel #title {
+  .#{$block-class} .#{$block-class}__title {
     margin-block-end: calc(-1 * var(--#{$block-class}--reduce-titles-by));
   }
 
-  #slug-and-close {
+  .#{$block-class}__slug-and-close {
     @extend .#{$block-class}__slug-and-close;
   }
 
-  #close-button {
+  .#{$block-class}__close-button {
     @extend .#{$block-class}__close-button;
   }
 
-  #label {
+  .#{$block-class}__label {
     @extend .#{$block-class}__label-text;
 
     // opacity: var(--#{$block-class}--subtitle-opacity, 1);
   }
 
-  #subtitle {
+  .#{$block-class}__subtitle {
     @extend .#{$block-class}__subtitle-text;
 
     &[hidden] {
@@ -223,7 +224,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #action-toolbar {
+  .#{$block-class}__action-toolbar {
     @extend .#{$block-class}__action-toolbar;
 
     margin-block-end: 0;
@@ -249,11 +250,11 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #side-panel #action-toolbar[hidden] {
+  .#{$block-class} .#{$block-class}__action-toolbar[hidden] {
     @extend .#{$prefix}--visually-hidden;
   }
 
-  #inner-content {
+  .#{$block-class}__inner-content {
     @extend .#{$block-class}__inner-content;
 
     block-size: calc(
@@ -273,11 +274,11 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #side-panel[has-slug] .#{$block-class}__inner-content {
+  .#{$block-class}[has-slug] .#{$block-class}__inner-content {
     @include callout-gradient('default');
   }
 
-  #body-content {
+  .#{$block-class}__body-content {
     @extend .#{$block-class}__body-content;
   }
 
@@ -299,7 +300,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
 
     // -1 in @container query is for 1px left border
-    @container (width <= calc(#{map.get(spv.$side-panel-sizes, lg)} + 1px)) {
+    @container (width <= #{map.get(spv.$side-panel-sizes, lg)}) {
       /* stylelint-disable-next-line selector-type-no-unknown */
       &:not([actions-multiple='triple']) ::slotted(cds-button) {
         // double and single on lg use 50%
@@ -309,7 +310,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
 
     // -1 in @container query is for 1px left border
-    @container (width <= calc(#{map.get(spv.$side-panel-sizes, md)} - 1px)) {
+    @container (width <= #{map.get(spv.$side-panel-sizes, md)}) {
       // md is 50% for two and 100% for one
       // column for tripple
       /* stylelint-disable-next-line selector-type-no-unknown */
@@ -330,7 +331,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
 
     // -1 in @container query is for 1px left border
-    @container (width <= calc(#{map.get(spv.$side-panel-sizes, sm)} - 1px)) {
+    @container (width <= #{map.get(spv.$side-panel-sizes, sm)}) {
       --flex-direction: column;
 
       /* stylelint-disable-next-line selector-type-no-unknown */
@@ -341,7 +342,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     }
   }
 
-  #actions {
+  .#{$block-class}__actions {
     @extend .#{$block-class}__actions-container;
     @extend .#{$block-class-action-set};
     @include actions-placement();
@@ -374,7 +375,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     $sizes: 'xs' 'sm';
     @each $s in $sizes {
       &[size='#{$s}'] {
-        @extend .#{$block-class-action-set}--#{$s};
+        @extend .#{$block-class-action-set}--#{$s} !optional;
       }
     }
   }

@@ -120,34 +120,34 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   /**
    * Node to track side panel.
    */
-  @query('#side-panel')
+  @query(`.${blockClass}`)
   private _sidePanel!: HTMLDivElement;
 
   /**
    * Node to track size of actions
    */
-  @query('#actions')
+  @query(`.${blockClass}__actions`)
   private _actions!: HTMLElement;
 
-  @query('#label')
+  @query(`.${blockClass}__label`)
   private _label!: HTMLElement;
 
-  @query('#title-container')
+  @query(`.${blockClass}__title-container`)
   private _titleContainer!: HTMLElement;
 
-  @query('#title')
+  @query(`.${blockClass}__title`)
   private _title!: HTMLElement;
 
-  @query('#subtitle')
+  @query(`.${blockClass}__subtitle`)
   private _subtitle!: HTMLElement;
 
-  @query('#action-toolbar')
+  @query(`.${blockClass}__action-toolbar`)
   private _actionToolbar!: HTMLElement;
 
-  @query('#inner-content')
+  @query(`.${blockClass}__inner-content`)
   private _innerContent!: HTMLElement;
 
-  @query('#body-content')
+  @query(`.${blockClass}__body-content`)
   private _bodyContent!: HTMLElement;
 
   @state()
@@ -622,7 +622,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   /**
    * Determines whether the side panel should render the condensed version (affects action buttons primarily)
    */
-  @property({ type: Boolean, reflect: true, attribute: 'condense-actions' })
+  @property({ type: Boolean, reflect: true, attribute: 'condensed-actions' })
   condensedActions = false;
 
   /**
@@ -753,7 +753,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
     const titleTemplate = html`
       <div
-        id="title-container"
+        class=${`${blockClass}__title-container`}
         ?detail-step=${currentStep > 0}
         ?has-title=${!!title}
         ?no-title-animation=${!animateTitle}
@@ -766,7 +766,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
               kind="ghost"
               size="sm"
               tooltip-text=${navigationBackIconDescription}
-              id="nav-back-button"
+              class=${`${blockClass}__nav-back-button`}
               @click=${this._handleNavigateBack}>
               ${ArrowLeft16({ slot: 'icon' })}
             </cds-icon-button>`
@@ -774,24 +774,29 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
         <!-- render title label -->
         ${title?.length && labelText?.length
-          ? html` <p id="label">${labelText}</p>`
+          ? html` <p class=${`${blockClass}__label`}>${labelText}</p>`
           : ''}
 
         <!-- render collapsed title -->
         ${animateTitle && title?.length && !this._reducedMotion.matches
-          ? html`<h2 id="collapsed-title" title=${title} aria-hidden="true">
+          ? html`<h2
+              class=${`${blockClass}__collapsed-title`}
+              title=${title}
+              aria-hidden="true">
               ${title}
             </h2>`
           : ''}
 
         <!-- render title -->
         ${title?.length
-          ? html`<h2 id="title" title=${title}>${title}</h2>`
+          ? html`<h2 class=${`${blockClass}__title`} title=${title}>
+              ${title}
+            </h2>`
           : ''}
       </div>
 
       <!-- render close button area -->
-      <div id="slug-and-close">
+      <div class=${`${blockClass}__slug-and-close`}>
         <slot name="slug" @slotchange=${this._handleSlugChange}></slot>
         <!-- {normalizedSlug} -->
         <cds-icon-button
@@ -799,7 +804,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
           kind="ghost"
           size="sm"
           tooltip-text=${closeIconDescription}
-          id="close-button"
+          class=${`${blockClass}__close-button`}
           @click=${this._handleCloseClick}>
           ${Close20({ slot: 'icon' })}
         </cds-icon-button>
@@ -807,7 +812,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
       <!-- render sub title -->
       <p
-        id="subtitle"
+        class=${`${blockClass}__subtitle`}
         ?hidden=${!this._hasSubtitle}
         ?no-title-animation=${!animateTitle}
         ?no-action-toolbar=${!this._hasActionToolbar}
@@ -816,7 +821,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       </p>
 
       <div
-        id="action-toolbar"
+        class=${`${blockClass}__action-toolbar`}
         ?hidden=${!this._hasActionToolbar}
         ?no-title-animation=${!animateTitle}>
         <slot
@@ -827,7 +832,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
     return html`
       <div
-        id="side-panel"
+        class=${blockClass}
         part="dialog"
         role="complementary"
         placement="${placement}"
@@ -848,16 +853,16 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
           ${!animateTitle ? titleTemplate : ''}
 
           <div
-            id="inner-content"
+            class=${`${blockClass}__inner-content`}
             ?no-title-animation=${!animateTitle}
             ?has-actions=${this._actionsCount > 0}>
             ${animateTitle ? titleTemplate : ''}
-            <div id="body-content">
+            <div class=${`${blockClass}__body-content`}>
               <slot></slot>
             </div>
 
             <cds-side-panel-button-set
-              id="actions"
+              class=${`${blockClass}__actions`}
               ?hidden=${this._actionsCount === 0}
               ?condensed=${condensedActions}
               actions-multiple=${actionsMultiple}
@@ -880,7 +885,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       ${includeOverlay
         ? html`<div
             ?slide-in=${slideIn}
-            id="overlay"
+            class=${`${blockClass}__overlay`}
             ?open=${this.open}
             ?opening=${open && !this._isOpen}
             ?closing=${!open && this._isOpen}

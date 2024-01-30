@@ -276,7 +276,7 @@ const DefaultTemplate = (argsIn) => {
     ),
     animateTitle: boolean('animate-title (Title animates on scroll)', true),
     class: text('class', 'a-user-class'),
-    condenseActions: boolean('condense-actions', false),
+    condensedActions: boolean('condensed-actions', false),
     content: getContent(select('Slot (default), panel contents', contents, 2)),
     includeOverlay: boolean('include-overlay', true),
     label: getLabel(select('label', labels, 2)),
@@ -313,7 +313,7 @@ const DefaultTemplate = (argsIn) => {
     <cds-side-panel
       ?animate-title=${args.animateTitle}
       class=${args.class}
-      ?condense-actions=${args.condensedActions}
+      ?condensed-actions=${args.condensedActions}
       current-step="0"
       ?include-overlay=${args.includeOverlay}
       selector-initial-focus=${args.selectorInitialFocus}
