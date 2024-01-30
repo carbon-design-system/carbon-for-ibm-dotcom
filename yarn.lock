@@ -4295,7 +4295,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/icons-react": "npm:11.34.0"
+    "@carbon/icons-react": "npm:11.34.1"
     "@carbon/layout": "npm:11.20.1"
     "@carbon/styles": "npm:1.48.1"
     "@carbon/telemetry": "npm:0.1.0"
@@ -4548,16 +4548,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:11.34.0":
-  version: 11.34.0
-  resolution: "@carbon/icons-react@npm:11.34.0"
+"@carbon/icons-react@npm:11.34.1, @carbon/icons-react@npm:^11.34.1":
+  version: 11.34.1
+  resolution: "@carbon/icons-react@npm:11.34.1"
   dependencies:
     "@carbon/icon-helpers": "npm:^10.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: e9a07606ebd5dea71811972b6325c01c0687d9b34a3adc783f62db86c04a5e19ad805f802931d5306d0840083eeeed36f0387c44ed5bb87747fae618a11dd350
+  checksum: 970581fdaee75b626416a18728c0362cb29a8719288cd2e01203672fa17c64265a67257f3e8b7d7e941c633c1b690db616d31930fbdaff83f00b3284aaa6b93e
   languageName: node
   linkType: hard
 
@@ -4571,19 +4571,6 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: beb78e827e0eb81a55ae7b2d3ee7f07cf89e664445d6c4be01095d78d72f15b2ab5889109cf77add940c2c1e221747cbcaad62d28ec57d13ccf7a489493fecb9
-  languageName: node
-  linkType: hard
-
-"@carbon/icons-react@npm:^11.34.1":
-  version: 11.34.1
-  resolution: "@carbon/icons-react@npm:11.34.1"
-  dependencies:
-    "@carbon/icon-helpers": "npm:^10.45.0"
-    "@carbon/telemetry": "npm:0.1.0"
-    prop-types: "npm:^15.7.2"
-  peerDependencies:
-    react: ">=16"
-  checksum: 970581fdaee75b626416a18728c0362cb29a8719288cd2e01203672fa17c64265a67257f3e8b7d7e941c633c1b690db616d31930fbdaff83f00b3284aaa6b93e
   languageName: node
   linkType: hard
 
