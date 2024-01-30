@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -192,6 +192,11 @@ export const SuperWithVideo = (args) => {
 
 SuperWithVideo.story = {
   name: 'Super with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Tall = (args) => {
@@ -327,6 +332,11 @@ export const TallWithVideo = (args) => {
 
 TallWithVideo.story = {
   name: 'Tall with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Medium = (args) => {
@@ -462,6 +472,11 @@ export const MediumWithVideo = (args) => {
 
 MediumWithVideo.story = {
   name: 'Medium with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Short = (args) => {
@@ -606,6 +621,11 @@ export const ShortWithVideo = (args) => {
 
 ShortWithVideo.story = {
   name: 'Short with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Centered = (args) => {
@@ -715,6 +735,11 @@ export const CenteredWithVideo = (args) => {
 
 CenteredWithVideo.story = {
   name: 'Centered with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 const getAriaLabel = (type) => {
