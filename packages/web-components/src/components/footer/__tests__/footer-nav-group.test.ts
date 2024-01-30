@@ -80,7 +80,7 @@ describe('dds-footer-nav-group', function () {
     let group: DDSFooterNavGroup | null;
 
     beforeEach(async function () {
-      spyOn(window, 'matchMedia').and.returnValue(new MockMediaQueryList(true));
+      spyOn(window, 'matchMedia').and.returnValue(new MockMediaQueryList(false));
       render(template(), document.body);
       await Promise.resolve();
       group = document.body.querySelector('dds-footer-nav-group');
