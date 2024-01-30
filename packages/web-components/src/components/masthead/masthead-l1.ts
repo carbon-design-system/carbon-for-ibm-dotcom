@@ -977,13 +977,11 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { l1Data } = this;
     // We don't need to perform updates related to the Contact Module if the CTA
     // isn't configured to interact with it and it's the only update.
-    if (
-      changedProperties.has('contactCtaLabel') &&
-      changedProperties.size === 1
-    ) {
-      if (!(l1Data?.actions?.cta?.ctaType === CTA_TYPE.CHAT)) {
-        return false;
-      }
+    const contactLabelIsOnlyChange =
+      changedProperties.has('contactCtaLabel') && changedProperties.size === 1;
+    const ctaTypeIsChat = l1Data?.actions?.cta?.ctaType === CTA_TYPE.CHAT;
+    if (contactLabelIsOnlyChange && !ctaTypeIsChat) {
+      return false;
     }
     return true;
   }
