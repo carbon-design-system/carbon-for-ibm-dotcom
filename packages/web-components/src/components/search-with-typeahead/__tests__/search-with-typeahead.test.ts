@@ -197,7 +197,7 @@ describe('dds-search-with-typeahead', function () {
           cancelable: true,
         })
       );
-      await new Promise((r) => setTimeout(r, 2500));
+      await new Promise((r) => setTimeout(r, 4500));
       (
         search.shadowRoot!.querySelector(
           'dds-search-with-typeahead-item'
