@@ -368,7 +368,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             data-ibm-contact="contact-link"
             href="javascript:void 0"
             aria-label="${ifDefined(contactCtaLabel)}">
-            ${cta.title}${icon}
+            <span data-ibm-contact="contact-text">${cta.title}</span>${icon}
           </a>
         `;
       } else if (cta?.url) {

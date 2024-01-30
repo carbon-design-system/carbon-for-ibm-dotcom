@@ -491,12 +491,12 @@ export default {
         ${story()}
         <script>
           window.digitalData.page.pageInfo.ibm.contactModuleConfiguration = {
-            contactInformationBundleKey: {
+            routing: {
               focusArea: 'Cloud - Automation - All',
               languageCode: 'en',
               regionCode: 'US',
             },
-            contactModuleTranslationKey: {
+            translation: {
               languageCode: 'en',
               regionCode: 'US',
             },
