@@ -129,7 +129,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * The `aria-label` attribute for the Contact CTA trigger button.
    */
   @state()
-  contactCtaLabel = 'Contact';
+  contactCtaLabel = 'Show contact window';
 
   /**
    * The translated label for the overview links visible on mobile
@@ -352,8 +352,9 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    *
    * @returns {_TemplateResult} A template fragment representing the L1 CTA
    */
-  protected _renderCta(cta: L1CtaLink | undefined): _TemplateResult | '' {
-    const { isMobileVersion, contactCtaLabel } = this;
+  protected _renderCta(): _TemplateResult | '' {
+    const { isMobileVersion, contactCtaLabel, l1Data } = this;
+    const { cta } = l1Data?.actions || {};
     const classes = isMobileVersion
       ? `${prefix}--masthead__l1-dropdown-cta`
       : `${prefix}--masthead__l1-cta`;
@@ -389,7 +390,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   protected _renderL1TopNav() {
     const { l1Data, direction, _scrollL1TopNav: scrollL1TopNav } = this;
     const { url, title, actions, menuItems } = l1Data ?? {};
-    const { cta, login } = actions ?? {};
+    const { login } = actions ?? {};
 
     return html`
       <div
@@ -439,7 +440,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             </div>
           `
         : ''}
-      ${this._renderCta(cta)}
+      ${this._renderCta()}
       <div
         class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--end"></div>
     `;
@@ -632,7 +633,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               </a>
             </li>`
           : ''}
-        ${cta ? html`<li>${this._renderCta(cta)}</li>` : ''}
+        ${cta ? html`<li>${this._renderCta()}</li>` : ''}
       </ul>
     `;
   }
