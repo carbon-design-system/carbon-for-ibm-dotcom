@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,6 @@ const gulp = require('gulp');
 const filter = require('gulp-filter');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
-const minifyHTMLLiterals = require('gulp-minify-html-literals');
 const stripComments = require('strip-comments');
 const babelPluginResourceJSPaths = require('../../../tools/babel-plugin-resource-js-paths');
 
@@ -35,17 +34,6 @@ function scripts() {
         `!${config.srcDir}/**/ibmdotcom-web-components-*.ts`,
       ])
       .pipe(sourcemaps.init())
-      .pipe(minifyHTMLLiterals({
-        failOnError: true,
-        options: {
-          minifyOptions: {
-            caseSensitive: true,
-            collapseInlineTagWhitespace: true,
-            collapseWhitespace: true,
-            removeComments: true,
-          },
-        },
-      }))
       .pipe(
         babel({
           presets: ['@babel/preset-modules', '@babel/preset-env'],
