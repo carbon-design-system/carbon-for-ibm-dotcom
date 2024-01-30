@@ -342,6 +342,13 @@ class CDSSelect extends FormMixin(LitElement) {
       // given reflecting `value` requires child `<option>`s/`<optgroup>`s being there beforehand
       this._selectNode.value = !value ? placeholderItemValue : value;
     }
+
+    this.shadowRoot
+      ?.querySelector("slot[name='slug']")
+      ?.classList.toggle(
+        `${prefix}--slug--revert`,
+        this.querySelector(`${prefix}-slug`)?.hasAttribute('revert-active')
+      );
   }
 
   render() {
