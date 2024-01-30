@@ -18,11 +18,12 @@ import storyDocs from './side-panel-story.mdx';
 import { SIDE_PANEL_PLACEMENT } from './defs';
 import Settings from '@carbon/icons/lib/settings/16';
 import Trashcan from '@carbon/icons/lib/trash-can/16';
+import { prefix } from '../../globals/settings';
 
 import styles from './story-styles.scss';
 import { BUTTON_KIND } from '../button/button';
 const toggleButton = () => {
-  document.querySelector('cds-side-panel')?.toggleAttribute('open');
+  document.querySelector(`${prefix}-side-panel`)?.toggleAttribute('open');
 };
 
 const sizes = {

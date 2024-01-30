@@ -405,7 +405,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     for (let i = 0; i < actionsCount; i++) {
       if (i > 3) {
         // hide excessive side panel actions
-        actions[i].setAttribute('hidden', 'hidden');
+        actions[i].setAttribute('hidden', '');
         actions[i].setAttribute(
           'data-actions-limit-3-exceeded',
           `${actions.length}`
@@ -696,7 +696,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   slideIn = false;
 
   /**
-   * Sets the subtitle text
+   * Sets the title text
    */
   @property({ reflect: false, type: String })
   title;
