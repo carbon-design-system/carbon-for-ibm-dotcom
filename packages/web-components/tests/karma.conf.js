@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,32 +52,30 @@ module.exports = function setupKarma(config) {
 
   config.set({
     basePath: '..',
-
     browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(
       normalizeBrowser
     ),
-
     frameworks: ['jasmine', 'snapshot'],
-
     client: {
       jasmine: {
         random: !!random,
       },
     },
-
     files: [
-      'src/polyfills/index.ts',
-      'tests/utils/snapshot.js',
-      'tests/snapshots/**/*.md',
+      {
+        pattern: 'tests/utils/snapshot.js',
+      },
+      {
+        pattern: 'tests/snapshots/**/*.md',
+        type: 'html',
+      },
     ].concat(specs.length > 0 ? specs : ['tests/karma-test-shim.js']),
-
     preprocessors: {
       'src/**/*.[jt]s': ['webpack', 'sourcemap'], // For generatoring coverage report for untested files
       'tests/karma-test-shim.js': ['webpack', 'sourcemap'],
       'tests/utils/**/*.js': ['webpack', 'sourcemap'],
       'tests/snapshots/**/*.md': ['snapshot'],
     },
-
     webpack: {
       mode: 'development',
       devtool: 'inline-source-maps',
@@ -179,7 +177,6 @@ module.exports = function setupKarma(config) {
           },
         ],
       },
-
       plugins: [
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('test'),
@@ -191,18 +188,15 @@ module.exports = function setupKarma(config) {
         }),
       ],
     },
-
     webpackMiddleware: {
       noInfo: !verbose,
     },
-
     customLaunchers: {
       Chrome_Travis: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox'],
       },
     },
-
     plugins: [
       require('karma-jasmine'),
       require('karma-spec-reporter'),
@@ -213,9 +207,7 @@ module.exports = function setupKarma(config) {
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
     ],
-
     reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul'])],
-
     coverageIstanbulReporter: {
       reports: ['html', 'text'],
       dir: path.join(__dirname, 'coverage'),
@@ -223,7 +215,6 @@ module.exports = function setupKarma(config) {
       fixWebpackSourcePaths: true,
       verbose,
     },
-
     snapshot: {
       prune: !noPruneShapshot,
       update: updateSnapshot,
@@ -231,18 +222,12 @@ module.exports = function setupKarma(config) {
         return path.resolve(basePath, `tests/snapshots/${suiteName}.md`);
       },
     },
-
     port: 9876,
-
     colors: true,
-
     browserNoActivityTimeout: 60000,
-
     autoWatch: true,
     autoWatchBatchDelay: 400,
-
     logLevel: verbose ? config.LOG_DEBUG : config.LOG_INFO,
-
     concurrency: Infinity,
   });
 };
