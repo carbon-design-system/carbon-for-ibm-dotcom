@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,6 +24,8 @@ const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const multiInput = require('rollup-plugin-multi-input').default;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
+const minifyHTMLLiterals =
+  require('rollup-plugin-minify-html-literals').default;
 
 const ibmdotcomIcon = require('./rollup-plugin-ibmdotcom-icon');
 const litSCSS = require('./rollup-plugin-lit-scss');
@@ -167,6 +169,17 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
+      minifyHTMLLiterals({
+        failOnError: true,
+        options: {
+          minifyOptions: {
+            caseSensitive: true,
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            removeComments: true,
+          },
+        },
+      }),
       ibmdotcomIcon(),
       injectProcessEnv(
         {
@@ -193,26 +206,6 @@ function getRollupConfig({
           '@babel/plugin-transform-nullish-coalescing-operator',
           ['@babel/plugin-transform-object-rest-spread', { useBuiltIns: true }],
           '@babel/plugin-transform-optional-chaining',
-          ...(mode === 'development'
-            ? []
-            : [
-                [
-                  'template-html-minifier',
-                  {
-                    modules: {
-                      'lit-html': ['html'],
-                      'lit-element': ['html'],
-                    },
-                    htmlMinifier: {
-                      collapseWhitespace: true,
-                      conservativeCollapse: true,
-                      removeComments: true,
-                      caseSensitive: true,
-                      minifyCSS: true,
-                    },
-                  },
-                ],
-              ]),
         ],
       }),
       // We are using `carbon-web-components` code merely as the source of inheritance,
