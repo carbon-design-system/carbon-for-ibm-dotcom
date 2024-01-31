@@ -17,7 +17,7 @@ import {
   L1MenuItem as _L1MenuItem,
   L1SubmenuSection as _L1SubmenuSection,
   L1SubmenuSectionHeading,
-  MastheadL1
+  MastheadL1,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -360,12 +360,10 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     // Adds wrapper markup in desktop displays.
     const desktopWrapper = (markup: _TemplateResult) => {
       if (!isMobileVersion) {
-        return html`
-          <div class="${classname}-inner">${markup}</div>
-        `;
+        return html` <div class="${classname}-inner">${markup}</div> `;
       }
       return markup;
-    }
+    };
 
     if (cta && cta?.title) {
       if (cta?.ctaType === CTA_TYPE.CHAT) {
@@ -375,7 +373,8 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             data-ibm-contact="contact-link"
             aria-label="${ifDefined(contactCtaLabel)}">
             ${desktopWrapper(
-              html`<span data-ibm-contact="contact-text">${cta.title}</span>${Chat16()}`
+              html`<span data-ibm-contact="contact-text">${cta.title}</span
+                >${Chat16()}`
             )}
           </button>
         `;
@@ -383,9 +382,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         const icon = isMobileVersion ? ArrowRight16() : '';
         return html`
           <a class="${classname}" href="${cta.url}">
-            ${desktopWrapper(
-              html`${cta.title}${icon}`
-            )}
+            ${desktopWrapper(html`${cta.title}${icon}`)}
           </a>
         `;
       }
