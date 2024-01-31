@@ -3318,7 +3318,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": "npm:2.2.0"
     "@carbon/ibmdotcom-utilities": "npm:2.2.0"
     "@carbon/icon-helpers": "npm:10.45.1"
-    "@carbon/icons": "npm:11.34.0"
+    "@carbon/icons": "npm:11.34.1"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.20.1"
     "@carbon/motion": "npm:11.16.1"
@@ -3479,10 +3479,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:11.34.0":
-  version: 11.34.0
-  resolution: "@carbon/icons@npm:11.34.0"
-  checksum: e0e8df64715501c776ce3dbf646201e31b045ab5cc23d4b10da89804574ad7aa072764a5b097b5a24ec593e605a8dc4cdda14dc4bf8cef0899cd66306e03422c
+"@carbon/icons@npm:11.34.1":
+  version: 11.34.1
+  resolution: "@carbon/icons@npm:11.34.1"
+  checksum: b24dc17886565c1a7fd98811dce79d3a7e42644ded82bdd277940f4f1111dc9d94658125b7ef386424afe0381c03b0037f1310847770d8c42d53e0b9b12743fc
   languageName: node
   linkType: hard
 
@@ -3632,7 +3632,7 @@ __metadata:
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
     "@carbon/icon-helpers": "npm:10.45.1"
-    "@carbon/icons": "npm:11.34.0"
+    "@carbon/icons": "npm:11.34.1"
     "@carbon/styles": "npm:1.48.1"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
@@ -7872,11 +7872,11 @@ __metadata:
   linkType: hard
 
 "@types/hast@npm:^2.0.0":
-  version: 2.3.9
-  resolution: "@types/hast@npm:2.3.9"
+  version: 2.3.10
+  resolution: "@types/hast@npm:2.3.10"
   dependencies:
     "@types/unist": "npm:^2"
-  checksum: 32a742021a973b1e23399f09a21325fda89bf55486068ef7c6364f5054b991cc8ab007f1134cc9d6c7030b6ed60633d70f7401dffb3dec8d10c997330d458a3f
+  checksum: 41531b7fbf590b02452996fc63272479c20a07269e370bd6514982cbcd1819b4b84d3ea620f2410d1b9541a23d08ce2eeb0a592145d05e00e249c3d56700d460
   languageName: node
   linkType: hard
 
@@ -8099,18 +8099,18 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:>=12":
-  version: 20.11.11
-  resolution: "@types/node@npm:20.11.11"
+  version: 20.11.12
+  resolution: "@types/node@npm:20.11.12"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: b5603c6576af14d90b03d21d9c5b7dac372770681bcd336bab30092b42d9e41c06c613dbd016f99b9bce586a5f1540f4aa7d83acb6e79da1a38e2c0914e817cf
+  checksum: 26efca2c1a2d97d1db0e8c03964361bf3209259715e31bd856eaf783a9ccb1536405870e19613f2c142bc03ebcfec8a556ae37bae759daac5d5d695aa1197d2e
   languageName: node
   linkType: hard
 
 "@types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0, @types/node@npm:^16.4.7":
-  version: 16.18.76
-  resolution: "@types/node@npm:16.18.76"
-  checksum: 554eb4b94b6ac4cfdf1a12f446399c5f60723c46f7d0227c04e1f6b8578a2ae26e8132bb6e05f7dbc9460a85c166bd241b2390d80b814bd3b68ceb5e52478b5d
+  version: 16.18.77
+  resolution: "@types/node@npm:16.18.77"
+  checksum: e77c1c6406e2db4a7e50e2da637f2c8c0683a61345d679a5383ddf13c98f00d348266719cd797bdab4dfd9c80c47356e23b378509c0b3115c48f911df32ece4e
   languageName: node
   linkType: hard
 
@@ -8122,11 +8122,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^18.11.9":
-  version: 18.19.10
-  resolution: "@types/node@npm:18.19.10"
+  version: 18.19.11
+  resolution: "@types/node@npm:18.19.11"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 95795b1aee78f2ca364caa14aeec6d793581be2d228e0293180ef1fe700fc3af12aa28afe94ee042d794c60ba51dbf7ac94fbfa074dba35512812f5f5ed506a7
+  checksum: e69b05408224297a11216eb4997e83b83a6a5690e5abd4fa991dddd99533c8be87aac0284cf1e8f96fc38f2c75a2ad81cc291b6252a008419f51ae9dc0c12864
   languageName: node
   linkType: hard
 
