@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -632,6 +632,12 @@ class CDSTable extends HostListenerMixin(LitElement) {
     }
 
     if (changedProperties.has('isSelectable')) {
+      this._tableHeaderRow.setAttribute('selection-name', 'header');
+      this._tableRows.forEach((e, index) => {
+        if (!e.hasAttribute('selection-name')) {
+          e.setAttribute('selection-name', index);
+        }
+      });
       this.headerCount++;
     }
 
