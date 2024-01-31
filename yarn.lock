@@ -2534,6 +2534,7 @@ __metadata:
     rollup: "npm:^2.55.1"
     rollup-plugin-analyzer: "npm:^4.0.0"
     rollup-plugin-inject-process-env: "npm:^1.3.1"
+    rollup-plugin-minify-html-literals: "npm:^1.2.6"
     rollup-plugin-multi-input: "npm:^1.3.1"
     rollup-plugin-sizes: "npm:^1.0.4"
     rtlcss: "npm:^2.4.0"
@@ -2818,6 +2819,7 @@ __metadata:
     replace-ext: "npm:^2.0.0"
     resize-observer-polyfill: "npm:^1.5.0"
     rollup: "npm:^2.55.1"
+    rollup-plugin-minify-html-literals: "npm:^1.2.6"
     rollup-plugin-multi-input: "npm:^1.3.1"
     rtlcss: "npm:^3.0.0"
     sass: "npm:~1.69.0"
@@ -6875,6 +6877,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/clean-css@npm:*":
+  version: 4.2.11
+  resolution: "@types/clean-css@npm:4.2.11"
+  dependencies:
+    "@types/node": "npm:*"
+    source-map: "npm:^0.6.0"
+  checksum: 385337a881c7870664d8987f12b9c814d835104dcf5f1737b74ab759ca68424ce93636cbff73ea9c41290c3dc2a92a4cc6246869bd9982255cfa28dcc2ccec93
+  languageName: node
+  linkType: hard
+
 "@types/clone@npm:^0.1.29":
   version: 0.1.30
   resolution: "@types/clone@npm:0.1.30"
@@ -7050,6 +7062,17 @@ __metadata:
   version: 6.1.0
   resolution: "@types/html-minifier-terser@npm:6.1.0"
   checksum: 06bb3e1e8ebff43602c826d67f53f1fd3a6b9c751bfbc67d7ea4e85679446a639e20e60adad8c9d44ab4baf1337b3861b91e7e5e2be798575caf0cc1a5712552
+  languageName: node
+  linkType: hard
+
+"@types/html-minifier@npm:^3.5.3":
+  version: 3.5.3
+  resolution: "@types/html-minifier@npm:3.5.3"
+  dependencies:
+    "@types/clean-css": "npm:*"
+    "@types/relateurl": "npm:*"
+    "@types/uglify-js": "npm:*"
+  checksum: bad3bece7ec0c29d81266a5884ade79a6d6fb5c10b9a7b79e17dae13290052776a1a5a571125fd5f47e396cd45304eafaec41b68bf42d0dd765356cf77a6e088
   languageName: node
   linkType: hard
 
@@ -7438,6 +7461,13 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: fab3a5960e710aad6c16ffe57f48a470c6bbbe9e6363f70accf114191ea3192a204e33b5657324f14e64b2095986327db6b728fc15156e05f7d30b6dca0d66a3
+  languageName: node
+  linkType: hard
+
+"@types/relateurl@npm:*":
+  version: 0.2.33
+  resolution: "@types/relateurl@npm:0.2.33"
+  checksum: a4b7876cc24da3eddc1202d9f57fb6cdd551ff3d884124365dd15012dde20c2b4c19eee9bcd3b17e7c43e8edbe82a33753a6c266e41e3761283d44e6234d47da
   languageName: node
   linkType: hard
 
@@ -11131,7 +11161,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camel-case@npm:3.0.x":
+"camel-case@npm:3.0.x, camel-case@npm:^3.0.0":
   version: 3.0.0
   resolution: "camel-case@npm:3.0.0"
   dependencies:
@@ -18818,6 +18848,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-minifier@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "html-minifier@npm:4.0.0"
+  dependencies:
+    camel-case: "npm:^3.0.0"
+    clean-css: "npm:^4.2.1"
+    commander: "npm:^2.19.0"
+    he: "npm:^1.2.0"
+    param-case: "npm:^2.1.1"
+    relateurl: "npm:^0.2.7"
+    uglify-js: "npm:^3.5.1"
+  bin:
+    html-minifier: ./cli.js
+  checksum: a1a49ee78a41eb3232f7aa51be25092d7634548e8996577b2bdab22dc9ac736594d35aab7fdf81fb5a0da11f7bc688f500c297b24fd312d48c0ce8739ed4f06f
+  languageName: node
+  linkType: hard
+
 "html-tags@npm:^3.1.0":
   version: 3.3.1
   resolution: "html-tags@npm:3.3.1"
@@ -23646,7 +23693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.25.7":
+"magic-string@npm:^0.25.0, magic-string@npm:^0.25.7":
   version: 0.25.9
   resolution: "magic-string@npm:0.25.9"
   dependencies:
@@ -24541,6 +24588,19 @@ __metadata:
   peerDependencies:
     webpack: ^5.0.0
   checksum: 1f718bfdcb7c2bf5e4336f694e5576432149d63f9dacaf94eae38ad046534050471a712a2d1bedf95e1722a2d3b56c3361d7352849e802e4875e716885e952c3
+  languageName: node
+  linkType: hard
+
+"minify-html-literals@npm:^1.3.5":
+  version: 1.3.5
+  resolution: "minify-html-literals@npm:1.3.5"
+  dependencies:
+    "@types/html-minifier": "npm:^3.5.3"
+    clean-css: "npm:^4.2.1"
+    html-minifier: "npm:^4.0.0"
+    magic-string: "npm:^0.25.0"
+    parse-literals: "npm:^1.2.1"
+  checksum: 9f5b50055e0df5763463f37136418af5a143169ffa1bafdc73571ab36563e5c49e4bf5068f7cc2cecd80b07d974e467e3879e750139e14c400b99843e9c23737
   languageName: node
   linkType: hard
 
@@ -26556,7 +26616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"param-case@npm:2.1.x":
+"param-case@npm:2.1.x, param-case@npm:^2.1.1":
   version: 2.1.1
   resolution: "param-case@npm:2.1.1"
   dependencies:
@@ -26675,6 +26735,15 @@ __metadata:
     json-parse-even-better-errors: "npm:^2.3.0"
     lines-and-columns: "npm:^1.1.6"
   checksum: 62085b17d64da57f40f6afc2ac1f4d95def18c4323577e1eced571db75d9ab59b297d1d10582920f84b15985cbfc6b6d450ccbf317644cfa176f3ed982ad87e2
+  languageName: node
+  linkType: hard
+
+"parse-literals@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "parse-literals@npm:1.2.1"
+  dependencies:
+    typescript: "npm:^2.9.2 || ^3.0.0 || ^4.0.0"
+  checksum: 8f1ad2ed47887b555a909a402d47dfa94d57adc5f3f70b10543618eebfd77912295e54989971a580d4704994e498263ec2a2ceb0ed53fdd1a3b57449254f094e
   languageName: node
   linkType: hard
 
@@ -30297,6 +30366,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup-plugin-minify-html-literals@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "rollup-plugin-minify-html-literals@npm:1.2.6"
+  dependencies:
+    minify-html-literals: "npm:^1.3.5"
+    rollup-pluginutils: "npm:^2.8.2"
+  peerDependencies:
+    rollup: ^0.65.2 || ^1.0.0 || ^2.0.0
+  checksum: 07b9f321dc4de648313cf185737ea7ab4d5a6c4a10639944d3823d9c419cd5c73b486e02d9af6e013cafbd753d02d5ca9991a8c01c96e2d2a62b55bd5fdaa4dd
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-multi-input@npm:^1.3.1":
   version: 1.4.1
   resolution: "rollup-plugin-multi-input@npm:1.4.1"
@@ -30367,7 +30448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-pluginutils@npm:^2.3.3":
+"rollup-pluginutils@npm:^2.3.3, rollup-pluginutils@npm:^2.8.2":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
   dependencies:
@@ -33695,7 +33776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^3 || ^4, typescript@npm:^4.4.3":
+"typescript@npm:^2.9.2 || ^3.0.0 || ^4.0.0, typescript@npm:^3 || ^4, typescript@npm:^4.4.3":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -33725,7 +33806,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^3 || ^4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^4.4.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^2.9.2 || ^3.0.0 || ^4.0.0#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^3 || ^4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^4.4.3#optional!builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
   bin:
@@ -33781,7 +33862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uglify-js@npm:^3.1.4":
+"uglify-js@npm:^3.1.4, uglify-js@npm:^3.5.1":
   version: 3.17.4
   resolution: "uglify-js@npm:3.17.4"
   bin:
