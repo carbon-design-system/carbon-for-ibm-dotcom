@@ -30,7 +30,6 @@ import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arr
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import Chat16 from '../../internal/vendor/@carbon/web-components/icons/chat/16.js';
-import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
 import { classMap } from 'lit/directives/class-map.js';
 import layoutBreakpoint from './masthead-breakpoint';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -354,25 +353,40 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   protected _renderCta(): _TemplateResult | '' {
     const { isMobileVersion, contactCtaLabel, l1Data } = this;
     const { cta } = l1Data?.actions || {};
-    const classes = isMobileVersion
+    const classname = isMobileVersion
       ? `${prefix}--masthead__l1-dropdown-cta`
       : `${prefix}--masthead__l1-cta`;
 
+    // Adds wrapper markup in desktop displays.
+    const desktopWrapper = (markup: _TemplateResult) => {
+      if (!isMobileVersion) {
+        return html`
+          <div class="${classname}-inner">${markup}</div>
+        `;
+      }
+      return markup;
+    }
+
     if (cta && cta?.title) {
       if (cta?.ctaType === CTA_TYPE.CHAT) {
-        const icon = isMobileVersion ? Chat16() : Chat20();
         return html`
           <button
-            class="${classes}"
+            class="${classname}"
             data-ibm-contact="contact-link"
             aria-label="${ifDefined(contactCtaLabel)}">
-            <span data-ibm-contact="contact-text">${cta.title}</span>${icon}
+            ${desktopWrapper(
+              html`<span data-ibm-contact="contact-text">${cta.title}</span>${Chat16()}`
+            )}
           </button>
         `;
       } else if (cta?.url) {
         const icon = isMobileVersion ? ArrowRight16() : '';
         return html`
-          <a class="${classes}" href="${cta.url}"> ${cta.title}${icon} </a>
+          <a class="${classname}" href="${cta.url}">
+            ${desktopWrapper(
+              html`${cta.title}${icon}`
+            )}
+          </a>
         `;
       }
     }

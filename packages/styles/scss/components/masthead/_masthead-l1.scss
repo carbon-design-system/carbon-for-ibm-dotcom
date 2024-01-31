@@ -851,6 +851,12 @@ $search-transition-timing: 95ms;
       }
     }
 
+    .#{$prefix}--masthead__l1-cta-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-03;
+    }
+
     .#{$prefix}--masthead__l1-login {
       @include desktop-button-base;
       @include type-style(body-short-01);
