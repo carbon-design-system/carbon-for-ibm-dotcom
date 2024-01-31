@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,22 +38,6 @@ function scripts() {
           // `version` field ensures `@babel/plugin-transform-runtime` is applied to newer helpers like decorator
           plugins: [
             ['@babel/plugin-transform-runtime', { useESModules: true, version: '7.8.0' }],
-            [
-              'template-html-minifier',
-              {
-                modules: {
-                  'lit-html': ['html'],
-                  'lit-element': ['html'],
-                },
-                htmlMinifier: {
-                  collapseWhitespace: true,
-                  conservativeCollapse: true,
-                  removeComments: true,
-                  caseSensitive: true,
-                  minifyCSS: true,
-                },
-              },
-            ],
             babelPluginResourceJSPaths,
           ],
         })
