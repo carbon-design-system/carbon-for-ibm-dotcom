@@ -17,8 +17,7 @@ import {
   L1MenuItem as _L1MenuItem,
   L1SubmenuSection as _L1SubmenuSection,
   L1SubmenuSectionHeading,
-  MastheadL1,
-  L1CtaLink,
+  MastheadL1
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
