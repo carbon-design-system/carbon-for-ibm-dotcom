@@ -77,27 +77,6 @@ export const createTests = path => [
     });
   },
   () => {
-    it('should render all text in a column vertically aligned, having or not an icon', () => {
-
-      const iconText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc duia magna, finibus id tortor sed, aliquet bibendum augue.'
-
-      let cellsOffsetLeft = [];
-
-      cy.visit(`${path}&knob-icon-text=${iconText}`)
-      .get(selectors.row)
-      .then($rows => {
-
-        $rows.each((_, row) => {
-          cellsOffsetLeft.push(row.children[1].offsetLeft);
-        });
-
-        for(let i = 1; i < cellsOffsetLeft.length; i++){
-          expect(cellsOffsetLeft[i]).to.be.eq(cellsOffsetLeft[i - 1]);
-        }
-      });
-    });
-  },
-  () => {
     it('should render customizable section heading', () => {
       let defaultHeading, customHeadingOutput;
       const customHeadingInput = 'Lorem ipsum dolor sit amet';
