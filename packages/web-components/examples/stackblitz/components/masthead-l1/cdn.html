@@ -16,15 +16,25 @@ LICENSE file in the root directory of this source tree.
   <link rel="stylesheet" href="src/index.scss" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    c4d-masthead-composite:not(:defined) {
+    c4d-masthead-container:not(:defined) {
       display: none;
     }
   </style>
+  <script src="src/index-cdn.js" defer></script>
+  <script src="src/ddo.js"></script>
+
+  <!-- IBM Tag Management and Site Analytics -->
+  <script src="//1.www.s81c.com/common/stats/ibm-common.js" async="async" defer></script>
+  <!-- IBM CMaaS -->
+  <script src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
+
+  <!-- CDN bundle -->
   <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/masthead.min.js"></script>
-  <script type="module" src="src/index-cdn.js"></script>
 </head>
   <body>
-    <c4d-masthead-composite></c4d-masthead-composite>
+    <c4d-masthead-container
+      data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
+    ></c4d-masthead-container>
     <main class="cds--content cds-ce-demo--ui-shell-content">
       <div class="cds--grid">
         <div class="cds--row">
