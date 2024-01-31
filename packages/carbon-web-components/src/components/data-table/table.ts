@@ -233,7 +233,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
     this.withHeader = hasContent;
   }
 
-  private _handleSorting(columnIndex, sortDirection) {
+  private _handleAction(columnIndex, sortDirection) {
     const rows = [...this._tableRows];
 
     // regular row sorting
@@ -381,7 +381,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
       (e) => e !== target && e.setAttribute('sort-direction', 'none')
     );
 
-    this._handleSorting(columnIndex, sortDirection);
+    this._handleAction(columnIndex, sortDirection);
 
     const init = {
       bubbles: true,
@@ -660,7 +660,11 @@ class CDSTable extends HostListenerMixin(LitElement) {
         ) {
           const sortDirection = column.getAttribute('sort-direction');
           const columnIndex = index;
-          this._handleSorting(columnIndex, sortDirection);
+
+          columns.forEach(
+            (e) => e !== column && e.setAttribute('sort-direction', 'none')
+          );
+          this._handleAction(columnIndex, sortDirection);
         }
       });
     }
