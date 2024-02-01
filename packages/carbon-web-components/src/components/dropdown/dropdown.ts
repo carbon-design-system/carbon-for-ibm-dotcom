@@ -71,11 +71,6 @@ class CDSDropdown extends ValidityMixin(
    */
   protected _hasSlug = false;
 
-  /**
-   * The latest status of this dropdown, for screen reader to announce.
-   */
-  protected _assistiveStatusText?: string;
-
   protected _activeDescendant?: string;
 
   /**
@@ -136,7 +131,6 @@ class CDSDropdown extends ValidityMixin(
       );
       itemToSelect.selected = true;
       itemToSelect.setAttribute('aria-selected', 'true');
-      this._assistiveStatusText = `${itemToSelect.textContent} has been selected.`;
       this._handleUserInitiatedToggle(false);
     }
   }
@@ -327,20 +321,6 @@ class CDSDropdown extends ValidityMixin(
       if (this.dispatchEvent(new CustomEvent(eventBeforeToggle, init))) {
         this.open = force;
         if (!this.open) {
-          const {
-            selectedItemAssistiveText,
-            label,
-            _assistiveStatusText: assistiveStatusText,
-            _selectedItemContent: selectedItemContent,
-          } = this;
-          const selectedItemText =
-            (selectedItemContent && selectedItemContent.textContent) || label;
-          if (
-            selectedItemText &&
-            assistiveStatusText !== selectedItemAssistiveText
-          ) {
-            this._assistiveStatusText = selectedItemText;
-          }
           forEach(
             this.querySelectorAll(
               (this.constructor as typeof CDSDropdown).selectorItemHighlighted
@@ -403,11 +383,7 @@ class CDSDropdown extends ValidityMixin(
     // IE falls back to the old behavior.
     nextItem.scrollIntoView({ block: 'nearest' });
 
-    const nextItemText = nextItem.textContent;
     const nextItemId = nextItem.id;
-    if (nextItemText) {
-      this._assistiveStatusText = nextItemText;
-    }
     if (nextItemId) {
       this._activeDescendant = nextItemId;
     }
@@ -725,7 +701,6 @@ class CDSDropdown extends ValidityMixin(
       type,
       warn,
       warnText,
-      _assistiveStatusText: assistiveStatusText,
       _activeDescendant: activeDescendant,
       _shouldTriggerBeFocusable: shouldTriggerBeFocusable,
       _handleClickInner: handleClickInner,
@@ -836,13 +811,6 @@ class CDSDropdown extends ValidityMixin(
         <slot name="helper-text" @slotchange="${handleSlotchangeHelperText}"
           >${helperMessage}</slot
         >
-      </div>
-      <div
-        class="${prefix}--assistive-text"
-        role="status"
-        aria-live="polite"
-        aria-relevant="additions text">
-        ${assistiveStatusText}
       </div>
     `;
   }

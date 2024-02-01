@@ -208,7 +208,6 @@ class CDSComboBox extends CDSDropdown {
     if (itemToSelect) {
       itemToSelect.selected = true;
       itemToSelect.setAttribute('aria-selected', 'true');
-      this._assistiveStatusText = this.selectedItemAssistiveText;
     }
     this._handleUserInitiatedToggle(false);
   }
