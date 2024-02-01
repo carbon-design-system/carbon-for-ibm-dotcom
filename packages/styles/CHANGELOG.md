@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.2.0-rc.1...@carbon/ibmdotcom-styles@2.2.0) (2024-01-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.2.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.2.0-rc.0...@carbon/ibmdotcom-styles@2.2.0-rc.1) (2024-01-26)
+
+
+### Features
+
+* **slug:** ai callout updates for 2.2.0 ([#11453](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11453)) ([8f0b9f6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8f0b9f609b4d98a148071937db7bcdb689bea514))
+
+
+
+
+
+# [2.2.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.1.0-rc.0...@carbon/ibmdotcom-styles@2.2.0-rc.0) (2024-01-19)
+
+
+
+# 2.1.0 (2024-01-17)
+
+
+### Features
+
+* **masthead:** spacing style regression fix and maintainability refactor ([#11252](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11252)) ([67cc49b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67cc49b287eeb77d274c2c937ab99e3290960d38)), closes [#11251](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11251)
+
+
+
+
+
+# [2.1.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.1.0-rc.0...@carbon/ibmdotcom-styles@2.1.0) (2024-01-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [2.1.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.0.0...@carbon/ibmdotcom-styles@2.1.0-rc.0) (2024-01-09)
 
 
