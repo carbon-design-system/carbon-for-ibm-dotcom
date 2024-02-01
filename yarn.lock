@@ -3362,7 +3362,6 @@ __metadata:
     babel-plugin-template-html-minifier: "npm:^4.1.0"
     browserstack-cypress-cli: "npm:^1.11.1"
     cache-loader: "npm:^4.1.0"
-    carbon-icons: "npm:^7.0.5"
     chalk: "npm:^4.1.1"
     classnames: "npm:2.5.1"
     commander: "npm:^11.1.0"
@@ -12077,13 +12076,6 @@ __metadata:
     through2: "npm:^3.0.0"
   languageName: unknown
   linkType: soft
-
-"carbon-icons@npm:^7.0.5":
-  version: 7.0.7
-  resolution: "carbon-icons@npm:7.0.7"
-  checksum: eb9726c74e21583d4669242ffd135d3931b21de212035c28223198cec7423010795193e45043e8ecba3346c159fd43dbc9e074b179456397bd1ab66aeff73f4b
-  languageName: node
-  linkType: hard
 
 "case-sensitive-paths-webpack-plugin@npm:^2.3.0":
   version: 2.4.0
