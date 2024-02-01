@@ -29,7 +29,7 @@
       <div class="bx--tableofcontents__desktop-container">
         <div
           class="bx--tableofcontents__desktop"
-          style="left: -0px"
+          style="inset-inline-start: -0px"
         >
           <div class="bx--sub-content-left">
           </div>
@@ -84,7 +84,7 @@
       <div class="bx--tableofcontents__desktop-container">
         <div
           class="bx--tableofcontents__desktop"
-          style="left: -0px"
+          style="inset-inline-start: -0px"
         >
           <div class="bx--sub-content-left">
           </div>
@@ -133,7 +133,7 @@
       <div class="bx--tableofcontents__desktop-container">
         <div
           class="bx--tableofcontents__desktop"
-          style="left: -0px"
+          style="inset-inline-start: -0px"
         >
           <div class="bx--sub-content-left">
           </div>
