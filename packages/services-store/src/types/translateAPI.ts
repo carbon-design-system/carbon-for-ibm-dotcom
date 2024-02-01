@@ -62,9 +62,13 @@ export interface MastheadL1 {
   url?: string;
   menuItems: L1MenuItem[];
   actions?: {
-    cta?: BasicLink;
+    cta?: L1CtaLink;
     login?: BasicLink;
   };
+}
+
+export interface L1CtaLink extends BasicLink {
+  ctaType?: string;
 }
 
 export interface L1MenuItem extends BasicLink {

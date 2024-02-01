@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,14 +31,14 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 class C4DFooterNavGroup extends MediaQueryMixin(
   StableSelectorMixin(LitElement),
   {
-    [MQBreakpoints.MD]: MQDirs.MAX,
+    [MQBreakpoints.MD]: MQDirs.MIN,
   }
 ) {
   @state()
-  private _isMobile = this.carbonBreakpoints.md.matches;
+  private _isMediumOrGreater = this.carbonBreakpoints.md.matches;
 
-  protected mediaQueryCallbackMaxMD() {
-    this._isMobile = this.carbonBreakpoints.md.matches;
+  protected mediaQueryCallbackMD() {
+    this._isMediumOrGreater = this.carbonBreakpoints.md.matches;
   }
 
   /**
@@ -105,11 +105,12 @@ class C4DFooterNavGroup extends MediaQueryMixin(
     const {
       titleText,
       open,
-      _isMobile: isMobile,
+      _isMediumOrGreater: isMediumOrGreater,
       _handleClickExpando: handleClickExpando,
       _handleKeydownExpando: handleKeydownExpando,
     } = this;
-    const heading = !isMobile
+
+    const heading = isMediumOrGreater
       ? html`
           <h2 class="${prefix}--footer-nav-group__title">
             <slot name="title">${titleText}</slot>
