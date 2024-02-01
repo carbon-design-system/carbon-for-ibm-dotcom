@@ -35,13 +35,13 @@ the page. Note, this will import `IBM Plex Sans`, `IBM Plex Serif`, and `IBM Ple
 
 ```html
 // SPECIFIC VERSION
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v1.x.y]/plex.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v2.x.y]/plex.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/latest/plex.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/plex.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/next/plex.css" />
 ```
 
 ### Alternative: individual Plex family loading
@@ -253,10 +253,10 @@ The following includes Carbon grid and all corresponding grid classes.
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/version/[v2.x.y]/grid.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/grid.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/next/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/next/grid.css" />
 ```
 
 [Learn more about the Carbon 2x Grid](https://carbondesignsystem.com/guidelines/2x-grid/overview)
@@ -272,10 +272,10 @@ in Carbon.
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/version/[v2.x.y]/themes.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/next/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/next/themes.css" />
 ```
 
 ### Available classes
@@ -292,9 +292,9 @@ in Carbon.
 ```html
 <html>
 <head>
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css" />
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/dotcom-shell.min.js"></script>
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/leadspace.min.js"></script>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v2.x.y]/dotcom-shell.min.js"></script>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v2.x.y]/leadspace.min.js"></script>
   ...
 </head>
 <body>
