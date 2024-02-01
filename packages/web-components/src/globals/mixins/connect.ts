@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,7 @@ import Handle from '../internal/handle';
 
 /**
  * @param store A redux store.
- * @returns A funciton that takes a base class and returns a mix-in that connects the component to Redux store.
+ * @returns A function that takes a base class and returns a mix-in that connects the component to Redux store.
  */
 const ConnectMixin =
   <
@@ -23,7 +23,7 @@ const ConnectMixin =
     TDispatchProps = { [name: string]: any }
   >(
     store: Store<TState, TAction>,
-    mapStateToProps: (state: TState) => TStateProps,
+    mapStateToProps: (state: TState, self?: any) => TStateProps,
     mapDispatchToProps: (dispatch: Dispatch<TAction>) => TDispatchProps = () =>
       ({} as TDispatchProps)
   ) =>
@@ -35,7 +35,7 @@ const ConnectMixin =
       _hStore: Handle | null = null;
 
       _handleChangeStoreState(state: TState) {
-        const props = mapStateToProps(state);
+        const props = mapStateToProps(state, this);
         Object.keys(props as any).forEach((name) => {
           const old = this[name];
           const current = props[name];
