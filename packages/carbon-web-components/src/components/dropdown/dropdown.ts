@@ -549,12 +549,6 @@ class CDSDropdown extends ValidityMixin(
   requiredValidityMessage = 'Please fill out this field.';
 
   /**
-   * An assistive text for screen reader to announce, telling that an item is selected.
-   */
-  @property({ attribute: 'selected-item-assistive-text' })
-  selectedItemAssistiveText = 'Selected an item.';
-
-  /**
    * Dropdown size.
    */
   @property({ reflect: true })
