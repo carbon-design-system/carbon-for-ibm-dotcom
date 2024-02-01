@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -75,7 +75,9 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     const { navLabel } = this;
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
-          <nav class="${c4dPrefix}--legal-nav" aria-label="${ifDefined(navLabel)}">
+          <nav
+            class="${c4dPrefix}--legal-nav"
+            aria-label="${ifDefined(navLabel)}">
             <div class="${this._getTypeClass()}">
               <ul>
                 <slot></slot>
