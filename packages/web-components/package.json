@@ -171,7 +171,6 @@
     "babel-plugin-template-html-minifier": "^4.1.0",
     "browserstack-cypress-cli": "^1.11.1",
     "cache-loader": "^4.1.0",
-    "carbon-icons": "^7.0.5",
     "chalk": "^4.1.1",
     "classnames": "2.5.1",
     "commander": "^11.1.0",
