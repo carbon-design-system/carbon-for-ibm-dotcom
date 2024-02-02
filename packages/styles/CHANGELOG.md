@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.2.0-rc.0...@carbon/ibmdotcom-styles@2.3.0-rc.0) (2024-02-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/icons-react to v11.34.0 ([#11428](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11428)) ([121698f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/121698f4b7700de3c59fb474e2c5e5868d59f9e4))
+* **deps:** update dependency @carbon/icons-react to v11.34.1 ([#11458](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11458)) ([ccd5517](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ccd55179dbeb7102fbc2a734cd288ef56e005545))
+* **stackblitz:** fix and standardize masthead examples for v2 ([#11199](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11199)) ([c3ddeb8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c3ddeb8016b0259ce4f202cb2d99c16b6b5c2545))
+* **video player:** thumbnail and play button issue ([#11450](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11450)) ([1bfb57a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1bfb57a50ed19248925d685e7e79804a641e96ec)), closes [#11399](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11399)
+
+
+### Features
+
+* **masthead:** support Contact Module in L1 CTA ([#11403](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11403)) ([1a50f1a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1a50f1a4442d936c4eaece140df404da13759d85))
+* **tile:** slug ai updates ([#11484](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11484)) ([a4cc518](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a4cc518bf85cac970d22a01e72bd332b2ec5a179))
+
+
+
+
+
 # [2.2.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.2.0-rc.1...@carbon/ibmdotcom-styles@2.2.0) (2024-01-29)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
