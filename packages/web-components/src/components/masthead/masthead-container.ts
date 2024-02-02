@@ -84,21 +84,24 @@ export type MastheadContainerActions =
 
 /**
  * @param state The Redux state for masthead.
+ * @param self A reference to the masthead composite instance.
  * @returns The converted version of the given state, tailored for `<c4d-masthead-container>`.
  */
 export function mapStateToProps(
-  state: MastheadContainerState
+  state: MastheadContainerState,
+  self: C4DMastheadComposite
 ): MastheadContainerStateProps {
   const { localeAPI, translateAPI, profileAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = profileAPI ?? {};
+  const { l0Data: userL0Data } = self;
 
   // Attempt to collect data from current/new and deprecated locations.
-  let l0Data;
+  let endpointl0Data;
   let profileItems;
   if (language) {
-    l0Data = {
+    endpointl0Data = {
       current: translations?.[language]?.masthead?.nav,
       deprecated: translations?.[language]?.mastheadNav?.links,
     };
@@ -118,8 +121,11 @@ export function mapStateToProps(
 
   return pickBy(
     {
-      // Progressively enhance to new L0 data shape.
-      l0Data: !language ? undefined : l0Data.current || l0Data.deprecated,
+      // Respect user-set L0 data. Otherwise, progressively enhance to new shape.
+      l0Data:
+        !language || userL0Data
+          ? undefined
+          : endpointl0Data.current || endpointl0Data.deprecated,
       // Progressively enhance to new profile items shape.
       authenticatedProfileItems: !language
         ? undefined

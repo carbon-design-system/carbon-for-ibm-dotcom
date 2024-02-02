@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -254,6 +254,52 @@ class CDSTable extends HostListenerMixin(LitElement) {
     this.withHeader = hasContent;
   }
 
+  private _handleSortAction(columnIndex, sortDirection) {
+    const rows = [...this._tableRows];
+
+    // regular row sorting
+    rows.sort((a, b) => {
+      const cellA = a.querySelectorAll(
+        (this.constructor as typeof CDSTable).selectorTableRowCells
+      )[columnIndex].textContent;
+      const cellB = b.querySelectorAll(
+        (this.constructor as typeof CDSTable).selectorTableRowCells
+      )[columnIndex].textContent;
+      return (
+        this.collationFactors[sortDirection] *
+        this.customSortRow(cellA, cellB, this.collator)
+      );
+    });
+
+    // take into account the expanded rows, mapping each expandable row to its original for proper reinsertion
+    if (this.expandable) {
+      const originalRows = [...this._tableRows];
+      const expandedRows = [...this._tableExpandedRows];
+
+      const mapping = originalRows.reduce((acc, element, index) => {
+        const sortId = element.getAttribute('sort-id');
+        acc[sortId] = expandedRows[index];
+        return acc;
+      }, {});
+
+      const sortedWithExpanded = [] as any;
+
+      rows.forEach((e) => {
+        const sortId = e.getAttribute('sort-id');
+        sortedWithExpanded.push(e);
+        sortedWithExpanded.push(mapping[sortId]);
+      });
+
+      sortedWithExpanded.forEach((e) => {
+        this._tableBody.insertBefore(e, null);
+      });
+    } else {
+      rows.forEach((e) => {
+        this._tableBody.insertBefore(e, null);
+      });
+    }
+  }
+
   private _handleFilterRows() {
     const unfilteredRows = [] as any;
     forEach(this._tableRows, (elem) => {
@@ -355,7 +401,6 @@ class CDSTable extends HostListenerMixin(LitElement) {
       return;
     }
 
-    const rows = [...this._tableRows];
     const columns = [...this._tableHeaderRow.children];
     const columnIndex = columns.indexOf(target);
 
@@ -363,47 +408,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
       (e) => e !== target && e.setAttribute('sort-direction', 'none')
     );
 
-    // regular row sorting
-    rows.sort((a, b) => {
-      const cellA = a.querySelectorAll(
-        (this.constructor as typeof CDSTable).selectorTableRowCells
-      )[columnIndex].textContent;
-      const cellB = b.querySelectorAll(
-        (this.constructor as typeof CDSTable).selectorTableRowCells
-      )[columnIndex].textContent;
-      return (
-        this.collationFactors[sortDirection] *
-        this.customSortRow(cellA, cellB, this.collator)
-      );
-    });
-
-    // take into account the expanded rows, mapping each expandable row to its original for proper reinsertion
-    if (this.expandable) {
-      const originalRows = [...this._tableRows];
-      const expandedRows = [...this._tableExpandedRows];
-
-      const mapping = originalRows.reduce((acc, element, index) => {
-        const sortId = element.getAttribute('sort-id');
-        acc[sortId] = expandedRows[index];
-        return acc;
-      }, {});
-
-      const sortedWithExpanded = [] as any;
-
-      rows.forEach((e) => {
-        const sortId = e.getAttribute('sort-id');
-        sortedWithExpanded.push(e);
-        sortedWithExpanded.push(mapping[sortId]);
-      });
-
-      sortedWithExpanded.forEach((e) => {
-        this._tableBody.insertBefore(e, null);
-      });
-    } else {
-      rows.forEach((e) => {
-        this._tableBody.insertBefore(e, null);
-      });
-    }
+    this._handleSortAction(columnIndex, sortDirection);
 
     const init = {
       bubbles: true,
@@ -668,20 +673,33 @@ class CDSTable extends HostListenerMixin(LitElement) {
       this.headerCount++;
     }
 
+    if (changedProperties.has('locale')) {
+      this.collator = new Intl.Collator(this.locale);
+    }
     if (changedProperties.has('isSortable')) {
       const headerCells = this.querySelectorAll(
         (this.constructor as typeof CDSTable).selectorHeaderCell
       );
       headerCells.forEach((e) => {
         (e as CDSTableHeaderCell).isSortable = this.isSortable;
-        (e as CDSTableHeaderCell).removeAttribute('sort-direction');
         (e as CDSTableHeaderCell).isSelectable = this.isSelectable;
         (e as CDSTableHeaderCell).isExpandable = this.expandable;
       });
-    }
+      const columns = [...this._tableHeaderRow.children];
+      columns.forEach((column, index) => {
+        if (
+          column.hasAttribute('sort-direction') &&
+          column.getAttribute('sort-direction') !== 'none'
+        ) {
+          const sortDirection = column.getAttribute('sort-direction');
+          const columnIndex = index;
 
-    if (changedProperties.has('locale')) {
-      this.collator = new Intl.Collator(this.locale);
+          columns.forEach(
+            (e) => e !== column && e.setAttribute('sort-direction', 'none')
+          );
+          this._handleSortAction(columnIndex, sortDirection);
+        }
+      });
     }
 
     if (

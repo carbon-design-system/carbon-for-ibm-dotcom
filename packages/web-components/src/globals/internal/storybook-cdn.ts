@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -55,34 +55,18 @@ export const cdnJs = ({ components }) => {
   return `
 ### JS (via CDN)
 
+> NOTE: Only one version of artifacts should be used. Mixing versions will cause rendering issues.
+
 \`\`\`html
-// SPECIFIC VERSION (available starting v1.6.0)
+// SPECIFIC VERSION (available starting v2.0.0)
 ${_renderScript(components, `version/v${packageJson.version}`)}
-
-// LATEST tag
-${_renderScript(components, 'tag/v1/latest')}
-
-// NEXT tag
-${_renderScript(components, 'tag/v1/next')}
 \`\`\`
-
-> NOTE: The \`latest\`/\`next\` tags are moving versions.
->
-> The \`latest\` tag is only updated every Friday at 6pm EST after a release. When \`latest\`/\`next\` tags are updated, Akamai caches can take up to 24 hours to clear, which could result in instability during that time. It is highly recommended to instead use a specific version and to properly test your application when upgrading to a newer version.
->
-> Please ensure only one version of artifacts is used at a time, having multiple versions will cause rendering issues.
 
 #### Right-to-left (RTL) versions
 
 \`\`\`html
-// SPECIFIC VERSION (available starting v1.6.0)
+// SPECIFIC VERSION (available starting v2.0.0)
 ${_renderScript(components, `version/v${packageJson.version}`, true)}
-
-// LATEST tag
-${_renderScript(components, 'tag/v1/latest', true)}
-
-// NEXT tag
-${_renderScript(components, 'tag/v1/next', true)}
 \`\`\`
   `;
 };
@@ -102,14 +86,8 @@ order for the component to behave properly. If not including the SCSS version
 in your application's style bundle, this can be included via CDN:
 
 \`\`\`html
-// SPECIFIC VERSION (available starting v1.6.0)
+// SPECIFIC VERSION (available starting v2.0.0)
 ${_renderStyle(components, `version/v${packageJson.version}`)}
-
-// LATEST tag
-${_renderStyle(components, 'tag/v1/latest')}
-
-// NEXT tag
-${_renderStyle(components, 'tag/v1/next')}
 \`\`\`
   `;
 };
