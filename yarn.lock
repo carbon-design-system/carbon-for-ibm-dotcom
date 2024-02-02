@@ -3121,7 +3121,7 @@ __metadata:
     "@carbon/motion": ^11.16.1
     "@carbon/themes": ^11.28.0
     "@carbon/type": ^11.25.1
-  checksum: a069cae6b7a4eb23d8b2480ac28bea80660f0893cd810c80d6ad148276d2f9f772c1a965983efcea853bcccdb794039c9c555893b294544b98df218fd14e6fbd
+  checksum: 10/a069cae6b7a4eb23d8b2480ac28bea80660f0893cd810c80d6ad148276d2f9f772c1a965983efcea853bcccdb794039c9c555893b294544b98df218fd14e6fbd
   languageName: node
   linkType: hard
 
