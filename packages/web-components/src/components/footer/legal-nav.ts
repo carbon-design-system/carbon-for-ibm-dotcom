@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@
 import { LitElement, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -30,7 +31,11 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    */
   @property()
   size = FOOTER_SIZE.REGULAR;
-
+  /**
+   * Navigation label for accessibility.
+   */
+  @property()
+  navLabel = 'Legal Navigation';
   /**
    * The adjunct links container
    */
@@ -67,9 +72,12 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    const { navLabel } = this;
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
-          <nav class="${c4dPrefix}--legal-nav">
+          <nav
+            class="${c4dPrefix}--legal-nav"
+            aria-label="${ifDefined(navLabel)}">
             <div class="${this._getTypeClass()}">
               <ul>
                 <slot></slot>
