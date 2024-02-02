@@ -610,9 +610,6 @@ class CDSTable extends HostListenerMixin(LitElement) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'table');
     }
-    if (this.hasAttribute('is-sortable')) {
-      this._enableSortAction();
-    }
     super.connectedCallback();
   }
 
@@ -680,7 +677,9 @@ class CDSTable extends HostListenerMixin(LitElement) {
       this.collator = new Intl.Collator(this.locale);
     }
     if (changedProperties.has('isSortable')) {
-      this._enableSortAction();
+      if(this.isSortable){
+        this._enableSortAction();
+      }      
     }
 
     if (
@@ -808,20 +807,22 @@ class CDSTable extends HostListenerMixin(LitElement) {
       (e as CDSTableHeaderCell).isExpandable = this.expandable;
     });
     const columns = [...this._tableHeaderRow.children];
+    let sortDirection;
+    let columnIndex = -1;
     columns.forEach((column, index) => {
       if (
         column.hasAttribute('sort-direction') &&
         column.getAttribute('sort-direction') !== 'none'
       ) {
-        const sortDirection = column.getAttribute('sort-direction');
-        const columnIndex = index;
-
-        columns.forEach(
-          (e) => e !== column && e.setAttribute('sort-direction', 'none')
-        );
-        this._handleSortAction(columnIndex, sortDirection);
+          sortDirection = column.getAttribute('sort-direction');
+          columnIndex = index;
       }
     });
+
+    columns.forEach(
+      (e, index) => index !== columnIndex && e.setAttribute('sort-direction', 'none')
+    );
+    this._handleSortAction(columnIndex, sortDirection);
   }
 
   /* eslint-enable no-constant-condition */
