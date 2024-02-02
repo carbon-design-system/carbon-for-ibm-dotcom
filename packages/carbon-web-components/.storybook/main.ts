@@ -30,6 +30,7 @@ const config: StorybookConfig = {
   stories: stories,
   addons: [
     '@storybook/addon-links',
+    '@storybook/addon-mdx-gfm',
     '@storybook/addon-essentials',
     '@storybook/addon-storysource',
     'storybook-addon-accessibility-checker',
