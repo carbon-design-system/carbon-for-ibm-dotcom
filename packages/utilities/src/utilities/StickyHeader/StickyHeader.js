@@ -225,7 +225,7 @@ class StickyHeader {
     if (localeModal && localeModal.hasAttribute('open')) return;
 
     const newY = window.scrollY;
-    this._lastScrollPosition = newY;
+    this._lastScrollPosition = Math.max(0, newY);
 
     /**
      * maxScrollaway is a calculated value matching the height of all components

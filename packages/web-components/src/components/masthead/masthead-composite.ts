@@ -1399,6 +1399,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     }
 
     this.style.zIndex = '900';
+    this.style.position = 'relative';
 
     // Allows conditional rendering of left/top navs.
     layoutBreakpoint.addEventListener('change', () => {
