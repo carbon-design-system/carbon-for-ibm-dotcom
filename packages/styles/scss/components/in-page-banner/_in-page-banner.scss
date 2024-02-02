@@ -54,12 +54,6 @@
         border-inline-start: 1px solid $layer-accent-01;
         grid-column: 9 / span 12;
         padding-inline: $spacing-05;
-
-        // Adjust the direction of the border line on RTL.
-        [dir='rtl'] & {
-          border-inline-end: 1px solid $layer-accent-01;
-          border-inline-start: inherit;
-        }
       }
     }
   }
