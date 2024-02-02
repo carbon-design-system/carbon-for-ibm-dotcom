@@ -664,7 +664,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
     }
 
     if (changedProperties.has('isSelectable')) {
-      if(this.isSelectable){
+      if (this.isSelectable) {
         this._tableHeaderRow.setAttribute('selection-name', 'header');
         this._tableRows.forEach((e, index) => {
           if (!e.hasAttribute('selection-name')) {
