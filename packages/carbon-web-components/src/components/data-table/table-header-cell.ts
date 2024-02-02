@@ -228,7 +228,6 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
       ><slot name="slug" @slotchange="${this._handleSlugSlotChange}"></slot
     ></span> `;
   }
-
   /**
    * A selector that will return the slug item.
    */

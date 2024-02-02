@@ -762,6 +762,39 @@ class CDSTable extends HostListenerMixin(LitElement) {
         : html`<slot></slot>`}
     `;
   }
+
+  /**
+   * Adds isSortable value for table header cells.
+   */
+  _enableSortAction() {
+    const headerCells = this.querySelectorAll(
+      (this.constructor as typeof CDSTable).selectorHeaderCell
+    );
+    headerCells.forEach((e) => {
+      (e as CDSTableHeaderCell).isSortable = this.isSortable;
+      (e as CDSTableHeaderCell).isSelectable = this.isSelectable;
+      (e as CDSTableHeaderCell).isExpandable = this.expandable;
+    });
+    const columns = [...this._tableHeaderRow.children];
+    let sortDirection;
+    let columnIndex = -1;
+    columns.forEach((column, index) => {
+      if (
+        column.hasAttribute('sort-direction') &&
+        column.getAttribute('sort-direction') !== 'none'
+      ) {
+        sortDirection = column.getAttribute('sort-direction');
+        columnIndex = index;
+      }
+    });
+
+    columns.forEach(
+      (e, index) =>
+        index !== columnIndex && e.setAttribute('sort-direction', 'none')
+    );
+    this._handleSortAction(columnIndex, sortDirection);
+  }
+
   /* eslint-enable no-constant-condition */
 
   /**
