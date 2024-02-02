@@ -677,9 +677,9 @@ class CDSTable extends HostListenerMixin(LitElement) {
       this.collator = new Intl.Collator(this.locale);
     }
     if (changedProperties.has('isSortable')) {
-      if(this.isSortable){
+      if (this.isSortable) {
         this._enableSortAction();
-      }      
+      }
     }
 
     if (
@@ -814,13 +814,14 @@ class CDSTable extends HostListenerMixin(LitElement) {
         column.hasAttribute('sort-direction') &&
         column.getAttribute('sort-direction') !== 'none'
       ) {
-          sortDirection = column.getAttribute('sort-direction');
-          columnIndex = index;
+        sortDirection = column.getAttribute('sort-direction');
+        columnIndex = index;
       }
     });
 
     columns.forEach(
-      (e, index) => index !== columnIndex && e.setAttribute('sort-direction', 'none')
+      (e, index) =>
+        index !== columnIndex && e.setAttribute('sort-direction', 'none')
     );
     this._handleSortAction(columnIndex, sortDirection);
   }
