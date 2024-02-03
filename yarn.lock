@@ -3112,16 +3112,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibm-products-styles@npm:2.20.1":
-  version: 2.20.1
-  resolution: "@carbon/ibm-products-styles@npm:2.20.1"
+"@carbon/ibm-products-styles@npm:2.22.0":
+  version: 2.22.0
+  resolution: "@carbon/ibm-products-styles@npm:2.22.0"
   peerDependencies:
     "@carbon/grid": ^11.21.1
     "@carbon/layout": ^11.20.1
     "@carbon/motion": ^11.16.1
-    "@carbon/themes": ^11.28.0
+    "@carbon/themes": ^11.29.1
     "@carbon/type": ^11.25.1
-  checksum: 10/a069cae6b7a4eb23d8b2480ac28bea80660f0893cd810c80d6ad148276d2f9f772c1a965983efcea853bcccdb794039c9c555893b294544b98df218fd14e6fbd
+  checksum: 10/8436be6745c362f252980b331e0bd6e78d1eff26a6207b4fb2d37d56fdcebf9877e0c9cc69b4752d13dada5d4ae1bb37b648c038ad73122af46e0535d603a83f
   languageName: node
   linkType: hard
 
@@ -3663,7 +3663,7 @@ __metadata:
     "@babel/runtime": "npm:^7.16.3"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
-    "@carbon/ibm-products-styles": "npm:2.20.1"
+    "@carbon/ibm-products-styles": "npm:2.22.0"
     "@carbon/icon-helpers": "npm:10.45.1"
     "@carbon/icons": "npm:11.34.1"
     "@carbon/styles": "npm:1.49.0"
