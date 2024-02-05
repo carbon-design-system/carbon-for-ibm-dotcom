@@ -213,7 +213,7 @@
     "karma-webpack": "^4.0.2",
     "magic-string": "^0.30.0",
     "marked": "^4.0.10",
-    "mini-css-extract-plugin": "~2.7.0",
+    "mini-css-extract-plugin": "~2.8.0",
     "mkdirp": "^0.5.0",
     "polymer-webpack-loader": "^2.0.0",
     "postcss": "^8.2.10",
