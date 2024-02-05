@@ -3330,7 +3330,7 @@ __metadata:
     "@carbon/ibmdotcom-services-store": "npm:1.53.0"
     "@carbon/ibmdotcom-styles": "npm:2.3.0-rc.0"
     "@carbon/ibmdotcom-utilities": "npm:2.3.0-rc.0"
-    "@carbon/icon-helpers": "npm:10.45.1"
+    "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.34.1"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.20.1"
@@ -3471,17 +3471,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.45.1, @carbon/icon-helpers@npm:^10.45.0":
-  version: 10.45.1
-  resolution: "@carbon/icon-helpers@npm:10.45.1"
-  checksum: 10/69da5ae85b586c5bb754f1db90069fb48f556c9f5023318a25572faa07e6dca0f07aaec237eaec883029bb75819b64c30bf4716339cdbab590ca0ee648ef67bc
-  languageName: node
-  linkType: hard
-
-"@carbon/icon-helpers@npm:^10.46.0":
+"@carbon/icon-helpers@npm:10.46.0, @carbon/icon-helpers@npm:^10.46.0":
   version: 10.46.0
   resolution: "@carbon/icon-helpers@npm:10.46.0"
   checksum: 10/479973b8fbe087c20ec933d85231669d4213de876e33ae07ba66428703b6cb899cbfdc5d09ee54a23784cd974b99c100dd143b164be1104a8a172f05c8cc5682
+  languageName: node
+  linkType: hard
+
+"@carbon/icon-helpers@npm:^10.45.0":
+  version: 10.45.1
+  resolution: "@carbon/icon-helpers@npm:10.45.1"
+  checksum: 10/69da5ae85b586c5bb754f1db90069fb48f556c9f5023318a25572faa07e6dca0f07aaec237eaec883029bb75819b64c30bf4716339cdbab590ca0ee648ef67bc
   languageName: node
   linkType: hard
 
@@ -3664,7 +3664,7 @@ __metadata:
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
     "@carbon/ibm-products-styles": "npm:2.20.1"
-    "@carbon/icon-helpers": "npm:10.45.1"
+    "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.34.1"
     "@carbon/styles": "npm:1.49.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
