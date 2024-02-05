@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,69 +17,43 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: utilities/on/on.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>@carbon/ibmdotcom-utilities</h1>
-<p>A collection of IBM.com utility classes</p>
-<h2>Getting Started</h2>
-<p>Run the following command using <a href="https://www.npmjs.com/">npm</a>:</p>
-<pre class="prettyprint source lang-bash"><code>npm install -S @carbon/ibmdotcom-utilities
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright IBM Corp. 2018, 2023
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ *
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
+ */
+
+function on(element, ...args) {
+  element.addEventListener(...args);
+  return {
+    release() {
+      element.removeEventListener(...args);
+      return null;
+    },
+  };
+}
+
+export default on;
 </code></pre>
-<p>If you prefer <a href="https://yarnpkg.com/en/">Yarn</a>, use the following command
-instead:</p>
-<pre class="prettyprint source lang-bash"><code>yarn add @carbon/ibmdotcom-utilities
-</code></pre>
-<p>These utilities require the use of <a href="https://webpack.js.org/">Webpack</a> in your
-project.</p>
-<h2>Usage</h2>
-<h3>List of Available Utilities</h3>
-<p>View available utilities
-<a href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities">here</a>.</p>
-<h2>Documentation</h2>
-<ul>
-<li>See our documentation site <a href="https://www.ibm.com/standards/carbon">here</a> for
-full how-to docs and guidelines</li>
-<li><a href="https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md">Contributing</a>:
-Guidelines for making contributions to this repo.</li>
-</ul>
-<h2>🙌 Contributing</h2>
-<p>We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-<a href="https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md">Contributing Guide</a>
-and our
-<a href="https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/developing.md">Developer Guide</a>!
-👀</p>
-<h2>📝 License</h2>
-<p>Licensed under the
-<a href="https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/LICENSE">Apache 2.0 License</a>.</p></article>
+        </article>
     </section>
-
-
 
 
 
