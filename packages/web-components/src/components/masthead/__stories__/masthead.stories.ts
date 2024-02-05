@@ -14,6 +14,7 @@ import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/d
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
+import { CTA_TYPE } from '../../cta/defs';
 import styles from './masthead.stories.scss';
 import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
 import {
@@ -320,8 +321,16 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, selectedMenuItemL1, useMock } =
+  const { selectedMenuItem, selectedMenuItemL1, showContactCta, useMock } =
     args?.MastheadComposite ?? {};
+
+  let l1Data = { ...mastheadL1Data };
+  if (l1Data?.actions?.cta) {
+    showContactCta
+      ? (l1Data.actions.cta.ctaType = CTA_TYPE.CHAT)
+      : delete l1Data.actions.cta.ctaType;
+  }
+
   return html`
     <style>
       ${styles}
@@ -330,7 +339,7 @@ export const withL1 = (args) => {
       ? html`
           <dds-masthead-composite
             .navLinks="${links}"
-            .l1Data="${mastheadL1Data}"
+            .l1Data="${l1Data}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonNull(
               selectedMenuItemL1
@@ -339,7 +348,7 @@ export const withL1 = (args) => {
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            .l1Data="${mastheadL1Data}"
+            .l1Data="${l1Data}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonNull(
               selectedMenuItemL1
@@ -361,17 +370,17 @@ withL1.story = {
           'selected menu item in L1 (selected-menu-item-l1)',
           ''
         ),
+        showContactCta: boolean('use Contact module CTA', false),
         useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
     propsSet: {
       default: {
         MastheadComposite: {
-          hasProfile: 'true',
-          hasSearch: 'true',
-          searchPlaceholder: 'Search all of IBM',
-          selectedMenuItem: 'Lorem ipsum dolor sit amet',
-          userStatus: userStatuses.unauthenticated,
+          selectedMenuItem: 'Consulting',
+          selectedMenuItemL1: '',
+          showContactCta: false,
+          useMock: false,
         },
       },
     },
@@ -488,12 +497,12 @@ export default {
         ${story()}
         <script>
           window.digitalData.page.pageInfo.ibm.contactModuleConfiguration = {
-            contactInformationBundleKey: {
+            routing: {
               focusArea: 'Cloud - Automation - All',
               languageCode: 'en',
               regionCode: 'US',
             },
-            contactModuleTranslationKey: {
+            translation: {
               languageCode: 'en',
               regionCode: 'US',
             },

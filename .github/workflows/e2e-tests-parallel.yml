@@ -106,6 +106,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
+
       - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
         id: cypress-tests-wc
@@ -241,6 +242,7 @@ jobs:
           key: ${{ matrix.os }}-yarn-v5${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ matrix.os }}-yarn
+
       - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
         id: cypress-tests-react
