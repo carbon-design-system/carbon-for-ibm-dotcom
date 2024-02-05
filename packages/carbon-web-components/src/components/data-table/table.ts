@@ -783,8 +783,8 @@ class CDSTable extends HostListenerMixin(LitElement) {
       <div ?hidden="${!this.withHeader}" class="${prefix}--data-table-header">
         <slot @slotchange="${this._handleSlotChange}" name="title"></slot>
         <slot @slotchange="${this._handleSlotChange}" name="description"></slot>
+        <slot name="toolbar"></slot>
       </div>
-      <slot name="toolbar"></slot>
 
       ${false // TODO: replace with this.stickyHeader when feature is fully implemented
         ? html` <div class="${prefix}--data-table_inner-container">

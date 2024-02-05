@@ -55,7 +55,9 @@
     display: table-caption;
   }
 }
-
+.#{$prefix}--data-table-header {
+  display: table-caption;
+}
 :host(#{$prefix}-table-head[sticky-header]) {
   position: sticky;
   z-index: 1;
