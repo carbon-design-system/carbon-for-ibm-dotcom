@@ -16,7 +16,6 @@ const glob = require('fast-glob');
 const stories = glob.sync(
   [
     '../docs/**/*.mdx',
-    // go back to wildcard globs once all stories are written
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
