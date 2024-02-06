@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import storyDocs from './stack.mdx';
 import { STACK_ORIENTATION } from './stack';
 import './index';
 
@@ -64,11 +63,6 @@ export const Playground = {
 
 const meta = {
   title: 'Layout/Stack',
-  parameters: {
-    docs: {
-      page: storyDocs,
-    },
-  },
 };
 
 export default meta;

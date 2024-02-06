@@ -107,11 +107,6 @@ export const Playground = {
 
 const meta = {
   title: 'Components/Form Group',
-  parameters: {
-    docs: {
-      page: storyDocs,
-    },
-  },
   decorators: [
     (story) => {
       return html` <div style="max-width:400px">${story()}</div> `;
