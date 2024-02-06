@@ -8,7 +8,6 @@
  */
 
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-// import C4DDropdown from '../footer/dropdown';
 import CDSDropdown, {
   DROPDOWN_TYPE,
 } from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
