@@ -4294,21 +4294,17 @@ __metadata:
     babel-eslint: "npm:^10.1.0"
     babel-loader: "npm:^8.0.4"
     babel-plugin-template-html-minifier: "npm:^4.1.0"
-    cache-loader: "npm:^4.1.0"
     child-process-promise: "npm:^2.2.1"
     commander: "npm:^4.1.0"
     core-js: "npm:^3.19.1"
     cross-env: "npm:^7.0.0"
-    css-loader: "npm:^5.2.0"
     cssnano: "npm:^5.0.0"
-    custom-event: "npm:^1.0.0"
     del: "npm:^6.0.0"
     es6-promise: "npm:^4.2.8"
     eslint-plugin-storybook: "npm:^0.6.15"
     execa: "npm:^5.1.1"
     expect-playwright: "npm:~0.8.0"
     expect-puppeteer: "npm:^6.0.0"
-    file-loader: "npm:^6.2.0"
     flatpickr: "npm:4.6.1"
     fs-extra: "npm:^10.0.0"
     gulp: "npm:^4.0.2"
@@ -4345,11 +4341,9 @@ __metadata:
     lit: "npm:^3.1.0"
     lodash-es: "npm:^4.17.21"
     magic-string: "npm:^0.30.0"
-    mini-css-extract-plugin: "npm:~2.7.0"
     mkdirp: "npm:^0.5.0"
     null-loader: "npm:^4.0.0"
     playwright: "npm:^1.0.0"
-    polymer-webpack-loader: "npm:^2.0.0"
     postcss: "npm:^8.2.10"
     postcss-loader: "npm:^3.0.0"
     postcss-selector-parser: "npm:^6.0.0"
@@ -4357,7 +4351,6 @@ __metadata:
     puppeteer: "npm:^13.0.0"
     react: "npm:16.14.0"
     react-dom: "npm:16.14.0"
-    react-is: "npm:16.13.1"
     read-pkg-up: "npm:^7.0.0"
     replace-ext: "npm:^2.0.0"
     resize-observer-polyfill: "npm:^1.5.0"
@@ -4369,17 +4362,13 @@ __metadata:
     storybook: "npm:^7.6.4"
     storybook-addon-accessibility-checker: "npm:^3.1.61-rc.2"
     strip-comments: "npm:^1.0.0"
-    style-loader: "npm:^2.0.0"
     temp: "npm:^0.9.0"
-    terser-webpack-plugin: "npm:^4.2.3"
     through2: "npm:^3.0.0"
     ts-loader: "npm:^6.0.0"
     tsickle: "npm:~0.46.0"
     typescript: "npm:^5.2.2"
-    use-debounce: "npm:^3.2.0"
     vite: "npm:^5.0.7"
     web-component-analyzer: "npm:1.2.0-next.0"
-    zone.js: "npm:~0.14.0"
   languageName: unknown
   linkType: soft
 
@@ -16842,7 +16831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"custom-event@npm:^1.0.0, custom-event@npm:~1.0.0":
+"custom-event@npm:~1.0.0":
   version: 1.0.1
   resolution: "custom-event@npm:1.0.1"
   checksum: 9871fe460f6133639087716cb5a0d1738add3ced72a4c7e105a77022c6f17be15cd9f21b328dc7d064887ebbf400cff6047fde74654c0bd1d6a1e21c2af21a9c
@@ -32905,17 +32894,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.4":
-  version: 16.13.1
-  resolution: "react-is@npm:16.13.1"
-  checksum: 5aa564a1cde7d391ac980bedee21202fc90bdea3b399952117f54fb71a932af1e5902020144fb354b4690b2414a0c7aafe798eb617b76a3d441d956db7726fdf
-  languageName: node
-  linkType: hard
-
 "react-is@npm:17.0.2, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 73b36281e58eeb27c9cc6031301b6ae19ecdc9f18ae2d518bdb39b0ac564e65c5779405d623f1df9abf378a13858b79442480244bd579968afc1faf9a2ce5e05
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.4":
+  version: 16.13.1
+  resolution: "react-is@npm:16.13.1"
+  checksum: 5aa564a1cde7d391ac980bedee21202fc90bdea3b399952117f54fb71a932af1e5902020144fb354b4690b2414a0c7aafe798eb617b76a3d441d956db7726fdf
   languageName: node
   linkType: hard
 
@@ -38661,15 +38650,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-debounce@npm:^3.2.0":
-  version: 3.4.3
-  resolution: "use-debounce@npm:3.4.3"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: eedc8a5e712b8a137052afa8ce96c14c3cef4adf7c1ca3c1d0023d6f747d24c8fc437b11dd9e518cc05690326c28fa8d3d8147cf0eb72642459bbf18627a09ca
-  languageName: node
-  linkType: hard
-
 "use-isomorphic-layout-effect@npm:^1.1.2":
   version: 1.1.2
   resolution: "use-isomorphic-layout-effect@npm:1.1.2"
@@ -40412,15 +40392,6 @@ __metadata:
     compress-commons: "npm:^4.1.0"
     readable-stream: "npm:^3.6.0"
   checksum: 4a73da856738b0634700b52f4ab3fe0bf0a532bea6820ad962d0bda0163d2d5525df4859f89a7238e204a378384e12551985049790c1894c3ac191866e85887f
-  languageName: node
-  linkType: hard
-
-"zone.js@npm:~0.14.0":
-  version: 0.14.2
-  resolution: "zone.js@npm:0.14.2"
-  dependencies:
-    tslib: "npm:^2.3.0"
-  checksum: 86e6df823da366d7a02dfcec10f2c028e79faf3490e270308d4a5cacd4415b6a656ef5c84628b7a568fbb46536c549dfb68354d3be6c4577b2ef2f8bb79f744e
   languageName: node
   linkType: hard
 
