@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,6 +34,27 @@ export { TABLE_SIZE };
  * Data table.
  *
  * @element cds-table
+ * @fires cds-table-header-cell-sort
+ *   The name of the custom event fired before a new sort direction is set upon a user gesture.
+ *   Cancellation of this event stops the user-initiated change in sort direction.
+ * @fires cds-search input
+ *   The name of the custom event fired during search bar input
+ * @fires cds-table-change-selection-all
+ *   The name of the custom event fired before header row is selected/unselected upon a user gesture.
+ * @fires cds-table-row-change-selection
+ *   The name of the custom event fired before a row is selected/unselected upon a user gesture.
+ * @fires cds-table-batch-actions-cancel-clicked
+ *   The name of the custom event fired after the Cancel button is clicked.
+ * @fires cds-table-row-expando-toggled
+ *   The name of the custom event fired after the expanded state of a row is toggled upon a user gesture.
+ * @fires cds-table-row-selected
+ *   The name of the custom event fired after a row has been selected.
+ * @fires cds-table-row-all-selected
+ *   The name of the custom event fired after all rows have been selected.
+ * @fires cds-table-sorted
+ *   The name of the custom event fired after the table has been sorted.
+ * @fires cds-table-filtered
+ *   The name of the custom event fired after the table has been filtered containing remaining rows.
  */
 @customElement(`${prefix}-table`)
 class CDSTable extends HostListenerMixin(LitElement) {
@@ -147,7 +168,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
    */
   @property()
   filterRows = (rowText: string, searchString: string) =>
-    rowText.toLowerCase().indexOf(searchString) < 0;
+    rowText.toLowerCase().indexOf(searchString.toLowerCase()) < 0;
 
   /**
    * The total headers
@@ -233,12 +254,64 @@ class CDSTable extends HostListenerMixin(LitElement) {
     this.withHeader = hasContent;
   }
 
+  private _handleSortAction(columnIndex, sortDirection) {
+    const rows = [...this._tableRows];
+
+    // regular row sorting
+    rows.sort((a, b) => {
+      const cellA = a.querySelectorAll(
+        (this.constructor as typeof CDSTable).selectorTableRowCells
+      )[columnIndex].textContent;
+      const cellB = b.querySelectorAll(
+        (this.constructor as typeof CDSTable).selectorTableRowCells
+      )[columnIndex].textContent;
+      return (
+        this.collationFactors[sortDirection] *
+        this.customSortRow(cellA, cellB, this.collator)
+      );
+    });
+
+    // take into account the expanded rows, mapping each expandable row to its original for proper reinsertion
+    if (this.expandable) {
+      const originalRows = [...this._tableRows];
+      const expandedRows = [...this._tableExpandedRows];
+
+      const mapping = originalRows.reduce((acc, element, index) => {
+        const sortId = element.getAttribute('sort-id');
+        acc[sortId] = expandedRows[index];
+        return acc;
+      }, {});
+
+      const sortedWithExpanded = [] as any;
+
+      rows.forEach((e) => {
+        const sortId = e.getAttribute('sort-id');
+        sortedWithExpanded.push(e);
+        sortedWithExpanded.push(mapping[sortId]);
+      });
+
+      sortedWithExpanded.forEach((e) => {
+        this._tableBody.insertBefore(e, null);
+      });
+    } else {
+      rows.forEach((e) => {
+        this._tableBody.insertBefore(e, null);
+      });
+    }
+  }
+
   private _handleFilterRows() {
     const unfilteredRows = [] as any;
     forEach(this._tableRows, (elem) => {
-      const rowText = elem.textContent?.trim();
-      const filtered = this.filterRows(rowText as string, this._searchValue);
+      let rowText = elem.textContent?.trim();
+      let filtered = this.filterRows(rowText as string, this._searchValue);
       (elem as any).filtered = filtered;
+
+      if (filtered && this.expandable) {
+        rowText = (elem as any).nextElementSibling.textContent?.trim();
+        filtered = this.filterRows(rowText as string, this._searchValue);
+        (elem as any).filtered = filtered;
+      }
 
       if (!filtered) {
         unfilteredRows.push(elem);
@@ -328,7 +401,6 @@ class CDSTable extends HostListenerMixin(LitElement) {
       return;
     }
 
-    const rows = [...this._tableRows];
     const columns = [...this._tableHeaderRow.children];
     const columnIndex = columns.indexOf(target);
 
@@ -336,47 +408,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
       (e) => e !== target && e.setAttribute('sort-direction', 'none')
     );
 
-    // regular row sorting
-    rows.sort((a, b) => {
-      const cellA = a.querySelectorAll(
-        (this.constructor as typeof CDSTable).selectorTableRowCells
-      )[columnIndex].textContent;
-      const cellB = b.querySelectorAll(
-        (this.constructor as typeof CDSTable).selectorTableRowCells
-      )[columnIndex].textContent;
-      return (
-        this.collationFactors[sortDirection] *
-        this.customSortRow(cellA, cellB, this.collator)
-      );
-    });
-
-    // take into account the expanded rows, mapping each expandable row to its original for proper reinsertion
-    if (this.expandable) {
-      const originalRows = [...this._tableRows];
-      const expandedRows = [...this._tableExpandedRows];
-
-      const mapping = originalRows.reduce((acc, element, index) => {
-        const sortId = element.getAttribute('sort-id');
-        acc[sortId] = expandedRows[index];
-        return acc;
-      }, {});
-
-      const sortedWithExpanded = [] as any;
-
-      rows.forEach((e) => {
-        const sortId = e.getAttribute('sort-id');
-        sortedWithExpanded.push(e);
-        sortedWithExpanded.push(mapping[sortId]);
-      });
-
-      sortedWithExpanded.forEach((e) => {
-        this._tableBody.insertBefore(e, null);
-      });
-    } else {
-      rows.forEach((e) => {
-        this._tableBody.insertBefore(e, null);
-      });
-    }
+    this._handleSortAction(columnIndex, sortDirection);
 
     const init = {
       bubbles: true,
@@ -632,23 +664,24 @@ class CDSTable extends HostListenerMixin(LitElement) {
     }
 
     if (changedProperties.has('isSelectable')) {
+      if (this.isSelectable) {
+        this._tableHeaderRow.setAttribute('selection-name', 'header');
+        this._tableRows.forEach((e, index) => {
+          if (!e.hasAttribute('selection-name')) {
+            e.setAttribute('selection-name', index);
+          }
+        });
+      }
       this.headerCount++;
-    }
-
-    if (changedProperties.has('isSortable')) {
-      const headerCells = this.querySelectorAll(
-        (this.constructor as typeof CDSTable).selectorHeaderCell
-      );
-      headerCells.forEach((e) => {
-        (e as CDSTableHeaderCell).isSortable = this.isSortable;
-        (e as CDSTableHeaderCell).removeAttribute('sort-direction');
-        (e as CDSTableHeaderCell).isSelectable = this.isSelectable;
-        (e as CDSTableHeaderCell).isExpandable = this.expandable;
-      });
     }
 
     if (changedProperties.has('locale')) {
       this.collator = new Intl.Collator(this.locale);
+    }
+    if (changedProperties.has('isSortable')) {
+      if (this.isSortable) {
+        this._enableSortAction();
+      }
     }
 
     if (
@@ -747,11 +780,15 @@ class CDSTable extends HostListenerMixin(LitElement) {
   /* eslint-disable no-constant-condition */
   render() {
     return html`
-      <div ?hidden="${!this.withHeader}" class="${prefix}--data-table-header">
-        <slot @slotchange="${this._handleSlotChange}" name="title"></slot>
-        <slot @slotchange="${this._handleSlotChange}" name="description"></slot>
+      <div class="${prefix}--data-table-header-container">
+        <div ?hidden="${!this.withHeader}" class="${prefix}--data-table-header">
+          <slot @slotchange="${this._handleSlotChange}" name="title"></slot>
+          <slot
+            @slotchange="${this._handleSlotChange}"
+            name="description"></slot>
+        </div>
+        <slot name="toolbar"></slot>
       </div>
-      <slot name="toolbar"></slot>
 
       ${false // TODO: replace with this.stickyHeader when feature is fully implemented
         ? html` <div class="${prefix}--data-table_inner-container">
@@ -762,6 +799,39 @@ class CDSTable extends HostListenerMixin(LitElement) {
         : html`<slot></slot>`}
     `;
   }
+
+  /**
+   * Adds isSortable value for table header cells.
+   */
+  _enableSortAction() {
+    const headerCells = this.querySelectorAll(
+      (this.constructor as typeof CDSTable).selectorHeaderCell
+    );
+    headerCells.forEach((e) => {
+      (e as CDSTableHeaderCell).isSortable = this.isSortable;
+      (e as CDSTableHeaderCell).isSelectable = this.isSelectable;
+      (e as CDSTableHeaderCell).isExpandable = this.expandable;
+    });
+    const columns = [...this._tableHeaderRow.children];
+    let sortDirection;
+    let columnIndex = -1;
+    columns.forEach((column, index) => {
+      if (
+        column.hasAttribute('sort-direction') &&
+        column.getAttribute('sort-direction') !== 'none'
+      ) {
+        sortDirection = column.getAttribute('sort-direction');
+        columnIndex = index;
+      }
+    });
+
+    columns.forEach(
+      (e, index) =>
+        index !== columnIndex && e.setAttribute('sort-direction', 'none')
+    );
+    this._handleSortAction(columnIndex, sortDirection);
+  }
+
   /* eslint-enable no-constant-condition */
 
   /**

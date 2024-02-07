@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,6 +29,7 @@ import {
   mapStateToProps as mapStateToPropsMasthead,
   mapDispatchToProps as mapDispatchToPropsMasthead,
 } from '../masthead/masthead-container';
+import C4DMastheadComposite from '../masthead/masthead-composite';
 import C4DDotcomShellComposite from './dotcom-shell-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -60,11 +61,12 @@ export type DotcomShellContainerActions =
  * @returns The converted version of the given state, tailored for `<c4d-dotcomshell-container>`.
  */
 export function mapStateToProps(
-  state: MastheadContainerState & FooterContainerState
+  state: MastheadContainerState & FooterContainerState,
+  self: C4DMastheadComposite
 ): MastheadContainerStateProps & FooterContainerStateProps {
   const footerProps = mapStateToPropsFooter(state);
   return {
-    ...mapStateToPropsMasthead(state),
+    ...mapStateToPropsMasthead(state, self),
     ...Object.keys(footerProps).reduce((acc, key) => {
       acc[key !== 'links' ? key : 'footerLinks'] = footerProps[key];
       return acc;

@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.2.0-rc.0...@carbon/ibmdotcom-web-components@2.3.0-rc.0) (2024-02-02)
+
+
+### Bug Fixes
+
+* **dotcom-shell:** accessibility issue with dotcom shell ([#11114](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11114)) ([10037b4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/10037b44d659445b27f03982898fad66c81a95c3)), closes [#9036](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9036)
+* **footer:** title not showing in 672 breakpoint specifically ([#11396](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11396)) ([d960696](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d960696dd6c095d9d493795b6739f2aa0bf7bcba))
+* **masthead:** change container position to relative ([#11431](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11431)) ([40457e0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40457e0526b8cbed7ccb5efa9e7d9ed50c991f9a))
+* **masthead:** container should respect user's L0 data ([#11420](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11420)) ([cf2f60d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cf2f60d76c9d78c43ca68eee977ba9da7a3fc6c0))
+* **stackblitz:** fix and standardize masthead examples for v2 ([#11199](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11199)) ([c3ddeb8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c3ddeb8016b0259ce4f202cb2d99c16b6b5c2545))
+
+
+### Features
+
+* **masthead:** support Contact Module in L1 CTA ([#11403](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11403)) ([1a50f1a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1a50f1a4442d936c4eaece140df404da13759d85))
+* **tile:** slug ai updates ([#11484](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11484)) ([a4cc518](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a4cc518bf85cac970d22a01e72bd332b2ec5a179))
+
+
+
+
+
+# [2.2.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.2.0-rc.1...@carbon/ibmdotcom-web-components@2.2.0) (2024-01-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.2.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.2.0-rc.0...@carbon/ibmdotcom-web-components@2.2.0-rc.1) (2024-01-26)
+
+
+### Features
+
+* **slug:** ai callout updates for 2.2.0 ([#11453](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11453)) ([8f0b9f6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8f0b9f609b4d98a148071937db7bcdb689bea514))
+
+
+
+
+
 # [2.2.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.1.0-rc.0...@carbon/ibmdotcom-web-components@2.2.0-rc.0) (2024-01-19)
 
 

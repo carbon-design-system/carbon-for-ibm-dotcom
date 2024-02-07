@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -80,7 +80,9 @@ describe('c4d-footer-nav-group', function () {
     let group: C4DFooterNavGroup | null;
 
     beforeEach(async function () {
-      spyOn(window, 'matchMedia').and.returnValue(new MockMediaQueryList(true));
+      spyOn(window, 'matchMedia').and.returnValue(
+        new MockMediaQueryList(false)
+      );
       render(template(), document.body);
       await Promise.resolve();
       group = document.body.querySelector('c4d-footer-nav-group');
