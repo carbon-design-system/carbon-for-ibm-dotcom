@@ -17,10 +17,6 @@ import CDSSkipToContent from '../../src/internal/vendor/@carbon/web-components/c
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
-if (process.env.STORYBOOK_CARBON_CUSTOM_ELEMENTS_USE_RTL === 'true') {
-  document.documentElement.setAttribute('dir', 'rtl');
-}
-
 export const parameters = {
   layout: 'fullscreen',
   options: {
@@ -32,7 +28,6 @@ export const parameters = {
           'Building for IBM(dotcom)',
           'Carbon CDN style helpers',
           'Stable selectors',
-          'Enable right-to-left (RTL)',
           'Feature flags',
           'Contributing to the Web Components package',
           'Breaking Changes',

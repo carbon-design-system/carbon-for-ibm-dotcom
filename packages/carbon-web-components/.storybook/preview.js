@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2016, 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { setCustomElementsManifest } from '@storybook/web-components';
 import customElements from '../custom-elements.json';
 import container from './container';
@@ -184,8 +191,11 @@ export const decorators = [
     const { hasMainTag } = result;
     const { locale, dir, theme } = context.globals;
 
-    document.documentElement.setAttribute('storybook-carbon-theme', theme);
+    if (import.meta.env.STORYBOOK_USE_RTL === 'true') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    }
 
+    document.documentElement.setAttribute('storybook-carbon-theme', theme);
     document.documentElement.lang = locale;
     document.documentElement.dir = dir;
 

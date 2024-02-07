@@ -4518,7 +4518,6 @@ __metadata:
     rollup-plugin-inject-process-env: "npm:^1.3.1"
     rollup-plugin-multi-input: "npm:^1.3.1"
     rollup-plugin-sizes: "npm:^1.0.4"
-    rtlcss: "npm:^2.4.0"
     storybook: "npm:^8.0.0"
     storybook-addon-accessibility-checker: "npm:^3.1.61-rc.2"
     strip-comments: "npm:^1.0.0"
@@ -4868,8 +4867,7 @@ __metadata:
     resize-observer-polyfill: "npm:^1.5.0"
     rollup: "npm:^2.55.1"
     rollup-plugin-multi-input: "npm:^1.3.1"
-    rtlcss: "npm:^3.0.0"
-    sass: "npm:~1.69.0"
+    sass: "npm:~1.70.0"
     sass-loader: "npm:^10.0.0"
     storybook: "npm:^8.0.0"
     storybook-addon-accessibility-checker: "npm:^3.1.61-rc.2"
@@ -12889,20 +12887,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.22.3":
-  version: 4.23.0
-  resolution: "browserslist@npm:4.23.0"
-  dependencies:
-    caniuse-lite: "npm:^1.0.30001587"
-    electron-to-chromium: "npm:^1.4.668"
-    node-releases: "npm:^2.0.14"
-    update-browserslist-db: "npm:^1.0.13"
-  bin:
-    browserslist: cli.js
-  checksum: 496c3862df74565dd942b4ae65f502c575cbeba1fa4a3894dad7aa3b16130dc3033bc502d8848147f7b625154a284708253d9598bcdbef5a1e34cf11dc7bad8e
-  languageName: node
-  linkType: hard
-
 "browserstack-cypress-cli@npm:^1.11.1":
   version: 1.25.0
   resolution: "browserstack-cypress-cli@npm:1.25.0"
@@ -13342,13 +13326,6 @@ __metadata:
   version: 1.0.30001561
   resolution: "caniuse-lite@npm:1.0.30001561"
   checksum: 94cfc8454c19d28828baf254771e0f3cf1828f95b0a85904d70a77b530873a041a735761091e3baf17ec90609250f887baa044b8ed2776368a46dd2e70f050d6
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001587":
-  version: 1.0.30001588
-  resolution: "caniuse-lite@npm:1.0.30001588"
-  checksum: 09150ef2daa65c75cb2681832d5bc203760a02d9f71eb033dc0401fbfdbe026d3a84e54a8d2085f730a4f51eb074028b89013dd033841e1a0eb3c7323a50ed45
   languageName: node
   linkType: hard
 
@@ -14630,11 +14607,11 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.21.0, core-js-compat@npm:^3.31.0":
-  version: 3.36.0
-  resolution: "core-js-compat@npm:3.36.0"
+  version: 3.35.1
+  resolution: "core-js-compat@npm:3.35.1"
   dependencies:
-    browserslist: "npm:^4.22.3"
-  checksum: 633c49a254fe48981057e33651e5a74a0a14f14731aa5afed5d2e61fbe3c5cbc116ffd4feaa158c683c40d6dc4fd2e6aa0ebe12c45d157cfa571309d08400c98
+    browserslist: "npm:^4.22.2"
+  checksum: 9a153c66591e23703e182b258ec6bdaff0a7c578dc5f9ac152fdfef2d09e8ec277f192e28d4634a8b576c8e1a6d3b1ac76ff6b8776e72b71b334e609e177a05e
   languageName: node
   linkType: hard
 
@@ -16371,7 +16348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:^1.3.47, electron-to-chromium@npm:^1.4.668":
+"electron-to-chromium@npm:^1.3.47":
   version: 1.4.673
   resolution: "electron-to-chromium@npm:1.4.673"
   checksum: e9e82bec564f4398040a3ce5a8e344dfebac624e458545c7d9317bb54d65f7000648e552acebc1951cda4562e5d9cebcb7d9e76a376c8ad1e04f7860230935fa
@@ -31744,20 +31721,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rtlcss@npm:^3.0.0":
-  version: 3.5.0
-  resolution: "rtlcss@npm:3.5.0"
-  dependencies:
-    find-up: "npm:^5.0.0"
-    picocolors: "npm:^1.0.0"
-    postcss: "npm:^8.3.11"
-    strip-json-comments: "npm:^3.1.1"
-  bin:
-    rtlcss: bin/rtlcss.js
-  checksum: 141ffcb031e80e71f9167e3db8d00182da131121498d726efef82bd66c299eab8c059187c62df21eef7e5b49b712150d10be4881c0a66f0d3f75f60eaf17999d
-  languageName: node
-  linkType: hard
-
 "run-applescript@npm:^5.0.0":
   version: 5.0.0
   resolution: "run-applescript@npm:5.0.0"
@@ -31959,20 +31922,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.19.0":
-  version: 1.71.0
-  resolution: "sass@npm:1.71.0"
+"sass@npm:^1.19.0, sass@npm:~1.70.0":
+  version: 1.70.0
+  resolution: "sass@npm:1.70.0"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 5616f0ef0d764d0a6242155edd02773300e0d9ac1c0b542781ae934095f3b2f73312707f95edc08c34ae88bad633bb55c8cc67ad390bef40e04eb84ae9b028cd
+  checksum: f933545d72a932f4a82322dd4ca9f3ea7d3e9d08852d695f76d419939cbdf7f8db3dd894b059ed77bf76811b07319b75b3ef8bb077bf9f52f8fbdfd8cee162f6
   languageName: node
   linkType: hard
 
-"sass@npm:~1.69.0, sass@npm:~1.69.5":
+"sass@npm:~1.69.5":
   version: 1.69.5
   resolution: "sass@npm:1.69.5"
   dependencies:
@@ -34146,8 +34109,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.0.0, terser@npm:^5.17.4":
-  version: 5.27.1
-  resolution: "terser@npm:5.27.1"
+  version: 5.27.0
+  resolution: "terser@npm:5.27.0"
   dependencies:
     "@jridgewell/source-map": "npm:^0.3.3"
     acorn: "npm:^8.8.2"
@@ -34155,7 +34118,7 @@ __metadata:
     source-map-support: "npm:~0.5.20"
   bin:
     terser: bin/terser
-  checksum: 4b5c8c65548071ae09dc1d9fd64616262876229897eaac9f95cf2e44908a1f4a25d7837c2a38caef1a523cf1cf67d254e74a846e9a854d289c0ad3664d581c3c
+  checksum: 9b2c5cb00747dea5994034ca064fb3cc7efc1be6b79a35247662d51ab43bdbe9cbf002bbf29170b5f3bd068c811d0212e22d94acd2cf0d8562687b96f1bffc9f
   languageName: node
   linkType: hard
 
