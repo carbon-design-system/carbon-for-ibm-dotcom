@@ -54,17 +54,17 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
    * Returns a class-name based on the gradient parameter type
    */
   protected _getGradientClass() {
-    return classMap({
+    return {
       [`${c4dPrefix}--leadspace--gradient`]: this.defaultSrc,
       [`${c4dPrefix}--leadspace__overlay`]: true,
-    });
+    };
   }
 
   /**
    * Returns a class-name based on the type parameter type
    */
   protected _getTypeClass() {
-    return classMap({
+    return {
       [`${c4dPrefix}--leadspace--centered`]:
         this.type === LEADSPACE_TYPE.CENTERED,
       [`${c4dPrefix}--leadspace--centered__image`]:
@@ -72,7 +72,7 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
       [`${c4dPrefix}--leadspace--productive`]:
         this.type === LEADSPACE_TYPE.SMALL,
       [`${c4dPrefix}--leadspace__section`]: true,
-    });
+    };
   }
 
   /**
@@ -163,9 +163,9 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   render() {
     const { gradientStyleScheme, type, size } = this;
     return html`
-      <section class="${this._getTypeClass()}" part="section">
+      <section class="${classMap(this._getTypeClass())}" part="section">
         <div class="${c4dPrefix}--leadspace__container">
-          <div class="${this._getGradientClass()}">
+          <div class="${classMap(this._getGradientClass())}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
               : svg`

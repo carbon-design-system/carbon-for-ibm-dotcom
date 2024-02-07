@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, Part } from 'lit';
+import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentBlock from '../content-block/content-block';
@@ -27,8 +27,11 @@ class C4DContentBlockCards extends StableSelectorMixin(C4DContentBlock) {
    * The CSS class list for the container (grid) node.
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _getContainerClasses(): string | ((part: Part) => void) {
-    return `${prefix}--content-layout ${prefix}--content-layout--card-group`;
+  protected _getContainerClasses() {
+    return {
+      [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--card-group`]: true,
+    };
   }
 
   static get stableSelector() {

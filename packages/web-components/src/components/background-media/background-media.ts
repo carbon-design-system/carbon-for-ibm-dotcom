@@ -32,31 +32,6 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 @customElement(`${c4dPrefix}-background-media`)
 class C4DBackgroundMedia extends C4DImage {
   /**
-   * Returns a class-name based on the Gradient Direction type
-   */
-  protected _getGradientClass() {
-    return classMap({
-      [`${prefix}--background-media--gradient`]: true,
-      [`${prefix}--background-media--gradient--${this.gradientDirection}`]:
-        this.gradientDirection,
-    });
-  }
-
-  /**
-   * Returns a class-name based on the Mobile Position type
-   */
-  protected _getMobilePositionClass() {
-    return classMap({
-      [`${prefix}--background-media--container`]: true,
-      [`${prefix}--background-media--mobile-position`]: true,
-      [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]:
-        this.mobilePosition,
-      [`${prefix}--background-media--image`]: this.videoPlayer === null,
-      [`${prefix}--background-media--video`]: this.videoPlayer !== null,
-    });
-  }
-
-  /**
    * The opacity of the background image or video. 100 is fully visible, 0 is fully transparent.
    */
   @property({ attribute: 'opacity', reflect: true })
@@ -105,6 +80,27 @@ class C4DBackgroundMedia extends C4DImage {
    */
   @property()
   videoPlayer: C4DVideoPlayer | null = null;
+
+  /**
+   * Returns a class-name based on the Gradient Direction type
+   */
+  protected _getGradientClass = {
+    [`${prefix}--background-media--gradient`]: true,
+    [`${prefix}--background-media--gradient--${this.gradientDirection}`]:
+      this.gradientDirection,
+  };
+
+  /**
+   * Returns a class-name based on the Mobile Position type
+   */
+  protected _getMobilePositionClass = {
+    [`${prefix}--background-media--container`]: true,
+    [`${prefix}--background-media--mobile-position`]: true,
+    [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]:
+      this.mobilePosition,
+    [`${prefix}--background-media--image`]: this.videoPlayer === null,
+    [`${prefix}--background-media--video`]: this.videoPlayer !== null,
+  };
 
   /**
    * Conditionally runs super.render() if all children are `c4d-image-item`
@@ -156,7 +152,7 @@ class C4DBackgroundMedia extends C4DImage {
   }
 
   renderGradient() {
-    return html` <div class="${this._getGradientClass()}"></div> `;
+    return html` <div class="${classMap(this._getGradientClass)}"></div> `;
   }
 
   _getMediaOpacity() {
@@ -186,7 +182,7 @@ class C4DBackgroundMedia extends C4DImage {
 
   render() {
     return html`
-      <div class="${this._getMobilePositionClass()}">
+      <div class="${classMap(this._getMobilePositionClass)}">
         ${this.gradientHidden ? '' : this.renderGradient()}
         <div
           class="${prefix}--background-media--item"
