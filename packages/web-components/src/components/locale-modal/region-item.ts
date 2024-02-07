@@ -36,12 +36,12 @@ class C4DRegionItem extends C4DCard {
   @property({ reflect: true })
   name = '';
 
-  protected _cardClasses = classMap({
+  protected _cardClasses = {
     [`${prefix}--tile`]: true,
     [`${prefix}--card`]: true,
     [`${prefix}--tile--clickable`]: true,
     [`${prefix}--card--link`]: true,
-  });
+  };
 
   /**
    * @returns The disabled link content.
@@ -50,7 +50,7 @@ class C4DRegionItem extends C4DCard {
     const { _classes: classes, _cardClasses: cardClasses } = this;
     return html`
       <button id="link" class="${classes}" disabled type="button">
-        <div class="${cardClasses}">${this._renderInner()}</div>
+        <div class="${classMap(cardClasses)}">${this._renderInner()}</div>
       </button>
     `;
   }
@@ -61,7 +61,7 @@ class C4DRegionItem extends C4DCard {
       ? this._renderDisabledLink()
       : html`
           <button id="link" class="${classes}" type="button">
-            <div class="${cardClasses}">${this._renderInner()}</div>
+            <div class="${classMap(cardClasses)}">${this._renderInner()}</div>
           </button>
         `;
   }

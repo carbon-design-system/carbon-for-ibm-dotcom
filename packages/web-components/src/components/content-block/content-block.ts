@@ -86,13 +86,13 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
   protected _getContainerClasses() {
     const { complementaryStyleScheme, _hasComplementary: hasComplementary } =
       this;
-    return classMap({
+    return {
       [`${prefix}--content-layout`]: true,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
       [`${prefix}--layout--border`]:
         complementaryStyleScheme ===
         CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-    });
+    };
   }
 
   /**
@@ -219,7 +219,7 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${this._getContainerClasses()}">
+      <div class="${classMap(this._getContainerClasses())}">
         ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
       </div>
     `;

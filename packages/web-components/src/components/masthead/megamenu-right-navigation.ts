@@ -41,11 +41,11 @@ class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    * Returns a class-name(s) for megamenu container
    */
   protected _getClassNames() {
-    return classMap({
+    return {
       [`${prefix}--masthead__megamenu-container`]: true,
       [`${prefix}--masthead__megamenu-container--has-sidebar`]:
         this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR,
-    });
+    };
   }
 
   /**
@@ -84,7 +84,7 @@ class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${this._getClassNames()}">
+      <div class="${classMap(this._getClassNames())}">
         <div class="${prefix}--masthead__megamenu-container-inner">
           <div class="${prefix}--masthead__megamenu__heading">
             <slot name="heading"></slot>

@@ -47,10 +47,10 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    * Returns a class-name based on the type parameter type
    */
   protected _getTypeClass() {
-    return classMap({
+    return {
       [`${c4dPrefix}--legal-nav__list`]: true,
       [`${c4dPrefix}--legal-nav__micro`]: this.size === FOOTER_SIZE.MICRO,
-    });
+    };
   }
 
   /**
@@ -70,7 +70,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
           <nav class="${c4dPrefix}--legal-nav">
-            <div class="${this._getTypeClass()}">
+            <div class="${classMap(this._getTypeClass())}">
               <ul>
                 <slot></slot>
               </ul>
@@ -85,7 +85,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
         `
       : html`
           <nav class="${c4dPrefix}--legal-nav">
-            <div class="${this._getTypeClass()}">
+            <div class="${classMap(this._getTypeClass())}">
               <div>
                 <slot name="brand"></slot>
                 <ul>
