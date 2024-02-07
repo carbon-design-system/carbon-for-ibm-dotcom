@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,29 +18,28 @@ const orientationOptions = {
 
 const defaultArgs = {
   gap: '0',
-  orientation: STACK_ORIENTATION.VERTICAL
+  orientation: STACK_ORIENTATION.VERTICAL,
 };
 
 const controls = {
   gap: {
     control: 'select',
     description: 'gap',
-    options: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    options: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
   },
   orientation: {
     control: 'select',
     description: 'orientation',
-    options: orientationOptions
-  }
+    options: orientationOptions,
+  },
 };
-
 
 export const Default = {
   render: () => html` <cds-stack gap="6">
     <div>Item 1</div>
     <div>Item 2</div>
     <div>Item 3</div>
-  </cds-stack>`
+  </cds-stack>`,
 };
 
 export const Horizontal = {
@@ -48,17 +47,19 @@ export const Horizontal = {
     <div>Item 1</div>
     <div>Item 2</div>
     <div>Item 3</div>
-  </cds-stack>`
+  </cds-stack>`,
 };
 
 export const Playground = {
   args: defaultArgs,
   argTypes: controls,
-  render: ({ gap, orientation }) => html` <cds-stack gap="${gap}" orientation="${orientation}">
+  render: ({ gap, orientation }) => html` <cds-stack
+    gap="${gap}"
+    orientation="${orientation}">
     <div>Item 1</div>
     <div>Item 2</div>
     <div>Item 3</div>
-  </cds-stack>`
+  </cds-stack>`,
 };
 
 const meta = {
