@@ -12,10 +12,6 @@
   "main": "es/index.js",
   "module": "es/index.js",
   "exports": {
-    "./es/components-react/*": {
-      "node": "./lib/components-react-node/*",
-      "default": "./es/components-react/*"
-    },
     "./es/components/*": {
       "node": "./lib/components/*",
       "default": "./es/components/*"
@@ -184,8 +180,6 @@
     "postcss-selector-parser": "^6.0.0",
     "prop-types": "^15.7.2",
     "puppeteer": "^13.0.0",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
     "read-pkg-up": "^7.0.0",
     "replace-ext": "^2.0.0",
     "resize-observer-polyfill": "^1.5.0",

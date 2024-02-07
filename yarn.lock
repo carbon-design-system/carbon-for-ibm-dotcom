@@ -4349,8 +4349,6 @@ __metadata:
     postcss-selector-parser: "npm:^6.0.0"
     prop-types: "npm:^15.7.2"
     puppeteer: "npm:^13.0.0"
-    react: "npm:16.14.0"
-    react-dom: "npm:16.14.0"
     read-pkg-up: "npm:^7.0.0"
     replace-ext: "npm:^2.0.0"
     resize-observer-polyfill: "npm:^1.5.0"
