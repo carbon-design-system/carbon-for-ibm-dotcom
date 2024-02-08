@@ -2135,7 +2135,7 @@ __metadata:
     "@carbon/icons-react": "npm:10.49.2"
     "@carbon/pictograms-react": "npm:11.50.0"
     "@carbon/storybook-addon-theme": "npm:1.45.0"
-    "@carbon/telemetry": "npm:^0.1.0"
+    "@ibm/telemetry-js": "npm:^1.2.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.8.1"
     "@percy/cypress": "npm:^3.1.1"
@@ -2662,7 +2662,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/telemetry@npm:0.1.0, @carbon/telemetry@npm:^0.1.0":
+"@carbon/telemetry@npm:0.1.0":
   version: 0.1.0
   resolution: "@carbon/telemetry@npm:0.1.0"
   bin:
@@ -3389,6 +3389,15 @@ __metadata:
     prop-types: ^15.0.0
     react: ">=0.14.0"
   checksum: 79b697d150f9b4aa6cadfb8026f20e023c05fefc4be841b1cdd5567c3fd970ccaae84a0ea6279f579fe2cc9844c201e80713a2691b24e59cc7d6925fa8130c34
+  languageName: node
+  linkType: hard
+
+"@ibm/telemetry-js@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@ibm/telemetry-js@npm:1.2.0"
+  bin:
+    ibmtelemetry: dist/collect.js
+  checksum: dd942eaecc6bdf40f91309fc783b2d1b654e9cb73dd0b98ec54eef53816cad027c60ccaf6415cc81dd3ee1f8686159733ac226f6c13288419269a001a7b81b3b
   languageName: node
   linkType: hard
 
