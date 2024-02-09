@@ -21,8 +21,6 @@ Here's a quick example to get you started.
 
 ### JS (via import)
 
-Note that, please always use the latest version.
-
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
 ```
@@ -40,9 +38,7 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
   question-choices="1,2"
   state="CA"
   terms-condition-link=""
-  bpid-legal-text=""
-  enable-all-opt-in=""
-  default-values="">
+  enable-all-opt-in="">
 </c4d-notice-choice>
 ```
 
@@ -60,7 +56,14 @@ document.addEventListener('cds-notice-choice-change', (event) => {
 
 ## Props
 
-<Props of="c4d-notice-choice" />
+| Name                 | Description                                                                                 | Default |
+| -------------------- | ------------------------------------------------------------------------------------------- | ------- |
+| question-choices     | Set to "1" if Email only. Set to "1, 2" if Email and Phone                                  | 1       |
+| country              | Country code based on the customer country                                                  | US      |
+| state                | State code based on the customer state                                                      |         |
+| language             | form based on the country and language                                                      | en      |
+| terms-condition-link | Terms and conditions link appended to the end of the privacy statement - should be specific |         |
+| hide-error-message   | Hide Error Messages for PUNS statement                                                      | false   |
 
 ## Stable selectors
 
