@@ -236,6 +236,13 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
 
       &[actions-multiple='triple'] {
         --flex-direction: column;
+
+        /* stylelint-disable-next-line selector-type-no-unknown */
+        ::slotted(cds-button) {
+          flex: initial;
+          inline-size: 100%;
+          max-inline-size: none;
+        }
       }
     }
 
@@ -244,8 +251,9 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
       --flex-direction: column;
 
       /* stylelint-disable-next-line selector-type-no-unknown */
-      &[actions-multiple] ::slotted(cds-button) {
-        flex: 0 0 100%;
+      ::slotted(cds-button) {
+        flex: initial;
+        inline-size: 100%;
         max-inline-size: none;
       }
     }
