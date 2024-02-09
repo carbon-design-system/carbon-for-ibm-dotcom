@@ -49,11 +49,39 @@ const countryList = {
   India: 'IN',
   China: 'CN',
   Japan: 'JP',
+  'Korea, Republic of': 'KR',
 };
 const stateList = {
-  Unknown: '',
-  Alabama: 'AL',
-  California: 'CA',
+  US: {
+    Unknown: '',
+    Alabama: 'AL',
+    California: 'CA',
+  },
+  IN: {
+    Unknown: '',
+    Karnataka: 'KA',
+    Delhi: 'DL',
+  },
+  CN: {
+    Unknown: '',
+    'Beijing Shi': 'BJ',
+    'Hong Kong': 'HK',
+  },
+  JP: {
+    Unknown: '',
+    Kyoto: '26',
+    Mie: '27',
+  },
+  KR: {
+    Unknown: '',
+    Sejong: '50',
+    'Daegu-gwangyeoksi': '27',
+  },
+  DE: {
+    Unknown: '',
+    Hamburg: 'HU',
+    Sachsen: 'SN',
+  },
 };
 const hideErrorMessages = {
   true: 'true',
@@ -66,20 +94,29 @@ const showLegalNotices = {
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
-const props = () => ({
-  language: select('Language', languages, 'en'),
-  country: select('Country', countryList, 'US'),
-  state: select('State', stateList, ''),
-  questionchoices: select('Question Choices', questionChoices, '1,2'),
-  termsConditionLink: text(
-    'Terms & Condition Link',
-    'https://www.ibm.com/legal'
-  ),
-  bpidLegalText: text('BPID Legal Text', ''),
-  onChange: action('c4d-notice-choice-change'),
-  hideErrorMessages: select('Hide Error Messages', hideErrorMessages, 'false'),
-  showLegalNotice: select('Show Legal Notice', showLegalNotices, 'true'),
-});
+const props = () => {
+  const selectedCountry = select('Country', countryList, 'US');
+  let availableStates = stateList[selectedCountry] || [{ Unknown: '' }];
+
+  return {
+    language: select('Language', languages, 'en'),
+    country: selectedCountry,
+    state: select('State', availableStates, ''),
+    questionchoices: select('Question Choices', questionChoices, '1,2'),
+    termsConditionLink: text(
+      'Terms & Condition Link',
+      'https://www.ibm.com/legal'
+    ),
+    onChange: action('c4d-notice-choice-change'),
+    hideErrorMessages: select(
+      'Hide Error Messages',
+      hideErrorMessages,
+      'false'
+    ),
+  };
+};
+
+console.log(props);
 
 export const Default = (args) => {
   const {
@@ -89,9 +126,7 @@ export const Default = (args) => {
     termsConditionLink,
     questionchoices,
     hideErrorMessages,
-    showLegalNotice,
     enableAllOptIn,
-    bpidLegalText,
     hiddenEmail,
     hiddenPhone,
     ncTeleDetail,
@@ -105,9 +140,7 @@ export const Default = (args) => {
       state="${state}"
       terms-condition-link="${termsConditionLink || ''}"
       hide-error-message="${hideErrorMessages}"
-      show-legal-notice=${showLegalNotice}
       ?enable-all-opt-in=${enableAllOptIn}
-      bpid-legal-text="${bpidLegalText}"
       .hiddenEmail="${hiddenEmail}"
       .hiddenPhone="${hiddenPhone}"
       .nc-tele-detail="${ncTeleDetail}"
