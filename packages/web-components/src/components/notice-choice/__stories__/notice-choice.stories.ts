@@ -87,10 +87,6 @@ const hideErrorMessages = {
   true: 'true',
   false: 'false',
 };
-const showLegalNotices = {
-  true: 'true',
-  false: 'false',
-};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
