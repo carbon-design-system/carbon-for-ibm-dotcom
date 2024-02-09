@@ -5,13 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-
 declare global {
   interface Window {
     NoticeChoice: any;
   }
 }
-
 
 export function getNcContentFromWindow() {
   let content: any;
@@ -26,7 +24,6 @@ export function resetToWorldWideContent() {
   try {
     window.NoticeChoice = window.NoticeChoice || {};
     window.NoticeChoice = window.NoticeChoice || {};
-   
   } catch (e) {
     console.log('unable to set worldWideContent', e);
   }
