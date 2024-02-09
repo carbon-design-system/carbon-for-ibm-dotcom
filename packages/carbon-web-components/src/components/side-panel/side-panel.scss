@@ -179,8 +179,8 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     @extend .#{$prefix}--visually-hidden;
   }
 
-  .#{$block-class}[has-slug] .#{$block-class}__inner-content {
-    @include callout-gradient('default');
+  .#{$block-class}[has-slug] {
+    @extend .#{$block-class}--has-slug;
   }
 
   [scrolls] {

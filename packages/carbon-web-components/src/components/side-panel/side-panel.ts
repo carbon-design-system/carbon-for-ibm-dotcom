@@ -750,7 +750,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     const mainTemplate = html`<div
       class=${`${blockClass}__inner-content`}
       ?scrolls=${!this._doAnimateTitle}>
-      <slot></slot>
+      <cds-layer level="1">
+        <slot></slot>
+      </cds-layer>
     </div> `;
 
     const sidePanelAnimateTitleClass = this._doAnimateTitle
@@ -771,40 +773,34 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
         ?overlay=${includeOverlay || slideIn}
         ?slide-in=${slideIn}
         size=${size}>
-        <cds-layer level="1">
-          <a
-            id="start-sentinel"
-            class="sentinel"
-            hidden
-            href="javascript:void 0"
-            role="navigation"></a>
+        <a
+          id="start-sentinel"
+          class="sentinel"
+          hidden
+          href="javascript:void 0"
+          role="navigation"></a>
 
-          ${this._doAnimateTitle
-            ? html`<div
-                class=${`${blockClass}__animated-scroll-wrapper`}
-                scrolls>
-                ${headerTemplate} ${mainTemplate}
-              </div>`
-            : html` ${headerTemplate} ${mainTemplate}`}
+        ${this._doAnimateTitle
+          ? html`<div class=${`${blockClass}__animated-scroll-wrapper`} scrolls>
+              ${headerTemplate} ${mainTemplate}
+            </div>`
+          : html` ${headerTemplate} ${mainTemplate}`}
 
-          <cds-side-panel-button-set
-            class=${`${blockClass}__actions-container`}
-            ?hidden=${this._actionsCount === 0}
-            ?condensed=${condensedActions}
-            actions-multiple=${actionsMultiple}
-            size=${size}>
-            <slot
-              name="actions"
-              @slotchange=${this._handleActionsChange}></slot>
-          </cds-side-panel-button-set>
+        <cds-side-panel-button-set
+          class=${`${blockClass}__actions-container`}
+          ?hidden=${this._actionsCount === 0}
+          ?condensed=${condensedActions}
+          actions-multiple=${actionsMultiple}
+          size=${size}>
+          <slot name="actions" @slotchange=${this._handleActionsChange}></slot>
+        </cds-side-panel-button-set>
 
-          <a
-            id="end-sentinel"
-            class="sentinel"
-            hidden
-            href="javascript:void 0"
-            role="navigation"></a>
-        </cds-layer>
+        <a
+          id="end-sentinel"
+          class="sentinel"
+          hidden
+          href="javascript:void 0"
+          role="navigation"></a>
       </div>
 
       ${includeOverlay
