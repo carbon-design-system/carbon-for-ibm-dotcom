@@ -23,8 +23,8 @@ const config = require('../config');
  * @param {string} [options.dir=ltr] The UI direction.
  * @private
  */
-async function _buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
-  const conf = getRollupConfig({ mode, dir });
+async function _buildBundle({ mode = 'development' } = {}) {
+  const conf = getRollupConfig({ mode });
   const bundle = await rollup(conf);
   await bundle.write({
     format: 'es',
@@ -37,7 +37,7 @@ async function _buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
 /**
  * Scripts to run for the gulp tasks
  *
- * @type {{ltr: object, rtl: object}}
+ * @type {{ltr: object}}
  * @private
  */
 const _scripts = {
@@ -49,25 +49,12 @@ const _scripts = {
       return _buildBundle({ mode: 'production' });
     },
   },
-  rtl: {
-    dev() {
-      return _buildBundle({ dir: 'rtl' });
-    },
-    prod() {
-      return _buildBundle({ mode: 'production', dir: 'rtl' });
-    },
-  },
 };
 
-// Gulp tasks (LTR)
+// Gulp tasks
 gulp.task('build:dist:ltr:dev', _scripts.ltr.dev);
 gulp.task('build:dist:ltr:prod', _scripts.ltr.prod);
 gulp.task('build:dist:ltr', gulp.parallel(gulp.task('build:dist:ltr:dev'), gulp.task('build:dist:ltr:prod')));
 
-// Gulp tasks (RTL)
-gulp.task('build:dist:rtl:dev', _scripts.rtl.dev);
-gulp.task('build:dist:rtl:prod', _scripts.rtl.prod);
-gulp.task('build:dist:rtl', gulp.parallel(gulp.task('build:dist:rtl:dev'), gulp.task('build:dist:rtl:prod')));
-
 // Gulp dist build task
-gulp.task('build:dist', gulp.parallel(gulp.task('build:dist:ltr'), gulp.task('build:dist:rtl')));
+gulp.task('build:dist', gulp.parallel(gulp.task('build:dist:ltr')));

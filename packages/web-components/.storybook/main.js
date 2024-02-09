@@ -13,12 +13,10 @@ const path = require('path');
 const sass = require('sass');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const rtlcss = require('rtlcss');
 const deepReplace = require('../../../tasks/deep-replace');
 const { getPaths } = deepReplace;
 
 const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
-const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 
 module.exports = {
   stories: ['../docs/*.mdx', '../src/**/*.stories.ts'],
@@ -222,9 +220,7 @@ module.exports = {
                 const autoPrefixer = require('autoprefixer')({
                   overrideBrowserslist: ['last 1 version', 'ie >= 11'],
                 });
-                return !useRtl
-                  ? [hostPseudo, autoPrefixer]
-                  : [rtlcss, hostPseudo, autoPrefixer];
+                return [hostPseudo, autoPrefixer];
               },
               sourceMap: useStyleSourceMap,
             },
