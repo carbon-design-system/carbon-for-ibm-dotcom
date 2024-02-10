@@ -132,7 +132,7 @@
     "@babel/traverse": "~7.23.7",
     "@carbon/ibmdotcom-services-store": "1.53.0",
     "@carbon/icon-helpers": "10.46.0",
-    "@carbon/icons": "11.34.1",
+    "@carbon/icons": "11.36.0",
     "@carbon/icons-react": "^11.33.0",
     "@carbon/pictograms-react": "11.56.1",
     "@carbon/react": "1.50.0",
