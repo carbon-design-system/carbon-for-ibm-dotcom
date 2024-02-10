@@ -3230,7 +3230,7 @@ __metadata:
     "@carbon/layout": "npm:11.20.1"
     "@carbon/styles": "npm:1.49.0"
     "@carbon/telemetry": "npm:0.1.0"
-    "@carbon/themes": "npm:11.30.0"
+    "@carbon/themes": "npm:11.31.0"
     "@carbon/type": "npm:11.25.1"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
@@ -3621,7 +3621,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:11.30.0, @carbon/themes@npm:^11.30.0":
+"@carbon/themes@npm:11.31.0":
+  version: 11.31.0
+  resolution: "@carbon/themes@npm:11.31.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.20.0"
+    "@carbon/layout": "npm:^11.20.0"
+    "@carbon/type": "npm:^11.25.0"
+    color: "npm:^4.0.0"
+  checksum: 10/71a07e8fcce8628f5b892fcfd18a22755940369153feb04302c4cd7917434d633a8154f5a701b0cd464628e8cb06958c8aacf3b4c45ee4a27a7084641c688c90
+  languageName: node
+  linkType: hard
+
+"@carbon/themes@npm:^11.30.0":
   version: 11.30.0
   resolution: "@carbon/themes@npm:11.30.0"
   dependencies:
