@@ -134,7 +134,7 @@
     "@carbon/icon-helpers": "10.46.0",
     "@carbon/icons": "11.36.0",
     "@carbon/icons-react": "^11.33.0",
-    "@carbon/pictograms-react": "11.56.1",
+    "@carbon/pictograms-react": "11.57.0",
     "@carbon/react": "1.50.0",
     "@carbon/type": "11.25.1",
     "@open-wc/semantic-dom-diff": "~0.18.0",
