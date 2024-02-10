@@ -3226,7 +3226,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/icons-react": "npm:11.34.1"
+    "@carbon/icons-react": "npm:11.36.0"
     "@carbon/layout": "npm:11.20.1"
     "@carbon/styles": "npm:1.49.0"
     "@carbon/telemetry": "npm:0.1.0"
@@ -3484,7 +3484,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:11.34.1, @carbon/icons-react@npm:^11.33.0":
+"@carbon/icons-react@npm:11.36.0":
+  version: 11.36.0
+  resolution: "@carbon/icons-react@npm:11.36.0"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.46.0"
+    "@carbon/telemetry": "npm:0.1.0"
+    prop-types: "npm:^15.7.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10/ecb6ec76ce092bbd9f32dc6d1fc68a3e4895ab9ab5f5aaa8ef4dc806479dda33fb6f78798d92d1a66ff3031d446bafe7d5ee99fa325aef782d7de5335bf4ddda
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:^11.33.0":
   version: 11.34.1
   resolution: "@carbon/icons-react@npm:11.34.1"
   dependencies:
