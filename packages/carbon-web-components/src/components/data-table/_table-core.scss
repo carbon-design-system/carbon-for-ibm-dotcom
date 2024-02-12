@@ -92,6 +92,10 @@
   box-shadow: inset 0 1px $ai-border-strong;
 }
 
+:host(#{$prefix}-table-header-cell[slug]) .#{$prefix}--table-sort {
+  background: none;
+}
+
 :host(#{$prefix}-table-header-cell[sticky-header]) {
   overflow: hidden;
 
