@@ -4291,7 +4291,7 @@ __metadata:
   dependencies:
     "@carbon/icons-react": "npm:11.33.0"
     "@carbon/layout": "npm:11.20.1"
-    "@carbon/styles": "npm:1.47.0"
+    "@carbon/styles": "npm:1.50.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/themes": "npm:11.28.0"
     "@carbon/type": "npm:11.25.1"
@@ -4415,7 +4415,7 @@ __metadata:
     "@carbon/motion": "npm:11.16.1"
     "@carbon/pictograms-react": "npm:11.55.0"
     "@carbon/react": "npm:^1.47.0"
-    "@carbon/styles": "npm:1.47.0"
+    "@carbon/styles": "npm:1.50.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:^11.25.1"
     "@carbon/web-components": "npm:2.3.0"
@@ -4682,27 +4682,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.47.0":
-  version: 1.47.0
-  resolution: "@carbon/styles@npm:1.47.0"
-  dependencies:
-    "@carbon/colors": "npm:^11.20.0"
-    "@carbon/feature-flags": "npm:^0.16.0"
-    "@carbon/grid": "npm:^11.21.0"
-    "@carbon/layout": "npm:^11.20.0"
-    "@carbon/motion": "npm:^11.16.0"
-    "@carbon/themes": "npm:^11.28.0"
-    "@carbon/type": "npm:^11.25.0"
-    "@ibm/plex": "npm:6.0.0-next.6"
-  peerDependencies:
-    sass: ^1.33.0
-  peerDependenciesMeta:
-    sass:
-      optional: true
-  checksum: a320dd704f4a55a8840005bec719f0b536f28da0abe07245e235948e389bf6b7f6eb2959d4a035ea7c048b3d12be2e414d25fb0414c54d6515c298ef4defbb50
-  languageName: node
-  linkType: hard
-
 "@carbon/styles@npm:1.49.0":
   version: 1.49.0
   resolution: "@carbon/styles@npm:1.49.0"
@@ -4721,6 +4700,27 @@ __metadata:
     sass:
       optional: true
   checksum: 7f44cd8fb479e191e8564b986983c8ce93e5af4ac126555da9f5ca9b5c98585f40b14bbeee3a50c306fb1c72ed6169540faa2e4bad19710838178dcd2b63e605
+  languageName: node
+  linkType: hard
+
+"@carbon/styles@npm:1.50.0":
+  version: 1.50.0
+  resolution: "@carbon/styles@npm:1.50.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.20.0"
+    "@carbon/feature-flags": "npm:^0.16.0"
+    "@carbon/grid": "npm:^11.21.0"
+    "@carbon/layout": "npm:^11.20.0"
+    "@carbon/motion": "npm:^11.16.0"
+    "@carbon/themes": "npm:^11.31.0"
+    "@carbon/type": "npm:^11.25.0"
+    "@ibm/plex": "npm:6.0.0-next.6"
+  peerDependencies:
+    sass: ^1.33.0
+  peerDependenciesMeta:
+    sass:
+      optional: true
+  checksum: cf8b476de533ba5971bb362784283be3b367d78a6ca4d122b30758e66937dc27c5fac2226c336febbc19d37a3166c29869c4ede4e70814c37c0e9ad694d736a4
   languageName: node
   linkType: hard
 
@@ -4754,7 +4754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:11.28.0, @carbon/themes@npm:^11.28.0":
+"@carbon/themes@npm:11.28.0":
   version: 11.28.0
   resolution: "@carbon/themes@npm:11.28.0"
   dependencies:
@@ -4766,7 +4766,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:^11.30.0":
+"@carbon/themes@npm:^11.30.0, @carbon/themes@npm:^11.31.0":
   version: 11.31.0
   resolution: "@carbon/themes@npm:11.31.0"
   dependencies:
@@ -4833,9 +4833,10 @@ __metadata:
     "@babel/runtime": "npm:^7.16.3"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
+    "@carbon/ibm-products-styles": "npm:2.20.1"
     "@carbon/icon-helpers": "npm:^10.45.1"
     "@carbon/icons": "npm:^11.33.0"
-    "@carbon/styles": "npm:1.47.0"
+    "@carbon/styles": "npm:1.50.0"
     "@mordech/vite-lit-loader": "npm:^0.31.3"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
@@ -12927,20 +12928,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.22.3":
-  version: 4.23.0
-  resolution: "browserslist@npm:4.23.0"
-  dependencies:
-    caniuse-lite: "npm:^1.0.30001587"
-    electron-to-chromium: "npm:^1.4.668"
-    node-releases: "npm:^2.0.14"
-    update-browserslist-db: "npm:^1.0.13"
-  bin:
-    browserslist: cli.js
-  checksum: 496c3862df74565dd942b4ae65f502c575cbeba1fa4a3894dad7aa3b16130dc3033bc502d8848147f7b625154a284708253d9598bcdbef5a1e34cf11dc7bad8e
-  languageName: node
-  linkType: hard
-
 "browserstack-cypress-cli@npm:^1.11.1":
   version: 1.25.0
   resolution: "browserstack-cypress-cli@npm:1.25.0"
@@ -13380,13 +13367,6 @@ __metadata:
   version: 1.0.30001561
   resolution: "caniuse-lite@npm:1.0.30001561"
   checksum: 94cfc8454c19d28828baf254771e0f3cf1828f95b0a85904d70a77b530873a041a735761091e3baf17ec90609250f887baa044b8ed2776368a46dd2e70f050d6
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001587":
-  version: 1.0.30001588
-  resolution: "caniuse-lite@npm:1.0.30001588"
-  checksum: 09150ef2daa65c75cb2681832d5bc203760a02d9f71eb033dc0401fbfdbe026d3a84e54a8d2085f730a4f51eb074028b89013dd033841e1a0eb3c7323a50ed45
   languageName: node
   linkType: hard
 
@@ -14668,11 +14648,11 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.21.0, core-js-compat@npm:^3.31.0":
-  version: 3.36.0
-  resolution: "core-js-compat@npm:3.36.0"
+  version: 3.35.1
+  resolution: "core-js-compat@npm:3.35.1"
   dependencies:
-    browserslist: "npm:^4.22.3"
-  checksum: 633c49a254fe48981057e33651e5a74a0a14f14731aa5afed5d2e61fbe3c5cbc116ffd4feaa158c683c40d6dc4fd2e6aa0ebe12c45d157cfa571309d08400c98
+    browserslist: "npm:^4.22.2"
+  checksum: 9a153c66591e23703e182b258ec6bdaff0a7c578dc5f9ac152fdfef2d09e8ec277f192e28d4634a8b576c8e1a6d3b1ac76ff6b8776e72b71b334e609e177a05e
   languageName: node
   linkType: hard
 
@@ -16409,7 +16389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:^1.3.47, electron-to-chromium@npm:^1.4.668":
+"electron-to-chromium@npm:^1.3.47":
   version: 1.4.673
   resolution: "electron-to-chromium@npm:1.4.673"
   checksum: e9e82bec564f4398040a3ce5a8e344dfebac624e458545c7d9317bb54d65f7000648e552acebc1951cda4562e5d9cebcb7d9e76a376c8ad1e04f7860230935fa
@@ -20803,14 +20783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.0.4, ignore@npm:^5.1.1, ignore@npm:^5.2.0":
-  version: 5.3.1
-  resolution: "ignore@npm:5.3.1"
-  checksum: 0a884c2fbc8c316f0b9f92beaf84464253b73230a4d4d286697be45fca081199191ca33e1c2e82d9e5f851f5e9a48a78e25a35c951e7eb41e59f150db3530065
-  languageName: node
-  linkType: hard
-
-"ignore@npm:^5.2.4":
+"ignore@npm:^5.0.4, ignore@npm:^5.1.1, ignore@npm:^5.2.0, ignore@npm:^5.2.4":
   version: 5.3.0
   resolution: "ignore@npm:5.3.0"
   checksum: 51594355cea4c6ad6b28b3b85eb81afa7b988a1871feefd7062baf136c95aa06760ee934fa9590e43d967bd377ce84a4cf6135fbeb6063e063f1182a0e9a3bcd
@@ -32005,15 +31978,15 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.19.0":
-  version: 1.71.0
-  resolution: "sass@npm:1.71.0"
+  version: 1.70.0
+  resolution: "sass@npm:1.70.0"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 5616f0ef0d764d0a6242155edd02773300e0d9ac1c0b542781ae934095f3b2f73312707f95edc08c34ae88bad633bb55c8cc67ad390bef40e04eb84ae9b028cd
+  checksum: f933545d72a932f4a82322dd4ca9f3ea7d3e9d08852d695f76d419939cbdf7f8db3dd894b059ed77bf76811b07319b75b3ef8bb077bf9f52f8fbdfd8cee162f6
   languageName: node
   linkType: hard
 
@@ -34191,8 +34164,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.0.0, terser@npm:^5.17.4":
-  version: 5.27.1
-  resolution: "terser@npm:5.27.1"
+  version: 5.27.0
+  resolution: "terser@npm:5.27.0"
   dependencies:
     "@jridgewell/source-map": "npm:^0.3.3"
     acorn: "npm:^8.8.2"
@@ -34200,7 +34173,7 @@ __metadata:
     source-map-support: "npm:~0.5.20"
   bin:
     terser: bin/terser
-  checksum: 4b5c8c65548071ae09dc1d9fd64616262876229897eaac9f95cf2e44908a1f4a25d7837c2a38caef1a523cf1cf67d254e74a846e9a854d289c0ad3664d581c3c
+  checksum: 9b2c5cb00747dea5994034ca064fb3cc7efc1be6b79a35247662d51ab43bdbe9cbf002bbf29170b5f3bd068c811d0212e22d94acd2cf0d8562687b96f1bffc9f
   languageName: node
   linkType: hard
 
