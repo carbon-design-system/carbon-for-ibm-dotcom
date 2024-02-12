@@ -781,7 +781,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
     }
 
     // Gets table header info to add to the column cells for styles
-    const headersWithSlug = [] as any;
+    const headersWithSlug: number[] = [];
 
     Array.prototype.slice
       .call(this._tableHeaderRow.children)
