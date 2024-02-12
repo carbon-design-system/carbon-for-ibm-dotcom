@@ -348,7 +348,7 @@ class C4DFooterComposite extends MediaQueryMixin(
         buttonLabel="${ifDefined(buttonLabel)}"
         size="${size}"
         slot="${slot}"
-        @click="${handleClickLocaleButton}"
+        @click="${handleClickLocaleButton.bind(this)}"
         >${langDisplay}</c4d-locale-button
       >
     `;
