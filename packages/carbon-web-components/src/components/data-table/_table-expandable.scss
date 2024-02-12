@@ -102,11 +102,13 @@
 :host(#{$prefix}-table-expanded-row[slug]) {
   @include ai-table-gradient();
 
-  td {
-    padding-inline-start: to-rem(88px);
-  }
-
   &[highlighted] {
     @include ai-table-gradient('hover');
+  }
+}
+
+:host(#{$prefix}-table-expanded-row[rows-with-slug]) {
+  td {
+    padding-inline-start: to-rem(88px);
   }
 }
