@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,6 +33,64 @@ const popoverAlignments = {
   [`right`]: POPOVER_ALIGNMENT.RIGHT,
   [`right-bottom`]: POPOVER_ALIGNMENT.RIGHT_BOTTOM,
   [`right-top`]: POPOVER_ALIGNMENT.RIGHT_TOP,
+};
+
+export const AutoAlign = (args) => {
+  const { caret, highContrast, align, dropShadow } =
+    args?.[`${prefix}-popover`] ?? {};
+
+  const handleClick = (id) => {
+    const popover = document.querySelector(id);
+    const open = popover?.hasAttribute('open');
+    open ? popover?.removeAttribute('open') : popover?.setAttribute('open', '');
+  };
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <div style="height:100%">
+      <div class="auto-align-1">
+        <div
+          id="auto-align-1"
+          class="playground-trigger"
+          @click="${() => handleClick('#popover-one')}">
+          ${Checkbox16()}
+        </div>
+        <cds-popover
+          id="popover-one"
+          autoAlign
+          ?caret=${caret}
+          ?highContrast=${highContrast}
+          align=${align}
+          ?dropShadow=${dropShadow}
+          triggerId="auto-align-1">
+          <div class="p-3">
+            <p class="popover-title">Available storage</p>
+            <p class="popover-details">
+              This server has 150 GB of block storage remaining.
+            </p>
+          </div>
+        </cds-popover>
+      </div>
+    </div>
+  `;
+};
+
+AutoAlign.storyName = 'Auto Align';
+
+AutoAlign.parameters = {
+  knobs: {
+    [`${prefix}-popover`]: () => ({
+      caret: boolean('caret (caret)', true),
+      highContrast: boolean('high contrast (highContrast)', false),
+      align: select(
+        'Align (align)',
+        popoverAlignments,
+        popoverAlignments.bottom
+      ),
+      dropShadow: boolean('drop shadow (dropShadow)', true),
+    }),
+  },
 };
 
 export const Playground = (args) => {

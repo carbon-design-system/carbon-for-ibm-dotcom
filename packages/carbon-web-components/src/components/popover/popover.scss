@@ -302,3 +302,24 @@ $popover-caret-height: custom-property.get-var(
     transform: translate($popover-offset, calc(-100% - $popover-offset));
   }
 }
+
+:host(#{$prefix}-popover[open][autoAlign]) .#{$prefix}--popover-content {
+  display: block;
+}
+
+:host(#{$prefix}-popover[open][autoAlign][dropShadow])
+  .#{$prefix}--popover-content {
+  @include custom-property.declaration(
+    'popover-drop-shadow',
+    drop-shadow(0 $spacing-01 $spacing-01 rgba(0, 0, 0, 0.2))
+  );
+
+  filter: var(--cds-popover-drop-shadow, none);
+}
+
+:host(#{$prefix}-popover[open][autoAlign][caret]) .#{$prefix}--popover-caret {
+  display: block;
+  block-size: var(--cds-popover-caret-width, 0.75rem);
+  inline-size: var(--cds-popover-caret-width, 0.75rem);
+  transform: rotate(45deg);
+}

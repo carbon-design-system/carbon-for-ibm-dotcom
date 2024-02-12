@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -74,6 +74,7 @@
   padding: $spacing-05;
 }
 
+.playground-trigger,
 #{$prefix}-popover .playground-trigger {
   display: flex;
   align-items: center;
@@ -83,6 +84,7 @@
   inline-size: $spacing-07;
 }
 
+.playground-trigger svg,
 #{$prefix}-popover .playground-trigger svg {
   fill: theme.$background-inverse;
 }
@@ -121,4 +123,20 @@
 
 .popover-tabtip-story #{$prefix}-popover:last-of-type {
   margin-inline-start: 15rem;
+}
+
+.auto-align-1 {
+  position: absolute;
+  // inset-block-end: 0;
+  // inset-inline-end: 50%;
+  margin-block: 3rem;
+  margin-inline: 3rem;
+}
+
+.auto-align-2 {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  margin-block: 3rem;
+  margin-inline: 3rem;
 }
