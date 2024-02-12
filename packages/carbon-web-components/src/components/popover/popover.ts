@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
-import { property, customElement, query } from 'lit/decorators.js';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import { computePosition, shift, flip, offset, arrow } from '@floating-ui/dom';
 import styles from './popover.scss';
@@ -22,12 +22,6 @@ import CDSPopoverContent from './popover-content';
  */
 @customElement(`${prefix}-popover`)
 class CDSPopover extends LitElement {
-  /**
-   * The `<slot>` element in the shadow DOM.
-   */
-  @query('slot')
-  private _slotNode!: HTMLSlotElement;
-
   /**
    * Specify direction of alignment
    */
