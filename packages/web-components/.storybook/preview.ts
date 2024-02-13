@@ -1,140 +1,200 @@
-/**
- * @license
- *
- * Copyright IBM Corp. 2020, 2023
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
+import { setCustomElementsManifest } from '@storybook/web-components';
+import customElements from '../custom-elements.json';
+import container from './container';
+import { white, g10, g90, g100 } from '@carbon/themes';
+import { breakpoints } from '@carbon/layout';
+import theme from './theme';
+import './templates/with-layer';
 
-import { html } from 'lit';
-import { classMap } from 'lit/directives/class-map.js';
-import coreEvents from '@storybook/core-events';
-import addons from '@storybook/addons';
+setCustomElementsManifest(customElements);
 
-import '../src/internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
-
-import { withKnobs } from '@storybook/addon-knobs';
-import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
-
-import containerStyles from './container.scss'; // eslint-disable-line import/first
-
-import { setCustomElements } from '@storybook/web-components';
-import customElementsMetadata from '../custom-elements.json';
-
-setCustomElements(customElementsMetadata);
-
-if (process.env.STORYBOOK_USE_RTL === 'true') {
-  document.documentElement.setAttribute('dir', 'rtl');
-}
-
-export const parameters = {
-  layout: 'fullscreen',
-  options: {
-    storySort: {
-      order: [
-        'Overview',
-        [
-          'Getting started',
-          'Building for IBM(dotcom)',
-          'Carbon CDN style helpers',
-          'Stable selectors',
-          'Enable right-to-left (RTL)',
-          'Feature flags',
-          'Contributing to the Web Components package',
-          'Breaking Changes',
-        ],
-        'Components',
+export const globalTypes = {
+  locale: {
+    name: 'Locale',
+    description: 'Set the localization for the storybook',
+    defaultValue: 'en',
+    toolbar: {
+      icon: 'globe',
+      items: [
+        {
+          right: '🇺🇸',
+          title: 'English',
+          value: 'en',
+        },
+        {
+          right: '🇵🇸',
+          title: 'Arabic',
+          value: 'ar',
+        },
       ],
     },
   },
-  controls: { disabled: true },
-  actions: { disabled: true },
+  dir: {
+    name: 'Text direction',
+    description: 'Set the text direction for the story',
+    defaultValue: 'ltr',
+    toolbar: {
+      icon: 'transfer',
+      title: 'Text direction',
+      items: [
+        {
+          right: '🔄',
+          title: 'auto',
+          value: 'auto',
+        },
+        {
+          right: '➡️',
+          title: 'left-to-right (ltr)',
+          value: 'ltr',
+        },
+        {
+          right: '⬅️',
+          title: 'right-to-left (rtl)',
+          value: 'rtl',
+        },
+      ],
+    },
+  },
+  theme: {
+    name: 'Theme',
+    description: 'Set the global theme for displaying components',
+    defaultValue: 'white',
+    toolbar: {
+      icon: 'paintbrush',
+      title: 'Theme',
+      items: ['white', 'g10', 'g90', 'g100'],
+    },
+  },
 };
 
-let preservedTheme;
-export const decorators = [
-  (story, { parameters }) => {
-    const result = story();
-    const { hasStoryPadding } = parameters;
-    const classes = classMap({
-      'c4d-story-padding': hasStoryPadding,
-    });
-
-    return html`
-      <style>
-        ${containerStyles}
-      </style>
-      <cds-skip-to-content href="#main-content"
-        >Skip to main content</cds-skip-to-content
-      >
-      <div
-        id="main-content"
-        name="main-content"
-        data-floating-menu-container
-        data-modal-container
-        role="main"
-        class="${classes}">
-        ${result}
-      </div>
-    `;
+export const parameters = {
+  a11y: {
+    // Can specify engine as "axe" or "accessibility-checker" (axe default)
+    engine: 'accessibility-checker',
+    config: {
+      rules: [
+        {
+          // To disable a rule across all stories, set `enabled` to `false`.
+          // Use with caution: all violations of this rule will be ignored!
+          id: 'html_lang_exists',
+          enabled: false,
+        },
+        { id: 'page_title_exists', enabled: false },
+        { id: 'skip_main_exists', enabled: false },
+        { id: 'html_skipnav_exists', enabled: false },
+        { id: 'aria_content_in_landmark', enabled: false },
+        { id: 'aria_child_tabbable', enabled: false },
+      ],
+    },
   },
-  withKnobs,
-  (story, { parameters }) => {
-    const root = document.documentElement;
-    root.toggleAttribute(
-      'storybook-carbon-theme-prevent-reload',
-      parameters['carbon-theme']?.preventReload
-    );
-    if (parameters['carbon-theme']?.disabled) {
-      root.setAttribute('storybook-carbon-theme', '');
-    } else {
-      root.setAttribute('storybook-carbon-theme', preservedTheme || '');
-    }
-    return story();
+  actions: { argTypesRegex: '^on.*' },
+  backgrounds: {
+    // https://storybook.js.org/docs/react/essentials/backgrounds#grid
+    grid: {
+      cellSize: 8,
+      opacity: 0.5,
+    },
+    values: [
+      {
+        name: 'white',
+        value: white.background,
+      },
+      {
+        name: 'g10',
+        value: g10.background,
+      },
+      {
+        name: 'g90',
+        value: g90.background,
+      },
+      {
+        name: 'g100',
+        value: g100.background,
+      },
+    ],
+  },
+  controls: {
+    expanded: true,
+    sort: 'alpha',
+    hideNoControlsWarning: true,
+  },
+  docs: {
+    theme,
+  },
+  viewport: {
+    viewports: {
+      sm: {
+        name: 'Small',
+        styles: {
+          width: breakpoints.sm.width,
+          height: '100%',
+        },
+      },
+      md: {
+        name: 'Medium',
+        styles: {
+          width: breakpoints.md.width,
+          height: '100%',
+        },
+      },
+      lg: {
+        name: 'Large',
+        styles: {
+          width: breakpoints.lg.width,
+          height: '100%',
+        },
+      },
+      xlg: {
+        name: 'X-Large',
+        styles: {
+          width: breakpoints.xlg.width,
+          height: '100%',
+        },
+      },
+      Max: {
+        name: 'Max',
+        styles: {
+          width: breakpoints.max.width,
+          height: '100%',
+        },
+      },
+    },
+  },
+  options: {
+    storySort: {
+      method: 'alphabetical',
+      order: [
+        'Introduction',
+        [
+          'Welcome',
+          'Custom styles',
+          'Carbon CDN style helpers',
+          'Form Participation',
+        ],
+        'Components',
+        'Layout',
+      ],
+    },
+  },
+};
+
+export const decorators = [
+  function decoratorContainer(story, context) {
+    const result = story();
+    const { hasMainTag } = result;
+    const { locale, dir, theme } = context.globals;
+
+    document.documentElement.setAttribute('storybook-carbon-theme', theme);
+
+    document.documentElement.lang = locale;
+    document.documentElement.dir = dir;
+
+    return container({ hasMainTag, children: result });
   },
 ];
 
-addons.getChannel().on(CURRENT_THEME, (theme) => {
-  document.documentElement.setAttribute(
-    'storybook-carbon-theme',
-    (preservedTheme = theme)
-  );
-  // Re-rendering upon theme change causes adverse effect for some stories
-  if (
-    !document.documentElement.hasAttribute(
-      'storybook-carbon-theme-prevent-reload'
-    )
-  ) {
-    addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
-  }
-});
-
-// Reset knobs when changing stories to prevent them carrying over.
-// This can be removed when stories switch to controls.
-// https://github.com/storybookjs/addon-knobs/issues/19
-let currentPath;
-if (window.parent) {
-  const parentWindow = window.parent;
-  parentWindow.setInterval(function () {
-    const urlParams = new URLSearchParams(parentWindow.location.search);
-    const path = urlParams.get('path');
-    if (path && path !== currentPath) {
-      currentPath = path;
-
-      const knobButtons = parentWindow.document.querySelectorAll(
-        '#panel-tab-content button'
-      );
-      if (knobButtons) {
-        const resetButton = knobButtons[knobButtons.length - 1];
-        (resetButton as HTMLElement)?.click();
-      }
-    }
-    const knobLabel = parentWindow.document.querySelector(
-      '[id*="tabbutton-knobs-"]'
-    );
-    if (knobLabel) {
-      (knobLabel as HTMLElement).textContent = 'Knobs';
-    }
-  }, 100);
-}
+export const Preview = {
+  parameters,
+  globalTypes,
+  decorators,
+};
