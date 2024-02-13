@@ -20,7 +20,6 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss?lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { worldWideContent } from './world-wide-content';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -53,9 +52,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'terms-condition-link' })
   termsConditionLink = html``;
 
-  @property({ type: String, attribute: 'bpid-legal-text' })
-  bpidLegalText = html``;
-
   @property({ type: Boolean, attribute: 'enable-all-opt-in' })
   enableAllOptIn;
 
@@ -64,9 +60,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Boolean, attribute: 'hide-error-message' })
   hideErrorMessage = false;
-
-  @property({ type: Boolean, attribute: 'show-legal-notice' })
-  showLegalNotice = true;
 
   @property({ type: Object, attribute: false })
   checkboxes = {};
@@ -115,8 +108,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   values = {
     EMAIL: false,
     PHONE: false,
-    NC_HIDDEN_EMAIL: worldWideContent.cc_default_status,
-    NC_HIDDEN_PHONE: worldWideContent.cc_default_status,
+    NC_HIDDEN_EMAIL: 'SUPPRESSION',
+    NC_HIDDEN_PHONE: 'SUPPRESSION',
   };
 
   @property({ reflect: true })
@@ -323,10 +316,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.countryBasedLegalNotice();
         }
 
-        break;
-      }
-      case 'show-legal-notice': {
-        this.showLegalNotice = JSON.parse(newVal);
         break;
       }
     }
@@ -552,13 +541,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       return html``;
     }
   }
-  getBpidLegalText() {
-    if (this.bpidLegalText) {
-      return html`<p>${this.bpidLegalText}</p>`;
-    } else {
-      return ``;
-    }
-  }
   render() {
     if (
       this.isMandatoryCheckboxDisplayed.isDisplayed &&
@@ -577,9 +559,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this._onChange(mrsField, 'countyBasedCheckedNo');
     }
     return html`<section class="${prefix}--nc">
-    <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${
-      this.showLegalNotice ? this.countryBasedLegalNotice() : ''
-    } ${this.preTextTemplate()} </p>
+    <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${this.countryBasedLegalNotice()} ${this.preTextTemplate()} </p>
       <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
             ${
               Object.keys(this.checkboxes).length !== 0
@@ -633,7 +613,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             this.preventFormSubmission
           } />
         </div>
-        ${this.getBpidLegalText()}
     </section>`;
   }
 
