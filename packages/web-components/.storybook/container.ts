@@ -9,7 +9,7 @@
 
 import { html, TemplateResult } from 'lit';
 import containerStyles from './_container.scss?lit'; // eslint-disable-line import/first
-import '../src/components/skip-to-content/skip-to-content';
+import '../src/internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
 
 /**
  * @param options The rendering options.

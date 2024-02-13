@@ -15,9 +15,11 @@ const glob = require('fast-glob');
 
 const stories = glob.sync(
   [
-    '../docs/**/*.mdx',
-    '../src/**/*.mdx',
-    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    // '../docs/**/*.mdx',
+    // '../src/**/*.mdx',
+    // '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/**/button.mdx',
+    '../src/**/button.stories.ts',
   ],
   {
     ignore: ['../src/**/docs/*.mdx'],
@@ -41,6 +43,7 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
+      assetsInclude: ['**/*.md'],
       plugins: [
         litStyleLoader(),
         litTemplateLoader(),

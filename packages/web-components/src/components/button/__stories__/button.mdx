@@ -1,11 +1,9 @@
-import {
-  Preview,
-  Props,
-  Description,
-  Story,
-} from '@storybook/addon-docs/blocks';
+import { ArgsTable, Markdown, Meta } from '@storybook/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+import * as ButtonStories from './button.stories';
+
+<Meta of={ButtonStories} />
 
 # Button
 
@@ -27,8 +25,8 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/button/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['button'] })}`} />
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnJs({ components: ['button'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
@@ -68,7 +66,7 @@ Notes:
 
 ## Props
 
-<Props of="c4d-button" />
+<ArgsTable of="c4d-button" />
 
 ## Stable selectors
 
