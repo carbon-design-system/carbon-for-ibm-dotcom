@@ -12,6 +12,7 @@ import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import { computePosition, shift, flip, offset, arrow } from '@floating-ui/dom';
+import { Placement } from '@floating-ui/utils';
 import styles from './popover.scss';
 import CDSPopoverContent from './popover-content';
 
@@ -120,7 +121,7 @@ class CDSPopover extends LitElement {
           offset(this.caret ? 10 : 0),
           arrow({ element: arrowElement }),
         ],
-        placement: this.align,
+        placement: this.align as Placement,
       }).then(({ x, y, placement, middlewareData }) => {
         Object.assign(tooltip.style, {
           left: `${x}px`,
@@ -128,6 +129,7 @@ class CDSPopover extends LitElement {
         });
 
         if (arrowElement) {
+          // @ts-ignore
           const { x: arrowX, y: arrowY } = middlewareData.arrow;
 
           const staticSide: any = {
