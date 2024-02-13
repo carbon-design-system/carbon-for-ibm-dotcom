@@ -11,7 +11,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { computePosition, shift, flip, offset, arrow } from '@floating-ui/dom';
+import { computePosition, flip, offset, arrow } from '@floating-ui/dom';
 import { Placement } from '@floating-ui/utils';
 import styles from './popover.scss';
 import CDSPopoverContent from './popover-content';
@@ -143,20 +143,18 @@ class CDSPopover extends LitElement {
           shimmedAlign = this.align;
           break;
       }
+
       computePosition(button, tooltip, {
         strategy: 'fixed',
         middleware: [
-          flip(),
-          shift(),
+          flip({ fallbackAxisSideDirection: 'start' }),
           offset(this.caret ? 10 : 0),
           arrow({ element: arrowElement }),
         ],
         placement: shimmedAlign as Placement,
       }).then(({ x, y, placement, middlewareData }) => {
-        Object.assign(tooltip.style, {
-          left: `${x}px`,
-          top: `${y}px`,
-        });
+        tooltip.style.left = `${x}px`;
+        tooltip.style.top = `${y}px`;
 
         if (arrowElement) {
           // @ts-ignore
@@ -169,13 +167,11 @@ class CDSPopover extends LitElement {
             left: 'right',
           }[placement.split('-')[0]];
 
-          Object.assign(arrowElement.style, {
-            left: arrowX != null ? `${arrowX}px` : '',
-            top: arrowY != null ? `${arrowY}px` : '',
-            right: '',
-            bottom: '',
-            [staticSide]: `${-arrowElement.offsetWidth / 2}px`,
-          });
+          arrowElement.style.left = arrowX != null ? `${arrowX}px` : '';
+          arrowElement.style.top = arrowY != null ? `${arrowY}px` : '';
+          arrowElement.style.right = '';
+          arrowElement.style.bottom = '';
+          arrowElement.style[staticSide] = `${-arrowElement.offsetWidth / 2}px`;
         }
       });
     }
