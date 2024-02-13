@@ -113,6 +113,36 @@ class CDSPopover extends LitElement {
     );
 
     if (button && tooltip) {
+      let shimmedAlign;
+      switch (this.align) {
+        case 'top-left':
+          shimmedAlign = 'top-start';
+          break;
+        case 'top-right':
+          shimmedAlign = 'top-end';
+          break;
+        case 'bottom-left':
+          shimmedAlign = 'bottom-start';
+          break;
+        case 'bottom-right':
+          shimmedAlign = 'bottom-end';
+          break;
+        case 'left-bottom':
+          shimmedAlign = 'left-end';
+          break;
+        case 'left-top':
+          shimmedAlign = 'left-start';
+          break;
+        case 'right-bottom':
+          shimmedAlign = 'right-end';
+          break;
+        case 'right-top':
+          shimmedAlign = 'right-start';
+          break;
+        default:
+          shimmedAlign = this.align;
+          break;
+      }
       computePosition(button, tooltip, {
         strategy: 'fixed',
         middleware: [
@@ -121,7 +151,7 @@ class CDSPopover extends LitElement {
           offset(this.caret ? 10 : 0),
           arrow({ element: arrowElement }),
         ],
-        placement: this.align as Placement,
+        placement: shimmedAlign as Placement,
       }).then(({ x, y, placement, middlewareData }) => {
         Object.assign(tooltip.style, {
           left: `${x}px`,
