@@ -30,16 +30,16 @@
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" &amp;&amp; o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i &lt; len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol &amp;&amp; r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) &amp;&amp; (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f &amp;&amp; null != t.return &amp;&amp; (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol &amp;&amp; arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) &amp;&amp; (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n &amp;&amp; null != _i.return &amp;&amp; (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { on } from '../on';
+import on from 'carbon-components/es/globals/js/misc/on';
 
 /**
  * Fires the given event if focus goes out of the given element.
@@ -48,11 +48,11 @@ import { on } from '../on';
  * @param {Element[]} sentinelNodes
  *   The focus sentinel nodes.
  *   If these nodes gets focus, we see it as focus went out of the `element`.
- * @param {string} [eventRequestFocusWrap=cds-request-focus-wrap] The event name.
+ * @param {string} [eventRequestFocusWrap=dds-request-focus-wrap] The event name.
  * @returns {Function} The handle to remove the event handler.
  */
 function focuswrap(element, sentinelNodes) {
-  var eventRequestFocusWrap = arguments.length > 2 &amp;&amp; arguments[2] !== undefined ? arguments[2] : 'cds-request-focus-wrap';
+  var eventRequestFocusWrap = arguments.length > 2 &amp;&amp; arguments[2] !== undefined ? arguments[2] : 'dds-request-focus-wrap';
   return on(element, 'focusout', function handleFocusout(event) {
     var _event$currentTarget$, _event$currentTarget$2;
     var target = event.target,
@@ -94,13 +94,13 @@ export default focuswrap;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_getLocaleDefault">_getLocaleDefault</a></li><li><a href="global.html#_getLocaleFromBrowser">_getLocaleFromBrowser</a></li><li><a href="global.html#_getLocaleFromCookie">_getLocaleFromCookie</a></li><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#on">on</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Tue Feb 13 2024 19:55:45 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Tue Feb 13 2024 20:06:54 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
