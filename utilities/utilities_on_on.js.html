@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utilities/smoothScroll/smoothScroll.js</title>
+    <title>JSDoc: Source: utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utilities/smoothScroll/smoothScroll.js</h1>
+    <h1 class="page-title">Source: utilities/on/on.js</h1>
 
     
 
@@ -27,48 +27,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 /**
- * Utility handles smoothScroll on the anchor element after onClick
  *
- * @example
- * import { smoothScroll } from '@carbon/ibmdotcom-utilities';
- *
- * Here e is event param and seletor is param where you want to apply smoothscroll
- * &lt;a href="#anchorlinkname" onClick={smoothScroll({ e, selector })}>lorem ipsum&lt;/a>
- *
- * it will scroll into view of target by selecting attribute and assigning to id.
- * Returns null if no scroll is needed
- * @param {*} e event object
- * @param {*} selector menu item selector id
- * @param {number} offset top offset for the scroll
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
  */
-const smoothScroll = (e, selector, offset = 0) => {
-  let getSelector;
-  if (e !== null) {
-    e.preventDefault();
-    getSelector = e.currentTarget.getAttribute('href');
-  } else if (selector) {
-    getSelector = selector;
-  } else {
-    return null;
-  }
 
-  window.scroll({
-    top:
-      document.querySelector(getSelector).getBoundingClientRect().top -
-      offset +
-      window.scrollY,
-    behavior: 'smooth',
-  });
-};
+function on(element, ...args) {
+  element.addEventListener(...args);
+  return {
+    release() {
+      element.removeEventListener(...args);
+      return null;
+    },
+  };
+}
 
-export default smoothScroll;
+export default on;
 </code></pre>
         </article>
     </section>
