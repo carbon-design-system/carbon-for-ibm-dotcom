@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import CDSTab from '../../../internal/vendor/@carbon/web-components/components/tabs/tab.js';
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './cloud-masthead.scss';
+import styles from './cloud-masthead.scss?lit';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

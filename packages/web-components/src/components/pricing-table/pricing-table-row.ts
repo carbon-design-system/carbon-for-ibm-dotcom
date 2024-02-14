@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredListRow from '../structured-list/structured-list-row';
-import styles from './pricing-table.scss';
+import styles from './pricing-table.scss?lit';
 import { setColumnWidth } from './utils';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 

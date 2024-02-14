@@ -11,7 +11,7 @@ import CDSAccordion from '../../internal/vendor/@carbon/web-components/component
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-panel-input-select';
-import styles from './filter-panel.scss';
+import styles from './filter-panel.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

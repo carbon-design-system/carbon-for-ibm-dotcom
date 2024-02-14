@@ -20,7 +20,7 @@ import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1
 import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import { GRID_MODE } from '../defs';
-import styles from './card-group.stories.scss';
+import styles from './card-group.stories.scss?lit';
 
 import readme from './README.stories.mdx';
 

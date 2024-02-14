@@ -30,7 +30,7 @@ import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-reac
 // @ts-ignore
 import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import readme from './README.stories.react.mdx';
-import styles from './card-section-carousel.stories.scss';
+import styles from './card-section-carousel.stories.scss?lit';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';

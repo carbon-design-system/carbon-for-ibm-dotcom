@@ -10,7 +10,7 @@
 import {} from 'lit';
 import CDSSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './search.scss';
+import styles from './search.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

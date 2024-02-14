@@ -10,7 +10,7 @@
 import { property } from 'lit/decorators.js';
 import CDSModalFooter from '../../internal/vendor/@carbon/web-components/components/modal/modal-footer.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './expressive-modal.scss';
+import styles from './expressive-modal.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

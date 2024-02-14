@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import C4DMastheadProfile from './masthead-profile';
 import C4DMastheadContainer from './masthead-container';
 import { CMApp } from './masthead-composite';

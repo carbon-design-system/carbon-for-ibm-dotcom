@@ -10,7 +10,7 @@
 import { property } from 'lit/decorators.js';
 import CDSSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './footer.scss';
+import styles from './footer.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

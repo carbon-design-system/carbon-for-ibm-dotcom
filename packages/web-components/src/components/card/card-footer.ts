@@ -13,7 +13,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import styles from './card.scss';
+import styles from './card.scss?lit';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

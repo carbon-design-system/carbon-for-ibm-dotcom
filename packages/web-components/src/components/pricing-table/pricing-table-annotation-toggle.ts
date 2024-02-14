@@ -13,7 +13,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './pricing-table.scss';
+import styles from './pricing-table.scss?lit';
 import C4DPricingTableRow from './pricing-table-row';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

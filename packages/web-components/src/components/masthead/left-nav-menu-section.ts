@@ -16,7 +16,7 @@ import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mix
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import C4DLeftNav from './left-nav';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

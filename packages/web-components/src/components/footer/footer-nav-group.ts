@@ -16,7 +16,7 @@ import MediaQueryMixin, {
   MQDirs,
 } from '../../component-mixins/media-query/media-query';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './footer.scss';
+import styles from './footer.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

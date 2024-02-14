@@ -13,7 +13,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import C4DContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
-import styles from './content-block-horizontal.scss';
+import styles from './content-block-horizontal.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

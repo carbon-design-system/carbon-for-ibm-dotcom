@@ -12,7 +12,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import C4DButton from '../cta/button-cta';
 import { BUTTON_KIND } from '../../internal/vendor/@carbon/web-components/components/button/button';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './pricing-table.scss';
+import styles from './pricing-table.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;

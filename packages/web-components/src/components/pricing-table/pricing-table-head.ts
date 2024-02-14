@@ -10,7 +10,7 @@
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredListHead from '../structured-list/structured-list-head';
-import styles from './pricing-table.scss';
+import styles from './pricing-table.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;

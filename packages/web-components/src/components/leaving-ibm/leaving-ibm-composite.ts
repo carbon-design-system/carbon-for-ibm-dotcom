@@ -26,7 +26,7 @@ import '../../internal/vendor/@carbon/web-components/components/modal/modal-head
 import '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
 import '../../internal/vendor/@carbon/web-components/components/modal/modal-footer.js';
 import '../../internal/vendor/@carbon/web-components/components/button/button.js';
-import styles from './leaving-ibm.scss';
+import styles from './leaving-ibm.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

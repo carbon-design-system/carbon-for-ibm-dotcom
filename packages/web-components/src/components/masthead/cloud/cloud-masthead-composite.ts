@@ -31,7 +31,7 @@ import {
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import { MASTHEAD_AUTH_METHOD } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
-import styles from './cloud-masthead.scss';
+import styles from './cloud-masthead.scss?lit';
 import C4DMastheadComposite, {
   NAV_ITEMS_RENDER_TARGET,
 } from '../masthead-composite';
@@ -39,7 +39,7 @@ import { carbonElement as customElement } from '../../../internal/vendor/@carbon
 
 const { stablePrefix: c4dPrefix } = settings;
 
-// Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
+// Magic Number: 960px matches masthead.scss?lit's `$breakpoint--desktop-nav`.
 const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
 
 /**

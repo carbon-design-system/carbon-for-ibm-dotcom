@@ -17,7 +17,7 @@ import './filter-panel-modal';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './filter-panel.scss';
+import styles from './filter-panel.scss?lit';
 import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
 import '../../internal/vendor/@carbon/web-components/components/button/button.js';
 import C4DFilterGroupItem from './filter-group-item';

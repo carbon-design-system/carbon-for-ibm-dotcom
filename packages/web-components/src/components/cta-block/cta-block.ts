@@ -13,7 +13,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
-import styles from './cta-block.scss';
+import styles from './cta-block.scss?lit';
 import C4DContentBlock from '../content-block/content-block';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 

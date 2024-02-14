@@ -14,7 +14,7 @@ import HostListener from '../../internal/vendor/@carbon/web-components/globals/d
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredListCell from '../structured-list/structured-list-cell';
 import C4DPricingTableGroup from './pricing-table-group';
-import styles from './pricing-table.scss';
+import styles from './pricing-table.scss?lit';
 import C4DPricingTableCellAnnotation from './pricing-table-cell-annotation';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

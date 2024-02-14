@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
+// Magic Number: 799px matches masthead.scss?lit's `$breakpoint--desktop-nav`.
 const mastheadBreakpoint = window.matchMedia(`(max-width: 799px)`);
 
 export default mastheadBreakpoint;

@@ -10,7 +10,7 @@
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import C4DCardHeading from '../card/card-heading';
-import styles from './card-link.scss';
+import styles from './card-link.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

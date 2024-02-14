@@ -15,7 +15,7 @@ import Checkmark20 from '../../internal/vendor/@carbon/web-components/icons/chec
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DStructuredListGroup from './structured-list-group';
-import styles from './structured-list.scss';
+import styles from './structured-list.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

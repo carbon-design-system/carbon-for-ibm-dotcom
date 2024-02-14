@@ -12,7 +12,7 @@ import { property, query } from 'lit/decorators.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './global-banner.scss';
+import styles from './global-banner.scss?lit';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import C4DButton from '../button/button';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';

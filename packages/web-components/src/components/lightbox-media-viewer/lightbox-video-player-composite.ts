@@ -24,7 +24,7 @@ import {
   VIDEO_PLAYER_PLAYING_MODE,
 } from '../video-player/video-player';
 import './lightbox-video-player';
-import styles from './lightbox-media-viewer.scss';
+import styles from './lightbox-media-viewer.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

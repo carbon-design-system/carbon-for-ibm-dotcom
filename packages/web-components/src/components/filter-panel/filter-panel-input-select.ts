@@ -13,7 +13,7 @@ import Close from '../../internal/vendor/@carbon/web-components/icons/close/16.j
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './filter-panel.scss';
+import styles from './filter-panel.scss?lit';
 import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

@@ -13,7 +13,7 @@ import C4DMegaMenu from './megamenu';
 import C4DTopNav from './top-nav';
 import C4DTopNavMenu from './top-nav-menu';
 import C4DMegaMenuOverlay from './megamenu-overlay';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

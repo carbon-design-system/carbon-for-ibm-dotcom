@@ -13,7 +13,7 @@ import CDSModalBody from '../../internal/vendor/@carbon/web-components/component
 import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import styles from './leaving-ibm.scss';
+import styles from './leaving-ibm.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

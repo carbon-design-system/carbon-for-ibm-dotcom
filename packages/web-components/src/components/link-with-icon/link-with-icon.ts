@@ -13,7 +13,7 @@ import CDSLink from '../../internal/vendor/@carbon/web-components/components/lin
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './link-with-icon.scss';
+import styles from './link-with-icon.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 import CTAMixin from '../../component-mixins/cta/cta';

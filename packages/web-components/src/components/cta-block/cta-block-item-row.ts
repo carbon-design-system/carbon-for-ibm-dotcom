@@ -14,7 +14,7 @@ import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilit
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 
-import styles from './cta-block.scss';
+import styles from './cta-block.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

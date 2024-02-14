@@ -16,7 +16,7 @@ import { forEach } from '../../globals/internal/collection-helpers';
 import CDSSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
 import '../../internal/vendor/@carbon/web-components/components/search/search.js';
 import C4DLocaleItem from './locale-item';
-import styles from './locale-modal.scss';
+import styles from './locale-modal.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

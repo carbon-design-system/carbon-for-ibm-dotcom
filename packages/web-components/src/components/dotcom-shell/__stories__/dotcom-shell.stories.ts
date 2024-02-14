@@ -19,7 +19,7 @@ import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
 } from '../../masthead/__stories__/profile-items';
-import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
+import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss?lit';
 import { FOOTER_SIZE } from '../../footer/footer';
 import {
   mastheadLinksV2 as l0Data,

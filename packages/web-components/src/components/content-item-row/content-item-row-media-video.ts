@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import C4DVideoPlayerContainer from '../video-player/video-player-container';
-import styles from './content-item-row-media.scss';
+import styles from './content-item-row-media.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

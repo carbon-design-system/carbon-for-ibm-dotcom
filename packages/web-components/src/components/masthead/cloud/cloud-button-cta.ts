@@ -10,7 +10,7 @@
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CTA_TYPE } from '../../cta/defs';
 import C4DButtonExpressive from '../../button/button';
-import styles from './cloud-masthead.scss';
+import styles from './cloud-masthead.scss?lit';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CTA_TYPE };

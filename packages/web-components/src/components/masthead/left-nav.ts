@@ -21,7 +21,7 @@ import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DLeftNavOverlay from './left-nav-overlay';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import C4DLeftNavMenuSection from './left-nav-menu-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

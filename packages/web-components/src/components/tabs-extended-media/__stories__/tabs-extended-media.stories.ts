@@ -14,7 +14,7 @@ import '../../card-group/index';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { TABS_TYPE } from '../../tabs-extended/defs';
 import readme from './README.stories.mdx';
-import styles from '../../tabs-extended/__stories__/tabs-extended-stories.scss';
+import styles from '../../tabs-extended/__stories__/tabs-extended-stories.scss?lit';
 import { prefix } from '../../../internal/vendor/@carbon/web-components/globals/settings';
 
 const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.

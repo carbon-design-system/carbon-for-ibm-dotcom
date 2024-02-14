@@ -22,7 +22,7 @@ import VideoCTAMixin from '../../component-mixins/cta/video';
 import C4DCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
 import { CTA_TYPE } from './defs';
-import styles from './cta.scss';
+import styles from './cta.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };

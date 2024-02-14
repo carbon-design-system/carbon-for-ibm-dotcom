@@ -20,7 +20,7 @@ import C4DExpressiveModalCloseButton from '@carbon/ibmdotcom-web-components/es/c
 import C4DLightboxMediaViewer from '@carbon/ibmdotcom-web-components/es/components-react/lightbox-media-viewer/lightbox-media-viewer';
 import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 
-import styles from './lightbox-media-viewer.stories.scss';
+import styles from './lightbox-media-viewer.stories.scss?lit';
 import readme from './README.stories.react.mdx';
 
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';

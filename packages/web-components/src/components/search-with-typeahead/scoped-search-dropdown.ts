@@ -9,7 +9,7 @@
 
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DDropdown from '../footer/dropdown';
-import styles from './search-with-typeahead.scss';
+import styles from './search-with-typeahead.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export {

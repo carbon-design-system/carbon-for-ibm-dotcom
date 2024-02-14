@@ -18,7 +18,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DCardFooter from './card-footer';
-import styles from './card.scss';
+import styles from './card.scss?lit';
 import { PICTOGRAM_PLACEMENT } from './defs';
 
 import { CTA_TYPE } from '../cta/defs';

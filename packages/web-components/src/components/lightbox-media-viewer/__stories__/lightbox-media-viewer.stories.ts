@@ -16,7 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 import '../../carousel/index';
 import '../../expressive-modal/index';
-import styles from './lightbox-media-viewer.stories.scss';
+import styles from './lightbox-media-viewer.stories.scss?lit';
 import readme from './README.stories.mdx';
 
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';

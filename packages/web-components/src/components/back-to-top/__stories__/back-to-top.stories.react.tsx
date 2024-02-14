@@ -29,7 +29,7 @@ import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import React from 'react';
 import readme from './README.stories.react.mdx';
-import styles from './back-to-top.stories.scss';
+import styles from './back-to-top.stories.scss?lit';
 
 const copy = `The popularity of responsive web design has led to a proliferation of single-column,
 long-page designs both on mobile and desktop. A consequence of these designs has been the

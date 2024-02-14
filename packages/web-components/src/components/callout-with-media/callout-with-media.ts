@@ -8,7 +8,7 @@
  */
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './callout-with-media.scss';
+import styles from './callout-with-media.scss?lit';
 import C4DCalloutMixin from '../../component-mixins/callout/callout';
 import C4DContentBlock from '../content-block/content-block';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
