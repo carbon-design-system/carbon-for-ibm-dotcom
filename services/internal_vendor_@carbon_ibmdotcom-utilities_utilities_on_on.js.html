@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/global/global.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/global/global.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/on/on.js</h1>
 
     
 
@@ -27,52 +27,32 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { AnalyticsAPI } from '../Analytics';
-import { DDOAPI } from '../DDO';
-import loadNonLatinPlex from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/loadNonLatinPlex/loadNonLatinPlex';
-import { LocaleAPI } from '../Locale';
-
 /**
- * Flag to determine if the global init has been fired
  *
- * @type {boolean}
- * @private
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
  */
-let _initialized = false;
 
-/**
- * Initializes various global functions
- */
-export function globalInit() {
-  if (_initialized) {
-    return;
-  } else {
-    _initialized = true;
+function on(element) {
+  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key &lt; _len; _key++) {
+    args[_key - 1] = arguments[_key];
   }
-
-  // Sets the version of the library in the DDO
-  DDOAPI.setVersion().catch((error) => {
-    console.error(
-      'Error setting the version of the library in the DDO:',
-      error
-    );
-  });
-
-  // Sets the Plex font for non-Latin fonts
-  LocaleAPI.getLang().then((lang) => {
-    loadNonLatinPlex(lang.lc);
-  });
-
-  // analytics tracking
-  AnalyticsAPI.initAll();
+  element.addEventListener.apply(element, args);
+  return {
+    release: function release() {
+      element.removeEventListener.apply(element, args);
+      return null;
+    }
+  };
 }
-</code></pre>
+export default on;</code></pre>
         </article>
     </section>
 
