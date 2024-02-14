@@ -86,11 +86,11 @@ document.getElementById('masthead').platformUrl = urlObject;
 
 ### Custom navigation
 
-In order to set custom navigation for the masthead, use JavaScript to set the `navLinks` property of the masthead-composite component. This property should be an array of `L0MenuItem` objects as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
+In order to set custom navigation for the masthead, use JavaScript to set the `l0Data` property. This property should be an array of `L0MenuItem` objects as defined in [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
 
 ```html
-<c4d-masthead-composite
-  id="masthead"></c4d-masthead-composite>
+<c4d-masthead-container
+  id="masthead"></c4d-masthead-container>
 ```
 
 ```javascript
@@ -125,7 +125,7 @@ const customNavData = [
     },
   },
 ];
-document.getElementById('masthead').navLinks = customNavData;
+document.getElementById('masthead').l0Data = customNavData;
 ```
 
 #### Custom data endpoint
@@ -383,14 +383,14 @@ This array will be passed into the `scopeParameters` property. If using
 the `.`), in order for the array to be processed properly in the component.
 
 ```html
-<c4d-masthead-composite
-  .scopeParameters="${scopeParameters}"></c4d-masthead-composite>
+<c4d-masthead-container
+  .scopeParameters="${scopeParameters}"></c4d-masthead-container>
 ```
 
 Alternatively, JavaScript can be used to insert it into the component.
 
 ```javascript
-document.querySelector('c4d-masthead-composite').scopeParameters =
+document.querySelector('c4d-masthead-container').scopeParameters =
   scopeParameters;
 ```
 
