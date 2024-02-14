@@ -23,7 +23,11 @@ describe('MarketingSearchAPI', () => {
 
   it('should search for ibm.com marketing results', async () => {
     const query = 'red hat';
-    const endpoint = `${process.env.MARKETING_SEARCH_HOST}/marketplace/api/search/${process.env.MARKETING_SEARCH_VERSION}/combined_suggestions`;
+    const endpoint = `${
+      import.meta.env.MARKETING_SEARCH_HOST
+    }/marketplace/api/search/${
+      import.meta.env.MARKETING_SEARCH_VERSION
+    }/combined_suggestions`;
     const fetchUrl = `${endpoint}?locale=${_lc}-${_cc}&q=${encodeURIComponent(
       query
     )}`;

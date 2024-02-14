@@ -12,15 +12,15 @@ import Cookies from 'js-cookie';
  * @private
  */
 const _host =
-  (process &&
-    (process.env.REACT_APP_PROFILE_HOST || process.env.PROFILE_HOST)) ||
+  (import.meta &&
+    (import.meta.env.REACT_APP_PROFILE_HOST || import.meta.env.PROFILE_HOST)) ||
   'https://login.ibm.com';
 
 /**
  * @constant {string | string} API version
  * @private
  */
-const _version = (process && process.env.PROFILE_VERSION) || 'v1';
+const _version = (import.meta && import.meta.env.PROFILE_VERSION) || 'v1';
 
 /**
  * Profile status endpoint

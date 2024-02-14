@@ -14,8 +14,9 @@ import root from 'window-or-global';
  * @private
  */
 const _host =
-  (process &&
-    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
+  (import.meta &&
+    (import.meta.env.REACT_APP_TRANSLATION_HOST ||
+      import.meta.env.TRANSLATION_HOST)) ||
   'https://1.www.s81c.com';
 
 /**
@@ -34,9 +35,9 @@ const _c4dEndpointDefault =
  * @private
  */
 const _c4dEndpoint =
-  (process &&
-    (process.env.REACT_APP_C4D_TRANSLATION_ENDPOINT ||
-      process.env.C4D_TRANSLATION_ENDPOINT)) ||
+  (import.meta &&
+    (import.meta.env.REACT_APP_C4D_TRANSLATION_ENDPOINT ||
+      import.meta.env.C4D_TRANSLATION_ENDPOINT)) ||
   _c4dEndpointDefault;
 
 /**

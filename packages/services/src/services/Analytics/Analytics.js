@@ -12,7 +12,7 @@ import root from 'window-or-global';
  * @private
  */
 const _scrollTracker =
-  (process && process.env.SCROLL_TRACKING === 'true') || false;
+  (import.meta && import.meta.env.SCROLL_TRACKING === 'true') || false;
 
 /**
  * Current NODE_ENV
@@ -20,7 +20,7 @@ const _scrollTracker =
  * @type {string | string}
  * @private
  */
-const _env = (process && process.env.NODE_ENV) || 'development';
+const _env = (import.meta && import.meta.env.NODE_ENV) || 'development';
 
 /**
  * Analytics API class with methods for firing analytics events on

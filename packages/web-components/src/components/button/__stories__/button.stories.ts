@@ -9,6 +9,8 @@
 
 import { html } from 'lit';
 import { types } from '../../cta/__stories__/ctaTypeConfig';
+import '../button';
+import '../../video-player/video-player-container';
 
 const controls = {
   ctaType: {
