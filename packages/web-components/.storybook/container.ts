@@ -9,7 +9,6 @@
 
 import { html, TemplateResult } from 'lit';
 import containerStyles from './_container.scss?lit'; // eslint-disable-line import/first
-import '../src/internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
 
 /**
  * @param options The rendering options.
@@ -27,7 +26,6 @@ const container = ({
   <style>
     ${containerStyles}
   </style>
-  <cds-skip-to-content href="#main-content"></cds-skip-to-content>
   <div
     id="main-content"
     name="main-content"
