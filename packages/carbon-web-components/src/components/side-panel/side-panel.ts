@@ -421,9 +421,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     this._checkUpdateIconButtonSizes();
 
     const actionsCount = actions?.length ?? 0;
-    if (actionsCount === 0) {
-      return;
-    } else if (actionsCount > 3) {
+    if (actionsCount > 3) {
       this._actionsCount = 3;
       console.warn(`Too many side-panel actions, max 3.`);
     } else {
