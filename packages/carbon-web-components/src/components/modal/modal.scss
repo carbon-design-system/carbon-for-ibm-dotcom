@@ -146,8 +146,7 @@
 // Slug
 
 :host(#{$prefix}-modal[slug]) {
-  // TODO: replace with next release of carbon/styles
-  background-color: var(--cds-ai-overlay, rgba(0, 17, 65, 0.5));
+  background-color: $ai-overlay;
 }
 
 :host(#{$prefix}-modal[slug]) .#{$prefix}--modal-container {
