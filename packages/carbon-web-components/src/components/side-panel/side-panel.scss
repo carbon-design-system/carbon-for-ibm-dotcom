@@ -197,13 +197,13 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     flex-direction: var(--flex-direction);
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    ::slotted(cds-button) {
+    ::slotted(#{$prefix}-button) {
       flex: 0 1 25%;
       max-inline-size: to-rem(232px);
     }
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    ::slotted(cds-button[kind='ghost']) {
+    ::slotted(#{$prefix}-button[kind='ghost']) {
       flex: 1 1 25%;
       max-inline-size: none;
     }
@@ -211,7 +211,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     // -1 in @container query is for 1px left border
     @container (width <= #{map.get(spv.$side-panel-sizes, lg)}) {
       /* stylelint-disable-next-line selector-type-no-unknown */
-      &:not([actions-multiple='triple']) ::slotted(cds-button) {
+      &:not([actions-multiple='triple']) ::slotted(#{$prefix}-button) {
         // double and single on lg use 50%
         flex: 0 1 50%;
         max-inline-size: none;
@@ -223,13 +223,13 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
       // md is 50% for two and 100% for one
       // column for triple
       /* stylelint-disable-next-line selector-type-no-unknown */
-      &[actions-multiple] ::slotted(cds-button) {
+      &[actions-multiple] ::slotted(#{$prefix}-button) {
         flex: 0 0 100%;
         max-inline-size: none;
       }
 
       /* stylelint-disable-next-line selector-type-no-unknown */
-      &[actions-multiple='double'] ::slotted(cds-button) {
+      &[actions-multiple='double'] ::slotted(#{$prefix}-button) {
         flex: 0 1 50%;
         max-inline-size: none;
       }
@@ -238,7 +238,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
         --flex-direction: column;
 
         /* stylelint-disable-next-line selector-type-no-unknown */
-        ::slotted(`#{$prefix}-button`) {
+        ::slotted(#{$prefix}-button) {
           flex: initial;
           inline-size: 100%;
           max-inline-size: none;
@@ -251,7 +251,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
       --flex-direction: column;
 
       /* stylelint-disable-next-line selector-type-no-unknown */
-      ::slotted(`#{$prefix}-button`) {
+      ::slotted(#{$prefix}-button) {
         flex: initial;
         inline-size: 100%;
         max-inline-size: none;
@@ -267,7 +267,7 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     inline-size: 100%;
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    ::slotted(cds-button) {
+    ::slotted(#{$prefix}-button) {
       @extend .#{$block-class-action-set}__action-button;
     }
 
