@@ -43,9 +43,6 @@ export const Default = {
 
 const meta = {
   title: 'Components/Button',
-  parameters: {
-    actions: { argTypesRegex: '^on.*' },
-  },
 };
 
 export default meta;
