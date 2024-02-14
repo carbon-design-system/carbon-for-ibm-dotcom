@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,10 @@ import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
 import './toggletip';
+import './toggletip-label';
+import './toggletip-button';
 import '../button';
+import Information16 from '@carbon/icons/lib/information/16';
 import { POPOVER_ALIGNMENT } from '../popover/defs';
 import storyDocs from './toggletip-story.mdx';
 

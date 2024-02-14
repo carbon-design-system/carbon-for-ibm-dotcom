@@ -17,6 +17,7 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import FocusMixin from '../../globals/mixins/focus';
 import { POPOVER_ALIGNMENT } from '../popover/defs';
 import styles from './toggletip.scss';
+import { floatingUIPosition } from '../../globals/internal/floating-ui';
 
 /**
  * Definition tooltip.
@@ -31,6 +32,21 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   @property({ reflect: true })
   alignment = POPOVER_ALIGNMENT.TOP;
 
+  /**
+   * Specify whether a auto align functionality should be applied
+   */
+  @property({ type: Boolean, reflect: true })
+  autoAlign = false;
+
+  /**
+   * The id of the trigger element for auto align
+   */
+  @property({ type: String, reflect: true })
+  triggerId = '';
+
+  /**
+   * Specify whether the component is currently open or closed
+   */
   @property({ type: Boolean, reflect: true })
   open = false;
 
@@ -109,6 +125,45 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     `;
   };
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (this.autoAlign) {
+      const button: any = document.querySelector(`#${this.triggerId}`);
+      button.addEventListener('click', this._handleClick);
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    if (this.autoAlign) {
+      const button: any = document.querySelector(`#${this.triggerId}`);
+      button.removeEventListener('click', this._handleClick);
+    }
+  }
+
+  updated() {
+    if (this.autoAlign) {
+      // auto align functionality with @floating-ui/dom library
+      const button: any = document.querySelector(`#${this.triggerId}`);
+      const tooltip: any = this.shadowRoot?.querySelector('.cds--popover');
+      const arrowElement: any = this.shadowRoot?.querySelector(
+        '.cds--popover-caret'
+      );
+
+      if (button && tooltip) {
+        floatingUIPosition({
+          button,
+          tooltip,
+          arrowElement,
+          caret: true,
+          alignment: this.alignment,
+        });
+      }
+    }
+  }
+
   protected _renderInnerContent = () => {
     return html`
       ${this._renderTooltipButton()} ${this._renderTooltipContent()}
@@ -116,7 +171,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   render() {
-    const { alignment, open } = this;
+    const { alignment, open, autoAlign } = this;
     const classes = classMap({
       [`${prefix}--popover-container`]: true,
       [`${prefix}--popover--caret`]: true,
@@ -126,13 +181,17 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}--toggletip`]: true,
       [`${prefix}--toggletip--open`]: open,
     });
-    return html`
-      ${this._renderToggleTipLabel()}
-      <span class="${classes}">
-        ${this._renderInnerContent()}
-      </span>
-    </span>
-    `;
+
+    if (autoAlign) {
+      return html`
+        <span class="${classes}"> ${this._renderTooltipContent()} </span>
+      `;
+    } else {
+      return html`
+        ${this._renderToggleTipLabel()}
+        <span class="${classes}"> ${this._renderInnerContent()} </span>
+      `;
+    }
   }
 
   static shadowRootOptions = {

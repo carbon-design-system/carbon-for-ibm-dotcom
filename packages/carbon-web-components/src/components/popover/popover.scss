@@ -303,6 +303,13 @@ $popover-caret-height: custom-property.get-var(
   }
 }
 
+:host(#{$prefix}-toggletip[autoAlign]),
+:host(#{$prefix}-popover[autoAlign]) {
+  .#{$prefix}--popover-container {
+    position: absolute;
+  }
+}
+
 :host(#{$prefix}-popover[open][autoAlign]) .#{$prefix}--popover-content {
   display: block;
 }
@@ -317,9 +324,11 @@ $popover-caret-height: custom-property.get-var(
   filter: var(--cds-popover-drop-shadow, none);
 }
 
+:host(#{$prefix}-toggletip[open][autoAlign]) .#{$prefix}--popover-caret,
 :host(#{$prefix}-popover[open][autoAlign][caret]) .#{$prefix}--popover-caret {
   display: block;
   block-size: var(--cds-popover-caret-width, 0.75rem);
+  clip-path: none;
   inline-size: var(--cds-popover-caret-width, 0.75rem);
   transform: rotate(45deg);
 }

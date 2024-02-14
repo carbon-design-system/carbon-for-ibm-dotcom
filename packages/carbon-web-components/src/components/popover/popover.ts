@@ -11,8 +11,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { computePosition, flip, offset, arrow } from '@floating-ui/dom';
-import { Placement } from '@floating-ui/utils';
+import { floatingUIPosition } from '../../globals/internal/floating-ui';
 import styles from './popover.scss';
 import CDSPopoverContent from './popover-content';
 
@@ -113,66 +112,12 @@ class CDSPopover extends LitElement {
     );
 
     if (button && tooltip) {
-      let shimmedAlign;
-      switch (this.align) {
-        case 'top-left':
-          shimmedAlign = 'top-start';
-          break;
-        case 'top-right':
-          shimmedAlign = 'top-end';
-          break;
-        case 'bottom-left':
-          shimmedAlign = 'bottom-start';
-          break;
-        case 'bottom-right':
-          shimmedAlign = 'bottom-end';
-          break;
-        case 'left-bottom':
-          shimmedAlign = 'left-end';
-          break;
-        case 'left-top':
-          shimmedAlign = 'left-start';
-          break;
-        case 'right-bottom':
-          shimmedAlign = 'right-end';
-          break;
-        case 'right-top':
-          shimmedAlign = 'right-start';
-          break;
-        default:
-          shimmedAlign = this.align;
-          break;
-      }
-
-      computePosition(button, tooltip, {
-        strategy: 'fixed',
-        middleware: [
-          flip({ fallbackAxisSideDirection: 'start' }),
-          offset(this.caret ? 10 : 0),
-          arrow({ element: arrowElement }),
-        ],
-        placement: shimmedAlign as Placement,
-      }).then(({ x, y, placement, middlewareData }) => {
-        tooltip.style.left = `${x}px`;
-        tooltip.style.top = `${y}px`;
-
-        if (arrowElement) {
-          // @ts-ignore
-          const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
-          const staticSide: any = {
-            top: 'bottom',
-            right: 'left',
-            bottom: 'top',
-            left: 'right',
-          }[placement.split('-')[0]];
-
-          arrowElement.style.left = arrowX != null ? `${arrowX}px` : '';
-          arrowElement.style.top = arrowY != null ? `${arrowY}px` : '';
-          arrowElement.style.right = '';
-          arrowElement.style.bottom = '';
-          arrowElement.style[staticSide] = `${-arrowElement.offsetWidth / 2}px`;
-        }
+      floatingUIPosition({
+        button,
+        tooltip,
+        arrowElement,
+        caret: this.caret,
+        alignment: this.align,
       });
     }
   }
