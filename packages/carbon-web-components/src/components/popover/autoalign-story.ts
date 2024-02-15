@@ -11,6 +11,7 @@ import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
 import './popover';
 import './popover-content';
+import '../toggle-tip/index';
 import { POPOVER_ALIGNMENT } from './defs';
 import storyDocs from './popover-story.mdx';
 import { prefix } from '../../globals/settings';
@@ -96,26 +97,24 @@ export const ToggleTip = (args) => {
   const { align } = args?.[`${prefix}-toggletip`] ?? {};
 
   return html`
-    <div style="overflow:hidden; background: gray; width: 300px; height: 300px">
-      <div
-        style="display: flex;
+    <div
+      style="display: flex;
       align-items: center;
       justify-content: center;
       outline: none;">
-        <cds-toggletip-label>Toggletip label</cds-toggletip-label>
-        <cds-toggletip-button id="button-1">
-          ${Information16({ id: 'trigger' })}</cds-toggletip-button
-        >
-      </div>
-      <cds-toggletip triggerId="button-1" autoAlign alignment=${align}>
-        <p slot="body-text">
-          Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.
-        </p>
-        <cds-link slot="actions">Test</cds-link>
-        <cds-button slot="actions">Button</cds-button>
-      </cds-toggletip>
+      <cds-toggletip-label>Toggletip label</cds-toggletip-label>
+      <cds-toggletip-button id="button-1">
+        ${Information16({ id: 'trigger' })}</cds-toggletip-button
+      >
     </div>
+    <cds-toggletip triggerId="button-1" autoAlign alignment=${align}>
+      <p slot="body-text">
+        Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.
+      </p>
+      <cds-link slot="actions">Test</cds-link>
+      <cds-button slot="actions">Button</cds-button>
+    </cds-toggletip>
   `;
 };
 

@@ -108,21 +108,35 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   protected _renderTooltipContent = () => {
-    return html`
-      <span class="${prefix}--popover">
-        <span class="${prefix}--popover-content">
-          <div class="${prefix}--toggletip-content">
-            <slot name="body-text"></slot>
-            <div class="${prefix}--toggletip-actions">
-              <slot
-                name="actions"
-                @slotchange="${this._handleActionsSlotChange}"></slot>
+    return this.autoAlign
+      ? html`
+          <span class="${prefix}--popover-content">
+            <div class="${prefix}--toggletip-content">
+              <slot name="body-text"></slot>
+              <div class="${prefix}--toggletip-actions">
+                <slot
+                  name="actions"
+                  @slotchange="${this._handleActionsSlotChange}"></slot>
+              </div>
             </div>
-          </div>
-        </span>
-        <span class="${prefix}--popover-caret"></span>
-      </span>
-    `;
+            <span class="${prefix}--popover-caret"></span>
+          </span>
+        `
+      : html`
+          <span class="${prefix}--popover">
+            <span class="${prefix}--popover-content">
+              <div class="${prefix}--toggletip-content">
+                <slot name="body-text"></slot>
+                <div class="${prefix}--toggletip-actions">
+                  <slot
+                    name="actions"
+                    @slotchange="${this._handleActionsSlotChange}"></slot>
+                </div>
+              </div>
+            </span>
+            <span class="${prefix}--popover-caret"></span>
+          </span>
+        `;
   };
 
   connectedCallback() {
@@ -147,7 +161,9 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     if (this.autoAlign) {
       // auto align functionality with @floating-ui/dom library
       const button: any = document.querySelector(`#${this.triggerId}`);
-      const tooltip: any = this.shadowRoot?.querySelector('.cds--popover');
+      const tooltip: any = this.shadowRoot?.querySelector(
+        '.cds--popover-content'
+      );
       const arrowElement: any = this.shadowRoot?.querySelector(
         '.cds--popover-caret'
       );
