@@ -13,10 +13,7 @@ import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
 import './toggletip';
-import './toggletip-label';
-import './toggletip-button';
 import '../button';
-import Information16 from '@carbon/icons/lib/information/16';
 import { POPOVER_ALIGNMENT } from '../popover/defs';
 import storyDocs from './toggletip-story.mdx';
 
