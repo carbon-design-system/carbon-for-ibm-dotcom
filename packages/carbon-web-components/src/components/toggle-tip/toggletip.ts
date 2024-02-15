@@ -36,7 +36,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
    * Specify whether a auto align functionality should be applied
    */
   @property({ type: Boolean, reflect: true })
-  autoAlign = false;
+  autoalign = false;
 
   /**
    * The id of the trigger element for auto align
@@ -108,7 +108,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   protected _renderTooltipContent = () => {
-    return this.autoAlign
+    return this.autoalign
       ? html`
           <span class="${prefix}--popover-content">
             <div class="${prefix}--toggletip-content">
@@ -142,7 +142,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   connectedCallback() {
     super.connectedCallback();
 
-    if (this.autoAlign) {
+    if (this.autoalign) {
       const button: any = document.querySelector(`#${this.triggerId}`);
       button.addEventListener('click', this._handleClick);
     }
@@ -151,14 +151,14 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   disconnectedCallback() {
     super.disconnectedCallback();
 
-    if (this.autoAlign) {
+    if (this.autoalign) {
       const button: any = document.querySelector(`#${this.triggerId}`);
       button.removeEventListener('click', this._handleClick);
     }
   }
 
   updated() {
-    if (this.autoAlign) {
+    if (this.autoalign) {
       // auto align functionality with @floating-ui/dom library
       const button: any = document.querySelector(`#${this.triggerId}`);
       const tooltip: any = this.shadowRoot?.querySelector(
@@ -187,7 +187,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   render() {
-    const { alignment, open, autoAlign } = this;
+    const { alignment, open, autoalign } = this;
     const classes = classMap({
       [`${prefix}--popover-container`]: true,
       [`${prefix}--popover--caret`]: true,
@@ -198,7 +198,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}--toggletip--open`]: open,
     });
 
-    if (autoAlign) {
+    if (autoalign) {
       return html`
         <span class="${classes}"> ${this._renderTooltipContent()} </span>
       `;

@@ -43,7 +43,7 @@
   @extend .#{$prefix}--toggletip-button;
 }
 
-:host(#{$prefix}-toggletip[open][autoAlign]) .#{$prefix}--popover-content {
+:host(#{$prefix}-toggletip[open][autoalign]) .#{$prefix}--popover-content {
   display: block;
 
   @include custom-property.declaration(

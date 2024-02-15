@@ -32,7 +32,7 @@ class CDSPopover extends LitElement {
    * Specify whether a auto align functionality should be applied
    */
   @property({ type: Boolean, reflect: true })
-  autoAlign = false;
+  autoalign = false;
 
   /**
    * The id of the trigger element for auto align
@@ -91,7 +91,7 @@ class CDSPopover extends LitElement {
   updated(changedProperties) {
     const { selectorPopoverContent } = this.constructor as typeof CDSPopover;
 
-    if (!this.autoAlign) {
+    if (!this.autoalign) {
       ['open', 'align', 'caret', 'dropShadow', 'tabTip'].forEach((name) => {
         if (changedProperties.has(name)) {
           const { [name as keyof CDSPopover]: value } = this;
@@ -124,7 +124,7 @@ class CDSPopover extends LitElement {
 
   render() {
     const {
-      autoAlign,
+      autoalign,
       dropShadow,
       highContrast,
       open,
@@ -146,7 +146,7 @@ class CDSPopover extends LitElement {
       [`${prefix}--popover--tab-tip`]: tabTip,
     });
 
-    if (autoAlign) {
+    if (autoalign) {
       return html`
         <span class="${classes}">
           <span class="${prefix}--popover-content">

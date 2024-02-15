@@ -69,13 +69,16 @@ export default class CDSSlug extends CDSToggleTip {
   size = SLUG_SIZE.EXTRA_SMALL;
 
   /**
+   * True if using auto align functionality
+   */
+  @property({ type: Boolean, attribute: 'autoalign-trigger', reflect: true })
+  autoAlignTrigger = false;
+
+  /**
    * Specify the text that will be provided to the aria-label of the `Slug` button
    */
   @property({ attribute: 'slug-label' })
   slugLabel = 'Show information';
-
-  @property()
-  previousValue;
 
   protected _handleClick = () => {
     if (this.revertActive) {
@@ -120,22 +123,39 @@ export default class CDSSlug extends CDSToggleTip {
   };
 
   protected _renderInnerContent = () => {
-    const { revertActive, revertLabel } = this;
-    return html`
-      ${revertActive
-        ? html`
-            <cds-icon-button
-              kind="ghost"
-              size="sm"
-              @click="${this._handleClick}">
-              <span slot="tooltip-content"> ${revertLabel} </span>
-              ${Undo16({ slot: 'icon' })}
-            </cds-icon-button>
-          `
-        : html`
-            ${this._renderTooltipButton()} ${this._renderTooltipContent()}
-          `}
-    `;
+    const { revertActive, revertLabel, autoAlignTrigger } = this;
+
+    if (autoAlignTrigger) {
+      return html`
+        ${revertActive
+          ? html`
+              <cds-icon-button
+                kind="ghost"
+                size="sm"
+                @click="${this._handleClick}">
+                <span slot="tooltip-content"> ${revertLabel} </span>
+                ${Undo16({ slot: 'icon' })}
+              </cds-icon-button>
+            `
+          : html` ${this._renderTooltipButton()} `}
+      `;
+    } else {
+      return html`
+        ${revertActive
+          ? html`
+              <cds-icon-button
+                kind="ghost"
+                size="sm"
+                @click="${this._handleClick}">
+                <span slot="tooltip-content"> ${revertLabel} </span>
+                ${Undo16({ slot: 'icon' })}
+              </cds-icon-button>
+            `
+          : html`
+              ${this._renderTooltipButton()} ${this._renderTooltipContent()}
+            `}
+      `;
+    }
   };
 
   attributeChangedCallback(name, old, newValue) {
@@ -144,11 +164,6 @@ export default class CDSSlug extends CDSToggleTip {
     //@ts-ignore typescript does not think requestUpdate() exists on parentElement
     name === 'revert-active' ? this.parentElement?.requestUpdate() : ``;
   }
-
-  // connectedCallback() {
-  //   super.connectedCallback();
-  //   this.setAttribute('autoAlign', '');
-  // }
 
   updated() {
     super.updated();
@@ -159,6 +174,14 @@ export default class CDSSlug extends CDSToggleTip {
       this.setAttribute('enabled', '');
     } else {
       this.removeAttribute('enabled');
+    }
+  }
+
+  render() {
+    if (this.autoAlignTrigger) {
+      return html`${this._renderInnerContent()}`;
+    } else {
+      return super.render();
     }
   }
 
