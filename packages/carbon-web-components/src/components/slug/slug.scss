@@ -185,6 +185,11 @@ $colorMap: (
     #{$prefix}-slug:not([kind='hollow']):not(
         [dot-type='hollow']
       )[alignment^='top']
+  ),
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='top']
   ) {
   .#{$prefix}--popover-caret {
     &::before {
@@ -215,6 +220,11 @@ $colorMap: (
     #{$prefix}-slug:not([kind='hollow']):not(
         [dot-type='hollow']
       )[alignment^='right']
+  ),
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='right']
   ) {
   .#{$prefix}--popover-caret {
     &::before {
@@ -235,6 +245,11 @@ $colorMap: (
 // bottom
 :host(
     #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='bottom']
+  ),
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
         [dot-type='hollow']
       )[alignment^='bottom']
   ) {
@@ -260,6 +275,11 @@ $colorMap: (
     #{$prefix}-slug:not([kind='hollow']):not(
         [dot-type='hollow']
       )[alignment^='left']
+  ),
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='left']
   ) {
   .#{$prefix}--popover-caret {
     &::before {
@@ -278,7 +298,10 @@ $colorMap: (
 
 // override for specific alignments
 /* stylelint-disable-next-line no-duplicate-selectors */
-:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
+:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])),
+:host(#{$prefix}-slug-callout:not([kind='hollow']):not([dot-type='hollow'])) {
+  &[alignment='left-end'],
+  &[alignment='right-end'],
   &[alignment='left-bottom'],
   &[alignment='right-bottom'] {
     .#{$prefix}--popover-caret::after {
@@ -289,10 +312,15 @@ $colorMap: (
 
 // Change caret color / border when it is near the bottom of the callout
 /* stylelint-disable-next-line no-duplicate-selectors */
-:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
+:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])),
+:host(#{$prefix}-slug-callout:not([kind='hollow']):not([dot-type='hollow'])) {
+  &[alignment='left-end'],
+  &[alignment='right-end'],
   &[alignment='left-bottom'],
   &[alignment='right-bottom'],
   &[alignment='top'],
+  &[alignment='top-start'],
+  &[alignment='top-end'],
   &[alignment='top-right'],
   &[alignment='top-left'] {
     .#{$prefix}--popover-caret::before {
@@ -310,7 +338,8 @@ $colorMap: (
 
 // Change the caret border when it is near the middle of the callout
 /* stylelint-disable-next-line no-duplicate-selectors */
-:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
+:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])),
+:host(#{$prefix}-slug-callout:not([kind='hollow']):not([dot-type='hollow'])) {
   &[alignment='left'],
   &[alignment='right'] {
     .#{$prefix}--popover-caret::before {

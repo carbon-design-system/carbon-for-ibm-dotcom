@@ -21,6 +21,7 @@ import { Placement } from '@floating-ui/utils';
  * @param {boolean} object.caret if caret is visible
  * @param {string} object.alignment alignment to display tooltip
  *
+ * @returns {string} placement final placement of the tooltip
  */
 export function floatingUIPosition({
   button,
@@ -60,12 +61,12 @@ export function floatingUIPosition({
       break;
   }
 
-  computePosition(button, tooltip, {
+  return computePosition(button, tooltip, {
     strategy: 'fixed',
     middleware: [
       flip({ fallbackAxisSideDirection: 'start' }),
       offset(caret ? 10 : 0),
-      arrow({ element: arrowElement }),
+      arrow({ element: arrowElement, padding: 15 }),
     ],
     placement: shimmedAlign as Placement,
   }).then(({ x, y, placement, middlewareData }) => {
@@ -89,5 +90,6 @@ export function floatingUIPosition({
       arrowElement.style.bottom = '';
       arrowElement.style[staticSide] = `${-arrowElement.offsetWidth / 2}px`;
     }
+    return placement;
   });
 }
