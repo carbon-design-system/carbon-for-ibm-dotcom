@@ -43,13 +43,16 @@
   @extend .#{$prefix}--toggletip-button;
 }
 
-:host(#{$prefix}-toggletip[open][autoalign]) .#{$prefix}--popover-content {
-  display: block;
+:host(#{$prefix}-slug-callout[open]),
+:host(#{$prefix}-toggletip[open][autoalign]) {
+  .#{$prefix}--popover-content {
+    display: block;
 
-  @include custom-property.declaration(
-    'popover-background-color',
-    $background-inverse
-  );
+    @include custom-property.declaration(
+      'popover-background-color',
+      $background-inverse
+    );
 
-  @include custom-property.declaration('popover-text-color', $text-inverse);
+    @include custom-property.declaration('popover-text-color', $text-inverse);
+  }
 }

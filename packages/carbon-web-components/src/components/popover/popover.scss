@@ -304,6 +304,7 @@ $popover-caret-height: custom-property.get-var(
 }
 
 :host(#{$prefix}-toggletip[autoalign]),
+:host(#{$prefix}-slug-callout[autoalign]),
 :host(#{$prefix}-popover[autoalign]) {
   .#{$prefix}--popover-container {
     position: absolute;
@@ -337,8 +338,4 @@ $popover-caret-height: custom-property.get-var(
     inline-size: var(--cds-popover-caret-width, 0.75rem);
     transform: rotate(45deg);
   }
-}
-
-:host(#{$prefix}-slug-callout[open][autoalign]) .#{$prefix}--popover-caret {
-  transform: none;
 }

@@ -38,7 +38,7 @@ export default class CDSSlugCallout extends CDSToggleTip {
     this.setAttribute('autoalign', '');
   }
 
-  updated() {
+  async updated() {
     super.updated();
     if (
       this.kind !== SLUG_KIND.HOLLOW &&

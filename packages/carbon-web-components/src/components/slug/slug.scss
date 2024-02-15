@@ -348,6 +348,11 @@ $colorMap: (
   }
 }
 
+:host(#{$prefix}-slug-callout:not([kind='hollow']):not([dot-type='hollow']))
+  .#{$prefix}--popover-caret {
+  transform: none;
+}
+
 @each $color, $token in $colorMap {
   :host(#{$prefix}-slug[tag='#{$color}']) {
     .#{$prefix}--slug__text {
