@@ -115,6 +115,29 @@ export const WithLayer = () => {
   `;
 };
 
+export const TwoHandleSlider = () => {
+  return html`
+    <cds-form-item>
+      <cds-slider
+        label-text="Slider Label"
+        max="100"
+        min="0"
+        step="1"
+        value="50"
+        value-upper="90">
+        <cds-slider-input
+          aria-label="Slider value"
+          type="number"
+          id="lower"></cds-slider-input>
+        <cds-slider-input
+          aria-label="Slider Upper value"
+          type="number"
+          id="upper"></cds-slider-input>
+      </cds-slider>
+    </cds-form-item>
+  `;
+};
+
 export const skeleton = () =>
   html`
     <cds-form-item><cds-slider-skeleton></cds-slider-skeleton></cds-form-item>
