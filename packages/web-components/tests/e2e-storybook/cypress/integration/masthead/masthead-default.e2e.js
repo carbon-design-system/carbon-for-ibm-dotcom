@@ -112,6 +112,25 @@ describe('c4d-masthead | default (desktop)', () => {
     });
   });
 
+  it('should support custom L0 items', () => {
+    const customL0Item = {
+      title: 'Custom Nav Link',
+      titleEnglish: 'Custom Nav Link',
+      url: 'https://www.example.com/',
+      hasMenu: false,
+      hasMegapanel: false,
+    }
+    cy.get('c4d-masthead-container')
+      .then(([masthead]) => {
+        masthead.l0Data = [customL0Item];
+      })
+      .find('c4d-top-nav-item')
+      .then(([menuItem]) => {
+        expect(menuItem.getAttribute('title')).to.equal(customL0Item.title);
+        expect(menuItem.getAttribute('href')).to.equal(customL0Item.url);
+      });
+  });
+
   xit('should have urls for link elements', () => {
     cy.get('c4d-megamenu-top-nav-menu').each($topItem => {
       if (!Cypress.dom.isVisible($topItem)) {
