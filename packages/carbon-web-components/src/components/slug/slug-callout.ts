@@ -33,6 +33,13 @@ export default class CDSSlugCallout extends CDSToggleTip {
   @property({ reflect: true })
   kind = SLUG_KIND.DEFAULT;
 
+  protected _handleClick = () => {
+    // utilizing the open attribute from the slug itself because
+    // the revert active shouldn't toggle the open attribute of this slug-callout
+    const button: any = document.querySelector(`#${this.triggerId}`);
+    this.open = button.hasAttribute('open');
+  };
+
   connectedCallback() {
     super.connectedCallback();
     this.setAttribute('autoalign', '');
