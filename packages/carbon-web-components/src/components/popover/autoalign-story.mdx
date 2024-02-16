@@ -1,0 +1,126 @@
+# Auto Align
+
+> 💡 Check our
+> [CodeSandbox](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/autoalign)
+> example implementation.
+
+[![Edit carbon-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/autoalign)
+
+Auto Align is an experimental feature utilizing the
+[`@floating-ui/dom`](https://floating-ui.com/docs/getting-started) library. With
+Auto Align, the tooltip or popover is positioned relative to the viewport and
+other elements, avoiding collisions.
+
+## Getting started
+
+Here's a quick example to get you started with the Auto Align feature.
+
+NOTE: To utilize the Auto Align feature, there are breaking changes to the
+authoring of the component. See the below examples:
+
+## Popover
+
+Make sure the following are applied:
+
+- assign an `id` to the trigger element
+- pass the trigger element's `id` to `cds-popover`'s `triggerId` property
+- add the `autoalign` property to `cds-popover`
+
+### JS (via import)
+
+```javascript
+import '@carbon/web-components/es/components/popover/index.js';
+import Checkbox16 from '@carbon/icons/lib/checkbox/16';
+```
+
+<Description markdown={`${cdnJs({ components: ['popover'] })}`} />
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
+
+```html
+<div id="auto-align-1" class="playground-trigger">${Checkbox16()}</div>
+<cds-popover autoalign caret triggerId="auto-align-1">
+  <div class="p-3">
+    <p class="popover-title">Available storage</p>
+    <p class="popover-details">
+      This server has 150 GB of block storage remaining.
+    </p>
+  </div>
+</cds-popover>
+```
+
+## Toggletip
+
+Make sure the following are applied:
+
+- assign an `id` to `cds-toggletip-button`
+- pass the `id` to `cds-toggletip`'s `triggerId` property
+- add the `autoalign` property to `cds-toggletip`
+
+### JS (via import)
+
+```javascript
+import '@carbon/web-components/es/components/tooltip/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['toggletip'] })}`} />
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
+
+```html
+<div>
+  <cds-toggletip-label>Toggletip label</cds-toggletip-label>
+  <cds-toggletip-button id="toggletip-button-1">
+    ${Information16({ id: 'trigger' })}</cds-toggletip-button
+  >
+</div>
+<cds-toggletip triggerId="button-1" autoalign alignment="${align}">
+  <p slot="body-text">
+    Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.
+  </p>
+  <cds-link slot="actions">Test</cds-link>
+  <cds-button slot="actions">Button</cds-button>
+</cds-toggletip>
+```
+
+## Slug
+
+Make sure the following are applied:
+
+- assign an `id` to `cds-slug`
+- add the `autoalign-trigger` property to `cds-slug`
+- pass `cds-slug`'s `id` property value to `cds-slug-callout`'s `triggerId`
+  property
+- add the `autoalign` property to `cds-slug-callout`
+
+### JS (via import)
+
+```javascript
+import '@carbon/web-components/es/components/slug/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['slug'] })}`} />
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
+
+```html
+<cds-slug autoalign-trigger id="slug-1"> </cds-slug>
+<cds-slug-callout triggerId="slug-1" autoalign>
+  <div slot="body-text">
+    <p class="secondary">AI Explained</p>
+    <h1>84%</h1>
+    <p class="secondary bold">Confidence score</p>
+    <p class="secondary">
+      Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.
+    </p>
+    <hr />
+    <p class="secondary">Model type</p>
+    <p class="bold">Foundation model</p>
+  </div>
+</cds-slug-callout>
+```

@@ -9,8 +9,7 @@
 
 import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
-import './popover';
-import './popover-content';
+import './index';
 import '../toggle-tip/index';
 import '../slug/index';
 import '../icon-button/index';
