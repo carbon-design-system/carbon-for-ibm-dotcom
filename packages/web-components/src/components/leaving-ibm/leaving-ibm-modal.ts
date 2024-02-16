@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,7 +40,7 @@ class C4DLeavingIbmModal extends StableSelectorMixin(CDSModal) {
    */
   @HostListener('shadowRoot:slotchange')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleSlotChange = (event: Event) => {
+  private _handleShadowRootSlotChange = (event: Event) => {
     const { selectorHeading } = this.constructor as typeof C4DLeavingIbmModal;
     if (!this.hasAttribute('aria-labelledby')) {
       const headingNode = (event.target as HTMLSlotElement)
