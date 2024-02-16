@@ -215,6 +215,15 @@ $colorMap: (
   }
 }
 
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='top']
+  )
+  .#{$prefix}--popover-caret::before {
+  inset-block-end: 0;
+}
+
 // right
 :host(
     #{$prefix}-slug:not([kind='hollow']):not(
@@ -240,6 +249,15 @@ $colorMap: (
       inset-inline-start: to-rem(6px);
     }
   }
+}
+
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='right']
+  )
+  .#{$prefix}--popover-caret::before {
+  inset-inline-start: 0;
 }
 
 // bottom
@@ -270,6 +288,15 @@ $colorMap: (
   }
 }
 
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='bottom']
+  )
+  .#{$prefix}--popover-caret::before {
+  inset-block-start: 0;
+}
+
 //left
 :host(
     #{$prefix}-slug:not([kind='hollow']):not(
@@ -294,6 +321,15 @@ $colorMap: (
       inset-inline-start: -$spacing-01;
     }
   }
+}
+
+:host(
+    #{$prefix}-slug-callout:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='left']
+  )
+  .#{$prefix}--popover-caret::before {
+  inset-inline-end: 0;
 }
 
 // override for specific alignments
