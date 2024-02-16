@@ -39,11 +39,15 @@
   @extend .#{$prefix}--toggletip-label;
 }
 
-:host(#{$prefix}-toggletip-button) button {
+:host(#{$prefix}-toggletip-button) {
   @extend .#{$prefix}--toggletip-button;
 
   color: $icon-secondary;
-  inline-size: auto;
+  inline-size: fit-content;
+
+  &:focus {
+    outline: 1px solid $focus;
+  }
 }
 
 :host(#{$prefix}-slug-callout[open]),

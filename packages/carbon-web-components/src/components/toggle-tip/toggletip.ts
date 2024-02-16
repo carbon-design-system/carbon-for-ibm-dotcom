@@ -63,7 +63,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   protected _handleClick = () => {
     if (this.autoalign) {
       const button: any = document.querySelector(`#${this.triggerId}`);
-      button?.shadowRoot?.querySelector('button').focus();
+      button.focus();
     }
     this.open = !this.open;
   };
