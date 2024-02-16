@@ -17,7 +17,7 @@ import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { POPOVER_ALIGNMENT } from './defs';
 import { SLUG_SIZE } from '../slug/defs';
-import storyDocs from './popover-story.mdx';
+import storyDocs from './autoalign-story.mdx';
 import { prefix } from '../../globals/settings';
 import Checkbox16 from '@carbon/icons/lib/checkbox/16';
 import Information16 from '@carbon/icons/lib/information/16';
