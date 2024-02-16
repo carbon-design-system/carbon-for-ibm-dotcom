@@ -22,9 +22,9 @@ import { moderate02 } from '@carbon/motion';
 import '../button/index';
 import '../layer/index';
 import Handle from '../../globals/internal/handle';
-import './side-panel-button-set';
+import '../button/button-set-base';
 
-export { SIDE_PANEL_SIZE };
+export { SIDE_PANEL_SIZE, SIDE_PANEL_PLACEMENT };
 
 // eslint-disable-next-line no-bitwise
 const PRECEDING =
@@ -386,14 +386,14 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
 
   private _handleSlugChange(e: Event) {
     this._checkUpdateIconButtonSizes();
-    const childItems = (e.target as HTMLSlotElement).assignedNodes();
+    const childItems = (e.target as HTMLSlotElement).assignedElements();
 
     this._hasSlug = childItems.length > 0;
   }
 
   private _handleSubtitleChange(e: Event) {
     const target = e.target as HTMLSlotElement;
-    const subtitle = target?.assignedNodes();
+    const subtitle = target?.assignedElements();
 
     this._hasSubtitle = subtitle.length > 0;
   }
@@ -788,14 +788,14 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
             </div>`
           : html` ${headerTemplate} ${mainTemplate}`}
 
-        <cds-side-panel-button-set
+        <cds-button-set-base
           class=${`${blockClass}__actions-container`}
           ?hidden=${this._actionsCount === 0}
           ?condensed=${condensedActions}
           actions-multiple=${actionsMultiple}
           size=${size}>
           <slot name="actions" @slotchange=${this._handleActionsChange}></slot>
-        </cds-side-panel-button-set>
+        </cds-button-set-base>
 
         <a
           id="end-sentinel"

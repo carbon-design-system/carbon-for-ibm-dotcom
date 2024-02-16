@@ -10,12 +10,11 @@
 import { TemplateResult, html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import '../button/button';
-import { SIDE_PANEL_SIZE } from './side-panel';
+import { SIDE_PANEL_SIZE, SIDE_PANEL_PLACEMENT } from './side-panel';
 import './index';
 import '../text-input/index';
 import '../textarea/index';
 import storyDocs from './side-panel-story.mdx';
-import { SIDE_PANEL_PLACEMENT } from './defs';
 import Settings from '@carbon/icons/lib/settings/16';
 import Trashcan from '@carbon/icons/lib/trash-can/16';
 import { prefix } from '../../globals/settings';
@@ -340,7 +339,6 @@ const DefaultTemplate = (argsIn) => {
       selector-page-content=${args.selectorPageContent}
       size=${args.size}
       ?slide-in=${args.slideIn}
-      slug=${args.slug}
       title=${args.title}
       @cds-side-panel-navigate-back=${prevStep}>
       <!-- default slotted content -->
