@@ -204,7 +204,6 @@ export const Slug = (args) => {
       </cds-slug>
       <cds-slug-callout
         triggerId="slug-1"
-        autoalign
         kind="${kind}"
         dot-type="${dotType}"
         alignment="${ifDefined(alignment)}">

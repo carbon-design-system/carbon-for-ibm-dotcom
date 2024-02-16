@@ -41,6 +41,9 @@
 
 :host(#{$prefix}-toggletip-button) button {
   @extend .#{$prefix}--toggletip-button;
+
+  color: $icon-secondary;
+  inline-size: auto;
 }
 
 :host(#{$prefix}-slug-callout[open]),

@@ -97,7 +97,6 @@ Make sure the following are applied:
 - add the `autoalign-trigger` property to `cds-slug`
 - pass `cds-slug`'s `id` property value to `cds-slug-callout`'s `triggerId`
   property
-- add the `autoalign` property to `cds-slug-callout`
 
 ### JS (via import)
 
@@ -112,7 +111,7 @@ import '@carbon/web-components/es/components/slug/index.js';
 
 ```html
 <cds-slug autoalign-trigger id="slug-1"> </cds-slug>
-<cds-slug-callout triggerId="slug-1" autoalign>
+<cds-slug-callout triggerId="slug-1">
   <div slot="body-text">
     <p class="secondary">AI Explained</p>
     <h1>84%</h1>

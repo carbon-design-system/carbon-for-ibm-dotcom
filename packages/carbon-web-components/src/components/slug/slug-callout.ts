@@ -41,8 +41,9 @@ export default class CDSSlugCallout extends CDSToggleTip {
   };
 
   connectedCallback() {
-    super.connectedCallback();
     this.setAttribute('autoalign', '');
+
+    super.connectedCallback();
   }
 
   async updated() {
