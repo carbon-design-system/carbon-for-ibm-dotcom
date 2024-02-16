@@ -98,6 +98,10 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
         @extend .#{$block-class}--#{$size};
       }
     }
+
+    &[condensed-actions] {
+      @extend .#{$block-class}--condensed-actions;
+    }
   }
 
   #{$prefix}-layer {
@@ -207,6 +211,12 @@ $block-class-action-set: #{$pkg-prefix}--action-set;
     ::slotted(#{$prefix}-button[kind='ghost']) {
       flex: 1 1 25%;
       max-inline-size: none;
+    }
+
+    ::slotted(#{$prefix}-button[hidden]) {
+      @extend .#{$prefix}--visually-hidden;
+
+      display: none;
     }
 
     // -1 in @container query is for 1px left border

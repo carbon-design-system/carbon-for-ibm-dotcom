@@ -22,7 +22,6 @@ import { selectorTabbable } from '../../globals/settings';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import '../button/index';
 import '../layer/index';
-import Handle from '../../globals/internal/handle';
 import '../button/button-set-base';
 import {
   TEARSHEET_INFLUENCER_PLACEMENT,
@@ -46,25 +45,6 @@ const FOLLOWING =
 const blockClass = `${prefix}--tearsheet`;
 const blockClassModalHeader = `${prefix}--modal-header`;
 const blockClassActionSet = `${prefix}--action-set`;
-
-// /**
-//  * Observes resize of the given element with the given resize observer.
-//  *
-//  * @param observer The resize observer.
-//  * @param elem The element to observe the resize.
-//  */
-// const observeResize = (observer: ResizeObserver, elem: Element) => {
-//   if (!elem) {
-//     return null;
-//   }
-//   observer.observe(elem);
-//   return {
-//     release() {
-//       observer.unobserve(elem);
-//       return null;
-//     },
-//   } as Handle;
-// };
 
 /**
  * Tries to focus on the given elements and bails out if one of them is successful.
@@ -107,11 +87,6 @@ function tryFocusElems(elems: NodeListOf<HTMLElement>, reverse: boolean) {
 @customElement(`${prefix}-tearsheet`)
 class CDSTearsheet extends HostListenerMixin(LitElement) {
   /**
-   * The handle for observing resize of the parent element of this element.
-   */
-  private _hObserveResize: Handle | null = null;
-
-  /**
    * The element that had focus before this tearsheet gets open.
    */
   private _launcher: Element | null = null;
@@ -141,9 +116,6 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   _actionsCount = 0;
 
   @state()
-  _hasClose = false;
-
-  @state()
   _hasLabel = false;
 
   @state()
@@ -160,6 +132,9 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
 
   @state()
   _isOpen = false;
+
+  @state()
+  _hasHeaderNavigation = false;
 
   /**
    * Handles `click` event on this element.
@@ -259,11 +234,6 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
     this[hasName] = (t?.assignedElements()?.length ?? 0) > 0;
   }
 
-  private _reducedMotion =
-    typeof window !== 'undefined' && window?.matchMedia
-      ? window.matchMedia('(prefers-reduced-motion: reduce)')
-      : { matches: true };
-
   /**
    * Handles `click` event on the modal container.
    *
@@ -320,10 +290,10 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * Determines if the title will animate on scroll
+   * Optional aria label for the tearsheet
    */
-  @property({ reflect: true, attribute: 'animate-title', type: Boolean })
-  animateTitle = true;
+  @property({ reflect: true, attribute: 'aria-label' })
+  ariaLabel = '';
 
   /**
    * Sets the close button icon description
@@ -383,33 +353,43 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   @property({ reflect: true, attribute: 'width' })
   width = TEARSHEET_WIDTH.NARROW;
 
+  private _checkUpdateActionSizes = () => {
+    if (this._actions) {
+      for (let i = 0; i < this._actions.length; i++) {
+        this._actions[i].setAttribute(
+          'size',
+          this.width === 'wide' ? '2xl' : 'xl'
+        );
+      }
+    }
+  };
+
+  private _maxActions = 4;
   private _handleActionsChange(e: Event) {
     const target = e.target as HTMLSlotElement;
     const actions = target?.assignedElements();
-
     const actionsCount = actions?.length ?? 0;
 
-    if (actionsCount > 3) {
-      this._actionsCount = 3;
-      console.warn(`Too many tearsheet actions, max 3.`);
+    if (actionsCount > this._maxActions) {
+      this._actionsCount = this._maxActions;
+      console.error(`Too many tearsheet actions, max ${this._maxActions}.`);
     } else {
       this._actionsCount = actionsCount;
     }
 
-    for (let i = 0; i < actionsCount; i++) {
-      if (i > 3) {
+    for (let i = 0; i < actions?.length; i++) {
+      if (i + 1 > this._maxActions) {
         // hide excessive tearsheet actions
-        actions[i].setAttribute('hidden', '');
+        actions[i].setAttribute('hidden', 'true');
         actions[i].setAttribute(
-          'data-actions-limit-3-exceeded',
+          `data-actions-limit-${this._maxActions}-exceeded`,
           `${actions.length}`
         );
       } else {
-        // TODO: Review actions not updated when we switch from narrow to wide (an unusual action)
-        actions[i].setAttribute('size', this.width === 'wide' ? '2xl' : 'xl');
         actions[i].classList.add(`${blockClassActionSet}__action-button`);
       }
     }
+    this._checkUpdateActionSizes();
   }
 
   actionsMultiple = ['', 'single', 'double', 'triple'][this._actionsCount];
@@ -446,8 +426,8 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
 
     const headerTemplate = html` <cds-modal-header
       class=${`${blockClass}__header`}
-      ?hasCloseIcon=${this._hasClose}
-      ?hasNavigation=${false}
+      ?has-close-icon=${this?._actionsCount === 0}
+      ?has-navigation=${this._hasHeaderNavigation && this.width === 'wide'}
       width=${width}>
       ${this.width === TEARSHEET_WIDTH.WIDE
         ? html`<cds-layer level="1">${headerFieldsTemplate}</cds-layer>`
@@ -455,11 +435,15 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
       <div class=${`${blockClass}__header-actions`}>
         <slot name="header-actions"></slot>
       </div>
-      <div class=${`${blockClass}__header-navigation`}>
-        <slot name="header-navigation"></slot>
+      <div
+        class=${`${blockClass}__header-navigation`}
+        ?hidden=${!this._hasHeaderNavigation || this.width === 'narrow'}>
+        <slot
+          name="header-navigation"
+          @slotchange=${this._checkSetHasSlot}></slot>
       </div>
       <slot name="slug"></slot>
-      ${this._hasClose
+      ${this?._actionsCount === 0
         ? html`<cds-modal-close-button
             close-button-label=${closeIconDescription}
             @click=${this._handleUserInitiatedClose}></cds-modal-close-button>`
@@ -473,6 +457,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
         href="javascript:void 0"
         role="navigation"></a>
       <div
+        aria-label=${this.ariaLabel}
         class=${`${blockClass}__container ${prefix}--modal-container ${prefix}--modal-container--sm`}
         part="dialog"
         role="complementary"
@@ -492,7 +477,8 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
             ? html`<div
                 class=${`${blockClass}__influencer`}
                 ?wide=${influencerWidth}
-                ?hidden=${!this._hasInfluencer}>
+                ?hidden=${!this._hasInfluencer ||
+                this.width === TEARSHEET_WIDTH.NARROW}>
                 <slot
                   name="influencer"
                   @slotchange=${this._checkSetHasSlot}></slot>
@@ -512,7 +498,8 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
                 ? html`<div
                     class=${`${blockClass}__influencer`}
                     ?wide=${influencerWidth}
-                    ?hidden=${!this._hasInfluencer}>
+                    ?hidden=${!this._hasInfluencer ||
+                    this.width === TEARSHEET_WIDTH.NARROW}>
                     <slot
                       name="influencer"
                       @slotchange=${this._checkSetHasSlot}></slot>
@@ -556,11 +543,30 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   };
 
   async updated(changedProperties) {
-    this._checkSetOpen();
+    if (changedProperties.has('width')) {
+      this._checkUpdateActionSizes();
+    }
 
-    this._checkUpdateActionSize();
+    if (
+      process.env.NODE_ENV === 'development' &&
+      (changedProperties.has('width') ||
+        changedProperties.has('_hasHeaderNavigation') ||
+        changedProperties.has('_hasInfluencer'))
+    ) {
+      if (this.width === 'narrow') {
+        if (this._hasHeaderNavigation) {
+          console.error(
+            `Header navigation is not permitted in narrow Tearsheet.`
+          );
+        }
+        if (this._hasInfluencer) {
+          console.error(`Influencer is not permitted in narrow Tearsheet.`);
+        }
+      }
+    }
 
     if (changedProperties.has('open')) {
+      this._checkSetOpen();
       if (this.open) {
         this._launcher = this.ownerDocument!.activeElement;
         const focusNode =

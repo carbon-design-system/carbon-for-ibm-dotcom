@@ -80,6 +80,17 @@ $motion-duration: $duration-moderate-02;
   }
 
   [width='wide'] {
+    &.#{$block-class}__header {
+      padding: $spacing-06 $spacing-07;
+      margin: 0;
+      background-color: $layer;
+      border-block-end: 1px solid $border-subtle-01;
+    }
+
+    &.#{$block-class}__header[has-navigation] {
+      padding-block-end: 0;
+    }
+
     &.#{$block-class}__container {
       inline-size: 100%;
 
@@ -98,6 +109,10 @@ $motion-duration: $duration-moderate-02;
 
     .#{$block-class}__header.#{$block-class}__header--with-close-icon {
       padding-inline-end: $spacing-11;
+    }
+
+    .#{$block-class}__header-navigation {
+      max-block-size: $spacing-08; /* cds-tabs too tall */
     }
 
     .#{$block-class}__content {
@@ -167,6 +182,12 @@ $motion-duration: $duration-moderate-02;
     ::slotted(cds-button[kind='ghost']) {
       flex: 1 1 25%;
       max-inline-size: none;
+    }
+
+    ::slotted(#{$prefix}-button[hidden]) {
+      @extend .#{$prefix}--visually-hidden;
+
+      display: none;
     }
   }
 

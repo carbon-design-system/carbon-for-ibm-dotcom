@@ -23,6 +23,7 @@ import { prefix } from '../../globals/settings';
 
 import styles from './story-styles.scss';
 import { BUTTON_KIND } from '../button/button';
+import { action } from '@storybook/addon-actions';
 const toggleButton = () => {
   document.querySelector(`${prefix}-tearsheet`)?.toggleAttribute('open');
 };
@@ -179,52 +180,85 @@ const actionItems = {
   'Two buttons with danger': 3,
   'Three buttons with ghost': 4,
   'Three buttons with danger': 5,
+  'Four buttons with ghost': 6,
+  'Four buttons with danger': 7,
+  'Too many buttons': 8,
+};
+
+const toActions = (kinds: BUTTON_KIND[]) => {
+  return kinds?.map((kind) => {
+    return html`<cds-button key=${kind} slot="actions" kind=${kind}>
+      ${kind.charAt(0).toUpperCase() + kind.slice(1)}
+    </cds-button>`;
+  });
 };
 
 // TODO: There are problems switching this
 const getActionItems = (index) => {
   switch (index) {
     case 1:
-      return html`<cds-button key="p" slot="actions" kind=${BUTTON_KIND.PRIMARY}
-        >Primary</cds-button
-      >`;
+      return toActions([BUTTON_KIND.PRIMARY]);
     case 2:
-      return html`
-        <cds-button slot="actions" kind=${BUTTON_KIND.GHOST}>Ghost</cds-button>
-        <cds-button slot="actions" kind=${BUTTON_KIND.PRIMARY}
-          >Primary</cds-button
-        >
-      `;
+      return toActions([BUTTON_KIND.GHOST, BUTTON_KIND.PRIMARY]);
     case 3:
-      return html` <cds-button slot="actions" kind=${BUTTON_KIND.DANGER}
-          >Danger</cds-button
-        >
-        <cds-button slot="actions" kind=${BUTTON_KIND.PRIMARY}
-          >Primary</cds-button
-        >`;
+      return toActions([BUTTON_KIND.DANGER, BUTTON_KIND.PRIMARY]);
     case 4:
-      return html` <cds-button slot="actions" kind=${BUTTON_KIND.GHOST}
-          >Ghost</cds-button
-        >
-        <cds-button slot="actions" kind=${BUTTON_KIND.SECONDARY}
-          >Secondary</cds-button
-        >
-        <cds-button slot="actions" kind=${BUTTON_KIND.PRIMARY}
-          >Primary</cds-button
-        >`;
+      return toActions([
+        BUTTON_KIND.GHOST,
+        BUTTON_KIND.SECONDARY,
+        BUTTON_KIND.PRIMARY,
+      ]);
     case 5:
-      return html`<cds-button
-          key="danger"
-          slot="actions"
-          kind=${BUTTON_KIND.DANGER}
-          >Danger</cds-button
-        >
-        <cds-button key="secondary" slot="actions" kind=${BUTTON_KIND.SECONDARY}
-          >Secondary</cds-button
-        >
-        <cds-button key="primary" slot="actions" kind=${BUTTON_KIND.PRIMARY}
-          >Primary</cds-button
-        >`;
+      return toActions([
+        BUTTON_KIND.DANGER,
+        BUTTON_KIND.SECONDARY,
+        BUTTON_KIND.PRIMARY,
+      ]);
+    case 6:
+      return toActions([
+        BUTTON_KIND.GHOST,
+        BUTTON_KIND.TERTIARY,
+        BUTTON_KIND.SECONDARY,
+        BUTTON_KIND.PRIMARY,
+      ]);
+    case 7:
+      return toActions([
+        BUTTON_KIND.DANGER,
+        BUTTON_KIND.TERTIARY,
+        BUTTON_KIND.SECONDARY,
+        BUTTON_KIND.PRIMARY,
+      ]);
+    case 8:
+      return toActions([
+        BUTTON_KIND.GHOST,
+        BUTTON_KIND.DANGER,
+        BUTTON_KIND.TERTIARY,
+        BUTTON_KIND.SECONDARY,
+        BUTTON_KIND.PRIMARY,
+      ]);
+    default:
+      return null;
+  }
+};
+
+const navigation = {
+  'No navigation': 0,
+  'With navigation': 1,
+};
+
+const getNavigation = (index) => {
+  switch (index) {
+    case 1:
+      return html` <div
+        className="tearsheet-stories__tabs"
+        slot="header-navigation">
+        <cds-tabs value="1">
+          <cds-tab value="1">Tab 1</cds-tab>
+          <cds-tab value="2">Tab 2</cds-tab>
+          <cds-tab value="3">Tab 3</cds-tab>
+          <cds-tab value="4">Tab 4</cds-tab>
+        </cds-tabs>
+      </div>`;
     default:
       return null;
   }
@@ -291,6 +325,7 @@ const DefaultTemplate = (argsIn) => {
       'title',
       'This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.'
     ),
+    headerNavigation: getNavigation(select('header-navigation', navigation, 0)),
 
     ...(argsIn?.['cds-tearsheet'] ?? {}),
   };
@@ -332,6 +367,9 @@ const DefaultTemplate = (argsIn) => {
 
       <!-- slotted slug -->
       ${args.slug}
+
+      <!-- slotted header-navigation -->
+      ${args.headerNavigation}
     </cds-tearsheet>
   `;
 };

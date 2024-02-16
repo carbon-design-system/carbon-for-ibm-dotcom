@@ -196,6 +196,7 @@ const actionItems = {
   'Two buttons with danger': 3,
   'Three buttons with ghost': 4,
   'Three buttons with danger': 5,
+  'Too many buttons': 6,
 };
 
 // TODO: There are problems switching this
@@ -235,6 +236,22 @@ const getActionItems = (index) => {
           slot="actions"
           kind=${BUTTON_KIND.DANGER}
           >Danger</cds-button
+        >
+        <cds-button key="secondary" slot="actions" kind=${BUTTON_KIND.SECONDARY}
+          >Secondary</cds-button
+        >
+        <cds-button key="primary" slot="actions" kind=${BUTTON_KIND.PRIMARY}
+          >Primary</cds-button
+        >`;
+    case 6:
+      return html`<cds-button
+          key="danger"
+          slot="actions"
+          kind=${BUTTON_KIND.DANGER}
+          >Danger</cds-button
+        >
+        <cds-button key="tertiary" slot="actions" kind=${BUTTON_KIND.TERTIARY}
+          >Tertiary</cds-button
         >
         <cds-button key="secondary" slot="actions" kind=${BUTTON_KIND.SECONDARY}
           >Secondary</cds-button

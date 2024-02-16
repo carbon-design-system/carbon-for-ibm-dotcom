@@ -8,7 +8,12 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
+import {
+  property,
+  query,
+  queryAssignedElements,
+  state,
+} from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
@@ -139,6 +144,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @query(`.${blockClass}__inner-content`)
   private _innerContent!: HTMLElement;
 
+  @queryAssignedElements({ slot: 'actions', selector: 'cds-button' })
+  private _actions!: Array<HTMLElement>;
+
   @state()
   _doAnimateTitle = true;
 
@@ -174,7 +182,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleBlur = async ({ target, relatedTarget }: FocusEvent) => {
     const {
-      // condensedActions,
       open,
       _startSentinelNode: startSentinelNode,
       _endSentinelNode: endSentinelNode,
@@ -413,6 +420,18 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     }
   }
 
+  private _checkUpdateActionSizes = () => {
+    if (this._actions) {
+      for (let i = 0; i < this._actions.length; i++) {
+        this._actions[i].setAttribute(
+          'size',
+          this.condensedActions ? 'lg' : 'xl'
+        );
+      }
+    }
+  };
+
+  private _maxActions = 3;
   private _handleActionsChange(e: Event) {
     const target = e.target as HTMLSlotElement;
     const actions = target?.assignedElements();
@@ -421,26 +440,28 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     this._checkUpdateIconButtonSizes();
 
     const actionsCount = actions?.length ?? 0;
-    if (actionsCount > 3) {
-      this._actionsCount = 3;
-      console.warn(`Too many side-panel actions, max 3.`);
+    if (actionsCount > this._maxActions) {
+      this._actionsCount = this._maxActions;
+      if (process.env.NODE_ENV === 'development') {
+        console.error(`Too many side-panel actions, max ${this._maxActions}.`);
+      }
     } else {
       this._actionsCount = actionsCount;
     }
 
-    for (let i = 0; i < actionsCount; i++) {
-      if (i > 3) {
+    for (let i = 0; i < actions?.length; i++) {
+      if (i + 1 > this._maxActions) {
         // hide excessive side panel actions
-        actions[i].setAttribute('hidden', '');
+        actions[i].setAttribute('hidden', 'true');
         actions[i].setAttribute(
-          'data-actions-limit-3-exceeded',
+          `data-actions-limit-${this._maxActions}-exceeded`,
           `${actions.length}`
         );
       } else {
-        actions[i].setAttribute('size', this.condensedActions ? 'lg' : 'xl');
         actions[i].classList.add(`${blockClassActionSet}__action-button`);
       }
     }
+    this._checkUpdateActionSizes();
   }
 
   private _checkSetDoAnimateTitle = () => {
@@ -819,6 +840,10 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   }
 
   async updated(changedProperties) {
+    if (changedProperties.has('condensedActions')) {
+      this._checkUpdateActionSizes();
+    }
+
     if (changedProperties.has('currentStep')) {
       this._handleCurrentStepUpdate();
     }
