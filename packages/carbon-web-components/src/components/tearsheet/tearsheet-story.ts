@@ -23,7 +23,6 @@ import { prefix } from '../../globals/settings';
 
 import styles from './story-styles.scss';
 import { BUTTON_KIND } from '../button/button';
-import { action } from '@storybook/addon-actions';
 const toggleButton = () => {
   document.querySelector(`${prefix}-tearsheet`)?.toggleAttribute('open');
 };
@@ -42,12 +41,49 @@ const influencerWidths = {
     TEARSHEET_INFLUENCER_WIDTH.WIDE,
 };
 
-const placements = {
+const influencerPlacements = {
   // 'default (right)': null,
   [`Left (${TEARSHEET_INFLUENCER_PLACEMENT.LEFT})`]:
     TEARSHEET_INFLUENCER_PLACEMENT.LEFT,
   [`right (${TEARSHEET_INFLUENCER_PLACEMENT.RIGHT})`]:
     TEARSHEET_INFLUENCER_PLACEMENT.RIGHT,
+};
+
+const influencers = {
+  'No influencer': 0,
+  'Simple influencer': 1,
+  'Progress influencer': 2,
+};
+
+const getInfluencer = (index) => {
+  switch (index) {
+    case 1:
+      return html`<div slot="influencer">Influencer</div>`;
+    case 2:
+      return html` <cds-progress-indicator vertical slot="influencer">
+        <cds-progress-step
+          state="complete"
+          label="First step"
+          secondary-label="Optional label"
+          description="Step 1: Getting started with Carbon Design System"></cds-progress-step>
+        <cds-progress-step
+          label="Second step with tooltip"
+          state="current"></cds-progress-step>
+        <cds-progress-step
+          label="Third step with tooltip"
+          state="incomplete"></cds-progress-step>
+        <cds-progress-step
+          label="Fourth step"
+          secondary-label="Example invalid step"
+          state="invalid"></cds-progress-step>
+        <cds-progress-step
+          disabled
+          label="Fifth step"
+          state="incomplete"></cds-progress-step>
+      </cds-progress-indicator>`;
+    default:
+      return null;
+  }
 };
 
 const contents = {
@@ -308,11 +344,19 @@ const DefaultTemplate = (argsIn) => {
     content: getContent(select('Slot (default), panel contents', contents, 2)),
     label: getLabel(select('label', labels, 2)),
     open: boolean('open', false),
-    influencerPlacement: select(
-      'placement',
-      placements,
-      TEARSHEET_INFLUENCER_PLACEMENT.RIGHT
+    influencerWidth: select(
+      'influencer-width',
+      influencerWidths,
+      TEARSHEET_INFLUENCER_WIDTH.NARROW
     ),
+    influencerPlacement: select(
+      'influencer-placement',
+      influencerPlacements,
+      TEARSHEET_INFLUENCER_PLACEMENT.LEFT
+    ),
+
+    influencer: getInfluencer(select('influencer (slot)', influencers, 0)),
+
     preventCloseOnClickOutside: boolean(
       'prevent-close-on-click-outside',
       false
@@ -370,6 +414,9 @@ const DefaultTemplate = (argsIn) => {
 
       <!-- slotted header-navigation -->
       ${args.headerNavigation}
+
+      <!-- slotted influencer -->
+      ${args.influencer}
     </cds-tearsheet>
   `;
 };

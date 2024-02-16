@@ -128,7 +128,10 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   _hasDescription = false;
 
   @state()
-  _hasInfluencer = false;
+  _hasInfluencerLeft = false;
+
+  @state()
+  _hasInfluencerRight = false;
 
   @state()
   _isOpen = false;
@@ -229,8 +232,14 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
 
   private _checkSetHasSlot(e: Event) {
     const t = e.target as HTMLSlotElement;
+    console.log(t);
+    const dataPostfix = t.getAttribute('data-postfix');
+    const postfix = dataPostfix ? `-${dataPostfix}` : '';
+
     // snake `ab-cd-ef` to _has camel case _hasAbCdEf
-    const hasName = `_has-${t.name}`.replace(/-./g, (c) => c[1].toUpperCase());
+    const hasName = `_has-${t.name}${postfix}`.replace(/-./g, (c) =>
+      c[1].toUpperCase()
+    );
     this[hasName] = (t?.assignedElements()?.length ?? 0) > 0;
   }
 
@@ -473,14 +482,15 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
         <!-- Body  -->
         <cds-modal-body class=${`${blockClass}__body`} width=${width}>
           <!-- Influencer when on left -->
-          ${influencerPlacement === TEARSHEET_INFLUENCER_PLACEMENT.LEFT
+          ${influencerPlacement !== TEARSHEET_INFLUENCER_PLACEMENT.RIGHT
             ? html`<div
                 class=${`${blockClass}__influencer`}
                 ?wide=${influencerWidth}
-                ?hidden=${!this._hasInfluencer ||
+                ?hidden=${!this._hasInfluencerLeft ||
                 this.width === TEARSHEET_WIDTH.NARROW}>
                 <slot
                   name="influencer"
+                  data-postfix="left"
                   @slotchange=${this._checkSetHasSlot}></slot>
               </div>`
             : ''}
@@ -498,10 +508,11 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
                 ? html`<div
                     class=${`${blockClass}__influencer`}
                     ?wide=${influencerWidth}
-                    ?hidden=${!this._hasInfluencer ||
+                    ?hidden=${!this._hasInfluencerRight ||
                     this.width === TEARSHEET_WIDTH.NARROW}>
                     <slot
                       name="influencer"
+                      data-postfix="right"
                       @slotchange=${this._checkSetHasSlot}></slot>
                   </div>`
                 : ''}
@@ -551,7 +562,8 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
       process.env.NODE_ENV === 'development' &&
       (changedProperties.has('width') ||
         changedProperties.has('_hasHeaderNavigation') ||
-        changedProperties.has('_hasInfluencer'))
+        changedProperties.has('_hasInfluencerLeft') ||
+        changedProperties.has('_hasInfluencerRight'))
     ) {
       if (this.width === 'narrow') {
         if (this._hasHeaderNavigation) {
@@ -559,7 +571,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
             `Header navigation is not permitted in narrow Tearsheet.`
           );
         }
-        if (this._hasInfluencer) {
+        if (this._hasInfluencerLeft || this._hasInfluencerRight) {
           console.error(`Influencer is not permitted in narrow Tearsheet.`);
         }
       }
