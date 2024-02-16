@@ -61,6 +61,10 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   protected _handleClick = () => {
+    if (this.autoalign) {
+      const button: any = document.querySelector(`#${this.triggerId}`);
+      button?.shadowRoot?.querySelector('button').focus();
+    }
     this.open = !this.open;
   };
 
@@ -85,6 +89,13 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   protected _handleFocusOut(event: FocusEvent) {
     if (!this.contains(event.relatedTarget as Node)) {
       this.open = false;
+    }
+  }
+
+  protected _handleFocusOutToggle(event: FocusEvent) {
+    const toggleTipElem = document.querySelector(`[triggerId=${this.id}`);
+    if (!toggleTipElem?.contains(event.relatedTarget as Node)) {
+      toggleTipElem?.removeAttribute('open');
     }
   }
 
@@ -145,6 +156,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     if (this.autoalign) {
       const button: any = document.querySelector(`#${this.triggerId}`);
       button.addEventListener('click', this._handleClick);
+      button.addEventListener('focusout', this._handleFocusOutToggle);
     }
   }
 
@@ -154,6 +166,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     if (this.autoalign) {
       const button: any = document.querySelector(`#${this.triggerId}`);
       button.removeEventListener('click', this._handleClick);
+      button.removeEventListener('focusout', this._handleFocusOutToggle);
     }
   }
 
