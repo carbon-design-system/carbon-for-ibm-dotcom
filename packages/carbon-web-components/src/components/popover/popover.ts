@@ -100,9 +100,11 @@ class CDSPopover extends LitElement {
       (name) => {
         if (changedProperties.has(name)) {
           const { [name as keyof CDSPopover]: value } = this;
-          (this.querySelector(selectorPopoverContent) as CDSPopoverContent)[
-            name
-          ] = value;
+          if (this.querySelector(selectorPopoverContent) as CDSPopoverContent) {
+            (this.querySelector(selectorPopoverContent) as CDSPopoverContent)[
+              name
+            ] = value;
+          }
         }
       }
     );
