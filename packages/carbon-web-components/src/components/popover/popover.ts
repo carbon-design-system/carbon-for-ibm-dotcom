@@ -113,10 +113,10 @@ class CDSPopover extends LitElement {
       const content = this._contentSlotNode.assignedElements()[0];
 
       const tooltip = content?.shadowRoot?.querySelector(
-        '.cds--popover-content'
+        CDSPopover.selectorPopoverContentClass
       );
       const arrowElement = content?.shadowRoot?.querySelector(
-        '.cds--popover-caret'
+        CDSPopover.selectorPopoverCaret
       );
 
       if (button && tooltip) {
@@ -159,6 +159,22 @@ class CDSPopover extends LitElement {
       <slot name="content"><slot>
     </span>
     `;
+  }
+
+  /**
+   * A selector that will return popover content element within
+   * CDSPopoverContent's shadowRoot.
+   */
+  static get selectorPopoverContentClass() {
+    return `.${prefix}--popover-content`;
+  }
+
+  /**
+   * A selector that will return popover caret element within
+   * CDSPopoverContent's shadowRoot.
+   */
+  static get selectorPopoverCaret() {
+    return `.${prefix}--popover-caret`;
   }
 
   /**
