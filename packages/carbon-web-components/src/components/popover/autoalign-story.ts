@@ -112,6 +112,7 @@ export const Popover = (args) => {
         <cds-popover
           id="popover-one"
           autoalign
+          open
           ?caret=${caret}
           ?highContrast=${highContrast}
           align=${align}
