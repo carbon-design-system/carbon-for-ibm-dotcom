@@ -119,7 +119,7 @@ export const Popover = (args) => {
         @click="${() => handleClick('#popover-one')}">
         ${Checkbox16()}
       </button>
-      <cds-popover-content autoalign>
+      <cds-popover-content>
         <div class="p-3">
           <p class="popover-title">Available storage</p>
           <p class="popover-details">
