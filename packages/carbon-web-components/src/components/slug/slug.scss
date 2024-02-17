@@ -315,6 +315,120 @@ $colorMap: (
   }
 }
 
+// caret styles for auto align
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not([dot-type='hollow'])
+  ) {
+  .#{$prefix}--popover-caret {
+    block-size: 10px;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    inline-size: 10px;
+  }
+
+  &[alignment='top'],
+  &[alignment='top-left'],
+  &[alignment='top-right'],
+  &[alignment='top-start'],
+  &[alignment='top-end'] {
+    .#{$prefix}--popover-caret {
+      transform: rotate(225deg);
+    }
+  }
+
+  &[alignment='left'],
+  &[alignment='left-top'],
+  &[alignment='left-bottom'],
+  &[alignment='left-start'],
+  &[alignment='left-end'] {
+    .#{$prefix}--popover-caret {
+      transform: rotate(135deg);
+    }
+  }
+
+  &[alignment='right'],
+  &[alignment='right-top'],
+  &[alignment='right-bottom'],
+  &[alignment='right-start'],
+  &[alignment='right-end'] {
+    .#{$prefix}--popover-caret {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// border of caret when at top of tooltip - auto align
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not([dot-type='hollow'])
+  ) {
+  &[alignment='left'],
+  &[alignment='left-top'],
+  &[alignment='left-start'],
+  &[alignment='right'],
+  &[alignment='right-top'],
+  &[alignment='right-start'],
+  &[alignment='bottom'],
+  &[alignment='bottom-left'],
+  &[alignment='bottom-right'],
+  &[alignment='bottom-start'],
+  &[alignment='bottom-end'] {
+    .#{$prefix}--popover-caret {
+      border: 1px solid $ai-border-start;
+      background: $background;
+    }
+  }
+}
+
+// border of the caret at center - auto align
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not([dot-type='hollow'])
+  ) {
+  &[alignment='left'],
+  &[alignment='right'] {
+    .#{$prefix}--popover-caret {
+      border: 1px solid $slug-callout-caret-center;
+    }
+  }
+}
+
+// border of caret when at bottom of tooltip - auto align
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not([dot-type='hollow'])
+  ) {
+  &[alignment='left-bottom'],
+  &[alignment='left-end'],
+  &[alignment='top'],
+  &[alignment='top-left'],
+  &[alignment='top-right'],
+  &[alignment='top-start'],
+  &[alignment='top-end'],
+  &[alignment='right-bottom'],
+  &[alignment='right-end'] {
+    .#{$prefix}--popover-caret {
+      border: 1px solid $slug-callout-caret-bottom;
+      background: $slug-callout-caret-bottom-background;
+    }
+
+    &[has-actions] {
+      .#{$prefix}--popover-caret {
+        background: $slug-callout-caret-bottom-background-actions;
+      }
+    }
+  }
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not([dot-type='hollow'])
+  ) {
+  .#{$prefix}--popover-caret::before,
+  .#{$prefix}--popover-caret::after {
+    display: none;
+  }
+}
+
 @each $color, $token in $colorMap {
   :host(#{$prefix}-slug[tag='#{$color}']) {
     .#{$prefix}--slug__text {

@@ -85,7 +85,6 @@ export function floatingUIPosition({
         left: 'right',
       }[placement.split('-')[0]];
 
-      // arrowElement.styles.position = `${strategy}`;
       arrowElement.style.left = arrowX != null ? `${arrowX}px` : '';
       arrowElement.style.top = arrowY != null ? `${arrowY}px` : '';
       arrowElement.style.right = '';

@@ -315,6 +315,7 @@ $popover-caret-height: custom-property.get-var(
 }
 
 :host(#{$prefix}-slug[autoalign]),
+:host(#{$prefix}-tooltip[autoalign]),
 :host(#{$prefix}-toggletip[autoalign]),
 :host(#{$prefix}-popover[autoalign]) {
   .#{$prefix}--popover-container {

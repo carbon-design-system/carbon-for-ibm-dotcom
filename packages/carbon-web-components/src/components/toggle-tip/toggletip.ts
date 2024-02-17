@@ -139,7 +139,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     `;
   };
 
-  updated() {
+  async updated() {
     if (this.autoalign) {
       // auto align functionality with @floating-ui/dom library
       const button = this.shadowRoot?.querySelector(
@@ -156,13 +156,15 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
       if (button && tooltip) {
         // @floating-ui/dom returns the final placement which we'll use
         // to set the alignment attr for styling
-        floatingUIPosition({
+        const finalPlacement = await floatingUIPosition({
           button,
           tooltip,
           arrowElement,
           caret: true,
           alignment: this.alignment,
         });
+
+        this.setAttribute('alignment', finalPlacement);
       }
     }
   }

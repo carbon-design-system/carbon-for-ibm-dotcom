@@ -34,6 +34,7 @@
   }
 }
 
+:host(#{$prefix}-slug[open][autoalign]),
 :host(#{$prefix}-toggletip[open][autoalign]) {
   .#{$prefix}--popover-content {
     display: block;
