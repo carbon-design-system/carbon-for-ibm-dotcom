@@ -274,33 +274,91 @@ $colorMap: (
 
 // override for specific alignments
 /* stylelint-disable-next-line no-duplicate-selectors */
-:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
-  &[alignment='left-bottom'],
-  &[alignment='right-bottom'] {
-    .#{$prefix}--popover-caret::after {
-      background: transparent;
-    }
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='left-end']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='left-bottom']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='right-end']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='right-bottom']
+  ) {
+  .#{$prefix}--popover-caret::after {
+    background: transparent;
   }
 }
 
 // Change caret color / border when it is near the bottom of the callout
 /* stylelint-disable-next-line no-duplicate-selectors */
-:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
-  &[alignment='left-bottom'],
-  &[alignment='right-bottom'],
-  &[alignment='top'],
-  &[alignment='top-right'],
-  &[alignment='top-left'] {
-    .#{$prefix}--popover-caret::before {
-      border-color: $slug-callout-caret-bottom;
-      background: $slug-callout-caret-bottom-background;
-    }
-    // Adjust background if actions are present
-    &[has-actions] {
-      .#{$prefix}--popover-caret::before {
-        background: $slug-callout-caret-bottom-background-actions;
-      }
-    }
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='left-end']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='left-bottom']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='right-end']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='right-bottom']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='top']
+  ) {
+  .#{$prefix}--popover-caret::before {
+    border-color: $slug-callout-caret-bottom;
+    background: $slug-callout-caret-bottom-background;
+  }
+}
+
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='left-end'][has-actions]
+  ),
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='left-bottom'][has-actions]
+  ),
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='right-end'][has-actions]
+  ),
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='right-bottom'][has-actions]
+  ),
+:host(
+    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment^='top'][has-actions]
+  ) {
+  .#{$prefix}--popover-caret::before {
+    background: $slug-callout-caret-bottom-background-actions;
   }
 }
 
@@ -381,49 +439,9 @@ $colorMap: (
     #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
         [dot-type='hollow']
       )[alignment='right-bottom']
-  ),
-:host(
-    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment^='top']
   ) {
-  .#{$prefix}--popover-caret::before {
-    border-color: $slug-callout-caret-bottom;
-    background: $slug-callout-caret-bottom-background;
-  }
-
   .#{$prefix}--popover-caret::after {
     background: transparent;
-  }
-}
-
-:host(
-    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='left-end'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='left-bottom'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='right-end'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment='right-bottom'][has-actions]
-  ),
-:host(
-    #{$prefix}-slug[autoalign]:not([kind='hollow']):not(
-        [dot-type='hollow']
-      )[alignment^='top'][has-actions]
-  ) {
-  .#{$prefix}--popover-caret::before {
-    background: $slug-callout-caret-bottom-background-actions;
   }
 }
 
