@@ -7,8 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { computePosition, flip, offset, arrow } from '@floating-ui/dom';
-import { Placement } from '@floating-ui/utils';
+import {
+  computePosition,
+  flip,
+  offset,
+  arrow,
+  Placement,
+} from '@floating-ui/dom';
 
 /**
  * Utilitize @floating-ui/dom library to compute positioning
