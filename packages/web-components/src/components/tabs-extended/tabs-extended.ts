@@ -90,7 +90,7 @@ class DDSTabsExtended extends MediaQueryMixin(
   }
 
   private _handleAccordionClick(e) {
-    const tab = e.target.closest('dds-tab');
+    const tab = e.target.closest(`${ddsPrefix}-tab`);
     this._handleClick(tab.getIndex(), e);
   }
 
@@ -102,30 +102,30 @@ class DDSTabsExtended extends MediaQueryMixin(
   private _handleTabListKeyDown(event: KeyboardEvent) {
     const { key } = event;
     const {
-      _activeTabIndex: activeTab,
+      _activeTabIndex: activeTabIndex,
       _tabItems: tabItems,
       _isLTR: isLTR,
     } = this;
     switch (key) {
       case 'ArrowRight':
         if (isLTR) {
-          this._setActiveItem(this._getNextTab(activeTab));
+          this._setActiveItem(this._getNextTab(activeTabIndex));
         } else {
-          this._setActiveItem(this._getPrevTab(activeTab));
+          this._setActiveItem(this._getPrevTab(activeTabIndex));
         }
         break;
       case 'ArrowLeft':
         if (isLTR) {
-          this._setActiveItem(this._getPrevTab(activeTab));
+          this._setActiveItem(this._getPrevTab(activeTabIndex));
         } else {
-          this._setActiveItem(this._getNextTab(activeTab));
+          this._setActiveItem(this._getNextTab(activeTabIndex));
         }
         break;
       case 'ArrowUp':
-        this._setActiveItem(this._getPrevTab(activeTab));
+        this._setActiveItem(this._getPrevTab(activeTabIndex));
         break;
       case 'ArrowDown':
-        this._setActiveItem(this._getNextTab(activeTab));
+        this._setActiveItem(this._getNextTab(activeTabIndex));
         break;
       case 'Home':
         this._setActiveItem(this._getNextTab(-1));
@@ -138,25 +138,39 @@ class DDSTabsExtended extends MediaQueryMixin(
     }
   }
 
-  private _getNextTab(activeIndex) {
+  /**
+   * Gets the index of the tab that comes after the provided one.
+   *
+   * @param index The index of the current tab.
+   * @returns The index of the next tab.
+   */
+  private _getNextTab(index: number) {
     let tabItems: DDSTab[];
 
-    if (activeIndex > -1 && activeIndex < this._tabItems.length) {
-      tabItems = this._reorderTabsFrom(activeIndex);
+    if (index > -1 && index < this._tabItems.length) {
+      tabItems = this._getTabsReorderedFrom(index);
     } else {
       tabItems = Array.from(this._tabItems);
     }
 
+    // Find first item that isn't disabled.
     const queuedItem = tabItems.find((tabItem) => !tabItem.disabled);
 
+    // Return the index of the found item.
     return this._tabItems.findIndex((tabItem) => tabItem === queuedItem);
   }
 
-  private _getPrevTab(activeIndex) {
+  /**
+   * Gets the index of the tab that comes before the provided one.
+   *
+   * @param index The index of the current tab.
+   * @returns The index of the previous tab.
+   */
+  private _getPrevTab(index: number) {
     let tabItems: DDSTab[];
 
-    if (activeIndex > 0 && activeIndex < this._tabItems.length) {
-      tabItems = this._reorderTabsFrom(activeIndex - 1);
+    if (index > 0 && index < this._tabItems.length) {
+      tabItems = this._getTabsReorderedFrom(index - 1);
     } else {
       tabItems = Array.from(this._tabItems);
     }
@@ -166,11 +180,17 @@ class DDSTabsExtended extends MediaQueryMixin(
     return this._tabItems.findIndex((tabItem) => tabItem === queuedItem);
   }
 
-  private _reorderTabsFrom(activeIndex) {
+  /**
+   * Makes a copy of the stored tabs and reorders them putting the supplied tab first.
+   *
+   * @param index The index of the tab to reorder from.
+   * @returns An array of tabs ordered with the provided tab first.
+   */
+  private _getTabsReorderedFrom(index: number) {
     const tabItems = Array.from(this._tabItems);
 
     tabItems.forEach((_tabItem, i) => {
-      if (i <= activeIndex) {
+      if (i <= index) {
         tabItems.push(tabItems.shift() as DDSTab);
       }
     });
