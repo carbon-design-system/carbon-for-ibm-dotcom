@@ -9,19 +9,32 @@ LICENSE file in the root directory of this source tree.
 
 <meta
   name="keywords"
-  content="ibm.com, design, system, design system, styleguide, style, guide, components, library, pattern, kit, component, cloud, Web Components, Custom Elements"
-/>
-<meta name="description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com." />
+  content="ibm.com, design, system, design system, styleguide, style, guide, components, library, pattern, kit, component, cloud, Web Components, Custom Elements" />
+<meta
+  name="description"
+  content="This is the Web Components (custom elements) implementation of Carbon for IBM.com." />
 
 <!-- Open Graph -->
 <meta property="og:title" content="Carbon for IBM.com Web Components" />
 <meta property="og:site_name" content="Carbon for IBM.com Web Components" />
-<meta property="og:description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com." />
-<meta property="og:image" content="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/i/carbon-for-ibmcom-wc.png" />
+<meta
+  property="og:description"
+  content="This is the Web Components (custom elements) implementation of Carbon for IBM.com." />
+<meta
+  property="og:image"
+  content="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/i/carbon-for-ibmcom-wc.png" />
 <!-- Storybook override -->
 <script>
   document.title = 'Carbon for IBM.com Web Components';
 </script>
+
+<footer>
+  <c4d-footer-container disable-locale-button="true" size="micro" />
+</footer>
+
+<script
+  type="module"
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/latest/footer.min.js"></script>
 
 <!-- Minimum setting to use IBM Plex font -->
 <style type="text/css">
@@ -43,5 +56,12 @@ LICENSE file in the root directory of this source tree.
       url(https://1www.s81c.com/common/carbon/plex/fonts/IBM-Plex-Sans/fonts/complete/woff/IBMPlexSans-SemiBold.woff)
         format('woff');
     font-display: auto;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 99999;
   }
 </style>
