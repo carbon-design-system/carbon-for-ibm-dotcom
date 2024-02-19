@@ -10,7 +10,10 @@
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
+import root from 'window-or-global';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import MediaQueryMixin, {
   MQBreakpoints,
@@ -30,9 +33,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tabs-extended
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
-  [MQBreakpoints.LG]: MQDirs.MIN,
-}) {
+class DDSTabsExtended extends MediaQueryMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement)),
+  {
+    [MQBreakpoints.LG]: MQDirs.MIN,
+  }
+) {
   /**
    * Whether we're viewing smaller or larger window.
    */
@@ -93,13 +99,6 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   private _setActiveItem(index: number) {
     this._activeTabIndex = index;
     this._activeTab = index.toString();
-    const newTabLink = this.shadowRoot?.querySelector(`
-    [role="tablist"] li[role="tab"]:nth-child(${
-      index + 1
-    }) .bx--tabs__nav-link`);
-    if (newTabLink instanceof HTMLElement) {
-      newTabLink.focus();
-    }
   }
 
   private _handleTabListKeyDown(event: KeyboardEvent) {
@@ -179,6 +178,33 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     });
 
     return tabItems;
+  }
+
+  @HostListener(DDSTab.eventTabSelected)
+  protected _handleTabSelected() {
+    const { _activeTabIndex, _isLargeOrGreater: isLargeOrGreater } = this;
+    const activeItemControl = isLargeOrGreater
+      ? this.shadowRoot?.querySelector(
+          `li[role="tab"]:nth-child(${
+            _activeTabIndex + 1
+          }) .${prefix}--tabs__nav-link`
+        )
+      : this.querySelector(
+          `${ddsPrefix}-tab:nth-of-type(${_activeTabIndex + 1})`
+        )?.shadowRoot?.querySelector(`.${prefix}--accordion__heading`);
+
+    if (activeItemControl instanceof HTMLElement) {
+      // Set focus to active tab control.
+      if (isLargeOrGreater) {
+        activeItemControl.focus();
+      }
+
+      // Scroll to top of active accordion control.
+      const { top } = activeItemControl.getBoundingClientRect();
+      if (!isLargeOrGreater && top < root.scrollY) {
+        root.scrollTo({ top: top + root.scrollY });
+      }
+    }
   }
 
   updated(changedProperties) {
