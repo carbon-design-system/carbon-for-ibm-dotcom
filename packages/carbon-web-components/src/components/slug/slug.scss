@@ -306,12 +306,18 @@ $colorMap: (
 
 // Change the caret border when it is near the middle of the callout
 /* stylelint-disable-next-line no-duplicate-selectors */
-:host(#{$prefix}-slug:not([kind='hollow']):not([dot-type='hollow'])) {
-  &[alignment='left'],
-  &[alignment='right'] {
-    .#{$prefix}--popover-caret::before {
-      border-color: $slug-callout-caret-center;
-    }
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='left']
+  ),
+:host(
+    #{$prefix}-slug:not([kind='hollow']):not(
+        [dot-type='hollow']
+      )[alignment='right']
+  ) {
+  .#{$prefix}--popover-caret::before {
+    border-color: $slug-callout-caret-center;
   }
 }
 
