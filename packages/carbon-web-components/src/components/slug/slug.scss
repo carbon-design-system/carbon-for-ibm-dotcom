@@ -336,31 +336,19 @@ $colorMap: (
 :host(
     #{$prefix}-slug[autoalign]:not([kind='hollow']):not([dot-type='hollow'])
   ) {
-  &[alignment='top'],
-  &[alignment='top-left'],
-  &[alignment='top-right'],
-  &[alignment='top-start'],
-  &[alignment='top-end'] {
+  &[alignment^='top'] {
     .#{$prefix}--popover-caret {
       transform: rotate(225deg);
     }
   }
 
-  &[alignment='left'],
-  &[alignment='left-top'],
-  &[alignment='left-bottom'],
-  &[alignment='left-start'],
-  &[alignment='left-end'] {
+  &[alignment^='left'] {
     .#{$prefix}--popover-caret {
       transform: rotate(135deg);
     }
   }
 
-  &[alignment='right'],
-  &[alignment='right-top'],
-  &[alignment='right-bottom'],
-  &[alignment='right-start'],
-  &[alignment='right-end'] {
+  &[alignment^='right'] {
     .#{$prefix}--popover-caret {
       transform: rotate(-45deg);
     }
@@ -378,11 +366,7 @@ $colorMap: (
   &[alignment='right'],
   &[alignment='right-top'],
   &[alignment='right-start'],
-  &[alignment='bottom'],
-  &[alignment='bottom-left'],
-  &[alignment='bottom-right'],
-  &[alignment='bottom-start'],
-  &[alignment='bottom-end'] {
+  &[alignment^='bottom'] {
     .#{$prefix}--popover-caret {
       border: 1px solid $ai-border-start;
       background: $background;
@@ -410,11 +394,7 @@ $colorMap: (
   ) {
   &[alignment='left-bottom'],
   &[alignment='left-end'],
-  &[alignment='top'],
-  &[alignment='top-left'],
-  &[alignment='top-right'],
-  &[alignment='top-start'],
-  &[alignment='top-end'],
+  &[alignment^='top'],
   &[alignment='right-bottom'],
   &[alignment='right-end'] {
     .#{$prefix}--popover-caret {
