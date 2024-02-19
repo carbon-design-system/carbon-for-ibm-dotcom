@@ -10,7 +10,7 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { LitElement, html, TemplateResult } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
@@ -71,6 +71,7 @@ class CDSDropdown extends ValidityMixin(
    */
   protected _hasSlug = false;
 
+  @state()
   protected _activeDescendant?: string;
 
   /**
@@ -120,6 +121,7 @@ class CDSDropdown extends ValidityMixin(
   protected _selectionDidChange(itemToSelect?: CDSDropdownItem) {
     if (itemToSelect) {
       this.value = itemToSelect.value;
+      this._activeDescendant = itemToSelect.id;
       forEach(
         this.querySelectorAll(
           (this.constructor as typeof CDSDropdown).selectorItemSelected
@@ -387,7 +389,6 @@ class CDSDropdown extends ValidityMixin(
     if (nextItemId) {
       this._activeDescendant = nextItemId;
     }
-    this.requestUpdate();
   }
 
   /* eslint-disable class-methods-use-this */
