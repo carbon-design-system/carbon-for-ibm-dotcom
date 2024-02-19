@@ -3228,9 +3228,9 @@ __metadata:
   dependencies:
     "@carbon/icons-react": "npm:11.36.0"
     "@carbon/layout": "npm:11.20.1"
-    "@carbon/styles": "npm:1.50.0"
+    "@carbon/styles": "npm:1.51.0"
     "@carbon/telemetry": "npm:0.1.0"
-    "@carbon/themes": "npm:11.31.0"
+    "@carbon/themes": "npm:11.32.0"
     "@carbon/type": "npm:11.25.1"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
@@ -3336,8 +3336,8 @@ __metadata:
     "@carbon/layout": "npm:11.20.1"
     "@carbon/motion": "npm:11.16.1"
     "@carbon/pictograms-react": "npm:11.57.0"
-    "@carbon/react": "npm:1.50.0"
-    "@carbon/styles": "npm:1.50.0"
+    "@carbon/react": "npm:1.51.0"
+    "@carbon/styles": "npm:1.51.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:11.25.1"
     "@carbon/web-components": "npm:2.3.0"
@@ -3544,15 +3544,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/react@npm:1.50.0":
-  version: 1.50.0
-  resolution: "@carbon/react@npm:1.50.0"
+"@carbon/react@npm:1.51.0":
+  version: 1.51.0
+  resolution: "@carbon/react@npm:1.51.0"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     "@carbon/feature-flags": "npm:^0.16.0"
     "@carbon/icons-react": "npm:^11.36.0"
     "@carbon/layout": "npm:^11.20.0"
-    "@carbon/styles": "npm:^1.50.0"
+    "@carbon/styles": "npm:^1.51.0"
     "@ibm/telemetry-js": "npm:^1.2.0"
     classnames: "npm:2.5.1"
     copy-to-clipboard: "npm:^3.3.1"
@@ -3573,7 +3573,7 @@ __metadata:
     react: ^16.8.6 || ^17.0.1 || ^18.2.0
     react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0
     sass: ^1.33.0
-  checksum: 10/c5858a08119f512f7ff275e22df41e6c43746099133319261072acec7fe93b6e3f4f2c7310058d14b709a4a764bc3bc9edbf7e668c0f163bc0298c3b09abf957
+  checksum: 10/b11073772f8a3b5754d0617400781217da60ba82f48c1efe28f219c7fcac3d14709229f4621355d78949b684529f2a575b169715965873d71bf0b294acb3a37d
   languageName: node
   linkType: hard
 
@@ -3591,16 +3591,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.50.0, @carbon/styles@npm:^1.50.0":
-  version: 1.50.0
-  resolution: "@carbon/styles@npm:1.50.0"
+"@carbon/styles@npm:1.51.0, @carbon/styles@npm:^1.51.0":
+  version: 1.51.0
+  resolution: "@carbon/styles@npm:1.51.0"
   dependencies:
     "@carbon/colors": "npm:^11.20.0"
     "@carbon/feature-flags": "npm:^0.16.0"
     "@carbon/grid": "npm:^11.21.0"
     "@carbon/layout": "npm:^11.20.0"
     "@carbon/motion": "npm:^11.16.0"
-    "@carbon/themes": "npm:^11.31.0"
+    "@carbon/themes": "npm:^11.32.0"
     "@carbon/type": "npm:^11.25.0"
     "@ibm/plex": "npm:6.0.0-next.6"
   peerDependencies:
@@ -3608,7 +3608,7 @@ __metadata:
   peerDependenciesMeta:
     sass:
       optional: true
-  checksum: 10/cf8b476de533ba5971bb362784283be3b367d78a6ca4d122b30758e66937dc27c5fac2226c336febbc19d37a3166c29869c4ede4e70814c37c0e9ad694d736a4
+  checksum: 10/39f9e56f192c1458a8ba11e2c0c0b58fe1b09e7212adfcc00b61fb270578949979c4ce4b8166193a5489ae347a0558855dae27f47ca0a7a09367cda94aa16fc0
   languageName: node
   linkType: hard
 
@@ -3621,15 +3621,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:11.31.0, @carbon/themes@npm:^11.31.0":
-  version: 11.31.0
-  resolution: "@carbon/themes@npm:11.31.0"
+"@carbon/themes@npm:11.32.0, @carbon/themes@npm:^11.32.0":
+  version: 11.32.0
+  resolution: "@carbon/themes@npm:11.32.0"
   dependencies:
     "@carbon/colors": "npm:^11.20.0"
     "@carbon/layout": "npm:^11.20.0"
     "@carbon/type": "npm:^11.25.0"
     color: "npm:^4.0.0"
-  checksum: 10/71a07e8fcce8628f5b892fcfd18a22755940369153feb04302c4cd7917434d633a8154f5a701b0cd464628e8cb06958c8aacf3b4c45ee4a27a7084641c688c90
+  checksum: 10/d89aa51efff4ebf7c830830a8dac30f32dbf036c33ba52249e3fa684d82c50667cbaa013d6a7c985313f7363188db73eb9f5c27084fe57a954c39d3464670262
   languageName: node
   linkType: hard
 
@@ -3665,7 +3665,7 @@ __metadata:
     "@carbon/ibm-products-styles": "npm:^2.24.0"
     "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.36.0"
-    "@carbon/styles": "npm:1.50.0"
+    "@carbon/styles": "npm:1.51.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.27.4"
