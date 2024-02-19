@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.3.0...@carbon/ibmdotcom-styles@2.4.0-rc.0) (2024-02-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/icons-react to v11.36.0 ([#11523](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11523)) ([d711c2c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d711c2cd48e4a1c4afdc1162517ffdbe4a8adccc))
+
+
+### Features
+
+* **ai-skeleton:** new cwc experminetal ([#11544](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11544)) ([acb7535](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/acb7535b31ebef944c2988bd1af2b0e9b21e6d66)), closes [#11505](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11505)
+* **chat-button:** experimental wc ([#11510](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11510)) ([a1560a5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a1560a5bda222e4931da16780d91b6005c05e4db)), closes [#11498](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11498)
+
+
+
+
+
+# [2.3.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.3.0-rc.1...@carbon/ibmdotcom-styles@2.3.0) (2024-02-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.3.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.3.0-rc.0...@carbon/ibmdotcom-styles@2.3.0-rc.1) (2024-02-09)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [2.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.2.0-rc.0...@carbon/ibmdotcom-styles@2.3.0-rc.0) (2024-02-02)
 
 

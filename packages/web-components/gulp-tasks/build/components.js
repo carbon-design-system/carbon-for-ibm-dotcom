@@ -35,23 +35,22 @@ function _getFolders(dir) {
  *
  * @param {object} [options] The build options.
  * @param {string} [options.mode=development] The build mode.
- * @param {string} [options.dir=ltr] The UI direction.
  */
-async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
+async function _buildComponents({ mode = 'development' } = {}) {
   let folders = _getFolders(`${config.srcDir}/components`);
 
   folders = folders.filter(item => {
     return item !== 'layout';
   });
 
-  return rollup(getRollupConfig({ mode, dir, folders }))
+  return rollup(getRollupConfig({ mode, folders }))
     .then(bundle => {
       bundle.write({
         format: 'es',
         dir: config.bundleDestDir,
         // FIXME: Figure out how to handle `process.env` without build toolstack
         banner: 'let process = { env: {} };',
-        chunkFileNames: `${dir === 'rtl' ? 'rtl/' : ''}[name].js`,
+        chunkFileNames: '[name].js',
       });
     })
     .catch(err => {
@@ -63,7 +62,7 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
 /**
  * Defined scripts to return as gulp tasks
  *
- * @type {{ltr: object, rtl: object}}
+ * @type {{ltr: object}}
  * @private
  */
 const _scripts = {
@@ -75,28 +74,15 @@ const _scripts = {
       return _buildComponents({ mode: 'production' });
     },
   },
-  rtl: {
-    dev() {
-      return _buildComponents({ dir: 'rtl' });
-    },
-    prod() {
-      return _buildComponents({ mode: 'production', dir: 'rtl' });
-    },
-  },
 };
 
-// Gulp tasks (LTR)
+// Gulp tasks
 gulp.task('build:components:ltr:dev', _scripts.ltr.dev);
 gulp.task('build:components:ltr:prod', _scripts.ltr.prod);
 gulp.task('build:components:ltr', gulp.series(gulp.task('build:components:ltr:dev'), gulp.task('build:components:ltr:prod')));
 
-// Gulp tasks (RTL)
-gulp.task('build:components:rtl:dev', _scripts.rtl.dev);
-gulp.task('build:components:rtl:prod', _scripts.rtl.prod);
-gulp.task('build:components:rtl', gulp.series(gulp.task('build:components:rtl:dev'), gulp.task('build:components:rtl:prod')));
-
 // Build all components
 gulp.task(
   'build:components',
-  gulp.series(gulp.task('vendor'), gulp.series(gulp.task('build:components:ltr:prod'), gulp.task('build:components:rtl:prod')))
+  gulp.series(gulp.task('vendor'), gulp.series(gulp.task('build:components:ltr:prod')))
 );
