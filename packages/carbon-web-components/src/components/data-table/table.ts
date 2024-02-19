@@ -168,7 +168,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
    */
   @property()
   filterRows = (rowText: string, searchString: string) =>
-    rowText.toLowerCase().indexOf(searchString) < 0;
+    rowText.toLowerCase().indexOf(searchString.toLowerCase()) < 0;
 
   /**
    * The total headers
@@ -404,9 +404,13 @@ class CDSTable extends HostListenerMixin(LitElement) {
     const columns = [...this._tableHeaderRow.children];
     const columnIndex = columns.indexOf(target);
 
-    columns.forEach(
-      (e) => e !== target && e.setAttribute('sort-direction', 'none')
-    );
+    columns.forEach((e) => {
+      if (e !== target && this.isSortable) {
+        e.setAttribute('sort-direction', 'none');
+      } else if (e.hasAttribute('is-sortable')) {
+        e.setAttribute('sort-direction', 'none');
+      }
+    });
 
     this._handleSortAction(columnIndex, sortDirection);
 
@@ -775,16 +779,44 @@ class CDSTable extends HostListenerMixin(LitElement) {
         row.removeAttribute('rows-with-slug');
       });
     }
+
+    // Gets table header info to add to the column cells for styles
+    const headersWithSlug: number[] = [];
+
+    Array.prototype.slice
+      .call(this._tableHeaderRow.children)
+      .forEach((headerCell, index) => {
+        if (headerCell.querySelector(`${prefix}-slug`)) {
+          headerCell.setAttribute('slug', '');
+          headersWithSlug.push(index);
+        } else {
+          headerCell.removeAttribute('slug');
+        }
+      });
+
+    this._tableRows.forEach((row) => {
+      Array.prototype.slice
+        .call((row as HTMLElement).children)
+        .forEach((cell, index) => {
+          headersWithSlug.includes(index)
+            ? cell.setAttribute('slug-in-header', '')
+            : cell.removeAttribute('slug-in-header');
+        });
+    });
   }
 
   /* eslint-disable no-constant-condition */
   render() {
     return html`
-      <div ?hidden="${!this.withHeader}" class="${prefix}--data-table-header">
-        <slot @slotchange="${this._handleSlotChange}" name="title"></slot>
-        <slot @slotchange="${this._handleSlotChange}" name="description"></slot>
+      <div class="${prefix}--data-table-header-container">
+        <div ?hidden="${!this.withHeader}" class="${prefix}--data-table-header">
+          <slot @slotchange="${this._handleSlotChange}" name="title"></slot>
+          <slot
+            @slotchange="${this._handleSlotChange}"
+            name="description"></slot>
+        </div>
+        <slot name="toolbar"></slot>
       </div>
-      <slot name="toolbar"></slot>
 
       ${false // TODO: replace with this.stickyHeader when feature is fully implemented
         ? html` <div class="${prefix}--data-table_inner-container">
@@ -821,10 +853,13 @@ class CDSTable extends HostListenerMixin(LitElement) {
       }
     });
 
-    columns.forEach(
-      (e, index) =>
-        index !== columnIndex && e.setAttribute('sort-direction', 'none')
-    );
+    columns.forEach((e, index) => {
+      if (index !== columnIndex && this.isSortable) {
+        e.setAttribute('sort-direction', 'none');
+      } else if (e.hasAttribute('is-sortable')) {
+        e.setAttribute('sort-direction', 'none');
+      }
+    });
     this._handleSortAction(columnIndex, sortDirection);
   }
 
