@@ -199,7 +199,7 @@ class DDSTabsExtended extends MediaQueryMixin(
   }
 
   @HostListener(DDSTab.eventTabSelected)
-  protected _handleTabSelected() {
+  protected _handleTabSelected = () => {
     const { _activeTabIndex, _isLargeOrGreater: isLargeOrGreater } = this;
     const activeItemControl = isLargeOrGreater
       ? this.shadowRoot?.querySelector(
@@ -212,18 +212,14 @@ class DDSTabsExtended extends MediaQueryMixin(
         )?.shadowRoot?.querySelector(`.${prefix}--accordion__heading`);
 
     if (activeItemControl instanceof HTMLElement) {
-      // Set focus to active tab control.
-      if (isLargeOrGreater) {
-        activeItemControl.focus();
+      if (!isLargeOrGreater) {
+        // Unset focus so that when element is focused programmatically, the
+        // browser scrolls element into view.
+        activeItemControl.blur();
       }
-
-      // Scroll to top of active accordion control.
-      const { top } = activeItemControl.getBoundingClientRect();
-      if (!isLargeOrGreater && top < root.scrollY) {
-        root.scrollTo({ top: top + root.scrollY });
-      }
+      activeItemControl.focus();
     }
-  }
+  };
 
   updated(changedProperties) {
     const { _isLargeOrGreater, _tabItems } = this;

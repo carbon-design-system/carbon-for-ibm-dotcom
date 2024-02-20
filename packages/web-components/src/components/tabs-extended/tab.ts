@@ -80,10 +80,11 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     return this._index;
   }
 
-  protected updated(
+  protected async updated(
     _changedProperties: Map<string | number | symbol, unknown>
-  ): void {
+  ): Promise<void> {
     if (_changedProperties.has('selected')) {
+      await this.updateComplete;
       const { eventTabSelected } = this.constructor as typeof DDSTab;
       this.dispatchEvent(
         new CustomEvent(eventTabSelected, {
