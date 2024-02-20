@@ -380,15 +380,16 @@ $colorMap: (
 }
 
 // caret styles for auto align
+:host(#{$prefix}-slug[autoalign]) .#{$prefix}--popover-caret {
+  block-size: $spacing-04;
+  inline-size: $spacing-04;
+}
+
 :host(
     #{$prefix}-slug[autoalign]:not([kind='hollow']):not([dot-type='hollow'])
   ) {
   .#{$prefix}--popover-caret::before {
-    block-size: to-rem(10px);
-    clip-path: polygon(0 0, 0% 100%, 100% 0);
-    inline-size: to-rem(10px);
-    inset-block-start: to-rem(-1px);
-    inset-inline-start: to-rem(-1px);
+    inset-block-start: 0;
   }
 
   .#{$prefix}--popover-caret {
@@ -396,8 +397,8 @@ $colorMap: (
   }
 
   .#{$prefix}--popover-caret::after {
-    inline-size: to-rem(10px);
-    inset-block-end: to-rem(3px);
+    inline-size: to-rem(14px);
+    inset-block-end: to-rem(5px);
     inset-inline-start: to-rem(-1px);
   }
 }
@@ -412,11 +413,14 @@ $colorMap: (
         [dot-type='hollow']
       )[alignment^='right']
   ) {
+  .#{$prefix}--popover-caret::before {
+    inset-inline-start: 0;
+  }
   .#{$prefix}--popover-caret::after {
-    block-size: to-rem(10px);
+    block-size: to-rem(14px);
     inline-size: to-rem(2px);
     inset-block-start: to-rem(-1px);
-    inset-inline-start: to-rem(3px);
+    inset-inline-start: to-rem(5px);
   }
 }
 
