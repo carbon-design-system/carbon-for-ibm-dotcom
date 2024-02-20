@@ -67,9 +67,7 @@ class DDSTabsExtended extends MediaQueryMixin(
   _activeTab: string = '0';
 
   /**
-   * Handler for @slotChange, creates tabs from dds-tab components.
-   *
-   * @private
+   * Handles default slot's slotchange events.
    */
   protected _handleSlotChange(event: Event) {
     const slottedNodes = (event.target as HTMLSlotElement).assignedNodes({
@@ -78,9 +76,7 @@ class DDSTabsExtended extends MediaQueryMixin(
     this._tabItems = slottedNodes.filter(
       (node) => node instanceof DDSTab
     ) as DDSTab[];
-    this._activeTabIndex =
-      this._tabItems.findIndex((tab) => (tab as DDSTab).selected) ??
-      this._activeTabIndex;
+    this._activeTabIndex = this._tabItems.findIndex((tab) => (tab as DDSTab).selected);
   }
 
   private _handleClick(index, e) {
