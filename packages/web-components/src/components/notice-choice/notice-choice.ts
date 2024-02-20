@@ -83,7 +83,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   isMandatoryCheckboxDisplayed = { countryCode: '', isDisplayed: false };
 
   @property({ type: Object, attribute: false })
-  countrySettings: any;
+  countrySettings: any[] = [];
 
   @property({ type: Boolean, attribute: false })
   emailPrechecked = false;
