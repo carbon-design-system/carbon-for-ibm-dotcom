@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -74,6 +74,6 @@ export const cdnCss = () => {
 There are optional CDN artifacts available that can assist with global Carbon
 styles in lieu of including into your specific application bundle.
 
-[Click here to learn more](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.md)\n\n
+[Click here to learn more](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1/packages/web-components/docs/carbon-cdn-style-helpers.md)\n\n
   `;
 };

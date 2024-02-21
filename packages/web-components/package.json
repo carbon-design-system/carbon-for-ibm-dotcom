@@ -32,7 +32,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/web-components",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "keywords": [
     "ibm",

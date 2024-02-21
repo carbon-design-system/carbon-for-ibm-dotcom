@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ export default create({
   base: 'light',
   brandTitle: `Carbon for IBM.com Web Components v${packageJson.version}`,
   brandUrl:
-    'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components',
+    'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/web-components',
   fontBase: '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif',
   fontCode:
     '"IBM Plex Mono", Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace',
