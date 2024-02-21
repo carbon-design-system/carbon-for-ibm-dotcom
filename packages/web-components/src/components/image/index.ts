@@ -8,3 +8,4 @@
  */
 
 import './image';
+import './image-item';
