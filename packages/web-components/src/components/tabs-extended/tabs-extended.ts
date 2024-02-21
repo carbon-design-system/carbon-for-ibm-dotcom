@@ -11,6 +11,8 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import { html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import MediaQueryMixin, {
   MQBreakpoints,
@@ -30,9 +32,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tabs-extended
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
-  [MQBreakpoints.LG]: MQDirs.MIN,
-}) {
+class DDSTabsExtended extends MediaQueryMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement)),
+  {
+    [MQBreakpoints.LG]: MQDirs.MIN,
+  }
+) {
   /**
    * Whether we're viewing smaller or larger window.
    */
@@ -62,9 +67,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   _activeTab: string = '0';
 
   /**
-   * Handler for @slotChange, creates tabs from dds-tab components.
-   *
-   * @private
+   * Handles default slot's slotchange events.
    */
   protected _handleSlotChange(event: Event) {
     const slottedNodes = (event.target as HTMLSlotElement).assignedNodes({
@@ -73,11 +76,9 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     this._tabItems = slottedNodes.filter(
       (node) => node instanceof DDSTab
     ) as DDSTab[];
-    this._tabItems.forEach((tab, index) => {
-      this._activeTabIndex = (tab as DDSTab).selected
-        ? index
-        : this._activeTabIndex;
-    });
+    this._activeTabIndex = this._tabItems.findIndex(
+      (tab) => (tab as DDSTab).selected
+    );
   }
 
   private _handleClick(index, e) {
@@ -86,49 +87,42 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   private _handleAccordionClick(e) {
-    const tab = e.target.closest('dds-tab');
+    const tab = e.target.closest(`${ddsPrefix}-tab`);
     this._handleClick(tab.getIndex(), e);
   }
 
   private _setActiveItem(index: number) {
     this._activeTabIndex = index;
     this._activeTab = index.toString();
-    const newTabLink = this.shadowRoot?.querySelector(`
-    [role="tablist"] li[role="tab"]:nth-child(${
-      index + 1
-    }) .bx--tabs__nav-link`);
-    if (newTabLink instanceof HTMLElement) {
-      newTabLink.focus();
-    }
   }
 
   private _handleTabListKeyDown(event: KeyboardEvent) {
     const { key } = event;
     const {
-      _activeTabIndex: activeTab,
+      _activeTabIndex: activeTabIndex,
       _tabItems: tabItems,
       _isLTR: isLTR,
     } = this;
     switch (key) {
       case 'ArrowRight':
         if (isLTR) {
-          this._setActiveItem(this._getNextTab(activeTab));
+          this._setActiveItem(this._getNextTab(activeTabIndex));
         } else {
-          this._setActiveItem(this._getPrevTab(activeTab));
+          this._setActiveItem(this._getPrevTab(activeTabIndex));
         }
         break;
       case 'ArrowLeft':
         if (isLTR) {
-          this._setActiveItem(this._getPrevTab(activeTab));
+          this._setActiveItem(this._getPrevTab(activeTabIndex));
         } else {
-          this._setActiveItem(this._getNextTab(activeTab));
+          this._setActiveItem(this._getNextTab(activeTabIndex));
         }
         break;
       case 'ArrowUp':
-        this._setActiveItem(this._getPrevTab(activeTab));
+        this._setActiveItem(this._getPrevTab(activeTabIndex));
         break;
       case 'ArrowDown':
-        this._setActiveItem(this._getNextTab(activeTab));
+        this._setActiveItem(this._getNextTab(activeTabIndex));
         break;
       case 'Home':
         this._setActiveItem(this._getNextTab(-1));
@@ -141,25 +135,39 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     }
   }
 
-  private _getNextTab(activeIndex) {
+  /**
+   * Gets the index of the tab that comes after the provided one.
+   *
+   * @param index The index of the current tab.
+   * @returns The index of the next tab.
+   */
+  private _getNextTab(index: number) {
     let tabItems: DDSTab[];
 
-    if (activeIndex > -1 && activeIndex < this._tabItems.length) {
-      tabItems = this._reorderTabsFrom(activeIndex);
+    if (index > -1 && index < this._tabItems.length) {
+      tabItems = this._getTabsReorderedFrom(index);
     } else {
       tabItems = Array.from(this._tabItems);
     }
 
+    // Find first item that isn't disabled.
     const queuedItem = tabItems.find((tabItem) => !tabItem.disabled);
 
+    // Return the index of the found item.
     return this._tabItems.findIndex((tabItem) => tabItem === queuedItem);
   }
 
-  private _getPrevTab(activeIndex) {
+  /**
+   * Gets the index of the tab that comes before the provided one.
+   *
+   * @param index The index of the current tab.
+   * @returns The index of the previous tab.
+   */
+  private _getPrevTab(index: number) {
     let tabItems: DDSTab[];
 
-    if (activeIndex > 0 && activeIndex < this._tabItems.length) {
-      tabItems = this._reorderTabsFrom(activeIndex - 1);
+    if (index > 0 && index < this._tabItems.length) {
+      tabItems = this._getTabsReorderedFrom(index - 1);
     } else {
       tabItems = Array.from(this._tabItems);
     }
@@ -169,17 +177,46 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     return this._tabItems.findIndex((tabItem) => tabItem === queuedItem);
   }
 
-  private _reorderTabsFrom(activeIndex) {
+  /**
+   * Makes a copy of the stored tabs and reorders them putting the supplied tab first.
+   *
+   * @param index The index of the tab to reorder from.
+   * @returns An array of tabs ordered with the provided tab first.
+   */
+  private _getTabsReorderedFrom(index: number) {
     const tabItems = Array.from(this._tabItems);
 
     tabItems.forEach((_tabItem, i) => {
-      if (i <= activeIndex) {
+      if (i <= index) {
         tabItems.push(tabItems.shift() as DDSTab);
       }
     });
 
     return tabItems;
   }
+
+  @HostListener(DDSTab.eventTabSelected)
+  protected _handleTabSelected = () => {
+    const { _activeTabIndex, _isLargeOrGreater: isLargeOrGreater } = this;
+    const activeItemControl = isLargeOrGreater
+      ? this.shadowRoot?.querySelector(
+          `li[role="tab"]:nth-child(${
+            _activeTabIndex + 1
+          }) .${prefix}--tabs__nav-link`
+        )
+      : this.querySelector(
+          `${ddsPrefix}-tab:nth-of-type(${_activeTabIndex + 1})`
+        )?.shadowRoot?.querySelector(`.${prefix}--accordion__heading`);
+
+    if (activeItemControl instanceof HTMLElement) {
+      if (!isLargeOrGreater) {
+        // Unset focus so that when element is focused programmatically, the
+        // browser scrolls element into view.
+        activeItemControl.blur();
+      }
+      activeItemControl.focus();
+    }
+  };
 
   updated(changedProperties) {
     const { _isLargeOrGreater, _tabItems } = this;
