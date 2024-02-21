@@ -3,8 +3,8 @@ name: release-preflight
 on:
   push:
     branches:
-      - main
-      - release/*
+      - v1
+      - release/v1*
 
 concurrency:
   group: release-preflight-${{ github.ref }}

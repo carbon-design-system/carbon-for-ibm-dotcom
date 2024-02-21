@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -316,7 +316,7 @@ export default class BXNumberInput extends BXInput {
         ?readonly="${this.readonly}"
         ?required="${this.required}"
         type="number"
-        .value="${this._value}"
+        .value="${this.value}"
         @input="${handleInput}"
         min="${ifNonEmpty(this.min)}"
         max="${ifNonEmpty(this.max)}"

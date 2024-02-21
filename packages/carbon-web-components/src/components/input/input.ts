@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,11 +43,6 @@ export default class BXInput extends ValidityMixin(FormMixin(LitElement)) {
    */
   @query('input')
   protected _input!: HTMLInputElement;
-
-  /**
-   * The internal value.
-   */
-  protected _value = '';
 
   /**
    * Set initial value of input
@@ -301,7 +296,7 @@ export default class BXInput extends ValidityMixin(FormMixin(LitElement)) {
           ?readonly="${this.readonly}"
           ?required="${this.required}"
           type="${ifNonEmpty(this.type)}"
-          .value="${this._value}"
+          .value="${this.value}"
           @input="${handleInput}" />
         ${this.showPasswordVisibilityToggle &&
         (this.type === INPUT_TYPE.PASSWORD || this.type === INPUT_TYPE.TEXT)
