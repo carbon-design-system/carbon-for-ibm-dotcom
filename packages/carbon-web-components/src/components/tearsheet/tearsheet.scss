@@ -126,8 +126,13 @@ $motion-duration: $duration-moderate-02;
       @include type.type-style('heading-04');
     }
 
-    .#{$block-class}__header.#{$block-class}__header--with-close-icon {
+    .#{$block-class}__header[has-close-icon],
+    .#{$block-class}__header[has-slug] {
       padding-inline-end: $spacing-11;
+    }
+
+    .#{$block-class}__header[has-close-icon][has-slug] {
+      padding-inline-end: calc(#{$spacing-11 + $spacing-09});
     }
 
     .#{$block-class}__header-navigation {

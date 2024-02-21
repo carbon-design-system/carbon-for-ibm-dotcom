@@ -168,11 +168,11 @@ const labels = {
 const getLabel = (index) => {
   switch (index) {
     case 1:
-      return html`<span slot="label">A short label</span>`;
+      return html`<span slot="label">Optional label for context</span>`;
     case 2:
       return html`<span slot="label"
-        >A longer label that might go on for a little bit</span
-      >`;
+        >A longer label giving a bit more context
+      </span>`;
     default:
       return null;
   }
@@ -344,12 +344,12 @@ export default {
 
 const DefaultTemplate = (argsIn) => {
   const args = {
-    actionItems: getActionItems(select('Slot (actions)', actionItems, 1)),
+    actionItems: getActionItems(select('Slot (actions)', actionItems, 4)),
     headerActions: getActionToolbarItems(
       select('Slot (header-toolbar)', headerActions, 0)
     ),
     content: getContent(select('Slot (default), panel contents', contents, 2)),
-    label: getLabel(select('label', labels, 2)),
+    label: getLabel(select('label', labels, 1)),
     open: boolean('open', false),
     influencerWidth: select(
       'influencer-width',
@@ -369,12 +369,15 @@ const DefaultTemplate = (argsIn) => {
       false
     ),
     selectorInitialFocus: text('selector-initial-focus', ''),
-    width: select('width', widths, TEARSHEET_WIDTH.NARROW),
+    width: select('width', widths, TEARSHEET_WIDTH.WIDE),
     slug: getSlug(select('slug (AI slug)', slugs, 0)),
-    description: text('description', 'Description of the tearsheet use case.'),
+    description: text(
+      'description',
+      'Description used to describe the flow if need be.'
+    ),
     title: text(
       'title',
-      'This title is testing a very long title to see how this behaves with a longer title. It needs to be long enough to trigger overflow when collapsed.'
+      'Title used to designate the overarching flow of the tearsheet.'
     ),
     headerNavigation: getNavigation(select('header-navigation', navigation, 0)),
 
@@ -438,5 +441,65 @@ Default.parameters = {
   ...storyDocs.parameters,
   knobs: {
     'cds-tearsheet': () => ({}),
+  },
+};
+
+export const WithNavigation = DefaultTemplate.bind({}) as TemplateType;
+WithNavigation.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-tearsheet': () => ({
+      headerNavigation: getNavigation(
+        select('header-navigation', navigation, 1)
+      ),
+    }),
+  },
+};
+
+export const WithInfluencer = DefaultTemplate.bind({}) as TemplateType;
+WithInfluencer.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-tearsheet': () => ({
+      influencer: getInfluencer(select('influencer (slot)', influencers, 2)),
+    }),
+  },
+};
+
+export const WithAllHeaderItemsAndInfluencer = DefaultTemplate.bind(
+  {}
+) as TemplateType;
+WithAllHeaderItemsAndInfluencer.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-tearsheet': () => ({
+      headerActions: getActionToolbarItems(
+        select('Slot (header-toolbar)', headerActions, 2)
+      ),
+      influencer: getInfluencer(select('influencer (slot)', influencers, 2)),
+    }),
+  },
+};
+
+export const Narrow = DefaultTemplate.bind({}) as TemplateType;
+Narrow.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-tearsheet': () => ({
+      label: getLabel(select('label', labels, 0)),
+      width: select('width', widths, TEARSHEET_WIDTH.NARROW),
+    }),
+  },
+};
+
+export const NarrowWithAllHeaderItems = DefaultTemplate.bind(
+  {}
+) as TemplateType;
+NarrowWithAllHeaderItems.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    'cds-tearsheet': () => ({
+      width: select('width', widths, TEARSHEET_WIDTH.NARROW),
+    }),
   },
 };

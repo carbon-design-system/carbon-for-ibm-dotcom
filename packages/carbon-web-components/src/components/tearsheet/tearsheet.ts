@@ -116,6 +116,9 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   _actionsCount = 0;
 
   @state()
+  _hasHeaderActions = false;
+
+  @state()
   _hasLabel = false;
 
   @state()
@@ -438,18 +441,26 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
       </div>
     </div>`;
 
+    const headerActionsTemplate = html` <div
+      class=${`${blockClass}__header-actions`}
+      ?hidden=${!this._hasHeaderActions || this.width === 'narrow'}>
+      <slot name="header-actions" @slotchange=${this._checkSetHasSlot}></slot>
+    </div>`;
+
     const headerTemplate = html` <cds-modal-header
       class=${`${blockClass}__header`}
-      ?has-close-icon=${this?._actionsCount === 0}
+      ?has-close-icon=${this.hasCloseIcon || this?._actionsCount === 0}
       ?has-navigation=${this._hasHeaderNavigation && this.width === 'wide'}
+      ?has-header-actions=${this._hasHeaderActions && this.width === 'wide'}
       ?has-actions=${this?._actionsCount > 0}
+      ?has-slug=${this?._hasSlug}
       width=${width}>
       ${this.width === TEARSHEET_WIDTH.WIDE
-        ? html`<cds-layer level="1">${headerFieldsTemplate}</cds-layer>`
-        : html`<div>${headerFieldsTemplate}</div>`}
-      <div class=${`${blockClass}__header-actions`}>
-        <slot name="header-actions"></slot>
-      </div>
+        ? html`<cds-layer level="1" class=${`${blockClass}__header-content`}
+            >${headerFieldsTemplate}${headerActionsTemplate}</cds-layer
+          >`
+        : html`<div>${headerFieldsTemplate}${headerActionsTemplate}</div>`}
+
       <div
         class=${`${blockClass}__header-navigation`}
         ?hidden=${!this._hasHeaderNavigation || this.width === 'narrow'}>
@@ -458,7 +469,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
           @slotchange=${this._checkSetHasSlot}></slot>
       </div>
       <slot name="slug" @slotchange=${this._handleSlugChange}></slot>
-      ${this?._actionsCount === 0
+      ${this.hasCloseIcon || this?._actionsCount === 0
         ? html`<cds-modal-close-button
             close-button-label=${closeIconDescription}
             @click=${this._handleUserInitiatedClose}></cds-modal-close-button>`
@@ -568,7 +579,8 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
       (changedProperties.has('width') ||
         changedProperties.has('_hasHeaderNavigation') ||
         changedProperties.has('_hasInfluencerLeft') ||
-        changedProperties.has('_hasInfluencerRight'))
+        changedProperties.has('_hasInfluencerRight') ||
+        changedProperties.has('_hasHeaderActions'))
     ) {
       if (this.width === 'narrow') {
         if (this._hasHeaderNavigation) {
@@ -578,6 +590,11 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
         }
         if (this._hasInfluencerLeft || this._hasInfluencerRight) {
           console.error(`Influencer is not permitted in narrow Tearsheet.`);
+        }
+        if (this._hasHeaderActions) {
+          console.error(
+            `Header actions are not permitted in narrow Tearsheet.`
+          );
         }
       }
     }
