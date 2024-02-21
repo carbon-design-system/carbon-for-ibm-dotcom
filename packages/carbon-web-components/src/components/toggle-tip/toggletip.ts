@@ -144,7 +144,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     `;
   };
 
-  async updated() {
+  updated() {
     if (this.autoalign) {
       // auto align functionality with @floating-ui/dom library
       const button = this.shadowRoot?.querySelector(
