@@ -76,7 +76,9 @@ class DDSTabsExtended extends MediaQueryMixin(
     this._tabItems = slottedNodes.filter(
       (node) => node instanceof DDSTab
     ) as DDSTab[];
-    this._activeTabIndex = this._tabItems.findIndex((tab) => (tab as DDSTab).selected);
+    this._activeTabIndex = this._tabItems.findIndex(
+      (tab) => (tab as DDSTab).selected
+    );
   }
 
   private _handleClick(index, e) {
