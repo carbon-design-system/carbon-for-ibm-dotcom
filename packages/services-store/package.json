@@ -14,7 +14,7 @@
   "files": [
     "es"
   ],
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/services-store",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "keywords": [
     "ibm",

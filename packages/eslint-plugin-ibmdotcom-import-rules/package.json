@@ -8,7 +8,7 @@
   "files": [
     "lib"
   ],
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/eslint-plugin-ibmdotcom-import-rules",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/eslint-plugin-ibmdotcom-import-rules",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "keywords": [
     "ibm",

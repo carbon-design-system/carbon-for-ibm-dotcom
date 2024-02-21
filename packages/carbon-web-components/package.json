@@ -6,7 +6,7 @@
   },
   "description": "Carbon web components",
   "license": "Apache-2.0",
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/carbon-web-components",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "main": "es/index.js",
   "module": "es/index.js",

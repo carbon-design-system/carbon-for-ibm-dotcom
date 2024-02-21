@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -82,7 +82,7 @@ TextCTA.propTypes = {
    * For more details of icons, refer to:
    *
    * - [Icons library](https://www.carbondesignsystem.com/guidelines/icons/library/)!👀
-   * - [@carbon/icons-react](https://github.com/carbon-design-system/carbon/tree/main/packages/icons-react)!👀
+   * - [@carbon/icons-react](https://github.com/carbon-design-system/carbon/tree/v1/packages/icons-react)!👀
    * - [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
    */
   type: PropTypes.oneOfType([
