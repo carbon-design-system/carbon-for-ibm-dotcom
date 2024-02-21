@@ -114,7 +114,7 @@ class CDSPopover extends LitElement {
       }
     );
 
-    if (this.autoalign) {
+    if (this.autoalign && this.open) {
       // auto align functionality with @floating-ui/dom library
       const button = this._triggerSlotNode.assignedElements()[0];
       const content = this._contentSlotNode.assignedElements()[0];
@@ -127,19 +127,17 @@ class CDSPopover extends LitElement {
       );
 
       if (button && tooltip) {
-        if (this.open) {
-          this.popoverController?.setPlacement({
-            trigger: button as HTMLElement,
-            target: tooltip as HTMLElement,
-            arrowElement:
-              this.caret && arrowElement
-                ? (arrowElement as HTMLElement)
-                : undefined,
-            caret: this.caret,
-            flip: true,
-            alignment: this.align,
-          });
-        }
+        this.popoverController?.setPlacement({
+          trigger: button as HTMLElement,
+          target: tooltip as HTMLElement,
+          arrowElement:
+            this.caret && arrowElement
+              ? (arrowElement as HTMLElement)
+              : undefined,
+          caret: this.caret,
+          flip: true,
+          alignment: this.align,
+        });
       }
     }
   }

@@ -145,7 +145,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   updated() {
-    if (this.autoalign) {
+    if (this.autoalign && this.open) {
       // auto align functionality with @floating-ui/dom library
       const button = this.shadowRoot?.querySelector(
         CDSToggletip.selectorToggletipButton
@@ -159,16 +159,14 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
       );
 
       if (button && tooltip) {
-        if (this.open) {
-          this.popoverController?.setPlacement({
-            trigger: button as HTMLElement,
-            target: tooltip as HTMLElement,
-            arrowElement: arrowElement as HTMLElement,
-            caret: true,
-            flip: true,
-            alignment: this.alignment,
-          });
-        }
+        this.popoverController?.setPlacement({
+          trigger: button as HTMLElement,
+          target: tooltip as HTMLElement,
+          arrowElement: arrowElement as HTMLElement,
+          caret: true,
+          flip: true,
+          alignment: this.alignment,
+        });
       }
     }
   }
