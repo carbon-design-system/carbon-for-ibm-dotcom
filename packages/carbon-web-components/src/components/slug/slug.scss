@@ -388,6 +388,8 @@ $colorMap: (
 :host(#{$prefix}-slug[autoalign][kind='hollow']),
 :host(#{$prefix}-slug[autoalign][dot-type='hollow']) {
   .#{$prefix}--popover-caret {
+    block-size: $spacing-03;
+    inline-size: $spacing-03;
     transform: rotate(45deg);
   }
 }
