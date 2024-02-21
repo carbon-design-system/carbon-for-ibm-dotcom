@@ -106,7 +106,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   /**
    * Node to track tearsheet.
    */
-  @query(`.${blockClass}`)
+  @query(`.${blockClass}__container`)
   private _tearsheet!: HTMLDivElement;
 
   @queryAssignedElements({ slot: 'actions', selector: 'cds-button' })
@@ -232,7 +232,6 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
 
   private _checkSetHasSlot(e: Event) {
     const t = e.target as HTMLSlotElement;
-    console.log(t);
     const dataPostfix = t.getAttribute('data-postfix');
     const postfix = dataPostfix ? `-${dataPostfix}` : '';
 
@@ -296,6 +295,12 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
     const childItems = (e.target as HTMLSlotElement).assignedElements();
 
     this._hasSlug = childItems.length > 0;
+    if (this._hasSlug) {
+      childItems[0].setAttribute('size', 'lg');
+      this.setAttribute('slug', '');
+    } else {
+      this.removeAttribute('slug');
+    }
   }
 
   /**
@@ -437,6 +442,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
       class=${`${blockClass}__header`}
       ?has-close-icon=${this?._actionsCount === 0}
       ?has-navigation=${this._hasHeaderNavigation && this.width === 'wide'}
+      ?has-actions=${this?._actionsCount > 0}
       width=${width}>
       ${this.width === TEARSHEET_WIDTH.WIDE
         ? html`<cds-layer level="1">${headerFieldsTemplate}</cds-layer>`
@@ -451,7 +457,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
           name="header-navigation"
           @slotchange=${this._checkSetHasSlot}></slot>
       </div>
-      <slot name="slug"></slot>
+      <slot name="slug" @slotchange=${this._handleSlugChange}></slot>
       ${this?._actionsCount === 0
         ? html`<cds-modal-close-button
             close-button-label=${closeIconDescription}
@@ -470,7 +476,6 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
         class=${`${blockClass}__container ${prefix}--modal-container ${prefix}--modal-container--sm`}
         part="dialog"
         role="complementary"
-        ?has-slug=${this._hasSlug}
         ?open=${this._isOpen}
         ?opening=${open && !this._isOpen}
         ?closing=${!open && this._isOpen}
@@ -485,7 +490,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
           ${influencerPlacement !== TEARSHEET_INFLUENCER_PLACEMENT.RIGHT
             ? html`<div
                 class=${`${blockClass}__influencer`}
-                ?wide=${influencerWidth}
+                ?wide=${influencerWidth === 'wide'}
                 ?hidden=${!this._hasInfluencerLeft ||
                 this.width === TEARSHEET_WIDTH.NARROW}>
                 <slot

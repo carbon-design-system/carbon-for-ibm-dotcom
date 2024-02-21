@@ -11,18 +11,6 @@ $story-prefix: 'tearsheet-stories';
 
 @use '@carbon/styles/scss/spacing' as *;
 
-.#{$story-prefix}__dummy-content-block {
-  padding: $spacing-06 $spacing-07;
-}
-
-.#{$story-prefix}__narrow-content-block {
-  padding: $spacing-05;
-}
-
-.#{$story-prefix}__tabs {
-  margin-inline-start: calc(-1 * #{$spacing-05});
-}
-
 .#{$story-prefix}__tabs .#{$prefix}--tab-content {
   display: none;
 }

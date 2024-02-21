@@ -58,9 +58,16 @@ const influencers = {
 const getInfluencer = (index) => {
   switch (index) {
     case 1:
-      return html`<div slot="influencer">Influencer</div>`;
+      return html`<div
+        slot="influencer"
+        class=${`${storyPrefix}__dummy-content-block`}>
+        Influencer
+      </div>`;
     case 2:
-      return html` <cds-progress-indicator vertical slot="influencer">
+      return html` <cds-progress-indicator
+        vertical
+        slot="influencer"
+        class=${`${storyPrefix}__dummy-content-block`}>
         <cds-progress-step
           state="complete"
           label="First step"
@@ -386,7 +393,7 @@ const DefaultTemplate = (argsIn) => {
       selector-initial-focus=${args.selectorInitialFocus}
       ?open=${args.open}
       influencer-placement=${args.influencerPlacement}
-      influencer-width:=${args.influencerWidth}
+      influencer-width=${args.influencerWidth}
       ?prevent-close-on-click-outside=${args.preventCloseOnClickOutside}
       width=${args.width}>
       <!-- default slotted content -->
