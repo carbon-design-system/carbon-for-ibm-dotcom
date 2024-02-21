@@ -31,17 +31,30 @@ interface PopoverElement extends LitElement {
 }
 
 export default class PopoverController implements ReactiveController {
+  /**
+   * Host component
+   */
   private host!: PopoverElement;
 
+  /**
+   * Floating-ui options to pass to `computePlacement()`
+   */
   private options!: PopoverControllerOptions;
 
+  /**
+   * cleanup function to stop auto updates
+   */
   private cleanup?: () => void;
 
+  /**
+   * register with host component
+   * @param host host component
+   */
   constructor(host: PopoverElement) {
     (this.host = host).addController(this);
   }
 
-  async togglePopover(options: PopoverControllerOptions = this.options) {
+  async setPlacement(options: PopoverControllerOptions = this.options) {
     this.options = options;
     const { trigger, target } = options;
 
@@ -125,7 +138,12 @@ export default class PopoverController implements ReactiveController {
       arrowElement.style.bottom = '';
       arrowElement.style[staticSide] = `${-arrowElement.offsetWidth / 2}px`;
     }
-    return placement;
+
+    // adding specific case here where the style of the caret/arrow
+    // is dependent on the placement
+    if (this.host.tagName === 'CDS-SLUG') {
+      this.host?.setAttribute('alignment', placement);
+    }
   }
 
   hostUpdated(): void {
