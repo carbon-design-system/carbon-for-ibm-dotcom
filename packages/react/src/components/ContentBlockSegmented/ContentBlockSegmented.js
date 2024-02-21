@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -178,8 +178,8 @@ ContentBlockSegmented.propTypes = {
    * | Name      | Required | Data Type | Description                                                                                                                                                                                                             |
    * | --------- | -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `heading` | YES      | String    | Short copy describing content item.                                                                                                                                                                                     |
-   * | `image`   | NO       | Object    | See the [`Image`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/src/components/Image) component for full usage details.                                                         |
-   * | `cta`     | NO       | Object    | `jump` and `local` types are allowed, for more information, see the [`CTA`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/src/components/CTA) component for full usage details. |
+   * | `image`   | NO       | Object    | See the [`Image`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/react/src/components/Image) component for full usage details.                                                         |
+   * | `cta`     | NO       | Object    | `jump` and `local` types are allowed, for more information, see the [`CTA`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/react/src/components/CTA) component for full usage details. |
    * | `copy`    | YES      | String    | Item content.                                                                                                                                                                                                           |
    */
   items: PropTypes.arrayOf(
