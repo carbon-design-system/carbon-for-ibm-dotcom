@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.36.1-rc.0...@carbon/web-components@1.36.1) (2024-02-12)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+## [1.36.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.35.0...@carbon/web-components@1.36.1-rc.0) (2024-02-05)
+
+
+### Bug Fixes
+
+* **input:** display default value properly ([#11411](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11411)) ([32cffc8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/32cffc8998cac0d14ca1e3cb9a47e3178f94a13b)), closes [#11391](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11391)
+
+
+
+
+
 # [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.34.0...@carbon/web-components@1.35.0) (2023-12-20)
 
 **Note:** Version bump only for package @carbon/web-components
