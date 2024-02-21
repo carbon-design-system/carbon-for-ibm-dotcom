@@ -26,6 +26,9 @@ import styles from './toggletip.scss';
  */
 @customElement(`${prefix}-toggletip`)
 class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
+  /**
+   * Create popover controller instance
+   */
   private popoverController = new PopoverController(this);
 
   /**
