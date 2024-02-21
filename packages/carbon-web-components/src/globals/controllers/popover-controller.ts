@@ -107,47 +107,46 @@ export default class PopoverController implements ReactiveController {
         : []),
     ];
 
-    const { x, y, placement, middlewareData, strategy } = await computePosition(
-      trigger,
-      target,
-      {
-        strategy: 'fixed',
-        middleware,
-        placement: shimmedAlign as Placement,
+    if (this.host.hasAttribute('open')) {
+      const { x, y, placement, middlewareData, strategy } =
+        await computePosition(trigger, target, {
+          strategy: 'fixed',
+          middleware,
+          placement: shimmedAlign as Placement,
+        });
+
+      target.style.left = `${x}px`;
+      target.style.top = `${y}px`;
+      target.style.position = `${strategy}`;
+
+      if (arrowElement) {
+        // @ts-ignore
+        const { x: arrowX, y: arrowY } = middlewareData.arrow;
+
+        const staticSide: any = {
+          top: 'bottom',
+          right: 'left',
+          bottom: 'top',
+          left: 'right',
+        }[placement.split('-')[0]];
+
+        arrowElement.style.left = arrowX != null ? `${arrowX}px` : '';
+        arrowElement.style.top = arrowY != null ? `${arrowY}px` : '';
+        arrowElement.style.right = '';
+        arrowElement.style.bottom = '';
+        arrowElement.style[staticSide] = `${-arrowElement.offsetWidth / 2}px`;
       }
-    );
 
-    target.style.left = `${x}px`;
-    target.style.top = `${y}px`;
-    target.style.position = `${strategy}`;
-
-    if (arrowElement) {
-      // @ts-ignore
-      const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
-      const staticSide: any = {
-        top: 'bottom',
-        right: 'left',
-        bottom: 'top',
-        left: 'right',
-      }[placement.split('-')[0]];
-
-      arrowElement.style.left = arrowX != null ? `${arrowX}px` : '';
-      arrowElement.style.top = arrowY != null ? `${arrowY}px` : '';
-      arrowElement.style.right = '';
-      arrowElement.style.bottom = '';
-      arrowElement.style[staticSide] = `${-arrowElement.offsetWidth / 2}px`;
-    }
-
-    // adding specific case here where the style of the caret/arrow
-    // is dependent on the placement
-    if (this.host.tagName === 'CDS-SLUG') {
-      this.host?.setAttribute('alignment', placement);
+      // adding specific case here where the style of the caret/arrow
+      // is dependent on the placement
+      if (this.host.tagName === 'CDS-SLUG') {
+        this.host?.setAttribute('alignment', placement);
+      }
     }
   }
 
   hostUpdated(): void {
-    if (!this.host.open) {
+    if (!this.host.hasAttribute('open')) {
       this.cleanup?.();
       this.cleanup = undefined;
     }
