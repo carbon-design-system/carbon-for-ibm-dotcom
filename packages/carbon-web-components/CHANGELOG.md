@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.35.0...@carbon/web-components@1.37.0-rc.0) (2024-02-22)
+
+
+### Bug Fixes
+
+* **filter-tag:** v1 open not showing ([#11561](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11561)) ([9437fa8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9437fa8217ca95734a97da8f92e955da7af28aa1))
+* **overflow-menu:** position cherry pick from 1adb618 for v1 branch ([#11472](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11472)) ([ee66342](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ee66342a6faa027fbba8393d62c40d1be83b6dd2))
+* **v1-links:** switch from main branch to v1 branch ([#11562](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11562)) ([539bf78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/539bf7842a15ce7e9ac8faa0f8b40ee625b86611))
+
+
+
+
+
 ## [1.36.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.36.1-rc.0...@carbon/web-components@1.36.1) (2024-02-12)
 
 **Note:** Version bump only for package @carbon/web-components
