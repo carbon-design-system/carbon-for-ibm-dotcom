@@ -127,7 +127,15 @@ class CDSModal extends HostListenerMixin(LitElement) {
     // * Modal body used to have focus but no longer has focus
     const { selectorTabbable: selectorTabbableForModal } = this
       .constructor as typeof CDSModal;
-    if (open && relatedTarget && !currentContains) {
+    if (open && relatedTarget === startSentinelNode && PRECEDING) {
+      await (this.constructor as typeof CDSModal)._delay();
+      if (
+        !tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) &&
+        relatedTarget !== this
+      ) {
+        this.focus();
+      }
+    } else if (open && relatedTarget && !currentContains) {
       const comparisonResult = (target as Node).compareDocumentPosition(
         relatedTarget as Node
       );
@@ -151,17 +159,6 @@ class CDSModal extends HostListenerMixin(LitElement) {
       ) {
         await (this.constructor as typeof CDSModal)._delay(0.25);
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
-          this.focus();
-        }
-      } else if (open && relatedTarget === startSentinelNode && PRECEDING) {
-        await (this.constructor as typeof CDSModal)._delay();
-        if (
-          !tryFocusElems(
-            this.querySelectorAll(selectorTabbableForModal),
-            true
-          ) &&
-          relatedTarget !== this
-        ) {
           this.focus();
         }
       }
