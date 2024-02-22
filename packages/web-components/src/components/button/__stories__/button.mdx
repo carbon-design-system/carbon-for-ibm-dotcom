@@ -1,6 +1,9 @@
-import { ArgsTable, Markdown } from '@storybook/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import { ArgsTable, Markdown, Meta } from '@storybook/blocks';
+import contributing from '../../../../../../docs/contributing-license.md?raw?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+import * as ButtonStories from './button.stories';
+
+<Meta of={ButtonStories} />
 
 # Button
 
@@ -75,4 +78,4 @@ to see how Web Components selector and `data-autoid` should be used.
 | ----------------------- | --------------------------- | ----------- |
 | `<c4d-button>`          | `data-autoid="c4d--button"` | Component   |
 
-<Description markdown={contributing} />
+<Markdown>{contributing}</Markdown>
