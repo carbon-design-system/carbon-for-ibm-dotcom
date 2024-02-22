@@ -9,10 +9,10 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import CDSModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
+import CDSModalBody from '@carbon/web-components/es/components/modal/modal-body.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import '@carbon/web-components/es/components/link/link.js';
 import styles from './leaving-ibm.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';

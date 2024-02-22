@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSStructuredListCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-cell.js';
+import CDSStructuredListCell from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import Info16 from '../../internal/vendor/@carbon/web-components/icons/information/16.js';

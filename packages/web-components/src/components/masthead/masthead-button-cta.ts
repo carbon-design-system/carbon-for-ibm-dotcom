@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXButton from '../../internal/vendor/@carbon/web-components/components/button/button';
+import BXButton from '@carbon/web-components/es/components/button/button';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CTA_TYPE } from '../cta/defs';
 import styles from './masthead.scss?lit';

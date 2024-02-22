@@ -9,7 +9,7 @@
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import CDSTabs from '../../internal/vendor/@carbon/web-components/components/tabs/tabs';
+import CDSTabs from '@carbon/web-components/es/components/tabs/tabs';
 
 import styles from './tabs-extended.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';

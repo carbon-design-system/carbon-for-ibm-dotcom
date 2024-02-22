@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
 import styles from './locale-modal.scss?lit';

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSStructuredListBody from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-body.js';
+import CDSStructuredListBody from '@carbon/web-components/es/components/structured-list/structured-list-body.js';
 import {} from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss?lit';

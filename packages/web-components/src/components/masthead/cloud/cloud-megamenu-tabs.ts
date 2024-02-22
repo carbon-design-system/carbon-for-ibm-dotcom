@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSTabs from '../../../internal/vendor/@carbon/web-components/components/tabs/tabs.js';
+import CDSTabs from '@carbon/web-components/es/components/tabs/tabs.js';
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss?lit';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';

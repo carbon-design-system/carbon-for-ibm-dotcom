@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
+import CDSModalHeading from '@carbon/web-components/es/components/modal/modal-heading.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss?lit';

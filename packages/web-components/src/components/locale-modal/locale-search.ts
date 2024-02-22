@@ -9,12 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/text-input/text-input.js';
+import { INPUT_SIZE } from '@carbon/web-components/es/components/text-input/text-input.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
-import CDSSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
-import '../../internal/vendor/@carbon/web-components/components/search/search.js';
+import CDSSearch from '@carbon/web-components/es/components/search/search.js';
+import '@carbon/web-components/es/components/search/search.js';
 import C4DLocaleItem from './locale-item';
 import styles from './locale-modal.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

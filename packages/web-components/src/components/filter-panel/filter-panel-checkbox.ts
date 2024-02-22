@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSCheckbox from '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox';
+import CDSCheckbox from '@carbon/web-components/es/components/checkbox/checkbox';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal';
+import '@carbon/web-components/es/components/modal/modal';
 import styles from './filter-panel.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';

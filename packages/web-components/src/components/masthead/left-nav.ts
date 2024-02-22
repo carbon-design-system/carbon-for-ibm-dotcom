@@ -14,7 +14,7 @@ import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/g
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import CDSSideNav, {
   SIDE_NAV_USAGE_MODE,
-} from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
+} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSBreadcrumb from '../../internal/vendor/@carbon/web-components/components/breadcrumb/breadcrumb.js';
+import CDSBreadcrumb from '@carbon/web-components/es/components/breadcrumb/breadcrumb.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace.scss?lit';

@@ -16,8 +16,8 @@ import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
   DROPDOWN_TYPE,
   NAVIGATION_DIRECTION,
-} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
-import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+} from '@carbon/web-components/es/components/dropdown/dropdown.js';
+import CDSDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';

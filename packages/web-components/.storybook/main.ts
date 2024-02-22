@@ -44,6 +44,7 @@ const config: StorybookConfig = {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
       assetsInclude: ['**/*.md'],
+      define: { 'process.env': {} },
       plugins: [
         litStyleLoader(),
         litTemplateLoader(),

@@ -9,7 +9,7 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import CDSModal from '@carbon/web-components/es/components/modal/modal.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -22,10 +22,10 @@ import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
 import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-footer.js';
-import '../../internal/vendor/@carbon/web-components/components/button/button.js';
+import '@carbon/web-components/es/components/modal/modal-header.js';
+import '@carbon/web-components/es/components/modal/modal-close-button.js';
+import '@carbon/web-components/es/components/modal/modal-footer.js';
+import '@carbon/web-components/es/components/button/button.js';
 import styles from './leaving-ibm.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

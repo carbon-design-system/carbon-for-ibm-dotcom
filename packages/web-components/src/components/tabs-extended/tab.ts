@@ -11,7 +11,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './tabs-extended.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import CDSTab from '../../internal/vendor/@carbon/web-components/components/tabs/tab';
+import CDSTab from '@carbon/web-components/es/components/tabs/tab';
 
 const { stablePrefix: c4dPrefix } = settings;
 

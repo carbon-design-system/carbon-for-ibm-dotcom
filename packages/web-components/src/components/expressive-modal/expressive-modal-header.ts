@@ -8,7 +8,7 @@
  */
 
 import { property } from 'lit/decorators.js';
-import CDSModalHeader from '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
+import CDSModalHeader from '@carbon/web-components/es/components/modal/modal-header.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './expressive-modal.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
