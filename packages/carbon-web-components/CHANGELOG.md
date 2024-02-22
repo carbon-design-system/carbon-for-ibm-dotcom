@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.2...@carbon/web-components@2.4.0-rc.3) (2024-02-22)
+
+
+### Bug Fixes
+
+* **datatable:** is sortable console error ([#11568](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11568)) ([d827360](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d827360733c98ea138ad0eb92ca98ea78fb33624))
+
+
+
+
+
+# [2.4.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.1...@carbon/web-components@2.4.0-rc.2) (2024-02-21)
+
+
+### Features
+
+* **autoalign:** utilize autoUpdate from @floating-ui/dom ([#11565](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11565)) ([918089c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/918089cfee729db0d642788f973416dfc0fcca3a))
+
+
+
+
+
+# [2.4.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.0...@carbon/web-components@2.4.0-rc.1) (2024-02-20)
+
+
+### Bug Fixes
+
+* **tabs:** container size wrong ([#11556](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11556)) ([b520fc4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b520fc4a7b8d55b7bf622cbcebebdfa528cb43f1))
+
+
+### Features
+
+* **autoalign:** @floating-ui/dom implementation ([#11549](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11549)) ([85db5f4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/85db5f47ca3303e14410f73b9ac3bc2c08bb6d3e))
+
+
+
+
+
 # [2.4.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.3.0...@carbon/web-components@2.4.0-rc.0) (2024-02-19)
 
 

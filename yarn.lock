@@ -3175,7 +3175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-services@npm:2.4.0-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@npm:2.4.0-rc.3, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -3188,7 +3188,7 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:7.18.5"
     "@babel/preset-env": "npm:~7.23.2"
     "@babel/runtime": "npm:^7.16.3"
-    "@carbon/ibmdotcom-utilities": "npm:2.4.0-rc.0"
+    "@carbon/ibmdotcom-utilities": "npm:2.4.0-rc.3"
     "@carbon/telemetry": "npm:0.1.0"
     "@rollup/plugin-babel": "npm:^5.3.1"
     "@rollup/plugin-commonjs": "npm:^21.0.3"
@@ -3222,7 +3222,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@npm:2.4.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@npm:2.4.0-rc.3, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -3261,7 +3261,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-utilities@npm:2.4.0-rc.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@npm:2.4.0-rc.3, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -3326,10 +3326,10 @@ __metadata:
     "@babel/preset-react": "npm:~7.12.1"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
-    "@carbon/ibmdotcom-services": "npm:2.4.0-rc.0"
+    "@carbon/ibmdotcom-services": "npm:2.4.0-rc.3"
     "@carbon/ibmdotcom-services-store": "npm:1.53.0"
-    "@carbon/ibmdotcom-styles": "npm:2.4.0-rc.0"
-    "@carbon/ibmdotcom-utilities": "npm:2.4.0-rc.0"
+    "@carbon/ibmdotcom-styles": "npm:2.4.0-rc.3"
+    "@carbon/ibmdotcom-utilities": "npm:2.4.0-rc.3"
     "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.36.0"
     "@carbon/icons-react": "npm:^11.33.0"
@@ -3340,7 +3340,7 @@ __metadata:
     "@carbon/styles": "npm:1.51.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:11.25.1"
-    "@carbon/web-components": "npm:2.4.0-rc.0"
+    "@carbon/web-components": "npm:2.4.0-rc.3"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.27.4"
@@ -3643,7 +3643,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@npm:2.4.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:2.4.0-rc.3, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
@@ -3666,6 +3666,7 @@ __metadata:
     "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.36.0"
     "@carbon/styles": "npm:1.51.0"
+    "@floating-ui/dom": "npm:^1.6.3"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.27.4"
@@ -4286,6 +4287,32 @@ __metadata:
   version: 2.1.0
   resolution: "@fastify/busboy@npm:2.1.0"
   checksum: 10/f22c1e5c52dc350ddf9ba8be9f87b48d3ea5af00a37fd0a0d1e3e4b37f94d96763e514c68a350c7f570260fdd2f08b55ee090cdd879f92a03249eb0e3fd19113
+  languageName: node
+  linkType: hard
+
+"@floating-ui/core@npm:^1.0.0":
+  version: 1.6.0
+  resolution: "@floating-ui/core@npm:1.6.0"
+  dependencies:
+    "@floating-ui/utils": "npm:^0.2.1"
+  checksum: 10/d6a47cacde193cd8ccb4c268b91ccc4ca254dffaec6242b07fd9bcde526044cc976d27933a7917f9a671de0a0e27f8d358f46400677dbd0c8199de293e9746e1
+  languageName: node
+  linkType: hard
+
+"@floating-ui/dom@npm:^1.6.3":
+  version: 1.6.3
+  resolution: "@floating-ui/dom@npm:1.6.3"
+  dependencies:
+    "@floating-ui/core": "npm:^1.0.0"
+    "@floating-ui/utils": "npm:^0.2.0"
+  checksum: 10/83e97076c7a5f55c3506f574bc53f03d38bed6eb8181920c8733076889371e287e9ae6f28c520a076967759b9b6ff425362832a5cdf16a999069530dbb9cce53
+  languageName: node
+  linkType: hard
+
+"@floating-ui/utils@npm:^0.2.0, @floating-ui/utils@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@floating-ui/utils@npm:0.2.1"
+  checksum: 10/33c9ab346e7b05c5a1e6a95bc902aafcfc2c9d513a147e2491468843bd5607531b06d0b9aa56aa491cbf22a6c2495c18ccfc4c0344baec54a689a7bb8e4898d6
   languageName: node
   linkType: hard
 
