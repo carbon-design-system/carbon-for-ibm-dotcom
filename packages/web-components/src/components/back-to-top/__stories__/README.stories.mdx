@@ -1,11 +1,9 @@
-import {
-  Preview,
-  Props,
-  Description,
-  Story,
-} from '@storybook/addon-docs/blocks';
+import { ArgsTable, Markdown, Meta } from '@storybook/blocks';
 import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+import * as BackToTopStories from './back-to-top.stories';
+
+<Meta of={BackToTopStories} />
 
 # Back to top
 
@@ -25,9 +23,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/back-to-top/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['back-to-top'] })}`} />
+<Markdown>{`${cdnJs({ components: ['back-to-top'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
@@ -41,7 +39,7 @@ implementation place `<c4d-back-to-top>` within the page's main content area.
 
 ## Props
 
-<Props of="c4d-back-to-top" />
+<ArgsTable of="c4d-back-to-top" />
 
 ## Stable selectors
 
@@ -53,4 +51,4 @@ to see how Web Components selector and `data-autoid` should be used.
 | ----------------------- | -------------------------------- | ----------- |
 | `<c4d-back-to-top>`     | `data-autoid="c4d--back-to-top"` | Component   |
 
-<Description markdown={contributing} />
+<Markdown>{contributing}</Markdown>
