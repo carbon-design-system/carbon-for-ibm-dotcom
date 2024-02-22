@@ -348,7 +348,7 @@ class C4DFooterComposite extends MediaQueryMixin(
         buttonLabel="${ifDefined(buttonLabel)}"
         size="${size}"
         slot="${slot}"
-        @click="${handleClickLocaleButton}"
+        @click="${handleClickLocaleButton.bind(this)}"
         >${langDisplay}</c4d-locale-button
       >
     `;
@@ -407,7 +407,9 @@ class C4DFooterComposite extends MediaQueryMixin(
         <c4d-legal-nav
           size="${ifDefined(size)}"
           navLabel="${ifDefined(navLabel)}">
-          <c4d-footer-logo size="${ifDefined(size)}"></c4d-footer-logo>
+          <c4d-footer-logo
+            size="${ifDefined(size)}"
+            ?disable-locale-button="${disableLocaleButton}"></c4d-footer-logo>
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`
               <c4d-legal-nav-item

@@ -404,9 +404,13 @@ class CDSTable extends HostListenerMixin(LitElement) {
     const columns = [...this._tableHeaderRow.children];
     const columnIndex = columns.indexOf(target);
 
-    columns.forEach(
-      (e) => e !== target && e.setAttribute('sort-direction', 'none')
-    );
+    columns.forEach((e) => {
+      if (e !== target && this.isSortable) {
+        e.setAttribute('sort-direction', 'none');
+      } else if (e.hasAttribute('is-sortable')) {
+        e.setAttribute('sort-direction', 'none');
+      }
+    });
 
     this._handleSortAction(columnIndex, sortDirection);
 
@@ -775,6 +779,30 @@ class CDSTable extends HostListenerMixin(LitElement) {
         row.removeAttribute('rows-with-slug');
       });
     }
+
+    // Gets table header info to add to the column cells for styles
+    const headersWithSlug: number[] = [];
+
+    Array.prototype.slice
+      .call(this._tableHeaderRow.children)
+      .forEach((headerCell, index) => {
+        if (headerCell.querySelector(`${prefix}-slug`)) {
+          headerCell.setAttribute('slug', '');
+          headersWithSlug.push(index);
+        } else {
+          headerCell.removeAttribute('slug');
+        }
+      });
+
+    this._tableRows.forEach((row) => {
+      Array.prototype.slice
+        .call((row as HTMLElement).children)
+        .forEach((cell, index) => {
+          headersWithSlug.includes(index)
+            ? cell.setAttribute('slug-in-header', '')
+            : cell.removeAttribute('slug-in-header');
+        });
+    });
   }
 
   /* eslint-disable no-constant-condition */
@@ -825,10 +853,13 @@ class CDSTable extends HostListenerMixin(LitElement) {
       }
     });
 
-    columns.forEach(
-      (e, index) =>
-        index !== columnIndex && e.setAttribute('sort-direction', 'none')
-    );
+    columns.forEach((e, index) => {
+      if (index !== columnIndex && this.isSortable) {
+        e.setAttribute('sort-direction', 'none');
+      } else if (e.hasAttribute('is-sortable')) {
+        e.setAttribute('sort-direction', 'none');
+      }
+    });
     this._handleSortAction(columnIndex, sortDirection);
   }
 

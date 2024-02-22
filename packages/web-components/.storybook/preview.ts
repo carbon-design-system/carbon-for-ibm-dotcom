@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,6 @@ export const parameters = {
           'Building for IBM(dotcom)',
           'Carbon CDN style helpers',
           'Stable selectors',
-          'Enable right-to-left (RTL)',
           'Feature flags',
           'Contributing to the Web Components package',
           'Breaking Changes',
