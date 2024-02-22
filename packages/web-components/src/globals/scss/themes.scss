@@ -4,10 +4,33 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-@use '@carbon/styles/scss/theme' as *;
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/themes/scss/themes';
+@use '@carbon/styles/scss/theme';
 @use '@carbon/ibmdotcom-styles/scss/globals/tokens/color-tokens' as color-tokens;
 @use '@carbon/ibmdotcom-styles/scss/components/card-in-card/tokens' as
   card-in-card-tokens;
 
-@include add-component-tokens(color-tokens.$color-tokens);
-@include add-component-tokens(card-in-card-tokens.$card-in-card-tokens);
+@include theme.add-component-tokens(color-tokens.$color-tokens);
+@include theme.add-component-tokens(card-in-card-tokens.$card-in-card-tokens);
+
+:host(.#{$prefix}-theme-zone-white),
+.#{$prefix}-theme-zone-white {
+  @include theme.theme(themes.$white);
+}
+
+:host(.#{$prefix}-theme-zone-g10),
+.#{$prefix}-theme-zone-g10 {
+  @include theme.theme(themes.$g10);
+}
+
+:host(.#{$prefix}-theme-zone-g90),
+.#{$prefix}-theme-zone-g90 {
+  @include theme.theme(themes.$g90);
+}
+
+:host(.#{$prefix}-theme-zone-g100),
+.#{$prefix}-theme-zone-g100 {
+  @include theme.theme(themes.$g100);
+}
