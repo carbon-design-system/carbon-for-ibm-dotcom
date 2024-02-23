@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,6 +24,12 @@ const { stablePrefix: c4dPrefix } = c4dSettings;
  */
 @customElement(`${c4dPrefix}-megamenu-tab`)
 class C4DMegaMenuTab extends CDSTab {
+  /**
+   * Disable unneeded properties inherited from CDS Content Switcher Item.
+   */
+  closeOnActivation = false;
+  hideDivider = false;
+
   render() {
     const { disabled, selected, value } = this;
     return html`
