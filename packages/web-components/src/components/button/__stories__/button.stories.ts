@@ -8,39 +8,93 @@
  */
 
 import { html } from 'lit';
-import { types } from '../../cta/__stories__/ctaTypeConfig';
+import {
+  hrefsForType,
+  knobNamesForType,
+  typeOptions,
+  types,
+} from '../../cta/__stories__/ctaTypeConfig';
+import { CTA_TYPE } from '../../cta/defs';
 import '../button';
-import '../../video-player/video-player-container';
+import '../../cta/video-cta-container';
+
+
 
 const controls = {
   ctaType: {
     control: 'select',
-    description: 'Specify the kind of button you want to create',
-    options: types,
+    description: 'CTA type (cta-type)',
+    options: typeOptions
+  },
+  copy: {
+    control: 'text',
+    description: 'Link text (unnamed slot)',
+    if: { arg: 'ctaType', neq: `${CTA_TYPE.VIDEO}` }
+  },
+  customVideoTitle: {
+    control: 'text',
+    description: 'Custom video title',
+    if: { arg: 'ctaType', eq: `${CTA_TYPE.VIDEO}` }
   },
   disabled: {
     control: 'boolean',
-    description: 'Specify whether the button should be disabled or not',
+    description: 'Disabled (disabled)'
   },
   download: {
-    control: 'boolean',
-    description: 'Specify whether the button is type download',
+    control: 'text',
+    description: 'Download target (download)',
+    if: { arg: 'ctaType', eq: `${CTA_TYPE.DOWNLOAD}` }
   },
+  href: {
+    control: 'text',
+    description: knobNamesForType[CTA_TYPE.REGULAR]
+  }
 };
+
+const defaultArgs = {
+  ctaType: types[CTA_TYPE.LOCAL],
+  copy: 'Button text',
+  customVideoTitle: 'Custom video title',
+  disabled: false,
+  download: 'IBM_Annual_Report_2019.pdf',
+};
+
 
 export const Default = {
   argTypes: controls,
-  render: ({ ctaType, disabled, download }) => html`
+  args: defaultArgs,
+  render: ({ copy, ctaType, customVideoTitle, disabled, download }) => {
+    
+    const href = hrefsForType[ctaType ?? CTA_TYPE.REGULAR];
+
+    let videoCopy;
+
+    if (ctaType === CTA_TYPE.VIDEO) {
+      const button = document.querySelector('c4d-button') as any;
+      const duration = button?.videoTitle?.match(/\((.*)\)/)?.pop();
+  
+      if (!customVideoTitle) {
+        videoCopy = button?.videoTitle;
+      } else {
+        videoCopy = duration
+          ? `${customVideoTitle} (${duration})`
+          : customVideoTitle;
+      }
+    }
+
+    return html`
     <c4d-video-cta-container>
       <c4d-button
+        custom-video-title=${customVideoTitle}
         ?disabled="${disabled}"
-        href="http://www.example.com"
+        href="${href}"
         download=${download}
         cta-type="${ctaType}">
-        button
+        ${videoCopy ?? copy}
       </c4d-button>
     </c4d-video-cta-container>
-  `,
+  `
+  },
 };
 
 const meta = {

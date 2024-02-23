@@ -10,25 +10,20 @@
 import { html } from 'lit';
 import '../index';
 import '../../dotcom-shell/dotcom-shell-container';
-import readme from './README.stories.mdx';
-import { StoryContent } from './data/content';
-import styles from './back-to-top.stories.scss?lit';
+// import { StoryContent } from './data/content';
+// import styles from './back-to-top.stories.scss?lit';
 
-export const Default = () => {
-  return html`
+export const Default = {
+  render: () => html`
     <style>
-      ${styles}
+
     </style>
-    <c4d-dotcom-shell-container>
-      ${StoryContent()}
-      <c4d-back-to-top></c4d-back-to-top>
-    </c4d-dotcom-shell-container>
-  `;
+<p>TESTTTTTT</p>
+  `
 };
 
-export default {
+const meta = {
   title: 'Components/Back to top',
-  parameters: {
-    ...readme.parameters,
-  },
 };
+
+export default meta;
