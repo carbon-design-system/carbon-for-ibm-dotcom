@@ -18,8 +18,12 @@ const stories = glob.sync(
     // '../docs/**/*.mdx',
     // '../src/**/*.mdx',
     // '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/**/back-to-top.mdx',
+    '../src/**/back-to-top.stories.ts',
     '../src/**/button.mdx',
     '../src/**/button.stories.ts',
+    '../src/**/card.mdx',
+    '../src/**/card.stories.ts',
   ],
   {
     ignore: ['../src/**/docs/*.mdx'],
@@ -45,6 +49,13 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       assetsInclude: ['**/*.md'],
       define: { 'process.env': {} },
+      // css: {
+      //   preprocessorOptions: {
+      //     scss: {
+      //       additionalData: `@forward '@carbon/styles/scss/config';`,
+      //     }
+      //   }
+      // },
       plugins: [
         litStyleLoader(),
         litTemplateLoader(),
