@@ -3336,7 +3336,7 @@ __metadata:
     "@carbon/layout": "npm:11.20.1"
     "@carbon/motion": "npm:11.16.1"
     "@carbon/pictograms-react": "npm:11.57.0"
-    "@carbon/react": "npm:1.51.0"
+    "@carbon/react": "npm:1.51.1"
     "@carbon/styles": "npm:1.51.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:11.25.1"
@@ -3544,15 +3544,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/react@npm:1.51.0":
-  version: 1.51.0
-  resolution: "@carbon/react@npm:1.51.0"
+"@carbon/react@npm:1.51.1":
+  version: 1.51.1
+  resolution: "@carbon/react@npm:1.51.1"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     "@carbon/feature-flags": "npm:^0.16.0"
     "@carbon/icons-react": "npm:^11.36.0"
     "@carbon/layout": "npm:^11.20.0"
-    "@carbon/styles": "npm:^1.51.0"
+    "@carbon/styles": "npm:^1.51.1"
     "@ibm/telemetry-js": "npm:^1.2.0"
     classnames: "npm:2.5.1"
     copy-to-clipboard: "npm:^3.3.1"
@@ -3573,7 +3573,7 @@ __metadata:
     react: ^16.8.6 || ^17.0.1 || ^18.2.0
     react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0
     sass: ^1.33.0
-  checksum: 10/b11073772f8a3b5754d0617400781217da60ba82f48c1efe28f219c7fcac3d14709229f4621355d78949b684529f2a575b169715965873d71bf0b294acb3a37d
+  checksum: 10/c7fc8a0047b8863c91b062496b4f63fa6ee95f8738c8b75690188e7c402ff5e72522e7e681d4f200e81025a8c0b434bf3f1eabc32c2d75b10a8a2694765a0f7e
   languageName: node
   linkType: hard
 
@@ -3591,7 +3591,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.51.0, @carbon/styles@npm:^1.51.0":
+"@carbon/styles@npm:1.51.0":
   version: 1.51.0
   resolution: "@carbon/styles@npm:1.51.0"
   dependencies:
@@ -3609,6 +3609,27 @@ __metadata:
     sass:
       optional: true
   checksum: 10/39f9e56f192c1458a8ba11e2c0c0b58fe1b09e7212adfcc00b61fb270578949979c4ce4b8166193a5489ae347a0558855dae27f47ca0a7a09367cda94aa16fc0
+  languageName: node
+  linkType: hard
+
+"@carbon/styles@npm:^1.51.1":
+  version: 1.51.1
+  resolution: "@carbon/styles@npm:1.51.1"
+  dependencies:
+    "@carbon/colors": "npm:^11.20.0"
+    "@carbon/feature-flags": "npm:^0.16.0"
+    "@carbon/grid": "npm:^11.21.0"
+    "@carbon/layout": "npm:^11.20.0"
+    "@carbon/motion": "npm:^11.16.0"
+    "@carbon/themes": "npm:^11.32.0"
+    "@carbon/type": "npm:^11.25.0"
+    "@ibm/plex": "npm:6.0.0-next.6"
+  peerDependencies:
+    sass: ^1.33.0
+  peerDependenciesMeta:
+    sass:
+      optional: true
+  checksum: 10/a8078f31bf43b52e615b7e732fc6b8043b28fa0a3fabaf4835ea7976f43ac3c191b7b96ea5a829af4ebcf3df564be144497d0bac14cf61c6342b5e061ebc5bed
   languageName: node
   linkType: hard
 
