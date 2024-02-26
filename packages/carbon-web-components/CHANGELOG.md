@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.3...@carbon/web-components@2.4.0) (2024-02-26)
+
+
+
+# 2.4.0-rc.4 (2024-02-23)
+
+
+### Bug Fixes
+
+* **autoalign:** fix autoalign CSB example ([#11572](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11572)) ([bf6ccfb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bf6ccfbb259a3bd884d037048c522c6729813e6c))
+* **side-nav:** update max-block-size; closes [#10936](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10936) ([#11571](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11571)) ([0fe6fef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0fe6fef5c1713cfe4e155a5c4f3b8376b5d4e246))
+
+
+
+
+
+# [2.4.0-rc.4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.3...@carbon/web-components@2.4.0-rc.4) (2024-02-23)
+
+
+### Bug Fixes
+
+* **autoalign:** fix autoalign CSB example ([#11572](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11572)) ([bf6ccfb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bf6ccfbb259a3bd884d037048c522c6729813e6c))
+* **side-nav:** update max-block-size; closes [#10936](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10936) ([#11571](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11571)) ([0fe6fef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0fe6fef5c1713cfe4e155a5c4f3b8376b5d4e246))
+
+
+
+
+
+# [2.4.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.2...@carbon/web-components@2.4.0-rc.3) (2024-02-22)
+
+
+### Bug Fixes
+
+* **datatable:** is sortable console error ([#11568](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11568)) ([d827360](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d827360733c98ea138ad0eb92ca98ea78fb33624))
+
+
+
+
+
+# [2.4.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.1...@carbon/web-components@2.4.0-rc.2) (2024-02-21)
+
+
+### Features
+
+* **autoalign:** utilize autoUpdate from @floating-ui/dom ([#11565](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11565)) ([918089c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/918089cfee729db0d642788f973416dfc0fcca3a))
+
+
+
+
+
 # [2.4.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.0...@carbon/web-components@2.4.0-rc.1) (2024-02-20)
 
 
