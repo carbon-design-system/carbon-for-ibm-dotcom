@@ -144,7 +144,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   @query(`.${blockClass}__inner-content`)
   private _innerContent!: HTMLElement;
 
-  @queryAssignedElements({ slot: 'actions', selector: 'cds-button' })
+  @queryAssignedElements({ slot: 'actions', selector: `${prefix}-button` })
   private _actions!: Array<HTMLElement>;
 
   @state()
