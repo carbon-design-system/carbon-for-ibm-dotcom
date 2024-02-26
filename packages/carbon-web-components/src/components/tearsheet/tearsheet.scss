@@ -204,7 +204,7 @@ $motion-duration: $duration-moderate-02;
     }
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    ::slotted(cds-button[kind='ghost']) {
+    ::slotted(`#{$prefix}-button[kind='ghost']`) {
       flex: 1 1 25%;
       max-inline-size: none;
     }
