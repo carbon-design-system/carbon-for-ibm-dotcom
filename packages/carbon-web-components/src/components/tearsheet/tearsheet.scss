@@ -79,7 +79,7 @@ $motion-duration: $duration-moderate-02;
     }
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    [has-actions] ::slotted(cds-slug) {
+    [has-actions] ::slotted(#{$prefix}-slug) {
       inset-inline-end: 0;
     }
   }
@@ -137,7 +137,7 @@ $motion-duration: $duration-moderate-02;
 
     .#{$block-class}__header-navigation {
       margin-inline-start: calc(-1 * #{$spacing-05});
-      max-block-size: $spacing-08; /* cds-tabs too tall */
+      max-block-size: $spacing-08; /* #{$prefix}-tabs too tall */
     }
 
     .#{$block-class}__content {
@@ -195,7 +195,7 @@ $motion-duration: $duration-moderate-02;
     }
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    ::slotted(cds-button) {
+    ::slotted(#{$prefix}-button) {
       @extend .#{$block-class-action-set}__action-button;
 
       flex: 0 1 25%;
@@ -204,7 +204,7 @@ $motion-duration: $duration-moderate-02;
     }
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    ::slotted(`#{$prefix}-button[kind='ghost']`) {
+    ::slotted(#{$prefix}-button[kind='ghost']) {
       flex: 1 1 25%;
       max-inline-size: none;
     }
@@ -218,8 +218,8 @@ $motion-duration: $duration-moderate-02;
 
   [width='narrow'] .#{$block-class}__buttons {
     /* stylelint-disable selector-type-no-unknown */
-    &[actions-multiple='single'] ::slotted(cds-button),
-    &[actions-multiple='double'] ::slotted(cds-button) {
+    &[actions-multiple='single'] ::slotted(#{$prefix}-button),
+    &[actions-multiple='double'] ::slotted(#{$prefix}-button) {
       /* stylelint-enable selector-type-no-unknown */
       // double and single on lg use 50%
       flex: 0 1 50%;
@@ -227,7 +227,7 @@ $motion-duration: $duration-moderate-02;
     }
 
     /* stylelint-disable-next-line selector-type-no-unknown */
-    ::slotted(cds-button) {
+    ::slotted(#{$prefix}-button) {
       block-size: $spacing-10;
     }
   }
