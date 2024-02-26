@@ -128,7 +128,7 @@ export const TwoHandleSlider = () => {
         <cds-slider-input
           aria-label="Slider value"
           type="number"
-          id="lower"></cds-slider-input>
+          id="lower" slot="lower-input"></cds-slider-input>
         <cds-slider-input
           aria-label="Slider Upper value"
           type="number"
