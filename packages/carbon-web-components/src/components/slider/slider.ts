@@ -175,7 +175,7 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   /**
    * Handles `keydown` event on the thumb to increase/decrease the value.
    */
-  private _handleKeydown( event: KeyboardEvent) {
+  private _handleKeydown(event: KeyboardEvent) {
     const eventContainer = (event.target as HTMLElement).id;
     const { key, shiftKey } = event;
     if (!this.disabled) {
@@ -195,45 +195,51 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
         const diff =
           (!shiftKey ? step : (max - min) / stepMultiplier) *
           THUMB_DIRECTION[key];
-          // Snaps to next
-          if(eventContainer == 'thumb-upper'){
-            const stepCount = (valueUpper + diff) / step;
-            this.valueUpper = Math.min(
-              max,
-              Math.max(
-                min,
-                (diff >= 0 ? Math.floor(stepCount) : Math.ceil(stepCount)) * step
-              )
-            );
-            this.dispatchEvent(
-              new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
+        // Snaps to next
+        if (eventContainer == 'thumb-upper') {
+          const stepCount = (valueUpper + diff) / step;
+          this.valueUpper = Math.min(
+            max,
+            Math.max(
+              min,
+              (diff >= 0 ? Math.floor(stepCount) : Math.ceil(stepCount)) * step
+            )
+          );
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
                 bubbles: true,
                 composed: true,
                 detail: {
                   value: this.valueUpper,
                   intermediate: false,
                 },
-              })
-            );
-        }else{
+              }
+            )
+          );
+        } else {
           const stepCount = (value + diff) / step;
-            this.value = Math.min(
-              max,
-              Math.max(
-                min,
-                (diff >= 0 ? Math.floor(stepCount) : Math.ceil(stepCount)) * step
-              )
-            );
-            this.dispatchEvent(
-              new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
+          this.value = Math.min(
+            max,
+            Math.max(
+              min,
+              (diff >= 0 ? Math.floor(stepCount) : Math.ceil(stepCount)) * step
+            )
+          );
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
                 bubbles: true,
                 composed: true,
                 detail: {
                   value: this.value,
                   intermediate: false,
                 },
-              })
-            );
+              }
+            )
+          );
         }
       }
     }
@@ -281,39 +287,54 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
             },
           })
         );
-      } else{
-        if(!this.valueUpper){
+      } else {
+        if (!this.valueUpper) {
           this._rate =
             (isRtl
               ? trackLeft + trackWidth - thumbPosition
               : thumbPosition - trackLeft) / trackWidth;
           this.dispatchEvent(
-            new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
-              bubbles: true,
-              composed: true,
-              detail: {
-                value: this.value,
-              },
-            })
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.value,
+                },
+              }
+            )
           );
-        }else{
+        } else {
           const position =
             ((isRtl
               ? trackLeft + trackWidth - thumbPosition
-              : thumbPosition - trackLeft) / trackWidth)*100;
-          const differenceValue = position > this.value ? position - this.value : this.value - position;  
-          const differenceValueUpper = position > this.valueUpper ? position - this.valueUpper : this.valueUpper - position;  
-          differenceValue > differenceValueUpper ? this._rateUpper = position/100 : this._rate = position/100;
+              : thumbPosition - trackLeft) /
+              trackWidth) *
+            100;
+          const differenceValue =
+            position > this.value
+              ? position - this.value
+              : this.value - position;
+          const differenceValueUpper =
+            position > this.valueUpper
+              ? position - this.valueUpper
+              : this.valueUpper - position;
+          differenceValue > differenceValueUpper
+            ? (this._rateUpper = position / 100)
+            : (this._rate = position / 100);
           this.dispatchEvent(
-            new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
-              bubbles: true,
-              composed: true,
-              detail: {
-                value: this.value,
-              },
-            })
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.value,
+                },
+              }
+            )
           );
-
         }
       }
     }
@@ -656,22 +677,20 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       if (input) {
         if (this.valueUpper && index > 0) {
           ['max', 'min', 'step', 'valueUpper'].forEach((name) => {
-            if(name === 'valueUpper'){
-              input.value = this.valueUpper
-            }else if(name === 'min'){
+            if (name === 'valueUpper') {
+              input.value = this.valueUpper;
+            } else if (name === 'min') {
               input[name] = this.value;
+            } else {
+              this[name];
             }
-            else{
-              this[name]
-            }
-           
           });
         } else {
           ['max', 'min', 'step', 'value'].forEach((name) => {
             if (changedProperties.has(name)) {
-              if(this.valueUpper && name === 'max'){
+              if (this.valueUpper && name === 'max') {
                 input[name] = this.valueUpper;
-              }else{
+              } else {
                 input[name] = this[name];
               }
             }
@@ -746,10 +765,7 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
         <slot name="label-text">${labelText}</slot>
       </label>
       <div class="${prefix}--slider-container">
-      ${valueUpper ? 
-        html `
-        <slot name="lower-input"></slot>`
-        : '' }
+        ${valueUpper ? html` <slot name="lower-input"></slot>` : ''}
         <span class="${prefix}--slider__range-label">
           <slot name="min-text">${formatMinText(min, minLabel)}</slot>
         </span>
