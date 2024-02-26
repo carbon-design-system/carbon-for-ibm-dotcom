@@ -32,6 +32,11 @@ class C4DMegaMenuTab extends CDSTab {
 
   render() {
     const { disabled, selected, value } = this;
+
+    // Safari does not set focus on clicked buttons, which causes megamenu to
+    // close prematurely. Setting a tabindex circumvents the issue.
+    const safariTabIndex = 0;
+
     return html`
       <button
         class="${prefix}--tabs__nav-link"
@@ -40,7 +45,8 @@ class C4DMegaMenuTab extends CDSTab {
         aria-selected="${Boolean(selected)}"
         data-attribute1="headerNav"
         data-attribute2="TabHdline"
-        data-attribute3="${value}">
+        data-attribute3="${value}"
+        tabindex="${safariTabIndex}">
         <slot></slot>
       </button>
     `;
