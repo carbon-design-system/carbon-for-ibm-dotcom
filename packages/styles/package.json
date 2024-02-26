@@ -31,7 +31,7 @@
   "dependencies": {
     "@carbon/icons-react": "11.36.0",
     "@carbon/layout": "11.20.1",
-    "@carbon/styles": "1.51.0",
+    "@carbon/styles": "1.51.1",
     "@carbon/telemetry": "0.1.0",
     "@carbon/type": "11.25.1"
   },
