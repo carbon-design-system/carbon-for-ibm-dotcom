@@ -109,7 +109,7 @@ class CDSTearsheet extends HostListenerMixin(LitElement) {
   @query(`.${blockClass}__container`)
   private _tearsheet!: HTMLDivElement;
 
-  @queryAssignedElements({ slot: 'actions', selector: 'cds-button' })
+  @queryAssignedElements({ slot: 'actions', selector: `${prefix}-button` })
   private _actions!: Array<HTMLElement>;
 
   @state()

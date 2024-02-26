@@ -365,7 +365,7 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
   };
 
   private _checkUpdateIconButtonSizes = () => {
-    const slug = this.querySelector('cds-slug');
+    const slug = this.querySelector(`${prefix}-slug`);
     const otherButtons = this?.shadowRoot?.querySelectorAll(
       '#nav-back-button, #close-button'
     );
@@ -373,7 +373,9 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
     let iconButtonSize = 'sm';
 
     if (slug || otherButtons?.length) {
-      const actions = this?.querySelectorAll?.('cds-button[slot="actions"]');
+      const actions = this?.querySelectorAll?.(
+        `${prefix}-button[slot='actions']`
+      );
 
       if (actions?.length && /l/.test(this.size)) {
         iconButtonSize = 'md';
