@@ -1,0 +1,23 @@
+name: Release Notifications
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        required: true
+        description: 'Specify release (ie. 2.4.0)'
+        type: string
+
+jobs:
+  post-comments:
+    name: Post notification comments on PRs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+      - name: Add release information on pull requests
+        run: node ./tasks/release-notifications.js -v ${{ github.event.inputs.release}} -t ${{ secrets.GITHUB_TOKEN }}
