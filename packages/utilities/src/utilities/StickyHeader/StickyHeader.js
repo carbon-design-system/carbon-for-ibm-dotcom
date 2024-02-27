@@ -87,7 +87,7 @@ class StickyHeader {
       }
     } else {
       this._tableOfContentsInnerBar = tocRoot.querySelector(
-        `.${prefix}--tableofcontents__sidebar`
+        `.${prefix}--tableofcontents__navbar`
       );
     }
   }
