@@ -3237,7 +3237,6 @@ __metadata:
     gulp-autoprefixer: "npm:^6.1.0"
     gulp-clean-css: "npm:^4.3.0"
     gulp-rename: "npm:^2.0.0"
-    gulp-rtlcss: "npm:^1.4.1"
     gulp-sass: "npm:^5.0.0"
     require-dir: "npm:^1.2.0"
     sass: "npm:~1.71.0"
@@ -3787,17 +3786,6 @@ __metadata:
     zone.js: "npm:~0.14.0"
   languageName: unknown
   linkType: soft
-
-"@choojs/findup@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@choojs/findup@npm:0.2.1"
-  dependencies:
-    commander: "npm:^2.15.1"
-  bin:
-    findup: bin/findup.js
-  checksum: 10/550c58aac2943d9c576150a4866b595ab35e1604dce7443c684d96dae9acc1919eda2c991e7c06fecf5538c82091a5cff0564c9cba043b2abadb161ef0c70a6f
-  languageName: node
-  linkType: hard
 
 "@cnakazawa/watch@npm:^1.0.3":
   version: 1.0.4
@@ -12917,7 +12905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.15.1, commander@npm:^2.19.0, commander@npm:^2.20.0, commander@npm:^2.8.1, commander@npm:^2.9.0":
+"commander@npm:^2.19.0, commander@npm:^2.20.0, commander@npm:^2.8.1, commander@npm:^2.9.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: 10/90c5b6898610cd075984c58c4f88418a4fb44af08c1b1415e9854c03171bec31b336b7f3e4cefe33de994b3f12b03c5e2d638da4316df83593b9e82554e7e95b
@@ -18825,18 +18813,6 @@ __metadata:
   version: 2.0.0
   resolution: "gulp-rename@npm:2.0.0"
   checksum: 10/b9add0d130487dee6067206eebfc3867e4e254117edef154e8c270e3111b112335439ac1cac1519d6a32541343e04bd299484253a333b4e34c7d430039953e99
-  languageName: node
-  linkType: hard
-
-"gulp-rtlcss@npm:^1.4.1":
-  version: 1.4.2
-  resolution: "gulp-rtlcss@npm:1.4.2"
-  dependencies:
-    plugin-error: "npm:^1.0.1"
-    rtlcss: "npm:^2.4.0"
-    through2: "npm:^2.0.5"
-    vinyl-sourcemaps-apply: "npm:^0.2.1"
-  checksum: 10/a4c6680927a9fa878ae5c663f09a4e65715381914c8cc31522c5b148c9afaf844a5a5a3e3dcd0a2a2c629816ae6727ceb5711cebf4844b35374f779c77a2b732
   languageName: node
   linkType: hard
 
@@ -28308,7 +28284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^6.0.23, postcss@npm:^6.0.9":
+"postcss@npm:^6.0.9":
   version: 6.0.23
   resolution: "postcss@npm:6.0.23"
   dependencies:
@@ -30844,21 +30820,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rtlcss@npm:^2.4.0":
-  version: 2.6.2
-  resolution: "rtlcss@npm:2.6.2"
-  dependencies:
-    "@choojs/findup": "npm:^0.2.1"
-    chalk: "npm:^2.4.2"
-    mkdirp: "npm:^0.5.1"
-    postcss: "npm:^6.0.23"
-    strip-json-comments: "npm:^2.0.0"
-  bin:
-    rtlcss: ./bin/rtlcss.js
-  checksum: 10/6d3cb2ea10b5f666dbfe7c7ac52139074baf824fff7acb3209dac793ca082cc5b057737d2a44a528aa3ba0cb535b58d1ad5d7b252eabe9f15d7b7fd56ece2a5c
-  languageName: node
-  linkType: hard
-
 "run-async@npm:^2.4.0":
   version: 2.4.1
   resolution: "run-async@npm:2.4.1"
@@ -32692,7 +32653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-json-comments@npm:^2.0.0, strip-json-comments@npm:~2.0.1":
+"strip-json-comments@npm:~2.0.1":
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1"
   checksum: 10/1074ccb63270d32ca28edfb0a281c96b94dc679077828135141f27d52a5a398ef5e78bcf22809d23cadc2b81dfbe345eb5fd8699b385c8b1128907dec4a7d1e1
@@ -33537,7 +33498,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"through2@npm:^2.0.0, through2@npm:^2.0.1, through2@npm:^2.0.3, through2@npm:^2.0.5, through2@npm:~2.0.0":
+"through2@npm:^2.0.0, through2@npm:^2.0.1, through2@npm:^2.0.3, through2@npm:~2.0.0":
   version: 2.0.5
   resolution: "through2@npm:2.0.5"
   dependencies:

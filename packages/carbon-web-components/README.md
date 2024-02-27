@@ -133,21 +133,6 @@ These are the list of available components via CDN:
 - tooltip.min.js
 - ui-shell.min.js
 
-To use the right-to-left (RTL) version of the artifacts, change the file
-extention from `.min.js` to `.rtl.min.js`. For example:
-
-```html
-<!-- By `latest` tag (RTL) -->
-<script
-  type="module"
-  src="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/accordion.rtl.min.js"></script>
-
-<!-- By specific version (RTL) -->
-<script
-  type="module"
-  src="https://1.www.s81c.com/common/carbon/web-components/version/v2.0.0/accordion.rtl.min.js"></script>
-```
-
 #### Basic usage
 
 The CDN artifacts define the custom elements for the browser, so they can be
