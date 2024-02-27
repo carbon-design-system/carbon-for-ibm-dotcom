@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { ArrowRight } from '@carbon/icons-react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
@@ -23,9 +23,14 @@ import C4DCardSectionOffset from '@carbon/ibmdotcom-web-components/es/components
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import { CTA_TYPE } from '../../cta/defs';
-import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
+import image from '../../../../.storybook/storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -60,7 +65,7 @@ const defaultCardGroupItem = (
       democritum ex. Illud ullum graecis
     </p>
     <C4DCardCTAFooter slot="footer">
-      <ArrowRight20 slot="icon" />
+      <ArrowRight {...iconProps} />
     </C4DCardCTAFooter>
   </C4DCardGroupItem>
 );

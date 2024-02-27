@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html, TemplateResult } from 'lit';
-import { state, property } from 'lit/decorators.js';
+import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
@@ -29,7 +29,6 @@ import {
   L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
-  L1MenuItem,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import {
   UNAUTHENTICATED_STATUS,
@@ -41,8 +40,8 @@ import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import C4DMastheadLogo from './masthead-logo';
 import C4DMegaMenuTabs from './megamenu-tabs';
 import C4DMegamenuTopNavMenu from './megamenu-top-nav-menu';
+import C4DMastheadL1 from './masthead-l1';
 import './masthead';
-import './masthead-button-cta';
 import './masthead-l1';
 import './masthead-l1-name';
 import './masthead-menu-button';
@@ -71,21 +70,6 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * Rendering target for masthead navigation items.
- */
-export enum NAV_ITEMS_RENDER_TARGET {
-  /**
-   * For top navigation.
-   */
-  TOP_NAV = 'top-nav',
-
-  /**
-   * For left navigation.
-   */
-  LEFT_NAV = 'left-nav',
-}
-
-/**
  * Globally-scoped Contact Module variable.
  *
  * @see https://github.ibm.com/live-advisor/cm-app
@@ -94,6 +78,7 @@ export interface CMApp {
   version: string;
   ready: boolean;
   init: Function;
+  minimize: Function;
   refresh: Function;
   register: Function;
   deregister: Function;
@@ -116,24 +101,25 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data & screen width.
    *
-   * @returns {TemplateResult | undefined} The L1 nav.
+   * @returns {TemplateResult | undefined}
    */
   protected _renderL1() {
-    if (!this.l1Data) return undefined;
-
-    return html`
-      <c4d-masthead-l1
-        slot="masthead-l1"
-        .l1Data=${this.l1Data}
-        selected-menu-item=${this.selectedMenuItemL1 || ''}>
-      </c4d-masthead-l1>
-    `;
+    const { l1Data, selectedMenuItemL1 } = this;
+    return !l1Data
+      ? undefined
+      : html`
+          <c4d-masthead-l1
+            slot="masthead-l1"
+            .l1Data=${l1Data}
+            selected-menu-item=${selectedMenuItemL1 || ''}>
+          </c4d-masthead-l1>
+        `;
   }
 
   /**
    * Renders masthead logo
    *
-   * @returns TemplateResult
+   * @returns {TemplateResult} A template fragment representing the logo.
    */
   protected _renderLogo() {
     if (!this.logoData) {
@@ -161,7 +147,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param menu megamenu data object
    * @param _parentKey parent key
    * @param layout layout selection to render the megamenu with
-   * @returns TemplateResult
+   * @returns {TemplateResult} A template fragment representing a megamenu.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegaMenu(
@@ -181,7 +167,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menu megamenu data object
    * @param _parentKey key that identifies parent nav item
-   * @returns TemplateResult
+   * @returns {TemplateResult} A template fragment representing a tabbed megamenu.
    */
   protected _renderMegaMenuTabbed(menu: L0Megamenu, _parentKey) {
     const { viewAll, sections } = menu;
@@ -234,6 +220,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     `;
   }
 
+  /**
+   * Render individual tabpanel in a tabbed megamenu.
+   *
+   * @param menuItem menuItem data object
+   * @returns {TemplateResult} A template fragment representing a megamenu tabpanel.
+   */
   protected _renderMegamenuTabPanel(menuItem) {
     const { itemKey, groups, heading, viewAll: itemViewAll } = menuItem;
     return html`
@@ -283,7 +275,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menu megamenu data object
    * @param _parentKey key that identifies parent nav item
-   * @returns TemplateResult
+   * @returns {TemplateResult} A template fragment representing a listing megamenu.
    */
   // eslint-disable-next-line
   protected _renderMegaMenuListing(menu: L0Megamenu, _parentKey) {
@@ -355,7 +347,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * Render a Megapanel link group.
    *
    * @param group megamenu link group
-   * @returns TemplateResult
+   * @returns {TemplateResult} A template fragment representing a megapanel link group.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegapanelLinkGroup(
@@ -406,7 +398,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * Renders the left nav menus sections
    *
    * @param object heading heading of menu section
-   * @param object.ctas cta items
    * @param object.menuItems menu items
    * @param object.heading heading heading of menu section
    * @param object.isSubmenu determines whether menu section is a submenu section
@@ -414,10 +405,11 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param object.sectionTitle title of menu section
    * @param object.sectionUrl section title url of menu section
    * @param object.sectionId id of menu section
+   * @returns {TemplateResult} A template fragment representing the left nav menu
+   *   sections.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNavMenuSections({
-    ctas,
     menuItems,
     heading,
     isSubmenu = false,
@@ -426,7 +418,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     sectionUrl = '',
     sectionId = '',
   }) {
-    const items = menuItems.map((elem) => {
+    const items = menuItems?.map((elem) => {
       if (elem.menu) {
         return html`
           <c4d-left-nav-menu
@@ -472,16 +464,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
           `
         );
       }
-    }
-
-    if (ctas) {
-      ctas.forEach((cta) => {
-        items.push(html`
-          <c4d-left-nav-cta-item href="${ifNonEmpty(cta.url)}">
-            ${cta.title}
-          </c4d-left-nav-cta-item>
-        `);
-      });
     }
 
     return html`
@@ -553,11 +535,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param menuItems The options.
    * @param autoid Base autoid to be applied to the menu items
+   * @returns {TemplateResult} A template fragment representing the left nav.
    */
-  protected _renderLeftNav(menuItems: L0MenuItem[], autoid) {
-    const { ctaButtons } = this;
+  protected _renderLeftNav() {
+    const { platform } = this;
     const menu: any[] = [];
-    const level0Items = menuItems.map((elem: L0MenuItem, i) => {
+    const menuItems = this._getl0Data();
+    const autoid = `${c4dPrefix}--masthead__l0`;
+    const level0Items = menuItems?.map((elem: L0MenuItem, i) => {
       // Instantiate bucket for first level submenus.
       const level1Items: {
         title: string;
@@ -590,7 +575,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         if (level1Items.length !== 0) {
           menu.push(
             this._renderLeftNavMenuSections({
-              ctas: undefined,
               menuItems: level1Items,
               isSubmenu: true,
               showBackButton: true,
@@ -690,7 +674,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
             if (level2Items.length !== 0) {
               menu.push(
                 this._renderLeftNavMenuSections({
-                  ctas: undefined,
                   menuItems: level2Items,
                   isSubmenu: true,
                   showBackButton: true,
@@ -769,7 +752,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
           menu.push(
             this._renderLeftNavMenuSections({
-              ctas: undefined,
               menuItems: level1Items,
               isSubmenu: true,
               showBackButton: true,
@@ -794,13 +776,42 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     });
 
     return html`
-      ${this._renderLeftNavMenuSections({
-        ctas: ctaButtons,
-        menuItems: level0Items,
-        sectionId: '-1, -1',
-        heading: false,
-      })}
-      ${menu}
+      <c4d-left-nav-overlay></c4d-left-nav-overlay>
+      <c4d-left-nav>
+        ${!platform
+          ? undefined
+          : html`
+              <c4d-left-nav-name href="${ifNonEmpty(this._getPlatformUrl())}">
+                ${platform}
+              </c4d-left-nav-name>
+            `}
+        ${this._renderLeftNavMenuSections({
+          menuItems: level0Items,
+          sectionId: '-1, -1',
+          heading: false,
+        })}
+        ${menu}
+      </c4d-left-nav>
+    `;
+  }
+
+  /**
+   * Renders the mobile menu button.
+   *
+   * @returns {TemplateResult} A template fragment representing the menu button.
+   */
+  protected _renderMenuButton() {
+    const {
+      activateSearch,
+      menuButtonAssistiveTextActive,
+      menuButtonAssistiveTextInactive,
+    } = this;
+    return html`
+      <c4d-masthead-menu-button
+        button-label-active="${ifNonEmpty(menuButtonAssistiveTextActive)}"
+        button-label-inactive="${ifNonEmpty(menuButtonAssistiveTextInactive)}"
+        ?hide-menu-button="${activateSearch}">
+      </c4d-masthead-menu-button>
     `;
   }
 
@@ -868,37 +879,24 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * @param options The options.
-   * @param [options.selectedMenuItem] The selected nav item.
-   * @param options.target The target of rendering navigation items.
-   * @param options.hasL1 If an L1 menu is present
-   * @returns The nav items.
+   * Renders the top navigation bar.
+   *
+   * @returns {TemplateResult} A template fragment representing the top nav.
    */
-  protected _renderNavItems({
-    target,
-    hasL1,
-  }: {
-    target: NAV_ITEMS_RENDER_TARGET;
-    hasL1: boolean;
-  }) {
-    const { navLinks, customNavLinks, l1Data } = this;
-    let menu: L0MenuItem[] | L1MenuItem[] | undefined =
-      customNavLinks || navLinks;
-    const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
-
-    if (hasL1) {
-      menu = l1Data?.menuItems;
-    }
-
-    if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
-      return !navLinks
-        ? undefined
-        : menu?.map((link, i) => {
-            return this._renderNavItem(link, i, autoid);
-          });
-    }
-
-    return !navLinks ? undefined : this._renderLeftNav(navLinks, autoid);
+  protected _renderTopNav() {
+    const { selectedMenuItem, menuBarAssistiveText, activateSearch } = this;
+    return !this._getl0Data()
+      ? undefined
+      : html`
+          <c4d-top-nav
+            selected-menu-item=${selectedMenuItem}
+            menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
+            ?hideNav="${activateSearch}">
+            ${this._getl0Data().map((link, i) => {
+              return this._renderNavItem(link, i, `${c4dPrefix}--masthead__l0`);
+            })}
+          </c4d-top-nav>
+        `;
   }
 
   /**
@@ -907,7 +905,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param item The item to render
    * @param i The index of the item in a series
    * @param autoid The unique id to assign to the item
-   * @returns A template fragment representing a nav item.
+   * @returns {TemplateResult} A template fragment representing a nav item.
    */
   protected _renderNavItem(item: L0MenuItem, i, autoid): TemplateResult {
     const { selectedMenuItem, currentUrlPath, _activeMegamenuIndex } = this;
@@ -992,6 +990,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     // any previously opened megamenu.
     if (active && menuIndex !== undefined) {
       this._activeMegamenuIndex = menuIndex;
+
+      // Close the Contact Module upon opening megamenu.
+      this.contactModuleApp?.minimize();
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
@@ -1007,6 +1008,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
     resolveFn();
   };
+
+  @HostListener(C4DMastheadL1.dropDownToggleEvent)
+  protected _handleL1DropdownToggle({ detail }: CustomEvent) {
+    const { isOpen } = detail;
+    if (isOpen) {
+      this.contactModuleApp?.minimize();
+    }
+  }
 
   /**
    * Sets the active megamenu tabpanel upon user interaction.
@@ -1031,6 +1040,151 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   };
 
   contactModuleApp?: CMApp;
+
+  /**
+   * Gets localized platform URL.
+   *
+   * @returns {string} A URL.
+   */
+  private _getPlatformUrl(): string {
+    const { language, platformUrl } = this;
+    const formattedLang = language
+      ?.toLowerCase()
+      .replace(/-(.*)/, (m) => m.toUpperCase());
+    let url = platformUrl;
+    if (platformUrl && formattedLang) {
+      if (
+        typeof platformUrl === 'object' &&
+        Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)
+      ) {
+        url = platformUrl[formattedLang].url || platformUrl;
+      }
+    }
+    return url;
+  }
+
+  /**
+   * Renders the platform title.
+   *
+   * @returns {TemplateResult} A template fragment representing the platform title.
+   */
+  protected _renderPlatformTitle() {
+    const { l1Data, platform } = this;
+    return !platform || l1Data
+      ? undefined
+      : html`
+          <c4d-top-nav-name href="${ifDefined(this._getPlatformUrl())}">
+            ${platform}
+          </c4d-top-nav-name>
+        `;
+  }
+
+  /**
+   * Renders the masthead search.
+   *
+   * @returns {TemplateResult} A template fragment representing the search bar.
+   */
+  protected _renderSearch() {
+    const {
+      activateSearch,
+      currentSearchResults,
+      customTypeaheadAPI,
+      hasSearch,
+      inputTimeout,
+      language,
+      openSearchDropdown,
+      scopeParameters,
+      searchPlaceholder,
+    } = this;
+    return hasSearch === 'false'
+      ? ''
+      : html`
+          <c4d-search-with-typeahead
+            ?active="${activateSearch}"
+            .currentSearchResults="${ifDefined(currentSearchResults)}"
+            ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
+            input-timeout="${inputTimeout}"
+            language="${ifDefined(language)}"
+            ?open="${openSearchDropdown}"
+            placeholder="${ifDefined(searchPlaceholder)}"
+            .scopeParameters="${ifDefined(scopeParameters)}"
+            ?searchOpenOnload="${activateSearch}"></c4d-search-with-typeahead>
+        `;
+  }
+
+  /**
+   * Renders the contact button.
+   *
+   * @returns {TemplateResult} A template fragment representing the contact button.
+   */
+  protected _renderContact() {
+    const { contactUsButton, hasContact } = this;
+    return hasContact === 'false'
+      ? undefined
+      : html`
+          <c4d-masthead-contact
+            data-ibm-contact="contact-link"
+            trigger-label="${ifDefined(
+              contactUsButton?.title
+            )}"></c4d-masthead-contact>
+        `;
+  }
+
+  /**
+   * Gets the appropriate profile items for the current masthead state.
+   *
+   * @returns An array of profile items or undefined.
+   */
+  protected _getProfileItems(): MastheadProfileItem[] | undefined {
+    const {
+      customProfileLogin,
+      userIsAuthenticated,
+      authenticatedProfileItems,
+      unauthenticatedProfileItems,
+    } = this;
+
+    let profileItems;
+    if (
+      C4D_CUSTOM_PROFILE_LOGIN &&
+      customProfileLogin &&
+      !userIsAuthenticated
+    ) {
+      profileItems = unauthenticatedProfileItems?.map((item) => {
+        if (item?.id === 'signin') {
+          return { ...item, url: customProfileLogin };
+        }
+        return item;
+      });
+    } else {
+      profileItems = userIsAuthenticated
+        ? authenticatedProfileItems
+        : unauthenticatedProfileItems;
+    }
+    return profileItems;
+  }
+
+  /**
+   * Renders the profile menu.
+   *
+   * @returns {TemplateResult} A template fragment representing the profile menu.
+   */
+  protected _renderProfileMenu() {
+    const { hasProfile, userIsAuthenticated } = this;
+    return hasProfile === 'false'
+      ? ''
+      : html`
+          <c4d-masthead-profile ?authenticated="${userIsAuthenticated}">
+            ${this._getProfileItems()?.map(
+              ({ title, url }) =>
+                html`
+                  <c4d-masthead-profile-item href="${ifDefined(url)}">
+                    ${title}
+                  </c4d-masthead-profile-item>
+                `
+            )}
+          </c4d-masthead-profile>
+        `;
+  }
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".
@@ -1119,12 +1273,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: false })
   authenticatedProfileItems?: MastheadProfileItem[];
-
-  /**
-   * The cta buttons for authenticated state.
-   */
-  @property({ attribute: false })
-  authenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
    * Text for Contact us button
@@ -1226,12 +1374,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * The cta buttons for authenticated state.
-   */
-  @property({ attribute: false })
-  unauthenticatedCtaButtons?: MastheadProfileItem[];
-
-  /**
    * Specify translation endpoint if not using default c4d endpoint.
    */
   @property({ attribute: 'data-endpoint' })
@@ -1250,16 +1392,37 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   language?: string;
 
   /**
+   * Logo data
+   */
+  @property({ attribute: false })
+  logoData?: MastheadLogoData;
+
+  /**
    * The navigation links.
+   *
+   * @deprecated This property name is ambiguous. Use the l0Data prop instead.
    */
   @property({ attribute: false })
   navLinks?: L0MenuItem[];
 
   /**
-   * Logo data
+   * Data for l0.
    */
   @property({ attribute: false })
-  logoData?: MastheadLogoData;
+  l0Data?: L0MenuItem[];
+
+  /**
+   * Temporary getter to fetch data until navLinks prop is phased out.
+   */
+  private _getl0Data() {
+    const { l0Data, navLinks } = this;
+    if (navLinks) {
+      console.warn(
+        `Warning: ${c4dPrefix}-masthead's "navLinks" property is deprecated. Use "l0Data" property instead.`
+      );
+    }
+    return (l0Data || navLinks) as L0MenuItem[];
+  }
 
   /**
    * Data for l1.
@@ -1292,12 +1455,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   authMethod = MASTHEAD_AUTH_METHOD.DEFAULT;
 
   /**
-   * Custom navigation links
-   */
-  @property()
-  customNavLinks?: L0MenuItem[];
-
-  /**
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
@@ -1314,15 +1471,46 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     );
   }
 
-  get ctaButtons(): MastheadProfileItem[] | undefined {
-    const {
-      userIsAuthenticated,
-      authenticatedCtaButtons,
-      unauthenticatedCtaButtons,
-    } = this;
-    return userIsAuthenticated
-      ? authenticatedCtaButtons
-      : unauthenticatedCtaButtons;
+  /**
+   * A reference to the c4d-masthead element.
+   */
+  @query(`${c4dPrefix}-masthead`)
+  mastheadRef;
+
+  /**
+   * Resize observer to trigger container height recalculations.
+   *
+   * @private
+   */
+  private _heightResizeObserver = new ResizeObserver(
+    this._resizeObserverCallback.bind(this)
+  );
+
+  /**
+   * Prevents resize observer from blocking main thread.
+   */
+  private _resizeObserverThrottle?: NodeJS.Timeout;
+
+  /**
+   * Throttled callback for _heightResizeObserver.
+   */
+  protected _resizeObserverCallback() {
+    clearTimeout(this._resizeObserverThrottle);
+    this._resizeObserverThrottle = setTimeout(
+      this._setContainerHeight.bind(this),
+      100
+    );
+  }
+
+  /**
+   * Sets root element's height equal to the height of the fixed masthead elements.
+   */
+  protected _setContainerHeight() {
+    const { mastheadRef } = this;
+    if (mastheadRef) {
+      this.style.display = 'block';
+      this.style.height = `${mastheadRef.getBoundingClientRect().height}px`;
+    }
   }
 
   firstUpdated() {
@@ -1338,12 +1526,16 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(c4d-masthead-container) in stylesheets
     this.style.zIndex = '900';
+    this.style.position = 'relative';
 
     // Allows conditional rendering of left/top navs.
     layoutBreakpoint.addEventListener('change', () => {
       this._isMobileVersion = layoutBreakpoint.matches;
       this.requestUpdate();
     });
+
+    // Keep render root's height in sync with c4d-masthead.
+    this._heightResizeObserver.observe(this.mastheadRef);
   }
 
   updated(changedProperties) {
@@ -1359,180 +1551,35 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     }
   }
 
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._heightResizeObserver.disconnect();
+  }
+
   render() {
     const {
       _isMobileVersion: isMobileVersion,
       activateSearch,
-      authenticatedProfileItems,
-      ctaButtons,
-      contactUsButton,
-      currentSearchResults,
-      customTypeaheadAPI,
-      customProfileLogin,
-      platform,
-      platformUrl,
-      hasProfile,
-      inputTimeout,
-      userIsAuthenticated,
       mastheadAssistiveText,
-      menuBarAssistiveText,
-      menuButtonAssistiveTextActive,
-      menuButtonAssistiveTextInactive,
-      navLinks,
-      customNavLinks,
-      language,
-      openSearchDropdown,
-      hasSearch,
-      scopeParameters,
-      searchPlaceholder,
-      selectedMenuItem,
       skipToContentText,
       skipToContentHref,
-      unauthenticatedProfileItems,
-      l1Data,
-      hasContact,
     } = this;
 
-    let profileItems;
-    if (
-      C4D_CUSTOM_PROFILE_LOGIN &&
-      customProfileLogin &&
-      !userIsAuthenticated
-    ) {
-      profileItems = unauthenticatedProfileItems?.map((item) => {
-        if (item?.id === 'signin') {
-          return { ...item, url: customProfileLogin };
-        }
-        return item;
-      });
-    } else {
-      profileItems = userIsAuthenticated
-        ? authenticatedProfileItems
-        : unauthenticatedProfileItems;
-    }
-    const formattedLang = language
-      ?.toLowerCase()
-      .replace(/-(.*)/, (m) => m.toUpperCase());
-    let platformAltUrl = platformUrl;
-    if (platformUrl && formattedLang) {
-      if (
-        typeof platformUrl === 'object' &&
-        Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)
-      ) {
-        platformAltUrl = platformUrl[formattedLang].url || platformUrl;
-      }
-    }
-
     return html`
-      ${isMobileVersion
-        ? html`
-            <c4d-left-nav-overlay></c4d-left-nav-overlay>
-            <c4d-left-nav>
-              ${!platform
-                ? undefined
-                : html`
-                    <c4d-left-nav-name href="${ifNonEmpty(platformAltUrl)}"
-                      >${platform}</c4d-left-nav-name
-                    >
-                  `}
-              ${this._renderNavItems({
-                target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
-                hasL1: !!l1Data,
-              })}
-            </c4d-left-nav>
-          `
-        : ''}
+      ${isMobileVersion ? this._renderLeftNav() : ''}
       <c4d-masthead
         ?has-l1=${this.l1Data}
         aria-label="${ifNonEmpty(mastheadAssistiveText)}">
         <c4d-skip-to-content
           href="${skipToContentHref}"
           link-assistive-text="${skipToContentText}"></c4d-skip-to-content>
-
-        ${isMobileVersion
-          ? html`
-              <c4d-masthead-menu-button
-                button-label-active="${ifNonEmpty(
-                  menuButtonAssistiveTextActive
-                )}"
-                button-label-inactive="${ifNonEmpty(
-                  menuButtonAssistiveTextInactive
-                )}"
-                ?hide-menu-button="${activateSearch}">
-              </c4d-masthead-menu-button>
-            `
-          : ''}
-        ${this._renderLogo()}
-        ${!platform || l1Data
-          ? undefined
-          : html`
-              <c4d-top-nav-name href="${ifDefined(platformAltUrl)}"
-                >${platform}</c4d-top-nav-name
-              >
-            `}
-        ${(navLinks || customNavLinks) && !isMobileVersion
-          ? html`
-              <c4d-top-nav
-                selected-menu-item=${selectedMenuItem}
-                menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
-                ?hideNav="${activateSearch}">
-                ${this._renderNavItems({
-                  target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-                  hasL1: false,
-                })}
-              </c4d-top-nav>
-            `
-          : ''}
-        ${hasSearch === 'false'
-          ? ''
-          : html`
-              <c4d-search-with-typeahead
-                ?active="${activateSearch}"
-                input-timeout="${inputTimeout}"
-                language="${ifDefined(language)}"
-                ?open="${openSearchDropdown}"
-                ?searchOpenOnload="${activateSearch}"
-                placeholder="${ifDefined(searchPlaceholder)}"
-                .currentSearchResults="${ifDefined(currentSearchResults)}"
-                ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
-                .scopeParameters="${ifDefined(
-                  scopeParameters
-                )}"></c4d-search-with-typeahead>
-            `}
+        ${isMobileVersion ? this._renderMenuButton() : ''} ${this._renderLogo()}
+        ${this._renderPlatformTitle()}
+        ${!isMobileVersion ? this._renderTopNav() : ''} ${this._renderSearch()}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${hasContact === 'false'
-            ? ''
-            : html`
-                <c4d-masthead-contact
-                  data-ibm-contact="contact-link"
-                  trigger-label="${ifDefined(
-                    contactUsButton?.title
-                  )}"></c4d-masthead-contact>
-              `}
-          ${hasProfile === 'false'
-            ? ''
-            : html`
-                <c4d-masthead-profile ?authenticated="${userIsAuthenticated}">
-                  ${profileItems?.map(
-                    ({ title, url }) =>
-                      html`
-                        <c4d-masthead-profile-item href="${ifDefined(url)}"
-                          >${title}</c4d-masthead-profile-item
-                        >
-                      `
-                  )}
-                </c4d-masthead-profile>
-              `}
-          ${ctaButtons?.map(
-            ({ title, url }) =>
-              html`
-                <c4d-masthead-button-cta href="${ifNonEmpty(url)}" kind="ghost">
-                  ${title}
-                </c4d-masthead-button-cta>
-              `
-          )}
+          ${this._renderContact()} ${this._renderProfileMenu()}
         </c4d-masthead-global-bar>
-        ${!l1Data ? undefined : this._renderL1()}
+        ${this._renderL1()}
         <c4d-megamenu-overlay></c4d-megamenu-overlay>
       </c4d-masthead>
     `;

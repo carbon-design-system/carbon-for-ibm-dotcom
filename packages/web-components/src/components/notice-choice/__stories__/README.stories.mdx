@@ -10,18 +10,16 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Notice Choice
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/notice-choice)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/notice-choice)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/notice-choice)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/notice-choice)
 
 ## Getting started
 
 Here's a quick example to get you started.
 
 ### JS (via import)
-
-Note that, please always use the latest version.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
@@ -39,11 +37,9 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
   country="US"
   question-choices="1,2"
   state="CA"
-  email=""
   terms-condition-link=""
-  bpid-legal-text=""
-  enable-all-opt-in=""
-  default-values="">
+  hide-error-message="false"
+  enable-all-opt-in="">
 </c4d-notice-choice>
 ```
 
@@ -61,7 +57,14 @@ document.addEventListener('cds-notice-choice-change', (event) => {
 
 ## Props
 
-<Props of="cds-notice-choice" />
+| Name                 | Description                                                                                 | Default |
+| -------------------- | ------------------------------------------------------------------------------------------- | ------- |
+| question-choices     | Set to "1" if Email only. Set to "1, 2" if Email and Phone                                  | 1       |
+| country              | Country code based on the customer country                                                  | US      |
+| state                | State code based on the customer state                                                      |         |
+| language             | form based on the country and language                                                      | en      |
+| terms-condition-link | Terms and conditions link appended to the end of the privacy statement - should be specific |         |
+| hide-error-message   | Hide Error Messages for PUNS statement                                                      | false   |
 
 ## Stable selectors
 
@@ -71,6 +74,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector             | Description |
 | ----------------------- | ---------------------------------- | ----------- |
-| `<cds-notice-choice>`   | `data-autoid="cds--notice-choice"` | Component   |
+| `<c4d-notice-choice>`   | `data-autoid="c4d--notice-choice"` | Component   |
 
 <Description markdown={contributing} />

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,7 @@
 
 import { text, boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import Download20 from '@carbon/icons-react/es/download/20.js';
+import { ArrowRight, Download } from '@carbon/icons-react';
 
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -30,11 +29,16 @@ import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
+import imgSm16x9 from '../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
+import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 
 import readme from './README.stories.react.mdx';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const image = (
   <C4DImage
@@ -55,13 +59,13 @@ const linkList = (
   <C4DLinkList type="end">
     <C4DLinkListHeading>Featured products</C4DLinkListHeading>
     <C4DLinkListItem href="https://example.com">
-      IBM Cloud Continuous Delivery <ArrowRight20 slot="icon" />
+      IBM Cloud Continuous Delivery <ArrowRight {...iconProps} />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      UrbanCode <ArrowRight20 slot="icon" />
+      UrbanCode <ArrowRight {...iconProps} />
     </C4DLinkListItem>
     <C4DLinkListItem href="https://example.com">
-      View all products <Download20 slot="icon" />
+      View all products <Download {...iconProps} />
     </C4DLinkListItem>
   </C4DLinkList>
 );
@@ -76,14 +80,18 @@ export const Default = (args) => {
   const { title, copy, media, border, highlight } = args?.LeadSpaceBlock ?? {};
   return (
     <C4DLeadspaceBlock border={border || undefined}>
-      <C4DLeadspaceHeading highlight={highlight} type-style="fluid-heading-05">{title}</C4DLeadspaceHeading>
+      <C4DLeadspaceHeading highlight={highlight} type-style="fluid-heading-05">
+        {title}
+      </C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
         <C4DContentBlockCopy>{copy}</C4DContentBlockCopy>
-        {media !== 'none' ?
-        <C4DLeadspaceBlockMedia>
-          {media === 'image' ? image : media === 'video' ? video : ''}
-        </C4DLeadspaceBlockMedia>
-        : ``}
+        {media !== 'none' ? (
+          <C4DLeadspaceBlockMedia>
+            {media === 'image' ? image : media === 'video' ? video : ''}
+          </C4DLeadspaceBlockMedia>
+        ) : (
+          ``
+        )}
         {linkList} {buttonCTA}
       </C4DLeadspaceBlockContent>
     </C4DLeadspaceBlock>
@@ -110,13 +118,16 @@ export default {
     hasStoryPadding: true,
     knobs: {
       LeadSpaceBlock: () => ({
-        title: text('title (title)', 'Infuse your AIOps platform with intelligent IT operations'),
+        title: text(
+          'title (title)',
+          'Infuse your AIOps platform with intelligent IT operations'
+        ),
         highlight: text('Highlight:', 'intelligent IT operations'),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,
         media: select('Media:', ['none', 'image', 'video'], 'image'),
-        border: boolean('Border:', true)
+        border: boolean('Border:', true),
       }),
     },
   },

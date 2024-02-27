@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -306,7 +306,7 @@ class CDSDropdown extends ValidityMixin(
    *
    * @param [force] If specified, forces the open state to the given one.
    */
-  protected _handleUserInitiatedToggle(force: boolean = !this.open) {
+  protected _handleUserInitiatedToggle(force = !this.open) {
     const { eventBeforeToggle, eventToggle } = this
       .constructor as typeof CDSDropdown;
 
@@ -676,6 +676,13 @@ class CDSDropdown extends ValidityMixin(
     this._hasSlug
       ? this.setAttribute('slug', '')
       : this.removeAttribute('slug');
+
+    this.shadowRoot
+      ?.querySelector("slot[name='slug']")
+      ?.classList.toggle(
+        `${prefix}--slug--revert`,
+        this.querySelector(`${prefix}-slug`)?.hasAttribute('revert-active')
+      );
   }
 
   /**

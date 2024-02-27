@@ -29,9 +29,23 @@ import CDSTableCell from './table-cell';
  * @fires cds-table-row-change-selection
  *   The custom event fired before this row is selected/unselected upon a user gesture.
  *   Cancellation of this event stops the user-initiated change in selection.
+ * @fires cds-radio-button-changed
+ *   The name of the custom event fired after this radio button changes its checked state.
+ * @fires cds-checkbox-changed
+ *   The name of the custom event fired after this checkbox changes its checked state.
+ * @fires cds-table-row-expando-beingtoggled
+ *   The name of the custom event fired before the expanded state of this row is being toggled upon a user gesture.
+ *   Cancellation of this event stops the user-initiated action of toggling the expanded state.
+ * @fires cds-table-row-expando-toggled
+ *   The name of the custom event fired after the expanded state of this row is toggled upon a user gesture.
  */
 @customElement(`${prefix}-table-row`)
 class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
+  /**
+   * `true` if there is a slug.
+   */
+  protected _hasSlug = false;
+
   /**
    * Handles `click` event on the radio button.
    *
@@ -169,13 +183,36 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
     const { _handleClickExpando: handleClickExpando } = this;
     return html`
       <div class="${prefix}--table-expand">
-        <button
-          class="${prefix}--table-expand__button"
-          @click="${handleClickExpando}">
-          ${ChevronRight16({ class: `${prefix}--table-expand__svg` })}
-        </button>
+        <div>
+          <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
+          <button
+            class="${prefix}--table-expand__button"
+            @click="${handleClickExpando}">
+            ${ChevronRight16({ class: `${prefix}--table-expand__svg` })}
+          </button>
+        </div>
       </div>
     `;
+  }
+
+  /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof CDSTableRow).slugItem
+            )
+          : false
+      );
+    if (hasContent.length > 0) {
+      this._hasSlug = Boolean(hasContent);
+      (hasContent[0] as HTMLElement).setAttribute('size', 'mini');
+    }
+    this.requestUpdate();
   }
 
   /**
@@ -195,17 +232,20 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       ? undefined
       : html`
           <div class="${prefix}--table-column-checkbox">
-            ${radio
-              ? html`<cds-radio-button data-table></cds-radio-button>`
-              : html`<cds-checkbox
-                  hide-label
-                  ?hide-checkbox="${hideCheckbox}"
-                  label-text="${selectionLabel}"
-                  name=${selectionName}
-                  data-table
-                  ?disabled=${disabled}
-                  ?checked=${selected}
-                  value=${selectionValue}></cds-checkbox> `}
+            <div>
+              <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
+              ${radio
+                ? html`<cds-radio-button data-table></cds-radio-button>`
+                : html`<cds-checkbox
+                    hide-label
+                    ?hide-checkbox="${hideCheckbox}"
+                    label-text="${selectionLabel}"
+                    name=${selectionName}
+                    data-table
+                    ?disabled=${disabled}
+                    ?checked=${selected}
+                    value=${selectionValue}></cds-checkbox> `}
+            </div>
           </div>
         `;
   }
@@ -349,6 +389,12 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
         (nextElementSibling as CDSTableExpandedRow).highlighted = highlighted;
       }
     }
+
+    if (this._hasSlug) {
+      this.setAttribute('slug', '');
+    } else {
+      this.removeAttribute('slug');
+    }
   }
 
   render() {
@@ -405,6 +451,13 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   static get selectorExpandedRow() {
     return `${prefix}-table-expanded-row`;
+  }
+
+  /**
+   * A selector that will return the slug item.
+   */
+  static get slugItem() {
+    return `${prefix}-slug`;
   }
 
   /**

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -21,34 +21,33 @@
 
   .#{$prefix}--content-layout {
     @include breakpoint(sm) {
-      padding-left: $spacing-05;
-      padding-right: $spacing-05;
+      padding-inline: $spacing-05;
+      padding-inline-end: $spacing-05;
     }
 
     @include breakpoint(md) {
-      padding-bottom: $spacing-07;
+      padding-block-end: $spacing-07;
     }
 
     @include breakpoint(lg) {
-      padding-bottom: $spacing-12;
+      padding-block-end: $spacing-12;
     }
 
     &.#{$prefix}--content-layout--border {
-      border-bottom: 1px solid $border-strong-01;
+      border-block-end: 1px solid $border-strong-01;
     }
 
     ::slotted([slot]) {
-      margin-left: 0;
-      margin-right: 0;
+      margin-inline: 0;
     }
   }
 
   ::slotted(#{$c4d-prefix}-content-block-heading) {
     @include make-col(8, 12);
 
-    margin-left: 0;
-    padding-left: 0;
     margin-block-end: $spacing-07;
+    margin-inline-start: 0;
+    padding-inline: 0;
   }
 
   .#{$prefix}--content-layout__body--tight {
@@ -66,15 +65,15 @@
     @include make-col(8, 12);
     @include type-style('fluid-heading-03', true);
 
-    max-width: 640px;
-    padding-left: 0;
+    max-inline-size: 640px;
+    padding-inline: 0;
 
     @include breakpoint(sm) {
-      width: 100%;
+      inline-size: 100%;
     }
 
     @include breakpoint(md) {
-      width: 90%;
+      inline-size: 90%;
     }
   }
 
@@ -100,7 +99,7 @@
 
   ::slotted(#{$c4d-prefix}-link-list) {
     display: block;
-    padding-bottom: 0;
+    padding-block-end: 0;
 
     @include breakpoint(md) {
       margin-block-end: $spacing-07;
@@ -108,7 +107,7 @@
   }
 
   .#{$prefix}--helper-wrapper {
-    margin-top: $spacing-10;
+    margin-block: $spacing-10;
   }
 }
 
@@ -116,43 +115,43 @@
   @include type-style('heading-02', true);
 
   display: block;
-  width: 100%;
+  inline-size: 100%;
 
   @include breakpoint(md) {
-    width: 90%;
+    inline-size: 90%;
   }
 }
 
 :host(#{$c4d-prefix}-cta-block-item-row) {
-  width: 100%;
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
+  inline-size: 100%;
   row-gap: $spacing-07;
-  position: relative;
 
   // Hide last row's items' bottom border
   &::after {
     @include breakpoint(md) {
-      content: '';
-      background-color: $background;
-      height: 3px;
       position: absolute;
-      bottom: -1px;
-      left: 0;
-      right: 0;
+      background-color: $background;
+      block-size: 3px;
+      content: '';
+      inset-block-end: -1px;
+      inset-inline: 0;
+      inset-inline-end: 0;
       pointer-events: none;
     }
   }
 
   ::slotted(#{$c4d-prefix}-cta-block-item) {
-    border-bottom: 1px solid $border-subtle-01;
+    border-block-end: 1px solid $border-subtle-01;
   }
 
   ::slotted(#{$c4d-prefix}-cta-block-item:last-of-type) {
     @include breakpoint-down(md) {
       border: 0;
-      padding-bottom: 0;
+      padding-block-end: 0;
     }
   }
 
@@ -172,50 +171,50 @@
 :host(#{$c4d-prefix}-cta-block-item) {
   @include make-col-ready;
 
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-bottom: $spacing-07;
   position: relative;
   display: flex;
   flex-direction: column;
+  inline-size: 100%;
+  margin-block: 0;
+  margin-block-end: 0;
+  padding-block-end: $spacing-07;
 
   ::slotted(#{$c4d-prefix}-text-cta) {
-    margin-left: 0;
-    margin-bottom: $spacing-03;
+    margin-block-end: $spacing-03;
+    margin-inline-start: 0;
   }
 
   ::slotted(#{$c4d-prefix}-text-cta:last-child) {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   ::slotted(svg) {
     display: block;
-    height: $spacing-11;
-    width: $spacing-11;
+    block-size: $spacing-11;
+    inline-size: $spacing-11;
   }
 
   .#{$prefix}--cta-block-item__statitics {
     @include type-style('fluid-display-02', true);
 
     ::slotted(*[slot='statitics']) {
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
     }
   }
 
   .#{$prefix}--cta-block-item__media {
-    margin-bottom: $spacing-07;
+    margin-block-end: $spacing-07;
   }
 
   .#{$prefix}--content-item__cta {
-    margin-top: 0;
+    margin-block: 0;
   }
 
   ::slotted(#{$c4d-prefix}-image-logo) {
+    margin: 0;
     /* stylelint-disable */
     aspect-ratio: var(--logo-ratio);
     /* stylelint-enable */
-    margin: 0;
-    max-width: $spacing-12;
+    max-inline-size: $spacing-12;
   }
 }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -159,7 +159,7 @@ export const C4DVideoPlayerContainerMixin = <
       };
     }
 
-    _setAutoplayPreference(preference: Boolean) {
+    _setAutoplayPreference(preference: boolean) {
       const updatedValue = preference ? '1' : '0';
       localStorage.setItem(`${this.prefersAutoplayStorageKey}`, updatedValue);
     }
@@ -242,6 +242,14 @@ export const C4DVideoPlayerContainerMixin = <
         playerId,
         this._getPlayerOptions(backgroundMode)
       );
+      const { width, height } = await KalturaPlayerAPI.api(videoId);
+      videoPlayer.style.setProperty('--native-file-width', `${width}px`);
+      videoPlayer.style.setProperty('--native-file-height', `${height}px`);
+      videoPlayer.style.setProperty(
+        '--native-file-aspect-ratio',
+        `${width} / ${height}`
+      );
+
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;
       if (videoEmbed) {
@@ -294,7 +302,7 @@ export const C4DVideoPlayerContainerMixin = <
       });
     }
 
-    prefersAutoplayStorageKey: String = `${c4dPrefix}-background-video-prefers-autoplay`;
+    prefersAutoplayStorageKey = `${c4dPrefix}-background-video-prefers-autoplay`;
   }
 
   return C4DVideoPlayerContainerMixinImpl;

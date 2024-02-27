@@ -21,7 +21,6 @@ const prettier = require('gulp-prettier');
 const header = require('gulp-header');
 const through2 = require('through2');
 const autoprefixer = require('autoprefixer');
-const rtlcss = require('rtlcss');
 const cssnano = require('cssnano');
 const replaceExtension = require('replace-ext');
 const fixHostPseudo = require('../../../tools/postcss-fix-host-pseudo');
@@ -36,11 +35,10 @@ const promisifyStream = promisify(asyncDone);
  *
  * @param {object} [options] The build options.
  * @param {string} [options.banner] License banner
- * @param {string} [options.dir] Reading direction
  * @returns {*} Gulp stream
  * @private
  */
-const _cssStream = ({ banner, dir }) =>
+const _cssStream = ({ banner }) =>
   gulp
     .src([`${config.srcDir}/**/*.scss`, `!${config.srcDir}/**/ibmdotcom-web-components-*.scss`])
     .pipe(
@@ -64,18 +62,9 @@ const _cssStream = ({ banner, dir }) =>
         fixHostPseudo(),
         autoprefixer({
           overrideBrowsersList: [
-            'last 1 version',
-            'Firefox ESR',
-            'not opera > 0',
-            'not op_mini > 0',
-            'not op_mob > 0',
-            'not android > 0',
-            'not edge > 0',
-            'not ie > 0',
-            'not ie_mob > 0',
+            '> 0.5%', 'last 2 versions', 'Firefox ESR', 'not dead',
           ],
         }),
-        ...(dir === 'rtl' ? [rtlcss] : []),
         cssnano(),
       ])
     )
@@ -85,7 +74,7 @@ const _cssStream = ({ banner, dir }) =>
         import { css } from 'lit';
         export default css([${JSON.stringify(String(file.contents))}]);
       `);
-        file.path = replaceExtension(file.path, dir === 'rtl' ? '.rtl.css.js' : '.css.js');
+        file.path = replaceExtension(file.path, '.css.js');
         done(null, file);
       })
     )
@@ -100,7 +89,7 @@ const _cssStream = ({ banner, dir }) =>
  */
 async function css() {
   const banner = await readFileAsync(path.resolve(__dirname, '../../../../../tasks/license.js'), 'utf8');
-  await Promise.all([promisifyStream(() => _cssStream({ banner })), promisifyStream(() => _cssStream({ banner, dir: 'rtl' }))]);
+  await Promise.all([promisifyStream(() => _cssStream({ banner }))]);
 }
 
 gulp.task('build:modules:css', css);

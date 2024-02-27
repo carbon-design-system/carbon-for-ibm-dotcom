@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@ import { boolean } from '@storybook/addon-knobs';
 import View16 from '@carbon/icons/lib/view/16';
 import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
 import Folders16 from '@carbon/icons/lib/folders/16';
+import Asleep16 from '@carbon/icons/lib/asleep/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { prefix } from '../../globals/settings';
 import './index';
@@ -74,11 +75,94 @@ const actions = html`
     ${Folders16({ slot: 'icon' })}
     <span slot="tooltip-content"> Folders </span>
   </cds-icon-button>
-  <cds-slug-action-button>View Literature</cds-slug-action-button>
+  <cds-slug-action-button>View details</cds-slug-action-button>
 `;
 
 export default {
   title: 'Experimental/Slug/Examples',
+};
+
+export const _Checkbox = (args) => {
+  const { disabled, invalid, invalidText, warn, warnText } =
+    args?.['cds-checkbox'] ?? {};
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <div style="width: 400px">
+      <cds-checkbox-group
+        legend-text="Group label"
+        ?disabled="${disabled}"
+        ?invalid="${invalid}"
+        invalid-text="${invalidText}"
+        ?warn="${warn}"
+        warn-text="${warnText}">
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+      </cds-checkbox-group>
+
+      <cds-checkbox-group
+        legend-text="Group label"
+        ?disabled="${disabled}"
+        ?invalid="${invalid}"
+        invalid-text="${invalidText}"
+        ?warn="${warn}"
+        warn-text="${warnText}">
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+      </cds-checkbox-group>
+
+      <cds-checkbox-group
+        legend-text="Group label"
+        ?disabled="${disabled}"
+        ?invalid="${invalid}"
+        invalid-text="${invalidText}"
+        ?warn="${warn}"
+        warn-text="${warnText}">
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left" kind="inline">
+            ${content}${actions}
+          </cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>
+          Checkbox label
+          <cds-slug alignment="bottom-left" kind="inline">
+            ${content}${actions}
+          </cds-slug>
+        </cds-checkbox>
+        <cds-checkbox>Checkbox label</cds-checkbox>
+      </cds-checkbox-group>
+    </div>
+  `;
+};
+
+_Checkbox.parameters = {
+  knobs: {
+    [`${prefix}-checkbox`]: () => ({
+      disabled: boolean('Disabled (disabled)', false),
+      invalid: boolean('Invalid (invalid)', false),
+      invalidText: textNullable(
+        'Invalid text (invalid-text)',
+        'Error message goes here'
+      ),
+      warn: boolean('Warn (warn)', false),
+      warnText: textNullable(
+        'Warn text (warn-text)',
+        'Warning message that is really long can wrap to more lines but should not be excessively long.'
+      ),
+    }),
+  },
 };
 
 export const _Combobox = () => {
@@ -139,6 +223,86 @@ export const _Dropdown = () => {
         )}
       </cds-dropdown>
     </div>`;
+};
+
+export const _Modal = (args) => {
+  const { hasScrollingContent, showButtons } = args?.['cds-modal'] ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <cds-modal open prevent-close ?has-scrolling-content="${hasScrollingContent}">
+      <cds-modal-header>
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+        <cds-modal-close-button></cds-modal-close-button>
+        <cds-modal-label>Account resources</cds-modal-label>
+        <cds-modal-heading>Add a custom domain</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body>
+        <cds-modal-body-content description>
+        <p style="margin-bottom: 1rem">
+        Custom domains direct requests for your apps in this Cloud Foundry
+        organization to a URL that you own. A custom domain can be a shared
+        domain, a shared subdomain, or a shared domain and host.
+      </p>
+      <p style="margin-bottom: 1rem">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+        eu nibh odio. Nunc a consequat est, id porttitor sapien. Proin vitae
+        leo vitae orci tincidunt auctor eget eget libero. Ut tincidunt
+        ultricies fringilla. Aliquam erat volutpat. Aenean arcu odio,
+        elementum vel vehicula vitae, porttitor ac lorem. Sed viverra elit
+        ac risus tincidunt fermentum. Ut sollicitudin nibh id risus ornare
+        ornare. Etiam gravida orci ut lectus dictum, quis ultricies felis
+        mollis. Mauris nec commodo est, nec faucibus nibh. Nunc commodo ante
+        quis pretium consectetur. Ut ac nisl vitae mi mattis vulputate a at
+        elit. Nullam porttitor ex eget mi feugiat mattis. Nunc non sodales
+        magna. Proin ornare tellus quis hendrerit egestas. Donec pharetra
+        leo nec molestie sollicitudin.
+      </p>
+        </cds-modal-body-content>
+        <cds-form-item>
+          <cds-text-input placeholder="e.g. github.com" label="Domain name">
+          </cds-text-input>
+        </cds-form-item>
+
+        <cds-form-item>
+          <cds-select placeholder="US South" label-text="Region">
+            <cds-select-item value="us-south">US South</cds-select-item>
+            <cds-select-item value="us-east">US East</cds-select-item>
+          </cds-select>
+        </cds-form-item>
+        <cds-form-item>
+        <cds-textarea label="Comments" >
+        </cds-form-item>
+      </cds-textarea>
+      </cds-modal-body>
+      ${
+        showButtons
+          ? html`
+              <cds-modal-footer>
+                <cds-modal-footer-button kind="secondary"
+                  >Cancel</cds-modal-footer-button
+                >
+                <cds-modal-footer-button>Add</cds-modal-footer-button>
+              </cds-modal-footer>
+            `
+          : ``
+      }
+      
+    </cds-modal>
+  `;
+};
+
+_Modal.parameters = {
+  knobs: {
+    [`${prefix}-modal`]: () => ({
+      hasScrollingContent: boolean(
+        'hasScrollingContent (has-scrolling-content)',
+        true
+      ),
+      showButtons: boolean('Show or hide the modal buttons', true),
+    }),
+  },
 };
 
 export const _Multiselect = () => {
@@ -328,6 +492,30 @@ export const _Select = () => {
         </cds-select-item-group>
       </cds-select>
     </div> `;
+};
+
+export const _Tag = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-tag type="red"
+      >Tag
+      <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+    </cds-tag>
+
+    <cds-tag filter type="purple">
+      Tag
+      <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+    </cds-tag>
+
+    <cds-tag type="blue">
+      ${Asleep16({ slot: 'icon' })} Tag
+      <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+    </cds-tag>
+    <cds-tag filter type="green">
+      ${Asleep16({ slot: 'icon' })} Tag
+      <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+    </cds-tag>`;
 };
 
 export const _TextInput = () => {

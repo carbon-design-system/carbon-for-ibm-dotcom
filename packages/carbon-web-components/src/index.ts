@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,11 +9,15 @@
 
 export { default as CDSAccordion } from './components/accordion/accordion';
 export { default as CDSAccordionItem } from './components/accordion/accordion-item';
+export { default as CDSAISkeletonIcon } from './components/ai-skeleton/ai-skeleton-icon';
+export { default as CDSAISkeletonPlaceholder } from './components/ai-skeleton/ai-skeleton-placeholder';
+export { default as CDSAISkeletonText } from './components/ai-skeleton/ai-skeleton-text';
 export { default as CDSButton } from './components/button/button';
 export { default as CDSButtonSkeleton } from './components/button/button-skeleton';
 export { default as CDSBreadcrumb } from './components/breadcrumb/breadcrumb';
 export { default as CDSBreadcrumbItem } from './components/breadcrumb/breadcrumb-item';
 export { default as CDSBreadcrumbLink } from './components/breadcrumb/breadcrumb-link';
+export { default as CDSChatButton } from './components/chat-button/chat-button';
 export { default as CDSCheckbox } from './components/checkbox/checkbox';
 export { default as CDSCodeSnippet } from './components/code-snippet/code-snippet';
 export { default as CDSCodeSnippetSkeleton } from './components/code-snippet/code-snippet-skeleton';
@@ -89,6 +93,7 @@ export { default as CDSRadioButton } from './components/radio-button/radio-butto
 export { default as CDSRadioButtonGroup } from './components/radio-button/radio-button-group';
 export { default as CDSSearch } from './components/search/search';
 export { default as CDSSearchSkeleton } from './components/search/search-skeleton';
+export { default as CDSSkeletonIcon } from './components/skeleton-icon/skeleton-icon';
 export { default as CDSSkeletonPlaceholder } from './components/skeleton-placeholder/skeleton-placeholder';
 export { default as CDSSkeletonText } from './components/skeleton-text/skeleton-text';
 export { default as CDSSlider } from './components/slider/slider';

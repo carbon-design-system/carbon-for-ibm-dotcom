@@ -3,17 +3,17 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-cta-section>`
+# `<c4d-cta-section>`
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-section)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/cta-section)
 > example implementation.
-> [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-section)
+> [![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/cta-section)
 
 ## Breaking Changes
 
 As of `Carbon for IBM.com Web Components v1.3.0`, the API for
-`<cds-cta-section>` has changed. Be sure to update to the latest version of CTA
+`<c4d-cta-section>` has changed. Be sure to update to the latest version of CTA
 Section if upgrading from a previous version.
 
 ## Getting started
@@ -40,82 +40,82 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 ### HTML
 
 ```html
-<cds-cta-section>
-  <cds-content-section-heading
-    >Related products and services</cds-content-section-heading
+<c4d-cta-section>
+  <c4d-content-section-heading
+    >Related products and services</c4d-content-section-heading
   >
 
-  <cds-cta-block>
-    <cds-content-block-heading
-      >C4D Content Block Heading</cds-content-block-heading
+  <c4d-cta-block>
+    <c4d-content-block-heading
+      >C4D Content Block Heading</c4d-content-block-heading
     >
-    <cds-content-block-copy>C4D Content Block Copy</cds-content-block-copy>
-    <cds-text-cta
+    <c4d-content-block-copy>C4D Content Block Copy</c4d-content-block-copy>
+    <c4d-text-cta
       slot="action"
       cta-type="local"
       icon-placement="right"
       href="example.com"
-      >Browse tutorials</cds-text-cta
+      >Browse tutorials</c4d-text-cta
     >
 
-    <cds-cta-block-item-row no-border>
-      <cds-cta-block-item>
+    <c4d-cta-block-item-row no-border>
+      <c4d-cta-block-item>
         <span slot="statistics">10%</span>
-        <cds-content-item-heading>Get connected</cds-content-item-heading>
-        <cds-content-item-copy
+        <c4d-content-item-heading>Get connected</c4d-content-item-heading>
+        <c4d-content-item-copy
           >IBM DevOps partners have a wide range of expertise. Find one to build
-          that right solution for you.</cds-content-item-copy
+          that right solution for you.</c4d-content-item-copy
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Find a partner</cds-text-cta
+          >Find a partner</c4d-text-cta
         >
-      </cds-cta-block-item>
+      </c4d-cta-block-item>
 
-      <cds-cta-block-item>
+      <c4d-cta-block-item>
         <span slot="statistics">11%</span>
-        <cds-content-item-heading>Learn how</cds-content-item-heading>
-        <cds-content-item-copy
+        <c4d-content-item-heading>Learn how</c4d-content-item-heading>
+        <c4d-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</cds-content-item-copy
+          methodologies.</c4d-content-item-copy
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Browse tutorials</cds-text-cta
+          >Browse tutorials</c4d-text-cta
         >
-      </cds-cta-block-item>
+      </c4d-cta-block-item>
 
-      <cds-cta-block-item>
+      <c4d-cta-block-item>
         <span slot="statistics">12%</span>
-        <cds-content-item-heading>Learn how</cds-content-item-heading>
-        <cds-content-item-copy
+        <c4d-content-item-heading>Learn how</c4d-content-item-heading>
+        <c4d-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</cds-content-item-copy
+          methodologies.</c4d-content-item-copy
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Browse tutorials</cds-text-cta
+          >Browse tutorials</c4d-text-cta
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Browse tutorials</cds-text-cta
+          >Browse tutorials</c4d-text-cta
         >
-      </cds-cta-block-item>
-    </cds-cta-block-item-row>
-    <cds-cta-block-item-row>
-      <cds-cta-block-item>
+      </c4d-cta-block-item>
+    </c4d-cta-block-item-row>
+    <c4d-cta-block-item-row>
+      <c4d-cta-block-item>
         <svg
           slot="media"
           focusable="false"
@@ -140,20 +140,20 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
           0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z" />
           <path fill="none" d="M0 0h32v32H0z" />
         </svg>
-        <cds-content-item-heading>Get connected</cds-content-item-heading>
-        <cds-content-item-copy
+        <c4d-content-item-heading>Get connected</c4d-content-item-heading>
+        <c4d-content-item-copy
           >IBM DevOps partners have a wide range of expertise. Find one to build
-          that right solution for you.</cds-content-item-copy
+          that right solution for you.</c4d-content-item-copy
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Find a partner</cds-text-cta
+          >Find a partner</c4d-text-cta
         >
-      </cds-cta-block-item>
-      <cds-cta-block-item>
+      </c4d-cta-block-item>
+      <c4d-cta-block-item>
         <svg
           slot="media"
           focusable="false"
@@ -178,78 +178,78 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
           0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z" />
           <path fill="none" d="M0 0h32v32H0z" />
         </svg>
-        <cds-content-item-heading>Learn how</cds-content-item-heading>
-        <cds-content-item-copy
+        <c4d-content-item-heading>Learn how</c4d-content-item-heading>
+        <c4d-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</cds-content-item-copy
+          methodologies.</c4d-content-item-copy
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Browse tutorials</cds-text-cta
+          >Browse tutorials</c4d-text-cta
         >
-      </cds-cta-block-item>
-    </cds-cta-block-item-row>
-    <cds-cta-block-item-row no-border>
-      <cds-cta-block-item>
-        <cds-video-player-container
+      </c4d-cta-block-item>
+    </c4d-cta-block-item-row>
+    <c4d-cta-block-item-row no-border>
+      <c4d-cta-block-item>
+        <c4d-video-player-container
           video-id="0_ibuqxqbe"
           aspect-ratio="4x3"
           playing-mode="lightbox"
           slot="media"
-          hide-caption></cds-video-player-container>
-        <cds-content-item-heading>Get connected</cds-content-item-heading>
-        <cds-content-item-copy
+          hide-caption></c4d-video-player-container>
+        <c4d-content-item-heading>Get connected</c4d-content-item-heading>
+        <c4d-content-item-copy
           >IBM DevOps partners have a wide range of expertise. Find one to build
-          that right solution for you.</cds-content-item-copy
+          that right solution for you.</c4d-content-item-copy
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Find a partner</cds-text-cta
+          >Find a partner</c4d-text-cta
         >
-      </cds-cta-block-item>
-      <cds-cta-block-item>
-        <cds-video-player-container
+      </c4d-cta-block-item>
+      <c4d-cta-block-item>
+        <c4d-video-player-container
           video-id="0_ibuqxqbe"
           aspect-ratio="4x3"
           playing-mode="lightbox"
           slot="media"
-          hide-caption></cds-video-player-container>
-        <cds-lightbox-video-player-container
-          playing-mode="lightbox"></cds-lightbox-video-player-container>
-        <cds-content-item-heading>Learn how</cds-content-item-heading>
-        <cds-content-item-copy
+          hide-caption></c4d-video-player-container>
+        <c4d-lightbox-video-player-container
+          playing-mode="lightbox"></c4d-lightbox-video-player-container>
+        <c4d-content-item-heading>Learn how</c4d-content-item-heading>
+        <c4d-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</cds-content-item-copy
+          methodologies.</c4d-content-item-copy
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Browse tutorials</cds-text-cta
+          >Browse tutorials</c4d-text-cta
         >
-        <cds-text-cta
+        <c4d-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Browse tutorials</cds-text-cta
+          >Browse tutorials</c4d-text-cta
         >
-      </cds-cta-block-item>
-    </cds-cta-block-item-row>
-  </cds-cta-block>
-</cds-cta-section>
+      </c4d-cta-block-item>
+    </c4d-cta-block-item-row>
+  </c4d-cta-block>
+</c4d-cta-section>
 ```
 
 ## Props
 
-<Props of="cds-cta-section" />
+<Props of="c4d-cta-section" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -260,6 +260,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector           | Description |
 | ----------------------- | -------------------------------- | ----------- |
-| `<cds-cta-section>`     | `data-autoid="cds--cta-section"` | Component   |
+| `<c4d-cta-section>`     | `data-autoid="c4d--cta-section"` | Component   |
 
 <Description markdown={contributing} />

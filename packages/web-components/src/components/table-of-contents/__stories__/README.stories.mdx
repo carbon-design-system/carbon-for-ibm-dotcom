@@ -6,17 +6,17 @@ import {
   cdnCssAdditional,
 } from '../../../globals/internal/storybook-cdn';
 
-# `<cds-table-of-contents>`
+# `<c4d-table-of-contents>`
 
 > Table of contents display pre-defined sections of the page and provide a
 > convenient way to navigate to those sections. It also sticks to the top of the
 > page when scrolling for easy access.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/table-of-contents)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/table-of-contents)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/table-of-contents)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/table-of-contents)
 
 ## Getting started
 
@@ -62,7 +62,7 @@ body {
 ## Example HTML
 
 ```html
-<cds-table-of-contents>
+<c4d-table-of-contents>
   <div class="cds--tableofcontents__contents">
     <a name="1" data-title="Section - 1"></a>
     <h3>Section - 1</h3>
@@ -74,13 +74,13 @@ body {
     <h3>Section - 3</h3>
     <p>Section 3 content</p>
   </div>
-</cds-table-of-contents>
+</c4d-table-of-contents>
 ```
 
 ### Horizontal variation
 
 ```html
-<cds-table-of-contents toc-layout="horizontal">
+<c4d-table-of-contents toc-layout="horizontal">
   <div class="cds--tableofcontents-horizontal__contents">
     <a name="1" data-title="Section - 1"></a>
     <h3>Section - 1</h3>
@@ -92,21 +92,21 @@ body {
     <h3>Section - 3</h3>
     <p>Section 3 content</p>
   </div>
-</cds-table-of-contents>
+</c4d-table-of-contents>
 ```
 
 ## Harvesting the table of contents
 
-`<cds-table-of-contents>` automatically harvests the table of contents by
+`<c4d-table-of-contents>` automatically harvests the table of contents by
 looking for elements with the `name` attribute. The titles in the table of
 contents are harvested from the text content in the element by default. You can
 add `data-title` attribute to the elements to change the titles.
 
 ## Adjusting the position of `<select>` box
 
-`<cds-table-of-contents>` uses `<select>` as the table if the browser viewport
+`<c4d-table-of-contents>` uses `<select>` as the table if the browser viewport
 has narrow width. It sticks at the very top by default, but you can adjust the
-position via CSS. This is useful e.g. when you use `<cds-table-of-contents>`
+position via CSS. This is useful e.g. when you use `<c4d-table-of-contents>`
 with ibm.com masthead.
 
 ```css
@@ -132,7 +132,7 @@ document.dispatchEvent(
 
 ## Slots
 
-<Props of="cds-table-of-contents" />
+<Props of="c4d-table-of-contents" />
 
 ## Stable selectors
 
@@ -142,6 +142,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector               | Description |
 | ------------------------- | ------------------------------------ | ----------- |
-| `<cds-table-of-contents>` | `data-autoid="cds--tableofcontents"` | Component   |
+| `<c4d-table-of-contents>` | `data-autoid="c4d--tableofcontents"` | Component   |
 
 <Description markdown={contributing} />

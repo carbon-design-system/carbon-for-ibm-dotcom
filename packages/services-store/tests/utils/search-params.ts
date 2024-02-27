@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 /**
  * @param {string} url A URL.
- * @returns {object<string, string>} The key-value pair of the search params of the given URL.
+ * @returns {[key: string]: string} The key-value pair of the search params of the given URL.
  */
 function getSearchParams(url) {
   const index = url.indexOf('?');

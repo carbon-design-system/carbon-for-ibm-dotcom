@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,14 +38,10 @@ const mockTranslation: Partial<Translation> = {
       },
       {
         title: 'menu-title-foo',
-        menuSections: [
+        submenu: [
           {
-            menuItems: [
-              {
-                title: 'menu-item-title-bar',
-                url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
-              },
-            ],
+            title: 'menu-item-title-bar',
+            url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
           },
         ],
       },
@@ -54,7 +50,7 @@ const mockTranslation: Partial<Translation> = {
 };
 
 const endpoint =
-  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2';
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
 
 describe('Redux actions for `TranslateAPI`', () => {
   it('dispatches the action to set translation data', () => {

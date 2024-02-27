@@ -60,7 +60,7 @@ class C4DBackgroundMedia extends C4DImage {
    * The opacity of the background image or video. 100 is fully visible, 0 is fully transparent.
    */
   @property({ attribute: 'opacity', reflect: true })
-  backgroundOpacity: number = 100;
+  backgroundOpacity = 100;
 
   /**
    * Set to true in _handleBackgroundMedia if all children are `c4d-image-item`
@@ -78,7 +78,7 @@ class C4DBackgroundMedia extends C4DImage {
    * Option to hide gradient. Automatically set to yes if parent is c4d-leadspace
    */
   @property()
-  gradientHidden: boolean = false;
+  gradientHidden = false;
 
   /**
    * @deprecated
@@ -92,13 +92,13 @@ class C4DBackgroundMedia extends C4DImage {
    * Internal storage of the video ID
    */
   @property()
-  videoId: String | null = null;
+  videoId: string | null = null;
 
   /**
    * Current state of video playback
    */
   @property()
-  videoIsPlaying: Boolean = false;
+  videoIsPlaying = false;
 
   /**
    * Internal storage of the video player comonent

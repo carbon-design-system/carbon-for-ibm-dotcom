@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,67 +21,82 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     color: var(--#{$c4d-prefix}--video-caption--color, $text-secondary);
 
     .#{$c4d-prefix}--image__img {
-      width: 100%;
-      height: 100%;
+      block-size: 100%;
+      inline-size: 100%;
     }
 
     &:focus {
       outline: none;
       .#{$c4d-prefix}--video-player__video-container {
         &::before {
-          content: ' ';
           position: absolute;
-          top: $spacing-01;
-          left: $spacing-01;
-          right: $spacing-01;
-          bottom: $spacing-01;
           z-index: 1;
           border: 1px solid $focus-inverse;
+          content: ' ';
+          inset: $spacing-01;
           outline: $spacing-01 solid $focus;
         }
       }
+    }
+    #{$c4d-prefix}-image {
+      padding-block-start: 0;
     }
   }
 
   :host(#{$c4d-prefix}-video-player[background-mode='true']),
   .#{$c4d-prefix}--video-player[background-mode='true'] {
     .#{$c4d-prefix}--video-player__video-container {
-      height: 100%;
       padding: 0;
+      block-size: 100%;
+    }
+
+    /**
+     * These styles mock `object-fit: cover;` and `object-position: center`.
+     *   - Aspect ratio forces the shape of the element.
+     *   - Min-width/height force the element to cover the entire parent footprint.
+     *   - inset/translate combine to ensure the element is centered over the parent footprint.
+     */
+    ::slotted(.#{$c4d-prefix}--video-player__video),
+    .#{$c4d-prefix}--video-player__video {
+      aspect-ratio: var(--native-file-aspect-ratio, 16 / 9);
+      inset: 50% 0 0 50%;
+      min-block-size: 100%;
+      min-inline-size: 100%;
+      translate: -50% -50%;
     }
   }
 
   .#{$c4d-prefix}--video-player
     .#{$c4d-prefix}--video-player__image-overlay:focus::before {
-    content: ' ';
     position: absolute;
-    top: $spacing-01;
-    left: $spacing-01;
-    right: $spacing-01;
-    bottom: $spacing-01;
     z-index: 1;
     border: 1px solid $focus-inverse;
+    content: ' ';
+    inset: $spacing-01;
     outline: $spacing-01 solid $focus;
   }
 
   :host(#{$c4d-prefix}-video-player) #{$c4d-prefix}-image,
   .#{$c4d-prefix}--video-player .#{$c4d-prefix}--image {
     position: relative;
-    width: 100%;
-    height: 100%;
-    padding-top: 0;
+    block-size: 100%;
+    inline-size: 100%;
 
     &::before {
-      content: '';
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
       z-index: 1;
       background-color: $border-inverse;
+      block-size: 100%;
+      content: '';
+      inline-size: 100%;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      opacity: 0;
       transition: opacity $duration-moderate-01 motion(standard, productive);
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     &:hover::before {
@@ -90,10 +105,9 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   }
 
   .#{$c4d-prefix}--video-player__video-container {
-    width: 100%;
     position: relative;
     display: inline-block;
-    padding-top: min(calc(100vh - #{$spacing-13}), 56.25%);
+    inline-size: 100%;
 
     &:focus {
       outline: none;
@@ -102,10 +116,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     ::slotted(.#{$c4d-prefix}--video-player__video),
     .#{$c4d-prefix}--video-player__video {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
     }
 
     @include ratio-base(16, 9, true);
@@ -125,16 +136,20 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   .#{$c4d-prefix}--video-player__video-caption {
     @include type-style('caption-02');
 
-    padding-top: var(--#{$c4d-prefix}--video-caption--padding, $spacing-03);
-    max-width: 90%;
+    max-inline-size: 90%;
+
+    padding-block-start: var(
+      --#{$c4d-prefix}--video-caption--padding,
+      $spacing-03
+    );
   }
 
   .#{$c4d-prefix}--video-player__image-overlay {
-    border: none;
     padding: 0;
+    border: none;
+    block-size: 100%;
     cursor: pointer;
-    width: 100%;
-    height: 100%;
+    inline-size: 100%;
 
     &:focus {
       outline: 3px solid $focus;
@@ -145,8 +160,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     &:active {
       svg {
         circle {
-          opacity: 0.9;
           fill: $gray-100;
+          opacity: 0.9;
         }
 
         path {
@@ -157,13 +172,17 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
     svg {
       position: absolute;
-      top: calc(50% - #{$spacing-07});
-      right: calc(50% - #{$spacing-07});
+      inset-block-start: calc(50% - #{$spacing-07});
+      inset-inline-end: calc(50% - #{$spacing-07});
 
       circle,
       path {
         transition: fill $duration-moderate-01 motion(standard, productive),
           opacity $duration-moderate-01 motion(standard, productive);
+
+        @media screen and (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
 
       circle {

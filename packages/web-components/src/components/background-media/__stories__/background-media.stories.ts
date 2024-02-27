@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,9 +12,9 @@ import '../../video-player/video-player-container';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { text, select, number } from '@storybook/addon-knobs';
-import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
-import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
+import imgMax from '../../../../.storybook/storybook-images/assets/leadspace/leadspaceMax.jpg';
+import imgLg16x9 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
+import imgSm4x3 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
 import { GRADIENT_DIRECTION } from '../defs';
 import readme from './README.stories.mdx';
 
@@ -60,6 +60,15 @@ export const WithVideo = (args) => {
       </c4d-background-media>
     </div>
   `;
+};
+
+WithVideo.story = {
+  name: 'with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const WithDefaultSource = (args) => {
