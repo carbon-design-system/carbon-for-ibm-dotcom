@@ -3112,16 +3112,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibm-products-styles@npm:^2.24.0":
-  version: 2.25.0
-  resolution: "@carbon/ibm-products-styles@npm:2.25.0"
+"@carbon/ibm-products-styles@npm:^2.27.1":
+  version: 2.27.1
+  resolution: "@carbon/ibm-products-styles@npm:2.27.1"
   peerDependencies:
     "@carbon/grid": ^11.21.1
     "@carbon/layout": ^11.20.1
     "@carbon/motion": ^11.16.1
-    "@carbon/themes": ^11.30.0
+    "@carbon/themes": ^11.32.0
     "@carbon/type": ^11.25.1
-  checksum: 10/e7f0895ea9fd7a7ee07e1a946378f75d97e90fb7d9c590cc2e4db73c81264c0801bb318749cc0c8691af24e51996d2ef6c7ff31cf210c7a0da79d8682bf9e88a
+  checksum: 10/42ef53c93cd2049fa385203c2ddb157fcf65f693b03ee562b3611705ed8a35748a3386d51094373fb3aacec3e5dbba5e5aa166e77ba617a4106fc2a9a1e05845
   languageName: node
   linkType: hard
 
@@ -3175,7 +3175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-services@npm:2.4.0-rc.4, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@npm:2.4.0, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -3188,7 +3188,7 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:7.18.5"
     "@babel/preset-env": "npm:~7.23.2"
     "@babel/runtime": "npm:^7.16.3"
-    "@carbon/ibmdotcom-utilities": "npm:2.4.0-rc.4"
+    "@carbon/ibmdotcom-utilities": "npm:2.4.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@rollup/plugin-babel": "npm:^5.3.1"
     "@rollup/plugin-commonjs": "npm:^21.0.3"
@@ -3222,7 +3222,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@npm:2.4.0-rc.4, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@npm:2.4.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -3261,7 +3261,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-utilities@npm:2.4.0-rc.4, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@npm:2.4.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -3326,10 +3326,10 @@ __metadata:
     "@babel/preset-react": "npm:~7.12.1"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
-    "@carbon/ibmdotcom-services": "npm:2.4.0-rc.4"
+    "@carbon/ibmdotcom-services": "npm:2.4.0"
     "@carbon/ibmdotcom-services-store": "npm:1.53.0"
-    "@carbon/ibmdotcom-styles": "npm:2.4.0-rc.4"
-    "@carbon/ibmdotcom-utilities": "npm:2.4.0-rc.4"
+    "@carbon/ibmdotcom-styles": "npm:2.4.0"
+    "@carbon/ibmdotcom-utilities": "npm:2.4.0"
     "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.36.0"
     "@carbon/icons-react": "npm:^11.33.0"
@@ -3340,7 +3340,7 @@ __metadata:
     "@carbon/styles": "npm:1.51.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:11.25.1"
-    "@carbon/web-components": "npm:2.4.0-rc.4"
+    "@carbon/web-components": "npm:2.4.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.27.4"
@@ -3664,7 +3664,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@npm:2.4.0-rc.4, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:2.4.0, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
@@ -3683,7 +3683,7 @@ __metadata:
     "@babel/runtime": "npm:^7.16.3"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
-    "@carbon/ibm-products-styles": "npm:^2.24.0"
+    "@carbon/ibm-products-styles": "npm:^2.27.1"
     "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.36.0"
     "@carbon/styles": "npm:1.51.0"
@@ -36487,7 +36487,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:2.3.4, yaml@npm:^2.0.0":
+"yaml@npm:2.3.4":
   version: 2.3.4
   resolution: "yaml@npm:2.3.4"
   checksum: 10/f8207ce43065a22268a2806ea6a0fa3974c6fde92b4b2fa0082357e487bc333e85dc518910007e7ac001b532c7c84bd3eccb6c7757e94182b564028b0008f44b
@@ -36498,6 +36498,15 @@ __metadata:
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: 10/e088b37b4d4885b70b50c9fa1b7e54bd2e27f5c87205f9deaffd1fb293ab263d9c964feadb9817a7b129a5bf30a06582cb08750f810568ecc14f3cdbabb79cb3
+  languageName: node
+  linkType: hard
+
+"yaml@npm:^2.0.0":
+  version: 2.4.0
+  resolution: "yaml@npm:2.4.0"
+  bin:
+    yaml: bin.mjs
+  checksum: 10/60cdb4499365a9649b4fb5cfbc496a1cd415013166f1c97aef7bf002caa0ad146058c3af91dda94c5799085d8728f1e8859b3854897ecebd10b84d7b054f0a40
   languageName: node
   linkType: hard
 
