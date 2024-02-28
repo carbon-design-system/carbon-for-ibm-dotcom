@@ -83,7 +83,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   isMandatoryCheckboxDisplayed = { countryCode: '', isDisplayed: false };
 
   @property({ type: Object, attribute: false })
-  countrySettings: any[] = [];
+  countrySettings: any;
 
   @property({ type: Boolean, attribute: false })
   emailPrechecked = false;
@@ -167,7 +167,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     } else if (supportedLanguages(language)) {
       defaultLanguage = supportedLanguages(language);
     }
-
+    loadSettings(
+      (countryPreferencesSettings) => {
+        this.countrySettings = countryPreferencesSettings;
+      },
+      () => {
+        this.countrySettings = {};
+      }
+    );
     loadContent(
       defaultLanguage,
       (ncData) => {
@@ -179,14 +186,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.defaultLoadContent();
       }
     );
-    loadSettings(
-      (countryPreferencesSettings) => {
-        this.countrySettings = countryPreferencesSettings;
-      },
-      () => {
-        this.defaultLoadSettings();
-      }
-    );
+   
   }
   setDefaultSelections() {
     if (!this.enableAllOptIn && this.checkboxes) {
