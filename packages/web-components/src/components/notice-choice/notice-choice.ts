@@ -172,7 +172,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countrySettings = countryPreferencesSettings;
       },
       () => {
-        this.countrySettings = {};
+        this.countrySettings = this.defaultLoadSettings();
       }
     );
     loadContent(
