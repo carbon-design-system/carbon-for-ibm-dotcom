@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -18,9 +18,9 @@
   :host(#{$c4d-prefix}-button-group-item) {
     @extend :host(#{$c4d-prefix}-button);
 
+    max-inline-size: 100%;
+    min-inline-size: 0;
     outline: none;
-    max-width: 100%;
-    min-width: 0;
 
     ::slotted([slot='icon']) {
       @media print {
@@ -29,9 +29,9 @@
     }
 
     @media print {
-      max-width: 100%;
-      margin-bottom: $spacing-05;
       display: block;
+      margin-block-end: $spacing-05;
+      max-inline-size: 100%;
     }
   }
 }

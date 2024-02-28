@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -18,9 +18,9 @@
     --#{$c4d-prefix}--button-group--item-count: 3;
 
     display: grid;
-    grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
     grid-gap: $spacing-05;
+    grid-template-columns: 1fr;
 
     @include breakpoint(md) {
       display: inline-grid;
