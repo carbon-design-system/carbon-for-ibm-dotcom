@@ -117,10 +117,10 @@
     --#{$dds-prefix}-masthead-max-height: calc(
       100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
     );
-    --#{$dds-prefix}-masthead-overflow: overlay;
+    --#{$dds-prefix}-masthead-overflow: auto;
 
     display: block;
-    overflow-y: overlay;
+    overflow-y: auto;
     overflow-x: hidden;
     background-color: $ui-background;
 
@@ -409,6 +409,16 @@
     display: block;
 
     &.only-child {
+      /**
+       * Necessary to accommodate Safari issue with columns.
+       *
+       * Container height is calculated before breaking into specified number
+       * of columns, which causes extra blank whitespace beneath column content.
+       */
+      .#{$prefix}--masthead__megamenu__category-group-content-wrapper {
+        display: inline;
+      }
+
       .#{$prefix}--masthead__megamenu__category-group-heading {
         @include carbon--make-col(1, 2);
 
