@@ -21,7 +21,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
-import styles from './video-player.scss';
+import styles from './video-player.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerContainer from './video-player-container';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';

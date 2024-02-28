@@ -13,7 +13,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import pauseIcon from '../../internal/vendor/@carbon/web-components/icons/pause--outline--filled/32.js';
 import playIcon from '../../internal/vendor/@carbon/web-components/icons/play--filled/32.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './background-media.scss';
+import styles from './background-media.scss?lit';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';
 import C4DVideoPlayer from '../video-player/video-player';

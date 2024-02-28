@@ -11,14 +11,14 @@ import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DCardFooter from './card-footer';
-import styles from './card.scss';
+import styles from './card.scss?lit';
 import { PICTOGRAM_PLACEMENT } from './defs';
 
 import { CTA_TYPE } from '../cta/defs';

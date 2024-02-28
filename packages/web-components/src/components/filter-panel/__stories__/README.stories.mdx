@@ -5,7 +5,7 @@ import {
   Story,
 } from '@storybook/addon-docs/blocks';
 import '../index';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Filter Panel
@@ -26,9 +26,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/filter-panel/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['filter-panel'] })}`} />
+<Markdown>{`${cdnJs({ components: ['filter-panel'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

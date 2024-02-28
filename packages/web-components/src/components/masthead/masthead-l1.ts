@@ -12,7 +12,7 @@ import { property, query, queryAll, state } from 'lit/decorators.js';
 import root from 'window-or-global';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './masthead-l1.scss';
+import styles from './masthead-l1.scss?lit';
 import {
   L1MenuItem as _L1MenuItem,
   L1SubmenuSection as _L1SubmenuSection,

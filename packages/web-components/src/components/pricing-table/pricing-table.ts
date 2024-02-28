@@ -14,7 +14,7 @@ import HostListener from '../../internal/vendor/@carbon/web-components/globals/d
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredList from '../structured-list/structured-list';
-import styles from './pricing-table.scss';
+import styles from './pricing-table.scss?lit';
 import C4DPricingTableHeaderCell from './pricing-table-header-cell';
 import C4DPricingTableHighlightLabel from './pricing-table-highlight-label';
 import C4DPricingTableHead from './pricing-table-head';

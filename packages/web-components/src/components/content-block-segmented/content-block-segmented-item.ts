@@ -11,7 +11,7 @@ import { css, html, TemplateResult } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentGroup from '../content-group/content-group';
-import styles from './content-block-segmented.scss';
+import styles from './content-block-segmented.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

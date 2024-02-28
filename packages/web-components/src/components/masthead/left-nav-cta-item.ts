@@ -10,8 +10,8 @@
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import BXSideNavMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-menu-item.js';
-import styles from './masthead.scss';
+import BXSideNavMenuItem from '@carbon/web-components/es/components/ui-shell/side-nav-menu-item.js';
+import styles from './masthead.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

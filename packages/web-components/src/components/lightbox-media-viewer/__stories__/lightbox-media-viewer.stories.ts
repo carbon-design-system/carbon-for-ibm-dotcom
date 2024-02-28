@@ -11,12 +11,12 @@ import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '../../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
+import '@carbon/web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 import '../../carousel/index';
 import '../../expressive-modal/index';
-import styles from './lightbox-media-viewer.stories.scss';
+import styles from './lightbox-media-viewer.stories.scss?lit';
 import readme from './README.stories.mdx';
 
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';

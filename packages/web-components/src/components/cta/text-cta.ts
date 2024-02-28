@@ -18,7 +18,7 @@ import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
-import styles from './cta.scss';
+import styles from './cta.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CTA_TYPE };

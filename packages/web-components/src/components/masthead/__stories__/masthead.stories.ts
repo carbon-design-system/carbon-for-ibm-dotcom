@@ -14,7 +14,7 @@ import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
-import styles from './masthead.stories.scss';
+import styles from './masthead.stories.scss?lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
 import {

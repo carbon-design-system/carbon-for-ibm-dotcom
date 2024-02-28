@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import ArrowRight24 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/24.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

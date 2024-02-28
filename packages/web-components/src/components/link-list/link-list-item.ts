@@ -11,7 +11,7 @@ import { css } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
-import styles from './link-list.scss';
+import styles from './link-list.scss?lit';
 
 import { LINK_LIST_ITEM_TYPE } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';

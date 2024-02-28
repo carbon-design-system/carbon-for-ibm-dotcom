@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DMegaMenu from '../megamenu';
-import styles from './cloud-masthead.scss';
+import styles from './cloud-masthead.scss?lit';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

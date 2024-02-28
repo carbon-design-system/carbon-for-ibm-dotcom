@@ -11,7 +11,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { html } from 'lit';
 import User20 from '../../../internal/vendor/@carbon/web-components/icons/user/20.js';
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './cloud-masthead.scss';
+import styles from './cloud-masthead.scss?lit';
 import C4DMastheadProfile from '../masthead-profile';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

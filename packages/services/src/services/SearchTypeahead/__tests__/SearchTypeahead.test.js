@@ -28,7 +28,9 @@ describe('SearchTypeaheadAPI', () => {
 
   it('should search for ibm.com results with just lc param', async () => {
     const query = 'red hat';
-    const endpoint = `${process.env.SEARCH_TYPEAHEAD_API}/search/typeahead/${process.env.SEARCH_TYPEAHEAD_VERSION}`;
+    const endpoint = `${
+      import.meta.env.SEARCH_TYPEAHEAD_API
+    }/search/typeahead/${import.meta.env.SEARCH_TYPEAHEAD_VERSION}`;
     const fetchUrl = `${endpoint}?lang=${_lc}&query=${encodeURIComponent(
       query
     )}`;
@@ -55,7 +57,9 @@ describe('SearchTypeaheadAPI', () => {
     };
 
     const query = 'red hat';
-    const endpoint = `${process.env.SEARCH_TYPEAHEAD_API}/search/typeahead/${process.env.SEARCH_TYPEAHEAD_VERSION}`;
+    const endpoint = `${
+      import.meta.env.SEARCH_TYPEAHEAD_API
+    }/search/typeahead/${import.meta.env.SEARCH_TYPEAHEAD_VERSION}`;
     const fetchUrl = `${endpoint}?lang=${_lc}&cc=${_cc}&query=${encodeURIComponent(
       query
     )}`;

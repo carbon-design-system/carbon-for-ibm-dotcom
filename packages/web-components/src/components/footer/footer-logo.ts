@@ -16,7 +16,7 @@ import IBM8BarLogoH23White from '../../../es/icons/IBM-8bar-logo--h23-white.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { FOOTER_SIZE } from './footer';
-import styles from './footer.scss';
+import styles from './footer.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

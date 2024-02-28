@@ -8,7 +8,7 @@
  */
 import { html } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './logo-grid.scss';
+import styles from './logo-grid.scss?lit';
 import C4DImage from '../image/image';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';

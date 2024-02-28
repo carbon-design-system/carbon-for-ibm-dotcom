@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT } from './defs';
-import styles from './horizontal-rule.scss';
+import styles from './horizontal-rule.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT };

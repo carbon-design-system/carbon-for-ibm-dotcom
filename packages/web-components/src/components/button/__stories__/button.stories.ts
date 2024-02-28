@@ -8,98 +8,93 @@
  */
 
 import { html } from 'lit';
-import { boolean, select } from '@storybook/addon-knobs';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import readme from './README.stories.mdx';
-import { CTA_TYPE } from '../../cta/defs';
-
 import {
   hrefsForType,
   knobNamesForType,
   typeOptions,
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
+import { CTA_TYPE } from '../../cta/defs';
+import '../button';
+import '../../cta/video-cta-container';
 
-export const Default = (args) => {
-  const { copy, customVideoTitle, ctaType, disabled, download, href } =
-    args?.Button ?? {};
-
-  let videoCopy;
-
-  if (ctaType === CTA_TYPE.VIDEO) {
-    const button = document.querySelector('c4d-button') as any;
-    const duration = button?.videoTitle?.match(/\((.*)\)/)?.pop();
-
-    if (!customVideoTitle) {
-      videoCopy = button?.videoTitle;
-    } else {
-      videoCopy = duration
-        ? `${customVideoTitle} (${duration})`
-        : customVideoTitle;
-    }
-  }
-
-  return html`
-    <c4d-video-cta-container>
-      <c4d-button
-        ?disabled="${disabled}"
-        href="${href}"
-        download=${download}
-        cta-type="${ctaType}">
-        ${videoCopy ?? copy}
-      </c4d-button>
-    </c4d-video-cta-container>
-  `;
-};
-
-export default {
-  title: 'Components/Button',
-  decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
-  parameters: {
-    ...readme.parameters,
-    hasStoryPadding: true,
-    knobs: {
-      Button: () => {
-        const ctaType = select(
-          'CTA type (cta-type)',
-          typeOptions,
-          types[CTA_TYPE.LOCAL]
-        );
-        const copy =
-          ctaType === CTA_TYPE.VIDEO
-            ? undefined
-            : textNullable('Link text (unnamed slot)', 'Button text');
-        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
-          ? undefined
-          : textNullable(
-              'Download target (download)',
-              'IBM_Annual_Report_2019.pdf'
-            );
-        const customVideoTitle =
-          ctaType === CTA_TYPE.VIDEO
-            ? textNullable('Custom video title', 'Custom video title')
-            : null;
-        return {
-          ctaType,
-          copy,
-          customVideoTitle,
-          disabled: boolean('Disabled (disabled)', false),
-          download,
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
-        };
-      },
-    },
-    propsSet: {
-      default: {
-        Button: {
-          copy: 'Button text',
-          disabled: false,
-          href: 'https://github.com/carbon-design-system/carbon-web-components',
-        },
-      },
-    },
+const controls = {
+  ctaType: {
+    control: 'select',
+    description: 'CTA type (cta-type)',
+    options: typeOptions,
+  },
+  copy: {
+    control: 'text',
+    description: 'Link text (unnamed slot)',
+    if: { arg: 'ctaType', neq: `${CTA_TYPE.VIDEO}` },
+  },
+  customVideoTitle: {
+    control: 'text',
+    description: 'Custom video title',
+    if: { arg: 'ctaType', eq: `${CTA_TYPE.VIDEO}` },
+  },
+  disabled: {
+    control: 'boolean',
+    description: 'Disabled (disabled)',
+  },
+  download: {
+    control: 'text',
+    description: 'Download target (download)',
+    if: { arg: 'ctaType', eq: `${CTA_TYPE.DOWNLOAD}` },
+  },
+  href: {
+    control: 'text',
+    description: knobNamesForType[CTA_TYPE.REGULAR],
   },
 };
+
+const defaultArgs = {
+  ctaType: types[CTA_TYPE.LOCAL],
+  copy: 'Button text',
+  customVideoTitle: 'Custom video title',
+  disabled: false,
+  download: 'IBM_Annual_Report_2019.pdf',
+};
+
+export const Default = {
+  argTypes: controls,
+  args: defaultArgs,
+  render: ({ copy, ctaType, customVideoTitle, disabled, download }) => {
+    const href = hrefsForType[ctaType ?? CTA_TYPE.REGULAR];
+
+    let videoCopy;
+
+    if (ctaType === CTA_TYPE.VIDEO) {
+      const button = document.querySelector('c4d-button') as any;
+      const duration = button?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+      if (!customVideoTitle) {
+        videoCopy = button?.videoTitle;
+      } else {
+        videoCopy = duration
+          ? `${customVideoTitle} (${duration})`
+          : customVideoTitle;
+      }
+    }
+
+    return html`
+      <c4d-video-cta-container>
+        <c4d-button
+          custom-video-title=${customVideoTitle}
+          ?disabled="${disabled}"
+          href="${href}"
+          download=${download}
+          cta-type="${ctaType}">
+          ${videoCopy ?? copy}
+        </c4d-button>
+      </c4d-video-cta-container>
+    `;
+  },
+};
+
+const meta = {
+  title: 'Components/Button',
+};
+
+export default meta;

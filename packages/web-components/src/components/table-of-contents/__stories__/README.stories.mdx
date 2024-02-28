@@ -1,5 +1,5 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import {
   cdnJs,
   cdnCss,
@@ -51,13 +51,13 @@ body {
 
 ## Example using CDN
 
-<Description markdown={`${cdnJs({ components: ['table-of-contents'] })}`} />
+<Markdown>{`${cdnJs({ components: ['table-of-contents'] })}`}</Markdown>
 
 <Description
   markdown={`${cdnCssAdditional({ components: ['table-of-contents'] })}`}
 />
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ## Example HTML
 

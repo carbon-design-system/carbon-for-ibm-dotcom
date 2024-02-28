@@ -20,7 +20,7 @@ import mockLegalLinks from './legal-links';
 import mockAdjunctLinks from './adjunct-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
-import styles from './footer.stories.scss';
+import styles from './footer.stories.scss?lit';
 
 export const base = (args) => {
   const {

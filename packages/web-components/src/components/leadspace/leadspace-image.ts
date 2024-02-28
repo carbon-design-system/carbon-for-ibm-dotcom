@@ -11,7 +11,7 @@ import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DImage from '../image/image';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './leadspace.scss';
+import styles from './leadspace.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;

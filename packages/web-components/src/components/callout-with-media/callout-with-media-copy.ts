@@ -12,7 +12,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentBlockCopy from '../content-block/content-block-copy';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
-import styles from './callout-with-media.scss';
+import styles from './callout-with-media.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -22,7 +22,7 @@ import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import styles from './content-block-mixed.stories.scss';
+import styles from './content-block-mixed.stories.scss?lit';
 import { CTA_TYPE } from '../../cta/defs';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/defs';
 

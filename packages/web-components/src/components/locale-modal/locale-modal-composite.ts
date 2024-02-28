@@ -30,7 +30,7 @@ import './locale-search';
 import './locale-item';
 import '../card/card-heading';
 import '../card/card-footer';
-import styles from './locale-modal-composite.scss';
+import styles from './locale-modal-composite.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

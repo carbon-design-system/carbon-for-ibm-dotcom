@@ -11,12 +11,14 @@ import { LocaleAPI } from '../Locale';
  * @private
  */
 const _host =
-  (process && process.env.SEARCH_TYPEAHEAD_API) || 'https://www-api.ibm.com';
+  (import.meta && import.meta.env.SEARCH_TYPEAHEAD_API) ||
+  'https://www-api.ibm.com';
 /**
  * @constant {string | string} API version
  * @private
  */
-const _version = (process && process.env.SEARCH_TYPEAHEAD_VERSION) || 'v1';
+const _version =
+  (import.meta && import.meta.env.SEARCH_TYPEAHEAD_VERSION) || 'v1';
 /**
  * SearchTypeahead endpoint
  *

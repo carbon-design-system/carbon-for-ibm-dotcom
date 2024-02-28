@@ -13,7 +13,7 @@ import Launch20 from '../../../internal/vendor/@carbon/web-components/icons/laun
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
-import styles from './cta-block.stories.scss';
+import styles from './cta-block.stories.scss?lit';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../tabs-extended/index';
 import '../index';

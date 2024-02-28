@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import '../video-player';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
@@ -18,9 +18,9 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 import '@carbon/ibmdotcom-web-components/es/components/video-player/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['video-player'] })}`} />
+<Markdown>{`${cdnJs({ components: ['video-player'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
@@ -75,7 +75,7 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
   })}`}
 />
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

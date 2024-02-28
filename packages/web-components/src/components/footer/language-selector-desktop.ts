@@ -10,11 +10,11 @@
 import { property, query, state } from 'lit/decorators.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import CDSComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
+import CDSComboBoxItem from '@carbon/web-components/es/components/combo-box/combo-box-item.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
 import C4DComboBox from './combo-box';
-import styles from './footer.scss';
+import styles from './footer.scss?lit';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

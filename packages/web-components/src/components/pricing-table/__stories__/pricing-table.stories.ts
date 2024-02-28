@@ -11,10 +11,10 @@ import { TemplateResult, html } from 'lit';
 import { number, text } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
-import '../../../internal/vendor/@carbon/web-components/components/tooltip/index.js';
+import '@carbon/web-components/es/components/tooltip/index.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
-import styles from './pricing-table.stories.scss';
+import styles from './pricing-table.stories.scss?lit';
 
 enum CELL_TYPES {
   TEXT = 'text',

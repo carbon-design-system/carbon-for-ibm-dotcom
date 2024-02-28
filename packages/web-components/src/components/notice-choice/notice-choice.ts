@@ -20,7 +20,7 @@ import {
 import countrySettings from './country-settings';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './notice-choice.scss';
+import styles from './notice-choice.scss?lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { worldWideContent } from './world-wide-content';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';

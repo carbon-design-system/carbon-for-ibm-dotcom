@@ -10,11 +10,11 @@
 import { property } from 'lit/decorators.js';
 import CDSModal, {
   MODAL_SIZE,
-} from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+} from '@carbon/web-components/es/components/modal/modal.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './leaving-ibm.scss';
+import styles from './leaving-ibm.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

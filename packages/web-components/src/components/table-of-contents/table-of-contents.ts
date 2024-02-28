@@ -18,7 +18,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import throttle from 'lodash-es/throttle.js';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './table-of-contents.scss';
+import styles from './table-of-contents.scss?lit';
 import { TOC_TYPES } from './defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';

@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Dotcom Shell
@@ -28,9 +28,9 @@ from default service data.
 import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['dotcom-shell'] })}`} />
+<Markdown>{`${cdnJs({ components: ['dotcom-shell'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

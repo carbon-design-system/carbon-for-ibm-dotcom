@@ -1,0 +1,81 @@
+import { ArgsTable, Markdown, Meta } from '@storybook/blocks';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+import * as ButtonStories from './button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+> 💡 Check our
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/button)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/button)
+
+## Getting started
+
+This component extends from
+[Carbon Web Component button](https://web-components.carbondesignsystem.com/?path=/docs/components-button--default).
+Here's a quick example to get you started.
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/button/index.js';
+```
+
+<Markdown>{`${cdnJs({ components: ['button'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
+
+### HTML
+
+```html
+<c4d-button href="https://example.com">Example</c4d-button>
+```
+
+### CTA features
+
+The `cta-type` attribute allows every type of CTA and icon available in the
+Carbon for IBM.com library. The default CTA style is `local`, which provides a
+basic link and arrow icon.
+
+In order to use the desired type, modify the `cta-type` attribute to one of the
+following:
+
+- local
+- jump
+- external
+- new tab
+- download
+- video
+- pdf
+- blog
+- email
+- schedule
+- chat
+- call
+
+Notes:
+
+- When using `video`, you need to pass the video ID as the `href` attribute.
+- The Button component will need to be wrapped within a
+  `cds-video-cta-container` components for videos to play.
+- Custom icons can replace the built-in ones within `cds-card-footer`, they only
+  need to be assigned to the `icon` slot.
+
+## Props
+
+<ArgsTable of="c4d-button" />
+
+## Stable selectors
+
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector      | Description |
+| ----------------------- | --------------------------- | ----------- |
+| `<c4d-button>`          | `data-autoid="c4d--button"` | Component   |
+
+<Markdown>{contributing}</Markdown>

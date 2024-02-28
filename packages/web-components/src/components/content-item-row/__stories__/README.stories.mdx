@@ -1,6 +1,6 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # `<c4d-content-item-row>`
@@ -25,7 +25,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-row/index.js
   markdown={`${cdnJs({ components: ['content-item-row'] })}`}
 />
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

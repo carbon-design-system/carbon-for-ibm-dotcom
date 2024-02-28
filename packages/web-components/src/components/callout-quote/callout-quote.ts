@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './callout-quote.scss';
+import styles from './callout-quote.scss?lit';
 import C4DCalloutMixin from '../../component-mixins/callout/callout';
 import C4DQuote from '../quote/quote';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';

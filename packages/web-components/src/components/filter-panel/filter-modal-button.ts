@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSModalFooterButton from '../../internal/vendor/@carbon/web-components/components/modal/modal-footer-button.js';
+import CDSModalFooterButton from '@carbon/web-components/es/components/modal/modal-footer-button.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './filter-panel.scss';
+import styles from './filter-panel.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

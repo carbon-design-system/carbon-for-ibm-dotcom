@@ -13,7 +13,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './leadspace-with-search.scss';
+import styles from './leadspace-with-search.scss?lit';
 import { ADJACENT_THEMES, DUAL_THEMES } from './defs';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';

@@ -8,8 +8,8 @@
  */
 
 import { html } from 'lit';
-import fadeStyles from '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_index.scss';
-import fadeOptions from './scroll-animations.stories.scss';
+import fadeStyles from '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_index.scss?lit';
+import fadeOptions from './scroll-animations.stories.scss?lit';
 import '../scroll-animations';
 import readme from './README.stories.mdx';
 import { StoryContent } from '../../dotcom-shell/__stories__/data/content';

@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentGroup from '../content-group/content-group';
-import styles from './in-page-banner.scss';
+import styles from './in-page-banner.scss?lit';
 import { COLOR_SCHEME } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 

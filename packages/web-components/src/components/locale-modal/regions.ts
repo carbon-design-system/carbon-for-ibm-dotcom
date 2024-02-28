@@ -10,8 +10,8 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import '../../internal/vendor/@carbon/web-components/components/search/search.js';
-import styles from './locale-modal.scss';
+import '@carbon/web-components/es/components/search/search.js';
+import styles from './locale-modal.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 

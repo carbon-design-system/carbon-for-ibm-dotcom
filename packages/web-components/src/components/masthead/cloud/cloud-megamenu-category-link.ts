@@ -9,9 +9,9 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import CDSLink from '../../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './cloud-masthead.scss';
+import styles from './cloud-masthead.scss?lit';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

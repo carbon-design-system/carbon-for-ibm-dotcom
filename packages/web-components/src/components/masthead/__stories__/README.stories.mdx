@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Masthead
@@ -33,8 +33,8 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 ````javascript
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
-```<Description markdown={`\${cdnJs({ components: ['masthead'] })}`} />
-<Description markdown={`${cdnCss()}`} />
+```<Markdown>{`\${cdnJs({ components: ['masthead'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

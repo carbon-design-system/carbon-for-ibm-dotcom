@@ -12,7 +12,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import C4DContentBlock, {
   CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME,
 } from '../content-block/content-block';
-import styles from './content-block-segmented.scss';
+import styles from './content-block-segmented.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

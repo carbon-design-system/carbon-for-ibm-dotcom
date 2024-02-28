@@ -20,7 +20,7 @@ import '../button/button';
 import { LIGHTBOX_CONTRAST } from './defs';
 import Maximize20 from '../../internal/vendor/@carbon/web-components/icons/maximize/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import styles from './image.scss';
+import styles from './image.scss?lit';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

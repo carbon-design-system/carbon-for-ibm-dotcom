@@ -16,7 +16,7 @@ import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
 import '../index';
-import styles from './carousel.stories.scss';
+import styles from './carousel.stories.scss?lit';
 import readme from './README.stories.mdx';
 
 import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';

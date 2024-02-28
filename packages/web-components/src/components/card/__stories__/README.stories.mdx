@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Card
@@ -25,8 +25,8 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['card'] })}`} />
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnJs({ components: ['card'] })}`}</Markdown>
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

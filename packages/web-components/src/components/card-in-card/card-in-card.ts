@@ -13,7 +13,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import C4DCard from '../card/card';
 import { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
-import styles from './card-in-card.scss';
+import styles from './card-in-card.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 

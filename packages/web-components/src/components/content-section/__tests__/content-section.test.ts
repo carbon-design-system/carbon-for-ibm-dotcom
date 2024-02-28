@@ -10,7 +10,7 @@
 import { html, render } from 'lit/html.js';
 import '../content-section';
 import '../content-section-heading';
-import '../content-section.scss';
+import '../content-section.scss?lit';
 
 const template = () => html`
   <c4d-content-section>

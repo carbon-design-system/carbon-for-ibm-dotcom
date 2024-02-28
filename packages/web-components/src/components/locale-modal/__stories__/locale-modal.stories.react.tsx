@@ -17,7 +17,7 @@ import localeData from './locale-data.json';
 
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import styles from './locale-modal.stories.scss';
+import styles from './locale-modal.stories.scss?lit';
 
 export const Default = (args) => {
   const { langDisplay } = args?.LocaleModalComposite;

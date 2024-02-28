@@ -15,7 +15,7 @@ import C4DContentBlock from '../content-block/content-block';
 import '../horizontal-rule/horizontal-rule';
 import '../content-block/content-block-heading';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './logo-grid.scss';
+import styles from './logo-grid.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

@@ -11,7 +11,7 @@ import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import C4DTabsExtended from '../tabs-extended/tabs-extended';
-import styles from './tabs-extended-media.scss';
+import styles from './tabs-extended-media.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -15,7 +15,7 @@ import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';
 import '../../link-list/link-list';
 import content, { headings, LOREM } from './content';
-import styles from './table-of-contents.stories.scss';
+import styles from './table-of-contents.stories.scss?lit';
 import readme from './README.stories.mdx';
 import { TOC_TYPES } from '../defs';
 import { ICON_PLACEMENT } from '../../../globals/defs';

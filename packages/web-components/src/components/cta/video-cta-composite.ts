@@ -22,7 +22,7 @@ import C4DLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-v
 import '../lightbox-media-viewer/lightbox-video-player-composite';
 import { CTA_TYPE } from './defs';
 import { CTAMixinImpl } from '../../component-mixins/cta/cta';
-import styles from './video-cta-composite.scss';
+import styles from './video-cta-composite.scss?lit';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

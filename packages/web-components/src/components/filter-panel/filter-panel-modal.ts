@@ -17,10 +17,10 @@ import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './filter-panel.scss';
-import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
+import styles from './filter-panel.scss?lit';
+import '@carbon/web-components/es/components/checkbox/checkbox.js';
+import '@carbon/web-components/es/components/modal/modal-close-button.js';
+import '@carbon/web-components/es/components/modal/modal-header.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

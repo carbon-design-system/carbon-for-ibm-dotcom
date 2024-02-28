@@ -26,7 +26,7 @@ import Launch20 from '@carbon/icons-react/es/launch/20';
 import C4DLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import readme from './README.stories.react.mdx';
-import styles from './leaving-ibm.stories.scss';
+import styles from './leaving-ibm.stories.scss?lit';
 
 export const Default = (args) => {
   const { href, ctaText, ctaType } = args?.LeavingIBM ?? {};

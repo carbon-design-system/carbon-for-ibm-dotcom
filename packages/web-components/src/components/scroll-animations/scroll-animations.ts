@@ -28,7 +28,7 @@ const colSpan = 3;
  * Function component that handles fade or slide transition for selected elements.
  *
  * @example
- * import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_index.scss';
+ * import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_index.scss?lit';
  * import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/scroll-animations.js';
  *
  * As an example, the function can be called to target all instances of the
