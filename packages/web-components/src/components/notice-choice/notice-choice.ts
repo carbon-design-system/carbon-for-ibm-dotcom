@@ -53,7 +53,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   termsConditionLink = html``;
 
   @property({ type: Boolean, attribute: 'enable-all-opt-in' })
-  enableAllOptIn;
+  enableAllOptIn = false;
 
   @property({ attribute: 'default-values' })
   defaultValues = {};
@@ -167,7 +167,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     } else if (supportedLanguages(language)) {
       defaultLanguage = supportedLanguages(language);
     }
-
+    loadSettings(
+      (countryPreferencesSettings) => {
+        this.countrySettings = countryPreferencesSettings;
+      },
+      () => {
+        this.countrySettings = this.defaultLoadSettings();
+      }
+    );
     loadContent(
       defaultLanguage,
       (ncData) => {
@@ -177,14 +184,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       },
       () => {
         this.defaultLoadContent();
-      }
-    );
-    loadSettings(
-      (countryPreferencesSettings) => {
-        this.countrySettings = countryPreferencesSettings;
-      },
-      () => {
-        this.defaultLoadSettings();
       }
     );
   }
@@ -308,7 +307,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         break;
       }
       case 'enable-all-opt-in':
-        this.setDefaultSelections();
+        if (oldVal !== newVal) {
+          this.enableAllOptIn = JSON.parse(newVal);
+          this.setDefaultSelections();
+        }
         break;
       case 'hide-error-message': {
         if (oldVal !== newVal) {
