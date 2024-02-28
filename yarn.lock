@@ -3737,7 +3737,7 @@ __metadata:
     expect-playwright: "npm:~0.8.0"
     expect-puppeteer: "npm:^6.0.0"
     file-loader: "npm:^6.2.0"
-    flatpickr: "npm:4.6.1"
+    flatpickr: "npm:4.6.13"
     fs-extra: "npm:^10.0.0"
     gulp: "npm:^4.0.2"
     gulp-babel: "npm:^8.0.0"
@@ -17427,10 +17427,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flatpickr@npm:4.6.13":
+  version: 4.6.13
+  resolution: "flatpickr@npm:4.6.13"
+  checksum: 10/0e32f2fbd427aa8d838da8fb0cf2e56b65efc22783dcebcc32c11b7fbb6bbc8c3532f9410915f3acb7dc0feebb49202bea03e49cc80b9d4d11b3bdce49488bc0
+  languageName: node
+  linkType: hard
+
 "flatpickr@npm:4.6.9":
   version: 4.6.9
   resolution: "flatpickr@npm:4.6.9"
   checksum: 10/0845ef213be9aa48df3c0983e9cea7043e8678eba931d382994e5e8aa07ae2c6d3fead7570d4dcac8e063b53bc489053b9842cd2a771868a280880dfca487a5e
+  languageName: node
+  linkType: hard
+
+"flatpickr@patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch::locator=carbon-for-ibm-dotcom%40workspace%3A.":
+  version: 4.6.13
+  resolution: "flatpickr@patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch::version=4.6.13&hash=45a0af&locator=carbon-for-ibm-dotcom%40workspace%3A."
+  checksum: 10/720e102d03aa2ac3a4ad4778acdae55c90f49345293621b33a18dce23cb40cc9880853a694b8d92de7cecd7699c447a5609318bf41e25606465321c83840a582
   languageName: node
   linkType: hard
 
