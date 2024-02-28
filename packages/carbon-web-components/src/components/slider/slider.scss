@@ -33,7 +33,7 @@ $css--plex: true !default;
 
     transform: translate(-50%, -50%) #{'/*rtl:ignore*/'};
   }
-  
+
   .#{$prefix}--slider__thumb:focus
     ~ .#{$prefix}-ce--slider__filled-track-container
     .#{$prefix}--slider__filled-track {
@@ -52,4 +52,12 @@ $css--plex: true !default;
   input {
     background-color: transparent;
   }
+}
+.#{$prefix}--slider__thumb-wrapper:focus-within
+  .#{$prefix}--slider__thumb-icon {
+  display: none;
+}
+.#{$prefix}--slider__thumb-wrapper:focus-within
+  .#{$prefix}--slider__thumb-icon--focus {
+  display: block;
 }
