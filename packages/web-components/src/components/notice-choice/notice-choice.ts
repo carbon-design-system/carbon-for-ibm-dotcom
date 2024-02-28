@@ -53,7 +53,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   termsConditionLink = html``;
 
   @property({ type: Boolean, attribute: 'enable-all-opt-in' })
-  enableAllOptIn;
+  enableAllOptIn = false;
 
   @property({ attribute: 'default-values' })
   defaultValues = {};
