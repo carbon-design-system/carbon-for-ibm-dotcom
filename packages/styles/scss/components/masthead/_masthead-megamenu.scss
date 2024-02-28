@@ -127,10 +127,10 @@
     --#{$c4d-prefix}-masthead-max-height: calc(
       100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
     );
-    --#{$c4d-prefix}-masthead-overflow: overlay;
+    --#{$c4d-prefix}-masthead-overflow: auto;
 
     display: block;
-    overflow: hidden overlay;
+    overflow: hidden auto;
     background-color: $background;
 
     &:focus {
@@ -423,6 +423,16 @@
     display: block;
 
     &.only-child {
+      /**
+       * Necessary to accommodate Safari issue with columns.
+       *
+       * Container height is calculated before breaking into specified number
+       * of columns, which causes extra blank whitespace beneath column content.
+       */
+      .#{$prefix}--masthead__megamenu__category-group-content-wrapper {
+        display: inline;
+      }
+
       .#{$prefix}--masthead__megamenu__category-group-heading {
         @include make-col(1, 2);
 
