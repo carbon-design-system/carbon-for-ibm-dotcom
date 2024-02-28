@@ -115,10 +115,12 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
           aria-controls="pane-${index}"
           tabindex="${index + 1}"
           ?disabled="${disabled}">
-          ${ChevronRight20({
-            part: 'expando-icon',
-            class: `${prefix}--accordion__arrow`,
-          })}
+          ${selected
+            ? ''
+            : ChevronRight20({
+                part: 'expando-icon',
+                class: `${prefix}--accordion__arrow`,
+              })}
           <div class="${prefix}--accordion__title">${label}</div>
         </button>
         <div id="pane-${index}" class="${prefix}--accordion__content">
