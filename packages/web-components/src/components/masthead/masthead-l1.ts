@@ -406,9 +406,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         const icon = isMobileVersion ? ArrowRight16() : '';
         return html`
           <a class="${classname}" href="${cta.url}">
-            ${desktopWrapper(html`
-              <slot name="cta-text">${cta.title}</slot>${icon}
-            `)}
+            ${desktopWrapper(html`${cta.title}${icon}`)}
           </a>
         `;
       }
