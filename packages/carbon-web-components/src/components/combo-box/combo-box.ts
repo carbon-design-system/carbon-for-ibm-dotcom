@@ -18,6 +18,7 @@ import CDSComboBoxItem from './combo-box-item';
 import styles from './combo-box.scss';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import { ifDefined } from 'lit/directives/if-defined';
+import ifNonEmpty from '../../globals/directives/if-non-empty';
 
 export { DROPDOWN_DIRECTION, DROPDOWN_SIZE } from '../dropdown/dropdown';
 
@@ -244,7 +245,7 @@ class CDSComboBox extends CDSDropdown {
         placeholder="${label}"
         .value=${filterInputValue}
         role="combobox"
-        aria-label="${ifDefined(inputLabel)}"
+        aria-label="${ifNonEmpty(inputLabel)}"
         aria-controls="menu-body"
         aria-haspopup="listbox"
         aria-autocomplete="list"
