@@ -49,24 +49,24 @@ const defaultArgs = {
   alt: 'Image alt text',
   defaultSrc: imgXlg4x3,
   tagGroup: false,
-  cardStyles: 'none'
+  cardStyles: 'none',
 };
 
 const controls = {
   aspectRatio: {
     control: 'select',
     description: 'Aspect ratio (aspect-ratio)',
-    options: ['1:1', '2:1', '3:2', '4:3', '16:9', '1:1']
+    options: ['1:1', '2:1', '3:2', '4:3', '16:9', '1:1'],
   },
   ctaType: {
     control: 'select',
     description: 'CTA type (cta-type)',
-    options: typeOptions
+    options: typeOptions,
   },
   customVideoTitle: {
     control: 'text',
     description: 'Custom video title',
-    if: { arg: 'ctaType', eq: `${CTA_TYPE.VIDEO}` }
+    if: { arg: 'ctaType', eq: `${CTA_TYPE.VIDEO}` },
   },
   disabled: {
     control: 'boolean',
@@ -79,31 +79,30 @@ const controls = {
   heading: {
     control: 'text',
     description: 'Heading',
-    if: { arg: 'ctaType', neq: `${CTA_TYPE.VIDEO}` }
+    if: { arg: 'ctaType', neq: `${CTA_TYPE.VIDEO}` },
   },
   copy: {
     control: 'text',
-    description: 'Body copy'
+    description: 'Body copy',
   },
   alt: {
     control: 'text',
-    description: 'Image alt text'
+    description: 'Image alt text',
   },
   tagGroup: {
     control: 'boolean',
-    description: 'Add tags'
+    description: 'Add tags',
   },
   href: {
     control: 'text',
-    description: knobNamesForType[CTA_TYPE.REGULAR]
+    description: knobNamesForType[CTA_TYPE.REGULAR],
   },
   cardStyles: {
     control: 'select',
     description: 'Card style',
-    options: ['Inverse card', 'none']
-  }
+    options: ['Inverse card', 'none'],
+  },
 };
-
 
 export const Default = {
   argTypes: controls,
@@ -124,56 +123,57 @@ export const Default = {
     cardStyles,
     customVideoTitle,
   }) => {
+    let videoCopy;
+    let videoFooterCopy;
 
-  let videoCopy;
-  let videoFooterCopy;
+    if (ctaType === CTA_TYPE.VIDEO) {
+      const card = document.querySelector('c4d-card') as any;
+      const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
 
-  if (ctaType === CTA_TYPE.VIDEO) {
-    const card = document.querySelector('c4d-card') as any;
-    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+      if (!customVideoTitle) {
+        videoCopy = card?.videoTitle;
+      } else {
+        videoCopy = customVideoTitle;
+      }
 
-    if (!customVideoTitle) {
-      videoCopy = card?.videoTitle;
-    } else {
-      videoCopy = customVideoTitle;
+      videoFooterCopy = duration;
     }
 
-    videoFooterCopy = duration;
-  }
+    const copyComponent = document
+      .querySelector('c4d-card')
+      ?.querySelector('p');
+    if (copyComponent) {
+      copyComponent!.innerHTML = copy;
+    }
 
-  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
-  if (copyComponent) {
-    copyComponent!.innerHTML = copy;
-  }
-
-  return html`
-    <c4d-video-cta-container>
-      <c4d-card
-        ?disabled=${disabled}
-        aspect-ratio=${aspectRatio}
-        ?no-poster=${noPoster}
-        cta-type=${ctaType}
-        color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}
-        href=${ifDefined(href || undefined)}>
-        ${image
-          ? html`
-              <c4d-image
-                slot="image"
-                alt="${ifDefined(alt)}"
-                default-src="${ifDefined(defaultSrc)}"></c4d-image>
-            `
-          : ``}
-        <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
-        <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        ${copy ? html`<p></p>` : ``}
-        ${tagGroup ? html` ${tagGroupContent} ` : ``}
-        ${ctaType === CTA_TYPE.VIDEO
-          ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
-          : html`<c4d-card-footer></c4d-card-footer>`}
-      </c4d-card>
-    </c4d-video-cta-container>
-  `;
-        }
+    return html`
+      <c4d-video-cta-container>
+        <c4d-card
+          ?disabled=${disabled}
+          aspect-ratio=${aspectRatio}
+          ?no-poster=${noPoster}
+          cta-type=${ctaType}
+          color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}
+          href=${ifDefined(href || undefined)}>
+          ${image
+            ? html`
+                <c4d-image
+                  slot="image"
+                  alt="${ifDefined(alt)}"
+                  default-src="${ifDefined(defaultSrc)}"></c4d-image>
+              `
+            : ``}
+          <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+          <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
+          ${copy ? html`<p></p>` : ``}
+          ${tagGroup ? html` ${tagGroupContent} ` : ``}
+          ${ctaType === CTA_TYPE.VIDEO
+            ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
+            : html`<c4d-card-footer></c4d-card-footer>`}
+        </c4d-card>
+      </c4d-video-cta-container>
+    `;
+  },
 };
 
 const pictogramPlacements = {

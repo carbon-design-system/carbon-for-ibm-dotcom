@@ -18,37 +18,35 @@ import { CTA_TYPE } from '../../cta/defs';
 import '../button';
 import '../../cta/video-cta-container';
 
-
-
 const controls = {
   ctaType: {
     control: 'select',
     description: 'CTA type (cta-type)',
-    options: typeOptions
+    options: typeOptions,
   },
   copy: {
     control: 'text',
     description: 'Link text (unnamed slot)',
-    if: { arg: 'ctaType', neq: `${CTA_TYPE.VIDEO}` }
+    if: { arg: 'ctaType', neq: `${CTA_TYPE.VIDEO}` },
   },
   customVideoTitle: {
     control: 'text',
     description: 'Custom video title',
-    if: { arg: 'ctaType', eq: `${CTA_TYPE.VIDEO}` }
+    if: { arg: 'ctaType', eq: `${CTA_TYPE.VIDEO}` },
   },
   disabled: {
     control: 'boolean',
-    description: 'Disabled (disabled)'
+    description: 'Disabled (disabled)',
   },
   download: {
     control: 'text',
     description: 'Download target (download)',
-    if: { arg: 'ctaType', eq: `${CTA_TYPE.DOWNLOAD}` }
+    if: { arg: 'ctaType', eq: `${CTA_TYPE.DOWNLOAD}` },
   },
   href: {
     control: 'text',
-    description: knobNamesForType[CTA_TYPE.REGULAR]
-  }
+    description: knobNamesForType[CTA_TYPE.REGULAR],
+  },
 };
 
 const defaultArgs = {
@@ -59,12 +57,10 @@ const defaultArgs = {
   download: 'IBM_Annual_Report_2019.pdf',
 };
 
-
 export const Default = {
   argTypes: controls,
   args: defaultArgs,
   render: ({ copy, ctaType, customVideoTitle, disabled, download }) => {
-    
     const href = hrefsForType[ctaType ?? CTA_TYPE.REGULAR];
 
     let videoCopy;
@@ -72,7 +68,7 @@ export const Default = {
     if (ctaType === CTA_TYPE.VIDEO) {
       const button = document.querySelector('c4d-button') as any;
       const duration = button?.videoTitle?.match(/\((.*)\)/)?.pop();
-  
+
       if (!customVideoTitle) {
         videoCopy = button?.videoTitle;
       } else {
@@ -83,17 +79,17 @@ export const Default = {
     }
 
     return html`
-    <c4d-video-cta-container>
-      <c4d-button
-        custom-video-title=${customVideoTitle}
-        ?disabled="${disabled}"
-        href="${href}"
-        download=${download}
-        cta-type="${ctaType}">
-        ${videoCopy ?? copy}
-      </c4d-button>
-    </c4d-video-cta-container>
-  `
+      <c4d-video-cta-container>
+        <c4d-button
+          custom-video-title=${customVideoTitle}
+          ?disabled="${disabled}"
+          href="${href}"
+          download=${download}
+          cta-type="${ctaType}">
+          ${videoCopy ?? copy}
+        </c4d-button>
+      </c4d-video-cta-container>
+    `;
   },
 };
 
