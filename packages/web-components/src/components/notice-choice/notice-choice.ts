@@ -186,7 +186,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.defaultLoadContent();
       }
     );
-   
   }
   setDefaultSelections() {
     if (!this.enableAllOptIn && this.checkboxes) {
@@ -308,7 +307,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         break;
       }
       case 'enable-all-opt-in':
-        this.setDefaultSelections();
+        if (oldVal !== newVal) {
+          this.enableAllOptIn = JSON.parse(newVal);
+          this.setDefaultSelections();
+        }
         break;
       case 'hide-error-message': {
         if (oldVal !== newVal) {
