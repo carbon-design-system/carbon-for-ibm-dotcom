@@ -33,7 +33,7 @@ $css--plex: true !default;
 
     transform: translate(-50%, -50%) #{'/*rtl:ignore*/'};
   }
-
+  
   .#{$prefix}--slider__thumb:focus
     ~ .#{$prefix}-ce--slider__filled-track-container
     .#{$prefix}--slider__filled-track {
