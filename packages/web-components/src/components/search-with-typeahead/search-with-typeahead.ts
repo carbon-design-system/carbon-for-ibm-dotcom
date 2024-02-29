@@ -592,11 +592,6 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     // IE falls back to the old behavior.
     nextItem.scrollIntoView({ block: 'nearest' });
 
-    // @ts-ignore: TS does not believe nextItem has a text object
-    const nextItemText = nextItem.text;
-    if (nextItemText) {
-      this._assistiveStatusText = nextItemText;
-    }
     this.requestUpdate();
   }
 
@@ -652,7 +647,6 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       open,
       redirectUrl,
       searchLabel,
-      _assistiveStatusText: assistiveStatusText,
       _handleClickInner: handleClickInner,
       _handleKeydownInner: handleKeydownInner,
       _handleKeypressInner: handleKeypressInner,
@@ -763,13 +757,6 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
             : ``}
         </div>
       </form>
-      <div
-        class="${prefix}--assistive-text"
-        role="status"
-        aria-live="assertive"
-        aria-relevant="additions text">
-        ${assistiveStatusText}
-      </div>
     `;
   }
 

@@ -1,22 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import C4DDropdown from '../footer/dropdown';
+import CDSDropdown, {
+  DROPDOWN_TYPE,
+} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+
 import styles from './search-with-typeahead.scss?lit';
+import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from '../footer/defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-export {
-  DROPDOWN_COLOR_SCHEME,
-  DROPDOWN_SIZE,
-  DROPDOWN_TYPE,
-} from '../footer/dropdown';
+export { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE, DROPDOWN_TYPE };
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -27,7 +27,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @fires cds-select-selected - The custom event fired after the the dropdown value is changed upon a user gesture.
  */
 @customElement(`${c4dPrefix}-scoped-search-dropdown`)
-class C4DScopedSearchDropdown extends C4DDropdown {
+class C4DScopedSearchDropdown extends CDSDropdown {
   /**
    * Handles user-initiated selection of a dropdown item
    *

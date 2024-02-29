@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -202,11 +202,12 @@ class CDSComboBox extends CDSDropdown {
       ),
       (item) => {
         (item as CDSComboBoxItem).selected = false;
+        item.setAttribute('aria-selected', 'false');
       }
     );
     if (itemToSelect) {
       itemToSelect.selected = true;
-      this._assistiveStatusText = this.selectedItemAssistiveText;
+      itemToSelect.setAttribute('aria-selected', 'true');
     }
     this._handleUserInitiatedToggle(false);
   }
@@ -216,8 +217,10 @@ class CDSComboBox extends CDSDropdown {
       disabled,
       inputLabel,
       label,
+      open,
       readOnly,
       value,
+      _activeDescendant: activeDescendant,
       _filterInputValue: filterInputValue,
       _handleInput: handleInput,
     } = this;
@@ -227,17 +230,29 @@ class CDSComboBox extends CDSDropdown {
       [`${prefix}--text-input--empty`]: !value,
     });
 
+    let activeDescendantFallback: string | undefined;
+    if (open && !activeDescendant) {
+      const constructor = this.constructor as typeof CDSDropdown;
+      const items = this.querySelectorAll(constructor.selectorItem);
+      activeDescendantFallback = items[0]?.id;
+    }
+
     return html`
       <input
-        id="trigger-label"
+        id="trigger-button"
         class="${inputClasses}"
         ?disabled=${disabled}
         placeholder="${label}"
         .value=${filterInputValue}
         role="combobox"
-        aria-label="${inputLabel}"
+        aria-label="${ifNonEmpty(inputLabel)}"
         aria-controls="menu-body"
+        aria-haspopup="listbox"
         aria-autocomplete="list"
+        aria-expanded="${String(open)}"
+        aria-activedescendant="${ifDefined(
+          open ? activeDescendant ?? activeDescendantFallback : ''
+        )}"
         ?readonly=${readOnly}
         @input=${handleInput} />
     `;
@@ -270,7 +285,7 @@ class CDSComboBox extends CDSDropdown {
    * The `aria-label` attribute for the icon to clear selection.
    */
   @property({ attribute: 'clear-selection-label' })
-  clearSelectionLabel = '';
+  clearSelectionLabel = 'Clear selection';
 
   /**
    * The `aria-label` attribute for the `<input>` for filtering.
