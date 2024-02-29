@@ -146,7 +146,6 @@
   :host(#{$c4d-prefix}-pricing-table-cell),
   :host(#{$c4d-prefix}-pricing-table-group) th {
     @extend .#{$prefix}--structured-list-all-cells;
-
     padding-block-end: $spacing-05;
   }
 
@@ -294,13 +293,23 @@
     color: $text-primary;
   }
 
+  .#{$prefix}--tag-group,
+  :host(#{$c4d-prefix}-tag-group) > *{
+      margin: $spacing-05 0 0;
+  }
+  
+  .#{$prefix}--video-cta-container,
+  :host(#{$c4d-prefix}-video-cta-container) a {
+    @extend .#{$prefix}--tag-group;
+    display: block;
+  }
+
   .#{$prefix}--pricing-table-header-cell-tag,
   :host(#{$c4d-prefix}-pricing-table-header-cell-tag) a {
     @extend .#{$prefix}--tag;
     @extend .#{$prefix}--tag--green;
     @extend .#{$prefix}--tag--sm;
-
-    margin: $spacing-05 0 0;
+    @extend .#{$prefix}--tag-group;
 
     text-decoration: none;
 
