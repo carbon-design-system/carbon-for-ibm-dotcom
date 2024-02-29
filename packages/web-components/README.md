@@ -16,11 +16,9 @@ Custom Elements v1 and Shadow DOM v1 specs.
   - [Webpack Application Setup](#webpack-application-setup)
     - [Basic Setup](#basic-setup)
     - [Using Sass](#using-sass)
-    - [Enabling RTL](#enabling-rtl)
     - [Process.env Error](#processenv-error)
   - [CDN Bundles](#cdn-bundles)
     - [Versioned Bundles](#versioned-bundles)
-    - [Using RTL](#using-rtl)
   - [Using with other design systems (e.g Northstar v18)](#using-with-other-design-systems-eg-northstar-v18)
 - [Browser support](#browser-support)
 - [List of available components](#list-of-available-components)
@@ -186,19 +184,6 @@ c4d-button-group:not(:defined) {
 }
 ```
 
-#### Enabling RTL
-
-[Right-to-Left](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/docs/enable-rtl.md)
-rendering is enabled through the application bundle process, as part of the
-styles are rendered through [RTLCSS](https://rtlcss.com/). An example below
-shows how to enable in Webpack:
-
-> 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/webpack-rtl)
-> example implementation.
-
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/webpack-rtl)
-
 #### Process.env Error
 
 There are references to the `process.env` global variable in the our
@@ -335,16 +320,6 @@ A specific release would be called as:
 > NOTE: The latest/next tags are moving versions. While beneficial to always
 > stay on the most recent version, it is recommended to choose a specific
 > version and properly test your application when upgrading to a newer version.
-
-#### Using RTL
-
-Right-to-Left (RTL) pre-built bundles are also available for the dotcom shell.
-
-> 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/dotcom-shell-cdn-with-rtl)
-> example implementation.
-
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/dotcom-shell-cdn-with-rtl)
 
 ### Using with other design systems (e.g Northstar v18)
 
