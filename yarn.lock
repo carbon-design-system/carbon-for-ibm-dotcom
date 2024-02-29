@@ -3228,7 +3228,7 @@ __metadata:
   dependencies:
     "@carbon/icons-react": "npm:11.36.0"
     "@carbon/layout": "npm:11.20.1"
-    "@carbon/styles": "npm:1.51.0"
+    "@carbon/styles": "npm:1.51.1"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/themes": "npm:11.32.0"
     "@carbon/type": "npm:11.25.1"
@@ -3337,7 +3337,7 @@ __metadata:
     "@carbon/motion": "npm:11.16.1"
     "@carbon/pictograms-react": "npm:11.57.0"
     "@carbon/react": "npm:1.51.1"
-    "@carbon/styles": "npm:1.51.0"
+    "@carbon/styles": "npm:1.51.1"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:11.25.1"
     "@carbon/web-components": "npm:2.4.0"
@@ -3591,28 +3591,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.51.0":
-  version: 1.51.0
-  resolution: "@carbon/styles@npm:1.51.0"
-  dependencies:
-    "@carbon/colors": "npm:^11.20.0"
-    "@carbon/feature-flags": "npm:^0.16.0"
-    "@carbon/grid": "npm:^11.21.0"
-    "@carbon/layout": "npm:^11.20.0"
-    "@carbon/motion": "npm:^11.16.0"
-    "@carbon/themes": "npm:^11.32.0"
-    "@carbon/type": "npm:^11.25.0"
-    "@ibm/plex": "npm:6.0.0-next.6"
-  peerDependencies:
-    sass: ^1.33.0
-  peerDependenciesMeta:
-    sass:
-      optional: true
-  checksum: 10/39f9e56f192c1458a8ba11e2c0c0b58fe1b09e7212adfcc00b61fb270578949979c4ce4b8166193a5489ae347a0558855dae27f47ca0a7a09367cda94aa16fc0
-  languageName: node
-  linkType: hard
-
-"@carbon/styles@npm:^1.51.1":
+"@carbon/styles@npm:1.51.1, @carbon/styles@npm:^1.51.1":
   version: 1.51.1
   resolution: "@carbon/styles@npm:1.51.1"
   dependencies:
@@ -3686,7 +3665,7 @@ __metadata:
     "@carbon/ibm-products-styles": "npm:^2.27.1"
     "@carbon/icon-helpers": "npm:10.46.0"
     "@carbon/icons": "npm:11.36.0"
-    "@carbon/styles": "npm:1.51.0"
+    "@carbon/styles": "npm:1.51.1"
     "@floating-ui/dom": "npm:^1.6.3"
     "@ibm/telemetry-js": "npm:^1.2.1"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
