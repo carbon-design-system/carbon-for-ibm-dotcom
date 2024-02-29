@@ -316,7 +316,6 @@ const getSlug = (index) => {
   switch (index) {
     case 1:
       return html`<cds-slug
-        slot="slug"
         className="slug-container"
         size="xs"
         alignment="bottom-right">
