@@ -3,6 +3,138 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.3...@carbon/web-components@2.4.0) (2024-02-26)
+
+
+
+# 2.4.0-rc.4 (2024-02-23)
+
+
+### Bug Fixes
+
+* **autoalign:** fix autoalign CSB example ([#11572](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11572)) ([bf6ccfb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bf6ccfbb259a3bd884d037048c522c6729813e6c))
+* **side-nav:** update max-block-size; closes [#10936](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10936) ([#11571](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11571)) ([0fe6fef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0fe6fef5c1713cfe4e155a5c4f3b8376b5d4e246))
+
+
+
+
+
+# [2.4.0-rc.4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.3...@carbon/web-components@2.4.0-rc.4) (2024-02-23)
+
+
+### Bug Fixes
+
+* **autoalign:** fix autoalign CSB example ([#11572](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11572)) ([bf6ccfb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bf6ccfbb259a3bd884d037048c522c6729813e6c))
+* **side-nav:** update max-block-size; closes [#10936](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10936) ([#11571](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11571)) ([0fe6fef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0fe6fef5c1713cfe4e155a5c4f3b8376b5d4e246))
+
+
+
+
+
+# [2.4.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.2...@carbon/web-components@2.4.0-rc.3) (2024-02-22)
+
+
+### Bug Fixes
+
+* **datatable:** is sortable console error ([#11568](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11568)) ([d827360](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d827360733c98ea138ad0eb92ca98ea78fb33624))
+
+
+
+
+
+# [2.4.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.1...@carbon/web-components@2.4.0-rc.2) (2024-02-21)
+
+
+### Features
+
+* **autoalign:** utilize autoUpdate from @floating-ui/dom ([#11565](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11565)) ([918089c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/918089cfee729db0d642788f973416dfc0fcca3a))
+
+
+
+
+
+# [2.4.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.4.0-rc.0...@carbon/web-components@2.4.0-rc.1) (2024-02-20)
+
+
+### Bug Fixes
+
+* **tabs:** container size wrong ([#11556](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11556)) ([b520fc4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b520fc4a7b8d55b7bf622cbcebebdfa528cb43f1))
+
+
+### Features
+
+* **autoalign:** @floating-ui/dom implementation ([#11549](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11549)) ([85db5f4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/85db5f47ca3303e14410f73b9ac3bc2c08bb6d3e))
+
+
+
+
+
+# [2.4.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.3.0...@carbon/web-components@2.4.0-rc.0) (2024-02-19)
+
+
+### Bug Fixes
+
+* **code-snippet:** multi copy button ([#11492](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11492)) ([c65ed61](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c65ed617e3e57745b2f94c82dc655c08e45b8839)), closes [#11475](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11475)
+* **datatable:** search not working with uppercase characters in query ([#11493](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11493)) ([7c92bfe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7c92bfe8940d995ddd9e4fea50e07c93854676c5)), closes [#11483](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11483)
+* **file uploader:** drag and drop not working ([#11536](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11536)) ([0e75f3b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0e75f3bc3117037aaa9b0f5938f0f0d1936e68cd))
+* **side-panel:** refactor to match latest ibm-products ([#11511](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11511)) ([51e021a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/51e021a34f9cb72b97c81dc04e7a35925c275df8))
+
+
+### Features
+
+* **ai-skeleton:** new cwc experminetal ([#11544](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11544)) ([acb7535](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/acb7535b31ebef944c2988bd1af2b0e9b21e6d66)), closes [#11505](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11505)
+* **chat-button:** experimental wc ([#11510](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11510)) ([a1560a5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a1560a5bda222e4931da16780d91b6005c05e4db)), closes [#11498](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11498)
+* **data-table:** ai updates ([#11530](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11530)) ([627dc5a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/627dc5a98a9bb5d6b2f9a86d278cceb40d2f16a9)), closes [#11499](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11499)
+* **modal:** ai updates ([#11533](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11533)) ([d60f94a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d60f94a90cc0283b53beeb4941f168fdd06d10d4)), closes [#11500](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11500)
+
+
+
+
+
+# [2.3.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.3.0-rc.1...@carbon/web-components@2.3.0) (2024-02-12)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [2.3.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.3.0-rc.0...@carbon/web-components@2.3.0-rc.1) (2024-02-09)
+
+
+### Bug Fixes
+
+* **datatable:** is sortable not working in table header cell ([#11516](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11516)) ([8da0be7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8da0be77b80cdd5faecfd273e5bf41e8e0da5a80))
+
+
+
+
+
+# [2.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.2.0-rc.0...@carbon/web-components@2.3.0-rc.0) (2024-02-02)
+
+
+### Bug Fixes
+
+* **data table:** filter issue in expansion table ([#11438](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11438)) ([944a69a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/944a69a84f0c746728dbf7ef4ca7a059d146e2fe)), closes [#11179](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11179)
+* **data-table:** Sorting and expansion doesn't work together ([#11416](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11416)) ([2259364](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/22593642d9c5adc80caea484e618ea0df97ee954)), closes [#11178](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11178) [#11481](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11481)
+* **datatable:** selection function not working as expected ([#11449](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11449)) ([d20ec1f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d20ec1fad2ce28fdf9d1c7e51b9c43c4756600eb)), closes [#11349](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11349)
+* **dropdown:** remove excess border of first dropdown element ([#11400](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11400)) ([a0830b0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a0830b0d4e41e28f57af1579db7be088e3ca8026)), closes [#11271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11271) [#11271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11271)
+* **overflow-menu:** position jumping ([#11448](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11448)) ([1adb618](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1adb61873b9c37aa9e541cf469f701f8092271ff)), closes [#9827](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9827)
+* **progress-indicator:** label attribute not showing when there is when there is white space before closing tag ([#11430](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11430)) ([954ecf4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/954ecf408889d896121872adac3ebca721fe21d3)), closes [#11167](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11167)
+* **stackblitz:** fix and standardize masthead examples for v2 ([#11199](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11199)) ([c3ddeb8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c3ddeb8016b0259ce4f202cb2d99c16b6b5c2545))
+* **tabs:** Restore the highlight style when tab is selected ([#11181](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11181)) ([929ca6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/929ca6fe1609c7dc374ac06d790bab9b16284f9a)), closes [#11147](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11147) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/91e50fa5cfcd5a5b4950ad09bc76cc89b1dc09e0/packages/carbon-web-components/src/components/tabs/tabs.scss#L104](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/91e50fa5cfcd5a5b4950ad09bc76cc89b1dc09e0/packages/carbon-web-components/src/components/tabs/tabs.scss/issues/L104)
+
+
+### Features
+
+* **sidepanel:** introduce side panel component ([#11201](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11201)) ([c2c5bca](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c2c5bcae45745193dca47bbab8799e8a22d181f8))
+* **skeleton-icon:** new cwc component ([#11434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11434)) ([30be3c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30be3c1b04e4e5d7ed0ab6945b91242e9150d1cf)), closes [#11380](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11380)
+* **tile:** slug ai updates ([#11484](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11484)) ([a4cc518](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a4cc518bf85cac970d22a01e72bd332b2ec5a179))
+
+
+
+
+
 # [2.2.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.2.0-rc.1...@carbon/web-components@2.2.0) (2024-01-29)
 
 **Note:** Version bump only for package @carbon/web-components

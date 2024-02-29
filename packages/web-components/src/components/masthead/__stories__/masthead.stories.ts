@@ -14,6 +14,7 @@ import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
+import { CTA_TYPE } from '../../cta/defs';
 import styles from './masthead.stories.scss';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
@@ -103,7 +104,7 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
@@ -116,7 +117,7 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-composite>
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -154,7 +155,7 @@ export const WithCustomTypeahead = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -162,7 +163,7 @@ export const WithCustomTypeahead = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            ?custom-typeahead-api=${true}></c4d-masthead-composite>
+            ?custom-typeahead-api=${true}></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -200,7 +201,7 @@ export const searchOpenOnload = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -211,7 +212,7 @@ export const searchOpenOnload = (args) => {
             activate-search="true"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></c4d-masthead-composite>
+            )}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -246,7 +247,7 @@ export const withPlatform = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             platform="${ifNonEmpty(platform)}"
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
@@ -255,7 +256,7 @@ export const withPlatform = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-composite>
+            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -296,15 +297,23 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, selectedMenuItemL1, useMock } =
+  const { selectedMenuItem, selectedMenuItemL1, showContactCta, useMock } =
     args?.MastheadComposite ?? {};
+
+  let l1Data = { ...mastheadL1Data };
+  if (l1Data?.actions?.cta) {
+    showContactCta
+      ? (l1Data.actions.cta.ctaType = CTA_TYPE.CHAT)
+      : delete l1Data.actions.cta.ctaType;
+  }
+
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -312,16 +321,16 @@ export const withL1 = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .l1Data="${mastheadL1Data}"
+            .l1Data="${l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
-            )}"></c4d-masthead-composite>
+            )}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            .l1Data="${mastheadL1Data}"
+            .l1Data="${l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
@@ -343,17 +352,17 @@ withL1.story = {
           'selected menu item in L1 (selected-menu-item-l1)',
           ''
         ),
+        showContactCta: boolean('use Contact module CTA', false),
         useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
     propsSet: {
       default: {
         MastheadComposite: {
-          hasProfile: 'true',
-          hasSearch: 'true',
-          searchPlaceholder: 'Search all of IBM',
-          selectedMenuItem: 'Lorem ipsum dolor sit amet',
-          userStatus: userStatuses.unauthenticated,
+          selectedMenuItem: 'Consulting',
+          selectedMenuItemL1: '',
+          showContactCta: false,
+          useMock: false,
         },
       },
     },
@@ -368,7 +377,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -378,7 +387,7 @@ export const withAlternateLogoAndTooltip = (args) => {
             )}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? mastheadLogoData
-              : null}"></c4d-masthead-composite>
+              : null}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -428,7 +437,7 @@ export const WithScopedSearch = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -436,7 +445,7 @@ export const WithScopedSearch = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .scopeParameters=${scopeParameters}></c4d-masthead-composite>
+            .scopeParameters=${scopeParameters}></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -482,12 +491,12 @@ export default {
         ${story()}
         <script>
           window.digitalData.page.pageInfo.ibm.contactModuleConfiguration = {
-            contactInformationBundleKey: {
+            routing: {
               focusArea: 'Cloud - Automation - All',
               languageCode: 'en',
               regionCode: 'US',
             },
-            contactModuleTranslationKey: {
+            translation: {
               languageCode: 'en',
               regionCode: 'US',
             },

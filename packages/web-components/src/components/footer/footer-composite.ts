@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -125,6 +125,12 @@ class C4DFooterComposite extends MediaQueryMixin(
    */
   @property()
   buttonLabel?: string;
+
+  /**
+   * The aria-label to use for the legal-nav
+   */
+  @property()
+  navLabel?: string;
 
   /**
    * The clear button label for language selector.
@@ -342,7 +348,7 @@ class C4DFooterComposite extends MediaQueryMixin(
         buttonLabel="${ifDefined(buttonLabel)}"
         size="${size}"
         slot="${slot}"
-        @click="${handleClickLocaleButton}"
+        @click="${handleClickLocaleButton.bind(this)}"
         >${langDisplay}</c4d-locale-button
       >
     `;
@@ -356,6 +362,7 @@ class C4DFooterComposite extends MediaQueryMixin(
       links,
       legalLinks,
       adjunctLinks,
+      navLabel,
     } = this;
     return html`
       <c4d-footer
@@ -397,8 +404,12 @@ class C4DFooterComposite extends MediaQueryMixin(
           ? this.renderLanguageSelector()
           : ``}
 
-        <c4d-legal-nav size="${ifDefined(size)}">
-          <c4d-footer-logo size="${ifDefined(size)}"></c4d-footer-logo>
+        <c4d-legal-nav
+          size="${ifDefined(size)}"
+          navLabel="${ifDefined(navLabel)}">
+          <c4d-footer-logo
+            size="${ifDefined(size)}"
+            ?disable-locale-button="${disableLocaleButton}"></c4d-footer-logo>
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`
               <c4d-legal-nav-item

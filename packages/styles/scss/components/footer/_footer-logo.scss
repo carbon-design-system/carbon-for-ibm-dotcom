@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,6 +13,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 
@@ -69,7 +70,7 @@
 
     .#{$c4d-prefix}--footer-logo__link {
       position: absolute;
-      inset-block-start: -37px;
+      inset-block-start: to-rem(-35.5px);
 
       @include breakpoint(lg) {
         position: relative;
@@ -79,5 +80,17 @@
 
     align-self: center;
     margin: 0;
+  }
+
+  @include breakpoint-between(md, lg) {
+    :host(#{$c4d-prefix}-footer-logo[size='micro'][disable-locale-button]) {
+      background-color: $background;
+      block-size: $spacing-09;
+      inline-size: 100%;
+
+      .#{$c4d-prefix}--footer-logo__link {
+        inset-block-start: to-rem(12.5px);
+      }
+    }
   }
 }

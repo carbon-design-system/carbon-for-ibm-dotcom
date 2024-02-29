@@ -44,24 +44,23 @@
 ## Linters/formatters
 
 `@carbon/ibmdotcom-web-components` uses ESLint with `typescript-eslint` for linting, and Prettier for code formatting.
-Most of ESLint configurations are same as [ones in `carbon-components`](https://www.npmjs.com/package/eslint-config-carbon-base).
 
 ## TSDoc comments
 
-In addition to using TypeScript, we try to leverage editors' code assistance feature as much as possible.
+In addition to using TypeScript, we try to leverage editor code assistance feature as much as possible.
 
 For that purpose, we add TSDoc comments to the following:
 
-- All classes (With their custom events (`@fires`), Shadow DOM slots (`@slot`) and Shadow DOM parts (`@csspart`))
-- All properties/methods (including private properties), only exception here is one being overriden
+- All classes (with their custom events (`@fires`), shadow DOM slots (`@slot`) and shadow DOM parts (`@csspart`))
+- All properties/methods (including private properties), except when overridden
 - All type definitions (e.g. `interface`, `enum`)
 
 For `@fires`, `@slot` and `@csspart`, refer to: https://github.com/runem/web-component-analyzer#-how-to-document-your-components-using-jsdoc
 
 ## No kitchen-sink "base" class and using mix-in
 
-We strive to avoid kitchen-sink "base" class, for the sake of maintenability and avoiding code bloat.
-Toward that goal, we use mix-in classes. Instead of manipulating prototype, we simply use ECMAScript class feature ([Subclass Factory Pattern](https://github.com/justinfagnani/proposal-mixins#subclass-factory-pattern)), which is, something like:
+We strive to avoid kitchen-sink "base" classes, for the sake of maintenability and avoiding code bloat.
+Toward that goal, we use mix-in classes. Instead of manipulating prototypes, we use the ECMAScript class feature ([Subclass Factory Pattern](https://github.com/justinfagnani/proposal-mixins#subclass-factory-pattern)):
 
 ```typescript
 const Mixin = <T extends Constructor<SomeClass>>(Base: T) => class extends Base {
@@ -83,7 +82,7 @@ For example, `<CTA>` in `@carbon/ibmdotcom-react` is heavy, and thus components 
 
 To avoid memory leaks and zombie event listeners, we ensure the event listeners on custom elements themselves (hosts) and ones on `document`, etc. are released when they get out of render tree.
 
-For that purpose, similar to `carbon-web-components`, `@carbon/ibmdotcom-web-components` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener.
+For that purpose, similar to `@carbon/web-components`, `@carbon/ibmdotcom-web-components` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener.
 
 Here's an example seen in `<cds-modal>` code:
 
@@ -453,7 +452,7 @@ We use a custom [`@carbonElement`](../../carbon-web-components/src/globals/decor
 
 The second item is **required** for proper creation of the react-wrapped components
 
-Example: 
+Example:
 
 ```typescript
 import { html, LitElement } from 'lit';
