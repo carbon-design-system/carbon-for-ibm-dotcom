@@ -19,9 +19,6 @@ import {
   L1SubmenuSectionHeading,
   MastheadL1,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import { CTA_TYPE } from '../cta/defs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
@@ -98,7 +95,7 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
  * @slot profile - The right hand area.
  */
 @customElement(`${c4dPrefix}-masthead-l1`)
-class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
   /**
    * The L1 menu data, passed from the masthead-composite.
    */
@@ -128,12 +125,6 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @state()
   selectedElements: Element[] = [];
-
-  /**
-   * The `aria-label` attribute for the Contact CTA trigger button.
-   */
-  @state()
-  contactCtaLabel = 'Show contact window';
 
   /**
    * The translated label for the overview links visible on mobile
@@ -173,28 +164,6 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @queryAll(`.${prefix}--masthead__l1-menu-container-scroller`)
   menuScrollerButtons?: NodeListOf<HTMLButtonElement>;
-
-  /**
-   * Handles cm-app-pane-displayed event fired by CM_APP.
-   *
-   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
-   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
-   */
-  @HostListener('document:cm-app-pane-displayed')
-  protected _handleCMAppDisplayed = (_event: CustomEvent) => {
-    this.contactCtaLabel = 'Close contact window';
-  };
-
-  /**
-   * Handles cm-app-pane-hidden event fired by CM_APP.
-   *
-   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
-   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
-   */
-  @HostListener('document:cm-app-pane-hidden')
-  protected _handleCMAppHidden = (_event: CustomEvent) => {
-    this.contactCtaLabel = 'Show contact window';
-  };
 
   /**
    * Resize Observer responsible for show/hiding the scrolling buttons.
@@ -357,7 +326,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * @returns {_TemplateResult} A template fragment representing the L1 CTA
    */
   protected _renderCta(): _TemplateResult | '' {
-    const { isMobileVersion, contactCtaLabel, l1Data } = this;
+    const { isMobileVersion, l1Data } = this;
     const { cta } = l1Data?.actions || {};
     const classname = isMobileVersion
       ? `${prefix}--masthead__l1-dropdown-cta`
@@ -391,10 +360,7 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       if (ctaType && iconMap.has(ctaType as L1_CTA_TYPES)) {
         const icon = iconMap.get(ctaType as L1_CTA_TYPES);
         return html`
-          <button
-            class="${classname}"
-            data-ibm-contact="${ctaType}-link"
-            aria-label="${ifDefined(contactCtaLabel)}">
+          <button class="${classname}" data-ibm-contact="${ctaType}-link">
             ${desktopWrapper(
               html`<span data-ibm-contact="${ctaType}-text"
                   >${cta?.title ?? ''}</span
@@ -1006,19 +972,6 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     return renderedHeading;
   }
 
-  protected shouldUpdate(changedProperties) {
-    const { l1Data } = this;
-    // We don't need to perform updates related to the Contact Module if the CTA
-    // isn't configured to interact with it and it's the only update.
-    const contactLabelIsOnlyChange =
-      changedProperties.has('contactCtaLabel') && changedProperties.size === 1;
-    const ctaTypeIsChat = l1Data?.actions?.cta?.ctaType === CTA_TYPE.CHAT;
-    if (contactLabelIsOnlyChange && !ctaTypeIsChat) {
-      return false;
-    }
-    return true;
-  }
-
   protected firstUpdated() {
     this.style.setProperty(
       '--scrollbarWidth',
@@ -1064,6 +1017,10 @@ class C4DMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           : html` ${this._renderL1TopNav()} `}
       </div>
     `;
+  }
+
+  protected createRenderRoot() {
+    return this;
   }
 
   static get stableSelector() {
