@@ -26,15 +26,8 @@ import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arr
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
-import Calendar16 from '../../internal/vendor/@carbon/web-components/icons/calendar/16.js';
-import Chat16 from '../../internal/vendor/@carbon/web-components/icons/chat/16.js';
-import Demo16 from '../../internal/vendor/@carbon/web-components/icons/demo/16.js';
-import Email16 from '../../internal/vendor/@carbon/web-components/icons/email/16.js';
-import Phone16 from '../../internal/vendor/@carbon/web-components/icons/phone/16.js';
-import Quote16 from '../../internal/vendor/@carbon/web-components/icons/request-quote/16.js';
 import { classMap } from 'lit/directives/class-map.js';
 import layoutBreakpoint from './masthead-breakpoint';
-import { L1_CTA_TYPES } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -326,59 +319,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    * @returns {_TemplateResult} A template fragment representing the L1 CTA
    */
   protected _renderCta(): _TemplateResult | '' {
-    const { isMobileVersion, l1Data } = this;
-    const { cta } = l1Data?.actions || {};
-    const classname = isMobileVersion
-      ? `${prefix}--masthead__l1-dropdown-cta`
-      : `${prefix}--masthead__l1-cta`;
-
-    // Adds wrapper markup in desktop displays.
-    const desktopWrapper = (markup: _TemplateResult) => {
-      if (!isMobileVersion) {
-        return html` <div class="${classname}-inner">${markup}</div> `;
-      }
-      return markup;
-    };
-
-    /**
-     * Maps CTA_TYPE values to CMApp CTA options.
-     *
-     * @see https://github.ibm.com/live-advisor/cm-app/blob/master/docs/cm-doc.md#calls-to-action
-     */
-    const iconMap = new Map([
-      [L1_CTA_TYPES.CONTACT_US, Chat16()],
-      [L1_CTA_TYPES.CHAT_NOW, Chat16()],
-      [L1_CTA_TYPES.EMAIL_US, Email16()],
-      [L1_CTA_TYPES.CALL_US, Phone16()],
-      [L1_CTA_TYPES.BOOK_A_CONSULTATION, Calendar16()],
-      [L1_CTA_TYPES.REQUEST_A_DEMO, Demo16()],
-      [L1_CTA_TYPES.REQUEST_A_QUOTE, Quote16()],
-    ]);
-
-    if (cta) {
-      const { ctaType } = cta;
-      if (ctaType && iconMap.has(ctaType as L1_CTA_TYPES)) {
-        const icon = iconMap.get(ctaType as L1_CTA_TYPES);
-        return html`
-          <button class="${classname}" data-ibm-contact="${ctaType}-link">
-            ${desktopWrapper(
-              html`<span data-ibm-contact="${ctaType}-text"
-                  >${cta?.title ?? ''}</span
-                >${icon}`
-            )}
-          </button>
-        `;
-      } else if (cta?.title && cta?.url) {
-        const icon = isMobileVersion ? ArrowRight16() : '';
-        return html`
-          <a class="${classname}" href="${cta.url}">
-            ${desktopWrapper(html`${cta.title}${icon}`)}
-          </a>
-        `;
-      }
-    }
-
-    return '';
+    return html`<slot name="l1-cta"></slot>`;
   }
 
   /**
@@ -1017,10 +958,6 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           : html` ${this._renderL1TopNav()} `}
       </div>
     `;
-  }
-
-  protected createRenderRoot() {
-    return this;
   }
 
   static get stableSelector() {
