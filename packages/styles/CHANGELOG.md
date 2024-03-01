@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.4.0...@carbon/ibmdotcom-styles@2.5.0-rc.0) (2024-03-01)
+
+
+### Bug Fixes
+
+* **chat-button:** update to latest with no icon option ([#11577](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11577)) ([4106d3d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4106d3d490a611ef99844fb6812b6790e5b678c3))
+* **masthead:** prevent extra space beneath megapanel columns in Safari ([#11574](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11574)) ([9c94338](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9c943385a11a3ae523a93c049ec72301453f3d09))
+
+
+
+
+
 # [2.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.4.0-rc.3...@carbon/ibmdotcom-styles@2.4.0) (2024-02-26)
 
 
