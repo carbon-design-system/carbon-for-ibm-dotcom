@@ -37,10 +37,10 @@ module.exports = {
 ```
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/webpack-rtl)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/web-components/examples/codesandbox/usage/webpack-rtl)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/webpack-rtl)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/web-components/examples/codesandbox/usage/webpack-rtl)
 
 While we recommend using a module bundler for creating a fully optimized RTL version 
 for your application (as shown in the example above), 
@@ -48,7 +48,7 @@ you can use our pre-built CDN version for evaluation purposes (which comes with 
 version can be found at `https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/rtl/ibmdotcom-web-components-dotcom-shell.rtl.min.js`.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/dotcom-shell-cdn-with-rtl)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/web-components/examples/codesandbox/usage/dotcom-shell-cdn-with-rtl)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/dotcom-shell-cdn-with-rtl)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/web-components/examples/codesandbox/usage/dotcom-shell-cdn-with-rtl)
