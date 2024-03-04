@@ -540,7 +540,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   protected _renderLeftNav() {
     const { platform } = this;
     const menu: any[] = [];
-    const menuItems = this._getl0Data();
+    const menuItems = this.getL0Data();
     const autoid = `${c4dPrefix}--masthead__l0`;
     const level0Items = menuItems?.map((elem: L0MenuItem, i) => {
       // Instantiate bucket for first level submenus.
@@ -885,14 +885,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderTopNav() {
     const { selectedMenuItem, menuBarAssistiveText, activateSearch } = this;
-    return !this._getl0Data()
+    return !this.getL0Data()
       ? undefined
       : html`
           <c4d-top-nav
             selected-menu-item=${selectedMenuItem}
             menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
             ?hideNav="${activateSearch}">
-            ${this._getl0Data().map((link, i) => {
+            ${this.getL0Data().map((link, i) => {
               return this._renderNavItem(link, i, `${c4dPrefix}--masthead__l0`);
             })}
           </c4d-top-nav>
@@ -1414,7 +1414,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Temporary getter to fetch data until navLinks prop is phased out.
    */
-  private _getl0Data() {
+  public getL0Data() {
     const { l0Data, navLinks } = this;
     if (navLinks) {
       console.warn(

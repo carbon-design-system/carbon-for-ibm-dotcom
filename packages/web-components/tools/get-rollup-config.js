@@ -15,7 +15,6 @@ const { promisify } = require('util');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const rtlcss = require('rtlcss');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const babel = require('@rollup/plugin-babel');
 const commonjs = require('@rollup/plugin-commonjs');
@@ -80,10 +79,6 @@ function getRollupConfig({
 
   if (mode !== 'development') {
     postCSSPlugins.push(cssnano());
-  }
-
-  if (dir === 'rtl') {
-    postCSSPlugins.push(rtlcss);
   }
 
   const licenseOptions = {
