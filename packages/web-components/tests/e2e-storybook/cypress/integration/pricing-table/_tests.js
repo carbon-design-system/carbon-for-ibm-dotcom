@@ -10,18 +10,23 @@
  *
  * @type {Object<string>}
  */
+
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+
+const { stablePrefix: prefix } = settings;
+
 export const selectors = {
-  annotation: '[data-autoid="dds--pricing-table-cell-annotation"]',
-  annotationToggle: '[data-autoid="dds--pricing-table-annotation-toggle"]',
-  body: '[data-autoid="dds--pricing-table-body"]',
-  group: '[data-autoid="dds--pricing-table-group"]',
-  headerRow: '[data-autoid="dds--pricing-table-header-row"]',
-  headerCell: '[data-autoid="dds--pricing-table-header-cell"]',
-  headerCellCta: '[data-autoid="dds--pricing-table-header-cell-cta"]',
-  headerCellDescription: '[data-autoid="dds--pricing-table-header-cell-description"]',
-  highlightLabel: '[data-autoid="dds--pricing-table-highlight-label"]',
-  row: '[data-autoid="dds--pricing-table-row"]',
-  table: '[data-autoid="dds--pricing-table"]',
+  annotation: `[data-autoid="${prefix}--pricing-table-cell-annotation"]`,
+  annotationToggle: `[data-autoid="${prefix}--pricing-table-annotation-toggle"]`,
+  body: `[data-autoid="${prefix}--pricing-table-body"]`,
+  group: `[data-autoid="${prefix}--pricing-table-group"]`,
+  headerRow: `[data-autoid="${prefix}--pricing-table-header-row"]`,
+  headerCell: `[data-autoid="${prefix}--pricing-table-header-cell"]`,
+  headerCellCta: `[data-autoid="${prefix}--pricing-table-header-cell-cta"]`,
+  headerCellDescription: `[data-autoid="${prefix}--pricing-table-header-cell-description"]`,
+  highlightLabel: `[data-autoid="${prefix}--pricing-table-highlight-label"]`,
+  row: `[data-autoid="${prefix}--pricing-table-row"]`,
+  table: `[data-autoid="${prefix}--pricing-table"]`,
 };
 
 /**
@@ -43,6 +48,31 @@ export const createTests = path => [
     it('should render correctly in all themes', () => {
       cy.carbonThemesScreenshot({
         capture: 'viewport',
+      });
+    });
+  },
+  () => {
+    it('should render user-entered content next to the icon feature, when it is enabled', () => {
+      const iconText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.'
+
+      cy.visit(`${path}&knob-icon-text=${iconText}`)
+      .get('.cds--pricing-table-cell-content').should('be.visible').then(($content) => {
+        cy.get($content)
+          .find('svg')
+          .should('be.visible')
+          .then(($svg) => {
+            const svgRect = $svg[0].getBoundingClientRect();
+
+            cy.get($content)
+              .find('.cds--structured-list-cell-icon-text')
+              .should('be.visible')
+              .then(($span) => {
+                const spanRect = $span[0].getBoundingClientRect();
+
+                // Checking if the elements are rendered side by side by comparing if they have the same vertical position, allowing a tolerance of 15 px of difference.
+                expect(spanRect.top).to.be.closeTo(svgRect.top, 15);
+              });
+          });
       });
     });
   },
@@ -70,7 +100,7 @@ export const createTests = path => [
     });
   },
   () => {
-    it('should should support customizable highlighted column', () => {
+    it('should support customizable highlighted column', () => {
       const highlightedCol = 3;
       const checkHighlight = row => {
         const children = row.children;
