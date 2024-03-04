@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.41.0-rc.0...@carbon/ibmdotcom-web-components@1.41.0) (2024-02-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.41.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.39.0...@carbon/ibmdotcom-web-components@1.41.0-rc.0) (2024-02-22)
+
+
+### Bug Fixes
+
+* **image-item:** missing import - image-item sub component was not lo… ([#11564](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11564)) ([6eff0f6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6eff0f6075d8d1e0374def0b69155d80ecf29b5b))
+* **tabs-extended:** tabs extended not rendering when in 1056 breakpoint ([#11447](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11447)) ([bb99c0d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bb99c0d94b6524fd1e1581975db77763ec0b47f0))
+* **v1-links:** switch from main branch to v1 branch ([#11562](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11562)) ([539bf78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/539bf7842a15ce7e9ac8faa0f8b40ee625b86611))
+
+
+### Features
+
+* **background-media:** expose gradient-hidden option ([#11518](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11518)) ([fdfa26e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fdfa26ef4334aa6cbe564c142eb8fb6051c6f26b))
+* **lightbox:** detect URL fragment to trigger the lightbox to open ([#11412](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11412)) ([f5a5fe8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f5a5fe89e9549fb45cdfa9b6e58cc472a87689a8)), closes [#cta-video-0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/cta-video-0)
+* **tabs-extended:** avoid opening to middle of accordion content ([#11554](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11554)) ([4c2eee4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4c2eee4a847eedeb8b973d753e12d6239299e835))
+
+
+
+
+
+## [1.39.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.39.1-rc.0...@carbon/ibmdotcom-web-components@1.39.1) (2024-02-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.39.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.39.0...@carbon/ibmdotcom-web-components@1.39.1-rc.0) (2024-02-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [1.39.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0...@carbon/ibmdotcom-web-components@1.39.0) (2023-12-20)
 
 

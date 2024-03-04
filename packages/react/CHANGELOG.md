@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.56.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.54.0...@carbon/ibmdotcom-react@1.56.0) (2024-02-26)
+
+
+
+# 1.56.0-rc.0 (2024-02-22)
+
+
+### Bug Fixes
+
+* **v1-links:** switch from main branch to v1 branch ([#11562](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11562)) ([539bf78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/539bf7842a15ce7e9ac8faa0f8b40ee625b86611))
+
+
+
+
+
+# [1.56.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.54.0...@carbon/ibmdotcom-react@1.56.0-rc.0) (2024-02-22)
+
+
+### Bug Fixes
+
+* **v1-links:** switch from main branch to v1 branch ([#11562](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11562)) ([539bf78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/539bf7842a15ce7e9ac8faa0f8b40ee625b86611))
+
+
+
+
+
+## [1.55.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.55.1-rc.0...@carbon/ibmdotcom-react@1.55.1) (2024-02-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.55.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.54.0...@carbon/ibmdotcom-react@1.55.1-rc.0) (2024-02-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.53.0...@carbon/ibmdotcom-react@1.54.0) (2023-12-20)
 
 

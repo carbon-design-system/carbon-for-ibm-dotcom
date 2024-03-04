@@ -1,12 +1,12 @@
 {
   "name": "@carbon/web-components",
-  "version": "1.35.0",
+  "version": "1.37.0",
   "publishConfig": {
     "access": "public"
   },
   "description": "Carbon web components",
   "license": "Apache-2.0",
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/carbon-web-components",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "main": "es/index.js",
   "module": "es/index.js",

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -67,7 +67,7 @@ const _renderMedia = (type, data) => {
 ContentBlockSimple.propTypes = {
   /**
    * Simple content item.
-   * Uses [`markdownToHtml`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/utilities/src/utilities/markdownToHtml) utility.
+   * Uses [`markdownToHtml`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/utilities/src/utilities/markdownToHtml) utility.
    */
   copy: PropTypes.string.isRequired,
 

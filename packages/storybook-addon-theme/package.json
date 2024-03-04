@@ -1,7 +1,7 @@
 {
   "name": "@carbon/storybook-addon-theme",
   "private": true,
-  "version": "1.45.0",
+  "version": "1.45.1",
   "description": "Storybook add-on for Carbon theme chooser",
   "license": "Apache-2.0",
   "main": "es/index.js",
@@ -9,7 +9,7 @@
   "files": [
     "es"
   ],
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/storybook-addon-theme",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/storybook-addon-theme",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "keywords": [
     "ibm",

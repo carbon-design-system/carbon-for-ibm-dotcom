@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import '../index';
 import '../../video-player/video-player-container';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import { text, select, number } from '@storybook/addon-knobs';
+import { boolean, text, select, number } from '@storybook/addon-knobs';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
@@ -24,10 +24,11 @@ const gradientDirections = {
 };
 
 export const Default = (args) => {
-  const { alt, gradientDirection, backgroundOpacity } =
+  const { alt, gradientDirection, gradientHidden, backgroundOpacity } =
     args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
+      ?gradient-hidden="${ifNonNull(gradientHidden)}"
       gradient-direction="${ifNonNull(gradientDirection)}"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
@@ -47,11 +48,12 @@ export const Default = (args) => {
 };
 
 export const WithVideo = (args) => {
-  const { gradientDirection, backgroundOpacity } =
+  const { gradientDirection, gradientHidden, backgroundOpacity } =
     args?.['dds-background-media'] ?? {};
   return html`
     <div style="height: 70vh;">
       <dds-background-media
+        ?gradient-hidden="${ifNonNull(gradientHidden)}"
         gradient-direction="${ifNonNull(gradientDirection)}"
         opacity="${ifNonNull(backgroundOpacity)}">
         <dds-video-player-container
@@ -63,10 +65,11 @@ export const WithVideo = (args) => {
 };
 
 export const WithDefaultSource = (args) => {
-  const { alt, gradientDirection, backgroundOpacity } =
+  const { alt, gradientDirection, gradientHidden, backgroundOpacity } =
     args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
+      ?gradient-hidden="${ifNonNull(gradientHidden)}"
       gradient-direction="${ifNonNull(gradientDirection)}"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
@@ -91,6 +94,7 @@ export default {
     hasStoryPadding: true,
     knobs: {
       'dds-background-media': () => ({
+        gradientHidden: boolean('Hide gradient (gradient-hidden)', false),
         gradientDirection: select(
           'Gradient Direction (gradient-direction):',
           gradientDirections,
@@ -108,6 +112,7 @@ export default {
     propsSet: {
       default: {
         'dds-background-media': {
+          gradientHidden: 'false',
           gradientDirection: 'left-to-right',
           alt: 'Image alt text',
           defaultSrc: imgMax,

@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services-store",
   "private": true,
-  "version": "1.54.0",
+  "version": "1.55.1",
   "description": "Redux store for Carbon for IBM.com Services",
   "license": "Apache-2.0",
   "main": "lib/store.js",
@@ -14,7 +14,7 @@
   "files": [
     "es"
   ],
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1/packages/services-store",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "keywords": [
     "ibm",
