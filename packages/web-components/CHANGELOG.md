@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.4.0...@carbon/ibmdotcom-web-components@2.5.0-rc.0) (2024-03-01)
+
+
+### Bug Fixes
+
+* **chat-button:** update to latest with no icon option ([#11577](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11577)) ([4106d3d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4106d3d490a611ef99844fb6812b6790e5b678c3))
+* **masthead:** ensure custom L0 nav items work ([#11547](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11547)) ([07a1223](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07a122342bdf7752581f972fe3fb7be4e0739479))
+* **masthead:** prevent megamenu tabs closing prematurely in Safari ([#11583](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11583)) ([dda144c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dda144c0f4abd3da491de10bde75464616b7ed75)), closes [#11576](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11576)
+
+
+
+
+
 # [2.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.4.0-rc.3...@carbon/ibmdotcom-web-components@2.4.0) (2024-02-26)
 
 

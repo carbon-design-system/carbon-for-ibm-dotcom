@@ -95,7 +95,7 @@ export function mapStateToProps(
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = profileAPI ?? {};
-  const { l0Data: userL0Data } = self;
+  const getUserL0Data = self.getL0Data.bind(self);
 
   // Attempt to collect data from current/new and deprecated locations.
   let endpointl0Data;
@@ -123,7 +123,7 @@ export function mapStateToProps(
     {
       // Respect user-set L0 data. Otherwise, progressively enhance to new shape.
       l0Data:
-        !language || userL0Data
+        !language || getUserL0Data()
           ? undefined
           : endpointl0Data.current || endpointl0Data.deprecated,
       // Progressively enhance to new profile items shape.
