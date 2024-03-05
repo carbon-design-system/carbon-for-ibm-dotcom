@@ -1,9 +1,9 @@
 /**
- * Copyright IBM Corp. 2016, 2024
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
+* Copyright IBM Corp. 2016, 2024
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
@@ -53,6 +53,7 @@ $search-transition-timing: 95ms;
 
 @mixin masthead-l1 {
   // Set up variables to store column-widths without using flexbox
+
   .#{$prefix}--masthead__l1,
   :host(#{$c4d-prefix}-masthead-l1) {
     /* stylelint-disable-next-line length-zero-no-unit */
@@ -337,35 +338,33 @@ $search-transition-timing: 95ms;
       }
     }
 
-    :host(#{$c4d-prefix}-masthead-l1-cta) {
-      .#{$prefix}--masthead__l1-dropdown-cta {
-        @include mobile-button-base;
-        @include type-style(body-short-01);
+    .#{$prefix}--masthead__l1-dropdown-cta {
+      @include mobile-button-base;
+      @include type-style(body-short-01);
 
-        background-color: $background-brand;
+      background-color: $background-brand;
+      color: $layer-02;
+
+      svg {
+        color: inherit;
+      }
+
+      &:hover {
+        background-color: $button-primary-hover;
+      }
+
+      &:focus-visible {
+        outline-color: $layer-02;
+        outline-offset: calc(-1 * #{$spacing-02});
+      }
+
+      &:active {
+        background-color: $button-primary-active;
         color: $layer-02;
+      }
 
-        svg {
-          color: inherit;
-        }
-
-        &:hover {
-          background-color: $button-primary-hover;
-        }
-
-        &:focus-visible {
-          outline-color: $layer-02;
-          outline-offset: calc(-1 * #{$spacing-02});
-        }
-
-        &:active {
-          background-color: $button-primary-active;
-          color: $layer-02;
-        }
-
-        &:disabled {
-          background-color: $text-disabled;
-        }
+      &:disabled {
+        background-color: $text-disabled;
       }
     }
   }
@@ -819,48 +818,43 @@ $search-transition-timing: 95ms;
       }
     }
 
-    :host(#{$c4d-prefix}-masthead-l1-cta) {
-      position: relative;
-      z-index: 1;
+    .#{$prefix}--masthead__l1-cta {
+      @include desktop-button-base;
+      @include type-style(body-short-01);
+
+      display: inline-flex;
+      align-items: flex-end;
+      background-color: $background-brand;
+      color: $layer-02;
       grid-area: cta;
 
-      .#{$prefix}--masthead__l1-cta {
-        @include desktop-button-base;
-        @include type-style(body-short-01);
+      svg {
+        color: inherit;
+      }
 
-        display: inline-flex;
-        align-items: flex-end;
-        background-color: $background-brand;
+      &:hover {
+        background-color: $button-primary-hover;
+      }
+
+      &:focus-visible {
+        outline: $spacing-01 solid $layer-02;
+        outline-offset: calc(-1 * #{$spacing-01});
+      }
+
+      &:active {
+        background-color: $button-primary-active;
         color: $layer-02;
-
-        svg {
-          color: inherit;
-        }
-
-        &:hover {
-          background-color: $button-primary-hover;
-        }
-
-        &:focus-visible {
-          outline: $spacing-01 solid $layer-02;
-          outline-offset: calc(-1 * #{$spacing-01});
-        }
-
-        &:active {
-          background-color: $button-primary-active;
-          color: $layer-02;
-        }
-
-        &:disabled {
-          background-color: $text-disabled;
-        }
       }
 
-      .#{$prefix}--masthead__l1-cta-inner {
-        display: inline-flex;
-        align-items: center;
-        gap: $spacing-03;
+      &:disabled {
+        background-color: $text-disabled;
       }
+    }
+
+    .#{$prefix}--masthead__l1-cta-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-03;
     }
 
     .#{$prefix}--masthead__l1-login {
