@@ -90,7 +90,9 @@ class StickyHeader {
       }
     } else {
       this._tableOfContentsInnerBar = tocRoot.querySelector(
-        `.${prefix}--tableofcontents__sidebar`
+        toc.layout === 'horizontal'
+          ? `.${prefix}--tableofcontents__navbar`
+          : `.${prefix}--tableofcontents__sidebar`
       );
     }
   }
