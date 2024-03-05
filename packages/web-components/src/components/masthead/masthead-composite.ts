@@ -134,12 +134,12 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     return !l1Data
       ? undefined
       : html`
-          <c4d-masthead-l1
+          <dds-masthead-l1
             slot="masthead-l1"
             .l1Data=${l1Data}
             selected-menu-item=${selectedMenuItemL1 || ''}>
             ${cta ? DDSMastheadL1.renderL1Cta(cta) : ''}
-          </c4d-masthead-l1>
+          </dds-masthead-l1>
         `;
   }
 

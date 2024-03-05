@@ -8,7 +8,8 @@
  */
 
 import { html, LitElement, TemplateResult, property, state } from 'lit-element';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
@@ -22,7 +23,8 @@ import styles from './masthead-l1.scss';
 import { L1_CTA_TYPES } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix } = settings;
+const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * Masthead L1 CTA.
