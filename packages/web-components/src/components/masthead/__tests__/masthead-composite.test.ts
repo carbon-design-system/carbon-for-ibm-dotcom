@@ -40,7 +40,7 @@ describe('cds-masthead-composite', function () {
         'c4d-masthead-composite'
       );
       expect(
-        mastheadComposite?.shadowRoot?.querySelector('c4d-masthead-global-bar')
+        mastheadComposite?.querySelector('c4d-masthead-global-bar')
       ).toMatchSnapshot();
     });
 
@@ -51,7 +51,7 @@ describe('cds-masthead-composite', function () {
         'c4d-masthead-composite'
       );
       expect(
-        mastheadComposite?.shadowRoot?.querySelector('c4d-masthead-global-bar')
+        mastheadComposite?.querySelector('c4d-masthead-global-bar')
       ).toMatchSnapshot();
     });
   });

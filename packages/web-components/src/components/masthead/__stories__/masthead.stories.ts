@@ -14,7 +14,7 @@ import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
-import { CTA_TYPE } from '../../cta/defs';
+import { L1_CTA_TYPES } from '../defs';
 import styles from './masthead.stories.scss?lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
@@ -85,6 +85,11 @@ async function customTypeaheadApiFunction(searchVal) {
       return searchResults;
     });
 }
+
+const enumToArray = (en) =>
+  Object.keys(en)
+    .filter((value) => typeof value === 'string')
+    .map((key) => en[key]);
 
 export const Default = (args) => {
   const {
@@ -342,13 +347,13 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, selectedMenuItemL1, showContactCta, useMock } =
+  const { selectedMenuItem, selectedMenuItemL1, l1CtaType, useMock } =
     args?.MastheadComposite ?? {};
 
   let l1Data = { ...mastheadL1Data };
   if (l1Data?.actions?.cta) {
-    showContactCta
-      ? (l1Data.actions.cta.ctaType = CTA_TYPE.CHAT)
+    l1CtaType
+      ? (l1Data.actions.cta.ctaType = l1CtaType)
       : delete l1Data.actions.cta.ctaType;
   }
 
@@ -397,7 +402,11 @@ withL1.story = {
           'selected menu item in L1 (selected-menu-item-l1)',
           ''
         ),
-        showContactCta: boolean('use Contact module CTA', false),
+        l1CtaType: select(
+          'L1 CTA type',
+          enumToArray(L1_CTA_TYPES),
+          L1_CTA_TYPES.NONE
+        ),
         useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
@@ -406,7 +415,7 @@ withL1.story = {
         MastheadComposite: {
           selectedMenuItem: 'Consulting',
           selectedMenuItemL1: '',
-          showContactCta: false,
+          l1CtaType: L1_CTA_TYPES.NONE,
           useMock: false,
         },
       },
