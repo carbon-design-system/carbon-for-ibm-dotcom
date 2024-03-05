@@ -157,6 +157,40 @@ To set a custom endpoint for the translation service to fetch from, set either t
 <dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
 ```
 
+#### L1 CTA
+
+By default, the L1 CTA renders as a button link.
+
+```javascript
+const l1Data = {
+  platform: {...}
+  menuItems: [...],
+  actions: {
+    cta: {
+      title: 'Link text',
+      url: 'https://www.example.com',
+    },
+  },
+}
+```
+
+You can also set a `ctaType` to render as a button that will integrate with the IBM Contact Module application on supported domains. Available CTA types are defined by the `L1_CTA_TYPES` enum in [the definitions file](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/masthead/defs.ts)
+
+> See the [Contact Module as a Service (CMaaS) documentation](https://github.ibm.com/live-advisor/cm-app/blob/master/docs/cm-doc.md#calls-to-action) for more information.
+
+```javascript
+const l1Data = {
+  platform: {...}
+  menuItems: [...],
+  actions: {
+    cta: {
+      title: 'Chat now',
+      ctaType: 'chat',
+    },
+  },
+}
+```
+
 ### Setting the active menu item
 
 The active menu item receives a unique style treatment to indicate where the current page is within the navigation hierarchy.
