@@ -14,7 +14,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
 import Calendar16 from '../../internal/vendor/@carbon/web-components/icons/calendar/16.js';
 import Chat16 from '../../internal/vendor/@carbon/web-components/icons/chat/16.js';
-import Demo16 from '../../internal/vendor/@carbon/web-components/icons/demo/16.js';
+import Screen16 from '../../internal/vendor/@carbon/web-components/icons/screen/16.js';
 import Email16 from '../../internal/vendor/@carbon/web-components/icons/email/16.js';
 import Phone16 from '../../internal/vendor/@carbon/web-components/icons/phone/16.js';
 import Quote16 from '../../internal/vendor/@carbon/web-components/icons/request-quote/16.js';
@@ -107,7 +107,7 @@ class DDSMastheadL1Cta extends StableSelectorMixin(LitElement) {
       [L1_CTA_TYPES.EMAIL_US, Email16()],
       [L1_CTA_TYPES.CALL_US, Phone16()],
       [L1_CTA_TYPES.BOOK_A_CONSULTATION, Calendar16()],
-      [L1_CTA_TYPES.REQUEST_A_DEMO, Demo16()],
+      [L1_CTA_TYPES.REQUEST_A_DEMO, Screen16()],
       [L1_CTA_TYPES.REQUEST_A_QUOTE, Quote16()],
     ]);
 
