@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "1.41.0",
+  "version": "1.42.0-rc.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -89,13 +89,13 @@
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.56.0",
-    "@carbon/ibmdotcom-styles": "1.56.0",
-    "@carbon/ibmdotcom-utilities": "1.56.0",
+    "@carbon/ibmdotcom-services": "1.57.0-rc.0",
+    "@carbon/ibmdotcom-styles": "1.57.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.57.0-rc.0",
     "@carbon/layout": "10.37.2",
     "@carbon/motion": "^11.0.0",
     "@carbon/telemetry": "0.1.0",
-    "@carbon/web-components": "1.37.0",
+    "@carbon/web-components": "1.38.0-rc.0",
     "carbon-components": "10.58.12",
     "lit-element": "^2.5.1",
     "lit-html": "^1.4.1",

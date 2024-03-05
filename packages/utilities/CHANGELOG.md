@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.57.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.56.0...@carbon/ibmdotcom-utilities@1.57.0-rc.0) (2024-03-05)
+
+
+### Bug Fixes
+
+* **toc:** adjust mobile selector to condition on layout ([#11590](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11590)) ([20c363b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/20c363bcb381066f4e666a2ffdc317a9dba4f5d0)), closes [#11588](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11588)
+
+
+
+
+
 # [1.56.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.54.0...@carbon/ibmdotcom-utilities@1.56.0) (2024-02-26)
 
 
