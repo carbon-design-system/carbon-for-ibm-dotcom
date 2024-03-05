@@ -106,38 +106,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderL1() {
     const { l1Data, selectedMenuItemL1 } = this;
-
-    /**
-     * Creates CTA markup based on l1Data and slots it into the L1.
-     *
-     * While it would be better to encapsulate this behavior in the L1 itself, we
-     * are forced to render CTAs into the light DOM so that the IBM Contact Module
-     * app can find them.
-     *
-     * @returns A template fragment representing an L1 CTA or an empty string.
-     */
-    const renderL1Cta = (): TemplateResult | string => {
-      const { cta } = l1Data?.actions || {};
-      if (cta) {
-        const { url, ctaType } = cta;
-        if (ctaType) {
-          return html`
-            <c4d-masthead-l1-cta slot="l1-cta" type="${ctaType}">
-              <span slot="cta-text"> ${cta?.title} </span>
-            </c4d-masthead-l1-cta>
-          `;
-        }
-        if (url) {
-          return html`
-            <c4d-masthead-l1-cta slot="l1-cta" href="${url}">
-              <span slot="cta-text">${cta?.title}</span>
-            </c4d-masthead-l1-cta>
-          `;
-        }
-      }
-      return '';
-    };
-
+    const { cta } = l1Data?.actions || {};
     return !l1Data
       ? undefined
       : html`
@@ -145,7 +114,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
             slot="masthead-l1"
             .l1Data=${l1Data}
             selected-menu-item=${selectedMenuItemL1 || ''}>
-            ${renderL1Cta()}
+            ${cta ? C4DMastheadL1.renderL1Cta(cta) : ''}
           </c4d-masthead-l1>
         `;
   }

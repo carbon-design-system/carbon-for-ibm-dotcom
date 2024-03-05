@@ -16,6 +16,7 @@ import styles from './masthead-l1.scss';
 import {
   L1MenuItem as _L1MenuItem,
   L1SubmenuSection as _L1SubmenuSection,
+  L1CtaLink,
   L1SubmenuSectionHeading,
   MastheadL1,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
@@ -958,6 +959,32 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           : html` ${this._renderL1TopNav()} `}
       </div>
     `;
+  }
+
+  /**
+   * Creates CTA markup and slots it into the L1.
+   *
+   * @param {L1CtaLink} cta L1 CTA data object
+   * @returns A template fragment representing an L1 CTA or an empty string.
+   */
+  static renderL1Cta(cta: L1CtaLink): _TemplateResult | string {
+    const { url, ctaType } = cta;
+    const slottedText = html`<span slot="cta-text">${cta?.title}</span>`;
+    if (ctaType) {
+      return html`
+        <c4d-masthead-l1-cta slot="l1-cta" type="${ctaType}">
+          ${slottedText}
+        </c4d-masthead-l1-cta>
+      `;
+    }
+    if (url) {
+      return html`
+        <c4d-masthead-l1-cta slot="l1-cta" href="${url}">
+          ${slottedText}
+        </c4d-masthead-l1-cta>
+      `;
+    }
+    return '';
   }
 
   static get stableSelector() {
