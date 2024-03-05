@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,17 +10,24 @@
 import { TemplateResult, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import CDSComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
+import CDSDropdown, {
+  DROPDOWN_KEYBOARD_ACTION,
+  DROPDOWN_TYPE,
+  NAVIGATION_DIRECTION,
+} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
-import C4DDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
+import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,
+  DROPDOWN_KEYBOARD_ACTION,
   DROPDOWN_SIZE,
   DROPDOWN_TYPE,
-} from './dropdown';
+  NAVIGATION_DIRECTION,
+};
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -38,7 +45,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @fires cds-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
 @customElement(`${c4dPrefix}-combo-box`)
-class C4DComboBox extends C4DDropdown {
+class C4DComboBox extends CDSDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.
    */
@@ -116,7 +123,7 @@ class C4DComboBox extends C4DDropdown {
 
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof C4DDropdown).getAction(key);
+    const action = (this.constructor as typeof CDSDropdown).getAction(key);
     const { TRIGGERING } = DROPDOWN_KEYBOARD_ACTION;
     if (
       this._selectionButtonNode?.contains(event.target as Node) &&
