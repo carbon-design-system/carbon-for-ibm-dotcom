@@ -74,21 +74,17 @@ class StickyHeader {
 
     const tocRoot = toc.shadowRoot;
 
-    const desktopSelector = `.${c4dPrefix}-ce--table-of-contents__items-container`;
-
+    this._tableOfContentsInnerBar = tocRoot.querySelector(
+      `.${prefix}--tableofcontents__navbar`
+    );
     if (window.innerWidth > gridBreakpoint) {
       if (toc.layout === 'horizontal') {
-        this._tableOfContentsInnerBar = tocRoot.querySelector(
-          `.${prefix}--tableofcontents__navbar`
-        );
         this._tableOfContentsLayout = 'horizontal';
       } else {
-        this._tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector);
+        this._tableOfContentsInnerBar = tocRoot.querySelector(
+          `.${c4dPrefix}-ce--table-of-contents__items-container`
+        );
       }
-    } else {
-      this._tableOfContentsInnerBar = tocRoot.querySelector(
-        `.${prefix}--tableofcontents__navbar`
-      );
     }
   }
 
