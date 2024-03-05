@@ -54,3 +54,19 @@ export enum MEGAMENU_LAYOUT_SCHEME {
   TAB = 'tab',
   LIST = 'list',
 }
+
+/**
+ * Matches CMaaS's CTA options.
+ *
+ * @see https://github.ibm.com/live-advisor/cm-app/blob/master/docs/cm-doc.md#calls-to-action
+ */
+export enum L1_CTA_TYPES {
+  NONE = '',
+  CONTACT_US = 'contact',
+  CHAT_NOW = 'chat',
+  EMAIL_US = 'email',
+  CALL_US = 'phone',
+  BOOK_A_CONSULTATION = 'scheduler',
+  REQUEST_A_DEMO = 'demo',
+  REQUEST_A_QUOTE = 'quote',
+}
