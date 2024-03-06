@@ -25,12 +25,10 @@ import styles from './masthead-l1.scss';
 import {
   L1MenuItem as _L1MenuItem,
   L1SubmenuSection as _L1SubmenuSection,
+  L1CtaLink,
   L1SubmenuSectionHeading,
   MastheadL1,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import { CTA_TYPE } from '../cta/defs';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
@@ -38,7 +36,6 @@ import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arr
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
-import Chat16 from '../../internal/vendor/@carbon/web-components/icons/chat/16.js';
 import { classMap } from 'lit-html/directives/class-map';
 import layoutBreakpoint from './masthead-breakpoint';
 
@@ -101,7 +98,7 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
  * @slot profile - The right hand area.
  */
 @customElement(`${ddsPrefix}-masthead-l1`)
-class DDSMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   /**
    * The L1 menu data, passed from the masthead-composite.
    */
@@ -131,12 +128,6 @@ class DDSMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @state()
   selectedElements: Element[] = [];
-
-  /**
-   * The `aria-label` attribute for the Contact CTA trigger button.
-   */
-  @state()
-  contactCtaLabel = 'Show contact window';
 
   /**
    * The translated label for the overview links visible on mobile
@@ -176,28 +167,6 @@ class DDSMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @queryAll(`.${prefix}--masthead__l1-menu-container-scroller`)
   menuScrollerButtons?: NodeListOf<HTMLButtonElement>;
-
-  /**
-   * Handles cm-app-pane-displayed event fired by CM_APP.
-   *
-   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
-   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
-   */
-  @HostListener('document:cm-app-pane-displayed')
-  protected _handleCMAppDisplayed = (_event: CustomEvent) => {
-    this.contactCtaLabel = 'Close contact window';
-  };
-
-  /**
-   * Handles cm-app-pane-hidden event fired by CM_APP.
-   *
-   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
-   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
-   */
-  @HostListener('document:cm-app-pane-hidden')
-  protected _handleCMAppHidden = (_event: CustomEvent) => {
-    this.contactCtaLabel = 'Show contact window';
-  };
 
   /**
    * Resize Observer responsible for show/hiding the scrolling buttons.
@@ -366,45 +335,9 @@ class DDSMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    *
    * @returns {_TemplateResult} A template fragment representing the L1 CTA
    */
+  // eslint-disable-next-line class-methods-use-this
   protected _renderCta(): _TemplateResult | '' {
-    const { isMobileVersion, contactCtaLabel, l1Data } = this;
-    const { cta } = l1Data?.actions || {};
-    const classname = isMobileVersion
-      ? `${prefix}--masthead__l1-dropdown-cta`
-      : `${prefix}--masthead__l1-cta`;
-
-    // Adds wrapper markup in desktop displays.
-    const desktopWrapper = (markup: _TemplateResult) => {
-      if (!isMobileVersion) {
-        return html` <div class="${classname}-inner">${markup}</div> `;
-      }
-      return markup;
-    };
-
-    if (cta && cta?.title) {
-      if (cta?.ctaType === CTA_TYPE.CHAT) {
-        return html`
-          <button
-            class="${classname}"
-            data-ibm-contact="contact-link"
-            aria-label="${ifDefined(contactCtaLabel)}">
-            ${desktopWrapper(
-              html`<span data-ibm-contact="contact-text">${cta.title}</span
-                >${Chat16()}`
-            )}
-          </button>
-        `;
-      } else if (cta?.url) {
-        const icon = isMobileVersion ? ArrowRight16() : '';
-        return html`
-          <a class="${classname}" href="${cta.url}">
-            ${desktopWrapper(html`${cta.title}${icon}`)}
-          </a>
-        `;
-      }
-    }
-
-    return '';
+    return html`<slot name="l1-cta"></slot>`;
   }
 
   /**
@@ -988,19 +921,6 @@ class DDSMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     return renderedHeading;
   }
 
-  protected shouldUpdate(changedProperties) {
-    const { l1Data } = this;
-    // We don't need to perform updates related to the Contact Module if the CTA
-    // isn't configured to interact with it and it's the only update.
-    const contactLabelIsOnlyChange =
-      changedProperties.has('contactCtaLabel') && changedProperties.size === 1;
-    const ctaTypeIsChat = l1Data?.actions?.cta?.ctaType === CTA_TYPE.CHAT;
-    if (contactLabelIsOnlyChange && !ctaTypeIsChat) {
-      return false;
-    }
-    return true;
-  }
-
   protected firstUpdated() {
     this.style.setProperty(
       '--scrollbarWidth',
@@ -1046,6 +966,32 @@ class DDSMastheadL1 extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           : html` ${this._renderL1TopNav()} `}
       </div>
     `;
+  }
+
+  /**
+   * Creates CTA markup and slots it into the L1.
+   *
+   * @param {L1CtaLink} cta L1 CTA data object
+   * @returns A template fragment representing an L1 CTA or an empty string.
+   */
+  static renderL1Cta(cta: L1CtaLink): _TemplateResult | string {
+    const { url, ctaType } = cta;
+    const slottedText = html`<span slot="cta-text">${cta?.title}</span>`;
+    if (ctaType) {
+      return html`
+        <dds-masthead-l1-cta slot="l1-cta" type="${ctaType}">
+          ${slottedText}
+        </dds-masthead-l1-cta>
+      `;
+    }
+    if (url) {
+      return html`
+        <dds-masthead-l1-cta slot="l1-cta" href="${url}">
+          ${slottedText}
+        </dds-masthead-l1-cta>
+      `;
+    }
+    return '';
   }
 
   static get stableSelector() {

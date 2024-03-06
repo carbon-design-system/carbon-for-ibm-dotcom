@@ -53,6 +53,7 @@ import DDSMastheadL1 from './masthead-l1';
 import './masthead';
 import './masthead-button-cta';
 import './masthead-l1';
+import './masthead-l1-cta';
 import './masthead-l1-name';
 import './masthead-menu-button';
 import './masthead-contact';
@@ -128,15 +129,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns {TemplateResult | undefined} The L1 nav.
    */
   protected _renderL1() {
-    if (!this.l1Data) return undefined;
-
-    return html`
-      <dds-masthead-l1
-        slot="masthead-l1"
-        .l1Data=${this.l1Data}
-        selected-menu-item=${this.selectedMenuItemL1 || ''}>
-      </dds-masthead-l1>
-    `;
+    const { l1Data, selectedMenuItemL1 } = this;
+    const { cta } = l1Data?.actions || {};
+    return !l1Data
+      ? undefined
+      : html`
+          <dds-masthead-l1
+            slot="masthead-l1"
+            .l1Data=${l1Data}
+            selected-menu-item=${selectedMenuItemL1 || ''}>
+            ${cta ? DDSMastheadL1.renderL1Cta(cta) : ''}
+          </dds-masthead-l1>
+        `;
   }
 
   /**
