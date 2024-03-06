@@ -26,24 +26,25 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol &amp;&amp; "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o &amp;&amp; "function" == typeof Symbol &amp;&amp; o.constructor === Symbol &amp;&amp; o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+            <pre class="prettyprint source linenums"><code>function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol &amp;&amp; "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj &amp;&amp; "function" == typeof Symbol &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import ddsSettings from '../settings/settings.js';
 import root from 'window-or-global';
-import settings from '../settings/settings.js';
-var prefix = settings.prefix,
-  c4dPrefix = settings.stablePrefix;
+import settings from 'carbon-components/es/globals/js/settings';
+var prefix = settings.prefix;
+var ddsPrefix = ddsSettings.stablePrefix;
 var gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 var StickyHeader = /*#__PURE__*/function () {
   function StickyHeader() {
@@ -100,7 +101,7 @@ var StickyHeader = /*#__PURE__*/function () {
     value: function _tableOfContentsStickyUpdate() {
       var toc = this._tableOfContents;
       var tocRoot = toc.shadowRoot;
-      var desktopSelector = ".".concat(c4dPrefix, "-ce--table-of-contents__items-container");
+      var desktopSelector = ".".concat(ddsPrefix, "-ce--table-of-contents__items-container");
       if (window.innerWidth > gridBreakpoint) {
         if (toc.layout === 'horizontal') {
           this._tableOfContentsInnerBar = tocRoot.querySelector(".".concat(prefix, "--tableofcontents__navbar"));
@@ -115,7 +116,7 @@ var StickyHeader = /*#__PURE__*/function () {
   }, {
     key: "banner",
     set: function set(component) {
-      if (this._validateComponent(component, "".concat(c4dPrefix, "-global-banner"))) {
+      if (this._validateComponent(component, "".concat(ddsPrefix, "-universal-banner"))) {
         this._banner = component;
         this.hasBanner = true;
         if (this._masthead) {
@@ -127,11 +128,11 @@ var StickyHeader = /*#__PURE__*/function () {
   }, {
     key: "leadspaceWithSearch",
     set: function set(component) {
-      if (this._validateComponent(component, "".concat(c4dPrefix, "-leadspace-with-search"))) {
+      if (this._validateComponent(component, "".concat(ddsPrefix, "-leadspace-with-search"))) {
         this._leadspaceWithSearch = component;
         var leadspaceSearchBar = component.shadowRoot.querySelector(".".concat(prefix, "--search-container"));
         this._leadspaceSearchBar = leadspaceSearchBar;
-        this._leadspaceWithSearchInput = component.querySelector("".concat(c4dPrefix, "-search-with-typeahead"));
+        this._leadspaceWithSearchInput = component.querySelector("".concat(ddsPrefix, "-search-with-typeahead"));
         this._leadspaceWithSearchStickyThreshold = parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) - 16;
         this._calculateCumulativeHeight();
       }
@@ -139,7 +140,7 @@ var StickyHeader = /*#__PURE__*/function () {
   }, {
     key: "localeModal",
     set: function set(component) {
-      if (this._validateComponent(component, "".concat(c4dPrefix, "-locale-modal"))) {
+      if (this._validateComponent(component, "".concat(ddsPrefix, "-locale-modal"))) {
         this._localeModal = component;
         this._calculateCumulativeHeight();
       }
@@ -147,20 +148,18 @@ var StickyHeader = /*#__PURE__*/function () {
   }, {
     key: "masthead",
     set: function set(component) {
-      if (this._validateComponent(component, "".concat(c4dPrefix, "-masthead"))) {
+      if (this._validateComponent(component, "".concat(ddsPrefix, "-masthead"))) {
         this._masthead = component;
-        if (this._banner) {
-          this._masthead.setAttribute('with-banner', '');
-        }
+        if (this._banner) this._masthead.setAttribute('with-banner', '');
         this._mastheadL0 = component.shadowRoot.querySelector(".".concat(prefix, "--masthead__l0"));
-        this._mastheadL1 = component.querySelector("".concat(c4dPrefix, "-masthead-l1"));
+        this._mastheadL1 = component.querySelector("".concat(ddsPrefix, "-masthead-l1"));
         this._calculateCumulativeHeight();
       }
     }
   }, {
     key: "tableOfContents",
     set: function set(component) {
-      if (this._validateComponent(component, "".concat(c4dPrefix, "-table-of-contents"))) {
+      if (this._validateComponent(component, "".concat(ddsPrefix, "-table-of-contents"))) {
         this._tableOfContents = component;
         this._tableOfContentsStickyUpdate();
         this._resizeObserver.observe(this._tableOfContents);
@@ -225,9 +224,7 @@ var StickyHeader = /*#__PURE__*/function () {
         leadspaceSearchInput = _StickyHeader$global._leadspaceWithSearchInput,
         leadspaceSearchThreshold = _StickyHeader$global._leadspaceWithSearchStickyThreshold;
       var customPropertyName = this.constructor.customPropertyName;
-      if (localeModal &amp;&amp; localeModal.hasAttribute('open')) {
-        return;
-      }
+      if (localeModal &amp;&amp; localeModal.hasAttribute('open')) return;
       var newY = window.scrollY;
       this._lastScrollPosition = Math.max(0, newY);
 
@@ -345,7 +342,7 @@ var StickyHeader = /*#__PURE__*/function () {
   }, {
     key: "customPropertyName",
     get: function get() {
-      return "--".concat(c4dPrefix, "-sticky-header-height");
+      return "--".concat(ddsPrefix, "-sticky-header-height");
     }
   }]);
   return StickyHeader;
@@ -360,13 +357,13 @@ export default StickyHeader;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_getLocaleDefault">_getLocaleDefault</a></li><li><a href="global.html#_getLocaleFromBrowser">_getLocaleFromBrowser</a></li><li><a href="global.html#_getLocaleFromCookie">_getLocaleFromCookie</a></li><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#on">on</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Mar 06 2024 02:51:51 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Mar 06 2024 20:18:47 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
