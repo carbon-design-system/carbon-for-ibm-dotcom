@@ -338,7 +338,8 @@
     padding-inline-end: $spacing-03;
 
     button {
-      padding: 0;
+      padding: $spacing-05;
+      margin: -$spacing-05;
       border: none;
       background: none;
     }
