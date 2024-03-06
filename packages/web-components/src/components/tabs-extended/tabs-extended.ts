@@ -88,6 +88,8 @@ class DDSTabsExtended extends MediaQueryMixin(
 
   private _handleAccordionClick(e) {
     const tab = e.target.closest(`${ddsPrefix}-tab`);
+    // const allClosed = this._tabItems.every((tab) => !tab.selected);
+
     this._handleClick(tab.getIndex(), e);
   }
 
@@ -208,13 +210,10 @@ class DDSTabsExtended extends MediaQueryMixin(
           `${ddsPrefix}-tab:nth-of-type(${_activeTabIndex + 1})`
         )?.shadowRoot?.querySelector(`.${prefix}--accordion__heading`);
 
-    if (activeItemControl instanceof HTMLElement) {
-      if (!isLargeOrGreater) {
-        // Unset focus so that when element is focused programmatically, the
-        // browser scrolls element into view.
-        activeItemControl.blur();
-      }
-      activeItemControl.focus();
+    if (activeItemControl instanceof HTMLElement && isLargeOrGreater) {
+      // Unset focus so that when element is focused programmatically, the
+      // browser scrolls element into view.
+      activeItemControl.blur();
     }
   };
 

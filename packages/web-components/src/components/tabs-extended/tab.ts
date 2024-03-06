@@ -107,6 +107,11 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       [`${prefix}--accordion__item--active`]: selected,
       [`${prefix}--accordion__item--disabled`]: disabled,
     });
+
+    const toggleSelected = () => {
+      this.selected = !selected;
+    };
+
     return html`
       <li class="${classes}">
         <button
@@ -114,13 +119,12 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
           aria-expanded="${selected}"
           aria-controls="pane-${index}"
           tabindex="${index + 1}"
-          ?disabled="${disabled}">
-          ${selected
-            ? ''
-            : ChevronRight20({
-                part: 'expando-icon',
-                class: `${prefix}--accordion__arrow`,
-              })}
+          ?disabled="${disabled}"
+          @click="${toggleSelected}">
+          ${ChevronRight20({
+            part: 'expando-icon',
+            class: `${prefix}--accordion__arrow`,
+          })}
           <div class="${prefix}--accordion__title">${label}</div>
         </button>
         <div id="pane-${index}" class="${prefix}--accordion__content">
