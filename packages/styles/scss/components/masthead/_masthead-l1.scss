@@ -44,7 +44,6 @@ $search-transition-timing: 95ms;
 
 @mixin masthead-l1 {
   // Set up variables to store column-widths without using flexbox
-
   .#{$prefix}--masthead__l1,
   :host(#{$dds-prefix}-masthead-l1) {
     /* stylelint-disable-next-line length-zero-no-unit */
@@ -326,33 +325,35 @@ $search-transition-timing: 95ms;
       }
     }
 
-    .#{$prefix}--masthead__l1-dropdown-cta {
-      @include mobile-button-base;
-      @include carbon--type-style(body-short-01);
+    :host(#{$dds-prefix}-masthead-l1-cta) {
+      .#{$prefix}--masthead__l1-dropdown-cta {
+        @include mobile-button-base;
+        @include carbon--type-style(body-short-01);
 
-      background-color: $interactive-01;
-      color: $ui-02;
-
-      svg {
-        color: inherit;
-      }
-
-      &:hover {
-        background-color: $hover-primary;
-      }
-
-      &:focus-visible {
-        outline-color: $ui-02;
-        outline-offset: calc(-1 * #{$spacing-02});
-      }
-
-      &:active {
+        background-color: $interactive-01;
         color: $ui-02;
-        background-color: $active-primary;
-      }
 
-      &:disabled {
-        background-color: $disabled-02;
+        svg {
+          color: inherit;
+        }
+
+        &:hover {
+          background-color: $hover-primary;
+        }
+
+        &:focus-visible {
+          outline-color: $ui-02;
+          outline-offset: calc(-1 * #{$spacing-02});
+        }
+
+        &:active {
+          color: $ui-02;
+          background-color: $active-primary;
+        }
+
+        &:disabled {
+          background-color: $disabled-02;
+        }
       }
     }
   }
@@ -794,43 +795,48 @@ $search-transition-timing: 95ms;
       }
     }
 
-    .#{$prefix}--masthead__l1-cta {
-      @include desktop-button-base;
-      @include carbon--type-style(body-short-01);
-
-      display: inline-flex;
+    :host(#{$dds-prefix}-masthead-l1-cta) {
+      position: relative;
+      z-index: 1;
       grid-area: cta;
-      background-color: $interactive-01;
-      color: $ui-02;
-      align-items: flex-end;
 
-      svg {
-        color: inherit;
-      }
+      .#{$prefix}--masthead__l1-cta {
+        @include desktop-button-base;
+        @include type-style(body-short-01);
 
-      &:hover {
-        background-color: $hover-primary;
-      }
-
-      &:focus-visible {
-        outline: $spacing-01 solid $ui-02;
-        outline-offset: calc(-1 * #{$spacing-01});
-      }
-
-      &:active {
+        display: inline-flex;
+        align-items: flex-end;
+        background-color: $background-brand;
         color: $ui-02;
-        background-color: $active-primary;
+
+        svg {
+          color: inherit;
+        }
+
+        &:hover {
+          background-color: $hover-primary;
+        }
+
+        &:focus-visible {
+          outline: $spacing-01 solid $ui-02;
+          outline-offset: calc(-1 * #{$spacing-01});
+        }
+
+        &:active {
+          color: $ui-02;
+          background-color: $active-primary;
+        }
+
+        &:disabled {
+          background-color: $disabled-02;
+        }
       }
 
-      &:disabled {
-        background-color: $disabled-02;
+      .#{$prefix}--masthead__l1-cta-inner {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-03;
       }
-    }
-
-    .#{$prefix}--masthead__l1-cta-inner {
-      display: inline-flex;
-      align-items: center;
-      gap: $spacing-03;
     }
 
     .#{$prefix}--masthead__l1-login {
