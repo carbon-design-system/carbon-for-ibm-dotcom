@@ -30,8 +30,7 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>LocaleAPI<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>Locale API class with method of fetching user's locale for
-ibm.com</p></div>
+            <div class="class-description"><p>Locale API class with method of fetching user's locale for ibm.com.</p></div>
         
     
 </header>
@@ -94,7 +93,7 @@ ibm.com</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line155">line 155</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line218">line 218</a>
     </li></ul></dd>
     
 
@@ -202,7 +201,7 @@ ibm.com</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line159">line 159</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -246,7 +245,7 @@ ibm.com</p></div>
 
 
 <div class="description">
-    <p>Fetches the list data based on cc/lc combination</p>
+    <p>Fetches the list data based on cc/lc combination.</p>
 </div>
 
 
@@ -298,7 +297,7 @@ ibm.com</p></div>
 
             
 
-            <td class="description last"><p>country code</p></td>
+            <td class="description last"><p>Country code.</p></td>
         </tr>
 
     
@@ -321,7 +320,7 @@ ibm.com</p></div>
 
             
 
-            <td class="description last"><p>language code</p></td>
+            <td class="description last"><p>Language code.</p></td>
         </tr>
 
     
@@ -344,7 +343,7 @@ ibm.com</p></div>
 
             
 
-            <td class="description last"><p>resolves the Promise</p></td>
+            <td class="description last"><p>Resolves the Promise.</p></td>
         </tr>
 
     
@@ -367,7 +366,7 @@ ibm.com</p></div>
 
             
 
-            <td class="description last"><p>rejects the promise</p></td>
+            <td class="description last"><p>Rejects the promise.</p></td>
         </tr>
 
     
@@ -408,7 +407,7 @@ ibm.com</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line311">line 311</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line355">line 355</a>
     </li></ul></dd>
     
 
@@ -444,7 +443,7 @@ ibm.com</p></div>
     
 
     
-    <h4 class="name" id=".getLang"><span class="type-signature">(static) </span>getLang<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id=".getLang"><span class="type-signature">(async, static) </span>getLang<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#Locale">Locale</a>>}</span></h4>
     
 
     
@@ -452,8 +451,7 @@ ibm.com</p></div>
 
 
 <div class="description">
-    <p>Checks for DDO object to return the correct cc and lc
-Otherwise gets those values from the <html> lang attribute</p>
+    <p>Gets the user's locale.</p>
 </div>
 
 
@@ -485,6 +483,8 @@ Otherwise gets those values from the <html> lang attribute</p>
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>in favor of LocalAPI.getLocale.</li></ul></dd>
+    
 
     
 
@@ -497,7 +497,7 @@ Otherwise gets those values from the <html> lang attribute</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line232">line 232</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line284">line 284</a>
     </li></ul></dd>
     
 
@@ -526,7 +526,7 @@ Otherwise gets those values from the <html> lang attribute</p>
 
         
 <div class="param-desc">
-    <p>locale object</p>
+    <p>Locale object.</p>
 </div>
 
 
@@ -537,7 +537,7 @@ Otherwise gets those values from the <html> lang attribute</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">Promise.&lt;<a href="global.html#Locale">Locale</a>></span>
 
 
     </dd>
@@ -564,7 +564,7 @@ function async getLocale() {
     
 
     
-    <h4 class="name" id=".getLangDisplay"><span class="type-signature">(async, static) </span>getLangDisplay<span class="signature">(langCode)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
+    <h4 class="name" id=".getLangDisplay"><span class="type-signature">(async, static) </span>getLangDisplay<span class="signature">(locale)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
     
 
     
@@ -572,7 +572,7 @@ function async getLocale() {
 
 
 <div class="description">
-    <p>This fetches the language display name based on language/locale combo</p>
+    <p>This fetches the language display name based on locale.</p>
 </div>
 
 
@@ -608,13 +608,16 @@ function async getLocale() {
 
         <tr>
             
-                <td class="name"><code>langCode</code></td>
+                <td class="name"><code>locale</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="global.html#Locale">Locale</a></span>
+|
+
+<span class="param-type">boolean</span>
 
 
             
@@ -624,7 +627,7 @@ function async getLocale() {
 
             
 
-            <td class="description last"><p>lang code with cc and lc</p></td>
+            <td class="description last"><p>(optional) If not given, uses LocaleAPI.getLocale logic.</p></td>
         </tr>
 
     
@@ -665,7 +668,7 @@ function async getLocale() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line250">line 250</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line294">line 294</a>
     </li></ul></dd>
     
 
@@ -694,7 +697,7 @@ function async getLocale() {
 
         
 <div class="param-desc">
-    <p>Display name of locale/language</p>
+    <p>Display name of locale/language.</p>
 </div>
 
 
@@ -723,7 +726,7 @@ function async getLocale() {
     
 
     
-    <h4 class="name" id=".getList"><span class="type-signature">(async, static) </span>getList<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+    <h4 class="name" id=".getList"><span class="type-signature">(async, static) </span>getList<span class="signature">(locale)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
     
 
     
@@ -732,7 +735,7 @@ function async getLocale() {
 
 <div class="description">
     <p>Get the country list of all supported countries and their languages
-if it is not already stored in session storage</p>
+if it is not already stored in session storage.</p>
 </div>
 
 
@@ -768,13 +771,13 @@ if it is not already stored in session storage</p>
 
         <tr>
             
-                <td class="name"><code>params</code></td>
+                <td class="name"><code>locale</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="global.html#Locale">Locale</a></span>
 
 
             
@@ -784,7 +787,7 @@ if it is not already stored in session storage</p>
 
             
 
-            <td class="description last"><p>params object</p>
+            <td class="description last"><p>Locale object.</p>
                 <h6>Properties</h6>
                 
 
@@ -826,7 +829,7 @@ if it is not already stored in session storage</p>
 
             
 
-            <td class="description last"><p>country code</p></td>
+            <td class="description last"><p>Country code.</p></td>
         </tr>
 
     
@@ -849,7 +852,7 @@ if it is not already stored in session storage</p>
 
             
 
-            <td class="description last"><p>language code</p></td>
+            <td class="description last"><p>Language code.</p></td>
         </tr>
 
     
@@ -897,7 +900,7 @@ if it is not already stored in session storage</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line297">line 297</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line341">line 341</a>
     </li></ul></dd>
     
 
@@ -926,7 +929,7 @@ if it is not already stored in session storage</p>
 
         
 <div class="param-desc">
-    <p>promise object</p>
+    <p>Promise object.</p>
 </div>
 
 
@@ -965,7 +968,7 @@ function async getLocale() {
     
 
     
-    <h4 class="name" id=".getLocale"><span class="type-signature">(async, static) </span>getLocale<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id=".getLocale"><span class="type-signature">(async, static) </span>getLocale<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#Locale">Locale</a>>}</span></h4>
     
 
     
@@ -973,11 +976,16 @@ function async getLocale() {
 
 
 <div class="description">
-    <p>Gets the user's locale</p>
-<p>Grab the locale from the <code>lang</code> attribute from html, else
-check if ipcinfo cookie exists (ipcinfoCookie util)
-if not, retrieve the user's locale through DDO service + gets user's
-browser language preference then set the cookie</p>
+    <p>Gets the user's locale.</p>
+<p>Grab the locale from the available information on the page in the following
+order:</p>
+<ol>
+<li>DDO</li>
+<li>HTML lang attribute</li>
+<li>ipcInfo cookie</li>
+<li>Browser (navigator.language)</li>
+<li>Default (us-EN)</li>
+</ol>
 </div>
 
 
@@ -1021,7 +1029,7 @@ browser language preference then set the cookie</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line188">line 188</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line255">line 255</a>
     </li></ul></dd>
     
 
@@ -1050,7 +1058,7 @@ browser language preference then set the cookie</p>
 
         
 <div class="param-desc">
-    <p>object with lc and cc</p>
+    <p>Locale object.</p>
 </div>
 
 
@@ -1061,7 +1069,7 @@ browser language preference then set the cookie</p>
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">Promise.&lt;<a href="global.html#Locale">Locale</a>></span>
 
 
     </dd>
@@ -1149,7 +1157,7 @@ async function getLocale() {
 
             
 
-            <td class="description last"><p>session storage key</p></td>
+            <td class="description last"><p>Session storage key.</p></td>
         </tr>
 
     
@@ -1190,7 +1198,7 @@ async function getLocale() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line393">line 393</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line436">line 436</a>
     </li></ul></dd>
     
 
@@ -1234,8 +1242,7 @@ async function getLocale() {
 
 
 <div class="description">
-    <p>Verify that the cc and lc combo is in the list of
-supported cc-lc combos</p>
+    <p>Verify that the cc and lc combo is in the list of supported cc-lc combos.</p>
 </div>
 
 
@@ -1287,7 +1294,7 @@ supported cc-lc combos</p>
 
             
 
-            <td class="description last"><p>country code</p></td>
+            <td class="description last"><p>Country code.</p></td>
         </tr>
 
     
@@ -1310,7 +1317,7 @@ supported cc-lc combos</p>
 
             
 
-            <td class="description last"><p>language code</p></td>
+            <td class="description last"><p>Language code.</p></td>
         </tr>
 
     
@@ -1333,7 +1340,7 @@ supported cc-lc combos</p>
 
             
 
-            <td class="description last"><p>country list</p></td>
+            <td class="description last"><p>Country list.</p></td>
         </tr>
 
     
@@ -1374,7 +1381,7 @@ supported cc-lc combos</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line362">line 362</a>
+        <a href="services_Locale_Locale.js.html">services/Locale/Locale.js</a>, <a href="services_Locale_Locale.js.html#line405">line 405</a>
     </li></ul></dd>
     
 
@@ -1403,7 +1410,7 @@ supported cc-lc combos</p>
 
         
 <div class="param-desc">
-    <p>object with lc and cc</p>
+    <p>Object with lc and cc.</p>
 </div>
 
 
@@ -1452,13 +1459,13 @@ async function getLocale() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_getLocaleDefault">_getLocaleDefault</a></li><li><a href="global.html#_getLocaleFromBrowser">_getLocaleFromBrowser</a></li><li><a href="global.html#_getLocaleFromCookie">_getLocaleFromCookie</a></li><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#on">on</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Mar 06 2024 20:18:47 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 07 2024 19:25:19 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
