@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utilities/index.js</title>
+    <title>JSDoc: Source: utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utilities/index.js</h1>
+    <h1 class="page-title">Source: utilities/on/on.js</h1>
 
     
 
@@ -27,29 +27,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './altlangs';
-export * from './calculateTotalWidth';
-export * from './decodeString';
-export * from './deprecate';
-export * from './escaperegexp';
-export * from './featureflag';
-export * from './formatVideoCaption';
-export * from './ipcinfoCookie';
-export * from './loadNonLatinPlex';
-export * from './markdownToHtml';
-export * from './on';
-export * from './removeHtmlTagEntities';
-export * from './sameHeight';
-export * from './serialize';
-export * from './settings';
-export * from './smoothScroll';
-export * from './uniqueid';
+/**
+ *
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
+ */
+
+function on(element, ...args) {
+  element.addEventListener(...args);
+  return {
+    release() {
+      element.removeEventListener(...args);
+      return null;
+    },
+  };
+}
+
+export default on;
 </code></pre>
         </article>
     </section>
