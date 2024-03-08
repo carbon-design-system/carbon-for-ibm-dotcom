@@ -10,9 +10,7 @@
 const https = require('https');
 const program = require('commander');
 
-program
-  .option('-t, --token <github token>', 'Github Token')
-  .option('-v, --version <release version>', 'Release Version');
+program.option('-t, --token <github token>', 'Github Token');
 
 /**
  * Stores the arguments
@@ -24,13 +22,7 @@ const args = program.parse(process.argv);
  * Github Token (-t)
  * @type {string}
  */
-const githubToken = args.token;
-
-/**
- * Release version (-v)
- * @type {string}
- */
-const releaseVersion = args.version;
+const githubToken = args.token || process.env.GITHUB_TOKEN;
 
 /**
  * Github Repo Slug
@@ -42,22 +34,15 @@ const repoSlug = 'carbon-design-system/carbon-for-ibm-dotcom';
  * Github API release URL
  * @type {string}
  */
-const releaseLogUrl = `/repos/${repoSlug}/releases/tags/v${releaseVersion}`;
-
-/**
- * Data object for Github API call
- * @type {string}
- */
-const data = JSON.stringify({
-  body: `Hey there! This issue/pull request was referenced in recently released [v${releaseVersion}](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/releases/tag/v${releaseVersion}).`,
-});
+const releaseUrl = `/repos/${repoSlug}/releases/latest`;
 
 /**
  * Posts the PR comment
  *
  * @param {Array} prIds array of PRs in the release note
+ * @param {string} releaseVersion version
  */
-const postComments = (prIds) => {
+const postComments = (prIds, releaseVersion) => {
   prIds.map((pr) => {
     let path = `/repos/${repoSlug}/issues/${pr}/comments`;
     let method = 'POST';
@@ -71,6 +56,10 @@ const postComments = (prIds) => {
         Authorization: `token ${githubToken}`,
       },
     };
+
+    const data = JSON.stringify({
+      body: `Hey there! This issue/pull request was referenced in recently released [${releaseVersion}](https://github.com/${repoSlug}/releases/tag/${releaseVersion}).`,
+    });
 
     const req = https.request(options, (res) => {
       let response = '';
@@ -97,24 +86,25 @@ const postComments = (prIds) => {
  * Extract PR ids from release notes
  *
  * @param {string} note release note body
+ * @param {string} releaseVersion version
  */
-const getPRs = (note) => {
+const getPRs = (note, releaseVersion) => {
   const regex = /\((#[\d]+)\)/g;
   const ids = note.match(regex);
 
   // clean ids
   const prIds = ids.map((id) => id.replace(/([(#)])/g, ''));
 
-  postComments(prIds);
+  postComments(prIds, releaseVersion);
 };
 
 /**
- * Gets the release note
+ * Get latest release
  */
-const getReleaseNote = () => {
+const getLatestRelease = () => {
   const options = {
     hostname: 'api.github.com',
-    path: releaseLogUrl,
+    path: releaseUrl,
     headers: {
       'User-Agent': 'node/https',
       Authorization: `token ${githubToken}`,
@@ -130,7 +120,14 @@ const getReleaseNote = () => {
 
     res.on('end', () => {
       response = JSON.parse(response);
-      getPRs(response.body);
+      const releaseVersion = response['tag_name'];
+
+      // make sure it only triggers on v2 releases
+      if (releaseVersion.includes('v2.')) {
+        getPRs(response.body, releaseVersion);
+      } else {
+        console.log('Release version is not v2.*');
+      }
     });
   });
 
@@ -141,4 +138,4 @@ const getReleaseNote = () => {
   req.end();
 };
 
-getReleaseNote();
+getLatestRelease();

@@ -2,11 +2,8 @@ name: Release Notifications
 
 on:
   workflow_dispatch:
-    inputs:
-      release:
-        required: true
-        description: 'Specify release (ie. 2.4.0)'
-        type: string
+  release:
+    types: [released]
 
 jobs:
   post-comments:
@@ -19,5 +16,9 @@ jobs:
         with:
           node-version: '18.x'
           cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache
       - name: Add release information on pull requests
-        run: node ./tasks/release-notifications.js -v ${{ github.event.inputs.release}} -t ${{ secrets.GITHUB_TOKEN }}
+        run: node tasks/release-notifications.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
