@@ -210,7 +210,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       }
     });
 
-    this._childItemHeadings.forEach((e) => {
+    this._childItemParagraphs.forEach((e) => {
       // add tag group height to heading to the cards lacking tag group
       if (
         e &&
