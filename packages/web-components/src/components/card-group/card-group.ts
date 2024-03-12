@@ -219,6 +219,11 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         )
       ) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
+      } else {
+        let childTagGroup = e.nextElementSibling;
+        childTagGroup.style.marginTop = `${
+          tagGroupHeight - childTagGroup.offsetHeight
+        }px`;
       }
     });
   };
