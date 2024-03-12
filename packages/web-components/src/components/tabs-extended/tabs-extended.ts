@@ -88,9 +88,28 @@ class DDSTabsExtended extends MediaQueryMixin(
 
   private _handleAccordionClick(e) {
     const tab = e.target.closest(`${ddsPrefix}-tab`);
-    // const allClosed = this._tabItems.every((tab) => !tab.selected);
+    const currentIndex = this._activeTabIndex;
+
+    // If the tab is already active and selected when clicked, just return
+    if (
+      tab &&
+      tab.getIndex() === currentIndex &&
+      this._tabItems[currentIndex].selected
+    ) {
+      return;
+    }
 
     this._handleClick(tab.getIndex(), e);
+
+    // Checking if the clicked tab is different from the previously active tab, if they're different, it just sets the focus to the new clicked tab
+    if (currentIndex !== tab.getIndex()) {
+      const tabButton = tab.shadowRoot?.querySelector(
+        `.${prefix}--accordion__heading`
+      );
+      if (tabButton instanceof HTMLElement) {
+        tabButton.focus();
+      }
+    }
   }
 
   private _setActiveItem(index: number) {
@@ -210,10 +229,13 @@ class DDSTabsExtended extends MediaQueryMixin(
           `${ddsPrefix}-tab:nth-of-type(${_activeTabIndex + 1})`
         )?.shadowRoot?.querySelector(`.${prefix}--accordion__heading`);
 
-    if (activeItemControl instanceof HTMLElement && isLargeOrGreater) {
-      // Unset focus so that when element is focused programmatically, the
-      // browser scrolls element into view.
-      activeItemControl.blur();
+    if (activeItemControl instanceof HTMLElement) {
+      if (!isLargeOrGreater) {
+        // Unset focus so that when element is focused programmatically, the
+        // browser scrolls element into view.
+        activeItemControl.blur();
+      }
+      activeItemControl.focus();
     }
   };
 
@@ -259,6 +281,15 @@ class DDSTabsExtended extends MediaQueryMixin(
           }
         }
       });
+    }
+
+    if (changedProperties.has('_isLargeOrGreater')) {
+      const { _isLargeOrGreater, _tabItems } = this;
+
+      // If the user switches to desktop view and all tabs are closed, then the first tab will be the default selected one.
+      if (_isLargeOrGreater && _tabItems.every((tab) => !tab.selected)) {
+        this._setActiveItem(0);
+      }
     }
   }
 

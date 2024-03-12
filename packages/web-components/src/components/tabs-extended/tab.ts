@@ -108,6 +108,7 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       [`${prefix}--accordion__item--disabled`]: disabled,
     });
 
+    //Toggle 'selected' value, enabling the ability to open and close the accordion item.
     const toggleSelected = () => {
       this.selected = !selected;
     };
