@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -105,7 +105,6 @@ export default (config: Config): Plugin => {
           fp._hBXCEDatePickerRangePluginOnBlurTo.release();
       }
     };
-
     return Object.assign(origRangePlugin, {
       onReady() {
         origOnReady.call(this);
