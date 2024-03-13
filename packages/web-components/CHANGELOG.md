@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.5.0-rc.1...@carbon/ibmdotcom-web-components@2.5.0) (2024-03-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.5.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.5.0-rc.0...@carbon/ibmdotcom-web-components@2.5.0-rc.1) (2024-03-07)
+
+
+### Bug Fixes
+
+* **rtl:** add wc storybook rtl cmd back in for testing ([#11618](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11618)) ([03f0f8d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/03f0f8d4993ed1d8a164df2eaea6f03466f5f1f3))
+
+
+
+
+
 # [2.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.4.0...@carbon/ibmdotcom-web-components@2.5.0-rc.0) (2024-03-01)
 
 
