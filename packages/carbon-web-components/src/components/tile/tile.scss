@@ -123,7 +123,7 @@ $css--plex: true !default;
   @include emit-layout-tokens();
 
   ::slotted(#{$prefix}-tile-above-the-fold-content) {
-    @extend .#{$prefix}--tile-content__above-the-fold;
+    @extend .#{$prefix}--tile-content__above-the-fold !optional;
   }
 
   ::slotted(#{$prefix}-tile-below-the-fold-content) {
