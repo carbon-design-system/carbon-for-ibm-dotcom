@@ -108,11 +108,6 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       [`${prefix}--accordion__item--disabled`]: disabled,
     });
 
-    //Toggle 'selected' value, enabling the ability to open and close the accordion item.
-    const toggleSelected = () => {
-      this.selected = !selected;
-    };
-
     return html`
       <li class="${classes}">
         <button
@@ -120,8 +115,7 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
           aria-expanded="${selected}"
           aria-controls="pane-${index}"
           tabindex="${index + 1}"
-          ?disabled="${disabled}"
-          @click="${toggleSelected}">
+          ?disabled="${disabled}">
           ${ChevronRight20({
             part: 'expando-icon',
             class: `${prefix}--accordion__arrow`,
