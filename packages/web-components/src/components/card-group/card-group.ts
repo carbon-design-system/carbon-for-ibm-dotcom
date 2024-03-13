@@ -26,6 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
+// tag constants used for same height calculations
+const headingBottomMargin = 16; 
+
 /**
  * Card Group.
  *
@@ -215,7 +218,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
         )
       ) {
-        e.style.marginBottom = `${tagGroupHeight}px`;
+        e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
       } else {
         let childTagGroup = e.nextElementSibling;
         childTagGroup.style.marginTop = `${
