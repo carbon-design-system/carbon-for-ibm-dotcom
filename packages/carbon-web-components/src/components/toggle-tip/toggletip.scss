@@ -34,6 +34,8 @@
   }
 
   ::slotted([slot='body-text']) {
+    /* stylelint-disable */
     all: unset !important;
+    /* stylelint-enable */
   }
 }

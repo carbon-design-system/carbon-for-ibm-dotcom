@@ -262,6 +262,43 @@ export const Playground = {
   },
 };
 
+const calloutArgs = {
+  alignment: POPOVER_ALIGNMENT.BOTTOM,
+};
+
+const calloutArgTypes = {
+  alignment: {
+    control: 'select',
+    description: 'Specify how the popover should align with the button.',
+    options: tooltipAlignments,
+  },
+  showActions: {
+    control: 'boolean',
+    description: 'Playground only - toggle to show the callout toolbar',
+  },
+};
+
+export const Callout = {
+  args: calloutArgs,
+  argTypes: calloutArgTypes,
+  render: (args) => {
+    const { alignment, showActions } = args ?? {};
+    return html`
+      <style>
+        ${styles}
+      </style>
+      <div class="slug-container-example slug-container centered">
+        <cds-slug
+          open
+          alignment="${ifDefined(alignment)}"
+          size="${SLUG_SIZE.EXTRA_SMALL}">
+          ${content} ${showActions ? actions : ''}
+        </cds-slug>
+      </div>
+    `;
+  },
+};
+
 const meta = {
   title: 'Experimental/Slug',
 };

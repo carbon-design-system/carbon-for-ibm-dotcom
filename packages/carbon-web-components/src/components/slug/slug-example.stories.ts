@@ -18,6 +18,7 @@ import '../checkbox/index';
 import '../combo-box/index';
 import '../date-picker/index';
 import '../dropdown/index';
+import '../modal/index';
 import '../multi-select/index';
 import '../number-input/index';
 import '../radio-button/index';
@@ -246,6 +247,62 @@ export const _Dropdown = {
   },
 };
 
+export const _Modal = {
+  render: () => {
+    return html`
+      <style>
+        ${styles}
+      </style>
+      <cds-modal open prevent-close>
+        <cds-modal-header>
+          <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+          <cds-modal-close-button></cds-modal-close-button>
+          <cds-modal-label>Account resources</cds-modal-label>
+          <cds-modal-heading>Add a custom domain</cds-modal-heading>
+        </cds-modal-header>
+        <cds-modal-body>
+          <cds-modal-body-content description>
+            Custom domains direct requests for your apps in this Cloud Foundry
+            organization to a URL that you own. A custom domain can be a shared
+            domain, a shared subdomain, or a shared domain and host.
+          </cds-modal-body-content>
+          <cds-form-item>
+            <cds-text-input placeholder="e.g. github.com" label="Domain name">
+            </cds-text-input>
+          </cds-form-item>
+
+          <cds-form-item>
+            <cds-select placeholder="US South" label-text="Region">
+              <cds-select-item value="us-south">US South</cds-select-item>
+              <cds-select-item value="us-east">US East</cds-select-item>
+            </cds-select>
+          </cds-form-item>
+
+          <cds-dropdown label="Dropdown" title-text="Dropdown">
+            <cds-dropdown-item value="one">One</cds-dropdown-item>
+            <cds-dropdown-item value="two">Two</cds-dropdown-item>
+          </cds-dropdown>
+
+          <cds-multi-select label="Multiselect" title-text="Multiselect">
+            <cds-multi-select-item value="option-1"
+              >Option 1</cds-multi-select-item
+            >
+            <cds-multi-select-item value="option-2"
+              >Option 2</cds-multi-select-item
+            >
+          </cds-multi-select>
+        </cds-modal-body>
+        <cds-modal-footer>
+          <cds-modal-footer-button kind="secondary"
+            >Cancel</cds-modal-footer-button
+          >
+          <cds-modal-footer-button>Add</cds-modal-footer-button>
+        </cds-modal-footer>
+      </cds-modal>
+    `;
+  },
+};
+
 export const _Multiselect = {
   render: () => {
     return html` <style>
@@ -451,65 +508,28 @@ export const _Select = {
   },
 };
 
-const tagTypes = [
-  'red',
-  'magenta',
-  'purple',
-  'blue',
-  'cyan',
-  'teal',
-  'green',
-  'gray',
-  'cool-gray',
-  'warm-gray',
-  'high-contrast',
-  'outline',
-];
-
 export const _Tag = {
   render: () => {
     return html`
       <style>
         ${styles}
       </style>
-      <div class="slug-tag-container">
-        ${tagTypes.map(
-          (e) => html`<cds-tag type="${e}"
-            >Tag
-            <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
-          </cds-tag>`
-        )}
-      </div>
-
-      <div class="slug-tag-container">
-        ${tagTypes.map(
-          (e) =>
-            html`<cds-tag filter type="${e}">
-              Tag
-              <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
-            </cds-tag>`
-        )}
-      </div>
-
-      <div class="slug-tag-container">
-        ${tagTypes.map(
-          (e) =>
-            html`<cds-tag type="${e}">
-              ${Asleep16({ slot: 'icon' })} Tag
-              <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
-            </cds-tag>`
-        )}
-      </div>
-
-      <div class="slug-tag-container">
-        ${tagTypes.map(
-          (e) =>
-            html`<cds-tag filter type="${e}">
-              ${Asleep16({ slot: 'icon' })} Tag
-              <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
-            </cds-tag>`
-        )}
-      </div>
+      <cds-tag type="red">
+        Tag
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+      </cds-tag>
+      <cds-tag filter type="purple">
+        Tag
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+      </cds-tag>
+      <cds-tag type="blue">
+        ${Asleep16({ slot: 'icon' })} Tag
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+      </cds-tag>
+      <cds-tag filter type="green">
+        ${Asleep16({ slot: 'icon' })} Tag
+        <cds-slug alignment="bottom-left"> ${content}${actions}</cds-slug>
+      </cds-tag>
     `;
   },
 };
