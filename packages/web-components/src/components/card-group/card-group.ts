@@ -27,7 +27,7 @@ const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
 // tag constants used for same height calculations
-const headingBottomMargin = 16; 
+const headingBottomMargin = 16;
 
 /**
  * Card Group.
