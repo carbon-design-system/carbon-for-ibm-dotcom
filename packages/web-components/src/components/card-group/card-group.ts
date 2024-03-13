@@ -218,7 +218,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
         )
       ) {
-        e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
+        e.style.marginBottom = `${tagGroupHeight}px`;
       } else {
         let childTagGroup = e.nextElementSibling;
         childTagGroup.style.marginTop = `${
