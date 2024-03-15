@@ -93,28 +93,10 @@ class DDSTabsExtended extends MediaQueryMixin(
     // Adding the ability to close the accordion. If the tab that's clicked is already active, we pass a bogus number through _setActiveItem() method, so that all tabs are closed.
     if (tab.getIndex() === currentIndex && !this._isLargeOrGreater) {
       this._setActiveItem(-1);
-    }
-
-    // If the tab is already active and selected when clicked, just return
-    if (
-      tab &&
-      tab.getIndex() === currentIndex &&
-      this._tabItems[currentIndex].selected
-    ) {
-      return;
+      // return;
     }
 
     this._handleClick(tab.getIndex(), e);
-
-    // Checking if the clicked tab is different from the previously active tab, if they're different, it just sets the focus to the new clicked tab
-    if (currentIndex !== tab.getIndex()) {
-      const tabButton = tab.shadowRoot?.querySelector(
-        `.${prefix}--accordion__heading`
-      );
-      if (tabButton instanceof HTMLElement) {
-        tabButton.focus();
-      }
-    }
   }
 
   private _setActiveItem(index: number) {
@@ -250,21 +232,21 @@ class DDSTabsExtended extends MediaQueryMixin(
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
     // Reset state and event listeners when switching views
-    if (changedProperties.has('_isLargeOrGreater')) {
-      // Removing event listener if in mobile view, else adding the event listener to any other view that's not mobile.
-      if (!_isLargeOrGreater) {
-        _tabItems.forEach((tab) => {
-          tab.removeEventListener(
-            'click',
-            this._handleAccordionClick.bind(this)
-          );
-        });
-      } else {
-        _tabItems.forEach((tab) => {
-          tab.addEventListener('click', this._handleAccordionClick.bind(this));
-        });
-      }
-    }
+    // if (changedProperties.has('_isLargeOrGreater')) {
+    //   // Removing event listener if in mobile view, else adding the event listener to any other view that's not mobile.
+    //   if (!_isLargeOrGreater) {
+    //     _tabItems.forEach((tab) => {
+    //       tab.removeEventListener(
+    //         'click',
+    //         this._handleAccordionClick.bind(this)
+    //       );
+    //     });
+    //   } else {
+    //     _tabItems.forEach((tab) => {
+    //       tab.addEventListener('click', this._handleAccordionClick.bind(this));
+    //     });
+    //   }
+    // }
 
     if (changedProperties.has('_tabItems')) {
       _tabItems.forEach((tab, index) => {
@@ -306,8 +288,6 @@ class DDSTabsExtended extends MediaQueryMixin(
     }
 
     if (changedProperties.has('_isLargeOrGreater')) {
-      const { _isLargeOrGreater, _tabItems } = this;
-
       // If the user switches to desktop view and all tabs are closed, then the first tab will be the default selected one.
       if (_isLargeOrGreater && _tabItems.every((tab) => !tab.selected)) {
         this._setActiveItem(0);
