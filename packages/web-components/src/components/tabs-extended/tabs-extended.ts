@@ -93,7 +93,7 @@ class DDSTabsExtended extends MediaQueryMixin(
     // Adding the ability to close the accordion. If the tab that's clicked is already active, we pass a bogus number through _setActiveItem() method, so that all tabs are closed.
     if (tab.getIndex() === currentIndex && !this._isLargeOrGreater) {
       this._setActiveItem(-1);
-      // return;
+      return;
     }
 
     this._handleClick(tab.getIndex(), e);
@@ -232,21 +232,21 @@ class DDSTabsExtended extends MediaQueryMixin(
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
     // Reset state and event listeners when switching views
-    // if (changedProperties.has('_isLargeOrGreater')) {
-    //   // Removing event listener if in mobile view, else adding the event listener to any other view that's not mobile.
-    //   if (!_isLargeOrGreater) {
-    //     _tabItems.forEach((tab) => {
-    //       tab.removeEventListener(
-    //         'click',
-    //         this._handleAccordionClick.bind(this)
-    //       );
-    //     });
-    //   } else {
-    //     _tabItems.forEach((tab) => {
-    //       tab.addEventListener('click', this._handleAccordionClick.bind(this));
-    //     });
-    //   }
-    // }
+    if (changedProperties.has('_isLargeOrGreater')) {
+      // Removing event listener if in mobile view, else adding the event listener to any other view that's not mobile.
+      if (!_isLargeOrGreater) {
+        _tabItems.forEach((tab) => {
+          tab.removeEventListener(
+            'click',
+            this._handleAccordionClick.bind(this)
+          );
+        });
+      } else {
+        _tabItems.forEach((tab) => {
+          tab.addEventListener('click', this._handleAccordionClick.bind(this));
+        });
+      }
+    }
 
     if (changedProperties.has('_tabItems')) {
       _tabItems.forEach((tab, index) => {
