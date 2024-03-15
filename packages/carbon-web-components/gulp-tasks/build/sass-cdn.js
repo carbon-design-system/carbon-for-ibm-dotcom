@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,7 @@ function _buildGrid() {
     .src([`${config.srcDir}/globals/scss/grid.scss`])
     .pipe(
       sass({
-        includePaths: ['node_modules'],
+        includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)
     )
@@ -40,7 +40,7 @@ function _buildCSSGrid() {
     .src([`${config.srcDir}/globals/scss/cssgrid.scss`])
     .pipe(
       sass({
-        includePaths: ['node_modules'],
+        includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)
     )
