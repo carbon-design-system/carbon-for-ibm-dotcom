@@ -3350,7 +3350,7 @@ __metadata:
     gulp-rename: "npm:^2.0.0"
     gulp-sass: "npm:^5.0.0"
     require-dir: "npm:^1.2.0"
-    sass: "npm:~1.71.0"
+    sass: "npm:~1.72.0"
     sass-loader: "npm:^13.0.0"
   languageName: unknown
   linkType: soft
@@ -3933,7 +3933,7 @@ __metadata:
     resize-observer-polyfill: "npm:^1.5.0"
     rollup: "npm:^2.55.1"
     rollup-plugin-multi-input: "npm:^1.3.1"
-    sass: "npm:~1.71.0"
+    sass: "npm:~1.72.0"
     sass-loader: "npm:^10.0.0"
     strip-comments: "npm:^1.0.0"
     style-loader: "npm:^2.0.0"
@@ -31305,7 +31305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.19.0, sass@npm:~1.71.0":
+"sass@npm:^1.19.0":
   version: 1.71.0
   resolution: "sass@npm:1.71.0"
   dependencies:
@@ -31315,6 +31315,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 10/5616f0ef0d764d0a6242155edd02773300e0d9ac1c0b542781ae934095f3b2f73312707f95edc08c34ae88bad633bb55c8cc67ad390bef40e04eb84ae9b028cd
+  languageName: node
+  linkType: hard
+
+"sass@npm:~1.72.0":
+  version: 1.72.0
+  resolution: "sass@npm:1.72.0"
+  dependencies:
+    chokidar: "npm:>=3.0.0 <4.0.0"
+    immutable: "npm:^4.0.0"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 10/637b002f9ca7888c4535a51819a3983a4638dd0a1f31aab817ae276b7fc2c3a7ab2a268d8249131810fbbd6d2cb9bd25d045008b01eda53c3ff8aa843850348d
   languageName: node
   linkType: hard
 
