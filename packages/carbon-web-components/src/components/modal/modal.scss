@@ -141,13 +141,13 @@
 // Slug
 
 :host(#{$prefix}-modal) .#{$prefix}--modal-container {
-  @include callout-gradient('default');
+  @include ai-popover-gradient('default');
 
   background-color: $layer;
 }
 
 :host(#{$prefix}-modal[has-two-buttons]) .#{$prefix}--modal-container {
-  @include callout-gradient('default', 64px);
+  @include ai-popover-gradient('default', 64px);
 
   background-color: $layer;
 }

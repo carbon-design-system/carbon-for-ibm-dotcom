@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2023
+// Copyright IBM Corp. 2019, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -178,7 +178,7 @@ $css--plex: true !default;
 :host(#{$prefix}-expandable-tile[slug]),
 :host(#{$prefix}-clickable-tile[slug]) .#{$prefix}--tile,
 :host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile {
-  @include callout-gradient();
+  @include ai-popover-gradient();
 
   border: 1px solid $border-tile;
 }
@@ -195,7 +195,7 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-expandable-tile[slug]):hover {
-  @include callout-gradient();
+  @include ai-popover-gradient();
 }
 
 :host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile::before,
@@ -214,7 +214,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile::before,
 :host(#{$prefix}-clickable-tile[slug]) .#{$prefix}--tile::before {
-  @include callout-gradient('hover');
+  @include ai-popover-gradient('hover');
 }
 
 :host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile:hover::before,
@@ -230,7 +230,7 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-selectable-tile[slug]) .#{$prefix}--tile--is-selected::after {
-  @include callout-gradient('selected');
+  @include ai-popover-gradient('selected');
 
   opacity: 1;
 }
