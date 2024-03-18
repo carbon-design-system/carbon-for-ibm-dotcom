@@ -3444,7 +3444,7 @@ __metadata:
     "@carbon/icons": "npm:10.48.3"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.21.0"
-    "@carbon/motion": "npm:11.16.1"
+    "@carbon/motion": "npm:11.17.0"
     "@carbon/pictograms-react": "npm:11.57.0"
     "@carbon/react": "npm:1.53.0"
     "@carbon/styles": "npm:1.53.0"
@@ -3665,14 +3665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/motion@npm:11.16.1":
-  version: 11.16.1
-  resolution: "@carbon/motion@npm:11.16.1"
-  checksum: 10/6465569000e40bbd37d48b7011169897b6588356988200d0919a059337732916797a90752b52268c3dc30934e00bcd4d8e1d24e79d20080c465c70f4a7072c21
-  languageName: node
-  linkType: hard
-
-"@carbon/motion@npm:^11.17.0":
+"@carbon/motion@npm:11.17.0, @carbon/motion@npm:^11.17.0":
   version: 11.17.0
   resolution: "@carbon/motion@npm:11.17.0"
   dependencies:
