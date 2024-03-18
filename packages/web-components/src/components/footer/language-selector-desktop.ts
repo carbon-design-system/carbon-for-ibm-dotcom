@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { property, query, state } from 'lit/decorators.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import CDSComboBoxItem from '@carbon/web-components/es/components/combo-box/combo-box-item.js';
+import CDSComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
 import C4DComboBox from './combo-box';

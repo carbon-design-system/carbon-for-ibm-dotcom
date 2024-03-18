@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { TemplateResult, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import CDSComboBoxItem from '@carbon/web-components/es/components/combo-box/combo-box-item.js';
+import CDSComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';

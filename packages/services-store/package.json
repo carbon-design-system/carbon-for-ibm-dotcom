@@ -53,7 +53,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-filter": "^7.0.0",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-typescript": "^5.0.1",
+    "gulp-typescript": "6.0.0-alpha.1",
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
     "jest-fetch-mock": "^3.0.0",
