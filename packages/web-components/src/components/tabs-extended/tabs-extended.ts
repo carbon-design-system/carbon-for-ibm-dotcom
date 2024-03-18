@@ -231,29 +231,14 @@ class DDSTabsExtended extends MediaQueryMixin(
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
-    // Reset state and event listeners when switching views
-    if (changedProperties.has('_isLargeOrGreater')) {
-      // Removing event listener if in mobile view, else adding the event listener to any other view that's not mobile.
-      if (!_isLargeOrGreater) {
-        _tabItems.forEach((tab) => {
-          tab.removeEventListener(
-            'click',
-            this._handleAccordionClick.bind(this)
-          );
-        });
-      } else {
-        _tabItems.forEach((tab) => {
-          tab.addEventListener('click', this._handleAccordionClick.bind(this));
-        });
-      }
-    }
-
     if (changedProperties.has('_tabItems')) {
       _tabItems.forEach((tab, index) => {
         (tab as DDSTab).setIndex(index);
 
-        if (!_isLargeOrGreater) {
+        //Checking for the presence of 'dds-processed' attr. Since the logic will only succeed once, attaching only one version of the 'click' event at a time when switching views.
+        if (!tab.hasAttribute('dds-processed') && !_isLargeOrGreater) {
           tab.addEventListener('click', this._handleAccordionClick.bind(this));
+          tab.setAttribute('dds-processed', 'true');
         }
       });
     }
