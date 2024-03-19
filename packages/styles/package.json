@@ -29,8 +29,8 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/layout @carbon/styles @carbon/themes @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/icons-react": "11.37.0",
-    "@carbon/layout": "11.20.1",
+    "@carbon/icons-react": "11.38.0",
+    "@carbon/layout": "11.21.0",
     "@carbon/styles": "1.53.0",
     "@carbon/telemetry": "0.1.0",
     "@carbon/type": "11.26.0"
@@ -44,7 +44,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.0.0",
     "require-dir": "^1.2.0",
-    "sass": "~1.71.0",
+    "sass": "~1.72.0",
     "sass-loader": "^13.0.0"
   }
 }
