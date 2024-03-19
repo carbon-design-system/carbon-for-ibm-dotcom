@@ -31,12 +31,12 @@
   "dependencies": {
     "@carbon/icons-react": "11.38.0",
     "@carbon/layout": "11.21.0",
-    "@carbon/styles": "1.53.0",
+    "@carbon/styles": "1.53.1",
     "@carbon/telemetry": "0.1.0",
     "@carbon/type": "11.26.0"
   },
   "devDependencies": {
-    "@carbon/themes": "11.33.0",
+    "@carbon/themes": "11.33.1",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
