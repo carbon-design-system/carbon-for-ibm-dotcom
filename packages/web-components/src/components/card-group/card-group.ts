@@ -27,7 +27,7 @@ const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
 // tag constants used for same height calculations
-const headingBottomMargin = 64;
+const paragraphBottomMargin = 16;
 
 /**
  * Card Group.
@@ -210,15 +210,25 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       }
     });
 
-    this._childItemHeadings.forEach((e) => {
+    this._childItemParagraphs.forEach((e) => {
       // add tag group height to heading to the cards lacking tag group
       if (
         e &&
         !e.nextElementSibling?.matches(
           (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
+        ) &&
+        tagGroupHeight > 0
+      ) {
+        e.style.marginBottom = `${tagGroupHeight + paragraphBottomMargin}px`;
+      } else if (
+        e.nextElementSibling?.matches(
+          (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
         )
       ) {
-        e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
+        let siblingTagGroup = e.nextElementSibling;
+        siblingTagGroup.style.marginTop = `${
+          tagGroupHeight - siblingTagGroup.offsetHeight
+        }px`;
       }
     });
   };
