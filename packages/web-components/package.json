@@ -93,7 +93,7 @@
     "@carbon/ibmdotcom-services": "2.5.0",
     "@carbon/ibmdotcom-styles": "2.5.0",
     "@carbon/ibmdotcom-utilities": "2.5.0",
-    "@carbon/layout": "11.20.1",
+    "@carbon/layout": "11.21.0",
     "@carbon/motion": "11.17.0",
     "@carbon/styles": "1.53.0",
     "@carbon/telemetry": "0.1.0",
