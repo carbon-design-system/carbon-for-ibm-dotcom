@@ -3204,15 +3204,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:^11.21.1":
-  version: 11.21.1
-  resolution: "@carbon/grid@npm:11.21.1"
-  dependencies:
-    "@carbon/layout": "npm:^11.20.1"
-  checksum: 10/15c466377fd4f5e62843c78a9ade465f80adbe5ee2af568efa388a6284e9d4e5722ca42f6670ba30774db9660f4adc8a60a25cd8c366c6d3e739d40e54829568
-  languageName: node
-  linkType: hard
-
 "@carbon/grid@npm:^11.22.0":
   version: 11.22.0
   resolution: "@carbon/grid@npm:11.22.0"
@@ -3342,7 +3333,7 @@ __metadata:
     "@carbon/styles": "npm:1.53.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/themes": "npm:11.33.0"
-    "@carbon/type": "npm:11.25.1"
+    "@carbon/type": "npm:11.26.0"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
     gulp-autoprefixer: "npm:^6.1.0"
@@ -3449,7 +3440,7 @@ __metadata:
     "@carbon/react": "npm:1.53.0"
     "@carbon/styles": "npm:1.53.0"
     "@carbon/telemetry": "npm:0.1.0"
-    "@carbon/type": "npm:11.25.1"
+    "@carbon/type": "npm:11.26.0"
     "@carbon/web-components": "npm:2.5.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
@@ -3645,13 +3636,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:^11.20.1":
-  version: 11.20.1
-  resolution: "@carbon/layout@npm:11.20.1"
-  checksum: 10/f284fae1aded5ed8ade21602b284d54f2142d0040f74a9b74516077413fc43d019a86747bed046b944399e410ad4f16599786c9c0363eff9165d46615e6d6200
-  languageName: node
-  linkType: hard
-
 "@carbon/motion@npm:11.17.0, @carbon/motion@npm:^11.17.0":
   version: 11.17.0
   resolution: "@carbon/motion@npm:11.17.0"
@@ -3765,17 +3749,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:11.25.1":
-  version: 11.25.1
-  resolution: "@carbon/type@npm:11.25.1"
-  dependencies:
-    "@carbon/grid": "npm:^11.21.1"
-    "@carbon/layout": "npm:^11.20.1"
-  checksum: 10/3e8043b2f1bd2b3cd04a8c65b0c44c109a8b6a1e77eb5a7eb62f16c8e0c84963200439712ccccbcad4f16ddf8ce245667f63b05dded3927e0f71a34ba0dc3ec4
-  languageName: node
-  linkType: hard
-
-"@carbon/type@npm:^11.26.0":
+"@carbon/type@npm:11.26.0, @carbon/type@npm:^11.26.0":
   version: 11.26.0
   resolution: "@carbon/type@npm:11.26.0"
   dependencies:
