@@ -84,7 +84,7 @@
     "rollup": "^2.55.1",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-sizes": "^1.0.4",
-    "rollup-plugin-terser": "^7.0.2",
+    "@rollup/plugin-terser": "^0.1.0",
     "whatwg-fetch": "^2.0.3"
   }
 }
