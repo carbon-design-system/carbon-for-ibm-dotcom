@@ -236,9 +236,9 @@ class DDSTabsExtended extends MediaQueryMixin(
         (tab as DDSTab).setIndex(index);
 
         //Checking for the presence of 'dds-processed' attr. Since the logic will only succeed once, attaching only one version of the 'click' event at a time when switching views.
-        if (!tab.hasAttribute('dds-processed') && !_isLargeOrGreater) {
+        if (!tab.hasAttribute(`${ddsPrefix}-processed`) && !_isLargeOrGreater) {
           tab.addEventListener('click', this._handleAccordionClick.bind(this));
-          tab.setAttribute('dds-processed', 'true');
+          tab.setAttribute(`${ddsPrefix}-processed`, '');
         }
       });
     }
