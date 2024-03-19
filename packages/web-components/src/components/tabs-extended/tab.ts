@@ -107,6 +107,7 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       [`${prefix}--accordion__item--active`]: selected,
       [`${prefix}--accordion__item--disabled`]: disabled,
     });
+
     return html`
       <li class="${classes}">
         <button

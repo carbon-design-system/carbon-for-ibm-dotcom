@@ -88,6 +88,14 @@ class DDSTabsExtended extends MediaQueryMixin(
 
   private _handleAccordionClick(e) {
     const tab = e.target.closest(`${ddsPrefix}-tab`);
+    const currentIndex = this._activeTabIndex;
+
+    // Adding the ability to close the accordion. If the tab that's clicked is already active, we pass a bogus number through _setActiveItem() method, so that all tabs are closed.
+    if (tab.getIndex() === currentIndex && !this._isLargeOrGreater) {
+      this._setActiveItem(-1);
+      return;
+    }
+
     this._handleClick(tab.getIndex(), e);
   }
 
@@ -227,8 +235,10 @@ class DDSTabsExtended extends MediaQueryMixin(
       _tabItems.forEach((tab, index) => {
         (tab as DDSTab).setIndex(index);
 
-        if (!_isLargeOrGreater) {
+        //Checking for the presence of 'dds-processed' attr. Since the logic will only succeed once, attaching only one version of the 'click' event at a time when switching views.
+        if (!tab.hasAttribute(`${ddsPrefix}-processed`) && !_isLargeOrGreater) {
           tab.addEventListener('click', this._handleAccordionClick.bind(this));
+          tab.setAttribute(`${ddsPrefix}-processed`, '');
         }
       });
     }
@@ -260,6 +270,13 @@ class DDSTabsExtended extends MediaQueryMixin(
           }
         }
       });
+    }
+
+    if (changedProperties.has('_isLargeOrGreater')) {
+      // If the user switches to desktop view and all tabs are closed, then the first tab will be the default selected one.
+      if (_isLargeOrGreater && _tabItems.every((tab) => !tab.selected)) {
+        this._setActiveItem(0);
+      }
     }
   }
 
