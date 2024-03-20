@@ -50,11 +50,17 @@ const renderCTA = {
   `,
   buttonGroup: (renderIcon, target) => html`
     <c4d-button-group slot="action">
-      <c4d-button-group-item target="${target}" href="https://example.com">
-        Secondary Button ${renderIcon}
+      <c4d-button-group-item
+        target="${target}"
+        href="https://example.com"
+        cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}>
+        Secondary button
       </c4d-button-group-item>
-      <c4d-button-group-item target="${target}" href="https://example.com">
-        Primary button ${renderIcon}
+      <c4d-button-group-item
+        target="${target}"
+        href="https://example.com"
+        cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}>
+        Primary button
       </c4d-button-group-item>
     </c4d-button-group>
   `,
