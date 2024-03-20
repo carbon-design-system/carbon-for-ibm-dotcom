@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,20 +27,18 @@
   :host(#{$c4d-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    padding-block: $spacing-07 $spacing-10;
+    margin-block: $spacing-07;
+    margin-block-end: $spacing-12;
 
-    @include breakpoint(md) {
-      padding-block: $spacing-10 $spacing-12;
+    @include breakpoint('lg') {
+      margin-block: $spacing-10;
+      margin-block-end: $spacing-13;
     }
 
-    @include breakpoint(max) {
-      padding-block-end: $spacing-13;
-    }
-
-    .#{$prefix}--card__CTA {
-      // TO DO: aspect ratio 2x1
-      @include breakpoint(md) {
-        @include hang;
+    &[complementary-style-scheme='with-border'] {
+      margin-block-end: $spacing-07;
+      @include breakpoint('lg') {
+        margin-block-end: $spacing-10;
       }
     }
 
@@ -70,21 +68,29 @@
 
     &.#{$prefix}--layout--border {
       margin-inline: 0;
+      margin-inline-end: 0;
+      padding-block-end: $spacing-10;
       padding-inline: 0;
+      padding-inline-end: 0;
+
+      @include breakpoint('lg') {
+        padding-block-end: $spacing-12;
+      }
     }
 
-    // Most slotted contents have margins aligning to Carbon grid gutters.
-    // Note: Child contents define their margin by their own
-    ::slotted([slot]) {
+    ::slotted(*) {
+      padding-block-end: 0;
+    }
+
+    ::slotted(#{$c4d-prefix}-content-item),
+    ::slotted(#{$c4d-prefix}-content-item-row),
+    ::slotted(#{$c4d-prefix}-image),
+    ::slotted(#{$c4d-prefix}-link-list),
+    ::slotted(#{$c4d-prefix}-video-player-container),
+    ::slotted(#{$c4d-prefix}-structured-list),
+    ::slotted(#{$c4d-prefix}-tabs-extended) {
       margin-inline: $spacing-05;
-    }
-
-    // Cards and link lists are the exceptions of above
-    // TODO: Remove negative margin adjustment from `<cds-link-list-item*>` and add `<cds-link-list>` here
-    ::slotted(#{$c4d-prefix}-card[slot]),
-    ::slotted(#{$c4d-prefix}-card-cta[slot]),
-    ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
-      margin-inline: 0;
+      margin-inline-end: $spacing-05;
     }
 
     &__aside,
@@ -98,11 +104,8 @@
     }
 
     ::slotted([slot='footer']) {
-      margin-block-start: $spacing-09;
-
       @include breakpoint(md) {
         inline-size: 50%;
-        margin-block-start: $spacing-10;
       }
     }
 
@@ -182,7 +185,11 @@
   :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
-    @include content-width;
+    // @include content-width;
+
+    @include make-col(8, 12);
+
+    padding-inline-start: $spacing-05;
   }
 
   :host(#{$c4d-prefix}-content-block-heading),
@@ -242,5 +249,46 @@
       max-inline-size: calc(320px + #{$spacing-10});
       padding-inline: $spacing-05;
     }
+  }
+
+  :host(#{$c4d-prefix}-content-block),
+  :host(#{$c4d-prefix}-callout-with-media-copy),
+  :host(#{$c4d-prefix}-content-block-copy),
+  :host(#{$c4d-prefix}-content-block-heading),
+  :host(#{$c4d-prefix}-content-block-complementary),
+  :host(#{$c4d-prefix}-content-block-paragraph) {
+    display: block;
+  }
+
+  // TODO: Consider applying this rule in general
+  :host(#{$c4d-prefix}-content-block-simple),
+  :host(#{$c4d-prefix}-content-block-segmented) {
+    ::slotted(#{$c4d-prefix}-callout-with-media-copy),
+    ::slotted(#{$c4d-prefix}-content-block-copy) {
+      @include breakpoint(md) {
+        inline-size: calc((100% - 2 * #{$spacing-05}) * 0.9);
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media-copy[size='sm']),
+  :host(#{$c4d-prefix}-content-block-copy[size='sm']) {
+    inline-size: auto;
+    max-inline-size: none;
+
+    @include breakpoint(md) {
+      @include content-width;
+    }
+
+    ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+      @include type-style('body-02');
+
+      margin-block-end: $spacing-06;
+    }
+  }
+
+  // TODO: Apply `cds--make-col(2, 3)` to React version, too, so we can merge the style to React version
+  .#{$c4d-prefix}-ce--content-block__col {
+    @include make-col(2, 3);
   }
 }
