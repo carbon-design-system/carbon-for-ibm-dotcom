@@ -252,8 +252,25 @@ export const DDSVideoPlayerContainerMixin = <
         `${width} / ${height}`
       );
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
-      const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;
+      const videoEmbed = doc!.getElementById(playerId)?.firstElementChild as
+        | HTMLIFrameElement
+        | null
+        | undefined;
       if (videoEmbed) {
+        // Hide iFrame until it's fully loaded
+        videoEmbed.style.opacity = '0';
+        videoEmbed.addEventListener(
+          'load',
+          () => {
+            videoEmbed.style.opacity = '';
+          },
+          { once: true }
+        );
+        setTimeout(() => {
+          // Fade in (@carbon/motion moderate02)
+          videoEmbed.style.transition = 'opacity 240ms ease-in-out';
+        }, 0);
+
         (videoEmbed as HTMLElement).focus();
       }
       return embedVideoHandle.kWidget();

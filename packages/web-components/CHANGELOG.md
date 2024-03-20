@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.42.0-rc.0...@carbon/ibmdotcom-web-components@1.42.0) (2024-03-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.42.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.41.0...@carbon/ibmdotcom-web-components@1.42.0-rc.0) (2024-03-05)
+
+
+### Bug Fixes
+
+* **webpack-rtl:** pin dependencies to v1 for webpack-rtl example ([#11610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11610)) ([91495a0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/91495a0429b3a1fea27f1cde1e591ffaba4c80d6))
+
+
+### Features
+
+* **cypress:** adding more tests to the pricing table cells ([#11286](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11286)) ([55fcfa1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/55fcfa13e34305dcf5ebafcc59d77e7fb4ec6da0))
+
+
+
+
+
 # [1.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.41.0-rc.0...@carbon/ibmdotcom-web-components@1.41.0) (2024-02-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
