@@ -185,11 +185,11 @@
   :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
-    // @include content-width;
+    @include content-width;
 
-    @include make-col(8, 12);
+    // @include make-col(8, 12);
 
-    padding-inline-start: $spacing-05;
+    // padding-inline-start: $spacing-05;
   }
 
   :host(#{$c4d-prefix}-content-block-heading),
