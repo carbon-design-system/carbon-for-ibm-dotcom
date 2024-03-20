@@ -3432,7 +3432,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": "npm:2.5.0"
     "@carbon/ibmdotcom-utilities": "npm:2.5.0"
     "@carbon/icon-helpers": "npm:10.47.0"
-    "@carbon/icons": "npm:10.48.3"
+    "@carbon/icons": "npm:10.48.4"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.21.0"
     "@carbon/motion": "npm:11.17.0"
@@ -3613,10 +3613,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:10.48.3":
-  version: 10.48.3
-  resolution: "@carbon/icons@npm:10.48.3"
-  checksum: 10/daba81eefe1f738d28765b6ecc92a0d393a3739eb3d2a04fb71488e0b0f53cf5ee86ccbc04439a29c198c80d574ed7c2163b2c56237bc6c3249df47711597df1
+"@carbon/icons@npm:10.48.4":
+  version: 10.48.4
+  resolution: "@carbon/icons@npm:10.48.4"
+  dependencies:
+    "@ibm/telemetry-js": "npm:^1.2.1"
+  checksum: 10/6581b1cc4137dd005987f69b92691228d1879ba90713b836a9c4537a1d5bc0ae13b219c8d2ad971fab2177cd0e22f3ea643230e77e2031bf5977bfb6debd2e20
   languageName: node
   linkType: hard
 
@@ -3774,7 +3776,7 @@ __metadata:
     "@babel/traverse": "npm:~7.23.7"
     "@carbon/ibm-products-styles": "npm:^2.30.1"
     "@carbon/icon-helpers": "npm:10.47.0"
-    "@carbon/icons": "npm:10.48.3"
+    "@carbon/icons": "npm:10.48.4"
     "@carbon/styles": "npm:1.53.0"
     "@floating-ui/dom": "npm:^1.6.3"
     "@ibm/telemetry-js": "npm:^1.2.1"
