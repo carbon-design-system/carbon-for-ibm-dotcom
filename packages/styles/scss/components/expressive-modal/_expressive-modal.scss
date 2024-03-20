@@ -81,7 +81,7 @@
   }
 
   :host(#{$c4d-prefix}-expressive-modal-close-button) {
-    @extend .#{$prefix}--modal-close-button;
+    @extend .#{$prefix}--modal-close-button !optional;
 
     .#{$prefix}--modal-close {
       position: fixed;
