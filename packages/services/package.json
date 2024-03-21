@@ -17,8 +17,7 @@
     "./lib": "./lib/index.js",
     "./lib/": "./lib/",
     "./umd/": "./umd/",
-    "./package.json": "./package.json",
-    "./telemetry.yml": "./telemetry.yml"
+    "./package.json": "./package.json"
   },
   "files": [
     "lib/**/*",
