@@ -29,6 +29,7 @@
     display: block;
     margin-block: $spacing-07;
     margin-block-end: $spacing-12;
+    background-color: lightblue;
 
     @include breakpoint('lg') {
       margin-block: $spacing-10;
@@ -185,11 +186,30 @@
   :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
-    @include content-width;
+    // @include make-col(8, 8);
+    // @include largest-breakpoint(md){
+    //   @include make-col(8, 12);
+    // }
 
-    // @include make-col(8, 12);
+    color: red;
+    @include make-col(8, 8);
 
+    @include breakpoint(md) {
+      color: green;
+      @include make-col(8, 12);
+    }
     // padding-inline-start: $spacing-05;
+
+    // color: green !important;
+
+    // @include breakpoint(md){
+    //   // color:purple !important;
+    // }
+
+    // @include breakpoint(lg){
+    //   // color: red !important;
+    //   padding-right: 3rem;
+    // }
   }
 
   :host(#{$c4d-prefix}-content-block-heading),

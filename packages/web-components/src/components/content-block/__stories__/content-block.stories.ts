@@ -55,62 +55,110 @@ const componentVariables = {
 };
 
 export const Default = (args) => {
-  const { heading, child, copy, showCopy, showCTA, border, aside } =
+  const { columnSize, heading, child, copy, showCopy, showCTA, border, aside } =
     args?.ContentBlock ?? {};
 
   const childStory = componentVariables[child];
 
   return html`
-    <c4d-content-block
-      complementary-style-scheme="${border
-        ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
-        : ''}">
-      ${heading
-        ? html`
-            <c4d-content-block-heading
-              >What is the latest news in artificial
-              intelligence?</c4d-content-block-heading
-            >
-          `
-        : ''}
-      ${showCopy
-        ? html` <c4d-content-block-copy>${copy}</c4d-content-block-copy> `
-        : ``}
-      ${childStory}
-      ${showCTA
-        ? html`
-            <c4d-card
-              link
-              slot="footer"
-              cta-type="local"
-              href="https://www.example.com">
-              <c4d-card-heading
-                >Learn more about natual language processing</c4d-card-heading
-              >
-              <c4d-card-footer></c4d-card-footer>
-            </c4d-card>
-          `
-        : ``}
-      ${aside
-        ? html`
-            <c4d-link-list type="default" slot="complementary">
-              <c4d-link-list-heading>Tutorials</c4d-link-list-heading>
-              <c4d-link-list-item-card href="https://example.com">
-                <p>Learn more about Kubernetes</p>
-                <c4d-card-footer>
-                  ${ArrowRight20({ slot: 'icon' })}
-                </c4d-card-footer>
-              </c4d-link-list-item-card>
-              <c4d-link-list-item-card href="https://example.com">
-                <p>Containerization A Complete Guide</p>
-                <c4d-card-footer>
-                  ${ArrowRight20({ slot: 'icon' })}
-                </c4d-card-footer>
-              </c4d-link-list-item-card>
-            </c4d-link-list>
-          `
-        : ``}
-    </c4d-content-block>
+    <div class="cds--col-lg-8 cds--no-gutter">
+      <c4d-content-block
+        complementary-style-scheme="${border
+          ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
+          : ''}">
+        ${heading
+          ? html`
+              <c4d-content-block-heading>8 columns</c4d-content-block-heading>
+            `
+          : ''}
+        ${showCopy
+          ? html` <c4d-content-block-copy>${copy}</c4d-content-block-copy> `
+          : ``}
+        ${childStory}
+        ${showCTA
+          ? html`
+              <c4d-card
+                link
+                slot="footer"
+                cta-type="local"
+                href="https://www.example.com">
+                <c4d-card-heading
+                  >Learn more about natual language processing</c4d-card-heading
+                >
+                <c4d-card-footer></c4d-card-footer>
+              </c4d-card>
+            `
+          : ``}
+        ${aside
+          ? html`
+              <c4d-link-list type="default" slot="complementary">
+                <c4d-link-list-heading>Tutorials</c4d-link-list-heading>
+                <c4d-link-list-item-card href="https://example.com">
+                  <p>Learn more about Kubernetes</p>
+                  <c4d-card-footer>
+                    ${ArrowRight20({ slot: 'icon' })}
+                  </c4d-card-footer>
+                </c4d-link-list-item-card>
+                <c4d-link-list-item-card href="https://example.com">
+                  <p>Containerization A Complete Guide</p>
+                  <c4d-card-footer>
+                    ${ArrowRight20({ slot: 'icon' })}
+                  </c4d-card-footer>
+                </c4d-link-list-item-card>
+              </c4d-link-list>
+            `
+          : ``}
+      </c4d-content-block>
+    </div>
+    <div class="cds--col-lg-12 cds--no-gutter">
+      <c4d-content-block
+        complementary-style-scheme="${border
+          ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
+          : ''}">
+        ${heading
+          ? html`
+              <c4d-content-block-heading>12 COLUMNS</c4d-content-block-heading>
+            `
+          : ''}
+        ${showCopy
+          ? html` <c4d-content-block-copy>${copy}</c4d-content-block-copy> `
+          : ``}
+        ${childStory}
+        ${showCTA
+          ? html`
+              <c4d-card
+                link
+                slot="footer"
+                cta-type="local"
+                href="https://www.example.com">
+                <c4d-card-heading
+                  >Learn more about natual language processing</c4d-card-heading
+                >
+                <c4d-card-footer></c4d-card-footer>
+              </c4d-card>
+            `
+          : ``}
+        ${aside
+          ? html`
+              <c4d-link-list type="default" slot="complementary">
+                <c4d-link-list-heading>Tutorials</c4d-link-list-heading>
+                <c4d-link-list-item-card href="https://example.com">
+                  <p>Learn more about Kubernetes</p>
+                  <c4d-card-footer>
+                    ${ArrowRight20({ slot: 'icon' })}
+                  </c4d-card-footer>
+                </c4d-link-list-item-card>
+                <c4d-link-list-item-card href="https://example.com">
+                  <p>Containerization A Complete Guide</p>
+                  <c4d-card-footer>
+                    ${ArrowRight20({ slot: 'icon' })}
+                  </c4d-card-footer>
+                </c4d-link-list-item-card>
+              </c4d-link-list>
+            `
+          : ``}
+      </c4d-content-block>
+    </div>
   `;
 };
 
@@ -119,9 +167,7 @@ export default {
   decorators: [
     (story) => html`
       <div class="cds--grid">
-        <div class="cds--row">
-          <div class="cds--col-lg-12 cds--no-gutter">${story()}</div>
-        </div>
+        <div class="cds--row">${story()}</div>
       </div>
     `,
   ],
@@ -130,6 +176,7 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentBlock: () => ({
+        columnSize: select('Column size (storybook option)', [8, 12], 12),
         heading: boolean('Heading:', true),
         showCopy: boolean('Copy:', true),
         copy:
