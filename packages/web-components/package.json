@@ -20,7 +20,8 @@
     "./es/": "./es/*",
     "./lib/": "./lib/*",
     "./custom-elements.json": "./custom-elements.json",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./telemetry.yml": "./telemetry.yml"
   },
   "files": [
     "dist/**/*",
