@@ -55,7 +55,7 @@ const componentVariables = {
 };
 
 export const Default = (args) => {
-  const { columnSize, heading, child, copy, showCopy, showCTA, border, aside } =
+  const { heading, child, copy, showCopy, showCTA, border, aside } =
     args?.ContentBlock ?? {};
 
   const childStory = componentVariables[child];
