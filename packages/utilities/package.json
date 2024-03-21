@@ -22,7 +22,8 @@
   "files": [
     "lib/**/*",
     "es/**/*",
-    "umd/**/*"
+    "umd/**/*",
+    "telemetry.yml"
   ],
   "keywords": [
     "react",
@@ -42,13 +43,13 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md",
-    "postinstall": "carbon-telemetry collect --install",
+    "postinstall": "ibmtelemetry --config=telemetry.yml",
     "prepublish": "yarn build",
     "test": "jest",
     "upgrade-carbon": "yarn upgrade-interactive carbon-components --latest --exact"
   },
   "dependencies": {
-    "@carbon/telemetry": "0.1.0",
+    "@ibm/telemetry-js": "^1.3.0",
     "axios": "^1.6.0",
     "carbon-components": "10.58.12",
     "isomorphic-dompurify": "0.27.0",
