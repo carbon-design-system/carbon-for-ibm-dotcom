@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,20 +41,26 @@ const renderCTA = {
     >
   `,
   button: (renderIcon) => html`
-    <c4d-button-cta
+    <c4d-button
       slot="action"
       cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}
       href="https://example.com"
-      >CTA Button link</c4d-button-cta
+      >CTA Button link</c4d-button
     >
   `,
   buttonGroup: (renderIcon, target) => html`
     <c4d-button-group slot="action">
-      <c4d-button-group-item target="${target}" href="https://example.com">
-        Secondary Button ${renderIcon}
+      <c4d-button-group-item
+        target="${target}"
+        href="https://example.com"
+        cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}>
+        Secondary button
       </c4d-button-group-item>
-      <c4d-button-group-item target="${target}" href="https://example.com">
-        Primary button ${renderIcon}
+      <c4d-button-group-item
+        target="${target}"
+        href="https://example.com"
+        cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}>
+        Primary button
       </c4d-button-group-item>
     </c4d-button-group>
   `,
