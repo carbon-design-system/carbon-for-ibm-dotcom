@@ -5,15 +5,10 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-// @use '@carbon/styles/scss/breakpoint' as *;
-// @use '@carbon/styles/scss/spacing' as *;
-// @use '@carbon/styles/scss/type' as *;
-@use '../../../../styles/scss/internal/content-block';
+@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
 @use '@carbon/ibmdotcom-styles/scss/internal/content-item';
 @use '@carbon/ibmdotcom-styles/scss/components/layout';
 @use '@carbon/ibmdotcom-styles/scss/components/card-group';
-// @use '@carbon/ibmdotcom-styles/scss/globals/utils/content-width' as *;
-// @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 .#{$c4d-prefix}--content-block-footer {

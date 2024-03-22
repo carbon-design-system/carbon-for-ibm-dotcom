@@ -11,8 +11,6 @@ import '../index';
 import '../../card/index';
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
-
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block';
 import readme from './README.stories.mdx';
 import * as components from './data/content.js';
