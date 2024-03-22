@@ -10,6 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/flex-grid' as *;
@@ -29,7 +30,6 @@
     display: block;
     margin-block: $spacing-07;
     margin-block-end: $spacing-12;
-    background-color: lightblue;
 
     @include breakpoint('lg') {
       margin-block: $spacing-10;
@@ -186,30 +186,8 @@
   :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
-    // @include make-col(8, 8);
-    // @include largest-breakpoint(md){
-    //   @include make-col(8, 12);
-    // }
-
-    color: red;
-    @include make-col(8, 8);
-
-    @include breakpoint(md) {
-      color: green;
-      @include make-col(8, 12);
-    }
-    // padding-inline-start: $spacing-05;
-
-    // color: green !important;
-
-    // @include breakpoint(md){
-    //   // color:purple !important;
-    // }
-
-    // @include breakpoint(lg){
-    //   // color: red !important;
-    //   padding-right: 3rem;
-    // }
+    margin-inline-start: $spacing-05;
+    max-inline-size: to-rem(640px);
   }
 
   :host(#{$c4d-prefix}-content-block-heading),
@@ -293,17 +271,8 @@
 
   :host(#{$c4d-prefix}-callout-with-media-copy[size='sm']),
   :host(#{$c4d-prefix}-content-block-copy[size='sm']) {
-    inline-size: auto;
-    max-inline-size: none;
-
-    @include breakpoint(md) {
-      @include content-width;
-    }
-
     ::slotted(#{$c4d-prefix}-content-block-paragraph) {
-      @include type-style('body-02');
-
-      margin-block-end: $spacing-06;
+      @include type-style('body-02', true);
     }
   }
 
