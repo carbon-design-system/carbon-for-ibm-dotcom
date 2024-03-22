@@ -79,21 +79,6 @@
       }
     }
 
-    ::slotted(*) {
-      padding-block-end: 0;
-    }
-
-    ::slotted(#{$c4d-prefix}-content-item),
-    ::slotted(#{$c4d-prefix}-content-item-row),
-    ::slotted(#{$c4d-prefix}-image),
-    ::slotted(#{$c4d-prefix}-link-list),
-    ::slotted(#{$c4d-prefix}-video-player-container),
-    ::slotted(#{$c4d-prefix}-structured-list),
-    ::slotted(#{$c4d-prefix}-tabs-extended) {
-      margin-inline: $spacing-05;
-      margin-inline-end: $spacing-05;
-    }
-
     &__aside,
     ::slotted([slot='complementary']) {
       grid-area: complementary;
