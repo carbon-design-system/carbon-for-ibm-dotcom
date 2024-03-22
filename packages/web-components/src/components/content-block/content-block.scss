@@ -10,7 +10,22 @@
 @use '@carbon/ibmdotcom-styles/scss/components/layout';
 @use '@carbon/ibmdotcom-styles/scss/components/card-group';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/styles/scss/spacing' as *;
 
 .#{$c4d-prefix}--content-block-footer {
   @extend :host(#{$c4d-prefix}-card-group);
+
+  gap: $spacing-08;
+
+  &[grid-mode='condensed'] {
+    gap: 0;
+  }
+
+  &[grid-mode='narrow'] {
+    gap: $spacing-05;
+  }
+
+  ::slotted(#{$c4d-prefix}-card[slot='footer']) {
+    max-inline-size: 100%;
+  }
 }
