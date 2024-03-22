@@ -64,7 +64,7 @@ jobs:
           path: packages/web-components/storybook-static
 
       - name: Clear remnant failure files
-        uses: geekyeggo/delete-artifact@v4
+        uses: geekyeggo/delete-artifact@v5
         with:
           name: failure-wc.txt
 
