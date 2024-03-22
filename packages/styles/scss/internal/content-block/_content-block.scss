@@ -101,7 +101,7 @@
       }
     }
 
-    ::slotted([slot='footer']:not(#{$prefix}-card)) {
+    ::slotted([slot='footer']:not(#{$c4d-prefix}-card)) {
       padding-inline-start: $spacing-05;
     }
 
