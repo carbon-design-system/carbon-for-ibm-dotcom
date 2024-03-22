@@ -55,22 +55,13 @@ const componentVariables = {
 };
 
 export const Default = (args) => {
-  const {
-    columnSize,
-    heading,
-    subHeading,
-    child,
-    copy,
-    showCopy,
-    showCTA,
-    border,
-    aside,
-  } = args?.ContentBlock ?? {};
+  const { heading, subHeading, child, copy, showCopy, showCTA, border, aside } =
+    args?.ContentBlock ?? {};
 
   const childStory = componentVariables[child];
 
   return html`
-    <div class="cds--col-lg-${columnSize} cds--no-gutter">
+    <div class="cds--col-lg-12 cds--no-gutter">
       <c4d-content-block
         complementary-style-scheme="${border
           ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
@@ -91,7 +82,7 @@ export const Default = (args) => {
             `
           : ``}
         ${childStory}
-        ${showCTA
+        ${showCTA === 'card-link'
           ? html`
               <c4d-card
                 link
@@ -105,22 +96,58 @@ export const Default = (args) => {
               </c4d-card>
             `
           : ``}
+        ${showCTA === 'button'
+          ? html`
+              <c4d-button
+                slot="footer"
+                cta-type="local"
+                href="https://www.example.com">
+                CTA Button
+              </c4d-button>
+            `
+          : ``}
+        ${showCTA === 'button-group'
+          ? html`
+              <c4d-button-group slot="footer">
+                <c4d-button-group-item
+                  href="https://example.com"
+                  cta-type="local">
+                  Secondary Button
+                </c4d-button-group-item>
+                <c4d-button-group-item
+                  href="https://example.com"
+                  cta-type="local">
+                  Primary button
+                </c4d-button-group-item>
+              </c4d-button-group>
+            `
+          : ``}
+        ${showCTA === 'link'
+          ? html`
+              <c4d-link-with-icon
+                slot="footer"
+                cta-type="local"
+                href="https://www.example.com">
+                CTA Link
+              </c4d-link-with-icon>
+            `
+          : ``}
         ${aside
           ? html`
               <c4d-link-list type="default" slot="complementary">
-                <c4d-link-list-heading>Tutorials</c4d-link-list-heading>
-                <c4d-link-list-item-card href="https://example.com">
-                  <p>Learn more about Kubernetes</p>
-                  <c4d-card-footer>
-                    ${ArrowRight20({ slot: 'icon' })}
-                  </c4d-card-footer>
-                </c4d-link-list-item-card>
-                <c4d-link-list-item-card href="https://example.com">
+                <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+                <c4d-link-list-item-cta
+                  href="https://example.com"
+                  cta-type="local"
+                  type="default">
                   <p>Containerization A Complete Guide</p>
-                  <c4d-card-footer>
-                    ${ArrowRight20({ slot: 'icon' })}
-                  </c4d-card-footer>
-                </c4d-link-list-item-card>
+                </c4d-link-list-item-cta>
+                <c4d-link-list-item-cta
+                  href="https://example.com"
+                  cta-type="external"
+                  type="default">
+                  <p>Why should you use microservices and containers</p>
+                </c4d-link-list-item-cta>
               </c4d-link-list>
             `
           : ``}
@@ -143,7 +170,6 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentBlock: () => ({
-        columnSize: select('Column size (storybook option)', [8, 12], 12),
         heading: boolean('Heading:', true),
         subHeading: boolean('Sub-heading:', true),
         showCopy: boolean('Copy:', true),
@@ -154,7 +180,11 @@ export default {
           'ligula, vitae finibus ante aliquet a.',
         child: select('Child component:', currentComponents, 'None'),
         aside: boolean('Aside:', false),
-        showCTA: boolean('CTA:', true),
+        showCTA: select(
+          'CTA',
+          ['none', 'link', 'button', 'button-group', 'card-link'],
+          ''
+        ),
         border: boolean('Border:', false),
       }),
     },

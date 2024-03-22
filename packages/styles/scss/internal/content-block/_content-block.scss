@@ -89,10 +89,20 @@
       }
     }
 
-    ::slotted([slot='footer']) {
+    ::slotted(#{$c4d-prefix}-card[slot='footer']) {
+      @include make-col(4, 4);
+
       @include breakpoint(md) {
-        inline-size: 50%;
+        @include make-col(4, 8);
       }
+
+      @include breakpoint(lg) {
+        @include make-col(4, 12);
+      }
+    }
+
+    ::slotted([slot='footer']:not(#{$prefix}-card)) {
+      padding-inline-start: $spacing-05;
     }
 
     ::slotted([slot='heading']) {
@@ -130,6 +140,18 @@
         'body body body body body body body body . complementary complementary complementary'
         'footer footer footer footer footer footer footer footer . complementary complementary complementary';
       grid-template-columns: repeat(12, 1fr);
+    }
+
+    ::slotted(#{$c4d-prefix}-card[slot='footer']) {
+      @include make-col(4, 4);
+
+      @include breakpoint(md) {
+        @include make-col(4, 8);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-link-list[slot='complementary']) {
+      margin-inline: $spacing-05;
     }
   }
 
