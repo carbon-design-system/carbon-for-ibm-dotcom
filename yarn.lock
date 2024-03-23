@@ -3297,7 +3297,7 @@ __metadata:
     "@rollup/plugin-json": "npm:^4.1.0"
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
-    "@rollup/plugin-terser": "npm:^0.1.0"
+    "@rollup/plugin-terser": "npm:^0.4.0"
     all-contributors-cli: "npm:^6.0.0"
     axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
@@ -3379,7 +3379,7 @@ __metadata:
     "@rollup/plugin-json": "npm:^4.1.0"
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
-    "@rollup/plugin-terser": "npm:^0.1.0"
+    "@rollup/plugin-terser": "npm:^0.4.0"
     all-contributors-cli: "npm:^6.0.0"
     axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
@@ -6347,21 +6347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-terser@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@rollup/plugin-terser@npm:0.1.0"
-  dependencies:
-    terser: "npm:^5.15.1"
-  peerDependencies:
-    rollup: ^2.x || ^3.x
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  checksum: 10/e8abed2bc9f91d2aa54819fd26e98333596b97153bb1d636fe2396db258ea580cc6c88f9e28ea2f69a20fa4e7dca33d0a9f235cd21986f4b633484757b0f31d2
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-terser@npm:^0.4.3":
+"@rollup/plugin-terser@npm:^0.4.0, @rollup/plugin-terser@npm:^0.4.3":
   version: 0.4.4
   resolution: "@rollup/plugin-terser@npm:0.4.4"
   dependencies:
@@ -33656,20 +33642,6 @@ __metadata:
   bin:
     terser: bin/terser
   checksum: 10/f58024a8bbf08d6421aea69b14f95da2a6e85a6d9a8b93895379084bd39ea70755d82f8676e9a56fde35ebaefbcb7b5d7920af537ffa1b87f638d39608941ea9
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.15.1":
-  version: 5.29.2
-  resolution: "terser@npm:5.29.2"
-  dependencies:
-    "@jridgewell/source-map": "npm:^0.3.3"
-    acorn: "npm:^8.8.2"
-    commander: "npm:^2.20.0"
-    source-map-support: "npm:~0.5.20"
-  bin:
-    terser: bin/terser
-  checksum: 10/062df6a8f99ea2635d1b3ce41cfd4180dea6e1c83db9b2cf4b525170b2446d10e069d2877d8dcb59fbf6045870efa17b56462b67045ef2d2b420870f9d144690
   languageName: node
   linkType: hard
 
