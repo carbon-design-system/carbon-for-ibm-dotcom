@@ -53,7 +53,7 @@ const componentVariables = {
 };
 
 export const Default = (args) => {
-  const { heading, subHeading, child, copy, showCopy, showCTA, border, aside } =
+  const { subHeading, child, copy, showCopy, showCTA, border, aside } =
     args?.ContentBlock ?? {};
 
   const childStory = componentVariables[child];
@@ -64,13 +64,9 @@ export const Default = (args) => {
         complementary-style-scheme="${border
           ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
           : ''}">
-        ${heading
-          ? html`
-              <c4d-content-block-heading
-                >Heading text for Content Block</c4d-content-block-heading
-              >
-            `
-          : ''}
+        <c4d-content-block-heading
+          >Heading text for Content Block</c4d-content-block-heading
+        >
         ${subHeading
           ? html` <c4d-content-block-copy>Subheading</c4d-content-block-copy> `
           : ''}
@@ -168,7 +164,6 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentBlock: () => ({
-        heading: boolean('Heading:', true),
         subHeading: boolean('Sub-heading:', true),
         showCopy: boolean('Copy:', true),
         copy:
