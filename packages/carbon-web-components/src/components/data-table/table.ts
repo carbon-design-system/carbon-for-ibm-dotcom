@@ -668,7 +668,12 @@ class CDSTable extends HostListenerMixin(LitElement) {
     }
 
     if (changedProperties.has('isSelectable')) {
-      if (this.isSelectable) {
+      if (this.isSelectable || this.hasAttribute('radio')) {
+        if(this.hasAttribute('radio')){
+          this._tableHeaderRow.setAttribute('hide-checkbox','');
+        }else{
+          this._tableHeaderRow.setAttribute('selection-name', 'header');
+        }
         this._tableHeaderRow.setAttribute('selection-name', 'header');
         this._tableRows.forEach((e, index) => {
           if (!e.hasAttribute('selection-name')) {
@@ -1004,6 +1009,12 @@ class CDSTable extends HostListenerMixin(LitElement) {
    */
   static get selectorTableRow() {
     return `${prefix}-table-row`;
+  }
+  /**
+   * The CSS selector to find the table
+   */
+  static get selectorTable() {
+    return `${prefix}-table`;
   }
 
   /**
