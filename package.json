@@ -75,7 +75,8 @@
     "through2": "^3.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.16.3"
+    "@babel/runtime": "^7.16.3",
+    "@lit/context": "^1.1.0"
   },
   "resolutions": {
     "kind-of": ">=6.0.3",
