@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -171,7 +171,8 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
         class="${cardGroup &&
         hasFooter &&
         `${c4dPrefix}--content-block-footer`}"
-        style="${cardGroupStyle}">
+        style="${cardGroupStyle}"
+        grid-mode="${cardGroup?.getAttribute('grid-mode')}">
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
