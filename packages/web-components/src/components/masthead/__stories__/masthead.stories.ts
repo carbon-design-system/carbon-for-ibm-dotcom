@@ -97,6 +97,7 @@ export const Default = (args) => {
     hasProfile,
     hasSearch,
     hasContact,
+    initialSearchTerm,
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
@@ -112,6 +113,7 @@ export const Default = (args) => {
           <c4d-masthead-container
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
@@ -129,6 +131,7 @@ export const Default = (args) => {
             data-endpoint="${dataEndpoints['v2.1']}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             user-status="${ifNonEmpty(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
@@ -199,7 +202,8 @@ WithCustomTypeahead.story = {
 };
 
 export const searchOpenOnload = (args) => {
-  const { searchPlaceholder, useMock } = args?.MastheadComposite ?? {};
+  const { initialSearchTerm, searchPlaceholder, useMock } =
+    args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -215,6 +219,7 @@ export const searchOpenOnload = (args) => {
               unauthenticatedProfileItems
             )}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></c4d-masthead-container>
@@ -223,6 +228,7 @@ export const searchOpenOnload = (args) => {
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></c4d-masthead-container>
@@ -538,6 +544,10 @@ export default {
           ['true', 'false'],
           'true'
         ),
+        initialSearchTerm: textNullable(
+          'initial search term (initial-search-term)',
+          ''
+        ),
         searchPlaceholder: textNullable(
           'search placeholder (searchPlaceholder)',
           'Search all of IBM'
@@ -566,6 +576,7 @@ export default {
           platform: null,
           hasProfile: 'true',
           hasSearch: 'true',
+          initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,

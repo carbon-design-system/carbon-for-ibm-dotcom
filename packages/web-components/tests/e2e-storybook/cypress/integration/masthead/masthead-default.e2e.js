@@ -178,6 +178,25 @@ describe('c4d-masthead | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
+  it('should respect initial search term option', () => {
+    const initialTerm = 'initialsearchterm';
+    cy.visit(`/${_pathDefault}&knob-initial%20search%20term%20(initial-search-term)=${initialTerm}`)
+      .get('c4d-masthead > c4d-search-with-typeahead')
+      .as('search')
+      .shadow()
+      .find('.cds--header__search--search')
+      .click();
+
+    cy.get('@search')
+      .shadow()
+      .find('.cds--header__search--input')
+      .then(([input]) => {
+        expect(input.value).to.equal(initialTerm);
+      });
+
+    cy.takeSnapshots();
+  });
+
   it('should allow keywords in the search bar and display 10 suggested results', () => {
     cy.get('c4d-masthead > c4d-search-with-typeahead')
       .shadow()
