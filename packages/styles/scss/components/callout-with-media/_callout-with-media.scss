@@ -155,11 +155,14 @@
     }
   }
 
-  :host(#{$c4d-prefix}-callout-with-media) .#{$prefix}--callout__content,
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
-    padding-block-end: $spacing-10;
+    margin-block-end: $layout-05;
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media) .#{$prefix}--callout__content {
+    padding-block-end: $layout-05;
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image),

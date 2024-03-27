@@ -16,22 +16,19 @@
   :host(#{$c4d-prefix}-content-block-horizontal) {
     padding-block: $spacing-07;
 
-    @include breakpoint(md) {
-      padding-block-end: $spacing-07;
+    @include breakpoint('md') {
+      margin-block-end: $layout-03;
     }
 
-    @include breakpoint(lg) {
-      padding-block: $spacing-10;
+    @include breakpoint('lg') {
+      margin-block: $layout-05;
+      margin-block-end: $layout-05;
     }
   }
 
   .#{$prefix}--content-block-horizontal {
     .#{$prefix}--content-block {
-      padding-block: $spacing-07 $spacing-05;
-
-      @include breakpoint(lg) {
-        padding-block: $spacing-10 $spacing-09;
-      }
+      padding: 0;
     }
   }
 

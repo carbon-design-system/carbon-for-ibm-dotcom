@@ -17,14 +17,17 @@
   :host(#{$c4d-prefix}-content-block-cards),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block {
     display: block;
-    padding-block: $spacing-07 $spacing-10;
+    margin-block: $layout-03;
+    margin-block-end: $layout-05;
 
-    @include breakpoint(md) {
-      padding-block: $spacing-07 $spacing-12;
+    @include breakpoint('md') {
+      margin-block: $layout-03;
+      margin-block-end: $layout-06;
     }
 
-    @include breakpoint(lg) {
-      padding-block: $spacing-10 $spacing-13;
+    @include breakpoint('lg') {
+      margin-block: $layout-05;
+      margin-block-end: $layout-07;
     }
   }
 

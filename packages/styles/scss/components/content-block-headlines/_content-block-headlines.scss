@@ -20,12 +20,12 @@
   :host(#{$c4d-prefix}-content-block-headlines),
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {
-      @include breakpoint(md) {
-        padding-block-start: $spacing-07;
+      @include breakpoint('md') {
+        margin-block: $spacing-07;
       }
 
-      @include breakpoint(lg) {
-        padding-block-start: $spacing-10;
+      @include breakpoint('lg') {
+        margin-block: $spacing-10;
       }
     }
 

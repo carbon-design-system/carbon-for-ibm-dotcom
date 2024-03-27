@@ -262,6 +262,7 @@ export default {
           eyebrow: 'Lorem ipsum',
           heading: 'Aliquam condimentum',
           copy: bodyCopy,
+          withMedia: MEDIA_TYPE.IMAGE,
         },
       },
     },
