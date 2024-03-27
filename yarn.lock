@@ -3297,7 +3297,7 @@ __metadata:
     "@rollup/plugin-json": "npm:^4.1.0"
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
-    "@rollup/plugin-terser": "npm:^0.1.0"
+    "@rollup/plugin-terser": "npm:^0.4.0"
     all-contributors-cli: "npm:^6.0.0"
     axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
@@ -3379,7 +3379,7 @@ __metadata:
     "@rollup/plugin-json": "npm:^4.1.0"
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
-    "@rollup/plugin-terser": "npm:^0.1.0"
+    "@rollup/plugin-terser": "npm:^0.4.0"
     all-contributors-cli: "npm:^6.0.0"
     axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
@@ -3437,7 +3437,7 @@ __metadata:
     "@carbon/layout": "npm:11.21.0"
     "@carbon/motion": "npm:11.17.0"
     "@carbon/pictograms-react": "npm:11.58.0"
-    "@carbon/react": "npm:1.53.0"
+    "@carbon/react": "npm:1.53.1"
     "@carbon/styles": "npm:1.53.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@carbon/type": "npm:11.26.0"
@@ -3653,15 +3653,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/react@npm:1.53.0":
-  version: 1.53.0
-  resolution: "@carbon/react@npm:1.53.0"
+"@carbon/react@npm:1.53.1":
+  version: 1.53.1
+  resolution: "@carbon/react@npm:1.53.1"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     "@carbon/feature-flags": "npm:^0.18.0"
     "@carbon/icons-react": "npm:^11.38.0"
     "@carbon/layout": "npm:^11.21.0"
-    "@carbon/styles": "npm:^1.53.0"
+    "@carbon/styles": "npm:^1.53.1"
     "@ibm/telemetry-js": "npm:^1.2.1"
     classnames: "npm:2.5.1"
     copy-to-clipboard: "npm:^3.3.1"
@@ -3682,7 +3682,7 @@ __metadata:
     react: ^16.8.6 || ^17.0.1 || ^18.2.0
     react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0
     sass: ^1.33.0
-  checksum: 10/58b061c47f99d592c3eced8232ec4c9937f39484d0247735493e23046a28d27f6d7a540e459e0d39414f186d20ded7d95301c03ec4bff10d3784edbc585d822e
+  checksum: 10/a7c4ba20adae604a793accb486c3182b198b9066d3a10dd19aba5675f6b0ef129d3921e22bd643d012b5fc9dfe336c3d59dce3d25048ce4b40308ffa29d5f85d
   languageName: node
   linkType: hard
 
@@ -3700,7 +3700,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:1.53.0, @carbon/styles@npm:^1.53.0":
+"@carbon/styles@npm:1.53.0":
   version: 1.53.0
   resolution: "@carbon/styles@npm:1.53.0"
   dependencies:
@@ -3719,6 +3719,28 @@ __metadata:
     sass:
       optional: true
   checksum: 10/b13e02fd2dea494061ce3fbb4253e329a02174c1bb8b75f2cee4e95a60359eabbe8a853cf43f8429a1ef6ef198fad4f9d450ef287d0e8a4ca34619f6817f5b93
+  languageName: node
+  linkType: hard
+
+"@carbon/styles@npm:^1.53.1":
+  version: 1.53.1
+  resolution: "@carbon/styles@npm:1.53.1"
+  dependencies:
+    "@carbon/colors": "npm:^11.21.0"
+    "@carbon/feature-flags": "npm:^0.18.0"
+    "@carbon/grid": "npm:^11.22.0"
+    "@carbon/layout": "npm:^11.21.0"
+    "@carbon/motion": "npm:^11.17.0"
+    "@carbon/themes": "npm:^11.33.1"
+    "@carbon/type": "npm:^11.26.0"
+    "@ibm/plex": "npm:6.0.0-next.6"
+    "@ibm/telemetry-js": "npm:^1.2.1"
+  peerDependencies:
+    sass: ^1.33.0
+  peerDependenciesMeta:
+    sass:
+      optional: true
+  checksum: 10/3d386d03cbaecf5343b7a6525716e20f02912166064b2c12bf32cc27c03d3fd36d336f250691112aa59391daf9ab58264cea26d291be7ee161c69d85321a47e6
   languageName: node
   linkType: hard
 
@@ -3741,6 +3763,19 @@ __metadata:
     "@ibm/telemetry-js": "npm:^1.2.1"
     color: "npm:^4.0.0"
   checksum: 10/6ec00956c02b405ed6460941533fbf3ef97c4b617ee0b509016520b53cb99b9618d0bb71302cbe68c6bda22dd32d71739a4c75835eaaf2d178a38c2af6089297
+  languageName: node
+  linkType: hard
+
+"@carbon/themes@npm:^11.33.1":
+  version: 11.33.1
+  resolution: "@carbon/themes@npm:11.33.1"
+  dependencies:
+    "@carbon/colors": "npm:^11.21.0"
+    "@carbon/layout": "npm:^11.21.0"
+    "@carbon/type": "npm:^11.26.0"
+    "@ibm/telemetry-js": "npm:^1.2.1"
+    color: "npm:^4.0.0"
+  checksum: 10/26fa9713684ea3f4730b607dda7a447dd7e4d15e89f6693fb5a7d144c658987b475bd6068b670bec4a1de2c8d68ac1c651e055eceb028c95522cecc03f618bce
   languageName: node
   linkType: hard
 
@@ -6347,21 +6382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-terser@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@rollup/plugin-terser@npm:0.1.0"
-  dependencies:
-    terser: "npm:^5.15.1"
-  peerDependencies:
-    rollup: ^2.x || ^3.x
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  checksum: 10/e8abed2bc9f91d2aa54819fd26e98333596b97153bb1d636fe2396db258ea580cc6c88f9e28ea2f69a20fa4e7dca33d0a9f235cd21986f4b633484757b0f31d2
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-terser@npm:^0.4.3":
+"@rollup/plugin-terser@npm:^0.4.0, @rollup/plugin-terser@npm:^0.4.3":
   version: 0.4.4
   resolution: "@rollup/plugin-terser@npm:0.4.4"
   dependencies:
@@ -33656,20 +33677,6 @@ __metadata:
   bin:
     terser: bin/terser
   checksum: 10/f58024a8bbf08d6421aea69b14f95da2a6e85a6d9a8b93895379084bd39ea70755d82f8676e9a56fde35ebaefbcb7b5d7920af537ffa1b87f638d39608941ea9
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.15.1":
-  version: 5.29.2
-  resolution: "terser@npm:5.29.2"
-  dependencies:
-    "@jridgewell/source-map": "npm:^0.3.3"
-    acorn: "npm:^8.8.2"
-    commander: "npm:^2.20.0"
-    source-map-support: "npm:~0.5.20"
-  bin:
-    terser: bin/terser
-  checksum: 10/062df6a8f99ea2635d1b3ce41cfd4180dea6e1c83db9b2cf4b525170b2446d10e069d2877d8dcb59fbf6045870efa17b56462b67045ef2d2b420870f9d144690
   languageName: node
   linkType: hard
 
