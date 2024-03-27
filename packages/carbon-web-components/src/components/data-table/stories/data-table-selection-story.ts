@@ -9,6 +9,7 @@
 
 import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
+import Settings16 from '@carbon/web-components/es/icons/settings/16';
 import { prefix } from '../../../globals/settings';
 import { TABLE_SIZE } from '../table';
 import '../index';
@@ -105,7 +106,30 @@ export const WithRadioSelection = () => {
       <cds-table-header-description slot="description"
         >With selection</cds-table-header-description
       >
-
+      <cds-table-toolbar slot="toolbar">
+        <cds-table-toolbar-content>
+          <cds-table-toolbar-search
+            placeholder="Filter table"></cds-table-toolbar-search>
+          <cds-overflow-menu toolbar-action>
+            ${Settings16({
+              slot: 'icon',
+              class: `${prefix}--overflow-menu__icon`,
+            })}
+            <cds-overflow-menu-body>
+              <cds-overflow-menu-item @click=${() => alert('Alert 1')}>
+                Action 1
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 2')}>
+                Action 2
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 3')}>
+                Action 3
+              </cds-overflow-menu-item>
+            </cds-overflow-menu-body>
+          </cds-overflow-menu>
+          <cds-button>Primary button</cds-button>
+        </cds-table-toolbar-content>
+      </cds-table-toolbar>
       <cds-table-head>
         <cds-table-header-row>
           <cds-table-header-cell>Name</cds-table-header-cell>

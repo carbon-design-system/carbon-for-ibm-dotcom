@@ -669,9 +669,9 @@ class CDSTable extends HostListenerMixin(LitElement) {
 
     if (changedProperties.has('isSelectable')) {
       if (this.isSelectable || this.hasAttribute('radio')) {
-        if(this.hasAttribute('radio')){
-          this._tableHeaderRow.setAttribute('hide-checkbox','');
-        }else{
+        if (this.hasAttribute('radio')) {
+          this._tableHeaderRow.setAttribute('hide-checkbox', '');
+        } else {
           this._tableHeaderRow.setAttribute('selection-name', 'header');
         }
         this._tableHeaderRow.setAttribute('selection-name', 'header');
