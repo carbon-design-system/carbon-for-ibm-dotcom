@@ -67,7 +67,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@rollup/plugin-replace": "^4.0.0",
-    "@rollup/plugin-terser": "^0.1.0",
+    "@rollup/plugin-terser": "^0.4.0",
     "all-contributors-cli": "^6.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.0.0",
