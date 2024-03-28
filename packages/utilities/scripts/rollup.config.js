@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ const builtins = require('rollup-plugin-node-builtins');
 const babel = require('@rollup/plugin-babel');
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
-const { terser } = require('rollup-plugin-terser');
+const terser = require('@rollup/plugin-terser');
 const sizes = require('rollup-plugin-sizes');
 
 const packageJson = require('../package.json');

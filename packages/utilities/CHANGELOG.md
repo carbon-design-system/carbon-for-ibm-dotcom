@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.5.0...@carbon/ibmdotcom-utilities@2.6.0-rc.0) (2024-03-21)
+
+
+### Bug Fixes
+
+* **toc:** adjust mobile selector, should always be navbar ([#11589](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11589)) ([0393906](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0393906c105e3452c1f089c8f556eb14649cdf5f)), closes [#11587](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11587)
+
+
+
+
+
+# [2.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.5.0-rc.0...@carbon/ibmdotcom-utilities@2.5.0) (2024-03-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [2.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.4.0...@carbon/ibmdotcom-utilities@2.5.0-rc.0) (2024-03-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
