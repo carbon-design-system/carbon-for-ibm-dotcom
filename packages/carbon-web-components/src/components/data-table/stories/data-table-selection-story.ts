@@ -9,6 +9,7 @@
 
 import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
+import Settings16 from '@carbon/web-components/es/icons/settings/16';
 import { prefix } from '../../../globals/settings';
 import { TABLE_SIZE } from '../table';
 import '../index';
@@ -105,9 +106,32 @@ export const WithRadioSelection = () => {
       <cds-table-header-description slot="description"
         >With selection</cds-table-header-description
       >
-
+      <cds-table-toolbar slot="toolbar">
+        <cds-table-toolbar-content>
+          <cds-table-toolbar-search
+            placeholder="Filter table"></cds-table-toolbar-search>
+          <cds-overflow-menu toolbar-action>
+            ${Settings16({
+              slot: 'icon',
+              class: `${prefix}--overflow-menu__icon`,
+            })}
+            <cds-overflow-menu-body>
+              <cds-overflow-menu-item @click=${() => alert('Alert 1')}>
+                Action 1
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 2')}>
+                Action 2
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 3')}>
+                Action 3
+              </cds-overflow-menu-item>
+            </cds-overflow-menu-body>
+          </cds-overflow-menu>
+          <cds-button>Primary button</cds-button>
+        </cds-table-toolbar-content>
+      </cds-table-toolbar>
       <cds-table-head>
-        <cds-table-header-row selection-name="header" hide-checkbox>
+        <cds-table-header-row>
           <cds-table-header-cell>Name</cds-table-header-cell>
           <cds-table-header-cell>Protocol</cds-table-header-cell>
           <cds-table-header-cell>Port</cds-table-header-cell>
@@ -117,7 +141,7 @@ export const WithRadioSelection = () => {
         </cds-table-header-row>
       </cds-table-head>
       <cds-table-body>
-        <cds-table-row selection-name="0">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 3</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -127,7 +151,7 @@ export const WithRadioSelection = () => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row selection-name="1">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 1</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
@@ -135,7 +159,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row selection-name="2">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 2</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
@@ -143,7 +167,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row selection-name="3">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 6</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -153,7 +177,7 @@ export const WithRadioSelection = () => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row selection-name="4">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 4</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
@@ -161,7 +185,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row selection-name="5">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 5</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
