@@ -12,6 +12,7 @@ import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
+import Information16 from '@carbon/icons/lib/information/16';
 import './toggletip';
 import '../button';
 import { POPOVER_ALIGNMENT } from '../popover/defs';
@@ -35,9 +36,11 @@ const tooltipAlignments = {
 export const Default = (args) => {
   const { alignment, bodyText } = args?.[`${prefix}-toggletip`] ?? {};
   return html`
-    <cds-toggletip alignment="${ifDefined(alignment)}">
+    <cds-toggletip alignment="${ifDefined(alignment)}" hasCustomIcon>
       Toggletip label
-
+      <span slot="icon">
+      ${Information16({ id: 'trigger' })}
+      </span>
       <p slot="body-text">${bodyText}</p>
       <cds-link slot="actions">Test</cds-link>
       <cds-button slot="actions">Button</cds-button>

@@ -48,6 +48,11 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   @property({ type: Boolean, reflect: true })
   open = false;
+  /**
+   * Set whether toggletip is open
+   */
+  @property({ type: Boolean })
+  hasCustomIcon = false;
 
   /**
    * Handles `slotchange` event.
@@ -96,12 +101,15 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   protected _renderTooltipButton = () => {
+    const {hasCustomIcon} = this;
     return html`
       <button
         aria-controls="${this.id}"
         class="${prefix}--toggletip-button"
         @click=${this._handleClick}>
-        ${Information16({ id: 'trigger' })}
+        ${hasCustomIcon ? html `
+          <slot name="icon"></slot>
+        ` : html `${Information16({ id: 'trigger' })}` }
       </button>
     `;
   };
@@ -143,6 +151,11 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
       ${this._renderTooltipButton()} ${this._renderTooltipContent()}
     `;
   };
+  firstUpdated() {
+    if(this.hasAttribute('hasCustomIcon')){
+      this.hasCustomIcon = true;
+    }
+  }
 
   updated() {
     if (this.autoalign && this.open) {
