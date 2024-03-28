@@ -48,7 +48,6 @@
     .#{$prefix}--link--disabled {
       color: $text-disabled;
     }
-
     &.#{$prefix}--link-with-icon__icon-left,
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon.#{$prefix}--link-with-icon__icon-left {
       display: flex;
@@ -65,7 +64,6 @@
     }
   }
 
-  .#{$prefix}--link-with-icon__container,
   :host(#{$c4d-prefix}-callout-link-with-icon),
   :host(#{$c4d-prefix}-card-cta-footer),
   :host(#{$c4d-prefix}-card-footer),
@@ -130,8 +128,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-link-with-icon),
-  .#{$prefix}--link-with-icon__container {
+  :host(#{$c4d-prefix}-link-with-icon) {
     display: table;
   }
 }

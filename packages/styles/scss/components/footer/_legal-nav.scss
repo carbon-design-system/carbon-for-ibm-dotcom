@@ -96,110 +96,12 @@
         @include breakpoint(lg) {
           border-block-start: none;
         }
-
-        .#{$prefix}--legal-nav__list-item {
-          display: flex;
-          align-items: center;
-          block-size: $spacing-09;
-          margin-inline-end: 0;
-          padding-block-start: 0;
-
-          @include breakpoint(md) {
-            margin-inline-end: $spacing-07;
-          }
-
-          a {
-            display: flex;
-            align-items: center;
-            inline-size: 100%;
-          }
-        }
       }
-
-      .#{$prefix}--locale-btn__container,
-      .#{$prefix}--language-selector__container {
-        margin: 0;
-
-        @include breakpoint(md) {
-          align-self: flex-end;
-          border-inline-start: 1px solid $layer-accent-01;
-          inline-size: 50%;
-        }
-
-        @include breakpoint(lg) {
-          margin: 0;
-        }
-
-        .#{$prefix}--btn--secondary,
-        .#{$prefix}--list-box,
-        .#{$prefix}--select-input {
-          background-color: $background;
-          max-inline-size: 100%;
-
-          &:hover {
-            background-color: $background-hover;
-          }
-
-          &:active {
-            background-color: $layer-active-01;
-          }
-        }
-
-        .#{$prefix}--select {
-          max-inline-size: 100%;
-        }
-
-        .#{$prefix}--text-input,
-        .#{$prefix}--list-box,
-        .#{$prefix}--select-input {
-          border-block-end: none;
-        }
-      }
-    }
-  }
-
-  .#{$prefix}--legal-nav__holder {
-    margin-inline-start: 0;
-    padding-block-start: 0;
-
-    @include breakpoint(md) {
-      column-count: 2;
-      padding-block-start: $spacing-03;
-    }
-
-    @include breakpoint(lg) {
-      column-count: 3;
-    }
-  }
-
-  .#{$prefix}--adjunct-links__holder {
-    padding: 0 $spacing-09 0 $spacing-05;
-    inline-size: 100%;
-    margin-block-start: $spacing-09;
-    margin-inline-start: 0;
-
-    @include breakpoint(md) {
-      inline-size: 50%;
-    }
-
-    @include breakpoint(lg) {
-      inline-size: 25%;
-      margin-inline-start: 25%;
-    }
-
-    .#{$prefix}--legal-nav__list-item {
-      margin-inline-end: 0;
-      padding-block-start: 0;
-    }
-
-    .#{$prefix}--legal-nav__list-item:not(:first-of-type) {
-      padding-block-start: $spacing-03;
     }
   }
 
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div,
-  .#{$prefix}--legal-nav__list-item {
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div {
     padding: $spacing-03 0 0 0;
     margin-inline-end: $spacing-07;
     @include type-style('body-01');

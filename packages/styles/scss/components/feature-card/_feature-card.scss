@@ -42,7 +42,6 @@ $feature-flags: (
     flex-direction: row;
   }
 
-  .#{$prefix}--card__heading,
   ::slotted(#{$c4d-prefix}-card-heading) {
     margin-block-end: $spacing-07;
   }
@@ -71,9 +70,7 @@ $feature-flags: (
 @mixin feature-card {
   // all feature cards
   :host(#{$c4d-prefix}-feature-card),
-  :host(#{$c4d-prefix}-feature-cta),
-  .#{$prefix}--feature-card-large,
-  .#{$prefix}--feature-card {
+  :host(#{$c4d-prefix}-feature-cta) {
     position: relative;
     // breaks on Firefox with `rem` function
     border-width: 1px;
@@ -83,8 +80,7 @@ $feature-flags: (
 
     &:hover {
       ::slotted([slot='image']),
-      #{$c4d-prefix}-image,
-      .#{$prefix}--image {
+      #{$c4d-prefix}-image {
         &::before {
           opacity: 0.08;
         }
@@ -105,8 +101,7 @@ $feature-flags: (
     }
 
     ::slotted([slot='image']),
-    #{$c4d-prefix}-image,
-    .#{$prefix}--image {
+    #{$c4d-prefix}-image {
       block-size: aspect-ratio(2, 1);
       inline-size: 100%;
       @media screen and (prefers-reduced-motion: reduce) {
@@ -173,14 +168,6 @@ $feature-flags: (
         block-size: 100%;
       }
 
-      #{$prefix}--card__heading {
-        padding: carbon--mini-units(2);
-        margin: 0;
-        inline-size: 100%;
-        padding-block-end: $spacing-07;
-        padding-inline-end: 10%;
-      }
-
       .#{$prefix}--card__footer {
         margin-block-start: carbon--mini-units(-4);
         padding-block-start: 0;
@@ -202,10 +189,6 @@ $feature-flags: (
       margin: 0;
     }
 
-    .#{$prefix}--card__heading {
-      margin-block-end: $spacing-07;
-    }
-
     .#{$prefix}--card__wrapper {
       block-size: aspect-ratio(2, 1);
       inline-size: 100%;
@@ -224,8 +207,7 @@ $feature-flags: (
     // image
 
     ::slotted([slot='image']),
-    #{$c4d-prefix}-image,
-    .#{$prefix}--image {
+    #{$c4d-prefix}-image {
       z-index: 0;
 
       @include breakpoint(md) {
@@ -319,8 +301,7 @@ $feature-flags: (
       }
 
       ::slotted([slot='image']),
-      #{$c4d-prefix}-image,
-      .#{$prefix}--image {
+      #{$c4d-prefix}-image {
         z-index: 0;
 
         @include breakpoint(md) {
@@ -333,10 +314,7 @@ $feature-flags: (
           block-size: 100%;
         }
       }
-
-      .#{$prefix}--image {
-        overflow-y: hidden;
-      }
+     
     }
 
     .#{$prefix}--card__wrapper {
@@ -351,8 +329,6 @@ $feature-flags: (
         }
       }
 
-      .#{$prefix}--card__eyebrow,
-      .#{$prefix}--card__heading,
       .#{$prefix}--card__copy,
       ::slotted(#{$c4d-prefix}-card-eyebrow),
       ::slotted(#{$c4d-prefix}-card-heading) {
@@ -376,12 +352,6 @@ $feature-flags: (
         }
       }
 
-      .#{$prefix}--card__eyebrow,
-      ::slotted(#{$c4d-prefix}-card-eyebrow) {
-        margin: 0 0 $spacing-03 0;
-      }
-
-      .#{$prefix}--card__heading,
       ::slotted(#{$c4d-prefix}-card-heading) {
         margin-block-end: $spacing-07;
 
@@ -431,38 +401,12 @@ $feature-flags: (
         flex-direction: row-reverse;
       }
     }
-
-    // special breakpoint for no copy present
-    &.#{$prefix}--feature-card-large_no-copy-text {
-      @include breakpoint($fcb-large-custom-bp-nocopy) {
-        padding-block-start: aspect-ratio(2, 1);
-      }
-
-      .#{$prefix}--card {
-        @include breakpoint($fcb-large-custom-bp-nocopy) {
-          position: absolute;
-          flex-direction: row;
-          inset: 0;
-
-          &__wrapper,
-          .#{$prefix}--image {
-            block-size: 100%;
-            inline-size: 50%;
-          }
-        }
-      }
-    }
   }
 
   :host(#{$c4d-prefix}-feature-card-footer)
     .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']),
-  .#{$prefix}--feature-card-large
-    .#{$prefix}--feature-card-large__card.#{$prefix}--tile
-    .#{$prefix}--card__cta,
-  .#{$prefix}--feature-card-large
-    .#{$prefix}--feature-card-large__card.#{$prefix}--tile
-    .#{$prefix}--card__cta:visited {
+    ::slotted(svg[slot='icon']) {
+    margin-top: auto;
     float: none;
     margin-block-start: auto;
 
@@ -489,7 +433,6 @@ $feature-flags: (
   :host(#{$c4d-prefix}-feature-cta)[color-scheme='inverse'] {
     border-color: $border-inverse;
 
-    .#{$prefix}--card__heading,
     ::slotted(#{$c4d-prefix}-card-heading) {
       color: $icon-inverse;
     }
@@ -503,8 +446,7 @@ $feature-flags: (
     }
 
     ::slotted([slot='image']),
-    #{$c4d-prefix}-image,
-    .#{$prefix}--image {
+    #{$c4d-prefix}-image {
       &::before {
         background-color: $icon-inverse;
       }
@@ -518,10 +460,7 @@ $feature-flags: (
   :host(
       #{$c4d-prefix}-feature-cta:not([size='large'])
     )[color-scheme='inverse'] {
-    .#{$prefix}--card__heading {
-      color: $icon-inverse;
-    }
-
+    
     .#{$prefix}--card__wrapper {
       background-color: $background-inverse;
     }
@@ -542,19 +481,15 @@ $feature-flags: (
     .#{$prefix}--card__wrapper {
       background-color: $background-inverse;
 
-      .#{$prefix}--card__eyebrow,
-      .#{$prefix}--card__heading,
       .#{$prefix}--card__copy,
       ::slotted(#{$c4d-prefix}-card-eyebrow),
       ::slotted(#{$c4d-prefix}-card-heading) {
         color: $icon-inverse;
       }
-      .#{$prefix}--card__eyebrow,
       ::slotted(#{$c4d-prefix}-card-eyebrow) {
         color: $icon-inverse;
       }
 
-      .#{$prefix}--card__heading,
       ::slotted(#{$c4d-prefix}-card-heading) {
         color: $icon-inverse;
       }

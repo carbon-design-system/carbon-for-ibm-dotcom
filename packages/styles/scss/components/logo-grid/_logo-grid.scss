@@ -20,7 +20,6 @@
 @use '../../internal/content-block';
 
 @mixin logo-grid {
-  .#{$prefix}--logo-grid,
   :host(#{$c4d-prefix}-logo-grid) {
     .#{$prefix}--content-block {
       background: $icon-inverse;
@@ -38,10 +37,6 @@
       }
     }
 
-    .#{$prefix}--card__wrapper {
-      inline-size: 100%;
-    }
-
     .#{$prefix}--content-block__cta {
       margin-block-start: $spacing-09;
 
@@ -54,32 +49,6 @@
         @include make-col(1, 3);
       }
     }
-
-    .#{$prefix}--card__CTA {
-      margin-inline-start: 0;
-      max-inline-size: 100%;
-    }
-
-    .#{$prefix}--image {
-      position: relative;
-      display: block;
-      background: $icon-inverse;
-      overflow-y: hidden;
-      padding-block: aspect-ratio(288px, 216px);
-
-      &:active img {
-        border: 1px $layer-accent-01 solid;
-      }
-
-      img {
-        position: absolute;
-        display: block;
-        block-size: auto;
-        inline-size: 100%;
-        inset-block-start: 0;
-        object-fit: cover;
-      }
-    }
   }
 
   :host(#{$c4d-prefix}-logo-grid) {
@@ -88,37 +57,13 @@
     }
   }
 
-  .#{$prefix}--logo-grid__no-border {
-    .#{$prefix}--logo-grid__container {
-      border-block-end: none;
-    }
-  }
-
-  .#{$prefix}--logo-grid__link {
-    display: block;
-
-    &:active .#{$prefix}--logo-grid__logo {
-      box-shadow: inset 0 0 0 1px $layer-accent-01;
-    }
-  }
-
   .#{$prefix}--logo-grid__row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-inline: calc(-1 * math.div($grid-gutter, 2));
 
-    @include breakpoint(md) {
-      &.#{$prefix}--logo-grid__4-columns {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
     @include breakpoint(lg) {
       grid-template-columns: repeat(3, 1fr);
-
-      &.#{$prefix}--logo-grid__4-columns {
-        grid-template-columns: repeat(4, 1fr);
-      }
     }
   }
 
@@ -142,18 +87,10 @@
     }
   }
 
-  .#{$prefix}--logo-grid__heading {
-    @include type-style('fluid-heading-05', true);
-
-    inline-size: 90%;
-    margin-block: $spacing-07;
-  }
-
   .#{$prefix}--content-layout__body {
     display: block;
   }
 
-  .#{$prefix}--logo-grid__wrapper,
   .#{$prefix}--content-layout--logo-grid {
     inline-size: 100%;
     margin-block-end: $spacing-13;

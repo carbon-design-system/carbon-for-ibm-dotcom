@@ -19,9 +19,7 @@
 /// @group footer
 
 @mixin footer-nav-group {
-  :host(#{$c4d-prefix}-footer-nav-group),
-  .#{$prefix}--footer-nav-group,
-  .#{$prefix}--footer-nav-group.#{$prefix}--accordion__item {
+  :host(#{$c4d-prefix}-footer-nav-group) {
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     display: block;
@@ -47,10 +45,6 @@
       }
     }
 
-    .#{$prefix}--accordion__arrow {
-      margin: 2px $spacing-05 0 0;
-    }
-
     @include breakpoint(md) {
       @include make-col-ready;
 
@@ -58,14 +52,6 @@
       margin-block-end: $spacing-09;
 
       padding-inline-start: 0;
-
-      &.#{$prefix}--accordion__item {
-        border-block-start: 0 transparent;
-      }
-
-      .#{$prefix}--accordion__heading {
-        display: none;
-      }
 
       .#{$prefix}--accordion__content {
         display: block;
