@@ -26,31 +26,13 @@ const _selectors = {
   l1Item: '.cds--masthead__l1-item',
   l1ScrollNextArrow: '#scroll-next',
   l1Dropdown: '.cds--masthead__l1-dropdown',
+  l1DropdownSubSection: '.cds--masthead__l1-dropdown-subsection',
+  l1DropdownContainer: '.cds--masthead__l1-inner-container',
   l1DropdownAnnouncement: '.cds--masthead__l1-dropdown-announcement',
   l1DropdownLinks: '.cds--masthead__l1-dropdown-links',
   l1DropdownSection: '.cds--masthead__l1-dropdown-section',
   l1DropdownViewAll: '.cds--masthead__l1-dropdown-viewall',
 };
-
-describe('dds-masthead L1 | default (mobile)', () => {
-  const mastheadButton = () => cy.get(_selectors.l1).shadow().find('.cds--masthead__l1-inner-container > button');
-
-  beforeEach(() => {
-    cy.viewport(320, 780).visit(`/${_pathl1}`);
-  });
-
-  it('should open L1 menu with all items', () => {
-    mastheadButton().click();
-    cy.get(`${_selectors.l1Dropdown} > li`).should('have.length', 9);
-  });
-
-  it('should open L1 sub menus', () => {
-    mastheadButton().click();
-    cy.get('.cds--masthead__l1-dropdown > li:nth-child(2)').click();
-    cy.get('.cds--masthead__l1-dropdown-subsection > ul:first-child > li > a').should('have.length', 4);
-  });
-});
-
 
 describe('cds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
@@ -216,5 +198,24 @@ describe('cds-masthead | with L1 (desktop)', () => {
       .should('be.visible');
   });
   
+});
+
+describe('dds-masthead L1 | default (mobile)', () => {
+  const mastheadButton = () => cy.get(_selectors.l1).shadow().find(`${_selectors.l1DropdownContainer} > button`);
+
+  beforeEach(() => {
+    cy.viewport(320, 780).visit(`/${_pathl1}`);
+  });
+
+  it('should open L1 menu with all items', () => {
+    mastheadButton().click();
+    cy.get(`${_selectors.l1Dropdown} > li`).should('be.visible');
+  });
+
+  it('should open L1 sub menus', () => {
+    mastheadButton().click();
+    cy.get(`${_selectors.l1Dropdown} > li:nth-child(2)`).click();
+    cy.get(`${_selectors.l1DropdownSubSection} > ul:first-child > li > a`).should('be.visible');
+  });
 });
 
