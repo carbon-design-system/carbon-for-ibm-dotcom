@@ -23,11 +23,17 @@ const _selectors = {
   mastheadProfileBtn: 'c4d-masthead-profile',
   mastheadProfileItems: 'c4d-masthead-profile-item',
   mastheadMenuBtnMobile: 'c4d-masthead-menu-button',
+  mastheadRightNav: 'c4d-megamenu-right-navigation',
+  mastheadLeftNav: 'c4d-left-nav-menu',
+  mastheadCategoryGroup: 'c4d-megamenu-category-group',
+  mastheadCategoryLink: 'c4d-megamenu-category-link',
+  mastheadNavMenuSection: 'c4d-left-nav-menu-section',
+
 }
 
 const _pathDefault = '/iframe.html?id=components-masthead--default';
 
-describe('cds-masthead | default (desktop)', () => {
+describe('c4d-masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
@@ -57,7 +63,6 @@ describe('cds-masthead | default (desktop)', () => {
         if ($menuItem.attr('active') !== undefined) {
           selectedState = true;
         }
-        console.log($menuItem,'TB');
       })
       .then(() => {
         expect(selectedState).to.be.true;
@@ -84,7 +89,7 @@ describe('cds-masthead | default (desktop)', () => {
       .click();
 
     cy.get(
-      'c4d-megamenu-right-navigation >  c4d-megamenu-category-group > c4d-megamenu-category-link:nth-child(1)'
+      `${_selectors.mastheadRightNav} >  ${_selectors.mastheadCategoryGroup} > ${_selectors.mastheadCategoryLink}:nth-child(1)`
     )
       .shadow()
       .find('a')
@@ -133,7 +138,7 @@ describe('cds-masthead | default (desktop)', () => {
   });
 });
 
-describe('cds-masthead | default (mobile)', () => {
+describe('c4d-masthead | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
@@ -161,7 +166,7 @@ describe('cds-masthead | default (mobile)', () => {
       .find('button')
       .click();
 
-    cy.get('c4d-left-nav-menu-section:nth-child(1) > c4d-left-nav-menu:nth-child(2)')
+    cy.get(`${_selectors.mastheadNavMenuSection}:nth-child(1) > ${_selectors.mastheadLeftNav}:nth-child(2)`)
       .shadow()
       .find('button')
       .click();

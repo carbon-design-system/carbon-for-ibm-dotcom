@@ -34,7 +34,7 @@ const _selectors = {
   l1DropdownViewAll: '.cds--masthead__l1-dropdown-viewall',
 };
 
-describe('cds-masthead | with L1 (desktop)', () => {
+describe('c4d-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathl1}`);
     cy.injectAxe();
@@ -190,8 +190,9 @@ describe('cds-masthead | with L1 (desktop)', () => {
     cy.get(_selectors.l1)
       .shadow()
       .find(_selectors.l1ScrollNextArrow)
-      .click()
-      .get(_selectors.l1)
+      .click();
+
+      cy.get(_selectors.l1)
       .shadow()
       .find(_selectors.l1Item)
       .eq(5)
@@ -200,7 +201,7 @@ describe('cds-masthead | with L1 (desktop)', () => {
   
 });
 
-describe('dds-masthead L1 | default (mobile)', () => {
+describe('c4d-masthead L1 | default (mobile)', () => {
   const mastheadButton = () => cy.get(_selectors.l1).shadow().find(`${_selectors.l1DropdownContainer} > button`);
 
   beforeEach(() => {

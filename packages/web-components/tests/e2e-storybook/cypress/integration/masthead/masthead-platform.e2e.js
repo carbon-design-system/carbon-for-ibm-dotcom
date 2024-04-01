@@ -20,7 +20,7 @@ const _selectors = {
 
 const _pathPlatform = '/iframe.html?id=components-masthead--with-platform&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
-describe('cds-masthead | with platform (desktop)', () => {
+describe('c4d-masthead | with platform (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathPlatform}`);
     cy.injectAxe();

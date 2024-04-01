@@ -21,7 +21,7 @@ const _selectors = {
 const _pathSearchOpenOnload =
   '/iframe.html?id=components-masthead--search-open-onload&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
-describe('cds-masthead | search open onload (desktop)', () => {
+describe('c4d-masthead | search open onload (desktop)', () => {
   beforeEach(() => {
     // TODO: fix the uncaught exception in Firefox only
     cy.on('uncaught:exception', (err, runnable) => {

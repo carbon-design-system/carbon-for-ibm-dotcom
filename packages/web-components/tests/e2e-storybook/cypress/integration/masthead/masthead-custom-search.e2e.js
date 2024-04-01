@@ -48,7 +48,7 @@ describe('cds-masthead | custom search (desktop)', () => {
     // string. Every keypress will trigger an API request, so here we mock each
     // successive cumulative search query.
     ['c', 'cl', 'clo', 'clou', 'cloud'].forEach(query => {
-      cy.intercept(`https://ibmdocs-dev.dcs.ibm.com/docs/api/v1/suggest?query=${query}&lang=undefined&categories=&limit=6`, {
+      cy.intercept(`https://ibm.com/docs/api/v1/suggest?query=${query}&lang=undefined&categories=&limit=6`, {
         fixture: `grouped-typeahead-${query}.json`,
       }).as(`grouped-typeahead-${query}`);
     });

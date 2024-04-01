@@ -21,7 +21,7 @@ const _selectors = {
 const _pathDefault =
   '/iframe.html?id=components-masthead--default&knob-use%20mock%20nav%20data%20(use-mock)=true&knob-The%20user%20authenticated%20status%20(user-status)=test.user@ibm.com';
 
-describe('dds-masthead | authenticated (desktop)', () => {
+describe('c4d-masthead | authenticated (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780).visit(`/${_pathDefault}`);
   });
@@ -42,7 +42,7 @@ describe('dds-masthead | authenticated (desktop)', () => {
   });
 });
 
-describe('dds-masthead | default (mobile)', () => {
+describe('c4d-masthead | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 780).visit(`/${_pathDefault}`);
   });
