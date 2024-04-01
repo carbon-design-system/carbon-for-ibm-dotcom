@@ -21,7 +21,7 @@ const _selectors = {
 const _pathCustomSearch =
   '/iframe.html?id=components-masthead--with-custom-typeahead&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
-describe('cds-masthead | custom search (desktop)', () => {
+describe('c4d-masthead | custom search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathCustomSearch}`);
     cy.injectAxe();
