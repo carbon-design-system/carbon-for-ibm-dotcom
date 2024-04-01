@@ -11,6 +11,13 @@
  * @type {string}
  * @private
  */
+
+const _selectors = {
+  masthead: 'c4d-masthead',
+  mastheadSearch: 'c4d-search-with-typeahead',
+  mastheadSearchButton: '.cds--header__search--search',
+}
+
 const _pathCustomSearch =
   '/iframe.html?id=components-masthead--with-custom-typeahead&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
@@ -28,30 +35,30 @@ describe('cds-masthead | custom search (desktop)', () => {
   });
 
   it('should open the search bar on click', () => {
-    cy.get('cds-masthead > cds-search-with-typeahead')
+    cy.get(`${_selectors.masthead} > ${_selectors.mastheadSearch}`)
       .shadow()
-      .find('.bx--header__search--search')
+      .find(_selectors.mastheadSearchButton)
       .click();
 
     cy.takeSnapshots();
   });
 
-  xit('should display grouped results with hrefs', () => {
+  it('should display grouped results with hrefs', () => {
     // Mock grouped search typeahead API. Below we user the "cloud" search
     // string. Every keypress will trigger an API request, so here we mock each
     // successive cumulative search query.
-    [('c', 'cl', 'clo', 'clou', 'cloud')].forEach(query => {
+    ['c', 'cl', 'clo', 'clou', 'cloud'].forEach(query => {
       cy.intercept(`https://ibmdocs-dev.dcs.ibm.com/docs/api/v1/suggest?query=${query}&lang=undefined&categories=&limit=6`, {
         fixture: `grouped-typeahead-${query}.json`,
       }).as(`grouped-typeahead-${query}`);
     });
 
-    cy.get('c4d-masthead > c4d-search-with-typeahead')
+    cy.get(`${_selectors.masthead} > ${_selectors.mastheadSearch}`)
       .shadow()
-      .find('.bx--header__search--search')
+      .find(_selectors.mastheadSearchButton)
       .click();
 
-    cy.get('c4d-masthead > c4d-search-with-typeahead')
+    cy.get(`${_selectors.masthead} > ${_selectors.mastheadSearch}`)
       .shadow()
       .find('.react-autosuggest__container > input')
       .type('cloud', { force: true });

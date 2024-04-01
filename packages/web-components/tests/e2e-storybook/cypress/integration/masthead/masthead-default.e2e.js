@@ -423,7 +423,6 @@ describe('c4d-masthead | performance optimizations', () => {
     // Left nav not opened yet, assert that none of the lazy loaded elements
     // are registered.
     [
-      'c4d-left-nav-cta-item',
       'c4d-left-nav-name',
       'c4d-left-nav-menu',
       'c4d-left-nav-menu-section',
@@ -444,7 +443,6 @@ describe('c4d-masthead | performance optimizations', () => {
     // Left nav opened! Assert that all the lazy loaded elements have been
     // loaded and registered.
     [
-      'c4d-left-nav-cta-item',
       'c4d-left-nav-name',
       'c4d-left-nav-menu',
       'c4d-left-nav-menu-section',
