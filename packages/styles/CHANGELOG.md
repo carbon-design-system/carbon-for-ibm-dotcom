@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.6.0-rc.0...@carbon/ibmdotcom-styles@2.6.0) (2024-03-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.6.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.5.0...@carbon/ibmdotcom-styles@2.6.0-rc.0) (2024-03-21)
+
+
+### Bug Fixes
+
+* **button-group:** extend button icon styles for button-group-item ([#11659](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11659)) ([67f9e59](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67f9e5920a5bbb3a9580bde6cbc651dd8f09d29b))
+* **button:** style import ([#11638](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11638)) ([7b05b73](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7b05b732ed503fe4c0c5951d9d23771b0319a49d)), closes [#11570](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11570)
+* **deps:** update dependency @carbon/icons-react to v11.38.0 ([#11647](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11647)) ([0fad4ec](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0fad4ec710d4a9150b393cfaa5c65f3cdfceec3a))
+* **deps:** update dependency @carbon/layout to v11.21.0 ([#11648](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11648)) ([1a9c559](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1a9c5595a6bb1fa08b3333d7e519de891ae2f931))
+* **table-of-contents:** react wrapper - update horizontal variation attribute name in ([#11657](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11657)) ([810b4f4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/810b4f4cedf70ab2729d0f4deebcc4b40d978905)), closes [#11535](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11535)
+
+
+### Features
+
+* **masthead:** support all CMaaS CTA types for L1 CTA ([#11597](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11597)) ([67a5746](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67a574687cff5b0968c98bcbc1fe1ae1299d399e))
+
+
+
+
+
 # [2.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.5.0-rc.0...@carbon/ibmdotcom-styles@2.5.0) (2024-03-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
