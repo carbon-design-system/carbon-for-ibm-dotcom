@@ -71,25 +71,26 @@ const dataEndpoints = {
 
 async function customTypeaheadApiFunction(query, grouped = false) {
   return fetch(`https://www-api.ibm.com/search/typeahead/v1?query=${query}`)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       if (!grouped) {
-        return [data.response.map(result => result[0])];
+        return [data.response.map((result) => result[0])];
       }
-      const resultHasCarbon = (result ) => result[0].toLowerCase().includes('carbon');
+      const resultHasCarbon = (result) =>
+        result[0].toLowerCase().includes('carbon');
       return [
         // Results not including "carbon"
         data.response
-          .filter(result => !resultHasCarbon(result))
-          .map(result => result[0]),
+          .filter((result) => !resultHasCarbon(result))
+          .map((result) => result[0]),
         // Optional grouped category results including "carbon"
         {
           title: 'Carbon',
           items: data.response
-            .filter(result => resultHasCarbon(result))
-            .map(result => ({
+            .filter((result) => resultHasCarbon(result))
+            .map((result) => ({
               name: result[0],
-              href: `https://www.example.com/${encodeURIComponent(result[0])}`
+              href: `https://www.example.com/${encodeURIComponent(result[0])}`,
             })),
         },
       ];
