@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { html, LitElement, TemplateResult } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './search-with-typeahead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -27,6 +27,13 @@ class C4DSearchWithTypeaheadItem extends LitElement {
    * The the search result to be shown.
    */
   private _content?: TemplateResult | string | (TemplateResult | string)[];
+
+  /**
+   * Boolean checking if page is RTL
+   */
+  @state()
+  private _pageIsRTL: boolean =
+    this.ownerDocument!.documentElement.dir === 'rtl';
 
   /**
    * The optional href to redirect the user to.
@@ -89,6 +96,9 @@ class C4DSearchWithTypeaheadItem extends LitElement {
             return acc;
           }, [] as (TemplateResult | string)[]);
         content.pop();
+        if (this._pageIsRTL) {
+          content.reverse();
+        }
         this._content = content;
       }
     }
