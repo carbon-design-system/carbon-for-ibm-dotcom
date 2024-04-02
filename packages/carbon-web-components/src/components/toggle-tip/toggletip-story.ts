@@ -12,11 +12,15 @@ import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
-import Information16 from '@carbon/icons/lib/information/16';
 import './toggletip';
 import '../button';
 import { POPOVER_ALIGNMENT } from '../popover/defs';
 import storyDocs from './toggletip-story.mdx';
+import Checkbox16 from '@carbon/icons/lib/checkbox/16';
+import Information16 from '@carbon/icons/lib/information/16';
+import View16 from '@carbon/icons/lib/view/16';
+import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
+import Folders16 from '@carbon/icons/lib/folders/16';
 
 const tooltipAlignments = {
   [`top`]: POPOVER_ALIGNMENT.TOP,
@@ -32,15 +36,21 @@ const tooltipAlignments = {
   [`right-bottom`]: POPOVER_ALIGNMENT.RIGHT_BOTTOM,
   [`right-top`]: POPOVER_ALIGNMENT.RIGHT_TOP,
 };
-
+const iconList = {
+  [`information`]: Information16,
+  [`view`]: View16,
+  [`folder open`]: FolderOpen16,
+  [`folders`]: Folders16,
+};
 export const Default = (args) => {
-  const { alignment, bodyText } = args?.[`${prefix}-toggletip`] ?? {};
+  
+  const { alignment, icon, bodyText } = args?.[`${prefix}-toggletip`] ?? {};
+  console.log(icon);
+  
   return html`
     <cds-toggletip alignment="${ifDefined(alignment)}" hasCustomIcon>
       Toggletip label
-      <span slot="icon">
-      ${Information16({ id: 'trigger' })}
-      </span>
+      <span slot="icon"> ${icon({ id: 'trigger' })} </span>
       <p slot="body-text">${bodyText}</p>
       <cds-link slot="actions">Test</cds-link>
       <cds-button slot="actions">Button</cds-button>
@@ -56,6 +66,7 @@ Default.parameters = {
         tooltipAlignments,
         POPOVER_ALIGNMENT.BOTTOM
       ),
+      icon: select('Toggletip icon', iconList, Information16),
       bodyText: textNullable(
         'Toggletip content (bodyText)',
         `Lorem ipsum dolor sit amet, di os consectetur adipiscing elit,

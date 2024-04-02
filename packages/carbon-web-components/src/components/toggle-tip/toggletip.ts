@@ -101,15 +101,15 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   };
 
   protected _renderTooltipButton = () => {
-    const {hasCustomIcon} = this;
+    const { hasCustomIcon } = this;
     return html`
       <button
         aria-controls="${this.id}"
         class="${prefix}--toggletip-button"
         @click=${this._handleClick}>
-        ${hasCustomIcon ? html `
-          <slot name="icon"></slot>
-        ` : html `${Information16({ id: 'trigger' })}` }
+        ${hasCustomIcon
+          ? html` <slot name="icon"></slot> `
+          : html`${Information16({ id: 'trigger' })}`}
       </button>
     `;
   };
@@ -152,7 +152,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     `;
   };
   firstUpdated() {
-    if(this.hasAttribute('hasCustomIcon')){
+    if (this.hasAttribute('hasCustomIcon')) {
       this.hasCustomIcon = true;
     }
   }

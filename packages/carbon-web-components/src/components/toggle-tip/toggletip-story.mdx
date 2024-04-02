@@ -47,6 +47,20 @@ import '@carbon/web-components/es/components/button/index.js';
 
 Note: For `boolean` attributes, `true` means simply setting the attribute (e.g.
 `<cds-toggletip open>`) and `false` means not setting the attribute (e.g.
-`<cds-toggletip>` without `open` attribute).
+`<cds-toggletip>` without `open` attribute).<br/>
+Use `hasCustomIcon` for including custom icons.
+
+```html
+<cds-toggletip hasCustomIcon>
+  Toggletip label
+  <span slot="icon"> ${Information16({ id: 'trigger' })} </span>
+  <p slot="body-text">
+    Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.
+  </p>
+  <cds-link slot="actions">Test</cds-link>
+  <cds-button slot="actions">Button</cds-button>
+</cds-toggletip>
+```
 
 <ArgsTable of="cds-toggletip" />
