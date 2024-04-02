@@ -84,10 +84,14 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
    * The CSS class list for the container (grid) node.
    */
   protected _getContainerClasses() {
-    const { complementaryStyleScheme, _hasComplementary: hasComplementary } =
-      this;
+    const {
+      complementaryStyleScheme,
+      _hasComplementary: hasComplementary,
+      _hasFooter: hasFooter,
+    } = this;
     return classMap({
       [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--with-footer`]: hasFooter,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
       [`${prefix}--layout--border`]:
         complementaryStyleScheme ===
