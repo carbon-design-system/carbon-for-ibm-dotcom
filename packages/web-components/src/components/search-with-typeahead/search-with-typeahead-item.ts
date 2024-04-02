@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -64,7 +64,7 @@ class C4DSearchWithTypeaheadItem extends LitElement {
       let { searchQueryString } = parent ?? {};
       searchQueryString = searchQueryString.toLowerCase();
 
-      if (!searchQueryString) {
+      if (!searchQueryString || this.hasAttribute('groupTitle')) {
         this._content = text;
       } else {
         const lowerCaseText = text.toLowerCase();
