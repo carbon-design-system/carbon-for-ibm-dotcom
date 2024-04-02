@@ -12,8 +12,8 @@ import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
-// import {ContextProvider} from '@lit/context';
-// import { menuContext } from './menu-context';
+import { provide } from "@lit-labs/context";
+import { myContext } from "./menu-context";
 
 // type StateType = {
 //     isRoot: boolean;
@@ -35,6 +35,8 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 
 @customElement(`${prefix}-menu`)
 class CDSMenu extends HostListenerMixin(LitElement) {
+  @provide({ context: myContext })
+  data: string = "...";
   //   private _provider = new ContextProvider(this, {context: menuContext, initialValue: {
   //     state: menuDefaultState
   //   }});
