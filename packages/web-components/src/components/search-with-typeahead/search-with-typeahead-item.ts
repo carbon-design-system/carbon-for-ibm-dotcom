@@ -56,6 +56,49 @@ class C4DSearchWithTypeaheadItem extends LitElement {
   @property()
   text = '';
 
+  /**
+   * Retrieves the current search query string from the parent element.
+   */
+  protected _getCurrentQuery() {
+    const parent = (this.getRootNode() as any).host;
+    const { searchQueryString } = parent ?? {};
+    return searchQueryString?.toLowerCase();
+  }
+
+  /**
+   * Returns this element's text content with the portion that matches the current
+   * search query highlighted.
+   */
+  protected _getHighlightedText() {
+    const { text } = this;
+    let searchQueryString = this._getCurrentQuery();
+
+    const lowerCaseText = text.toLowerCase();
+    if (lowerCaseText.includes(searchQueryString)) {
+      const startingIndex = lowerCaseText.indexOf(searchQueryString);
+      searchQueryString = text.substring(
+        startingIndex,
+        startingIndex + searchQueryString.length
+      );
+    }
+    const highlightedResult = html`<span
+      class="${c4dPrefix}-ce--search-with-typeahead-item__highlighted"
+      >${searchQueryString}</span
+    >`;
+    const content = text
+      .split(new RegExp(searchQueryString, 'i'))
+      .reduce((acc, item) => {
+        acc.push(item.replace(/^\s/, '\xa0').replace(/\s$/, '\xa0'));
+        acc.push(highlightedResult);
+        return acc;
+      }, [] as (TemplateResult | string)[]);
+    content.pop();
+    if (this._pageIsRTL) {
+      content.reverse();
+    }
+    return content;
+  }
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'option');
@@ -67,40 +110,11 @@ class C4DSearchWithTypeaheadItem extends LitElement {
     const result = super.shouldUpdate(changedProperties);
     if (changedProperties.has('text')) {
       const { text } = this;
-      const parent = (this.getRootNode() as any).host;
-      let { searchQueryString } = parent ?? {};
-      searchQueryString = searchQueryString.toLowerCase();
-
-      if (!searchQueryString || this.hasAttribute('groupTitle')) {
-        this._content = text;
-      } else {
-        const lowerCaseText = text.toLowerCase();
-        if (lowerCaseText.includes(searchQueryString)) {
-          const startingIndex = lowerCaseText.indexOf(searchQueryString);
-          searchQueryString = text.substring(
-            startingIndex,
-            startingIndex + searchQueryString.length
-          );
-        }
-
-        const highlightedResult = html`
-          <span class="${c4dPrefix}-ce--search-with-typeahead-item__highlighted"
-            >${searchQueryString}</span
-          >
-        `;
-        const content = text
-          .split(new RegExp(searchQueryString, 'i'))
-          .reduce((acc, item) => {
-            acc.push(item.replace(/^\s/, '\xa0').replace(/\s$/, '\xa0'));
-            acc.push(highlightedResult);
-            return acc;
-          }, [] as (TemplateResult | string)[]);
-        content.pop();
-        if (this._pageIsRTL) {
-          content.reverse();
-        }
-        this._content = content;
-      }
+      const searchQueryString = this._getCurrentQuery();
+      this._content =
+        !searchQueryString || this.hasAttribute('groupTitle')
+          ? text
+          : this._getHighlightedText();
     }
     return result;
   }
