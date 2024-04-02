@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -158,14 +158,14 @@ export const Default = (args) => {
                     ? html` <c4d-card-heading>${heading}</c4d-card-heading> `
                     : ''}
                   ${ctaType !== 'video' ? copy : ''}
-                  <c4d-card-cta-footer
+                  <c4d-card-footer
                     cta-type="${ifDefined(ctaType)}"
                     download="${ifDefined(footerDownload)}"
                     video-name="${ifDefined(customVideoTitle)}"
                     video-description="${ifDefined(customVideoDescription)}"
                     href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
-                  </c4d-card-cta-footer>
+                  </c4d-card-footer>
                 `
               : ''}
             ${ctaStyle === 'feature'
@@ -206,14 +206,14 @@ export const Default = (args) => {
               ? html`
                   <c4d-card-link-heading>${heading}</c4d-card-link-heading>
                   ${copy}
-                  <c4d-card-cta-footer
+                  <c4d-card-footer
                     cta-type="${ifDefined(ctaType)}"
                     download="${ifDefined(footerDownload)}"
                     video-name="${ifDefined(customVideoTitle)}"
                     video-description="${ifDefined(customVideoDescription)}"
                     href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
-                  </c4d-card-cta-footer>
+                  </c4d-card-footer>
                 `
               : ''}
           </c4d-cta>
