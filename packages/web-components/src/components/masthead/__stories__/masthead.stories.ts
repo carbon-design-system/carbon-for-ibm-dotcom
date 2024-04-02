@@ -195,7 +195,7 @@ WithCustomTypeahead.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        grouped: boolean('With grouped results', false),
+        grouped: boolean('With grouped results for "carbon"', false),
       }),
     },
     propsSet: {
