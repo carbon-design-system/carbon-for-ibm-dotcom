@@ -13,9 +13,6 @@ import '../../link-list/index';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import ArrowDown20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
-import Launch20 from '../../../internal/vendor/@carbon/web-components/icons/launch/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
@@ -93,11 +90,7 @@ export const Default = (args) => {
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
               <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
-              <c4d-card-footer>
-                ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
-                ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
-                ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </c4d-card-footer>
+              <c4d-card-footer> </c4d-card-footer>
             </c4d-card-link-cta>
           `
         : html`
@@ -134,11 +127,7 @@ export const WithImage = (args) => {
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
               <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
-              <c4d-card-footer>
-                ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
-                ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
-                ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </c4d-card-footer>
+              <c4d-card-footer> </c4d-card-footer>
             </c4d-card-link-cta>
           `
         : html`
@@ -181,11 +170,7 @@ export const WithVideo = (args) => {
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
               <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
-              <c4d-card-footer>
-                ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
-                ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
-                ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </c4d-card-footer>
+              <c4d-card-footer> </c4d-card-footer>
             </c4d-card-link-cta>
           `
         : html`
@@ -244,11 +229,7 @@ export const WithLinkList = (args) => {
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
               <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
-              <c4d-card-footer>
-                ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
-                ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
-                ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </c4d-card-footer>
+              <c4d-card-footer> </c4d-card-footer>
             </c4d-card-link-cta>
           `
         : html`
