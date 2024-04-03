@@ -12,7 +12,7 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/styles/scss/spacing' as *;
 
-.#{$c4d-prefix}--content-block-footer {
+.#{$c4d-prefix}--content-block-footer[grid-mode] {
   @extend :host(#{$c4d-prefix}-card-group);
 
   gap: $spacing-08;

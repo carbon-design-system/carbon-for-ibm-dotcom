@@ -79,6 +79,14 @@
       }
     }
 
+    ::slotted(*:not([slot])) {
+      margin-inline-start: $spacing-05;
+    }
+
+    ::slotted([data-autoid^='c4d--card']:not([slot])) {
+      margin-inline-start: 0;
+    }
+
     &__aside,
     ::slotted([slot='complementary']) {
       grid-area: complementary;
@@ -156,6 +164,11 @@
         padding-block-start: $spacing-07;
       }
     }
+  }
+
+  .#{$prefix}--content-layout--with-children
+    .#{$c4d-prefix}--content-block-footer {
+    padding-block-start: $spacing-07;
   }
 
   .#{$prefix}--content-layout__body {
