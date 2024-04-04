@@ -176,6 +176,7 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
         ?hidden="${!hasFooter}"
         class="${hasFooter && `${c4dPrefix}--content-block-footer`}"
         style="${cardGroupStyle}"
+        ?card-group="${cardGroup}"
         grid-mode="${cardGroup?.getAttribute('grid-mode')}">
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
