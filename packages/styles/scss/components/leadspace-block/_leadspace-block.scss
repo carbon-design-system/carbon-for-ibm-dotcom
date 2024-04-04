@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,6 +29,10 @@
 
     ::slotted(#{$c4d-prefix}-leadspace-block-content) {
       padding: 0;
+    }
+
+    .#{$prefix}--content-layout ::slotted(*:not([slot])) {
+      margin: 0;
     }
   }
 
@@ -75,6 +79,10 @@
     @include breakpoint-down(md) {
       padding-inline-end: 0;
     }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block-content) ::slotted([slot='copy']) {
+    margin-inline-start: 0;
   }
 
   :host(#{$c4d-prefix}-leadspace-block-content)
