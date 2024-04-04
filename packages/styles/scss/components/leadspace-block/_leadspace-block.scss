@@ -81,10 +81,6 @@
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace-block-content) ::slotted([slot='copy']) {
-    margin-inline-start: 0;
-  }
-
   :host(#{$c4d-prefix}-leadspace-block-content)
     ::slotted(#{$c4d-prefix}-link-list),
   .#{$prefix}--leadspace-block .#{$prefix}--link-list {

@@ -79,6 +79,8 @@
       }
     }
 
+    ::slotted([slot='heading']),
+    ::slotted([slot='copy']),
     ::slotted(*:not([slot])) {
       margin-inline-start: $spacing-05;
     }
@@ -210,7 +212,6 @@
   :host(#{$c4d-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
-    margin-inline-start: $spacing-05;
     max-inline-size: to-rem(640px);
   }
 
