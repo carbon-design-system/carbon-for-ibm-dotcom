@@ -143,10 +143,6 @@
     }
   }
 
-  ::slotted(#{$c4d-prefix}-cta-block-item) {
-    border-block-end: 1px solid $border-subtle-01;
-  }
-
   ::slotted(#{$c4d-prefix}-cta-block-item:last-of-type) {
     @include breakpoint-down(md) {
       border: 0;
