@@ -20,8 +20,6 @@ import Information16 from '@carbon/icons/lib/information/16';
 import View16 from '@carbon/icons/lib/view/16';
 import Video16 from '@carbon/icons/lib/video/16';
 import User16 from '@carbon/icons/lib/user/16';
-import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
-import Folders16 from '@carbon/icons/lib/folders/16';
 
 const tooltipAlignments = {
   [`top`]: POPOVER_ALIGNMENT.TOP,
@@ -59,6 +57,8 @@ export const Default = (args) => {
     case 'User16':
       iconVal = User16;
       break;
+    default:
+      iconVal = Information16;
   }
   return html`
     <cds-toggletip alignment="${ifDefined(alignment)}" hasCustomIcon>
