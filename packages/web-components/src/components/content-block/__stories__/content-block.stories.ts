@@ -53,16 +53,8 @@ const componentVariables = {
 };
 
 export const Default = (args) => {
-  const {
-    subHeading,
-    child,
-    copy,
-    showCopy,
-    showCTA,
-    border,
-    aside,
-    multipleChildren,
-  } = args?.ContentBlock ?? {};
+  const { subHeading, child, copy, showCopy, showCTA, border, aside } =
+    args?.ContentBlock ?? {};
 
   const childStory = componentVariables[child];
 
@@ -83,8 +75,7 @@ export const Default = (args) => {
               <c4d-content-block-copy size="sm">${copy}</c4d-content-block-copy>
             `
           : ``}
-        ${childStory} ${multipleChildren ? childStory : ''}
-        ${multipleChildren ? childStory : ''}
+        ${childStory}
         ${showCTA === 'card-link'
           ? html`
               <c4d-card
@@ -181,10 +172,6 @@ export default {
           ' magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ' +
           'ligula, vitae finibus ante aliquet a.',
         child: select('Child component:', currentComponents, 'None'),
-        multipleChildren: boolean(
-          'Multiple of the child component selected:',
-          false
-        ),
         aside: boolean('Aside:', false),
         showCTA: select(
           'CTA',

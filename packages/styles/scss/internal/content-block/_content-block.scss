@@ -83,6 +83,7 @@
       margin-inline-start: $spacing-05;
     }
 
+    ::slotted([data-autoid^='c4d--tabs-']:not([slot])),
     ::slotted([data-autoid^='c4d--card']:not([slot])) {
       margin-inline-start: 0;
     }

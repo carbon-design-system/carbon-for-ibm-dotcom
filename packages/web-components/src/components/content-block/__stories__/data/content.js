@@ -447,22 +447,20 @@ export const structuredList = html`
 `;
 
 export const tabsExtended = html`
-  <c4d-tabs-extended orientation="horizontal">
-    <c4d-tab label="First tab">
-      <p>Content for first tab goes here.</p>
+  <c4d-tabs-extended value="first">
+    <c4d-tab id="tab-first" target="panel-first" value="first">
+      First tab with long text
     </c4d-tab>
-    <c4d-tab label="Second tab">
-      <p>Content for second tab goes here.</p>
+    <c4d-tab id="tab-second" target="panel-second" value="second">
+      Second tab
     </c4d-tab>
-    <c4d-tab label="Third tab" selected="true">
-      <p>Content for third tab goes here.</p>
+    <c4d-tab id="tab-third" target="panel-third" value="third">
+      Third tab
     </c4d-tab>
-    <c4d-tab label="Fourth tab">
-      <p>Content for fourth tab goes here.</p>
+    <c4d-tab id="tab-fourth" target="panel-fourth" value="fourth">
+      Fourth tab
     </c4d-tab>
-    <c4d-tab label="Fifth tab" disabled="true">
-      <p>Content for fifth tab goes here.</p>
-    </c4d-tab>
+    <c4d-tab label="Fifth tab" disabled>Fifth tab</c4d-tab>
   </c4d-tabs-extended>
 `;
 
