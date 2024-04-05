@@ -11,6 +11,13 @@
  * @type {string}
  * @private
  */
+
+const _selectors = {
+  mastheadContainer: 'c4d-masthead-container',
+  mastheadProfile: 'c4d-masthead-profile',
+  mastheadProfileItem: 'c4d-masthead-profile-item',
+}
+
 const _pathDefault =
   '/iframe.html?id=components-masthead--default&knob-use%20mock%20nav%20data%20(use-mock)=true&knob-The%20user%20authenticated%20status%20(user-status)=test.user@ibm.com';
 
@@ -20,17 +27,17 @@ describe('c4d-masthead | authenticated (desktop)', () => {
   });
 
   it('should open the login menu with 4 items', () => {
-    cy.get('c4d-masthead-profile')
+    cy.get(_selectors.mastheadProfile)
       .shadow()
       .find('a')
       .click();
-    cy.get('c4d-masthead-profile-item').should('have.length', 4);
+    cy.get(_selectors.mastheadProfileItem).should('have.length', 4);
     cy.takeSnapshots();
   });
 
   it('should not render profile menu when disabled', () => {
-    cy.get('c4d-masthead-composite').invoke('attr', 'has-profile', 'false');
-    cy.get('c4d-masthead-profile').should('not.exist');
+    cy.get(_selectors.mastheadContainer).invoke('attr', 'has-profile', 'false');
+    cy.get(_selectors.mastheadProfile).should('not.exist');
     cy.takeSnapshots();
   });
 });
@@ -41,11 +48,11 @@ describe('c4d-masthead | default (mobile)', () => {
   });
 
   it('should open the login menu with 4 items', () => {
-    cy.get('c4d-masthead-profile')
+    cy.get(_selectors.mastheadProfile)
       .shadow()
       .find('a')
       .click();
-    cy.get('c4d-masthead-profile-item').should('have.length', 4);
+    cy.get(_selectors.mastheadProfileItem).should('have.length', 4);
     cy.takeSnapshots('mobile');
   });
 });
