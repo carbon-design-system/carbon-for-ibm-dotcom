@@ -132,6 +132,22 @@ class BXPaginationNav extends LitElement {
     super.update(changedProperties);
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has('page')) {
+      const { pageChangedEvent } = (this.constructor as typeof BXPaginationNav);
+      const event = new CustomEvent(pageChangedEvent, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+        detail: {
+          oldValue: changedProperties.get('page'),
+          newValue: this.page,
+        }
+      })
+      this.dispatchEvent(event);
+    }
+  }
+
   /**
    * Sets the current page to a specified index.
    *
@@ -238,6 +254,10 @@ class BXPaginationNav extends LitElement {
         </ul>
       </nav>
     `
+  }
+
+  static get pageChangedEvent() {
+    return `${prefix}-page-changed`;
   }
 
   static styles = [styles, css`
