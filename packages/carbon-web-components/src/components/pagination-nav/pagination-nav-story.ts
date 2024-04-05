@@ -29,6 +29,9 @@ export default {
   title: 'Components/Pagination Nav',
   parameters: {
     ...storyDocs.parameters,
+    actions: {
+      handles: ['bx-page-changed bx-pagination-nav']
+    },
     knobs: {
       'bx-pagination-nav': () => ({
         visible: number('Visible Pages (visible)', 8, {min: 5}),
