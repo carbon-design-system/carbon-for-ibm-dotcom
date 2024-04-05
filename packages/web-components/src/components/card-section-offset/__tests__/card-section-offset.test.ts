@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -50,23 +50,23 @@ describe('c4d-card-section-offset', function () {
             <c4d-card-group-item href="https://example.com">
               <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
               <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
-              <c4d-card-cta-footer slot="footer">
-                ${ArrowRight20({ slot: 'icon' })}
-              </c4d-card-cta-footer>
-            </c4d-card-group-item>
-            <c4d-card-group-item href="https://example.com">
-              <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
-              <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
-              <c4d-card-footer slot="footer">
+              <c4d-card-footer>
                 ${ArrowRight20({ slot: 'icon' })}
               </c4d-card-footer>
             </c4d-card-group-item>
             <c4d-card-group-item href="https://example.com">
               <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
               <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
-              <c4d-card-cta-footer slot="footer">
+              <c4d-card-footer>
                 ${ArrowRight20({ slot: 'icon' })}
-              </c4d-card-cta-footer>
+              </c4d-card-footer>
+            </c4d-card-group-item>
+            <c4d-card-group-item href="https://example.com">
+              <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+              <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
+              <c4d-card-footer>
+                ${ArrowRight20({ slot: 'icon' })}
+              </c4d-card-footer>
             </c4d-card-group-item>
           `,
         }),

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -443,10 +443,10 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
 
   render() {
     // Note that the <slot name="heading"> contents, intended to be
-    // <dds-filter-panel-heading> are never shown as is. The text contents
+    // <c4d-filter-panel-heading> are never shown as is. The text contents
     // are composed, using this._getComposedHeadingFilterCount(), together with
     // the current filter count, and passed as an attribute to
-    // <dds-filter-panel-modal> and <dds-filter-panel>.
+    // <c4d-filter-panel-modal> and <c4d-filter-panel>.
     return html`
       <slot
         name="heading"
