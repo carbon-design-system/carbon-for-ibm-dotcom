@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,7 +27,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 /**
  * Card CTA footer.
  *
- * @element c4d-card-cta-footer
+ * @element c4d-card-footer
  */
 @customElement(`${c4dPrefix}-card-cta-footer`)
 class C4DCardCTAFooter extends VideoCTAMixin(CTAMixin(C4DCardFooter)) {
