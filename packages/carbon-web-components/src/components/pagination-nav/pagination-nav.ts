@@ -147,14 +147,28 @@ class BXPaginationNav extends LitElement {
    * Reduce current page by one, but no lower than 0.
    */
   decrementIndex() {
-    this.page = Math.max(this.page - 1, 0);
+    const { loop: canLoop, page, count } = this;
+    const wouldLoop = page - 1 < 0;
+
+    if (canLoop) {
+      this.page = wouldLoop ? count - 1 : page - 1;
+    } else {
+      this.page = Math.max(this.page - 1, 0);
+    }
   }
 
   /**
    * Increase current page by one, but no higher than (this.count - 1).
    */
   incrementIndex() {
-    this.page = Math.min(this.page + 1, this.count - 1);
+    const { loop: canLoop, page, count } = this;
+    const wouldLoop = page + 1 >= count;
+
+    if (canLoop) {
+      this.page = wouldLoop ? 0 : page + 1;
+    } else {
+      this.page = Math.min(this.page + 1, this.count - 1);
+    }
   }
 
   /**
@@ -197,19 +211,21 @@ class BXPaginationNav extends LitElement {
 
   render() {
     const {
-      visible,
-      count,
+      loop: canLoop,
       page,
+      count,
       _iterator: iterator,
-      setIndex,
       incrementIndex,
       decrementIndex,
     } = this;
 
+    const decrementDisabled = !canLoop && page <= 0;
+    const incrementDisabled = !canLoop && page >= count - 1;
+
     return html`
       <nav>
         <ul>
-          <li><button type="button" @click=${decrementIndex}>prev</button></li>
+          <li><button type="button" @click=${decrementIndex} ?disabled=${decrementDisabled}>prev</button></li>
             ${iterator.map((i) => {
               if (typeof i === 'number') {
                 return this.renderIndividualItem(i);
@@ -218,7 +234,7 @@ class BXPaginationNav extends LitElement {
                 return this.renderGroupedItems(i);
               }
             })}
-          <li><button type="button" @click=${incrementIndex}>next</button></li>
+          <li><button type="button" @click=${incrementIndex} ?disabled=${incrementDisabled}>next</button></li>
         </ul>
       </nav>
     `

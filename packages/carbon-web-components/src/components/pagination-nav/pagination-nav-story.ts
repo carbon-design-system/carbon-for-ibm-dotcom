@@ -14,12 +14,12 @@ import { html } from 'lit-element';
 import Download16 from '@carbon/web-components/es/icons/download/16';
 import storyDocs from './pagination-nav-story.mdx';
 import './index';
-import { number } from '@storybook/addon-knobs';
+import { boolean, number } from '@storybook/addon-knobs';
 
 export const Default = (args) => {
-  const { visible, count, page } = args?.['bx-pagination-nav'] ?? {};
+  const { visible, count, page, loop } = args?.['bx-pagination-nav'] ?? {};
   return html`
-  <bx-pagination-nav visible="${visible}" count="${count}" page="${page}"></bx-pagination-nav>
+  <bx-pagination-nav visible="${visible}" count="${count}" page="${page}" ?loop=${loop}></bx-pagination-nav>
   `;
 };
 
@@ -33,7 +33,8 @@ export default {
       'bx-pagination-nav': () => ({
         visible: number('Visible Pages (visible)', 8, {min: 5}),
         count: number('Total Pages (count)', 30),
-        page: number('Active Page (page)', 0, {min: 0})
+        page: number('Active Page (page)', 0, {min: 0}),
+        loop: boolean('Loop (loop)', false)
       }),
     },
   },
