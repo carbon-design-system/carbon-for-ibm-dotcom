@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -128,7 +128,6 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   inline-size: 100%;
-  row-gap: $spacing-07;
 
   // Hide last row's items' bottom border
   &::after {
@@ -142,10 +141,6 @@
       inset-inline-end: 0;
       pointer-events: none;
     }
-  }
-
-  ::slotted(#{$c4d-prefix}-cta-block-item) {
-    border-block-end: 1px solid $border-subtle-01;
   }
 
   ::slotted(#{$c4d-prefix}-cta-block-item:last-of-type) {
