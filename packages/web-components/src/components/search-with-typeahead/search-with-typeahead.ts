@@ -10,7 +10,7 @@
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
 import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
 import CDSDropdown, {
@@ -82,6 +82,9 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
   @property()
   groupedResults;
 
+  @property({ attribute: 'initial-search-term', reflect: true })
+  initialSearchTerm?: string;
+
   @property({ attribute: 'scope-parameters' })
   scopeParameters;
 
@@ -96,6 +99,9 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
 
   @property({ attribute: 'scope-value', reflect: true })
   scopeValue;
+
+  @state()
+  userHasInputSearch = false;
 
   /**
    * The `<button>` to open the search box.
@@ -388,6 +394,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
    * Handles `input` event in the search input.
    */
   private _handleInput(event: InputEvent) {
+    const { userHasInputSearch } = this;
     const { target } = event;
     const { value } = target as HTMLInputElement;
     this.removeAttribute('unfocused');
@@ -433,6 +440,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
           `${prefix}--header__search--hide`
         );
       }
+    }
+
+    if (!userHasInputSearch) {
+      this.userHasInputSearch = true;
     }
 
     // accomodate search results box's width with the scope dropdown
@@ -600,8 +611,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
    */
   protected _renderTriggerContent() {
     const {
+      initialSearchTerm,
       searchPlaceholder,
       searchLabel,
+      userHasInputSearch,
       _handleInput: handleInput,
       _handleKeyInput: handleKeyInput,
     } = this;
@@ -612,6 +625,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
         class="${prefix}--header__search--input"
         name="q"
         placeholder="${searchPlaceholder}"
+        value="${!userHasInputSearch ? initialSearchTerm : ''}"
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
