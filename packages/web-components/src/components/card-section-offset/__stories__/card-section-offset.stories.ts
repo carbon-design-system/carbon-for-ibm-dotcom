@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -56,9 +56,7 @@ const defaultCardGroupItem = html`
       Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
       democritum ex. Illud ullum graecis
     </p>
-    <c4d-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </c4d-card-cta-footer>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
   </c4d-card-group-item>
 `;
 
