@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -85,7 +85,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, cardType, addCta) => {
         ? addCta
           ? textCTAContent
           : ''
-        : html` <c4d-card-footer slot="footer"></c4d-card-footer> `}
+        : html` <c4d-card-footer></c4d-card-footer> `}
     </c4d-card-group-item>
   `;
 
@@ -128,7 +128,7 @@ const longHeadingCardGroupItem = (tagGroup, media, cardType, addCta) => {
         ? addCta
           ? textCTAContent
           : ''
-        : html` <c4d-card-footer slot="footer"></c4d-card-footer> `}
+        : html` <c4d-card-footer></c4d-card-footer> `}
     </c4d-card-group-item>
   `;
 };
@@ -171,7 +171,7 @@ const cardLink = html`
     pattern-background>
     <c4d-card-heading>IBM Developer</c4d-card-heading>
     <p>Learn, code and connect with your community</p>
-    <c4d-card-footer slot="footer"> </c4d-card-footer>
+    <c4d-card-footer> </c4d-card-footer>
   </c4d-card>
 `;
 
@@ -187,7 +187,7 @@ const cardInCardItems = (i, tagGroup, media) => {
               marine litter</c4d-card-heading
             >
             ${tagGroup ? tagGroupContent : ''}
-            <c4d-card-footer slot="footer"> </c4d-card-footer>
+            <c4d-card-footer> </c4d-card-footer>
           </c4d-card-group-item>
         `
       : html`
@@ -207,7 +207,7 @@ const cardInCardItems = (i, tagGroup, media) => {
         litter</c4d-card-heading
       >
       ${tagGroup ? tagGroupContent : ''}
-      <c4d-card-footer slot="footer"> </c4d-card-footer>
+      <c4d-card-footer> </c4d-card-footer>
     </c4d-card-group-item>
   `;
 };
@@ -230,7 +230,7 @@ export const Default = (args) => {
         html`
           <c4d-card-group-item cta-type="local" href="https://example.com">
             <c4d-card-heading>Top level card link</c4d-card-heading>
-            <c4d-card-footer slot="footer"> </c4d-card-footer>
+            <c4d-card-footer> </c4d-card-footer>
           </c4d-card-group-item>
         `
       );
@@ -255,7 +255,7 @@ export const Default = (args) => {
         html`
           <c4d-card-group-item cta-type="local" href="https://example.com">
             <c4d-card-heading>Top level card link</c4d-card-heading>
-            <c4d-card-footer slot="footer"> </c4d-card-footer>
+            <c4d-card-footer> </c4d-card-footer>
           </c4d-card-group-item>
         `
       );
