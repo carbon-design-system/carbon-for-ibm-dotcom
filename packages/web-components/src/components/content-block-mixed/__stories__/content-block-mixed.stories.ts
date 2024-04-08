@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -235,7 +235,7 @@ export const Default = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-group-simple>
     </c4d-content-block-mixed>
@@ -339,7 +339,7 @@ export const WithLinkList = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-group-simple>
       <c4d-link-list type="default" slot="complementary">
