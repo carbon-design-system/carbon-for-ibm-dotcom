@@ -14,7 +14,7 @@ import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
-import { CTA_TYPE } from '../../cta/defs';
+import { L1_CTA_TYPES } from '../defs';
 import styles from './masthead.stories.scss';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
@@ -86,12 +86,18 @@ async function customTypeaheadApiFunction(searchVal) {
     });
 }
 
+const enumToArray = (en) =>
+  Object.keys(en)
+    .filter((value) => typeof value === 'string')
+    .map((key) => en[key]);
+
 export const Default = (args) => {
   const {
     customProfileLogin,
     hasProfile,
     hasSearch,
     hasContact,
+    initialSearchTerm,
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
@@ -107,6 +113,7 @@ export const Default = (args) => {
           <c4d-masthead-container
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
@@ -124,6 +131,7 @@ export const Default = (args) => {
             data-endpoint="${dataEndpoints['v2.1']}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             user-status="${ifNonEmpty(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
@@ -194,7 +202,8 @@ WithCustomTypeahead.story = {
 };
 
 export const searchOpenOnload = (args) => {
-  const { searchPlaceholder, useMock } = args?.MastheadComposite ?? {};
+  const { initialSearchTerm, searchPlaceholder, useMock } =
+    args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -210,6 +219,7 @@ export const searchOpenOnload = (args) => {
               unauthenticatedProfileItems
             )}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></c4d-masthead-container>
@@ -218,6 +228,7 @@ export const searchOpenOnload = (args) => {
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></c4d-masthead-container>
@@ -297,13 +308,13 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, selectedMenuItemL1, showContactCta, useMock } =
+  const { selectedMenuItem, selectedMenuItemL1, l1CtaType, useMock } =
     args?.MastheadComposite ?? {};
 
   let l1Data = { ...mastheadL1Data };
   if (l1Data?.actions?.cta) {
-    showContactCta
-      ? (l1Data.actions.cta.ctaType = CTA_TYPE.CHAT)
+    l1CtaType
+      ? (l1Data.actions.cta.ctaType = l1CtaType)
       : delete l1Data.actions.cta.ctaType;
   }
 
@@ -352,7 +363,11 @@ withL1.story = {
           'selected menu item in L1 (selected-menu-item-l1)',
           ''
         ),
-        showContactCta: boolean('use Contact module CTA', false),
+        l1CtaType: select(
+          'L1 CTA type',
+          enumToArray(L1_CTA_TYPES),
+          L1_CTA_TYPES.NONE
+        ),
         useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
@@ -361,7 +376,7 @@ withL1.story = {
         MastheadComposite: {
           selectedMenuItem: 'Consulting',
           selectedMenuItemL1: '',
-          showContactCta: false,
+          l1CtaType: L1_CTA_TYPES.NONE,
           useMock: false,
         },
       },
@@ -529,6 +544,10 @@ export default {
           ['true', 'false'],
           'true'
         ),
+        initialSearchTerm: textNullable(
+          'initial search term (initial-search-term)',
+          ''
+        ),
         searchPlaceholder: textNullable(
           'search placeholder (searchPlaceholder)',
           'Search all of IBM'
@@ -557,6 +576,7 @@ export default {
           platform: null,
           hasProfile: 'true',
           hasSearch: 'true',
+          initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,

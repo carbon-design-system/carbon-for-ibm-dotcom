@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -273,9 +273,9 @@ export const StoryContent = () =>
                   Linux on IBM mainframes lets you transform your application
                   and data portfolio with data privacy, security, and cyber
                   resiliency.
-                  <c4d-card-cta-footer slot="footer">
+                  <c4d-card-footer>
                     ${ArrowRight20({ slot: 'icon' })}
-                  </c4d-card-cta-footer>
+                  </c4d-card-footer>
                 </c4d-card-group-item>
                 <c4d-card-group-item href="https://example.com">
                   <c4d-card-heading>Linux OS on LinuxONE</c4d-card-heading>
@@ -284,9 +284,9 @@ export const StoryContent = () =>
                     innovative data privacy, security and cyber resiliency
                     capabilities, plus minimal downtime.
                   </p>
-                  <c4d-card-cta-footer slot="footer">
+                  <c4d-card-footer>
                     ${ArrowRight20({ slot: 'icon' })}
-                  </c4d-card-cta-footer>
+                  </c4d-card-footer>
                 </c4d-card-group-item>
                 <c4d-card-group-item href="https://example.com">
                   <c4d-card-heading>Linux OS on Power Systems</c4d-card-heading>
@@ -295,9 +295,9 @@ export const StoryContent = () =>
                     cost-effectively on an open, scalable infrastructure with
                     built-in acceleration.
                   </p>
-                  <c4d-card-cta-footer slot="footer">
+                  <c4d-card-footer>
                     ${ArrowRight20({ slot: 'icon' })}
-                  </c4d-card-cta-footer>
+                  </c4d-card-footer>
                 </c4d-card-group-item>
               </c4d-card-group>
             </c4d-card-section-simple>

@@ -100,13 +100,6 @@
     </div>
   </div>
 </form>
-<div
-  aria-live="assertive"
-  aria-relevant="additions text"
-  class="cds--assistive-text"
-  role="status"
->
-</div>
 <div class="cds--header__search--actions">
   <button
     aria-label="perform-search-button-assistive-text-foo"

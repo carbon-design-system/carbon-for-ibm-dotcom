@@ -15,13 +15,12 @@ const { promisify } = require('util');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const rtlcss = require('rtlcss');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const babel = require('@rollup/plugin-babel');
 const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
-const { terser } = require('rollup-plugin-terser');
+const terser = require('@rollup/plugin-terser');
 const multiInput = require('rollup-plugin-multi-input').default;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
 
@@ -80,10 +79,6 @@ function getRollupConfig({
 
   if (mode !== 'development') {
     postCSSPlugins.push(cssnano());
-  }
-
-  if (dir === 'rtl') {
-    postCSSPlugins.push(rtlcss);
   }
 
   const licenseOptions = {

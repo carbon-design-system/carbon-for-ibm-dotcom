@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,10 +31,18 @@
   :host(#{$c4d-prefix}-content-group-pictograms),
   .#{$prefix}--content-group {
     display: block;
-    margin-block: $spacing-07;
+    margin-block-end: $spacing-07;
 
     @include breakpoint(md) {
       margin-block-end: $spacing-09;
+    }
+
+    &:only-of-type {
+      margin-block-end: 0;
+    }
+
+    &:last-of-type {
+      margin-block-end: 0;
     }
 
     .#{$prefix}--card__CTA {
