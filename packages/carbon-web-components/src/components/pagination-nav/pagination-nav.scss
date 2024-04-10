@@ -6,3 +6,9 @@
 //
 
 $css--plex: true !default;
+
+@import 'carbon-components/scss/components/pagination-nav/pagination-nav';
+
+:host(#{$prefix}-pagination-nav) {
+  @include pagination-nav;
+}

@@ -12,6 +12,9 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './pagination-nav.scss';
 import { classMap } from 'lit-html/directives/class-map';
+import CaretRight16 from '@carbon/icons/lib/caret--right/16';
+import CaretLeft16 from '@carbon/icons/lib/caret--left/16';
+import OverflowMenu from "@carbon/icons/lib/overflow-menu--horizontal/16";
 
 const { prefix } = settings;
 
@@ -157,6 +160,10 @@ class BXPaginationNav extends LitElement {
     const { target } = e;
     const { value } = (target as HTMLButtonElement);
     this.page = parseInt(value);
+
+    if (target instanceof HTMLSelectElement) {
+      target.value = '';
+    }
   }
 
   /**
@@ -196,10 +203,11 @@ class BXPaginationNav extends LitElement {
   renderIndividualItem(i: number = 3) {
     const { page, setIndex } = this;
     const classes = {
-      [`is-active`]: i === page
+      [`${prefix}--pagination-nav__page`]: true,
+      [`${prefix}--pagination-nav__page--active`]: i === page
     };
     return html`
-      <li>
+      <li class="${prefix}--pagination-nav__list-item">
         <button class=${classMap(classes)} type="button" value=${i} @click=${setIndex}>${i + 1}</button>
       </li>
     `
@@ -213,14 +221,23 @@ class BXPaginationNav extends LitElement {
    */
   renderGroupedItems(group: number[]) {
     const { setIndex } = this;
+    const classes = {
+      [`${prefix}--pagination-nav__page`]: true,
+      [`${prefix}--pagination-nav__page--select`]: true
+    }
     return html`
       <li>
-        <select @change=${setIndex} aria-label="Select Page Number">
-          <option>...</option>
-          ${group.map((i) => html`
-            <option value="${i}">${i + 1}</option>
-          `)}
-        </select>
+        <div class="${prefix}--pagination-nav__select">
+          <select class="${classMap(classes)}" @change=${setIndex} aria-label="Select Page Number">
+            <option value="" hidden></option>
+            ${group.map((i) => html`
+              <option value="${i}">${i + 1}</option>
+            `)}
+          </select>
+          <div class="${prefix}--pagination-nav__select-icon-wrapper">
+            ${OverflowMenu({class: `${prefix}--pagination-nav__select-icon`})}
+          </div>
+        </div>
       </li>
     `
   }
@@ -238,10 +255,35 @@ class BXPaginationNav extends LitElement {
     const decrementDisabled = !canLoop && page <= 0;
     const incrementDisabled = !canLoop && page >= count - 1;
 
+    const decrementClasses = {
+      [`${prefix}--pagination-nav__page`]: true,
+      [`${prefix}--btn--icon-only`]: true,
+      [`${prefix}--btn`]: true,
+      [`${prefix}--btn--ghost`]: true,
+      [`${prefix}--btn--disabled`]: decrementDisabled
+    }
+
+    const incrementClasses = {
+      [`${prefix}--pagination-nav__page`]: true,
+      [`${prefix}--btn--icon-only`]: true,
+      [`${prefix}--btn`]: true,
+      [`${prefix}--btn--ghost`]: true,
+      [`${prefix}--btn--disabled`]: incrementDisabled
+    }
+
     return html`
-      <nav>
-        <ul>
-          <li><button type="button" @click=${decrementIndex} ?disabled=${decrementDisabled}>prev</button></li>
+      <nav class="${prefix}--pagination-nav">
+        <ul class="${prefix}--pagination-nav__list">
+          <li class="${prefix}--pagination-nav__list-item">
+            <button
+              type="button"
+              @click=${decrementIndex}
+              ?disabled=${decrementDisabled}
+              class="${classMap(decrementClasses)}"
+            >
+              ${CaretLeft16()}
+            </button>
+          </li>
             ${iterator.map((i) => {
               if (typeof i === 'number') {
                 return this.renderIndividualItem(i);
@@ -250,7 +292,16 @@ class BXPaginationNav extends LitElement {
                 return this.renderGroupedItems(i);
               }
             })}
-          <li><button type="button" @click=${incrementIndex} ?disabled=${incrementDisabled}>next</button></li>
+          <li class="${prefix}--pagination-nav__list-item">
+            <button
+              type="button"
+              @click=${incrementIndex}
+              ?disabled=${incrementDisabled}
+              class="${classMap(incrementClasses)}"
+            >
+              ${CaretRight16()}
+            </button>
+          </li>
         </ul>
       </nav>
     `
@@ -260,29 +311,7 @@ class BXPaginationNav extends LitElement {
     return `${prefix}-page-changed`;
   }
 
-  static styles = [styles, css`
-    ul {
-      display: flex;
-      list-style-type: none;
-      gap: 0.5rem;
-    }
-
-    button, select {
-      all: unset;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #ddd;
-      padding: 0.25rem;
-      width: 1rem;
-      height: 1rem;
-      border-bottom: 2px solid transparent;
-    }
-
-    button.is-active {
-      border-bottom-color: blue;
-    }
-  `]; // `styles` here is a `CSSResult` generated by custom WebPack loader
+  static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 export default BXPaginationNav;
