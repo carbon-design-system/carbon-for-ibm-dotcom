@@ -42,8 +42,7 @@ $colorMap: (
   .#{$prefix}--slug__text {
     @include font-family('sans');
   }
-}
-:host(#{$prefix}-slug) {
+
   .#{$prefix}--popover-content {
     @include ai-popover-gradient();
 
@@ -75,6 +74,38 @@ $colorMap: (
     padding-block: $spacing-06 $spacing-11;
     padding-inline: $spacing-06;
     --cds-button-focus-color: var(--cds-focus);
+  }
+
+  .#{$prefix}--popover-caret {
+    background: transparent;
+    clip-path: none;
+
+    &::before {
+      position: absolute;
+      display: block;
+      box-sizing: border-box;
+      border: 1px solid $ai-border-start;
+      background: $background;
+      block-size: $spacing-04;
+      clip-path: polygon(98% 0, 0 0, -52% 150%) border-box;
+      content: '';
+      inline-size: $spacing-04;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      background: $background;
+      block-size: to-rem(14px);
+      content: '';
+      inline-size: $spacing-01;
+    }
+  }
+
+  .#{$prefix}--slug__button.#{$prefix}--slug__button--mini:focus,
+  .#{$prefix}--slug__button.#{$prefix}--slug__button--2xs:focus {
+    box-shadow: none;
   }
 }
 
@@ -140,40 +171,6 @@ $colorMap: (
 :host(#{$prefix}-slug:not([kind='inline'])) {
   .#{$prefix}--slug__button:focus {
     border: $background;
-  }
-}
-
-:host(#{$prefix}-slug) {
-  .#{$prefix}--popover-caret {
-    background: transparent;
-    clip-path: none;
-
-    &::before {
-      position: absolute;
-      display: block;
-      box-sizing: border-box;
-      border: 1px solid $ai-border-start;
-      background: $background;
-      block-size: $spacing-04;
-      clip-path: polygon(98% 0, 0 0, -52% 150%) border-box;
-      content: '';
-      inline-size: $spacing-04;
-      transform: rotate(45deg);
-    }
-
-    &::after {
-      position: absolute;
-      display: block;
-      background: $background;
-      block-size: to-rem(14px);
-      content: '';
-      inline-size: $spacing-01;
-    }
-  }
-
-  .#{$prefix}--slug__button.#{$prefix}--slug__button--mini:focus,
-  .#{$prefix}--slug__button.#{$prefix}--slug__button--2xs:focus {
-    box-shadow: none;
   }
 }
 
@@ -304,6 +301,7 @@ $colorMap: (
 :host(#{$prefix}-slug[autoalign]) .#{$prefix}--popover-caret {
   block-size: $spacing-04;
   inline-size: $spacing-04;
+  transform: none;
 }
 
 // :host(#{$prefix}-slug[autoalign][kind='hollow']),
@@ -318,10 +316,6 @@ $colorMap: (
 :host(#{$prefix}-slug[autoalign]) {
   .#{$prefix}--popover-caret::before {
     inset-block-start: 0;
-  }
-
-  .#{$prefix}--popover-caret {
-    transform: none;
   }
 
   .#{$prefix}--popover-caret::after {
