@@ -11,4 +11,10 @@ $css--plex: true !default;
 
 :host(#{$prefix}-pagination-nav) {
   @include pagination-nav;
+
+  .#{$prefix}--pagination-nav__page:disabled {
+    color: $disabled;
+    pointer-events: revert;
+    cursor: not-allowed;
+  }
 }

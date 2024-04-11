@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, property, html, css } from 'lit-element';
+import { LitElement, property, html } from 'lit-element';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './pagination-nav.scss';
@@ -229,7 +229,7 @@ class BXPaginationNav extends LitElement {
       <li>
         <div class="${prefix}--pagination-nav__select">
           <select class="${classMap(classes)}" @change=${setIndex} aria-label="Select Page Number">
-            <option value="" hidden></option>
+            <option value=""></option>
             ${group.map((i) => html`
               <option value="${i}">${i + 1}</option>
             `)}
@@ -255,20 +255,11 @@ class BXPaginationNav extends LitElement {
     const decrementDisabled = !canLoop && page <= 0;
     const incrementDisabled = !canLoop && page >= count - 1;
 
-    const decrementClasses = {
+    const navClasses = {
       [`${prefix}--pagination-nav__page`]: true,
       [`${prefix}--btn--icon-only`]: true,
       [`${prefix}--btn`]: true,
       [`${prefix}--btn--ghost`]: true,
-      [`${prefix}--btn--disabled`]: decrementDisabled
-    }
-
-    const incrementClasses = {
-      [`${prefix}--pagination-nav__page`]: true,
-      [`${prefix}--btn--icon-only`]: true,
-      [`${prefix}--btn`]: true,
-      [`${prefix}--btn--ghost`]: true,
-      [`${prefix}--btn--disabled`]: incrementDisabled
     }
 
     return html`
@@ -279,7 +270,7 @@ class BXPaginationNav extends LitElement {
               type="button"
               @click=${decrementIndex}
               ?disabled=${decrementDisabled}
-              class="${classMap(decrementClasses)}"
+              class="${classMap(navClasses)}"
             >
               ${CaretLeft16()}
             </button>
@@ -291,13 +282,14 @@ class BXPaginationNav extends LitElement {
               if (Array.isArray(i)) {
                 return this.renderGroupedItems(i);
               }
+              return;
             })}
           <li class="${prefix}--pagination-nav__list-item">
             <button
               type="button"
               @click=${incrementIndex}
               ?disabled=${incrementDisabled}
-              class="${classMap(incrementClasses)}"
+              class="${classMap(navClasses)}"
             >
               ${CaretRight16()}
             </button>
