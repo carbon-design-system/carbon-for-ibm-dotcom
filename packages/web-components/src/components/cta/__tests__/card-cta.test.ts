@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -73,15 +73,15 @@ xdescribe('c4d-card-cta', function () {
           // Should yeild to `undefined` in `name` part given card footer doesn't render the video name
           formatVideoCaption: ({ name, duration }) => `${name}-${duration}`,
           formatVideoDuration: ({ duration }) => duration,
-          children: html` <c4d-card-cta-footer></c4d-card-cta-footer> `,
+          children: html` <c4d-card-footer></c4d-card-footer> `,
         }),
         document.body
       );
       await Promise.resolve(); // Update cycle for `<c4d-card-cta>`
-      await Promise.resolve(); // Update cycle for `<c4d-card-cta-footer>` upon property forwarding
-      expect(
-        document.body.querySelector('c4d-card-cta-footer')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      await Promise.resolve(); // Update cycle for `<c4d-card-footer>` upon property forwarding
+      expect(document.body.querySelector('c4d-card-footer')).toMatchSnapshot({
+        mode: 'shadow',
+      });
     });
   });
 

@@ -103,14 +103,15 @@
                 Phasellus at elit sollicitudin, sodales nulla quis, consequat
                 libero.
       </p>
-      <c4d-card-cta-footer
+      <c4d-card-footer
         color-scheme=""
         cta-type=""
-        data-autoid="c4d--card-cta-footer"
+        data-autoid="c4d--card-footer"
         icon-placement="right"
+        parent-href="https://example.com"
         slot="footer"
       >
-      </c4d-card-cta-footer>
+      </c4d-card-footer>
     </c4d-card-group-item>
   </c4d-card-group>
   <c4d-content-item data-autoid="c4d--content-item">

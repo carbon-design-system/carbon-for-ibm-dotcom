@@ -1093,6 +1093,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       currentSearchResults,
       customTypeaheadAPI,
       hasSearch,
+      initialSearchTerm,
       inputTimeout,
       language,
       openSearchDropdown,
@@ -1106,6 +1107,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
             ?active="${activateSearch}"
             .currentSearchResults="${ifDefined(currentSearchResults)}"
             ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             input-timeout="${inputTimeout}"
             language="${ifDefined(language)}"
             ?open="${openSearchDropdown}"
@@ -1270,6 +1272,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: 'search-open-on-load' })
   searchOpenOnload = this.activateSearch;
+
+  /**
+   * Sets a default query in the masthead's search input.
+   */
+  @property({ attribute: 'initial-search-term', reflect: true })
+  initialSearchTerm?: string;
 
   /**
    * The profile items for authenticated state.
