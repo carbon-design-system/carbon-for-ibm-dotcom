@@ -64,10 +64,6 @@ const content = html`
   </div>
 `;
 
-// const hollowContent = html`<span slot="body-text"
-//   >AI was used to generate this content</span
-// >`;
-
 const actions = html`
   <cds-icon-button kind="ghost" slot="actions" size="lg">
     ${View16({ slot: 'icon' })}

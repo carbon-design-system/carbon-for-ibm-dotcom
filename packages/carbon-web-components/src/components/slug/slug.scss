@@ -110,7 +110,6 @@ $colorMap: (
 }
 
 :host(#{$prefix}-slug:not([with-actions])) {
-  // :host(#{$prefix}-slug[enabled]:not([with-actions]))c {
   .#{$prefix}--toggletip-content {
     max-inline-size: to-rem(320px);
   }
@@ -149,28 +148,9 @@ $colorMap: (
   }
 }
 
-// :host(#{$prefix}-slug[dot-type='hollow']),
-// :host(#{$prefix}-slug[kind='hollow']) {
-//   @extend .#{$prefix}--slug--hollow;
-
-//   .#{$prefix}--slug__button--hollow:hover {
-//     border-color: $slug-hollow-hover;
-//     color: $slug-hollow-hover;
-//   }
-
-//   .#{$prefix}--toggletip-content {
-//     row-gap: 0;
-//   }
-
-//   .#{$prefix}--slug__button--lg .#{$prefix}--slug__text::before {
-//     block-size: $spacing-03;
-//     inline-size: $spacing-03;
-//   }
-// }
-
 :host(#{$prefix}-slug:not([kind='inline'])) {
   .#{$prefix}--slug__button:focus {
-    border: $background;
+    border: 1px solid $focus;
   }
 }
 
@@ -303,15 +283,6 @@ $colorMap: (
   inline-size: $spacing-04;
   transform: none;
 }
-
-// :host(#{$prefix}-slug[autoalign][kind='hollow']),
-// :host(#{$prefix}-slug[autoalign][dot-type='hollow']) {
-//   .#{$prefix}--popover-caret {
-//     block-size: $spacing-03;
-//     inline-size: $spacing-03;
-//     transform: rotate(45deg);
-//   }
-// }
 
 :host(#{$prefix}-slug[autoalign]) {
   .#{$prefix}--popover-caret::before {

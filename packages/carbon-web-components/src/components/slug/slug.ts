@@ -140,17 +140,5 @@ export default class CDSSlug extends CDSToggleTip {
     name === 'revert-active' ? this.parentElement?.requestUpdate() : ``;
   }
 
-  // updated() {
-  //   super.updated();
-  //   if (
-  //     this.kind !== SLUG_KIND.HOLLOW &&
-  //     this.dotType !== SLUG_DOT_TYPE.HOLLOW
-  //   ) {
-  //     this.setAttribute('enabled', '');
-  //   } else {
-  //     this.removeAttribute('enabled');
-  //   }
-  // }
-
   static styles = styles;
 }
