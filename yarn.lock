@@ -3375,7 +3375,7 @@ __metadata:
     "@rollup/plugin-replace": "npm:^4.0.0"
     "@rollup/plugin-terser": "npm:^0.4.0"
     all-contributors-cli: "npm:^6.0.0"
-    axios: "npm:^1.6.0"
+    axios: "npm:^1.6.8"
     babel-core: "npm:^7.0.0-bridge.0"
     babel-jest: "npm:^24.0.0"
     babel-plugin-dev-expression: "npm:^0.2.1"
@@ -3457,7 +3457,7 @@ __metadata:
     "@rollup/plugin-replace": "npm:^4.0.0"
     "@rollup/plugin-terser": "npm:^0.4.0"
     all-contributors-cli: "npm:^6.0.0"
-    axios: "npm:^1.6.0"
+    axios: "npm:^1.6.8"
     babel-core: "npm:^7.0.0-bridge.0"
     babel-jest: "npm:^24.0.0"
     babel-plugin-dev-expression: "npm:^0.2.1"
@@ -10714,7 +10714,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.0.0, axios@npm:^1.6.0":
+"axios@npm:^1.0.0":
   version: 1.6.7
   resolution: "axios@npm:1.6.7"
   dependencies:
@@ -10722,6 +10722,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10/a1932b089ece759cd261f175d9ebf4d41c8994cf0c0767cda86055c7a19bcfdade8ae3464bf4cec4c8b142f4a657dc664fb77a41855e8376cf38b86d7a86518f
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.8":
+  version: 1.6.8
+  resolution: "axios@npm:1.6.8"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/3f9a79eaf1d159544fca9576261ff867cbbff64ed30017848e4210e49f3b01e97cf416390150e6fdf6633f336cd43dc1151f890bbd09c3c01ad60bb0891eee63
   languageName: node
   linkType: hard
 
@@ -17923,7 +17934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.14.9":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.6":
   version: 1.15.6
   resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
