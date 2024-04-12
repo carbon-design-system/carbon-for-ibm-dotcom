@@ -336,7 +336,8 @@
     button {
       background: none;
       border: none;
-      padding: 0;
+      padding: $carbon--spacing-05;
+      margin: -$carbon--spacing-05;
     }
 
     svg {
