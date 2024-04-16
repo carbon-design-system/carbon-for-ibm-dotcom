@@ -136,6 +136,11 @@ class BXPaginationNav extends LitElement {
     super.update(changedProperties);
   }
 
+  /**
+   * After page is selected, dispatch event & ensure focus is on active page.
+   *
+   * @param changedProperties map of changed props.
+   */
   updated(changedProperties) {
     if (changedProperties.has('page')) {
       const { pageChangedEvent } = (this.constructor as typeof BXPaginationNav);
