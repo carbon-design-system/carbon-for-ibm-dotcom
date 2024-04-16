@@ -148,6 +148,12 @@ class BXPaginationNav extends LitElement {
         }
       })
       this.dispatchEvent(event);
+      window.requestIdleCallback(()=>{
+        const activeItem = (this.shadowRoot!.querySelector('.bx--pagination-nav__page--active') as HTMLElement);
+        if (activeItem && !activeItem.matches(':focus')) {
+          activeItem.focus();
+        }
+      })
     }
   }
 
