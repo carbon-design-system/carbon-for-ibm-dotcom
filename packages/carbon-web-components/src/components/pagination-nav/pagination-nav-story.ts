@@ -17,9 +17,9 @@ import './index';
 import { boolean, number } from '@storybook/addon-knobs';
 
 export const Default = (args) => {
-  const { visible, count, page, loop } = args?.['bx-pagination-nav'] ?? {};
+  const { itemsShown, totalItems, page, loop } = args?.['bx-pagination-nav'] ?? {};
   return html`
-  <bx-pagination-nav visible="${visible}" count="${count}" page="${page}" ?loop=${loop}></bx-pagination-nav>
+  <bx-pagination-nav items-shown="${itemsShown}" total-items="${totalItems}" page="${page}" ?loop=${loop}></bx-pagination-nav>
   `;
 };
 
@@ -34,8 +34,8 @@ export default {
     },
     knobs: {
       'bx-pagination-nav': () => ({
-        visible: number('Visible Pages (visible)', 8, {min: 5}),
-        count: number('Total Pages (count)', 30),
+        itemsShown: number('Visible Pages (itemsShown)', 8, {min: 5}),
+        totalItems: number('Total Pages (totalItems)', 30),
         page: number('Active Page (page)', 0, {min: 0}),
         loop: boolean('Loop (loop)', false)
       }),

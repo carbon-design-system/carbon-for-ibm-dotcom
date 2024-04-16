@@ -58,8 +58,8 @@ class BXPaginationNav extends LitElement {
    *   - excludes prev/next buttons
    *   - minumum value of 5
    */
-  @property({ attribute: 'visible', reflect: true, type: Number})
-  visible = 1;
+  @property({ attribute: 'items-shown', reflect: true, type: Number})
+  itemsShown = 1;
 
   /**
    * Whether to allow looping between first/last pages.
@@ -76,8 +76,8 @@ class BXPaginationNav extends LitElement {
   /**
    * Total number of pages
    */
-  @property({ attribute: 'count', reflect: true, type: Number})
-  count = 1;
+  @property({ attribute: 'total-items', reflect: true, type: Number})
+  totalItems = 1;
 
   /**
    * Array allowing us to map out the items
@@ -88,15 +88,15 @@ class BXPaginationNav extends LitElement {
   private _iterator: any[] = [];
 
   shouldUpdate(changedProperties) {
-    // Prevent setting "visible" to less than 5.
-     if (changedProperties.has('visible') && this.visible < 5) {
-      this.visible = 5;
+    // Prevent setting "itemsShown" to less than 5.
+     if (changedProperties.has('itemsShown') && this.itemsShown < 5) {
+      this.itemsShown = 5;
     }
 
     // Prevent setting "page" outside bounds of available pages.
     if (changedProperties.has('count') || changedProperties.has('page')) {
-      if (this.page > this.count) {
-        this.page = this.count - 1;
+      if (this.page > this.totalItems) {
+        this.page = this.totalItems - 1;
       }
       if (this.page < 0) {
         this.page = 0;
@@ -111,9 +111,9 @@ class BXPaginationNav extends LitElement {
    * @param changedProperties map of previous values of changed properties
    */
   update(changedProperties) {
-    if (changedProperties.has('count') || changedProperties.has('visible') || changedProperties.has('page')) {
-      const { count, visible: visibleLimit, page } = this;
-      const allItems = [...new Array(Math.max(count, 1))].map((_u, i) => i);
+    if (changedProperties.has('totalItems') || changedProperties.has('itemsShown') || changedProperties.has('page')) {
+      const { totalItems, itemsShown: visibleLimit, page } = this;
+      const allItems = [...new Array(Math.max(totalItems, 1))].map((_u, i) => i);
       let iterator;
 
       if (allItems.length > visibleLimit) {
@@ -177,27 +177,27 @@ class BXPaginationNav extends LitElement {
    * Reduce current page by one, but no lower than 0.
    */
   decrementIndex() {
-    const { loop: canLoop, page, count } = this;
+    const { loop: canLoop, page, totalItems } = this;
     const wouldLoop = page - 1 < 0;
 
     if (canLoop) {
-      this.page = wouldLoop ? count - 1 : page - 1;
+      this.page = wouldLoop ? totalItems - 1 : page - 1;
     } else {
       this.page = Math.max(this.page - 1, 0);
     }
   }
 
   /**
-   * Increase current page by one, but no higher than (this.count - 1).
+   * Increase current page by one, but no higher than (this.totalItems - 1).
    */
   incrementIndex() {
-    const { loop: canLoop, page, count } = this;
-    const wouldLoop = page + 1 >= count;
+    const { loop: canLoop, page, totalItems } = this;
+    const wouldLoop = page + 1 >= totalItems;
 
     if (canLoop) {
       this.page = wouldLoop ? 0 : page + 1;
     } else {
-      this.page = Math.min(this.page + 1, this.count - 1);
+      this.page = Math.min(this.page + 1, this.totalItems - 1);
     }
   }
 
@@ -253,14 +253,14 @@ class BXPaginationNav extends LitElement {
     const {
       loop: canLoop,
       page,
-      count,
+      totalItems,
       _iterator: iterator,
       incrementIndex,
       decrementIndex,
     } = this;
 
     const decrementDisabled = !canLoop && page <= 0;
-    const incrementDisabled = !canLoop && page >= count - 1;
+    const incrementDisabled = !canLoop && page >= totalItems - 1;
 
     const navClasses = {
       [`${prefix}--pagination-nav__page`]: true,
