@@ -46,7 +46,8 @@ function calculateCuts(
 /**
  * Pagination Navigation.
  *
- * @element bx-pagination
+ * @element bx-pagination-nav
+ * @fires bx-page-changed - The custom event fired when the the page has been changed.
  */
 @customElement(`${prefix}-pagination-nav`)
 class BXPaginationNav extends LitElement {
