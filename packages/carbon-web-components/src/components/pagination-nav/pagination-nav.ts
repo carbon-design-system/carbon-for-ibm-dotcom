@@ -131,10 +131,17 @@ class BXPaginationNav extends LitElement {
         }
       })
       this.dispatchEvent(event);
-      window.requestIdleCallback(()=>{
+      window.requestAnimationFrame(()=>{
         const activeItem = (this.shadowRoot!.querySelector('.bx--pagination-nav__page--active') as HTMLElement);
-        if (activeItem && !activeItem.matches(':focus')) {
-          activeItem.focus();
+        const focusedItem = this.shadowRoot!.activeElement;
+
+        if (focusedItem) {
+          const isPrevNext = focusedItem.matches('button:not([value])');
+          const isActiveItem = focusedItem === activeItem;
+
+          if (!isPrevNext && !isActiveItem) {
+            activeItem.focus()
+          }
         }
       })
     }
