@@ -31455,20 +31455,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.19.0":
-  version: 1.75.0
-  resolution: "sass@npm:1.75.0"
-  dependencies:
-    chokidar: "npm:>=3.0.0 <4.0.0"
-    immutable: "npm:^4.0.0"
-    source-map-js: "npm:>=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 10/9f2d1b5adfe0b008e7062ef2f42fd9b26672e39e36ef3d234166636a4082d1f66c01804070e4e07b50ec872cdd9485ccf10fae8f87b3c00b9de6400c6e73efe8
-  languageName: node
-  linkType: hard
-
-"sass@npm:~1.75.0":
+"sass@npm:^1.19.0, sass@npm:~1.75.0":
   version: 1.75.0
   resolution: "sass@npm:1.75.0"
   dependencies:
