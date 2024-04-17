@@ -248,6 +248,7 @@ module.exports = {
               sourceMap: useStyleSourceMap,
               webpackImporter: false,
               sassOptions: {
+                outputStyle: 'expanded',
                 includePaths: [
                   path.resolve(__dirname, '..', 'node_modules'),
                   path.resolve(__dirname, '../../..', 'node_modules'),
