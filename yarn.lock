@@ -3463,7 +3463,7 @@ __metadata:
     "@carbon/layout": "npm:11.21.0"
     "@carbon/motion": "npm:11.17.0"
     "@carbon/pictograms-react": "npm:11.60.0"
-    "@carbon/react": "npm:1.54.0"
+    "@carbon/react": "npm:1.55.0"
     "@carbon/styles": "npm:1.54.0"
     "@carbon/type": "npm:11.26.0"
     "@carbon/web-components": "npm:2.7.0"
@@ -3679,16 +3679,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/react@npm:1.54.0":
-  version: 1.54.0
-  resolution: "@carbon/react@npm:1.54.0"
+"@carbon/react@npm:1.55.0":
+  version: 1.55.0
+  resolution: "@carbon/react@npm:1.55.0"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     "@carbon/feature-flags": "npm:^0.19.0"
     "@carbon/icons-react": "npm:^11.39.0"
     "@carbon/layout": "npm:^11.21.0"
-    "@carbon/styles": "npm:^1.54.0"
-    "@floating-ui/react": "npm:^0.25.4"
+    "@carbon/styles": "npm:^1.55.0"
+    "@floating-ui/react": "npm:^0.26.0"
     "@ibm/telemetry-js": "npm:^1.2.1"
     classnames: "npm:2.5.1"
     copy-to-clipboard: "npm:^3.3.1"
@@ -3710,7 +3710,7 @@ __metadata:
     react: ^16.8.6 || ^17.0.1 || ^18.2.0
     react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0
     sass: ^1.33.0
-  checksum: 10/fea5e0e83dd6bd67c23a8330d80ff4d60f2de5a49fff26762181b4162e0a28bdb2ca1f0fe95718b0e2793280b17c29dfcef7195ea66510a1bda1e980dba10454
+  checksum: 10/bc8437213c39a63d117c3adda633300d6fc5c8834e0e32dee7426a83fd9e9047331b76c1179f237b9cc911e063da045f9d2067c1474671d0e89c4e9f8f4c5417
   languageName: node
   linkType: hard
 
@@ -3750,7 +3750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/styles@npm:^1.54.0":
+"@carbon/styles@npm:^1.55.0":
   version: 1.55.0
   resolution: "@carbon/styles@npm:1.55.0"
   dependencies:
@@ -4461,7 +4461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/react-dom@npm:^2.0.2":
+"@floating-ui/react-dom@npm:^2.0.0":
   version: 2.0.8
   resolution: "@floating-ui/react-dom@npm:2.0.8"
   dependencies:
@@ -4473,24 +4473,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/react@npm:^0.25.4":
-  version: 0.25.4
-  resolution: "@floating-ui/react@npm:0.25.4"
+"@floating-ui/react@npm:^0.26.0":
+  version: 0.26.12
+  resolution: "@floating-ui/react@npm:0.26.12"
   dependencies:
-    "@floating-ui/react-dom": "npm:^2.0.2"
-    "@floating-ui/utils": "npm:^0.1.1"
-    tabbable: "npm:^6.0.1"
+    "@floating-ui/react-dom": "npm:^2.0.0"
+    "@floating-ui/utils": "npm:^0.2.0"
+    tabbable: "npm:^6.0.0"
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 10/9790e2ee5c1060f005aee0d0c21ba63cb9dbfc5eb775e259a84039d5c408b50573e7891733ec8f5fab2152df8615bfe85f30fd04656fc45af319aed99dfdf2dd
-  languageName: node
-  linkType: hard
-
-"@floating-ui/utils@npm:^0.1.1":
-  version: 0.1.6
-  resolution: "@floating-ui/utils@npm:0.1.6"
-  checksum: 10/450ec4ecc1dd8161b1904d4e1e9d95e653cc06f79af6c3b538b79efb10541d90bcc88646ab3cdffc5b92e00c4804ca727b025d153ad285f42dbbb39aec219ec9
+  checksum: 10/da77f6b99ed0c8d5169f0ed287304615bef7c66b7a0011e4425e843016f6450a928bc27310a861fb14f8a1e58ef11fbdd92550583440f11af5d1a905968453a6
   languageName: node
   linkType: hard
 
@@ -33623,7 +33616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tabbable@npm:^6.0.1, tabbable@npm:^6.2.0":
+"tabbable@npm:^6.0.0, tabbable@npm:^6.2.0":
   version: 6.2.0
   resolution: "tabbable@npm:6.2.0"
   checksum: 10/980fa73476026e99dcacfc0d6e000d41d42c8e670faf4682496d30c625495e412c4369694f2a15cf1e5252d22de3c396f2b62edbe8d60b5dadc40d09e3f2dde3
