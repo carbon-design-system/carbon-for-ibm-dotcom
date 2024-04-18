@@ -217,6 +217,7 @@ module.exports = {
         test: /\.scss$/,
         sideEffects: true,
         use: [
+          'cache-loader',
           require.resolve('../tools/css-result-loader'),
           {
             loader: 'postcss-loader',
