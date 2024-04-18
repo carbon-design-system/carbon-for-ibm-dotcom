@@ -17,9 +17,14 @@ import './index';
 import { boolean, number } from '@storybook/addon-knobs';
 
 export const Default = (args) => {
-  const { itemsShown, totalItems, page, loop } = args?.['bx-pagination-nav'] ?? {};
+  const { itemsShown, totalItems, page, loop } =
+    args?.['bx-pagination-nav'] ?? {};
   return html`
-  <bx-pagination-nav items-shown="${itemsShown}" total-items="${totalItems}" page="${page}" ?loop=${loop}></bx-pagination-nav>
+    <bx-pagination-nav
+      items-shown="${itemsShown}"
+      total-items="${totalItems}"
+      page="${page}"
+      ?loop=${loop}></bx-pagination-nav>
   `;
 };
 
@@ -30,14 +35,14 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     actions: {
-      handles: ['bx-page-changed bx-pagination-nav']
+      handles: ['bx-page-changed bx-pagination-nav'],
     },
     knobs: {
       'bx-pagination-nav': () => ({
-        itemsShown: number('Visible Pages (itemsShown)', 8, {min: 5}),
+        itemsShown: number('Visible Pages (itemsShown)', 8, { min: 5 }),
         totalItems: number('Total Pages (totalItems)', 30),
-        page: number('Active Page (page)', 0, {min: 0}),
-        loop: boolean('Loop (loop)', false)
+        page: number('Active Page (page)', 0, { min: 0 }),
+        loop: boolean('Loop (loop)', false),
       }),
     },
   },

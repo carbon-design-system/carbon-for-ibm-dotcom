@@ -14,7 +14,7 @@ import styles from './pagination-nav.scss';
 import { classMap } from 'lit-html/directives/class-map';
 import CaretRight16 from '@carbon/icons/lib/caret--right/16';
 import CaretLeft16 from '@carbon/icons/lib/caret--left/16';
-import OverflowMenu from "@carbon/icons/lib/overflow-menu--horizontal/16";
+import OverflowMenu from '@carbon/icons/lib/overflow-menu--horizontal/16';
 
 const { prefix } = settings;
 
@@ -26,32 +26,31 @@ const { prefix } = settings;
  */
 @customElement(`${prefix}-pagination-nav`)
 class BXPaginationNav extends LitElement {
-
   /**
    * The maxiumum number of items to show in pager nav.
    *   - includes overflow items
    *   - excludes prev/next buttons
    *   - minumum value of 5
    */
-  @property({ attribute: 'items-shown', reflect: true, type: Number})
+  @property({ attribute: 'items-shown', reflect: true, type: Number })
   itemsShown = 1;
 
   /**
    * Whether to allow looping between first/last pages.
    */
-  @property({ attribute: "loop", type: Boolean})
+  @property({ attribute: 'loop', type: Boolean })
   loop = false;
 
   /**
    * Active page index (0-based).
    */
-  @property({ attribute: "page", reflect: true, type: Number })
+  @property({ attribute: 'page', reflect: true, type: Number })
   page = 0;
 
   /**
    * Total number of pages
    */
-  @property({ attribute: 'total-items', reflect: true, type: Number})
+  @property({ attribute: 'total-items', reflect: true, type: Number })
   totalItems = 1;
 
   /**
@@ -64,7 +63,7 @@ class BXPaginationNav extends LitElement {
 
   shouldUpdate(changedProperties) {
     // Prevent setting "itemsShown" to less than 5.
-     if (changedProperties.has('itemsShown') && this.itemsShown < 5) {
+    if (changedProperties.has('itemsShown') && this.itemsShown < 5) {
       this.itemsShown = 5;
     }
 
@@ -87,23 +86,35 @@ class BXPaginationNav extends LitElement {
    * @param changedProperties map of previous values of changed properties
    */
   update(changedProperties) {
-    if (changedProperties.has('totalItems') || changedProperties.has('itemsShown') || changedProperties.has('page')) {
+    if (
+      changedProperties.has('totalItems') ||
+      changedProperties.has('itemsShown') ||
+      changedProperties.has('page')
+    ) {
       const { totalItems, itemsShown: visibleLimit, page } = this;
-      const { calculateCuts } = (this.constructor as typeof BXPaginationNav);
-      const allItems = [...new Array(Math.max(totalItems, 1))].map((_u, i) => i);
+      const { calculateCuts } = this.constructor as typeof BXPaginationNav;
+      const allItems = [...new Array(Math.max(totalItems, 1))].map(
+        (_u, i) => i
+      );
       let iterator;
 
       if (allItems.length > visibleLimit) {
         const first = allItems.shift();
         const last = allItems.pop();
-        const {front, back} = calculateCuts(page, allItems.length, visibleLimit - 2);
+        const { front, back } = calculateCuts(
+          page,
+          allItems.length,
+          visibleLimit - 2
+        );
         const upperGroup = allItems.splice(back);
         const lowerGroup = allItems.splice(0, front);
         const upper = upperGroup.length > 1 ? upperGroup : upperGroup[0];
-        const lower = lowerGroup.length > 1 ? lowerGroup : lowerGroup[0]
+        const lower = lowerGroup.length > 1 ? lowerGroup : lowerGroup[0];
 
-        iterator = [first, lower, ...allItems, upper, last]
-          .filter(item => (typeof item === "number" || (Array.isArray(item) && item.length)));
+        iterator = [first, lower, ...allItems, upper, last].filter(
+          (item) =>
+            typeof item === 'number' || (Array.isArray(item) && item.length)
+        );
       } else {
         iterator = allItems;
       }
@@ -120,7 +131,7 @@ class BXPaginationNav extends LitElement {
    */
   updated(changedProperties) {
     if (changedProperties.has('page')) {
-      const { pageChangedEvent } = (this.constructor as typeof BXPaginationNav);
+      const { pageChangedEvent } = this.constructor as typeof BXPaginationNav;
       const event = new CustomEvent(pageChangedEvent, {
         bubbles: true,
         cancelable: true,
@@ -128,11 +139,13 @@ class BXPaginationNav extends LitElement {
         detail: {
           oldValue: changedProperties.get('page'),
           newValue: this.page,
-        }
-      })
+        },
+      });
       this.dispatchEvent(event);
-      window.requestAnimationFrame(()=>{
-        const activeItem = (this.shadowRoot!.querySelector('.bx--pagination-nav__page--active') as HTMLElement);
+      window.requestAnimationFrame(() => {
+        const activeItem = this.shadowRoot!.querySelector(
+          '.bx--pagination-nav__page--active'
+        ) as HTMLElement;
         const focusedItem = this.shadowRoot!.activeElement;
 
         if (focusedItem) {
@@ -140,10 +153,10 @@ class BXPaginationNav extends LitElement {
           const isActiveItem = focusedItem === activeItem;
 
           if (!isPrevNext && !isActiveItem) {
-            activeItem.focus()
+            activeItem.focus();
           }
         }
-      })
+      });
     }
   }
 
@@ -154,7 +167,7 @@ class BXPaginationNav extends LitElement {
    */
   setIndex(e: PointerEvent) {
     const { target } = e;
-    const { value } = (target as HTMLButtonElement);
+    const { value } = target as HTMLButtonElement;
     this.page = parseInt(value);
 
     if (target instanceof HTMLSelectElement) {
@@ -200,13 +213,19 @@ class BXPaginationNav extends LitElement {
     const { page, setIndex } = this;
     const classes = {
       [`${prefix}--pagination-nav__page`]: true,
-      [`${prefix}--pagination-nav__page--active`]: i === page
+      [`${prefix}--pagination-nav__page--active`]: i === page,
     };
     return html`
       <li class="${prefix}--pagination-nav__list-item">
-        <button class=${classMap(classes)} type="button" value=${i} @click=${setIndex}>${i + 1}</button>
+        <button
+          class=${classMap(classes)}
+          type="button"
+          value=${i}
+          @click=${setIndex}>
+          ${i + 1}
+        </button>
       </li>
-    `
+    `;
   }
 
   /**
@@ -219,23 +238,24 @@ class BXPaginationNav extends LitElement {
     const { setIndex } = this;
     const classes = {
       [`${prefix}--pagination-nav__page`]: true,
-      [`${prefix}--pagination-nav__page--select`]: true
-    }
+      [`${prefix}--pagination-nav__page--select`]: true,
+    };
     return html`
       <li>
         <div class="${prefix}--pagination-nav__select">
-          <select class="${classMap(classes)}" @change=${setIndex} aria-label="Select Page Number">
+          <select
+            class="${classMap(classes)}"
+            @change=${setIndex}
+            aria-label="Select Page Number">
             <option value=""></option>
-            ${group.map((i) => html`
-              <option value="${i}">${i + 1}</option>
-            `)}
+            ${group.map((i) => html` <option value="${i}">${i + 1}</option> `)}
           </select>
           <div class="${prefix}--pagination-nav__select-icon-wrapper">
-            ${OverflowMenu({class: `${prefix}--pagination-nav__select-icon`})}
+            ${OverflowMenu({ class: `${prefix}--pagination-nav__select-icon` })}
           </div>
         </div>
       </li>
-    `
+    `;
   }
 
   render() {
@@ -256,7 +276,7 @@ class BXPaginationNav extends LitElement {
       [`${prefix}--btn--icon-only`]: true,
       [`${prefix}--btn`]: true,
       [`${prefix}--btn--ghost`]: true,
-    }
+    };
 
     return html`
       <nav class="${prefix}--pagination-nav">
@@ -266,33 +286,31 @@ class BXPaginationNav extends LitElement {
               type="button"
               @click=${decrementIndex}
               ?disabled=${decrementDisabled}
-              class="${classMap(navClasses)}"
-            >
+              class="${classMap(navClasses)}">
               ${CaretLeft16()}
             </button>
           </li>
-            ${iterator.map((i) => {
-              if (typeof i === 'number') {
-                return this.renderIndividualItem(i);
-              }
-              if (Array.isArray(i)) {
-                return this.renderGroupedItems(i);
-              }
-              return;
-            })}
+          ${iterator.map((i) => {
+            if (typeof i === 'number') {
+              return this.renderIndividualItem(i);
+            }
+            if (Array.isArray(i)) {
+              return this.renderGroupedItems(i);
+            }
+            return;
+          })}
           <li class="${prefix}--pagination-nav__list-item">
             <button
               type="button"
               @click=${incrementIndex}
               ?disabled=${incrementDisabled}
-              class="${classMap(navClasses)}"
-            >
+              class="${classMap(navClasses)}">
               ${CaretRight16()}
             </button>
           </li>
         </ul>
       </nav>
-    `
+    `;
   }
 
   static get pageChangedEvent() {
@@ -302,25 +320,24 @@ class BXPaginationNav extends LitElement {
   static calculateCuts(
     page: number,
     totalItems: number,
-    itemsDisplayedOnPage: number,
+    itemsDisplayedOnPage: number
   ) {
     const split = (itemsDisplayedOnPage - 1) / 2;
 
     let frontHiddenIndex = page - Math.ceil(split);
     let backHiddenIndex = page + Math.floor(split) - 1;
 
-
     if (frontHiddenIndex < 1) {
       backHiddenIndex += Math.abs(frontHiddenIndex - 1);
     }
 
     if (backHiddenIndex > totalItems - 1) {
-      frontHiddenIndex -= (Math.abs(totalItems - backHiddenIndex - 1));
+      frontHiddenIndex -= Math.abs(totalItems - backHiddenIndex - 1);
     }
 
     return {
       front: frontHiddenIndex,
-      back: backHiddenIndex
+      back: backHiddenIndex,
     };
   }
 
