@@ -158,16 +158,16 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     const svgGradientStops =
       type === LEADSPACE_TYPE.CENTERED
         ? svg`
-        <stop offset="0%" />
-        <stop offset="54%" />
-        <stop offset="77%" />
-        <stop offset="100%" />
+        <stop offset="0%"></stop>
+        <stop offset="54%"></stop>
+        <stop offset="77%"></stop>
+        <stop offset="100%"></stop>
       `
         : svg`
-        <stop offset="0%" />
-        <stop offset="25%" />
-        <stop offset="50%" />
-        <stop offset="75%" />
+        <stop offset="0%"></stop>
+        <stop offset="25%"></stop>
+        <stop offset="50%"></stop>
+        <stop offset="75%"></stop>
       `;
 
     const svgGradientTransform =
