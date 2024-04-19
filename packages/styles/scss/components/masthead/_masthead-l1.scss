@@ -131,8 +131,26 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown {
+      border-bottom: 1px solid $ui-03;
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline: 0;
+      background-color: $ui-background;
+      color: $text-02;
+
+      &.is-open {
+        box-shadow: 0 0 6px #c6c6c6;
+      }
+
       &:not(.is-open) {
         display: none;
+      }
+
+      &:last-child {
+        & > a,
+        & > button {
+          border-bottom: unset;
+        }
       }
 
       // Height of viewport, minus the L0/L1 combo, minus additional space to match L0 megapanels
@@ -332,6 +350,7 @@ $search-transition-timing: 95ms;
 
         background-color: $interactive-01;
         color: $ui-02;
+        border-bottom: unset;
 
         svg {
           color: inherit;
