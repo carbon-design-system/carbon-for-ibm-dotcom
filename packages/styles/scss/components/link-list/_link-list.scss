@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -104,14 +104,6 @@
     }
 
     @include type-style('heading-02');
-
-    @include breakpoint(md) {
-      margin-inline-start: -$spacing-05;
-    }
-
-    @include breakpoint(lg) {
-      margin-inline-start: 0;
-    }
   }
 
   :host(#{$c4d-prefix}-link-list-item)[type='default'],
@@ -176,9 +168,5 @@
     ::slotted(svg[slot='icon']) {
     min-block-size: 20px;
     min-inline-size: 20px;
-  }
-
-  :host(#{$c4d-prefix}-link-list):last-of-type {
-    padding-block-end: $spacing-10;
   }
 }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -84,11 +84,17 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
    * The CSS class list for the container (grid) node.
    */
   protected _getContainerClasses() {
-    const { complementaryStyleScheme, _hasComplementary: hasComplementary } =
-      this;
+    const {
+      complementaryStyleScheme,
+      _hasContent: hasContent,
+      _hasComplementary: hasComplementary,
+      _hasFooter: hasFooter,
+    } = this;
     return classMap({
       [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--with-children`]: hasContent,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
+      [`${prefix}--content-layout--with-footer`]: hasFooter,
       [`${prefix}--layout--border`]:
         complementaryStyleScheme ===
         CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
@@ -168,10 +174,10 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
     return html`
       <div
         ?hidden="${!hasFooter}"
-        class="${cardGroup &&
-        hasFooter &&
-        `${c4dPrefix}--content-block-footer`}"
-        style="${cardGroupStyle}">
+        class="${hasFooter && `${c4dPrefix}--content-block-footer`}"
+        style="${cardGroupStyle}"
+        ?card-group="${cardGroup}"
+        grid-mode="${cardGroup?.getAttribute('grid-mode')}">
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;

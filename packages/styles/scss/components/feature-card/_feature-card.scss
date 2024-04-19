@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -588,7 +588,7 @@ $feature-flags: (
     }
 
     &[size='large'] {
-      .dds-ce--card__footer ::slotted(svg[slot='icon']) {
+      .#{$c4d-prefix}-ce--card__footer ::slotted(svg[slot='icon']) {
         @include breakpoint(max) {
           block-size: $spacing-10;
           inline-size: $spacing-10;
