@@ -229,7 +229,8 @@ class StickyHeader {
 
     /**
      * maxScrollaway is a calculated value matching the height of all components
-     * that are allowed to hide above the viewport.
+     * that are allowed to hide above the viewport. I.e., adding an item's height
+     * to this value indicates we expect it to be hidden above the viewport.
      *
      * We should only have one sticky header showing as the page scrolls down.
      *
@@ -253,13 +254,12 @@ class StickyHeader {
       tocShouldStick =
         toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
 
-      if (masthead && tocIsAtTop && (tocShouldStick || mastheadL1)) {
+      // If we have a masthead and the TOC should be the stuck element, hide masthead
+      // above viewport. Otherwise, if there is an L1, just hide the L0. If there's only
+      // the L0, do nothing.
+      if (masthead && tocIsAtTop && tocShouldStick) {
         maxScrollaway += masthead.offsetHeight;
-
-        if (mastheadL1 && !tocShouldStick) {
-          maxScrollaway -= mastheadL1.offsetHeight;
-        }
-      } else if (mastheadL0 && mastheadL1) {
+      } else if (mastheadL1) {
         maxScrollaway += mastheadL0.offsetHeight;
       }
     }
