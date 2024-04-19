@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.43.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.42.0...@carbon/ibmdotcom-web-components@1.43.0-rc.0) (2024-04-19)
+
+
+### Bug Fixes
+
+* **leadspace:** be explicit about svg closing tags ([#11696](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11696)) ([b20cd09](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b20cd09654f35e7723d5af56772f2b44d3b2b93c)), closes [#11690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11690)
+* **pricing-table-annotation-toggle:** increased the size of the annot… ([#11581](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11581)) ([2620b6a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2620b6a0f34336b4176c8f1346972b0a65b56202))
+* **tabs-extended:** confusing behavior when in mobile the accordion c… ([#11595](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11595)) ([e46f64e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e46f64e426e7e26eb0e0e9cf05e2611d2a57af12))
+
+
+### Features
+
+* **video-player:** fade in video on load ([#11650](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11650)) ([dc30289](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dc30289030e1ee654e16d2a288f91f94f2f6b52c))
+
+
+
+
+
 # [1.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.42.0-rc.0...@carbon/ibmdotcom-web-components@1.42.0) (2024-03-12)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
