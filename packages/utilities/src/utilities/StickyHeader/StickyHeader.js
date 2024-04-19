@@ -258,35 +258,26 @@ class StickyHeader {
      * - The leadspace with search (if no TOC)
      */
     this._data.maxScrollaway = 0;
-    let tocIsAtTop = false;
-    let tocShouldStick = false;
-    let searchIsAtTop = false;
 
-    // Calculate element positions
-    if (tocInner) {
-      tocIsAtTop =
-        tocInner.getBoundingClientRect().top <=
-        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
+    const tocShouldStick = toc
+      ? toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint
+      : false;
 
-      tocShouldStick =
-        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
-    }
-    if (leadspaceSearchBar) {
-      searchIsAtTop =
-        leadspaceSearchBar.getBoundingClientRect().top <=
-        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
-    }
+    const tocIsAtTop = tocInner
+      ? tocInner.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
+      : false;
 
-    // If there is a TOC, calculate maxScrollaway values based on its positon.
-    // Else if there is a leadspace search, calculate maxScrollaway values based
-    // on its position.
-    if (masthead && tocIsAtTop && tocShouldStick) {
-      this._data.maxScrollaway += masthead.offsetHeight;
-    } else if (masthead && searchIsAtTop) {
-      this._data.maxScrollaway += masthead.offsetHeight;
+    const searchIsAtTop = leadspaceSearchBar
+      ? leadspaceSearchBar.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
+      : false;
+
+    // Scroll away entire masthead if either TOC or leadspace search is eligible
+    // to be the stuck element. Otherwise, scroll away the L0 if we have an L1.
+    if (masthead && ((tocIsAtTop && tocShouldStick) || searchIsAtTop)) {
+      this._data.maxScrollaway = masthead.offsetHeight;
     }
     else if (mastheadL1) {
-      this._data.maxScrollaway += mastheadL0.offsetHeight;
+      this._data.maxScrollaway = mastheadL0.offsetHeight;
     }
 
     /**
@@ -322,9 +313,6 @@ class StickyHeader {
     if (tocInner) {
       tocInner.style.transition = 'none';
       tocInner.style.top = `${cumulativeOffset}px`;
-
-      tocShouldStick =
-        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
 
       const tocIsStuck =
         Math.round(tocInner.getBoundingClientRect().top) <=
