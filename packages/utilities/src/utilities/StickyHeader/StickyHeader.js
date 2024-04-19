@@ -18,20 +18,30 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 class StickyHeader {
   constructor() {
     this.ownerDocument = root.document;
-    this._banner = undefined;
-    this._cumulativeHeight = 0;
-    this._hasBanner = false;
-    this._lastScrollPosition = 0;
-    this._leadspaceWithSearch = undefined;
-    this._leadspaceSearchBar = undefined;
-    this._leadspaceWithSearchStickyThreshold = 0;
-    this._localeModal = undefined;
-    this._masthead = undefined;
-    this._mastheadL0 = undefined;
-    this._mastheadL1 = undefined;
-    this._tableOfContents = undefined;
-    this._tableOfContentsInnerBar = undefined;
-    this._tableOfContentsLayout = undefined;
+
+    this._data = {
+      cumulativeHeight: 0,
+      hasBanner: false,
+      lastScrollPosition: 0,
+      leadspaceSearchStickyThreshold: 0,
+      maxScrollaway: 0,
+      scrollDir: undefined,
+      tableOfContentsLayout: undefined,
+    };
+
+    this._elements = {
+      banner: undefined,
+      leadspaceSearch: undefined,
+      leadspaceSearchBar: undefined,
+      leadspaceSearchInput: undefined,
+      localeModal: undefined,
+      masthead: undefined,
+      mastheadL0: undefined,
+      mastheadL1: undefined,
+      tableOfContents: undefined,
+      tableOfContentsInnerBar: undefined,
+    };
+
     this._throttled = false;
     this._resizeObserver = new ResizeObserver(this._handleResize.bind(this));
     root.addEventListener('scroll', this._throttledHandler.bind(this));
@@ -52,7 +62,7 @@ class StickyHeader {
   }
 
   get height() {
-    return this._cumulativeHeight;
+    return this._data.cumulativeHeight;
   }
 
   /**
@@ -73,7 +83,7 @@ class StickyHeader {
   }
 
   _tableOfContentsStickyUpdate() {
-    const { _tableOfContents: toc } = this;
+    const { tableOfContents: toc } = this._elements;
 
     const tocRoot = toc.shadowRoot;
 
@@ -81,15 +91,15 @@ class StickyHeader {
 
     if (window.innerWidth > gridBreakpoint) {
       if (toc.layout === 'horizontal') {
-        this._tableOfContentsInnerBar = tocRoot.querySelector(
+        this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
           `.${prefix}--tableofcontents__navbar`
         );
-        this._tableOfContentsLayout = 'horizontal';
+        this._data.tableOfContentsLayout = 'horizontal';
       } else {
-        this._tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector);
+        this._elements.tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector);
       }
     } else {
-      this._tableOfContentsInnerBar = tocRoot.querySelector(
+      this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
         `.${prefix}--tableofcontents__sidebar`
       );
     }
@@ -97,30 +107,30 @@ class StickyHeader {
 
   set banner(component) {
     if (this._validateComponent(component, `${ddsPrefix}-universal-banner`)) {
-      this._banner = component;
-      this.hasBanner = true;
+      this._elements.banner = component;
+      this._data.hasBanner = true;
 
-      if (this._masthead) {
-        this._masthead.setAttribute('with-banner', '');
+      if (this._elements.masthead) {
+        this._elements.masthead.setAttribute('with-banner', '');
       }
 
       this._calculateCumulativeHeight();
     }
   }
 
-  set leadspaceWithSearch(component) {
+  set leadspaceSearch(component) {
     if (
       this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
     ) {
-      this._leadspaceWithSearch = component;
+      this._elements.leadspaceSearch = component;
       const leadspaceSearchBar = component.shadowRoot.querySelector(
         `.${prefix}--search-container`
       );
-      this._leadspaceSearchBar = leadspaceSearchBar;
-      this._leadspaceWithSearchInput = component.querySelector(
+      this._elements.leadspaceSearchBar = leadspaceSearchBar;
+      this._elements.leadspaceSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
-      this._leadspaceWithSearchStickyThreshold =
+      this._data.leadspaceSearchStickyThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
       this._calculateCumulativeHeight();
@@ -129,29 +139,29 @@ class StickyHeader {
 
   set localeModal(component) {
     if (this._validateComponent(component, `${ddsPrefix}-locale-modal`)) {
-      this._localeModal = component;
+      this._elements.localeModal = component;
       this._calculateCumulativeHeight();
     }
   }
 
   set masthead(component) {
     if (this._validateComponent(component, `${ddsPrefix}-masthead`)) {
-      this._masthead = component;
-      if (this._banner) this._masthead.setAttribute('with-banner', '');
+      this._elements.masthead = component;
+      if (this._elements.banner) this._elements.masthead.setAttribute('with-banner', '');
 
-      this._mastheadL0 = component.shadowRoot.querySelector(
+      this._elements.mastheadL0 = component.shadowRoot.querySelector(
         `.${prefix}--masthead__l0`
       );
-      this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
+      this._elements.mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
       this._calculateCumulativeHeight();
     }
   }
 
   set tableOfContents(component) {
     if (this._validateComponent(component, `${ddsPrefix}-table-of-contents`)) {
-      this._tableOfContents = component;
+      this._elements.tableOfContents = component;
       this._tableOfContentsStickyUpdate();
-      this._resizeObserver.observe(this._tableOfContents);
+      this._resizeObserver.observe(this._elements.tableOfContents);
       this._calculateCumulativeHeight();
     }
   }
@@ -173,11 +183,14 @@ class StickyHeader {
   _handleResize() {
     const {
       _hasBanner: hasBanner,
-      _masthead: masthead,
-      _tableOfContents: toc,
       _tableOfContentsLayout: tocLayout,
-      _leadspaceSearchBar: leadspaceSearchBar,
-    } = this;
+    } = this._data;
+
+    const {
+      masthead,
+      tableOfContents: toc,
+      leadspaceSearchBar,
+    } = this._elements;
 
     if (toc && masthead) {
       this._tableOfContentsStickyUpdate();
@@ -189,7 +202,7 @@ class StickyHeader {
         masthead.style.top = '0';
       } else {
         // This has to happen after the tocStickyUpdate method.
-        const { _tableOfContentsInnerBar: tocInner } = this;
+        const { tableOfContentsInnerBar: tocInner } = this._elements;
         if (masthead.offsetTop === 0) {
           tocInner.style.top = `${masthead.offsetHeight}px`;
         }
@@ -198,7 +211,7 @@ class StickyHeader {
     }
 
     if (leadspaceSearchBar) {
-      this._leadspaceWithSearchStickyThreshold =
+      this._data.leadspaceSearchStickyThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
     }
@@ -206,26 +219,30 @@ class StickyHeader {
 
   _calculateCumulativeHeight() {
     const {
-      _lastScrollPosition: oldY,
-      _banner: banner,
-      _masthead: masthead,
-      _mastheadL0: mastheadL0,
-      _mastheadL1: mastheadL1,
-      _localeModal: localeModal,
-      _tableOfContents: toc,
-      _tableOfContentsInnerBar: tocInner,
-      _leadspaceWithSearch: leadspaceSearch,
-      _leadspaceSearchBar: leadspaceSearchBar,
-      _leadspaceWithSearchInput: leadspaceSearchInput,
-      _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
-    } = StickyHeader.global;
+      banner,
+      masthead,
+      mastheadL0,
+      mastheadL1,
+      localeModal,
+      tableOfContents: toc,
+      tableOfContentsInnerBar: tocInner,
+      leadspaceSearch,
+      leadspaceSearchBar,
+      leadspaceSearchInput,
+    } = StickyHeader.global._elements;
+
+    const {
+      lastScrollPosition: oldY,
+      leadspaceSearchStickyThreshold: leadspaceSearchThreshold,
+    } = StickyHeader.global._data;
 
     const { customPropertyName } = this.constructor;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
 
     const newY = window.scrollY;
-    this._lastScrollPosition = Math.max(0, newY);
+    this._data.scrollDir = newY > this._data.lastScrollPosition ? 'down' : 'up';
+    this._data.lastScrollPosition = Math.max(0, newY);
 
     /**
      * maxScrollaway is a calculated value matching the height of all components
@@ -240,12 +257,12 @@ class StickyHeader {
      * - The TOC in horizontal bar form
      * - The leadspace with search (if no TOC)
      */
-    let maxScrollaway = 0;
-
-    // Calculate maxScrollaway values based on TOC positon
+    this._data.maxScrollaway = 0;
     let tocIsAtTop = false;
     let tocShouldStick = false;
+    let searchIsAtTop = false;
 
+    // Calculate element positions
     if (tocInner) {
       tocIsAtTop =
         tocInner.getBoundingClientRect().top <=
@@ -253,26 +270,23 @@ class StickyHeader {
 
       tocShouldStick =
         toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
-
-      // If we have a masthead and the TOC should be the stuck element, hide masthead
-      // above viewport. Otherwise, if there is an L1, just hide the L0. If there's only
-      // the L0, do nothing.
-      if (masthead && tocIsAtTop && tocShouldStick) {
-        maxScrollaway += masthead.offsetHeight;
-      } else if (mastheadL1) {
-        maxScrollaway += mastheadL0.offsetHeight;
-      }
     }
-
-    // Calculate maxScrollaway values based on leadspace search position
-    if (!tocInner && leadspaceSearchBar) {
-      const searchIsAtTop =
+    if (leadspaceSearchBar) {
+      searchIsAtTop =
         leadspaceSearchBar.getBoundingClientRect().top <=
         (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
+    }
 
-      if (masthead && searchIsAtTop) {
-        maxScrollaway += masthead.offsetHeight;
-      }
+    // If there is a TOC, calculate maxScrollaway values based on its positon.
+    // Else if there is a leadspace search, calculate maxScrollaway values based
+    // on its position.
+    if (masthead && tocIsAtTop && tocShouldStick) {
+      this._data.maxScrollaway += masthead.offsetHeight;
+    } else if (masthead && searchIsAtTop) {
+      this._data.maxScrollaway += masthead.offsetHeight;
+    }
+    else if (mastheadL1) {
+      this._data.maxScrollaway += mastheadL0.offsetHeight;
     }
 
     /**
@@ -292,7 +306,7 @@ class StickyHeader {
      */
     let cumulativeOffset = Math.max(
       Math.min((masthead ? masthead.offsetTop : 0) + oldY - newY, 0),
-      maxScrollaway * -1
+      this._data.maxScrollaway * -1
     );
 
     if (banner) {
@@ -354,12 +368,12 @@ class StickyHeader {
     }
 
     // Set internal property for use in scripts
-    this._cumulativeHeight = cumulativeOffset;
+    this._data.cumulativeHeight = cumulativeOffset;
 
     // Set custom property for use in stylesheets
     root.document.documentElement.style.setProperty(
       customPropertyName,
-      `${this._cumulativeHeight}px`
+      `${this._data.cumulativeHeight}px`
     );
   }
 }

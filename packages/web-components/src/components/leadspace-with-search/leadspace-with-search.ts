@@ -107,7 +107,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   }
 
   protected firstUpdated() {
-    StickyHeader.global.leadspaceWithSearch = this;
+    StickyHeader.global.leadspaceSearch = this;
   }
 
   render() {
