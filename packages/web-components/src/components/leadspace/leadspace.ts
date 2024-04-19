@@ -154,44 +154,53 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
 
   render() {
     const { gradientStyleScheme, type, size } = this;
+
+    const svgGradientStops =
+      type === LEADSPACE_TYPE.CENTERED
+        ? svg`
+        <stop offset="0%"></stop>
+        <stop offset="54%"></stop>
+        <stop offset="77%"></stop>
+        <stop offset="100%"></stop>
+      `
+        : svg`
+        <stop offset="0%"></stop>
+        <stop offset="25%"></stop>
+        <stop offset="50%"></stop>
+        <stop offset="75%"></stop>
+      `;
+
+    const svgGradientTransform =
+      type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : '';
+
+    const svgGradient = svg`
+      <defs>
+        <linearGradient
+          id="stops"
+          class="${prefix}--leadspace__gradient__stops"
+          gradientTransform="${svgGradientTransform}"
+        >
+          ${svgGradientStops}
+        </linearGradient>
+      </defs>
+      <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
+    `;
     return html`
       <section class="${this._getTypeClass()}" part="section">
         <div class="${prefix}--leadspace__container">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
-              : svg`
-                <svg
-                  class="${prefix}--leadspace__gradient"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <defs>
-                    <linearGradient id="stops" class="${prefix}--leadspace__gradient__stops" gradientTransform="${
-                  type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : ''
-                }">
-                      ${
-                        type === LEADSPACE_TYPE.CENTERED
-                          ? svg`
-                          <stop offset="0%" />
-                          <stop offset="54%" />
-                          <stop offset="77%" />
-                          <stop offset="100%" />
-                        `
-                          : svg`
-                          <stop offset="0%" />
-                          <stop offset="25%" />
-                          <stop offset="50%" />
-                          <stop offset="75%" />
-                        `
-                      }
-                    </linearGradient>
-                  </defs>
-                  <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
-                </svg>
-              `}
+              : html`
+                  <svg
+                    class="${prefix}--leadspace__gradient"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    ${svgGradient}
+                  </svg>
+                `}
             <div class="${prefix}--leadspace--content__container">
               <div class="${prefix}--leadspace__row">
                 <slot
