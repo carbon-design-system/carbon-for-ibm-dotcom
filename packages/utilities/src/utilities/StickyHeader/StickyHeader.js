@@ -279,13 +279,13 @@ class StickyHeader {
     // to be the stuck element (unless L1 is open). Otherwise, scroll away the
     // L0 if we have an L1.
     if (searchIsAtTop || (tocIsAtTop && tocShouldStick)) {
-      if (mastheadL1IsActive) {
+      if (mastheadL1IsActive && mastheadL0) {
         this._data.maxScrollaway = mastheadL0.offsetHeight;
       } else if (masthead) {
         this._data.maxScrollaway = masthead.offsetHeight;
       }
     }
-    else if (mastheadL1) {
+    else if (masthead && mastheadL0 && mastheadL1) {
       this._data.maxScrollaway = mastheadL0.offsetHeight;
     }
 
