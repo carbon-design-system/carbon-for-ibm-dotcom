@@ -98,7 +98,12 @@
     @include type-style('body-02');
 
     color: $text-primary;
-    margin-block-end: $spacing-05;
+  }
+
+  :host(#{$c4d-prefix}-content-item-copy[has-cta]) {
+    ::slotted(#{$c4d-prefix}-content-item-paragraph) {
+      margin-block-end: $spacing-05;
+    }
   }
 
   :host(#{$c4d-prefix}-content-item[horizontal])
