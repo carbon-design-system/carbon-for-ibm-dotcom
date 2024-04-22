@@ -26,7 +26,6 @@ class StickyHeader {
       leadspaceSearchStickyThreshold: 0,
       maxScrollaway: 0,
       scrollDir: undefined,
-      tableOfContentsLayout: undefined,
     };
 
     this._elements = {
@@ -82,27 +81,31 @@ class StickyHeader {
     }
   }
 
-  _tableOfContentsStickyUpdate() {
+  /**
+   * Stores references to TOC sub-elements that are relevant to current viewport
+   * dimensions.
+   */
+  _updateTableOfContentsRefs() {
     const { tableOfContents: toc } = this._elements;
-
     const tocRoot = toc.shadowRoot;
-
-    const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
-
-    if (window.innerWidth > gridBreakpoint) {
-      if (toc.layout === 'horizontal') {
-        this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
-          `.${prefix}--tableofcontents__navbar`
-        );
-        this._data.tableOfContentsLayout = 'horizontal';
-      } else {
-        this._elements.tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector);
+    const selectors = {
+      desktop: {
+        vertical: `.${ddsPrefix}-ce--table-of-contents__items-container`,
+        horizontal: `.${prefix}--tableofcontents__navbar`,
+      },
+      mobile: {
+        vertical: `.${prefix}--tableofcontents__sidebar`,
+        horizontal: `.${prefix}--tableofcontents__navbar`,
       }
-    } else {
-      this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
-        `.${prefix}--tableofcontents__sidebar`
-      );
-    }
+    };
+
+    const viewportDimension = window.innerWidth >= gridBreakpoint
+      ? 'desktop'
+      : 'mobile';
+
+    this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
+      selectors[viewportDimension][toc.layout || 'vertical']
+    );
   }
 
   set banner(component) {
@@ -160,7 +163,7 @@ class StickyHeader {
   set tableOfContents(component) {
     if (this._validateComponent(component, `${ddsPrefix}-table-of-contents`)) {
       this._elements.tableOfContents = component;
-      this._tableOfContentsStickyUpdate();
+      this._updateTableOfContentsRefs();
       this._resizeObserver.observe(this._elements.tableOfContents);
       this._calculateCumulativeHeight();
     }
@@ -183,7 +186,6 @@ class StickyHeader {
   _handleResize() {
     const {
       _hasBanner: hasBanner,
-      _tableOfContentsLayout: tocLayout,
     } = this._data;
 
     const {
@@ -193,15 +195,15 @@ class StickyHeader {
     } = this._elements;
 
     if (toc && masthead) {
-      this._tableOfContentsStickyUpdate();
+      this._updateTableOfContentsRefs();
       if (
         window.innerWidth >= gridBreakpoint &&
-        tocLayout !== 'horizontal' &&
+        toc.layout !== 'horizontal' &&
         !hasBanner
       ) {
         masthead.style.top = '0';
       } else {
-        // This has to happen after the tocStickyUpdate method.
+        // This has to happen after the _updateTableOfContentsRefs method.
         const { tableOfContentsInnerBar: tocInner } = this._elements;
         if (masthead.offsetTop === 0) {
           tocInner.style.top = `${masthead.offsetHeight}px`;
@@ -271,10 +273,17 @@ class StickyHeader {
       ? leadspaceSearchBar.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
       : false;
 
+    const mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
+
     // Scroll away entire masthead if either TOC or leadspace search is eligible
-    // to be the stuck element. Otherwise, scroll away the L0 if we have an L1.
-    if (masthead && ((tocIsAtTop && tocShouldStick) || searchIsAtTop)) {
-      this._data.maxScrollaway = masthead.offsetHeight;
+    // to be the stuck element (unless L1 is open). Otherwise, scroll away the
+    // L0 if we have an L1.
+    if (searchIsAtTop || (tocIsAtTop && tocShouldStick)) {
+      if (mastheadL1IsActive) {
+        this._data.maxScrollaway = mastheadL0.offsetHeight;
+      } else if (masthead) {
+        this._data.maxScrollaway = masthead.offsetHeight;
+      }
     }
     else if (mastheadL1) {
       this._data.maxScrollaway = mastheadL0.offsetHeight;
