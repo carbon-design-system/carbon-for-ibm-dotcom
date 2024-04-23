@@ -20,10 +20,11 @@ class StickyHeader {
     this.ownerDocument = root.document;
 
     this._data = {
-      cumulativeHeight: 0,
+      cumulativeOffset: 0,
       hasBanner: false,
       lastScrollPosition: 0,
-      leadspaceSearchStickyThreshold: 0,
+      newScrollPosition: 0,
+      leadspaceSearchThreshold: 0,
       maxScrollaway: 0,
       scrollDir: undefined,
     };
@@ -61,7 +62,7 @@ class StickyHeader {
   }
 
   get height() {
-    return this._data.cumulativeHeight;
+    return this._data.cumulativeOffset;
   }
 
   /**
@@ -117,7 +118,7 @@ class StickyHeader {
         this._elements.masthead.setAttribute('with-banner', '');
       }
 
-      this._calculateCumulativeHeight();
+      this._calculatecumulativeOffset();
     }
   }
 
@@ -133,17 +134,17 @@ class StickyHeader {
       this._elements.leadspaceSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
-      this._data.leadspaceSearchStickyThreshold =
+      this._data.leadspaceSearchThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
-      this._calculateCumulativeHeight();
+      this._calculatecumulativeOffset();
     }
   }
 
   set localeModal(component) {
     if (this._validateComponent(component, `${ddsPrefix}-locale-modal`)) {
       this._elements.localeModal = component;
-      this._calculateCumulativeHeight();
+      this._calculatecumulativeOffset();
     }
   }
 
@@ -156,7 +157,7 @@ class StickyHeader {
         `.${prefix}--masthead__l0`
       );
       this._elements.mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
-      this._calculateCumulativeHeight();
+      this._calculatecumulativeOffset();
     }
   }
 
@@ -165,7 +166,7 @@ class StickyHeader {
       this._elements.tableOfContents = component;
       this._updateTableOfContentsRefs();
       this._resizeObserver.observe(this._elements.tableOfContents);
-      this._calculateCumulativeHeight();
+      this._calculatecumulativeOffset();
     }
   }
 
@@ -175,7 +176,7 @@ class StickyHeader {
   _throttledHandler() {
     if (!this._throttled) {
       this._throttled = true;
-      this._calculateCumulativeHeight();
+      this._calculatecumulativeOffset();
 
       setTimeout(() => {
         this._throttled = false;
@@ -209,43 +210,83 @@ class StickyHeader {
           tocInner.style.top = `${masthead.offsetHeight}px`;
         }
       }
-      this._calculateCumulativeHeight();
+      this._calculatecumulativeOffset();
     }
 
     if (leadspaceSearchBar) {
-      this._data.leadspaceSearchStickyThreshold =
+      this._data.leadspaceSearchThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
     }
   }
 
-  _calculateCumulativeHeight() {
+  _handleBannerStickiness() {
+    const { banner } = this._elements
+    const { newScrollPosition } = this._data;
+    this._data.cumulativeOffset += Math.max(banner.offsetHeight - newScrollPosition, 0);
+  }
+
+  _handleMastheadStickiness() {
+    const { masthead } = this._elements;
+
+    masthead.style.transition = 'none';
+    masthead.style.top = `${this._data.cumulativeOffset}px`;
+    this._data.cumulativeOffset += masthead.offsetHeight;
+  }
+
+  _handleTocStickiness() {
+    const { tableOfContentsInnerBar } = this._elements;
+    const { tocShouldStick } = this._data;
+
+    tableOfContentsInnerBar.style.transition = 'none';
+    tableOfContentsInnerBar.style.top = `${this._data.cumulativeOffset}px`;
+
+    const tocIsStuck =
+      Math.round(tableOfContentsInnerBar.getBoundingClientRect().top) <=
+      this._data.cumulativeOffset + 1;
+
+    if (tocShouldStick && tocIsStuck) {
+      this._data.cumulativeOffset += tableOfContentsInnerBar.offsetHeight;
+    }
+  }
+
+  _handleLeadspaceSearchStickiness() {
     const {
-      banner,
-      masthead,
-      mastheadL0,
-      mastheadL1,
-      localeModal,
-      tableOfContents: toc,
-      tableOfContentsInnerBar: tocInner,
       leadspaceSearch,
       leadspaceSearchBar,
       leadspaceSearchInput,
-    } = StickyHeader.global._elements;
+    } = this._elements;
+    const { leadspaceSearchThreshold } = this._data;
+    const searchShouldBeSticky =
+      leadspaceSearch.getBoundingClientRect().bottom <=
+      leadspaceSearchThreshold;
+    const searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
 
-    const {
-      lastScrollPosition: oldY,
-      leadspaceSearchStickyThreshold: leadspaceSearchThreshold,
-    } = StickyHeader.global._data;
+    if (searchShouldBeSticky) {
+      if (!searchIsSticky) {
+        leadspaceSearch.style.paddingBottom = `${leadspaceSearchBar.offsetHeight}px`;
+        leadspaceSearch.setAttribute('sticky-search', '');
+        leadspaceSearchInput.setAttribute('large', '');
 
-    const { customPropertyName } = this.constructor;
+        window.requestAnimationFrame(() => {
+          leadspaceSearchBar.style.transitionDuration = '110ms';
+          leadspaceSearchBar.style.transform = 'translateY(0)';
+        });
+      }
+      leadspaceSearchBar.style.top = `${this._data.cumulativeOffset}px`;
+      this._data.cumulativeOffset += leadspaceSearchBar.offsetHeight;
+    } else if (searchIsSticky) {
+      leadspaceSearch.style.paddingBottom = '';
+      leadspaceSearch.removeAttribute('sticky-search');
+      leadspaceSearchInput.removeAttribute('large');
 
-    if (localeModal && localeModal.hasAttribute('open')) return;
+      leadspaceSearchBar.style.transitionDuration = '';
+      leadspaceSearchBar.style.transform = '';
+      leadspaceSearchBar.style.top = '';
+    }
+  }
 
-    const newY = window.scrollY;
-    this._data.scrollDir = newY > this._data.lastScrollPosition ? 'down' : 'up';
-    this._data.lastScrollPosition = Math.max(0, newY);
-
+  _calculateMaxScrollaway() {
     /**
      * maxScrollaway is a calculated value matching the height of all components
      * that are allowed to hide above the viewport. I.e., adding an item's height
@@ -259,6 +300,16 @@ class StickyHeader {
      * - The TOC in horizontal bar form
      * - The leadspace with search (if no TOC)
      */
+    const {
+      masthead,
+      mastheadL0,
+      mastheadL1,
+      tableOfContents: toc,
+      tableOfContentsInnerBar: tocInner,
+      leadspaceSearchBar,
+    } = StickyHeader.global._elements;
+
+    // Reset data store.
     this._data.maxScrollaway = 0;
 
     const tocShouldStick = toc
@@ -273,21 +324,51 @@ class StickyHeader {
       ? leadspaceSearchBar.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
       : false;
 
+    const tocIsAtSearch = leadspaceSearchBar && tocInner
+      ? tocInner.getBoundingClientRect().top <= leadspaceSearchBar.getBoundingClientRect().bottom
+      : false;
+
     const mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
 
     // Scroll away entire masthead if either TOC or leadspace search is eligible
     // to be the stuck element (unless L1 is open). Otherwise, scroll away the
     // L0 if we have an L1.
+    if (tocIsAtSearch) {
+      this._data.maxScrollaway += leadspaceSearchBar.offsetHeight;
+    }
+
     if (searchIsAtTop || (tocIsAtTop && tocShouldStick)) {
       if (mastheadL1IsActive && mastheadL0) {
-        this._data.maxScrollaway = mastheadL0.offsetHeight;
+        this._data.maxScrollaway += mastheadL0.offsetHeight;
       } else if (masthead) {
-        this._data.maxScrollaway = masthead.offsetHeight;
+        this._data.maxScrollaway += masthead.offsetHeight;
       }
     }
     else if (masthead && mastheadL0 && mastheadL1) {
-      this._data.maxScrollaway = mastheadL0.offsetHeight;
+      this._data.maxScrollaway += mastheadL0.offsetHeight;
     }
+  }
+
+  _calculatecumulativeOffset() {
+    const {
+      banner,
+      masthead,
+      localeModal,
+      tableOfContentsInnerBar: tocInner,
+      leadspaceSearch,
+      leadspaceSearchBar,
+    } = StickyHeader.global._elements;
+    const { lastScrollPosition: oldY } = StickyHeader.global._data;
+
+    const { customPropertyName } = this.constructor;
+
+    if (localeModal && localeModal.hasAttribute('open')) return;
+
+    this._data.newScrollPosition = window.scrollY;
+    this._data.scrollDir = this._data.newScrollPosition > this._data.lastScrollPosition ? 'down' : 'up';
+    this._data.lastScrollPosition = Math.max(0, this._data.newScrollPosition);
+
+    this._calculateMaxScrollaway()
 
     /**
      * Cumulative offset is a calculated value used to set the `top` property of
@@ -304,73 +385,42 @@ class StickyHeader {
      *   with the elements that should be visible starting at the top of the
      *   viewport.
      */
-    let cumulativeOffset = Math.max(
-      Math.min((masthead ? masthead.offsetTop : 0) + oldY - newY, 0),
+    this._data.cumulativeOffset = Math.max(
+      Math.min((masthead ? masthead.offsetTop : 0) + oldY - this._data.newScrollPosition, 0),
       this._data.maxScrollaway * -1
     );
 
     if (banner) {
-      cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
+      this._handleBannerStickiness();
     }
 
     if (masthead) {
-      masthead.style.transition = 'none';
-      masthead.style.top = `${cumulativeOffset}px`;
-      cumulativeOffset += masthead.offsetHeight;
+      this._handleMastheadStickiness();
     }
+
+    /**
+     * Three cases:
+     *  1. No Leadspace & ToC
+     *      - ToC sticks when ready
+     *  2. Leadspace & no ToC
+     *      - Leadspace sticks when ready
+     *  3. Leadspace & ToC
+     *      - Leadspace sticks until ToC, then ToC sticks
+     */
 
     if (tocInner) {
-      tocInner.style.transition = 'none';
-      tocInner.style.top = `${cumulativeOffset}px`;
-
-      const tocIsStuck =
-        Math.round(tocInner.getBoundingClientRect().top) <=
-        cumulativeOffset + 1;
-
-      if (tocShouldStick && tocIsStuck) {
-        cumulativeOffset += tocInner.offsetHeight;
+      if (leadspaceSearch) {
+        this._handleLeadspaceSearchStickiness();
       }
+      this._handleTocStickiness();
+    } else if (leadspaceSearchBar) {
+      this._handleLeadspaceSearchStickiness();
     }
-
-    if (!tocInner && leadspaceSearchBar) {
-      const searchShouldBeSticky =
-        leadspaceSearch.getBoundingClientRect().bottom <=
-        leadspaceSearchThreshold;
-      const searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
-
-      if (searchShouldBeSticky) {
-        if (!searchIsSticky) {
-          leadspaceSearch.style.paddingBottom = `${leadspaceSearchBar.offsetHeight}px`;
-          leadspaceSearch.setAttribute('sticky-search', '');
-          leadspaceSearchInput.setAttribute('large', '');
-
-          window.requestAnimationFrame(() => {
-            leadspaceSearchBar.style.transitionDuration = '110ms';
-            leadspaceSearchBar.style.transform = 'translateY(0)';
-          });
-        }
-
-        leadspaceSearchBar.style.top = `${cumulativeOffset}px`;
-        cumulativeOffset += leadspaceSearchBar.offsetHeight;
-      }
-
-      if (!searchShouldBeSticky && searchIsSticky) {
-        leadspaceSearch.removeAttribute('sticky-search');
-        leadspaceSearch.style.paddingBottom = '';
-        leadspaceSearchBar.style.top = '';
-        leadspaceSearchBar.style.transitionDuration = '';
-        leadspaceSearchBar.style.transform = '';
-        leadspaceSearchInput.removeAttribute('large');
-      }
-    }
-
-    // Set internal property for use in scripts
-    this._data.cumulativeHeight = cumulativeOffset;
 
     // Set custom property for use in stylesheets
     root.document.documentElement.style.setProperty(
       customPropertyName,
-      `${this._data.cumulativeHeight}px`
+      `${this._data.cumulativeOffset}px`
     );
   }
 }
