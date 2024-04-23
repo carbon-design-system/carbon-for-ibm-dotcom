@@ -40,7 +40,7 @@ class C4DContentItemHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html` <h4><slot></slot></h4> `;
   }
 
   static get stableSelector() {

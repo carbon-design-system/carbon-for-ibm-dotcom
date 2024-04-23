@@ -40,7 +40,7 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html` <h3><slot></slot></h3> `;
   }
 
   static get stableSelector() {
