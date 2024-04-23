@@ -22,8 +22,8 @@ class StickyHeader {
     this._data = {
       cumulativeOffset: 0,
       hasBanner: false,
-      lastScrollPosition: 0,
-      newScrollPosition: 0,
+      scrollPosPrevious: 0,
+      scrollPos: 0,
       leadspaceSearchThreshold: 0,
       maxScrollaway: 0,
       scrollDir: undefined,
@@ -118,7 +118,7 @@ class StickyHeader {
         this._elements.masthead.setAttribute('with-banner', '');
       }
 
-      this._calculatecumulativeOffset();
+      this._manageStickyElements();
     }
   }
 
@@ -137,14 +137,14 @@ class StickyHeader {
       this._data.leadspaceSearchThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
-      this._calculatecumulativeOffset();
+      this._manageStickyElements();
     }
   }
 
   set localeModal(component) {
     if (this._validateComponent(component, `${ddsPrefix}-locale-modal`)) {
       this._elements.localeModal = component;
-      this._calculatecumulativeOffset();
+      this._manageStickyElements();
     }
   }
 
@@ -157,7 +157,7 @@ class StickyHeader {
         `.${prefix}--masthead__l0`
       );
       this._elements.mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
-      this._calculatecumulativeOffset();
+      this._manageStickyElements();
     }
   }
 
@@ -166,7 +166,7 @@ class StickyHeader {
       this._elements.tableOfContents = component;
       this._updateTableOfContentsRefs();
       this._resizeObserver.observe(this._elements.tableOfContents);
-      this._calculatecumulativeOffset();
+      this._manageStickyElements();
     }
   }
 
@@ -176,7 +176,7 @@ class StickyHeader {
   _throttledHandler() {
     if (!this._throttled) {
       this._throttled = true;
-      this._calculatecumulativeOffset();
+      this._manageStickyElements();
 
       setTimeout(() => {
         this._throttled = false;
@@ -210,7 +210,7 @@ class StickyHeader {
           tocInner.style.top = `${masthead.offsetHeight}px`;
         }
       }
-      this._calculatecumulativeOffset();
+      this._manageStickyElements();
     }
 
     if (leadspaceSearchBar) {
@@ -220,13 +220,13 @@ class StickyHeader {
     }
   }
 
-  _handleBannerStickiness() {
+  _handleBanner() {
     const { banner } = this._elements
-    const { newScrollPosition } = this._data;
-    this._data.cumulativeOffset += Math.max(banner.offsetHeight - newScrollPosition, 0);
+    const { scrollPos } = this._data;
+    this._data.cumulativeOffset += Math.max(banner.offsetHeight - scrollPos, 0);
   }
 
-  _handleMastheadStickiness() {
+  _handleMasthead() {
     const { masthead } = this._elements;
 
     masthead.style.transition = 'none';
@@ -234,7 +234,7 @@ class StickyHeader {
     this._data.cumulativeOffset += masthead.offsetHeight;
   }
 
-  _handleTocStickiness() {
+  _handleToc() {
     const { tableOfContentsInnerBar } = this._elements;
     const { tocShouldStick } = this._data;
 
@@ -250,7 +250,7 @@ class StickyHeader {
     }
   }
 
-  _handleLeadspaceSearchStickiness() {
+  _handleLeadspaceSearch() {
     const {
       leadspaceSearch,
       leadspaceSearchBar,
@@ -286,96 +286,94 @@ class StickyHeader {
     }
   }
 
+  /**
+   * Calculates a value matching the height of all components that are allowed
+   * to hide above the viewport.
+   *
+   * Adding an item's height to this value indicates we expect it to be hidden
+   * above the viewport.
+   *
+   * Items that stick, in order
+   * - L0
+   * - L1
+   * - The TOC in horizontal bar form
+   * - The leadspace with search (if no TOC)
+   */
   _calculateMaxScrollaway() {
-    /**
-     * maxScrollaway is a calculated value matching the height of all components
-     * that are allowed to hide above the viewport. I.e., adding an item's height
-     * to this value indicates we expect it to be hidden above the viewport.
-     *
-     * We should only have one sticky header showing as the page scrolls down.
-     *
-     * Items that stick, in order
-     * - L0
-     * - L1
-     * - The TOC in horizontal bar form
-     * - The leadspace with search (if no TOC)
-     */
     const {
       masthead,
       mastheadL0,
       mastheadL1,
-      tableOfContents: toc,
-      tableOfContentsInnerBar: tocInner,
+      tableOfContents,
+      tableOfContentsInnerBar,
       leadspaceSearchBar,
     } = StickyHeader.global._elements;
 
-    // Reset data store.
+    // Reset the value before performing any further calculations.
     this._data.maxScrollaway = 0;
 
-    const tocShouldStick = toc
-      ? toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint
+    // Collect conditions we may want to test for to make logic easier to read.
+    const tocShouldStick = tableOfContents
+      ? tableOfContents.layout === 'horizontal' || window.innerWidth < gridBreakpoint
       : false;
-
-    const tocIsAtTop = tocInner
-      ? tocInner.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
+    const tocIsAtTop = tableOfContentsInnerBar
+      ? tableOfContentsInnerBar.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
       : false;
-
     const searchIsAtTop = leadspaceSearchBar
       ? leadspaceSearchBar.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
       : false;
-
-    const tocIsAtSearch = leadspaceSearchBar && tocInner
-      ? tocInner.getBoundingClientRect().top <= leadspaceSearchBar.getBoundingClientRect().bottom
+    const tocIsAtSearch = leadspaceSearchBar && tableOfContentsInnerBar
+      ? tableOfContentsInnerBar.getBoundingClientRect().top <= leadspaceSearchBar.getBoundingClientRect().bottom
       : false;
-
     const mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
 
-    // Scroll away entire masthead if either TOC or leadspace search is eligible
-    // to be the stuck element (unless L1 is open). Otherwise, scroll away the
-    // L0 if we have an L1.
-    if (tocIsAtSearch) {
-      this._data.maxScrollaway += leadspaceSearchBar.offsetHeight;
-    }
+    // Begin calculating maxScrollAway.
 
-    if (searchIsAtTop || (tocIsAtTop && tocShouldStick)) {
-      if (mastheadL1IsActive && mastheadL0) {
-        this._data.maxScrollaway += mastheadL0.offsetHeight;
-      } else if (masthead) {
-        this._data.maxScrollaway += masthead.offsetHeight;
+    // If L1 is open, lock it to the top of the page.
+    if (mastheadL1IsActive && mastheadL0) {
+      this._data.maxScrollaway = mastheadL0.offsetHeight;
+    } else {
+      // In cases where we have both an eligible ToC and leadspace search, we want
+      // the ToC to take precedence. Scroll away leadspace search.
+      if (tocIsAtSearch && tocShouldStick) {
+        this._data.maxScrollaway += leadspaceSearchBar.offsetHeight;
       }
-    }
-    else if (masthead && mastheadL0 && mastheadL1) {
-      this._data.maxScrollaway += mastheadL0.offsetHeight;
+
+      // Scroll away entire masthead if either ToC or leadspace search is eligible
+      // to be the stuck element (unless L1 is open). Otherwise, scroll away the
+      // L0 if we have an L1.
+      if (searchIsAtTop || (tocIsAtTop && tocShouldStick)) {
+        if (masthead) {
+          this._data.maxScrollaway += masthead.offsetHeight;
+        }
+      }
+      else if (masthead && mastheadL0 && mastheadL1) {
+        this._data.maxScrollaway += mastheadL0.offsetHeight;
+      }
     }
   }
 
-  _calculatecumulativeOffset() {
+  /**
+   * Positions sticky elements. Does so by checking the scroll position and where
+   * tracked elements are in relation to it, then applying the correct styles to
+   * each element in succession to ensure that only one element is stuck to the
+   * top of the page, and all other elements that have been scrolled past can be
+   * revealed when scrolling back up.
+   */
+  _positionElements() {
     const {
       banner,
       masthead,
-      localeModal,
       tableOfContentsInnerBar: tocInner,
       leadspaceSearch,
       leadspaceSearchBar,
     } = StickyHeader.global._elements;
-    const { lastScrollPosition: oldY } = StickyHeader.global._data;
-
-    const { customPropertyName } = this.constructor;
-
-    if (localeModal && localeModal.hasAttribute('open')) return;
-
-    this._data.newScrollPosition = window.scrollY;
-    this._data.scrollDir = this._data.newScrollPosition > this._data.lastScrollPosition ? 'down' : 'up';
-    this._data.lastScrollPosition = Math.max(0, this._data.newScrollPosition);
-
-    this._calculateMaxScrollaway()
+    const { scrollPosPrevious: oldY } = StickyHeader.global._data;
 
     /**
-     * Cumulative offset is a calculated value used to set the `top` property of
-     * components that stick to the top of the viewport.
-     *
-     * This value is equal to the difference between the previous scrollY and
-     * the current scrollY values, but is positively and negatively limited.
+     * Reset to a value that is equal to the difference between the previous
+     * scrollY and the current scrollY values, but is positively and negatively
+     * limited.
      *
      * Positive limit: 0
      *   all elements visible, starting at the top of the viewport.
@@ -386,40 +384,60 @@ class StickyHeader {
      *   viewport.
      */
     this._data.cumulativeOffset = Math.max(
-      Math.min((masthead ? masthead.offsetTop : 0) + oldY - this._data.newScrollPosition, 0),
+      Math.min((masthead ? masthead.offsetTop : 0) + oldY - this._data.scrollPos, 0),
       this._data.maxScrollaway * -1
     );
 
-    if (banner) {
-      this._handleBannerStickiness();
-    }
-
-    if (masthead) {
-      this._handleMastheadStickiness();
-    }
-
     /**
-     * Three cases:
-     *  1. No Leadspace & ToC
-     *      - ToC sticks when ready
-     *  2. Leadspace & no ToC
-     *      - Leadspace sticks when ready
-     *  3. Leadspace & ToC
-     *      - Leadspace sticks until ToC, then ToC sticks
+     * Handle each potentially sticky element in the order we expect them to
+     * appear on the page. Important to do this sequentially for
+     * cumulativeOffset to be correctly calculated by the time each of these
+     * methods accesses it.
      */
-
+    if (banner) {
+      this._handleBanner();
+    }
+    if (masthead) {
+      this._handleMasthead();
+    }
     if (tocInner) {
       if (leadspaceSearch) {
-        this._handleLeadspaceSearchStickiness();
+        this._handleLeadspaceSearch();
       }
-      this._handleTocStickiness();
+      this._handleToc();
     } else if (leadspaceSearchBar) {
-      this._handleLeadspaceSearchStickiness();
+      this._handleLeadspaceSearch();
     }
+  }
+
+  /**
+   * Manages which elements are stuck and where they are positioned. We should
+   * only have one element stuck to the top of the viewport as the page scrolls
+   * down.
+   */
+  _manageStickyElements() {
+    const { localeModal } = StickyHeader.global._elements;
+    const { scrollPos: scrollPosPrevious } = StickyHeader.global._data;
+
+    // Exit early if locale modal is open.
+    if (localeModal && localeModal.hasAttribute('open')) return;
+
+    // Store scroll positions.
+    this._data.scrollPosPrevious = scrollPosPrevious;
+    this._data.scrollPos = Math.max(0, window.scrollY);
+
+    // Identify scroll direction.
+    this._data.scrollDir = this._data.scrollPos > scrollPosPrevious
+      ? 'down'
+      : 'up';
+
+    // Given the current state, calculate how elements should be positioned.
+    this._calculateMaxScrollaway();
+    this._positionElements();
 
     // Set custom property for use in stylesheets
     root.document.documentElement.style.setProperty(
-      customPropertyName,
+      this.constructor.customPropertyName,
       `${this._data.cumulativeOffset}px`
     );
   }
