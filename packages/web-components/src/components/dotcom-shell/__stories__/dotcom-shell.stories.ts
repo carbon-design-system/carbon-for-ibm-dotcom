@@ -1379,12 +1379,11 @@ export const StickyElementSandbox = (args) => {
               </dds-button-cta>
             </dds-universal-banner>
           `
-        : ''
-      }
+        : ''}
       ${StoryContent(contentConfig)}
     </dds-dotcom-shell-container>
   `;
-}
+};
 
 StickyElementSandbox.story = {
   name: 'Sticky Element Sandbox',

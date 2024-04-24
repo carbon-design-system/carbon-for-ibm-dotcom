@@ -97,12 +97,11 @@ class StickyHeader {
       mobile: {
         vertical: `.${prefix}--tableofcontents__sidebar`,
         horizontal: `.${prefix}--tableofcontents__navbar`,
-      }
+      },
     };
 
-    const viewportDimension = window.innerWidth >= gridBreakpoint
-      ? 'desktop'
-      : 'mobile';
+    const viewportDimension =
+      window.innerWidth >= gridBreakpoint ? 'desktop' : 'mobile';
 
     this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
       selectors[viewportDimension][toc.layout || 'vertical']
@@ -151,12 +150,15 @@ class StickyHeader {
   set masthead(component) {
     if (this._validateComponent(component, `${ddsPrefix}-masthead`)) {
       this._elements.masthead = component;
-      if (this._elements.banner) this._elements.masthead.setAttribute('with-banner', '');
+      if (this._elements.banner)
+        this._elements.masthead.setAttribute('with-banner', '');
 
       this._elements.mastheadL0 = component.shadowRoot.querySelector(
         `.${prefix}--masthead__l0`
       );
-      this._elements.mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
+      this._elements.mastheadL1 = component.querySelector(
+        `${ddsPrefix}-masthead-l1`
+      );
       this._manageStickyElements();
     }
   }
@@ -185,9 +187,7 @@ class StickyHeader {
   }
 
   _handleResize() {
-    const {
-      _hasBanner: hasBanner,
-    } = this._data;
+    const { _hasBanner: hasBanner } = this._data;
 
     const {
       masthead,
@@ -221,7 +221,7 @@ class StickyHeader {
   }
 
   _handleBanner() {
-    const { banner } = this._elements
+    const { banner } = this._elements;
     const { scrollPos } = this._data;
     this._data.cumulativeOffset += Math.max(banner.offsetHeight - scrollPos, 0);
   }
@@ -251,11 +251,8 @@ class StickyHeader {
   }
 
   _handleLeadspaceSearch() {
-    const {
-      leadspaceSearch,
-      leadspaceSearchBar,
-      leadspaceSearchInput,
-    } = this._elements;
+    const { leadspaceSearch, leadspaceSearchBar, leadspaceSearchInput } =
+      this._elements;
     const { leadspaceSearchThreshold } = this._data;
     const searchShouldBeSticky =
       leadspaceSearch.getBoundingClientRect().bottom <=
@@ -314,17 +311,22 @@ class StickyHeader {
 
     // Collect conditions we may want to test for to make logic easier to read.
     const tocShouldStick = tableOfContents
-      ? tableOfContents.layout === 'horizontal' || window.innerWidth < gridBreakpoint
+      ? tableOfContents.layout === 'horizontal' ||
+        window.innerWidth < gridBreakpoint
       : false;
     const tocIsAtTop = tableOfContentsInnerBar
-      ? tableOfContentsInnerBar.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
+      ? tableOfContentsInnerBar.getBoundingClientRect().top <=
+        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
       : false;
     const searchIsAtTop = leadspaceSearchBar
-      ? leadspaceSearchBar.getBoundingClientRect().top <= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
+      ? leadspaceSearchBar.getBoundingClientRect().top <=
+        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
       : false;
-    const tocIsAtSearch = leadspaceSearchBar && tableOfContentsInnerBar
-      ? tableOfContentsInnerBar.getBoundingClientRect().top <= leadspaceSearchBar.getBoundingClientRect().bottom
-      : false;
+    const tocIsAtSearch =
+      leadspaceSearchBar && tableOfContentsInnerBar
+        ? tableOfContentsInnerBar.getBoundingClientRect().top <=
+          leadspaceSearchBar.getBoundingClientRect().bottom
+        : false;
     const mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
 
     // Begin calculating maxScrollAway.
@@ -346,8 +348,7 @@ class StickyHeader {
         if (masthead) {
           this._data.maxScrollaway += masthead.offsetHeight;
         }
-      }
-      else if (masthead && mastheadL0 && mastheadL1) {
+      } else if (masthead && mastheadL0 && mastheadL1) {
         this._data.maxScrollaway += mastheadL0.offsetHeight;
       }
     }
@@ -384,7 +385,10 @@ class StickyHeader {
      *   viewport.
      */
     this._data.cumulativeOffset = Math.max(
-      Math.min((masthead ? masthead.offsetTop : 0) + oldY - this._data.scrollPos, 0),
+      Math.min(
+        (masthead ? masthead.offsetTop : 0) + oldY - this._data.scrollPos,
+        0
+      ),
       this._data.maxScrollaway * -1
     );
 
@@ -427,9 +431,8 @@ class StickyHeader {
     this._data.scrollPos = Math.max(0, window.scrollY);
 
     // Identify scroll direction.
-    this._data.scrollDir = this._data.scrollPos > scrollPosPrevious
-      ? 'down'
-      : 'up';
+    this._data.scrollDir =
+      this._data.scrollPos > scrollPosPrevious ? 'down' : 'up';
 
     // Given the current state, calculate how elements should be positioned.
     this._calculateMaxScrollaway();
