@@ -794,6 +794,7 @@ export const withL1 = (args) => {
   const contentConfig = {
     l1: true,
     leadspace: false,
+    leadspaceSearch: true,
     tocLayout: TOC_TYPES.DEFAULT,
   };
   return html`
@@ -903,7 +904,8 @@ export const WithHorizontalTOC = (args) => {
   const { useMock } = args?.Other ?? {};
   const contentConfig = {
     l1: false,
-    leadspace: true,
+    leadspace: false,
+    leadspaceSearch: true,
     tocLayout: TOC_TYPES.HORIZONTAL,
   };
   return html`
@@ -1241,6 +1243,7 @@ export const WithoutShell = (args) => {
         ? StoryContent({
             l1: false,
             leadspace: true,
+            leadspaceSearch: false,
             tocLayout: TOC_TYPES.HORIZONTAL,
           })
         : ''}
@@ -1268,6 +1271,143 @@ WithoutShell.story = {
         FooterComposite: {
           disableLocaleButton: false,
           langList: mockLangList,
+        },
+      },
+    },
+  },
+};
+
+export const StickyElementSandbox = (args) => {
+  // const {
+  //   l1,
+  //   universalBanner,
+  //   leadspaceSearch,
+  //   tocLayout,
+  // } = args?.DotcomShell ?? {};
+
+  // return html`
+  //   <style>
+  //     ${mastheadStyles}
+  //   </style>
+  //   <dds-dotcom-shell-composite>
+  //     ${universalBanner
+  //       ? html`
+  //           <dds-universal-banner-heading slot="heading">
+  //             Hybrid cloud and AI for smarter business
+  //           </dds-universal-banner-heading>
+  //           <dds-universal-banner-copy slot="copy">
+  //             Las Vegas, June 15-18, 2025
+  //           </dds-universal-banner-copy>
+  //         `
+  //       : ''
+  //     }
+  //     ${StoryContent({
+  //       l1: l1,
+  //       leadspace: false,
+  //       leadspaceSearch: leadspaceSearch,
+  //       tocLayout: tocLayout,
+  //     })}
+  //   </dds-dotcom-shell-composite>
+  // `
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    footerSize,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+    universalBanner,
+    l1,
+    leadspaceSearch,
+    tocLayout,
+  } = args?.DotcomShell ?? {};
+
+  const contentConfig = {
+    l1: l1,
+    leadspace: false,
+    leadspaceSearch: leadspaceSearch,
+    tocLayout: tocLayout || '',
+  };
+
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    <dds-dotcom-shell-container
+      platform="${ifNonNull(platform)}"
+      platform-url="${ifNonNull(platformData.url)}"
+      language="${ifNonNull(language)}"
+      lang-display="${ifNonNull(langDisplay)}"
+      footer-size="${ifNonNull(footerSize)}"
+      user-status="${ifNonNull(userStatus)}"
+      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+      selected-menu-item="${ifNonNull(selectedMenuItem)}"
+      .legalLinks="${ifNonNull(legalLinks)}"
+      .localeList="${ifNonNull(localeList)}"
+      .footerLinks="${ifNonNull(footerLinks)}"
+      .navLinks="${navLinks}"
+      .l1Data="${ifNonNull(l1 ? l1Data : null)}"
+      ?has-profile="${hasProfile}"
+      ?has-search="${hasSearch}"
+      ?disable-locale-button="${disableLocaleButton}">
+      ${universalBanner
+        ? html`
+            <dds-universal-banner image-width="4-col">
+              <dds-universal-banner-image
+                slot="image"
+                default-src="${img4Col}"></dds-universal-banner-image>
+              <dds-universal-banner-heading slot="heading">
+                Hybrid cloud and AI for smarter business
+              </dds-universal-banner-heading>
+              <dds-universal-banner-copy slot="copy">
+                Las Vegas, June 15-18, 2025
+              </dds-universal-banner-copy>
+              <dds-button-cta
+                slot="cta"
+                cta-type="local"
+                kind="tertiary"
+                href="https://www.example.com">
+                Register for Think. Free
+              </dds-button-cta>
+            </dds-universal-banner>
+          `
+        : ''
+      }
+      ${StoryContent(contentConfig)}
+    </dds-dotcom-shell-container>
+  `;
+}
+
+StickyElementSandbox.story = {
+  name: 'Sticky Element Sandbox',
+  parameters: {
+    knobs: {
+      DotcomShell: () => ({
+        universalBanner: boolean('Has Universal Banner', true),
+        l1: boolean('Has Masthead L1', true),
+        leadspaceSearch: boolean('Has Leadspace With Search', true),
+        tocLayout: select(
+          'Table of Contents Layout',
+          { Vertical: null, Horizontal: 'horizontal' },
+          null
+        ),
+      }),
+    },
+    propsSet: {
+      default: {
+        DotcomShell: {
+          universalBanner: true,
+          l1: true,
+          leadspaceSearch: true,
+          tocLayout: null,
         },
       },
     },
