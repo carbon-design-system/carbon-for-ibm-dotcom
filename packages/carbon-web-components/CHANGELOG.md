@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.39.0-rc.0...@carbon/web-components@1.39.0) (2024-04-19)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [1.39.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.38.0...@carbon/web-components@1.39.0-rc.0) (2024-04-19)
+
+
+### Features
+
+* **pagination-nav:** add component ([#11697](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11697)) ([0d92763](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0d9276381cf2d13e0afbff0d7c343b20ac0920f6)), closes [#11630](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11630)
+
+
+
+
+
 # [1.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.38.0-rc.0...@carbon/web-components@1.38.0) (2024-03-12)
 
 **Note:** Version bump only for package @carbon/web-components
