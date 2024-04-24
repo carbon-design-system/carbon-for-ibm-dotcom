@@ -224,6 +224,7 @@
   .#{$prefix}--table-expand div {
     display: flex;
     block-size: 100%;
+    align-items: center;
   }
 }
 
