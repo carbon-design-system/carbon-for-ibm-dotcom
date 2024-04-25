@@ -11,6 +11,7 @@ import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
 import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
 import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/play--outline/20.js';
@@ -33,6 +34,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 export const icons = {
   [CTA_TYPE.LOCAL]: ArrowRight20,
+  [`${CTA_TYPE.LOCAL}-rtl`]: ArrowLeft20,
   [CTA_TYPE.DOWNLOAD]: Download20,
   [CTA_TYPE.EXTERNAL]: Launch20,
   [CTA_TYPE.NEW_TAB]: NewTab20,
@@ -118,10 +120,11 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     _renderIcon() {
       const { ctaType } = this;
+      const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
       return html`
         <slot name="icon">
           <span class="bx--visually-hidden">${ariaLabels[ctaType]}</span>
-          ${icons[ctaType]?.({
+          ${icon?.({
             class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon`,
           })}
         </slot>
