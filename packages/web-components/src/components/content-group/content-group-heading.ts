@@ -39,7 +39,7 @@ class DDSContentGroupHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html` <h3><slot></slot></h3> packages/web-components/src/components/content-group/content-group-heading.ts`;
+    return html` <h3><slot></slot></h3>`;
   }
 
   static get stableSelector() {
