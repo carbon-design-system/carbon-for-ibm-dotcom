@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,11 +53,15 @@ export const Default = () => html`
           <c4d-content-item-copy>${copy}</c4d-content-item-copy>
         </c4d-content-item>
 
-        <c4d-card link slot="footer" href="https://example.com">
+        <c4d-card
+          link
+          slot="footer"
+          href="https://example.com"
+          cta-type="local">
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card>
       </c4d-content-block-media-content>
     </div>
@@ -110,13 +114,15 @@ export const Contained = () => {
             <c4d-content-item-copy>${copy}</c4d-content-item-copy>
           </c4d-content-item>
 
-          <c4d-card link slot="footer" href="https://example.com">
+          <c4d-card
+            link
+            slot="footer"
+            href="https://example.com"
+            cta-type="local">
             <c4d-card-link-heading
               >Lorem ipsum dolor sit amet</c4d-card-link-heading
             >
-            <c4d-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </c4d-card-footer>
+            <c4d-card-footer></c4d-card-footer>
           </c4d-card>
         </c4d-content-block-media-content>
       </div>
