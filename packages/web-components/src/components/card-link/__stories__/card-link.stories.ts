@@ -10,6 +10,7 @@
 import { boolean } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import Error20 from '../../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
@@ -23,7 +24,11 @@ export const Default = (args) => {
       <dds-card-link-heading>${heading}</dds-card-link-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
       <dds-card-footer ?disabled=${disabled}>
-        ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
+        ${disabled
+          ? Error20({ slot: 'icon' })
+          : document.dir === 'rtl'
+          ? ArrowLeft20({ slot: 'icon' })
+          : ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
     </dds-card-link>
   `;
@@ -36,7 +41,8 @@ export default {
       <div class="bx--grid">
         <div class="bx--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
+          >
             ${story()}
           </div>
         </div>

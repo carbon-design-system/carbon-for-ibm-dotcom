@@ -14,6 +14,7 @@ import '../../content-group-cards/index';
 import '../../content-group-pictograms/index';
 import '../../content-group-simple/index';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
@@ -71,7 +72,8 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="${ifNonNull(imageHeading)}">
+    heading="${ifNonNull(imageHeading)}"
+  >
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -166,7 +168,9 @@ export const Default = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <dds-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
+            ${document.dir === 'rtl'
+              ? ArrowLeft20({ slot: 'icon' })
+              : ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
         </dds-content-group-cards-item>
         <dds-content-group-cards-item href="www.ibm.com">
@@ -179,7 +183,9 @@ export const Default = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <dds-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
+            ${document.dir === 'rtl'
+              ? ArrowLeft20({ slot: 'icon' })
+              : ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
         </dds-content-group-cards-item>
       </dds-content-group-cards>
@@ -199,7 +205,8 @@ export const Default = (args) => {
                 width="64"
                 height="64"
                 viewBox="8 8 32 32"
-                xml:space="preserve">
+                xml:space="preserve"
+              >
                 <g>
                   <g>
                     <path
@@ -208,7 +215,8 @@ export const Default = (args) => {
                       M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
                       l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
                       S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
-                      c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z" />
+                      c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z"
+                    />
                   </g>
                 </g>
                 <g></g>
@@ -217,8 +225,12 @@ export const Default = (args) => {
                 >${itemHeading}</dds-content-item-heading
               >
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+              <dds-link-with-icon
+                href="${linkWithIcon.href}"
+                slot="footer"
+                cta-type="local"
+              >
+                ${linkWithIcon.copy}
               </dds-link-with-icon>
             </dds-pictogram-item>
           `
@@ -231,7 +243,8 @@ export const Default = (args) => {
         <dds-card-link-cta
           slot="footer"
           cta-type=${ctaType}
-          href="https://example.com">
+          href="https://example.com"
+        >
           <dds-card-link-heading
             >Lorem ipsum dolor sit amet</dds-card-link-heading
           >
@@ -253,7 +266,8 @@ export const WithLinkList = (args) => {
   } = args?.ContentBlockMixed ?? {};
   return html`
     <dds-content-block-mixed
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
+    >
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy>${groupCopy}</dds-content-block-copy>
       <dds-content-group-cards>
@@ -270,7 +284,9 @@ export const WithLinkList = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <dds-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
+            ${document.dir === 'rtl'
+              ? ArrowLeft20({ slot: 'icon' })
+              : ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
         </dds-content-group-cards-item>
         <dds-content-group-cards-item href="www.ibm.com">
@@ -283,7 +299,9 @@ export const WithLinkList = (args) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <dds-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
+            ${document.dir === 'rtl'
+              ? ArrowLeft20({ slot: 'icon' })
+              : ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
         </dds-content-group-cards-item>
       </dds-content-group-cards>
@@ -321,8 +339,8 @@ export const WithLinkList = (args) => {
               </svg>
               <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer" cta-type="local">
+                ${linkWithIcon.copy}
               </dds-link-with-icon>
             </dds-pictogram-item>
           `
@@ -335,7 +353,8 @@ export const WithLinkList = (args) => {
         <dds-card-link-cta
           slot="footer"
           cta-type=${ctaType}
-          href="https://example.com">
+          href="https://example.com"
+        >
           <dds-card-link-heading
             >Lorem ipsum dolor sit amet</dds-card-link-heading
           >
@@ -346,13 +365,15 @@ export const WithLinkList = (args) => {
         <dds-link-list-heading>${linkListHeading}</dds-link-list-heading>
         <dds-link-list-item-card-cta
           href="https://example.com"
-          cta-type="local">
+          cta-type="local"
+        >
           <p>Containerization A Complete Guide</p>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-link-list-item-card-cta>
         <dds-link-list-item-card-cta
           href="https://example.com"
-          cta-type="external">
+          cta-type="external"
+        >
           <p>Why should you use microservices and containers</p>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-link-list-item-card-cta>

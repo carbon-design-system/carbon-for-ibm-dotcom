@@ -33,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-link-with-icon`)
 class DDSLinkWithIcon extends CTAMixin(StableSelectorMixin(BXLink)) {
   @property({ attribute: 'cta-type', reflect: true })
-  ctaType = CTA_TYPE['LOCAL'];
+  ctaType = CTA_TYPE.REGULAR;
 
   /**
    * Icon placement(right (default) | left)

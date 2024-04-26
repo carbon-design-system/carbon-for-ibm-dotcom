@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
@@ -40,7 +39,7 @@ const knobNamesForType = {
 };
 
 const defaultCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item href="https://example.com" cta-type="local">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
     <dds-card-heading
       >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
@@ -49,9 +48,7 @@ const defaultCardGroupItem = html`
       Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
       democritum ex. Illud ullum graecis
     </p>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
+    <dds-card-cta-footer></dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
@@ -64,7 +61,8 @@ export const Default = (args) => {
         gradient-direction="left-to-right"
         slot="image-top"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}">
+        default-src="${ifNonNull(defaultSrc)}"
+      >
       </dds-background-media>
       <dds-content-block-heading slot="heading"
         >${heading}</dds-content-block-heading
@@ -74,7 +72,8 @@ export const Default = (args) => {
         icon-placement="right"
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}">
+        href="${ifNonNull(href)}"
+      >
         ${ctaCopy}
       </dds-text-cta>
       <dds-card-group slot="card-group" cards-per-row="2">

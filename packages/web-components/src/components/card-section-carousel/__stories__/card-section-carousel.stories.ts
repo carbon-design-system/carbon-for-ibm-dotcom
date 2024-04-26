@@ -9,6 +9,8 @@
 
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
@@ -27,10 +29,14 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}" cta-type="local">
+  <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     <p>${copy}</p>
-    <dds-card-footer></dds-card-footer>
+    <dds-card-footer>
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
   </dds-card>
 `;
 
