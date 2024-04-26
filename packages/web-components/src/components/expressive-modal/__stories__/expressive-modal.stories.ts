@@ -10,7 +10,8 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import '../../../internal/vendor/@carbon/web-components/components/button/button.js';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -44,7 +45,8 @@ export const Default = (args) => {
       ?open="${open}"
       expressive-size="${ifNonNull(size)}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
-      @dds-expressive-modal-closed="${onClose}">
+      @dds-expressive-modal-closed="${onClose}"
+    >
       <dds-expressive-modal-header>
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>
@@ -61,7 +63,9 @@ export const Default = (args) => {
       </dds-expressive-modal-body>
       <dds-expressive-modal-footer>
         <dds-button-expressive href="https://www.example.com">
-          ${buttonContent}${ArrowRight20({ slot: 'icon' })}
+          ${buttonContent}${document.dir === 'rtl'
+            ? ArrowLeft20({ slot: 'icon' })
+            : ArrowRight20({ slot: 'icon' })}
         </dds-button-expressive>
       </dds-expressive-modal-footer>
     </dds-expressive-modal>

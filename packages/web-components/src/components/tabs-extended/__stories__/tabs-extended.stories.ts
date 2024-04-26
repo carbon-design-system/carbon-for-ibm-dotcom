@@ -13,7 +13,6 @@ import '../../content-block-media/index';
 import '../../card-group/index';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
 

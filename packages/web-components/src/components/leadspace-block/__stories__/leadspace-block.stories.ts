@@ -10,6 +10,7 @@
 import { html } from 'lit-element';
 import { text } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import Download20 from '../../../internal/vendor/@carbon/web-components/icons/download/20';
 
 import '../index';
@@ -55,7 +56,10 @@ const linkList = html`
 const buttonCTA = html`
   <dds-leadspace-block-cta>
     <dds-button-group-item href="www.ibm.com"
-      >Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item
+      >Contact sales
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}</dds-button-group-item
     >
   </dds-leadspace-block-cta>
 `;

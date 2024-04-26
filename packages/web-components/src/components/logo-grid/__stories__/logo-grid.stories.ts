@@ -15,7 +15,8 @@ import '../../card-link/card-link-heading';
 import '../../card/card-footer';
 import { boolean, text, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import logos from './data/logos.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -36,14 +37,16 @@ export const Default = (args) => {
     <dds-logo-grid
       ?hide-border="${hideBorder}"
       logo-count="${logoCount}"
-      logo-ratio="${logoRatio}">
+      logo-ratio="${logoRatio}"
+    >
       <dds-content-block-heading> ${heading} </dds-content-block-heading>
       ${logosGroup &&
       logosGroup.map(
         (elem) => html`
           <dds-logo-grid-item
             default-src="${elem.imgSrc}"
-            alt="${elem.altText}"></dds-logo-grid-item>
+            alt="${elem.altText}"
+          ></dds-logo-grid-item>
         `
       )}
       ${showCta
@@ -51,7 +54,9 @@ export const Default = (args) => {
             <dds-logo-grid-link href="${ctaHref}">
               <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-footer>
-                ${ArrowRight20({ slot: 'icon' })}
+                ${document.dir === 'rtl'
+                  ? ArrowLeft20({ slot: 'icon' })
+                  : ArrowRight20({ slot: 'icon' })}
               </dds-card-footer>
             </dds-logo-grid-link>
           `
