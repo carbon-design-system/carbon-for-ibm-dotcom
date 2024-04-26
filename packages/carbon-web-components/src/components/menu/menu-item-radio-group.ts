@@ -42,7 +42,7 @@ class CDSmenuItemRadioGroup extends LitElement {
   /**
    * List of items in the radio group.
    */
-  itemToString?: (item: Array<String | Number>) => String;
+  itemToString?: (item: Array<String | number>) => String;
   /**
    * Provide an optional function to be called when the selection state changes.
    */

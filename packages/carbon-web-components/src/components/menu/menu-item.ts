@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,8 @@ import styles from './menu-item.scss?lit';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import { classMap } from 'lit/directives/class-map.js';
 import Checkmark16 from '@carbon/icons/lib/checkmark/16';
+import {consume, provide} from '@lit/context';
+import { MenuContext } from './menu-context';
 
 /**
  * Menu Item.
@@ -22,6 +24,10 @@ import Checkmark16 from '@carbon/icons/lib/checkmark/16';
  */
 @customElement(`${prefix}-menu-item`)
 class CDSmenuItem extends LitElement {
+  @provide({context: MenuContext})
+  @consume({context: MenuContext})
+  _myData;
+
   readonly hoverIntentDelay = 150; // in ms
   hoverIntentTimeout;
   /**
@@ -162,6 +168,7 @@ class CDSmenuItem extends LitElement {
     this.isDanger = this.kind === 'danger';
   }
   render() {
+    
     const {
       label,
       shortcut,
@@ -201,6 +208,7 @@ class CDSmenuItem extends LitElement {
         ${hasChildren
           ? html`
               <cds-menu
+                isChild="${hasChildren}"
                 label="${label}"
                 open="${submenuOpen}"
                 x="${boundaries.x}"
