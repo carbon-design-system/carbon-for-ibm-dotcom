@@ -9,7 +9,6 @@
 
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
@@ -28,10 +27,10 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
+  <dds-card href="${ifNonNull(href)}" cta-type="local">
     <dds-card-heading>${heading}</dds-card-heading>
     <p>${copy}</p>
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
+    <dds-card-footer></dds-card-footer>
   </dds-card>
 `;
 
@@ -45,8 +44,12 @@ export const Default = () => {
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est.
       </dds-content-section-copy>
-      <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-        Link text ${ArrowRight20({ slot: 'icon' })}
+      <dds-link-with-icon
+        slot="footer"
+        href="${ifNonNull(hrefDefault)}"
+        cta-type="local"
+      >
+        Link text
       </dds-link-with-icon>
       <dds-carousel>
         ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({

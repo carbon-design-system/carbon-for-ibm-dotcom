@@ -9,7 +9,6 @@
 
 import '../index';
 import '../callout-link-with-icon';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
@@ -37,8 +36,12 @@ export const Default = (args) => {
       <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </dds-quote-source-bottom-copy>
-      <dds-callout-link-with-icon slot="footer" href="https://example.com">
-        Link with icon ${ArrowRight20({ slot: 'icon' })}
+      <dds-callout-link-with-icon
+        slot="footer"
+        href="https://example.com"
+        cta-type="local"
+      >
+        Link with icon
       </dds-callout-link-with-icon>
     </dds-callout-quote>
   `;
