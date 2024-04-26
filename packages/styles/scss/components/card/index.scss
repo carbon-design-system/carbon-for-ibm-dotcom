@@ -434,7 +434,7 @@
   :host(#{$dds-prefix}-card-cta-footer) a,
   :host(#{$dds-prefix}-card-in-card-footer) a {
     @include carbon--breakpoint('md') {
-      padding-inline-end: $carbon--spacing-07;
+      padding-right: $carbon--spacing-07;
     }
   }
 
