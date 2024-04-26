@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
@@ -19,24 +18,23 @@ export const Default = (args) => {
     <dds-link-list-section>
       <dds-link-list-heading>${heading}</dds-link-list-heading>
       <dds-link-list>
-        <dds-link-list-item href="https://example.com">
+        <dds-link-list-item href="https://example.com" cta-type="local">
           Learn more about Kubernetes and automating deployment
-          ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Containerization A Complete Guide
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Microservices and containers
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Learn more about Kubernetes
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Containerization A Complete Guide
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Microservices and containers
         </dds-link-list-item>
       </dds-link-list>
     </dds-link-list-section>

@@ -34,8 +34,12 @@ export const Default = (args) => {
       <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </dds-quote-source-bottom-copy>
-      <dds-quote-link-with-icon slot="footer" href="https://example.com">
-        Link with Icon ${ArrowRight20({ slot: 'icon' })}
+      <dds-quote-link-with-icon
+        slot="footer"
+        href="https://example.com"
+        cta-type="local"
+      >
+        Link with Icon
       </dds-quote-link-with-icon>
     </dds-quote>
   `;

@@ -8,7 +8,6 @@
  */
 
 import { select, number, boolean } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
@@ -74,7 +73,8 @@ const contentItemTypeMap = {
         height="48"
         viewBox="0 0 48 48"
         role="img"
-        class="bx--pictogram-item__pictogram">
+        class="bx--pictogram-item__pictogram"
+      >
         <path
           fill="none"
           stroke-linejoin="round"
@@ -83,7 +83,8 @@ const contentItemTypeMap = {
           d="M 44.211009,36.137939 H 3.7889912 c -1.7101623,0 -3.10938596,-1.365518
           -3.10938596,-3.034485 V 7.3103341 c 0,-1.6689666 1.39922366,-3.0344847 3.10938596,-3.0344847 H 44.211009 c 1.710162,0
           3.109386,1.3655181 3.109386,3.0344847 V 33.103454 c 0,1.668967 -1.399224,3.034485 -3.109386,3.034485 z m
-          -31.09386,7.586212 H 34.882851 M 24,36.137939 v 7.586212 M 0.67960524,28.551727 H 47.320395" />
+          -31.09386,7.586212 H 34.882851 M 24,36.137939 v 7.586212 M 0.67960524,28.551727 H 47.320395"
+        />
       </svg>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
@@ -108,7 +109,8 @@ const contentItemTypeMap = {
         aspect-ratio="4x3"
         slot="media"
         hide-caption
-        playing-mode="lightbox">
+        playing-mode="lightbox"
+      >
       </dds-video-player-container>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
@@ -131,7 +133,8 @@ const contentItemTypeMap = {
       <dds-image-logo
         alt="Microsoft logo"
         slot="media"
-        default-src="${logoMicrosoft2x1}"></dds-image-logo>
+        default-src="${logoMicrosoft2x1}"
+      ></dds-image-logo>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
       ${links.map(
@@ -309,23 +312,23 @@ export const WithLinkList = (args) => {
           <dds-link-list-heading
             >More ways to explore DevOps</dds-link-list-heading
           >
-          <dds-link-list-item href="https://example.com">
-            Events ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Events
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Blogs ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Blogs
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Training ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Training
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Developer resources ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Developer resources
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Research ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Research
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            News ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            News
           </dds-link-list-item>
         </dds-link-list>
       </dds-cta-block>

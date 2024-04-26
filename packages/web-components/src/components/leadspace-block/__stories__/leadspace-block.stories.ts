@@ -26,7 +26,8 @@ const image = html`
   <dds-image
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  >
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -39,11 +40,11 @@ const image = html`
 const linkList = html`
   <dds-link-list type="end">
     <dds-link-list-heading>Featured products</dds-link-list-heading>
-    <dds-link-list-item href="https://example.com">
-      IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
+    <dds-link-list-item href="https://example.com" cta-type="local">
+      IBM Cloud Continuous Delivery
     </dds-link-list-item>
-    <dds-link-list-item href="https://example.com">
-      UrbanCode ${ArrowRight20({ slot: 'icon' })}
+    <dds-link-list-item href="https://example.com" cta-type="local">
+      UrbanCode
     </dds-link-list-item>
     <dds-link-list-item href="https://example.com">
       View all products ${Download20({ slot: 'icon' })}
@@ -86,7 +87,8 @@ export const WithVideo = (args) => {
         <dds-content-block-copy>${copy}</dds-content-block-copy>
         <dds-leadspace-block-media slot="media"
           ><dds-video-player-container
-            video-id="0_ibuqxqbe"></dds-video-player-container
+            video-id="0_ibuqxqbe"
+          ></dds-video-player-container
         ></dds-leadspace-block-media>
         ${linkList} ${buttonCTA}
       </dds-leadspace-block-content>

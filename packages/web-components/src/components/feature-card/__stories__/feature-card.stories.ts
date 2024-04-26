@@ -11,7 +11,8 @@ import '../../card/index';
 import '../../image/image';
 import '../index';
 
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
@@ -32,10 +33,13 @@ export const Medium = (args) => {
       <dds-image
         slot="image"
         alt="Image alt text"
-        default-src="${mediumImgLg1x1}"></dds-image>
+        default-src="${mediumImgLg1x1}"
+      ></dds-image>
       <dds-card-heading>${heading}</dds-card-heading>
       <dds-feature-card-footer>
-        ${ArrowRight20({ slot: 'icon' })}
+        ${document.dir === 'rtl'
+          ? ArrowLeft20({ slot: 'icon' })
+          : ArrowRight20({ slot: 'icon' })}
       </dds-feature-card-footer>
     </dds-feature-card>
   `;
@@ -61,7 +65,9 @@ export const Large = (args) => {
       <dds-card-heading>${heading}</dds-card-heading>
       <p>${copy}</p>
       <dds-feature-card-footer>
-        ${ArrowRight20({ slot: 'icon' })}
+        ${document.dir === 'rtl'
+          ? ArrowLeft20({ slot: 'icon' })
+          : ArrowRight20({ slot: 'icon' })}
       </dds-feature-card-footer>
     </dds-feature-card>
   `;
