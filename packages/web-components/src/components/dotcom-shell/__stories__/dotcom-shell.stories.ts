@@ -794,7 +794,7 @@ export const withL1 = (args) => {
   const contentConfig = {
     l1: true,
     leadspace: false,
-    leadspaceSearch: true,
+    leadspaceSearch: false,
     tocLayout: TOC_TYPES.DEFAULT,
   };
   return html`
@@ -903,9 +903,9 @@ export const WithHorizontalTOC = (args) => {
   } = args?.DotcomShell ?? {};
   const { useMock } = args?.Other ?? {};
   const contentConfig = {
-    l1: false,
-    leadspace: false,
-    leadspaceSearch: true,
+    l1: true,
+    leadspace: true,
+    leadspaceSearch: false,
     tocLayout: TOC_TYPES.HORIZONTAL,
   };
   return html`
