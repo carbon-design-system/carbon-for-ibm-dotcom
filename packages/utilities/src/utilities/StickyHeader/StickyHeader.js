@@ -26,7 +26,6 @@ class StickyHeader {
       scrollPos: 0,
       leadspaceSearchThreshold: 0,
       maxScrollaway: 0,
-      scrollDir: undefined,
     };
 
     this._elements = {
@@ -366,7 +365,6 @@ class StickyHeader {
       banner,
       masthead,
       tableOfContentsInnerBar: tocInner,
-      leadspaceSearch,
       leadspaceSearchBar,
     } = StickyHeader.global._elements;
     const { scrollPosPrevious: oldY } = StickyHeader.global._data;
@@ -397,6 +395,10 @@ class StickyHeader {
      * appear on the page. Important to do this sequentially for
      * cumulativeOffset to be correctly calculated by the time each of these
      * methods accesses it.
+     *
+     * @TODO One idea for improving this so the execution order doesn't matter
+     * is to collect our elements into an array ordered by document position,
+     * then loop over that array and execute a corresponding handler method.
      */
     if (banner) {
       this._handleBanner();
@@ -404,13 +406,11 @@ class StickyHeader {
     if (masthead) {
       this._handleMasthead();
     }
-    if (tocInner) {
-      if (leadspaceSearch) {
-        this._handleLeadspaceSearch();
-      }
-      this._handleToc();
-    } else if (leadspaceSearchBar) {
+    if (leadspaceSearchBar) {
       this._handleLeadspaceSearch();
+    }
+    if (tocInner) {
+      this._handleToc();
     }
   }
 
@@ -429,10 +429,6 @@ class StickyHeader {
     // Store scroll positions.
     this._data.scrollPosPrevious = scrollPosPrevious;
     this._data.scrollPos = Math.max(0, window.scrollY);
-
-    // Identify scroll direction.
-    this._data.scrollDir =
-      this._data.scrollPos > scrollPosPrevious ? 'down' : 'up';
 
     // Given the current state, calculate how elements should be positioned.
     this._calculateMaxScrollaway();
