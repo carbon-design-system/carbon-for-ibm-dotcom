@@ -147,9 +147,9 @@ $search-transition-timing: 95ms;
       }
 
       &:last-child {
-        & > a,
-        & > button {
-          border-bottom: unset;
+        > a,
+        > button {
+          border-bottom: initial;
         }
       }
 
@@ -350,7 +350,7 @@ $search-transition-timing: 95ms;
 
         background-color: $interactive-01;
         color: $ui-02;
-        border-bottom: unset;
+        border-bottom: initial;
 
         svg {
           color: inherit;
