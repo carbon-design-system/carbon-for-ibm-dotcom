@@ -1278,37 +1278,6 @@ WithoutShell.story = {
 };
 
 export const StickyElementSandbox = (args) => {
-  // const {
-  //   l1,
-  //   universalBanner,
-  //   leadspaceSearch,
-  //   tocLayout,
-  // } = args?.DotcomShell ?? {};
-
-  // return html`
-  //   <style>
-  //     ${mastheadStyles}
-  //   </style>
-  //   <dds-dotcom-shell-composite>
-  //     ${universalBanner
-  //       ? html`
-  //           <dds-universal-banner-heading slot="heading">
-  //             Hybrid cloud and AI for smarter business
-  //           </dds-universal-banner-heading>
-  //           <dds-universal-banner-copy slot="copy">
-  //             Las Vegas, June 15-18, 2025
-  //           </dds-universal-banner-copy>
-  //         `
-  //       : ''
-  //     }
-  //     ${StoryContent({
-  //       l1: l1,
-  //       leadspace: false,
-  //       leadspaceSearch: leadspaceSearch,
-  //       tocLayout: tocLayout,
-  //     })}
-  //   </dds-dotcom-shell-composite>
-  // `
   const {
     platform,
     hasProfile,
