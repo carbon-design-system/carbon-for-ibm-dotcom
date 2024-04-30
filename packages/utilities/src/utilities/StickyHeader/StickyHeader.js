@@ -434,8 +434,8 @@ class StickyHeader {
    * down.
    */
   _manageStickyElements() {
-    const { localeModal } = StickyHeader.global._elements;
-    const { scrollPos: scrollPosPrevious } = StickyHeader.global._state;
+    const { localeModal } = this._elements;
+    const { scrollPos: scrollPosPrevious } = this._state;
 
     // Exit early if locale modal is open.
     if (localeModal && localeModal.hasAttribute('open')) return;
