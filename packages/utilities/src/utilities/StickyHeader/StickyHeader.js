@@ -19,13 +19,13 @@ class StickyHeader {
   constructor() {
     this.ownerDocument = root.document;
 
-    this._data = {
+    this._state = {
       cumulativeOffset: 0,
       hasBanner: false,
-      scrollPosPrevious: 0,
-      scrollPos: 0,
       leadspaceSearchThreshold: 0,
       maxScrollaway: 0,
+      scrollPosPrevious: 0,
+      scrollPos: 0,
     };
 
     this._elements = {
@@ -61,7 +61,7 @@ class StickyHeader {
   }
 
   get height() {
-    return this._data.cumulativeOffset;
+    return this._state.cumulativeOffset;
   }
 
   /**
@@ -110,7 +110,7 @@ class StickyHeader {
   set banner(component) {
     if (this._validateComponent(component, `${ddsPrefix}-universal-banner`)) {
       this._elements.banner = component;
-      this._data.hasBanner = true;
+      this._state.hasBanner = true;
 
       if (this._elements.masthead) {
         this._elements.masthead.setAttribute('with-banner', '');
@@ -132,7 +132,7 @@ class StickyHeader {
       this._elements.leadspaceSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
-      this._data.leadspaceSearchThreshold =
+      this._state.leadspaceSearchThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
       this._manageStickyElements();
@@ -186,7 +186,7 @@ class StickyHeader {
   }
 
   _handleResize() {
-    const { _hasBanner: hasBanner } = this._data;
+    const { _hasBanner: hasBanner } = this._state;
 
     const {
       masthead,
@@ -213,46 +213,60 @@ class StickyHeader {
     }
 
     if (leadspaceSearchBar) {
-      this._data.leadspaceSearchThreshold =
+      this._state.leadspaceSearchThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
     }
   }
 
+  /**
+   * Handles the banner given the current scroll position.
+   */
   _handleBanner() {
     const { banner } = this._elements;
-    const { scrollPos } = this._data;
-    this._data.cumulativeOffset += Math.max(banner.offsetHeight - scrollPos, 0);
+    const { scrollPos } = this._state;
+    this._state.cumulativeOffset += Math.max(banner.offsetHeight - scrollPos, 0);
   }
 
+  /**
+   * Handles the masthead given the current scroll position.
+   */
   _handleMasthead() {
     const { masthead } = this._elements;
 
     masthead.style.transition = 'none';
-    masthead.style.top = `${this._data.cumulativeOffset}px`;
-    this._data.cumulativeOffset += masthead.offsetHeight;
+    masthead.style.top = `${this._state.cumulativeOffset}px`;
+
+    // Masthead always sticks, therefore always add its height.
+    this._state.cumulativeOffset += masthead.offsetHeight;
   }
 
+  /**
+   * Handles the table of contents given the current scroll position.
+   */
   _handleToc() {
     const { tableOfContentsInnerBar } = this._elements;
-    const { tocShouldStick } = this._data;
+    const { tocShouldStick } = this._state;
 
     tableOfContentsInnerBar.style.transition = 'none';
-    tableOfContentsInnerBar.style.top = `${this._data.cumulativeOffset}px`;
+    tableOfContentsInnerBar.style.top = `${this._state.cumulativeOffset}px`;
 
     const tocIsStuck =
       Math.round(tableOfContentsInnerBar.getBoundingClientRect().top) <=
-      this._data.cumulativeOffset + 1;
+      this._state.cumulativeOffset + 1;
 
     if (tocShouldStick && tocIsStuck) {
-      this._data.cumulativeOffset += tableOfContentsInnerBar.offsetHeight;
+      this._state.cumulativeOffset += tableOfContentsInnerBar.offsetHeight;
     }
   }
 
+  /**
+   * Handles the leadspace search given the current scroll position.
+   */
   _handleLeadspaceSearch() {
     const { leadspaceSearch, leadspaceSearchBar, leadspaceSearchInput } =
       this._elements;
-    const { leadspaceSearchThreshold } = this._data;
+    const { leadspaceSearchThreshold } = this._state;
     const searchShouldBeSticky =
       leadspaceSearch.getBoundingClientRect().bottom <=
       leadspaceSearchThreshold;
@@ -269,8 +283,8 @@ class StickyHeader {
           leadspaceSearchBar.style.transform = 'translateY(0)';
         });
       }
-      leadspaceSearchBar.style.top = `${this._data.cumulativeOffset}px`;
-      this._data.cumulativeOffset += leadspaceSearchBar.offsetHeight;
+      leadspaceSearchBar.style.top = `${this._state.cumulativeOffset}px`;
+      this._state.cumulativeOffset += leadspaceSearchBar.offsetHeight;
     } else if (searchIsSticky) {
       leadspaceSearch.style.paddingBottom = '';
       leadspaceSearch.removeAttribute('sticky-search');
@@ -306,7 +320,7 @@ class StickyHeader {
     } = StickyHeader.global._elements;
 
     // Reset the value before performing any further calculations.
-    this._data.maxScrollaway = 0;
+    this._state.maxScrollaway = 0;
 
     // Collect conditions we may want to test for to make logic easier to read.
     const tocShouldStick = tableOfContents
@@ -332,12 +346,12 @@ class StickyHeader {
 
     // If L1 is open, lock it to the top of the page.
     if (mastheadL1IsActive && mastheadL0) {
-      this._data.maxScrollaway = mastheadL0.offsetHeight;
+      this._state.maxScrollaway = mastheadL0.offsetHeight;
     } else {
       // In cases where we have both an eligible ToC and leadspace search, we want
       // the ToC to take precedence. Scroll away leadspace search.
       if (tocIsAtSearch && tocShouldStick) {
-        this._data.maxScrollaway += leadspaceSearchBar.offsetHeight;
+        this._state.maxScrollaway += leadspaceSearchBar.offsetHeight;
       }
 
       // Scroll away entire masthead if either ToC or leadspace search is eligible
@@ -345,10 +359,10 @@ class StickyHeader {
       // L0 if we have an L1.
       if (searchIsAtTop || (tocIsAtTop && tocShouldStick)) {
         if (masthead) {
-          this._data.maxScrollaway += masthead.offsetHeight;
+          this._state.maxScrollaway += masthead.offsetHeight;
         }
       } else if (masthead && mastheadL0 && mastheadL1) {
-        this._data.maxScrollaway += mastheadL0.offsetHeight;
+        this._state.maxScrollaway += mastheadL0.offsetHeight;
       }
     }
   }
@@ -367,7 +381,7 @@ class StickyHeader {
       tableOfContentsInnerBar: tocInner,
       leadspaceSearchBar,
     } = StickyHeader.global._elements;
-    const { scrollPosPrevious: oldY } = StickyHeader.global._data;
+    const { scrollPosPrevious: oldY } = StickyHeader.global._state;
 
     /**
      * Reset to a value that is equal to the difference between the previous
@@ -382,12 +396,12 @@ class StickyHeader {
      *   with the elements that should be visible starting at the top of the
      *   viewport.
      */
-    this._data.cumulativeOffset = Math.max(
+    this._state.cumulativeOffset = Math.max(
       Math.min(
-        (masthead ? masthead.offsetTop : 0) + oldY - this._data.scrollPos,
+        (masthead ? masthead.offsetTop : 0) + oldY - this._state.scrollPos,
         0
       ),
-      this._data.maxScrollaway * -1
+      this._state.maxScrollaway * -1
     );
 
     /**
@@ -421,14 +435,14 @@ class StickyHeader {
    */
   _manageStickyElements() {
     const { localeModal } = StickyHeader.global._elements;
-    const { scrollPos: scrollPosPrevious } = StickyHeader.global._data;
+    const { scrollPos: scrollPosPrevious } = StickyHeader.global._state;
 
     // Exit early if locale modal is open.
     if (localeModal && localeModal.hasAttribute('open')) return;
 
     // Store scroll positions.
-    this._data.scrollPosPrevious = scrollPosPrevious;
-    this._data.scrollPos = Math.max(0, window.scrollY);
+    this._state.scrollPosPrevious = scrollPosPrevious;
+    this._state.scrollPos = Math.max(0, window.scrollY);
 
     // Given the current state, calculate how elements should be positioned.
     this._calculateMaxScrollaway();
@@ -437,7 +451,7 @@ class StickyHeader {
     // Set custom property for use in stylesheets
     root.document.documentElement.style.setProperty(
       this.constructor.customPropertyName,
-      `${this._data.cumulativeOffset}px`
+      `${this._state.cumulativeOffset}px`
     );
   }
 }
