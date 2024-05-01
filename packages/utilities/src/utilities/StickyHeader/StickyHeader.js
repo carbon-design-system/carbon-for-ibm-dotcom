@@ -317,7 +317,7 @@ class StickyHeader {
       tableOfContents,
       tableOfContentsInnerBar,
       leadspaceSearchBar,
-    } = StickyHeader.global._elements;
+    } = this._elements;
 
     // Reset the value before performing any further calculations.
     this._state.maxScrollaway = 0;
@@ -380,8 +380,8 @@ class StickyHeader {
       masthead,
       tableOfContentsInnerBar: tocInner,
       leadspaceSearchBar,
-    } = StickyHeader.global._elements;
-    const { scrollPosPrevious: oldY } = StickyHeader.global._state;
+    } = this._elements;
+    const { scrollPosPrevious: oldY } = this._state;
 
     /**
      * Reset to a value that is equal to the difference between the previous
