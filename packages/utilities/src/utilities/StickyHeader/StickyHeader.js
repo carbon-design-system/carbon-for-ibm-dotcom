@@ -350,7 +350,7 @@ class StickyHeader {
     } else {
       // In cases where we have both an eligible ToC and leadspace search, we want
       // the ToC to take precedence. Scroll away leadspace search.
-      if (tocIsAtSearch && tocShouldStick) {
+      if (searchIsAtTop && tocIsAtSearch && tocShouldStick) {
         this._state.maxScrollaway += leadspaceSearchBar.offsetHeight;
       }
 
