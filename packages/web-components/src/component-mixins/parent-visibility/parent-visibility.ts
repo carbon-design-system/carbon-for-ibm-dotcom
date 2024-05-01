@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,6 @@
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
-import C4DTab from '../../components/tabs-extended/tab';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -45,14 +44,24 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     }
 
     /**
-     * A list of potential parent components that may be hide their content on
+     * A list of potential parent components that may hide their content on
      * first render. Lists event names that indicate the parent element
      * visibility has changed keyed by component selector strings.
      */
     static get parentsThatHide() {
+      const { eventTabSelected } = this
+        .constructor as typeof ParentVisibilityMixinImpl;
       return {
-        [`${c4dPrefix}-tab`]: C4DTab.eventTabSelected,
+        [`${c4dPrefix}-tab`]: eventTabSelected,
       };
+    }
+
+    /**
+     * The name of the custom event that fires whenever a tab's selected state
+     * changes.
+     */
+    static get eventTabSelected() {
+      return `${c4dPrefix}-tab-selected`;
     }
   }
 
