@@ -214,18 +214,18 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       // add tag group height to heading to the cards lacking tag group
       if (
         e &&
-        !e.nextElementSibling?.matches(
+        !e?.nextElementSibling?.matches(
           (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
         ) &&
         tagGroupHeight > 0
       ) {
         e.style.marginBottom = `${tagGroupHeight + paragraphBottomMargin}px`;
       } else if (
-        e.nextElementSibling?.matches(
+        e?.nextElementSibling?.matches(
           (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
         )
       ) {
-        let siblingTagGroup = e.nextElementSibling;
+        let siblingTagGroup = e?.nextElementSibling;
         siblingTagGroup.style.marginTop = `${
           tagGroupHeight - siblingTagGroup.offsetHeight
         }px`;
