@@ -225,7 +225,10 @@ class StickyHeader {
   _handleBanner() {
     const { banner } = this._elements;
     const { scrollPos } = this._state;
-    this._state.cumulativeOffset += Math.max(banner.offsetHeight - scrollPos, 0);
+    this._state.cumulativeOffset += Math.max(
+      banner.offsetHeight - scrollPos,
+      0
+    );
   }
 
   /**
