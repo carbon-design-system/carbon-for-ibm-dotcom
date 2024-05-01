@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -234,6 +234,8 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   };
 
   private _borderAdjustments = (columnCount) => {
+    const { gridMode } = this;
+
     const isEmpty = (element) => element.hasAttribute('empty');
     const inFirstColumn = (index) => (index + 1) % columnCount === 1;
     const inLastColumn = (index) => (index + 1) % columnCount === 0;
@@ -243,58 +245,57 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       Math.floor((this._childItems.length - 1) / columnCount);
 
     this._childItems.forEach((e, index) => {
-      const { gridMode } = this;
       if (gridMode === GRID_MODE.COLLAPSED) {
         e.toggleAttribute('border', false);
         if (isEmpty(e)) {
-          e.style.paddingBottom = '0';
-          e.style.paddingRight = '0';
+          e.style.paddingBlockEnd = '0';
+          e.style.paddingInlineEnd = '0';
         } else {
           if (inFirstColumn(index)) {
-            e.style.paddingLeft = '0';
+            e.style.paddingInlineStart = '0';
           }
           if (inLastColumn(index)) {
-            e.style.paddingRight = '0';
-            e.style.borderRight = `1px solid var(--cds-ui-background)`;
+            e.style.paddingInlineEnd = '0';
+            e.style.borderInlineEnd = `1px solid var(--cds-ui-background)`;
           } else {
-            e.style.paddingRight = '1px';
-            e.style.borderRight = 'none';
+            e.style.paddingInlineEnd = '1px';
+            e.style.borderInlineEnd = 'none';
           }
           if (inFirstRow(index)) {
-            e.style.paddingTop = '0';
+            e.style.paddingBlockStart = '0';
           }
           if (inLastRow(index)) {
-            e.style.paddingBottom = '0';
+            e.style.paddingBlockEnd = '0';
           } else {
-            e.style.paddingBottom = '1px';
+            e.style.paddingBlockEnd = '1px';
           }
         }
       }
       if (gridMode === GRID_MODE.BORDER) {
         e.toggleAttribute('border', true);
         if (isEmpty(e)) {
-          e.style.paddingBottom = '1px';
-          e.style.paddingRight = '1px';
+          e.style.paddingBlockEnd = '1px';
+          e.style.paddingInlineEnd = '1px';
         } else {
-          e.style.paddingTop = '0';
+          e.style.paddingBlockStart = '0';
           if (inFirstRow(index)) {
-            e.style.paddingTop = '1px';
+            e.style.paddingBlockStart = '1px';
           }
           if (inLastRow(index)) {
-            e.style.paddingBottom = '1px';
+            e.style.paddingBlockEnd = '1px';
           }
           if (inFirstColumn(index)) {
-            e.style.paddingLeft = '1px';
+            e.style.paddingInlineStart = '1px';
           } else {
-            e.style.paddingLeft = '0';
+            e.style.paddingInlineStart = '0';
           }
           if (inLastColumn(index)) {
-            e.style.paddingRight = '1px';
+            e.style.paddingInlineEnd = '1px';
           }
         }
         // if one column and first item is empty then set top border for second item
         if (columnCount === 1 && isEmpty(this._childItems[0]) && index === 1) {
-          e.style.paddingTop = '1px';
+          e.style.paddingBlockStart = '1px';
         }
       }
     });
@@ -303,10 +304,10 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   private _resetBorders = () => {
     this._childItems.forEach((elem) => {
       elem.toggleAttribute('border', false);
-      elem.style.paddingTop = '';
-      elem.style.paddingRight = '';
-      elem.style.paddingBottom = '';
-      elem.style.paddingLeft = '';
+      elem.style.paddingBlockStart = '';
+      elem.style.paddingInlineEnd = '';
+      elem.style.paddingBlockEnd = '';
+      elem.style.paddingInlineStart = '';
     });
   };
 
