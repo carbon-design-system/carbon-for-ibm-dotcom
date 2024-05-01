@@ -53,8 +53,7 @@ export const Default = () => {
       <dds-link-with-icon
         slot="footer"
         href="${ifNonNull(hrefDefault)}"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
       </dds-link-with-icon>
       <dds-carousel>

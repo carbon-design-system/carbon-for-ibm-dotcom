@@ -80,8 +80,7 @@ export const Default = (args) => {
           <dds-link-list-item-card-cta
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` <p>Learn more about Kubernetes</p> `
               : null}
@@ -90,8 +89,7 @@ export const Default = (args) => {
           <dds-link-list-item-card-cta
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` <p>Containerization A Complete Guide</p> `
               : null}
@@ -150,15 +148,13 @@ export const Horizontal = (args) => {
           <dds-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            cta-type="local"
-          >
+            cta-type="local">
             Learn more about Kubernetes
           </dds-link-list-item>
           <dds-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            cta-type="local"
-          >
+            cta-type="local">
             Containerization A Complete Guide
           </dds-link-list-item>
         </dds-link-list>
@@ -170,8 +166,7 @@ export const Horizontal = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
@@ -180,8 +175,7 @@ export const Horizontal = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
@@ -239,15 +233,13 @@ export const Vertical = (args) => {
           <dds-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            cta-type="local"
-          >
+            cta-type="local">
             Learn more about Kubernetes
           </dds-link-list-item>
           <dds-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            cta-type="local"
-          >
+            cta-type="local">
             Containerization A Complete Guide
           </dds-link-list-item>
         </dds-link-list>
@@ -259,8 +251,7 @@ export const Vertical = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
@@ -269,8 +260,7 @@ export const Vertical = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
@@ -318,8 +308,7 @@ export const EndOfSection = (args) => {
           <dds-link-list-item-cta
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
@@ -327,8 +316,7 @@ export const EndOfSection = (args) => {
           <dds-link-list-item-cta
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
@@ -336,8 +324,7 @@ export const EndOfSection = (args) => {
           <dds-link-list-item-cta
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
+            download="${ifNonNull(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Microservices and containers `
               : null}

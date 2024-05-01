@@ -40,8 +40,7 @@ export const image = html`
   <dds-image
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  >
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -115,15 +114,13 @@ export const contentItemHorizontal = html`
       <dds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
       </dds-link-list-item-cta>
       <dds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="external"
-      >
+        cta-type="external">
         External link text
       </dds-link-list-item-cta>
     </dds-link-list>
@@ -134,8 +131,7 @@ export const universalBanner = (srcImage) => html`
   <dds-universal-banner image-width="4-col">
     <dds-universal-banner-image
       slot="image"
-      default-src="${srcImage}"
-    ></dds-universal-banner-image>
+      default-src="${srcImage}"></dds-universal-banner-image>
     <dds-universal-banner-heading slot="heading"
       >heading</dds-universal-banner-heading
     >
@@ -144,8 +140,7 @@ export const universalBanner = (srcImage) => html`
       slot="cta"
       cta-type="local"
       kind="tertiary"
-      href="https://www.example.com"
-    >
+      href="https://www.example.com">
       cta copy
     </dds-button-cta>
   </dds-universal-banner>
@@ -166,8 +161,7 @@ export const contentLeadspace = html`
     size="medium"
     gradient-style-scheme="true"
     alt=""
-    default-src="${leadspaceImg}"
-  >
+    default-src="${leadspaceImg}">
     <dds-leadspace-heading>Leadspace Title</dds-leadspace-heading>
     Use this area for a short line of copy to support the title
     <dds-button-group slot="action">
@@ -177,16 +171,13 @@ export const contentLeadspace = html`
       slot="image"
       class="bx--image"
       alt=""
-      default-src="${leadspaceImg}"
-    >
+      default-src="${leadspaceImg}">
       <dds-image-item
         media="(min-width: 672px)"
-        srcset="${leadspaceImg}"
-      ></dds-image-item>
+        srcset="${leadspaceImg}"></dds-image-item>
       <dds-image-item
         media="(min-width: 0)"
-        srcset="${leadspaceImg}"
-      ></dds-image-item>
+        srcset="${leadspaceImg}"></dds-image-item>
     </dds-image>
   </dds-leadspace>
 `;
@@ -211,8 +202,7 @@ export const contentLeadspaceSearch = html`
       slot="search"
       leadspace-search
       active
-      should-remain-open
-    ></dds-search-with-typeahead>
+      should-remain-open></dds-search-with-typeahead>
   </dds-leadspace-with-search>
 `;
 
@@ -232,8 +222,7 @@ export const tocContent = html`
       </dds-content-block-copy>
       <dds-leadspace-block-media slot="media">
         <dds-video-player-container
-          video-id="0_ibuqxqbe"
-        ></dds-video-player-container>
+          video-id="0_ibuqxqbe"></dds-video-player-container>
       </dds-leadspace-block-media>
       <dds-link-list type="end">
         <dds-link-list-heading>Featured products</dds-link-list-heading>
@@ -270,8 +259,7 @@ export const tocContent = html`
     <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}">
       <dds-image-item
         media="(min-width: 991px)"
-        srcset="${imgLg1x1}"
-      ></dds-image-item>
+        srcset="${imgLg1x1}"></dds-image-item>
     </dds-image>
     <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
     <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
@@ -309,8 +297,7 @@ export const tocContent = html`
       velit egestas dui.
     </dds-callout-with-media-copy>
     <dds-callout-with-media-video
-      video-id="0_ibuqxqbe"
-    ></dds-callout-with-media-video>
+      video-id="0_ibuqxqbe"></dds-callout-with-media-video>
   </dds-callout-with-media>
 
   <a name="4" data-title="Tincidunt ornare massa"></a>
@@ -331,8 +318,7 @@ export const tocContent = html`
       (elem) => html`
         <dds-logo-grid-item
           default-src="${elem.imgSrc}"
-          alt="${elem.altText}"
-        ></dds-logo-grid-item>
+          alt="${elem.altText}"></dds-logo-grid-item>
       `
     )}
   </dds-logo-grid>
@@ -356,8 +342,7 @@ export const tocContent = html`
     <dds-callout-link-with-icon
       slot="footer"
       href="https://example.com"
-      cta-type="local"
-    >
+      cta-type="local">
       Link with Icon
     </dds-callout-link-with-icon>
   </dds-callout-quote>
@@ -388,8 +373,7 @@ export const tocContent = html`
           slot="footer"
           cta-type="local"
           icon-placement="right"
-          href="example.com"
-        >
+          href="example.com">
           Find a partner
         </dds-text-cta>
       </dds-cta-block-item>
@@ -403,8 +387,7 @@ export const tocContent = html`
           slot="footer"
           cta-type="local"
           icon-placement="right"
-          href="example.com"
-        >
+          href="example.com">
           Browse tutorials
         </dds-text-cta>
       </dds-cta-block-item>
@@ -435,8 +418,7 @@ export const StoryContent = (
         ? html`
             <dds-table-of-contents
               stickyOffset="48"
-              toc-layout=${config.tocLayout}
-            >
+              toc-layout=${config.tocLayout}>
               <div class="bx--row">
                 <div class="bx--col-lg-12">${tocContent}</div>
               </div>
@@ -445,8 +427,7 @@ export const StoryContent = (
         : html`
             <dds-table-of-contents
               stickyOffset="48"
-              toc-layout=${config.tocLayout}
-            >
+              toc-layout=${config.tocLayout}>
               ${tocContent}
             </dds-table-of-contents>
           `}
@@ -458,8 +439,7 @@ export const StoryContentNoToC = () =>
   html`
     <div
       class="dds-ce-demo-devenv--ui-shell-content"
-      style="padding-right:1rem"
-    >
+      style="padding-right:1rem">
       <div class="bx--grid bx--col-lg-8">
         ${contentLeadspaceSearch}
 
@@ -475,12 +455,10 @@ export const StoryContentNoToC = () =>
           <dds-image
             slot="image"
             alt="Image alt text"
-            default-src="${imgLg1x1}"
-          >
+            default-src="${imgLg1x1}">
             <dds-image-item
               media="(min-width: 991px)"
-              srcset="${imgLg1x1}"
-            ></dds-image-item>
+              srcset="${imgLg1x1}"></dds-image-item>
           </dds-image>
           <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
           <dds-card-heading
@@ -505,8 +483,7 @@ export const StoryContentNoToC = () =>
           <dds-card-cta
             slot="footer"
             cta-type="local"
-            href="https://example.com"
-          >
+            href="https://example.com">
             Lorem ipsum dolor
             <dds-card-cta-footer></dds-card-cta-footer>
           </dds-card-cta>
@@ -523,8 +500,7 @@ export const StoryContentNoToC = () =>
             facilisis volutpat est velit egestas dui.
           </dds-callout-with-media-copy>
           <dds-callout-with-media-video
-            video-id="0_ibuqxqbe"
-          ></dds-callout-with-media-video>
+            video-id="0_ibuqxqbe"></dds-callout-with-media-video>
         </dds-callout-with-media>
 
         <dds-content-block-horizontal>
@@ -543,8 +519,7 @@ export const StoryContentNoToC = () =>
             (elem) => html`
               <dds-logo-grid-item
                 default-src="${elem.imgSrc}"
-                alt="${elem.altText}"
-              ></dds-logo-grid-item>
+                alt="${elem.altText}"></dds-logo-grid-item>
             `
           )}
         </dds-logo-grid>
@@ -572,8 +547,7 @@ export const StoryContentNoToC = () =>
           <dds-callout-link-with-icon
             slot="footer"
             href="https://example.com"
-            cta-type="local"
-          >
+            cta-type="local">
             Link with Icon
           </dds-callout-link-with-icon>
         </dds-callout-quote>
@@ -608,8 +582,7 @@ export const StoryContentNoToC = () =>
                 slot="footer"
                 cta-type="local"
                 icon-placement="right"
-                href="example.com"
-              >
+                href="example.com">
                 Find a partner
               </dds-text-cta>
             </dds-cta-block-item>
@@ -624,8 +597,7 @@ export const StoryContentNoToC = () =>
                 slot="footer"
                 cta-type="local"
                 icon-placement="right"
-                href="example.com"
-              >
+                href="example.com">
                 Browse tutorials
               </dds-text-cta>
             </dds-cta-block-item>

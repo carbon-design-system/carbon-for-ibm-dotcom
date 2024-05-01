@@ -112,8 +112,7 @@ export const Default = (args) => {
               >
               <dds-video-player-container
                 slot="media"
-                video-id="0_ibuqxqbe"
-              ></dds-video-player-container>
+                video-id="0_ibuqxqbe"></dds-video-player-container>
               <dds-text-cta
                 slot="footer"
                 cta-type="jump"

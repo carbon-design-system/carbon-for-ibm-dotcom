@@ -36,8 +36,7 @@ export const Default = (args) => {
       <dds-quote-link-with-icon
         slot="footer"
         href="https://example.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link with Icon
       </dds-quote-link-with-icon>
     </dds-quote>

@@ -48,8 +48,7 @@ const Card = ({
           <dds-image
             slot="image"
             alt="example image"
-            default-src="${image}"
-          ></dds-image>
+            default-src="${image}"></dds-image>
         `
       : null}
     <dds-card-footer>
@@ -74,8 +73,7 @@ const CardWithLongHeading = ({
           <dds-image
             slot="image"
             alt="example image"
-            default-src="${image}"
-          ></dds-image>
+            default-src="${image}"></dds-image>
         `
       : null}
     <dds-card-footer>

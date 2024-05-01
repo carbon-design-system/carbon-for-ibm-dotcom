@@ -39,8 +39,7 @@ export const Default = (args) => {
       <dds-callout-link-with-icon
         slot="footer"
         href="https://example.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link with icon
       </dds-callout-link-with-icon>
     </dds-callout-quote>

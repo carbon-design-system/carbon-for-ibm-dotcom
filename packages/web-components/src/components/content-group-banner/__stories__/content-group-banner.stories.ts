@@ -56,15 +56,13 @@ export const Default = (args) => {
             <dds-link-list-item
               icon-placement="${iconPlacement}"
               href="https://example.com"
-              cta-type="local"
-            >
+              cta-type="local">
               Learn more about Kubernetes
             </dds-link-list-item>
             <dds-link-list-item
               icon-placement="${iconPlacement}"
               href="https://example.com"
-              cta-type="local"
-            >
+              cta-type="local">
               Containerization A Complete Guide
             </dds-link-list-item>
           </dds-link-list>
@@ -79,16 +77,14 @@ export const Default = (args) => {
               icon-placement="${iconPlacement}"
               href="${ifNonNull(href)}"
               cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}"
-            >
+              download="${ifNonNull(download)}">
               Learn more about Kubernetes
             </dds-link-list-item-cta>
             <dds-link-list-item-cta
               icon-placement="${iconPlacement}"
               href="${ifNonNull(href)}"
               cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}"
-            >
+              download="${ifNonNull(download)}">
               Containerization A Complete Guide
             </dds-link-list-item-cta>
           </dds-link-list>

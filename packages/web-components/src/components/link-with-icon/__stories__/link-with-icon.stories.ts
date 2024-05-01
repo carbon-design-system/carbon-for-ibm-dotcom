@@ -24,8 +24,7 @@ export const Default = (args) => {
       ?disabled="${disabled}"
       href="${ifNonNull(href)}"
       @click="${onClick}"
-      cta-type="local"
-    >
+      cta-type="local">
       ${children}
     </dds-link-with-icon>
   `;
