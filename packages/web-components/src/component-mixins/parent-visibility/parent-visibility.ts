@@ -9,6 +9,7 @@
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
+import { eventTabSelected } from '../../components/tabs-extended/defs';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -49,19 +50,9 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * visibility has changed keyed by component selector strings.
      */
     static get parentsThatHide() {
-      const { eventTabSelected } = this
-        .constructor as typeof ParentVisibilityMixinImpl;
       return {
         [`${c4dPrefix}-tab`]: eventTabSelected,
       };
-    }
-
-    /**
-     * The name of the custom event that fires whenever a tab's selected state
-     * changes.
-     */
-    static get eventTabSelected() {
-      return `${c4dPrefix}-tab-selected`;
     }
   }
 
