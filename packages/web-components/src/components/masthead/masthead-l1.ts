@@ -100,6 +100,12 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
 @customElement(`${ddsPrefix}-masthead-l1`)
 class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   /**
+   * Whether an L1 menu is open or not.
+   */
+  @property({ attribute: 'active', reflect: true, type: Boolean })
+  active = false;
+
+  /**
    * The L1 menu data, passed from the masthead-composite.
    */
   @property()
@@ -751,6 +757,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       })
     );
 
+    this.active = !isOpen;
     button.classList.toggle('is-open', !isOpen);
     dropdown.classList.toggle('is-open', !isOpen);
   }
