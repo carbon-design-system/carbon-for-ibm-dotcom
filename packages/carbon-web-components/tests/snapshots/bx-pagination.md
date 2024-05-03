@@ -109,11 +109,14 @@
 <div class="bx--select__page-number">
   <label
     class="bx--label bx--visually-hidden"
-    for="select"
+    for="select-page"
   >
     Page number, of 10 pages
   </label>
-  <select class="bx--select-input">
+  <select
+    class="bx--select-input"
+    id="select-page"
+  >
     <option
       selected=""
       value="0"
