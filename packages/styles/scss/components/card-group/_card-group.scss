@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -66,7 +66,7 @@
         &__img {
           position: absolute;
           height: 100%;
-          top: 0;
+          inset-block-start: 0;
         }
       }
     }
@@ -86,8 +86,8 @@
 
   :host(#{$dds-prefix}-card-group-item),
   :host(#{$dds-prefix}-card-group-card-link-item) {
-    padding-bottom: 1px;
-    padding-right: 1px;
+    padding-block-end: 1px;
+    padding-inline-end: 1px;
 
     &[border] {
       border: none;
@@ -122,7 +122,7 @@
 
     &[pattern-background] {
       .#{$prefix}--card {
-        border-bottom: 1px solid $ui-03;
+        border-block-end: 1px solid $ui-03;
       }
 
       .#{$prefix}--card,
@@ -142,10 +142,7 @@
         content: '';
         position: absolute;
         z-index: 2;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        inset: 0;
         outline: 2px solid $focus;
         outline-offset: -2px;
         pointer-events: none;
@@ -186,8 +183,8 @@
     // `@include carbon--make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
     // Such adjustment has adverse effect when card group is placed in non-Carbon-grid,
     // but keeps it for React for backward-compatibility reason.
-    margin-left: calc(-1 * #{$carbon--grid-gutter} / 2);
-    margin-right: calc(-1 * #{$carbon--grid-gutter} / 2);
+    margin-inline-start: calc(-1 * #{$carbon--grid-gutter} / 2);
+    margin-inline-end: calc(-1 * #{$carbon--grid-gutter} / 2);
 
     position: relative;
     &::after {
@@ -196,8 +193,8 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      left: 0;
-      top: 0;
+      inset-inline-start: 0;
+      inset-block-start: 0;
       pointer-events: none;
       box-shadow: inset 0 0 0 1px $ui-background;
     }
@@ -207,11 +204,11 @@
     padding: 0;
     background: $decorative-01;
 
-    border-right: 1px solid $decorative-01;
-    border-top: 1px solid $decorative-01;
+    border-inline-end: 1px solid $decorative-01;
+    border-block-start: 1px solid $decorative-01;
 
     &:last-of-type {
-      border-right: 0;
+      border-inline-end: 0;
       width: calc(100% - 1px);
     }
 
@@ -224,12 +221,12 @@
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
     @include carbon--breakpoint('sm') {
-      padding-top: $carbon--spacing-03;
+      padding-block-start: $carbon--spacing-03;
       gap: $carbon--spacing-03;
     }
 
     @include carbon--breakpoint('md') {
-      padding-top: $carbon--spacing-05;
+      padding-block-start: $carbon--spacing-05;
       gap: $carbon--spacing-05;
     }
 
@@ -259,10 +256,7 @@
           content: '';
           position: absolute;
           z-index: 2;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
+          inset: 0;
           box-shadow: inset 0 0 0 2px $focus;
           pointer-events: none;
         }
@@ -279,23 +273,23 @@
     .#{$prefix}--card-group__cards__col {
       padding: 0;
       border: 1px solid $decorative-01;
-      border-bottom: 0;
+      border-block-end: 0;
     }
 
     .#{$prefix}--card-group__cards__col:last-of-type {
-      border-bottom: 1px solid $decorative-01;
-      padding-right: 0;
+      border-block-end: 1px solid $decorative-01;
+      padding-inline-end: 0;
     }
 
     @include carbon--breakpoint('md') {
       .#{$prefix}--card-group__cards__col {
-        border-bottom: 0;
-        border-right: 0;
+        border-block-end: 0;
+        border-inline-end: 0;
       }
 
       .#{$prefix}--card-group__cards__col:nth-child(2n),
       .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $decorative-01;
+        border-inline-end: 1px solid $decorative-01;
       }
 
       .#{$prefix}--card-group__cards__col:last-of-type:not(:nth-child(2n)) {
@@ -303,7 +297,7 @@
       }
 
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
-        border-bottom: 1px solid $decorative-01;
+        border-block-end: 1px solid $decorative-01;
         height: calc(100% + 1px);
       }
     }
@@ -311,19 +305,19 @@
     @include carbon--breakpoint('lg') {
       .#{$prefix}--card-group__cards__col:nth-child(2n),
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
-        border-bottom: 0;
-        border-right: 0;
+        border-block-end: 0;
+        border-inline-end: 0;
         height: auto;
       }
 
       .#{$prefix}--card-group__cards__col:nth-child(3n),
       .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $decorative-01;
+        border-inline-end: 1px solid $decorative-01;
         width: calc(100% + 1px);
       }
 
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
-        border-bottom: 1px solid $decorative-01;
+        border-block-end: 1px solid $decorative-01;
         height: calc(100% + 1px);
       }
 

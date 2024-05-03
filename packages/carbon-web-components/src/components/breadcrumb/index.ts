@@ -10,3 +10,4 @@
 import './breadcrumb';
 import './breadcrumb-item';
 import './breadcrumb-link';
+import './breadcrumb-overflow-menu';
