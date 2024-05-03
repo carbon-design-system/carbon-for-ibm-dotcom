@@ -395,6 +395,7 @@ export const StoryContent = (
   config = {
     l1: false,
     leadspace: false,
+    leadspaceSearch: false,
     tocLayout: TOC_TYPES.DEFAULT,
   }
 ) => {
@@ -410,6 +411,7 @@ export const StoryContent = (
   return html`
     <div class="${mainClasses}">
       ${config?.leadspace ? contentLeadspace : null}
+      ${config?.leadspaceSearch ? contentLeadspaceSearch : null}
       ${config?.tocLayout === TOC_TYPES.HORIZONTAL
         ? html`
             <dds-table-of-contents
