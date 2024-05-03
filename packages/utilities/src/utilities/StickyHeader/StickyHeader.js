@@ -343,12 +343,17 @@ class StickyHeader {
         ? tableOfContentsInnerBar.getBoundingClientRect().top <=
           leadspaceSearchBar.getBoundingClientRect().bottom
         : false;
+    const mastheadL0IsActive = masthead?.querySelector('[expanded]');
     const mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
 
     // Begin calculating maxScrollAway.
 
+    // If L0 is open, lock it to the top of the page.
+    if (mastheadL0 && mastheadL0IsActive) {
+      this._state.maxScrollaway = 0;
+    }
     // If L1 is open, lock it to the top of the page.
-    if (mastheadL1IsActive && mastheadL0) {
+    else if (mastheadL1IsActive && mastheadL0) {
       this._state.maxScrollaway = mastheadL0.offsetHeight;
     } else {
       // In cases where we have both an eligible ToC and leadspace search, we want
