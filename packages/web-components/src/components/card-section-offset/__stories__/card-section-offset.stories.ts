@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
@@ -47,7 +46,7 @@ const gridModes = {
 };
 
 const defaultCardGroupItem = html`
-  <c4d-card-group-item href="https://example.com">
+  <c4d-card-group-item href="https://example.com" cta-type="local">
     <c4d-card-eyebrow>Label</c4d-card-eyebrow>
     <c4d-card-heading
       >Lorem ipsum dolor sit amet, pro graeco tibique an</c4d-card-heading
@@ -56,7 +55,7 @@ const defaultCardGroupItem = html`
       Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
       democritum ex. Illud ullum graecis
     </p>
-    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+    <c4d-card-footer></c4d-card-footer>
   </c4d-card-group-item>
 `;
 
