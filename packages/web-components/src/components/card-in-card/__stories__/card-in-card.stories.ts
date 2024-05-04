@@ -12,7 +12,6 @@ import '../../image/image';
 import '../index';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { boolean } from '@storybook/addon-knobs';
@@ -40,7 +39,7 @@ export const Default = (args) => {
     `;
   }
   return html`
-    <dds-card-in-card href=${ifNonNull(href || undefined)}>
+    <dds-card-in-card href=${ifNonNull(href || undefined)} cta-type="local">
       <dds-card-in-card-image
         slot="image"
         alt="${ifNonNull(alt)}"
@@ -54,9 +53,7 @@ export const Default = (args) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
-      <dds-card-cta-footer>
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
+      <dds-card-cta-footer></dds-card-cta-footer>
     </dds-card-in-card>
   `;
 };

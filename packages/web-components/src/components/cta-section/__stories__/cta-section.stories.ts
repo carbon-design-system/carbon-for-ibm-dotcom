@@ -8,7 +8,6 @@
  */
 
 import { select, number, boolean } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
@@ -309,23 +308,23 @@ export const WithLinkList = (args) => {
           <dds-link-list-heading
             >More ways to explore DevOps</dds-link-list-heading
           >
-          <dds-link-list-item href="https://example.com">
-            Events ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Events
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Blogs ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Blogs
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Training ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Training
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Developer resources ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Developer resources
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Research ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Research
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            News ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            News
           </dds-link-list-item>
         </dds-link-list>
       </dds-cta-block>

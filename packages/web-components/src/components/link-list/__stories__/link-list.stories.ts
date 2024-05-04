@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -58,13 +59,17 @@ export const Default = (args) => {
           <dds-link-list-item-card href="https://example.com">
             <p>Learn more about Kubernetes</p>
             <dds-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
+              ${document.dir === 'rtl'
+                ? ArrowLeft20({ slot: 'icon' })
+                : ArrowRight20({ slot: 'icon' })}
             </dds-card-footer>
           </dds-link-list-item-card>
           <dds-link-list-item-card href="https://example.com">
             <p>Containerization A Complete Guide</p>
             <dds-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
+              ${document.dir === 'rtl'
+                ? ArrowLeft20({ slot: 'icon' })
+                : ArrowRight20({ slot: 'icon' })}
             </dds-card-footer>
           </dds-link-list-item-card>
         </dds-link-list>
@@ -142,13 +147,15 @@ export const Horizontal = (args) => {
           <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+            href="https://example.com"
+            cta-type="local">
+            Learn more about Kubernetes
           </dds-link-list-item>
           <dds-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+            href="https://example.com"
+            cta-type="local">
+            Containerization A Complete Guide
           </dds-link-list-item>
         </dds-link-list>
       `
@@ -225,13 +232,15 @@ export const Vertical = (args) => {
           <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+            href="https://example.com"
+            cta-type="local">
+            Learn more about Kubernetes
           </dds-link-list-item>
           <dds-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+            href="https://example.com"
+            cta-type="local">
+            Containerization A Complete Guide
           </dds-link-list-item>
         </dds-link-list>
       `
@@ -282,14 +291,14 @@ export const EndOfSection = (args) => {
     ? html`
         <dds-link-list type="end">
           <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Learn more about Kubernetes
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Containerization A Complete Guide
           </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          <dds-link-list-item href="https://example.com" cta-type="local">
+            Microservices and containers
           </dds-link-list-item>
         </dds-link-list>
       `

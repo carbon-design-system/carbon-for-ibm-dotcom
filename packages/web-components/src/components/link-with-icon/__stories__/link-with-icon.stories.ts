@@ -10,7 +10,6 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
@@ -24,8 +23,9 @@ export const Default = (args) => {
       icon-placement="${iconPlacement}"
       ?disabled="${disabled}"
       href="${ifNonNull(href)}"
-      @click="${onClick}">
-      ${children}${ArrowRight20({ slot: 'icon' })}
+      @click="${onClick}"
+      cta-type="local">
+      ${children}
     </dds-link-with-icon>
   `;
 };

@@ -13,7 +13,6 @@ import '../../content-block-media/index';
 import '../../card-group/index';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
 
@@ -44,13 +43,14 @@ export const Default = (args) => {
             <dds-content-item-copy>${copy}</dds-content-item-copy>
           </dds-content-item>
 
-          <dds-card-link-cta slot="footer" href="https://example.com">
+          <dds-card-link-cta
+            slot="footer"
+            href="https://example.com"
+            cta-type="local">
             <dds-card-link-heading
               >Lorem ipsum dolor sit amet</dds-card-link-heading
             >
-            <dds-card-cta-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-cta-footer>
+            <dds-card-cta-footer></dds-card-cta-footer>
           </dds-card-link-cta>
         </dds-content-block-media-content>
       </dds-tab>

@@ -13,6 +13,7 @@ import '../../../internal/vendor/@carbon/web-components/components/tag/tag.js';
 import '../index';
 import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -64,7 +65,9 @@ export const Default = (args) => {
       ${copy ? html` <p>${copy}</p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <dds-card-footer>
-        ${footer}${ArrowRight20({ slot: 'icon' })}
+        ${footer}${document.dir === 'rtl'
+          ? ArrowLeft20({ slot: 'icon' })
+          : ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
     </dds-card>
   `;
@@ -237,7 +240,9 @@ export const Static = (args) => {
       ${cta
         ? html`
             <dds-card-footer href="https://www.example.com">
-              ${ctaCopy}${ArrowRight20({ slot: 'icon' })}
+              ${ctaCopy}${document.dir === 'rtl'
+                ? ArrowLeft20({ slot: 'icon' })
+                : ArrowRight20({ slot: 'icon' })}
             </dds-card-footer>
           `
         : ``}
