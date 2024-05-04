@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,8 +53,7 @@ export const Default = (args) => {
               <c4d-image
                 slot="media"
                 alt="Image alt text"
-                default-src="${imgLg16x9}"
-                heading="Image caption text">
+                default-src="${imgLg16x9}">
                 <c4d-image-item
                   media="(min-width: 672px)"
                   srcset="${imgLg16x9}">
