@@ -101,6 +101,12 @@
     margin-block-end: $spacing-05;
   }
 
+  :host(#{$c4d-prefix}-content-item-copy:not([has-cta])) {
+    ::slotted(#{$c4d-prefix}-content-item-paragraph) {
+      margin-block-end: 0;
+    }
+  }
+
   :host(#{$c4d-prefix}-content-item[horizontal])
     ::slotted(#{$c4d-prefix}-image) {
     inline-size: 100%;
