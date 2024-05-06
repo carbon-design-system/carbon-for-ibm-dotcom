@@ -9,7 +9,8 @@
 
 import '../index';
 import { html } from 'lit-element';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import Chat20 from '../../../internal/vendor/@carbon/web-components/icons/chat/20.js';
 // eslint-disable-next-line sort-imports
 import readme from './README.stories.mdx';
@@ -62,7 +63,10 @@ export const Default = (args) => {
           Contact us ${Chat20({ slot: 'icon' })}
         </dds-button-group-item>
         <dds-button-group-item href="${href}">
-          Free trial ${ArrowRight20({ slot: 'icon' })}
+          Free trial
+          ${document.dir === 'rtl'
+            ? ArrowLeft20({ slot: 'icon' })
+            : ArrowRight20({ slot: 'icon' })}
         </dds-button-group-item>
       </dds-button-group>
     </dds-content-block-card-static>

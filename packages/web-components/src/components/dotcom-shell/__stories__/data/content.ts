@@ -8,6 +8,7 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
@@ -146,14 +147,12 @@ export const universalBanner = (srcImage) => html`
 `;
 
 export const cardGroupItems = html`
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item href="https://example.com" cta-type="local">
     <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}">
     </dds-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-heading>Natural Language Processing.</dds-card-heading>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
+    <dds-card-cta-footer></dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
@@ -227,14 +226,14 @@ export const tocContent = html`
       </dds-leadspace-block-media>
       <dds-link-list type="end">
         <dds-link-list-heading>Featured products</dds-link-list-heading>
-        <dds-link-list-item href="https://example.com">
-          IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          IBM Cloud Continuous Delivery
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          UrbanCode ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          UrbanCode
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          View all products ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          View all products
         </dds-link-list-item>
       </dds-link-list>
       <dds-leadspace-block-cta>
@@ -269,7 +268,9 @@ export const tocContent = html`
       morbu tristique.
     </p>
     <dds-feature-card-footer>
-      ${ArrowRight20({ slot: 'icon' })}
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
     </dds-feature-card-footer>
   </dds-feature-card>
 
@@ -338,8 +339,11 @@ export const tocContent = html`
     </dds-quote-source-heading>
     <dds-quote-source-copy> consectetur adipiscing elit </dds-quote-source-copy>
     <dds-quote-source-bottom-copy> IBM Cloud </dds-quote-source-bottom-copy>
-    <dds-callout-link-with-icon slot="footer" href="https://example.com">
-      Link with Icon ${ArrowRight20({ slot: 'icon' })}
+    <dds-callout-link-with-icon
+      slot="footer"
+      href="https://example.com"
+      cta-type="local">
+      Link with Icon
     </dds-callout-link-with-icon>
   </dds-callout-quote>
 
@@ -467,7 +471,9 @@ export const StoryContentNoToC = () =>
             Habitant morbu tristique.
           </p>
           <dds-feature-card-footer>
-            ${ArrowRight20({ slot: 'icon' })}
+            ${document.dir === 'rtl'
+              ? ArrowLeft20({ slot: 'icon' })
+              : ArrowRight20({ slot: 'icon' })}
           </dds-feature-card-footer>
         </dds-feature-card>
 
@@ -540,8 +546,11 @@ export const StoryContentNoToC = () =>
           <dds-quote-source-bottom-copy>
             IBM Cloud
           </dds-quote-source-bottom-copy>
-          <dds-callout-link-with-icon slot="footer" href="https://example.com">
-            Link with Icon ${ArrowRight20({ slot: 'icon' })}
+          <dds-callout-link-with-icon
+            slot="footer"
+            href="https://example.com"
+            cta-type="local">
+            Link with Icon
           </dds-callout-link-with-icon>
         </dds-callout-quote>
 

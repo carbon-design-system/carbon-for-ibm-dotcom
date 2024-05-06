@@ -14,6 +14,7 @@ import { html } from 'lit-element';
 // @ts-ignore
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
@@ -50,7 +51,11 @@ const Card = ({
             default-src="${image}"></dds-image>
         `
       : null}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
+    <dds-card-footer>
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
   </dds-card>
 `;
 
@@ -71,7 +76,11 @@ const CardWithLongHeading = ({
             default-src="${image}"></dds-image>
         `
       : null}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
+    <dds-card-footer>
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
   </dds-card>
 `;
 
@@ -80,7 +89,9 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
     <dds-card-cta cta-type="video" href="${href}">
       <p>${copy}</p>
       <dds-card-cta-footer href="${href}">
-        ${ArrowRight20({ slot: 'icon' })}
+        ${document.dir === 'rtl'
+          ? ArrowLeft20({ slot: 'icon' })
+          : ArrowRight20({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-cta>
   </dds-video-cta-container>

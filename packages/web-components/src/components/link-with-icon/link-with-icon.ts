@@ -15,6 +15,8 @@ import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-with-icon.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import CTAMixin from '../../component-mixins/cta/cta';
+import { CTA_TYPE } from '../cta/defs';
 
 export { ICON_PLACEMENT };
 
@@ -29,7 +31,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot icon-left - The CTA icon to place at the left.
  */
 @customElement(`${ddsPrefix}-link-with-icon`)
-class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
+class DDSLinkWithIcon extends CTAMixin(StableSelectorMixin(BXLink)) {
+  @property({ attribute: 'cta-type', reflect: true })
+  ctaType = CTA_TYPE.REGULAR;
+
   /**
    * Icon placement(right (default) | left)
    */
@@ -56,14 +61,6 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
     return html` <span><slot></slot></span> `;
-  }
-
-  /**
-   * @returns The icon content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderIcon(): TemplateResult | string | void {
-    return html` <slot name="icon"></slot> `;
   }
 
   protected _renderInner() {

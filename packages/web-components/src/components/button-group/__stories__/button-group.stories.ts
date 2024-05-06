@@ -10,6 +10,7 @@
 import { number, select, text } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import ArrowDown20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
 import Pdf20 from '../../../internal/vendor/@carbon/web-components/icons/PDF/20.js';
 import readme from './README.stories.mdx';
@@ -18,15 +19,18 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
+  ArrowLeft20: ArrowLeft20({ slot: 'icon' }),
   ArrowDown20: ArrowDown20({ slot: 'icon' }),
   Pdf20: Pdf20({ slot: 'icon' }),
 };
 
-const iconOptions = {
-  Default: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
+const iconOptions = () => {
+  return {
+    Default: null,
+    'Arrow Inline End': document.dir === 'rtl' ? 'ArrowLeft20' : 'ArrowRight20',
+    'Arrow Down': 'ArrowDown20',
+    PDF: 'Pdf20',
+  };
 };
 
 export const Default = (args) => {
@@ -67,7 +71,7 @@ export default {
           copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
           renderIcon:
             iconMap[
-              select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0
+              select(`Icon ${i + 1}`, iconOptions(), iconOptions().Default) ?? 0
             ],
         })),
       }),

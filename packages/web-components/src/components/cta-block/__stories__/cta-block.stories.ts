@@ -9,6 +9,7 @@
 
 import { boolean, number, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import Launch20 from '../../../internal/vendor/@carbon/web-components/icons/launch/20';
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
@@ -23,12 +24,15 @@ import content from '../../cta-section/__stories__/content';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
+  ArrowLeft20: ArrowLeft20({ slot: 'icon' }),
   Launch20: Launch20({ slot: 'icon' }),
 };
 
-const iconOptions = {
-  'Arrow Right': 'ArrowRight20',
-  'External Launch': 'Launch20',
+const iconOptions = () => {
+  return {
+    'Arrow Inline End': document.dir === 'rtl' ? 'ArrowLeft20' : 'ArrowRight20',
+    'External Launch': 'Launch20',
+  };
 };
 
 const renderCTA = {
@@ -182,23 +186,23 @@ export const WithLinkList = (args) => {
         <dds-link-list-heading
           >More ways to explore DevOps</dds-link-list-heading
         >
-        <dds-link-list-item href="https://example.com">
-          Events ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Events
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Blogs ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Blogs
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Training ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Training
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Developer resources ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Developer resources
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Research ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          Research
         </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          News ${ArrowRight20({ slot: 'icon' })}
+        <dds-link-list-item href="https://example.com" cta-type="local">
+          News
         </dds-link-list-item>
       </dds-link-list>
     </dds-cta-block>
@@ -281,7 +285,10 @@ export default {
         copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
         cta: select('CTA type', ctaTypeOptions, ctaTypeOptions['Button group']),
         renderIcon:
-          iconMap[select(`Icon`, iconOptions, iconOptions['Arrow Right']) ?? 0],
+          iconMap[
+            select(`Icon`, iconOptions(), iconOptions()['Arrow Inline End']) ??
+              0
+          ],
       }),
     },
     ...readme.parameters,
@@ -293,7 +300,7 @@ export default {
           border: false,
           cta: 'buttonGroup',
           copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
-          renderIcon: iconOptions['Arrow Right'],
+          renderIcon: iconOptions()['Arrow Inline End'],
         },
       },
     },

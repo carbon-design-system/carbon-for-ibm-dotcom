@@ -10,6 +10,7 @@
 import { html } from 'lit-element';
 import { text } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import Download20 from '../../../internal/vendor/@carbon/web-components/icons/download/20';
 
 import '../index';
@@ -39,11 +40,11 @@ const image = html`
 const linkList = html`
   <dds-link-list type="end">
     <dds-link-list-heading>Featured products</dds-link-list-heading>
-    <dds-link-list-item href="https://example.com">
-      IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
+    <dds-link-list-item href="https://example.com" cta-type="local">
+      IBM Cloud Continuous Delivery
     </dds-link-list-item>
-    <dds-link-list-item href="https://example.com">
-      UrbanCode ${ArrowRight20({ slot: 'icon' })}
+    <dds-link-list-item href="https://example.com" cta-type="local">
+      UrbanCode
     </dds-link-list-item>
     <dds-link-list-item href="https://example.com">
       View all products ${Download20({ slot: 'icon' })}
@@ -54,7 +55,10 @@ const linkList = html`
 const buttonCTA = html`
   <dds-leadspace-block-cta>
     <dds-button-group-item href="www.ibm.com"
-      >Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item
+      >Contact sales
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}</dds-button-group-item
     >
   </dds-leadspace-block-cta>
 `;
