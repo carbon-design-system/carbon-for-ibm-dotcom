@@ -9,7 +9,6 @@
 
 import { html } from 'lit-element';
 import '../index';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { select } from '@storybook/addon-knobs';
 import styles from './pictogram-item.stories.scss';
 import { COLOR_OPTIONS } from '../defs';
@@ -162,8 +161,8 @@ export const Default = (args) => {
       ${pictogram?.src}
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-link-with-icon href="${href}" slot="footer">
-        ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
+      <dds-link-with-icon href="${href}" slot="footer" cta-type="local">
+        ${linkCopy}
       </dds-link-with-icon>
     </dds-pictogram-item>
   `;

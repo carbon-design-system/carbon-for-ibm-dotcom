@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { optionsKnob } from '@storybook/addon-knobs';
 import '../../card-group/index';
@@ -41,7 +42,9 @@ const card1 = html`
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <dds-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
   </dds-content-group-cards-item>
 `;
@@ -54,7 +57,9 @@ const card2 = html`
     </dds-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <dds-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
   </dds-content-group-cards-item>
 `;
@@ -76,7 +81,11 @@ const Card = ({
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
+    <dds-card-footer>
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}</dds-card-footer
+    >
   </dds-card>
 `;
 
@@ -121,26 +130,23 @@ export const Default = (args) => {
       ${addChildren.includes('Link list')
         ? html`
             <dds-link-list>
-              <dds-link-list-item href="https://example.com">
+              <dds-link-list-item href="https://example.com" cta-type="local">
                 Learn more about Kubernetes and automating deployment
-                ${ArrowRight20({ slot: 'icon' })}
               </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
+              <dds-link-list-item href="https://example.com" cta-type="local">
                 Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
               </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              <dds-link-list-item href="https://example.com" cta-type="local">
+                Microservices and containers
               </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+              <dds-link-list-item href="https://example.com" cta-type="local">
+                Learn more about Kubernetes
               </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
+              <dds-link-list-item href="https://example.com" cta-type="local">
                 Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
               </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              <dds-link-list-item href="https://example.com" cta-type="local">
+                Microservices and containers
               </dds-link-list-item>
             </dds-link-list>
           `

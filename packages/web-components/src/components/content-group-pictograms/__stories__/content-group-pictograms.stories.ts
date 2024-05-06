@@ -10,7 +10,6 @@
 
 import '../index';
 import { html } from 'lit-element';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-group-pictograms.stories.scss';
@@ -120,8 +119,11 @@ export const Default = (args) => {
             </svg>
             <dds-content-item-heading>${heading}</dds-content-item-heading>
             <dds-content-item-copy>${copy}</dds-content-item-copy>
-            <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-              ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+            <dds-link-with-icon
+              href="${linkWithIcon.href}"
+              slot="footer"
+              cta-type="local">
+              ${linkWithIcon.copy}
             </dds-link-with-icon>
           </dds-pictogram-item>
         `
