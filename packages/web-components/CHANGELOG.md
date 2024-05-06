@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.8.0...@carbon/ibmdotcom-web-components@2.9.0-rc.0) (2024-05-06)
+
+
+### Bug Fixes
+
+* **content-group:** cta spacing ([#11698](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11698)) ([eaa8d0c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eaa8d0cec7941f33d263f5b12f98de3fe3ecac92))
+* **search-with-typeahead:** correct RTL result strings ([#11693](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11693)) ([0db7ead](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0db7ead702f05de0f502c13484dd169e31c7f9d9)), closes [#11342](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11342)
+
+
+### Features
+
+* instrument with telemetry JS scope ([#11747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11747)) ([650739e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/650739e4d23677dd4891c781be20d76060170533))
+* **rtl-arrow:** Fix arrows used for CTA's when in RTL ([#11736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11736)) ([23f196f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/23f196fc95b6d23cb35d6ae8ea8c20a5dc199069)), closes [#11725](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11725)
+
+
+
+
+
 # [2.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.8.0-rc.0...@carbon/ibmdotcom-web-components@2.8.0) (2024-04-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
