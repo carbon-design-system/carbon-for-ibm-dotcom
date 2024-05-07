@@ -787,6 +787,7 @@ export const withL1 = (args) => {
   const contentConfig = {
     l1: true,
     leadspace: false,
+    leadspaceSearch: false,
     tocLayout: TOC_TYPES.DEFAULT,
   };
   return html`
@@ -894,8 +895,9 @@ export const WithHorizontalTOC = (args) => {
   } = args?.DotcomShell ?? {};
   const { useMock } = args?.Other ?? {};
   const contentConfig = {
-    l1: false,
+    l1: true,
     leadspace: true,
+    leadspaceSearch: false,
     tocLayout: TOC_TYPES.HORIZONTAL,
   };
   return html`
@@ -1230,6 +1232,7 @@ export const WithoutShell = (args) => {
         ? StoryContent({
             l1: false,
             leadspace: true,
+            leadspaceSearch: false,
             tocLayout: TOC_TYPES.HORIZONTAL,
           })
         : ''}
@@ -1257,6 +1260,111 @@ WithoutShell.story = {
         FooterComposite: {
           disableLocaleButton: false,
           langList: mockLangList,
+        },
+      },
+    },
+  },
+};
+
+export const StickyElementSandbox = (args) => {
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    footerSize,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+    universalBanner,
+    l1,
+    leadspaceSearch,
+    tocLayout,
+  } = args?.DotcomShell ?? {};
+
+  const contentConfig = {
+    l1: l1,
+    leadspace: false,
+    leadspaceSearch: leadspaceSearch,
+    tocLayout: tocLayout || '',
+  };
+
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    <c4d-dotcom-shell-container
+      platform="${ifDefined(platform)}"
+      platform-url="${ifDefined(platformData.url)}"
+      language="${ifDefined(language)}"
+      lang-display="${ifDefined(langDisplay)}"
+      footer-size="${ifDefined(footerSize)}"
+      user-status="${ifDefined(userStatus)}"
+      searchPlaceholder="${ifDefined(searchPlaceholder)}"
+      selected-menu-item="${ifDefined(selectedMenuItem)}"
+      .legalLinks="${ifDefined(legalLinks)}"
+      .localeList="${ifDefined(localeList)}"
+      .footerLinks="${ifDefined(footerLinks)}"
+      .l0Data="${ifDefined(navLinks)}"
+      .l1Data="${ifDefined(l1 ? l1Data : null)}"
+      ?has-profile="${hasProfile}"
+      ?has-search="${hasSearch}"
+      ?disable-locale-button="${disableLocaleButton}">
+      ${universalBanner
+        ? html`
+            <c4d-universal-banner image-width="4-col">
+              <c4d-universal-banner-image
+                slot="image"
+                default-src="${img4Col}"></c4d-universal-banner-image>
+              <c4d-universal-banner-heading slot="heading">
+                Hybrid cloud and AI for smarter business
+              </c4d-universal-banner-heading>
+              <c4d-universal-banner-copy slot="copy">
+                Las Vegas, June 15-18, 2025
+              </c4d-universal-banner-copy>
+              <c4d-button-cta
+                slot="cta"
+                cta-type="local"
+                kind="tertiary"
+                href="https://www.example.com">
+                Register for Think. Free
+              </c4d-button-cta>
+            </c4d-universal-banner>
+          `
+        : ''}
+      ${StoryContent(contentConfig)}
+    </c4d-dotcom-shell-container>
+  `;
+};
+
+StickyElementSandbox.story = {
+  name: 'Sticky Element Sandbox',
+  parameters: {
+    knobs: {
+      DotcomShell: () => ({
+        universalBanner: boolean('Has Universal Banner', true),
+        l1: boolean('Has Masthead L1', true),
+        leadspaceSearch: boolean('Has Leadspace With Search', true),
+        tocLayout: select(
+          'Table of Contents Layout',
+          { Vertical: null, Horizontal: 'horizontal' },
+          null
+        ),
+      }),
+    },
+    propsSet: {
+      default: {
+        DotcomShell: {
+          universalBanner: true,
+          l1: true,
+          leadspaceSearch: true,
+          tocLayout: null,
         },
       },
     },
