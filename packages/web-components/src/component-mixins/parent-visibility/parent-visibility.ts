@@ -9,7 +9,7 @@
 
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
-import DDSTab from '../../components/tabs-extended/tab';
+import { eventTabSelected } from '../../components/tabs-extended/defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -45,13 +45,13 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     }
 
     /**
-     * A list of potential parent components that may be hide their content on
+     * A list of potential parent components that may hide their content on
      * first render. Lists event names that indicate the parent element
      * visibility has changed keyed by component selector strings.
      */
     static get parentsThatHide() {
       return {
-        [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
+        [`${ddsPrefix}-tab`]: eventTabSelected,
       };
     }
   }

@@ -7,6 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+const { stablePrefix: ddsPrefix } = settings;
+
 /**
  * Type of orientation for the Tabs Extended
  */
@@ -21,3 +24,8 @@ export enum ORIENTATION {
    */
   VERTICAL = 'vertical',
 }
+
+/**
+ * An event that fires whenever the tab's selected state changes.
+ */
+export const eventTabSelected = `${ddsPrefix}-tab-selected`;

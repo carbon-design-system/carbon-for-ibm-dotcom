@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -24,7 +25,9 @@ const card1 = html`
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <dds-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
   </dds-content-group-cards-item>
 `;
@@ -37,7 +40,9 @@ const card2 = html`
     </dds-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <dds-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${document.dir === 'rtl'
+        ? ArrowLeft20({ slot: 'icon' })
+        : ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
   </dds-content-group-cards-item>
 `;
