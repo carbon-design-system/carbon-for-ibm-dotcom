@@ -134,9 +134,9 @@ class StickyHeader {
   set masthead(component) {
     if (this._validateComponent(component, `${c4dPrefix}-masthead`)) {
       this._elements.masthead = component;
-      if (this._elements.banner)
+      if (this._elements.banner) {
         this._elements.masthead.setAttribute('with-banner', '');
-
+      }
       this._elements.mastheadL0 = component.shadowRoot.querySelector(
         `.${prefix}--masthead__l0`
       );
@@ -403,7 +403,7 @@ class StickyHeader {
      * cumulativeOffset to be correctly calculated by the time each of these
      * methods accesses it.
      *
-     * @TODO One idea for improving this so the execution order doesn't matter
+     * To-do: One idea for improving this so the execution order doesn't matter
      * is to collect our elements into an array ordered by document position,
      * then loop over that array and execute a corresponding handler method.
      */
@@ -431,7 +431,9 @@ class StickyHeader {
     const { scrollPos: scrollPosPrevious } = this._state;
 
     // Exit early if locale modal is open.
-    if (localeModal && localeModal.hasAttribute('open')) return;
+    if (localeModal && localeModal.hasAttribute('open')) {
+      return;
+    }
 
     // Store scroll positions.
     this._state.scrollPosPrevious = scrollPosPrevious;
