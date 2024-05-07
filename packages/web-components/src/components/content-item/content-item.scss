@@ -22,3 +22,7 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
+
+:host(#{$dds-prefix}-content-item-heading) h4, :host(#{$dds-prefix}-content-item-heading) {
+  @include carbon--type-style('expressive-heading-02');
+}
