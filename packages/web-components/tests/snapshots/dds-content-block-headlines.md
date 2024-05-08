@@ -5,7 +5,10 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--with-headlines bx--layout--border">
+<div
+  class="bx--content-layout bx--content-layout--with-headlines bx--layout--border"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
