@@ -21,7 +21,9 @@
   </dds-card-group>
   <dds-content-item data-autoid="dds--content-item">
     <dds-content-item-heading
+      aria-level="4"
       data-autoid="dds--content-item__heading"
+      role="heading"
       slot="heading"
     >
     </dds-content-item-heading>
@@ -110,7 +112,9 @@
   </dds-card-group>
   <dds-content-item data-autoid="dds--content-item">
     <dds-content-item-heading
+      aria-level="4"
       data-autoid="dds--content-item__heading"
+      role="heading"
       slot="heading"
     >
       Lorem ipsum

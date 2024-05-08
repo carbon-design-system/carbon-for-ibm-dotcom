@@ -22,13 +22,3 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-
-:host(#{$dds-prefix}-content-item-heading) {
-  @include carbon--type-style('expressive-heading-02');
-
-  h4 {
-    font: inherit;
-    letter-spacing: inherit;
-    line-height: inherit;
-  }
-}
