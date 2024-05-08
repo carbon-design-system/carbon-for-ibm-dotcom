@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.44.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.43.0...@carbon/ibmdotcom-web-components@1.44.0-rc.0) (2024-05-08)
+
+
+### Bug Fixes
+
+* **card-group:** support RTL borders & padding ([#11760](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11760)) ([d2a0328](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d2a0328ae96244356819b3219646ac89770f502c)), closes [#11755](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11755)
+* **content-group:** adding h-tags to headings ([#11738](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11738)) ([8d61228](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8d61228ec20f67d47d0a5bf6b09cf8fba22c032d))
+* **masthead:** ensure opened L1 mobile dropdown is visible while there is also a ToC ([#11734](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11734)) ([#11766](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11766)) ([03ca7c2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/03ca7c2ab487d669977cdf84ddefa5575cece7a8))
+
+
+### Features
+
+* **cta-block:** add CSS shadowpart ([#11777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11777)) ([fc2860d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fc2860d241eb87017a67b227122ce63d4d151f3f)), closes [#11774](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11774)
+
+
+
+
+
 # [1.43.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.43.0-rc.0...@carbon/ibmdotcom-web-components@1.43.0) (2024-04-19)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

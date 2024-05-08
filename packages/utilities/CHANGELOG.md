@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.59.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.58.0...@carbon/ibmdotcom-utilities@1.59.0-rc.0) (2024-05-08)
+
+
+### Bug Fixes
+
+* **masthead:** ensure opened L1 mobile dropdown is visible while there is also a ToC ([#11734](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11734)) ([#11766](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11766)) ([03ca7c2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/03ca7c2ab487d669977cdf84ddefa5575cece7a8))
+
+
+
+
+
 # [1.58.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.58.0-rc.0...@carbon/ibmdotcom-utilities@1.58.0) (2024-04-19)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
