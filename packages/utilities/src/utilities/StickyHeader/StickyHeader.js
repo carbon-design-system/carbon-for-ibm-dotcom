@@ -93,7 +93,7 @@ class StickyHeader {
   }
 
   set banner(component) {
-    if (this._validateComponent(component, `${c4dPrefix}-universal-banner`)) {
+    if (this._validateComponent(component, `${c4dPrefix}-global-banner`)) {
       this._elements.banner = component;
       this._state.hasBanner = true;
 

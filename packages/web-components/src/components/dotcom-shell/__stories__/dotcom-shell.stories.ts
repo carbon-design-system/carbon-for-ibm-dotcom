@@ -1288,7 +1288,7 @@ export const StickyElementSandbox = (args, story) => {
   } = story.parameters.props.DotcomShell;
 
   const {
-    universalBanner,
+    globalBanner,
     l1,
     leadspaceSearch,
     tocLayout,
@@ -1322,18 +1322,18 @@ export const StickyElementSandbox = (args, story) => {
       ?has-profile="${hasProfile}"
       ?has-search="${hasSearch}"
       ?disable-locale-button="${disableLocaleButton}">
-      ${universalBanner
+      ${globalBanner
         ? html`
-            <c4d-universal-banner image-width="4-col">
-              <c4d-universal-banner-image
+            <c4d-global-banner image-width="4-col">
+              <c4d-global-banner-image
                 slot="image"
-                default-src="${img4Col}"></c4d-universal-banner-image>
-              <c4d-universal-banner-heading slot="heading">
+                default-src="${img4Col}"></c4d-global-banner-image>
+              <c4d-global-banner-heading slot="heading">
                 Hybrid cloud and AI for smarter business
-              </c4d-universal-banner-heading>
-              <c4d-universal-banner-copy slot="copy">
+              </c4d-global-banner-heading>
+              <c4d-global-banner-copy slot="copy">
                 Las Vegas, June 15-18, 2025
-              </c4d-universal-banner-copy>
+              </c4d-global-banner-copy>
               <c4d-button-cta
                 slot="cta"
                 cta-type="local"
@@ -1341,7 +1341,7 @@ export const StickyElementSandbox = (args, story) => {
                 href="https://www.example.com">
                 Register for Think. Free
               </c4d-button-cta>
-            </c4d-universal-banner>
+            </c4d-global-banner>
           `
         : ''}
       ${StoryContent(contentConfig)}
@@ -1354,7 +1354,7 @@ StickyElementSandbox.story = {
   parameters: {
     knobs: {
       StickyElementSandbox: () => ({
-        universalBanner: boolean('Has Universal Banner', true),
+        globalBanner: boolean('Has Global Banner', true),
         l1: boolean('Has Masthead L1', true),
         leadspaceSearch: boolean('Has Leadspace With Search', true),
         tocLayout: select(
@@ -1367,7 +1367,7 @@ StickyElementSandbox.story = {
     propsSet: {
       default: {
         StickyElementSandbox: {
-          universalBanner: true,
+          globalBanner: true,
           l1: true,
           leadspaceSearch: true,
           tocLayout: null,
