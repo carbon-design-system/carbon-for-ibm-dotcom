@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.40.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.39.0...@carbon/web-components@1.40.0-rc.0) (2024-05-08)
+
+
+### Bug Fixes
+
+* **breadcrumb:** add overflow-menu-import ([#11745](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11745)) ([243e476](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/243e476d529ae6eeeb4635c527b5e874327a4b62))
+* **content-group:** adding h-tags to headings ([#11738](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11738)) ([8d61228](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8d61228ec20f67d47d0a5bf6b09cf8fba22c032d))
+
+
+
+
+
 # [1.39.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.39.0-rc.0...@carbon/web-components@1.39.0) (2024-04-19)
 
 **Note:** Version bump only for package @carbon/web-components
