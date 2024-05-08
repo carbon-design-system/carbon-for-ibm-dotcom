@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -67,9 +67,10 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
    */
   _renderButtonIcon() {
     const { ctaType } = this;
+    const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
     return `
         <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
-        ${icons[ctaType]?.()?.strings?.join()}
+        ${icon?.()?.strings?.join()}
       `;
   }
 
