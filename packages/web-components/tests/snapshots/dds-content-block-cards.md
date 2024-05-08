@@ -5,7 +5,10 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--card-group">
+<div
+  class="bx--content-layout bx--content-layout--card-group"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
@@ -36,7 +39,10 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--card-group">
+<div
+  class="bx--content-layout bx--content-layout--card-group"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div

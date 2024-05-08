@@ -7,7 +7,10 @@
 ```
 <div class="bx--callout__column">
   <div class="bx--callout__content">
-    <div class="bx--content-layout">
+    <div
+      class="bx--content-layout"
+      part="content-layout"
+    >
       <slot name="heading">
       </slot>
       <div
@@ -42,7 +45,10 @@
 ```
 <div class="bx--callout__column">
   <div class="bx--callout__content">
-    <div class="bx--content-layout">
+    <div
+      class="bx--content-layout"
+      part="content-layout"
+    >
       <slot name="heading">
       </slot>
       <div
@@ -77,7 +83,10 @@
 ```
 <div class="bx--callout__column">
   <div class="bx--callout__content">
-    <div class="bx--content-layout">
+    <div
+      class="bx--content-layout"
+      part="content-layout"
+    >
       <slot name="heading">
       </slot>
       <div
