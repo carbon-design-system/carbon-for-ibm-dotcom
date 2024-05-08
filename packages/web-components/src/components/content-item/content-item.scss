@@ -6,3 +6,11 @@
 //
 
 @use '@carbon/ibmdotcom-styles/scss/internal/content-item';
+
+:host(#{$dds-prefix}-content-item-heading) {
+  h4 {
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+  }
+}
