@@ -121,7 +121,7 @@ export const Default = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -192,7 +192,7 @@ export const DefaultFooterLanguageOnly = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -285,7 +285,7 @@ export const searchOpenOnload = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -359,7 +359,7 @@ export const withPlatform = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -462,7 +462,7 @@ export const withShortFooter = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -540,7 +540,7 @@ export const withShortFooterLanguageOnly = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -634,7 +634,7 @@ export const withMicroFooter = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -709,7 +709,7 @@ export const withMicroFooterLanguageOnly = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -807,7 +807,7 @@ export const withL1 = (args) => {
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
             .l1Data="${l1Data}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -919,7 +919,7 @@ export const WithHorizontalTOC = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -995,7 +995,7 @@ export const WithLeadspaceSearch = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -1104,7 +1104,7 @@ export const WithGlobalBanner = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
+            .l0Data="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifDefined(
@@ -1266,27 +1266,33 @@ WithoutShell.story = {
   },
 };
 
-export const StickyElementSandbox = (args) => {
+export const StickyElementSandbox = (args, story) => {
   const {
     platform,
     hasProfile,
     userStatus,
-    navLinks,
     hasSearch,
     searchPlaceholder,
     selectedMenuItem,
-    langDisplay,
     language,
     footerSize,
+    disableLocaleButton,
+  } = args?.DotcomShell ?? {};
+
+  const {
+    navLinks,
+    langDisplay,
     legalLinks,
     links: footerLinks,
     localeList,
-    disableLocaleButton,
+  } = story.parameters.props.DotcomShell;
+
+  const {
     universalBanner,
     l1,
     leadspaceSearch,
     tocLayout,
-  } = args?.DotcomShell ?? {};
+  } = args?.StickyElementSandbox ?? {};
 
   const contentConfig = {
     l1: l1,
@@ -1347,7 +1353,7 @@ StickyElementSandbox.story = {
   name: 'Sticky Element Sandbox',
   parameters: {
     knobs: {
-      DotcomShell: () => ({
+      StickyElementSandbox: () => ({
         universalBanner: boolean('Has Universal Banner', true),
         l1: boolean('Has Masthead L1', true),
         leadspaceSearch: boolean('Has Leadspace With Search', true),
@@ -1360,7 +1366,7 @@ StickyElementSandbox.story = {
     },
     propsSet: {
       default: {
-        DotcomShell: {
+        StickyElementSandbox: {
           universalBanner: true,
           l1: true,
           leadspaceSearch: true,
