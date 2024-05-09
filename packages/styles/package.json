@@ -30,14 +30,14 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/layout @carbon/styles @carbon/themes @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/icons-react": "11.40.0",
-    "@carbon/layout": "11.21.0",
-    "@carbon/styles": "1.56.0",
-    "@carbon/type": "11.26.0",
+    "@carbon/icons-react": "11.41.0",
+    "@carbon/layout": "11.22.0",
+    "@carbon/styles": "1.57.0",
+    "@carbon/type": "11.27.0",
     "@ibm/telemetry-js": "^1.5.0"
   },
   "devDependencies": {
-    "@carbon/themes": "11.34.0",
+    "@carbon/themes": "11.35.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
