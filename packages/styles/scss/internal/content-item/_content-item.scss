@@ -90,7 +90,11 @@
 
   :host(#{$c4d-prefix}-content-item-heading) {
     @include type-style('heading-02');
-
+    h4 {
+      font: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+    }
     color: $text-primary;
   }
 

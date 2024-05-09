@@ -6,11 +6,3 @@
 //
 
 @use '@carbon/ibmdotcom-styles/scss/components/content-group';
-
-:host(#{$dds-prefix}-content-group-heading) {
-  h3 {
-    font: inherit;
-    letter-spacing: inherit;
-    line-height: inherit;
-  }
-}

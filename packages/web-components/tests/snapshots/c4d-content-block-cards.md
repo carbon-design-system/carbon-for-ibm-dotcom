@@ -19,7 +19,9 @@
     <slot name="media">
     </slot>
     <div
+      card-group=""
       class="false"
+      grid-mode=""
       hidden=""
       style=""
     >
@@ -50,7 +52,9 @@
     <slot name="media">
     </slot>
     <div
+      card-group=""
       class="false"
+      grid-mode=""
       hidden=""
       style=""
     >
