@@ -333,7 +333,9 @@ $breakpoint--desktop-nav: 799px;
   overflow: hidden;
   block-size: calc(100% - #{$spacing-09} - 1px);
   inline-size: 16rem;
-  margin-block-start: calc(#{$spacing-09} + 1px);
+  margin-block-start: calc(
+    var(--#{$c4d-prefix}-masthead-l0-bottom-edge, #{$spacing-09}) + 1px
+  );
 
   @include breakpoint-down(md) {
     inline-size: 100vw;
@@ -488,20 +490,9 @@ $breakpoint--desktop-nav: 799px;
 
 @mixin left-nav-overlay {
   position: fixed;
-  z-index: calc(#{z('header')} - 1);
+  z-index: #{z('header')} - 1;
   background-color: rgba(22, 22, 22, 0.5);
   block-size: 100vh;
-  clip-path: polygon(
-      $spacing-09 0,
-      100% 0,
-      100% 100%,
-      0 100%,
-      0 calc(#{$spacing-09} + 1px),
-      $spacing-09 calc(#{$spacing-09} + 1px)
-    )
-    #{'/*!rtl:polygon(0 0, calc(100% - ' + $spacing-09 + ') 0, calc(100% - ' +
-    $spacing-09 + ') calc(' + $spacing-09 + ' + 1px), 100% calc(' + $spacing-09 +
-    ' + 1px), 100% 100%, 0 100%)*/'};
   inline-size: 100%;
 
   // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
