@@ -2298,7 +2298,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-services@npm:1.59.0-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@npm:1.59.0-rc.1, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -2470,7 +2470,7 @@ __metadata:
     "@babel/preset-react": "npm:~7.12.1"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.0"
-    "@carbon/ibmdotcom-services": "npm:1.59.0-rc.0"
+    "@carbon/ibmdotcom-services": "npm:1.59.0-rc.1"
     "@carbon/ibmdotcom-services-store": "npm:1.55.1"
     "@carbon/ibmdotcom-styles": "npm:1.59.0-rc.0"
     "@carbon/ibmdotcom-utilities": "npm:1.59.0-rc.0"
