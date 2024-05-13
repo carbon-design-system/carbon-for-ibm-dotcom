@@ -186,12 +186,12 @@ class StickyHeader {
         toc.layout !== 'horizontal' &&
         !hasBanner
       ) {
-        masthead.style.top = '0';
+        masthead.style.insetBlockStart = '0';
       } else {
         // This has to happen after the _updateTableOfContentsRefs method.
         const { tableOfContentsInnerBar: tocInner } = this._elements;
         if (masthead.offsetTop === 0) {
-          tocInner.style.top = `${masthead.offsetHeight}px`;
+          tocInner.style.insetBlockStart = `${masthead.offsetHeight}px`;
         }
       }
       this._manageStickyElements();
@@ -223,7 +223,7 @@ class StickyHeader {
     const { masthead } = this._elements;
 
     masthead.style.transition = 'none';
-    masthead.style.top = `${this._state.cumulativeOffset}px`;
+    masthead.style.insetBlockStart = `${this._state.cumulativeOffset}px`;
 
     // Masthead always sticks, therefore always add its height.
     this._state.cumulativeOffset += masthead.offsetHeight;
@@ -237,7 +237,7 @@ class StickyHeader {
     const { tocShouldStick } = this._state;
 
     tableOfContentsInnerBar.style.transition = 'none';
-    tableOfContentsInnerBar.style.top = `${this._state.cumulativeOffset}px`;
+    tableOfContentsInnerBar.style.insetBlockStart = `${this._state.cumulativeOffset}px`;
 
     const tocIsStuck =
       Math.round(tableOfContentsInnerBar.getBoundingClientRect().top) <=
@@ -271,7 +271,7 @@ class StickyHeader {
           leadspaceSearchBar.style.transform = 'translateY(0)';
         });
       }
-      leadspaceSearchBar.style.top = `${this._state.cumulativeOffset}px`;
+      leadspaceSearchBar.style.insetBlockStart = `${this._state.cumulativeOffset}px`;
       this._state.cumulativeOffset += leadspaceSearchBar.offsetHeight;
     } else if (searchIsSticky) {
       leadspaceSearch.style.paddingBottom = '';
@@ -280,7 +280,7 @@ class StickyHeader {
 
       leadspaceSearchBar.style.transitionDuration = '';
       leadspaceSearchBar.style.transform = '';
-      leadspaceSearchBar.style.top = '';
+      leadspaceSearchBar.style.insetBlockStart = '';
     }
   }
 
