@@ -10,6 +10,7 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
+import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
@@ -38,6 +39,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  */
 export const icons = {
   [CTA_TYPE.LOCAL]: ArrowRight20,
+  [`${CTA_TYPE.LOCAL}-rtl`]: ArrowLeft20,
   [CTA_TYPE.DOWNLOAD]: Download20,
   [CTA_TYPE.EXTERNAL]: Launch20,
   [CTA_TYPE.NEW_TAB]: NewTab20,
@@ -192,10 +194,11 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     _renderIcon() {
       const { ctaType } = this;
+      const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
       return html`
         <slot name="icon">
           <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
-          ${icons[ctaType]?.({
+          ${icon?.({
             class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}
         </slot>

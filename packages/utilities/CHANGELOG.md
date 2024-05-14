@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.8.0...@carbon/ibmdotcom-utilities@2.9.0-rc.0) (2024-05-06)
+
+
+### Features
+
+* instrument with telemetry JS scope ([#11747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11747)) ([650739e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/650739e4d23677dd4891c781be20d76060170533))
+
+
+
+
+
+# [2.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.8.0-rc.0...@carbon/ibmdotcom-utilities@2.8.0) (2024-04-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.7.0...@carbon/ibmdotcom-utilities@2.8.0-rc.0) (2024-04-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.7.0-rc.0...@carbon/ibmdotcom-utilities@2.7.0) (2024-04-09)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [2.7.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.6.0-rc.0...@carbon/ibmdotcom-utilities@2.7.0-rc.0) (2024-04-02)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

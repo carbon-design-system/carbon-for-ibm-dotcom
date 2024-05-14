@@ -22,7 +22,11 @@ import containerStyles from './container.scss'; // eslint-disable-line import/fi
 import { setCustomElements } from '@storybook/web-components';
 import customElementsMetadata from '../custom-elements.json';
 
+import { initializeRTL } from 'storybook-addon-rtl';
+
 setCustomElements(customElementsMetadata);
+
+initializeRTL();
 
 if (process.env.STORYBOOK_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');
