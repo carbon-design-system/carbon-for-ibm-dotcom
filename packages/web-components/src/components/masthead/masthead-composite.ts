@@ -997,6 +997,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
       // Close the Contact Module upon opening megamenu.
       this.contactModuleApp?.minimize();
+
+      // Set positioning property upon opening megamenu.
+      this._setCustomPropertyL0BottomEdge();
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
@@ -1050,17 +1053,26 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @HostListener(C4DMastheadMenuButton.eventToggle)
   protected _handleMenuButtonToggle = (event) => {
+    if (event.detail?.active) {
+      this._setCustomPropertyL0BottomEdge();
+    }
+  };
+
+  /**
+   * Sets a CSS value for the position of the L0's bottom edge.
+   */
+  protected _setCustomPropertyL0BottomEdge() {
     const mastheadL0 = this.mastheadRef?.shadowRoot.querySelector(
       `.${prefix}--masthead__l0`
     );
-    if (event.detail?.active && mastheadL0) {
+    if (mastheadL0) {
       this.style.setProperty(
         (this.constructor as typeof C4DMastheadComposite)
-          .customPropertyBottomEdge,
+          .customPropertyL0BottomEdge,
         `${mastheadL0.getBoundingClientRect().bottom}px`
       );
     }
-  };
+  }
 
   /**
    * Gets localized platform URL.
@@ -1621,7 +1633,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * The name of the CSS custom property to track bottom edge position.
    */
-  static get customPropertyBottomEdge() {
+  static get customPropertyL0BottomEdge() {
     return `--${c4dPrefix}-masthead-l0-bottom-edge`;
   }
 
