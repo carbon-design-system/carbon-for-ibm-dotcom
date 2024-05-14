@@ -10,6 +10,7 @@
 import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import ArrowDown20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
 import Pdf20 from '../../../internal/vendor/@carbon/web-components/icons/PDF/20.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -755,15 +756,18 @@ const getAriaLabel = (type) => {
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
+  ArrowLeft20: ArrowLeft20({ slot: 'icon' }),
   ArrowDown20: ArrowDown20({ slot: 'icon' }),
   Pdf20: Pdf20({ slot: 'icon' }),
 };
 
-const iconOptions = {
-  None: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
+const iconOptions = () => {
+  return {
+    None: null,
+    'Arrow Inline End': document.dir === 'rtl' ? 'ArrowLeft20' : 'ArrowRight20',
+    'Arrow Down': 'ArrowDown20',
+    PDF: 'Pdf20',
+  };
 };
 
 export default {
@@ -791,8 +795,11 @@ export default {
           length: number('Number of buttons', 2, {}),
         }).map((_, i) => {
           const icon =
-            select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ??
-            0;
+            select(
+              `Icon ${i + 1}`,
+              iconOptions(),
+              iconOptions()['Arrow Inline End']
+            ) ?? 0;
           return {
             href: textNullable(`Link ${i + 1}`, `https://example.com`),
             copy: text(
@@ -824,13 +831,13 @@ export default {
             {
               href: 'https://example.com',
               copy: 'Primary action',
-              renderIcon: iconOptions['Arrow Right'],
+              renderIcon: iconOptions()['Arrow Inline End'],
               label: '',
             },
             {
               href: 'https://example.com',
               copy: 'Secondary action',
-              renderIcon: iconOptions['Arrow Right'],
+              renderIcon: iconOptions()['Arrow Inline End'],
               label: '',
             },
           ],
