@@ -110,7 +110,7 @@
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
       inset-block-start: var(
-        --#{$c4d-prefix}-masthead-top-nav-menu-bottom-edge,
+        --#{$c4d-prefix}-masthead-l0-bottom-edge,
         $l0-nav-height
       );
     }
