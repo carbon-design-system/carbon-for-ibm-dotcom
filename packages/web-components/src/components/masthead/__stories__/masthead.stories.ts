@@ -69,20 +69,31 @@ const dataEndpoints = {
   'v2.1': '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1',
 };
 
-async function customTypeaheadApiFunction(searchVal) {
-  return fetch(
-    `https://ibm.com/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
-  )
+async function customTypeaheadApiFunction(query, grouped = false) {
+  return fetch(`https://www-api.ibm.com/search/typeahead/v1?query=${query}`)
     .then((response) => response.json())
     .then((data) => {
-      const searchResults = [
-        data.hints,
+      if (!grouped) {
+        return [data.response.map((result) => result[0])];
+      }
+      const resultHasCarbon = (result) =>
+        result[0].toLowerCase().includes('carbon');
+      return [
+        // Results not including "carbon"
+        data.response
+          .filter((result) => !resultHasCarbon(result))
+          .map((result) => result[0]),
+        // Optional grouped category results including "carbon"
         {
-          title: 'Product pages',
-          items: data.products,
+          title: 'Carbon',
+          items: data.response
+            .filter((result) => resultHasCarbon(result))
+            .map((result) => ({
+              name: result[0],
+              href: `https://www.example.com/${encodeURIComponent(result[0])}`,
+            })),
         },
       ];
-      return searchResults;
     });
 }
 
@@ -143,13 +154,14 @@ export const Default = (args) => {
 };
 
 export const WithCustomTypeahead = (args) => {
-  const { useMock } = args?.MastheadComposite ?? {};
+  const { useMock, grouped } = args?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener(
     'c4d-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
-        (e as CustomEvent).detail.value
+        (e as CustomEvent).detail.value,
+        grouped
       );
       document.dispatchEvent(
         new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
@@ -185,11 +197,14 @@ WithCustomTypeahead.story = {
   name: 'With custom typeahead',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({}),
+      MastheadComposite: () => ({
+        grouped: boolean('With grouped results for "carbon"', false),
+      }),
     },
     propsSet: {
       default: {
         MastheadComposite: {
+          grouped: 'false',
           hasProfile: 'true',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',

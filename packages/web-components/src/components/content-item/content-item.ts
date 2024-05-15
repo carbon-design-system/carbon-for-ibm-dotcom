@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -135,6 +135,19 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
         <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
+  }
+
+  updated() {
+    if (this._hasFooter) {
+      this.querySelector(`${c4dPrefix}-content-item-copy`)?.setAttribute(
+        'has-cta',
+        ''
+      );
+    } else {
+      this.querySelector(`${c4dPrefix}-content-item-copy`)?.removeAttribute(
+        'has-cta'
+      );
+    }
   }
 
   render() {
