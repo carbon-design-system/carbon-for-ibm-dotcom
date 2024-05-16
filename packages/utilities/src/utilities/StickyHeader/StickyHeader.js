@@ -20,9 +20,15 @@ class StickyHeader {
       cumulativeOffset: 0,
       hasBanner: false,
       leadspaceSearchThreshold: 0,
+      mastheadL0IsActive: false,
+      mastheadL1IsActive: false,
       maxScrollaway: 0,
       scrollPosPrevious: 0,
       scrollPos: 0,
+      searchIsAtTop: false,
+      tocShouldStick: false,
+      tocIsAtTop: false,
+      tocIsAtSearch: false,
     };
 
     this._elements = {
@@ -311,25 +317,32 @@ class StickyHeader {
     this._state.maxScrollaway = 0;
 
     // Collect conditions we may want to test for to make logic easier to read.
-    const tocShouldStick = tableOfContents
+    this._state.tocShouldStick = tableOfContents
       ? tableOfContents.layout === 'horizontal' ||
         window.innerWidth < gridBreakpoint
       : false;
-    const tocIsAtTop = tableOfContentsInnerBar
-      ? tableOfContentsInnerBar.getBoundingClientRect().top <=
-        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
+    this._state.tocIsAtTop = tableOfContentsInnerBar
+      ? tableOfContentsInnerBar.getBoundingClientRect().top <= this.height + 1
       : false;
-    const searchIsAtTop = leadspaceSearchBar
-      ? leadspaceSearchBar.getBoundingClientRect().top <=
-        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1
+    this._state.searchIsAtTop = leadspaceSearchBar
+      ? leadspaceSearchBar.getBoundingClientRect().top <= this.height + 1
       : false;
-    const tocIsAtSearch =
+    this._state.tocIsAtSearch =
       leadspaceSearchBar && tableOfContentsInnerBar
         ? tableOfContentsInnerBar.getBoundingClientRect().top <=
           leadspaceSearchBar.getBoundingClientRect().bottom
         : false;
-    const mastheadL0IsActive = masthead?.querySelector('[expanded]');
-    const mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
+    this._state.mastheadL0IsActive = Boolean(masthead?.querySelector('[expanded]'));
+    this._state.mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
+
+    const {
+      tocShouldStick,
+      tocIsAtTop,
+      searchIsAtTop,
+      tocIsAtSearch,
+      mastheadL0IsActive,
+      mastheadL1IsActive,
+    } = this._state;
 
     // Begin calculating maxScrollAway.
 
