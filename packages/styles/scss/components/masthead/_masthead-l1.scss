@@ -143,13 +143,12 @@ $search-transition-timing: 95ms;
     .#{$prefix}--masthead__l1-dropdown {
       position: absolute;
       background-color: $background;
-      border-block-end: 1px solid $layer-03;
       color: $text-secondary;
       inset-block-start: 100%;
       inset-inline: 0;
 
       &.is-open {
-        box-shadow: 0 0 6px #c6c6c6;
+        box-shadow: 0 2px 6px 0px $shadow;
       }
 
       &:not(.is-open) {
