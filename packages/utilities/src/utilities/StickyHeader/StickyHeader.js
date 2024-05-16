@@ -332,8 +332,11 @@ class StickyHeader {
         ? tableOfContentsInnerBar.getBoundingClientRect().top <=
           leadspaceSearchBar.getBoundingClientRect().bottom
         : false;
-    this._state.mastheadL0IsActive = Boolean(masthead?.querySelector('[expanded]'));
-    this._state.mastheadL1IsActive = mastheadL1 && mastheadL1.hasAttribute('active');
+    this._state.mastheadL0IsActive = Boolean(
+      masthead?.querySelector('[expanded]')
+    );
+    this._state.mastheadL1IsActive =
+      mastheadL1 && mastheadL1.hasAttribute('active');
 
     const {
       tocShouldStick,

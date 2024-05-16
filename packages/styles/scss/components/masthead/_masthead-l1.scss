@@ -148,7 +148,7 @@ $search-transition-timing: 95ms;
       inset-inline: 0;
 
       &.is-open {
-        box-shadow: 0 2px 6px 0px $shadow;
+        box-shadow: 0 2px 6px 0 $shadow;
       }
 
       &:not(.is-open) {
