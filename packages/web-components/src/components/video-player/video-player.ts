@@ -24,7 +24,6 @@ import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerContainer from './video-player-container';
-import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
@@ -38,9 +37,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-video-player
  */
 @customElement(`${c4dPrefix}-video-player`)
-class C4DVideoPlayer extends FocusMixin(
-  StableSelectorMixin(ParentVisibilityMixin(LitElement))
-) {
+class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * The video player's mode showing Inline or Lightbox.
    */
@@ -116,10 +113,6 @@ class C4DVideoPlayer extends FocusMixin(
         width: String(this.offsetWidth),
       });
     }
-  }
-
-  public _onParentVisible() {
-    this._updateThumbnailUrl();
   }
 
   /**
