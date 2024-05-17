@@ -222,7 +222,9 @@ export const WithinTabs = (args) => {
   return html`
     <c4d-tabs-extended orientation="horizontal" value="first">
       <c4d-tab id="tab-first" target="panel-first" value="first">Tab 1</c4d-tab>
-      <c4d-tab id="tab-second" target="panel-second" value="second">Tab 2</c4d-tab>
+      <c4d-tab id="tab-second" target="panel-second" value="second"
+        >Tab 2</c4d-tab
+      >
       <c4d-tab id="tab-third" target="panel-third" value="third">Tab 3</c4d-tab>
     </c4d-tabs-extended>
     <div class="${prefix}-ce-demo-devenv--tab-panels">
@@ -232,7 +234,11 @@ export const WithinTabs = (args) => {
           ${renderItems(contentItemType, contentItemCount)}
         </c4d-cta-block>
       </div>
-      <div id="panel-second" role="tabpanel" aria-labelledby="tab-second" hidden>
+      <div
+        id="panel-second"
+        role="tabpanel"
+        aria-labelledby="tab-second"
+        hidden>
         <c4d-cta-block>
           <c4d-content-block-heading>Tab 2</c4d-content-block-heading>
           ${renderItems(contentItemType, contentItemCount)}
