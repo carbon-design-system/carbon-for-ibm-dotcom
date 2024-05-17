@@ -169,6 +169,7 @@ class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { backToTopAssistiveText, _handleOnClick: handleOnClick } = this;
     return html`
       <button
+        part="back-to-top__button"
         class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--back-to-top__btn"
         aria-label="${backToTopAssistiveText}"
         @click="${handleOnClick}">
