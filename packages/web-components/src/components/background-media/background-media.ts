@@ -145,6 +145,7 @@ class C4DBackgroundMedia extends C4DImage {
 
     return html`
       <button
+        part="video-player__controls"
         @click=${toggleVideoState}
         class="${prefix}--video-player__controls"
         aria-pressed="${!videoIsPlaying}"
@@ -156,7 +157,11 @@ class C4DBackgroundMedia extends C4DImage {
   }
 
   renderGradient() {
-    return html` <div class="${this._getGradientClass()}"></div> `;
+    return html`
+      <div
+        part="background-media--gradient"
+        class="${this._getGradientClass()}"></div>
+    `;
   }
 
   _getMediaOpacity() {
@@ -186,9 +191,12 @@ class C4DBackgroundMedia extends C4DImage {
 
   render() {
     return html`
-      <div class="${this._getMobilePositionClass()}">
+      <div
+        part="background-media--container"
+        class="${this._getMobilePositionClass()}">
         ${this.gradientHidden ? '' : this.renderGradient()}
         <div
+          part="background-media--item"
           class="${prefix}--background-media--item"
           style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
