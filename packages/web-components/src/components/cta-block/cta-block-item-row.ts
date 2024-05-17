@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-block.scss';
@@ -27,12 +27,6 @@ class C4DCTABlockItemRow extends StableSelectorMixin(LitElement) {
   /** Defines if the bottom border is rendered */
   @property({ type: Boolean, reflect: true, attribute: 'no-border' })
   _noBorder = false;
-
-  /**
-   * `true` if there are CTA action in the content item area.
-   */
-  @state()
-  protected _hasAction = false;
 
   render() {
     return html`<slot></slot>`;
