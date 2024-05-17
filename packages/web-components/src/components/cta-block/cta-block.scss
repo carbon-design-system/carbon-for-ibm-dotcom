@@ -167,8 +167,9 @@
   @include make-col-ready;
 
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-row: auto / span 5;
+  grid-template-rows: subgrid;
   inline-size: 100%;
   margin-block: 0;
   margin-block-end: 0;
@@ -203,6 +204,8 @@
 
   .#{$prefix}--content-item__cta {
     margin-block: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   ::slotted(#{$c4d-prefix}-image-logo) {
