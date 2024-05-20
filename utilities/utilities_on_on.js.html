@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utilities/settings/settings.js</title>
+    <title>JSDoc: Source: utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utilities/settings/settings.js</h1>
+    <h1 class="page-title">Source: utilities/on/on.js</h1>
 
     
 
@@ -27,28 +27,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 /**
- * Global settings
  *
- * @exports ibmdotcom.settings
- * @type {object} Settings object
- * @property {string} [stablePrefix=c4d] stable prefix
- * @property {string} [prefix=cds] core Carbon prefix
- * Carbon for IBM.com v2.9.0',
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
  */
-const settings = {
-  version: 'Carbon for IBM.com v2.9.0',
-  stablePrefix: 'c4d',
-  prefix: 'cds',
-};
 
-export default settings;
+function on(element, ...args) {
+  element.addEventListener(...args);
+  return {
+    release() {
+      element.removeEventListener(...args);
+      return null;
+    },
+  };
+}
+
+export default on;
 </code></pre>
         </article>
     </section>
