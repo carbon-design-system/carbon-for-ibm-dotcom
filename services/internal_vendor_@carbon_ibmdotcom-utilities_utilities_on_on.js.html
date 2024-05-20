@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: index.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/on/on.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: index.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/on/on.js</h1>
 
     
 
@@ -27,14 +27,32 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './services';
-</code></pre>
+/**
+ *
+ * @param {*} element
+ * @param  {...any} args
+ * @returns {Event} The event
+ */
+
+function on(element) {
+  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key &lt; _len; _key++) {
+    args[_key - 1] = arguments[_key];
+  }
+  element.addEventListener.apply(element, args);
+  return {
+    release: function release() {
+      element.removeEventListener.apply(element, args);
+      return null;
+    }
+  };
+}
+export default on;</code></pre>
         </article>
     </section>
 
