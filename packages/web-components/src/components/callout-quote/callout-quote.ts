@@ -45,7 +45,7 @@ class C4DCalloutQuote extends C4DCalloutMixin(C4DQuote) {
 
   render() {
     return html`
-      <div class="${prefix}--callout__column">
+      <div class="${prefix}--callout__column" part="callout__quote">
         <div class="${prefix}--callout__content">
           <div class="${prefix}--quote__container">
             <div class="${prefix}--quote__wrapper">
