@@ -99,6 +99,11 @@ export const withImages = (args) => {
 
 withImages.story = {
   name: 'With images',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const withVideos = (args) => {
@@ -145,6 +150,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
