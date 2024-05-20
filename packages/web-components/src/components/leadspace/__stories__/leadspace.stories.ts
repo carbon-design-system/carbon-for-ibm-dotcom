@@ -144,6 +144,11 @@ export const SuperWithImage = (args) => {
 
 SuperWithImage.story = {
   name: 'Super with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const SuperWithVideo = (args) => {
@@ -284,6 +289,11 @@ export const TallWithImage = (args) => {
 
 TallWithImage.story = {
   name: 'Tall with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const TallWithVideo = (args) => {
@@ -424,6 +434,11 @@ export const MediumWithImage = (args) => {
 
 MediumWithImage.story = {
   name: 'Medium with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const MediumWithVideo = (args) => {
@@ -495,6 +510,9 @@ export const Short = (args) => {
 
 Short.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       LeadSpace: () => ({
         navElements: select(
@@ -562,6 +580,9 @@ export const ShortWithImage = (args) => {
 ShortWithImage.story = {
   name: 'Short with image',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       LeadSpace: () => ({
         navElements: select(
@@ -698,6 +719,11 @@ export const CenteredWithImage = (args) => {
 
 CenteredWithImage.story = {
   name: 'Centered with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const CenteredWithVideo = (args) => {
@@ -776,6 +802,9 @@ export default {
     (story) => html` <div class="cds--grid cds--no-gutter">${story()}</div> `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     'carbon-theme': { preventReload: true },

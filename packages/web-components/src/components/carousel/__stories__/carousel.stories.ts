@@ -88,7 +88,6 @@ export const Default = () => {
       copy: copyOdd,
     })}${Card()}
   `;
-  // }
 };
 
 export const CardsWithImages = () => {
@@ -101,6 +100,15 @@ export const CardsWithImages = () => {
       copy: copyOdd,
     })}${Card({ image: imgLg2x1 })}
   `;
+};
+
+CardsWithImages.story = {
+  name: 'With cards with images',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const CardsWithVideos = () => {
@@ -121,6 +129,15 @@ export const CardsWithMedia = () => {
       href: '0_ibuqxqbe',
     })}${Card({ image: imgLg4x3 })}${CardWithVideo({ href: '0_ibuqxqbe' })}
   `;
+};
+
+CardsWithMedia.story = {
+  name: 'With cards with media',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export default {

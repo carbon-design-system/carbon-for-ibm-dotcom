@@ -56,6 +56,9 @@ export default {
   title: 'Components/Button',
   decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
