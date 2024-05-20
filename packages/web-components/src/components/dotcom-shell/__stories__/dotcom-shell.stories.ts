@@ -981,9 +981,6 @@ WithHorizontalTOC.story = {
       skip: true,
     },
     ...readme.parameters,
-    percy: {
-      skip: true,
-    },
   },
 };
 
