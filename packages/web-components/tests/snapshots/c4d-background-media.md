@@ -5,11 +5,18 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--background-media--container cds--background-media--image cds--background-media--mobile-position cds--background-media--mobile-position--bottom">
-  <div class="cds--background-media--gradient cds--background-media--gradient--left-to-right">
+<div
+  class="cds--background-media--container cds--background-media--image cds--background-media--mobile-position cds--background-media--mobile-position--bottom"
+  part="container"
+>
+  <div
+    class="cds--background-media--gradient cds--background-media--gradient--left-to-right"
+    part="gradient"
+  >
   </div>
   <div
     class="cds--background-media--item"
+    part="item"
     style="opacity:1"
   >
     <slot>
@@ -22,11 +29,18 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--background-media--container cds--background-media--image cds--background-media--mobile-position cds--background-media--mobile-position--bottom">
-  <div class="cds--background-media--gradient cds--background-media--gradient--left-to-right">
+<div
+  class="cds--background-media--container cds--background-media--image cds--background-media--mobile-position cds--background-media--mobile-position--bottom"
+  part="container"
+>
+  <div
+    class="cds--background-media--gradient cds--background-media--gradient--left-to-right"
+    part="gradient"
+  >
   </div>
   <div
     class="cds--background-media--item"
+    part="item"
     style="opacity:1"
   >
     <slot>
