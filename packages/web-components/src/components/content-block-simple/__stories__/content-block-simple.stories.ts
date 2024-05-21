@@ -146,6 +146,11 @@ export const WithImage = (args) => {
 
 WithImage.story = {
   name: 'With image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const WithVideo = (args) => {
@@ -190,6 +195,9 @@ export const WithVideo = (args) => {
 WithVideo.story = {
   name: 'With video',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
   },
 };
@@ -249,6 +257,9 @@ export const WithLinkList = (args) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
   },
 };

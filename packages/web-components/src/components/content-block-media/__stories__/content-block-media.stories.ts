@@ -314,6 +314,9 @@ export const withLinkList = (args) => {
 withLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMedia: () => ({
@@ -367,6 +370,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,

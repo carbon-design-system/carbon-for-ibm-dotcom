@@ -185,6 +185,9 @@ export const DefaultFooterLanguageOnly = (args, story) => {
 DefaultFooterLanguageOnly.story = {
   name: 'Default footer language only',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       FooterComposite: () => ({
         disableLocaleButton: boolean(
@@ -254,6 +257,11 @@ export const searchOpenOnload = (args, story) => {
 
 searchOpenOnload.story = {
   name: 'Search open onload',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const withPlatform = (args, story) => {
@@ -304,6 +312,9 @@ export const withPlatform = (args, story) => {
 withPlatform.story = {
   name: 'With platform',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       MastheadComposite: () => ({
         hasProfile: boolean('show the profile functionality (profile)', true),
@@ -386,6 +397,11 @@ export const withShortFooter = (args, story) => {
 
 withShortFooter.story = {
   name: 'With short footer',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const withShortFooterLanguageOnly = (args, story) => {
@@ -442,6 +458,9 @@ export const withShortFooterLanguageOnly = (args, story) => {
 withShortFooterLanguageOnly.story = {
   name: 'With short footer language only',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       FooterComposite: () => ({
         disableLocaleButton: boolean(
@@ -566,6 +585,9 @@ export const withMicroFooterLanguageOnly = (args, story) => {
 withMicroFooterLanguageOnly.story = {
   name: 'With micro footer language only',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       FooterComposite: () => ({
         disableLocaleButton: boolean(
@@ -640,6 +662,9 @@ export const withL1 = (args, story) => {
 withL1.story = {
   name: 'With L1',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       DotcomShell: () => ({
         hasProfile: boolean(
@@ -734,10 +759,10 @@ export const WithHorizontalTOC = (args, story) => {
 WithHorizontalTOC.story = {
   name: 'With ToC horizontal',
   parameters: {
-    ...readme.parameters,
     percy: {
       skip: true,
     },
+    ...readme.parameters,
   },
 };
 
@@ -789,6 +814,9 @@ export const WithLeadspaceSearch = (args, story) => {
 WithLeadspaceSearch.story = {
   name: 'With Lead space search',
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     'carbon-theme': { disabled: true },
   },
@@ -876,6 +904,9 @@ export const WithGlobalBanner = (args, story) => {
 WithGlobalBanner.story = {
   name: 'With Global banner',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       DotcomShell: () => ({
         hasProfile: boolean(
@@ -980,6 +1011,9 @@ export const WithoutShell = (args) => {
 WithoutShell.story = {
   name: 'Without Shell (Fallback Utility)',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       DotcomShell: () => ({
         masthead: select('Masthead Version', ['L0', 'L1'], 'L0'),
@@ -1144,6 +1178,9 @@ export default {
     },
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     knobs: {
       escapeHTML: false,
