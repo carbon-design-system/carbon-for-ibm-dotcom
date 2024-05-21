@@ -33,9 +33,7 @@ const copy =
 
 const linkListItem = (
   <C4DContentItemRow>
-    <C4DContentItemRowEyebrow>
-      Lorem ipsum
-    </C4DContentItemRowEyebrow>
+    <C4DContentItemRowEyebrow>Lorem ipsum</C4DContentItemRowEyebrow>
     <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
     <C4DContentItemRowCopy>{copy}</C4DContentItemRowCopy>
     <C4DLinkList slot="footer" type="vertical">
@@ -83,6 +81,9 @@ export default {
     ),
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

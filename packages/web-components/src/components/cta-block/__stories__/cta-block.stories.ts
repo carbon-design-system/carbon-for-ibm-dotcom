@@ -18,6 +18,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../tabs-extended/index';
 import '../index';
 import '../../link-list/index';
+import { prefix } from '../../../internal/vendor/@carbon/web-components/globals/settings';
 
 import content from '../../cta-section/__stories__/content';
 
@@ -219,26 +220,37 @@ export const WithinTabs = (args) => {
   const { contentItemType, contentItemCount } = args?.WithinTabs ?? {};
 
   return html`
-    <c4d-tabs-extended orientation="horizontal">
-      <c4d-tab label="Tab 1" selected>
+    <c4d-tabs-extended orientation="horizontal" value="first">
+      <c4d-tab id="tab-first" target="panel-first" value="first">Tab 1</c4d-tab>
+      <c4d-tab id="tab-second" target="panel-second" value="second"
+        >Tab 2</c4d-tab
+      >
+      <c4d-tab id="tab-third" target="panel-third" value="third">Tab 3</c4d-tab>
+    </c4d-tabs-extended>
+    <div class="${prefix}-ce-demo-devenv--tab-panels">
+      <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" hidden>
         <c4d-cta-block>
           <c4d-content-block-heading>Tab 1</c4d-content-block-heading>
           ${renderItems(contentItemType, contentItemCount)}
         </c4d-cta-block>
-      </c4d-tab>
-      <c4d-tab label="Tab 2">
+      </div>
+      <div
+        id="panel-second"
+        role="tabpanel"
+        aria-labelledby="tab-second"
+        hidden>
         <c4d-cta-block>
           <c4d-content-block-heading>Tab 2</c4d-content-block-heading>
           ${renderItems(contentItemType, contentItemCount)}
         </c4d-cta-block>
-      </c4d-tab>
-      <c4d-tab label="Tab 3">
+      </div>
+      <div id="panel-third" role="tabpanel" aria-labelledby="tab-third" hidden>
         <c4d-cta-block>
           <c4d-content-block-heading>Tab 3</c4d-content-block-heading>
           ${renderItems(contentItemType, contentItemCount)}
         </c4d-cta-block>
-      </c4d-tab>
-    </c4d-tabs-extended>
+      </div>
+    </div>
   `;
 };
 
