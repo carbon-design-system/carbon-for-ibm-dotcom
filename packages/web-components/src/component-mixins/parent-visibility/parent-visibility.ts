@@ -17,6 +17,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @param Base The base class.
  * @returns A mix-in implementing the logic for handling elements that need to
  *   respond when a potential parent element becomes visible.
+ * @deprecated This mixin will be removed in a future release.
  */
 const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   abstract class ParentVisibilityMixinImpl extends Base {
