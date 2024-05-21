@@ -168,7 +168,6 @@
     overflow-x: auto;
     scroll-snap-type: x;
     position: relative;
-
     --max-cols: 4;
 
     @include carbon--breakpoint('md') {
