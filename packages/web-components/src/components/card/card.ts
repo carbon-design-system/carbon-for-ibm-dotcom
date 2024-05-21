@@ -172,7 +172,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
           : ''}"
-          part="wrapper">
+        part="wrapper">
         <div class="${prefix}--card__content" part="content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
