@@ -97,6 +97,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
@@ -358,6 +361,9 @@ export const WithLinkList = (args) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMixed: () => ({

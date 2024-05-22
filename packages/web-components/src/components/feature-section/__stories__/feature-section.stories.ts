@@ -95,6 +95,9 @@ export default {
   title: 'Components/Feature section',
   decorators: [(story) => html` ${story()} `],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

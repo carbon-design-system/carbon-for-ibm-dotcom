@@ -26,11 +26,13 @@ class C4DContentGroupCards extends C4DContentGroup {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
       <div
+        part="children"
         ?hidden="${!hasContent && !hasMedia}"
         class="${prefix}--content-group__children ${prefix}--content-group__col">
         <div
+          part="cards-group"
           class="${prefix}--content-group-cards-group ${prefix}--grid--condensed">
-          <div class="${prefix}--content-group-cards__row">
+          <div part="cards-row" class="${prefix}--content-group-cards__row">
             ${this._renderContent()}${this._renderMedia()}
           </div>
         </div>

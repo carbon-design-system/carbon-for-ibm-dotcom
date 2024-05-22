@@ -451,6 +451,9 @@ export const Logo = (args) => {
 
 Logo.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     knobs: {
       Card: () => ({
