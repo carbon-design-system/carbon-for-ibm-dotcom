@@ -156,7 +156,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <div id="link" class="${classes}" part="link">${this._renderInner()}</div>
+      <div id="link" class="${classes}" part="disabled-link">
+        ${this._renderInner()}
+      </div>
     `;
   }
 
