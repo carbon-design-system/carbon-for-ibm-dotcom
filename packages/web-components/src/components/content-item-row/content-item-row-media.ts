@@ -53,7 +53,7 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
    */
   protected _renderTextCol(): TemplateResult | string | void {
     return html`
-      <div class="${prefix}--content-item-row__col">
+      <div class="${prefix}--content-item-row__col" part="eyebrow">
         <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
         <slot name="heading"></slot>
         ${this._renderBody()} ${this._renderFooter()}
@@ -70,12 +70,12 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
     return alignedRight
       ? html`
           ${this._renderTextCol()}
-          <div class="${prefix}--content-item-row__col">
+          <div class="${prefix}--content-item-row__col" part="media">
             <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
           </div>
         `
       : html`
-          <div class="${prefix}--content-item-row__col">
+          <div class="${prefix}--content-item-row__col" part="media">
             <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
           </div>
           ${this._renderTextCol()}
@@ -86,7 +86,7 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
     return html`
       <div
         class="${prefix}--content-item-row__row ${prefix}--content-item-row-media__align-${this
-          .align}">
+        .align}" part="row-media">
         ${this._renderContent()}
       </div>
     `;

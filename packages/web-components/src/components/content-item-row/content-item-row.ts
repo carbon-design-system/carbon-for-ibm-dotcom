@@ -41,26 +41,26 @@ class C4DContentItemRow extends C4DContentItem {
     return html`
       ${!this.thumbnail
         ? html`
-            <div class="${prefix}--content-item-row__heading-wrapper">
+            <div class="${prefix}--content-item-row__heading-wrapper" part="heading-wrapper">
               <slot
                 name="eyebrow"
                 @slotchange="${this._handleSlotChange}"></slot>
               <slot name="heading"></slot>
             </div>
-            <div class="${prefix}--content-item-row__content-wrapper">
+            <div class="${prefix}--content-item-row__content-wrapper" part="content-wrapper">
               ${this._renderBody()}${this._renderFooter()}${this._renderMedia()}
             </div>
           `
         : html`
-            <div class="${prefix}--content-item-row__body-wrapper">
-              <div class="${prefix}--content-item-row__heading-wrapper">
+            <div class="${prefix}--content-item-row__body-wrapper" part="body-wrapper">
+              <div class="${prefix}--content-item-row__heading-wrapper" part="heading-wrapper">
                 <slot name="heading"></slot>
               </div>
-              <div class="${prefix}--content-item-row__content-wrapper">
+              <div class="${prefix}--content-item-row__content-wrapper" part="content-wrapper">
                 ${this._renderBody()}${this._renderFooter()}
               </div>
             </div>
-            <div class="${prefix}--content-item-row__col--2">
+            <div class="${prefix}--content-item-row__col--2" part="col2">
               <slot name="thumbnail" @slotchange="${this._handleSlotChange}">
               </slot>
             </div>

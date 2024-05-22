@@ -25,16 +25,16 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 class C4DContentItemRowMediaFeatured extends C4DContentItem {
   render() {
     return html`
-      <div class="${prefix}--content-item-row__row">
-        <div class="${prefix}--content-item-row__col">
+      <div class="${prefix}--content-item-row__row" part="row-eyebrow">
+        <div class="${prefix}--content-item-row__col" part="col-eyebrow">
           <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
           <slot name="heading"></slot>
         </div>
-        <div class="${prefix}--content-item-row__col">
+        <div class="${prefix}--content-item-row__col" part="col">
           ${this._renderBody()} ${this._renderFooter()}
         </div>
       </div>
-      <div class="${prefix}--content-item-row__row">
+      <div class="${prefix}--content-item-row__row" part="media">
         <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
