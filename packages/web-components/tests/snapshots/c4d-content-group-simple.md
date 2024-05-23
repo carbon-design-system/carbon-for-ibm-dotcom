@@ -42,6 +42,7 @@
 ####   `should render with various attributes`
 
 ```
+
 <div
   class="cds--content-layout cds--content-layout--with-footer"
   part="content-layout"
