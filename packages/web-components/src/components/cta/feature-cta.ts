@@ -62,7 +62,7 @@ class C4DFeatureCTA extends VideoCTAMixin(CTAMixin(C4DFeatureCard)) {
     this.captionHeading = caption;
 
     return html`
-      <div class="${prefix}--card__copy">
+      <div class="${prefix}--card__copy" part="copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
