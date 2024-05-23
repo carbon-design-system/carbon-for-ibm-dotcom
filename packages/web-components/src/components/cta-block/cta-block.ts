@@ -98,7 +98,10 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
   protected _renderActions(): TemplateResult | string | void {
     const { _hasAction: hasAction, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasAction}" class="${prefix}--content-layout__cta">
+      <div
+        ?hidden="${!hasAction}"
+        class="${prefix}--content-layout__cta"
+        part="action">
         <slot name="action" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -122,7 +125,7 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
     });
     return html`
       <div ?hidden="${!_hasContent}" class="${classes}">
-        <div class="${prefix}--content-item-wrapper">
+        <div class="${prefix}--content-item-wrapper" part="wrapper">
           <slot @slotchange="${_handleSlotChange}"></slot>
         </div>
       </div>
@@ -141,7 +144,10 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
     });
 
     return html`
-      <div ?hidden="${!this._hasBodyContent()}" class="${classes}">
+      <div
+        ?hidden="${!this._hasBodyContent()}"
+        class="${classes}"
+        part="content">
         ${this._renderCopy()}${this._renderInnerBody()}
       </div>
     `;
@@ -153,7 +159,10 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--content-layout__copy">
+      <div
+        ?hidden="${!hasCopy}"
+        class="${prefix}--content-layout__copy"
+        part="copy">
         <slot name="copy" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -178,7 +187,8 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
     return html`
       <div
         ?hidden="${!hasLinkList}"
-        class="${prefix}--content-layout__link-list">
+        class="${prefix}--content-layout__link-list"
+        part="link-list">
         <slot name="link-list" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
