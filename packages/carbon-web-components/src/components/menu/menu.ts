@@ -35,7 +35,7 @@ class CDSMenu extends HostListenerMixin(LitElement) {
    * Items.
    */
   @state()
-  items: Element[] = [];
+  items: Element[] | undefined = [];
   /**
    * Active list Items.
    */
@@ -139,6 +139,7 @@ class CDSMenu extends HostListenerMixin(LitElement) {
    /**
    * Provide an optional function to be called when the Menu should be closed.
    */
+   @property()
    onClose?: () => void;
 
   updated(changedProperties) {
@@ -165,8 +166,10 @@ class CDSMenu extends HostListenerMixin(LitElement) {
       const { width: w } = this.containerRef.getBoundingClientRect();
       this.actionButtonWidth = w;
     }
-    this._registerMenuItems();
-    this._setActiveItems();
+    setTimeout(()=>{
+      this._registerMenuItems();
+      this._setActiveItems();
+    },100);
   }
   render() {
     const {
@@ -222,13 +225,10 @@ class CDSMenu extends HostListenerMixin(LitElement) {
     if(document.activeElement?.tagName !== 'CDS-MENU'){
       currentItem = this.activeitems?.findIndex((activeItem) =>
         {
-        if(activeItem.parent === null){
-          return activeItem.item.contains(document.activeElement)
-        }else if(activeItem.parent.tagName === 'CDS-MENU-ITEM-RADIO-GROUP'){
+        if(activeItem.parent === null || activeItem.parent.tagName === 'CDS-MENU-ITEM-RADIO-GROUP'){
           let shadowRootActiveEl = this._findActiveElementInShadowRoot(document);
-          return(shadowRootActiveEl === activeItem.item.shadowRoot?.querySelector('li'));
-        }
-        else{
+          return shadowRootActiveEl === activeItem.item.shadowRoot?.querySelector('.cds--menu-item');
+        }else{
           return activeItem.parent.contains(document.activeElement)
         }
       }
@@ -260,7 +260,7 @@ class CDSMenu extends HostListenerMixin(LitElement) {
 
     if (indexToFocus !== currentItem) {
       const nodeToFocus = this.activeitems[indexToFocus].item;
-      nodeToFocus.shadowRoot.querySelector('.cds--menu-item').focus();
+      (nodeToFocus?.shadowRoot?.querySelector('.cds--menu-item') as HTMLLIElement)?.focus();
     }
   }
   _findActiveElementInShadowRoot = (shadowRoot) => {
@@ -413,7 +413,9 @@ class CDSMenu extends HostListenerMixin(LitElement) {
     this.position = pos;
   };
   _handleClose = (e:KeyboardEvent) => {
-   
+    if (this.onClose) {
+      this.onClose();
+    }
   };
   _newContextCreate = () => {
     this.context = {
@@ -431,59 +433,44 @@ class CDSMenu extends HostListenerMixin(LitElement) {
     this.items = items?.filter(item => {
       return (item.tagName !== 'CDS-MENU-ITEM-DIVIDER');
     });
-        
-    // filitems?.map(item => {
-    //   if(item.tagName === 'CDS-MENU-ITEM'){
-    //     this.items =[...this.items, item];
-    //   }else if(item.tagName === 'CDS-MENU-ITEM-GROUP'){
-    //     setTimeout(()=>{
-    //       item.shadowRoot?.querySelector('slot')?.assignedElements().map(item => {
-    //         this.items = [...this.items, ...item.shadowRoot?.querySelectorAll('cds-menu-item')];
-    //       });
-    //     },500);
-    //   }else if()
-      
-    // });
   };
   _setActiveItems = () => {
-    setTimeout(()=>{
-        this.items?.map(item => {
-          let activeItem:activeItemType;
-          switch (item.tagName) {
-            case 'CDS-MENU-ITEM-RADIO-GROUP':{
-              let slotElements = item.shadowRoot?.querySelectorAll('cds-menu-item');
-              for (const entry of slotElements.entries()) {
-                activeItem = {
-                  item: entry[1] as HTMLLIElement,
-                  parent: item as HTMLElement
-                };
-                this.activeitems = [...this.activeitems, activeItem]
-              }
-              break;
-            }
-            case 'CDS-MENU-ITEM-GROUP':{
-              let slotElements=  item.shadowRoot?.querySelector('slot')?.assignedElements();
-              slotElements?.map(el => {
-                activeItem = {
-                  item: el.shadowRoot?.querySelector('cds-menu-item') as HTMLLIElement,
-                  parent: el as HTMLElement
-                };
-                this.activeitems = [...this.activeitems, activeItem]
-              });
-              break;
-            }
-            default:{
-              activeItem = {
-                item: item as HTMLLIElement,
-                parent: null
-              };
-              this.activeitems = [...this.activeitems, activeItem];
-            }
+    this.items?.map(item => {
+      let activeItem:activeItemType;
+      switch (item.tagName) {
+        case 'CDS-MENU-ITEM-RADIO-GROUP':{
+          let slotElements = item.shadowRoot?.querySelectorAll('cds-menu-item');
+          for (const entry of slotElements.entries()) {
+            activeItem = {
+              item: entry[1] as HTMLLIElement,
+              parent: item as HTMLElement
+            };
+            this.activeitems = [...this.activeitems, activeItem]
           }
-        });
-        const activeEl = this.activeitems[0].item.shadowRoot?.querySelector('.cds--menu-item');
-        activeEl?.focus();
-      },100);
+          break;
+        }
+        case 'CDS-MENU-ITEM-GROUP':{
+          let slotElements=  item.shadowRoot?.querySelector('slot')?.assignedElements();
+          slotElements?.map(el => {
+            activeItem = {
+              item: el.shadowRoot?.querySelector('cds-menu-item') as HTMLLIElement,
+              parent: el as HTMLElement
+            };
+            this.activeitems = [...this.activeitems, activeItem]
+          });
+          break;
+        }
+        default:{
+          activeItem = {
+            item: item as HTMLLIElement,
+            parent: null
+          };
+          this.activeitems = [...this.activeitems, activeItem];
+        }
+      }
+    });
+    const activeEl = this.activeitems[0]?.item.shadowRoot?.querySelector('.cds--menu-item') ?? document.activeElement ;
+    (activeEl as HTMLLIElement).focus();
   }
   static styles = styles; // `styles` here is a `CSSResult` generated by custom Vite loader
 }
