@@ -17,6 +17,7 @@
   <div
     class="cds--content-item__cta"
     hidden=""
+    part="cta"
   >
     <slot name="footer">
     </slot>
@@ -42,6 +43,7 @@
   <div
     class="cds--content-item__cta"
     hidden=""
+    part="cta"
   >
     <slot name="footer">
     </slot>
@@ -68,6 +70,7 @@
     <div
       class="cds--content-item__cta"
       hidden=""
+      part="cta"
     >
       <slot name="footer">
       </slot>
@@ -95,6 +98,7 @@
     <div
       class="cds--content-item__cta"
       hidden=""
+      part="cta"
     >
       <slot name="footer">
       </slot>
@@ -126,6 +130,7 @@
     <div
       class="cds--content-item__cta"
       hidden=""
+      part="cta"
     >
       <slot name="footer">
       </slot>
@@ -155,6 +160,7 @@
     <div
       class="cds--content-item__cta"
       hidden=""
+      part="cta"
     >
       <slot name="footer">
       </slot>
@@ -184,6 +190,7 @@
     <div
       class="cds--content-item__cta"
       hidden=""
+      part="cta"
     >
       <slot name="footer">
       </slot>
@@ -211,6 +218,7 @@
     <div
       class="cds--content-item__cta"
       hidden=""
+      part="cta"
     >
       <slot name="footer">
       </slot>
