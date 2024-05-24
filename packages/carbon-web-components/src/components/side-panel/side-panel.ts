@@ -507,8 +507,6 @@ class CDSSidePanel extends HostListenerMixin(LitElement) {
       }
     }
 
-    console.log('canDoAnimateTitle', canDoAnimateTitle);
-
     this._doAnimateTitle = canDoAnimateTitle;
   };
 
