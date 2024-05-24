@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,7 +52,7 @@ class C4DCardSectionOffset extends StableSelectorMixin(C4DContentBlock) {
   render() {
     return html`
       <slot name="image-top"></slot>
-      <div class="${prefix}--card-section-offset__content">
+      <div class="${prefix}--card-section-offset__content" part="content">
         ${this._renderHeading()}
         <slot name="action"></slot>
       </div>
