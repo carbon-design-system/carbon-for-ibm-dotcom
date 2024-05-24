@@ -8,6 +8,7 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import { classMap } from 'lit/directives/class-map.js';
 import { consume, provide } from '@lit/context';
 import { MenuContext, menuDefaultState } from './menu-context';
+import CDSmenuItem from './menu-item';
 
 /**
  * Menu.
@@ -15,7 +16,7 @@ import { MenuContext, menuDefaultState } from './menu-context';
  * @element cds-menu
  */
 type activeItemType = {
-  item: HTMLLIElement;
+  item: CDSmenuItem;
   parent: HTMLElement | null;
 };
 @customElement(`${prefix}-menu`)
@@ -431,6 +432,9 @@ class CDSMenu extends HostListenerMixin(LitElement) {
   _registerMenuItems = () => {
     const items = this.shadowRoot?.querySelector('slot')?.assignedElements();
     this.items = items?.filter(item => {
+      if(item.tagName === 'CDS-MENU-ITEM'){
+        return !(item as CDSmenuItem).disabled;
+      }      
       return (item.tagName !== 'CDS-MENU-ITEM-DIVIDER');
     });
   };
@@ -442,7 +446,7 @@ class CDSMenu extends HostListenerMixin(LitElement) {
           let slotElements = item.shadowRoot?.querySelectorAll('cds-menu-item');
           for (const entry of slotElements.entries()) {
             activeItem = {
-              item: entry[1] as HTMLLIElement,
+              item: entry[1] as CDSmenuItem,
               parent: item as HTMLElement
             };
             this.activeitems = [...this.activeitems, activeItem]
@@ -453,7 +457,7 @@ class CDSMenu extends HostListenerMixin(LitElement) {
           let slotElements=  item.shadowRoot?.querySelector('slot')?.assignedElements();
           slotElements?.map(el => {
             activeItem = {
-              item: el.shadowRoot?.querySelector('cds-menu-item') as HTMLLIElement,
+              item: el.shadowRoot?.querySelector('cds-menu-item') as CDSmenuItem,
               parent: el as HTMLElement
             };
             this.activeitems = [...this.activeitems, activeItem]
@@ -462,7 +466,7 @@ class CDSMenu extends HostListenerMixin(LitElement) {
         }
         default:{
           activeItem = {
-            item: item as HTMLLIElement,
+            item: item as CDSmenuItem,
             parent: null
           };
           this.activeitems = [...this.activeitems, activeItem];

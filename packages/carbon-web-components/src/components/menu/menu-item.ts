@@ -235,7 +235,6 @@ class CDSmenuItem extends LitElement {
   _handleKeyDown = (e: KeyboardEvent) => {
     if (this.hasChildren && e.key === 'ArrowRight') {
       this._openSubmenu();
-      console.log('here');
       setTimeout(()=>{
         let subMenuItems = this.shadowRoot?.querySelector('cds-menu')?.shadowRoot?.querySelector('slot')?.assignedElements();
         if(subMenuItems?.length && subMenuItems?.length > 0) {
