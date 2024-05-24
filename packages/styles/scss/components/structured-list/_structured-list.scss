@@ -120,20 +120,10 @@
   :host(#{$dds-prefix}-structured-list-header-row),
   :host(#{$dds-prefix}-structured-list-row),
   :host(#{$dds-prefix}-structured-list-group) tr {
-    --max-cols: 4;
-
     @include carbon--breakpoint('sm') {
       @include carbon--make-row();
 
       flex-wrap: nowrap;
-    }
-
-    @include carbon--breakpoint('md') {
-      --max-cols: 8;
-    }
-
-    @include carbon--breakpoint('lg') {
-      --max-cols: 16;
     }
 
     @for $i from 1 through 8 {
@@ -178,6 +168,15 @@
     overflow-x: auto;
     scroll-snap-type: x;
     position: relative;
+    --max-cols: 4;
+
+    @include carbon--breakpoint('md') {
+      --max-cols: 8;
+    }
+
+    @include carbon--breakpoint('lg') {
+      --max-cols: 16;
+    }
 
     .#{$prefix}--structured-list {
       margin: 0;
