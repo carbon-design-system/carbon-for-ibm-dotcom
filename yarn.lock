@@ -3407,7 +3407,7 @@ __metadata:
     "@carbon/icons-react": "npm:11.41.0"
     "@carbon/layout": "npm:11.22.0"
     "@carbon/styles": "npm:1.57.0"
-    "@carbon/themes": "npm:11.35.0"
+    "@carbon/themes": "npm:11.36.0"
     "@carbon/type": "npm:11.27.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     del: "npm:^6.0.0"
@@ -3812,7 +3812,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:11.35.0, @carbon/themes@npm:^11.35.0":
+"@carbon/themes@npm:11.36.0":
+  version: 11.36.0
+  resolution: "@carbon/themes@npm:11.36.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.22.0"
+    "@carbon/layout": "npm:^11.22.0"
+    "@carbon/type": "npm:^11.27.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+    color: "npm:^4.0.0"
+  checksum: 10/c69a4e9fa96ede8757db077f3205eec8a15efba32d6b6f50f6554392b38a590afc6a405fcaa1e9aa66fa05417c57a792b8ded4c0971c1f07c29c4363262b46ed
+  languageName: node
+  linkType: hard
+
+"@carbon/themes@npm:^11.35.0":
   version: 11.35.0
   resolution: "@carbon/themes@npm:11.35.0"
   dependencies:
