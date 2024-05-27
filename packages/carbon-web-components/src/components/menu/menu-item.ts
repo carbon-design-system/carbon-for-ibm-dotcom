@@ -113,9 +113,9 @@ class CDSmenuItem extends LitElement {
     this.direction = document.dir;
     this.isRtl = this.direction === 'rtl';
     this.isDanger = this.kind === 'danger';
-    setTimeout(()=>{
-      this.childElements = Object.values(this.children)
-    },100);
+    setTimeout(() => {
+      this.childElements = Object.values(this.children);
+    }, 100);
   }
   render() {
     const {
@@ -130,7 +130,7 @@ class CDSmenuItem extends LitElement {
       _handleMouseEnter: handleMouseEnter,
       _handleMouseLeave: handleMouseLeave,
       _handleKeyDown: handleKeyDown,
-      _closeSubmenu : closeSubmenu,
+      _closeSubmenu: closeSubmenu,
       isDanger,
       boundaries,
       childElements,
@@ -160,13 +160,13 @@ class CDSmenuItem extends LitElement {
         ${hasChildren
           ? html`
               <cds-menu
-                isChild="${hasChildren}"
+                .isChild="${hasChildren}"
                 label="${label}"
-                open="${submenuOpen}"
-                .onClose ="${closeSubmenu}"
-                x="${boundaries.x}"
-                y="${boundaries.y}">
-               ${childElements}
+                .open="${submenuOpen}"
+                .onClose="${closeSubmenu}"
+                .x="${boundaries.x}"
+                .y="${boundaries.y}">
+                ${childElements}
               </cds-menu>
             `
           : html``}
@@ -229,19 +229,27 @@ class CDSmenuItem extends LitElement {
       y: -1,
     };
     this.submenuOpen = false;
-    (this.shadowRoot?.querySelector('.cds--menu-item') as HTMLLIElement)?.focus();
-    
+    (
+      this.shadowRoot?.querySelector('.cds--menu-item') as HTMLLIElement
+    )?.focus();
   };
   _handleKeyDown = (e: KeyboardEvent) => {
     if (this.hasChildren && e.key === 'ArrowRight') {
       this._openSubmenu();
-      setTimeout(()=>{
-        let subMenuItems = this.shadowRoot?.querySelector('cds-menu')?.shadowRoot?.querySelector('slot')?.assignedElements();
-        if(subMenuItems?.length && subMenuItems?.length > 0) {
-          (subMenuItems[0].shadowRoot?.querySelector('.cds--menu-item') as HTMLLIElement).focus();
+      setTimeout(() => {
+        let subMenuItems = this.shadowRoot
+          ?.querySelector('cds-menu')
+          ?.shadowRoot?.querySelector('slot')
+          ?.assignedElements();
+        if (subMenuItems?.length && subMenuItems?.length > 0) {
+          (
+            subMenuItems[0].shadowRoot?.querySelector(
+              '.cds--menu-item'
+            ) as HTMLLIElement
+          ).focus();
         }
         e.stopPropagation();
-      },100)
+      }, 100);
     }
     if (e.key === 'Enter' || e.key === 'Space') {
       this._handleClick(e);
