@@ -86,7 +86,7 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
     return html`
       <div
         class="${prefix}--content-item-row__row ${prefix}--content-item-row-media__align-${this
-        .align}" part="row-media">
+        .align}" part="row row--media">
         ${this._renderContent()}
       </div>
     `;
