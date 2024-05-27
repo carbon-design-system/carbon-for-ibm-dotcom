@@ -34,7 +34,7 @@ class C4DContentItemRowMediaFeatured extends C4DContentItem {
           ${this._renderBody()} ${this._renderFooter()}
         </div>
       </div>
-      <div class="${prefix}--content-item-row__row" part="media">
+      <div class="${prefix}--content-item-row__row" part="row row--media">
         <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
