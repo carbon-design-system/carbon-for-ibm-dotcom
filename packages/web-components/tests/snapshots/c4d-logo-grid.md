@@ -9,6 +9,7 @@
   <div
     class="cds--content-layout__body"
     hidden=""
+    part="body"
   >
     <slot name="copy">
     </slot>

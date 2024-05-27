@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -738,13 +738,14 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     });
     // Use another div from the host `<c4d-carousel>` to reflect private state
     return html`
-      <div role="region" aria-labelledby="carousel-title">
-        <div id="carousel-title">
+      <div part="region" role="region" aria-labelledby="carousel-title">
+        <div part="title" id="carousel-title">
           <slot name="title">
             <span class="cds--visually-hidden">Carousel</span>
           </slot>
         </div>
         <div
+          part="scroll-container"
           class="${prefix}--carousel__scroll-container"
           @scroll="${handleScrollFocus}"
           @touchstart="${handleTouchStartEvent}"
@@ -754,11 +755,12 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               ? null
               : `${customPropertyPageSize}: ${pageSizeExplicit}`
           )}">
-          <div class="${scrollContentsClasses}">
+          <div part="contents" class="${scrollContentsClasses}">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
         <nav
+          part="navigation"
           aria-label="Carousel Navigation"
           class="${prefix}--carousel__navigation">
           <button
@@ -771,6 +773,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             ${CaretLeft20()}
           </button>
           <span
+            part="status"
             class="${prefix}--carousel__navigation__status"
             aria-hidden="true"
             >${formatStatus(status)}</span

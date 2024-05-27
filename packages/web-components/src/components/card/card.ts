@@ -119,7 +119,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy" part="copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
@@ -140,6 +140,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         : html`
             <c4d-image
               class="${prefix}--card__video-thumbnail"
+              part="video-thumbnail"
               alt="${videoName}"
               default-src="${videoThumbnailUrl}">
             </c4d-image>
@@ -155,7 +156,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <div id="link" class="${classes}">${this._renderInner()}</div>
+      <div id="link" class="${classes}" part="disabled-link">
+        ${this._renderInner()}
+      </div>
     `;
   }
 
@@ -170,8 +173,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''}">
-        <div class="${prefix}--card__content">
+          : ''}"
+        part="wrapper">
+        <div class="${prefix}--card__content" part="content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? html`
@@ -400,6 +404,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             ${this._renderInner()}
             <a
               class="${`${prefix}--card__link`}"
+              part="link"
               href="${ifDefined(this.href)}"
               aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
                 ?.textContent || ''}"
