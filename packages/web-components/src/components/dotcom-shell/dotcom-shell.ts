@@ -24,7 +24,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 class C4DDotcomShell extends StableSelectorMixin(LitElement) {
   render() {
     return html`
-      <div class="${prefix}--dotcom-shell__content" part="shell">
+      <div class="${prefix}--dotcom-shell__content" part="content">
         <slot></slot>
       </div>
     `;
