@@ -70,7 +70,7 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
     return alignedRight
       ? html`
           ${this._renderTextCol()}
-          <div class="${prefix}--content-item-row__col" part="media">
+          <div class="${prefix}--content-item-row__col" part="col col--media">
             <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
           </div>
         `
