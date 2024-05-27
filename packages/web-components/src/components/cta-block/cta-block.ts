@@ -101,7 +101,7 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
       <div
         ?hidden="${!hasAction}"
         class="${prefix}--content-layout__cta"
-        part="action">
+        part="cta">
         <slot name="action" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
