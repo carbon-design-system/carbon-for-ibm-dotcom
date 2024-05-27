@@ -25,7 +25,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 class C4DContentItemRowMediaFeatured extends C4DContentItem {
   render() {
     return html`
-      <div class="${prefix}--content-item-row__row" part="row-eyebrow">
+      <div class="${prefix}--content-item-row__row" part="row row--eyebrow">
         <div class="${prefix}--content-item-row__col" part="col-eyebrow">
           <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
           <slot name="heading"></slot>
