@@ -58,14 +58,17 @@ class C4DContentSection extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--content-section ${prefix}--content-section-layout">
-        <div class="${prefix}--content-section__leading">
+      <div
+        class="${prefix}--content-section ${prefix}--content-section-layout"
+        part="layout">
+        <div class="${prefix}--content-section__leading" part="leading">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
           <slot name="footer"></slot>
         </div>
         <div
-          class="${prefix}--content-section__body ${this.childrenCustomClass}">
+          class="${prefix}--content-section__body ${this.childrenCustomClass}"
+          part="body">
           <slot @slotchange="${this.handleSlotChange}"></slot>
         </div>
       </div>

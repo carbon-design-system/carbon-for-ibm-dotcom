@@ -136,6 +136,7 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
   protected _renderBody(): TemplateResult | string | void {
     return html`
       <div
+        part="body"
         ?hidden="${!this._hasBodyContent()}"
         class="${prefix}--content-layout__body">
         ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
@@ -173,6 +174,7 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
 
     return html`
       <div
+        part="footer"
         ?hidden="${!hasFooter}"
         class="${hasFooter && `${c4dPrefix}--content-block-footer`}"
         style="${cardGroupStyle}"
@@ -226,7 +228,7 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${this._getContainerClasses()}">
+      <div part="content-layout" class="${this._getContainerClasses()}">
         ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
       </div>
     `;

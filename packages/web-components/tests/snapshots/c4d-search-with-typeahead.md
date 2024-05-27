@@ -87,6 +87,7 @@
       part="search-input"
       placeholder="Search all of IBM"
       type="text"
+      value=""
     >
     <div
       class="react-autosuggest__suggestions-container"

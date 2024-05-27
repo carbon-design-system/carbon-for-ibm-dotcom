@@ -84,6 +84,15 @@ export const WithDefaultSource = (args) => {
   `;
 };
 
+WithDefaultSource.story = {
+  name: 'with default source',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
+};
+
 export default {
   title: 'Components/Background media',
   decorators: [
@@ -96,6 +105,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

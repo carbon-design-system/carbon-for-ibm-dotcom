@@ -3,10 +3,22 @@
 #### `Renders as expected`
 
 ```
-<div class="cds--callout__column">
-  <div class="cds--callout__content">
-    <div class="cds--quote__container">
-      <div class="cds--quote__wrapper">
+<div
+  class="cds--callout__column"
+  part="column"
+>
+  <div
+    class="cds--callout__content"
+    part="content"
+  >
+    <div
+      class="cds--quote__container"
+      part="container"
+    >
+      <div
+        class="cds--quote__wrapper"
+        part="wrapper"
+      >
         <span class="cds--quote__mark">
           “
         </span>
