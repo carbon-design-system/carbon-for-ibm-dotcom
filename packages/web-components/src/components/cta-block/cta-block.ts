@@ -101,7 +101,7 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
       <div
         ?hidden="${!hasAction}"
         class="${prefix}--content-layout__cta"
-        part="action">
+        part="cta">
         <slot name="action" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -124,8 +124,8 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
         !_hasAction && !_hasCopy && !_hasLinkList,
     });
     return html`
-      <div ?hidden="${!_hasContent}" class="${classes}">
-        <div class="${prefix}--content-item-wrapper" part="wrapper">
+      <div ?hidden="${!_hasContent}" class="${classes}" part="helper-wrapper">
+        <div class="${prefix}--content-item-wrapper" part="content-item-wrapper">
           <slot @slotchange="${_handleSlotChange}"></slot>
         </div>
       </div>
@@ -147,7 +147,7 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
       <div
         ?hidden="${!this._hasBodyContent()}"
         class="${classes}"
-        part="content">
+        part="body">
         ${this._renderCopy()}${this._renderInnerBody()}
       </div>
     `;
