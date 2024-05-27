@@ -3,7 +3,10 @@
 #### `Renders Default`
 
 ```
-<div class="cds--content-layout">
+<div
+  class="cds--content-layout"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
@@ -52,7 +55,10 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--content-layout cds--content-layout--border">
+<div
+  class="cds--content-layout cds--content-layout--border"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
@@ -99,7 +105,10 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--content-layout cds--content-layout--border cds--content-layout--with-children">
+<div
+  class="cds--content-layout cds--content-layout--border cds--content-layout--with-children"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div class="cds--content-layout__body">

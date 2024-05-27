@@ -98,7 +98,8 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
     return html`
       <div
         ?hidden="${!hasStatistic}"
-        class="${c4dPrefix}--content-item__statitics">
+        class="${c4dPrefix}--content-item__statitics"
+        part="statistics">
         <slot name="statistics" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -111,7 +112,10 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
     const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
 
     return html`
-      <div ?hidden="${!hasMedia}" class="${c4dPrefix}--content-item__media">
+      <div
+        ?hidden="${!hasMedia}"
+        class="${c4dPrefix}--content-item__media"
+        part="media">
         <slot name="media" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -131,7 +135,10 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
   protected _renderFooter(): TemplateResult | string | void {
     const { _hasFooter: hasFooter } = this;
     return html`
-      <div ?hidden="${!hasFooter}" class="${prefix}--content-item__cta">
+      <div
+        ?hidden="${!hasFooter}"
+        class="${prefix}--content-item__cta"
+        part="cta">
         <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
@@ -158,7 +165,7 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
     });
 
     return html`
-      <div class="${horizontalClass}">
+      <div class="${horizontalClass}" part="heading">
         ${this._renderStatistic()} ${this._renderMedia()}
         <div>
           <slot name="heading"></slot>

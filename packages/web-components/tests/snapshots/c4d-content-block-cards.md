@@ -5,12 +5,16 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--content-layout cds--content-layout--card-group">
+<div
+  class="cds--content-layout cds--content-layout--card-group"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
     class="cds--content-layout__body"
     hidden=""
+    part="body"
   >
     <slot name="copy">
     </slot>
@@ -23,6 +27,7 @@
       class="false"
       grid-mode=""
       hidden=""
+      part="footer"
       style=""
     >
       <slot name="footer">
@@ -38,12 +43,16 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--content-layout cds--content-layout--card-group">
+<div
+  class="cds--content-layout cds--content-layout--card-group"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
     class="cds--content-layout__body"
     hidden=""
+    part="body"
   >
     <slot name="copy">
     </slot>
@@ -56,6 +65,7 @@
       class="false"
       grid-mode=""
       hidden=""
+      part="footer"
       style=""
     >
       <slot name="footer">
