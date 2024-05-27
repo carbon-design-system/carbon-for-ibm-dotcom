@@ -53,7 +53,7 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
    */
   protected _renderTextCol(): TemplateResult | string | void {
     return html`
-      <div class="${prefix}--content-item-row__col" part="eyebrow">
+      <div class="${prefix}--content-item-row__col" part="col col--eyebrow">
         <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
         <slot name="heading"></slot>
         ${this._renderBody()} ${this._renderFooter()}
