@@ -125,7 +125,7 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
     });
     return html`
       <div ?hidden="${!_hasContent}" class="${classes}" part="helper-wrapper">
-        <div class="${prefix}--content-item-wrapper" part="wrapper">
+        <div class="${prefix}--content-item-wrapper" part="content-item-wrapper">
           <slot @slotchange="${_handleSlotChange}"></slot>
         </div>
       </div>
