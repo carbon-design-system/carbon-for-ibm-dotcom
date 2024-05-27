@@ -147,7 +147,7 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
       <div
         ?hidden="${!this._hasBodyContent()}"
         class="${classes}"
-        part="content">
+        part="body">
         ${this._renderCopy()}${this._renderInnerBody()}
       </div>
     `;
