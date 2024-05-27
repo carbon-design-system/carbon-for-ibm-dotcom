@@ -30,7 +30,7 @@ class C4DContentItemRowMediaFeatured extends C4DContentItem {
           <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
           <slot name="heading"></slot>
         </div>
-        <div class="${prefix}--content-item-row__col" part="col">
+        <div class="${prefix}--content-item-row__col" part="col col--body">
           ${this._renderBody()} ${this._renderFooter()}
         </div>
       </div>
