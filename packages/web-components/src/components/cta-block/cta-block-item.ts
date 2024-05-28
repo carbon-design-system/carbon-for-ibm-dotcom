@@ -76,7 +76,8 @@ class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {
     return html`
       <div
         ?hidden="${!hasStatistic}"
-        class="${prefix}--cta-block-item__statitics">
+        class="${prefix}--cta-block-item__statitics"
+        part="statistics">
         <slot name="statistics" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -89,7 +90,10 @@ class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {
     const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
 
     return html`
-      <div ?hidden="${!hasMedia}" class="${prefix}--cta-block-item__media">
+      <div
+        ?hidden="${!hasMedia}"
+        class="${prefix}--cta-block-item__media"
+        part="media">
         <slot name="media" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
