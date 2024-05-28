@@ -426,7 +426,7 @@ class CDSMenu extends HostListenerMixin(LitElement) {
       switch (item.tagName) {
         case 'CDS-MENU-ITEM-RADIO-GROUP': {
           let slotElements = item.shadowRoot?.querySelectorAll('cds-menu-item');
-          if(slotElements?.length){
+          if (slotElements?.length) {
             for (const entry of slotElements.entries()) {
               activeItem = {
                 item: entry[1] as CDSmenuItem,
