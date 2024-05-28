@@ -8,16 +8,21 @@
 <button
   class="cds--visually-hidden"
   id="start-sentinel"
+  part="sentinel-button sentinel-button--start"
 >
   START
 </button>
 <div
   aria-labelledby="c4d--modal-header"
   class="cds--modal-container"
+  part="modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="cds--modal-content">
+  <div
+    class="cds--modal-content"
+    part="modal-content"
+  >
     <div id="cds--modal-header">
       <c4d-expressive-modal-header data-autoid="c4d--expressive-modal-header">
         <c4d-expressive-modal-close-button data-autoid="c4d--expressive-modal-close-button">
@@ -43,6 +48,7 @@
 <button
   class="cds--visually-hidden"
   id="end-sentinel"
+  part="sentinel-button sentinel-button--end"
 >
   END
 </button>
@@ -55,16 +61,21 @@
 <button
   class="cds--visually-hidden"
   id="start-sentinel"
+  part="sentinel-button sentinel-button--start"
 >
   START
 </button>
 <div
   aria-labelledby="c4d--modal-header"
   class="cds--modal-container"
+  part="modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="cds--modal-content">
+  <div
+    class="cds--modal-content"
+    part="modal-content"
+  >
     <div id="cds--modal-header">
       <c4d-expressive-modal-header data-autoid="c4d--expressive-modal-header">
         <c4d-expressive-modal-close-button data-autoid="c4d--expressive-modal-close-button">
@@ -96,6 +107,7 @@
 <button
   class="cds--visually-hidden"
   id="end-sentinel"
+  part="sentinel-button sentinel-button--end"
 >
   END
 </button>
@@ -108,16 +120,21 @@
 <button
   class="cds--visually-hidden"
   id="start-sentinel"
+  part="sentinel-button sentinel-button--start"
 >
   START
 </button>
 <div
   aria-labelledby="c4d--modal-header"
   class="cds--modal-container"
+  part="modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="cds--modal-content">
+  <div
+    class="cds--modal-content"
+    part="modal-content"
+  >
     <div id="cds--modal-header">
       <c4d-expressive-modal-header
         close-button=""
@@ -161,6 +178,7 @@
 <button
   class="cds--visually-hidden"
   id="end-sentinel"
+  part="sentinel-button sentinel-button--end"
 >
   END
 </button>

@@ -365,7 +365,10 @@ class C4DExpressiveModal extends StableSelectorMixin(
         hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="${prefix}--modal-header" class="${headerClasses}">
+      <div
+        id="${prefix}--modal-header"
+        class="${headerClasses}"
+        part="modal-header">
         <slot name="header"></slot>
       </div>
     `;
@@ -380,7 +383,9 @@ class C4DExpressiveModal extends StableSelectorMixin(
       [`${c4dPrefix}-ce--modal__body`]: true,
       [`${c4dPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
-    return html` <div class="${bodyClasses}"><slot></slot></div> `;
+    return html`
+      <div class="${bodyClasses}" part="modal-body"><slot></slot></div>
+    `;
   }
 
   /**
@@ -436,23 +441,26 @@ class C4DExpressiveModal extends StableSelectorMixin(
       <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
+        part="sentinel-button sentinel-button--start"
         @focusin="${handleFocusIn}">
         START
       </button>
       <div
         class="${containerClasses}"
+        part="modal-container"
         tabindex="-1"
         role="dialog"
         aria-labelledby="${c4dPrefix}--modal-header"
         @click="${handleClickContainer}"
         @slotchange="${handleSlotChange}">
-        <div class="${prefix}--modal-content">
+        <div class="${prefix}--modal-content" part="modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
       <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
+        part="sentinel-button sentinel-button--end"
         @focusin="${handleFocusIn}">
         END
       </button>
