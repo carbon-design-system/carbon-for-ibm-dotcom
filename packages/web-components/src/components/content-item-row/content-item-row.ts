@@ -60,7 +60,7 @@ class C4DContentItemRow extends C4DContentItem {
                 ${this._renderBody()}${this._renderFooter()}
               </div>
             </div>
-            <div class="${prefix}--content-item-row__col--2" part="col2">
+            <div class="${prefix}--content-item-row__col--2" part="col col--2">
               <slot name="thumbnail" @slotchange="${this._handleSlotChange}">
               </slot>
             </div>
