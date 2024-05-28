@@ -85,7 +85,7 @@ class C4DFilterPanelInputSelectItem extends FocusMixin(
   render() {
     return html`
       <slot @slotchange=${this._handleSlotChange}></slot>
-      <div class="${prefix}--close__icon">
+      <div class="${prefix}--close__icon" part="icon">
         ${this.selected ? Close() : null}
       </div>
     `;

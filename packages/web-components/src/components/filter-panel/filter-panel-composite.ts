@@ -415,6 +415,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
    */
   protected _renderModal = (): TemplateResult => html`
     <c4d-filter-panel-modal
+      part="panel-modal"
       ?open=${this.openFilterModal}
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
@@ -423,7 +424,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
   `;
 
   protected _renderMobile = (): TemplateResult => html`
-    <cds-button kind="tertiary" @click=${this._openModal}>
+    <cds-button part="button" kind="tertiary" @click=${this._openModal}>
       ${this._getComposedHeadingFilterCount()} ${Filter({ slot: 'icon' })}
     </cds-button>
 
@@ -435,6 +436,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
    */
   protected _renderDesktop = (): TemplateResult => html`
     <c4d-filter-panel
+      part="filter-panel"
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
       <slot @slotchange="${this._handleSlotChange}"></slot>
