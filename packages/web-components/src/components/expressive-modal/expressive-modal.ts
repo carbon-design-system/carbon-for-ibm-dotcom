@@ -441,13 +441,13 @@ class C4DExpressiveModal extends StableSelectorMixin(
       <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        part="button"
+        part="sentinel-button sentinel-button--start"
         @focusin="${handleFocusIn}">
         START
       </button>
       <div
         class="${containerClasses}"
-        part="modal-header"
+        part="modal-container"
         tabindex="-1"
         role="dialog"
         aria-labelledby="${c4dPrefix}--modal-header"
@@ -460,7 +460,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
       <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        part="button"
+        part="sentinel-button sentinel-button--end"
         @focusin="${handleFocusIn}">
         END
       </button>
