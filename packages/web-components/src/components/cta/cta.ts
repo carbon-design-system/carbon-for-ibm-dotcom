@@ -121,19 +121,19 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   render() {
     return html`
       ${this.ctaStyle === 'feature'
-        ? html` <c4d-feature-cta part="cta cta--card-feature"></c4d-feature-cta> `
+        ? html` <c4d-feature-cta part="cta cta--feature"></c4d-feature-cta> `
         : ``}
       ${this.ctaStyle === 'card'
-        ? html` <c4d-card-cta part="cta cta--card-cta"><slot></slot></c4d-card-cta> `
+        ? html` <c4d-card-cta part="cta cta--card"><slot></slot></c4d-card-cta> `
         : ``}
       ${this.ctaStyle === 'card-link'
         ? html` <c4d-card-link-cta part="cta cta--card-link"><slot></slot></c4d-card-link-cta> `
         : ``}
       ${this.ctaStyle === 'text'
-        ? html` <c4d-text-cta part="cta cta--card-text"><slot></slot></c4d-text-cta> `
+        ? html` <c4d-text-cta part="cta cta--text"><slot></slot></c4d-text-cta> `
         : ``}
       ${this.ctaStyle === 'button'
-        ? html` <c4d-button-cta part="cta cta--card-button"><slot></slot></c4d-button-cta> `
+        ? html` <c4d-button-cta part="cta cta--button"><slot></slot></c4d-button-cta> `
         : ``}
     `;
   }
