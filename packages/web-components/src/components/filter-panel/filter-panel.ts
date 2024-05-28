@@ -69,16 +69,19 @@ class C4DFilterPanel extends HostListenerMixin(
 
   render() {
     return html`
-      <section class="${prefix}--filter-panel__section">
-        <div class="${prefix}--heading-clear">
-          <div class="${prefix}--filter__heading">${this.heading}</div>
+      <section class="${prefix}--filter-panel__section" part="section">
+        <div class="${prefix}--heading-clear" part="heading-clear">
+          <div class="${prefix}--filter__heading" part="filter-heading">
+            ${this.heading}
+          </div>
           <button
             class="${prefix}--clear"
+            part="button-clear"
             @click=${this._handleClear}
             ?disabled="${!this.hasSelections}">
-            <div class="${prefix}--clear__container">
+            <div class="${prefix}--clear__container" part="container">
               Clear
-              <div class="${prefix}--reset__icon">${Reset()}</div>
+              <div class="${prefix}--reset__icon" part="icon">${Reset()}</div>
             </div>
           </button>
         </div>
