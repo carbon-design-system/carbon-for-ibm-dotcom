@@ -49,7 +49,7 @@ class C4DCardCTAFooter extends VideoCTAMixin(CTAMixin(C4DCardFooter)) {
           }),
         });
     return html`
-      <span class="${prefix}--card__cta__copy"
+      <span class="${prefix}--card__cta__copy" part="copy"
         ><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span
       >
     `;
