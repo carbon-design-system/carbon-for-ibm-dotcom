@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -125,7 +125,9 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
     });
     return html`
       <div ?hidden="${!_hasContent}" class="${classes}" part="helper-wrapper">
-        <div class="${prefix}--content-item-wrapper" part="content-item-wrapper">
+        <div
+          class="${prefix}--content-item-wrapper"
+          part="content-item-wrapper">
           <slot @slotchange="${_handleSlotChange}"></slot>
         </div>
       </div>
@@ -144,10 +146,7 @@ class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
     });
 
     return html`
-      <div
-        ?hidden="${!this._hasBodyContent()}"
-        class="${classes}"
-        part="body">
+      <div ?hidden="${!this._hasBodyContent()}" class="${classes}" part="body">
         ${this._renderCopy()}${this._renderInnerBody()}
       </div>
     `;
