@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,26 +41,36 @@ class C4DContentItemRow extends C4DContentItem {
     return html`
       ${!this.thumbnail
         ? html`
-            <div class="${prefix}--content-item-row__heading-wrapper">
+            <div
+              class="${prefix}--content-item-row__heading-wrapper"
+              part="heading-wrapper">
               <slot
                 name="eyebrow"
                 @slotchange="${this._handleSlotChange}"></slot>
               <slot name="heading"></slot>
             </div>
-            <div class="${prefix}--content-item-row__content-wrapper">
+            <div
+              class="${prefix}--content-item-row__content-wrapper"
+              part="content-wrapper">
               ${this._renderBody()}${this._renderFooter()}${this._renderMedia()}
             </div>
           `
         : html`
-            <div class="${prefix}--content-item-row__body-wrapper">
-              <div class="${prefix}--content-item-row__heading-wrapper">
+            <div
+              class="${prefix}--content-item-row__body-wrapper"
+              part="body-wrapper">
+              <div
+                class="${prefix}--content-item-row__heading-wrapper"
+                part="heading-wrapper">
                 <slot name="heading"></slot>
               </div>
-              <div class="${prefix}--content-item-row__content-wrapper">
+              <div
+                class="${prefix}--content-item-row__content-wrapper"
+                part="content-wrapper">
                 ${this._renderBody()}${this._renderFooter()}
               </div>
             </div>
-            <div class="${prefix}--content-item-row__col--2">
+            <div class="${prefix}--content-item-row__col--2" part="col col--2">
               <slot name="thumbnail" @slotchange="${this._handleSlotChange}">
               </slot>
             </div>

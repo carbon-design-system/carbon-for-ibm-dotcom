@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,7 +53,7 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
    */
   protected _renderTextCol(): TemplateResult | string | void {
     return html`
-      <div class="${prefix}--content-item-row__col">
+      <div class="${prefix}--content-item-row__col" part="col col--eyebrow">
         <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
         <slot name="heading"></slot>
         ${this._renderBody()} ${this._renderFooter()}
@@ -70,12 +70,12 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
     return alignedRight
       ? html`
           ${this._renderTextCol()}
-          <div class="${prefix}--content-item-row__col">
+          <div class="${prefix}--content-item-row__col" part="col col--media">
             <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
           </div>
         `
       : html`
-          <div class="${prefix}--content-item-row__col">
+          <div class="${prefix}--content-item-row__col" part="col col--media">
             <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
           </div>
           ${this._renderTextCol()}
@@ -86,7 +86,8 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
     return html`
       <div
         class="${prefix}--content-item-row__row ${prefix}--content-item-row-media__align-${this
-          .align}">
+          .align}"
+        part="row row--media">
         ${this._renderContent()}
       </div>
     `;
