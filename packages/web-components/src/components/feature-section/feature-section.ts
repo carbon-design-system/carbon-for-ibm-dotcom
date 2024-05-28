@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,14 +34,20 @@ class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
 
   render() {
     return html`
-      <div class="${prefix}--grid ${prefix}--feature-section">
-        <div class="${prefix}--row ${prefix}--feature-section__container">
+      <div
+        class="${prefix}--grid ${prefix}--feature-section"
+        part="grid grid--wrapper">
+        <div
+          class="${prefix}--row ${prefix}--feature-section__container"
+          part="row row--container">
           <div
-            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
-            <div class="${prefix}--grid">
-              <div class="${prefix}--row">
+            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body"
+            part="col col--body-wrapper">
+            <div class="${prefix}--grid" part="grid grid--body">
+              <div class="${prefix}--row" part="row row--body">
                 <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12"
+                  part="col col--body">
                   <slot name="eyebrow"></slot>
                   <slot name="heading"></slot>
                   <slot name="copy"></slot>
@@ -50,7 +56,8 @@ class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
             </div>
           </div>
           <div
-            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
+            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image"
+            part="col col--image">
             <slot name="image"></slot>
             <slot name="footer"></slot>
           </div>
