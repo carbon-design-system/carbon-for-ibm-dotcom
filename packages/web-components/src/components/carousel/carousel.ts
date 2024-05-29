@@ -38,8 +38,8 @@ const minIntersectionRatio = 0.75;
  * Carousel.
  *
  * @element c4d-carousel
- * @csspart prev-button The button to go to the previous page.
- * @csspart next-button The button to go to the next page.
+ * @csspart prev-button - The button to go to the previous page. Usage `c4d-carousel::part(prev-button)`
+ * @csspart next-button - The button to go to the next page. Usage `c4d-carousel::part(next-button)`
  */
 @customElement(`${c4dPrefix}-carousel`)
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {

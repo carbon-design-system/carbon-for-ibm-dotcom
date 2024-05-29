@@ -59,7 +59,7 @@ function findLastIndex<T>(
  * Table of contents.
  *
  * @element c4d-table-of-contents
- * @csspart table - The table UI.
+ * @csspart table - The table UI. `c4d-table-of-contents::part(table)`
  * @slot heading - The heading content.
  * @slot menu-rule - The menu rule.
  */
