@@ -12,10 +12,12 @@
   <div
     class="cds--content-layout__body"
     hidden=""
+    part="body"
   >
     <div
       class="cds--content-layout__copy"
       hidden=""
+      part="copy"
     >
       <slot name="copy">
       </slot>
@@ -23,6 +25,7 @@
     <div
       class="cds--content-layout__cta"
       hidden=""
+      part="cta"
     >
       <slot name="action">
       </slot>
@@ -30,6 +33,7 @@
     <div
       class="cds--content-layout__link-list"
       hidden=""
+      part="link-list"
     >
       <slot name="link-list">
       </slot>
@@ -37,8 +41,12 @@
     <div
       class="cds--helper-wrapper cds--helper-wrapper--less-space"
       hidden=""
+      part="helper-wrapper"
     >
-      <div class="cds--content-item-wrapper">
+      <div
+        class="cds--content-item-wrapper"
+        part="content-item-wrapper"
+      >
         <slot>
         </slot>
       </div>
@@ -64,10 +72,12 @@
   <div
     class="cds--content-layout__body"
     hidden=""
+    part="body"
   >
     <div
       class="cds--content-layout__copy"
       hidden=""
+      part="copy"
     >
       <slot name="copy">
       </slot>
@@ -75,6 +85,7 @@
     <div
       class="cds--content-layout__cta"
       hidden=""
+      part="cta"
     >
       <slot name="action">
       </slot>
@@ -82,6 +93,7 @@
     <div
       class="cds--content-layout__link-list"
       hidden=""
+      part="link-list"
     >
       <slot name="link-list">
       </slot>
@@ -89,8 +101,12 @@
     <div
       class="cds--helper-wrapper cds--helper-wrapper--less-space"
       hidden=""
+      part="helper-wrapper"
     >
-      <div class="cds--content-item-wrapper">
+      <div
+        class="cds--content-item-wrapper"
+        part="content-item-wrapper"
+      >
         <slot>
         </slot>
       </div>
@@ -111,27 +127,41 @@
 >
   <slot name="heading">
   </slot>
-  <div class="cds--content-layout__body">
+  <div
+    class="cds--content-layout__body"
+    part="body"
+  >
     <div
       class="cds--content-layout__copy"
       hidden=""
+      part="copy"
     >
       <slot name="copy">
       </slot>
     </div>
-    <div class="cds--content-layout__cta">
+    <div
+      class="cds--content-layout__cta"
+      part="cta"
+    >
       <slot name="action">
       </slot>
     </div>
     <div
       class="cds--content-layout__link-list"
       hidden=""
+      part="link-list"
     >
       <slot name="link-list">
       </slot>
     </div>
-    <div class="cds--helper-wrapper">
-      <div class="cds--content-item-wrapper">
+    <div
+      class="cds--helper-wrapper"
+      part="helper-wrapper"
+    >
+      <div
+        class="cds--content-item-wrapper"
+        part="content-item-wrapper"
+      >
         <slot>
         </slot>
       </div>
