@@ -26,7 +26,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Expressive button.
  *
  * @element c4d-button-expressive
- * @csspart button - The button. Usage `c4d-button-expressive::part()`
+ * @csspart button - The button. Usage `c4d-button-expressive::part(button)`
  */
 @customElement(`${c4dPrefix}-button-expressive`)
 class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {

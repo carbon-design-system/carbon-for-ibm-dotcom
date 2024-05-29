@@ -27,6 +27,7 @@ interface Cancelable {
  * Back to top
  *
  * @element c4d-back-to-top
+ * @csspart button - The button. Usage: `c4d-back-to-top::part(button)`
  */
 @customElement(`${c4dPrefix}-back-to-top`)
 class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
