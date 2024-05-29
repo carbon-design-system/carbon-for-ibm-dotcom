@@ -482,6 +482,9 @@ cds-locale-modal::part(back-button) {
 }
 ```
 
+> **⚠️ Warning**  
+>While shadow parts selectors are available as an option, we strongly advise against using it. As this may cause components to not behave as expected.
+
 #### Advanced usage for IBM.com site owners
 
 There are some other key advanced usage patterns that are suitable for IBM.com
