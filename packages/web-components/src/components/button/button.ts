@@ -23,7 +23,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Button.
  *
  * @element c4d-button
- * @csspart button - The button. Usage: `c4d-button::part(button)`.
+ * @csspart button - The button. Usage: `c4d-button::part(button)`
  */
 @customElement(`${c4dPrefix}-button`)
 // @ts-ignore
