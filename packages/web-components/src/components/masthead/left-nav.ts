@@ -221,7 +221,21 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
     document.addEventListener('click', this._handleClickOut.bind(this));
   }
 
-  updated(changedProperties) {
+  protected async willUpdate(changedProperties) {
+    if (changedProperties.has('expanded') && !this._importedSideNav) {
+      await Promise.all([
+        import('./left-nav-name'),
+        import('./left-nav-menu'),
+        import('./left-nav-menu-section'),
+        import('./left-nav-menu-item'),
+        import('./left-nav-menu-category-heading'),
+        import('./left-nav-overlay')
+      ]);
+      this._importedSideNav = true;
+    }
+  }
+
+  async updated(changedProperties) {
     super.updated(changedProperties);
     const { usageMode } = this;
     if (
@@ -256,15 +270,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
           ${c4dPrefix}-masthead-composite`
         )
         ?.querySelector(`${c4dPrefix}-masthead`);
-      if (expanded && !this._importedSideNav) {
-        import('./left-nav-name');
-        import('./left-nav-menu');
-        import('./left-nav-menu-section');
-        import('./left-nav-menu-item');
-        import('./left-nav-menu-category-heading');
-        import('./left-nav-overlay');
-        this._importedSideNav = true;
-      }
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
@@ -312,7 +317,7 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
     }
   }
 
-  private _renderSentinel = (side: String) => {
+  private _renderSentinel = (side: string) => {
     return html`
       <button
         id="${side}-sentinel"

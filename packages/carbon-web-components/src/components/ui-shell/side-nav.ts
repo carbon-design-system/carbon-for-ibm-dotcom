@@ -71,17 +71,6 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleButtonToggle = async (event: CustomEvent) => {
     this.expanded = event.detail.active;
-    if (this.expanded) {
-      await this._updateAndTransitionPromise;
-      // Checks if the side nav is not collapsed during the animation
-      if (this.expanded) {
-        (
-          this.querySelector(
-            (this.constructor as typeof CDSSideNav).selectorNavItems
-          ) as HTMLElement
-        )?.focus();
-      }
-    }
   };
 
   /**
@@ -179,6 +168,11 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
         forEach(headerItems, (item) => {
           item.setAttribute('tabindex', '-1');
         });
+        (
+          this.querySelector(
+            (this.constructor as typeof CDSSideNav).selectorNavItems
+          ) as HTMLElement
+        )?.focus();
       } else {
         forEach(headerItems, (item) => {
           item.removeAttribute('tabindex');
