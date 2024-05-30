@@ -16,7 +16,8 @@ import BXSideNav, {
   SIDE_NAV_USAGE_MODE,
 } from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
+// import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
+import focuswrap from '../../../../utilities/src/utilities/focuswrap/focuswrap.js';
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
