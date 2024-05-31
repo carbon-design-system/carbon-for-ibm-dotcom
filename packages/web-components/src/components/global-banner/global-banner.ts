@@ -130,7 +130,9 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
    */
   _renderAsStatic() {
     return html`
-      <div class="${prefix}--global-banner-layout-container">
+      <div
+        class="${prefix}--global-banner-layout-container"
+        part="banner-container">
         ${this._renderInnerContents()}
       </div>
     `;
@@ -140,7 +142,8 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
     return html`
       <a
         href="${this.buttonHref}"
-        class="${prefix}--global-banner-layout-container">
+        class="${prefix}--global-banner-layout-container"
+        part="banner-button">
         ${this._renderInnerContents()}
       </a>
     `;
@@ -152,25 +155,32 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
 
   _renderInnerContents() {
     return html`
-      <div class="${prefix}--global-banner-content-wrapper">
+      <div
+        class="${prefix}--global-banner-content-wrapper"
+        part="banner-content-wrapper">
         <div
           ?hidden="${!this.hasImage}"
-          class="${prefix}--global-banner-image-container">
+          class="${prefix}--global-banner-image-container"
+          part="banner-image-container">
           <slot
             name="image"
             @slotchange="${this._handleImageSlotChange}"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-text-container">
+        <div
+          class="${prefix}--global-banner-text-container"
+          part="banner-text-container">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-cta-container">
+        <div
+          class="${prefix}--global-banner-cta-container"
+          part="banner-cta-container">
           <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-icon">
+        <div class="${prefix}--global-banner-icon" part="banner-icon">
           ${this.ctaType ? this._renderIcon() : ''}
         </div>
       </div>
