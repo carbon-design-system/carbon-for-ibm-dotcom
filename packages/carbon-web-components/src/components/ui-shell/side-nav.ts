@@ -54,7 +54,7 @@ class BXSideNav extends HostListenerMixin(LitElement) {
    */
   @HostListener('parentRoot:eventButtonToggle')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleButtonToggle = (event: CustomEvent) => {
+  protected _handleButtonToggle = (event: CustomEvent) => {
     this.expanded = event.detail.active;
   };
 
