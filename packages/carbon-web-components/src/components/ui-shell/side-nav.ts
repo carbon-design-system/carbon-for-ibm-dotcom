@@ -10,7 +10,6 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import on from '../../globals/mixins/on';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
@@ -42,18 +41,6 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
    * The handle for `transitionend` event listener.
    */
   private _hTransition: Handle | null = null;
-
-  /**
-   * A promise that is resolved when the transition is complete.
-   */
-  private _transitionPromise = Promise.resolve();
-
-  /**
-   * A promise that is resolved when the transition upon proprety update is complete.
-   */
-  private get _updateAndTransitionPromise() {
-    return this.updateComplete.then(() => this._transitionPromise);
-  }
 
   /**
    * Cleans the handle for `transitionend` event listener.
@@ -125,19 +112,6 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
   disconnectedCallback() {
     this._cleanHTransition();
     super.disconnectedCallback();
-  }
-
-  shouldUpdate(changedProperties) {
-    if (changedProperties.has('expanded')) {
-      this._transitionPromise = new Promise((resolve) => {
-        this._cleanHTransition();
-        this._hTransition = on(this, 'transitionend', () => {
-          this._cleanHTransition();
-          resolve();
-        });
-      });
-    }
-    return true;
   }
 
   updated(changedProperties) {

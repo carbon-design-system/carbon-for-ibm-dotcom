@@ -189,7 +189,7 @@ class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
             import('./megamenu-link-with-icon'),
             import('./megamenu-overlay'),
             import('./megamenu-tab'),
-            import('./megamenu-tabs')
+            import('./megamenu-tabs'),
           ]);
           (this.parentElement as C4DTopNav).importedMegamenu = true;
         }
