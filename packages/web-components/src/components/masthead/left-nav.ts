@@ -62,11 +62,11 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   private _importedSideNav = false;
 
   /**
-   * Handles `c4d-request-focus-wrap` event on the document.
+   * Handles `cds-request-focus-wrap` event on the document dispatched from focuswrap.
    *
    * @param event The event.
    */
-  @HostListener('document:c4d-request-focus-wrap')
+  @HostListener('document:cds-request-focus-wrap')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRequestMenuButtonFocusWrap = (event: CustomEvent) => {
     const { selectorButtonToggle } = this.constructor as typeof C4DLeftNav;
