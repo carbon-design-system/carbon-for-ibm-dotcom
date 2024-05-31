@@ -62,6 +62,26 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   private _importedSideNav = false;
 
   /**
+   * Handles `${prefix}-header-menu-button-toggle` event on the document.
+   */
+  @HostListener('parentRoot:eventButtonToggle')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _handleButtonToggle = async (event: CustomEvent) => {
+    if (!this._importedSideNav) {
+      await Promise.all([
+        import('./left-nav-name'),
+        import('./left-nav-menu'),
+        import('./left-nav-menu-section'),
+        import('./left-nav-menu-item'),
+        import('./left-nav-menu-category-heading'),
+        import('./left-nav-overlay'),
+      ]);
+      this._importedSideNav = true;
+    }
+    this.expanded = event.detail.active;
+  };
+
+  /**
    * Handles `cds-request-focus-wrap` event on the document dispatched from focuswrap.
    *
    * @param event The event.
@@ -219,20 +239,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   connectedCallback() {
     super.connectedCallback();
     document.addEventListener('click', this._handleClickOut.bind(this));
-  }
-
-  protected async willUpdate(changedProperties) {
-    if (changedProperties.has('expanded') && !this._importedSideNav) {
-      await Promise.all([
-        import('./left-nav-name'),
-        import('./left-nav-menu'),
-        import('./left-nav-menu-section'),
-        import('./left-nav-menu-item'),
-        import('./left-nav-menu-category-heading'),
-        import('./left-nav-overlay'),
-      ]);
-      this._importedSideNav = true;
-    }
   }
 
   async updated(changedProperties) {

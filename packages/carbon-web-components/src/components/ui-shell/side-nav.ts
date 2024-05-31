@@ -56,7 +56,7 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
    */
   @HostListener('parentRoot:eventButtonToggle')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleButtonToggle = async (event: CustomEvent) => {
+  protected _handleButtonToggle = async (event: CustomEvent) => {
     this.expanded = event.detail.active;
   };
 
