@@ -67,19 +67,8 @@ class BXSideNav extends HostListenerMixin(LitElement) {
    */
   @HostListener('parentRoot:eventButtonToggle')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleButtonToggle = async (event: CustomEvent) => {
+  private _handleButtonToggle = (event: CustomEvent) => {
     this.expanded = event.detail.active;
-    if (this.expanded) {
-      await this._updateAndTransitionPromise;
-      // Checks if the side nav is not collapsed during the animation
-      if (this.expanded) {
-        (
-          this.querySelector(
-            (this.constructor as typeof BXSideNav).selectorNavItems
-          ) as HTMLElement
-        )?.focus();
-      }
-    }
   };
 
   /**
@@ -197,6 +186,13 @@ class BXSideNav extends HostListenerMixin(LitElement) {
           (item as BXHeaderMenuButton).active = this.expanded;
         }
       );
+      if (this.expanded) {
+        (
+          this.querySelector(
+            (this.constructor as typeof BXSideNav).selectorNavItems
+          ) as HTMLElement
+        )?.focus();
+      }
     }
     if (changedProperties.has('usageMode')) {
       forEach(

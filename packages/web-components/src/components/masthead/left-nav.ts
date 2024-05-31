@@ -16,8 +16,7 @@ import BXSideNav, {
   SIDE_NAV_USAGE_MODE,
 } from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-// import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
-import focuswrap from '../../../../utilities/src/utilities/focuswrap/focuswrap.js';
+import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -221,6 +220,23 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
     document.addEventListener('click', this._handleClickOut.bind(this));
   }
 
+  async willUpdate(changedProperties) {
+    if (changedProperties.has('expanded')) {
+      if (this.expanded && !this._importedSideNav) {
+        await Promise.all([
+          import('./left-nav-cta-item'),
+          import('./left-nav-name'),
+          import('./left-nav-menu'),
+          import('./left-nav-menu-section'),
+          import('./left-nav-menu-item'),
+          import('./left-nav-menu-category-heading'),
+          import('./left-nav-overlay')
+        ]);
+        this._importedSideNav = true;
+      }
+    }
+  }
+
   updated(changedProperties) {
     super.updated(changedProperties);
     const { usageMode } = this;
@@ -258,16 +274,6 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           ${ddsPrefix}-masthead-composite`
         )
         ?.querySelector(`${ddsPrefix}-masthead`);
-      if (expanded && !this._importedSideNav) {
-        import('./left-nav-cta-item');
-        import('./left-nav-name');
-        import('./left-nav-menu');
-        import('./left-nav-menu-section');
-        import('./left-nav-menu-item');
-        import('./left-nav-menu-category-heading');
-        import('./left-nav-overlay');
-        this._importedSideNav = true;
-      }
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
