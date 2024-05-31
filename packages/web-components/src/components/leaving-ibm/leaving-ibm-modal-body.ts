@@ -37,7 +37,10 @@ class C4DLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
     return html`
       <p><slot></slot></p>
       <slot name="supplemental"></slot>
-      <cds-link size="lg" href="${ifDefined(href)}"
+      <cds-link
+        size="lg"
+        href="${ifDefined(href)}"
+        part="leaving-ibm-supplemental-link"
         >${!href ? href : new URL(href).hostname}</cds-link
       >
     `;

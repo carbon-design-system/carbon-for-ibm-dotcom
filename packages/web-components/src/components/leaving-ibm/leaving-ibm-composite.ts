@@ -141,21 +141,26 @@ class C4DLeavingIbmComposite extends HostListenerMixin(
   renderModal() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
-      <c4d-leaving-ibm-modal ?open="${open}">
-        <cds-modal-header>
-          <cds-modal-close-button></cds-modal-close-button>
-          <c4d-leaving-ibm-modal-heading
+      <c4d-leaving-ibm-modal ?open="${open}" part="leaving-ibm-modal">
+        <cds-modal-header part="leaving-ibm-modal-header">
+          <cds-modal-close-button
+            part="leaving-ibm-modal-close-button"></cds-modal-close-button>
+          <c4d-leaving-ibm-modal-heading part="leaving-ibm-modal-heading"
             >${leavingIbmCopy?.LEAVING001}</c4d-leaving-ibm-modal-heading
           >
         </cds-modal-header>
-        <c4d-leaving-ibm-modal-body href="${href}">
+        <c4d-leaving-ibm-modal-body
+          part="leaving-ibm-modal-body"
+          href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
           <c4d-leaving-ibm-modal-supplemental
+            part="leaving-ibm-modal-supplemental"
             >${leavingIbmCopy?.LEAVING003}</c4d-leaving-ibm-modal-supplemental
           >
         </c4d-leaving-ibm-modal-body>
-        <cds-modal-footer>
+        <cds-modal-footer part="leaving-ibm-modal-footer">
           <cds-button
+            part="leaving-ibm-modal-button"
             data-autoid="${c4dPrefix}--leaving-ibm-cta"
             href="${href}"
             kind="primary"
