@@ -35,7 +35,7 @@ class C4DLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
   render() {
     const { href } = this;
     return html`
-      <p><slot></slot></p>
+      <p part="content"><slot></slot></p>
       <slot name="supplemental"></slot>
       <cds-link
         size="lg"
