@@ -12,8 +12,8 @@ import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import styles from './menu-item.scss?lit';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
-import { classMap } from 'lit/directives/class-map.js';
-import { EventHandler } from 'react';
+import Checkmark16 from '@carbon/icons/lib/checkmark/16';
+import { ChangeEventHandler, EventHandler } from 'react';
 
 /**
  * Menu Item.
@@ -42,11 +42,13 @@ class CDSmenuItemRadioGroup extends LitElement {
   /**
    * List of items in the radio group.
    */
+  @property()
   itemToString?: (item: Array<String | number>) => String;
   /**
    * Provide an optional function to be called when the selection state changes.
    */
-  onChange?;
+  @property()
+  onChange?: ChangeEventHandler;
 
   _handleClick = (item, e) => {
     this.selectedItem = item;
@@ -65,7 +67,7 @@ class CDSmenuItemRadioGroup extends LitElement {
     } = this;
     return html`
       <li class="${prefix}--menu-item-radio-group" role="none">
-        <ul role="group" label="${label}">
+        <ul role="group" aria-label="${label}">
           ${items.map(
             (item) =>
               html`
@@ -73,10 +75,8 @@ class CDSmenuItemRadioGroup extends LitElement {
                   label="${itemToString(item)}"
                   role="menuitemradio"
                   aria-checked="${item === selectedItem}"
-                  renderIcon="${item === selectedItem
-                    ? 'checkMark'
-                    : undefined}"
-                  @click="${(e) => {
+                  .renderIcon="${item === selectedItem ? Checkmark16 : ''}"
+                  .onClick="${(e) => {
                     handleClick(item, e);
                   }}"></cds-menu-item>
               `
