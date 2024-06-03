@@ -143,7 +143,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
       <a
         href="${this.buttonHref}"
         class="${prefix}--global-banner-layout-container"
-        part="banner-button">
+        part="container container--link">
         ${this._renderInnerContents()}
       </a>
     `;
