@@ -90,23 +90,16 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
 
   private async _requestLeftNavMenuSectionUpdate() {
     const { eventToggle } = this.constructor as typeof DDSLeftNavMenuSection;
-    return new Promise((resolve: Function): void => {
-      this.dispatchEvent(
-        new CustomEvent(eventToggle, {
-          bubbles: true,
-          cancelable: true,
-          composed: true,
-          detail: {
-            active: this.expanded,
-            resolveFn: resolve,
-          },
-        })
-      );
-
-      setTimeout(() => {
-        resolve();
-      }, 0);
-    });
+    this.dispatchEvent(
+      new CustomEvent(eventToggle, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+        detail: {
+          active: this.expanded
+        },
+      })
+    );
   }
 
   /**
@@ -179,7 +172,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
 
   async updated(changedProperties) {
     // make sure leftNavMenuSection updates before setting the tabIndex's per item
-    await this._requestLeftNavMenuSectionUpdate();
+    this._requestLeftNavMenuSectionUpdate();
 
     if (changedProperties.has('expanded')) {
       const { selectorNavMenu, selectorNavItem } = this
