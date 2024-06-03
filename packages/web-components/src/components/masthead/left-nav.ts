@@ -77,6 +77,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         import('./left-nav-menu-item'),
         import('./left-nav-menu-category-heading'),
         import('./left-nav-overlay'),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-cta-item`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-name`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-menu`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-menu-section`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-menu-item`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-menu-category-heading`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-overlay`),
       ]);
       this._importedSideNav = true;
     }
