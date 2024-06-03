@@ -154,7 +154,7 @@ class C4DLeavingIbmComposite extends HostListenerMixin(
           href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
           <c4d-leaving-ibm-modal-supplemental
-            part="leaving-ibm-modal-supplemental"
+            part="supplemental"
             >${leavingIbmCopy?.LEAVING003}</c4d-leaving-ibm-modal-supplemental
           >
         </c4d-leaving-ibm-modal-body>
