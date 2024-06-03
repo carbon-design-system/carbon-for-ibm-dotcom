@@ -161,7 +161,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
         <div
           ?hidden="${!this.hasImage}"
           class="${prefix}--global-banner-image-container"
-          part="banner-image-container">
+          part="image-container">
           <slot
             name="image"
             @slotchange="${this._handleImageSlotChange}"></slot>
