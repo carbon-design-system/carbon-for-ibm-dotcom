@@ -169,7 +169,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
 
         <div
           class="${prefix}--global-banner-text-container"
-          part="banner-text-container">
+          part="text-container">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
         </div>
