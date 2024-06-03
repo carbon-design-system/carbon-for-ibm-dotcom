@@ -180,7 +180,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
           <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-icon" part="banner-icon">
+        <div class="${prefix}--global-banner-icon" part="icon">
           ${this.ctaType ? this._renderIcon() : ''}
         </div>
       </div>
