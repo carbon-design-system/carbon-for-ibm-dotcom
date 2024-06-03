@@ -141,11 +141,11 @@ class C4DLeavingIbmComposite extends HostListenerMixin(
   renderModal() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
-      <c4d-leaving-ibm-modal ?open="${open}" part="leaving-ibm-modal">
-        <cds-modal-header part="leaving-ibm-modal-header">
+      <c4d-leaving-ibm-modal ?open="${open}" part="modal">
+        <cds-modal-header part="header">
           <cds-modal-close-button
-            part="leaving-ibm-modal-close-button"></cds-modal-close-button>
-          <c4d-leaving-ibm-modal-heading part="leaving-ibm-modal-heading"
+            part="close-button"></cds-modal-close-button>
+          <c4d-leaving-ibm-modal-heading part="heading"
             >${leavingIbmCopy?.LEAVING001}</c4d-leaving-ibm-modal-heading
           >
         </cds-modal-header>
