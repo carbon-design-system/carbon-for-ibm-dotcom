@@ -87,7 +87,7 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   }
 
   protected firstUpdated() {
-    StickyHeader.global.leadspaceWithSearch = this;
+    StickyHeader.global.leadspaceSearch = this;
 
     this.querySelector(`${c4dPrefix}-leadspace-heading`)?.setAttribute(
       'type-style',
