@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.9.0-rc.0...@carbon/ibmdotcom-web-components@2.10.0-rc.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* **parent-visibility:** Make changes for v2 ([#11797](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11797)) ([b6911a8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6911a839210b121087c884288cdc6037e5f400f))
+
+
+
+
+
 # [2.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.9.0-rc.0...@carbon/ibmdotcom-web-components@2.9.0) (2024-05-16)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
