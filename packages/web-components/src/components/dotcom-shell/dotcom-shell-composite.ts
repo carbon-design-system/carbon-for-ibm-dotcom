@@ -68,7 +68,7 @@ class C4DDotcomShellComposite extends LitElement {
    */
   private _createMastheadRenderRoot() {
     const masthead = this.ownerDocument!.createElement(
-      `${c4dPrefix}-masthead-composite`
+      `${c4dPrefix}-masthead-container`
     );
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
@@ -319,9 +319,19 @@ class C4DDotcomShellComposite extends LitElement {
    * The navigation links. This goes to masthead.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
+   *
+   * @deprecated Use l0Data instead.
    */
   @property({ attribute: false })
   navLinks?: L0MenuItem[];
+
+  /**
+   * The navigation links. This goes to masthead.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
+   */
+  @property({ attribute: false })
+  l0Data?: L0MenuItem[];
 
   /**
    * The parameters passed to the search-with-typeahead for search scope
@@ -382,6 +392,7 @@ class C4DDotcomShellComposite extends LitElement {
       footerSize,
       openSearchDropdown,
       navLinks,
+      l0Data,
       hasProfile,
       hasSearch,
       searchPlaceholder,
@@ -414,6 +425,7 @@ class C4DDotcomShellComposite extends LitElement {
           l1Data,
           language,
           navLinks,
+          l0Data,
           hasProfile,
           hasSearch,
           searchPlaceholder,
@@ -463,7 +475,7 @@ class C4DDotcomShellComposite extends LitElement {
     // moving global banner outside of dotcom shell if placed within
     if (this.querySelector(`${c4dPrefix}-global-banner`)) {
       this.ownerDocument
-        .querySelector(`${c4dPrefix}-masthead-composite`)
+        .querySelector(`${c4dPrefix}-masthead-container`)
         ?.before(
           this.querySelector(`${c4dPrefix}-global-banner`) as HTMLElement
         );
