@@ -176,7 +176,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
 
         <div
           class="${prefix}--global-banner-cta-container"
-          part="banner-cta-container">
+          part="cta-container">
           <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
         </div>
 
