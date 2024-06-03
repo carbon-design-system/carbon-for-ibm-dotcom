@@ -96,7 +96,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
         cancelable: true,
         composed: true,
         detail: {
-          active: this.expanded
+          active: this.expanded,
         },
       })
     );
