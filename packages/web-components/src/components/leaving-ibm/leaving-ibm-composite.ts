@@ -35,6 +35,13 @@ const { stablePrefix: c4dPrefix } = settings;
  * Component that renders leaving IBM modal component.
  *
  * @element c4d-leaving-ibm-composite
+ * @csspart modal - The modal container. Usage `c4d-leaving-ibm-composite::part(modal)`
+ * @csspart header - The header. Usage `c4d-leaving-ibm-composite::part(header)`
+ * @csspart button - The close button.  Usage `c4d-leaving-ibm-composite::part(close-button)`
+ * @csspart heading - The modal title. Usage `c4d-leaving-ibm-composite::part(heading)`
+ * @csspart body - The modal body. Usage `c4d-leaving-ibm-composite::part(body)`
+ * @csspart supplemental - The modal supplemental. Usage `c4d-leaving-ibm-composite::part(supplemental)`
+ * @csspart footer - The modal footer. Usage `c4d-leaving-ibm-composite::part(footer)`
  */
 @customElement(`${c4dPrefix}-leaving-ibm-composite`)
 class C4DLeavingIbmComposite extends HostListenerMixin(
@@ -143,18 +150,14 @@ class C4DLeavingIbmComposite extends HostListenerMixin(
     return html`
       <c4d-leaving-ibm-modal ?open="${open}" part="modal">
         <cds-modal-header part="header">
-          <cds-modal-close-button
-            part="close-button"></cds-modal-close-button>
+          <cds-modal-close-button part="close-button"></cds-modal-close-button>
           <c4d-leaving-ibm-modal-heading part="heading"
             >${leavingIbmCopy?.LEAVING001}</c4d-leaving-ibm-modal-heading
           >
         </cds-modal-header>
-        <c4d-leaving-ibm-modal-body
-          part="body"
-          href="${href}">
+        <c4d-leaving-ibm-modal-body part="body" href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
-          <c4d-leaving-ibm-modal-supplemental
-            part="supplemental"
+          <c4d-leaving-ibm-modal-supplemental part="supplemental"
             >${leavingIbmCopy?.LEAVING003}</c4d-leaving-ibm-modal-supplemental
           >
         </c4d-leaving-ibm-modal-body>

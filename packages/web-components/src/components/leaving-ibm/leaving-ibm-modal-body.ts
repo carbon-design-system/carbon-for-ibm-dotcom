@@ -23,6 +23,8 @@ const { stablePrefix: c4dPrefix } = settings;
  * Leaving IBM Modal body.
  *
  * @element c4d-leaving-ibm-modal-body
+ * @csspart content - The content. Usage `c4d-leaving-ibm-modal-body::part(content)`
+ * @csspart supplemental-link - The supplemental link. Usage `c4d-leaving-ibm-modal-body::part(supplemental-link)`
  */
 @customElement(`${c4dPrefix}-leaving-ibm-modal-body`)
 class C4DLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
@@ -37,10 +39,7 @@ class C4DLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
     return html`
       <p part="content"><slot></slot></p>
       <slot name="supplemental"></slot>
-      <cds-link
-        size="lg"
-        href="${ifDefined(href)}"
-        part="supplemental-link"
+      <cds-link size="lg" href="${ifDefined(href)}" part="supplemental-link"
         >${!href ? href : new URL(href).hostname}</cds-link
       >
     `;
