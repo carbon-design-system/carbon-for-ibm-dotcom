@@ -76,6 +76,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
           <nav
+            part="legal-nav"
             class="${c4dPrefix}--legal-nav"
             aria-label="${ifDefined(navLabel)}">
             <div class="${this._getTypeClass()}">

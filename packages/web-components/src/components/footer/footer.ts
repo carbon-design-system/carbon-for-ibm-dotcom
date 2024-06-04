@@ -60,10 +60,10 @@ class C4DFooter extends StableSelectorMixin(LitElement) {
     };
 
     return html`
-      <section class="${prefix}--footer__main">
-        <div class="${prefix}--footer__main-container">
-          <div class=${classMap(classes)}>
-            <div class="${prefix}--footer__logo-row">
+      <section part="main-section" class="${prefix}--footer__main">
+        <div part="main-container" class="${prefix}--footer__main-container">
+          <div part="logo-container" class=${classMap(classes)}>
+            <div part="logo-row" class="${prefix}--footer__logo-row">
               <slot name="brand"></slot>
               <slot name="locale-button"></slot>
               <slot name="language-selector"></slot>

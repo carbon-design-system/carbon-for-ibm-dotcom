@@ -112,12 +112,13 @@ class C4DFooterNavGroup extends MediaQueryMixin(
 
     const heading = isMediumOrGreater
       ? html`
-          <h2 class="${prefix}--footer-nav-group__title">
+          <h2 part="nav-group-title" class="${prefix}--footer-nav-group__title">
             <slot name="title">${titleText}</slot>
           </h2>
         `
       : html`
           <button
+            part="accordion-heading"
             type="button"
             class="${prefix}--accordion__heading"
             aria-controls="content"
@@ -127,14 +128,17 @@ class C4DFooterNavGroup extends MediaQueryMixin(
             ${ChevronRight16({
               class: `${prefix}--accordion__arrow`,
             })}
-            <div class="${prefix}--accordion__title">
+            <div part="accordion-title" class="${prefix}--accordion__title">
               <slot name="title">${titleText}</slot>
             </div>
           </button>
         `;
     return html`
       ${heading}
-      <div id="content" class="${prefix}--accordion__content">
+      <div
+        part="accordion-content"
+        id="content"
+        class="${prefix}--accordion__content">
         <ul>
           <slot></slot>
         </ul>
