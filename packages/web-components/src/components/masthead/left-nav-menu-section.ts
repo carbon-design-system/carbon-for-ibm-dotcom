@@ -15,7 +15,6 @@ import ChevronLeft16 from '../../internal/vendor/@carbon/web-components/icons/ch
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -171,36 +170,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   async updated(changedProperties) {
-    // make sure leftNavMenuSection updates before setting the tabIndex's per item
     this._requestLeftNavMenuSectionUpdate();
 
     if (changedProperties.has('expanded')) {
-      const { selectorNavMenu, selectorNavItem } = this
-        .constructor as typeof DDSLeftNavMenuSection;
       const { expanded, isSubmenu } = this;
 
       if (expanded) {
-        if (isSubmenu) {
-          const backBtn = this.shadowRoot?.querySelector('button');
-          if (backBtn) {
-            backBtn.tabIndex = 0;
-          }
-        }
-        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector(
-            'button'
-          );
-          if (item) {
-            item.tabIndex = 0;
-          }
-        });
-        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
-          if (item) {
-            item.tabIndex = 0;
-          }
-        });
-
         // set focus to first element of menu panel to allow for tabbing through the menu
         let tabbable;
         if (isSubmenu) {
@@ -221,27 +196,6 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
             },
             { once: true }
           );
-        }
-      } else {
-        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector(
-            'button'
-          );
-          if (item) {
-            item.tabIndex = -1;
-          }
-        });
-        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
-          if (item) {
-            item.tabIndex = -1;
-          }
-        });
-        if (isSubmenu) {
-          const backBtn = this.shadowRoot?.querySelector('button');
-          if (backBtn) {
-            backBtn.tabIndex = -1;
-          }
         }
       }
     }
@@ -270,7 +224,6 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
                 role="none">
                 <button
                   class="${prefix}--side-nav__link"
-                  tabindex="-1"
                   @click="${handleClickBack}">
                   <span class="${prefix}--side-nav__link-text"
                     >${ChevronLeft16()}${backButtonText}</span

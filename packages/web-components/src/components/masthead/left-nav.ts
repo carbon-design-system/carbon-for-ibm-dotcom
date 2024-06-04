@@ -287,6 +287,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           ${ddsPrefix}-masthead-composite`
         )
         ?.querySelector(`${ddsPrefix}-masthead`);
+      this.inert = !this.expanded;
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
