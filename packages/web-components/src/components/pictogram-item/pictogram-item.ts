@@ -25,6 +25,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @slot pictogram - The pictogram content.
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
+ * @csspart item-row - An item row. Usage `c4d-pictogram-item: :part(item-row)`
+ * @csspart wrapper - The wrapper. Usage `c4d-pictogram-item: :part(wrapper)`
+ * @csspart pictogram - A pictogram. Usage `c4d-pictogram-item: :part(pictogram)`
+ * @csspart content - The content. Usage `c4d-pictogram-item: :part(content)`
+ * @csspart content-item - The content item. Usage `c4d-pictogram-item: :part(content-item)`
  */
 @customElement(`${c4dPrefix}-pictogram-item`)
 class C4DPictogramItem extends StableSelectorMixin(C4DContentItem) {
@@ -38,14 +43,17 @@ class C4DPictogramItem extends StableSelectorMixin(C4DContentItem) {
 
   render() {
     return html`
-      <div class="${prefix}--pictogram-item__row">
-        <div class="${prefix}--pictogram-item__wrapper">
+      <div class="${prefix}--pictogram-item__row" part="item-row">
+        <div class="${prefix}--pictogram-item__wrapper" part="wrapper">
           <slot
             class="${prefix}--pictogram-item__pictogram"
+            part="pictogram"
             name="pictogram"></slot>
         </div>
-        <div class="${prefix}--pictogram-item__content">
-          <div class="${prefix}--content-item">${super.render()}</div>
+        <div class="${prefix}--pictogram-item__content" part="content">
+          <div class="${prefix}--content-item" part="content-item">
+            ${super.render()}
+          </div>
         </div>
       </div>
     `;
