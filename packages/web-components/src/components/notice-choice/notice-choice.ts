@@ -31,6 +31,13 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @fires c4d-notice-choice-change
  * The custom event fired when default choice loaded or user change some preferences.
  * The field and value should be taken from the detail object and send it to MRS.
+ * @csspart wrapper - The wrapper. Usage `c4d-notice-choice: :part(wrapper)`
+ * @csspart checkbox - An input checkbox. Usage `c4d-notice-choice: :part(checkbox)`
+ * @csspart checkbox-label - The checkbox label. Usage `c4d-notice-choice: :part(checkbox-label)`
+ * @csspart checkbox-label-text - The checkbox label text. Usage `c4d-notice-choice: :part(checkbox-label-text)`
+ * @csspart error - The error message. Usage `c4d-notice-choice: :part(error)`
+ * @csspart input - An input. Usage `c4d-notice-choice: :part(input)`
+ * @csspart section - A section. Usage `c4d-notice-choice: :part(section)`
  */
 @customElement(`c4d-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
@@ -420,24 +427,32 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         const legalTextName = key.replace(/([A-Z]+)/g, '-$1').toLowerCase();
         const mandatoryCheckboxTemplate = html`
           <span>
-            <div class="${prefix}--form-item bx--checkbox-wrapper">
+            <div
+              class="${prefix}--form-item bx--checkbox-wrapper"
+              part="wrapper">
               <p part=${legalTextName} class=${legalTextName}>
                 <input
                   type="checkbox"
                   class="${prefix}--checkbox"
+                  part="checkbox"
                   id="${mandatoryCheckbox.mrs_field}"
                   name="${mandatoryCheckbox.mrs_field}"
                   @change="${this.checkBoxLegalChange}" />
                 <label
                   for="${mandatoryCheckbox.mrs_field}"
                   class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${mandatoryCheckbox.mrs_field}"
-                  ><span class="${prefix}--checkbox-label-text" dir="auto"
+                  part="checkbox-label"
+                  ><span
+                    class="${prefix}--checkbox-label-text"
+                    part="checkbox-label-text"
+                    dir="auto"
                     >${mandatoryCheckbox.text}
                   </span>
                 </label>
                 ${!this.hideErrorMessage && this.preventFormSubmission
                   ? html`<span
                       class="nc-error"
+                      part="error"
                       style="color:#da1e28;font-size:.75rem"
                       >${mandatoryCheckbox.error}</span
                     >`
@@ -456,10 +471,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   checkBoxTemplate(checkbox, checked, hiddenBox) {
     this._onChange(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
     return html`<span>
-      <div class="${prefix}--form-item cds--checkbox-wrapper">
+      <div class="${prefix}--form-item cds--checkbox-wrapper" part="wrapper">
         <input
           type="checkbox"
           class="${prefix}--checkbox"
+          part="checkbox"
           id="${checkbox.id}"
           name="${checkbox.id}"
           ?checked=${checked}
@@ -467,11 +483,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         <label
           for="${checkbox.id}"
           class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${checkbox.id}"
-          ><span class="${prefix}--checkbox-label-text" dir="auto"
+          part="checkbox-label"
+          ><span
+            class="${prefix}--checkbox-label-text"
+            part="checkbox-label-text"
+            dir="auto"
             >${checkbox.labelText}
           </span>
         </label>
         <input
+          part="input"
           type="hidden"
           id=${hiddenBox.id}
           name=${hiddenBox.id}
@@ -560,7 +581,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ].chinaPIPLtext.mrs_field;
       this._onChange(mrsField, 'countyBasedCheckedNo');
     }
-    return html`<section class="${prefix}--nc">
+    return html`<section class="${prefix}--nc" part="section">
     <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${this.countryBasedLegalNotice()} ${this.preTextTemplate()} </p>
       <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
             ${
@@ -611,7 +632,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           </div>
           <div part='${prefix}--nc__post-text' class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
-          <input type='hidden' id="preventFormSubmission" name="preventFormSubmission" value=${
+          <input part="input" type='hidden' id="preventFormSubmission" name="preventFormSubmission" value=${
             this.preventFormSubmission
           } />
         </div>
