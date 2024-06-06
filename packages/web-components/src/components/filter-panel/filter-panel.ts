@@ -22,6 +22,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The filter panel.
  *
  * @element c4d-filter-panel
+ * @csspart section - The filter panel section. Usage: `c4d-filter-panel::part(section)`
+ * @csspart heading-clear - Contains the filter heading an the button. Usage: `c4d-filter-panel::part(heading-clear)`
+ * @csspart filter-heading - The heading. Usage: `c4d-filter-panel::part(filter-heading)`
+ * @csspart button-clear - The button. Usage: `c4d-filter-panel::part(button-clear)`
+ * @csspart container - The button inner container. Usage: `c4d-filter-panel::part(container)`
+ * @csspart icon - The button icon. Usage: `c4d-filter-panel::part(icon)`
  */
 @customElement(`${c4dPrefix}-filter-panel`)
 class C4DFilterPanel extends HostListenerMixin(

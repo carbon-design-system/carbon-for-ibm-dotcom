@@ -36,6 +36,8 @@ const slotExistencePropertyNames = {
  * @slot heading
  * @slot .
  * @slot footer
+ * @csspart statistics -  The statistics. Usage: `c4d-cta-block-item::part(statistics)`
+ * @csspart media -  The media. Usage: `c4d-cta-block-item::part(media)`
  */
 @customElement(`${c4dPrefix}-cta-block-item`)
 class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {

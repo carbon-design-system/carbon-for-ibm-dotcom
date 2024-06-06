@@ -23,6 +23,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Card in Card.
  *
  * @element c4d-card-in-card
+ * @csspart image - The Thumbnail image. Usage `c4d-card-in-card::part(image)`
  */
 @customElement(`${c4dPrefix}-card-in-card`)
 class C4DCardInCard extends StableSelectorMixin(C4DCard) {

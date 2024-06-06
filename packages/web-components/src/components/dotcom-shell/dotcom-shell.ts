@@ -19,6 +19,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Dotcom shell.
  *
  * @element c4d-dotcom-shell
+ * @csspart content - The content. Usage: `c4d-dotcom-shell::part(content)`
  */
 @customElement(`${c4dPrefix}-dotcom-shell`)
 class C4DDotcomShell extends StableSelectorMixin(LitElement) {

@@ -60,6 +60,8 @@ function findLastIndex<T>(
  *
  * @element c4d-table-of-contents
  * @csspart table - The table UI. `c4d-table-of-contents::part(table)`
+ * @csspart prev-button - The previous button. `c4d-table-of-contents::part(prev-button)`
+ * @csspart tnext-button - The next button. `c4d-table-of-contents::part(next-button)`
  * @slot heading - The heading content.
  * @slot menu-rule - The menu rule.
  */
