@@ -35,6 +35,13 @@ const slotExistencePropertyNames = {
  * @slot source-heading - The heading content of the quote source.
  * @slot source-copy - The copy content of the quote source.
  * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
+ * @csspart mark - Quote mark. Usage `c4d-quote::part(mark)`
+ * @csspart copy - Quote body copy. Usage `c4d-quote::part(copy)`
+ * @csspart mark-closing - Quote mark closing. Usage `c4d-quote::part(mark-closing)`
+ * @csspart source - Quote source slot. Usage `c4d-quote::part(source)`
+ * @csspart footer - Quote footer. Usage `c4d-quote::part(footer)`
+ * @csspart container - Quote container. Usage `c4d-quote::part(container)`
+ * @csspart wrapper - Quote wrapper. Usage `c4d-quote::part(wrapper)`
  */
 @customElement(`${c4dPrefix}-quote`)
 class C4DQuote extends StableSelectorMixin(LitElement) {
@@ -89,47 +96,66 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
     switch (this.markType) {
       case QUOTE_TYPES.SINGLE_CURVED:
         return html`
-          <span class="${prefix}--quote__mark">‘</span>
-          <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">’</span>
+          <span class="${prefix}--quote__mark" part="mark">‘</span>
+          <blockquote class="${prefix}--quote__copy" part="copy">
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+              >’</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.DOUBLE_ANGLE:
         return html`
-          <span class="${prefix}--quote__mark">«</span>
-          <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">»</span>
+          <span class="${prefix}--quote__mark" part="mark">«</span>
+          <blockquote class="${prefix}--quote__copy" part="copy">
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+              >»</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.SINGLE_ANGLE:
         return html`
-          <span class="${prefix}--quote__mark">‹</span>
-          <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">›</span>
+          <span class="${prefix}--quote__mark" part="mark">‹</span>
+          <blockquote class="${prefix}--quote__copy" part="copy">
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+              >›</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED:
         return html`
-          <span class="${prefix}--quote__mark">„</span>
-          <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">“</span>
+          <span class="${prefix}--quote__mark" part="mark">„</span>
+          <blockquote class="${prefix}--quote__copy" part="copy">
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+              >“</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.CORNER_BRACKET:
         return html`
           <span
             class="${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket"
+            part="mark"
             >「</span
           >
-          <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">」</span>
+          <blockquote class="${prefix}--quote__copy" part="copy">
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+              >」</span
+            >
           </blockquote>
         `;
       default:
         return html`
-          <span class="${prefix}--quote__mark">“</span>
-          <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">”</span>
+          <span class="${prefix}--quote__mark" part="mark">“</span>
+          <blockquote class="${prefix}--quote__copy" part="copy">
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+              >”</span
+            >
           </blockquote>
         `;
     }
@@ -144,7 +170,8 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
     return html`
       <div
         ?hidden="${!hasSourceHeading || !hasSourceCopy}"
-        class="${prefix}--quote__source">
+        class="${prefix}--quote__source"
+        part="source">
         <slot @slotchange="${handleSlotChange}" name="source-heading"></slot>
         <slot @slotchange="${handleSlotChange}" name="source-copy"></slot>
         <slot
@@ -157,7 +184,10 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
   protected _renderFooter() {
     const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasFooter}" class="${prefix}--quote__footer">
+      <div
+        ?hidden="${!hasFooter}"
+        class="${prefix}--quote__footer"
+        part="footer">
         <c4d-hr></c4d-hr>
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
@@ -166,8 +196,8 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--quote__container">
-        <div class="${prefix}--quote__wrapper">
+      <div class="${prefix}--quote__container" part="container">
+        <div class="${prefix}--quote__wrapper" part="wrapper">
           ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
         </div>
       </div>
