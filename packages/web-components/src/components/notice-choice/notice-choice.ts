@@ -441,7 +441,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                 <label
                   for="${mandatoryCheckbox.mrs_field}"
                   class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${mandatoryCheckbox.mrs_field}"
-                  part="checkbox-label"
+                  part="checkbox-label checkbox-label--mandatory"
                   ><span
                     class="${prefix}--checkbox-label-text"
                     part="checkbox-label-text"
