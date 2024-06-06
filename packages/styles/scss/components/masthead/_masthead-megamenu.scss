@@ -109,7 +109,10 @@
   .#{$prefix}--masthead__megamenu__l0-nav {
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
-      inset-block-start: $l0-nav-height;
+      inset-block-start: var(
+        --#{$c4d-prefix}-masthead-l0-bottom-edge,
+        $l0-nav-height
+      );
     }
   }
 
