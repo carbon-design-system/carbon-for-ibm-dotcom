@@ -444,7 +444,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                   part="checkbox-label checkbox-label--mandatory"
                   ><span
                     class="${prefix}--checkbox-label-text"
-                    part="checkbox-label-text"
+                    part="checkbox-label-text checkbox-label-text--mandatory"
                     dir="auto"
                     >${mandatoryCheckbox.text}
                   </span>
