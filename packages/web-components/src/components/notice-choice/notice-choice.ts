@@ -429,7 +429,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           <span>
             <div
               class="${prefix}--form-item bx--checkbox-wrapper"
-              part="wrapper">
+              part="checkbox-wrapper checkbox-wrapper--mandatory">
               <p part=${legalTextName} class=${legalTextName}>
                 <input
                   type="checkbox"
