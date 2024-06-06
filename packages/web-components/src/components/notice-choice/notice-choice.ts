@@ -31,12 +31,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @fires c4d-notice-choice-change
  * The custom event fired when default choice loaded or user change some preferences.
  * The field and value should be taken from the detail object and send it to MRS.
- * @csspart wrapper - The wrapper. Usage `c4d-notice-choice::part(wrapper)`
+ * @csspart checkbox-wrapper - The checkbox wrapper. Usage `c4d-notice-choice::part(checkbox-wrapper)`
  * @csspart checkbox - An input checkbox. Usage `c4d-notice-choice::part(checkbox)`
  * @csspart checkbox-label - The checkbox label. Usage `c4d-notice-choice::part(checkbox-label)`
  * @csspart checkbox-label-text - The checkbox label text. Usage `c4d-notice-choice::part(checkbox-label-text)`
  * @csspart error - The error message. Usage `c4d-notice-choice::part(error)`
- * @csspart input - An input. Usage `c4d-notice-choice::part(input)`
  * @csspart section - A section. Usage `c4d-notice-choice::part(section)`
  */
 @customElement(`c4d-notice-choice`)
@@ -471,7 +470,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   checkBoxTemplate(checkbox, checked, hiddenBox) {
     this._onChange(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
     return html`<span>
-      <div class="${prefix}--form-item cds--checkbox-wrapper" part="checkbox-wrapper">
+      <div
+        class="${prefix}--form-item cds--checkbox-wrapper"
+        part="checkbox-wrapper">
         <input
           type="checkbox"
           class="${prefix}--checkbox"
@@ -492,7 +493,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           </span>
         </label>
         <input
-          part="input"
           type="hidden"
           id=${hiddenBox.id}
           name=${hiddenBox.id}
@@ -632,7 +632,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           </div>
           <div part='${prefix}--nc__post-text' class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
-          <input part="input" type='hidden' id="preventFormSubmission" name="preventFormSubmission" value=${
+          <input type='hidden' id="preventFormSubmission" name="preventFormSubmission" value=${
             this.preventFormSubmission
           } />
         </div>
