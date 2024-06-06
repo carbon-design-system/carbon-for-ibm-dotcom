@@ -434,7 +434,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                 <input
                   type="checkbox"
                   class="${prefix}--checkbox"
-                  part="checkbox"
+                  part="checkbox checkbox--mandatory"
                   id="${mandatoryCheckbox.mrs_field}"
                   name="${mandatoryCheckbox.mrs_field}"
                   @change="${this.checkBoxLegalChange}" />
