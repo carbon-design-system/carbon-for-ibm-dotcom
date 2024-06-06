@@ -31,13 +31,13 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @fires c4d-notice-choice-change
  * The custom event fired when default choice loaded or user change some preferences.
  * The field and value should be taken from the detail object and send it to MRS.
- * @csspart wrapper - The wrapper. Usage `c4d-notice-choice: :part(wrapper)`
- * @csspart checkbox - An input checkbox. Usage `c4d-notice-choice: :part(checkbox)`
- * @csspart checkbox-label - The checkbox label. Usage `c4d-notice-choice: :part(checkbox-label)`
- * @csspart checkbox-label-text - The checkbox label text. Usage `c4d-notice-choice: :part(checkbox-label-text)`
- * @csspart error - The error message. Usage `c4d-notice-choice: :part(error)`
- * @csspart input - An input. Usage `c4d-notice-choice: :part(input)`
- * @csspart section - A section. Usage `c4d-notice-choice: :part(section)`
+ * @csspart wrapper - The wrapper. Usage `c4d-notice-choice::part(wrapper)`
+ * @csspart checkbox - An input checkbox. Usage `c4d-notice-choice::part(checkbox)`
+ * @csspart checkbox-label - The checkbox label. Usage `c4d-notice-choice::part(checkbox-label)`
+ * @csspart checkbox-label-text - The checkbox label text. Usage `c4d-notice-choice::part(checkbox-label-text)`
+ * @csspart error - The error message. Usage `c4d-notice-choice::part(error)`
+ * @csspart input - An input. Usage `c4d-notice-choice::part(input)`
+ * @csspart section - A section. Usage `c4d-notice-choice::part(section)`
  */
 @customElement(`c4d-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
