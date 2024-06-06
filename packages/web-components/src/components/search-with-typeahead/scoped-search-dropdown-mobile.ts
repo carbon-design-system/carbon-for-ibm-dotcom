@@ -27,6 +27,13 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-scoped-search-dropdown-mobile
  * @internal
+ * @csspart select-option - The selector. Usage `c4d-scoped-search-dropdown-mobile::part(select-option)`
+ * @csspart select-optgroup - The optgroup selector. Usage `c4d-scoped-search-dropdown-mobile::part(select-optgroup)`
+ * @csspart helper-text - The helper text. Usage `c4d-scoped-search-dropdown-mobile::part(helper-text)`
+ * @csspart form-requirement - The form requirement. Usage `c4d-scoped-search-dropdown-mobile::part(form-requirement)`
+ * @csspart label-text - The label text. Usage `c4d-scoped-search-dropdown-mobile::part(label-text)`
+ * @csspart select-input-wrapper - The select input wrapper. Usage `c4d-scoped-search-dropdown-mobile::part(select-input-wrapper)`
+ * @csspart select-input - The input selector. Usage `c4d-scoped-search-dropdown-mobile::part(select-input)`
  */
 @customElement(`${c4dPrefix}-scoped-search-dropdown-mobile`)
 class C4DScopedSearchDropdownMobile extends CDSSelect {
@@ -84,6 +91,7 @@ class C4DScopedSearchDropdownMobile extends CDSSelect {
           ? html`
               <option
                 class="${prefix}--select-option"
+                part="select-option"
                 ?disabled="${disabled}"
                 label="${ifDefined(label ?? textContent)}"
                 ?selected="${selected}"
@@ -94,6 +102,7 @@ class C4DScopedSearchDropdownMobile extends CDSSelect {
           : html`
               <optgroup
                 class="${prefix}--select-optgroup"
+                part="select-optgroup"
                 ?disabled="${disabled}"
                 label="${ifDefined(label)}">
                 ${this._renderItemsMobile(item)}
@@ -142,24 +151,31 @@ class C4DScopedSearchDropdownMobile extends CDSSelect {
 
     const supplementalText = !invalid
       ? html`
-          <div class="${helperTextClasses}">
+          <div class="${helperTextClasses}" part="helper-text">
             <slot name="helper-text"> ${helperText} </slot>
           </div>
         `
       : html`
-          <div class="${prefix}--form-requirement" id="validity-message">
+          <div
+            class="${prefix}--form-requirement"
+            part="form-requirement"
+            id="validity-message">
             <slot name="validity-message"> ${invalidText} </slot>
           </div>
         `;
 
     return html`
-      <label class="${labelClasses}" for="input">
+      <label class="${labelClasses}" part="label-text" for="input">
         <slot name="label-text"> ${labelText} </slot>
       </label>
-      <div class="${prefix}--select-input__wrapper" ?data-invalid="${invalid}">
+      <div
+        class="${prefix}--select-input__wrapper"
+        part="select-input-wrapper"
+        ?data-invalid="${invalid}">
         <select
           id="input"
           class="${inputClasses}"
+          part="select-input"
           ?disabled="${disabled}"
           aria-invalid="${String(Boolean(invalid))}"
           aria-describedby="${ifDefined(

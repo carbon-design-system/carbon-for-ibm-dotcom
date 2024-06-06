@@ -36,9 +36,18 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * Search with Typeahead
  *
  * @element c4d-search-with-typeahead
+ * @csspart search-input - The input box for search. Usage `c4d-search-with-typeahead::part(search-input)`
+ * @csspart search-form - The search form. Usage `c4d-search-with-typeahead::part(search-form)`
+ * @csspart combobox-form - The combobox search form. Usage `c4d-search-with-typeahead::part(combobox-form)`
+ * @csspart search-dropdown - The search dropdown. Usage `c4d-search-with-typeahead::part(search-dropdown)`
+ * @csspart dropdown-item - The search dropdown item. Usage `c4d-search-with-typeahead::part(dropdown-item)`
+ * @csspart search-dropdown-mobile - The search dropdown for mobile. Usage `c4d-search-with-typeahead::part(search-dropdown-mobile)`
+ * @csspart select-item - The item selector. Usage `c4d-search-with-typeahead::part(select-item)`
+ * @csspart suggestions-container - The suggestions container. Usage `c4d-search-with-typeahead::part(suggestions-container)`
+ * @csspart suggestions-list - The suggestions list. Usage `c4d-search-with-typeahead::part(suggestions-list)`
+ * @csspart search-with-typeahead-item - The search item. Usage `c4d-search-with-typeahead::part(search-with-typeahead-item`
  * @csspart open-button - The button to show the search box. Usage `c4d-search-with-typeahead::part(open-button)`
  * @csspart close-button - The button to hide the search box. Usage `c4d-search-with-typeahead::part(close-button)`
- * @csspart search-input - The input box for search. Usage `c4d-search-with-typeahead::part(search-input)`
  * @csspart header-search-actions - The container for the search bar. Usage `c4d-search-with-typeahead::part(header-search-actions)`
  * @fires c4d-search-with-typeahead-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
@@ -678,6 +687,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     return html`
       <form
         role="search"
+        part="search-form"
         method="get"
         action="${redirectUrl}"
         @submit="${handleSubmit}">
@@ -701,6 +711,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
         <div
           role="combobox"
           class="${classes}"
+          part="combobox-form"
           aria-haspopup="listbox"
           aria-owns="result-list"
           aria-expanded="${Boolean(this.active)}"
@@ -710,19 +721,26 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
           @keypress="${handleKeypressInner}">
           ${this.scopeParameters
             ? html`
-                <c4d-scoped-search-dropdown value="${this.appId}">
+                <c4d-scoped-search-dropdown
+                  part="search-dropdown"
+                  value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
-                      <cds-dropdown-item value="${scope.appId}"
+                      <cds-dropdown-item
+                        part="dropdown-item"
+                        value="${scope.appId}"
                         >${scope.name}</cds-dropdown-item
                       >
                     `
                   )}
                 </c4d-scoped-search-dropdown>
-                <c4d-scoped-search-dropdown-mobile value="${this.appId}">
+                <c4d-scoped-search-dropdown-mobile
+                  part="search-dropdown-mobile"
+                  value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
                       <cds-select-item
+                        part="select-item"
                         label="${scope.name}"
                         value="${scope.appId}"
                         >${scope.name}</cds-select-item
@@ -737,15 +755,18 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
             ? html`
                 <div
                   id="result-list"
-                  class="react-autosuggest__suggestions-container">
+                  class="react-autosuggest__suggestions-container"
+                  part="suggestions-container">
                   <ul
                     role="listbox"
-                    class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                    class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list"
+                    part="suggestions-list">
                     ${this.searchResults &&
                     this.searchResults.map(
                       (item) =>
                         html`
                           <c4d-search-with-typeahead-item
+                            part="search-with-typeahead-item"
                             text="${item}"></c4d-search-with-typeahead-item>
                         `
                     )}
@@ -754,12 +775,14 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                       (group) =>
                         html`
                           <c4d-search-with-typeahead-item
+                            part="search-with-typeahead-item"
                             groupTitle
                             text="${group.title}"></c4d-search-with-typeahead-item>
                           ${group.items.map(
                             (item) =>
                               html`
                                 <c4d-search-with-typeahead-item
+                                  part="search-with-typeahead-item"
                                   text="${item.name}"
                                   href="${item.href}"></c4d-search-with-typeahead-item>
                               `
@@ -986,15 +1009,18 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
             </div>
             <div
               id="result-list"
-              class="react-autosuggest__suggestions-container">
+              class="react-autosuggest__suggestions-container"
+              part="suggestions-container">
               <ul
                 role="listbox"
-                class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list"
+                part="suggestions-list">
                 ${this.searchResults &&
                 this.searchResults.map(
                   (item) =>
                     html`
                       <c4d-search-with-typeahead-item
+                        part="search-with-typeahead-item"
                         text="${item}"
                         @click=${handleClickItem}></c4d-search-with-typeahead-item>
                     `
