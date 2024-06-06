@@ -155,9 +155,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
 
   _renderInnerContents() {
     return html`
-      <div
-        class="${prefix}--global-banner-content-wrapper"
-        part="content">
+      <div class="${prefix}--global-banner-content-wrapper" part="content">
         <div
           ?hidden="${!this.hasImage}"
           class="${prefix}--global-banner-image-container"
