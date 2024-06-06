@@ -39,8 +39,7 @@ const slotExistencePropertyNames = {
  * @csspart body - The body Usage: `c4d-cta-block::part(body)`
  * @csspart copy - The copy. Usage: `c4d-cta-block::part(copy)`
  * @csspart link-list - The Link list. Usage: `c4d-cta-block::part(link-list)`
-*/
-
+ */
 
 @customElement(`${c4dPrefix}-cta-block`)
 class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {

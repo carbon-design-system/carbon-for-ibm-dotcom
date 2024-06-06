@@ -30,7 +30,7 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * @csspart col--eyebrow - the column eyebrow. Usage. `c4d-content-item-row-media::part(col--eyebrow)`
  * @csspart col--media - thecontent column media. Usage. `c4d-content-item-row-media::part(col--media)`
  * @csspart row--media - the content row media. Usage. `c4d-content-item-row-media::part(row--media)`
- * @csspart 
+ * @csspart
  */
 @customElement(`${c4dPrefix}-content-item-row-media`)
 class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {

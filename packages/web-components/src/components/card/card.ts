@@ -49,7 +49,7 @@ const slotExistencePropertyNames = {
  * @csspart wrapper - The component wrapper. Usage: `c4d-card::part(wrapper)`
  * @csspart content - The content container. Usage: `c4d-card::part(content)`
  * @csspart link - Active link. Usage: `c4d-card::part(link)`
-*/
+ */
 @customElement(`${c4dPrefix}-card`)
 class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
