@@ -1020,7 +1020,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                   (item) =>
                     html`
                       <c4d-search-with-typeahead-item
-                        part="search-with-typeahead-item"
+                        part="suggestion-item"
                         text="${item}"
                         @click=${handleClickItem}></c4d-search-with-typeahead-item>
                     `
