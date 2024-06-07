@@ -96,10 +96,14 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
     switch (this.markType) {
       case QUOTE_TYPES.SINGLE_CURVED:
         return html`
-          <span class="${prefix}--quote__mark" part="mark mark--opening">‘</span>
+          <span class="${prefix}--quote__mark" part="mark mark--opening"
+            >‘</span
+          >
           <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
-            ><span class="${prefix}--quote__mark-closing" part="mark mark--closing"
+            ><span
+              class="${prefix}--quote__mark-closing"
+              part="mark mark--closing"
               >’</span
             >
           </blockquote>
