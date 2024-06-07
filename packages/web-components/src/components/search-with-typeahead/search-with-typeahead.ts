@@ -711,7 +711,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
         <div
           role="combobox"
           class="${classes}"
-          part="combobox-form"
+          part="container"
           aria-haspopup="listbox"
           aria-owns="result-list"
           aria-expanded="${Boolean(this.active)}"
