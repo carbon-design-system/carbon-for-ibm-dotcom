@@ -41,6 +41,8 @@ export enum END_TYPE_LAYOUT {
  *
  * @element c4d-link-list
  * @slot heading - The heading content.
+ * @csspart heading - The heading wrapper. Usage `c4d-link-list::part(heading)`
+ * @csspart list - The list wrapper. Usage `c4d-link-list::part(list)`
  */
 @customElement(`${c4dPrefix}-link-list`)
 class C4DLinkList extends StableSelectorMixin(LitElement) {
