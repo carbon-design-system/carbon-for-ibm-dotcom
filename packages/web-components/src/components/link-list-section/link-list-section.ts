@@ -42,12 +42,12 @@ class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
   render() {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div class="${prefix}--content-section__grid">
-        <div class="${prefix}--content-section__row">
-          <div class="${prefix}--content-section__left">
+      <div class="${prefix}--content-section__grid" part="grid">
+        <div class="${prefix}--content-section__row" part="row">
+          <div class="${prefix}--content-section__left" part="heading">
             <slot name="heading"></slot>
           </div>
-          <div class="${prefix}--content-section__children">
+          <div class="${prefix}--content-section__children" part="children">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
