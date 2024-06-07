@@ -27,10 +27,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-scoped-search-dropdown-mobile
  * @internal
- * @csspart select-option - The selector. Usage `c4d-scoped-search-dropdown-mobile::part(select-option)`
- * @csspart select-optgroup - The optgroup selector. Usage `c4d-scoped-search-dropdown-mobile::part(select-optgroup)`
+ * @csspart select-option - An option in the select list. Usage `c4d-scoped-search-dropdown-mobile::part(select-option)`
+ * @csspart select-optgroup - An optgroup in the select list. Usage `c4d-scoped-search-dropdown-mobile::part(select-optgroup)`
  * @csspart helper-text - The helper text. Usage `c4d-scoped-search-dropdown-mobile::part(helper-text)`
- * @csspart form-requirement - The form requirement. Usage `c4d-scoped-search-dropdown-mobile::part(form-requirement)`
+ * @csspart form-requirement - The message that appears on invalid input. Usage `c4d-scoped-search-dropdown-mobile::part(form-requirement)`
  * @csspart label-text - The label text. Usage `c4d-scoped-search-dropdown-mobile::part(label-text)`
  * @csspart select-input-wrapper - The select input wrapper. Usage `c4d-scoped-search-dropdown-mobile::part(select-input-wrapper)`
  * @csspart select-input - The input selector. Usage `c4d-scoped-search-dropdown-mobile::part(select-input)`
