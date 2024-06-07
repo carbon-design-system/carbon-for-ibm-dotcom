@@ -775,7 +775,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                       (group) =>
                         html`
                           <c4d-search-with-typeahead-item
-                            part="search-with-typeahead-item"
+                            part="suggestion-item"
                             groupTitle
                             text="${group.title}"></c4d-search-with-typeahead-item>
                           ${group.items.map(
