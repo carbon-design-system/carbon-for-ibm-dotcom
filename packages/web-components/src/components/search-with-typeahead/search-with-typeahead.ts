@@ -38,17 +38,18 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * @element c4d-search-with-typeahead
  * @csspart search-input - The input box for search. Usage `c4d-search-with-typeahead::part(search-input)`
  * @csspart search-form - The search form. Usage `c4d-search-with-typeahead::part(search-form)`
- * @csspart combobox-form - The combobox search form. Usage `c4d-search-with-typeahead::part(combobox-form)`
- * @csspart search-dropdown - The search dropdown. Usage `c4d-search-with-typeahead::part(search-dropdown)`
- * @csspart dropdown-item - The search dropdown item. Usage `c4d-search-with-typeahead::part(dropdown-item)`
- * @csspart search-dropdown-mobile - The search dropdown for mobile. Usage `c4d-search-with-typeahead::part(search-dropdown-mobile)`
+ * @csspart container - The search form container. Usage `c4d-search-with-typeahead::part(container)`
+ * @csspart dropdown - The search dropdown. Usage `c4d-search-with-typeahead::part(dropdown)`
+ * @csspart dropdown-item - The dropdown item. Usage `c4d-search-with-typeahead::part(dropdown-item)`
+ * @csspart dropdown-mobile - The search dropdown for mobile. Usage `c4d-search-with-typeahead::part(dropdown-mobile)`
  * @csspart select-item - The item selector. Usage `c4d-search-with-typeahead::part(select-item)`
  * @csspart suggestions-container - The suggestions container. Usage `c4d-search-with-typeahead::part(suggestions-container)`
  * @csspart suggestions-list - The suggestions list. Usage `c4d-search-with-typeahead::part(suggestions-list)`
- * @csspart search-with-typeahead-item - The search item. Usage `c4d-search-with-typeahead::part(search-with-typeahead-item`
+ * @csspart search-with-typeahead-item - The search item. Usage `c4d-search-with-typeahead::part(search-with-typeahead-item)`
  * @csspart open-button - The button to show the search box. Usage `c4d-search-with-typeahead::part(open-button)`
  * @csspart close-button - The button to hide the search box. Usage `c4d-search-with-typeahead::part(close-button)`
  * @csspart header-search-actions - The container for the search bar. Usage `c4d-search-with-typeahead::part(header-search-actions)`
+ * @csspart suggestion-item - The search item. Usage `c4d-search-with-typeahead::part(suggestion-item)`
  * @fires c4d-search-with-typeahead-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.

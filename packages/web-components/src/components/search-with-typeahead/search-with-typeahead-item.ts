@@ -20,8 +20,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Search result item in masthead.
  *
  * @element c4d-search-with-typeahead-item
- * @csspart search-with-typeahead-item-highlighted - The highlighted item. Usage `c4d-search-with-typeahead-item::part(search-with-typeahead-item-highlighted)`
- * @csspart search-with-typeahead-item-container - The item container. Usage `c4d-search-with-typeahead-item::part(search-with-typeahead-item-container)`
+ * @csspart item item-highlighted - The highlighted item. Usage `c4d-search-with-typeahead-item::part(item item-highlighted)`
+ * @csspart item-container - The item container. Usage `c4d-search-with-typeahead-item::part(item-container)`
  */
 @customElement(`${c4dPrefix}-search-with-typeahead-item`)
 class C4DSearchWithTypeaheadItem extends LitElement {
@@ -136,10 +136,7 @@ class C4DSearchWithTypeaheadItem extends LitElement {
       [`${prefix}--container-highlight-class`]: highlighted,
     });
     return html`
-      <div
-        class="${containerClasses}"
-        part="item-container"
-        tabindex="-1">
+      <div class="${containerClasses}" part="item-container" tabindex="-1">
         ${content}
       </div>
     `;
