@@ -138,7 +138,7 @@ class C4DSearchWithTypeaheadItem extends LitElement {
     return html`
       <div
         class="${containerClasses}"
-        part="search-with-typeahead-item-container"
+        part="item-container"
         tabindex="-1">
         ${content}
       </div>
