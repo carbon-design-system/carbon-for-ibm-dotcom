@@ -722,7 +722,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
           ${this.scopeParameters
             ? html`
                 <c4d-scoped-search-dropdown
-                  part="search-dropdown"
+                  part="dropdown"
                   value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
