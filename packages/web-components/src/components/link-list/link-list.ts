@@ -127,8 +127,10 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
         endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
     });
     return html`
-      <div class="${headingClasses}"><slot name="heading"></slot></div>
-      <ul name="list" class="${listClasses}">
+      <div class="${headingClasses}" part="heading">
+        <slot name="heading"></slot>
+      </div>
+      <ul part="list" name="list" class="${listClasses}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;
