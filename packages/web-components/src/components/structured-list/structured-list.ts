@@ -19,6 +19,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * StructuredList
  *
  * @element c4d-structured-list
+ * @csspart overflow-indicator left - Overflow indicator left. Usage `c4d-structured-list::part(overflow-indicator left)`
+ * @csspart overflow-indicator right - Overflow indicator left. Usage `c4d-structured-list::part(overflow-indicator right)`
+ * @csspart section - List section. Usage `c4d-structured-list::part(section)`
  */
 @customElement(`${c4dPrefix}-structured-list`)
 class C4DStructuredList extends StableSelectorMixin(LitElement) {
@@ -104,16 +107,21 @@ class C4DStructuredList extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="overflow-indicator left"></div>
+      <div class="overflow-indicator left" part="overflow-indicator left"></div>
       ${this.renderInner()}
-      <div class="overflow-indicator right"></div>
+      <div
+        class="overflow-indicator right"
+        part="overflow-indicator right"></div>
     `;
   }
 
   protected renderInner() {
     const { wrapperId } = this.constructor as typeof C4DStructuredList;
     return html`
-      <section id="${wrapperId}" class="${prefix}--structured-list">
+      <section
+        id="${wrapperId}"
+        class="${prefix}--structured-list"
+        part="section">
         <slot></slot>
       </section>
     `;
