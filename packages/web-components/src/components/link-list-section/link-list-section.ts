@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-link-list
  * @slot heading - The heading content.
+ * @csspart grid - The outer wrapper. Usage `c4d-link-list-section::part(grid)`
+ * @csspart row - The inner wrapper. Usage `c4d-link-list-section::part(row)`
+ * @csspart heading - The heading's column container. Usage `c4d-link-list-section::part(heading)`
+ * @csspart children - The link-list's column container. Usage `c4d-link-list-section::part(children)`
  */
 @customElement(`${c4dPrefix}-link-list-section`)
 class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
