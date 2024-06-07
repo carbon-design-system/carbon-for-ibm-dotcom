@@ -85,7 +85,7 @@ class C4DSearchWithTypeaheadItem extends LitElement {
     }
     const highlightedResult = html`<span
       class="${c4dPrefix}-ce--search-with-typeahead-item__highlighted"
-      part="search-with-typeahead-item-highlighted"
+      part="item item-highlighted"
       >${searchQueryString}</span
     >`;
     const content = text
