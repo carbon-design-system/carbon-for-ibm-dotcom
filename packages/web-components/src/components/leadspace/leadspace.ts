@@ -30,7 +30,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-leadspace
  * @slot action The action (CTA) content.
  * @slot image The image content.
- * @csspart section The first DOM node inside the shadow-root
+ * @csspart section - The first DOM node inside the shadow-root. Usage: `c4d-leadspace::part(section)`
  */
 @customElement(`${c4dPrefix}-leadspace`)
 class C4DLeadSpace extends StableSelectorMixin(LitElement) {

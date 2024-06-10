@@ -43,6 +43,12 @@ const slotExistencePropertyNames = {
  * @slot heading - The heading content.
  * @slot image - The image content.
  * @slot footer - The footer content.
+ * @csspart copy - The Copy. Usage: `c4d-card::part(copy)`
+ * @csspart video-thumbnail - The video thumbnail. Usage: `c4d-card::part(video-thumbnail)`
+ * @csspart disabled-link - . Disabled link. Usage: `c4d-card::part(disabled-link)`
+ * @csspart wrapper - The component wrapper. Usage: `c4d-card::part(wrapper)`
+ * @csspart content - The content container. Usage: `c4d-card::part(content)`
+ * @csspart link - Active link. Usage: `c4d-card::part(link)`
  */
 @customElement(`${c4dPrefix}-card`)
 class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {

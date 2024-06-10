@@ -96,6 +96,10 @@ export interface CMApp {
  * Component that renders masthead from links, etc. data.
  *
  * @element c4d-masthead-composite
+ * @csspart view-all -  Targets all view-all elements. Usage: `c4d-masthead-composite::part(view-all)`
+ * @csspart view-all-left -  Targets the view all left. Usage: `c4d-masthead-composite::part(view-all-left)`
+ * @csspart view-all-right -  Targets the view all right. Usage: `c4d-masthead-composite::part(view-all-right)`
+ * @csspart view-all-bottom -  Targets the view all bottom. Usage: `c4d-masthead-composite::part(view-all-bottom)`
  */
 @customElement(`${c4dPrefix}-masthead-composite`)
 class C4DMastheadComposite extends HostListenerMixin(LitElement) {

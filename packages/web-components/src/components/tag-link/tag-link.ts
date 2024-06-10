@@ -21,6 +21,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Tag Link.
  *
  * @element c4d-tag-link
+ * @csspart link - The link. Usage: `c4d-tag-link::part(link)`
  */
 @customElement(`${c4dPrefix}-tag-link`)
 class C4DTagLink extends StableSelectorMixin(LitElement) {

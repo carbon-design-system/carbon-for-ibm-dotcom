@@ -29,6 +29,18 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Renders the filter panel modal
  *
  * @element c4d-filter-panel-modal
+ * @csspart sentinel-button - Targets all sentinel buttons. Usage: `c4d-filter-panel-modal::part(sentinel-button)`
+ * @csspart sentinel-button--start - The Start sentinel button. Usage: `c4d-filter-panel-modal::part(sentinel-button--start)`
+ * @csspart sentinel-button--end - The End sentinel button. Usage: `c4d-filter-panel-modal::part(sentinel-button--end)`
+ * @csspart section - The filter pannel section. Usage: `c4d-filter-panel-modal::part(section)`
+ * @csspart modal-header - The modal header. Usage: `c4d-filter-panel-modal::part(modal-header)`
+ * @csspart modal-close-button - The modal clode button. Usage: `c4d-filter-panel-modal::part(modal-close-button)`
+ * @csspart modal-heading - The modal heading. Usage: `c4d-filter-panel-modal::part(modal-heading)`
+ * @csspart modal-body - The modal body. Usage: `c4d-filter-panel-modal::part(modal-body)`
+ * @csspart modal-footer - The modal footer button. Usage: `c4d-filter-panel-modal::part(modal-footer)`
+ * @csspart modal-footer-button - Targets all modal footer buttons. Usage: `c4d-filter-panel-modal::part(modal-footer-button)`
+ * @csspart modal-footer-button--clear - The clear modal footer button. Usage: `c4d-filter-panel-modal::part(modal-footer-button--clear)`
+ * @csspart modal-footer-button--close - The close modal footer button. Usage: `c4d-filter-panel-modal::part(modal-footer-button--close)`
  */
 @customElement(`${c4dPrefix}-filter-panel-modal`)
 class C4DFilterPanelModal extends HostListenerMixin(

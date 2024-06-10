@@ -41,6 +41,7 @@ function search(target?: (string | void)[], searchText?: string) {
  * Locale search box.
  *
  * @element c4d-locale-search
+ * @csspart searchbox - The searchbox. Usage: `c4d-locale-search::part(searchbox)`
  */
 @customElement(`${c4dPrefix}-locale-search`)
 class C4DLocaleSearch extends ThrottedInputMixin(

@@ -26,6 +26,14 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Global banner
  *
  * @element c4d-global-banner
+ * @csspart container - Targets all container elements. Usage: `c4d-global-banner::part(container)`
+ * @csspart container--static - Container for Static type. Usage: `c4d-global-banner::part(container--static)`
+ * @csspart container--link - Container for Link type. Usage: `c4d-global-banner::part(container--link)`
+ * @csspart content - The content. Usage: `c4d-global-banner::part(content)`
+ * @csspart image-container -  The image container. Usage: `c4d-global-banner::part(image-container)`
+ * @csspart text-container - The text container. Usage: `c4d-global-banner::part(text-container)`
+ * @csspart cta-container - The CTA container. Usage: `c4d-global-banner::part(cta-container)`
+ * @csspart icon - The icon. Usage: `c4d-global-banner::part(icon)`
  */
 @customElement(`${c4dPrefix}-global-banner`)
 class C4DGlobalBanner extends StableSelectorMixin(LitElement) {

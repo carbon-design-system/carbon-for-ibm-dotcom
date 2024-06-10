@@ -62,6 +62,12 @@ const slotExistencePropertyNames = {
  * @fires c4d-expressive-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  * @slot header - The header content.
  * @slot footer - The footer content.
+ * @csspart modal-header - The modal header. Usage: `c4d-expressive-modal::part(modal-header)`
+ * @csspart modal-body - The modal body. Usage: `c4d-expressive-modal::part(modal-body)`
+ * @csspart sentinel-button - Taget all Sentinels buttons Usage: `c4d-expressive-modal::part(sentinel-button)`
+ * @csspart sentinel-button--start - Button labled START. Usage: `c4d-expressive-modal::part(sentinel-button--start)`
+ * @csspart sentinel-button--end - Button labled END. Usage: `c4d-expressive-modal::part(sentinel-button--end)`
+ * @csspart modal-container - The modal container. Usage: `c4d-expressive-modal::part(modal-container)`
  */
 @customElement(`${c4dPrefix}-expressive-modal`)
 class C4DExpressiveModal extends StableSelectorMixin(

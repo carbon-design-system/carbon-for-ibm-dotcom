@@ -33,6 +33,10 @@ const slotExistencePropertyNames = {
  * @slot media - The media content.
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
+ * @csspart statistics - The element. Usage: `c4d-content-item::part(statistics)`
+ * @csspart media - The media content. Usage: `c4d-content-item::part(media)`
+ * @csspart cta - The footer CTA. Usage: `c4d-content-item::part(cta)`
+ * @csspart heading - The heading content. Usage: `c4d-content-item::part(heading)`
  */
 @customElement(`${c4dPrefix}-content-item`)
 class C4DContentItem extends StableSelectorMixin(LitElement) {
