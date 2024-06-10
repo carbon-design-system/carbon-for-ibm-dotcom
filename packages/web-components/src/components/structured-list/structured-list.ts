@@ -111,7 +111,7 @@ class C4DStructuredList extends StableSelectorMixin(LitElement) {
       ${this.renderInner()}
       <div
         class="overflow-indicator right"
-        part="overflow-indicator right"></div>
+        part="overflow-indicator overflow-right"></div>
     `;
   }
 
