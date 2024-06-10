@@ -74,7 +74,7 @@ class C4DStructuredListCell extends CDSStructuredListCell {
         .map(
           (tag) =>
             html`
-              <cds-tag part="tags" size="sm" type="green"
+              <cds-tag part="tag" size="sm" type="green"
                 >${tag.trim()}</cds-tag
               >
             `
