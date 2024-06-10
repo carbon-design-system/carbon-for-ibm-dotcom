@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * A component to present a content in a row orientation.
  *
  * @element c4d-content-item-row
+ * @csspart heading-wrapper - The heading wrapper. Usage:  `c4d-content-item-row::part(eading-wrapper)`
+ * @csspart content-wrapper - The content wrapper. Usage:  `c4d-content-item-row::part(content-wrapper)`
+ * @csspart body-wrapper - The body wrapper. Usage:  `c4d-content-item-row::part(body-wrapper)`
+ * @csspart col - Selector for all columns. Usage:  `c4d-content-item-row::part(col)`
  */
 @customElement(`${c4dPrefix}-content-item-row`)
 class C4DContentItemRow extends C4DContentItem {

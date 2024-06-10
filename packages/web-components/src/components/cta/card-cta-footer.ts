@@ -28,6 +28,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Card CTA footer.
  *
  * @element c4d-card-footer
+ * @csspart copy - The text content. Usage: `c4d-card-footer::part(copy)`
  */
 @customElement(`${c4dPrefix}-card-cta-footer`)
 class C4DCardCTAFooter extends VideoCTAMixin(CTAMixin(C4DCardFooter)) {

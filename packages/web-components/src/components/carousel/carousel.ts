@@ -38,8 +38,14 @@ const minIntersectionRatio = 0.75;
  * Carousel.
  *
  * @element c4d-carousel
- * @csspart prev-button The button to go to the previous page.
- * @csspart next-button The button to go to the next page.
+ * @csspart prev-button - The button to go to the previous page. Usage: `c4d-carousel::part(prev-button)`
+ * @csspart next-button - The button to go to the next page. Usage: `c4d-carousel::part(next-button)`
+ * @csspart region - The component container. Usage: `c4d-carousel::part(region)`
+ * @csspart title - The title. Usage `c4d-carousel::part(title)`
+ * @csspart scroll-container - Container for the scrolling elements. Usage: `c4d-carousel::part(scroll-container)`
+ * @csspart contents - The scrolling elements. Usage: `c4d-carousel::part(contents)`
+ * @csspart navigation - The navigation controls. Usage: `c4d-carousel::part(navigation)`
+ * @csspart status - The navigation status. Usage: `c4d-carousel::part(status)`
  */
 @customElement(`${c4dPrefix}-carousel`)
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {

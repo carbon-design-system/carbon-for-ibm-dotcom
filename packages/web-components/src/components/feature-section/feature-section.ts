@@ -23,6 +23,16 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Feature Section.
  *
  * @element c4d-feature-section
+ * @csspart grid - All grid itens. Usage: `c4d-feature-section::part(grid)`
+ * @csspart grid--wrapper - The grid Wrapper. Usage: `c4d-feature-section::part(grid--wrapper)`
+ * @csspart grid--body - Thw grid body. Usage: `c4d-feature-section::part(grid--body)`
+ * @csspart row - All row items. Usage: `c4d-feature-section::part(row)`
+ * @csspart row--container -  The row container. Usage: `c4d-feature-section::part(row--container)`
+ * @csspart row--body -  The row body. Usage: `c4d-feature-section::part(row--body)`
+ * @csspart col -  All column itens. Usage: `c4d-feature-section::part(col)`
+ * @csspart col--body-wrapper - The column wrapper. Usage: `c4d-feature-section::part(col--body-wrapper)`
+ * @csspart col--body -  The column body. Usage: `c4d-feature-section::part(col--body)`
+ * @csspart col--image - The column image. Usage: `c4d-feature-section::part(col--image)`
  */
 @customElement(`${c4dPrefix}-feature-section`)
 class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {

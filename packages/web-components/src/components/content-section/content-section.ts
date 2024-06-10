@@ -21,6 +21,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-content-section
  * @slot heading - Section heading
+ * @csspart layout - The component wrapper. Usage: `c4d-content-section::part(layout)`
+ * @csspart leading - The leading. Usage: `c4d-content-section::part(leading)`
+ * @csspart body - The body. Usage: `c4d-content-section::part(body)`
  */
 @customElement(`${c4dPrefix}-content-section`)
 class C4DContentSection extends StableSelectorMixin(LitElement) {

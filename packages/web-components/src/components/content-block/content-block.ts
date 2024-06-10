@@ -35,11 +35,15 @@ const slotExistencePropertyNames = {
 /**
  * Content block.
  *
+ * @element c4d-content-block
  * @slot heading - The heading content.
  * @slot copy - The copy content.
  * @slot media - The media content.
  * @slot footer - The footer (CTA) content.
  * @slot complementary - The complementary (aside) content.
+ * @csspart body - The body. Usage: `c4d-content-block::part(body)`
+ * @csspart footer - The footer. Usage: `c4d-content-block::part(footer)`
+ * @csspart content-layout - The content wrapper. Usage: `c4d-content-block::part(content-layout)`
  * @abstract
  */
 @customElement(`${c4dPrefix}-content-block`)

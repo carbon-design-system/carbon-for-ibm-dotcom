@@ -36,6 +36,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Filter panel composite
  *
  * @element c4d-filter-panel-composite
+ * @csspart panel-modal - The panel modal. Usage: `c4d-filter-panel::part(panel-modal)`
+ * @csspart button - The button. Usage: `c4d-filter-panel::part(button)`
+ * @csspart filter-panel - The filter panel. Usage: `c4d-filter-panel::part(filter-panel)`
  */
 @customElement(`${c4dPrefix}-filter-panel-composite`)
 class C4DFilterPanelComposite extends MediaQueryMixin(
