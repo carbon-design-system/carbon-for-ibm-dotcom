@@ -24,6 +24,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Logo grid.
  *
  * @element c4d-logo-grid
+ * @csspart content-wrapper - The wrapper. Usage: 'c4d-logo-grid::part(content-wrapper)'
+ * @csspart content-body - The content body. Usage: 'c4d-logo-grid::part(content-body)'
+ * @csspart content - The content. Usage 'c4d-logo-grid::part(content)'
+ * @csspart footer-container - The footer container. Usage: 'c4d-logo-grid::part(footer-containe)'
+ * @csspart footer - The footer. Usage: 'c4d-logo-grid::part(footer)'
  */
 @customElement(`${c4dPrefix}-logo-grid`)
 class C4DLogoGrid extends StableSelectorMixin(C4DContentBlock) {
@@ -38,8 +43,9 @@ class C4DLogoGrid extends StableSelectorMixin(C4DContentBlock) {
     return html`
       <div
         ?hidden="${!hasContent && !hasMedia}"
-        class="${prefix}--content-block__children ${prefix}--content-layout__body">
-        <div class="${classMap(rowClasses)}">
+        class="${prefix}--content-block__children ${prefix}--content-layout__body"
+        part="content-body">
+        <div class="${classMap(rowClasses)}" part="content">
           ${this._renderContent()}${this._renderMedia()}
         </div>
       </div>
@@ -52,9 +58,13 @@ class C4DLogoGrid extends StableSelectorMixin(C4DContentBlock) {
   protected _renderFooter(): TemplateResult | string | void {
     const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasFooter}" class="${prefix}--content-block__cta-row">
+      <div
+        ?hidden="${!hasFooter}"
+        class="${prefix}--content-block__cta-row"
+        part="footer-container">
         <div
-          class="${prefix}--content-block__cta ${prefix}-content-block__cta-col">
+          class="${prefix}--content-block__cta ${prefix}-content-block__cta-col"
+          part="footer">
           <slot name="footer" @slotchange="${handleSlotChange}"></slot>
         </div>
       </div>
@@ -99,7 +109,7 @@ class C4DLogoGrid extends StableSelectorMixin(C4DContentBlock) {
 
   render() {
     return html`
-      <div class="${prefix}--content-layout--logo-grid">
+      <div class="${prefix}--content-layout--logo-grid" part="content-wrapper">
         <slot name="heading"></slot>
         ${this._renderBody()}
       </div>
