@@ -9,7 +9,6 @@
 
 import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import on from 'carbon-components/es/globals/js/misc/on';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -42,18 +41,6 @@ class BXSideNav extends HostListenerMixin(LitElement) {
   private _hTransition: Handle | null = null;
 
   /**
-   * A promise that is resolved when the transition is complete.
-   */
-  private _transitionPromise = Promise.resolve();
-
-  /**
-   * A promise that is resolved when the transition upon proprety update is complete.
-   */
-  private get _updateAndTransitionPromise() {
-    return this.updateComplete.then(() => this._transitionPromise);
-  }
-
-  /**
    * Cleans the handle for `transitionend` event listener.
    */
   private _cleanHTransition() {
@@ -67,19 +54,8 @@ class BXSideNav extends HostListenerMixin(LitElement) {
    */
   @HostListener('parentRoot:eventButtonToggle')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleButtonToggle = async (event: CustomEvent) => {
+  protected _handleButtonToggle = (event: CustomEvent) => {
     this.expanded = event.detail.active;
-    if (this.expanded) {
-      await this._updateAndTransitionPromise;
-      // Checks if the side nav is not collapsed during the animation
-      if (this.expanded) {
-        (
-          this.querySelector(
-            (this.constructor as typeof BXSideNav).selectorNavItems
-          ) as HTMLElement
-        )?.focus();
-      }
-    }
   };
 
   /**
@@ -147,19 +123,6 @@ class BXSideNav extends HostListenerMixin(LitElement) {
     super.disconnectedCallback();
   }
 
-  shouldUpdate(changedProperties) {
-    if (changedProperties.has('expanded')) {
-      this._transitionPromise = new Promise((resolve) => {
-        this._cleanHTransition();
-        this._hTransition = on(this, 'transitionend', () => {
-          this._cleanHTransition();
-          resolve();
-        });
-      });
-    }
-    return true;
-  }
-
   updated(changedProperties) {
     if (
       changedProperties.has('collapseMode') ||
@@ -197,6 +160,13 @@ class BXSideNav extends HostListenerMixin(LitElement) {
           (item as BXHeaderMenuButton).active = this.expanded;
         }
       );
+      if (this.expanded) {
+        (
+          this.querySelector(
+            (this.constructor as typeof BXSideNav).selectorNavItems
+          ) as HTMLElement
+        )?.focus();
+      }
     }
     if (changedProperties.has('usageMode')) {
       forEach(

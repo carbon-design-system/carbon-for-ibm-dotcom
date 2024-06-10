@@ -63,6 +63,36 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   private _importedSideNav = false;
 
   /**
+   * Handles `${prefix}-header-menu-button-toggle` event on the document.
+   */
+  @HostListener('parentRoot:eventButtonToggle')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _handleButtonToggle = async (event: CustomEvent) => {
+    if (!this._importedSideNav) {
+      await Promise.all([
+        import('./left-nav-cta-item'),
+        import('./left-nav-name'),
+        import('./left-nav-menu'),
+        import('./left-nav-menu-section'),
+        import('./left-nav-menu-item'),
+        import('./left-nav-menu-category-heading'),
+        import('./left-nav-overlay'),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-cta-item`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-name`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-menu`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-menu-section`),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-menu-item`),
+        customElements.whenDefined(
+          `${ddsPrefix}-left-nav-menu-category-heading`
+        ),
+        customElements.whenDefined(`${ddsPrefix}-left-nav-overlay`),
+      ]);
+      this._importedSideNav = true;
+    }
+    this.expanded = event.detail.active;
+  };
+
+  /**
    * Handles `dds-request-focus-wrap` event on the document.
    *
    * @param event The event.
@@ -257,16 +287,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           ${ddsPrefix}-masthead-composite`
         )
         ?.querySelector(`${ddsPrefix}-masthead`);
-      if (expanded && !this._importedSideNav) {
-        import('./left-nav-cta-item');
-        import('./left-nav-name');
-        import('./left-nav-menu');
-        import('./left-nav-menu-section');
-        import('./left-nav-menu-item');
-        import('./left-nav-menu-category-heading');
-        import('./left-nav-overlay');
-        this._importedSideNav = true;
-      }
+      this.inert = !this.expanded;
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,

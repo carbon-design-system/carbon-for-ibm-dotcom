@@ -61,7 +61,6 @@ class DDSLeftNavMenuItem extends BXSideNavMenuItem {
     return href
       ? html`
           <a
-            tabindex="-1"
             part="link"
             class="${linkClasses}"
             href="${href}"

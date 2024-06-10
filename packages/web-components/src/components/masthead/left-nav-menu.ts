@@ -114,7 +114,6 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
         <button
           type="button"
           aria-haspopup="true"
-          tabindex="-1"
           aria-expanded="${expanded}"
           class="${buttonClasses}"
           @click=${handleClickExpando}
