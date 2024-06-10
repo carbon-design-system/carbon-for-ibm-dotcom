@@ -25,7 +25,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-structured-list-cell
  * @csspart icon-text - Descriptive text of the cell. Usage `c4d-structured-list-cell::part(icon-text)`
- * @csspart tags - Tags of the cell. Usage `c4d-structured-list-cell::part(tags)`
+ * @csspart tag - Tags of the cell. Usage `c4d-structured-list-cell::part(tag)`
  * @csspart icon - An icon. Usage `c4d-structured-list-cell::part(icon)`
  */
 @customElement(`${c4dPrefix}-structured-list-cell`)
@@ -74,9 +74,7 @@ class C4DStructuredListCell extends CDSStructuredListCell {
         .map(
           (tag) =>
             html`
-              <cds-tag part="tag" size="sm" type="green"
-                >${tag.trim()}</cds-tag
-              >
+              <cds-tag part="tag" size="sm" type="green">${tag.trim()}</cds-tag>
             `
         )}
     `;
