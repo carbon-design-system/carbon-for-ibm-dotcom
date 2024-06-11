@@ -29,6 +29,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart content - The content. Usage 'c4d-logo-grid::part(content)'
  * @csspart footer-container - The footer container. Usage: 'c4d-logo-grid::part(footer-containe)'
  * @csspart footer - The footer. Usage: 'c4d-logo-grid::part(footer)'
+ * @csspart hr - The horizontal rule. Usage: 'c4d-logo-grid::part(hr)'
  */
 @customElement(`${c4dPrefix}-logo-grid`)
 class C4DLogoGrid extends StableSelectorMixin(C4DContentBlock) {
@@ -113,7 +114,7 @@ class C4DLogoGrid extends StableSelectorMixin(C4DContentBlock) {
         <slot name="heading"></slot>
         ${this._renderBody()}
       </div>
-      ${!this.hideBorder ? html` <c4d-hr></c4d-hr> ` : ``}
+      ${!this.hideBorder ? html` <c4d-hr part="hr"></c4d-hr> ` : ``}
     `;
   }
 
