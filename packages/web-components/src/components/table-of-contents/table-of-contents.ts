@@ -60,7 +60,8 @@ function findLastIndex<T>(
  *
  * @element c4d-table-of-contents
  * @csspart list - The menu list. Usage `c4d-table-of-contents::part(list)`
- * @csspart list-item list-item--active - The menu items. Usage `c4d-table-of-contents::part(list-item list-item--active)`
+ * @csspart list-item - The menu items. Usage `c4d-table-of-contents::part(list-item)`
+ * @csspart list-item--active - The menu items as active. Usage `c4d-table-of-contents::part(list-item--active)`
  * @csspart link - The links under TOC. Usage `c4d-table-of-contents::part(link)`
  * @csspart container - The container. Usage `c4d-table-of-contents::part(container)`
  * @csspart table - The table UI. Usage `c4d-table-of-contents::part(table)`
@@ -68,8 +69,8 @@ function findLastIndex<T>(
  * @csspart prev-button - The previous button. Usage `c4d-table-of-contents::part(prev-button)`
  * @csspart item-container - The item container. Usage `c4d-table-of-contents::part(item-container)`
  * @csspart content - The content. Usage `c4d-table-of-contents::part(content)`
- * @csspart content content-right - The content right. Usage `c4d-table-of-contents::part(content content-right)`
- * @csspart content content-left - The content left. Usage `c4d-table-of-contents::part(content content-left)`
+ * @csspart content-right - The right side content. Usage `c4d-table-of-contents::part(content-right)`
+ * @csspart content-left - The left side content. Usage `c4d-table-of-contents::part(content-left)`
  * @csspart next-button - The next button. Usage `c4d-table-of-contents::part(next-button)`
  * @csspart wrapper - The wrapper. Usage `c4d-table-of-contents::part(wrapper)`
  * @slot heading - The heading content.
