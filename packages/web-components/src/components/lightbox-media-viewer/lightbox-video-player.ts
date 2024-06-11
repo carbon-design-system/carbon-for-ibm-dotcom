@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,6 +26,15 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-lightbox-video-player
  * @slot title - The title content.
  * @slot description - The description content.
+ * @csspart container - The wrapper around the lightbox media. Usage: c4d-lightbox-video-player::part(container)
+ * @csspart row - The wrapper around the row. Usage: c4d-lightbox-video-player::part(row)
+ * @csspart media - The wrapper around media. Usage: c4d-lightbox-video-player::part(media)
+ * @csspart content-wrapper - The wrapper around content. Usage: c4d-lightbox-video-player::part(content-wrapper)
+ * @csspart content - The inner wrapper around content. Usage: c4d-lightbox-video-player::part(content)
+ * @csspart title - The title of the media. Usage: c4d-lightbox-video-player::part(title)
+ * @csspart description - The description of the media. Usage: c4d-lightbox-video-player::part(description)
+ * @csspart video-player - The wrapper around the video player. Usage: c4d-lightbox-video-player::part(video-player)
+ * @csspart video-container - The inner wrapper around the slotted video player. Usage: c4d-lightbox-video-player::part(video-container)
  */
 @customElement(`${c4dPrefix}-lightbox-video-player`)
 class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
@@ -39,8 +48,10 @@ class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
   // eslint-disable-next-line class-methods-use-this
   _renderMedia() {
     return html`
-      <div class="${c4dPrefix}--video-player">
-        <div class="${c4dPrefix}--video-player__video-container">
+      <div class="${c4dPrefix}--video-player" part="video-player">
+        <div
+          class="${c4dPrefix}--video-player__video-container"
+          part="video-container">
           <slot></slot>
         </div>
       </div>
