@@ -5,7 +5,10 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--header__search--actions">
+<div
+  class="cds--header__search--actions"
+  part="header-search-actions"
+>
   <button
     aria-label="Open IBM search field"
     class="cds--header__action cds--header__search--search"
@@ -27,7 +30,10 @@
 ####   `should render with various attributes in the inactive state`
 
 ```
-<div class="cds--header__search--actions">
+<div
+  class="cds--header__search--actions"
+  part="header-search-actions"
+>
   <button
     aria-label="open-search-button-assistive-text-foo"
     class="cds--header__action cds--header__search--search"
@@ -101,7 +107,10 @@
     </div>
   </div>
 </form>
-<div class="cds--header__search--actions">
+<div
+  class="cds--header__search--actions"
+  part="header-search-actions"
+>
   <button
     aria-label="perform-search-button-assistive-text-foo"
     class="cds--header__action cds--header__search--search"

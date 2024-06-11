@@ -24,6 +24,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Leadspace with Search
  *
  * @element c4d-leadspace-with-search
+ * @csspart content layout - the content container - Usage: `c4d-leadspace-with-search::part(content-layout)`
+ * @csspart content layout body - the content container body - Usage: `c4d-leadspace-with-search::part(content-layout-body)`
+ * @csspart search container - the search container - Usage: `c4d-leadspace-with-search::part(search-container)`
+ * @csspart search container inner - the search container inner content - Usage: `c4d-leadspace-with-search::part(search-container-inner)`
+ * @csspart sticky header - the sticky header container - Usage: `c4d-leadspace-with-search::part(sticky-header)`
  */
 @customElement(`${c4dPrefix}-leadspace-with-search`)
 class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
@@ -117,17 +122,21 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--content-layout">
+      <div part="content-layout" class="${prefix}--content-layout">
         <slot
           name="heading"
           @slotchange=${this._handleHeadingSlotChange}></slot>
-        <div class="${prefix}--content-layout__body">
+        <div part="content-layout-body" class="${prefix}--content-layout__body">
           <slot name="copy"></slot>
         </div>
       </div>
-      <div class="${this._getSearchClass()}">
-        <div class="${prefix}--search-container-inner">
-          <div class="${prefix}--sticky-header">${this._heading}</div>
+      <div part="search-container" class="${this._getSearchClass()}">
+        <div
+          part="search-container-inner"
+          class="${prefix}--search-container-inner">
+          <div part="sticky-header" class="${prefix}--sticky-header">
+            ${this._heading}
+          </div>
           <slot name="search"></slot>
         </div>
       </div>
