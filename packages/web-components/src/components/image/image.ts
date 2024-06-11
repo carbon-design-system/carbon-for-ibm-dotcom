@@ -36,6 +36,7 @@ export { LIGHTBOX_CONTRAST };
  * @element c4d-image
  * @slot long-description - The long description content.
  * @slot icon - The icon content.
+ * @csspart image - The image. Usage: `c4d-image::part(image)`
  */
 @customElement(`${c4dPrefix}-image`)
 class C4DImage extends StableSelectorMixin(

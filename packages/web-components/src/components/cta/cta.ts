@@ -27,6 +27,12 @@ const { stablePrefix: c4dPrefix } = settings;
  * CTA component
  *
  * @element c4d-cta
+ * @csspart cta - Targets all styles. Usage: `c4d-cta::part(cta)`
+ * @csspart cta--feature - Tagets the Feature style. Usage: `c4d-cta::part(cta--feature)`
+ * @csspart cta--card - Tagets the Card style. Usage: `c4d-cta::part(cta--card)`
+ * @csspart cta--card-link - Tagets the Card-link style. Usage: `c4d-cta::part(cta--card-link)`
+ * @csspart cta--text - Tagets the Text style. Usage: `c4d-cta::part(cta--text)`
+ * @csspart cta--button - Tagets the buttton style. Usage: `c4d-cta::part(cta--button)`
  */
 @customElement(`${c4dPrefix}-cta`)
 class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {

@@ -19,6 +19,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Content group cards.
  *
  * @element c4d-content-group-cards
+ * @csspart children - The Element container. Usage: `c4d-content-group-cards::part(children)`
+ * @csspart cards-group - The cards group grid. Usage: `c4d-content-group-cards::part(cards-group)`
+ * @csspart cards-row - The cards group row. Usage: `c4d-content-group-cards::part(cards-row)`
  */
 @customElement(`${c4dPrefix}-content-group-cards`)
 class C4DContentGroupCards extends C4DContentGroup {

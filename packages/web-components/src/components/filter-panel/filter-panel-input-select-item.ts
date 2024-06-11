@@ -22,6 +22,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The input select inner dropdown.
  *
  * @element c4d-filter-panel-input-select-item
+ * @csspart icon - The icon. `c4d-filter-panel-input-select-item::part(icon)`
  */
 @customElement(`${c4dPrefix}-filter-panel-input-select-item`)
 class C4DFilterPanelInputSelectItem extends FocusMixin(

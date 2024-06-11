@@ -27,6 +27,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Background media.
  *
  * @element c4d-background-media
+ * @csspart controls - The video player controls. Usage: `c4d-background-media::part(controls)`
+ * @csspart gradient - The gradient covering the image. Usage: `c4d-background-media::part(gradient)`
+ * @csspart container - The component's container. Usage: `c4d-background-media::part(container)`
+ * @csspart item - The image container. Usage: `c4d-background-media::part(item)`
  */
 
 @customElement(`${c4dPrefix}-background-media`)
