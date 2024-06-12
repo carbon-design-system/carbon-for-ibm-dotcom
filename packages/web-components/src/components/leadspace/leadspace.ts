@@ -37,7 +37,6 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart gradient - The gradient container. Usage: `c4d-leadspace::part(gradient)`
  * @csspart image-gradient - The image with gradient. Usage: `c4d-leadspace::part(image-gradient)`
  * @csspart gradient-stop - Where the gradient stops. Usage: `c4d-leadspace::part(gradient-stop)`
- * @csspart gradient-rect - The gradient. Usage: `c4d-leadspace::part(gradient-rect)`
  * @csspart action - The action. Usage: `c4d-leadspace::part(action)`
  */
 @customElement(`${c4dPrefix}-leadspace`)
@@ -206,7 +205,7 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
                       }
                     </linearGradient>
                   </defs>
-                  <rect class="${c4dPrefix}--leadspace__gradient__rect" part="gradient-rect" width="100" height="100" />
+                  <rect class="${c4dPrefix}--leadspace__gradient__rect" width="100" height="100" />
                 </svg>
               `}
             <div
