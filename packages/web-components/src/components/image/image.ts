@@ -37,12 +37,12 @@ export { LIGHTBOX_CONTRAST };
  * @slot long-description - The long description content.
  * @slot icon - The icon content.
  * @csspart image - The image. Usage: `c4d-image::part(image)`
- * @csspart picture - The picture tag. Usage: c4d-image::part(picture)
- * @csspart long-description - The wrapper around the long description slot. Usage: c4d-image::part(long-description)
- * @csspart lightbox-button - The button element for the lightbox when used. Usage: c4d-image::part(lightbox-button)
- * @csspart zoom-button - The wrapper around the zoom button to trigger the lightbox when used. Usage: c4d-image::part(zoom-button)
- * @csspart zoom-icon - The zoom icon used for the lightbox. Usage: c4d-image::part(zoom-icon)
- * @csspart caption - The caption for the image. Usage: c4d-image::part(caption)
+ * @csspart picture - The picture tag. Usage:` c4d-image::part(picture)`
+ * @csspart long-description - The wrapper around the long description slot. Usage: `c4d-image::part(long-description)`
+ * @csspart lightbox-button - The button element for the lightbox when used. Usage: `c4d-image::part(lightbox-button)`
+ * @csspart zoom-button - The wrapper around the zoom button to trigger the lightbox when used. Usage: `c4d-image::part(zoom-button)`
+ * @csspart zoom-icon - The zoom icon used for the lightbox. Usage: `c4d-image::part(zoom-icon)`
+ * @csspart caption - The caption for the image. Usage: `c4d-image::part(caption)`
  */
 @customElement(`${c4dPrefix}-image`)
 class C4DImage extends StableSelectorMixin(
