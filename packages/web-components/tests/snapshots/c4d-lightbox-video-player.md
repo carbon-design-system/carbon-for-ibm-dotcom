@@ -3,18 +3,39 @@
 #### `should render with minimum attributes`
 
 ```
-<div class="c4d--lightbox-media-viewer__container">
-  <div class="c4d--lightbox-media-viewer__row">
-    <div class="c4d--lightbox-media-viewer__media">
-      <div class="c4d--video-player">
-        <div class="c4d--video-player__video-container">
+<div
+  class="c4d--lightbox-media-viewer__container"
+  part="container"
+>
+  <div
+    class="c4d--lightbox-media-viewer__row"
+    part="row"
+  >
+    <div
+      class="c4d--lightbox-media-viewer__media"
+      part="media"
+    >
+      <div
+        class="c4d--video-player"
+        part="video-player"
+      >
+        <div
+          class="c4d--video-player__video-container"
+          part="video-container"
+        >
           <slot>
           </slot>
         </div>
       </div>
     </div>
-    <div class="c4d--lightbox-media-viewer__media-description">
-      <div class="c4d--lightbox-media-viewer__content">
+    <div
+      class="c4d--lightbox-media-viewer__media-description"
+      part="content-wrapper"
+    >
+      <div
+        class="c4d--lightbox-media-viewer__content"
+        part="content"
+      >
         <div
           class="c4d--lightbox-media-viewer__content__title"
           data-autoid="c4d--lightbox-media-viewer__content__title"
@@ -43,18 +64,39 @@
 #### `should render with various attributes`
 
 ```
-<div class="c4d--lightbox-media-viewer__container">
-  <div class="c4d--lightbox-media-viewer__row">
-    <div class="c4d--lightbox-media-viewer__media">
-      <div class="c4d--video-player">
-        <div class="c4d--video-player__video-container">
+<div
+  class="c4d--lightbox-media-viewer__container"
+  part="container"
+>
+  <div
+    class="c4d--lightbox-media-viewer__row"
+    part="row"
+  >
+    <div
+      class="c4d--lightbox-media-viewer__media"
+      part="media"
+    >
+      <div
+        class="c4d--video-player"
+        part="video-player"
+      >
+        <div
+          class="c4d--video-player__video-container"
+          part="video-container"
+        >
           <slot>
           </slot>
         </div>
       </div>
     </div>
-    <div class="c4d--lightbox-media-viewer__media-description">
-      <div class="c4d--lightbox-media-viewer__content">
+    <div
+      class="c4d--lightbox-media-viewer__media-description"
+      part="content-wrapper"
+    >
+      <div
+        class="c4d--lightbox-media-viewer__content"
+        part="content"
+      >
         <div
           class="c4d--lightbox-media-viewer__content__title"
           data-autoid="c4d--lightbox-media-viewer__content__title"
