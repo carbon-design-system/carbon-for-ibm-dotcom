@@ -32,10 +32,15 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @slot image The image content.
  * @csspart content - The content. Usage: `c4d-leadspace::part(content)`
  * @csspart content-item - The subheading paragraph. Usage: `c4d-leadspace::part(content-item)`
+ * @csspart row - Row wrappers. Usage: `c4d-leadspace::part(row)`
+ * @csspart row--description - Row wrapper for the description. Usage: `c4d-leadspace::part(row--description)`
+ * @csspart row--content - Row wrapper for the navigation and heading. Usage: `c4d-leadspace::part(row--content)`
+ * @csspart description - The description. Usage`c4d-leadspace::part(description)`
  * @csspart section - The first DOM node inside the shadow-root. Usage: `c4d-leadspace::part(section)`
- * @csspart container - The container. Usage: `c4d-leadspace::part(container)`
- * @csspart gradient - The gradient container. Usage: `c4d-leadspace::part(gradient)`
- * @csspart image-gradient - The image with gradient. Usage: `c4d-leadspace::part(image-gradient)`
+ * @csspart container - The container around the whole leadspace. Usage: `c4d-leadspace::part(container)`
+ * @csspart content-container - The container around just the content of the leadspace. Usage: `c4d-leadspace::part(content-container)`
+ * @csspart overlay - The leadspace overlay wrapping all contents and optional gradient. Usage: `c4d-leadspace::part(overlay)`
+ * @csspart gradient - The SVG gradient. Usage: `c4d-leadspace::part(gradient)`
  * @csspart action - The action. Usage: `c4d-leadspace::part(action)`
  */
 @customElement(`${c4dPrefix}-leadspace`)
@@ -87,11 +92,11 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   protected _renderCopy() {
     const { copy } = this;
     return html`
-      <div class="${c4dPrefix}--leadspace__row" part="content">
+      <div class="${c4dPrefix}--leadspace__row" part="row row--description">
         <p
           data-autoid="${c4dPrefix}--leadspace__desc"
           class="${c4dPrefix}--leadspace__desc"
-          part="content-item">
+          part="description">
           <slot>${copy}</slot>
         </p>
       </div>
@@ -172,12 +177,12 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
     return html`
       <section class="${this._getTypeClass()}" part="section">
         <div class="${c4dPrefix}--leadspace__container" part="container">
-          <div class="${this._getGradientClass()}" part="gradient">
+          <div class="${this._getGradientClass()}" part="overlay">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
               : svg`
                 <svg
-                  class="${c4dPrefix}--leadspace__gradient" part="image-gradient"
+                  class="${c4dPrefix}--leadspace__gradient" part="gradient"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -209,8 +214,8 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
               `}
             <div
               class="${c4dPrefix}--leadspace--content__container"
-              part="container">
-              <div class="${c4dPrefix}--leadspace__row" part="content">
+              part="content-container">
+              <div class="${c4dPrefix}--leadspace__row" part="row row--content">
                 <slot
                   name="navigation"
                   @slotchange="${this._handleSlotChange}"></slot>
