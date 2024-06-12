@@ -21,6 +21,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Region item.
  *
  * @element c4d-region-item
+ * @csspart button - Targets all buttons button - Usage: `c4d-region-item::part(button)`
+ * @csspart disabled-button - The disabled button - Usage: `c4d-region-item::part(disabled-button)`
+ * @csspart enabled-button - The enabled button - Usage: `:c4d-region-item:part(enabled-button)`
  */
 @customElement(`${c4dPrefix}-region-item`)
 class C4DRegionItem extends C4DCard {
@@ -49,7 +52,7 @@ class C4DRegionItem extends C4DCard {
   protected _renderDisabledLink() {
     const { _classes: classes, _cardClasses: cardClasses } = this;
     return html`
-      <button id="link" class="${classes}" disabled type="button">
+      <button id="link" class="${classes}" disabled type="button" part="button disabled-button">
         <div class="${cardClasses}">${this._renderInner()}</div>
       </button>
     `;
@@ -60,7 +63,7 @@ class C4DRegionItem extends C4DCard {
     return disabled
       ? this._renderDisabledLink()
       : html`
-          <button id="link" class="${classes}" type="button">
+          <button id="link" class="${classes}" type="button" part="button enabled-button">
             <div class="${cardClasses}">${this._renderInner()}</div>
           </button>
         `;
