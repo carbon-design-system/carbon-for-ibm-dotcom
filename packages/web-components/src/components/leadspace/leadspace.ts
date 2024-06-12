@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,15 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-leadspace
  * @slot action The action (CTA) content.
  * @slot image The image content.
+ * @csspart content - The content. Usage: `c4d-leadspace::part(content)`
+ * @csspart content-item - The subheading paragraph. Usage: `c4d-leadspace::part(content-item)`
  * @csspart section - The first DOM node inside the shadow-root. Usage: `c4d-leadspace::part(section)`
+ * @csspart container - The container. Usage: `c4d-leadspace::part(container)`
+ * @csspart gradient - The gradient container. Usage: `c4d-leadspace::part(gradient)`
+ * @csspart image-gradient - The image with gradient. Usage: `c4d-leadspace::part(image-gradient)`
+ * @csspart gradient-stop - Where the gradient stops. Usage: `c4d-leadspace::part(gradient-stop)`
+ * @csspart gradient-rect - The gradient. Usage: `c4d-leadspace::part(gradient-rect)`
+ * @csspart action - The action. Usage: `c4d-leadspace::part(action)`
  */
 @customElement(`${c4dPrefix}-leadspace`)
 class C4DLeadSpace extends StableSelectorMixin(LitElement) {
@@ -81,10 +89,11 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   protected _renderCopy() {
     const { copy } = this;
     return html`
-      <div class="${c4dPrefix}--leadspace__row">
+      <div class="${c4dPrefix}--leadspace__row" part="content">
         <p
           data-autoid="${c4dPrefix}--leadspace__desc"
-          class="${c4dPrefix}--leadspace__desc">
+          class="${c4dPrefix}--leadspace__desc"
+          part="content-item">
           <slot>${copy}</slot>
         </p>
       </div>
@@ -164,20 +173,20 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
     const { gradientStyleScheme, type, size } = this;
     return html`
       <section class="${this._getTypeClass()}" part="section">
-        <div class="${c4dPrefix}--leadspace__container">
-          <div class="${this._getGradientClass()}">
+        <div class="${c4dPrefix}--leadspace__container" part="container">
+          <div class="${this._getGradientClass()}" part="gradient">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
               : svg`
                 <svg
-                  class="${c4dPrefix}--leadspace__gradient"
+                  class="${c4dPrefix}--leadspace__gradient" part="image-gradient"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <defs>
-                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops" gradientTransform="${
+                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops" part="gradient-stop" gradientTransform="${
                   type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : ''
                 }">
                       ${
@@ -197,11 +206,13 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
                       }
                     </linearGradient>
                   </defs>
-                  <rect class="${c4dPrefix}--leadspace__gradient__rect" width="100" height="100" />
+                  <rect class="${c4dPrefix}--leadspace__gradient__rect" part="gradient-rect" width="100" height="100" />
                 </svg>
               `}
-            <div class="${c4dPrefix}--leadspace--content__container">
-              <div class="${c4dPrefix}--leadspace__row">
+            <div
+              class="${c4dPrefix}--leadspace--content__container"
+              part="container">
+              <div class="${c4dPrefix}--leadspace__row" part="content">
                 <slot
                   name="navigation"
                   @slotchange="${this._handleSlotChange}"></slot>
@@ -209,9 +220,13 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
               </div>
               ${size !== LEADSPACE_SIZE.SHORT
                 ? html`
-                    <div class="${c4dPrefix}--leadspace__content">
+                    <div
+                      class="${c4dPrefix}--leadspace__content"
+                      part="content">
                       ${this._renderCopy()}
-                      <div class="${c4dPrefix}--leadspace__action">
+                      <div
+                        class="${c4dPrefix}--leadspace__action"
+                        part="action">
                         <slot name="action"></slot>
                       </div>
                     </div>
