@@ -39,7 +39,7 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * @csspart open-button - The button to show the search box. Usage `c4d-search-with-typeahead::part(open-button)`
  * @csspart close-button - The button to hide the search box. Usage `c4d-search-with-typeahead::part(close-button)`
  * @csspart search-input - The input box for search. Usage `c4d-search-with-typeahead::part(search-input)`
- * @csspart header-search-actions - the container for the search bar. Usage `c4d-search-with-typeahead::part(header-search-actions)`
+ * @csspart header-search-actions - The container for the search bar. Usage `c4d-search-with-typeahead::part(header-search-actions)`
  * @fires c4d-search-with-typeahead-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.

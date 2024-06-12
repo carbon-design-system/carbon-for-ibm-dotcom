@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,11 +24,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Leadspace with Search
  *
  * @element c4d-leadspace-with-search
- * @csspart content layout - the content container - Usage: `c4d-leadspace-with-search::part(content-layout)`
- * @csspart content layout body - the content container body - Usage: `c4d-leadspace-with-search::part(content-layout-body)`
- * @csspart search container - the search container - Usage: `c4d-leadspace-with-search::part(search-container)`
- * @csspart search container inner - the search container inner content - Usage: `c4d-leadspace-with-search::part(search-container-inner)`
- * @csspart sticky header - the sticky header container - Usage: `c4d-leadspace-with-search::part(sticky-header)`
+ * @csspart content-layout - The content container. Usage: `c4d-leadspace-with-search::part(content-layout)`
+ * @csspart content-layout-body - The content container body. Usage: `c4d-leadspace-with-search::part(content-layout-body)`
+ * @csspart search-container - The search container. Usage: `c4d-leadspace-with-search::part(search-container)`
+ * @csspart search-container-inner - The search container inner content. Usage: `c4d-leadspace-with-search::part(search-container-inner)`
+ * @csspart sticky-header - The sticky header container. Usage: `c4d-leadspace-with-search::part(sticky-header)`
  */
 @customElement(`${c4dPrefix}-leadspace-with-search`)
 class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
