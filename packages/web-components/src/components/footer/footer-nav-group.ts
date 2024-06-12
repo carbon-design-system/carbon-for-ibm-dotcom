@@ -25,6 +25,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Footer nav group.
  *
  * @element c4d-footer-nav-group
+ * @csspart nav-group-title - The nav group title. Usage: `c4d-footer-nav::part(nav-group-title)`
+ * @csspart accordion-heading - The accordion nav heading. Usage: `c4d-footer-nav::part(accordion-heading)`
+ * @csspart accordion-title - The accordion title. Usage: `c4d-footer-nav::part(accordion-title)`
+ * @csspart accordion-content - The accordion content. Usage: `c4d-footer-nav::part(accordion-content)`
  * @slot title - The title content.
  */
 @customElement(`${c4dPrefix}-footer-nav-group`)

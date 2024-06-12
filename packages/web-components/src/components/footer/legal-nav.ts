@@ -23,6 +23,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Legal nav.
  *
  * @element c4d-legal-nav
+ * @csspart legal-nav - The <nav> container. Usage: `c4d-legal-nav::part(legal-nav)`
+ * @csspart legal-nav-list - The legal nav list container. Usage: `c4d-legal-nav::part(legal-nav-list)`
+ * @csspart adjunct-links-container - The adjunct links container. Usage: `c4d-legal-nav::part(adjunct-links-container)`
  */
 @customElement(`${c4dPrefix}-legal-nav`)
 class C4DLegalNav extends StableSelectorMixin(LitElement) {
@@ -79,13 +82,15 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
             part="legal-nav"
             class="${c4dPrefix}--legal-nav"
             aria-label="${ifDefined(navLabel)}">
-            <div class="${this._getTypeClass()}">
+            <div part="legal-nav-list" class="${this._getTypeClass()}">
               <ul>
                 <slot></slot>
               </ul>
               <slot name="locale"></slot>
             </div>
-            <div class="${c4dPrefix}--adjunct-links__container">
+            <div
+              part="adjunct-links-container"
+              class="${c4dPrefix}--adjunct-links__container">
               <ul>
                 <slot name="adjunct-links"></slot>
               </ul>
