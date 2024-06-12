@@ -39,11 +39,6 @@ const { stablePrefix: c4dPrefix } = settings;
  * Container component for locale modal.
  *
  * @element c4d-locale-modal-composite
- * @csspart modal - The modal. Usage: `c4d-locale-modal-composite::part(modal)`
- * @csspart title - The title. Usage: `c4d-locale-modal-composite::part(title)`
- * @csspart region - The region. Usage: `c4d-locale-modal-composite::part(region)`
- * @csspart heading - The heading. Usage: `c4d-locale-modal-composite::part(heading)`
- * @csspart footer - The footer. Usage: `c4d-locale-modal-composite::part(footer)`
  */
 @customElement(`${c4dPrefix}-locale-modal-composite`)
 class C4DLocaleModalComposite extends HostListenerMixin(
@@ -198,20 +193,19 @@ class C4DLocaleModalComposite extends HostListenerMixin(
         close-button-assistive-text="${ifDefined(modalClose)}"
         header-title="${ifDefined(headerTitle)}"
         lang-display="${ifDefined(langDisplay)}"
-        ?open="${open}" part="modal">
-        <c4d-regions title="${ifDefined(headerTitle)}" part="title">
+        ?open="${open}">
+        <c4d-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
             const isInvalid =
               countryList.length === 0 ||
               massagedCountryList?.find(({ region }) => region === name) ===
                 undefined;
             return html`
-              <c4d-region-item link ?disabled="${isInvalid}" name="${name}" part="region">
-                <c4d-card-heading part="heading">${name}</c4d-card-heading>
+              <c4d-region-item link ?disabled="${isInvalid}" name="${name}">
+                <c4d-card-heading>${name}</c4d-card-heading>
                 <div
                   slot="footer"
                   class="${c4dPrefix}--region-item-footer"
-                  part="footer"
                   ?disabled="${isInvalid}">
                   ${isInvalid
                     ? Error20({

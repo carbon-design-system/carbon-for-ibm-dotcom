@@ -9,11 +9,9 @@
   close-button-assistive-text="Close modal"
   data-autoid="c4d--locale-modal"
   header-title="Select geographic area"
-  part="modal"
 >
   <c4d-regions
     data-autoid="c4d--regions"
-    part="title"
     title="Select geographic area"
   >
   </c4d-regions>

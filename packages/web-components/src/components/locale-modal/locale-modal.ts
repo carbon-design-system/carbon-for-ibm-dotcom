@@ -42,6 +42,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart header - The header. Usage: `c4d-locale-modal::part(header)`
  * @csspart close-button - The close button. Usage: `c4d-locale-modal::part(close-button)`
  * @csspart heading - The heading. Usage: `c4d-locale-modal::part(heading)`
+ * @csspart title - The title. Usage: `c4d-locale-modal::part(title)`
  */
 @customElement(`${c4dPrefix}-locale-modal`)
 // `CDSModal` extends `HostListenerMixin`
@@ -111,7 +112,9 @@ class C4DLocaleModal extends C4DExpressiveModal {
     return html`
       ${langDisplay &&
       html`
-        <p class="${prefix}--modal-header__label ${prefix}--type-delta" part="header-label">
+        <p
+          class="${prefix}--modal-header__label ${prefix}--type-delta"
+          part="header-label">
           ${langDisplay}${EarthFilled16({
             class: `${c4dPrefix}--locale-modal__label-globe`,
           })}
@@ -120,7 +123,9 @@ class C4DLocaleModal extends C4DExpressiveModal {
       ${langDisplay &&
       headerTitle &&
       html`
-        <p class="cds--modal-header__heading cds--type-beta">${headerTitle}</p>
+        <p class="cds--modal-header__heading cds--type-beta" part="title">
+          ${headerTitle}
+        </p>
       `}
     `;
   }
@@ -145,7 +150,10 @@ class C4DLocaleModal extends C4DExpressiveModal {
           class: `${c4dPrefix}--locale-modal__label-arrow`,
         })}
       </c4d-link-with-icon>
-      <p class="cds--modal-header__heading cds--type-beta" tabindex="0" part="link-heading">
+      <p
+        class="cds--modal-header__heading cds--type-beta"
+        tabindex="0"
+        part="link-heading">
         ${currentRegion}
       </p>
     `;

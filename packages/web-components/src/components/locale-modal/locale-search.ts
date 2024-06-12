@@ -222,15 +222,17 @@ class C4DLocaleSearch extends ThrottedInputMixin(
             size="${INPUT_SIZE.LARGE}"
             data-autoid="${c4dPrefix}--locale-modal__filter">
           </cds-search>
-          <div class="${prefix}--visually-hidden" aria-live="polite" part="polite"></div>
-          <p class="${c4dPrefix}--locale-modal__search-text"
-          part="seach-text">
+          <div
+            class="${prefix}--visually-hidden"
+            aria-live="polite"
+            part="polite"></div>
+          <p class="${c4dPrefix}--locale-modal__search-text" part="seach-text">
             ${hasAvailableItem
               ? availabilityLabelText
               : unavailabilityLabelText}
           </p>
         </div>
-        <div class="${c4dPrefix}--locale-modal__list" part="list"  role="list">
+        <div class="${c4dPrefix}--locale-modal__list" part="list" role="list">
           <slot></slot>
         </div>
       </div>

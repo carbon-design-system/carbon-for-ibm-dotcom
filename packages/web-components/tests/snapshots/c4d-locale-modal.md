@@ -114,7 +114,10 @@
           >
             lang-display-foo
           </p>
-          <p class="cds--modal-header__heading cds--type-beta">
+          <p
+            class="cds--modal-header__heading cds--type-beta"
+            part="title"
+          >
             header-title-foo
           </p>
         </c4d-expressive-modal-heading>
