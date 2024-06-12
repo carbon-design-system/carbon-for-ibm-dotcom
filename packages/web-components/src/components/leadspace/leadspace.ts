@@ -36,7 +36,6 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart container - The container. Usage: `c4d-leadspace::part(container)`
  * @csspart gradient - The gradient container. Usage: `c4d-leadspace::part(gradient)`
  * @csspart image-gradient - The image with gradient. Usage: `c4d-leadspace::part(image-gradient)`
- * @csspart gradient-stop - Where the gradient stops. Usage: `c4d-leadspace::part(gradient-stop)`
  * @csspart action - The action. Usage: `c4d-leadspace::part(action)`
  */
 @customElement(`${c4dPrefix}-leadspace`)
@@ -185,7 +184,7 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <defs>
-                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops" part="gradient-stop" gradientTransform="${
+                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops" gradientTransform="${
                   type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : ''
                 }">
                       ${
