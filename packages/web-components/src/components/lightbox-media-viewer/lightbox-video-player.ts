@@ -26,15 +26,15 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-lightbox-video-player
  * @slot title - The title content.
  * @slot description - The description content.
- * @csspart container - The wrapper around the lightbox media. Usage: c4d-lightbox-video-player::part(container)
- * @csspart row - The wrapper around the row. Usage: c4d-lightbox-video-player::part(row)
- * @csspart media - The wrapper around media. Usage: c4d-lightbox-video-player::part(media)
- * @csspart content-wrapper - The wrapper around content. Usage: c4d-lightbox-video-player::part(content-wrapper)
- * @csspart content - The inner wrapper around content. Usage: c4d-lightbox-video-player::part(content)
- * @csspart title - The title of the media. Usage: c4d-lightbox-video-player::part(title)
- * @csspart description - The description of the media. Usage: c4d-lightbox-video-player::part(description)
- * @csspart video-player - The wrapper around the video player. Usage: c4d-lightbox-video-player::part(video-player)
- * @csspart video-container - The inner wrapper around the slotted video player. Usage: c4d-lightbox-video-player::part(video-container)
+ * @csspart container - The wrapper around the lightbox media. Usage: `c4d-lightbox-video-player::part(container)`
+ * @csspart row - The wrapper around the row. Usage: `c4d-lightbox-video-player::part(row)`
+ * @csspart media - The wrapper around media. Usage: `c4d-lightbox-video-player::part(media)`
+ * @csspart content-wrapper - The wrapper around content. Usage: `c4d-lightbox-video-player::part(content-wrapper)`
+ * @csspart content - The inner wrapper around content. Usage: `c4d-lightbox-video-player::part(content)`
+ * @csspart title - The title of the media. Usage: `c4d-lightbox-video-player::part(title)`
+ * @csspart description - The description of the media. Usage: `c4d-lightbox-video-player::part(description)`
+ * @csspart video-player - The wrapper around the video player. Usage: `c4d-lightbox-video-player::part(video-player)`
+ * @csspart video-container - The inner wrapper around the slotted video player. Usage: `c4d-lightbox-video-player::part(video-container)`
  */
 @customElement(`${c4dPrefix}-lightbox-video-player`)
 class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {

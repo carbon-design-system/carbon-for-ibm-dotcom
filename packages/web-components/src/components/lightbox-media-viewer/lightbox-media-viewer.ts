@@ -24,13 +24,13 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-lightbox-media-viewer
  * @slot title - The title content.
  * @slot description - The description content.
- * @csspart container - The wrapper around the lightbox media. Usage: c4d-lightbox-video-player::part(container)
- * @csspart row - The wrapper around the row. Usage: c4d-lightbox-video-player::part(row)
- * @csspart media - The wrapper around media. Usage: c4d-lightbox-video-player::part(media)
- * @csspart content-wrapper - The wrapper around content. Usage: c4d-lightbox-video-player::part(content-wrapper)
- * @csspart content - The inner wrapper around content. Usage: c4d-lightbox-video-player::part(content)
- * @csspart title - The title of the media. Usage: c4d-lightbox-video-player::part(title)
- * @csspart description - The description of the media. Usage: c4d-lightbox-video-player::part(description)
+ * @csspart container - The wrapper around the lightbox media. Usage: `c4d-lightbox-video-player::part(container)`
+ * @csspart row - The wrapper around the row. Usage: `c4d-lightbox-video-player::part(row)`
+ * @csspart media - The wrapper around media. Usage: `c4d-lightbox-video-player::part(media)`
+ * @csspart content-wrapper - The wrapper around content. Usage: `c4d-lightbox-video-player::part(content-wrapper)`
+ * @csspart content - The inner wrapper around content. Usage: `c4d-lightbox-video-player::part(content)`
+ * @csspart title - The title of the media. Usage: `c4d-lightbox-video-player::part(title)`
+ * @csspart description - The description of the media. Usage: `c4d-lightbox-video-player::part(description)`
  */
 @customElement(`${c4dPrefix}-lightbox-media-viewer`)
 class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
