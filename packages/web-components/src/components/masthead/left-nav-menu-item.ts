@@ -22,6 +22,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead left nav submenu item.
  *
  * @element c4d-left-nav-menu-item
+ * @csspart link - The link. Usage `c4d-left-nav-menu-item(link)`
+ * @csspart title - The title. Usage `c4d-left-nav-menu-item(title)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu-item`)
 class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
@@ -60,7 +62,6 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
     return href
       ? html`
           <a
-            tabindex="-1"
             part="link"
             class="${linkClasses}"
             href="${href}"

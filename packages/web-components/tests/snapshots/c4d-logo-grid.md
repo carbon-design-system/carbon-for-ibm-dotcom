@@ -3,7 +3,10 @@
 #### `renders c4d-logo-grid properly`
 
 ```
-<div class="cds--content-layout--logo-grid">
+<div
+  class="cds--content-layout--logo-grid"
+  part="content-wrapper"
+>
   <slot name="heading">
   </slot>
   <div
@@ -16,8 +19,12 @@
     <div
       class="cds--content-block__children cds--content-layout__body"
       hidden=""
+      part="content-body"
     >
-      <div class="cds--logo-grid__row">
+      <div
+        class="cds--logo-grid__row"
+        part="content"
+      >
         <slot>
         </slot>
         <slot name="media">
@@ -27,8 +34,12 @@
     <div
       class="cds--content-block__cta-row"
       hidden=""
+      part="footer-container"
     >
-      <div class="cds--content-block__cta cds-content-block__cta-col">
+      <div
+        class="cds--content-block__cta cds-content-block__cta-col"
+        part="footer"
+      >
         <slot name="footer">
         </slot>
       </div>

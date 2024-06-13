@@ -33,7 +33,14 @@ const slotExistencePropertyNames = {
  * @element c4d-cta-block
  * @slot heading - The text heading.
  * @slot action - The CTA Buttons.
+ * @csspart cta - The CTA Usage: `c4d-cta-block::part(cta)`
+ * @csspart helper-wrapper - The help text wrapper. Usage: `c4d-cta-block::part(helper-wrapper)`
+ * @csspart content-item-wrapper - The Content item wrapper Usage: `c4d-cta-block::part(content-item-wrapper)`
+ * @csspart body - The body Usage: `c4d-cta-block::part(body)`
+ * @csspart copy - The copy. Usage: `c4d-cta-block::part(copy)`
+ * @csspart link-list - The Link list. Usage: `c4d-cta-block::part(link-list)`
  */
+
 @customElement(`${c4dPrefix}-cta-block`)
 class C4DCTABlock extends StableSelectorMixin(C4DContentBlock) {
   @property({ type: Boolean, attribute: 'no-border', reflect: true })

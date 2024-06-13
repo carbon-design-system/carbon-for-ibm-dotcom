@@ -23,6 +23,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @slot heading - The heading content.
  * @slot action - The text-cta content.
  * @slot card-group - The L shaped card group content.
+ * @csspart content - The text cta content. Usage: `c4d-card-section-offset::part(content)`
  */
 @customElement(`${c4dPrefix}-card-section-offset`)
 class C4DCardSectionOffset extends StableSelectorMixin(C4DContentBlock) {
