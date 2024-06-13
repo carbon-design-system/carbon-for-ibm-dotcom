@@ -225,7 +225,7 @@ class C4DLocaleSearch extends ThrottedInputMixin(
           <div
             class="${prefix}--visually-hidden"
             aria-live="polite"
-            part="polite"></div>
+            part="aria-updates"></div>
           <p class="${c4dPrefix}--locale-modal__search-text" part="search-text">
             ${hasAvailableItem
               ? availabilityLabelText
