@@ -25,13 +25,13 @@
     <div
       aria-live="polite"
       class="cds--visually-hidden"
-      part="polite"
+      part="aria-updates"
     >
       0 results
     </div>
     <p
       class="c4d--locale-modal__search-text"
-      part="seach-text"
+      part="search-text"
     >
       This page is available in the following locations and languages
     </p>
@@ -71,13 +71,13 @@
     <div
       aria-live="polite"
       class="cds--visually-hidden"
-      part="polite"
+      part="aria-updates"
     >
       0 results
     </div>
     <p
       class="c4d--locale-modal__search-text"
-      part="seach-text"
+      part="search-text"
     >
       availability-label-text-foo
     </p>

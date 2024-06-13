@@ -42,8 +42,8 @@ function search(target?: (string | void)[], searchText?: string) {
  *
  * @element c4d-locale-search
  * @csspart filter - The filter. Usage: `c4d-locale-search::part(filter)`
- * @csspart search - The searchx. Usage: `c4d-locale-search::part(search)`
- * @csspart polite - The hiddenn div between searchbox and search-text. Usage: `c4d-locale-search::part(polite)`
+ * @csspart search - The search. Usage: `c4d-locale-search::part(search)`
+ * @csspart aria-updates - The hidden div between searchbox and search-text. Usage: `c4d-locale-search::part(aria-updates)`
  * @csspart search-text - The search text. Usage: `c4d-locale-search::part(search-text)`
  * @csspart list - The list. Usage: `c4d-locale-search::part(ist)`
  * @csspart searchbox - The searchbox. Usage: `c4d-locale-search::part(searchbox)`

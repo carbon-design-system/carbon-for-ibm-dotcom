@@ -22,8 +22,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-region-item
  * @csspart button - Targets all buttons  - Usage: `c4d-region-item::part(button)`
- * @csspart disabled-button - The disabled button - Usage: `c4d-region-item::part(disabled-button)`
- * @csspart enabled-button - The enabled button - Usage: `:c4d-region-item:part(enabled-button)`
+ * @csspart button--disabled - The disabled button - Usage: `c4d-region-item::part(button--disabled)`
+ * @csspart button--enabled - The enabled button - Usage: `:c4d-region-item:part(button--enabled)`
  * @csspart content- Targets all content wrappers - Usage: `c4d-region-item::part(content)`
  * @csspart disabled-content - The disabled content wrapper - Usage: `c4d-region-item::part(disabled-content)`
  * @csspart enabled-content - The enabled content wrapper - Usage: `:c4d-region-item:part(enabled-content)`
