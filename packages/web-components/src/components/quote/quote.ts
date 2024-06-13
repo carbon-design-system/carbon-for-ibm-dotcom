@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,12 +36,14 @@ const slotExistencePropertyNames = {
  * @slot source-copy - The copy content of the quote source.
  * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
  * @csspart mark - Quote mark. Usage `c4d-quote::part(mark)`
+ * @csspart mark--opening - Opening quote mark. Usage `c4d-quote::part(mark--opening)`
+ * @csspart mark--closing - Closing quote mark. Usage `c4d-quote::part(mark--closing)`
  * @csspart copy - Quote body copy. Usage `c4d-quote::part(copy)`
- * @csspart mark-closing - Quote mark closing. Usage `c4d-quote::part(mark-closing)`
  * @csspart source - Quote source slot. Usage `c4d-quote::part(source)`
  * @csspart footer - Quote footer. Usage `c4d-quote::part(footer)`
  * @csspart container - Quote container. Usage `c4d-quote::part(container)`
  * @csspart wrapper - Quote wrapper. Usage `c4d-quote::part(wrapper)`
+ * @csspart hr - Horizontal rule. Usage `c4d-quote::part(wrapper)`
  */
 @customElement(`${c4dPrefix}-quote`)
 class C4DQuote extends StableSelectorMixin(LitElement) {
@@ -110,30 +112,42 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
         `;
       case QUOTE_TYPES.DOUBLE_ANGLE:
         return html`
-          <span class="${prefix}--quote__mark" part="mark">«</span>
+          <span class="${prefix}--quote__mark" part="mark mark--opening"
+            >«</span
+          >
           <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
-            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+            ><span
+              class="${prefix}--quote__mark-closing"
+              part="mark mark--closing"
               >»</span
             >
           </blockquote>
         `;
       case QUOTE_TYPES.SINGLE_ANGLE:
         return html`
-          <span class="${prefix}--quote__mark" part="mark">‹</span>
+          <span class="${prefix}--quote__mark" part="mark mark--opening"
+            >‹</span
+          >
           <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
-            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+            ><span
+              class="${prefix}--quote__mark-closing"
+              part="mark mark--closing"
               >›</span
             >
           </blockquote>
         `;
       case QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED:
         return html`
-          <span class="${prefix}--quote__mark" part="mark">„</span>
+          <span class="${prefix}--quote__mark" part="mark mark--opening"
+            >„</span
+          >
           <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
-            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+            ><span
+              class="${prefix}--quote__mark-closing"
+              part="mark mark--closing"
               >“</span
             >
           </blockquote>
@@ -142,22 +156,28 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
         return html`
           <span
             class="${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket"
-            part="mark"
+            part="mark mark--opening"
             >「</span
           >
           <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
-            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+            ><span
+              class="${prefix}--quote__mark-closing"
+              part="mark mark--closing"
               >」</span
             >
           </blockquote>
         `;
       default:
         return html`
-          <span class="${prefix}--quote__mark" part="mark">“</span>
+          <span class="${prefix}--quote__mark" part="mark mark--opening"
+            >“</span
+          >
           <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
-            ><span class="${prefix}--quote__mark-closing" part="mark-closing"
+            ><span
+              class="${prefix}--quote__mark-closing"
+              part="mark mark--closing"
               >”</span
             >
           </blockquote>
@@ -192,7 +212,7 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
         ?hidden="${!hasFooter}"
         class="${prefix}--quote__footer"
         part="footer">
-        <c4d-hr></c4d-hr>
+        <c4d-hr part="hr"></c4d-hr>
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
