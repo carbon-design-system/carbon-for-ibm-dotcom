@@ -77,7 +77,7 @@ class C4DRegionItem extends C4DCard {
             id="link"
             class="${classes}"
             type="button"
-            part="button enabled-button">
+            part="button button--enabled">
             <div class="${cardClasses}" part="content enabled-content">
               ${this._renderInner()}
             </div>
