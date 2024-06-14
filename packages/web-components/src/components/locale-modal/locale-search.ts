@@ -41,6 +41,11 @@ function search(target?: (string | void)[], searchText?: string) {
  * Locale search box.
  *
  * @element c4d-locale-search
+ * @csspart filter - The filter. Usage: `c4d-locale-search::part(filter)`
+ * @csspart search - The search. Usage: `c4d-locale-search::part(search)`
+ * @csspart aria-updates - The hidden div between searchbox and search-text. Usage: `c4d-locale-search::part(aria-updates)`
+ * @csspart search-text - The search text. Usage: `c4d-locale-search::part(search-text)`
+ * @csspart list - The list. Usage: `c4d-locale-search::part(ist)`
  * @csspart searchbox - The searchbox. Usage: `c4d-locale-search::part(searchbox)`
  */
 @customElement(`${c4dPrefix}-locale-search`)
@@ -207,8 +212,8 @@ class C4DLocaleSearch extends ThrottedInputMixin(
       _hasAvailableItem: hasAvailableItem,
     } = this;
     return html`
-      <div class="${c4dPrefix}--locale-modal__filter">
-        <div class="${c4dPrefix}--locale-modal__search">
+      <div class="${c4dPrefix}--locale-modal__filter" part="filter">
+        <div class="${c4dPrefix}--locale-modal__search" part="search">
           <cds-search
             part="searchbox"
             close-button-assistive-text="${closeButtonAssistiveText}"
@@ -217,14 +222,17 @@ class C4DLocaleSearch extends ThrottedInputMixin(
             size="${INPUT_SIZE.LARGE}"
             data-autoid="${c4dPrefix}--locale-modal__filter">
           </cds-search>
-          <div class="${prefix}--visually-hidden" aria-live="polite"></div>
-          <p class="${c4dPrefix}--locale-modal__search-text">
+          <div
+            class="${prefix}--visually-hidden"
+            aria-live="polite"
+            part="aria-updates"></div>
+          <p class="${c4dPrefix}--locale-modal__search-text" part="search-text">
             ${hasAvailableItem
               ? availabilityLabelText
               : unavailabilityLabelText}
           </p>
         </div>
-        <div class="${c4dPrefix}--locale-modal__list" role="list">
+        <div class="${c4dPrefix}--locale-modal__list" part="list" role="list">
           <slot></slot>
         </div>
       </div>
