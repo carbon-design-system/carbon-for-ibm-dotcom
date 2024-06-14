@@ -179,16 +179,18 @@ class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
       if (this.expanded) {
         // Import needed subcomponents on first expansion
         if (!(this.parentElement as C4DTopNav)?.importedMegamenu) {
-          await import('./megamenu-left-navigation');
-          await import('./megamenu-category-link');
-          await import('./megamenu-category-link-group');
-          await import('./megamenu-category-group');
-          await import('./megamenu-category-group-copy');
-          await import('./megamenu-category-heading');
-          await import('./megamenu-link-with-icon');
-          await import('./megamenu-overlay');
-          await import('./megamenu-tab');
-          await import('./megamenu-tabs');
+          await Promise.all([
+            import('./megamenu-left-navigation'),
+            import('./megamenu-category-link'),
+            import('./megamenu-category-link-group'),
+            import('./megamenu-category-group'),
+            import('./megamenu-category-group-copy'),
+            import('./megamenu-category-heading'),
+            import('./megamenu-link-with-icon'),
+            import('./megamenu-overlay'),
+            import('./megamenu-tab'),
+            import('./megamenu-tabs'),
+          ]);
           (this.parentElement as C4DTopNav).importedMegamenu = true;
         }
 

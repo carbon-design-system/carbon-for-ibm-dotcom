@@ -21,6 +21,8 @@ const { stablePrefix: c4dPrefix } = settings;
  * Locale item.
  *
  * @element c4d-locale-item
+ * @csspart country - the country text container. Usage: `c4d-locale-item::part(country)`
+ * @csspart language - the language text container. Usage: `c4d-locale-item::part(language)`
  */
 @customElement(`${c4dPrefix}-locale-item`)
 class C4DLocaleItem extends CDSLink {
@@ -75,8 +77,12 @@ class C4DLocaleItem extends CDSLink {
   _renderInner() {
     const { country, language } = this;
     return html`
-      <div class="${c4dPrefix}--locale-modal__locales__name">${country}</div>
-      <div class="${c4dPrefix}--locale-modal__locales__name">${language}</div>
+      <div class="${c4dPrefix}--locale-modal__locales__name" part="country">
+        ${country}
+      </div>
+      <div class="${c4dPrefix}--locale-modal__locales__name" part="language">
+        ${language}
+      </div>
     `;
   }
 

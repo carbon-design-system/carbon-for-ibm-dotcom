@@ -17,7 +17,8 @@
 @use '@carbon/styles/scss/components/tooltip/tooltip' as *;
 @use '@carbon/styles/scss/components/ui-shell/header' as *;
 @use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
+// @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
+@use '../../../../styles/scss/components/masthead' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/web-components/scss/components/tooltip/tooltip' as *;
@@ -27,6 +28,15 @@
 
 // Magic Number: 799px matches masthead-composite's `layoutBreakpoint`.
 $breakpoint--desktop-nav: 799px;
+
+// Calculations for left nav overlay clip mask
+$btn-dimension: $spacing-09;
+$pos-btn-top: calc(
+  var(--#{$c4d-prefix}-masthead-l0-bottom-edge, #{$btn-dimension}) - #{$btn-dimension}
+);
+$pos-btn-bottom: calc(
+  var(--#{$c4d-prefix}-masthead-l0-bottom-edge, #{$btn-dimension}) + 1px
+);
 
 :host(#{$c4d-prefix}-masthead-container),
 #{$c4d-prefix}-masthead-container {
@@ -333,7 +343,9 @@ $breakpoint--desktop-nav: 799px;
   overflow: hidden;
   block-size: calc(100% - #{$spacing-09} - 1px);
   inline-size: 16rem;
-  margin-block-start: calc(#{$spacing-09} + 1px);
+  margin-block-start: calc(
+    var(--#{$c4d-prefix}-masthead-l0-bottom-edge, #{$spacing-09}) + 1px
+  );
 
   @include breakpoint-down(md) {
     inline-size: 100vw;
@@ -492,16 +504,16 @@ $breakpoint--desktop-nav: 799px;
   background-color: rgba(22, 22, 22, 0.5);
   block-size: 100vh;
   clip-path: polygon(
-      $spacing-09 0,
-      100% 0,
-      100% 100%,
-      0 100%,
-      0 calc(#{$spacing-09} + 1px),
-      $spacing-09 calc(#{$spacing-09} + 1px)
-    )
-    #{'/*!rtl:polygon(0 0, calc(100% - ' + $spacing-09 + ') 0, calc(100% - ' +
-    $spacing-09 + ') calc(' + $spacing-09 + ' + 1px), 100% calc(' + $spacing-09 +
-    ' + 1px), 100% 100%, 0 100%)*/'};
+    0 0,
+    0 $pos-btn-top,
+    $btn-dimension $pos-btn-top,
+    $btn-dimension $pos-btn-bottom,
+    0 $pos-btn-bottom,
+    0 100%,
+    100% 100%,
+    100% 0,
+    0 0
+  );
   inline-size: 100%;
 
   // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
@@ -528,11 +540,13 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-left-nav-overlay[dir='rtl']) {
   clip-path: polygon(
     0 0,
-    calc(100% - #{$spacing-09}) 0,
-    calc(100% - #{$spacing-09}) calc(#{$spacing-09} + 1px),
-    100% calc(#{$spacing-09} + 1px),
+    0 100%,
     100% 100%,
-    0 100%
+    100% $pos-btn-bottom,
+    calc(100% - #{$btn-dimension}) $pos-btn-bottom,
+    calc(100% - #{$btn-dimension}) $pos-btn-top,
+    100% $pos-btn-top,
+    100% 0
   );
 }
 
