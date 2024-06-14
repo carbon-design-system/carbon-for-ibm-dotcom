@@ -29,6 +29,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart accordion-heading - The accordion nav heading. Usage: `c4d-footer-nav::part(accordion-heading)`
  * @csspart accordion-title - The accordion title. Usage: `c4d-footer-nav::part(accordion-title)`
  * @csspart accordion-content - The accordion content. Usage: `c4d-footer-nav::part(accordion-content)`
+ * @csspart link-list - The list of links. Usage: `c4d-footer-nav-group::part(link-list)`
  * @slot title - The title content.
  */
 @customElement(`${c4dPrefix}-footer-nav-group`)
@@ -143,7 +144,7 @@ class C4DFooterNavGroup extends MediaQueryMixin(
         part="accordion-content"
         id="content"
         class="${prefix}--accordion__content">
-        <ul>
+        <ul part="link-list">
           <slot></slot>
         </ul>
       </div>
