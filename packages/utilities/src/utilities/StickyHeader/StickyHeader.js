@@ -76,12 +76,15 @@ class StickyHeader {
     const received = component.tagName.toLowerCase();
     if (received !== expected) {
       // TODO: don't check for v1/v2 compatibility after v1 EOL.
-      if (received.split('-').splice(1).join('-') !== expected.split('-').splice(1).join('-')) {
+      if (
+        received.split('-').splice(1).join('-') !==
+        expected.split('-').splice(1).join('-')
+      ) {
         throw new TypeError(`${expected} expected, ${received} provided`);
       } else {
         const message = [
           `Mixed prefixes detected.\n`,
-          `expected ${expected}, found ${received}.`
+          `expected ${expected}, found ${received}.`,
         ];
         console.warn(message.join(''));
         return true;
