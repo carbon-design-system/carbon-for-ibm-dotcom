@@ -21,6 +21,8 @@ const { stablePrefix: c4dPrefix } = settings;
  * StructuredListGroup
  *
  * @element c4d-structured-list-group
+ * @csspart flex-container - The table header. Usage `c4d-structured-list-group::part(flex-container)`
+ * @csspart flex-item - The header item. Usage `c4d-structured-list-group::part(flex-item)`
  */
 @customElement(`${c4dPrefix}-structured-list-group`)
 class C4DStructuredListGroup extends StableSelectorMixin(LitElement) {
@@ -38,8 +40,8 @@ class C4DStructuredListGroup extends StableSelectorMixin(LitElement) {
   private _renderTitle() {
     // set colspan to max value to ensure it spans all columns
     return html`
-      <tr>
-        <th colspan="999">${this.groupTitle}</th>
+      <tr part="flex-container">
+        <th part="flex-item" colspan="999">${this.groupTitle}</th>
       </tr>
     `;
   }
