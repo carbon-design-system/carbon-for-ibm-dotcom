@@ -11,6 +11,7 @@
     data-autoid="c4d--video-player"
     duration="120"
     name="video-name-foo"
+    part="video-player"
     playing-mode="inline"
     thumbnail-url="https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/video-id-foo/width/3"
     video-id="video-id-foo"
