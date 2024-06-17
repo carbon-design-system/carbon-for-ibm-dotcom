@@ -3,7 +3,10 @@
 #### `should render with minimum attributes`
 
 ```
-<div class="c4d--video-player__video-container">
+<div
+  class="c4d--video-player__video-container"
+  part="video-container"
+>
   <div
     class="c4d--video-player__video"
     part="video"
@@ -33,7 +36,10 @@
 #### `should render with various attributes`
 
 ```
-<div class="c4d--video-player__video-container">
+<div
+  class="c4d--video-player__video-container"
+  part="video-container"
+>
   <slot>
   </slot>
 </div>
