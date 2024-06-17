@@ -230,7 +230,9 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     });
 
     return html`
-      <div class="${aspectRatioClass}">${this._renderContent()}</div>
+      <div class="${aspectRatioClass}" part="video-container">
+        ${this._renderContent()}
+      </div>
       ${hideCaption
         ? undefined
         : html`
