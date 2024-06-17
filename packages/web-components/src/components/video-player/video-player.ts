@@ -38,6 +38,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @csspart video - The video. Usage `c4d-video-player::part(video)`
  * @csspart button - The play button. Usage `c4d-video-player::part(button)`
  * @csspart image - The thumbnail image. Usage `c4d-video-player::part(image)`
+ * @csspart video-container - The video container. Usage `c4d-video-player::part(video-container)`
  * @csspart caption - The caption. Usage `c4d-video-player::part(caption)`
  */
 @customElement(`${c4dPrefix}-video-player`)
