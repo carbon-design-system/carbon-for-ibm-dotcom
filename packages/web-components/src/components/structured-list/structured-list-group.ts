@@ -40,7 +40,7 @@ class C4DStructuredListGroup extends StableSelectorMixin(LitElement) {
   private _renderTitle() {
     // set colspan to max value to ensure it spans all columns
     return html`
-      <tr part="flex-container">
+      <tr part="row row--group-title">
         <th part="flex-item" colspan="999">${this.groupTitle}</th>
       </tr>
     `;
