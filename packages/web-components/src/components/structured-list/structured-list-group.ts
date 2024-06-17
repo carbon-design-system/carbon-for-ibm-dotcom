@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,8 +21,9 @@ const { stablePrefix: c4dPrefix } = settings;
  * StructuredListGroup
  *
  * @element c4d-structured-list-group
- * @csspart flex-container - The table header. Usage `c4d-structured-list-group::part(flex-container)`
- * @csspart flex-item - The header item. Usage `c4d-structured-list-group::part(flex-item)`
+ * @csspart row - The table group title row. Usage `c4d-structured-list-group::part(row)`
+ * @csspart row--group-title - The table group title row. Usage `c4d-structured-list-group::part(row--group-title)`
+ * @csspart group-title - The group title. Usage `c4d-structured-list-group::part(group-title)`
  */
 @customElement(`${c4dPrefix}-structured-list-group`)
 class C4DStructuredListGroup extends StableSelectorMixin(LitElement) {
@@ -38,7 +39,7 @@ class C4DStructuredListGroup extends StableSelectorMixin(LitElement) {
   }
 
   private _renderTitle() {
-    // set colspan to max value to ensure it spans all columns
+    // Set colspan to max value to ensure it spans all columns.
     return html`
       <tr part="row row--group-title">
         <th part="group-title" colspan="999">${this.groupTitle}</th>

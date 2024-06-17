@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,8 +19,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * StructuredList
  *
  * @element c4d-structured-list
- * @csspart overflow-indicator overflow-left - Overflow indicator left. Usage `c4d-structured-list::part(overflow-indicator overflow-left)`
- * @csspart overflow-indicator overflow-right - Overflow indicator left. Usage `c4d-structured-list::part(overflow-indicator overflow-right)`
+ * @csspart overflow-indicator - Overflow indicator. Usage `c4d-structured-list::part(overflow-indicator)`
+ * @csspart overflow-indicator--left - Overflow indicator left. Usage `c4d-structured-list::part(overflow-indicator--left)`
+ * @csspart overflow-indicator--right - Overflow indicator right. Usage `c4d-structured-list::part(overflow-indicator--right)`
  * @csspart section - List section. Usage `c4d-structured-list::part(section)`
  */
 @customElement(`${c4dPrefix}-structured-list`)
@@ -109,11 +110,11 @@ class C4DStructuredList extends StableSelectorMixin(LitElement) {
     return html`
       <div
         class="overflow-indicator left"
-        part="overflow-indicator overflow-left"></div>
+        part="overflow-indicator overflow-indicator--left"></div>
       ${this.renderInner()}
       <div
         class="overflow-indicator right"
-        part="overflow-indicator overflow-right"></div>
+        part="overflow-indicator overflow-indicator--right"></div>
     `;
   }
 
