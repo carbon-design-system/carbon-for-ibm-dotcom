@@ -108,11 +108,9 @@ class StickyHeader {
     const elementPrefix = element.tagName.toLowerCase().split('-')[0];
     if (elementPrefix === ddsPrefix) {
       v1Func.bind(this)();
-    }
-    else if (elementPrefix === c4dPrefix) {
+    } else if (elementPrefix === c4dPrefix) {
       v2Func.bind(this)();
-    }
-    else {
+    } else {
       throw new Error(`
         Could not find sub-elements for ${element.tagName.toLowerCase()}.
       `);
@@ -125,9 +123,8 @@ class StickyHeader {
   _updateLeadspaceRefsV1() {
     const { leadspaceSearch } = this._elements;
 
-    this._elements.leadspaceSearchBar = leadspaceSearch.shadowRoot.querySelector(
-      `.${prefix}--search-container`
-    );
+    this._elements.leadspaceSearchBar =
+      leadspaceSearch.shadowRoot.querySelector(`.${prefix}--search-container`);
     this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
       `${ddsPrefix}-search-with-typeahead`
     );
@@ -139,9 +136,10 @@ class StickyHeader {
   _updateLeadspaceRefsV2() {
     const { leadspaceSearch } = this._elements;
 
-    this._elements.leadspaceSearchBar = leadspaceSearch.shadowRoot.querySelector(
-      `.${prefixV2}--search-container`
-    );
+    this._elements.leadspaceSearchBar =
+      leadspaceSearch.shadowRoot.querySelector(
+        `.${prefixV2}--search-container`
+      );
     this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
       `${c4dPrefix}-search-with-typeahead`
     );
@@ -248,8 +246,10 @@ class StickyHeader {
         this._updateLeadspaceRefsV2
       );
       this._state.leadspaceSearchThreshold =
-        parseInt(window.getComputedStyle(this._elements.leadspaceSearchBar).paddingBottom) -
-        16;
+        parseInt(
+          window.getComputedStyle(this._elements.leadspaceSearchBar)
+            .paddingBottom
+        ) - 16;
       this._manageStickyElements();
     }
   }
