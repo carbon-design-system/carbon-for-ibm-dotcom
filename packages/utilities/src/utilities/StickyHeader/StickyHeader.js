@@ -166,7 +166,7 @@ class StickyHeader {
   _updateMastheadRefsV2() {
     const { masthead } = this._elements;
     this._elements.mastheadL0 = masthead.shadowRoot.querySelector(
-      `.${prefix}--masthead__l0`
+      `.${prefixV2}--masthead__l0`
     );
     this._elements.mastheadL1 = masthead.querySelector(
       `${c4dPrefix}-masthead-l1`
