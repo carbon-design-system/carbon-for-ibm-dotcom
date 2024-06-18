@@ -805,7 +805,7 @@ class C4DTableOfContents extends MediaQueryMixin(
             : ``}
           <div
             class="${c4dPrefix}-ce--table-of-contents__items-container"
-            part="container"
+            part="items-container"
             style="position: sticky; top: ${stickyOffset &&
             this.layout !== TOC_TYPES.HORIZONTAL
               ? `${stickyOffset}px`
