@@ -10,6 +10,10 @@ import root from 'window-or-global';
 import settings from '../settings/settings.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
+
+const ddsPrefix = 'dds';
+const prefixV1 = 'bx';
+
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 class StickyHeader {
@@ -98,16 +102,127 @@ class StickyHeader {
   }
 
   /**
-   * Stores references to TOC sub-elements that are relevant to current viewport
-   * dimensions.
+   * Helper method to query for either C4IBM v1.x or v2.x sub-elements;
+   *
+   * @param {*} element The C4IBM element.
+   * @param {*} v1Func The querying function to run if using a C4IBM v1.x element.
+   * @param {*} v2Func The querying function to run if using a C4IBM v2.x element.
    */
-  _updateTableOfContentsRefs() {
+  _updateRefsV1orV2(element, v1Func, v2Func) {
+    const elementPrefix = element.tagName.toLowerCase().split('-')[0];
+    if (elementPrefix === ddsPrefix) {
+      v1Func.bind(this)();
+    } else if (elementPrefix === c4dPrefix) {
+      v2Func.bind(this)();
+    } else {
+      throw new Error(`
+        Could not find sub-elements for ${element.tagName.toLowerCase()}.
+      `);
+    }
+  }
+
+  /**
+   * Temporary method to find v1 leadspace sub-elements.
+   */
+  _updateLeadspaceRefsV1() {
+    const { leadspaceSearch } = this._elements;
+
+    this._elements.leadspaceSearchBar =
+      leadspaceSearch.shadowRoot.querySelector(
+        `.${prefixV1}--search-container`
+      );
+    this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
+      `${ddsPrefix}-search-with-typeahead`
+    );
+  }
+
+  /**
+   * Temporary method to find v2 leadspace sub-elements.
+   */
+  _updateLeadspaceRefsV2() {
+    const { leadspaceSearch } = this._elements;
+
+    this._elements.leadspaceSearchBar =
+      leadspaceSearch.shadowRoot.querySelector(`.${prefix}--search-container`);
+    this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
+      `${c4dPrefix}-search-with-typeahead`
+    );
+  }
+
+  /**
+   * Temporary method to find v1 masthead sub-elements.
+   */
+  _updateMastheadRefsV1() {
+    const { masthead } = this._elements;
+    this._elements.mastheadL0 = masthead.shadowRoot.querySelector(
+      `.${prefixV1}--masthead__l0`
+    );
+    this._elements.mastheadL1 = masthead.querySelector(
+      `${ddsPrefix}-masthead-l1`
+    );
+  }
+
+  /**
+   * Temporary method to find v2 masthead sub-elements.
+   */
+  _updateMastheadRefsV2() {
+    const { masthead } = this._elements;
+    this._elements.mastheadL0 = masthead.shadowRoot.querySelector(
+      `.${prefix}--masthead__l0`
+    );
+    this._elements.mastheadL1 = masthead.querySelector(
+      `${c4dPrefix}-masthead-l1`
+    );
+  }
+
+  /**
+   * Temporary method to find v1 table of contents sub-elements.
+   */
+  _updateTableOfContentsRefsV1() {
+    const { tableOfContents: toc } = this._elements;
+    const tocRoot = toc.shadowRoot;
+    const selectors = {
+      desktop: {
+        vertical: `.${ddsPrefix}-ce--table-of-contents__items-container`,
+        horizontal: `.${prefixV1}--tableofcontents__navbar`,
+      },
+      mobile: {
+        vertical: `.${prefixV1}--tableofcontents__sidebar`,
+        horizontal: `.${prefixV1}--tableofcontents__navbar`,
+      },
+    };
+
+    const viewportDimension =
+      window.innerWidth >= gridBreakpoint ? 'desktop' : 'mobile';
+
+    this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
+      selectors[viewportDimension][toc.layout || 'vertical']
+    );
+  }
+
+  /**
+   * Temporary method to find v2 table of contents sub-elements.
+   */
+  _updateTableOfContentsRefsV2() {
     const { tableOfContents: toc } = this._elements;
     const tocRoot = toc.shadowRoot;
     this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
       window.innerWidth >= gridBreakpoint && toc?.layout !== 'horizontal'
         ? `.${c4dPrefix}-ce--table-of-contents__items-container`
         : `.${prefix}--tableofcontents__navbar`
+    );
+  }
+
+  /**
+   * Stores references to TOC sub-elements that are relevant to current viewport
+   * dimensions.
+   */
+  _updateTableOfContentsRefs() {
+    const { tableOfContents: toc } = this._elements;
+    this._updateRefsV1orV2(
+      toc,
+      this._updateTableOfContentsRefsV1,
+      this._updateTableOfContentsRefsV2
     );
   }
 
@@ -129,16 +244,16 @@ class StickyHeader {
       this._validateComponent(component, `${c4dPrefix}-leadspace-with-search`)
     ) {
       this._elements.leadspaceSearch = component;
-      const leadspaceSearchBar = component.shadowRoot.querySelector(
-        `.${prefix}--search-container`
-      );
-      this._elements.leadspaceSearchBar = leadspaceSearchBar;
-      this._elements.leadspaceSearchInput = component.querySelector(
-        `${c4dPrefix}-search-with-typeahead`
+      this._updateRefsV1orV2(
+        component,
+        this._updateLeadspaceRefsV1,
+        this._updateLeadspaceRefsV2
       );
       this._state.leadspaceSearchThreshold =
-        parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
-        16;
+        parseInt(
+          window.getComputedStyle(this._elements.leadspaceSearchBar)
+            .paddingBottom
+        ) - 16;
       this._manageStickyElements();
     }
   }
@@ -156,11 +271,10 @@ class StickyHeader {
       if (this._elements.banner) {
         this._elements.masthead.setAttribute('with-banner', '');
       }
-      this._elements.mastheadL0 = component.shadowRoot.querySelector(
-        `.${prefix}--masthead__l0`
-      );
-      this._elements.mastheadL1 = component.querySelector(
-        `${c4dPrefix}-masthead-l1`
+      this._updateRefsV1orV2(
+        component,
+        this._updateMastheadRefsV1,
+        this._updateMastheadRefsV2
       );
       this._manageStickyElements();
     }
