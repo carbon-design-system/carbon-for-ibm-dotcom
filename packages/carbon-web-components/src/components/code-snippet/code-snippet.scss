@@ -93,12 +93,17 @@ $css--plex: true !default;
     }
   }
 
+  .#{$prefix}--snippet-button {
+    z-index: 1;
+  }
+
   .#{$prefix}--snippet-container {
     display: block;
     overflow: hidden;
     position: relative;
     height: auto;
     padding-bottom: 0;
+    padding-right: $carbon--spacing-07;
     max-height: rem(238px);
     min-height: rem(56px);
     transition: max-height $duration--moderate-01 motion(standard, productive);
