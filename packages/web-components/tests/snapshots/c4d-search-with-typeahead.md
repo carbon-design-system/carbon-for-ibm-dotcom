@@ -58,6 +58,7 @@
 <form
   action="https://www.ibm.com/search"
   method="get"
+  part="search-form"
   role="search"
 >
   <input
@@ -81,6 +82,7 @@
     aria-label="IBM search field"
     aria-owns="result-list"
     class="react-autosuggest__container react-autosuggest__suggestions-container--open"
+    part="container"
     role="combobox"
   >
     <input
@@ -98,9 +100,11 @@
     <div
       class="react-autosuggest__suggestions-container"
       id="result-list"
+      part="suggestions-container"
     >
       <ul
         class="c4d-ce__search__list react-autosuggest__suggestions-list"
+        part="suggestions-list"
         role="listbox"
       >
       </ul>
