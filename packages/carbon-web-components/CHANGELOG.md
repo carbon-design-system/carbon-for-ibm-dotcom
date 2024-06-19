@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.9.0-rc.0...@carbon/web-components@2.10.0-rc.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* **side-panel:** import missing icon-button and codesandbox example ([#11821](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11821)) ([3c51597](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3c51597f48ffd6a18201f56fe740322b9e15127c))
+* **tearsheet:** tearsheet styles and codesandbox example ([#11792](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11792)) ([f0ddd6e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f0ddd6e22c5298e8c612ae113301dc4e2b5292f2))
+
+
+
+
+
+# [2.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.9.0-rc.0...@carbon/web-components@2.9.0) (2024-05-16)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [2.9.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.8.0...@carbon/web-components@2.9.0-rc.0) (2024-05-06)
+
+
+### Bug Fixes
+
+* **data-table:** center align checkboxes ([#11743](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11743)) ([3c045f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3c045f51578f10c9fc0f03bd71441fa098c1d52c)), closes [#11742](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11742)
+
+
+### Features
+
+* instrument with telemetry JS scope ([#11747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11747)) ([650739e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/650739e4d23677dd4891c781be20d76060170533))
+
+
+
+
+
+# [2.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.8.0-rc.0...@carbon/web-components@2.8.0) (2024-04-23)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [2.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.7.0...@carbon/web-components@2.8.0-rc.0) (2024-04-17)
+
+
+### Features
+
+* **slug:** ai slug updates ([#11716](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11716)) ([e9fa12f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e9fa12fd8cd3973aa7279a9d69582139937934d9))
+* **slug:** remove no longer needed dot-type prop ([#11726](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11726)) ([2cca4b3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2cca4b38955d738104c60739ee09052ae4625c7d))
+
+
+
+
+
+# [2.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.7.0-rc.0...@carbon/web-components@2.7.0) (2024-04-09)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
 # [2.7.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.6.0-rc.0...@carbon/web-components@2.7.0-rc.0) (2024-04-02)
 
 **Note:** Version bump only for package @carbon/web-components

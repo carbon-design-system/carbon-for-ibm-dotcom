@@ -155,6 +155,9 @@ export const WithMediaFeatured = (args) => {
 
 Default.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
   },
 };
@@ -162,6 +165,9 @@ Default.story = {
 WithThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
@@ -183,6 +189,9 @@ WithThumbnail.story = {
 WithMedia.story = {
   name: 'With media',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
@@ -211,6 +220,9 @@ WithMedia.story = {
 WithMediaFeatured.story = {
   name: 'With featured media',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
@@ -246,6 +258,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.9.0-rc.0...@carbon/ibmdotcom-web-components@2.10.0-rc.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* **parent-visibility:** Make changes for v2 ([#11797](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11797)) ([b6911a8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6911a839210b121087c884288cdc6037e5f400f))
+
+
+
+
+
+# [2.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.9.0-rc.0...@carbon/ibmdotcom-web-components@2.9.0) (2024-05-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.9.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.8.0...@carbon/ibmdotcom-web-components@2.9.0-rc.0) (2024-05-06)
+
+
+### Bug Fixes
+
+* **content-group:** cta spacing ([#11698](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11698)) ([eaa8d0c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eaa8d0cec7941f33d263f5b12f98de3fe3ecac92))
+* **search-with-typeahead:** correct RTL result strings ([#11693](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11693)) ([0db7ead](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0db7ead702f05de0f502c13484dd169e31c7f9d9)), closes [#11342](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11342)
+
+
+### Features
+
+* instrument with telemetry JS scope ([#11747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11747)) ([650739e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/650739e4d23677dd4891c781be20d76060170533))
+* **rtl-arrow:** Fix arrows used for CTA's when in RTL ([#11736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11736)) ([23f196f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/23f196fc95b6d23cb35d6ae8ea8c20a5dc199069)), closes [#11725](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11725)
+
+
+
+
+
+# [2.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.8.0-rc.0...@carbon/ibmdotcom-web-components@2.8.0) (2024-04-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.7.0...@carbon/ibmdotcom-web-components@2.8.0-rc.0) (2024-04-17)
+
+
+### Bug Fixes
+
+* **content-block:** add story and fix issues ([#11658](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11658)) ([27e362d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/27e362d6c5b732c840f48811ce3395e990c6f00f)), closes [#11624](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11624)
+
+
+### Features
+
+* **search-with-typeahead/masthead:** support initial search term ([#11668](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11668)) ([78015dc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/78015dc7a732249992dcc8cee9c8882cdc44fca6)), closes [#11617](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11617)
+* **slug:** ai slug updates ([#11716](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11716)) ([e9fa12f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e9fa12fd8cd3973aa7279a9d69582139937934d9))
+
+
+
+
+
+# [2.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.7.0-rc.0...@carbon/ibmdotcom-web-components@2.7.0) (2024-04-09)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [2.7.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.6.0-rc.0...@carbon/ibmdotcom-web-components@2.7.0-rc.0) (2024-04-02)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

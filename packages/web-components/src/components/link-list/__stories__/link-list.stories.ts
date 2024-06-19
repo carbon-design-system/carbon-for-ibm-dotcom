@@ -1,14 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -53,14 +52,14 @@ export const Default = (args) => {
     ? html`
         <c4d-link-list type="default">
           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+          <c4d-link-list-item href="https://example.com" cta-type="local">
+            Learn more about Kubernetes
           </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+          <c4d-link-list-item href="https://example.com" cta-type="local">
+            Containerization A Complete Guide
           </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          <c4d-link-list-item href="https://example.com" cta-type="local">
+            Microservices and containers
           </c4d-link-list-item>
         </c4d-link-list>
       `
@@ -147,14 +146,16 @@ export const Horizontal = (args) => {
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            type="horizontal">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+            type="horizontal"
+            cta-type="local">
+            Learn more about Kubernetes
           </c4d-link-list-item>
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            type="horizontal">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+            type="horizontal"
+            cta-type="local">
+            Containerization A Complete Guide
           </c4d-link-list-item>
         </c4d-link-list>
       `
@@ -234,14 +235,16 @@ export const Vertical = (args) => {
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            type="horizontal">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+            type="horizontal"
+            cta-type="local">
+            Learn more about Kubernetes
           </c4d-link-list-item>
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com"
-            type="horizontal">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+            type="horizontal"
+            cta-type="local">
+            Containerization A Complete Guide
           </c4d-link-list-item>
         </c4d-link-list>
       `

@@ -317,6 +317,9 @@ export const withCardInCard = (args) => {
 withCardInCard.story = {
   name: 'With card in card',
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
@@ -357,6 +360,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

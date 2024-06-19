@@ -60,7 +60,6 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
     return href
       ? html`
           <a
-            tabindex="-1"
             part="link"
             class="${linkClasses}"
             href="${href}"
