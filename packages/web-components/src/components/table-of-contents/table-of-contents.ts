@@ -69,9 +69,10 @@ function findLastIndex<T>(
  * @csspart prev-button - The previous button. Usage `c4d-table-of-contents::part(prev-button)`
  * @csspart item-container - The item container. Usage `c4d-table-of-contents::part(item-container)`
  * @csspart content - The content. Usage `c4d-table-of-contents::part(content)`
- * @csspart content-right - The right side content. Usage `c4d-table-of-contents::part(content-right)`
- * @csspart content-left - The left side content. Usage `c4d-table-of-contents::part(content-left)`
+ * @csspart sub-content-right - The right side content. Usage `c4d-table-of-contents::part(sub-content-right)`
+ * @csspart sub-content-left - The left side content. Usage `c4d-table-of-contents::part(sub-content-left)`
  * @csspart next-button - The next button. Usage `c4d-table-of-contents::part(next-button)`
+ * @csspart content-table - The content table. Usage `c4d-table-of-contents::part(content-table)`
  * @csspart wrapper - The wrapper. Usage `c4d-table-of-contents::part(wrapper)`
  * @slot heading - The heading content.
  * @slot menu-rule - The menu rule.
@@ -823,12 +824,12 @@ class C4DTableOfContents extends MediaQueryMixin(
                   ? html`
                       <div
                         class="${prefix}--sub-content-right"
-                        part="content content-right"></div>
+                        part="sub-content-right"></div>
                     `
                   : html`
                       <div
                         class="${prefix}--sub-content-left"
-                        part="content content-left"></div>
+                        part="sub-content-left"></div>
                     `}
                 <ul part="list">
                   ${targets.map((item) => {
@@ -867,12 +868,12 @@ class C4DTableOfContents extends MediaQueryMixin(
                   ? html`
                       <div
                         class="${prefix}--sub-content-left"
-                        part="content content-left"></div>
+                        part="sub-content-left"></div>
                     `
                   : html`
                       <div
                         class="${prefix}--sub-content-right"
-                        part="content content-right"></div>
+                        part="sub-content-right"></div>
                     `}
               </div>
             </div>
@@ -905,7 +906,7 @@ class C4DTableOfContents extends MediaQueryMixin(
             : ``}
         </div>
 
-        <div class="${prefix}--tableofcontents__content" part="content">
+        <div class="${prefix}--tableofcontents__content" part="content-table">
           <div
             class="${prefix}--tableofcontents__content-wrapper"
             part="wrapper">
