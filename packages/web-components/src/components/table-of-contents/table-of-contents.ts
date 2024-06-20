@@ -746,7 +746,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                 return html`
                   <li
                     class="${itemClasses}"
-                    part="list-item list-item--active"
+                    part="list-item${selected ? ' list-item--active' : ''}"
                     @click="${handleClickItem}"
                     @keydown="${handleOnKeyDown}">
                     <a
