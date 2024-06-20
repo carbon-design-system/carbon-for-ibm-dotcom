@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead.
  *
  * @element c4d-masthead
+ * @csspart masthead-l0 - The Masthead L0. Usage: `c4d-masthead::part(masthead-l0)`
+ * @csspart header - The header. Usage: `c4d-masthead::part(header)`
+ * @csspart header-search - The header search. Usage: `c4d-masthead::part(header-search)`
+ * @csspart header-nav-container - The header nav container. Usage: `c4d-masthead::part(header-nav-container)`
  * @slot brand - The left hand area.
  * @slot nav - The nav content.
  * @slot profile - The right hand area.
@@ -48,11 +52,13 @@ class C4DMasthead extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--masthead__l0">
-        <div class="${prefix}--header">
+      <div part="masthead-l0" class="${prefix}--masthead__l0">
+        <div part="header" class="${prefix}--header">
           <slot name="brand"></slot>
-          <div class="${prefix}--header__search">
-            <div class="${prefix}--header__nav-container">
+          <div part="header-search" class="${prefix}--header__search">
+            <div
+              part="header-nav-container"
+              class="${prefix}--header__nav-container">
               <slot></slot>
             </div>
             <slot name="search"></slot>
