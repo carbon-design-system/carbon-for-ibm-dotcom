@@ -14,7 +14,7 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 const c4dPrefix = 'c4d';
-const prefixV2 = 'cds';
+const cdsPrefix = 'cds';
 
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -138,7 +138,7 @@ class StickyHeader {
 
     this._elements.leadspaceSearchBar =
       leadspaceSearch.shadowRoot.querySelector(
-        `.${prefixV2}--search-container`
+        `.${cdsPrefix}--search-container`
       );
     this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
       `${c4dPrefix}-search-with-typeahead`
@@ -164,7 +164,7 @@ class StickyHeader {
   _updateMastheadRefsV2() {
     const { masthead } = this._elements;
     this._elements.mastheadL0 = masthead.shadowRoot.querySelector(
-      `.${prefixV2}--masthead__l0`
+      `.${cdsPrefix}--masthead__l0`
     );
     this._elements.mastheadL1 = masthead.querySelector(
       `${c4dPrefix}-masthead-l1`
@@ -205,7 +205,7 @@ class StickyHeader {
     this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
       window.innerWidth >= gridBreakpoint && toc?.layout !== 'horizontal'
         ? `.${c4dPrefix}-ce--table-of-contents__items-container`
-        : `.${prefixV2}--tableofcontents__navbar`
+        : `.${cdsPrefix}--tableofcontents__navbar`
     );
   }
 
