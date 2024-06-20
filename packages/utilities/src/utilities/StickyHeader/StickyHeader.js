@@ -12,7 +12,7 @@ import settings from '../settings/settings.js';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 const ddsPrefix = 'dds';
-const prefixV1 = 'bx';
+const bxPrefix = 'bx';
 
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -129,7 +129,7 @@ class StickyHeader {
 
     this._elements.leadspaceSearchBar =
       leadspaceSearch.shadowRoot.querySelector(
-        `.${prefixV1}--search-container`
+        `.${bxPrefix}--search-container`
       );
     this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
       `${ddsPrefix}-search-with-typeahead`
@@ -155,7 +155,7 @@ class StickyHeader {
   _updateMastheadRefsV1() {
     const { masthead } = this._elements;
     this._elements.mastheadL0 = masthead.shadowRoot.querySelector(
-      `.${prefixV1}--masthead__l0`
+      `.${bxPrefix}--masthead__l0`
     );
     this._elements.mastheadL1 = masthead.querySelector(
       `${ddsPrefix}-masthead-l1`
@@ -184,11 +184,11 @@ class StickyHeader {
     const selectors = {
       desktop: {
         vertical: `.${ddsPrefix}-ce--table-of-contents__items-container`,
-        horizontal: `.${prefixV1}--tableofcontents__navbar`,
+        horizontal: `.${bxPrefix}--tableofcontents__navbar`,
       },
       mobile: {
-        vertical: `.${prefixV1}--tableofcontents__sidebar`,
-        horizontal: `.${prefixV1}--tableofcontents__navbar`,
+        vertical: `.${bxPrefix}--tableofcontents__sidebar`,
+        horizontal: `.${bxPrefix}--tableofcontents__navbar`,
       },
     };
 
