@@ -25,7 +25,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * @element c4d-pricing-table
- * @csspart section - The list section. Usage `c4d-pricing-table::part(section)`
+ * @csspart container - The table container. Usage `c4d-pricing-table::part(container)`
+ * @csspart sentinel - A sentinel node. Usage `c4d-pricing-table::part(sentinel)`
+ * @csspart start-sentinel - The start sentinel. Usage `c4d-pricing-table::part(start-sentinel)`
+ * @csspart end-sentinel - The end sentinel. Usage `c4d-pricing-table::part(end-sentinel)`
  */
 
 @customElement(`${c4dPrefix}-pricing-table`)
