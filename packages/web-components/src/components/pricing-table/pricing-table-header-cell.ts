@@ -71,10 +71,10 @@ class C4DPricingTableHeaderCell extends StableSelectorMixin(
           </div>
         `
       : html`
-          <div class="${prefix}--pricing-table-cell-inner" part="content-container">
-            <div
-              class="${prefix}--pricing-table-cell-content"
-              part="content">
+          <div
+            class="${prefix}--pricing-table-cell-inner"
+            part="content-container">
+            <div class="${prefix}--pricing-table-cell-content" part="content">
               ${super.render()}
             </div>
           </div>
