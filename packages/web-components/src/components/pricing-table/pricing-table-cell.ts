@@ -76,8 +76,8 @@ class C4DPricingTableCell extends StableSelectorMixin(
 
   render() {
     return html`
-      <div class="${prefix}--pricing-table-cell-inner" part="inner-cell">
-        <div class="${prefix}--pricing-table-cell-content" part="content-cell">
+      <div class="${prefix}--pricing-table-cell-inner" part="container">
+        <div class="${prefix}--pricing-table-cell-content" part="content">
           ${super.render()}
         </div>
         <slot name="toggle"></slot>
