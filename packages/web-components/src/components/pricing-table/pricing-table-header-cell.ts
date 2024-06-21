@@ -56,10 +56,10 @@ class C4DPricingTableHeaderCell extends StableSelectorMixin(
               </div>
               <div
                 class="${prefix}--pricing-table-cell-inner"
-                part="inner-cell">
+                part="content-container">
                 <div
                   class="${prefix}--pricing-table-cell-content"
-                  part="content-cell">
+                  part="content">
                   <slot></slot>
                 </div>
                 <slot name="toggle"></slot>
