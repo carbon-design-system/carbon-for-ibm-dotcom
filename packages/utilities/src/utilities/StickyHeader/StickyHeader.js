@@ -13,6 +13,9 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+const c4dPrefix = 'c4d';
+const cdsPrefix = 'cds';
+
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 class StickyHeader {
@@ -75,17 +78,103 @@ class StickyHeader {
   _validateComponent(component, expected) {
     const received = component.tagName.toLowerCase();
     if (received !== expected) {
-      throw new TypeError(`${expected} expected, ${received} provided`);
+      // TODO: don't check for v1/v2 compatibility after v1 EOL.
+      if (
+        received.split('-').splice(1).join('-') !==
+        expected.split('-').splice(1).join('-')
+      ) {
+        throw new TypeError(`${expected} expected, ${received} provided`);
+      } else {
+        const message = [
+          `Mixed prefixes detected.\n`,
+          `expected ${expected}, found ${received}.`,
+        ];
+        console.warn(message.join(''));
+        return true;
+      }
     } else {
       return true;
     }
   }
 
   /**
-   * Stores references to TOC sub-elements that are relevant to current viewport
-   * dimensions.
+   * Helper method to query for either C4IBM v1.x or v2.x sub-elements;
+   *
+   * @param {*} element The C4IBM element.
+   * @param {*} v1Func The querying function to run if using a C4IBM v1.x element.
+   * @param {*} v2Func The querying function to run if using a C4IBM v2.x element.
    */
-  _updateTableOfContentsRefs() {
+  _updateRefsV1orV2(element, v1Func, v2Func) {
+    const elementPrefix = element.tagName.toLowerCase().split('-')[0];
+    if (elementPrefix === ddsPrefix) {
+      v1Func.bind(this)();
+    } else if (elementPrefix === c4dPrefix) {
+      v2Func.bind(this)();
+    } else {
+      throw new Error(`
+        Could not find sub-elements for ${element.tagName.toLowerCase()}.
+      `);
+    }
+  }
+
+  /**
+   * Temporary method to find v1 leadspace sub-elements.
+   */
+  _updateLeadspaceRefsV1() {
+    const { leadspaceSearch } = this._elements;
+
+    this._elements.leadspaceSearchBar =
+      leadspaceSearch.shadowRoot.querySelector(`.${prefix}--search-container`);
+    this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
+      `${ddsPrefix}-search-with-typeahead`
+    );
+  }
+
+  /**
+   * Temporary method to find v2 leadspace sub-elements.
+   */
+  _updateLeadspaceRefsV2() {
+    const { leadspaceSearch } = this._elements;
+
+    this._elements.leadspaceSearchBar =
+      leadspaceSearch.shadowRoot.querySelector(
+        `.${cdsPrefix}--search-container`
+      );
+    this._elements.leadspaceSearchInput = leadspaceSearch.querySelector(
+      `${c4dPrefix}-search-with-typeahead`
+    );
+  }
+
+  /**
+   * Temporary method to find v1 masthead sub-elements.
+   */
+  _updateMastheadRefsV1() {
+    const { masthead } = this._elements;
+    this._elements.mastheadL0 = masthead.shadowRoot.querySelector(
+      `.${prefix}--masthead__l0`
+    );
+    this._elements.mastheadL1 = masthead.querySelector(
+      `${ddsPrefix}-masthead-l1`
+    );
+  }
+
+  /**
+   * Temporary method to find v2 masthead sub-elements.
+   */
+  _updateMastheadRefsV2() {
+    const { masthead } = this._elements;
+    this._elements.mastheadL0 = masthead.shadowRoot.querySelector(
+      `.${cdsPrefix}--masthead__l0`
+    );
+    this._elements.mastheadL1 = masthead.querySelector(
+      `${c4dPrefix}-masthead-l1`
+    );
+  }
+
+  /**
+   * Temporary method to find v1 table of contents sub-elements.
+   */
+  _updateTableOfContentsRefsV1() {
     const { tableOfContents: toc } = this._elements;
     const tocRoot = toc.shadowRoot;
     const selectors = {
@@ -107,6 +196,32 @@ class StickyHeader {
     );
   }
 
+  /**
+   * Temporary method to find v2 table of contents sub-elements.
+   */
+  _updateTableOfContentsRefsV2() {
+    const { tableOfContents: toc } = this._elements;
+    const tocRoot = toc.shadowRoot;
+    this._elements.tableOfContentsInnerBar = tocRoot.querySelector(
+      window.innerWidth >= gridBreakpoint && toc?.layout !== 'horizontal'
+        ? `.${c4dPrefix}-ce--table-of-contents__items-container`
+        : `.${cdsPrefix}--tableofcontents__navbar`
+    );
+  }
+
+  /**
+   * Stores references to TOC sub-elements that are relevant to current viewport
+   * dimensions.
+   */
+  _updateTableOfContentsRefs() {
+    const { tableOfContents: toc } = this._elements;
+    this._updateRefsV1orV2(
+      toc,
+      this._updateTableOfContentsRefsV1,
+      this._updateTableOfContentsRefsV2
+    );
+  }
+
   set banner(component) {
     if (this._validateComponent(component, `${ddsPrefix}-universal-banner`)) {
       this._elements.banner = component;
@@ -125,16 +240,16 @@ class StickyHeader {
       this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
     ) {
       this._elements.leadspaceSearch = component;
-      const leadspaceSearchBar = component.shadowRoot.querySelector(
-        `.${prefix}--search-container`
-      );
-      this._elements.leadspaceSearchBar = leadspaceSearchBar;
-      this._elements.leadspaceSearchInput = component.querySelector(
-        `${ddsPrefix}-search-with-typeahead`
+      this._updateRefsV1orV2(
+        component,
+        this._updateLeadspaceRefsV1,
+        this._updateLeadspaceRefsV2
       );
       this._state.leadspaceSearchThreshold =
-        parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
-        16;
+        parseInt(
+          window.getComputedStyle(this._elements.leadspaceSearchBar)
+            .paddingBottom
+        ) - 16;
       this._manageStickyElements();
     }
   }
@@ -149,14 +264,13 @@ class StickyHeader {
   set masthead(component) {
     if (this._validateComponent(component, `${ddsPrefix}-masthead`)) {
       this._elements.masthead = component;
-      if (this._elements.banner)
+      if (this._elements.banner) {
         this._elements.masthead.setAttribute('with-banner', '');
-
-      this._elements.mastheadL0 = component.shadowRoot.querySelector(
-        `.${prefix}--masthead__l0`
-      );
-      this._elements.mastheadL1 = component.querySelector(
-        `${ddsPrefix}-masthead-l1`
+      }
+      this._updateRefsV1orV2(
+        component,
+        this._updateMastheadRefsV1,
+        this._updateMastheadRefsV2
       );
       this._manageStickyElements();
     }
