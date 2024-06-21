@@ -51,7 +51,7 @@ class C4DPricingTableHeaderCell extends StableSelectorMixin(
               <slot name="highlight-label"></slot>
               <slot name="headline"></slot>
               <slot name="caption"></slot>
-              <div class="${tagWrapperSelector}" part="wrapper">
+              <div class="${tagWrapperSelector}" part="tag-wrapper">
                 <slot name="tag"></slot>
               </div>
               <div
