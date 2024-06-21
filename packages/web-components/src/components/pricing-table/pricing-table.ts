@@ -184,9 +184,9 @@ class C4DPricingTable extends HostListenerMixin(
         id="section"
         class="${`${prefix}--structured-list`}"
         part="container">
-        <span class="${sentinelClass}" id="start-sentinel"></span>
+        <span class="${sentinelClass}" id="start-sentinel" part="sentinel start-sentinel"></span>
         <slot></slot>
-        <span class="${sentinelClass}" id="end-sentinel"></span>
+        <span class="${sentinelClass}" id="end-sentinel" part="sentinel end-sentinel"></span>
       </section>
     `;
   }
