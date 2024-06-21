@@ -23,8 +23,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 /**
  * @element c4d-pricing-table-cell
  *
- * @csspart inner-cell - The inner cell. Usage `c4d-pricing-table-cell::part(inner-cell)`
- * @csspart content-cell - The content cell. Usage `c4d-pricing-table-cell::part(content-cell)`
+ * @csspart container - The cell container. Usage `c4d-pricing-table-cell::part(container)`
+ * @csspart content - The cell content. Usage `c4d-pricing-table-cell::part(content)`
  */
 
 @customElement(`${c4dPrefix}-pricing-table-cell`)
