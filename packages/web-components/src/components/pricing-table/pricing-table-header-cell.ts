@@ -21,11 +21,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 /**
  * @element c4d-pricing-table-header-cell
  *
- * @csspart header-cell - The header cell. Usage `c4d-pricing-table-header-cell::part(header-cell)`
- * @csspart heading - The heading. Usage `c4d-pricing-table-header-cell::part(heading)`
- * @csspart wrapper - The wrapper. Usage `c4d-pricing-table-header-cell::part(wrapper)`
- * @csspart inner-cell - The inner cell. Usage `c4d-pricing-table-header-cell::part(inner-cell)`
- * @csspart content-cell - The content cell. Usage `c4d-pricing-table-header-cell::part(content-cell)`
+ * @csspart container - The cell container. Usage `c4d-pricing-table-header-cell::part(container)`
+ * @csspart heading-container - The heading area container. Usage `c4d-pricing-table-header-cell::part(heading-container)`
+ * @csspart tag-wrapper - A wrapper around the tags. Usage `c4d-pricing-table-header-cell::part(tag-wrapper)`
+ * @csspart content-container - The content area container. Usage `c4d-pricing-table-header-cell::part(content-container)`
+ * @csspart content - The cell content. Usage `c4d-pricing-table-header-cell::part(content)`
  * @csspart cta - The action. Usage `c4d-pricing-table-header-cell::part(cta)`
  */
 
