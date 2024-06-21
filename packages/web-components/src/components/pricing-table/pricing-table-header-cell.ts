@@ -46,7 +46,7 @@ class C4DPricingTableHeaderCell extends StableSelectorMixin(
       ? html`
           <div
             class="${prefix}--pricing-table-header-cell-inner"
-            part="header-cell">
+            part="container">
             <div part="heading">
               <slot name="highlight-label"></slot>
               <slot name="headline"></slot>
