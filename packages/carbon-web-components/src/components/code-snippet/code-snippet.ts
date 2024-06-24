@@ -319,11 +319,7 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
         showFeedback: showCopyButtonFeedback,
         handleClickButton: handleClickCopyButton,
         className: `${prefix}--snippet ${prefix}--snippet--inline`,
-        children: html`
-          <code aria-label="${codeAssistiveText}">
-            <slot @slotchange="${handleSlotChange}"></slot>
-          </code>
-        `,
+        children: html`<code aria-label="${codeAssistiveText}"><slot @slotchange="${handleSlotChange}"></slot></code>`,
       })}
     `;
   }
