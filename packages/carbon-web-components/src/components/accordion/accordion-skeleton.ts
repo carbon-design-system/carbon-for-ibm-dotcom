@@ -20,6 +20,15 @@ import styles from './accordion.scss';
 
 /**
  * Skeleton of code snippet.
+ *
+ * @csspart item - A skeleton accordion item. Usage: `cds-accordion-skeleton::part(item)`
+ * @csspart item-open - An open skeleton accordion item. Usage: `cds-accordion-skeleton::part(item-open)`
+ * @csspart item-closed - A closed skeleton accordion item. Usage: `cds-accordion-skeleton::part(item-closed)`
+ * @csspart expando - An element that toggles its accordion open and closed. Usage: `cds-accordion-skeleton::part(expando)`
+ * @csspart expando-icon - The icon in a toggle. Usage: `cds-accordion-skeleton::part(expando-icon)`
+ * @csspart title - The title text in a toggle. Usage: `cds-accordion-skeleton::part(title)`
+ * @csspart content - An accordion item's content area. Usage: `cds-accordion-skeleton::part(content)`
+ * @csspart text - The text in an accordion item's content area. Usage: `cds-accordion-skeleton::part(text)`
  */
 @customElement(`${prefix}-accordion-skeleton`)
 class CDSAccordionSkeleton extends LitElement {

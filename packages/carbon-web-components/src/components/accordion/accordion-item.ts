@@ -47,10 +47,11 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
  *   The custom event fired before this accordion item is being toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of toggling this accordion item.
  * @fires cds-accordion-item-toggled - The custom event fired after this accordion item is toggled upon a user gesture.
- * @csspart expando The expando button.
- * @csspart expando-icon The expando icon.
- * @csspart title The title.
- * @csspart content The content.
+ * @csspart expando - The element that toggles the accordion open and closed. Usage: `cds-accordion-item::part(expando)`
+ * @csspart expando-icon - The icon in the toggle. Usage: `cds-accordion-item::part(expando-icon)`
+ * @csspart title - The title text in the toggle. Usage: `cds-accordion-item::part(title)`
+ * @csspart content-wrapper - The element that wraps the content. Usage: `cds-accordion-item::part(content-wrapper)`
+ * @csspart content - The accordion content. Usage: `cds-accordion-item::part(content)`
  */
 @customElement(`${prefix}-accordion-item`)
 class CDSAccordionItem extends FocusMixin(LitElement) {
