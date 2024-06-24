@@ -11,8 +11,6 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import { html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import MediaQueryMixin, {
   MQBreakpoints,
@@ -32,12 +30,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tabs-extended
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends MediaQueryMixin(
-  HostListenerMixin(StableSelectorMixin(LitElement)),
-  {
-    [MQBreakpoints.LG]: MQDirs.MIN,
-  }
-) {
+class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+  [MQBreakpoints.LG]: MQDirs.MIN,
+}) {
   /**
    * Whether we're viewing smaller or larger window.
    */
@@ -84,6 +79,7 @@ class DDSTabsExtended extends MediaQueryMixin(
   private _handleClick(index, e) {
     e.preventDefault();
     this._setActiveItem(index);
+    this._setFocus(index);
   }
 
   private _handleAccordionClick(e) {
@@ -111,36 +107,39 @@ class DDSTabsExtended extends MediaQueryMixin(
       _tabItems: tabItems,
       _isLTR: isLTR,
     } = this;
+    let targetTab = -1;
     switch (key) {
       case 'ArrowRight':
         if (isLTR) {
-          this._setActiveItem(this._getNextTab(activeTabIndex));
+          targetTab = this._getNextTab(activeTabIndex);
         } else {
-          this._setActiveItem(this._getPrevTab(activeTabIndex));
+          targetTab = this._getPrevTab(activeTabIndex);
         }
         break;
       case 'ArrowLeft':
         if (isLTR) {
-          this._setActiveItem(this._getPrevTab(activeTabIndex));
+          targetTab = this._getPrevTab(activeTabIndex);
         } else {
-          this._setActiveItem(this._getNextTab(activeTabIndex));
+          targetTab = this._getNextTab(activeTabIndex);
         }
         break;
       case 'ArrowUp':
-        this._setActiveItem(this._getPrevTab(activeTabIndex));
+        targetTab = this._getPrevTab(activeTabIndex);
         break;
       case 'ArrowDown':
-        this._setActiveItem(this._getNextTab(activeTabIndex));
+        targetTab = this._getNextTab(activeTabIndex);
         break;
       case 'Home':
-        this._setActiveItem(this._getNextTab(-1));
+        targetTab = this._getNextTab(-1);
         break;
       case 'End':
-        this._setActiveItem(this._getPrevTab(tabItems.length));
+        targetTab = this._getPrevTab(tabItems.length);
         break;
       default:
         break;
     }
+    this._setActiveItem(targetTab);
+    this._setFocus(targetTab);
   }
 
   /**
@@ -203,28 +202,40 @@ class DDSTabsExtended extends MediaQueryMixin(
     return tabItems;
   }
 
-  @HostListener(DDSTab.eventTabSelected)
-  protected _handleTabSelected = () => {
-    const { _activeTabIndex, _isLargeOrGreater: isLargeOrGreater } = this;
-    const activeItemControl = isLargeOrGreater
-      ? this.shadowRoot?.querySelector(
-          `li[role="tab"]:nth-child(${
-            _activeTabIndex + 1
-          }) .${prefix}--tabs__nav-link`
-        )
-      : this.querySelector(
-          `${ddsPrefix}-tab:nth-of-type(${_activeTabIndex + 1})`
-        )?.shadowRoot?.querySelector(`.${prefix}--accordion__heading`);
+  /**
+   * Sets focus on an item, scrolling it into view.
+   *
+   * @param itemIndex The item to set focus on.
+   */
+  _setFocus(itemIndex) {
+    this.addEventListener(
+      DDSTab.eventTabSelected,
+      () => {
+        const { _isLargeOrGreater: isLargeOrGreater } = this;
+        const itemControl = isLargeOrGreater
+          ? this.shadowRoot?.querySelector(
+              `li[role="tab"]:nth-child(${
+                itemIndex + 1
+              }) .${prefix}--tabs__nav-link`
+            )
+          : this.querySelector(
+              `${ddsPrefix}-tab:nth-of-type(${itemIndex + 1})`
+            )?.shadowRoot?.querySelector(`.${prefix}--accordion__heading`);
 
-    if (activeItemControl instanceof HTMLElement) {
-      if (!isLargeOrGreater) {
-        // Unset focus so that when element is focused programmatically, the
-        // browser scrolls element into view.
-        activeItemControl.blur();
+        if (itemControl instanceof HTMLElement) {
+          if (!isLargeOrGreater) {
+            // Unset focus so that when element is focused programmatically, the
+            // browser scrolls element into view.
+            itemControl.blur();
+          }
+          itemControl.focus();
+        }
+      },
+      {
+        once: true,
       }
-      activeItemControl.focus();
-    }
-  };
+    );
+  }
 
   updated(changedProperties) {
     const { _isLargeOrGreater, _tabItems } = this;
