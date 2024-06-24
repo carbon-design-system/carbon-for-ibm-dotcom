@@ -93,12 +93,19 @@ $css--plex: true !default;
     }
   }
 
+  .#{$prefix}--snippet-button {
+    z-index: 1;
+  }
+
   .#{$prefix}--snippet-container {
-    display: block;
+    display: flex;
+    align-items: start;
+    order: initial;
     overflow: hidden;
     position: relative;
     height: auto;
     padding-bottom: 0;
+    padding-right: $carbon--spacing-08;
     max-height: rem(238px);
     min-height: rem(56px);
     transition: max-height $duration--moderate-01 motion(standard, productive);
@@ -122,11 +129,17 @@ $css--plex: true !default;
 
   .#{$prefix}-ce--snippet-container--expanded {
     max-height: rem(1500px);
+    overflow: auto;
     transition: max-height $duration--moderate-01 motion(standard, productive);
 
     pre {
       overflow-x: auto;
     }
+  }
+
+  .#{$prefix}--snippet__overflow-indicator--right {
+    right: 0;
+    width: $carbon--spacing-10;
   }
 }
 
