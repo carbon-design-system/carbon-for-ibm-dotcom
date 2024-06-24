@@ -21,13 +21,14 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 class CDSAccordionItemSkeleton extends LitElement {
   render() {
     return html`
-      <span class="${prefix}--accordion__heading">
+      <span class="${prefix}--accordion__heading" part="expando">
         ${ChevronRight16({
           part: 'expando-icon',
           class: `${prefix}--accordion__arrow`,
         })}
         <cds-skeleton-text
-          class="${prefix}--accordion__title"></cds-skeleton-text>
+          class="${prefix}--accordion__title"
+          part="title"></cds-skeleton-text>
       </span>
     `;
   }

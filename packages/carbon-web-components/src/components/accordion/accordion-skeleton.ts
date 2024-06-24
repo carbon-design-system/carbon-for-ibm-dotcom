@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -91,19 +91,20 @@ class CDSAccordionSkeleton extends LitElement {
     return html`
       ${this.open
         ? html`
-            <li class="${classes}">
-              <span class="${prefix}--accordion__heading">
+            <li class="${classes}" part="item item-open">
+              <span class="${prefix}--accordion__heading" part="expando">
                 ${ChevronRight16({
                   part: 'expando-icon',
                   class: `${prefix}--accordion__arrow`,
                 })}
                 <cds-skeleton-text
-                  class="${prefix}--accordion__title"></cds-skeleton-text>
+                  class="${prefix}--accordion__title"
+                  part="title"></cds-skeleton-text>
               </span>
-              <div class="${prefix}--accordion__content">
-                <cds-skeleton-text width="90%"></cds-skeleton-text>
-                <cds-skeleton-text width="80%"></cds-skeleton-text>
-                <cds-skeleton-text width="85%"></cds-skeleton-text>
+              <div class="${prefix}--accordion__content" part="content">
+                <cds-skeleton-text width="90%" part="text"></cds-skeleton-text>
+                <cds-skeleton-text width="80%" part="text"></cds-skeleton-text>
+                <cds-skeleton-text width="85%" part="text"></cds-skeleton-text>
               </div>
             </li>
           `
@@ -112,7 +113,8 @@ class CDSAccordionSkeleton extends LitElement {
         (_, index) =>
           html`
             <cds-accordion-item-skeleton
-              key=${index}></cds-accordion-item-skeleton>
+              key=${index}
+              part="item item-closed"></cds-accordion-item-skeleton>
           `
       )}
     `;

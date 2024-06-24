@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -225,7 +225,7 @@ class CDSAccordionItem extends FocusMixin(LitElement) {
           <slot name="title">${title}</slot>
         </div>
       </button>
-      <div class="${prefix}--accordion__wrapper">
+      <div class="${prefix}--accordion__wrapper" part="content-wrapper">
         <div id="content" part="content" class="${contentClasses}">
           <slot></slot>
         </div>
