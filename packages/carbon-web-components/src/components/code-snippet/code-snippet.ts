@@ -34,6 +34,7 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
   /**
    * `true` to expand multi-line variant of code snippet.
    */
+  @state()
   private _expanded = false;
 
   /**
@@ -104,7 +105,6 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
    */
   private _handleClickExpando() {
     this._expanded = !this._expanded;
-    this.requestUpdate();
   }
 
   /**
