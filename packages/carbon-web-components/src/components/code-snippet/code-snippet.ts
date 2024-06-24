@@ -8,8 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { TemplateResult } from 'lit-html';
-import { html, property, query, LitElement } from 'lit-element';
+import { html, property, query, LitElement, state } from 'lit-element';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import FocusMixin from '../../globals/mixins/focus';
@@ -24,61 +23,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 export { CODE_SNIPPET_COLOR_SCHEME, CODE_SNIPPET_TYPE };
 
 const { prefix } = settings;
-
-/**
- * @param values The values to render.
- * @param values.children The child nodes.
- * @param values.handleClick The handler for the `click` event on the button.
- * @returns The template result for the expando.
- */
-const renderExpando = ({
-  children,
-  handleClick,
-}: {
-  children: string | TemplateResult;
-  handleClick: EventListener;
-}) => html`
-  <button
-    type="button"
-    class="${prefix}--snippet-btn--expand"
-    @click="${handleClick}">
-    <span id="button-text" class="${prefix}--snippet-btn--text">
-      ${children}
-    </span>
-    ${ChevronDown16({
-      'aria-labeledby': 'button-text',
-      class: `${prefix}--icon-chevron--down ${prefix}--snippet__icon`,
-      role: 'img',
-    })}
-  </button>
-`;
-
-/**
- * @param values The values to render.
- * @param values.assistiveText The assistive text to announce that the node is for code snippet.
- * @param [values.expanded] `true` to show the expanded state (for multi-line variant).
- * @param values.children The child nodes.
- * @returns The template result for the code snippet.
- */
-const renderCode = ({
-  assistiveText,
-  expanded,
-  children,
-}: {
-  assistiveText: string;
-  expanded?: boolean;
-  children: string | TemplateResult;
-}) => {
-  const classes = classMap({
-    [`${prefix}--snippet-container`]: true,
-    [`${prefix}-ce--snippet-container--expanded`]: Boolean(expanded),
-  });
-  // Ensures no extra whitespace text node
-  // prettier-ignore
-  return html`
-    <div role="textbox" tabindex="0" class="${classes}" aria-label="${assistiveText}"><code><pre>${children}</pre></code></div>
-  `;
-};
 
 /**
  * Basic code snippet.
@@ -101,6 +45,25 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
    * `true` to show the expando.
    */
   private _showExpando = false;
+
+  /**
+   * Determine whether the code text overflows the container.
+   */
+  protected _calculateOverflows() {
+    const { _codeContainerNode: container, _preNode: preNode } = this;
+    if (container && preNode) {
+      const { clientWidth: containerWidth, scrollLeft } = container;
+      const containerPadding = parseInt(
+        getComputedStyle(container).getPropertyValue('padding-inline-start')
+      );
+      const { clientWidth: codeWidth } = preNode;
+      const hasOverflow = codeWidth > containerWidth;
+      this.hasOverflowLeft = hasOverflow && Boolean(scrollLeft);
+      this.hasOverflowRight =
+        hasOverflow &&
+        codeWidth - scrollLeft > containerWidth - containerPadding;
+    }
+  }
 
   /**
    * Handles `click` event on the copy button.
@@ -155,7 +118,14 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
         this.requestUpdate();
       }
     }
+    this._calculateOverflows();
   }
+
+  /**
+   * The `<pre>` element's container in the shadow DOM.
+   */
+  @query(`.${prefix}--snippet-container`)
+  private _codeContainerNode!: HTMLElement;
 
   /**
    * The `<pre>` element in the shadow DOM.
@@ -206,6 +176,18 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
   expandButtonText = 'Show more';
 
   /**
+   * Whether or not the content is scrollable left.
+   */
+  @state()
+  hasOverflowLeft = false;
+
+  /**
+   * Whether or not the content is scrollable right.
+   */
+  @state()
+  hasOverflowRight = false;
+
+  /**
    * The type of code snippet.
    */
   @property({ reflect: true })
@@ -220,19 +202,78 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
     });
   }
 
+  /**
+   * Renders the code snippet.
+   */
+  protected _renderCode() {
+    const {
+      codeAssistiveText,
+      _expanded: expanded,
+      _handleSlotChange: handleSlotChange,
+      hasOverflowLeft,
+      hasOverflowRight,
+    } = this;
+
+    const classes = classMap({
+      [`${prefix}--snippet-container`]: true,
+      [`${prefix}-ce--snippet-container--expanded`]: Boolean(expanded),
+    });
+    // Ensures no extra whitespace text node
+    // prettier-ignore
+    return html`
+      ${hasOverflowLeft
+        ? html`<span class="${prefix}--snippet__overflow-indicator--left"></span>`
+        : ''}
+      <div
+        role="textbox"
+        tabindex="0"
+        class="${classes}"
+        aria-label="${codeAssistiveText}"
+        @scroll="${this._calculateOverflows}"
+      >
+        <code><pre><slot @slotchange="${handleSlotChange}"></slot></pre></code>
+      </div>
+      ${hasOverflowRight
+        ? html`<span class="${prefix}--snippet__overflow-indicator--right"></span>`
+        : ''}
+    `;
+  }
+
+  /**
+   * Renders the expando.
+   */
+  protected _renderExpando() {
+    const { collapseButtonText, _expanded: expanded, expandButtonText } = this;
+    return html`
+      <button
+        type="button"
+        class="${prefix}--snippet-btn--expand"
+        @click="${this._handleClickExpando}">
+        <span id="button-text" class="${prefix}--snippet-btn--text">
+          ${expanded
+            ? html`<slot name="collapse-button-text"
+                >${collapseButtonText}</slot
+              >`
+            : html`<slot name="expand-button-text">${expandButtonText}</slot>`}
+        </span>
+        ${ChevronDown16({
+          'aria-labeledby': 'button-text',
+          class: `${prefix}--icon-chevron--down ${prefix}--snippet__icon`,
+          role: 'img',
+        })}
+      </button>
+    `;
+  }
+
   render() {
     const {
       codeAssistiveText,
-      collapseButtonText,
       copyButtonAssistiveText,
       copyButtonFeedbackText,
-      expandButtonText,
       type,
-      _expanded: expanded,
       _showCopyButtonFeedback: showCopyButtonFeedback,
       _showExpando: showExpando,
       _handleClickCopyButton: handleClickCopyButton,
-      _handleClickExpando: handleClickExpando,
       _handleSlotChange: handleSlotChange,
     } = this;
 
@@ -240,11 +281,7 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
       // Ensures no extra whitespace text node
       // prettier-ignore
       return html`
-        ${renderCode({
-          assistiveText: codeAssistiveText,
-          expanded,
-          children: html`<slot @slotchange="${handleSlotChange}"></slot>`,
-        })}
+        ${this._renderCode()}
         ${renderCopyButton({
           assistiveText: copyButtonAssistiveText,
           feedbackText: copyButtonFeedbackText,
@@ -259,11 +296,7 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
       // Ensures no extra whitespace text node
       // prettier-ignore
       return html`
-        ${renderCode({
-          assistiveText: codeAssistiveText,
-          expanded,
-          children: html`<slot @slotchange="${handleSlotChange}"></slot>`,
-        })}
+        ${this._renderCode()}
         ${renderCopyButton({
           assistiveText: copyButtonAssistiveText,
           feedbackText: copyButtonFeedbackText,
@@ -273,12 +306,7 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
         })}
         ${!showExpando
           ? undefined
-          : renderExpando({
-              children: expanded
-                ? html`<slot name="collapse-button-text">${collapseButtonText}</slot>`
-                : html`<slot name="expand-button-text">${expandButtonText}</slot>`,
-              handleClick: handleClickExpando,
-            })}
+          : this._renderExpando()}
       `;
     }
 
@@ -291,7 +319,11 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
         showFeedback: showCopyButtonFeedback,
         handleClickButton: handleClickCopyButton,
         className: `${prefix}--snippet ${prefix}--snippet--inline`,
-        children: html`<code aria-label="${codeAssistiveText}"><slot></slot></code>`,
+        children: html`
+          <code aria-label="${codeAssistiveText}">
+            <slot @slotchange="${handleSlotChange}"></slot>
+          </code>
+        `,
       })}
     `;
   }
