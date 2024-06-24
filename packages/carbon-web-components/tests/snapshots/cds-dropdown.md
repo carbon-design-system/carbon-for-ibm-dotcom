@@ -7,25 +7,25 @@
 ```
 <label
   class="cds--label"
+  for="trigger-button"
   hidden=""
+  id="dropdown-label"
   part="title-text"
 >
   <slot name="title-text">
   </slot>
 </label>
-<div
-  class="cds--dropdown cds--list-box cds--list-box--md"
-  role="listbox"
->
+<div class="cds--dropdown cds--list-box cds--list-box--md">
   <div
+    aria-activedescendant=""
     aria-controls="menu-body"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="trigger-label"
-    aria-owns="menu-body"
+    aria-labelledby="dropdown-label"
     class="cds--list-box__field"
+    id="trigger-button"
     part="trigger-button"
-    role="button"
+    role="combobox"
     tabindex="0"
   >
     <span
@@ -39,8 +39,23 @@
     >
     </div>
   </div>
-  <slot name="slug">
+  <slot
+    class="cds--slug--revert"
+    name="slug"
+  >
   </slot>
+  <div
+    aria-labelledby="dropdown-label"
+    class="cds--list-box__menu"
+    hidden=""
+    id="menu-body"
+    part="menu-body"
+    role="listbox"
+    tabindex="-1"
+  >
+    <slot>
+    </slot>
+  </div>
 </div>
 <div
   class="cds--form__helper-text"
@@ -50,13 +65,6 @@
   <slot name="helper-text">
   </slot>
 </div>
-<div
-  aria-live="assertive"
-  aria-relevant="additions text"
-  class="cds--assistive-text"
-  role="status"
->
-</div>
 
 ```
 
@@ -65,25 +73,25 @@
 ```
 <label
   class="cds--label cds--label--disabled"
+  for="trigger-button"
   hidden=""
+  id="dropdown-label"
   part="title-text"
 >
   <slot name="title-text">
   </slot>
 </label>
-<div
-  class="cds--dropdown cds--list-box cds--list-box--disabled cds--list-box--expanded cds--list-box--md"
-  role="listbox"
->
+<div class="cds--dropdown cds--list-box cds--list-box--disabled cds--list-box--expanded cds--list-box--md">
   <div
+    aria-activedescendant="cds-dropdown-item-6"
     aria-controls="menu-body"
     aria-expanded="true"
     aria-haspopup="listbox"
-    aria-labelledby="trigger-label"
-    aria-owns="menu-body"
+    aria-labelledby="dropdown-label"
     class="cds--list-box__field"
+    id="trigger-button"
     part="trigger-button"
-    role="button"
+    role="combobox"
     tabindex="0"
   >
     <span
@@ -97,10 +105,13 @@
     >
     </div>
   </div>
-  <slot name="slug">
+  <slot
+    class="cds--slug--revert"
+    name="slug"
+  >
   </slot>
   <div
-    aria-label=""
+    aria-labelledby="dropdown-label"
     class="cds--list-box__menu"
     id="menu-body"
     part="menu-body"
@@ -118,13 +129,6 @@
   <slot name="helper-text">
     helper-text-foo
   </slot>
-</div>
-<div
-  aria-live="assertive"
-  aria-relevant="additions text"
-  class="cds--assistive-text"
-  role="status"
->
 </div>
 
 ```
