@@ -70,8 +70,14 @@ const ctaTypeOptions = {
   'Button group': 'buttonGroup',
 };
 
-const contentItemTextCTA = ({ heading, copy, links }) => html`
+const contentItemTextCTA = (
+  { heading, copy, links, statistic },
+  options
+) => html`
   <dds-cta-block-item>
+    ${options.showStatistics
+      ? html` <div slot="statistics">${statistic}</div> `
+      : ''}
     <dds-content-item-heading>${heading}</dds-content-item-heading>
     <dds-content-item-copy>${copy}</dds-content-item-copy>
     ${links.map(
@@ -89,10 +95,10 @@ const contentItemTextCTA = ({ heading, copy, links }) => html`
   </dds-cta-block-item>
 `;
 
-const renderItems = (item, count) => {
+const renderItems = (item, count, options = {}) => {
   return html`
     <dds-cta-block-item-row no-border>
-      ${count.map((_, index) => item({ ...content[index] }))}
+      ${count.map((_, index) => item({ ...content[index] }, options))}
     </dds-cta-block-item-row>
   `;
 };
@@ -120,7 +126,8 @@ export const Default = (args) => {
 
 export const WithContentItems = (args) => {
   const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
-  const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
+  const { contentItemType, contentItemCount, showStatistics } =
+    args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   const headingComponent = document.querySelector('dds-content-block-heading');
@@ -136,7 +143,7 @@ export const WithContentItems = (args) => {
       >
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
       ${renderCTA[cta](renderIcon, target)}
-      ${renderItems(contentItemType, contentItemCount)}
+      ${renderItems(contentItemType, contentItemCount, { showStatistics })}
     </dds-cta-block>
   `;
 };
@@ -150,6 +157,7 @@ WithContentItems.story = {
         contentItemCount: Array.from({
           length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
+        showStatistics: boolean('Show statistics?', false),
       }),
     },
     propsSet: {
@@ -157,6 +165,7 @@ WithContentItems.story = {
         WithContentItems: {
           contentItemType: contentItemTextCTA,
           contentItemCount: Array(3),
+          showStatistics: false,
         },
       },
     },

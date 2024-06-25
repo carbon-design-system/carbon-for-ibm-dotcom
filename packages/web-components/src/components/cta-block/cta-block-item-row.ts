@@ -35,6 +35,11 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(
   _noBorder = false;
 
   /**
+   * Array to hold the statistics elements within child items.
+   */
+  private _childItemStatistics: any[] = [];
+
+  /**
    * Array to hold the card-heading elements within child items.
    */
   private _childItemHeadings: any[] = [];
@@ -78,6 +83,13 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(
   private _setSameHeight = () => {
     window.requestAnimationFrame(() => {
       sameHeight(
+        this._childItemStatistics.filter((e) => {
+          return e;
+        }),
+        'md'
+      );
+
+      sameHeight(
         this._childItemHeadings.filter((e) => {
           return e;
         }),
@@ -106,8 +118,12 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(
    */
   protected _handleSlotChange(event: Event) {
     const { target } = event;
-    const { selectorItem, selectorItemHeading, selectorItemCopy } = this
-      .constructor as typeof DDSCTABlockItemRow;
+    const {
+      selectorItem,
+      selectorItemStatistic,
+      selectorItemHeading,
+      selectorItemCopy,
+    } = this.constructor as typeof DDSCTABlockItemRow;
 
     const childItems = (target as HTMLSlotElement)
       .assignedNodes()
@@ -115,6 +131,9 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(
 
     if (childItems) {
       childItems.forEach((e) => {
+        this._childItemStatistics.push(
+          (e as HTMLElement).querySelector(selectorItemStatistic)
+        );
         this._childItemHeadings.push(
           (e as HTMLElement).querySelector(selectorItemHeading)
         );
@@ -163,21 +182,28 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(
   }
 
   /**
-   * A selector that will return the CTA Section item
+   * A selector that will return the CTA Block Item
    */
   static get selectorItem() {
     return `${ddsPrefix}-cta-block-item`;
   }
 
   /**
-   * A selector that will return the CTA Section item's heading
+   * A selector that will return the CTA Block Item's statistic
+   */
+  static get selectorItemStatistic() {
+    return `[slot="statistics"]`;
+  }
+
+  /**
+   * A selector that will return the CTA Block Item's heading
    */
   static get selectorItemHeading() {
     return `${ddsPrefix}-content-item-heading`;
   }
 
   /**
-   * A selector that will return the CTA Section item's copy
+   * A selector that will return the CTA Block Item's copy
    */
   static get selectorItemCopy() {
     return `${ddsPrefix}-content-item-copy`;

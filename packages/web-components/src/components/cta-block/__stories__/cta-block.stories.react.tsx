@@ -76,8 +76,9 @@ const ctaTypeOptions = {
   'Button group': 'buttonGroup',
 };
 
-const contentItemTextCTA = ({ heading, copy, links }) => (
+const contentItemTextCTA = ({ heading, copy, links, statistic }, options) => (
   <DDSCTABlockItem>
+    {options.showStatistics ? <div slot="statistics">{statistic}</div> : ''}
     <DDSContentItemHeading>{heading}</DDSContentItemHeading>
     <DDSContentItemCopy>{copy}</DDSContentItemCopy>
     {links.map(elem => (
@@ -88,8 +89,8 @@ const contentItemTextCTA = ({ heading, copy, links }) => (
   </DDSCTABlockItem>
 );
 
-const renderItems = (item, count) => (
-  <DDSCTABlockItemRow no-border>{count.map((_, index) => item({ ...content[index] }))}</DDSCTABlockItemRow>
+const renderItems = (item, count, options = {}) => (
+  <DDSCTABlockItemRow no-border>{count.map((_, index) => item({ ...content[index] }, options))}</DDSCTABlockItemRow>
 );
 
 export const Default = args => {
@@ -113,7 +114,7 @@ export const Default = args => {
 
 export const WithContentItems = args => {
   const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
-  const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
+  const { contentItemType, contentItemCount, showStatistics } = args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   const headingComponent = document.querySelector('dds-content-block-heading');
@@ -127,7 +128,7 @@ export const WithContentItems = args => {
       <DDSContentBlockHeading>{heading || null}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{copy || null}</DDSContentBlockCopy>
       {renderCTA[cta](renderIcon, target)}
-      {renderItems(contentItemType, contentItemCount)}
+      {renderItems(contentItemType, contentItemCount, { showStatistics })}
     </DDSCTABlock>
   );
 };
@@ -141,6 +142,7 @@ WithContentItems.story = {
         contentItemCount: Array.from({
           length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
+        showStatistics: boolean('Show statistic?', false),
       }),
     },
   },

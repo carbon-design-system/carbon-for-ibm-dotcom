@@ -9,6 +9,7 @@
 
 const content = [
   {
+    statistic: '18%',
     heading: 'Lorem ipsum dolor sit amet',
     copy: 'Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     links: [
@@ -19,6 +20,7 @@ const content = [
     ],
   },
   {
+    statistic: 'USD 1 Trillion',
     heading: 'liquet nec ullamcorper sit amet risus',
     copy: 'Sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus.',
     links: [
@@ -33,6 +35,7 @@ const content = [
     ],
   },
   {
+    statistic: '33%',
     heading: 'Amet consectetur adipiscing elit ut aliquam purus',
     copy: 'Faucibus purus in massa tempor. Nibh ipsum consequat nisl vel pretium lectus.',
     links: [
@@ -43,6 +46,7 @@ const content = [
     ],
   },
   {
+    statistic: '71%',
     heading: 'In hac habitasse platea dictumst quisque sagittis',
     copy: 'Erat imperdiet sed euismod nisi porta. Amet venenatis urna cursus.s',
     links: [
@@ -53,6 +57,7 @@ const content = [
     ],
   },
   {
+    statistic: '94%',
     heading: 'Tellus integer feugiat scelerisque varius morbi',
     copy: 'Arcu felis bibendum ut tristique et egestas quis ipsum suspendisse.',
     links: [
@@ -63,6 +68,7 @@ const content = [
     ],
   },
   {
+    statistic: '50%',
     heading: 'Risus quis varius quam quisque id',
     copy: 'Eu feugiat pretium nibh ipsum consequat nisl.',
     links: [
