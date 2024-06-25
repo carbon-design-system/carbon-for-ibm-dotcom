@@ -14,7 +14,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 
 const renderItem = () => {
   return html`
-    <div class="${prefix}--breadcrumb-item">
+    <div class="${prefix}--breadcrumb-item" part="item">
       <span class="${prefix}--link">&nbsp;</span>
     </div>
   `;
@@ -27,7 +27,7 @@ const renderItem = () => {
 class CDSBreadcrumbSkeleton extends LitElement {
   render() {
     return html`
-      <div class="${prefix}--breadcrumb ${prefix}--skeleton">
+      <div class="${prefix}--breadcrumb ${prefix}--skeleton" part="skeleton">
         ${renderItem()} ${renderItem()} ${renderItem()}
       </div>
     `;

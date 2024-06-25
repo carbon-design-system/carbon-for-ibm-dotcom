@@ -18,12 +18,13 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Overflow menu in breadcrumb.
  *
  * @element cds-breadcrumb-overflow-menu
+ * @csspart icon - The icon. Usage: `cds-breadcrumb-overflow-menu::part(icon)`
  */
 @customElement(`${prefix}-breadcrumb-overflow-menu`)
 class CDSBreadcrumbOverflowMenu extends CDSOverflowMenu {
   render() {
     return html`
-      <slot name="icon">
+      <slot name="icon" part="icon">
         ${OverflowMenuHorizontal16({
           class: `${prefix}--overflow-menu__icon`,
         })}
