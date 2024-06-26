@@ -32,7 +32,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @csspart title - The title. Usage: `cds-side-nav-menu::part(title)`
  * @csspart title-icon-container - The title icon container. Usage: `cds-side-nav-menu::part(title-icon-container)`
  * @csspart menu-body - The menu body. Usage: `cds-side-nav-menu::part(menu-body)`
- */cds-side-nav-menu
+ */ cds - side - nav - menu;
 @customElement(`${prefix}-side-nav-menu`)
 class CDSSideNavMenu extends FocusMixin(LitElement) {
   /**
