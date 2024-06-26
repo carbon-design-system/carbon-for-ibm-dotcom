@@ -18,6 +18,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * AI skeleton text.
  *
  * @element cds-ai-skeleton-text
+ * @csspart text - The text. Usage `cds-ai-skeleton-text::part(text)`
  */
 @customElement(`${prefix}-ai-skeleton-text`)
 class CDSAISkeletonText extends LitElement {
@@ -52,7 +53,8 @@ class CDSAISkeletonText extends LitElement {
       width="${width}"
       linecount="${lineCount}"
       ?paragraph="${paragraph}"
-      optional-classes="${prefix}--skeleton__text--ai"></cds-skeleton-text>`;
+      optional-classes="${prefix}--skeleton__text--ai"
+      part="text"></cds-skeleton-text>`;
   }
 
   static styles = styles;
