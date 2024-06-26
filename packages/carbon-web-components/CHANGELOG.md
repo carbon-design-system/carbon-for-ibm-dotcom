@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.41.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.40.0...@carbon/web-components@1.41.0-rc.0) (2024-06-26)
+
+
+### Bug Fixes
+
+* **code-snippet:** improve copy button overlay presentation ([#11878](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11878)) ([3d008f8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3d008f8c7a41e224c13a95b90c36c76da7e793ef)), closes [#11872](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11872)
+
+
+
+
+
 # [1.40.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.40.0-rc.0...@carbon/web-components@1.40.0) (2024-05-15)
 
 **Note:** Version bump only for package @carbon/web-components

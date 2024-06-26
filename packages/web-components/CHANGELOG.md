@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.45.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.44.0...@carbon/ibmdotcom-web-components@1.45.0-rc.0) (2024-06-26)
+
+
+### Bug Fixes
+
+* **cta-block-item-row:** set statistics same height ([#11895](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11895)) ([d8ec935](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d8ec9359267803fb12e877d5700d24b92da70c63))
+* **tabs-extended:** prevent stealing focus on page load ([#11882](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11882)) ([5e63504](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5e63504d20037747267dc366cde207a6a1b04ff6))
+
+
+
+
+
 # [1.44.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.44.0-rc.1...@carbon/ibmdotcom-web-components@1.44.0) (2024-05-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
