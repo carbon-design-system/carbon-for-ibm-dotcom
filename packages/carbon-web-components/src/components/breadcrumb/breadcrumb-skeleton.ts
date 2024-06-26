@@ -22,6 +22,9 @@ const renderItem = () => {
 
 /**
  * Skeleton of breadcrumb.
+ * @element cds-breadcrumb-skeleton
+ * @csspart skeleton - The breadcrumb skeleton. Usage: `cds-breadcrumb-skeleton::part(skeleton)`
+ * @csspart item - The items. Usage: `cds-breadcrumb-skeleton::part(item)`
  */
 @customElement(`${prefix}-breadcrumb-skeleton`)
 class CDSBreadcrumbSkeleton extends LitElement {
