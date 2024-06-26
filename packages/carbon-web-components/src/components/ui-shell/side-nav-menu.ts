@@ -26,13 +26,13 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @fires cds-side-nav-menu-toggled
  *   The name of the custom event fired after this side nav menu is toggled upon a user gesture.
  * @slot title-icon - The icon.
- * @csspart expando The expando.
- * @csspart expando-icon-container The expando icon container.
- * @csspart expando-icon The expando icon.
- * @csspart title The title.
- * @csspart title-icon-container The title icon container.
- * @csspart menu-body The menu body.
- */
+ * @csspart expando - The expando. Usage: `cds-side-nav-menu::part(expando)`
+ * @csspart expando-icon-container - The expando icon container. Usage: `cds-side-nav-menu::part(expando-icon-container)`
+ * @csspart expando-icon - The expando icon. Usage: `cds-side-nav-menu::part(expando-icon)`
+ * @csspart title - The title. Usage: `cds-side-nav-menu::part(title)`
+ * @csspart title-icon-container - The title icon container. Usage: `cds-side-nav-menu::part(title-icon-container)`
+ * @csspart menu-body - The menu body. Usage: `cds-side-nav-menu::part(menu-body)`
+ */cds-side-nav-menu
 @customElement(`${prefix}-side-nav-menu`)
 class CDSSideNavMenu extends FocusMixin(LitElement) {
   /**
