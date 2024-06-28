@@ -28,7 +28,6 @@
   justify-content: center;
 
   outline: none;
-
   .#{$prefix}--popover-caret {
     background-color: $background-inverse;
   }
@@ -42,5 +41,13 @@
     @include declaration('popover-background-color', $background-inverse);
 
     @include declaration('popover-text-color', $text-inverse);
+  }
+}
+
+:host(#{$prefix}-toggletip) {
+  slot[name='icon'] {
+    color: var(--cds-icon-secondary, #525252);
+    display: inline-block;
+    height: 16px;
   }
 }
