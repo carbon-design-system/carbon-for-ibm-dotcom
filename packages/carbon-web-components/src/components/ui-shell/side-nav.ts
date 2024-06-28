@@ -29,7 +29,7 @@ export { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE };
  * @element cds-side-nav
  * @fires cds-header-menu-button-toggled
  * @csspart overlay - The overlay. Usage: `cds-side-nav::part(overlay)`
- * @csspart Wrapper - The side nav wrapper. Usage: `cds-side-nav::part(wrapper)`
+ * @csspart wrapper - The side nav wrapper. Usage: `cds-side-nav::part(wrapper)`
  *   The name of the custom event fired after the header menu button in the document is toggled upon a user gesture.
  */
 @customElement(`${prefix}-side-nav`)
