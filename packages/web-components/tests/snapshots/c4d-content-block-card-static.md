@@ -20,9 +20,7 @@
   </c4d-card-group>
   <c4d-content-item data-autoid="c4d--content-item">
     <c4d-content-item-heading
-      aria-level="4"
       data-autoid="c4d--content-item__heading"
-      role="heading"
       slot="heading"
     >
     </c4d-content-item-heading>
@@ -116,9 +114,7 @@
   </c4d-card-group>
   <c4d-content-item data-autoid="c4d--content-item">
     <c4d-content-item-heading
-      aria-level="4"
       data-autoid="c4d--content-item__heading"
-      role="heading"
       slot="heading"
     >
       Lorem ipsum

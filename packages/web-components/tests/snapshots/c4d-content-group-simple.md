@@ -19,6 +19,8 @@
     <slot>
     </slot>
     <div
+      class="false"
+      grid-mode=""
       hidden=""
       style=""
     >
@@ -35,7 +37,7 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--content-layout">
+<div class="cds--content-layout cds--content-layout--with-footer">
   <slot name="heading">
   </slot>
   <div class="cds--content-layout__body">
@@ -45,7 +47,11 @@
     </slot>
     <slot>
     </slot>
-    <div style="">
+    <div
+      class="c4d--content-block-footer"
+      grid-mode=""
+      style=""
+    >
       <slot name="footer">
       </slot>
     </div>

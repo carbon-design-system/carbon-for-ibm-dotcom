@@ -19,6 +19,8 @@
     <slot name="media">
     </slot>
     <div
+      class="false"
+      grid-mode=""
       hidden=""
       style=""
     >
@@ -49,6 +51,8 @@
     <slot name="media">
     </slot>
     <div
+      class="false"
+      grid-mode=""
       hidden=""
       style=""
     >

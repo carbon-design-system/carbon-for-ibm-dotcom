@@ -22,6 +22,8 @@
       </slot>
     </div>
     <div
+      class="false"
+      grid-mode=""
       hidden=""
       style=""
     >
