@@ -51,9 +51,7 @@
       }
 
       ::slotted(#{$c4d-prefix}-image),
-      ::slotted(#{$c4d-prefix}-card-cta-image),
-      .#{$prefix}--card__img,
-      .#{$prefix}--image {
+      ::slotted(#{$c4d-prefix}-card-cta-image) {
         z-index: -1;
       }
     }
@@ -65,8 +63,7 @@
       z-index: 2;
       text-decoration: none;
 
-      ::slotted(#{$c4d-prefix}-image),
-      .#{$prefix}--image {
+      ::slotted(#{$c4d-prefix}-image) {
         z-index: -1;
       }
     }
@@ -133,13 +130,6 @@
       inline-size: 100%;
     }
 
-    .#{$prefix}--card__heading {
-      @include type-style('fluid-heading-03', true);
-
-      margin-block-end: $spacing-10;
-    }
-
-    .#{$prefix}--card__heading,
     .#{$prefix}--card__copy {
       @include content-width;
 
@@ -150,10 +140,6 @@
       @include type-style('body-02');
 
       margin-block-end: $spacing-07;
-    }
-
-    .#{$prefix}--card__img {
-      transition: $duration-moderate-01 motion(standard, productive);
     }
 
     .#{$prefix}--card__link::after {
@@ -291,19 +277,6 @@
   :host(#{$c4d-prefix}-card[aspect-ratio='16:9']) .#{$prefix}--card__wrapper {
     @include ratio-base(16, 9, false);
   }
-  .#{$prefix}--card.#{$prefix}--card--light {
-    background-color: $layer-02;
-  }
-
-  .#{$prefix}--card--border {
-    border: 1px solid $layer-accent-01;
-  }
-
-  // FIXME: CardLink is being used as Card in React, need to separate this
-  .#{$prefix}--card__CTA.#{$prefix}--card__CardCTA .#{$prefix}--card__heading {
-    @include type-style('fluid-heading-03', true);
-  }
-
   // static card
 
   :host(#{$c4d-prefix}-card),
@@ -415,8 +388,7 @@
     outline: none;
   }
 
-  :host(#{$c4d-prefix}-card-eyebrow),
-  .#{$prefix}--card__eyebrow {
+  :host(#{$c4d-prefix}-card-eyebrow) {
     @include content-width;
     @include type-style('label-02');
 
@@ -483,11 +455,6 @@
       margin-inline-end: $spacing-03;
       max-inline-size: calc(100% - 20px - #{$spacing-03});
       @include type-style('body-02');
-    }
-
-    .#{$prefix}--card__footer__copy {
-      margin-block-end: -$spacing-01;
-      max-inline-size: calc(100% - 20px);
     }
 
     svg,
@@ -572,13 +539,8 @@
       background-color: $background-inverse-hover;
     }
 
-    .#{$prefix}--card__heading,
     .#{$prefix}--card__copy {
       color: $icon-inverse;
-    }
-
-    .#{$prefix}--card__eyebrow {
-      color: $text-placeholder;
     }
 
     &:focus-within {
@@ -655,13 +617,6 @@
     .#{$prefix}--card {
       border: 1px solid $layer-accent-01;
       background-color: $layer-02;
-
-      .#{$prefix}--card__img,
-      .#{$prefix}--card__image_img,
-      .#{$prefix}--image,
-      .#{$prefix}--card__video-thumbnail {
-        display: none;
-      }
     }
   }
 

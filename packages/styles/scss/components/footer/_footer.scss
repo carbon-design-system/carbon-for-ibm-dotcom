@@ -38,15 +38,6 @@
 
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
-    .#{$prefix}--modal-content {
-      .#{$prefix}--link {
-        &,
-        &:visited {
-          color: $icon-inverse;
-        }
-      }
-    }
-
     @include breakpoint-down(md) {
       ::slotted([slot='brand']) {
         margin-block-end: $spacing-09;
@@ -93,18 +84,6 @@
       }
     }
 
-    .#{$prefix}--language-selector__container {
-      padding: 0;
-    }
-
-    .#{$prefix}--locale-btn__container {
-      flex-basis: auto;
-
-      button {
-        border: none;
-      }
-    }
-
     .#{$prefix}--legal-nav {
       border-block-start: 0;
     }
@@ -144,18 +123,6 @@
 
   :host(#{$c4d-prefix}-legal-nav) {
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
-
-    .#{$prefix}--legal-nav__list {
-      .#{$prefix}--legal-nav__list-item {
-        .#{$prefix}--link {
-          color: $text-secondary;
-
-          &:hover {
-            color: $text-primary;
-          }
-        }
-      }
-    }
   }
 
   .#{$prefix}--footer__main {
@@ -168,8 +135,7 @@
 
     flex-direction: column;
 
-    :host(#{$c4d-prefix}-footer[size='short']) &,
-    .#{$prefix}--footer--short & {
+    :host(#{$c4d-prefix}-footer[size='short']) & {
       flex-direction: row;
     }
 
@@ -232,15 +198,6 @@
   :host(#{$c4d-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
     display: block;
     padding-block-start: 0;
-  }
-
-  :host(#{$c4d-prefix}-footer-nav-group) {
-    .#{$prefix}--accordion__heading {
-      align-items: center;
-      padding: 0;
-      border-block-start: 1px solid $border-subtle-01;
-      min-block-size: $spacing-09;
-    }
   }
 
   :host(#{$c4d-prefix}-footer-nav-group:last-of-type) {

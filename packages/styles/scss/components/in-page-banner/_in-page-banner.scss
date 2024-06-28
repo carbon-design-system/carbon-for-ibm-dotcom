@@ -24,8 +24,7 @@
     }
 
     ::slotted(#{$c4d-prefix}-content-group-heading),
-    .#{$prefix}--content-layout ::slotted([slot='heading']),
-    .#{$prefix}--content-group__title {
+    .#{$prefix}--content-layout ::slotted([slot='heading']) {
       margin-block-end: 0;
 
       @include breakpoint(md) {
@@ -38,8 +37,7 @@
     }
 
     ::slotted(#{$c4d-prefix}-link-list),
-    .#{$prefix}--content-layout ::slotted([slot='complementary']),
-    .#{$prefix}--link-list__list {
+    .#{$prefix}--content-layout ::slotted([slot='complementary']) {
       position: relative;
       grid-area: auto;
       margin-block: $spacing-07 0;

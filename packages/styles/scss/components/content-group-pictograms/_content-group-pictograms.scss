@@ -25,15 +25,5 @@
 
   div.#{$prefix}--content-group-pictograms {
     padding-inline: 0;
-
-    .#{$prefix}--content-group__title {
-      padding-inline: $spacing-05;
-    }
-  }
-
-  .#{$prefix}--content-group-pictograms__item:last-child {
-    .#{$prefix}--content-item {
-      margin-block-end: 0;
-    }
   }
 }
