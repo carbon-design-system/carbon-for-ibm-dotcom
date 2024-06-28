@@ -82,6 +82,16 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
    * `true` if dragging of thumb is in progress.
    */
   private _dragging = false;
+  /**
+   * `true` if dragging of thumb upper is in progress.
+   */
+  private _draggingUpper = false;
+
+  /**
+   * The Upper value.
+   */
+  @property({ type: Number, attribute: 'value-upper' })
+  valueUpper;
 
   /**
    * The rate of the thumb position in the track.
@@ -106,12 +116,40 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       ) *
         Number(step);
   }
+  /**
+   * The rate of the upper thumb position in the track.
+   * When we try to set a new value for upper input, we adjust the value considering `step` property.
+   */
+  private get _rateUpper() {
+    const { max, min, valueUpper } = this;
+    // Copes with out-of-range value coming programmatically or from `<cds-slider-input>`
+    return (
+      (Math.min(Number(max), Math.max(Number(min), valueUpper)) - Number(min)) /
+      (Number(max) - Number(min))
+    );
+  }
+
+  private set _rateUpper(rateUpper: number) {
+    const { max, min, step } = this;
+    this.valueUpper =
+      Number(min) +
+      Math.round(
+        ((Number(max) - Number(min)) * Math.min(1, Math.max(0, rateUpper))) /
+          Number(step)
+      ) *
+        Number(step);
+  }
 
   /**
    * The DOM element of the thumb.
    */
   @query('#thumb')
   private _thumbNode!: HTMLDivElement;
+  /**
+   * The DOM element of the thumb upper.
+   */
+  @query('#thumb-upper')
+  private _thumbNodeUpper!: HTMLDivElement;
 
   /**
    * The DOM element of the track.
@@ -137,7 +175,9 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   /**
    * Handles `keydown` event on the thumb to increase/decrease the value.
    */
-  private _handleKeydown({ key, shiftKey }: KeyboardEvent) {
+  private _handleKeydown(event: KeyboardEvent) {
+    const eventContainer = (event.target as HTMLElement).id;
+    const { key, shiftKey } = event;
     if (!this.disabled) {
       if (key in THUMB_DIRECTION) {
         const {
@@ -146,6 +186,7 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           step: rawStep,
           stepMultiplier: rawstepMultiplier,
           value,
+          valueUpper,
         } = this;
         const max = Number(rawMax);
         const min = Number(rawMin);
@@ -154,25 +195,58 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
         const diff =
           (!shiftKey ? step : (max - min) / stepMultiplier) *
           THUMB_DIRECTION[key];
-        const stepCount = (value + diff) / step;
         // Snaps to next
-        this.value = Math.min(
-          max,
-          Math.max(
-            min,
-            (diff >= 0 ? Math.floor(stepCount) : Math.ceil(stepCount)) * step
-          )
-        );
-        this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
-            bubbles: true,
-            composed: true,
-            detail: {
-              value: this.value,
-              intermediate: false,
-            },
-          })
-        );
+        if (eventContainer == 'thumb-upper') {
+          const stepCount = (valueUpper + diff) / step;
+          const position = Math.min(
+            max,
+            Math.max(
+              min,
+              (diff >= 0 ? Math.floor(stepCount) : Math.ceil(stepCount)) * step
+            )
+          );
+          if (position >= this.value) {
+            this.valueUpper = position;
+          }
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.valueUpper,
+                  intermediate: false,
+                },
+              }
+            )
+          );
+        } else {
+          const stepCount = (value + diff) / step;
+          const position = Math.min(
+            max,
+            Math.max(
+              min,
+              (diff >= 0 ? Math.floor(stepCount) : Math.ceil(stepCount)) * step
+            )
+          );
+          if (!this.valueUpper || position <= this.valueUpper) {
+            this.value = position;
+          }
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.value,
+                  intermediate: false,
+                },
+              }
+            )
+          );
+        }
       }
     }
   }
@@ -180,15 +254,42 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   /**
    * Handles `pointerdown` event on the thumb to start dragging.
    */
-  private _startDrag() {
-    this._dragging = true;
-    this._thumbNode.style.touchAction = 'none';
+  private _startDrag(event: PointerEvent) {
+    let eventContainer = (event.target as HTMLElement).id;
+    if (!eventContainer) {
+      const element = (event.target as HTMLInputElement).nodeName;
+      if (element == 'path' || element == 'svg') {
+        eventContainer = (
+          (
+            (event.target as HTMLInputElement).parentElement as HTMLElement
+          ).closest('.cds--slider__thumb-wrapper') as HTMLInputElement
+        ).id;
+      }
+    }
+    if (eventContainer === 'thumb') {
+      this._dragging = true;
+      this._thumbNode.style.touchAction = 'none';
+    } else {
+      this._draggingUpper = true;
+      this._thumbNodeUpper.style.touchAction = 'none';
+    }
   }
 
   /**
    * Handles `pointerdown` event on the track to update the thumb position and the value as necessary.
    */
   private _handleClick(event: PointerEvent) {
+    let eventContainer = (event.target as HTMLInputElement).id;
+    if (!eventContainer) {
+      const element = (event.target as HTMLInputElement).nodeName;
+      if (element == 'path' || element == 'svg') {
+        eventContainer = (
+          (
+            (event.target as HTMLInputElement).parentElement as HTMLElement
+          ).closest('.cds--slider__thumb-wrapper') as HTMLInputElement
+        ).id;
+      }
+    }
     if (!this.disabled) {
       const { _trackNode: trackNode } = this;
       const isRtl =
@@ -198,19 +299,80 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       const thumbPosition = event.clientX;
       const { left: trackLeft, width: trackWidth } =
         trackNode.getBoundingClientRect();
-      this._rate =
-        (isRtl
-          ? trackLeft + trackWidth - thumbPosition
-          : thumbPosition - trackLeft) / trackWidth;
-      this.dispatchEvent(
-        new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
-          bubbles: true,
-          composed: true,
-          detail: {
-            value: this.value,
-          },
-        })
-      );
+      if (eventContainer === 'thumb-upper') {
+        this._rateUpper =
+          (isRtl
+            ? trackLeft + trackWidth - thumbPosition
+            : thumbPosition - trackLeft) / trackWidth;
+        this.dispatchEvent(
+          new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
+            bubbles: true,
+            composed: true,
+            detail: {
+              value: this.valueUpper,
+            },
+          })
+        );
+      } else {
+        if (!this.valueUpper) {
+          this._rate =
+            (isRtl
+              ? trackLeft + trackWidth - thumbPosition
+              : thumbPosition - trackLeft) / trackWidth;
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.value,
+                },
+              }
+            )
+          );
+        } else {
+          const position =
+            ((isRtl
+              ? trackLeft + trackWidth - thumbPosition
+              : thumbPosition - trackLeft) /
+              trackWidth) *
+            100;
+          const differenceValue =
+            position > this.value
+              ? position - this.value
+              : this.value - position;
+          const differenceValueUpper =
+            position > this.valueUpper
+              ? position - this.valueUpper
+              : this.valueUpper - position;
+          if (differenceValue > differenceValueUpper) {
+            this._rateUpper = position / 100;
+          } else if (differenceValue < differenceValueUpper) {
+            this._rate = position / 100;
+          } else if (
+            !this._dragging &&
+            !this._draggingUpper &&
+            differenceValue === differenceValueUpper
+          ) {
+            Math.round(position) > this.valueUpper
+              ? (this._rateUpper = position / 100)
+              : (this._rate = position / 100);
+          }
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.value,
+                },
+              }
+            )
+          );
+        }
+      }
     }
   }
 
@@ -222,8 +384,12 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   @HostListener('document:pointermove')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handlePointermove = (event: PointerEvent) => {
-    const { disabled, _dragging: dragging } = this;
-    if (!disabled && dragging) {
+    const {
+      disabled,
+      _dragging: dragging,
+      _draggingUpper: draggingUpper,
+    } = this;
+    if (!disabled && (dragging || draggingUpper)) {
       this._throttledHandlePointermoveImpl!(event);
     }
   };
@@ -234,8 +400,13 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
    * @param event The event.
    */
   private _handlePointermoveImpl(event: PointerEvent) {
-    const { disabled, _dragging: dragging, _trackNode: trackNode } = this;
-    if (!disabled && dragging) {
+    const {
+      disabled,
+      _dragging: dragging,
+      _trackNode: trackNode,
+      _draggingUpper: draggingUpper,
+    } = this;
+    if (!disabled) {
       const isRtl =
         trackNode
           .ownerDocument!.defaultView!.getComputedStyle(trackNode)
@@ -243,20 +414,49 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       const thumbPosition = event.clientX;
       const { left: trackLeft, width: trackWidth } =
         this._trackNode.getBoundingClientRect();
-      this._rate =
-        (isRtl
-          ? trackLeft + trackWidth - thumbPosition
-          : thumbPosition - trackLeft) / trackWidth;
-      this.dispatchEvent(
-        new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
-          bubbles: true,
-          composed: true,
-          detail: {
-            value: this.value,
-            intermediate: true,
-          },
-        })
-      );
+      if (dragging) {
+        const position =
+          (isRtl
+            ? trackLeft + trackWidth - thumbPosition
+            : thumbPosition - trackLeft) / trackWidth;
+        if (!this.valueUpper || position * 100 <= this.valueUpper) {
+          this._rate = position;
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.value,
+                  intermediate: true,
+                },
+              }
+            )
+          );
+        }
+      } else if (draggingUpper) {
+        const position =
+          (isRtl
+            ? trackLeft + trackWidth - thumbPosition
+            : thumbPosition - trackLeft) / trackWidth;
+        if (position * 100 >= this.value) {
+          this._rateUpper = position;
+          this.dispatchEvent(
+            new CustomEvent(
+              (this.constructor as typeof CDSSlider).eventChange,
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  value: this.valueUpper,
+                  intermediate: true,
+                },
+              }
+            )
+          );
+        }
+      }
     }
   }
 
@@ -276,6 +476,18 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       );
       this._dragging = false;
       this._thumbNode.style.touchAction = '';
+    } else if (this._draggingUpper) {
+      this.dispatchEvent(
+        new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
+          bubbles: true,
+          composed: true,
+          detail: {
+            value: this.valueUpper,
+          },
+        })
+      );
+      this._draggingUpper = false;
+      this._thumbNodeUpper.style.touchAction = '';
     }
   };
 
@@ -284,15 +496,22 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
    */
   @HostListener('eventChangeInput')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleChangeInput = ({ detail }: CustomEvent) => {
+  private _handleChangeInput = (event: CustomEvent) => {
+    const eventContainer = (event.target as HTMLElement).id;
+    const { detail } = event;
     const { intermediate, value } = detail;
-    this.value = value;
+    if (eventContainer === 'upper') {
+      this.valueUpper = value;
+    } else {
+      this.value = value;
+    }
+    const valueMain = eventContainer === 'upper' ? this.valueUpper : this.value;
     this.dispatchEvent(
       new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
         bubbles: true,
         composed: true,
         detail: {
-          value,
+          value: valueMain,
           intermediate,
         },
       })
@@ -483,55 +702,71 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   }
 
   shouldUpdate(changedProperties) {
-    const input = this.querySelector(
+    const inputs = this.querySelectorAll(
       (this.constructor as typeof CDSSlider).selectorInput
-    ) as CDSSliderInput;
-    if (changedProperties.has('disabled')) {
+    ) as NodeListOf<CDSSliderInput>;
+    inputs.forEach((input, index) => {
+      if (changedProperties.has('disabled')) {
+        if (input) {
+          input.disabled = this.disabled;
+        }
+        if (this.disabled) {
+          this._dragging = false;
+        }
+      }
+      if (changedProperties.has('readonly')) {
+        if (input) {
+          input.readonly = this.readonly;
+        }
+        if (this.readonly) {
+          this._dragging = false;
+        }
+      }
       if (input) {
-        input.disabled = this.disabled;
-      }
-      if (this.disabled) {
-        this._dragging = false;
-      }
-    }
-    if (changedProperties.has('readonly')) {
-      if (input) {
-        input.readonly = this.readonly;
-      }
-      if (this.readonly) {
-        this._dragging = false;
-      }
-    }
-    if (input) {
-      ['max', 'min', 'step', 'value'].forEach((name) => {
-        if (changedProperties.has(name)) {
-          input[name] = this[name];
-        }
-      });
-
-      if (
-        changedProperties.has('value') ||
-        changedProperties.has('invalid') ||
-        changedProperties.has('warn') ||
-        changedProperties.has('readonly')
-      ) {
-        const innerInput = input?.shadowRoot?.querySelector('input');
-
-        this.isValid = this._getInputValidity(innerInput);
-
-        if (!this.readonly && !this.isValid) {
-          input.invalid = true;
+        if (this.valueUpper && index > 0) {
+          ['max', 'min', 'step', 'valueUpper'].forEach((name) => {
+            if (name === 'valueUpper') {
+              input.value = this.valueUpper;
+            } else if (name === 'min') {
+              input[name] = this.value;
+            } else {
+              this[name];
+            }
+          });
         } else {
-          input.invalid = false;
+          ['max', 'min', 'step', 'value'].forEach((name) => {
+            if (this.valueUpper && name === 'max') {
+              input[name] = this.valueUpper;
+            } else {
+              input[name] = this[name];
+            }
+          });
         }
 
-        if (!this.readonly && !this.invalid && this.warn && this.isValid) {
-          input.warn = true;
-        } else {
-          input.warn = false;
+        if (
+          changedProperties.has('value') ||
+          changedProperties.has('invalid') ||
+          changedProperties.has('warn') ||
+          changedProperties.has('readonly')
+        ) {
+          const innerInput = input?.shadowRoot?.querySelector('input');
+
+          this.isValid = this._getInputValidity(innerInput);
+
+          if (!this.readonly && !this.isValid) {
+            input.invalid = true;
+          } else {
+            input.invalid = false;
+          }
+
+          if (!this.readonly && !this.invalid && this.warn && this.isValid) {
+            input.warn = true;
+          } else {
+            input.warn = false;
+          }
         }
       }
-    }
+    });
     return true;
   }
 
@@ -551,7 +786,9 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       warn,
       warnText,
       value,
+      valueUpper,
       _rate: rate,
+      _rateUpper: rateUpper,
       _handleClickLabel: handleClickLabel,
       _handleKeydown: handleKeydown,
       _handleClick: handleClick,
@@ -574,6 +811,7 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
         <slot name="label-text">${labelText}</slot>
       </label>
       <div class="${prefix}--slider-container">
+        ${valueUpper ? html` <slot name="lower-input"></slot>` : ''}
         <span class="${prefix}--slider__range-label">
           <slot name="min-text">${formatMinText(min, minLabel)}</slot>
         </span>
@@ -587,20 +825,98 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           role="presentation">
           <div
             id="thumb"
-            class="${prefix}--slider__thumb"
+            class="${valueUpper
+              ? `${prefix}--icon-tooltip ${prefix}--slider__thumb-wrapper ${prefix}--slider__thumb-wrapper--lower`
+              : `${prefix}--slider__thumb`}"
             role="slider"
             tabindex="${!readonly ? 0 : -1}"
             aria-valuemax="${max}"
             aria-valuemin="${min}"
             aria-valuenow="${value}"
             style="left: ${rate * 100}%"
-            @pointerdown="${startDrag}"></div>
-          <div id="track" class="${prefix}--slider__track"></div>
-          <div class="${prefix}-ce--slider__filled-track-container">
-            <div
-              class="${prefix}--slider__filled-track"
-              style="transform: translate(0%, -50%) scaleX(${rate})"></div>
+            @pointerdown="${startDrag}">
+            ${valueUpper
+              ? html`
+                  <div class="${prefix}--slider__thumb--lower">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 24"
+                      class="${prefix}--slider__thumb-icon ${prefix}--slider__thumb-icon--lower">
+                      <path
+                        d="M15.08 6.46H16v11.08h-.92zM4.46 17.54c-.25 0-.46-.21-.46-.46V6.92a.465.465 0 0 1 .69-.4l8.77 5.08a.46.46 0 0 1 0 .8l-8.77 5.08c-.07.04-.15.06-.23.06Z"></path>
+                      <path fill="none" d="M-4 0h24v24H-4z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 24"
+                      class="${prefix}--slider__thumb-icon ${prefix}--slider__thumb-icon--lower cds--slider__thumb-icon--focus">
+                      <path
+                        d="M15.08 6.46H16v11.08h-.92zM4.46 17.54c-.25 0-.46-.21-.46-.46V6.92a.465.465 0 0 1 .69-.4l8.77 5.08a.46.46 0 0 1 0 .8l-8.77 5.08c-.07.04-.15.06-.23.06Z"></path>
+                      <path fill="none" d="M-4 0h24v24H-4z"></path>
+                      <path d="M15.08 0H16v6.46h-.92z"></path>
+                      <path d="M0 0h.92v24H0zM15.08 0H16v24h-.92z"></path>
+                      <path d="M0 .92V0h16v.92zM0 24v-.92h16V24z"></path>
+                    </svg>
+                  </div>
+                `
+              : ``}
           </div>
+          ${valueUpper
+            ? html`
+                <div
+                  id="thumb-upper"
+                  class="${prefix}--icon-tooltip ${prefix}--slider__thumb-wrapper ${prefix}--slider__thumb-wrapper--upper"
+                  role="slider"
+                  tabindex="${!readonly ? 0 : -1}"
+                  aria-valuemax="${max}"
+                  aria-valuemin="${min}"
+                  aria-valuenow="${valueUpper}"
+                  style="left: ${rateUpper * 100}%"
+                  @pointerdown="${startDrag}">
+                  <div class="${prefix}--slider__thumb--upper">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 24"
+                      class="${prefix}--slider__thumb-icon ${prefix}--slider__thumb-icon--upper">
+                      <path
+                        d="M0 6.46h.92v11.08H0zM11.54 6.46c.25 0 .46.21.46.46v10.15a.465.465 0 0 1-.69.4L2.54 12.4a.46.46 0 0 1 0-.8l8.77-5.08c.07-.04.15-.06.23-.06Z"></path>
+                      <path fill="none" d="M-4 0h24v24H-4z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 24"
+                      class="${prefix}--slider__thumb-icon ${prefix}--slider__thumb-icon--upper cds--slider__thumb-icon--focus">
+                      <path
+                        d="M0 6.46h.92v11.08H0zM11.54 6.46c.25 0 .46.21.46.46v10.15a.465.465 0 0 1-.69.4L2.54 12.4a.46.46 0 0 1 0-.8l8.77-5.08c.07-.04.15-.06.23-.06Z"></path>
+                      <path fill="none" d="M-4 0h24v24H-4z"></path>
+                      <path d="M.92 24H0v-6.46h.92z"></path>
+                      <path d="M16 24h-.92V0H16zM.92 24H0V0h.92z"></path>
+                      <path d="M16 23.08V24H0v-.92zM16 0v.92H0V0z"></path>
+                    </svg>
+                  </div>
+                </div>
+              `
+            : html``}
+          <div id="track" class="${prefix}--slider__track"></div>
+          ${valueUpper
+            ? html`
+                <div
+                  class="${prefix}--slider__filled-track"
+                  style="transform: ${valueUpper
+                    ? `translate(${rate * 100}%, -50%) scaleX(${
+                        rateUpper - rate
+                      })`
+                    : `translate(0%, -50%) scaleX(${rate})`}"></div>
+              `
+            : html` <div class="${prefix}-ce--slider__filled-track-container">
+                <div
+                  class="${prefix}--slider__filled-track"
+                  style="transform: ${valueUpper
+                    ? `translate(${rate * 100}%, -50%) scaleX(${
+                        rateUpper - rate
+                      })`
+                    : `translate(0%, -50%) scaleX(${rate})`}"></div>
+              </div>`}
         </div>
         <span class="${prefix}--slider__range-label">
           <slot name="max-text">${formatMaxText(max, maxLabel)}</slot>
