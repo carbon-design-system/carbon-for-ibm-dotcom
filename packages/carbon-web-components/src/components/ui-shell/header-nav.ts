@@ -17,8 +17,8 @@ import styles from './header.scss';
  * Header.
  *
  * @element cds-header-nav
- * @csspart menu-body The menu body.
- * @csspart divider The divider.
+ * @csspart menu-body - The menu body. `cds-header-nav::part(menu-body)`
+ * @csspart divider - The divider. `cds-header-nav::part(divider)`
  */
 @customElement(`${prefix}-header-nav`)
 class CDSHeaderNav extends LitElement {

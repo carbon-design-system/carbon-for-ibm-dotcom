@@ -17,12 +17,14 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * AI skeleton placeholder.
  *
  * @element cds-ai-skeleton-placeholder
+ * @csspart placeholder - The placeholder. Usage `cds-ai-skeleton-placeholder::part(placeholder)`
  */
 @customElement(`${prefix}-ai-skeleton-placeholder`)
 class CDSAISkeletonPlaceholder extends LitElement {
   render() {
     return html`<cds-skeleton-placeholder
-      optional-classes="${prefix}--skeleton__placeholder--ai"></cds-skeleton-placeholder>`;
+      optional-classes="${prefix}--skeleton__placeholder--ai"
+      part="placeholder"></cds-skeleton-placeholder>`;
   }
 
   static styles = styles;

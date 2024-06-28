@@ -49,10 +49,10 @@ function findLastIndex<T>(
  * Masthead top nav.
  *
  * @element c4d-top-nav
- * @csspart nav The element containing the menu bar.
- * @csspart menubar The menu bar.
- * @csspart prev-button The button to go to the previous page.
- * @csspart next-button The button to go to the next page.
+ * @csspart nav - The element containing the menu bar. Usage: `c4d-top-nav::part(nav)`
+ * @csspart menubar - The menu bar. Usage: `c4d-top-nav::part(menubar)`
+ * @csspart prev-button - The button to go to the previous page. Usage: `c4d-top-nav::part(prev-button)`
+ * @csspart next-button - The button to go to the next page. Usage: `c4d-top-nav::part(next-button)`
  */
 @customElement(`${c4dPrefix}-top-nav`)
 class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {

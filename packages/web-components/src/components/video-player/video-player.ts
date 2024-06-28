@@ -35,6 +35,11 @@ const { stablePrefix: c4dPrefix } = settings;
  * Video player.
  *
  * @element c4d-video-player
+ * @csspart video - The video. Usage `c4d-video-player::part(video)`
+ * @csspart button - The play button. Usage `c4d-video-player::part(button)`
+ * @csspart image - The thumbnail image. Usage `c4d-video-player::part(image)`
+ * @csspart video-container - The video container. Usage `c4d-video-player::part(video-container)`
+ * @csspart caption - The caption. Usage `c4d-video-player::part(caption)`
  */
 @customElement(`${c4dPrefix}-video-player`)
 class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
@@ -77,11 +82,15 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
       !backgroundMode
       ? html`
-          <div class="${c4dPrefix}--video-player__video">
+          <div class="${c4dPrefix}--video-player__video" part="video">
             <button
               class="${c4dPrefix}--video-player__image-overlay"
+              part="button"
               @click="${this._handleClickOverlay}">
-              <c4d-image default-src="${thumbnailUrl}" alt="${ifDefined(name)}">
+              <c4d-image
+                default-src="${thumbnailUrl}"
+                alt="${ifDefined(name)}"
+                part="image">
                 ${PlayVideo()}
               </c4d-image>
             </button>
@@ -222,11 +231,15 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     });
 
     return html`
-      <div class="${aspectRatioClass}">${this._renderContent()}</div>
+      <div class="${aspectRatioClass}" part="video-container">
+        ${this._renderContent()}
+      </div>
       ${hideCaption
         ? undefined
         : html`
-            <div class="${c4dPrefix}--video-player__video-caption">
+            <div
+              class="${c4dPrefix}--video-player__video-caption"
+              part="caption">
               ${formatCaption({
                 duration: formatDuration({
                   duration: !duration ? duration : duration * 1000,

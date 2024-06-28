@@ -49,6 +49,7 @@ class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
     const { buttonLabel } = this;
     return html`
       <button
+        part="locale-button"
         id="button"
         class="${prefix}--btn ${prefix}--btn--tertiary ${c4dPrefix}--locale-btn"
         aria-label="${ifDefined(buttonLabel)}">

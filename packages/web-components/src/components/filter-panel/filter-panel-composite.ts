@@ -36,6 +36,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Filter panel composite
  *
  * @element c4d-filter-panel-composite
+ * @csspart panel-modal - The panel modal. Usage: `c4d-filter-panel::part(panel-modal)`
+ * @csspart button - The button. Usage: `c4d-filter-panel::part(button)`
+ * @csspart filter-panel - The filter panel. Usage: `c4d-filter-panel::part(filter-panel)`
  */
 @customElement(`${c4dPrefix}-filter-panel-composite`)
 class C4DFilterPanelComposite extends MediaQueryMixin(
@@ -415,6 +418,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
    */
   protected _renderModal = (): TemplateResult => html`
     <c4d-filter-panel-modal
+      part="panel-modal"
       ?open=${this.openFilterModal}
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
@@ -423,7 +427,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
   `;
 
   protected _renderMobile = (): TemplateResult => html`
-    <cds-button kind="tertiary" @click=${this._openModal}>
+    <cds-button part="button" kind="tertiary" @click=${this._openModal}>
       ${this._getComposedHeadingFilterCount()} ${Filter({ slot: 'icon' })}
     </cds-button>
 
@@ -435,6 +439,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
    */
   protected _renderDesktop = (): TemplateResult => html`
     <c4d-filter-panel
+      part="filter-panel"
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
       <slot @slotchange="${this._handleSlotChange}"></slot>

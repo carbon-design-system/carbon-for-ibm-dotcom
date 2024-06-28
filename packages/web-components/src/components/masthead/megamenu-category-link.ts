@@ -24,6 +24,8 @@ const { stablePrefix: c4dPrefix } = settings;
  * MegaMenu category sublink
  *
  * @element c4d-megamenu-category-link
+ * @csspart link-heading - The link heading. Usage: `c4d-megamenu-category-link::part(link-heading)`
+ * @csspart link-description - The link description. Usage: `c4d-megamenu-category-link::part(link-description)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-link`)
 class C4DMegaMenuCategoryLink extends CDSLink {

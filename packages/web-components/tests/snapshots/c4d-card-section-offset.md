@@ -7,7 +7,10 @@
 ```
 <slot name="image-top">
 </slot>
-<div class="cds--card-section-offset__content">
+<div
+  class="cds--card-section-offset__content"
+  part="content"
+>
   <slot name="heading">
   </slot>
   <slot name="action">
@@ -25,7 +28,10 @@
 ```
 <slot name="image-top">
 </slot>
-<div class="cds--card-section-offset__content">
+<div
+  class="cds--card-section-offset__content"
+  part="content"
+>
   <slot name="heading">
   </slot>
   <slot name="action">

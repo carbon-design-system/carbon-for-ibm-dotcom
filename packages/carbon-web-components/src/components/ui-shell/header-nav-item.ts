@@ -20,8 +20,8 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Header nav item.
  *
  * @element cds-header-nav-item
- * @csspart link The link.
- * @csspart title The title.
+ * @csspart link - The link. Usage `cds-header-nav-item::part(link)`
+ * @csspart title - The title. Usage `cds-header-nav-item::part(title)`
  */
 @customElement(`${prefix}-header-nav-item`)
 class CDSHeaderNavItem extends FocusMixin(LitElement) {

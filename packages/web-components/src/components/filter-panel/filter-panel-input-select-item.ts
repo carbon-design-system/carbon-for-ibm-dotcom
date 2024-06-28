@@ -22,6 +22,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The input select inner dropdown.
  *
  * @element c4d-filter-panel-input-select-item
+ * @csspart icon - The icon. `c4d-filter-panel-input-select-item::part(icon)`
  */
 @customElement(`${c4dPrefix}-filter-panel-input-select-item`)
 class C4DFilterPanelInputSelectItem extends FocusMixin(
@@ -85,7 +86,7 @@ class C4DFilterPanelInputSelectItem extends FocusMixin(
   render() {
     return html`
       <slot @slotchange=${this._handleSlotChange}></slot>
-      <div class="${prefix}--close__icon">
+      <div class="${prefix}--close__icon" part="icon">
         ${this.selected ? Close() : null}
       </div>
     `;

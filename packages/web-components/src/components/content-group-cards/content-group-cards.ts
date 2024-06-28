@@ -19,6 +19,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Content group cards.
  *
  * @element c4d-content-group-cards
+ * @csspart children - The Element container. Usage: `c4d-content-group-cards::part(children)`
+ * @csspart cards-group - The cards group grid. Usage: `c4d-content-group-cards::part(cards-group)`
+ * @csspart cards-row - The cards group row. Usage: `c4d-content-group-cards::part(cards-row)`
  */
 @customElement(`${c4dPrefix}-content-group-cards`)
 class C4DContentGroupCards extends C4DContentGroup {
@@ -26,11 +29,13 @@ class C4DContentGroupCards extends C4DContentGroup {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
       <div
+        part="children"
         ?hidden="${!hasContent && !hasMedia}"
         class="${prefix}--content-group__children ${prefix}--content-group__col">
         <div
+          part="cards-group"
           class="${prefix}--content-group-cards-group ${prefix}--grid--condensed">
-          <div class="${prefix}--content-group-cards__row">
+          <div part="cards-row" class="${prefix}--content-group-cards__row">
             ${this._renderContent()}${this._renderMedia()}
           </div>
         </div>
