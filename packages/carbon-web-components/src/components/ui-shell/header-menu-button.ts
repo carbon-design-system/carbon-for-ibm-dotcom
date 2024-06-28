@@ -23,8 +23,8 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * The trigger button for side nav in header nav.
  *
  * @element cds-header-menu-button
- * @csspart button The button.
- * @csspart toggle-icon The toggle icon.
+ * @csspart button - The button. Usage: `cds-header-menu-button::part(button)`
+ * @csspart toggle-icon - The toggle icon. Usage: `cds-header-menu-button::part(toggle-icon)`
  * @fires cds-header-menu-button-toggled - The custom event fired after this header menu button is toggled upon a user gesture.
  */
 @customElement(`${prefix}-header-menu-button`)
