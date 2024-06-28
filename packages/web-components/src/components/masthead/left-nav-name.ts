@@ -22,6 +22,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The brand name UI in left nav.
  *
  * @element c4d-left-nav-name
+ * @csspart side-nav-submenu - The side navigation submenu. Usage: `c4d-left-nav-name::part(side-nav-submenu)`
  */
 @customElement(`${c4dPrefix}-left-nav-name`)
 class C4DLeftNavName extends CDSHeaderName {
@@ -48,6 +49,7 @@ class C4DLeftNavName extends CDSHeaderName {
         `;
     return html`
       <a
+        part="side-nav-submenu"
         class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform"
         href="${ifDefined(href)}">
         ${namePrefixPart}

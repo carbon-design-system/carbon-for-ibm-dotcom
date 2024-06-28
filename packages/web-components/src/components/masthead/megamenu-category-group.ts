@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu category group
  *
  * @element c4d-megamenu-category-group
+ * @csspart masthead-megamenu-category-group-shield - The shield element of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-shield)`
+ * @csspart masthead-megamenu-category-group-content-wrapper - The content wrapper of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-content-wrapper)`
+ * @csspart masthead-megamenu-category-group-heading - The heading of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-heading)`
+ * @csspart masthead-megamenu-category-group-content - The content of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-content)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-group`)
 class C4DMegaMenuCategoryGroup extends LitElement {
@@ -37,13 +41,20 @@ class C4DMegaMenuCategoryGroup extends LitElement {
 
   render() {
     return html`
-      <div class="${prefix}--masthead__megamenu__category-group-shield">
+      <div
+        part="masthead-megamenu-category-group-shield"
+        class="${prefix}--masthead__megamenu__category-group-shield">
         <div
+          part="masthead-megamenu-category-group-content-wrapper"
           class="${prefix}--masthead__megamenu__category-group-content-wrapper">
-          <div class="${prefix}--masthead__megamenu__category-group-heading">
+          <div
+            part="masthead-megamenu-category-group-heading"
+            class="${prefix}--masthead__megamenu__category-group-heading">
             <slot name="heading"></slot>
           </div>
-          <div class="${prefix}--masthead__megamenu__category-group-content">
+          <div
+            part="masthead-megamenu-category-group-content"
+            class="${prefix}--masthead__megamenu__category-group-content">
             <slot></slot>
           </div>
         </div>

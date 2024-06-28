@@ -21,6 +21,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The brand name UI in top nav.
  *
  * @element c4d-top-nav-name
+ * @csspart header-name-prefix - The header name prefix. Usage: `c4d-top-nav-name::part(header-name-prefix)`
+ * @csspart header-name-link - The header name prefix. Usage: `c4d-top-nav-name::part(header-name-link)`
  */
 @customElement(`${c4dPrefix}-top-nav-name`)
 class C4DTopNavName extends C4DLeftNavName {
@@ -47,11 +49,17 @@ class C4DTopNavName extends C4DLeftNavName {
     const namePrefixPart = !namePrefix
       ? undefined
       : html`
-          <span class="${prefix}--header__name--prefix">${namePrefix}</span
+          <span
+            part="header-name-prefix"
+            class="${prefix}--header__name--prefix"
+            >${namePrefix}</span
           >&nbsp;
         `;
     return html`
-      <a class="${prefix}--header__name" href="${ifDefined(href)}"
+      <a
+        part="header-name-link"
+        class="${prefix}--header__name"
+        href="${ifDefined(href)}"
         >${namePrefixPart}<slot></slot
       ></a>
     `;

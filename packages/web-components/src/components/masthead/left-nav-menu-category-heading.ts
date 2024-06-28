@@ -21,6 +21,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu Category Group Description.
  *
  * @element c4d-megamenu-category-group-desc
+ * @csspart left-nav-menu-category-h2 - The h2 element of the left navigation menu category heading. Usage: `c4d-left-nav-menu-category-heading::part(left-nav-menu-category-h2)`
+ * @csspart left-nav-menu-category-link - The link element of the left navigation menu category heading. Usage: `c4d-left-nav-menu-category-heading::part(left-nav-menu-category-link)`
+ * @csspart side-nav-heading - The side navigation heading container. Usage: `c4d-left-nav-menu-category-heading::part(side-nav-heading)`
+ * @csspart side-nav-heading-description - The description container within the side navigation heading. Usage: `c4d-left-nav-menu-category-heading::part(side-nav-heading-description)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu-category-heading`)
 class C4DLeftNavMenuCategoryHeading extends LitElement {
@@ -52,8 +56,11 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
 
     return url
       ? html`
-          <h2 class="${classMap(headingClasses)}">
+          <h2
+            part="left-nav-menu-category-h2"
+            class="${classMap(headingClasses)}">
             <a
+              part="left-nav-menu-category-link"
               href="${url}"
               class="${prefix}--side-nav__heading-title"
               data-attribute1="headerNav"
@@ -63,14 +70,22 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
             </a>
           </h2>
         `
-      : html` <h2 class="${classMap(headingClasses)}">${headingText}</h2> `;
+      : html`
+          <h2
+            part="left-nav-menu-category-h2"
+            class="${classMap(headingClasses)}">
+            ${headingText}
+          </h2>
+        `;
   }
 
   render() {
     return html`
-      <div class="${prefix}--side-nav__heading">
+      <div part="side-nav-heading" class="${prefix}--side-nav__heading">
         ${this._renderHeading()}
-        <div class="${prefix}--side-nav__heading-description">
+        <div
+          part="side-nav-heading-description"
+          class="${prefix}--side-nav__heading-description">
           <slot></slot>
         </div>
       </div>

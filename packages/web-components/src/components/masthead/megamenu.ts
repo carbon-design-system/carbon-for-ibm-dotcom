@@ -21,6 +21,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu
  *
  * @element c4d-megamenu
+ * @csspart masthead-megamenu-container - The masthead megamenu container. Usage: `c4d-megamenu::part(masthead-megamenu-container)`
+ * @csspart masthead-megamenu-container-row - The masthead megamenu container row. Usage: `c4d-megamenu::part(masthead-megamenu-container-row)`
  */
 @customElement(`${c4dPrefix}-megamenu`)
 class C4DMegaMenu extends StableSelectorMixin(LitElement) {
@@ -90,8 +92,11 @@ class C4DMegaMenu extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--masthead__megamenu__container">
+      <div
+        part="masthead-megamenu-container"
+        class="${prefix}--masthead__megamenu__container">
         <div
+          part="masthead-megamenu-container-row"
           class="${prefix}--masthead__megamenu__container--row ${prefix}--masthead__megamenu__container--row--${this
             .layout}">
           <slot></slot>

@@ -23,6 +23,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The contact button UI in the masthead.
  *
  * @element c4d-masthead-contact
+ * @csspart masthead-contact-link -The masthead contact link. Usage `c4d-masthead-contact::part(masthead-contact-link)`
  */
 @customElement(`${c4dPrefix}-masthead-contact`)
 class C4DMastheadContact extends C4DMastheadProfile {
@@ -58,6 +59,7 @@ class C4DMastheadContact extends C4DMastheadProfile {
     const { triggerLabel, _handleClick: handleClick } = this;
     return html`
       <a
+        part="masthead-contact-link"
         href="javascript:void 0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         aria-label="${ifDefined(triggerLabel)}"

@@ -26,6 +26,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *   The custom event fired before this side nav menu is being toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
  * @fires c4d-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
+ * @csspart side-nav-item-button - The button for the side navigation item. Usage: `c4d-left-nav-menu::part(side-nav-item-button)`
+ * @csspart side-nav-submenu-content - The content of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-submenu-content)`
+ * @csspart side-nav-submenu-title - The title of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-submenu-title)`
+ * @csspart side-nav-icon - The icon of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-icon)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu`)
 class C4DLeftNavMenu extends FocusMixin(LitElement) {
@@ -111,6 +115,7 @@ class C4DLeftNavMenu extends FocusMixin(LitElement) {
     return html`
       <div class="${prefix}--side-nav__item">
         <button
+          part="side-nav-item-button"
           type="button"
           aria-haspopup="true"
           aria-expanded="${expanded}"
@@ -119,9 +124,16 @@ class C4DLeftNavMenu extends FocusMixin(LitElement) {
           data-attribute1="headerNav"
           data-attribute2="${isSubitem ? 'TabHdline' : 'L0'}"
           data-attribute3="${title}">
-          <div class="${prefix}--side-nav__submenu-content">
-            <span class="${prefix}--side-nav__submenu-title">${title}</span>
+          <div
+            part="side-nav-submenu-content"
+            class="${prefix}--side-nav__submenu-content">
+            <span
+              part="side-nav-submenu-title"
+              class="${prefix}--side-nav__submenu-title"
+              >${title}</span
+            >
             <div
+              part="side-nav-icon"
               class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
               ${ChevronDown16()}
             </div>
