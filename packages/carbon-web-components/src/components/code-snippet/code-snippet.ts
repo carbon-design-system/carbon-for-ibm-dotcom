@@ -437,7 +437,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
         <pre
           @scroll="${(type === CODE_SNIPPET_TYPE.MULTI && handleScroll) ||
           null}"
-          part="pre pre-${type}"><code part="content content-${type}"><slot></slot></code></pre>
+          part="pre pre--${type}"><code part="content content--${type}"><slot></slot></code></pre>
       </div>
 
       ${hasLeftOverflow
