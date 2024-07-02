@@ -433,7 +433,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
         aria-multiline="${type === CODE_SNIPPET_TYPE.MULTI ? true : null}"
         @scroll="${(type === CODE_SNIPPET_TYPE.SINGLE && handleScroll) || null}"
         style=${styleMap(styles)}
-        part="container container-${type}">
+        part="container container--${type}">
         <pre
           @scroll="${(type === CODE_SNIPPET_TYPE.MULTI && handleScroll) ||
           null}"
