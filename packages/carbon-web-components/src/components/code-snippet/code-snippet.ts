@@ -451,7 +451,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
         ? html`
             <div
               class="${prefix}--snippet__overflow-indicator--right"
-              part="oveflow-indicator--right"></div>
+              part="oveflow-indicator-right"></div>
           `
         : ``}
       ${hideCopyButton
