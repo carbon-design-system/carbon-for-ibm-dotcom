@@ -385,7 +385,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
       return html`
         <cds-copy button-class-name="${classes}" @click="${handleCopyClick}"  part="inline-copy">
           <code slot="icon" part="content content--inline"><slot></slot></code>
-          <span slot="tooltip inline-tooltip" part="tooltip">${tooltipContent}</span>
+          <span slot="tooltip-content" part="tooltip tooltip--inline">${tooltipContent}</span>
         </cds-copy>
       `;
     }
