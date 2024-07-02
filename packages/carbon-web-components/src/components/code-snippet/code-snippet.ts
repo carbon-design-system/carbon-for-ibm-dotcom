@@ -48,21 +48,21 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
  * @element cds-code-snippet
  * @csspart inline-copy - Copy button fot the inline type. covers the entire element. Usage: `cds-code-snippet::part(inline-copy)`
  * @csspart content - Code tag content for all types. Usage: `cds-code-snippet::part(content)`
- * @csspart content-inline - The Code tag content for the inline type. Usage: `cds-code-snippet::part(content-inline)`
- * @csspart content-multi - The Code tag content for the multi line type. Usage: `cds-code-snippet::part(content-multi)`
- * @csspart content-single - The Code tag content for the single line type. Usage: `cds-code-snippet::part(content-single)`
+ * @csspart content--inline - The Code tag content for the inline type. Usage: `cds-code-snippet::part(content--inline)`
+ * @csspart content--multi - The Code tag content for the multi line type. Usage: `cds-code-snippet::part(content--multi)`
+ * @csspart content--single - The Code tag content for the single line type. Usage: `cds-code-snippet::part(content--single)`
  * @csspart tooltip - The tooltip. Usage: `cds-code-snippet::part(tooltip)`
  * @csspart container - The container for all types. Usage: `cds-code-snippet::part(container)`
- * @csspart container-multi - The container for multi line type Usage: `cds-code-snippet::part(container-multi)`
- * @csspart container-single - The container for single line type. Usage: `cds-code-snippet::part(container-single)`
+ * @csspart container--multi - The container for multi line type Usage: `cds-code-snippet::part(container--multi)`
+ * @csspart container--single - The container for single line type. Usage: `cds-code-snippet::part(container--single)`
  * @csspart pre - The pre element for all types Usage: `cds-code-snippet::part(pre)`
- * @csspart pre-multi - The pre element for the multi line type Usage: `cds-code-snippet::part(pre-multi)`
- * @csspart pre-single - The pre element for the single line type. Usage: `cds-code-snippet::part(pre-single)`
- * @csspart oveflow-indicator-left - The left side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator-left)`
- * @csspart oveflow-indicator-right - The right side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator-right)`
+ * @csspart pre--multi - The pre element for the multi line type Usage: `cds-code-snippet::part(pre--multi)`
+ * @csspart pre--single - The pre element for the single line type. Usage: `cds-code-snippet::part(pre--single)`
+ * @csspart oveflow-indicator--eft - The left side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator--left)`
+ * @csspart oveflow-indicator--right - The right side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator--right)`
  * @csspart copy-button - The copy button. Usage: `cds-code-snippet::part(copy-button)`
  * @csspart show-button - The show more/less button Usage: `cds-code-snippet::part(show-button)`
- * @csspart show-button-text - The show more/less button text. Usage: `cds-code-snippet::part(show-button-text)`
+ * @csspart show-button--text - The show more/less button text. Usage: `cds-code-snippet::part(show-button--text)`
  *
  */
 @customElement(`${prefix}-code-snippet`)
@@ -451,7 +451,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
         ? html`
             <div
               class="${prefix}--snippet__overflow-indicator--right"
-              part="oveflow-indicator-right"></div>
+              part="oveflow-indicator--right"></div>
           `
         : ``}
       ${hideCopyButton
@@ -478,7 +478,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
               part="show-button">
               <span
                 class="${prefix}--snippet-btn--text"
-                part="show-button-text">
+                part="show-button--text">
                 ${expandCodeBtnText}
               </span>
               ${ChevronDown16({
