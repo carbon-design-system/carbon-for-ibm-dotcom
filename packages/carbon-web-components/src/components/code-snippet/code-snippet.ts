@@ -59,7 +59,7 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
  * @csspart pre--multi - The pre element for the multi line type Usage: `cds-code-snippet::part(pre--multi)`
  * @csspart pre--single - The pre element for the single line type. Usage: `cds-code-snippet::part(pre--single)`
  * @csspart oveflow-indicator-left - The left side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator-left)`
- * @csspart oveflow-indicator--right - The right side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator--right)`
+ * @csspart oveflow-indicator-right - The right side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator-right)`
  * @csspart copy-button - The copy button. Usage: `cds-code-snippet::part(copy-button)`
  * @csspart show-button - The show more/less button Usage: `cds-code-snippet::part(show-button)`
  * @csspart show-button--text - The show more/less button text. Usage: `cds-code-snippet::part(show-button--text)`
