@@ -478,7 +478,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
               part="show-button">
               <span
                 class="${prefix}--snippet-btn--text"
-                part="show-button--text">
+                part="show-button-text">
                 ${expandCodeBtnText}
               </span>
               ${ChevronDown16({
