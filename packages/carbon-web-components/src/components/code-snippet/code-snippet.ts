@@ -62,7 +62,7 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
  * @csspart oveflow-indicator-right - The right side overflow indicator. Usage: `cds-code-snippet::part(oveflow-indicator-right)`
  * @csspart copy-button - The copy button. Usage: `cds-code-snippet::part(copy-button)`
  * @csspart show-button - The show more/less button Usage: `cds-code-snippet::part(show-button)`
- * @csspart show-button--text - The show more/less button text. Usage: `cds-code-snippet::part(show-button--text)`
+ * @csspart show-button-text - The show more/less button text. Usage: `cds-code-snippet::part(show-button-text)`
  *
  */
 @customElement(`${prefix}-code-snippet`)
