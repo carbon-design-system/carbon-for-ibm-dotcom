@@ -384,7 +384,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
       // prettier-ignore
       return html`
         <cds-copy button-class-name="${classes}" @click="${handleCopyClick}"  part="inline-copy">
-          <code slot="icon" part="content content-inline"><slot></slot></code>
+          <code slot="icon" part="content content--inline"><slot></slot></code>
           <span slot="tooltip inline-tooltip" part="tooltip">${tooltipContent}</span>
         </cds-copy>
       `;
