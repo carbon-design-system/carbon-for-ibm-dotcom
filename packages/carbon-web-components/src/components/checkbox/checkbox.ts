@@ -24,8 +24,14 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  *
  * @element cds-checkbox
  * @fires cds-checkbox-changed - The custom event fired after this changebox changes its checked state.
- * @csspart input The checkbox.
- * @csspart label The label.
+ * @csspart input - The checkbox. Usage: `cds-checkbox::part(input)`
+ * @csspart label - The label. Usage: `cds-checkbox::part(label)`
+ * @csspart helper-text - The helper text. Usage: `cds-checkbox::part(helper-text)`
+ * @csspart validation-msg - The validation message. Usage: `cds-checkbox::part(validation-msg)`
+ * @csspart invalid-icon - Icon for invalid input. Usage: `cds-checkbox::part(invalid-icon)`
+ * @csspart invalid-text - Text for invalid input. Usage: `cds-checkbox::part(invalid-text)`
+ * @csspart invalid-icon--warning - Icon for warnings. Usage: `cds-checkbox::part(invalid-icon--warning)`
+ * @csspart invalid-text--warning - Text For Warings. Usage: `cds-checkbox::part(invalid-text--warning)`
  */
 @customElement(`${prefix}-checkbox`)
 class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
@@ -224,7 +230,7 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
     const showHelper = !invalid && !warn;
 
     const helper = helperText
-      ? html` <div class="${prefix}--form__helper-text">${helperText}</div>`
+      ? html` <div class="${prefix}--form__helper-text" part="helper-text">${helperText}</div>`
       : null;
 
     const labelClasses = classMap({
@@ -259,21 +265,23 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
         >
       </label>
       <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
-      <div class="${prefix}--checkbox__validation-msg">
+      <div class="${prefix}--checkbox__validation-msg" part="validation-msg">
         ${!readonly && invalid
           ? html`
               ${WarningFilled16({
                 class: `${prefix}--checkbox__invalid-icon`,
+                part: `invalid-icon`,
               })}
-              <div class="${prefix}--form-requirement">${invalidText}</div>
+              <div class="${prefix}--form-requirement" part="invalid-text">${invalidText}</div>
             `
           : null}
         ${showWarning
           ? html`
               ${WarningAltFilled16({
                 class: `${prefix}--checkbox__invalid-icon ${prefix}--checkbox__invalid-icon--warning`,
+                part: `invalid-icon invalid-icon--waring`,
               })}
-              <div class="${prefix}--form-requirement">${warnText}</div>
+              <div class="${prefix}--form-requirement" part="warning-text">${warnText}</div>
             `
           : null}
       </div>
