@@ -16,6 +16,9 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 
 /**
  * Skeleton of code snippet.
+ * @element cds-code-snippet-skeleton
+ * @csspart container - The container. Usage: `cds-code-snippet-skeleton::part(container)`
+ * @csspart item - The item. Usage: `cds-code-snippet-skeleton::part(item)`
  */
 @customElement(`${prefix}-code-snippet-skeleton`)
 class CDSCodeSnippetSkeleton extends LitElement {
@@ -27,10 +30,13 @@ class CDSCodeSnippetSkeleton extends LitElement {
 
   render() {
     return html`
-      <div class="${prefix}--snippet-container">
+      <div class="${prefix}--snippet-container" part="container">
         ${this.type !== CODE_SNIPPET_TYPE.MULTI
-          ? html` <span></span> `
-          : html` <span></span><span></span><span></span> `}
+          ? html` <span part="item"></span> `
+          : html`
+              <span part="item"></span><span part="item"></span
+              ><span part="item"></span>
+            `}
       </div>
     `;
   }
