@@ -168,7 +168,10 @@ class CDSCheckboxGroup extends LitElement {
       : `checkbox-group-helper-text-${checkboxGroupInstanceId}`;
 
     const helper = helperText
-      ? html` <div id="${helperId}" class="${prefix}--form__helper-text" part="helper-text">
+      ? html` <div
+          id="${helperId}"
+          class="${prefix}--form__helper-text"
+          part="helper-text">
           ${helperText}
         </div>`
       : null;
@@ -189,19 +192,26 @@ class CDSCheckboxGroup extends LitElement {
         aria-readonly=${readonly}
         ?aria-labelledby=${ariaLabelledBy || legendId}
         ?aria-describedby=${!invalid && !warn && helper ? helperId : undefined}>
-        <legend class="${prefix}--label" id=${legendId || ariaLabelledBy} part="label">
+        <legend
+          class="${prefix}--label"
+          id=${legendId || ariaLabelledBy}
+          part="label">
           ${legendText}
           <slot name="slug" @slotchange="${handleSlotChange}"></slot>
         </legend>
         <slot></slot>
-        <div class="${prefix}--checkbox-group__validation-msg" part="validation-msg">
+        <div
+          class="${prefix}--checkbox-group__validation-msg"
+          part="validation-msg">
           ${!readonly && invalid
             ? html`
                 ${WarningFilled16({
                   class: `${prefix}--checkbox__invalid-icon`,
                   part: `invalid-icon`,
                 })}
-                <div class="${prefix}--form-requirement" part="invalid-text">${invalidText}</div>
+                <div class="${prefix}--form-requirement" part="invalid-text">
+                  ${invalidText}
+                </div>
               `
             : null}
           ${showWarning
@@ -210,7 +220,11 @@ class CDSCheckboxGroup extends LitElement {
                   class: `${prefix}--checkbox__invalid-icon ${prefix}--checkbox__invalid-icon--warning`,
                   part: `invalid-icon invalid-icon--warning`,
                 })}
-                <div class="${prefix}--form-requirement" part="invalid-text invalid-text--warning">${warnText}</div>
+                <div
+                  class="${prefix}--form-requirement"
+                  part="invalid-text invalid-text--warning">
+                  ${warnText}
+                </div>
               `
             : null}
         </div>

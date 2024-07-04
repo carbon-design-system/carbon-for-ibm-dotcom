@@ -230,7 +230,9 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
     const showHelper = !invalid && !warn;
 
     const helper = helperText
-      ? html` <div class="${prefix}--form__helper-text" part="helper-text">${helperText}</div>`
+      ? html` <div class="${prefix}--form__helper-text" part="helper-text">
+          ${helperText}
+        </div>`
       : null;
 
     const labelClasses = classMap({
@@ -272,7 +274,9 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
                 class: `${prefix}--checkbox__invalid-icon`,
                 part: `invalid-icon`,
               })}
-              <div class="${prefix}--form-requirement" part="invalid-text">${invalidText}</div>
+              <div class="${prefix}--form-requirement" part="invalid-text">
+                ${invalidText}
+              </div>
             `
           : null}
         ${showWarning
@@ -281,7 +285,9 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
                 class: `${prefix}--checkbox__invalid-icon ${prefix}--checkbox__invalid-icon--warning`,
                 part: `invalid-icon invalid-icon--waring`,
               })}
-              <div class="${prefix}--form-requirement" part="warning-text">${warnText}</div>
+              <div class="${prefix}--form-requirement" part="warning-text">
+                ${warnText}
+              </div>
             `
           : null}
       </div>
