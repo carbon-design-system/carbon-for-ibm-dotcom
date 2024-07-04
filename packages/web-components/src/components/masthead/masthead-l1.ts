@@ -84,23 +84,23 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
  * Masthead.
  *
  * @element c4d-masthead-l1
- * @csspart masthead-l1-menu-container-inner - The container that wraps the L1 menu items for scrolling purposes.
- * @csspart masthead-l1-menu - The container element for the L1 menu items.
- * @csspart masthead-l1-menu-first-item - The first item in the L1 menu.
- * @csspart masthead-l1-menu-last-item - The last item in the L1 menu.
- * @csspart masthead-l1-menu-container-scroller - The buttons used for scrolling the L1 menu items.
- * @csspart masthead-l1-title-button - The title button in the L1 masthead
- * @csspart masthead-l1-dropdown - The dropdown items in the L1 masthead
- * @csspart masthead-l1-dropdown-viewall - The "view all" link in the L1 dropdown
- * @csspart masthead-l1-dropdown-announcement - The announcement in the L1 dropdown
- * @csspart masthead-l1-dropdown-section - The sections in the L1 dropdown
- * @csspart masthead-l1-dropdown-menu-items - The menu items in the L1 dropdown
- * @csspart masthead-l1-dropdown-item-ul - The item list in the L1 dropdown
- * @csspart masthead-l1-dropdown-item-li - The list item in the L1 dropdown
- * @csspart masthead-l1-dropdown-item-link - The item link in the L1 dropdown
- * @csspart masthead-l1-dropdown-subsection - The subsection in the L1 dropdown
- * @csspart masthead-l1-dropdown-item - The dropdown item in the L1 dropdown
- * @csspart masthead-l1-dropdown-login-link - The login link in the L1 dropdown
+ * @csspart l1-menu-container-inner - The container that wraps the L1 menu items for scrolling purposes. Usage: `c4d-masthead-l1::part(l1-menu-container-inner)`
+ * @csspart masthead-l1-menu - The container element for the L1 menu items. Usage: `c4d-masthead-l1::part(masthead-l1-menu)`
+ * @csspart l1-menu-first-item - The first item in the L1 menu. Usage: `c4d-masthead-l1::part(l1-menu-first-item)`
+ * @csspart l1-menu-last-item - The last item in the L1 menu. Usage: `c4d-masthead-l1::part(l1-menu-last-item)`
+ * @csspart l1-menu-container-scroller - The buttons used for scrolling the L1 menu items. Usage: `c4d-masthead-l1::part(l1-menu-container-scroller)`
+ * @csspart l1-title-button - The title button in the L1 masthead. Usage: `c4d-masthead-l1::part(l1-title-button)`
+ * @csspart l1-dropdown - The dropdown items in the L1 masthead. Usage: `c4d-masthead-l1::part(l1-dropdown)`
+ * @csspart l1-dropdown-viewall - The "view all" link in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-viewall)`
+ * @csspart l1-dropdown-announcement - The announcement in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-announcement)`
+ * @csspart l1-dropdown-section - The sections in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-section)`
+ * @csspart l1-dropdown-menu-items - The menu items in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-menu-items)`
+ * @csspart l1-dropdown-item-ul - The item list in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item-ul)`
+ * @csspart l1-dropdown-item-li - The list item in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item-li)`
+ * @csspart l1-dropdown-item-link - The item link in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item-link)`
+ * @csspart l1-dropdown-subsection - The subsection in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-subsection)`
+ * @csspart l1-dropdown-item - The dropdown item in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item)`
+ * @csspart l1-dropdown-login-link - The login link in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-login-link)`
  * @slot brand - The left hand area.
  * @slot nav - The nav content.
  * @slot profile - The right hand area.
@@ -378,32 +378,32 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         part="masthead-l1-menu-container-outer"
         class="${prefix}--masthead__l1-menu-container-outer">
         <button
-          part="masthead-l1-menu-container-scroller-button"
+          part="l1-menu-container-scroller-button"
           class="${prefix}--masthead__l1-menu-container-scroller"
           id="scroll-prev"
           @click=${scrollL1TopNav}>
           <div
-            part="masthead-l1-menu-container-scroller-inner"
+            part="l1-menu-container-scroller-inner"
             class="${prefix}--masthead__l1-menu-container-scroller-inner">
             ${direction === 'ltr' ? CaretLeft20() : CaretRight20()}
           </div>
         </button>
         <div
-          part="masthead-l1-menu-container-inner"
+          part="l1-menu-container-inner"
           class="${prefix}--masthead__l1-menu-container-inner">
-          <ul part="masthead-l1-menu" class="${prefix}--masthead__l1-menu">
+          <ul part="l1-menu" class="${prefix}--masthead__l1-menu">
             ${(menuItems ?? []).map((menuItem) =>
               this._renderL1TopNavDropDowns(menuItem)
             )}
           </ul>
         </div>
         <button
-          part="masthead-l1-menu-container-scroller"
+          part="l1-menu-container-scroller"
           class="${prefix}--masthead__l1-menu-container-scroller"
           id="scroll-next"
           @click=${scrollL1TopNav}>
           <div
-            part="masthead-l1-menu-container-scroller-inner"
+            part="l1-menu-container-scroller-inner"
             class="${prefix}--masthead__l1-menu-container-scroller-inner">
             ${direction === 'ltr' ? CaretRight20() : CaretLeft20()}
           </div>
@@ -498,12 +498,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           ${title}${ChevronDown16()}
         </button>
         <div
-          part="masthead-l1-dropdown"
+          part="l1-dropdown"
           data-dropdown-target
           class="${prefix}--masthead__l1-dropdown ${prefix}--masthead__l1-dropdown__${columns}-col">
           ${announcement
             ? html`<div
-                part="masthead-l1-dropdown-announcement"
+                part="l1-dropdown-announcement"
                 class="${prefix}--masthead__l1-dropdown-announcement">
                 ${unsafeHTML(announcement)}
               </div>`
@@ -523,7 +523,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           </div>
           ${footer
             ? html`<a
-                part="masthead-l1-dropdown-viewall"
+                part="l1-dropdown-viewall"
                 class="${prefix}--masthead__l1-dropdown-viewall"
                 href="${footer.url}"
                 >${footer.title}${ArrowRight16()}</a
@@ -547,12 +547,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
 
       return html`
         <div
-          part="masthead-l1-dropdown-section"
+          part="l1-dropdown-section"
           class="${prefix}--masthead__l1-dropdown-section">
           ${heading ? html`${this._renderL1SubSectionHeading(heading)}` : ''}
           ${items
             ? html` <ul
-                part="masthead-l1-dropdown-menu-items"
+                part="l1-dropdown-menu-items"
                 class="${prefix}--masthead__l1-dropdown-menu-items">
                 ${items.map((item) => {
                   const { title, url, description } = item;
@@ -560,12 +560,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                   const linkContents = description
                     ? html`
                         <span
-                          part="masthead-l1-dropdown-item-title-span"
+                          part="l1-dropdown-item-title-span"
                           class="${prefix}--masthead__l1-dropdown-item-title"
                           >${title}</span
                         >
                         <span
-                          part="masthead-l1-dropdown-item-description-span"
+                          part="l1-dropdown-item-description-span"
                           class="${prefix}--masthead__l1-dropdown-item-description"
                           >${description}</span
                         >
@@ -575,7 +575,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                   return html`
                     <li>
                       <a
-                        part="masthead-l1-dropdown-item-link"
+                        part="l1-dropdown-item-link"
                         class="${prefix}--masthead__l1-dropdown-item"
                         href="${url}">
                         ${linkContents}
@@ -612,19 +612,19 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
 
     return html`
       <button
-        part="masthead-l1-title-button"
+        part="l1-title-button"
         class="${prefix}--masthead__l1-title"
         @click=${toggleSubsection}>
         ${title}${ChevronDown16()}
       </button>
       <ul
-        part="masthead-l1-dropdown"
+        part="l1-dropdown"
         data-dropdown-target
         class="${prefix}--masthead__l1-dropdown">
         ${url
           ? html` <li>
               <a
-                part="masthead-l1-dropdown-item"
+                part="l1-dropdown-item"
                 class="${prefix}--masthead__l1-dropdown-item"
                 href="${url}">
                 ${overviewText}
@@ -635,7 +635,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         ${login && login.url && login.title
           ? html` <li>
               <a
-                part="masthead-l1-dropdown-login-link"
+                part="l1-dropdown-login-link"
                 class="${prefix}--masthead__l1-dropdown-login"
                 href="${ifDefined(login.url)}">
                 ${login.title}${ArrowRight16()}
@@ -661,7 +661,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       return html`
         <li>
           <a
-            part="masthead-l1-dropdown-item-link"
+            part="l1-dropdown-item-link"
             class="${prefix}--masthead__l1-dropdown-item"
             href="${url}"
             >${title}</a
@@ -672,7 +672,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       return html`
         <li>
           <span
-            part="masthead-l1-dropdown-item-span"
+            part="l1-dropdown-item-span"
             class="${prefix}--masthead__l1-dropdown-item"
             >${title}</span
           >
@@ -685,18 +685,18 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     return html`
       <li>
         <button
-          part="masthead-l1-dropdown-item-button"
+          part="l1-dropdown-item-button"
           class="${prefix}--masthead__l1-dropdown-item"
           @click=${toggleSubsection}>
           ${title}${ChevronDown16()}
         </button>
         <div
-          part="masthead-l1-dropdown-subsection"
+          part="l1-dropdown-subsection"
           data-dropdown-target
           class="${prefix}--masthead__l1-dropdown-subsection">
           ${announcement
             ? html`<div
-                part="masthead-l1-dropdown-announcement"
+                part="l1-dropdown-announcement"
                 class="${prefix}--masthead__l1-dropdown-announcement">
                 ${unsafeHTML(announcement)}
               </div>`
@@ -710,13 +710,13 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                     ? html`${this._renderL1SubSectionHeading(heading)}`
                     : ''}
                   ${items
-                    ? html` <ul part="masthead-l1-dropdown-item-ul">
+                    ? html` <ul part="l1-dropdown-item-ul">
                         ${items.map((item) => {
                           const { title, url } = item;
 
-                          return html` <li part="masthead-l1-dropdown-item-li">
+                          return html` <li part="l1-dropdown-item-li">
                             <a
-                              part="masthead-l1-dropdown-item-link"
+                              part="l1-dropdown-item-link"
                               class="${prefix}--masthead__l1-dropdown-item"
                               href="${url}">
                               ${title}
@@ -730,7 +730,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
             : ''}
           ${footer
             ? html`
-                <a part="masthead-l1-dropdown-viewall"
+                <a part="l1-dropdown-viewall"
                   class="${prefix}--masthead__l1-dropdown-viewall"
                   href="${footer.url}"
                 >
@@ -1085,7 +1085,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
   }
 
   static get dropDownToggleEvent() {
-    return `${c4dPrefix}-masthead-l1-dropdown-toggle`;
+    return `${c4dPrefix}-l1-dropdown-toggle`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

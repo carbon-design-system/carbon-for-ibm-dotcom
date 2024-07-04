@@ -24,8 +24,8 @@ const { stablePrefix: c4dPrefix } = settings;
  * MegaMenu category sublink
  *
  * @element c4d-megamenu-category-link
- * @csspart link-heading - The link heading. Usage: `c4d-megamenu-category-link::part(link-heading)`
- * @csspart link-description - The link description. Usage: `c4d-megamenu-category-link::part(link-description)`
+ * @csspart heading - The link heading. Usage: `c4d-megamenu-category-link::part(heading)`
+ * @csspart description - The link description. Usage: `c4d-megamenu-category-link::part(description)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-link`)
 class C4DMegaMenuCategoryLink extends CDSLink {
@@ -59,13 +59,13 @@ class C4DMegaMenuCategoryLink extends CDSLink {
     return html`
       ${title
         ? html`
-            <div part="link-heading">
+            <div part="heading">
               <span>${title}${this._renderIcon()}</span>
               <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
             </div>
           `
         : ''}
-      <span part="link-description">
+      <span part="description">
         <slot></slot>
       </span>
     `;

@@ -20,10 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu category group
  *
  * @element c4d-megamenu-category-group
- * @csspart masthead-megamenu-category-group-shield - The shield element of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-shield)`
- * @csspart masthead-megamenu-category-group-content-wrapper - The content wrapper of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-content-wrapper)`
- * @csspart masthead-megamenu-category-group-heading - The heading of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-heading)`
- * @csspart masthead-megamenu-category-group-content - The content of the megamenu category group. Usage: `c4d-megamenu-category-group::part(masthead-megamenu-category-group-content)`
+ * @csspart shield - The shield element of the megamenu category group. Usage: `c4d-megamenu-category-group::part(shield)`
+ * @csspart content-wrapper - The content wrapper of the megamenu category group. Usage: `c4d-megamenu-category-group::part(content-wrapper)`
+ * @csspart heading - The heading of the megamenu category group. Usage: `c4d-megamenu-category-group::part(heading)`
+ * @csspart content - The content of the megamenu category group. Usage: `c4d-megamenu-category-group::part(content)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-group`)
 class C4DMegaMenuCategoryGroup extends LitElement {
@@ -42,18 +42,18 @@ class C4DMegaMenuCategoryGroup extends LitElement {
   render() {
     return html`
       <div
-        part="masthead-megamenu-category-group-shield"
+        part="shield"
         class="${prefix}--masthead__megamenu__category-group-shield">
         <div
-          part="masthead-megamenu-category-group-content-wrapper"
+          part="content-wrapper"
           class="${prefix}--masthead__megamenu__category-group-content-wrapper">
           <div
-            part="masthead-megamenu-category-group-heading"
+            part="heading"
             class="${prefix}--masthead__megamenu__category-group-heading">
             <slot name="heading"></slot>
           </div>
           <div
-            part="masthead-megamenu-category-group-content"
+            part="content"
             class="${prefix}--masthead__megamenu__category-group-content">
             <slot></slot>
           </div>

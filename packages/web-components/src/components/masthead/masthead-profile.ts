@@ -26,7 +26,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The profile menu UI in the masthead.
  *
  * @element c4d-masthead-profile
- * @csspart masthead-profile-link -The masthead contact link. Usage `c4d-masthead-contact::part(masthead-profile-link)`
+ * @csspart profile-link - The masthead contact link. Usage: `c4d-masthead-contact::part(profile-link)`
  */
 @customElement(`${c4dPrefix}-masthead-profile`)
 class C4DMastheadProfile extends HostListenerMixin(
@@ -113,7 +113,7 @@ class C4DMastheadProfile extends HostListenerMixin(
     } = this;
     return html`
       <a
-        part="masthead-profile-link"
+        part="profile-link"
         role="button"
         tabindex="0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"

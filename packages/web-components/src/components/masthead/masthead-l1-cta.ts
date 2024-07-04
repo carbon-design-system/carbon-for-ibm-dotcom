@@ -31,8 +31,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-masthead-l1-cta
  * @slot cta-text - The CTA text
  * @csspart inner-wrapper-desktop - The inner wrapper for the desktop view. Usage: `c4d-masthead-l1-cta::part(inner-wrapper-desktop)`
- * @csspart masthead-l1-button - The button element for CTA. Usage: `c4d-masthead-l1-cta::part(masthead-l1-button)`
- * @csspart masthead-l1-link - The link element for CTA. Usage: `c4d-masthead-l1-cta::part(masthead-l1-link)`
+ * @csspart l1-button - The button element for CTA. Usage: `c4d-masthead-l1-cta::part(l1-button)`
+ * @csspart l1-link - The link element for CTA. Usage: `c4d-masthead-l1-cta::part(l1-link)`
  */
 @customElement(`${c4dPrefix}-masthead-l1-cta`)
 class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
@@ -125,7 +125,7 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
       const icon = iconMap.get(type as L1_CTA_TYPES);
       return html`
         <button
-          part="masthead-l1-button"
+          part="l1-button"
           class="${classname}"
           data-ibm-contact="${type}-link">
           ${desktopWrapper(html`
@@ -139,7 +139,7 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
     if (href) {
       const icon = isMobileVersion ? ArrowRight16() : '';
       return html`
-        <a part="masthead-l1-link" class="${classname}" href="${href}">
+        <a part="l1-link" class="${classname}" href="${href}">
           ${desktopWrapper(html`<slot name="cta-text"></slot>${icon}`)}
         </a>
       `;
