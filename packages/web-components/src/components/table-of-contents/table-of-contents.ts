@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -59,9 +59,21 @@ function findLastIndex<T>(
  * Table of contents.
  *
  * @element c4d-table-of-contents
- * @csspart table - The table UI. `c4d-table-of-contents::part(table)`
- * @csspart prev-button - The previous button. `c4d-table-of-contents::part(prev-button)`
- * @csspart tnext-button - The next button. `c4d-table-of-contents::part(next-button)`
+ * @csspart list - The menu list. Usage `c4d-table-of-contents::part(list)`
+ * @csspart list-item - The menu items. Usage `c4d-table-of-contents::part(list-item)`
+ * @csspart list-item--active - The menu items as active. Usage `c4d-table-of-contents::part(list-item--active)`
+ * @csspart link - The links under TOC. Usage `c4d-table-of-contents::part(link)`
+ * @csspart container - The container. Usage `c4d-table-of-contents::part(container)`
+ * @csspart table - The table UI. Usage `c4d-table-of-contents::part(table)`
+ * @csspart heading - The headings. Usage `c4d-table-of-contents::part(heading)`
+ * @csspart prev-button - The previous button. Usage `c4d-table-of-contents::part(prev-button)`
+ * @csspart item-container - The item container. Usage `c4d-table-of-contents::part(item-container)`
+ * @csspart content - The content. Usage `c4d-table-of-contents::part(content)`
+ * @csspart sub-content-right - The right side content. Usage `c4d-table-of-contents::part(sub-content-right)`
+ * @csspart sub-content-left - The left side content. Usage `c4d-table-of-contents::part(sub-content-left)`
+ * @csspart next-button - The next button. Usage `c4d-table-of-contents::part(next-button)`
+ * @csspart content-table - The content table. Usage `c4d-table-of-contents::part(content-table)`
+ * @csspart wrapper - The wrapper. Usage `c4d-table-of-contents::part(wrapper)`
  * @slot heading - The heading content.
  * @slot menu-rule - The menu rule.
  */
@@ -718,7 +730,7 @@ class C4DTableOfContents extends MediaQueryMixin(
     return html`
       ${this.layout === 'horizontal'
         ? html`
-            <ul class="${prefix}--toc__print-styles">
+            <ul class="${prefix}--toc__print-styles" part="list">
               ${targets.map((item) => {
                 const name = item.getAttribute('name');
                 const title = (
@@ -734,6 +746,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                 return html`
                   <li
                     class="${itemClasses}"
+                    part="list-item${selected ? ' list-item--active' : ''}"
                     @click="${handleClickItem}"
                     @keydown="${handleOnKeyDown}">
                     <a
@@ -741,7 +754,8 @@ class C4DTableOfContents extends MediaQueryMixin(
                         !selected ? undefined : 'location'
                       )}"
                       data-target="${name!}"
-                      href="#${name}">
+                      href="#${name}"
+                      part="link">
                       ${title}
                     </a>
                   </li>
@@ -750,14 +764,15 @@ class C4DTableOfContents extends MediaQueryMixin(
             </ul>
           `
         : ``}
-      <div class="${containerClasses}">
+      <div part="container" class="${containerClasses}">
         <div part="table" class="${navigationClasses}">
           ${isMobile
             ? ''
             : html`
                 <div
                   ?hidden="${!hasHeading}"
-                  class="${prefix}--tableofcontents__children">
+                  class="${prefix}--tableofcontents__children"
+                  part="heading">
                   <slot
                     name="heading"
                     @slotchange="${handleSlotChangeHeading}"></slot>
@@ -791,20 +806,32 @@ class C4DTableOfContents extends MediaQueryMixin(
             : ``}
           <div
             class="${c4dPrefix}-ce--table-of-contents__items-container"
+            part="items-container"
             style="position: sticky; top: ${stickyOffset &&
             this.layout !== TOC_TYPES.HORIZONTAL
               ? `${stickyOffset}px`
               : 0}">
-            <div class="${prefix}--tableofcontents-container">
+            <div
+              class="${prefix}--tableofcontents-container"
+              part="item-container">
               <div
                 class="${prefix}--tableofcontents"
+                part="content"
                 style="${pageIsRTL
                   ? 'right'
                   : 'left'}: -${currentScrollPosition}px">
                 ${pageIsRTL
-                  ? html` <div class="${prefix}--sub-content-right"></div> `
-                  : html` <div class="${prefix}--sub-content-left"></div> `}
-                <ul>
+                  ? html`
+                      <div
+                        class="${prefix}--sub-content-right"
+                        part="sub-content-right"></div>
+                    `
+                  : html`
+                      <div
+                        class="${prefix}--sub-content-left"
+                        part="sub-content-left"></div>
+                    `}
+                <ul part="list">
                   ${targets.map((item) => {
                     const name = item.getAttribute('name');
                     const title = (
@@ -820,6 +847,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                     return html`
                       <li
                         class="${itemClasses}"
+                        part="list-item${selected ? ' list-item--active' : ''}"
                         @click="${handleClickItem}"
                         @keydown="${handleOnKeyDown}">
                         <a
@@ -828,7 +856,8 @@ class C4DTableOfContents extends MediaQueryMixin(
                           )}"
                           data-target="${name!}"
                           href="#${name}"
-                          tabindex="${selected ? 0 : -1}">
+                          tabindex="${selected ? 0 : -1}"
+                          part="link">
                           ${title}
                         </a>
                       </li>
@@ -836,8 +865,16 @@ class C4DTableOfContents extends MediaQueryMixin(
                   })}
                 </ul>
                 ${pageIsRTL
-                  ? html` <div class="${prefix}--sub-content-left"></div> `
-                  : html` <div class="${prefix}--sub-content-right"></div> `}
+                  ? html`
+                      <div
+                        class="${prefix}--sub-content-left"
+                        part="sub-content-left"></div>
+                    `
+                  : html`
+                      <div
+                        class="${prefix}--sub-content-right"
+                        part="sub-content-right"></div>
+                    `}
               </div>
             </div>
           </div>
@@ -869,14 +906,17 @@ class C4DTableOfContents extends MediaQueryMixin(
             : ``}
         </div>
 
-        <div class="${prefix}--tableofcontents__content">
-          <div class="${prefix}--tableofcontents__content-wrapper">
+        <div class="${prefix}--tableofcontents__content" part="content-table">
+          <div
+            class="${prefix}--tableofcontents__content-wrapper"
+            part="wrapper">
             ${!isMobile
               ? ''
               : html`
                   <div
                     ?hidden="${!hasHeading}"
-                    class="${prefix}--tableofcontents__children">
+                    class="${prefix}--tableofcontents__children"
+                    part="heading">
                     <slot
                       name="heading"
                       @slotchange="${handleSlotChangeHeading}"></slot>

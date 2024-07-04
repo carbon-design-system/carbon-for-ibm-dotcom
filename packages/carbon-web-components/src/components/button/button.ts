@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,7 +37,11 @@ export {
  * Button.
  *
  * @element cds-button
- * @csspart button The button.
+ * @csspart button - The button. Usage `cds-button::part(button)`
+ * @csspart popover-container - The popover element container. Usage `cds-button::part(popover-container)`
+ * @csspart popover - The popover element. Usage `cds-button::part(popover)`
+ * @csspart popover-content - The popover content. Usage `cds-button::part(popover-content)`
+ * @csspart popover-caret - The popover caret. Usage `cds-button::part(popover-caret)`
  */
 @customElement(`${prefix}-button`)
 class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
@@ -336,7 +340,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
 
     return tooltipText && !disabled
       ? html`
-          <span class="${tooltipClasses}">
+          <span class="${tooltipClasses}" part="popover-container">
             <button
               id="button"
               part="button"
@@ -348,12 +352,15 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
               <slot @slotchange="${handleSlotChange}"></slot>
               <slot name="icon" @slotchange="${handleSlotChange}"></slot>
             </button>
-            <span class="${prefix}--popover">
+            <span class="${prefix}--popover" part="popover">
               <span
-                class="${prefix}--popover-content ${prefix}--tooltip-content">
+                class="${prefix}--popover-content ${prefix}--tooltip-content"
+                part="popover-content">
                 ${tooltipText}
               </span>
-              <span class="${prefix}--popover-caret"></span>
+              <span
+                class="${prefix}--popover-caret"
+                part="popover-caret"></span>
             </span>
           </span>
         `

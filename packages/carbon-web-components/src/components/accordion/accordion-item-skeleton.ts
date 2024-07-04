@@ -16,18 +16,23 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 
 /**
  * Skeleton of accordion item.
+ *
+ * @csspart expando - The element that toggles the accordion open and closed. Usage: `cds-accordion-item-skeleton::part(expando)`
+ * @csspart expando-icon - The icon in the toggle. Usage: `cds-accordion-item-skeleton::part(expando-icon)`
+ * @csspart title - The title text in the toggle. Usage: `cds-accordion-item-skeleton::part(title)`
  */
 @customElement(`${prefix}-accordion-item-skeleton`)
 class CDSAccordionItemSkeleton extends LitElement {
   render() {
     return html`
-      <span class="${prefix}--accordion__heading">
+      <span class="${prefix}--accordion__heading" part="expando">
         ${ChevronRight16({
           part: 'expando-icon',
           class: `${prefix}--accordion__arrow`,
         })}
         <cds-skeleton-text
-          class="${prefix}--accordion__title"></cds-skeleton-text>
+          class="${prefix}--accordion__title"
+          part="title"></cds-skeleton-text>
       </span>
     `;
   }
