@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,18 +18,18 @@ import styles from './checkbox.scss';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 /**
- * Check box.
+ * Check box group.
  *
- * @element cds-checkbox
- * @fires cds-checkbox-changed - The custom event fired after this changebox changes its checked state.
- * @csspart input - The checkbox. Usage: `cds-checkbox::part(input)`
- * @csspart label - The label. Usage: `cds-checkbox::part(label)`
- * @csspart helper-text - The helper text. Usage: `cds-checkbox::part(helper-text)`
- * @csspart validation-msg - The validation message. Usage: `cds-checkbox::part(validation-msg)`
- * @csspart invalid-icon - Icon for invalid input. Usage: `cds-checkbox::part(invalid-icon)`
- * @csspart invalid-text - Text for invalid input. Usage: `cds-checkbox::part(invalid-text)`
- * @csspart invalid-icon--warning - Icon for warnings. Usage: `cds-checkbox::part(invalid-icon--warning)`
- * @csspart invalid-text--warning - Text For Warings. Usage: `cds-checkbox::part(invalid-text--warning)`
+ * @element cds-checkbox-group
+ * @csspart fieldset - The fieldset element wrapping the group. Usage: `cds-checkbox-group::part(input)`
+ * @csspart input - The checkbox. Usage: `cds-checkbox-group::part(input)`
+ * @csspart label - The label. Usage: `cds-checkbox-group::part(label)`
+ * @csspart helper-text - The helper text. Usage: `cds-checkbox-group::part(helper-text)`
+ * @csspart validation-msg - The validation message. Usage: `cds-checkbox-group::part(validation-msg)`
+ * @csspart invalid-icon - Icon for invalid input. Usage: `cds-checkbox-group::part(invalid-icon)`
+ * @csspart invalid-text - Text for invalid input. Usage: `cds-checkbox-group::part(invalid-text)`
+ * @csspart invalid-icon--warning - Icon for warnings. Usage: `cds-checkbox-group::part(invalid-icon--warning)`
+ * @csspart invalid-text--warning - Text for warnings. Usage: `cds-checkbox-group::part(invalid-text--warning)`
  */
 @customElement(`${prefix}-checkbox-group`)
 class CDSCheckboxGroup extends LitElement {
@@ -186,6 +186,7 @@ class CDSCheckboxGroup extends LitElement {
 
     return html`
       <fieldset
+        part="fieldset"
         class="${fieldsetClasses}"
         ?data-invalid=${invalid}
         ?disabled=${disabled}
