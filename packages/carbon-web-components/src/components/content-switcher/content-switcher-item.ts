@@ -141,7 +141,9 @@ export default class CDSContentSwitcherItem extends FocusMixin(LitElement) {
       tabindex="${selected ? '0' : '-1'}"
       aria-controls="${ifDefined(target)}"
       aria-selected="${Boolean(selected)}">
-      <span class="${prefix}--content-switcher__label"><slot></slot></span>
+      <span class="${prefix}--content-switcher__label" part="label"
+        ><slot></slot
+      ></span>
     </button>`;
 
     if (this.icon) {
