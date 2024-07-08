@@ -23,6 +23,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @csspart tooltip - The tooltip for icon only items. Usage `cds-content-switcher-item::part(tooltip)`
  * @csspart tooltip-content - The tooltip content. Usage `cds-content-switcher-item::part(tooltip-content)`
  * @csspart button - The button. Usage `cds-content-switcher-item::part(button)`
+ * @csspart label - The label. Usage `cds-content-switcher-item::part(label)`
  */
 @customElement(`${prefix}-content-switcher-item`)
 export default class CDSContentSwitcherItem extends FocusMixin(LitElement) {
