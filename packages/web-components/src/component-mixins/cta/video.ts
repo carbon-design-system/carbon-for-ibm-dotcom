@@ -132,7 +132,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // Declaring this mixin as it extends `LitElement` seems to cause a TS error
       // @ts-ignore
       super.updated(changedProperties);
-      customElements.whenDefined(`${ddsPrefix}-text-cta`).then((response) => {
+      customElements.whenDefined(`${ddsPrefix}-video-cta-container`).then((response) => {
         const { ctaType, videoName, videoDescription, href, videoDuration } =
           this;
         const { eventRequestVideoData } = this
