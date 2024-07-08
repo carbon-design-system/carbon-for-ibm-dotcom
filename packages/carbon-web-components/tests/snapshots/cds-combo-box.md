@@ -28,6 +28,7 @@
       aria-haspopup="listbox"
       class="cds--text-input cds--text-input--empty"
       id="trigger-button"
+      part="text-input"
       placeholder=""
       role="combobox"
     >
@@ -96,6 +97,7 @@
       class="cds--text-input"
       disabled=""
       id="trigger-button"
+      part="text-input"
       placeholder=""
       role="combobox"
     >
