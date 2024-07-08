@@ -133,46 +133,49 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // @ts-ignore
       super.updated(changedProperties);
       const { ctaType, videoName, videoDescription, href, videoDuration } =
-      this;
-      const { eventRequestVideoData } = this.constructor as typeof VideoCTAMixinImpl;
-      
-      customElements.whenDefined(`${ddsPrefix}-video-cta-container`).then(() => {
-        if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
-          if (typeof videoDuration === 'undefined') {
+        this;
+      const { eventRequestVideoData } = this
+        .constructor as typeof VideoCTAMixinImpl;
+
+      customElements
+        .whenDefined(`${ddsPrefix}-video-cta-container`)
+        .then(() => {
+          if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
+            if (typeof videoDuration === 'undefined') {
+              this.dispatchEvent(
+                new CustomEvent(eventRequestVideoData, {
+                  bubbles: true,
+                  cancelable: true,
+                  composed: true,
+                  detail: {
+                    href,
+                    videoName,
+                    videoDescription,
+                  },
+                })
+              );
+            }
+          }
+
+          if (
+            (changedProperties.has('videoName') &&
+              (videoName === null || videoName === 'null')) ||
+            changedProperties.has('videoDescription')
+          ) {
             this.dispatchEvent(
               new CustomEvent(eventRequestVideoData, {
                 bubbles: true,
                 cancelable: true,
                 composed: true,
                 detail: {
-                  href,
                   videoName,
                   videoDescription,
+                  href,
                 },
               })
             );
           }
-        }
-
-        if (
-          (changedProperties.has('videoName') &&
-            (videoName === null || videoName === 'null')) ||
-          changedProperties.has('videoDescription')
-        ) {
-          this.dispatchEvent(
-            new CustomEvent(eventRequestVideoData, {
-              bubbles: true,
-              cancelable: true,
-              composed: true,
-              detail: {
-                videoName,
-                videoDescription,
-                href,
-              },
-            })
-          );
-        }
-      });
+        });
       if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
         this._updateVideoThumbnailUrl();
       }
