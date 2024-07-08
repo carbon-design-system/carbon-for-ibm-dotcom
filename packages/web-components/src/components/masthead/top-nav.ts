@@ -54,8 +54,8 @@ function findLastIndex<T>(
  * @csspart prev-button - The button to go to the previous page. Usage: `c4d-top-nav::part(prev-button)`
  * @csspart next-button - The button to go to the next page. Usage: `c4d-top-nav::part(next-button)`
  * @csspart header-nav-caret-left-container - The header nav caret left container. Usage: `c4d-top-nav::part(header-nav-caret-left-container)`
+ * @csspart header-nav-caret-left-gradient - The header nav caret left gradient. Usage: `c4d-top-nav::part(header-nav-caret-left-gradient)`
  * @csspart header-nav-caret-right-container - The header nav caret right container. Usage: `c4d-top-nav::part(header-nav-caret-right-container)`
- * @csspart header_nav-caret-left-gradient - The header nav caret left gradient. Usage: `c4d-top-nav::part(header_nav-caret-left-gradient)`
  * @csspart ce-header-nav-content-container - The ce header nav content container. Usage: `c4d-top-nav::part(ce-header-nav-content-container)`
  * @csspart header-nav-content-container - The header nav content container. Usage: `c4d-top-nav::part(header-nav-content)`
  * @csspart header-nav-content - The header nav content. Usage: `c4d-top-nav::part(header-nav-content)`
@@ -598,7 +598,9 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                     </nav>
                   </div>
                 </div>
-                <div class="${caretLeftContainerClasses}">
+                <div
+                  part="header-nav-caret-left-container"
+                  class="${caretLeftContainerClasses}">
                   <button
                     part="prev-button"
                     tabindex="-1"
@@ -607,7 +609,9 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                     @click="${paginateLeft}">
                     ${CaretRight20()}
                   </button>
-                  <div class="${prefix}--header__nav-caret-left-gradient"></div>
+                  <div
+                    part="header-nav-caret-left-gradient"
+                    class="${prefix}--header__nav-caret-left-gradient"></div>
                 </div>
               `
             : html`
@@ -636,7 +640,9 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                       part="nav"
                       class="${prefix}--header__nav"
                       aria-label="${ifDefined(this.navLabel)}">
-                      <div class="${prefix}--sub-content-left"></div>
+                      <div
+                        part="sub-content-left"
+                        class="${prefix}--sub-content-left"></div>
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
@@ -645,12 +651,14 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
                       </div>
-                      <div class="${prefix}--sub-content-right"></div>
+                      <div
+                        part="sub-content-right"
+                        class="${prefix}--sub-content-right"></div>
                     </nav>
                   </div>
                 </div>
                 <div
-                  part="header__nav-caret-right-container"
+                  part="header-nav-caret-right-container"
                   class="${caretRightContainerClasses}">
                   <div
                     part="header-nav-caret-right-gradient"

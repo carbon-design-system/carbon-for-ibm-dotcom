@@ -24,7 +24,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The action bar in masthead.
  *
  * @element c4d-masthead-global-bar
- * @csspart ce-header-global-container -The ce header global container. Usage `c4d-masthead-global-bar::part(ce-header-global-container)`
+ * @csspart container -The ce header global container. Usage `c4d-masthead-global-bar::part(container)`
  */
 @customElement(`${c4dPrefix}-masthead-global-bar`)
 class C4DMastheadGlobalBar extends FocusMixin(
@@ -63,7 +63,7 @@ class C4DMastheadGlobalBar extends FocusMixin(
         hasSearchActive,
     });
     return html`
-      <div part="ce-header-global-container" class="${classes}">
+      <div part="container" class="${classes}">
         <slot></slot>
       </div>
     `;
