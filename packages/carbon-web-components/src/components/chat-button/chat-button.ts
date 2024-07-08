@@ -19,6 +19,8 @@ export { CHAT_BUTTON_SIZE, CHAT_BUTTON_KIND };
 /**
  * Icon Button
  *
+ * @element cds-chat-button
+ * @csspart button - The button. Usage `cds-chat-button::part(button)`
  */
 @customElement(`${prefix}-chat-button`)
 class CDSChatButton extends LitElement {
@@ -95,6 +97,7 @@ class CDSChatButton extends LitElement {
 
     return html`
       <cds-button
+        part="button"
         button-class-name="${classes}"
         size="${this.size}"
         kind="${this.kind}"
