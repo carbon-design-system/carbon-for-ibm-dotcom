@@ -132,11 +132,11 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // Declaring this mixin as it extends `LitElement` seems to cause a TS error
       // @ts-ignore
       super.updated(changedProperties);
-      customElements.whenDefined(`${ddsPrefix}-video-cta-container`).then((response) => {
-        const { ctaType, videoName, videoDescription, href, videoDuration } =
-          this;
-        const { eventRequestVideoData } = this
-          .constructor as typeof VideoCTAMixinImpl;
+      const { ctaType, videoName, videoDescription, href, videoDuration } =
+      this;
+      const { eventRequestVideoData } = this.constructor as typeof VideoCTAMixinImpl;
+      
+      customElements.whenDefined(`${ddsPrefix}-video-cta-container`).then(() => {
         if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
           if (typeof videoDuration === 'undefined') {
             this.dispatchEvent(
@@ -172,11 +172,10 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
             })
           );
         }
-
-        if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
-          this._updateVideoThumbnailUrl();
-        }
       });
+      if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
+        this._updateVideoThumbnailUrl();
+      }
     }
 
     /**
