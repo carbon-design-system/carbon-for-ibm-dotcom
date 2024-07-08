@@ -132,49 +132,51 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // Declaring this mixin as it extends `LitElement` seems to cause a TS error
       // @ts-ignore
       super.updated(changedProperties);
-      const { ctaType, videoName, videoDescription, href, videoDuration } =
-        this;
-      const { eventRequestVideoData } = this
-        .constructor as typeof VideoCTAMixinImpl;
-      if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
-        if (typeof videoDuration === 'undefined') {
+      customElements.whenDefined(`${ddsPrefix}-text-cta`).then((response) => {
+        const { ctaType, videoName, videoDescription, href, videoDuration } =
+          this;
+        const { eventRequestVideoData } = this
+          .constructor as typeof VideoCTAMixinImpl;
+        if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
+          if (typeof videoDuration === 'undefined') {
+            this.dispatchEvent(
+              new CustomEvent(eventRequestVideoData, {
+                bubbles: true,
+                cancelable: true,
+                composed: true,
+                detail: {
+                  href,
+                  videoName,
+                  videoDescription,
+                },
+              })
+            );
+          }
+        }
+
+        if (
+          (changedProperties.has('videoName') &&
+            (videoName === null || videoName === 'null')) ||
+          changedProperties.has('videoDescription')
+        ) {
           this.dispatchEvent(
             new CustomEvent(eventRequestVideoData, {
               bubbles: true,
               cancelable: true,
               composed: true,
               detail: {
-                href,
                 videoName,
                 videoDescription,
+                href,
               },
             })
           );
         }
-      }
 
-      if (
-        (changedProperties.has('videoName') &&
-          (videoName === null || videoName === 'null')) ||
-        changedProperties.has('videoDescription')
-      ) {
-        this.dispatchEvent(
-          new CustomEvent(eventRequestVideoData, {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: {
-              videoName,
-              videoDescription,
-              href,
-            },
-          })
-        );
-      }
-
-      if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
-        this._updateVideoThumbnailUrl();
-      }
+        if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
+          this._updateVideoThumbnailUrl();
+        }
+      });
     }
 
     /**
