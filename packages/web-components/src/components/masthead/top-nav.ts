@@ -53,6 +53,14 @@ function findLastIndex<T>(
  * @csspart menubar - The menu bar. Usage: `c4d-top-nav::part(menubar)`
  * @csspart prev-button - The button to go to the previous page. Usage: `c4d-top-nav::part(prev-button)`
  * @csspart next-button - The button to go to the next page. Usage: `c4d-top-nav::part(next-button)`
+ * @csspart header-nav-caret-left-container - The header nav caret left container. Usage: `c4d-top-nav::part(header-nav-caret-left-container)`
+ * @csspart header-nav-caret-left-gradient - The header nav caret left gradient. Usage: `c4d-top-nav::part(header-nav-caret-left-gradient)`
+ * @csspart header-nav-caret-right-container - The header nav caret right container. Usage: `c4d-top-nav::part(header-nav-caret-right-container)`
+ * @csspart ce-header-nav-content-container - The ce header nav content container. Usage: `c4d-top-nav::part(ce-header-nav-content-container)`
+ * @csspart header-nav-content-container - The header nav content container. Usage: `c4d-top-nav::part(header-nav-content)`
+ * @csspart header-nav-content - The header nav content. Usage: `c4d-top-nav::part(header-nav-content)`
+ * @csspart sub-content-right - The right sub content. Usage: `c4d-top-nav::part(sub-content-right)`
+ * @csspart sub-content-left - The left sub content. Usage: `c4d-top-nav::part(sub-content-left)`
  */
 @customElement(`${c4dPrefix}-top-nav`)
 class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
@@ -548,8 +556,11 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
       : html`
           ${pageIsRTL
             ? html`
-                <div class="${caretRightContainerClasses}">
+                <div
+                  part="header-nav-caret-left-container"
+                  class="${caretRightContainerClasses}">
                   <div
+                    part="header_nav-caret-left-gradient"
                     class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
@@ -560,13 +571,19 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                     ${CaretLeft20()}
                   </button>
                 </div>
-                <div class="${c4dPrefix}-ce--header__nav-content-container">
-                  <div class="${prefix}--header__nav-content">
+                <div
+                  part="ce-header-nav-content-container"
+                  class="${c4dPrefix}-ce--header__nav-content-container">
+                  <div
+                    part="header-nav-content"
+                    class="${prefix}--header__nav-content">
                     <nav
                       part="nav"
                       class="${prefix}--header__nav"
                       aria-label="${ifDefined(this.navLabel)}">
-                      <div class="${prefix}--sub-content-right"></div>
+                      <div
+                        part="sub-content-right"
+                        class="${prefix}--sub-content-right"></div>
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
@@ -575,11 +592,15 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
                       </div>
-                      <div class="${prefix}--sub-content-left"></div>
+                      <div
+                        part="sub-content-left"
+                        class="${prefix}--sub-content-left"></div>
                     </nav>
                   </div>
                 </div>
-                <div class="${caretLeftContainerClasses}">
+                <div
+                  part="header-nav-caret-left-container"
+                  class="${caretLeftContainerClasses}">
                   <button
                     part="prev-button"
                     tabindex="-1"
@@ -588,11 +609,15 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                     @click="${paginateLeft}">
                     ${CaretRight20()}
                   </button>
-                  <div class="${prefix}--header__nav-caret-left-gradient"></div>
+                  <div
+                    part="header-nav-caret-left-gradient"
+                    class="${prefix}--header__nav-caret-left-gradient"></div>
                 </div>
               `
             : html`
-                <div class="${caretLeftContainerClasses}">
+                <div
+                  part="header-nav-caret-left-container"
+                  class="${caretLeftContainerClasses}">
                   <button
                     part="prev-button"
                     tabindex="-1"
@@ -601,15 +626,23 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                     @click="${paginateLeft}">
                     ${CaretLeft20()}
                   </button>
-                  <div class="${prefix}--header__nav-caret-left-gradient"></div>
+                  <div
+                    part="header_nav-caret-left-gradient"
+                    class="${prefix}--header__nav-caret-left-gradient"></div>
                 </div>
-                <div class="${c4dPrefix}-ce--header__nav-content-container">
-                  <div class="${prefix}--header__nav-content">
+                <div
+                  part="ce-header-nav-content-container"
+                  class="${c4dPrefix}-ce--header__nav-content-container">
+                  <div
+                    part="header-nav-content"
+                    class="${prefix}--header__nav-content">
                     <nav
                       part="nav"
                       class="${prefix}--header__nav"
                       aria-label="${ifDefined(this.navLabel)}">
-                      <div class="${prefix}--sub-content-left"></div>
+                      <div
+                        part="sub-content-left"
+                        class="${prefix}--sub-content-left"></div>
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
@@ -618,12 +651,17 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
                       </div>
-                      <div class="${prefix}--sub-content-right"></div>
+                      <div
+                        part="sub-content-right"
+                        class="${prefix}--sub-content-right"></div>
                     </nav>
                   </div>
                 </div>
-                <div class="${caretRightContainerClasses}">
+                <div
+                  part="header-nav-caret-right-container"
+                  class="${caretRightContainerClasses}">
                   <div
+                    part="header-nav-caret-right-gradient"
                     class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
