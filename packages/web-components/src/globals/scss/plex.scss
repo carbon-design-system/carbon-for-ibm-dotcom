@@ -6,7 +6,7 @@
 //
 
 @use '@carbon/styles/scss/config' with (
-  $font-path: 'https://1.www.s81c.com/common/carbon/plex/fonts'
+  $use-akamai-cdn: true
 );
 
 @use '@carbon/styles/scss/fonts' as *;
