@@ -95,12 +95,15 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
  * @csspart l1-dropdown-announcement - The announcement in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-announcement)`
  * @csspart l1-dropdown-section - The sections in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-section)`
  * @csspart l1-dropdown-menu-items - The menu items in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-menu-items)`
+ * @csspart l1-dropdown-menu-item - A single menu item in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-menu-item)`
  * @csspart l1-dropdown-item-ul - The item list in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item-ul)`
  * @csspart l1-dropdown-item-li - The list item in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item-li)`
  * @csspart l1-dropdown-item-link - The item link in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item-link)`
+ * @csspart l1-dropdown-item-link--heading - The item link in the L1 dropdown that wraps headings. Usage: `c4d-masthead-l1::part(l1-dropdown-item-link--heading)`
  * @csspart l1-dropdown-subsection - The subsection in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-subsection)`
  * @csspart l1-dropdown-item - The dropdown item in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item)`
  * @csspart l1-dropdown-login-link - The login link in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-login-link)`
+ * @csspart l1-dropdown-links - A group of l1 dropdown links. Usage: `c4d-masthead-l1::part(l1-dropdown-links)`
  * @slot brand - The left hand area.
  * @slot nav - The nav content.
  * @slot profile - The right hand area.
@@ -508,7 +511,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                 ${unsafeHTML(announcement)}
               </div>`
             : ''}
-          <div class="${dropdownClasses}">
+          <div part="l1-dropdown-links" class="${dropdownClasses}">
             ${hasWideColumn && wideColumnFirst
               ? this._renderL1DropdownSections(wideColumns, hasWideColumn, true)
               : ''}
@@ -573,7 +576,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                     : html` ${title} `;
 
                   return html`
-                    <li>
+                    <li part="l1-dropdown-menu-item">
                       <a
                         part="l1-dropdown-item-link"
                         class="${prefix}--masthead__l1-dropdown-item"
@@ -943,6 +946,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     const headingContent = heading.url
       ? html`
           <a
+            part="l1-dropdown-item-link l1-dropdown-item-link--heading"
             class="${prefix}--masthead__l1-dropdown-item"
             href="${heading.url}">
             ${heading.title}${isMobileVersion ? ArrowRight16() : ArrowRight20()}
