@@ -3608,7 +3608,6 @@ __metadata:
     url-loader: "npm:^4.1.1"
     web-component-analyzer: "npm:1.2.0-next.0"
     webpack: "npm:^4.46.0"
-    wicg-inert: "npm:^3.1.2"
     window-or-global: "npm:^1.0.1"
   dependenciesMeta:
     "@carbon/icons-react":
@@ -36655,7 +36654,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wicg-inert@npm:^3.1.1, wicg-inert@npm:^3.1.2":
+"wicg-inert@npm:^3.1.1":
   version: 3.1.2
   resolution: "wicg-inert@npm:3.1.2"
   checksum: 10/a726f5ca2d3535dba9a638ff60b720d9f81857cb9b51bcaf9c2a71ee50d784ff3be6c5d9f0acc35edd8fee92bb3587c0a9daabb70baa725a106d149ae0fd8584
