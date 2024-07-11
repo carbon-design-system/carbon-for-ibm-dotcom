@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,6 @@
 import { html, property, state, query, LitElement } from 'lit-element';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import { classMap } from 'lit-html/directives/class-map.js';
-import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { slow01 } from '@carbon/motion';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
