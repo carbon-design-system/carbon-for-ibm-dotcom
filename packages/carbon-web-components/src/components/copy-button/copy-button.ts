@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,6 +19,8 @@ import '../copy/copy';
  * Copy button.
  *
  * @element cds-copy-button
+ *
+ * @csspart button - The copy to clipboard button. Usage `cds-copy-button::part(button)`
  */
 @customElement(`${prefix}-copy-button`)
 class CDSCopyButton extends FocusMixin(LitElement) {
@@ -57,6 +59,7 @@ class CDSCopyButton extends FocusMixin(LitElement) {
 
     return html`
       <cds-copy
+        part="button"
         ?disabled=${disabled}
         feedback=${feedback}
         feedback-timeout=${feedbackTimeout}
