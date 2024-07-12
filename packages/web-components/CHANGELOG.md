@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.46.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.45.0-rc.1...@carbon/ibmdotcom-web-components@1.46.0-rc.0) (2024-07-12)
+
+
+### Bug Fixes
+
+* **package:** remove unneeded wicg-inert package - v1 ([#11919](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11919)) ([ae6c0df](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ae6c0df1fc6a8da49eac083747e7a3d4506d6ad5)), closes [#11907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11907)
+* **text-cta:** prevent order of operations issues ([#11911](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11911)) ([bef93ea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bef93ea174bfbf7d3cf98e6206aa1e983f7a27a6))
+
+
+
+
+
 # [1.45.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.44.0...@carbon/ibmdotcom-web-components@1.45.0-rc.0) (2024-06-26)
 
 
