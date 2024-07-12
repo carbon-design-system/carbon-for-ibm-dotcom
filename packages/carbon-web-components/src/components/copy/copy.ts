@@ -83,7 +83,7 @@ class CDSCopy extends CDSIconButton {
   // eslint-disable-next-line class-methods-use-this
   protected _renderTooltipContent() {
     return html`
-      <cds-tooltip-content part="content">
+      <cds-tooltip-content part="tooltip-content">
         ${this._showFeedback
           ? this.feedback
           : html`<slot name="tooltip-content"></slot>`}
