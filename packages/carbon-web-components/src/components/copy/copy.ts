@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,6 +17,8 @@ import CDSIconButton from '../icon-button/icon-button';
  * Copy.
  *
  * @element cds-copy
+ *
+ * @csspart tooltip-content - The content. Usage `cds-copy::part(tooltip-content)`
  */
 @customElement(`${prefix}-copy`)
 class CDSCopy extends CDSIconButton {
@@ -81,7 +83,7 @@ class CDSCopy extends CDSIconButton {
   // eslint-disable-next-line class-methods-use-this
   protected _renderTooltipContent() {
     return html`
-      <cds-tooltip-content>
+      <cds-tooltip-content part="tooltip-content">
         ${this._showFeedback
           ? this.feedback
           : html`<slot name="tooltip-content"></slot>`}
