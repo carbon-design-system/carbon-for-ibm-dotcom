@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.10.0-rc.0...@carbon/ibmdotcom-web-components@2.11.0-rc.0) (2024-07-12)
+
+
+### Bug Fixes
+
+* **fonts:** set font path for plex fonts cdn ([#11916](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11916)) ([194f9c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/194f9c1e3aa37f998e7f04573e9972421979292e))
+* **left-nav:** fix focus trapping ([#11842](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11842)) ([5f824ec](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5f824ecee9f2bb086bdebee41e2271faa7972cbe))
+* **masthead:** prevent megamenus from overlaying global banner ([#11837](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11837)) ([9c3f32a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9c3f32ad3b24c2ead9213d97c78c07389714213d)), closes [#11775](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11775)
+* **package:** remove no longer needed wicg-inert package ([#11918](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11918)) ([8c16117](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8c161177225b5ea1e7728db4870d62baee89c36e)), closes [#11907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11907)
+
+
+
+
+
+# [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.9.0-rc.0...@carbon/ibmdotcom-web-components@2.10.0-rc.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* **parent-visibility:** Make changes for v2 ([#11797](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11797)) ([b6911a8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6911a839210b121087c884288cdc6037e5f400f))
+
+
+
+
+
 # [2.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.9.0-rc.0...@carbon/ibmdotcom-web-components@2.9.0) (2024-05-16)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

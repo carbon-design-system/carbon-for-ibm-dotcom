@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.10.0-rc.0...@carbon/ibmdotcom-utilities@2.11.0-rc.0) (2024-07-12)
+
+
+### Features
+
+* **sticky-header:** allow mixed prefixes with warning ([#11868](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11868)) ([1df637a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1df637a7be35d4e8de11899c0f0d7740550cf252))
+
+
+
+
+
+# [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.9.0-rc.0...@carbon/ibmdotcom-utilities@2.10.0-rc.0) (2024-05-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [2.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.9.0-rc.0...@carbon/ibmdotcom-utilities@2.9.0) (2024-05-16)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

@@ -13,7 +13,6 @@
     data-attribute1="headerNav"
     data-attribute2="L0"
     data-attribute3=""
-    tabindex="-1"
     type="button"
   >
     <div class="cds--side-nav__submenu-content">
@@ -38,7 +37,6 @@
     data-attribute1="headerNav"
     data-attribute2="L0"
     data-attribute3="title-foo"
-    tabindex="-1"
     type="button"
   >
     <div class="cds--side-nav__submenu-content">
