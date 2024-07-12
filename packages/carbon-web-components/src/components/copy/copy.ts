@@ -18,7 +18,7 @@ import CDSIconButton from '../icon-button/icon-button';
  *
  * @element cds-copy
  *
- * @csspart content - The content. Usage `cds-copy::part(content)`
+ * @csspart tooltip-content - The content. Usage `cds-copy::part(tooltip-content)`
  */
 @customElement(`${prefix}-copy`)
 class CDSCopy extends CDSIconButton {
