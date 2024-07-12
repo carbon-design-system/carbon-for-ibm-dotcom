@@ -8,7 +8,6 @@
  */
 import { LitElement, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
-import 'wicg-inert';
 import { slow01 } from '@carbon/motion';
 import { classMap } from 'lit/directives/class-map.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
