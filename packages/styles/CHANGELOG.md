@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.10.0-rc.0...@carbon/ibmdotcom-styles@2.11.0-rc.0) (2024-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/icons-react to v11.42.0 ([#11825](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11825)) ([3856967](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/385696704a0c6eb1c5718594c75196c20392df4b))
+* **deps:** update dependency @carbon/icons-react to v11.43.0 ([#11855](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11855)) ([5786a9e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5786a9ea63af0a73d0b0f9a8531b32e031efa46d))
+* **deps:** update dependency @carbon/icons-react to v11.45.0 ([#11909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11909)) ([d2cad97](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d2cad97110ad60069dca3cc7327644cb2a5556db))
+* **masthead:** prevent megamenus from overlaying global banner ([#11837](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11837)) ([9c3f32a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9c3f32ad3b24c2ead9213d97c78c07389714213d)), closes [#11775](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11775)
+
+
+
+
+
 # [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.9.0-rc.0...@carbon/ibmdotcom-styles@2.10.0-rc.0) (2024-05-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
