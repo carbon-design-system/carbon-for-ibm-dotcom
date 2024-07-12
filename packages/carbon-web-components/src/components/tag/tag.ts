@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,8 @@ export { TAG_SIZE, TAG_TYPE };
  *
  * @fires cds-tag-beingclosed - The custom event fired as the element is being closed
  * @fires cds-tag-closed - The custom event fired after the element has been closed
+ *
+ * @csspart close-icon - The close icon. Usage `cds-tag::part(close-icon)`
  */
 @customElement(`${prefix}-tag`)
 class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
@@ -144,7 +146,10 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
       <slot name="slug" @slotchange="${handleSlugSlotChange}"></slot>
       ${filter
         ? html`
-            <button class="${prefix}--tag__close-icon" ?disabled=${disabled}>
+            <button
+              class="${prefix}--tag__close-icon"
+              part="close-icon"
+              ?disabled=${disabled}>
               ${Close16({ 'aria-label': title })}
             </button>
           `
