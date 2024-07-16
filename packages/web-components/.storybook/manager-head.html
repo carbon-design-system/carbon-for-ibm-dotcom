@@ -65,6 +65,25 @@ LICENSE file in the root directory of this source tree.
 
 <!-- Minimum setting to use IBM Plex font -->
 <style type="text/css">
+  /* This style is required because of the compliance footer */
+  #root > div {
+    height: calc(100vh - 48px);
+  }
+
+  /* This style is required because of the compliance footer in smaller screens */
+  @media (max-width: 671px) {
+    nav[class^='css-'] {
+      height: 281px;
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 99999;
+  }
+
   @font-face {
     font-weight: 400;
     font-family: 'IBM Plex Sans';
