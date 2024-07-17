@@ -25,6 +25,14 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Pagination UI.
  *
  * @element cds-pagination
+ * @csspart left-container - The left container. Usage: `cds-pagination::part(left-container)`
+ * @csspart pagination-text-left - The left pagination text. Usage: `cds-pagination::part(pagination-text-left)`
+ * @csspart pagination-items-count - The total amount of items. Usage: `cds-pagination::part(pagination-items-count)`
+ * @csspart right-container - The right container. Usage: `cds-pagination::part(right-container)`
+ * @csspart pagination-right-label - The right label. Usage: `cds-pagination::part(pagination-right-label)`
+ * @csspart pagination-text-right - The left pagination text. Usage: `cds-pagination::part(pagination-text-right)`
+ * @csspart pagination-total-pages - The total number of pages. Usage: `cds-pagination::part(pagination-total-pages)`
+ * @csspart controls-container - The container for the control buttons. Usage: `cds-pagination::part(controls-container)`
  * @slot page-sizes-select - Where to put in the `<page-sizes-select>`.
  * @fires cds-pages-select-changed - The custom event fired after the current page is changed from `<cds-pages-select>`.
  * @fires cds-page-sizes-select-changed
@@ -345,8 +353,11 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
       .join(' ');
 
     return html`
-      <div class="${prefix}--pagination__left">
-        <label for="select" class="${prefix}--pagination__text"
+      <div part="left-container" class="${prefix}--pagination__left">
+        <label
+          part="pagination-text-left"
+          for="select"
+          class="${prefix}--pagination__text"
           ><slot name="label-text">${itemsPerPageText}</slot></label
         >
         <cds-select
@@ -360,17 +371,22 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
           <slot @slotchange=${handleSlotChange}></slot>
         </cds-select>
         <span
+          part="pagination-items-count"
           class="${prefix}--pagination__text ${prefix}--pagination__items-count"
           >${this._renderStatusText()}</span
         >
       </div>
-      <div class="${prefix}--pagination__right">
-        <label for="select" class="${prefix}--label ${prefix}--visually-hidden">
+      <div part="right-container" class="${prefix}--pagination__right">
+        <label
+          part="pagination-right-label"
+          for="select"
+          class="${prefix}--label ${prefix}--visually-hidden">
           ${formatLabelText({ count: totalPages })}
         </label>
         ${pagesUnknown || !totalItems
           ? html`
               <span
+                part="pagination-text-right"
                 class="${prefix}--pagination__text ${prefix}--pagination__page-text"
                 >${formatSupplementalText({ count: totalPages })}</span
               >
@@ -409,12 +425,16 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
                     `
                 )}
               </cds-select>
-              <span class="${prefix}--pagination__text"
+              <span
+                part="pagination-total-pages"
+                class="${prefix}--pagination__text"
                 >${formatSupplementalText({ count: totalPages })}</span
               >
             `}
 
-        <div class="${prefix}--pagination__control-buttons">
+        <div
+          part="controls-container"
+          class="${prefix}--pagination__control-buttons">
           <cds-button
             pagination
             size="${size}"
