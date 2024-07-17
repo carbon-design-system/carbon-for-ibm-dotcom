@@ -21,6 +21,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Structured list wrapper.
  *
  * @element cds-structured-list
+ * @csspart section-container - The section container. Usage `cds-structured-list::part(section-container)`
  */
 @customElement(`${prefix}-structured-list`)
 class CDSStructuredList extends FocusMixin(LitElement) {
@@ -94,7 +95,9 @@ class CDSStructuredList extends FocusMixin(LitElement) {
       [`${prefix}--structured-list--flush`]: flush,
     });
     return html`
-      <section id="section" class=${classes}><slot></slot></section>
+      <section part="section-container" id="section" class=${classes}>
+        <slot></slot>
+      </section>
     `;
   }
 

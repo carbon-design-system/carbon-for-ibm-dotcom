@@ -17,6 +17,7 @@ import styles from './structured-list.scss';
  * Structured list header row.
  *
  * @element cds-structured-list-header-row
+ * @csspart list-header - The list header. Usage `cds-structured-list-header-row::part(list-header)`
  */
 @customElement(`${prefix}-structured-list-header-row`)
 class CDSStructuredListHeaderRow extends LitElement {
@@ -40,7 +41,7 @@ class CDSStructuredListHeaderRow extends LitElement {
     if (this.selectionName) {
       return html`
         <slot></slot>
-        <div class="${prefix}--structured-list-th"></div>
+        <div part="list-header" class="${prefix}--structured-list-th"></div>
       `;
     }
     return html` <slot></slot> `;
