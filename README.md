@@ -26,7 +26,7 @@
   </a>
 </p>
 
-## Getting started
+## Getting started now
 
 If you're just getting started, check out
 [`react`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react)
