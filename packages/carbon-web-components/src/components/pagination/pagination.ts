@@ -27,11 +27,11 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @element cds-pagination
  * @csspart left-container - The left container. Usage: `cds-pagination::part(left-container)`
  * @csspart text - The generic shadow part for all text elements. Usage: `cds-pagination::part(text)`
- * @csspart text-left - The left pagination text. Usage: `cds-pagination::part(text-left)`
+ * @csspart text--left - The left pagination text. Usage: `cds-pagination::part(text--left)`
+ * @csspart text--right - The right pagination text. Usage: `cds-pagination::part(text--right)`
  * @csspart items-count - The total amount of items. Usage: `cds-pagination::part(items-count)`
  * @csspart right-container - The right container. Usage: `cds-pagination::part(right-container)`
  * @csspart right-label - The right label. Usage: `cds-pagination::part(right-label)`
- * @csspart text-right - The right pagination text. Usage: `cds-pagination::part(text-right)`
  * @csspart total-pages - The total number of pages. Usage: `cds-pagination::part(total-pages)`
  * @csspart controls-container - The container for the control buttons. Usage: `cds-pagination::part(controls-container)`
  * @csspart dropdown - The select dropdown. Usage: `cds-pagination::part(dropdown)`
@@ -359,7 +359,7 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
     return html`
       <div part="left-container" class="${prefix}--pagination__left">
         <label
-          part="text text-left"
+          part="text text--left"
           for="select"
           class="${prefix}--pagination__text"
           ><slot name="label-text">${itemsPerPageText}</slot></label
@@ -391,7 +391,7 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
         ${pagesUnknown || !totalItems
           ? html`
               <span
-                part="text text-right"
+                part="text text--right"
                 class="${prefix}--pagination__text ${prefix}--pagination__page-text"
                 >${formatSupplementalText({ count: totalPages })}</span
               >
