@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.11.0-rc.0",
+  "version": "2.11.0-rc.1",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
