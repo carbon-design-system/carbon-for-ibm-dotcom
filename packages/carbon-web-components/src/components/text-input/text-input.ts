@@ -39,6 +39,19 @@ export {
  * Text Input element. Supports all the usual attributes for textual input types
  *
  * @element cds-text-input
+ * @csspart assistive-text - The assistive text for screen readers. Usage `cds-text-input::part(assistive-text)`
+ * @csspart button - The button used for toggling password visibility. Usage `cds-text-input::part(button)`
+ * @csspart container - The container for the input element. Usage `cds-text-input::part(container)`
+ * @csspart field-outer-wrapper - The outer wrapper for the input field. Usage `cds-text-input::part(field-outer-wrapper)`
+ * @csspart field-wrapper - The wrapper for the input field. Usage `cds-text-input::part(field-wrapper)`
+ * @csspart form-requirement - The element showing form requirement messages. Usage `cds-text-input::part(form-requirement)`
+ * @csspart helperText - The helper text element. Usage `cds-text-input::part(helperText)`
+ * @csspart input - The input element. Usage `cds-text-input::part(input)`
+ * @csspart label - The general labels for the input. Usage `cds-text-input::part(label)`
+ * @csspart label-counter - The counter label displaying character count. Usage `cds-text-input::part(label-counter)`
+ * @csspart label-text - The label text element. Usage `cds-text-input::part(label-text)`
+ * @csspart label-wrapper - The wrapper for the label. Usage `cds-text-input::part(label-wrapper)`
+ * @csspart label-helper-wrapper - The wrapper for the label and helper text. Usage `cds-text-input::part(label-helper-wrapper)`
  * @slot helper-text - The helper text.
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
@@ -413,13 +426,14 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
     });
 
     const passwordButtonLabel = html`
-      <span class="${prefix}--assistive-text">
+      <span part="assistive-text" class="${prefix}--assistive-text">
         ${passwordIsVisible ? this.hidePasswordLabel : this.showPasswordLabel}
       </span>
     `;
 
     const passwordVisibilityButton = () => html`
       <button
+        part="button"
         type="button"
         class="${passwordVisibilityToggleClasses}"
         ?disabled="${normalizedProps.disabled}"
@@ -433,22 +447,27 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
 
     const counter =
       enableCounter && maxCount
-        ? html` <label class="${counterClasses}">
+        ? html` <label part="label label-counter" class="${counterClasses}">
             <slot name="label-text">${textCount}/${maxCount}</slot>
           </label>`
         : null;
 
     const labelText =
       label && !hideLabel
-        ? html`<label class="${labelClasses}"> ${label} </label>`
+        ? html`<label part="label label-text" class="${labelClasses}">
+            ${label}
+          </label>`
         : null;
 
-    const labelWrapper = html`<div class="${prefix}--text-input__label-wrapper">
+    const labelWrapper = html`<div
+      part="label-wrapper"
+      class="${prefix}--text-input__label-wrapper">
       ${labelText} ${counter}
     </div>`;
 
     const helper = helperText
       ? html`<div
+          part="helperText"
           class="${helperTextClasses}"
           id="helper-text"
           ?hidden="${normalizedProps.invalid || normalizedProps.warn}">
@@ -457,16 +476,22 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
       : null;
 
     return html`
-      <div class="${inputWrapperClasses}">
+      <div part="container" class="${inputWrapperClasses}">
         ${!inline
           ? labelWrapper
-          : html`<div class="${prefix}--text-input__label-helper-wrapper">
+          : html`<div
+              part="label-helper-wrapper"
+              class="${prefix}--text-input__label-helper-wrapper">
               ${labelWrapper} ${helper}
             </div>`}
-        <div class="${fieldOuterWrapperClasses}">
-          <div class="${fieldWrapperClasses}" ?data-invalid="${invalid}">
+        <div part="field-outer-wrapper" class="${fieldOuterWrapperClasses}">
+          <div
+            part="field-wrapper"
+            class="${fieldWrapperClasses}"
+            ?data-invalid="${invalid}">
             ${normalizedProps.icon}
             <input
+              part="input"
               autocomplete="${this.autocomplete}"
               ?autofocus="${this.autofocus}"
               class="${inputClasses}"
@@ -491,6 +516,7 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
           </div>
           ${!inline ? helper : null}
           <div
+            part="form-requirement"
             class="${prefix}--form-requirement"
             ?hidden="${!normalizedProps.invalid && !normalizedProps.warn}">
             <slot name="${normalizedProps['slot-name']}">

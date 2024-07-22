@@ -14,6 +14,8 @@ import styles from './text-input.scss';
 
 /**
  * Skeleton of number input.
+ * @csspart label - The text input label. Usage: `cds-text-input::part(label)`
+ * @csspart input - The text input. Usage: `cds-text-input::part(input)`
  */
 @customElement(`${prefix}-text-input-skeleton`)
 class CDSTextInputSkeleton extends LitElement {
@@ -27,8 +29,10 @@ class CDSTextInputSkeleton extends LitElement {
     const { hideLabel } = this;
     return html`
       ${!hideLabel &&
-      html` <span class="${prefix}--label ${prefix}--skeleton"></span> `}
-      <div class="${prefix}--text-input ${prefix}--skeleton"></div>
+      html`
+        <span part="label" class="${prefix}--label ${prefix}--skeleton"></span>
+      `}
+      <div part="input" class="${prefix}--text-input ${prefix}--skeleton"></div>
     `;
   }
 
