@@ -114,6 +114,7 @@ class CDSSelect extends FormMixin(LitElement) {
         return item.matches(selectorLeafItem)
           ? html`
               <option
+                part="option"
                 class="${prefix}--select-option"
                 ?disabled="${disabled}"
                 label="${ifNonEmpty(label)}"
@@ -124,6 +125,7 @@ class CDSSelect extends FormMixin(LitElement) {
             `
           : html`
               <optgroup
+                part="optgroup"
                 class="${prefix}--select-optgroup"
                 ?disabled="${disabled}"
                 label="${ifDefined(label)}">
@@ -401,7 +403,7 @@ class CDSSelect extends FormMixin(LitElement) {
 
     const supplementalText = helperText
       ? html`
-          <div class="${helperTextClasses}">
+          <div part="helper-text" class="${helperTextClasses}">
             <slot name="helper-text"> ${helperText} </slot>
           </div>
         `
@@ -409,13 +411,16 @@ class CDSSelect extends FormMixin(LitElement) {
 
     const errorText =
       invalid || warn
-        ? html` <div class="${prefix}--form-requirement">
+        ? html` <div
+            part="form-requirement"
+            class="${prefix}--form-requirement">
             ${invalid ? invalidText : warnText}
           </div>`
         : null;
 
     const input = html`
       <select
+        part="input"
         id="input"
         class="${inputClasses}"
         ?disabled="${disabled}"
@@ -427,6 +432,7 @@ class CDSSelect extends FormMixin(LitElement) {
           ? undefined
           : html`
               <option
+                part="option"
                 disabled
                 hidden
                 class="${prefix}--select-option"
@@ -450,15 +456,18 @@ class CDSSelect extends FormMixin(LitElement) {
     `;
 
     return html`
-      <div class="${selectClasses}">
+      <div part="container" class="${selectClasses}">
         ${!hideLabel
-          ? html`<label class="${labelClasses}" for="input">
+          ? html`<label part="label" class="${labelClasses}" for="input">
               <slot name="label-text"> ${labelText} </slot>
             </label>`
           : null}
         ${inline
-          ? html`<div class="${prefix}--select-input--inline__wrapper">
+          ? html`<div
+              part="input-inline-wrapper"
+              class="${prefix}--select-input--inline__wrapper">
               <div
+                part="input-wrapper"
                 class="${prefix}--select-input__wrapper"
                 ?data-invalid="${invalid}">
                 ${input}
@@ -466,6 +475,7 @@ class CDSSelect extends FormMixin(LitElement) {
               ${errorText}
             </div>`
           : html`<div
+              part="input-wrapper"
               class="${prefix}--select-input__wrapper"
               ?data-invalid="${invalid}">
               ${input}

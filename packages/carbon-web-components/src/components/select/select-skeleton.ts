@@ -14,6 +14,8 @@ import styles from './select.scss';
 
 /**
  * Skeleton of number input.
+ * @csspart label - The label skeleton. Usage `cds-select-skeleton::part(label)`
+ * @csspart select - The select skeleton. Usage `cds-select-skeleton::part(select)`
  */
 @customElement(`${prefix}-select-skeleton`)
 class CDSSelectSkeleton extends LitElement {
@@ -27,8 +29,10 @@ class CDSSelectSkeleton extends LitElement {
     const { hideLabel } = this;
     return html`
       ${!hideLabel &&
-      html` <span class="${prefix}--label ${prefix}--skeleton"></span> `}
-      <div class="${prefix}--select ${prefix}--skeleton"></div>
+      html`
+        <span part="label" class="${prefix}--label ${prefix}--skeleton"></span>
+      `}
+      <div part="select" class="${prefix}--select ${prefix}--skeleton"></div>
     `;
   }
 
