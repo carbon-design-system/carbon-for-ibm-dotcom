@@ -26,6 +26,15 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Select box.
  *
  * @element cds-select
+ * @csspart option - The option element. Usage: `cds-select::part(option)`
+ * @csspart optgroup - The optgroup element. Usage: `cds-select::part(optgroup)`
+ * @csspart container - The container element wrapping the entire select component. Usage: `cds-select::part(container)`
+ * @csspart label - The label element for the select. Usage: `cds-select::part(label)`
+ * @csspart input - The select input element. Usage: `cds-select::part(input)`
+ * @csspart input-wrapper - The wrapper element for the select input. Usage: `cds-select::part(input-wrapper)`
+ * @csspart input-inline-wrapper - The wrapper element for the inline select input. Usage: `cds-select::part(input-inline-wrapper)`
+ * @csspart helper-text - The helper text element. Usage: `cds-select::part(helper-text)`
+ * @csspart form-requirement - The element displaying form requirement messages. Usage: `cds-select::part(form-requirement)`
  * @fires cds-select-selected
  *   The name of the custom event fired after an item is selected.
  * @slot helper-text - The helper text.
