@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.11.0-rc.1",
+  "version": "2.11.0-rc.2",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -97,7 +97,7 @@
     "@carbon/layout": "11.23.1",
     "@carbon/motion": "11.19.1",
     "@carbon/styles": "1.61.0",
-    "@carbon/web-components": "2.11.0-rc.0",
+    "@carbon/web-components": "2.11.0-rc.1",
     "@ibm/telemetry-js": "^1.5.0",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",

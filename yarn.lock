@@ -3494,7 +3494,7 @@ __metadata:
     "@carbon/react": "npm:1.61.0"
     "@carbon/styles": "npm:1.61.0"
     "@carbon/type": "npm:11.28.1"
-    "@carbon/web-components": "npm:2.11.0-rc.0"
+    "@carbon/web-components": "npm:2.11.0-rc.1"
     "@ibm/telemetry-js": "npm:^1.5.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
@@ -3799,7 +3799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@npm:2.11.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:2.11.0-rc.1, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
