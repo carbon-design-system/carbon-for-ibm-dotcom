@@ -166,7 +166,7 @@ class CDSToggle extends HostListenerMixin(CDSCheckbox) {
         <div class="${inputClasses}" part="appearance">
           <div
             class="${toggleClasses}"
-            part="switch switch--checked"
+            part="switch${checked ? ' switch--checked' : ''}"
             @click=${handleChange}>
             ${this._renderCheckmark()}
           </div>
