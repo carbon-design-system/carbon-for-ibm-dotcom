@@ -45,11 +45,11 @@ export {
  * @csspart field-outer-wrapper - The outer wrapper for the input field. Usage `cds-text-input::part(field-outer-wrapper)`
  * @csspart field-wrapper - The wrapper for the input field. Usage `cds-text-input::part(field-wrapper)`
  * @csspart form-requirement - The element showing form requirement messages. Usage `cds-text-input::part(form-requirement)`
- * @csspart helperText - The helper text element. Usage `cds-text-input::part(helperText)`
+ * @csspart helper-text - The helper text element. Usage `cds-text-input::part(helper-text)`
  * @csspart input - The input element. Usage `cds-text-input::part(input)`
  * @csspart label - The general labels for the input. Usage `cds-text-input::part(label)`
- * @csspart label-counter - The counter label displaying character count. Usage `cds-text-input::part(label-counter)`
- * @csspart label-text - The label text element. Usage `cds-text-input::part(label-text)`
+ * @csspart label--counter - The counter label displaying character count. Usage `cds-text-input::part(label--counter)`
+ * @csspart label--text - The label text element. Usage `cds-text-input::part(label--text)`
  * @csspart label-wrapper - The wrapper for the label. Usage `cds-text-input::part(label-wrapper)`
  * @csspart label-helper-wrapper - The wrapper for the label and helper text. Usage `cds-text-input::part(label-helper-wrapper)`
  * @slot helper-text - The helper text.
@@ -447,14 +447,14 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
 
     const counter =
       enableCounter && maxCount
-        ? html` <label part="label label-counter" class="${counterClasses}">
+        ? html` <label part="label label--counter" class="${counterClasses}">
             <slot name="label-text">${textCount}/${maxCount}</slot>
           </label>`
         : null;
 
     const labelText =
       label && !hideLabel
-        ? html`<label part="label label-text" class="${labelClasses}">
+        ? html`<label part="label label--text" class="${labelClasses}">
             ${label}
           </label>`
         : null;
@@ -467,7 +467,7 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
 
     const helper = helperText
       ? html`<div
-          part="helperText"
+          part="helper-text"
           class="${helperTextClasses}"
           id="helper-text"
           ?hidden="${normalizedProps.invalid || normalizedProps.warn}">
