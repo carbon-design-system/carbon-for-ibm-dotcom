@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,6 +29,13 @@ export { TOGGLE_SIZE };
  * @slot checked-text - The text for the checked state.
  * @slot unchecked-text - The text for the unchecked state.
  * @fires cds-toggle-changed - The custom event fired after this changebox changes its checked state.
+ * @csspart check - The check mark. Usage `cds-toggle::part(check)`
+ * @csspart button - The button. Usage `cds-toggle::part(button)`
+ * @csspart label - The label. Usage `cds-toggle::part(label)`
+ * @csspart label-text - The label text. Usage `cds-toggle::part(label-text)`
+ * @csspart appearance - The check mark button apperance. Usage `cds-toggle::part(appearance)`
+ * @csspart switch - The switch button. Usage `cds-toggle::part(switch)`
+ * @csspart text - The text. Usage `cds-toggle::part(text)`
  */
 @customElement(`${prefix}-toggle`)
 class CDSToggle extends HostListenerMixin(CDSCheckbox) {
@@ -77,6 +84,7 @@ class CDSToggle extends HostListenerMixin(CDSCheckbox) {
     return html`
       <svg
         class="${prefix}--toggle__check"
+        part="check"
         width="6px"
         height="5px"
         viewBox="0 0 6 5">
@@ -141,6 +149,7 @@ class CDSToggle extends HostListenerMixin(CDSCheckbox) {
     return html`
       <button
         class="${prefix}--toggle__button"
+        part="button"
         role="switch"
         type="button"
         aria-checked=${checked}
@@ -150,15 +159,21 @@ class CDSToggle extends HostListenerMixin(CDSCheckbox) {
         value="${ifDefined(value)}"
         ?disabled=${disabled}
         id="${id}"></button>
-      <label for="${id}" class="${prefix}--toggle__label">
-        <span class="${prefix}--toggle__label-text">${labelText}</span>
-        <div class="${inputClasses}">
-          <div class="${toggleClasses}" @click=${handleChange}>
+      <label for="${id}" class="${prefix}--toggle__label" part="label">
+        <span class="${prefix}--toggle__label-text" part="label-text"
+          >${labelText}</span
+        >
+        <div class="${inputClasses}" part="appearance">
+          <div
+            class="${toggleClasses}"
+            part="switch${checked ? ' switch--checked' : ''}"
+            @click=${handleChange}>
             ${this._renderCheckmark()}
           </div>
           <span
             ?hidden="${hideLabel}"
             class="${prefix}--toggle__text"
+            part="text"
             aria-hidden="true"
             >${stateText}</span
           >
