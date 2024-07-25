@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.61.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.61.0...@carbon/ibmdotcom-react@1.61.1-rc.0) (2024-07-25)
+
+
+### Bug Fixes
+
+* **build:** fix exports subpaths ([#11942](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11942)) ([b433217](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b433217dc0c6a5de5ad4dfd689e6d4109a6edf8b)), closes [#11941](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11941)
+
+
+
+
+
 # [1.61.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.61.0-rc.0...@carbon/ibmdotcom-react@1.61.0) (2024-07-19)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
