@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.53.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services-store@1.53.0...@carbon/ibmdotcom-services-store@1.53.1-rc.0) (2024-07-25)
+
+
+### Bug Fixes
+
+* **stackblitz:** fix and standardize masthead examples for v2 ([#11199](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11199)) ([c3ddeb8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c3ddeb8016b0259ce4f202cb2d99c16b6b5c2545))
+
+
+### Features
+
+* **masthead:** spacing style regression fix and maintainability refactor ([#11252](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11252)) ([67cc49b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67cc49b287eeb77d274c2c937ab99e3290960d38)), closes [#11251](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11251)
+* **masthead:** support Contact Module in L1 CTA ([#11403](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11403)) ([1a50f1a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1a50f1a4442d936c4eaece140df404da13759d85))
+
+
+
+
+
 # [1.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services-store@1.53.0-rc.2...@carbon/ibmdotcom-services-store@1.53.0) (2023-11-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services-store
