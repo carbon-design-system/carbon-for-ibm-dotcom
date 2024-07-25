@@ -17,8 +17,8 @@
       "node": "./lib/globals/*",
       "default": "./es/globals/*"
     },
-    "./es/": "./es/*",
-    "./lib/": "./lib/*",
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*",
     "./custom-elements.json": "./custom-elements.json",
     "./package.json": "./package.json"
   },
