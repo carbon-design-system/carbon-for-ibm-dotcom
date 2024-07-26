@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.11.0",
+  "version": "2.11.1-rc.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -17,8 +17,8 @@
       "node": "./lib/globals/*",
       "default": "./es/globals/*"
     },
-    "./es/": "./es/*",
-    "./lib/": "./lib/*",
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*",
     "./custom-elements.json": "./custom-elements.json",
     "./package.json": "./package.json"
   },
@@ -91,13 +91,13 @@
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "2.11.0",
-    "@carbon/ibmdotcom-styles": "2.11.0",
-    "@carbon/ibmdotcom-utilities": "2.11.0",
+    "@carbon/ibmdotcom-services": "2.11.1-rc.0",
+    "@carbon/ibmdotcom-styles": "2.11.1-rc.0",
+    "@carbon/ibmdotcom-utilities": "2.11.1-rc.0",
     "@carbon/layout": "11.23.1",
     "@carbon/motion": "11.19.1",
     "@carbon/styles": "1.61.0",
-    "@carbon/web-components": "2.11.0",
+    "@carbon/web-components": "2.11.1-rc.0",
     "@ibm/telemetry-js": "^1.5.0",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",
@@ -130,7 +130,7 @@
     "@babel/preset-react": "~7.12.1",
     "@babel/template": "~7.12.0",
     "@babel/traverse": "~7.23.7",
-    "@carbon/ibmdotcom-services-store": "1.53.0",
+    "@carbon/ibmdotcom-services-store": "1.53.1-rc.0",
     "@carbon/icon-helpers": "10.49.0",
     "@carbon/icons": "10.48.5",
     "@carbon/icons-react": "^11.33.0",
