@@ -26,15 +26,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Select box.
  *
  * @element cds-select
- * @csspart option - The option element. Usage: `cds-select::part(option)`
- * @csspart optgroup - The optgroup element. Usage: `cds-select::part(optgroup)`
- * @csspart container - The container element wrapping the entire select component. Usage: `cds-select::part(container)`
- * @csspart label - The label element for the select. Usage: `cds-select::part(label)`
- * @csspart input - The select input element. Usage: `cds-select::part(input)`
- * @csspart input-wrapper - The wrapper element for the select input. Usage: `cds-select::part(input-wrapper)`
- * @csspart input-inline-wrapper - The wrapper element for the inline select input. Usage: `cds-select::part(input-inline-wrapper)`
- * @csspart helper-text - The helper text element. Usage: `cds-select::part(helper-text)`
- * @csspart form-requirement - The element displaying form requirement messages. Usage: `cds-select::part(form-requirement)`
  * @fires cds-select-selected
  *   The name of the custom event fired after an item is selected.
  * @slot helper-text - The helper text.
@@ -123,7 +114,6 @@ class CDSSelect extends FormMixin(LitElement) {
         return item.matches(selectorLeafItem)
           ? html`
               <option
-                part="option"
                 class="${prefix}--select-option"
                 ?disabled="${disabled}"
                 label="${ifNonEmpty(label)}"
@@ -134,7 +124,6 @@ class CDSSelect extends FormMixin(LitElement) {
             `
           : html`
               <optgroup
-                part="optgroup"
                 class="${prefix}--select-optgroup"
                 ?disabled="${disabled}"
                 label="${ifDefined(label)}">
@@ -412,7 +401,7 @@ class CDSSelect extends FormMixin(LitElement) {
 
     const supplementalText = helperText
       ? html`
-          <div part="helper-text" class="${helperTextClasses}">
+          <div class="${helperTextClasses}">
             <slot name="helper-text"> ${helperText} </slot>
           </div>
         `
@@ -420,16 +409,13 @@ class CDSSelect extends FormMixin(LitElement) {
 
     const errorText =
       invalid || warn
-        ? html` <div
-            part="form-requirement"
-            class="${prefix}--form-requirement">
+        ? html` <div class="${prefix}--form-requirement">
             ${invalid ? invalidText : warnText}
           </div>`
         : null;
 
     const input = html`
       <select
-        part="input"
         id="input"
         class="${inputClasses}"
         ?disabled="${disabled}"
@@ -441,7 +427,6 @@ class CDSSelect extends FormMixin(LitElement) {
           ? undefined
           : html`
               <option
-                part="option"
                 disabled
                 hidden
                 class="${prefix}--select-option"
@@ -465,18 +450,15 @@ class CDSSelect extends FormMixin(LitElement) {
     `;
 
     return html`
-      <div part="container" class="${selectClasses}">
+      <div class="${selectClasses}">
         ${!hideLabel
-          ? html`<label part="label" class="${labelClasses}" for="input">
+          ? html`<label class="${labelClasses}" for="input">
               <slot name="label-text"> ${labelText} </slot>
             </label>`
           : null}
         ${inline
-          ? html`<div
-              part="input-inline-wrapper"
-              class="${prefix}--select-input--inline__wrapper">
+          ? html`<div class="${prefix}--select-input--inline__wrapper">
               <div
-                part="input-wrapper"
                 class="${prefix}--select-input__wrapper"
                 ?data-invalid="${invalid}">
                 ${input}
@@ -484,7 +466,6 @@ class CDSSelect extends FormMixin(LitElement) {
               ${errorText}
             </div>`
           : html`<div
-              part="input-wrapper"
               class="${prefix}--select-input__wrapper"
               ?data-invalid="${invalid}">
               ${input}

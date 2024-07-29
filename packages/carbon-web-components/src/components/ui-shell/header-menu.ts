@@ -25,9 +25,9 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Header menu.
  *
  * @element cds-header-menu
- * @csspart trigger - The trigger button. Usage: `cds-header-menu::part(trigger)`
- * @csspart trigger-icon - The trigger button icon. Usage: `cds-header-menu::part(trigger-icon)`
- * @csspart menu-body - The menu body. Usage: `cds-header-menu::part(menu-body)`
+ * @csspart trigger The trigger button.
+ * @csspart trigger-icon The trigger button icon.
+ * @csspart menu-body The menu body.
  */
 @customElement(`${prefix}-header-menu`)
 class CDSHeaderMenu extends HostListenerMixin(FocusMixin(LitElement)) {

@@ -20,7 +20,6 @@ export { CHAT_BUTTON_SIZE };
  * Chat button skeleton.
  *
  * @element cds-chat-button-skeleton
- * @csspart skeleton - The button skeleton. Usage `cds-chat-button-skeleton::part(skeleton)`
  */
 @customElement(`${prefix}-chat-button-skeleton`)
 class CDSChatButtonSkeleton extends LitElement {
@@ -38,7 +37,7 @@ class CDSChatButtonSkeleton extends LitElement {
       [`${prefix}--layout--size-${this.size}`]: this.size,
     });
 
-    return html` <div class="${skeletonClasses}" part="skeleton"></div> `;
+    return html` <div class="${skeletonClasses}"></div> `;
   }
 
   static styles = styles;

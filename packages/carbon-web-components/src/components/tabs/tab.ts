@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,8 +19,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Basic tab.
  *
  * @element cds-tab
- *
- * @csspart nav-link - The tabs navigation links. Usage `cds-tab::part(nav-link)`
  */
 @customElement(`${prefix}-tab`)
 export default class CDSTab extends CDSContentSwitcherItem {
@@ -72,7 +70,6 @@ export default class CDSTab extends CDSContentSwitcherItem {
     return html`
       <a
         class="${prefix}--tabs__nav-link"
-        part="nav-link"
         role="tab"
         aria-label="${tabTitle}"
         tabindex="${selected ? 0 : -1}"

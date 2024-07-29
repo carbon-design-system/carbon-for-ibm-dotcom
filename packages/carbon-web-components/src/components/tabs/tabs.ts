@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,16 +34,6 @@ export { NAVIGATION_DIRECTION, TABS_KEYBOARD_ACTION, TABS_TYPE };
  *   The custom event fired before a tab is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
  * @fires cds-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
- *
- * @csspart prev-button - The previous button when tab list is wider than container. Usage `cds-tabs::part(prev-button)`
- * @csspart next-button - The next button when tab list is wider than container. Usage `cds-tabs::part(next-button)`
- * @csspart container - The tabs navigation container. Usage `cds-tabs::part(container)`
- * @csspart content - The tabs navigation content. Usage `cds-tabs::part(content)`
- * @csspart nav - The tabs navigation. Usage `cds-tabs::part(nav)`
- * @csspart tablist - The tabs list. Usage `cds-tabs::part(tablist)`
- * @csspart sub-content-left - The left content. Usage `cds-tabs::part(sub-content-left)`
- * @csspart sub-content-right - The right content. Usage `cds-tabs::part(sub-content-right)`
- * @csspart assistive-text - The assistive text. Usage `cds-tabs::part(assistive-text)`
  */
 @customElement(`${prefix}-tabs`)
 export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
@@ -487,21 +477,13 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
     return html`
       ${this.renderPreviousButton()}
-      <div class="${prefix}--tabs-nav-content-container" part="container">
-        <div class="${prefix}--tabs-nav-content" part="content">
-          <div class="${prefix}--tabs-nav" part="nav">
-            <div
-              id="tablist"
-              role="tablist"
-              class="${prefix}--tab--list"
-              part="tablist">
-              <div
-                class="${prefix}--sub-content-left"
-                part="sub-content-left"></div>
+      <div class="${prefix}--tabs-nav-content-container">
+        <div class="${prefix}--tabs-nav-content">
+          <div class="${prefix}--tabs-nav">
+            <div id="tablist" role="tablist" class="${prefix}--tab--list">
+              <div class="${prefix}--sub-content-left"></div>
               <slot @slotchange=${handleSlotchange}></slot>
-              <div
-                class="${prefix}--sub-content-right"
-                part="sub-content-right"></div>
+              <div class="${prefix}--sub-content-right"></div>
             </div>
           </div>
         </div>
@@ -509,7 +491,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
       ${this.renderNextButton()}
       <div
         class="${prefix}--assistive-text"
-        part="assistive-text"
         role="status"
         aria-live="assertive"
         aria-relevant="additions text">

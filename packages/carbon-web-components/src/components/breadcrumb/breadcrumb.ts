@@ -18,7 +18,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Breadcrumb.
  *
  * @element cds-breadcrumb
- * @csspart list - The list HTML element. Usage: `cds-breadcrumb::part(list)`
  */
 @customElement(`${prefix}-breadcrumb`)
 class CDSBreadcrumb extends LitElement {
@@ -41,7 +40,7 @@ class CDSBreadcrumb extends LitElement {
       [`${prefix}--breadcrumb--no-trailing-slash`]: this.noTrailingSlash,
     });
     return html`
-      <ol class="${classes}" part="list">
+      <ol class="${classes}">
         <slot></slot>
       </ol>
     `;

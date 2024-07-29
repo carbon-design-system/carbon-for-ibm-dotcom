@@ -14,18 +14,13 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 
 /**
  * Skeleton of number input.
- * @element cds-checkbox-skeleton
- * @csspart label - The label. Usage: `cds-checkbox-skeleton::part(label)`
- * @csspart label-text - The tex. Usage: `cds-checkbox-skeleton::part(label-text)`
  */
 @customElement(`${prefix}-checkbox-skeleton`)
 class CDSCheckboxSkeleton extends LitElement {
   render() {
     return html`
       <label class="${prefix}--checkbox-label" for="checkbox" part="label">
-        <span
-          class="${prefix}--checkbox-label-text ${prefix}--skeleton"
-          part="label-text"
+        <span class="${prefix}--checkbox-label-text ${prefix}--skeleton"
           ><slot></slot
         ></span>
       </label>

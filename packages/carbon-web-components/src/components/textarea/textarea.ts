@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,14 +26,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @slot helper-text - The helper text.
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
- *
- * @csspart label - The label. Usage `cds-textarea::part(label)`
- * @csspart label-wrapper - The label wrapper. Usage `cds-textarea::part(label-wrapper)`
- * @csspart label-input - The label input. Usage `cds-textarea::part(label-input)`
- * @csspart wrapper - The wrapper. Usage `cds-textarea::part(wrapper)`
- * @csspart textarea - The textarea. Usage `cds-textarea::part(textarea)`
- * @csspart helper-text - The helper text. Usage `cds-textarea::part(helper-text)`
- * @csspart form-requirement - The form requirement. Usage `cds-textarea::part(form-requirement)`
  */
 @customElement(`${prefix}-textarea`)
 class CDSTextarea extends CDSTextInput {
@@ -122,7 +114,7 @@ class CDSTextarea extends CDSTextInput {
 
     const counter =
       enableCounter && maxCount
-        ? html` <label class="${labelClasses}" part="label">
+        ? html` <label class="${labelClasses}">
             <slot name="label-text">${textCount}/${maxCount}</slot>
           </label>`
         : null;
@@ -137,26 +129,22 @@ class CDSTextarea extends CDSTextInput {
     };
 
     return html`
-      <div class="${prefix}--text-area__label-wrapper" part="label-wrapper">
+      <div class="${prefix}--text-area__label-wrapper">
         ${this.hideLabel
           ? html``
           : html`
-              <label class="${labelClasses}" for="input" part="label-input">
+              <label class="${labelClasses}" for="input">
                 <slot name="label-text"> ${this.label} </slot>
               </label>
             `}
         ${counter}
       </div>
-      <div
-        class="${textareaWrapperClasses}"
-        ?data-invalid="${this.invalid}"
-        part="wrapper">
+      <div class="${textareaWrapperClasses}" ?data-invalid="${this.invalid}">
         ${icon()}
         <textarea
           autocomplete="${this.autocomplete}"
           ?autofocus="${this.autofocus}"
           class="${textareaClasses}"
-          part="textarea"
           cols="${ifDefined(this.cols)}"
           ?data-invalid="${this.invalid}"
           ?disabled="${this.disabled}"
@@ -172,15 +160,11 @@ class CDSTextarea extends CDSTextInput {
           @input="${this._handleInput}"></textarea>
         <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
       </div>
-      <div
-        class="${helperTextClasses}"
-        ?hidden="${this.invalid || this.warn}"
-        part="helper-text">
+      <div class="${helperTextClasses}" ?hidden="${this.invalid || this.warn}">
         <slot name="helper-text"> ${this.helperText} </slot>
       </div>
       <div
         class="${prefix}--form-requirement"
-        part="form-requirement"
         ?hidden="${!this.invalid && !this.warn}">
         <slot name="${this.invalid ? 'invalid-text' : 'warn-text'}">
           ${this.invalid ? this.invalidText : this.warnText}

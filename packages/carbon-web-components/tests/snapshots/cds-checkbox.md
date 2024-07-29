@@ -19,20 +19,14 @@
   part="label"
   title=""
 >
-  <span
-    class="cds--checkbox-label-text"
-    part="label-text"
-  >
+  <span class="cds--checkbox-label-text">
     <slot>
     </slot>
   </span>
 </label>
 <slot name="slug">
 </slot>
-<div
-  class="cds--checkbox__validation-msg"
-  part="validation-msg"
->
+<div class="cds--checkbox__validation-msg">
 </div>
 
 ```
@@ -55,20 +49,14 @@
   part="label"
   title=""
 >
-  <span
-    class="cds--checkbox-label-text"
-    part="label-text"
-  >
+  <span class="cds--checkbox-label-text">
     <slot>
     </slot>
   </span>
 </label>
 <slot name="slug">
 </slot>
-<div
-  class="cds--checkbox__validation-msg"
-  part="validation-msg"
->
+<div class="cds--checkbox__validation-msg">
 </div>
 
 ```

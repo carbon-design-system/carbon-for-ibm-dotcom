@@ -25,18 +25,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Pagination UI.
  *
  * @element cds-pagination
- * @csspart left-container - The left container. Usage: `cds-pagination::part(left-container)`
- * @csspart text - The generic shadow part for all text elements. Usage: `cds-pagination::part(text)`
- * @csspart text--left - The left pagination text. Usage: `cds-pagination::part(text--left)`
- * @csspart text--right - The right pagination text. Usage: `cds-pagination::part(text--right)`
- * @csspart items-count - The total amount of items. Usage: `cds-pagination::part(items-count)`
- * @csspart right-container - The right container. Usage: `cds-pagination::part(right-container)`
- * @csspart right-label - The right label. Usage: `cds-pagination::part(right-label)`
- * @csspart total-pages - The total number of pages. Usage: `cds-pagination::part(total-pages)`
- * @csspart controls-container - The container for the control buttons. Usage: `cds-pagination::part(controls-container)`
- * @csspart dropdown - The select dropdown. Usage: `cds-pagination::part(dropdown)`
- * @csspart dropdown-item - The select dropdown item. Usage: `cds-pagination::part(dropdown-item)`
- * @csspart button - The button for the controls. Usage: `cds-pagination::part(button)`
  * @slot page-sizes-select - Where to put in the `<page-sizes-select>`.
  * @fires cds-pages-select-changed - The custom event fired after the current page is changed from `<cds-pages-select>`.
  * @fires cds-page-sizes-select-changed
@@ -357,15 +345,11 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
       .join(' ');
 
     return html`
-      <div part="left-container" class="${prefix}--pagination__left">
-        <label
-          part="text text--left"
-          for="select"
-          class="${prefix}--pagination__text"
+      <div class="${prefix}--pagination__left">
+        <label for="select" class="${prefix}--pagination__text"
           ><slot name="label-text">${itemsPerPageText}</slot></label
         >
         <cds-select
-          part="dropdown"
           ?disabled=${disabled || pageSizeInputDisabled}
           id="page-size-select"
           left-select
@@ -376,28 +360,22 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
           <slot @slotchange=${handleSlotChange}></slot>
         </cds-select>
         <span
-          part="text items-count"
           class="${prefix}--pagination__text ${prefix}--pagination__items-count"
           >${this._renderStatusText()}</span
         >
       </div>
-      <div part="right-container" class="${prefix}--pagination__right">
-        <label
-          part="right-label"
-          for="select"
-          class="${prefix}--label ${prefix}--visually-hidden">
+      <div class="${prefix}--pagination__right">
+        <label for="select" class="${prefix}--label ${prefix}--visually-hidden">
           ${formatLabelText({ count: totalPages })}
         </label>
         ${pagesUnknown || !totalItems
           ? html`
               <span
-                part="text text--right"
                 class="${prefix}--pagination__text ${prefix}--pagination__page-text"
                 >${formatSupplementalText({ count: totalPages })}</span
               >
 
               <cds-select
-                part="dropdown"
                 ?disabled=${disabled || pageInputDisabled}
                 id="pages-select"
                 pagination
@@ -407,9 +385,7 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
                 ${Array.from(new Array(totalPages)).map(
                   (_item, index) =>
                     html`
-                      <cds-select-item
-                        part="dropdown-item"
-                        value="${index + 1}">
+                      <cds-select-item value="${index + 1}">
                         ${index + 1}
                       </cds-select-item>
                     `
@@ -418,7 +394,6 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
             `
           : html`
               <cds-select
-                part="dropdown"
                 ?disabled=${disabled || pageInputDisabled}
                 id="pages-select"
                 pagination
@@ -428,24 +403,19 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
                 ${Array.from(new Array(totalPages)).map(
                   (_item, index) =>
                     html`
-                      <cds-select-item
-                        part="dropdown-item"
-                        value="${index + 1}">
+                      <cds-select-item value="${index + 1}">
                         ${index + 1}
                       </cds-select-item>
                     `
                 )}
               </cds-select>
-              <span part="text total-pages" class="${prefix}--pagination__text"
+              <span class="${prefix}--pagination__text"
                 >${formatSupplementalText({ count: totalPages })}</span
               >
             `}
 
-        <div
-          part="controls-container"
-          class="${prefix}--pagination__control-buttons">
+        <div class="${prefix}--pagination__control-buttons">
           <cds-button
-            part="button"
             pagination
             size="${size}"
             ?disabled="${prevButtonDisabled}"
@@ -455,7 +425,6 @@ class CDSPagination extends FocusMixin(HostListenerMixin(LitElement)) {
             ${CaretLeft16({ slot: 'icon' })}
           </cds-button>
           <cds-button
-            part="button"
             tooltip-position="top-right"
             pagination
             size="${size}"

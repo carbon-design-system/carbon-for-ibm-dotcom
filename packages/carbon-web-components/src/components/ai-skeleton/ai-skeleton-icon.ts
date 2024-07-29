@@ -18,7 +18,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * AI skeleton icon.
  *
  * @element cds-ai-skeleton-icon
- * @csspart icon - The icon. Usage `cds-ai-skeleton-icon::part(icon)`
  */
 @customElement(`${prefix}-ai-skeleton-icon`)
 class CDSAISkeletonIcon extends LitElement {
@@ -31,7 +30,6 @@ class CDSAISkeletonIcon extends LitElement {
   render() {
     return html`<cds-skeleton-icon
       class="${prefix}--skeleton__icon--ai"
-      part="icon"
       style="${this.customStyles}"></cds-skeleton-icon>`;
   }
 

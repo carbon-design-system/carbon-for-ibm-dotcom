@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,10 +20,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Content switcher button.
  *
  * @element cds-content-switcher-item
- * @csspart tooltip - The tooltip for icon only items. Usage `cds-content-switcher-item::part(tooltip)`
- * @csspart tooltip-content - The tooltip content. Usage `cds-content-switcher-item::part(tooltip-content)`
- * @csspart button - The button. Usage `cds-content-switcher-item::part(button)`
- * @csspart label - The label. Usage `cds-content-switcher-item::part(label)`
  */
 @customElement(`${prefix}-content-switcher-item`)
 export default class CDSContentSwitcherItem extends FocusMixin(LitElement) {
@@ -108,7 +104,7 @@ export default class CDSContentSwitcherItem extends FocusMixin(LitElement) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderTooltipContent() {
     return html`
-      <cds-tooltip-content part="tooltip-content">
+      <cds-tooltip-content>
         <slot name="tooltip-content"></slot>
       </cds-tooltip-content>
     `;
@@ -137,20 +133,16 @@ export default class CDSContentSwitcherItem extends FocusMixin(LitElement) {
       type="button"
       role="tab"
       class="${className}"
-      part="button"
       ?disabled="${disabled}"
       tabindex="${selected ? '0' : '-1'}"
       aria-controls="${ifDefined(target)}"
       aria-selected="${Boolean(selected)}">
-      <span class="${prefix}--content-switcher__label" part="label"
-        ><slot></slot
-      ></span>
+      <span class="${prefix}--content-switcher__label"><slot></slot></span>
     </button>`;
 
     if (this.icon) {
       const { align, closeOnActivation, enterDelayMs, leaveDelayMs } = this;
       return html`<cds-tooltip
-        part="tooltip"
         align=${align}
         close-on-activation="${closeOnActivation}"
         enter-delay-ms=${enterDelayMs}

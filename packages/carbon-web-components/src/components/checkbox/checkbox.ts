@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,16 +23,9 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Check box.
  *
  * @element cds-checkbox
- * @fires cds-checkbox-changed - The custom event fired after this checkbox changes its checked state.
- * @csspart input - The checkbox. Usage: `cds-checkbox::part(input)`
- * @csspart label - The label. Usage: `cds-checkbox::part(label)`
- * @csspart label-text - The label text. Usage: `cds-checkbox::part(label-text)`
- * @csspart helper-text - The helper text. Usage: `cds-checkbox::part(helper-text)`
- * @csspart validation-msg - The validation message. Usage: `cds-checkbox::part(validation-msg)`
- * @csspart invalid-icon - Icon for invalid input. Usage: `cds-checkbox::part(invalid-icon)`
- * @csspart invalid-text - Text for invalid input. Usage: `cds-checkbox::part(invalid-text)`
- * @csspart invalid-icon--warning - Icon for warnings. Usage: `cds-checkbox::part(invalid-icon--warning)`
- * @csspart invalid-text--warning - Text for warnings. Usage: `cds-checkbox::part(invalid-text--warning)`
+ * @fires cds-checkbox-changed - The custom event fired after this changebox changes its checked state.
+ * @csspart input The checkbox.
+ * @csspart label The label.
  */
 @customElement(`${prefix}-checkbox`)
 class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
@@ -231,9 +224,7 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
     const showHelper = !invalid && !warn;
 
     const helper = helperText
-      ? html` <div class="${prefix}--form__helper-text" part="helper-text">
-          ${helperText}
-        </div>`
+      ? html` <div class="${prefix}--form__helper-text">${helperText}</div>`
       : null;
 
     const labelClasses = classMap({
@@ -263,32 +254,26 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
         part="label"
         class="${labelClasses}"
         title="${ifDefined(title)}">
-        <span part="label-text" class="${labelTextClasses}"
+        <span class="${labelTextClasses}"
           >${labelText ? labelText : html`<slot></slot>`}</span
         >
       </label>
       <slot name="slug" @slotchange="${this._handleSlotChange}"></slot>
-      <div class="${prefix}--checkbox__validation-msg" part="validation-msg">
+      <div class="${prefix}--checkbox__validation-msg">
         ${!readonly && invalid
           ? html`
               ${WarningFilled16({
                 class: `${prefix}--checkbox__invalid-icon`,
-                part: `invalid-icon`,
               })}
-              <div class="${prefix}--form-requirement" part="invalid-text">
-                ${invalidText}
-              </div>
+              <div class="${prefix}--form-requirement">${invalidText}</div>
             `
           : null}
         ${showWarning
           ? html`
               ${WarningAltFilled16({
                 class: `${prefix}--checkbox__invalid-icon ${prefix}--checkbox__invalid-icon--warning`,
-                part: `invalid-icon invalid-icon--waring`,
               })}
-              <div class="${prefix}--form-requirement" part="warning-text">
-                ${warnText}
-              </div>
+              <div class="${prefix}--form-requirement">${warnText}</div>
             `
           : null}
       </div>

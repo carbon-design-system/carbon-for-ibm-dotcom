@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,8 +17,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 
 /**
  * Button skeleton.
- * @element cds-button-skeleton
- * @csspart button - The button. Usage `cds-button-skeleton::part(button)`
  */
 @customElement(`${prefix}-button-skeleton`)
 class CDSButtonSkeleton extends CDSButton {
@@ -58,7 +56,6 @@ class CDSButtonSkeleton extends CDSButton {
             id="button"
             role="button"
             class="${classes}"
-            part="button"
             download="${ifDefined(download)}"
             href="${ifDefined(href)}"
             hreflang="${ifDefined(hreflang)}"
@@ -72,7 +69,6 @@ class CDSButtonSkeleton extends CDSButton {
           <button
             id="button"
             class="${classes}"
-            part="button"
             ?autofocus="${autofocus}"
             ?disabled="${disabled}"
             type="${ifDefined(type)}"></button>

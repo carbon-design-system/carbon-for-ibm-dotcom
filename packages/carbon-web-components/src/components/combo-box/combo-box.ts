@@ -26,8 +26,6 @@ export { DROPDOWN_DIRECTION, DROPDOWN_SIZE } from '../dropdown/dropdown';
  * Combo box.
  *
  * @element cds-combo-box
- * @csspart text-input - The text input. Usage `cds-combo-box::part(text-input)`
- * @csspart list-box - The list box. Usage `cds-combo-box::part(list-box)`
  * @fires cds-combo-box-beingselected
  *   The custom event fired before a combo box item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
@@ -241,7 +239,6 @@ class CDSComboBox extends CDSDropdown {
 
     return html`
       <input
-        part="text-input"
         id="trigger-button"
         class="${inputClasses}"
         ?disabled=${disabled}
@@ -274,7 +271,6 @@ class CDSComboBox extends CDSDropdown {
       ? undefined
       : html`
           <div
-            part="list-box"
             id="selection-button"
             role="button"
             class="${prefix}--list-box__selection"

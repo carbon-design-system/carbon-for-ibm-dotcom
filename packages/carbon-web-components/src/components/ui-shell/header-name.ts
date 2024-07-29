@@ -19,8 +19,8 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * The product name UI in header nav.
  *
  * @element cds-header-name
- * @csspart link - The link. Usage: `cds-header-name::part(link)`
- * @csspart prefix - The prefix content. Usage: `cds-header-name::part(prefix)`
+ * @csspart link The link.
+ * @csspart prefix The prefix content.
  */
 @customElement(`${prefix}-header-name`)
 class CDSHeaderName extends FocusMixin(LitElement) {

@@ -14,12 +14,11 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
 
 /**
  * Skeleton of structured list header cell.
- * @csspart span - The span from the header cell skeleton. Usage `cds-structured-list-header-cell-skeleton::part(span)`
  */
 @customElement(`${prefix}-structured-list-header-cell-skeleton`)
 class CDSStructuredListHeaderCellSkeleton extends LitElement {
   render() {
-    return html` <span part="span"></span> `;
+    return html` <span></span> `;
   }
 
   static styles = styles;

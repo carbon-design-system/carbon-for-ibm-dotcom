@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,15 +20,6 @@ import styles from './accordion.scss';
 
 /**
  * Skeleton of code snippet.
- *
- * @csspart item - A skeleton accordion item. Usage: `cds-accordion-skeleton::part(item)`
- * @csspart item-open - An open skeleton accordion item. Usage: `cds-accordion-skeleton::part(item-open)`
- * @csspart item-closed - A closed skeleton accordion item. Usage: `cds-accordion-skeleton::part(item-closed)`
- * @csspart expando - An element that toggles its accordion open and closed. Usage: `cds-accordion-skeleton::part(expando)`
- * @csspart expando-icon - The icon in a toggle. Usage: `cds-accordion-skeleton::part(expando-icon)`
- * @csspart title - The title text in a toggle. Usage: `cds-accordion-skeleton::part(title)`
- * @csspart content - An accordion item's content area. Usage: `cds-accordion-skeleton::part(content)`
- * @csspart text - The text in an accordion item's content area. Usage: `cds-accordion-skeleton::part(text)`
  */
 @customElement(`${prefix}-accordion-skeleton`)
 class CDSAccordionSkeleton extends LitElement {
@@ -100,20 +91,19 @@ class CDSAccordionSkeleton extends LitElement {
     return html`
       ${this.open
         ? html`
-            <li class="${classes}" part="item item-open">
-              <span class="${prefix}--accordion__heading" part="expando">
+            <li class="${classes}">
+              <span class="${prefix}--accordion__heading">
                 ${ChevronRight16({
                   part: 'expando-icon',
                   class: `${prefix}--accordion__arrow`,
                 })}
                 <cds-skeleton-text
-                  class="${prefix}--accordion__title"
-                  part="title"></cds-skeleton-text>
+                  class="${prefix}--accordion__title"></cds-skeleton-text>
               </span>
-              <div class="${prefix}--accordion__content" part="content">
-                <cds-skeleton-text width="90%" part="text"></cds-skeleton-text>
-                <cds-skeleton-text width="80%" part="text"></cds-skeleton-text>
-                <cds-skeleton-text width="85%" part="text"></cds-skeleton-text>
+              <div class="${prefix}--accordion__content">
+                <cds-skeleton-text width="90%"></cds-skeleton-text>
+                <cds-skeleton-text width="80%"></cds-skeleton-text>
+                <cds-skeleton-text width="85%"></cds-skeleton-text>
               </div>
             </li>
           `
@@ -122,8 +112,7 @@ class CDSAccordionSkeleton extends LitElement {
         (_, index) =>
           html`
             <cds-accordion-item-skeleton
-              key=${index}
-              part="item item-closed"></cds-accordion-item-skeleton>
+              key=${index}></cds-accordion-item-skeleton>
           `
       )}
     `;

@@ -17,7 +17,6 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * Link in breadcrumb.
  *
  * @element cds-breadcrumb-link
- * @csspart link - The link wrapper. Usage `cds-breadcrumb-link::part(link)`
  */
 @customElement(`${prefix}-breadcrumb-link`)
 class CDSBreadcrumbLink extends CDSLink {
@@ -25,7 +24,7 @@ class CDSBreadcrumbLink extends CDSLink {
     return html`
       ${this.href
         ? super.render()
-        : html`<span class="${prefix}--link" part="link"><slot></slot></span>`}
+        : html`<span class="${prefix}--link"><slot></slot></span>`}
     `;
   }
   static styles = styles;

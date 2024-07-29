@@ -24,13 +24,6 @@ import styles from './toggletip.scss';
  * Definition tooltip.
  *
  * @element cds-toggletip
- * @csspart label -  The toggle tip label. Usage `cds-toggletip::part(label)`
- * @csspart button -  The toggle tip button. Usage `cds-toggletip::part(button)`
- * @csspart content -  The toggle tip content. Usage `cds-toggletip::part(content)`
- * @csspart action -  The toggle tip actions. Usage `cds-toggletip::part(action)`
- * @csspart inner-content -  The inner content Usage `cds-toggletip::part(inner-content)`
- * @csspart popover-content -  The popover content. Usage `cds-toggletip::part(popover-content)`
- * @csspart popover-carret -  The popover carret. Usage `cds-toggletip::part(popover-carret)`
  */
 @customElement(`${prefix}-toggletip`)
 class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
@@ -97,7 +90,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
 
   protected _renderToggleTipLabel = () => {
     return html`
-      <span class="${prefix}--toggletip-label" part="label">
+      <span class="${prefix}--toggletip-label">
         <slot></slot>
       </span>
     `;
@@ -108,8 +101,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
       <button
         aria-controls="${this.id}"
         class="${prefix}--toggletip-button"
-        @click=${this._handleClick}
-        part="button">
+        @click=${this._handleClick}>
         ${Information16({ id: 'trigger' })}
       </button>
     `;
@@ -118,31 +110,31 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
   protected _renderTooltipContent = () => {
     return this.autoalign
       ? html`
-          <span class="${prefix}--popover-content" part="popover-content">
-            <div class="${prefix}--toggletip-content" part="content">
+          <span class="${prefix}--popover-content">
+            <div class="${prefix}--toggletip-content">
               <slot name="body-text"></slot>
-              <div class="${prefix}--toggletip-actions" part="actions">
+              <div class="${prefix}--toggletip-actions">
                 <slot
                   name="actions"
                   @slotchange="${this._handleActionsSlotChange}"></slot>
               </div>
             </div>
-            <span class="${prefix}--popover-caret" part="popover-carret"></span>
+            <span class="${prefix}--popover-caret"></span>
           </span>
         `
       : html`
-          <span class="${prefix}--popover" part="popover">
-            <span class="${prefix}--popover-content" part="popover-content">
-              <div class="${prefix}--toggletip-content" part="content">
+          <span class="${prefix}--popover">
+            <span class="${prefix}--popover-content">
+              <div class="${prefix}--toggletip-content">
                 <slot name="body-text"></slot>
-                <div class="${prefix}--toggletip-actions" part="actions">
+                <div class="${prefix}--toggletip-actions">
                   <slot
                     name="actions"
                     @slotchange="${this._handleActionsSlotChange}"></slot>
                 </div>
               </div>
             </span>
-            <span class="${prefix}--popover-caret" part="popover-carret"></span>
+            <span class="${prefix}--popover-caret"></span>
           </span>
         `;
   };
@@ -193,7 +185,7 @@ class CDSToggletip extends HostListenerMixin(FocusMixin(LitElement)) {
     });
     return html`
       ${this._renderToggleTipLabel()}
-      <span class="${classes}" part="inner-content">
+      <span class="${classes}">
         ${this._renderInnerContent()}
       </span>
     </span>

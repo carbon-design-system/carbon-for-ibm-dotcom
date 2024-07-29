@@ -80,8 +80,6 @@ class StructuredListRowRadioButtonDelegate
  * Structured list row.
  *
  * @element cds-structured-list-row
- * @csspart list-input - The list input. Usage `cds-structured-list-row::part(list-input)`
- * @csspart list-cell - The list cell. Usage `cds-structured-list-row::part(list-cell)`
  */
 @customElement(`${prefix}-structured-list-row`)
 class CDSStructuredListRow extends HostListenerMixin(LitElement) {
@@ -216,7 +214,6 @@ class CDSStructuredListRow extends HostListenerMixin(LitElement) {
       return html`
         <slot></slot>
         <input
-          part="list-input"
           id="input"
           type="radio"
           class="${prefix}--structured-list-input ${prefix}--visually-hidden"
@@ -224,7 +221,6 @@ class CDSStructuredListRow extends HostListenerMixin(LitElement) {
           name=${selectionName}
           value=${ifDefined(selectionValue)} />
         <div
-          part="list-cell"
           class="${prefix}--structured-list-td ${prefix}--structured-list-cell">
           ${CheckmarkFilled16({
             class: `${prefix}--structured-list-svg`,

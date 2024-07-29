@@ -9,7 +9,6 @@
   button-class-name="cds--copy-btn"
   feedback="Copied!"
   feedback-timeout="2000"
-  part="button"
 >
   <slot slot="tooltip-content">
   </slot>
@@ -24,7 +23,6 @@
   button-class-name="cds--copy-btn"
   feedback="feedback-text-foo"
   feedback-timeout="16"
-  part="button"
 >
   <slot slot="tooltip-content">
   </slot>

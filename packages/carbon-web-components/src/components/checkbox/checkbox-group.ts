@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,18 +18,12 @@ import styles from './checkbox.scss';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 /**
- * Check box group.
+ * Check box.
  *
- * @element cds-checkbox-group
- * @csspart fieldset - The fieldset element wrapping the group. Usage: `cds-checkbox-group::part(input)`
- * @csspart input - The checkbox. Usage: `cds-checkbox-group::part(input)`
- * @csspart label - The label. Usage: `cds-checkbox-group::part(label)`
- * @csspart helper-text - The helper text. Usage: `cds-checkbox-group::part(helper-text)`
- * @csspart validation-msg - The validation message. Usage: `cds-checkbox-group::part(validation-msg)`
- * @csspart invalid-icon - Icon for invalid input. Usage: `cds-checkbox-group::part(invalid-icon)`
- * @csspart invalid-text - Text for invalid input. Usage: `cds-checkbox-group::part(invalid-text)`
- * @csspart invalid-icon--warning - Icon for warnings. Usage: `cds-checkbox-group::part(invalid-icon--warning)`
- * @csspart invalid-text--warning - Text for warnings. Usage: `cds-checkbox-group::part(invalid-text--warning)`
+ * @element cds-checkbox
+ * @fires cds-checkbox-changed - The custom event fired after this changebox changes its checked state.
+ * @csspart input The checkbox.
+ * @csspart label The label.
  */
 @customElement(`${prefix}-checkbox-group`)
 class CDSCheckboxGroup extends LitElement {
@@ -168,10 +162,7 @@ class CDSCheckboxGroup extends LitElement {
       : `checkbox-group-helper-text-${checkboxGroupInstanceId}`;
 
     const helper = helperText
-      ? html` <div
-          id="${helperId}"
-          class="${prefix}--form__helper-text"
-          part="helper-text">
+      ? html` <div id="${helperId}" class="${prefix}--form__helper-text">
           ${helperText}
         </div>`
       : null;
@@ -186,46 +177,32 @@ class CDSCheckboxGroup extends LitElement {
 
     return html`
       <fieldset
-        part="fieldset"
         class="${fieldsetClasses}"
         ?data-invalid=${invalid}
         ?disabled=${disabled}
         aria-readonly=${readonly}
         ?aria-labelledby=${ariaLabelledBy || legendId}
         ?aria-describedby=${!invalid && !warn && helper ? helperId : undefined}>
-        <legend
-          class="${prefix}--label"
-          id=${legendId || ariaLabelledBy}
-          part="label">
+        <legend class="${prefix}--label" id=${legendId || ariaLabelledBy}>
           ${legendText}
           <slot name="slug" @slotchange="${handleSlotChange}"></slot>
         </legend>
         <slot></slot>
-        <div
-          class="${prefix}--checkbox-group__validation-msg"
-          part="validation-msg">
+        <div class="${prefix}--checkbox-group__validation-msg">
           ${!readonly && invalid
             ? html`
                 ${WarningFilled16({
                   class: `${prefix}--checkbox__invalid-icon`,
-                  part: `invalid-icon`,
                 })}
-                <div class="${prefix}--form-requirement" part="invalid-text">
-                  ${invalidText}
-                </div>
+                <div class="${prefix}--form-requirement">${invalidText}</div>
               `
             : null}
           ${showWarning
             ? html`
                 ${WarningAltFilled16({
                   class: `${prefix}--checkbox__invalid-icon ${prefix}--checkbox__invalid-icon--warning`,
-                  part: `invalid-icon invalid-icon--warning`,
                 })}
-                <div
-                  class="${prefix}--form-requirement"
-                  part="invalid-text invalid-text--warning">
-                  ${warnText}
-                </div>
+                <div class="${prefix}--form-requirement">${warnText}</div>
               `
             : null}
         </div>
