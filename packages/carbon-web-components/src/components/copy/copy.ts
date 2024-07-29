@@ -8,10 +8,11 @@
  */
 
 import { html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import styles from '../copy-button/copy-button.scss';
 import CDSIconButton from '../icon-button/icon-button';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 /**
  * Copy.
