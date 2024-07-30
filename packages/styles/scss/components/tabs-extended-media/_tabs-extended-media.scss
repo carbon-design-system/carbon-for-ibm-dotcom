@@ -50,16 +50,6 @@
         flex: 0 0 25%;
       }
     }
-
-    .#{$prefix}--accordion__content {
-      margin-top: -$carbon--spacing-07;
-      margin-bottom: $carbon--spacing-05;
-      padding: $carbon--spacing-07 0 0;
-
-      @include carbon--breakpoint(md) {
-        margin-bottom: -$carbon--spacing-05;
-      }
-    }
   }
 }
 
