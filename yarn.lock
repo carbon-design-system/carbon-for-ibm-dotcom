@@ -3310,7 +3310,7 @@ __metadata:
     redux-logger: "npm:^3.0.0"
     redux-mock-store: "npm:^1.5.0"
     redux-thunk: "npm:^2.3.0"
-    strip-comments: "npm:^1.0.0"
+    strip-comments: "npm:^2.0.1"
     through2: "npm:^3.0.0"
     typescript: "npm:^5.2.2"
     window-or-global: "npm:^1.0.1"
@@ -3598,7 +3598,7 @@ __metadata:
     rollup-plugin-sizes: "npm:^1.0.4"
     sass-loader: "npm:^10.0.0"
     storybook-addon-rtl: "npm:^0.5.0"
-    strip-comments: "npm:^1.0.0"
+    strip-comments: "npm:^2.0.1"
     style-loader: "npm:^2.0.0"
     svgo: "npm:^1.3.0"
     temp: "npm:^0.9.0"
@@ -3928,7 +3928,7 @@ __metadata:
     rollup-plugin-multi-input: "npm:^1.3.1"
     sass: "npm:~1.77.0"
     sass-loader: "npm:^10.0.0"
-    strip-comments: "npm:^1.0.0"
+    strip-comments: "npm:^2.0.1"
     style-loader: "npm:^2.0.0"
     temp: "npm:^0.9.0"
     terser-webpack-plugin: "npm:^4.2.3"
@@ -10653,15 +10653,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-extract-comments@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "babel-extract-comments@npm:1.0.0"
-  dependencies:
-    babylon: "npm:^6.18.0"
-  checksum: 10/6345c688ccb56a7b750223afb42c1ddc83865b8ac33d7b808b5ad5e3619624563cf8324fbacdcf41cf073a40d935468a05f806e1a7622b0186fa5dad1232a07b
-  languageName: node
-  linkType: hard
-
 "babel-generator@npm:^6.18.0":
   version: 6.26.1
   resolution: "babel-generator@npm:6.26.1"
@@ -11050,13 +11041,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-syntax-object-rest-spread@npm:^6.8.0":
-  version: 6.13.0
-  resolution: "babel-plugin-syntax-object-rest-spread@npm:6.13.0"
-  checksum: 10/14083f2783c760f5f199160f48e42ad4505fd35fc7cf9c4530812b176705259562b77db6d3ddc5e3cbce9e9b2b61ec9db3065941f0949b68e77cae3e395a6eef
-  languageName: node
-  linkType: hard
-
 "babel-plugin-template-html-minifier@npm:^4.1.0":
   version: 4.1.0
   resolution: "babel-plugin-template-html-minifier@npm:4.1.0"
@@ -11065,16 +11049,6 @@ __metadata:
     html-minifier-terser: "npm:^5.0.0"
     is-builtin-module: "npm:^3.0.0"
   checksum: 10/d7582da510cbb947cdc06accfcc03b8da89e7634e0890902ccc8ba55467eb43a312bd5833362e40f3c6aa1b22bafba84d51f6d6d84232c17f10c59f017ac52c6
-  languageName: node
-  linkType: hard
-
-"babel-plugin-transform-object-rest-spread@npm:^6.26.0":
-  version: 6.26.0
-  resolution: "babel-plugin-transform-object-rest-spread@npm:6.26.0"
-  dependencies:
-    babel-plugin-syntax-object-rest-spread: "npm:^6.8.0"
-    babel-runtime: "npm:^6.26.0"
-  checksum: 10/d14bd4a90edaabab5d3466fa235553fc29cc2b1c2e78a0454c4509d3364451de75cd8bbd84124e01a13bde80d7292decc22f617b0e4f567bf30cd4ac9d2cecfa
   languageName: node
   linkType: hard
 
@@ -33030,13 +33004,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-comments@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "strip-comments@npm:1.0.2"
-  dependencies:
-    babel-extract-comments: "npm:^1.0.0"
-    babel-plugin-transform-object-rest-spread: "npm:^6.26.0"
-  checksum: 10/494b2e4456908aad0d6aa2bddc304a2d7cded274046663f2ff9619808ecc41fef482dffad0b4a6147c965e874500d36b2ed6eefea9666722b7a53dba40f69876
+"strip-comments@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "strip-comments@npm:2.0.1"
+  checksum: 10/43ea36189e4ba543c6ffb0384831e9e23c3b57ede5592c6edcbfc883f489f91d00328fe2670b4e467f61c7886eff68deae3e946f0f092346b2b3cb058b9cfdba
   languageName: node
   linkType: hard
 
