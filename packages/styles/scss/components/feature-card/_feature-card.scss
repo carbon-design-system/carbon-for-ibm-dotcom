@@ -21,7 +21,6 @@
 @use '../../components/card';
 @use '../../globals/utils/aspect-ratio' as *;
 @use '../../globals/utils/hang' as *;
-@use '../../../../web-components/src/components/card/card' as *;
 
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;
