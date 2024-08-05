@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -141,7 +141,7 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--btn {
-      min-inline-size: carbon--mini-units($btn-min-width);
+      min-inline-size: to-rem($btn-min-width * 8px);
     }
 
     .#{$c4d-prefix}--leadspace__desc {
@@ -251,7 +251,7 @@ $btn-min-width: 26;
     }
 
     &--mobile__image {
-      block-size: carbon--mini-units(20);
+      block-size: $spacing-13;
       inline-size: 100%;
 
       img {
@@ -285,7 +285,7 @@ $btn-min-width: 26;
   @include breakpoint(md) {
     .#{$c4d-prefix}--leadspace--centered {
       &__overlay {
-        padding-block-end: carbon--mini-units(20);
+        padding-block-end: $spacing-13;
       }
 
       &--content__container {
@@ -302,7 +302,7 @@ $btn-min-width: 26;
 
       &__title,
       &__desc {
-        max-inline-size: carbon--mini-units(80);
+        max-inline-size: to-rem(640px);
       }
 
       &__desc {
@@ -316,7 +316,7 @@ $btn-min-width: 26;
 
     .#{$c4d-prefix}--leadspace--centered__image
       .#{$c4d-prefix}--leadspace--centered__overlay {
-      padding-block-end: carbon--mini-units(32);
+      padding-block-end: to-rem(256px);
     }
   }
 
