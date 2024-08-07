@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,7 +65,7 @@
       }
 
       @include breakpoint(md) {
-        min-inline-size: carbon--mini-units(27);
+        min-inline-size: to-rem(216px);
 
         .#{$prefix}--footer--short & {
           float: inline-end;
@@ -86,7 +86,7 @@
     @include breakpoint(md) {
       @include make-col(4, 8);
 
-      margin-block-end: carbon--mini-units(2);
+      margin-block-end: $spacing-05;
 
       .#{$prefix}--footer--short & {
         @include make-col-offset(2, 8);
