@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,7 @@
     }
 
     .#{$prefix}--content-block__cta-col {
-      max-inline-size: carbon--mini-units(40);
+      max-inline-size: to-rem(320px);
     }
   }
 }

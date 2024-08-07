@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,7 +32,7 @@
           color: $text-helper;
 
           inline-size: 90%;
-          max-inline-size: carbon--mini-units(80);
+          max-inline-size: to-rem(640px);
 
           padding-block: $spacing-03 $layout-03;
 
@@ -50,19 +50,19 @@
         block-size: auto;
 
         @include breakpoint(md) {
-          block-size: carbon--mini-units(40);
+          block-size: to-rem(320px);
         }
 
         @include breakpoint(lg) {
-          block-size: carbon--mini-units(50);
+          block-size: to-rem(400px);
         }
 
         @include breakpoint(xlg) {
-          block-size: carbon--mini-units(60);
+          block-size: to-rem(480px);
         }
 
         @include breakpoint(max) {
-          block-size: carbon--mini-units(70);
+          block-size: to-rem(560px);
         }
       }
 

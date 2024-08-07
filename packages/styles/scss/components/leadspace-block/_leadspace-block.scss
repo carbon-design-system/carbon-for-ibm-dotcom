@@ -90,14 +90,14 @@
     padding-block-end: $spacing-09;
 
     @include breakpoint(md) {
-      max-inline-size: carbon--mini-units(80);
+      max-inline-size: to-rem(640px);
     }
   }
 
   :host(#{$c4d-prefix}-leadspace-block-media),
   .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
     display: block;
-    max-inline-size: carbon--mini-units(80);
+    max-inline-size: to-rem(640px);
     padding-block-end: $spacing-07;
 
     ::slotted(#{$c4d-prefix}-image) {
