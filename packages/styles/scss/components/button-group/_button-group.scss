@@ -15,6 +15,10 @@
 @use '../lightbox-media-viewer';
 @use '../button';
 
+/**
+ * This file is no longer used by the button-group components.
+ * It remains here, temporarily, as a source for other styles to extend & use.
+ */
 @mixin button-group {
   :host(#{$c4d-prefix}-button-group-item),
   :host(#{$c4d-prefix}-button-cta) {

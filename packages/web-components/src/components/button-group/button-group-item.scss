@@ -12,28 +12,28 @@
 @use '@carbon/styles/scss/spacing' as *;
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/button';
 
-@mixin button-group {
-  :host(#{$c4d-prefix}-button-group) {
-    --#{$c4d-prefix}--button-group--item-count: 3;
+@mixin button-group-item {
+  :host(#{$c4d-prefix}-button-group-item) {
+    @extend :host(#{$c4d-prefix}-button);
 
-    display: grid;
-    grid-auto-rows: 1fr;
-    grid-gap: $spacing-05;
-    grid-template-columns: 1fr;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    outline: none;
 
-    @include breakpoint(md) {
-      display: inline-grid;
-      grid-template-columns: repeat(
-        var(--#{$c4d-prefix}--button-group--item-count),
-        1fr
-      );
+    ::slotted([slot='icon']) {
+      @media print {
+        fill: $gray-100;
+      }
     }
 
     @media print {
       display: block;
+      margin-block-end: $spacing-05;
+      max-inline-size: 100%;
     }
   }
 }
 
-@include button-group;
+@include button-group-item;
