@@ -107,7 +107,7 @@ export const WithRadioSelection = () => {
       >
 
       <cds-table-head>
-        <cds-table-header-row selection-name="header" hide-checkbox>
+        <cds-table-header-row>
           <cds-table-header-cell>Name</cds-table-header-cell>
           <cds-table-header-cell>Protocol</cds-table-header-cell>
           <cds-table-header-cell>Port</cds-table-header-cell>
@@ -117,7 +117,7 @@ export const WithRadioSelection = () => {
         </cds-table-header-row>
       </cds-table-head>
       <cds-table-body>
-        <cds-table-row selection-name="0">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 3</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -127,7 +127,7 @@ export const WithRadioSelection = () => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row selection-name="1">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 1</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
@@ -135,7 +135,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row selection-name="2">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 2</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
@@ -143,7 +143,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row selection-name="3">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 6</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -153,7 +153,7 @@ export const WithRadioSelection = () => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row selection-name="4">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 4</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
@@ -161,7 +161,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row selection-name="5">
+        <cds-table-row>
           <cds-table-cell>Load Balancer 5</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
