@@ -16,6 +16,10 @@ import './toggletip';
 import '../button';
 import { POPOVER_ALIGNMENT } from '../popover/defs';
 import storyDocs from './toggletip-story.mdx';
+import Information16 from '@carbon/icons/lib/information/16';
+import View16 from '@carbon/icons/lib/view/16';
+import Video16 from '@carbon/icons/lib/video/16';
+import User16 from '@carbon/icons/lib/user/16';
 
 const tooltipAlignments = {
   [`top`]: POPOVER_ALIGNMENT.TOP,
@@ -31,13 +35,35 @@ const tooltipAlignments = {
   [`right-bottom`]: POPOVER_ALIGNMENT.RIGHT_BOTTOM,
   [`right-top`]: POPOVER_ALIGNMENT.RIGHT_TOP,
 };
-
+const iconList = {
+  [`information`]: `Information16`,
+  [`view`]: `View16`,
+  [`user`]: `User16`,
+  [`video`]: `Video16`,
+};
 export const Default = (args) => {
-  const { alignment, bodyText } = args?.[`${prefix}-toggletip`] ?? {};
+  const { alignment, icon, bodyText } = args?.[`${prefix}-toggletip`] ?? {};
+  let iconVal;
+  switch (icon) {
+    case 'Information16':
+      iconVal = Information16;
+      break;
+    case 'View16':
+      iconVal = View16;
+      break;
+    case 'Video16':
+      iconVal = Video16;
+      break;
+    case 'User16':
+      iconVal = User16;
+      break;
+    default:
+      iconVal = Information16;
+  }
   return html`
-    <cds-toggletip alignment="${ifDefined(alignment)}">
+    <cds-toggletip alignment="${ifDefined(alignment)}" hasCustomIcon>
       Toggletip label
-
+      <span slot="icon"> ${iconVal({ id: 'trigger' })} </span>
       <p slot="body-text">${bodyText}</p>
       <cds-link slot="actions">Test</cds-link>
       <cds-button slot="actions">Button</cds-button>
@@ -53,6 +79,7 @@ Default.parameters = {
         tooltipAlignments,
         POPOVER_ALIGNMENT.BOTTOM
       ),
+      icon: select('Toggletip icon', iconList, Information16),
       bodyText: textNullable(
         'Toggletip content (bodyText)',
         `Lorem ipsum dolor sit amet, di os consectetur adipiscing elit,
