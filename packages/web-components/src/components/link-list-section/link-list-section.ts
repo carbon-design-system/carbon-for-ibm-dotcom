@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-link-list
  * @slot heading - The heading content.
+ * @csspart grid - The outer wrapper. Usage `c4d-link-list-section::part(grid)`
+ * @csspart row - The inner wrapper. Usage `c4d-link-list-section::part(row)`
+ * @csspart heading - The heading's column container. Usage `c4d-link-list-section::part(heading)`
+ * @csspart children - The link-list's column container. Usage `c4d-link-list-section::part(children)`
  */
 @customElement(`${c4dPrefix}-link-list-section`)
 class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
@@ -42,12 +46,12 @@ class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
   render() {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div class="${prefix}--content-section__grid">
-        <div class="${prefix}--content-section__row">
-          <div class="${prefix}--content-section__left">
+      <div class="${prefix}--content-section__grid" part="grid">
+        <div class="${prefix}--content-section__row" part="row">
+          <div class="${prefix}--content-section__left" part="heading">
             <slot name="heading"></slot>
           </div>
-          <div class="${prefix}--content-section__children">
+          <div class="${prefix}--content-section__children" part="children">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>

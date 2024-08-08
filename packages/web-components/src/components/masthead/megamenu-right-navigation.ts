@@ -25,6 +25,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu right navigation section
  *
  * @element c4d-megamenu-right-navigation
+ * @csspart container - The container for the megamenu. Usage: `c4d-megamenu-right-navigation::part(container)`
+ * @csspart container-inner - The inner container of the megamenu. Usage: `c4d-megamenu-right-navigation::part(container-inner)`
+ * @csspart heading - The heading of the megamenu. Usage: `c4d-megamenu-right-navigation::part(heading)`
+ * @csspart categories - The categories section of the megamenu. Usage: `c4d-megamenu-right-navigation::part(categories)`
+ * @csspart view-all - The view all section of the megamenu. Usage: `c4d-megamenu-right-navigation::part(view-all)`
+ * @csspart view-all-border - The border for the view all section. Usage: `c4d-megamenu-right-navigation::part(view-all-border)`
  */
 @customElement(`${c4dPrefix}-megamenu-right-navigation`)
 class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
@@ -84,17 +90,23 @@ class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${this._getClassNames()}">
-        <div class="${prefix}--masthead__megamenu-container-inner">
-          <div class="${prefix}--masthead__megamenu__heading">
+      <div part="container" class="${this._getClassNames()}">
+        <div
+          part="container-inner"
+          class="${prefix}--masthead__megamenu-container-inner">
+          <div part="heading" class="${prefix}--masthead__megamenu__heading">
             <slot name="heading"></slot>
           </div>
-          <div class="${prefix}--masthead__megamenu__categories">
+          <div
+            part="categories"
+            class="${prefix}--masthead__megamenu__categories">
             <slot @slotchange="${this._handleSlotChange}"></slot>
           </div>
         </div>
-        <div class="${prefix}--masthead__megamenu__view-all">
-          <span class="${prefix}--masthead__megamenu__view-all__border"></span>
+        <div part="view-all" class="${prefix}--masthead__megamenu__view-all">
+          <span
+            part="view-all-border"
+            class="${prefix}--masthead__megamenu__view-all__border"></span>
           <slot name="view-all"></slot>
         </div>
       </div>

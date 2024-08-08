@@ -24,6 +24,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The top-level element in footer.
  *
  * @element c4d-footer
+ * @csspart main-section - The <section> container. Usage: `c4d-footer::part(main-section)`
+ * @csspart main-container - The main container. Usage: `c4d-footer::part(main-container)`
+ * @csspart logo-container - The logo container. Usage: `c4d-footer::part(logo-container)`
+ * @csspart logo-row - The logo row. Usage: `c4d-footer::part(logo-row)`
  * @slot brand - The brand content.
  * @slot legal-nav - The legal nav content.
  * @slot locale-button - The locale button content.
@@ -60,10 +64,10 @@ class C4DFooter extends StableSelectorMixin(LitElement) {
     };
 
     return html`
-      <section class="${prefix}--footer__main">
-        <div class="${prefix}--footer__main-container">
-          <div class=${classMap(classes)}>
-            <div class="${prefix}--footer__logo-row">
+      <section part="main-section" class="${prefix}--footer__main">
+        <div part="main-container" class="${prefix}--footer__main-container">
+          <div part="logo-container" class=${classMap(classes)}>
+            <div part="logo-row" class="${prefix}--footer__logo-row">
               <slot name="brand"></slot>
               <slot name="locale-button"></slot>
               <slot name="language-selector"></slot>

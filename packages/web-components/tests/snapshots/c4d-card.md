@@ -8,8 +8,14 @@
 <div class="cds--card cds--tile">
   <slot name="image">
   </slot>
-  <div class="cds--card__wrapper">
-    <div class="cds--card__content">
+  <div
+    class="cds--card__wrapper"
+    part="wrapper"
+  >
+    <div
+      class="cds--card__content"
+      part="content"
+    >
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
@@ -17,6 +23,7 @@
       <div
         class="cds--card__copy"
         hidden=""
+        part="copy"
       >
         <slot>
         </slot>
@@ -40,8 +47,14 @@
 <div class="cds--card cds--tile">
   <slot name="image">
   </slot>
-  <div class="cds--card__wrapper">
-    <div class="cds--card__content">
+  <div
+    class="cds--card__wrapper"
+    part="wrapper"
+  >
+    <div
+      class="cds--card__content"
+      part="content"
+    >
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
@@ -49,6 +62,7 @@
       <div
         class="cds--card__copy"
         hidden=""
+        part="copy"
       >
         <slot>
         </slot>

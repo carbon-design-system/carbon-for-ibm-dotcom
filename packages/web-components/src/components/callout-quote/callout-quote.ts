@@ -23,6 +23,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Callout Quote.
  *
  * @element c4d-callout-quote
+ * @csspart  column - The colunm housing the callout content. Usage: 'c4d-callout-quote::part(column)'
+ * @csspart  content - The quote content. Usage: 'c4d-callout-quote::part(content)'
+ * @csspart  container - The quote container . Usage: 'c4d-callout-quote::part(container)'
+ * @csspart  wrapper - The quote wrapper. Usage: 'c4d-callout-quote::part(wrapper)'
  */
 @customElement(`${c4dPrefix}-callout-quote`)
 class C4DCalloutQuote extends C4DCalloutMixin(C4DQuote) {
@@ -45,10 +49,10 @@ class C4DCalloutQuote extends C4DCalloutMixin(C4DQuote) {
 
   render() {
     return html`
-      <div class="${prefix}--callout__column">
-        <div class="${prefix}--callout__content">
-          <div class="${prefix}--quote__container">
-            <div class="${prefix}--quote__wrapper">
+      <div class="${prefix}--callout__column" part="column">
+        <div class="${prefix}--callout__content" part="content">
+          <div class="${prefix}--quote__container" part="container">
+            <div class="${prefix}--quote__wrapper" part="wrapper">
               ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
             </div>
           </div>

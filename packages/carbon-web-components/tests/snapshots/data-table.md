@@ -89,9 +89,7 @@
 <button
   class="cds--table-sort"
   part="sort-button"
-  title="
-      Name
-    "
+  title=""
 >
   <span class="cds--table-sort__flex">
     <span

@@ -27,6 +27,7 @@ interface Cancelable {
  * Back to top
  *
  * @element c4d-back-to-top
+ * @csspart button - The button. Usage: `c4d-back-to-top::part(button)`
  */
 @customElement(`${c4dPrefix}-back-to-top`)
 class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
@@ -169,6 +170,7 @@ class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { backToTopAssistiveText, _handleOnClick: handleOnClick } = this;
     return html`
       <button
+        part="button"
         class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--back-to-top__btn"
         aria-label="${backToTopAssistiveText}"
         @click="${handleOnClick}">

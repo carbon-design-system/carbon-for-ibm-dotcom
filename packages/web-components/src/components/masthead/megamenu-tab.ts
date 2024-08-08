@@ -21,6 +21,7 @@ const { stablePrefix: c4dPrefix } = c4dSettings;
  * Megamenu Tab.
  *
  * @element c4d-megamenu-tab
+ * @csspart nav-link - The text input. Usage: `c4d-megamenu-tab::part(nav-link)`
  */
 @customElement(`${c4dPrefix}-megamenu-tab`)
 class C4DMegaMenuTab extends CDSTab {
@@ -39,6 +40,7 @@ class C4DMegaMenuTab extends CDSTab {
 
     return html`
       <button
+        part="nav-link"
         class="${prefix}--tabs__nav-link"
         role="tab"
         ?disabled="${disabled}"

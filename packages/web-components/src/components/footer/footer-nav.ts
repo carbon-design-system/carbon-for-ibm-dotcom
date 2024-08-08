@@ -21,6 +21,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Footer nav.
  *
  * @element c4d-footer-nav
+ * @csspart nav-container - The nav container. Usage: `c4d-footer-nav::part(nav-container)`
  */
 @customElement(`${c4dPrefix}-footer-nav`)
 class C4DFooterNav extends StableSelectorMixin(LitElement) {
@@ -49,7 +50,7 @@ class C4DFooterNav extends StableSelectorMixin(LitElement) {
     };
 
     return html`
-      <ul class=${classMap(classes)}>
+      <ul part="nav-container" class=${classMap(classes)}>
         <slot></slot>
         <slot name="locale-button"></slot>
         <slot name="language-selector"></slot>

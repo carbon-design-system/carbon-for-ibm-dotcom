@@ -19,6 +19,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * Logo-grid-item.
  *
  * @element c4d-logo-grid-item
+ * @csspart logo - the logo container - Usage: `4d-logo-grid-item::part(logo)`
  */
 @customElement(`${c4dPrefix}-logo-grid-item`)
 class C4DLogoGridItem extends StableSelectorMixin(C4DImage) {
@@ -29,7 +30,9 @@ class C4DLogoGridItem extends StableSelectorMixin(C4DImage) {
   }
 
   render() {
-    return html` <div class="cds--logo-grid__logo">${super.render()}</div> `;
+    return html`
+      <div class="cds--logo-grid__logo" part="logo">${super.render()}</div>
+    `;
   }
 }
 

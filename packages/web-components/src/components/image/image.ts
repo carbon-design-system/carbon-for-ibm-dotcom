@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,6 +36,13 @@ export { LIGHTBOX_CONTRAST };
  * @element c4d-image
  * @slot long-description - The long description content.
  * @slot icon - The icon content.
+ * @csspart image - The image. Usage: `c4d-image::part(image)`
+ * @csspart picture - The picture tag. Usage:` c4d-image::part(picture)`
+ * @csspart long-description - The wrapper around the long description slot. Usage: `c4d-image::part(long-description)`
+ * @csspart lightbox-button - The button element for the lightbox when used. Usage: `c4d-image::part(lightbox-button)`
+ * @csspart zoom-button - The wrapper around the zoom button to trigger the lightbox when used. Usage: `c4d-image::part(zoom-button)`
+ * @csspart zoom-icon - The zoom icon used for the lightbox. Usage: `c4d-image::part(zoom-icon)`
+ * @csspart caption - The caption for the image. Usage: `c4d-image::part(caption)`
  */
 @customElement(`${c4dPrefix}-image`)
 class C4DImage extends StableSelectorMixin(
@@ -182,7 +189,7 @@ class C4DImage extends StableSelectorMixin(
 
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
-      <picture>
+      <picture part="picture">
         ${images.map(
           (image) =>
             html`<source media="${image.getAttribute(
@@ -197,7 +204,10 @@ class C4DImage extends StableSelectorMixin(
           part="image"
           loading="lazy" />
       </picture>
-      <div id="long-description" class="${c4dPrefix}--image__longdescription">
+      <div
+        id="long-description"
+        class="${c4dPrefix}--image__longdescription"
+        part="long-description">
         <slot name="long-description"></slot>
       </div>
       <slot name="icon"></slot>
@@ -234,17 +244,23 @@ class C4DImage extends StableSelectorMixin(
             <button
               class="${c4dPrefix}--image-with-caption__image"
               aria-label="${ifDefined(launchLightboxButtonAssistiveText)}"
-              @click="${handleClick}">
+              @click="${handleClick}"
+              part="lightbox-button">
               ${this.renderImage()}
-              <div class="${c4dPrefix}--image-with-caption__zoom-button">
-                ${Maximize20()}
+              <div
+                class="${c4dPrefix}--image-with-caption__zoom-button"
+                part="zoom-button">
+                ${Maximize20({ part: 'zoom-icon' })}
               </div>
             </button>
           `
         : html` ${this.renderImage()} `}
       ${heading
         ? html`
-            <p id="image-caption" class="${c4dPrefix}--image__caption">
+            <p
+              id="image-caption"
+              class="${c4dPrefix}--image__caption"
+              part="caption">
               ${heading}
             </p>
           `

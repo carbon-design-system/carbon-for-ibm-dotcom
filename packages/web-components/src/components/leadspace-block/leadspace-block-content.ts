@@ -19,6 +19,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * LeadSpace Block content Component.
  *
  * @element c4d-leadspace-block-content
+ * @csspart children - The wrapper around child items. Usage: c4d-leadspace-block-content::part(children)
  */
 @customElement(`${c4dPrefix}-leadspace-block-content`)
 class C4DLeadSpaceBlockContent extends C4DContentBlock {
@@ -27,7 +28,8 @@ class C4DLeadSpaceBlockContent extends C4DContentBlock {
     return html`
       <div
         ?hidden="${!hasContent && !hasMedia}"
-        class="${prefix}--content-block__children">
+        class="${prefix}--content-block__children"
+        part="children">
         ${this._renderMedia()}${this._renderContent()}
       </div>
     `;

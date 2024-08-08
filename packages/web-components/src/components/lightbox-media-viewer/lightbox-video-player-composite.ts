@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -216,15 +216,18 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
       <c4d-expressive-modal
         ?open="${open}"
         expressive-size="full-width"
-        mode="lightbox">
-        <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+        mode="lightbox"
+        part="modal">
+        <c4d-expressive-modal-close-button
+          part="close-button"></c4d-expressive-modal-close-button>
         <c4d-lightbox-video-player
           description="${ifDefined(videoDescription)}"
           duration="${ifDefined(duration)}"
           name="${ifDefined(videoName)}"
           ?hide-caption="${hideCaption}"
           .formatCaption="${ifDefined(formatCaption)}"
-          .formatDuration="${ifDefined(formatDuration)}">
+          .formatDuration="${ifDefined(formatDuration)}"
+          part="lightbox-video-player">
         </c4d-lightbox-video-player>
       </c4d-expressive-modal>
     `;
