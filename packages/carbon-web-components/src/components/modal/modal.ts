@@ -115,7 +115,6 @@ class CDSModal extends HostListenerMixin(LitElement) {
       _startSentinelNode: startSentinelNode,
       _endSentinelNode: endSentinelNode,
     } = this;
-    const oldContains = target !== this && this.contains(target as Node);
     const currentContains =
       relatedTarget !== this &&
       (this.contains(relatedTarget as Node) ||
@@ -128,7 +127,15 @@ class CDSModal extends HostListenerMixin(LitElement) {
     // * Modal body used to have focus but no longer has focus
     const { selectorTabbable: selectorTabbableForModal } = this
       .constructor as typeof CDSModal;
-    if (open && relatedTarget && oldContains && !currentContains) {
+    if (open && relatedTarget === startSentinelNode && PRECEDING) {
+      await (this.constructor as typeof CDSModal)._delay();
+      if (
+        !tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) &&
+        relatedTarget !== this
+      ) {
+        this.focus();
+      }
+    } else if (open && relatedTarget && !currentContains) {
       const comparisonResult = (target as Node).compareDocumentPosition(
         relatedTarget as Node
       );
@@ -150,7 +157,7 @@ class CDSModal extends HostListenerMixin(LitElement) {
         relatedTarget === endSentinelNode ||
         comparisonResult & FOLLOWING
       ) {
-        await (this.constructor as typeof CDSModal)._delay();
+        await (this.constructor as typeof CDSModal)._delay(0.25);
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
           this.focus();
         }
@@ -309,11 +316,10 @@ class CDSModal extends HostListenerMixin(LitElement) {
       ...containerClass,
     });
     return html`
-      <a
+      <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        role="button"></button>
       <div
         aria-label=${ariaLabel}
         part="dialog"
@@ -326,11 +332,10 @@ class CDSModal extends HostListenerMixin(LitElement) {
           ? html` <div class="cds--modal-content--overflow-indicator"></div> `
           : ``}
       </div>
-      <a
+      <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        role="button"></button>
     `;
   }
 
