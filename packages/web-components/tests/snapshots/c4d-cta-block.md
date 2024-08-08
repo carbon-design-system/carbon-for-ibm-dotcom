@@ -99,7 +99,7 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--content-layout cds--content-layout--border">
+<div class="cds--content-layout cds--content-layout--border cds--content-layout--with-children">
   <slot name="heading">
   </slot>
   <div class="cds--content-layout__body">

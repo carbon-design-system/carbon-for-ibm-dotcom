@@ -56,6 +56,11 @@
   :host(#{$c4d-prefix}-content-group-heading),
   .#{$prefix}--content-group__title {
     @include type-style('fluid-heading-04', true);
+    h3 {
+      font: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+    }
 
     display: block;
     margin-block-end: $spacing-07;
