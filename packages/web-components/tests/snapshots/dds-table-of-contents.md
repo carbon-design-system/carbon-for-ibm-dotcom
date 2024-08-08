@@ -9,7 +9,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
-    style="transition: none 0s ease 0s; top: 0px;"
+    style="transition: none; top: 0px;"
   >
     <div
       class="bx--tableofcontents__desktop__children"
@@ -67,7 +67,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
-    style="transition: none 0s ease 0s; top: 0px;"
+    style="transition: none; top: 0px;"
   >
     <div class="bx--tableofcontents__desktop__children">
       <slot name="heading">
@@ -122,7 +122,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
-    style="transition: none 0s ease 0s; top: 0px;"
+    style="transition: none; top: 0px;"
   >
     <div class="bx--tableofcontents__mobile-top">
     </div>

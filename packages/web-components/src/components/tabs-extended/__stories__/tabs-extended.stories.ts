@@ -67,7 +67,7 @@ export const Default = (args) => {
       <dds-tab label="Third tab">
         <p>Content for third tab goes here.</p>
       </dds-tab>
-      <dds-tab label="Fourth tab">
+      <dds-tab label="Ihre anwendungsübergreifend Konnektivität">
         <p>Content for fourth tab goes here.</p>
       </dds-tab>
       <dds-tab label="Fifth tab" disabled>
