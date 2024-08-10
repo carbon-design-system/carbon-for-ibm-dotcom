@@ -3510,7 +3510,7 @@ __metadata:
     "@carbon/layout": "npm:11.24.0"
     "@carbon/motion": "npm:11.20.0"
     "@carbon/pictograms-react": "npm:11.64.0"
-    "@carbon/react": "npm:1.63.1"
+    "@carbon/react": "npm:1.63.2"
     "@carbon/styles": "npm:1.62.0"
     "@carbon/type": "npm:11.29.0"
     "@carbon/web-components": "npm:2.11.1"
@@ -3706,9 +3706,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/react@npm:1.63.1":
-  version: 1.63.1
-  resolution: "@carbon/react@npm:1.63.1"
+"@carbon/react@npm:1.63.2":
+  version: 1.63.2
+  resolution: "@carbon/react@npm:1.63.2"
   dependencies:
     "@babel/runtime": "npm:^7.24.7"
     "@carbon/feature-flags": "npm:^0.21.0"
@@ -3736,7 +3736,7 @@ __metadata:
     react: ^16.8.6 || ^17.0.1 || ^18.2.0
     react-dom: ^16.8.6 || ^17.0.1 || ^18.2.0
     sass: ^1.33.0
-  checksum: 10/63115c597ff0917f1797a46f34f0663c945c0a1c8ad8955f9eb173f98fd1342156d767bf8e388a31fb046d89d5df22ff98463696d9663cd0ada9ab4808be2d1c
+  checksum: 10/b6af9c550b9c4b91aab0dab846da242b02ce8da37629b658adfef32f63d81d8433bfa7ef6967a884c7c26f62464dd9d2744e99e3b197a746b40a2ddc0a268acd
   languageName: node
   linkType: hard
 
