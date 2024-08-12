@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.47.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.46.1...@carbon/ibmdotcom-web-components@1.47.0-rc.0) (2024-08-12)
+
+
+### Bug Fixes
+
+* **tabs-extended:** adjustments to force Safari to soft hyphenate better for tab names ([#11967](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11967)) ([618b071](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/618b071e69988831c71a7511667e9beb0af316a0)), closes [#11965](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11965)
+
+
+
+
+
 ## [1.46.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.46.1-rc.0...@carbon/ibmdotcom-web-components@1.46.1) (2024-07-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
