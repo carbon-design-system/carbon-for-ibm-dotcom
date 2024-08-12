@@ -11,10 +11,10 @@
  * @exports ibmdotcom.settings
  * @type {object} Settings object
  * @property {string} [prefix=dds]
- * Carbon for IBM.com v1.61.0',
+ * Carbon for IBM.com v1.62.0',
  */
 const settings = {
-  version: 'Carbon for IBM.com v1.61.1',
+  version: 'Carbon for IBM.com v1.62.0',
   stablePrefix: 'dds',
 };
 
