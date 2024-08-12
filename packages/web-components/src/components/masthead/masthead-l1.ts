@@ -506,7 +506,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           ${items
             ? html` <ul class="${prefix}--masthead__l1-dropdown-menu-items">
                 ${items.map((item) => {
-                  const { title, url, description } = item;
+                  const { title, url, target, description } = item;
 
                   const linkContents = description
                     ? html`
@@ -525,7 +525,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                     <li>
                       <a
                         class="${prefix}--masthead__l1-dropdown-item"
-                        href="${url}">
+                        href="${url}"
+                        target="${target}">
                         ${linkContents}
                       </a>
                     </li>
