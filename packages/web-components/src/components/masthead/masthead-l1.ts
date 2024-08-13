@@ -404,7 +404,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       _toggleSubsection: toggleSubsection,
       _handleTopNavFocusIn: handleTopNavFocusIn,
     } = this;
-    const { title, url, submenu } = menuItem;
+    const { title, url, target, submenu } = menuItem;
 
     if (!submenu && url) {
       return html`
@@ -412,6 +412,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           <a
             class="${prefix}--masthead__l1-item"
             href="${url}"
+            target="${target}"
             @focusin=${handleTopNavFocusIn}
             >${title}</a
           >
@@ -554,7 +555,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   protected _renderL1MobileNav() {
     const { l1Data, overviewText } = this;
-    const { url, title, actions, menuItems } = l1Data ?? {};
+    const { url, target, title, actions, menuItems } = l1Data ?? {};
     const { cta, login } = actions ?? {};
 
     const { _toggleSubsection: toggleSubsection } = this;
@@ -566,7 +567,10 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       <ul data-dropdown-target class="${prefix}--masthead__l1-dropdown">
         ${url
           ? html` <li>
-              <a class="${prefix}--masthead__l1-dropdown-item" href="${url}">
+              <a
+                class="${prefix}--masthead__l1-dropdown-item"
+                target="${target}"
+                href="${url}">
                 ${overviewText}
               </a>
             </li>`
@@ -594,12 +598,15 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   protected _renderL1MobileSubnav(menuItem) {
     const { _toggleSubsection: toggleSubsection } = this;
-    const { title, url, submenu } = menuItem;
+    const { title, target, url, submenu } = menuItem;
 
     if (!submenu && url) {
       return html`
         <li>
-          <a class="${prefix}--masthead__l1-dropdown-item" href="${url}"
+          <a
+            class="${prefix}--masthead__l1-dropdown-item"
+            target="${target}"
+            href="${url}"
             >${title}</a
           >
         </li>
