@@ -20,6 +20,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead.
  *
  * @element c4d-masthead-l1-name
+ * @csspart l1-name-title - The title element. Usage: `c4d-masthead-l1-name::part(l1-name-title)`
+ * @csspart l1-name-link - The link element. Usage: `c4d-masthead-l1-name::part(l1-name-link)`
  */
 @customElement(`${c4dPrefix}-masthead-l1-name`)
 class C4DMastheadL1Name extends StableSelectorMixin(LitElement) {
@@ -37,8 +39,8 @@ class C4DMastheadL1Name extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <span class="${prefix}--masthead__l1-name-title">
-        <a href="${this.url}">${this.title}</a>
+      <span part="l1-name-title" class="${prefix}--masthead__l1-name-title">
+        <a part="l1-name-link" href="${this.url}">${this.title}</a>
       </span>
     `;
   }

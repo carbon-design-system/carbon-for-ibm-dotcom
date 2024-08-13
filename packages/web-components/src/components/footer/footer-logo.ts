@@ -50,6 +50,7 @@ class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
     const { href, size } = this;
     return html`
       <a
+        part="logo-link"
         class="${c4dPrefix}--footer-logo__link"
         aria-label="IBM logo"
         href="${ifDefined(href)}">
