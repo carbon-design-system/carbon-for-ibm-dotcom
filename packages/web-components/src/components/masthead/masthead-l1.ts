@@ -555,7 +555,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   protected _renderL1MobileNav() {
     const { l1Data, overviewText } = this;
-    const { url, target, title, actions, menuItems } = l1Data ?? {};
+    const { url, title, actions, menuItems } = l1Data ?? {};
     const { cta, login } = actions ?? {};
 
     const { _toggleSubsection: toggleSubsection } = this;
@@ -569,7 +569,6 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           ? html` <li>
               <a
                 class="${prefix}--masthead__l1-dropdown-item"
-                target="${target}"
                 href="${url}">
                 ${overviewText}
               </a>
