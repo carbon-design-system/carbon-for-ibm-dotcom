@@ -567,9 +567,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       <ul data-dropdown-target class="${prefix}--masthead__l1-dropdown">
         ${url
           ? html` <li>
-              <a
-                class="${prefix}--masthead__l1-dropdown-item"
-                href="${url}">
+              <a class="${prefix}--masthead__l1-dropdown-item" href="${url}">
                 ${overviewText}
               </a>
             </li>`
