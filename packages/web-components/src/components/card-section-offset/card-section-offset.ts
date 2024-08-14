@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @slot heading - The heading content.
  * @slot action - The text-cta content.
  * @slot card-group - The L shaped card group content.
+ * @csspart content - The text cta content. Usage: `c4d-card-section-offset::part(content)`
  */
 @customElement(`${c4dPrefix}-card-section-offset`)
 class C4DCardSectionOffset extends StableSelectorMixin(C4DContentBlock) {
@@ -52,7 +53,7 @@ class C4DCardSectionOffset extends StableSelectorMixin(C4DContentBlock) {
   render() {
     return html`
       <slot name="image-top"></slot>
-      <div class="${prefix}--card-section-offset__content">
+      <div class="${prefix}--card-section-offset__content" part="content">
         ${this._renderHeading()}
         <slot name="action"></slot>
       </div>

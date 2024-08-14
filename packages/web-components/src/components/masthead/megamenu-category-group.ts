@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu category group
  *
  * @element c4d-megamenu-category-group
+ * @csspart shield - The shield element of the megamenu category group. Usage: `c4d-megamenu-category-group::part(shield)`
+ * @csspart content-wrapper - The content wrapper of the megamenu category group. Usage: `c4d-megamenu-category-group::part(content-wrapper)`
+ * @csspart heading - The heading of the megamenu category group. Usage: `c4d-megamenu-category-group::part(heading)`
+ * @csspart content - The content of the megamenu category group. Usage: `c4d-megamenu-category-group::part(content)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-group`)
 class C4DMegaMenuCategoryGroup extends LitElement {
@@ -37,13 +41,20 @@ class C4DMegaMenuCategoryGroup extends LitElement {
 
   render() {
     return html`
-      <div class="${prefix}--masthead__megamenu__category-group-shield">
+      <div
+        part="shield"
+        class="${prefix}--masthead__megamenu__category-group-shield">
         <div
+          part="content-wrapper"
           class="${prefix}--masthead__megamenu__category-group-content-wrapper">
-          <div class="${prefix}--masthead__megamenu__category-group-heading">
+          <div
+            part="heading"
+            class="${prefix}--masthead__megamenu__category-group-heading">
             <slot name="heading"></slot>
           </div>
-          <div class="${prefix}--masthead__megamenu__category-group-content">
+          <div
+            part="content"
+            class="${prefix}--masthead__megamenu__category-group-content">
             <slot></slot>
           </div>
         </div>
