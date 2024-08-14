@@ -25,6 +25,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Toggle button for masthead left nav.
  *
  * @element c4d-masthead-menu-button
+ * @csspart sentinel-button - The sentinel button for managing focus.
+ * @csspart ce-header-menu-trigger-container - Container for the menu trigger button.
+ * @csspart sentinel-button--start - The start sentinel button for managing focus. Usage: `c4d-masthead-menu-button::part(sentinel-button--start)`
+ * @csspart sentinel-button--end - The end sentinel button for managing focus. Usage: `c4d-masthead-menu-button::part(sentinel-button--end)`
  */
 @customElement(`${c4dPrefix}-masthead-menu-button`)
 class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
@@ -115,6 +119,7 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
   private _renderSentinel = (side: String) => {
     return html`
       <button
+        part="sentinel-button sentinel-button--${side}"
         id="${side}-sentinel"
         type="button"
         class="${prefix}--visually-hidden"></button>
@@ -135,7 +140,7 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
     const startSentinel = active ? renderSentinel('start') : '';
     const endSentinel = active ? renderSentinel('end') : '';
     return html`
-      <div class="${classes}">
+      <div part="ce-header-menu-trigger-container" class="${classes}">
         ${startSentinel}${super.render()}${endSentinel}
       </div>
     `;

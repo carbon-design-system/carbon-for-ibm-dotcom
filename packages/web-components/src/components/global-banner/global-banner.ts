@@ -26,6 +26,14 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Global banner
  *
  * @element c4d-global-banner
+ * @csspart container - Targets all container elements. Usage: `c4d-global-banner::part(container)`
+ * @csspart container--static - Container for Static type. Usage: `c4d-global-banner::part(container--static)`
+ * @csspart container--link - Container for Link type. Usage: `c4d-global-banner::part(container--link)`
+ * @csspart content - The content. Usage: `c4d-global-banner::part(content)`
+ * @csspart image-container -  The image container. Usage: `c4d-global-banner::part(image-container)`
+ * @csspart text-container - The text container. Usage: `c4d-global-banner::part(text-container)`
+ * @csspart cta-container - The CTA container. Usage: `c4d-global-banner::part(cta-container)`
+ * @csspart icon - The icon. Usage: `c4d-global-banner::part(icon)`
  */
 @customElement(`${c4dPrefix}-global-banner`)
 class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
@@ -130,7 +138,9 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
    */
   _renderAsStatic() {
     return html`
-      <div class="${prefix}--global-banner-layout-container">
+      <div
+        class="${prefix}--global-banner-layout-container"
+        part="container container--static">
         ${this._renderInnerContents()}
       </div>
     `;
@@ -140,7 +150,8 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
     return html`
       <a
         href="${this.buttonHref}"
-        class="${prefix}--global-banner-layout-container">
+        class="${prefix}--global-banner-layout-container"
+        part="container container--link">
         ${this._renderInnerContents()}
       </a>
     `;
@@ -152,25 +163,30 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
 
   _renderInnerContents() {
     return html`
-      <div class="${prefix}--global-banner-content-wrapper">
+      <div class="${prefix}--global-banner-content-wrapper" part="content">
         <div
           ?hidden="${!this.hasImage}"
-          class="${prefix}--global-banner-image-container">
+          class="${prefix}--global-banner-image-container"
+          part="image-container">
           <slot
             name="image"
             @slotchange="${this._handleImageSlotChange}"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-text-container">
+        <div
+          class="${prefix}--global-banner-text-container"
+          part="text-container">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-cta-container">
+        <div
+          class="${prefix}--global-banner-cta-container"
+          part="cta-container">
           <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-icon">
+        <div class="${prefix}--global-banner-icon" part="icon">
           ${this.ctaType ? this._renderIcon() : ''}
         </div>
       </div>

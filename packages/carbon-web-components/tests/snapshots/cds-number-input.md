@@ -25,7 +25,10 @@
       step="1"
       type="number"
     >
-    <slot name="slug">
+    <slot
+      class="cds--slug--revert"
+      name="slug"
+    >
     </slot>
     <div class="cds--number__controls">
       <button
