@@ -13,6 +13,8 @@ import '../../cta/text-cta';
 import '../../image/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
+import { addons } from '@storybook/addons';
+import { FORCE_REMOUNT } from '@storybook/core-events';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
@@ -54,18 +56,22 @@ export const Default = (args) => {
                 slot="media"
                 alt="Image alt text"
                 default-src="${imgLg16x9}"
-                heading="Image caption text">
+                heading="Image caption text"
+              >
                 <dds-image-item
                   media="(min-width: 672px)"
-                  srcset="${imgLg16x9}">
+                  srcset="${imgLg16x9}"
+                >
                 </dds-image-item>
                 <dds-image-item
                   media="(min-width: 400px)"
-                  srcset="${imgMd16x9}">
+                  srcset="${imgMd16x9}"
+                >
                 </dds-image-item>
                 <dds-image-item
                   media="(min-width: 320px)"
-                  srcset="${imgSm16x9}">
+                  srcset="${imgSm16x9}"
+                >
                 </dds-image-item>
               </dds-image>
               <dds-content-item-copy
@@ -78,7 +84,8 @@ export const Default = (args) => {
               <dds-text-cta
                 slot="footer"
                 cta-type="local"
-                href="https://www.example.com">
+                href="https://www.example.com"
+              >
                 Read more about NLP
               </dds-text-cta>
             </dds-content-item>
@@ -92,7 +99,8 @@ export const Default = (args) => {
               >
               <dds-video-player-container
                 slot="media"
-                video-id="0_ibuqxqbe"></dds-video-player-container>
+                video-id="0_ibuqxqbe"
+              ></dds-video-player-container>
               <dds-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic
                 system for a machine to interpret its meaning, using formal
@@ -103,7 +111,8 @@ export const Default = (args) => {
               <dds-text-cta
                 slot="footer"
                 cta-type="local"
-                href="https://www.example.com">
+                href="https://www.example.com"
+              >
                 Read more about NLP
               </dds-text-cta>
             </dds-content-item>
@@ -114,7 +123,8 @@ export const Default = (args) => {
             <dds-card-link-cta
               slot="footer"
               cta-type="local"
-              href="https://www.example.com">
+              href="https://www.example.com"
+            >
               <dds-card-link-heading
                 >Learn more about natual language
                 processing</dds-card-link-heading
@@ -127,18 +137,36 @@ export const Default = (args) => {
   `;
 };
 
+let currentHeadingText = null;
+
 export default {
   title: 'Components/Content group',
   decorators: [
-    (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+    (story, context) => {
+      const { args, id: storyId } = context;
+
+      // Due to the way that `<dds-content-group-heading>` is implemented, we
+      // need to force a remount of the component every time the heading text
+      // changes. We track the value of the current heading text in an in scope
+      // variable and when we detect a change, we trigger a remount.
+      if (
+        currentHeadingText !== null &&
+        currentHeadingText !== args.ContentGroup.heading
+      ) {
+        addons.getChannel().emit(FORCE_REMOUNT, { storyId });
+      }
+      currentHeadingText = args.ContentGroup.heading;
+
+      return html`
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-12 bx--no-gutter">
+              <dds-video-cta-container> ${story()} </dds-video-cta-container>
+            </div>
           </div>
         </div>
-      </div>
-    `,
+      `;
+    },
   ],
   parameters: {
     ...readme.parameters,
