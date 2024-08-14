@@ -138,8 +138,11 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       default:
         break;
     }
-    this._setActiveItem(targetTab);
-    this._setFocus(targetTab);
+
+    if (targetTab !== -1) {
+      this._setActiveItem(targetTab);
+      this._setFocus(targetTab);
+    }
   }
 
   /**
