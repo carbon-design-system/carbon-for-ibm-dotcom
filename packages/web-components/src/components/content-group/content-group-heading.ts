@@ -8,6 +8,7 @@
  */
 
 import { html, property, LitElement } from 'lit-element';
+import { render } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-group.scss';
@@ -28,12 +29,22 @@ class DDSContentGroupHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
-  connectedCallback() {
-    super.connectedCallback();
+  /**
+   * Render the heading tag into the light DOM of this component.
+   */
+  protected _renderHeading() {
+    const template = document.createElement('template');
+    template.innerHTML = `<h3>${this.innerHTML.trim()}</h3>`;
+    const heading = template.content.firstChild;
+    render(html`${heading}`, this);
+  }
+
+  firstUpdated() {
+    this._renderHeading();
   }
 
   render() {
-    return html` <h3><slot></slot></h3>`;
+    return html`<slot></slot>`;
   }
 
   static get stableSelector() {
