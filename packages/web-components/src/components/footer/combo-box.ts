@@ -35,6 +35,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Combo box.
  *
  * @element c4d-combo-box
+ * @csspart text-input - The text input. Usage: `c4d-combo-box::part(text-input)`
+ * @csspart selection-button - The selection button. Usage: `c4d-combo-box::part(selection-button)`
  * @fires cds-combo-box-beingselected
  *   The custom event fired before a combo box item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
@@ -180,6 +182,7 @@ class C4DComboBox extends CDSDropdown {
     } = this;
     return html`
       <input
+        part="text-input"
         id="trigger-label"
         class="${prefix}--text-input"
         ?disabled=${disabled}
@@ -200,6 +203,7 @@ class C4DComboBox extends CDSDropdown {
       ? undefined
       : html`
           <div
+            part="selection-button"
             id="selection-button"
             role="button"
             class="${prefix}--list-box__selection"

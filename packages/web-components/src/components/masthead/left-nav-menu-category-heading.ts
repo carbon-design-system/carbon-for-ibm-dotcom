@@ -21,6 +21,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu Category Group Description.
  *
  * @element c4d-megamenu-category-group-desc
+ * @csspart heading - The h2 element of the left navigation menu category heading. Usage: `c4d-left-nav-menu-category-heading::part(heading)`
+ * @csspart heading-link - The link element of the left navigation menu category heading. Usage: `c4d-left-nav-menu-category-heading::part(heading-link)`
+ * @csspart container - The side navigation heading container. Usage: `c4d-left-nav-menu-category-heading::part(container)`
+ * @csspart description - The description container within the side navigation heading. Usage: `c4d-left-nav-menu-category-heading::part(description)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu-category-heading`)
 class C4DLeftNavMenuCategoryHeading extends LitElement {
@@ -52,8 +56,9 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
 
     return url
       ? html`
-          <h2 class="${classMap(headingClasses)}">
+          <h2 part="heading" class="${classMap(headingClasses)}">
             <a
+              part="heading-link"
               href="${url}"
               class="${prefix}--side-nav__heading-title"
               data-attribute1="headerNav"
@@ -63,14 +68,20 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
             </a>
           </h2>
         `
-      : html` <h2 class="${classMap(headingClasses)}">${headingText}</h2> `;
+      : html`
+          <h2 part="heading" class="${classMap(headingClasses)}">
+            ${headingText}
+          </h2>
+        `;
   }
 
   render() {
     return html`
-      <div class="${prefix}--side-nav__heading">
+      <div part="container" class="${prefix}--side-nav__heading">
         ${this._renderHeading()}
-        <div class="${prefix}--side-nav__heading-description">
+        <div
+          part="description"
+          class="${prefix}--side-nav__heading-description">
           <slot></slot>
         </div>
       </div>

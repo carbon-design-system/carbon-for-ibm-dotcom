@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,6 +22,14 @@ import C4DPricingTableHeaderRow from './pricing-table-header-row';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
+
+/**
+ * @element c4d-pricing-table
+ * @csspart container - The table container. Usage `c4d-pricing-table::part(container)`
+ * @csspart sentinel - A sentinel node. Usage `c4d-pricing-table::part(sentinel)`
+ * @csspart start-sentinel - The start sentinel. Usage `c4d-pricing-table::part(start-sentinel)`
+ * @csspart end-sentinel - The end sentinel. Usage `c4d-pricing-table::part(end-sentinel)`
+ */
 
 @customElement(`${c4dPrefix}-pricing-table`)
 class C4DPricingTable extends HostListenerMixin(
@@ -175,10 +183,19 @@ class C4DPricingTable extends HostListenerMixin(
     const { sentinelClass } = this.constructor as typeof C4DPricingTable;
 
     return html`
-      <section id="section" class="${`${prefix}--structured-list`}">
-        <span class="${sentinelClass}" id="start-sentinel"></span>
+      <section
+        id="section"
+        class="${`${prefix}--structured-list`}"
+        part="container">
+        <span
+          class="${sentinelClass}"
+          id="start-sentinel"
+          part="sentinel start-sentinel"></span>
         <slot></slot>
-        <span class="${sentinelClass}" id="end-sentinel"></span>
+        <span
+          class="${sentinelClass}"
+          id="end-sentinel"
+          part="sentinel end-sentinel"></span>
       </section>
     `;
   }

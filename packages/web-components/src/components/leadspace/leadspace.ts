@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,18 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-leadspace
  * @slot action The action (CTA) content.
  * @slot image The image content.
- * @csspart section The first DOM node inside the shadow-root
+ * @csspart content - The content. Usage: `c4d-leadspace::part(content)`
+ * @csspart content-item - The subheading paragraph. Usage: `c4d-leadspace::part(content-item)`
+ * @csspart row - Row wrappers. Usage: `c4d-leadspace::part(row)`
+ * @csspart row--description - Row wrapper for the description. Usage: `c4d-leadspace::part(row--description)`
+ * @csspart row--content - Row wrapper for the navigation and heading. Usage: `c4d-leadspace::part(row--content)`
+ * @csspart description - The description. Usage`c4d-leadspace::part(description)`
+ * @csspart section - The first DOM node inside the shadow-root. Usage: `c4d-leadspace::part(section)`
+ * @csspart container - The container around the whole leadspace. Usage: `c4d-leadspace::part(container)`
+ * @csspart content-container - The container around just the content of the leadspace. Usage: `c4d-leadspace::part(content-container)`
+ * @csspart overlay - The leadspace overlay wrapping all contents and optional gradient. Usage: `c4d-leadspace::part(overlay)`
+ * @csspart gradient - The SVG gradient. Usage: `c4d-leadspace::part(gradient)`
+ * @csspart action - The action. Usage: `c4d-leadspace::part(action)`
  */
 @customElement(`${c4dPrefix}-leadspace`)
 class C4DLeadSpace extends StableSelectorMixin(LitElement) {
@@ -81,10 +92,11 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   protected _renderCopy() {
     const { copy } = this;
     return html`
-      <div class="${c4dPrefix}--leadspace__row">
+      <div class="${c4dPrefix}--leadspace__row" part="row row--description">
         <p
           data-autoid="${c4dPrefix}--leadspace__desc"
-          class="${c4dPrefix}--leadspace__desc">
+          class="${c4dPrefix}--leadspace__desc"
+          part="description">
           <slot>${copy}</slot>
         </p>
       </div>
@@ -164,13 +176,13 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
     const { gradientStyleScheme, type, size } = this;
     return html`
       <section class="${this._getTypeClass()}" part="section">
-        <div class="${c4dPrefix}--leadspace__container">
-          <div class="${this._getGradientClass()}">
+        <div class="${c4dPrefix}--leadspace__container" part="container">
+          <div class="${this._getGradientClass()}" part="overlay">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
               : svg`
                 <svg
-                  class="${c4dPrefix}--leadspace__gradient"
+                  class="${c4dPrefix}--leadspace__gradient" part="gradient"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -200,8 +212,10 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
                   <rect class="${c4dPrefix}--leadspace__gradient__rect" width="100" height="100" />
                 </svg>
               `}
-            <div class="${c4dPrefix}--leadspace--content__container">
-              <div class="${c4dPrefix}--leadspace__row">
+            <div
+              class="${c4dPrefix}--leadspace--content__container"
+              part="content-container">
+              <div class="${c4dPrefix}--leadspace__row" part="row row--content">
                 <slot
                   name="navigation"
                   @slotchange="${this._handleSlotChange}"></slot>
@@ -209,9 +223,13 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
               </div>
               ${size !== LEADSPACE_SIZE.SHORT
                 ? html`
-                    <div class="${c4dPrefix}--leadspace__content">
+                    <div
+                      class="${c4dPrefix}--leadspace__content"
+                      part="content">
                       ${this._renderCopy()}
-                      <div class="${c4dPrefix}--leadspace__action">
+                      <div
+                        class="${c4dPrefix}--leadspace__action"
+                        part="action">
                         <slot name="action"></slot>
                       </div>
                     </div>

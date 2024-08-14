@@ -27,6 +27,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Background media.
  *
  * @element c4d-background-media
+ * @csspart controls - The video player controls. Usage: `c4d-background-media::part(controls)`
+ * @csspart gradient - The gradient covering the image. Usage: `c4d-background-media::part(gradient)`
+ * @csspart container - The component's container. Usage: `c4d-background-media::part(container)`
+ * @csspart item - The image container. Usage: `c4d-background-media::part(item)`
  */
 
 @customElement(`${c4dPrefix}-background-media`)
@@ -145,6 +149,7 @@ class C4DBackgroundMedia extends C4DImage {
 
     return html`
       <button
+        part="controls"
         @click=${toggleVideoState}
         class="${prefix}--video-player__controls"
         aria-pressed="${!videoIsPlaying}"
@@ -156,7 +161,9 @@ class C4DBackgroundMedia extends C4DImage {
   }
 
   renderGradient() {
-    return html` <div class="${this._getGradientClass()}"></div> `;
+    return html`
+      <div part="gradient" class="${this._getGradientClass()}"></div>
+    `;
   }
 
   _getMediaOpacity() {
@@ -186,9 +193,10 @@ class C4DBackgroundMedia extends C4DImage {
 
   render() {
     return html`
-      <div class="${this._getMobilePositionClass()}">
+      <div part="container" class="${this._getMobilePositionClass()}">
         ${this.gradientHidden ? '' : this.renderGradient()}
         <div
+          part="item"
           class="${prefix}--background-media--item"
           style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
