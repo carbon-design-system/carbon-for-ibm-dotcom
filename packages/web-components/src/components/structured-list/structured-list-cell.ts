@@ -24,6 +24,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * StructuredListCell
  *
  * @element c4d-structured-list-cell
+ * @csspart icon-text - Descriptive text of the cell. Usage `c4d-structured-list-cell::part(icon-text)`
+ * @csspart tag - Tags of the cell. Usage `c4d-structured-list-cell::part(tag)`
+ * @csspart icon - An icon. Usage `c4d-structured-list-cell::part(icon)`
  */
 @customElement(`${c4dPrefix}-structured-list-cell`)
 class C4DStructuredListCell extends CDSStructuredListCell {
@@ -57,7 +60,7 @@ class C4DStructuredListCell extends CDSStructuredListCell {
     const { icon, _iconsAllowed: iconMap } = this;
 
     return html`${iconMap[icon!.toLowerCase()].call()}
-      <span class="${prefix}--structured-list-cell-icon-text">
+      <span class="${prefix}--structured-list-cell-icon-text" part="icon-text">
         <slot></slot>
       </span>`;
   }
@@ -70,7 +73,9 @@ class C4DStructuredListCell extends CDSStructuredListCell {
         .split(',')
         .map(
           (tag) =>
-            html` <cds-tag size="sm" type="green">${tag.trim()}</cds-tag> `
+            html`
+              <cds-tag part="tag" size="sm" type="green">${tag.trim()}</cds-tag>
+            `
         )}
     `;
   }
@@ -80,6 +85,7 @@ class C4DStructuredListCell extends CDSStructuredListCell {
 
     return html`
       <cds-tooltip-icon
+        part="icon"
         alignment="start"
         body-text="${tooltip}"
         direction="right">

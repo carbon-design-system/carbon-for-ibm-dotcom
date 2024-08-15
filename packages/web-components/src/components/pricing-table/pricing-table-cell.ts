@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,6 +19,13 @@ import C4DPricingTableCellAnnotation from './pricing-table-cell-annotation';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
+
+/**
+ * @element c4d-pricing-table-cell
+ *
+ * @csspart container - The cell container. Usage `c4d-pricing-table-cell::part(container)`
+ * @csspart content - The cell content. Usage `c4d-pricing-table-cell::part(content)`
+ */
 
 @customElement(`${c4dPrefix}-pricing-table-cell`)
 class C4DPricingTableCell extends StableSelectorMixin(
@@ -69,8 +76,8 @@ class C4DPricingTableCell extends StableSelectorMixin(
 
   render() {
     return html`
-      <div class="${prefix}--pricing-table-cell-inner">
-        <div class="${prefix}--pricing-table-cell-content">
+      <div class="${prefix}--pricing-table-cell-inner" part="container">
+        <div class="${prefix}--pricing-table-cell-content" part="content">
           ${super.render()}
         </div>
         <slot name="toggle"></slot>

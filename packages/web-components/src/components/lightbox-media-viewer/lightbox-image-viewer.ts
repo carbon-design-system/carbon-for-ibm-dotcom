@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,6 +24,14 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-lightbox-image-viewer
  * @slot title - The title content.
  * @slot description - The description content.
+ * @csspart container - The wrapper around the lightbox media. Usage: `c4d-lightbox-video-player::part(container)`
+ * @csspart row - The wrapper around the row. Usage: `c4d-lightbox-video-player::part(row)`
+ * @csspart media - The wrapper around media. Usage: `c4d-lightbox-video-player::part(media)`
+ * @csspart content-wrapper - The wrapper around content. Usage: `c4d-lightbox-video-player::part(content-wrapper)`
+ * @csspart content - The inner wrapper around content. Usage: `c4d-lightbox-video-player::part(content)`
+ * @csspart title - The title of the media. Usage: `c4d-lightbox-video-player::part(title)`
+ * @csspart description - The description of the media. Usage: `c4d-lightbox-video-player::part(description)`
+ * @csspart image - The image displayed in the lightbox image viewer. Usage: `c4d-lightbox-video-player::part(image)`
  */
 @customElement(`${c4dPrefix}-lightbox-image-viewer`)
 class C4DLightboxImageViewer extends C4DLightboxMediaViewerBody {
@@ -40,7 +48,8 @@ class C4DLightboxImageViewer extends C4DLightboxMediaViewerBody {
         class="${c4dPrefix}--image__img"
         alt="${ifDefined(alt)}"
         src="${ifDefined(defaultSrc)}"
-        loading="lazy" />
+        loading="lazy"
+        part="image" />
     `;
   }
 

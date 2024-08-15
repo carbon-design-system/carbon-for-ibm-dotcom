@@ -28,6 +28,9 @@ const slotExistencePropertyNames = {
  * LeadSpace Block Component.
  *
  * @element c4d-leadspace-block
+ * @csspart content-layout - The outer wrapper. Usage: c4d-leadpsace-block::part(content-layout)
+ * @csspart content-body - The inner wrapper. Usage: c4d-leadpsace-block::part(content-body)
+ * @csspart hr - The horizontal rule. Usage: c4d-leadpsace-block::part(hr)
  */
 @customElement(`${c4dPrefix}-leadspace-block`)
 class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
@@ -74,11 +77,11 @@ class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--content-layout">
+      <div class="${prefix}--content-layout" part="content-layout">
         ${this._renderHeading()}
-        <div class="${prefix}--content-layout__body">
+        <div class="${prefix}--content-layout__body" part="content-body">
           <slot></slot>
-          ${this.border ? html`<c4d-hr></c4d-hr>` : ``}
+          ${this.border ? html`<c4d-hr part="hr"></c4d-hr>` : ``}
         </div>
       </div>
     `;
