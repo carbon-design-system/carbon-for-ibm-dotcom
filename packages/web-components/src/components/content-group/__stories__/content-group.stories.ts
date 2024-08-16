@@ -13,6 +13,8 @@ import '../../cta/text-cta';
 import '../../image/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
+import { addons } from '@storybook/addons';
+import { FORCE_REMOUNT } from '@storybook/core-events';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
@@ -24,7 +26,9 @@ export const Default = (args) => {
     args?.ContentGroup ?? {};
   return html`
     <dds-content-group>
-      <dds-content-group-heading>${heading}</dds-content-group-heading>
+      <dds-content-group-heading
+        ><a name="thing"></a>${heading}</dds-content-group-heading
+      >
       ${showCopy
         ? html` <dds-content-group-copy>${copy}</dds-content-group-copy> `
         : ''}
@@ -127,18 +131,36 @@ export const Default = (args) => {
   `;
 };
 
+let currentHeadingText = null;
+
 export default {
   title: 'Components/Content group',
   decorators: [
-    (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+    (story, context) => {
+      const { args, id: storyId } = context;
+
+      // Due to the way that `<dds-content-group-heading>` is implemented, we
+      // need to force a remount of the component every time the heading text
+      // changes. We track the value of the current heading text in an in scope
+      // variable and when we detect a change, we trigger a remount.
+      if (
+        currentHeadingText !== null &&
+        currentHeadingText !== args.ContentGroup.heading
+      ) {
+        addons.getChannel().emit(FORCE_REMOUNT, { storyId });
+      }
+      currentHeadingText = args.ContentGroup.heading;
+
+      return html`
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-12 bx--no-gutter">
+              <dds-video-cta-container> ${story()} </dds-video-cta-container>
+            </div>
           </div>
         </div>
-      </div>
-    `,
+      `;
+    },
   ],
   parameters: {
     ...readme.parameters,
