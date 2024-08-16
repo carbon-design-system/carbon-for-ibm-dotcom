@@ -28,10 +28,7 @@
 
 ## Getting started
 
-If you're just getting started, check out
-[`react`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react)
-or
-[`web components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components)!
+If you're just getting started, check out [`web components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components)!
 
 If you're trying to find something specific, here's a full list of packages that
 we support!
