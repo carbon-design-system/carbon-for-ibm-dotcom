@@ -30,6 +30,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * Component that renders video player from its metadata, etc.
  *
  * @element c4d-video-player-composite
+ * @csspart video-player - The video player. Usage `c4d-video-player-composite::part(video-player)`
  */
 @customElement(`${c4dPrefix}-video-player-composite`)
 class C4DVideoPlayerComposite extends HybridRenderMixin(
@@ -289,6 +290,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       });
     return html`
       <c4d-video-player
+        part="video-player"
         duration="${ifDefined(duration)}"
         ?hide-caption=${hideCaption}
         name="${ifDefined(caption || name)}"

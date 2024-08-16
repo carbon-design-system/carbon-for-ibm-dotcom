@@ -41,6 +41,8 @@ export enum END_TYPE_LAYOUT {
  *
  * @element c4d-link-list
  * @slot heading - The heading content.
+ * @csspart heading - The heading wrapper. Usage `c4d-link-list::part(heading)`
+ * @csspart list - The list wrapper. Usage `c4d-link-list::part(list)`
  */
 @customElement(`${c4dPrefix}-link-list`)
 class C4DLinkList extends StableSelectorMixin(LitElement) {
@@ -127,8 +129,10 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
         endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
     });
     return html`
-      <div class="${headingClasses}"><slot name="heading"></slot></div>
-      <ul name="list" class="${listClasses}">
+      <div class="${headingClasses}" part="heading">
+        <slot name="heading"></slot>
+      </div>
+      <ul part="list" name="list" class="${listClasses}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;

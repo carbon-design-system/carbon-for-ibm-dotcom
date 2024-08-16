@@ -25,6 +25,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead left nav menu section.
  *
  * @element c4d-left-nav-menu-section
+ * @csspart side-nav-submenu-container - The container for the submenu. Usage: `c4d-left-nav-menu-section::part(side-nav-submenu-container)`
+ * @csspart menu-item - The submenu item. Usage: `c4d-left-nav-menu-section::part(menu-item)`
+ * @csspart menu-link - The side navigation link. Usage: `c4d-left-nav-menu-section::part(menu-link)`
+ * @csspart menu-link-text - The text within the side navigation link. Usage: `c4d-left-nav-menu-section::part(menu-link-text back-button-text)`
+ * @csspart back-button - The back button. Usage: `c4d-left-nav-menu-section::part(back-button)`
  * @fires c4d-left-nav-menu-beingtoggled
  *   The custom event fired before this side nav menu is being toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
@@ -222,16 +227,20 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       showBackBtn,
     } = this;
     return html`
-      <ul>
+      <ul part="side-nav-submenu-container">
         ${showBackBtn
           ? html`
               <li
+                part="menu-item back-button-wrapper"
                 class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back"
                 role="none">
                 <button
+                  part="menu-link back-button"
                   class="${prefix}--side-nav__link"
                   @click="${handleClickBack}">
-                  <span class="${prefix}--side-nav__link-text"
+                  <span
+                    part="menu-link-text back-button-text"
+                    class="${prefix}--side-nav__link-text"
                     >${ChevronLeft16()}${backButtonText}</span
                   >
                 </button>

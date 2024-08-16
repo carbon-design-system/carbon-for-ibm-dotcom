@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -157,7 +157,7 @@
   :host(#{$c4d-prefix}-card-in-card)[grid-mode='narrow'],
   .#{$prefix}--card-in-card--narrow {
     @include breakpoint(lg) {
-      inline-size: calc(100% - #{carbon--mini-units(2)});
+      inline-size: calc(100% - #{$spacing-05});
     }
 
     .#{$prefix}--card__wrapper {

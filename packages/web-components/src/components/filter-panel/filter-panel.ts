@@ -22,6 +22,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The filter panel.
  *
  * @element c4d-filter-panel
+ * @csspart section - The filter panel section. Usage: `c4d-filter-panel::part(section)`
+ * @csspart heading-clear - Contains the filter heading an the button. Usage: `c4d-filter-panel::part(heading-clear)`
+ * @csspart filter-heading - The heading. Usage: `c4d-filter-panel::part(filter-heading)`
+ * @csspart button-clear - The button. Usage: `c4d-filter-panel::part(button-clear)`
+ * @csspart container - The button inner container. Usage: `c4d-filter-panel::part(container)`
+ * @csspart icon - The button icon. Usage: `c4d-filter-panel::part(icon)`
  */
 @customElement(`${c4dPrefix}-filter-panel`)
 class C4DFilterPanel extends HostListenerMixin(
@@ -69,16 +75,19 @@ class C4DFilterPanel extends HostListenerMixin(
 
   render() {
     return html`
-      <section class="${prefix}--filter-panel__section">
-        <div class="${prefix}--heading-clear">
-          <div class="${prefix}--filter__heading">${this.heading}</div>
+      <section class="${prefix}--filter-panel__section" part="section">
+        <div class="${prefix}--heading-clear" part="heading-clear">
+          <div class="${prefix}--filter__heading" part="filter-heading">
+            ${this.heading}
+          </div>
           <button
             class="${prefix}--clear"
+            part="button-clear"
             @click=${this._handleClear}
             ?disabled="${!this.hasSelections}">
-            <div class="${prefix}--clear__container">
+            <div class="${prefix}--clear__container" part="container">
               Clear
-              <div class="${prefix}--reset__icon">${Reset()}</div>
+              <div class="${prefix}--reset__icon" part="icon">${Reset()}</div>
             </div>
           </button>
         </div>

@@ -62,6 +62,12 @@ const slotExistencePropertyNames = {
  * @fires c4d-expressive-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  * @slot header - The header content.
  * @slot footer - The footer content.
+ * @csspart modal-header - The modal header. Usage: `c4d-expressive-modal::part(modal-header)`
+ * @csspart modal-body - The modal body. Usage: `c4d-expressive-modal::part(modal-body)`
+ * @csspart sentinel-button - Taget all Sentinels buttons Usage: `c4d-expressive-modal::part(sentinel-button)`
+ * @csspart sentinel-button--start - Button labled START. Usage: `c4d-expressive-modal::part(sentinel-button--start)`
+ * @csspart sentinel-button--end - Button labled END. Usage: `c4d-expressive-modal::part(sentinel-button--end)`
+ * @csspart modal-container - The modal container. Usage: `c4d-expressive-modal::part(modal-container)`
  */
 @customElement(`${c4dPrefix}-expressive-modal`)
 class C4DExpressiveModal extends StableSelectorMixin(
@@ -365,7 +371,10 @@ class C4DExpressiveModal extends StableSelectorMixin(
         hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="${prefix}--modal-header" class="${headerClasses}">
+      <div
+        id="${prefix}--modal-header"
+        class="${headerClasses}"
+        part="modal-header">
         <slot name="header"></slot>
       </div>
     `;
@@ -380,7 +389,9 @@ class C4DExpressiveModal extends StableSelectorMixin(
       [`${c4dPrefix}-ce--modal__body`]: true,
       [`${c4dPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
-    return html` <div class="${bodyClasses}"><slot></slot></div> `;
+    return html`
+      <div class="${bodyClasses}" part="modal-body"><slot></slot></div>
+    `;
   }
 
   /**
@@ -436,23 +447,26 @@ class C4DExpressiveModal extends StableSelectorMixin(
       <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
+        part="sentinel-button sentinel-button--start"
         @focusin="${handleFocusIn}">
         START
       </button>
       <div
         class="${containerClasses}"
+        part="modal-container"
         tabindex="-1"
         role="dialog"
         aria-labelledby="${c4dPrefix}--modal-header"
         @click="${handleClickContainer}"
         @slotchange="${handleSlotChange}">
-        <div class="${prefix}--modal-content">
+        <div class="${prefix}--modal-content" part="modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
       <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
+        part="sentinel-button sentinel-button--end"
         @focusin="${handleFocusIn}">
         END
       </button>
