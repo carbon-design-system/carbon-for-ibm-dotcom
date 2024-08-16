@@ -58,22 +58,18 @@ export const Default = (args) => {
                 slot="media"
                 alt="Image alt text"
                 default-src="${imgLg16x9}"
-                heading="Image caption text"
-              >
+                heading="Image caption text">
                 <dds-image-item
                   media="(min-width: 672px)"
-                  srcset="${imgLg16x9}"
-                >
+                  srcset="${imgLg16x9}">
                 </dds-image-item>
                 <dds-image-item
                   media="(min-width: 400px)"
-                  srcset="${imgMd16x9}"
-                >
+                  srcset="${imgMd16x9}">
                 </dds-image-item>
                 <dds-image-item
                   media="(min-width: 320px)"
-                  srcset="${imgSm16x9}"
-                >
+                  srcset="${imgSm16x9}">
                 </dds-image-item>
               </dds-image>
               <dds-content-item-copy
@@ -86,8 +82,7 @@ export const Default = (args) => {
               <dds-text-cta
                 slot="footer"
                 cta-type="local"
-                href="https://www.example.com"
-              >
+                href="https://www.example.com">
                 Read more about NLP
               </dds-text-cta>
             </dds-content-item>
@@ -101,8 +96,7 @@ export const Default = (args) => {
               >
               <dds-video-player-container
                 slot="media"
-                video-id="0_ibuqxqbe"
-              ></dds-video-player-container>
+                video-id="0_ibuqxqbe"></dds-video-player-container>
               <dds-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic
                 system for a machine to interpret its meaning, using formal
@@ -113,8 +107,7 @@ export const Default = (args) => {
               <dds-text-cta
                 slot="footer"
                 cta-type="local"
-                href="https://www.example.com"
-              >
+                href="https://www.example.com">
                 Read more about NLP
               </dds-text-cta>
             </dds-content-item>
@@ -125,8 +118,7 @@ export const Default = (args) => {
             <dds-card-link-cta
               slot="footer"
               cta-type="local"
-              href="https://www.example.com"
-            >
+              href="https://www.example.com">
               <dds-card-link-heading
                 >Learn more about natual language
                 processing</dds-card-link-heading
