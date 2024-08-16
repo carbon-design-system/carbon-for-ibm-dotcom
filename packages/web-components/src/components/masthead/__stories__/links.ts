@@ -398,6 +398,11 @@ const mastheadL1Data: MastheadL1 = {
       url: 'https://example.com',
     },
     {
+      title: 'Plain Link With Target',
+      url: 'https://example.com',
+      target: '_blank',
+    },
+    {
       title: 'Two Column',
       submenu: {
         columns: 2,
