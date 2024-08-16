@@ -444,7 +444,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       _toggleSubsection: toggleSubsection,
       _handleTopNavFocusIn: handleTopNavFocusIn,
     } = this;
-    const { title, url, submenu } = menuItem;
+    const { title, url, target, submenu } = menuItem;
 
     if (!submenu && url) {
       return html`
@@ -453,6 +453,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
             part="masthead-l1-item-link"
             class="${prefix}--masthead__l1-item"
             href="${url}"
+            target="${target}"
             @focusin=${handleTopNavFocusIn}
             >${title}</a
           >
@@ -558,7 +559,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                 part="l1-dropdown-menu-items"
                 class="${prefix}--masthead__l1-dropdown-menu-items">
                 ${items.map((item) => {
-                  const { title, url, description } = item;
+                  const { title, url, target, description } = item;
 
                   const linkContents = description
                     ? html`
@@ -580,7 +581,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                       <a
                         part="l1-dropdown-item-link"
                         class="${prefix}--masthead__l1-dropdown-item"
-                        href="${url}">
+                        href="${url}"
+                        target="${target}">
                         ${linkContents}
                       </a>
                     </li>
@@ -658,7 +660,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   protected _renderL1MobileSubnav(menuItem) {
     const { _toggleSubsection: toggleSubsection } = this;
-    const { title, url, submenu } = menuItem;
+    const { title, target, url, submenu } = menuItem;
 
     if (!submenu && url) {
       return html`
@@ -666,6 +668,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           <a
             part="l1-dropdown-item-link"
             class="${prefix}--masthead__l1-dropdown-item"
+            target="${target}"
             href="${url}"
             >${title}</a
           >
@@ -715,12 +718,13 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                   ${items
                     ? html` <ul part="l1-dropdown-item-ul">
                         ${items.map((item) => {
-                          const { title, url } = item;
+                          const { title, url, target } = item;
 
                           return html` <li part="l1-dropdown-item-li">
                             <a
                               part="l1-dropdown-item-link"
                               class="${prefix}--masthead__l1-dropdown-item"
+                              target="${target}"
                               href="${url}">
                               ${title}
                             </a>
