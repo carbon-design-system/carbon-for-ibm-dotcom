@@ -26,7 +26,9 @@ export const Default = (args) => {
     args?.ContentGroup ?? {};
   return html`
     <dds-content-group>
-      <dds-content-group-heading>${heading}</dds-content-group-heading>
+      <dds-content-group-heading
+        ><a name="thing"></a>${heading}</dds-content-group-heading
+      >
       ${showCopy
         ? html` <dds-content-group-copy>${copy}</dds-content-group-copy> `
         : ''}
