@@ -38,7 +38,7 @@ we support!
 
 | Package name                                                                                                                          | Description                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [`@carbon/ibmdotcom-web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components) | IBM.com web components                                   |
+| [`@carbon/ibmdotcom-web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components) | IBM.com web components and its React Wrappers            |
 | [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services)             | IBM.com ES6 Service classes                              |
 | [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles)                 | Framework agnostic styles package for IBM.com components |
 | [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/utilities)           | IBM.com ES6 Utility classes                              |
