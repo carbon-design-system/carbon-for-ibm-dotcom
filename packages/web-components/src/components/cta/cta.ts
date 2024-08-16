@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,6 +27,12 @@ const { stablePrefix: c4dPrefix } = settings;
  * CTA component
  *
  * @element c4d-cta
+ * @csspart cta - Targets all styles. Usage: `c4d-cta::part(cta)`
+ * @csspart cta--feature - Tagets the Feature style. Usage: `c4d-cta::part(cta--feature)`
+ * @csspart cta--card - Tagets the Card style. Usage: `c4d-cta::part(cta--card)`
+ * @csspart cta--card-link - Tagets the Card-link style. Usage: `c4d-cta::part(cta--card-link)`
+ * @csspart cta--text - Tagets the Text style. Usage: `c4d-cta::part(cta--text)`
+ * @csspart cta--button - Tagets the buttton style. Usage: `c4d-cta::part(cta--button)`
  */
 @customElement(`${c4dPrefix}-cta`)
 class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
@@ -121,19 +127,31 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   render() {
     return html`
       ${this.ctaStyle === 'feature'
-        ? html` <c4d-feature-cta></c4d-feature-cta> `
+        ? html` <c4d-feature-cta part="cta cta--feature"></c4d-feature-cta> `
         : ``}
       ${this.ctaStyle === 'card'
-        ? html` <c4d-card-cta><slot></slot></c4d-card-cta> `
+        ? html`
+            <c4d-card-cta part="cta cta--card"><slot></slot></c4d-card-cta>
+          `
         : ``}
       ${this.ctaStyle === 'card-link'
-        ? html` <c4d-card-link-cta><slot></slot></c4d-card-link-cta> `
+        ? html`
+            <c4d-card-link-cta part="cta cta--card-link"
+              ><slot></slot
+            ></c4d-card-link-cta>
+          `
         : ``}
       ${this.ctaStyle === 'text'
-        ? html` <c4d-text-cta><slot></slot></c4d-text-cta> `
+        ? html`
+            <c4d-text-cta part="cta cta--text"><slot></slot></c4d-text-cta>
+          `
         : ``}
       ${this.ctaStyle === 'button'
-        ? html` <c4d-button-cta><slot></slot></c4d-button-cta> `
+        ? html`
+            <c4d-button-cta part="cta cta--button"
+              ><slot></slot
+            ></c4d-button-cta>
+          `
         : ``}
     `;
   }

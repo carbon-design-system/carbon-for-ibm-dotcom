@@ -10598,13 +10598,13 @@ __metadata:
   linkType: hard
 
 "axios@npm:^1.0.0, axios@npm:^1.6.8":
-  version: 1.7.3
-  resolution: "axios@npm:1.7.3"
+  version: 1.7.4
+  resolution: "axios@npm:1.7.4"
   dependencies:
     follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10/7f92af205705a8fb4a9d35666b663729507657f252a1d39d83582590119941872d49078017cf992e32f47aa3b7317f5439f77be772a173dac2ae0fedd38f43ae
+  checksum: 10/7a1429be1e3d0c2e1b96d4bba4d113efbfabc7c724bed107beb535c782c7bea447ff634886b0c7c43395a264d085450d009eb1154b5f38a8bae49d469fdcbc61
   languageName: node
   linkType: hard
 
@@ -15603,8 +15603,8 @@ __metadata:
   linkType: hard
 
 "elliptic@npm:^6.5.3, elliptic@npm:^6.5.5":
-  version: 6.5.6
-  resolution: "elliptic@npm:6.5.6"
+  version: 6.5.7
+  resolution: "elliptic@npm:6.5.7"
   dependencies:
     bn.js: "npm:^4.11.9"
     brorand: "npm:^1.1.0"
@@ -15613,7 +15613,7 @@ __metadata:
     inherits: "npm:^2.0.4"
     minimalistic-assert: "npm:^1.0.1"
     minimalistic-crypto-utils: "npm:^1.0.1"
-  checksum: 10/09377ec924fdb37775d63e5d7e5ebb2845842e6f08880b68265b1108863e968970c4a4e1c43df622078c8262417deec9a04aeb9d34e8d09a9693e19b5454e1df
+  checksum: 10/fbad1fad0a5cc07df83f80cc1f7a784247ef59075194d3e340eaeb2f4dd594825ee24c7e9b0cf279c9f1982efe610503bb3139737926428c4821d4fca1bcf348
   languageName: node
   linkType: hard
 
