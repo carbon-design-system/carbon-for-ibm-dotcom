@@ -194,9 +194,10 @@ class C4DFilterPanelInputSelect extends FocusMixin(
   render() {
     const { title } = this;
     return html`
-      <div class="${prefix}--input-container">
+      <div class="${prefix}--input-container" part="container">
         <div
           class="${prefix}--input-container__heading"
+          part="heading"
           tabindex="1"
           @click=${this._handleClickHeader}
           @keydown=${this._handleKeydown}
@@ -204,7 +205,7 @@ class C4DFilterPanelInputSelect extends FocusMixin(
           aria-label="${this.ariaLabel}"
           role="button">
           ${title}
-          <div class="${prefix}--close__icon">
+          <div class="${prefix}--close__icon" part="icon">
             ${this.selected && this.isOpen ? Close() : null}
           </div>
         </div>
@@ -214,7 +215,8 @@ class C4DFilterPanelInputSelect extends FocusMixin(
           @keydown=${this._handleKeydownInner}
           class="${this.isOpen
             ? ''
-            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown">
+            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
+          part="dropdown">
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </ul>
       </div>

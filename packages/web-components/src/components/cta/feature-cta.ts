@@ -38,6 +38,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Feature CTA.
  *
  * @element c4d-feature-cta
+ * @csspart copy - The copy content. Usage: `c4d-feature-cta::part(copy)`
  */
 @customElement(`${c4dPrefix}-feature-cta`)
 class C4DFeatureCTA extends VideoCTAMixin(CTAMixin(C4DFeatureCard)) {
@@ -62,7 +63,7 @@ class C4DFeatureCTA extends VideoCTAMixin(CTAMixin(C4DFeatureCard)) {
     this.captionHeading = caption;
 
     return html`
-      <div class="${prefix}--card__copy">
+      <div class="${prefix}--card__copy" part="copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;

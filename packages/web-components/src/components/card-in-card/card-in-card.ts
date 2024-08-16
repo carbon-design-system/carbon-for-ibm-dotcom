@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Card in Card.
  *
  * @element c4d-card-in-card
+ * @csspart image - The Thumbnail image. Usage `c4d-card-in-card::part(image)`
  */
 @customElement(`${c4dPrefix}-card-in-card`)
 class C4DCardInCard extends StableSelectorMixin(C4DCard) {
@@ -34,7 +35,8 @@ class C4DCardInCard extends StableSelectorMixin(C4DCard) {
         : html`
             <c4d-card-in-card-image
               alt="${ifDefined(videoName)}"
-              default-src="${videoThumbnailUrl}">
+              default-src="${videoThumbnailUrl}"
+              part="image">
             </c4d-card-in-card-image>
           `;
     return html`

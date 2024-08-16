@@ -23,6 +23,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Legal nav.
  *
  * @element c4d-legal-nav
+ * @csspart legal-nav - The <nav> container. Usage: `c4d-legal-nav::part(legal-nav)`
+ * @csspart legal-nav-list-container - The legal nav list container. Usage: `c4d-legal-nav::part(legal-nav-list-container)`
+ * @csspart legal-nav-list - The list of links. Usage: `c4d-legal-nav::part(legal-nav-list)`
+ * @csspart adjunct-links-list - The list of adjunct links. Usage: `c4d-legal-nav::part(adjunct-links-list)`
+ * @csspart adjunct-links-container - The adjunct links container. Usage: `c4d-legal-nav::part(adjunct-links-container)`
+ * @csspart legal-nav-items-container - The legal nav items container. Usage: `c4d-legal-nav::part(legal-nav-items-container)`
  */
 @customElement(`${c4dPrefix}-legal-nav`)
 class C4DLegalNav extends StableSelectorMixin(LitElement) {
@@ -76,27 +82,34 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
           <nav
+            part="legal-nav"
             class="${c4dPrefix}--legal-nav"
             aria-label="${ifDefined(navLabel)}">
-            <div class="${this._getTypeClass()}">
-              <ul>
+            <div
+              part="legal-nav-list-container"
+              class="${this._getTypeClass()}">
+              <ul part="legal-nav-list">
                 <slot></slot>
               </ul>
               <slot name="locale"></slot>
             </div>
-            <div class="${c4dPrefix}--adjunct-links__container">
-              <ul>
+            <div
+              part="adjunct-links-container"
+              class="${c4dPrefix}--adjunct-links__container">
+              <ul part="adjunct-links-list">
                 <slot name="adjunct-links"></slot>
               </ul>
             </div>
           </nav>
         `
       : html`
-          <nav class="${c4dPrefix}--legal-nav">
-            <div class="${this._getTypeClass()}">
-              <div>
+          <nav part="legal-nav" class="${c4dPrefix}--legal-nav">
+            <div
+              part="legal-nav-list-container"
+              class="${this._getTypeClass()}">
+              <div part="legal-nav-items-container">
                 <slot name="brand"></slot>
-                <ul>
+                <ul part="legal-nav-list">
                   <slot></slot>
                 </ul>
               </div>
