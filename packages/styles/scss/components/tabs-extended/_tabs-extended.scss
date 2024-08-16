@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@
 @use '@carbon/styles/scss/components/button' as *;
 @use '../../globals/vars' as *;
 @use '@carbon/styles/scss/components/tabs/vars' as *;
-@use '../../../../carbon-web-components/src/components/tabs/tabs';
+@use '@carbon/web-components/scss/components/tabs/tabs';
 
 @mixin tabs-extended {
   :host(#{$c4d-prefix}-tabs-extended),
