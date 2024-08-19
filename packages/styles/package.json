@@ -30,9 +30,9 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/layout @carbon/styles @carbon/themes @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/icons-react": "11.47.0",
+    "@carbon/icons-react": "11.47.1",
     "@carbon/layout": "11.24.0",
-    "@carbon/styles": "1.63.0",
+    "@carbon/styles": "1.63.1",
     "@carbon/type": "11.29.0",
     "@ibm/telemetry-js": "^1.5.0"
   },
