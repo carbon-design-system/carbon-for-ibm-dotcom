@@ -11,7 +11,7 @@ import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DContentItem from '../content-item/content-item';
 import styles from './content-item-row-media.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

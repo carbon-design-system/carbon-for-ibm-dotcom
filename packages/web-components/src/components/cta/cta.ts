@@ -10,8 +10,8 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import styles from './cta.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -19,7 +19,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

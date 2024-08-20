@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentGroup from '../content-group/content-group';
 import styles from './in-page-banner.scss';
 import { COLOR_SCHEME } from './defs';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

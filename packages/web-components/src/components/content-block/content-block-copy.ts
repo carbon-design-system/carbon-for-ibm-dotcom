@@ -15,7 +15,7 @@ import C4DMarkdown from '../markdown/markdown';
 import { CONTENT_BLOCK_COPY_SIZE } from './defs';
 import './content-block-paragraph';
 import styles from './content-block.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 export { CONTENT_BLOCK_COPY_SIZE };
 

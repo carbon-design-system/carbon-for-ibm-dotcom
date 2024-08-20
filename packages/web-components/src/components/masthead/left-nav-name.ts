@@ -10,11 +10,11 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import CDSHeaderName from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-name.js';
+import CDSHeaderName from '@carbon/web-components/es/components/ui-shell/header-name.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import C4DLeftNav from './left-nav';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

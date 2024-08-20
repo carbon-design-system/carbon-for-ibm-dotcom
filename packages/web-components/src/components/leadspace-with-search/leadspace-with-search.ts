@@ -16,7 +16,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
 import { ADJACENT_THEMES, DUAL_THEMES } from './defs';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import { themes } from '@carbon/themes';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

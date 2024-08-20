@@ -13,7 +13,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import C4DMastheadTopNav from './top-nav';
 import C4DLeftNavName from './left-nav-name';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

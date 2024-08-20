@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentItem from '../content-item/content-item';
 
 import styles from './cta-block.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

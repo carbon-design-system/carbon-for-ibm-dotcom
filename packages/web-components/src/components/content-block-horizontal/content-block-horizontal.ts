@@ -10,7 +10,7 @@
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import C4DContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-block-horizontal.scss';

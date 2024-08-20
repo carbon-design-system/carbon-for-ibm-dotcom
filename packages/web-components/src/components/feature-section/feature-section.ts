@@ -15,7 +15,7 @@ import '../image/image';
 import styles from './feature-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { COLOR_SCHEME } from './defs';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

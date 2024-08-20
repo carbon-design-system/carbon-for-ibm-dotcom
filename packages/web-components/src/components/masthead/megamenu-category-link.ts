@@ -9,14 +9,14 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
-import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
+import CDSLink from '@carbon/web-components/es/components/link/link.js';
+import Launch16 from '@carbon/web-components/es/icons/launch/16.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -9,7 +9,7 @@
 import { css } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import DDSContentBlockCopy from '../content-block/content-block-copy';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import styles from './callout-with-media.scss';

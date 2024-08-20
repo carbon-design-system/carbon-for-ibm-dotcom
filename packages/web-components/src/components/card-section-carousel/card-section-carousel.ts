@@ -11,7 +11,7 @@ import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './card-section-carousel.scss';
 import C4DContentSection from '../content-section/content-section';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -10,11 +10,11 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
+import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

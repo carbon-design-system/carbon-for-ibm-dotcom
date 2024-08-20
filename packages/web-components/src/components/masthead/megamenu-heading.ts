@@ -9,11 +9,11 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ArrowRight24 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/24.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import ArrowRight24 from '@carbon/web-components/es/icons/arrow--right/24.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

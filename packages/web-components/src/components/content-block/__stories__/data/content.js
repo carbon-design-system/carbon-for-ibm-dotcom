@@ -14,7 +14,7 @@ import imgXlg16x9 from '../../../../../.storybook/storybook-images/assets/1312/f
 import imgMd16x9 from '../../../../../.storybook/storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
 import imgLg4x3 from '../../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 import imgSm4x3 from '../../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
-import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 
 export const cardGroupItem1 = html`
   <c4d-card-group-item href="https://www.example.com">
@@ -216,7 +216,7 @@ export const contentItem = html`
     >
     <c4d-content-item-copy
       >${`This area of NLP takes “real world” text and applies a symbolic system
-     for a machine to interpret its meaning, using formal logic; structures that describe the various 
+     for a machine to interpret its meaning, using formal logic; structures that describe the various
      relationships between concepts (ontologies); and other semantic tools.`}</c4d-content-item-copy
     >
     <c4d-link-with-icon

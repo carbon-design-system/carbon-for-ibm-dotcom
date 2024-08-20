@@ -12,7 +12,7 @@ import styles from './callout-with-media.scss';
 import C4DCalloutMixin from '../../component-mixins/callout/callout';
 import C4DContentBlock from '../content-block/content-block';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import { property } from 'lit/decorators.js';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import C4DCalloutWithMediaCopy from './callout-with-media-copy';

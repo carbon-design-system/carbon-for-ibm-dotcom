@@ -8,7 +8,7 @@
  */
 
 import { text, select, boolean, object } from '@storybook/addon-knobs';
-import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
 import React from 'react';
 
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.

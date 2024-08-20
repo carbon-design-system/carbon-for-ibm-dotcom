@@ -19,7 +19,7 @@ import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

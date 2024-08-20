@@ -10,12 +10,12 @@
 import { LitElement, html, TemplateResult } from 'lit';
 import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
@@ -66,7 +66,7 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import C4DMastheadMenuButton from './masthead-menu-button';
 
 const { stablePrefix: c4dPrefix, prefix } = settings;

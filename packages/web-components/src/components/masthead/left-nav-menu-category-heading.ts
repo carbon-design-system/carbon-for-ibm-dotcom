@@ -10,9 +10,9 @@
 import { LitElement, html } from 'lit';
 import { state, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import styles from './masthead.scss';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

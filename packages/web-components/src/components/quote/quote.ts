@@ -13,7 +13,7 @@ import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 export { QUOTE_TYPES };
 
