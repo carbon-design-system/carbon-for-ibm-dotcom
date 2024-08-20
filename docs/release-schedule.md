@@ -44,8 +44,7 @@ Maintenance release, please
 ## Assets managed under this release schedule
 
 This plan covers the design and development assets under maintenance of the
-Carbon for IBM.com team. This includes the `@carbon/web-components` and
-`@carbon/ibmdotcom-web-components` packages, as well as all other packages within the
+Carbon for IBM.com team. This includes all packages within the
 [`Carbon for IBM.com` monorepo](https://github.com/carbon-design-system/carbon-for-ibm-dotcom).
 
 This plan also includes all design guidance and design kit assets (figma, etc.)
