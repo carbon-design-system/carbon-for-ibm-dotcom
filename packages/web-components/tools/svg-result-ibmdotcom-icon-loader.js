@@ -10,7 +10,6 @@
 'use strict';
 
 const createSVGResultFromIconDescriptor = require('./svg-result-from-icon-descriptor');
-const path = require('path');
 const svg2js = require('svgo/lib/svgo/svg2js');
 
 /**
