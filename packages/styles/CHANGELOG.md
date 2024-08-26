@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.11.1...@carbon/ibmdotcom-styles@2.12.0-rc.0) (2024-08-26)
+
+
+### Bug Fixes
+
+* **feature-card:** remove redundant import ([#11957](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11957)) ([c473da2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c473da2723509cc71dbb1e95a5cd161c14c38acc)), closes [#11956](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11956)
+* **styles:** remove all use of carbon--mini-units ([#11964](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11964)) ([f6b3398](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f6b3398abac38d0c12b6af5fb08a49e719b3b5ef)), closes [#11958](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11958)
+* **tabs-extended:** fix bad import in the tabs-extended component styles ([#11955](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11955)) ([13a98b4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/13a98b40ec1db06e71f52c9d637188342fba4302)), closes [#11954](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11954)
+
+
+
+
+
 ## [2.11.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.11.1-rc.0...@carbon/ibmdotcom-styles@2.11.1) (2024-07-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

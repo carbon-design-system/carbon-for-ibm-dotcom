@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.11.1...@carbon/ibmdotcom-web-components@2.12.0-rc.0) (2024-08-26)
+
+
+### Bug Fixes
+
+* **button-cta:** remove style overrides covered elsewhere ([#11966](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11966)) ([30afc55](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30afc5568804912f95638f9fe214bdac217b202a)), closes [#11959](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11959)
+* **masthead:** add-l1-link-target ([#11974](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11974)) ([8fd9c67](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8fd9c670aeb95697c8fff1ccedab8b3138e3d46c))
+
+
+### Features
+
+* **dotcom-components:** add shadowparts ([#11812](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11812)) ([b8983f2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b8983f2c98b8339cc5e678db5b9ac0d4e5508278)), closes [#11673](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11673)
+
+
+
+
+
 ## [2.11.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.11.1-rc.0...@carbon/ibmdotcom-web-components@2.11.1) (2024-07-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
