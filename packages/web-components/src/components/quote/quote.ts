@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { LocaleAPI } from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale';
 
 export { QUOTE_TYPES };
 
@@ -60,6 +61,9 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
 
+  @state()
+  lc;
+
   /**
    * `true` if there is source heading.
    */
@@ -83,6 +87,14 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
   /**
    * Handles `slotchange` event.
    */
+
+  connectedCallback() {
+    LocaleAPI.getLang().then(({ lc }) => {
+      this.lc = lc;
+      console.log(lc);
+    });
+  }
+
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
@@ -101,7 +113,10 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
           <span class="${prefix}--quote__mark" part="mark mark--opening"
             >‘</span
           >
-          <blockquote class="${prefix}--quote__copy" part="copy">
+          <blockquote
+            class="${prefix}--quote__copy"
+            part="copy"
+            lang="${this.lc}">
             <slot></slot
             ><span
               class="${prefix}--quote__mark-closing"
