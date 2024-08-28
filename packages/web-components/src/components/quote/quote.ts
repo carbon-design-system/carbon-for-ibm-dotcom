@@ -14,6 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { LocaleAPI } from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/';
 
 export { QUOTE_TYPES, QUOTE_COLOR_SCHEMES };
 
@@ -58,6 +59,9 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   @property({ reflect: true, attribute: 'color-scheme' })
   colorScheme = QUOTE_COLOR_SCHEMES.REGULAR;
 
+  @property({ reflect: true, attribute: 'lang' })
+  lc;
+
   /**
    * `true` if there is source heading.
    */
@@ -77,6 +81,13 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
    * `true` if there is cta.
    */
   protected _hasFooter = false;
+
+  connectedCallback() {
+    super.connectedCallback();
+    LocaleAPI.getLang().then(({ lc }) => {
+      this.lc = lc;
+    });
+  }
 
   /**
    * Handles `slotchange` event.

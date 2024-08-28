@@ -23,6 +23,15 @@
       padding-left: $spacing-05;
       max-width: 80%;
     }
+
+    &[lang="ar"],
+    &[lang="cn"],
+    &[lang="jp"],
+    &[lang="ko"] {
+      .#{$prefix}--quote__copy {
+         @include carbon--font-family('sans');
+      }
+    }
   }
 
   .#{$prefix}--quote__container {
@@ -36,7 +45,6 @@
   .#{$prefix}--quote__copy {
     @include carbon--make-col-ready;
     @include carbon--type-style('quotation-01', true);
-    @include carbon--font-family('serif');
 
     word-break: break-word;
     padding: 0 $spacing-07 $carbon--layout-03 $spacing-07;
