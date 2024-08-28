@@ -48,10 +48,7 @@
 
   :host(#{$c4d-prefix}-image)[card-group-item],
   :host(#{$c4d-prefix}-image) {
-   
-
     overflow: hidden;
-
   }
 
   .#{$c4d-prefix}--image__longdescription {
