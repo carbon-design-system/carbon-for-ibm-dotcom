@@ -64,7 +64,8 @@ export default {
       CalloutQuote: () => ({
         copy: textNullable(
           'Quote (copy):',
-          '経営幹部の71％は、メインフレーム・ベースのアプリケーションこそビジネス戦略の中心であると述べています。'
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
         ),
         quoteMark: select(
           'Quote Mark (markType):',
