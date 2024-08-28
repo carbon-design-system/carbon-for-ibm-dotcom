@@ -27,6 +27,15 @@
       max-inline-size: 80%;
       padding-inline-start: $spacing-05;
     }
+
+    &[lang="ar"],
+    &[lang="cn"],
+    &[lang="jp"],
+    &[lang="ko"] {
+      .#{$prefix}--quote__copy {
+         @include font-family('sans');
+      }
+    }
   }
 
   .#{$prefix}--quote__container {
@@ -40,7 +49,6 @@
   .#{$prefix}--quote__copy {
     @include make-col-ready;
     @include type-style('quotation-01', true);
-    @include font-family('serif');
 
     padding: 0 $spacing-07 $spacing-07 $spacing-07;
     margin: 0;

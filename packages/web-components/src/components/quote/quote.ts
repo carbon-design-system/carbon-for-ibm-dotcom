@@ -61,7 +61,7 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
 
-  @state()
+  @property({ reflect: true, attribute: 'lang' })
   lc;
 
   /**
@@ -89,9 +89,9 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
    */
 
   connectedCallback() {
+    super.connectedCallback();
     LocaleAPI.getLang().then(({ lc }) => {
       this.lc = lc;
-      console.log(lc);
     });
   }
 
@@ -115,8 +115,7 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
           >
           <blockquote
             class="${prefix}--quote__copy"
-            part="copy"
-            lang="${this.lc}">
+            part="copy">
             <slot></slot
             ><span
               class="${prefix}--quote__mark-closing"
