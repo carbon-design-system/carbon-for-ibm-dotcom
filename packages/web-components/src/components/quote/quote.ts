@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -113,9 +113,7 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
           <span class="${prefix}--quote__mark" part="mark mark--opening"
             >‘</span
           >
-          <blockquote
-            class="${prefix}--quote__copy"
-            part="copy">
+          <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
             ><span
               class="${prefix}--quote__mark-closing"
