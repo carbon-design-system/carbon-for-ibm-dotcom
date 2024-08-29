@@ -44,6 +44,7 @@ const slotExistencePropertyNames = {
  * @slot image - The image content.
  * @slot footer - The footer content.
  * @csspart copy - The Copy. Usage: `c4d-card::part(copy)`
+ * @csspart container - The Inner content container. Usage: `c4d-card::part(container)`
  * @csspart video-thumbnail - The video thumbnail. Usage: `c4d-card::part(video-thumbnail)`
  * @csspart disabled-link - . Disabled link. Usage: `c4d-card::part(disabled-link)`
  * @csspart wrapper - The component wrapper. Usage: `c4d-card::part(wrapper)`
@@ -406,7 +407,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   render() {
     return this._hasPictogram
       ? html`
-          <div>
+          <div part="container">
             ${this._renderInner()}
             <a
               class="${`${prefix}--card__link`}"
@@ -418,7 +419,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             >
           </div>
         `
-      : html` <div>${this._renderInner()}</div> `;
+      : html` <div part="container">${this._renderInner()}</div> `;
   }
 
   static get stableSelector() {
