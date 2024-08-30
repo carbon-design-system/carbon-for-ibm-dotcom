@@ -43,6 +43,7 @@ const slotExistencePropertyNames = {
  * @slot heading - The heading content.
  * @slot image - The image content.
  * @slot footer - The footer content.
+ * @csspart caption - The Caption (default heading). Usage: `c4d-card::part(caption)`
  * @csspart copy - The Copy. Usage: `c4d-card::part(copy)`
  * @csspart container - The Inner content container. Usage: `c4d-card::part(container)`
  * @csspart video-thumbnail - The video thumbnail. Usage: `c4d-card::part(video-thumbnail)`
@@ -116,7 +117,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     );
     return html`
       <slot name="heading"></slot
-      ><c4d-card-heading>${caption}</c4d-card-heading>
+      ><c4d-card-heading part="caption">${caption}</c4d-card-heading>
     `;
   }
 
