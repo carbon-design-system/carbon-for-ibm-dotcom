@@ -68,6 +68,7 @@ const slotExistencePropertyNames = {
  * @csspart sentinel-button--start - Button labled START. Usage: `c4d-expressive-modal::part(sentinel-button--start)`
  * @csspart sentinel-button--end - Button labled END. Usage: `c4d-expressive-modal::part(sentinel-button--end)`
  * @csspart modal-container - The modal container. Usage: `c4d-expressive-modal::part(modal-container)`
+ * @csspart footer-container - The footer container. Usage: `c4d-expressive-modal::part(footer-container)`
  */
 @customElement(`${c4dPrefix}-expressive-modal`)
 class C4DExpressiveModal extends StableSelectorMixin(
@@ -399,7 +400,9 @@ class C4DExpressiveModal extends StableSelectorMixin(
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderFooter(): TemplateResult | SVGTemplateResult | void {
-    return html` <div><slot name="footer"></slot></div> `;
+    return html`
+      <div part="footer-container"><slot name="footer"></slot></div>
+    `;
   }
 
   /**
