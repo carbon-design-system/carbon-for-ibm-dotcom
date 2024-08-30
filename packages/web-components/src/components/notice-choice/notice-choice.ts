@@ -37,6 +37,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart checkbox-label-text - The checkbox label text. Usage `c4d-notice-choice::part(checkbox-label-text)`
  * @csspart error - The error message. Usage `c4d-notice-choice::part(error)`
  * @csspart section - A section. Usage `c4d-notice-choice::part(section)`
+ * @csspart span-container - The span container. Usage `c4d-notice-choice::part(span-container)`
+ * @csspart tooltip-link - The tooltip link. Usage `c4d-notice-choice::part(tooltip-link)`
  */
 @customElement(`c4d-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
@@ -469,7 +471,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   checkBoxTemplate(checkbox, checked, hiddenBox) {
     this._onChange(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
-    return html`<span>
+    return html`<span part="span-container">
       <div
         class="${prefix}--form-item cds--checkbox-wrapper"
         part="checkbox-wrapper">
@@ -543,7 +545,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
-          const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
+          const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' part="tooltip-link">${anrTagHtml}</a>`;
           const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
 
           postText =

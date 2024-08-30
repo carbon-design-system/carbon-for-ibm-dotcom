@@ -24,6 +24,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-button
  * @csspart button - The button. Usage: `c4d-button::part(button)`
+ * @csspart hidden-paragraph - The hidden paragraph that contains the link. Usage: `c4d-button::part(hidden-paragraph)`
+ * @csspart hidden-icon-span - The span element inside the hidden paragraph. Usage: `c4d-button::part(hidden-icon-span)`
+ * @csspart visually-hidden-span - The visually hidden span element for accessibility. Usage: `c4d-button::part(visually-hidden-span)`
  */
 @customElement(`${c4dPrefix}-button`)
 // @ts-ignore
@@ -55,8 +58,11 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
    */
   _renderIconPrintStyles() {
     return html`
-      <p class="${prefix}--btn--hidden" aria-hidden="true">
-        <span>:</span> ${this.href}
+      <p
+        class="${prefix}--btn--hidden"
+        aria-hidden="true"
+        part="hidden-paragraph">
+        <span part="hidden-icon-span">:</span> ${this.href}
       </p>
       <slot name="icon"></slot>
     `;
@@ -69,7 +75,9 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
     const { ctaType } = this;
     const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
     return `
-        <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
+        <span class="${prefix}--visually-hidden" part="visually-hidden-span">${
+      ariaLabels[ctaType]
+    }</span>
         ${icon?.()?.strings?.join()}
       `;
   }
