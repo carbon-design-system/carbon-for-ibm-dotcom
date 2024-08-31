@@ -3402,7 +3402,7 @@ __metadata:
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
     "@carbon/icons-react": "npm:11.47.1"
-    "@carbon/layout": "npm:11.24.0"
+    "@carbon/layout": "npm:11.25.0"
     "@carbon/styles": "npm:1.63.1"
     "@carbon/themes": "npm:11.38.0"
     "@carbon/type": "npm:11.29.0"
@@ -3507,7 +3507,7 @@ __metadata:
     "@carbon/icon-helpers": "npm:10.50.0"
     "@carbon/icons": "npm:10.48.5"
     "@carbon/icons-react": "npm:^11.33.0"
-    "@carbon/layout": "npm:11.24.0"
+    "@carbon/layout": "npm:11.25.0"
     "@carbon/motion": "npm:11.20.0"
     "@carbon/pictograms-react": "npm:11.64.0"
     "@carbon/react": "npm:1.64.1"
@@ -3688,7 +3688,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:11.24.0, @carbon/layout@npm:^11.24.0":
+"@carbon/layout@npm:11.25.0":
+  version: 11.25.0
+  resolution: "@carbon/layout@npm:11.25.0"
+  dependencies:
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/2f53a04390c0cafcf3ce94eea6444cccdfdb33c7c28134b7bd342c576ce1ed6bd3aa5dc3e13fbd4075093342538313899596126a6ac54d508d1599c35e2ac2ea
+  languageName: node
+  linkType: hard
+
+"@carbon/layout@npm:^11.24.0":
   version: 11.24.0
   resolution: "@carbon/layout@npm:11.24.0"
   dependencies:
