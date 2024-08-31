@@ -37,7 +37,7 @@
     "@ibm/telemetry-js": "^1.5.0"
   },
   "devDependencies": {
-    "@carbon/themes": "11.38.0",
+    "@carbon/themes": "11.39.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
