@@ -30,7 +30,7 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/layout @carbon/styles @carbon/themes @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/icons-react": "11.47.1",
+    "@carbon/icons-react": "11.48.0",
     "@carbon/layout": "11.24.0",
     "@carbon/styles": "1.63.1",
     "@carbon/type": "11.29.0",

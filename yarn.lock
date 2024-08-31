@@ -3401,7 +3401,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/icons-react": "npm:11.47.1"
+    "@carbon/icons-react": "npm:11.48.0"
     "@carbon/layout": "npm:11.24.0"
     "@carbon/styles": "npm:1.63.1"
     "@carbon/themes": "npm:11.38.0"
@@ -3653,16 +3653,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:11.47.1, @carbon/icons-react@npm:^11.47.1":
-  version: 11.47.1
-  resolution: "@carbon/icons-react@npm:11.47.1"
+"@carbon/icon-helpers@npm:^10.51.0":
+  version: 10.51.0
+  resolution: "@carbon/icon-helpers@npm:10.51.0"
   dependencies:
-    "@carbon/icon-helpers": "npm:^10.50.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/01d7d361e555ce73f61193fdcdbe878a7d385e28aee790e74a0047156ffc51f04e57a76ed7fa17f1de6154df2088226378f9dd0da48e2fc11454fe538b70daa1
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:11.48.0":
+  version: 11.48.0
+  resolution: "@carbon/icons-react@npm:11.48.0"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.51.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: 10/0424ac4139c1f3d000e4a1a26f3214d3e3f2da2be632e08e6c8423b2ffaa1a49c62bb8e6ac848faafd28d107f417458cda0e7b44248274e559cfefb38701cf84
+  checksum: 10/746254bb96c74053502a3eaecf1de5679834516958f4d4c32f470af09a81f527c3b7762ec7f4bd1854fa12ff4bc98c62ad24eaa3501bbb2e6ffce298cb500873
   languageName: node
   linkType: hard
 
@@ -3676,6 +3685,19 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 10/547c9d09ea5e855f207f55338df4823b07450b3f974fd16afa84fac4c2c588ab1631b32dd52ce27c2cfe726d5d763a9b2a768a73285f061afc28453260efafc6
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:^11.47.1":
+  version: 11.47.1
+  resolution: "@carbon/icons-react@npm:11.47.1"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.50.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+    prop-types: "npm:^15.7.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10/0424ac4139c1f3d000e4a1a26f3214d3e3f2da2be632e08e6c8423b2ffaa1a49c62bb8e6ac848faafd28d107f417458cda0e7b44248274e559cfefb38701cf84
   languageName: node
   linkType: hard
 
