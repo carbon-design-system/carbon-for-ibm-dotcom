@@ -206,7 +206,7 @@
     "typescript": "^5.2.2",
     "use-debounce": "^3.2.0",
     "web-component-analyzer": "1.2.0-next.0",
-    "webpack": "^4.46.0",
+    "webpack": "^5.0.0",
     "webpack-dev-server": "^4.0.0",
     "zone.js": "~0.15.0"
   },
