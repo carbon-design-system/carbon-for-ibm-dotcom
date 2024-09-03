@@ -223,7 +223,7 @@ class C4DImage extends StableSelectorMixin(
       ? undefined
       : html`
           <c4d-expressive-modal ?open="${open}" expressive-size="full-width" part="expressive-modal">
-            <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button part="expressive-modal-close-button">
+            <c4d-expressive-modal-close-button part="expressive-modal-close-button"></c4d-expressive-modal-close-button>
             <c4d-lightbox-image-viewer
               alt="${ifDefined(alt)}"
               default-src="${ifDefined(defaultSrc)}"
