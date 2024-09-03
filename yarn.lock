@@ -3397,7 +3397,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@npm:2.12.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@npm:2.12.0-rc.1, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -3502,7 +3502,7 @@ __metadata:
     "@babel/traverse": "npm:~7.23.7"
     "@carbon/ibmdotcom-services": "npm:2.12.0-rc.0"
     "@carbon/ibmdotcom-services-store": "npm:1.53.1"
-    "@carbon/ibmdotcom-styles": "npm:2.12.0-rc.0"
+    "@carbon/ibmdotcom-styles": "npm:2.12.0-rc.1"
     "@carbon/ibmdotcom-utilities": "npm:2.12.0-rc.0"
     "@carbon/icon-helpers": "npm:10.50.0"
     "@carbon/icons": "npm:10.48.5"
