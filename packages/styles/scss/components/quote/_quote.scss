@@ -24,12 +24,12 @@
       max-width: 80%;
     }
 
-    &[lang="ar"],
-    &[lang="zh"],
-    &[lang="jp"],
-    &[lang="ko"] {
+    &[lang='ar'],
+    &[lang='zh'],
+    &[lang='jp'],
+    &[lang='ko'] {
       .#{$prefix}--quote__copy {
-         @include carbon--font-family('sans');
+        @include carbon--font-family('sans');
       }
     }
   }
