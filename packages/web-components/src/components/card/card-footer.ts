@@ -21,6 +21,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Card footer.
  *
  * @element c4d-card-footer
+ * @csspart copy - The Copy. Usage: `c4d-card-footer::part(copy)`
  */
 @customElement(`${c4dPrefix}-card-footer`)
 class C4DCardFooter extends C4DLinkWithIcon {
@@ -65,7 +66,10 @@ class C4DCardFooter extends C4DLinkWithIcon {
   _renderContent() {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <span ?hidden="${!hasCopy}" class="${prefix}--card__cta__copy">
+      <span
+        ?hidden="${!hasCopy}"
+        class="${prefix}--card__cta__copy"
+        part="copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </span>
     `;
