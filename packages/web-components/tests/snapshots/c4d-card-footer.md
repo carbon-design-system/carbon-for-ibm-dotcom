@@ -15,6 +15,7 @@
   <span
     class="cds--card__cta__copy"
     hidden=""
+    part="copy"
   >
     <slot>
     </slot>
@@ -41,6 +42,7 @@
   <span
     class="cds--card__cta__copy"
     hidden=""
+    part="copy"
   >
     <slot>
     </slot>
