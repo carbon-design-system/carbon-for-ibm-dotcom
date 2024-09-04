@@ -36,12 +36,12 @@
       padding-inline-start: $spacing-07;
     }
 
-    &[lang="ar"],
-    &[lang="zh"],
-    &[lang="jp"],
-    &[lang="ko"] {
+    &[lang='ar'],
+    &[lang='zh'],
+    &[lang='jp'],
+    &[lang='ko'] {
       .#{$prefix}--quote__copy {
-         @include font-family('sans');
+        @include font-family('sans');
       }
     }
   }
