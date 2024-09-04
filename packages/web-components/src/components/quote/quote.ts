@@ -104,51 +104,69 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   }
 
   protected _renderQuote() {
-    const isLTR = getComputedStyle(this).direction.toLowerCase() === "ltr";
+    const isLTR = getComputedStyle(this).direction.toLowerCase() === 'ltr';
     switch (this.markType) {
       case QUOTE_TYPES.SINGLE_CURVED:
         return html`
-          <span class="${prefix}--quote__mark">${isLTR ? "‘" : "’"}</span>
+          <span class="${prefix}--quote__mark">${isLTR ? '‘' : '’'}</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">${!isLTR ? "‘" : "’"}</span>
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing"
+              >${!isLTR ? '‘' : '’'}</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.DOUBLE_ANGLE:
         return html`
-          <span class="${prefix}--quote__mark">${isLTR ? "«" : "»"}</span>
+          <span class="${prefix}--quote__mark">${isLTR ? '«' : '»'}</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">${!isLTR ? "«" : "»"}</span>
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing"
+              >${!isLTR ? '«' : '»'}</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.SINGLE_ANGLE:
         return html`
-          <span class="${prefix}--quote__mark">${isLTR ? "‹" : "›"}</span>
+          <span class="${prefix}--quote__mark">${isLTR ? '‹' : '›'}</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">${!isLTR ? "‹" : "›"}</span>
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing"
+              >${!isLTR ? '‹' : '›'}</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED:
         return html`
-          <span class="${prefix}--quote__mark">${isLTR ? "„" : "“"}</span>
+          <span class="${prefix}--quote__mark">${isLTR ? '„' : '“'}</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">${!isLTR ? "„" : "“"}</span>
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing"
+              >${!isLTR ? '„' : '“'}</span
+            >
           </blockquote>
         `;
       case QUOTE_TYPES.CORNER_BRACKET:
         return html`
           <span
             class="${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket"
-            >${isLTR ? "「" : "」"}</span
+            >${isLTR ? '「' : '」'}</span
           >
           <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">${!isLTR ? "「" : "」"}</span>
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing"
+              >${!isLTR ? '「' : '」'}</span
+            >
           </blockquote>
         `;
       default:
         return html`
-          <span class="${prefix}--quote__mark">${isLTR ? "“" : "”"}</span>
+          <span class="${prefix}--quote__mark">${isLTR ? '“' : '”'}</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot></slot><span class="${prefix}--quote__mark-closing">${!isLTR ? "“" : "”"}</span>
+            <slot></slot
+            ><span class="${prefix}--quote__mark-closing"
+              >${!isLTR ? '“' : '”'}</span
+            >
           </blockquote>
         `;
     }
