@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import ipcinfoCookie from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
+import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie.js';
 import LocaleAPI from '../Locale';
 import { DDOAPI } from '../../DDO';
 import mockAxios from 'axios';
@@ -16,7 +16,7 @@ import oldSession from './data/timestamp_response.json';
 const mockDigitalDataResponse = digitalDataResponse;
 
 jest.mock(
-  '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie'
+  '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie.js'
 );
 jest.mock('../../DDO');
 
