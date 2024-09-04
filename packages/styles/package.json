@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "2.12.0-rc.0",
+  "version": "2.12.0",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -30,10 +30,10 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/layout @carbon/styles @carbon/themes @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/icons-react": "11.47.1",
-    "@carbon/layout": "11.24.0",
+    "@carbon/icons-react": "11.48.0",
+    "@carbon/layout": "11.25.0",
     "@carbon/styles": "1.63.1",
-    "@carbon/type": "11.29.0",
+    "@carbon/type": "11.30.0",
     "@ibm/telemetry-js": "^1.5.0"
   },
   "devDependencies": {
