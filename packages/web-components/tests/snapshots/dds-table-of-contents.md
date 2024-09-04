@@ -9,7 +9,6 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
-    style="transition: none; top: 0px;"
   >
     <div
       class="bx--tableofcontents__desktop__children"
@@ -24,7 +23,7 @@
     </div>
     <div
       class="dds-ce--table-of-contents__items-container"
-      style="position: sticky; top: 0"
+      style="position: sticky; top: 0px; transition: none;"
     >
       <div class="bx--tableofcontents__desktop-container">
         <div
@@ -67,7 +66,6 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
-    style="transition: none; top: 0px;"
   >
     <div class="bx--tableofcontents__desktop__children">
       <slot name="heading">
@@ -79,7 +77,7 @@
     </div>
     <div
       class="dds-ce--table-of-contents__items-container"
-      style="position: sticky; top: 0"
+      style="position: sticky; top: 0px; transition: none;"
     >
       <div class="bx--tableofcontents__desktop-container">
         <div
@@ -122,13 +120,12 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
-    style="transition: none; top: 0px;"
   >
     <div class="bx--tableofcontents__mobile-top">
     </div>
     <div
       class="dds-ce--table-of-contents__items-container"
-      style="position: sticky; top: 0"
+      style="position: sticky; top: 0px; transition: none;"
     >
       <div class="bx--tableofcontents__desktop-container">
         <div

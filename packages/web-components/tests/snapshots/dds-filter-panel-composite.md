@@ -7,17 +7,13 @@
 ```
 <slot name="heading">
 </slot>
-<button class="bx--filter-button">
-  <div class="bx--filter__modal__button">
-  </div>
-</button>
-<dds-filter-panel-modal
-  data-autoid="dds-filter-panel-modal"
+<dds-filter-panel
+  data-autoid="dds-filter-panel"
   heading=""
 >
   <slot>
   </slot>
-</dds-filter-panel-modal>
+</dds-filter-panel>
 
 ```
 
@@ -26,17 +22,13 @@
 ```
 <slot name="heading">
 </slot>
-<button class="bx--filter-button">
-  <div class="bx--filter__modal__button">
-  </div>
-</button>
-<dds-filter-panel-modal
-  data-autoid="dds-filter-panel-modal"
+<dds-filter-panel
+  data-autoid="dds-filter-panel"
   heading=""
 >
   <slot>
   </slot>
-</dds-filter-panel-modal>
+</dds-filter-panel>
 
 ```
 
