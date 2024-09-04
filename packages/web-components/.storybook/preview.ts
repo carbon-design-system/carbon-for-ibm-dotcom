@@ -12,7 +12,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 
-import '../src/internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
+import '@carbon/web-components/es/components/skip-to-content/skip-to-content.js';
 
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';

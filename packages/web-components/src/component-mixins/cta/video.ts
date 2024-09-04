@@ -1,21 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
-import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
-import PlayFilledAlt20 from '../../internal/vendor/@carbon/web-components/icons/play--filled--alt/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Download20 from '@carbon/web-components/es/icons/download/20.js';
+import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
+import PlayFilledAlt20 from '@carbon/web-components/es/icons/play--filled--alt/20.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

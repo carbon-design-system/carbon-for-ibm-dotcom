@@ -9,8 +9,8 @@
 
 import { html } from 'lit';
 import { select, boolean } from '@storybook/addon-knobs';
-import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
-import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
@@ -21,7 +21,7 @@ import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import C4DCardLink from '../card-link/card-link';
 import '../card-link/card-link-heading';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
@@ -23,7 +23,7 @@ import C4DCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 

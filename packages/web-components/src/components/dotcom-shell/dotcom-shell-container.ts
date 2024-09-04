@@ -8,13 +8,13 @@
  */
 
 import { ActionCreatorsMapObject, Dispatch, Store } from 'redux';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
-import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
-import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
-import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
+import store from '@carbon/ibmdotcom-services-store/es/store.js';
+import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
+import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
+import { ProfileAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/profileAPI';
+import { SearchAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/searchAPI';
 import {
   FooterContainerActions,
   FooterContainerState,
@@ -31,7 +31,7 @@ import {
 } from '../masthead/masthead-container';
 import C4DMastheadComposite from '../masthead/masthead-composite';
 import C4DDotcomShellComposite from './dotcom-shell-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -13,14 +13,14 @@ import { EXPRESSIVE_MODAL_MODE, EXPRESSIVE_MODAL_SIZE } from './defs';
 import { classMap } from 'lit/directives/class-map.js';
 import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModalCloseButton from './expressive-modal-close-button';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import on from '../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
-import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './expressive-modal.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

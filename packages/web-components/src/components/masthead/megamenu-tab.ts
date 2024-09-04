@@ -8,11 +8,11 @@
  */
 
 import { html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import CDSTab from '../../internal/vendor/@carbon/web-components/components/tabs/tab';
-import c4dSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import CDSTab from '@carbon/web-components/es/components/tabs/tab.js';
+import c4dSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: c4dPrefix } = c4dSettings;

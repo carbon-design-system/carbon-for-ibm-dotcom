@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,25 +9,25 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import CDSModal from '@carbon/web-components/es/components/modal/modal.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   LeavingIBMLabels,
   Translation,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
 import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-footer.js';
-import '../../internal/vendor/@carbon/web-components/components/button/button.js';
+import '@carbon/web-components/es/components/modal/modal-header.js';
+import '@carbon/web-components/es/components/modal/modal-close-button.js';
+import '@carbon/web-components/es/components/modal/modal-footer.js';
+import '@carbon/web-components/es/components/button/button.js';
 import styles from './leaving-ibm.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

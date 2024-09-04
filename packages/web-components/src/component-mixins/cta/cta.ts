@@ -9,27 +9,27 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
-import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
-import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
-import PlayFilledAlt20 from '../../internal/vendor/@carbon/web-components/icons/play--filled--alt/20.js';
-import Blog20 from '../../internal/vendor/@carbon/web-components/icons/blog/20.js';
-import DocumentPDF20 from '../../internal/vendor/@carbon/web-components/icons/document--pdf/20.js';
-import NewTab20 from '../../internal/vendor/@carbon/web-components/icons/new-tab/20.js';
-import Phone20 from '../../internal/vendor/@carbon/web-components/icons/phone/20.js';
-import Calendar20 from '../../internal/vendor/@carbon/web-components/icons/calendar/20.js';
-import Email20 from '../../internal/vendor/@carbon/web-components/icons/email/20.js';
-import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Download20 from '@carbon/web-components/es/icons/download/20.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
+import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
+import PlayFilledAlt20 from '@carbon/web-components/es/icons/play--filled--alt/20.js';
+import Blog20 from '@carbon/web-components/es/icons/blog/20.js';
+import DocumentPDF20 from '@carbon/web-components/es/icons/document--pdf/20.js';
+import NewTab20 from '@carbon/web-components/es/icons/new-tab/20.js';
+import Phone20 from '@carbon/web-components/es/icons/phone/20.js';
+import Calendar20 from '@carbon/web-components/es/icons/calendar/20.js';
+import Email20 from '@carbon/web-components/es/icons/email/20.js';
+import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import root from 'window-or-global';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

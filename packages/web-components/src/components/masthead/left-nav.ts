@@ -10,20 +10,20 @@
 import findLast from 'lodash-es/findLast.js';
 import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import CDSSideNav, {
   SIDE_NAV_USAGE_MODE,
-} from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
+} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap.js';
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import C4DLeftNavMenuSection from './left-nav-menu-section';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

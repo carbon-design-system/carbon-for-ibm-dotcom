@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,16 +9,16 @@
 
 import { LitElement, html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/text-input/text-input.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { INPUT_SIZE } from '@carbon/web-components/es/components/text-input/text-input.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
-import CDSSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
-import '../../internal/vendor/@carbon/web-components/components/search/search.js';
+import CDSSearch from '@carbon/web-components/es/components/search/search.js';
+import '@carbon/web-components/es/components/search/search.js';
 import C4DLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

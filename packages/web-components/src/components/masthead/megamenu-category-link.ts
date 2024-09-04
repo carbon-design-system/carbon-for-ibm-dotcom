@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,14 +9,14 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
-import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
+import CDSLink from '@carbon/web-components/es/components/link/link.js';
+import Launch16 from '@carbon/web-components/es/icons/launch/16.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
