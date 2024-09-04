@@ -16,7 +16,7 @@ import oldSession from './data/timestamp_response.json';
 const mockDigitalDataResponse = digitalDataResponse;
 
 jest.mock(
-  '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie.js'
+  '@carbon/ibmdotcom-utilities/lib/utilities/ipcinfoCookie/ipcinfoCookie.js'
 );
 jest.mock('../../DDO');
 

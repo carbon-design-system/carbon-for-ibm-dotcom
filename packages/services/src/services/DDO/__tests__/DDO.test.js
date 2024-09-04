@@ -10,7 +10,7 @@ import digitalDataResponse from './data/response.json';
 import root from 'window-or-global';
 
 jest.mock(
-  '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js',
+  '@carbon/ibmdotcom-utilities/lib/utilities/settings/settings.js',
   () => ({
     version: 'cds.v1.0.0',
   })
