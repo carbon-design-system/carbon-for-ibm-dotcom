@@ -3360,7 +3360,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-services@npm:2.12.0-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@npm:2.12.0, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -3373,7 +3373,7 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:7.18.5"
     "@babel/preset-env": "npm:~7.23.2"
     "@babel/runtime": "npm:^7.16.3"
-    "@carbon/ibmdotcom-utilities": "npm:2.12.0-rc.0"
+    "@carbon/ibmdotcom-utilities": "npm:2.12.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     "@rollup/plugin-babel": "npm:^5.3.1"
     "@rollup/plugin-commonjs": "npm:^21.0.3"
@@ -3407,12 +3407,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@npm:2.12.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@npm:2.12.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/icons-react": "npm:11.47.1"
-    "@carbon/layout": "npm:11.24.0"
+    "@carbon/icons-react": "npm:11.48.0"
+    "@carbon/layout": "npm:11.25.0"
     "@carbon/styles": "npm:1.63.1"
     "@carbon/themes": "npm:11.38.0"
     "@carbon/type": "npm:11.30.0"
@@ -3445,7 +3445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-utilities@npm:2.12.0-rc.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@npm:2.12.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -3510,20 +3510,20 @@ __metadata:
     "@babel/preset-react": "npm:~7.12.1"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.7"
-    "@carbon/ibmdotcom-services": "npm:2.12.0-rc.0"
+    "@carbon/ibmdotcom-services": "npm:2.12.0"
     "@carbon/ibmdotcom-services-store": "npm:1.53.1"
-    "@carbon/ibmdotcom-styles": "npm:2.12.0-rc.0"
-    "@carbon/ibmdotcom-utilities": "npm:2.12.0-rc.0"
+    "@carbon/ibmdotcom-styles": "npm:2.12.0"
+    "@carbon/ibmdotcom-utilities": "npm:2.12.0"
     "@carbon/icon-helpers": "npm:10.50.0"
     "@carbon/icons": "npm:10.48.5"
     "@carbon/icons-react": "npm:^11.33.0"
-    "@carbon/layout": "npm:11.24.0"
+    "@carbon/layout": "npm:11.25.0"
     "@carbon/motion": "npm:11.20.0"
     "@carbon/pictograms-react": "npm:11.64.0"
     "@carbon/react": "npm:1.64.1"
     "@carbon/styles": "npm:1.63.1"
     "@carbon/type": "npm:11.30.0"
-    "@carbon/web-components": "npm:2.12.0-rc.0"
+    "@carbon/web-components": "npm:2.12.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
@@ -3663,16 +3663,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:11.47.1, @carbon/icons-react@npm:^11.47.1":
-  version: 11.47.1
-  resolution: "@carbon/icons-react@npm:11.47.1"
+"@carbon/icon-helpers@npm:^10.51.0":
+  version: 10.51.0
+  resolution: "@carbon/icon-helpers@npm:10.51.0"
   dependencies:
-    "@carbon/icon-helpers": "npm:^10.50.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/01d7d361e555ce73f61193fdcdbe878a7d385e28aee790e74a0047156ffc51f04e57a76ed7fa17f1de6154df2088226378f9dd0da48e2fc11454fe538b70daa1
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:11.48.0":
+  version: 11.48.0
+  resolution: "@carbon/icons-react@npm:11.48.0"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.51.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: 10/0424ac4139c1f3d000e4a1a26f3214d3e3f2da2be632e08e6c8423b2ffaa1a49c62bb8e6ac848faafd28d107f417458cda0e7b44248274e559cfefb38701cf84
+  checksum: 10/746254bb96c74053502a3eaecf1de5679834516958f4d4c32f470af09a81f527c3b7762ec7f4bd1854fa12ff4bc98c62ad24eaa3501bbb2e6ffce298cb500873
   languageName: node
   linkType: hard
 
@@ -3689,6 +3698,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@carbon/icons-react@npm:^11.47.1":
+  version: 11.47.1
+  resolution: "@carbon/icons-react@npm:11.47.1"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.50.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+    prop-types: "npm:^15.7.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10/0424ac4139c1f3d000e4a1a26f3214d3e3f2da2be632e08e6c8423b2ffaa1a49c62bb8e6ac848faafd28d107f417458cda0e7b44248274e559cfefb38701cf84
+  languageName: node
+  linkType: hard
+
 "@carbon/icons@npm:10.48.5":
   version: 10.48.5
   resolution: "@carbon/icons@npm:10.48.5"
@@ -3698,21 +3720,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:11.24.0, @carbon/layout@npm:^11.24.0":
-  version: 11.24.0
-  resolution: "@carbon/layout@npm:11.24.0"
-  dependencies:
-    "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/f09cb9fdc13f703e21137c261406ea8f7cfe4932e8b51273abecd9ace1bf30d3778edf49c776a938ecc5b20e7800e725663e3b913bedfaaeef646526e2e2d26c
-  languageName: node
-  linkType: hard
-
-"@carbon/layout@npm:^11.25.0":
+"@carbon/layout@npm:11.25.0, @carbon/layout@npm:^11.25.0":
   version: 11.25.0
   resolution: "@carbon/layout@npm:11.25.0"
   dependencies:
     "@ibm/telemetry-js": "npm:^1.5.0"
   checksum: 10/2f53a04390c0cafcf3ce94eea6444cccdfdb33c7c28134b7bd342c576ce1ed6bd3aa5dc3e13fbd4075093342538313899596126a6ac54d508d1599c35e2ac2ea
+  languageName: node
+  linkType: hard
+
+"@carbon/layout@npm:^11.24.0":
+  version: 11.24.0
+  resolution: "@carbon/layout@npm:11.24.0"
+  dependencies:
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/f09cb9fdc13f703e21137c261406ea8f7cfe4932e8b51273abecd9ace1bf30d3778edf49c776a938ecc5b20e7800e725663e3b913bedfaaeef646526e2e2d26c
   languageName: node
   linkType: hard
 
@@ -3852,7 +3874,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@npm:2.12.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:2.12.0, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
