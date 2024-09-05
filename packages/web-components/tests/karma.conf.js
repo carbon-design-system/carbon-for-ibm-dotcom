@@ -207,7 +207,7 @@ module.exports = function setupKarma(config) {
       },
       ChromeCustom: {
         base: 'ChromeHeadless',
-        flags: ['--window-size=1920,1080']
+        flags: ['--window-size=1920,1080'],
       },
     },
 
