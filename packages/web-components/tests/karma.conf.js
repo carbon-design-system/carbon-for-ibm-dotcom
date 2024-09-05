@@ -53,7 +53,7 @@ module.exports = function setupKarma(config) {
   config.set({
     basePath: '..',
 
-    browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(
+    browsers: (browsers.length > 0 ? browsers : ['ChromeCustom']).map(
       normalizeBrowser
     ),
 
@@ -204,6 +204,10 @@ module.exports = function setupKarma(config) {
       Chrome_Travis: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox'],
+      },
+      ChromeCustom: {
+        base: 'ChromeHeadless',
+        flags: ['--window-size=1920,1080']
       },
     },
 
