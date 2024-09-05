@@ -24,6 +24,15 @@
         }
       }
     }
+
+    &[lang='ar'],
+    &[lang='zh'],
+    &[lang='jp'],
+    &[lang='ko'] {
+      .#{$prefix}--quote__copy {
+        @include carbon--font-family('sans');
+      }
+    }
   }
 
   .#{$prefix}--callout-quote .#{$prefix}--callout__container {
