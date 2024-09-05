@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.48.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.47.0...@carbon/ibmdotcom-web-components@1.48.0-rc.0) (2024-09-05)
+
+
+### Bug Fixes
+
+* **callout-quote:** forcing sans-serif font in non latin fonts ([#11993](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11993)) ([a33f3ed](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a33f3ed0f9f3f4ff9492602f9556cf8e2edd129b))
+* **content-group-heading:** render h3 tag to light DOM ([#11978](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11978)) ([8a219db](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8a219db7087e1e424ca5e032a594090dc1020471))
+* **tabs:** avoid setting focus/active to -1 ([#11976](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11976)) ([81d44c5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/81d44c5cb7edf45735901bfa3d2afbe937d21ec7)), closes [#11975](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11975)
+
+
+
+
+
 # [1.47.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.47.0-rc.0...@carbon/ibmdotcom-web-components@1.47.0) (2024-08-12)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
