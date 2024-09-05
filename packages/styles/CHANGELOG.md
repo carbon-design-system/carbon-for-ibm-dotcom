@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.63.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.62.0...@carbon/ibmdotcom-styles@1.63.0-rc.0) (2024-09-05)
+
+
+### Bug Fixes
+
+* **callout-quote:** forcing sans-serif font in non latin fonts ([#11993](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11993)) ([a33f3ed](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a33f3ed0f9f3f4ff9492602f9556cf8e2edd129b))
+
+
+
+
+
 # [1.62.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.62.0-rc.0...@carbon/ibmdotcom-styles@1.62.0) (2024-08-12)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
