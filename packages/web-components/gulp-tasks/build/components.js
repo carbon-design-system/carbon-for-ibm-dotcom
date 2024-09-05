@@ -84,5 +84,5 @@ gulp.task('build:components:ltr', gulp.series(gulp.task('build:components:ltr:de
 // Build all components
 gulp.task(
   'build:components',
-  gulp.series(gulp.task('build:components:ltr:prod'))
+  gulp.series(gulp.task('vendor'), gulp.series(gulp.task('build:components:ltr:prod')))
 );

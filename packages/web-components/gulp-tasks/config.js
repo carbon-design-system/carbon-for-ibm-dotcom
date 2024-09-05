@@ -63,6 +63,7 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
+  vendorSrcDirBase: path.resolve(__dirname, '../src/internal/vendor'),
   carbonWebComponentsCJSSrcDir: path.resolve(
     __dirname,
     '../../carbon-web-components/lib'
@@ -71,8 +72,24 @@ module.exports = {
     __dirname,
     '../../carbon-web-components/es'
   ),
+  carbonWebComponentsVendorESDstDir: path.resolve(
+    __dirname,
+    '../es/internal/vendor/@carbon/web-components'
+  ),
+  carbonWebComponentsVendorCJSDstDir: path.resolve(
+    __dirname,
+    '../lib/internal/vendor/@carbon/web-components'
+  ),
   servicesCJSSrcDir: path.resolve(__dirname, '../../services/lib'),
   servicesESSrcDir: path.resolve(__dirname, '../../services/es'),
+  servicesVendorESDstDir: path.resolve(
+    __dirname,
+    '../es/internal/vendor/@carbon/ibmdotcom-services'
+  ),
+  servicesVendorCJSDstDir: path.resolve(
+    __dirname,
+    '../lib/internal/vendor/@carbon/ibmdotcom-services'
+  ),
   servicesStoreCJSSrcDir: path.resolve(
     path.dirname(
       require.resolve('@carbon/ibmdotcom-services-store/package.json')
@@ -85,6 +102,22 @@ module.exports = {
     ),
     'es'
   ),
+  servicesStoreVendorESDstDir: path.resolve(
+    __dirname,
+    '../es/internal/vendor/@carbon/ibmdotcom-services-store'
+  ),
+  servicesStoreVendorCJSDstDir: path.resolve(
+    __dirname,
+    '../lib/internal/vendor/@carbon/ibmdotcom-services-store'
+  ),
   utilitiesCJSSrcDir: path.resolve(__dirname, '../../utilities/lib'),
   utilitiesESSrcDir: path.resolve(__dirname, '../../utilities/es'),
+  utilitiesVendorESDstDir: path.resolve(
+    __dirname,
+    '../es/internal/vendor/@carbon/ibmdotcom-utilities'
+  ),
+  utilitiesVendorCJSDstDir: path.resolve(
+    __dirname,
+    '../lib/internal/vendor/@carbon/ibmdotcom-utilities'
+  ),
 };

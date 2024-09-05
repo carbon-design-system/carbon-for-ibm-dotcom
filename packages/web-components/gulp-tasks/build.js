@@ -10,6 +10,7 @@
 'use strict';
 
 const gulp = require('gulp');
+require('./vendor');
 require('./build/dist');
 require('./build/components');
 require('./build/modules');
@@ -18,9 +19,12 @@ require('./build/sass-cdn');
 
 gulp.task(
   'build',
-  gulp.parallel(
-    gulp.task('build:dist'),
-    gulp.task('build:modules'),
-    gulp.task('build:sass')
+  gulp.series(
+    gulp.task('vendor'),
+    gulp.parallel(
+      gulp.task('build:dist'),
+      gulp.task('build:modules'),
+      gulp.task('build:sass')
+    )
   )
 );
