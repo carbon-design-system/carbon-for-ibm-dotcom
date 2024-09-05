@@ -37,7 +37,7 @@ describe('dds-carousel', function () {
       const origResult = origComputedStyle.call(window, elem);
       return {
         getPropertyValue(name) {
-          return name !== '--dds-carousel-page-size'
+          return name !== '--dds--carousel--page-size'
             ? origResult.getPropertyValue(name)
             : pageSize;
         },
