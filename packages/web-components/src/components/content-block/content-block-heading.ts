@@ -22,6 +22,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The heading content in content block.
  *
  * @element c4d-content-block-heading
+ * @csspart h2 - The heading element within the content block. Usage: `c4d-content-block-heading::part(content-block-heading)`
  */
 @customElement(`${c4dPrefix}-content-block-heading`)
 class C4DContentBlockHeading extends StableSelectorMixin(LitElement) {
@@ -46,7 +47,7 @@ class C4DContentBlockHeading extends StableSelectorMixin(LitElement) {
 
   firstUpdated() {
     this.content = stripHTML(this.innerHTML);
-    render(html`<h2>${this.content}</h2>`, this);
+    render(html`<h2 part="h2">${this.content}</h2>`, this);
   }
 
   render() {
