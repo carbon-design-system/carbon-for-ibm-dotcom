@@ -43,6 +43,9 @@ export { LIGHTBOX_CONTRAST };
  * @csspart zoom-button - The wrapper around the zoom button to trigger the lightbox when used. Usage: `c4d-image::part(zoom-button)`
  * @csspart zoom-icon - The zoom icon used for the lightbox. Usage: `c4d-image::part(zoom-icon)`
  * @csspart caption - The caption for the image. Usage: `c4d-image::part(caption)`
+ * @csspart expressive-modal - The expressive modal content. Usage: `c4d-image::part(expressive-modal)`
+ * @csspart expressive-modal-close-button - The expressive modal content close button. Usage: `c4d-image::part(expressive-modal-close-button)`
+ * @csspart lightbox-image-viewer - The lightbox image viewer component. Usage: `c4d-image::part(lightbox-image-viewer)`
  */
 @customElement(`${c4dPrefix}-image`)
 class C4DImage extends StableSelectorMixin(
@@ -219,13 +222,13 @@ class C4DImage extends StableSelectorMixin(
     return !lightbox
       ? undefined
       : html`
-          <c4d-expressive-modal ?open="${open}" expressive-size="full-width">
-            <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+          <c4d-expressive-modal ?open="${open}" expressive-size="full-width" part="expressive-modal">
+            <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button part="expressive-modal-close-button">
             <c4d-lightbox-image-viewer
               alt="${ifDefined(alt)}"
               default-src="${ifDefined(defaultSrc)}"
               description="${ifDefined(copy)}"
-              title="${ifDefined(heading)}">
+              title="${ifDefined(heading)}" part="lightbox-image-viewer">
             </c4d-lightbox-image-viewer>
           </c4d-expressive-modal>
         `;
