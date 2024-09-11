@@ -22,7 +22,7 @@
     <slot name="media">
     </slot>
   </div>
-  <div>
+  <div part="body">
     <slot name="heading">
     </slot>
     <slot>
@@ -59,7 +59,7 @@
     <slot name="media">
     </slot>
   </div>
-  <div>
+  <div part="body">
     <slot name="heading">
     </slot>
     <slot>
