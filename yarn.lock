@@ -3351,7 +3351,6 @@ __metadata:
   linkType: hard
 
 "@carbon/ibmdotcom-services@npm:2.12.0, @carbon/ibmdotcom-services@workspace:packages/services":
-"@carbon/ibmdotcom-services@npm:2.12.0, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -3505,7 +3504,7 @@ __metadata:
     "@carbon/ibmdotcom-services-store": "npm:1.53.1"
     "@carbon/ibmdotcom-styles": "npm:2.12.0"
     "@carbon/ibmdotcom-utilities": "npm:2.12.0"
-    "@carbon/icon-helpers": "npm:10.50.0"
+    "@carbon/icon-helpers": "npm:10.51.0"
     "@carbon/icons": "npm:10.48.5"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.25.0"
