@@ -127,7 +127,7 @@ class C4DMastheadProfile extends HostListenerMixin(
       <ul
         class="${prefix}--header__menu"
         aria-label="${ifDefined(menuLabel)}"
-        part="header-menu-ul">
+        part="header-menu">
         <slot></slot>
       </ul>
     `;
