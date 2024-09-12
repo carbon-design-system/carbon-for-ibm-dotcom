@@ -27,7 +27,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-masthead-profile
  * @csspart profile-link - The masthead contact link. Usage: `c4d-masthead-contact::part(profile-link)`
- * @csspart header-menu-ul - The header menu ul element. Usage: `c4d-masthead-contact::part(header-menu-ul)`
+ * @csspart header-menu - The header menu element. Usage: `c4d-masthead-contact::part(header-menu)`
  */
 @customElement(`${c4dPrefix}-masthead-profile`)
 class C4DMastheadProfile extends HostListenerMixin(
@@ -127,7 +127,7 @@ class C4DMastheadProfile extends HostListenerMixin(
       <ul
         class="${prefix}--header__menu"
         aria-label="${ifDefined(menuLabel)}"
-        part="header-menu-ul">
+        part="header-menu">
         <slot></slot>
       </ul>
     `;

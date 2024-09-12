@@ -606,7 +606,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       [`${prefix}--masthead__l1-dropdown-column-wide`]: hasWide && isWide,
     });
     return hasWide
-      ? html`<div class=${classes} part="column-wide">${renderedSections}</div>`
+      ? html`<div class=${classes} part="dropdown-column${hasWide && !isWide ? ' dropdown-column--narrow' :  hasWide && isWide ? ' dropdown-column--wide' : ''}">${renderedSections}</div>`
       : html`${renderedSections}`;
   }
 

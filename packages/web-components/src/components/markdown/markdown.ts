@@ -28,6 +28,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart link - The custom link element. Usage: `c4d-markdown::part(link)`
  * @csspart ordered-list - The ordered list element. Usage: `c4d-markdown::part(ordered-list)`
  * @csspart unordered-list - The unordered list element. Usage: `c4d-markdown::part(unordered-list)`
+ * @csspart list - The list element. Usage: `c4d-markdown::part(list)`
  * @csspart list-item - The list item element. Usage: `c4d-markdown::part(list-item)`
  */
 @customElement(`${c4dPrefix}-markdown`)
@@ -64,7 +65,7 @@ class C4DMarkdown extends LitElement {
       list(body, ordered) {
         const tag = `${prefix}-${ordered ? 'ordered' : 'unordered'}-list`;
         return `<${tag} part="${
-          ordered ? 'ordered-list' : 'unordered-list'
+          ordered ? 'list ordered-list' : 'list unordered-list'
         }">${body}</${tag}>`;
       },
       listitem(text) {
