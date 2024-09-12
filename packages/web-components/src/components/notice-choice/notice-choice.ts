@@ -471,7 +471,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   checkBoxTemplate(checkbox, checked, hiddenBox) {
     this._onChange(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
-    return html`<span part="span-container">
+    return html`<span part="container">
       <div
         class="${prefix}--form-item cds--checkbox-wrapper"
         part="checkbox-wrapper">
