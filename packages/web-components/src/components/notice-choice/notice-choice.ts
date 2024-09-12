@@ -37,7 +37,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart checkbox-label-text - The checkbox label text. Usage `c4d-notice-choice::part(checkbox-label-text)`
  * @csspart error - The error message. Usage `c4d-notice-choice::part(error)`
  * @csspart section - A section. Usage `c4d-notice-choice::part(section)`
- * @csspart span-container - The span container. Usage `c4d-notice-choice::part(span-container)`
+ * @csspart container - The container. Usage `c4d-notice-choice::part(container)`
  * @csspart tooltip-link - The tooltip link. Usage `c4d-notice-choice::part(tooltip-link)`
  */
 @customElement(`c4d-notice-choice`)
