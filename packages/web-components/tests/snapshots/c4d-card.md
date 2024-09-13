@@ -5,7 +5,10 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--card cds--tile">
+<div
+  class="cds--card cds--tile"
+  part="container"
+>
   <slot name="image">
   </slot>
   <div
@@ -44,7 +47,10 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--card cds--tile">
+<div
+  class="cds--card cds--tile"
+  part="container"
+>
   <slot name="image">
   </slot>
   <div

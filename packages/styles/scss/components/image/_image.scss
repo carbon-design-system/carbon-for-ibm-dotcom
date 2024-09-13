@@ -48,18 +48,7 @@
 
   :host(#{$c4d-prefix}-image)[card-group-item],
   :host(#{$c4d-prefix}-image) {
-    @include ratio-base(4, 3, true);
-
     overflow: hidden;
-    block-size: 0;
-
-    padding-block-start: 75%;
-
-    .#{$c4d-prefix}--image__img {
-      position: absolute;
-      block-size: 100%;
-      inset-block-start: 0;
-    }
   }
 
   .#{$c4d-prefix}--image__longdescription {
