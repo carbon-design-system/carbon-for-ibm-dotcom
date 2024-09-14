@@ -3509,7 +3509,7 @@ __metadata:
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.25.0"
     "@carbon/motion": "npm:11.21.0"
-    "@carbon/pictograms-react": "npm:11.65.0"
+    "@carbon/pictograms-react": "npm:11.66.0"
     "@carbon/react": "npm:1.65.0"
     "@carbon/styles": "npm:1.64.0"
     "@carbon/type": "npm:11.30.0"
@@ -3662,6 +3662,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@carbon/icon-helpers@npm:^10.52.0":
+  version: 10.52.0
+  resolution: "@carbon/icon-helpers@npm:10.52.0"
+  dependencies:
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/2693ce553c534b3d00e15ca7ba6d8601e2279998bf67e53cf04d15a6193c28fb40369f38baf3128c9ea81dabffc12c9e8d77c5d05870f0e47ad6c7db25c4b48e
+  languageName: node
+  linkType: hard
+
 "@carbon/icons-react@npm:11.48.0, @carbon/icons-react@npm:^11.48.0":
   version: 11.48.0
   resolution: "@carbon/icons-react@npm:11.48.0"
@@ -3715,16 +3724,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/pictograms-react@npm:11.65.0":
-  version: 11.65.0
-  resolution: "@carbon/pictograms-react@npm:11.65.0"
+"@carbon/pictograms-react@npm:11.66.0":
+  version: 11.66.0
+  resolution: "@carbon/pictograms-react@npm:11.66.0"
   dependencies:
-    "@carbon/icon-helpers": "npm:^10.51.0"
+    "@carbon/icon-helpers": "npm:^10.52.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: 10/ed0cf1fb06a10d40015bea599cb46a5b104adb7050fcec17d3ffdc6359fa978b0a380e1749251daad94af87278f9c04ae6a2f9aa011d4e189b51cf717ed76070
+  checksum: 10/9797e62f9606a216406d7bb7d7c0ebc2b548d9746d83aa37432bb4a98d74d75721f9d8bc3c052a6fef802563dd10c14a86bb81efd8b6efb0a9f3f374d31e311a
   languageName: node
   linkType: hard
 
