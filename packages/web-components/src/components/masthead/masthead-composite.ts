@@ -11,6 +11,7 @@ import { LitElement, html, TemplateResult } from 'lit';
 import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import ArrowLeft16 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/16.js';
 import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
@@ -170,6 +171,13 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     return this._renderMegaMenuListing(menu, _parentKey);
   }
 
+
+  protected get ArrowIcon() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft16 : ArrowRight16;
+  }
+
+
   /**
    *  Render MegaMenu content in tabbed layout.
    *
@@ -218,7 +226,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-left"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                  <span>${viewAll.title}</span>${this.ArrowIcon({ slot: 'icon' })}
                 </c4d-megamenu-link-with-icon>
               `
             : null}
@@ -267,7 +275,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${itemViewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
-                  <span>${itemViewAll.title}</span>${ArrowRight16({
+                  <span>${itemViewAll.title}</span>${this.ArrowIcon({
                     slot: 'icon',
                   })}
                 </c4d-megamenu-link-with-icon>
@@ -333,7 +341,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                  <span>${viewAll.title}</span>${this.ArrowIcon({ slot: 'icon' })}
                 </c4d-megamenu-link-with-icon>
               `
             : null}
@@ -343,7 +351,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               <c4d-megamenu-link-with-icon
                 href="${viewAll.url}"
                 part="view-all view-all-bottom">
-                <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                <span>${viewAll.title}</span>${this.ArrowIcon({ slot: 'icon' })}
               </c4d-megamenu-link-with-icon>
             `
           : null}
