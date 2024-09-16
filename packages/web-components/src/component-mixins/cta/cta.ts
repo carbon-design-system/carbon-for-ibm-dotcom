@@ -72,6 +72,7 @@ export const types = CTA_TYPE;
 /**
  * @param Base The base class.
  * @returns A mix-in implementing the logic of handling link for CTA.
+ * @csspart icon-visually-hidden - The cta icon element for screen readers. Usage: `c4d-left-nav-name::part(icon-visually-hidden)`
  */
 const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   class CTAMixinImpl extends Base {
@@ -197,7 +198,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
       return html`
         <slot name="icon">
-          <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
+          <span class="${prefix}--visually-hidden" part="icon-visually-hidden"
+            >${ariaLabels[ctaType]}</span
+          >
           ${icon?.({
             class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}

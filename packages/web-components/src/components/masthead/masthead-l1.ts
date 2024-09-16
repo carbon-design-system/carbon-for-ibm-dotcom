@@ -106,6 +106,15 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
  * @csspart l1-dropdown-item - The dropdown item in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-item)`
  * @csspart l1-dropdown-login-link - The login link in the L1 dropdown. Usage: `c4d-masthead-l1::part(l1-dropdown-login-link)`
  * @csspart l1-dropdown-links - A group of l1 dropdown links. Usage: `c4d-masthead-l1::part(l1-dropdown-links)`
+ * @csspart dropdown-item-li - The li element for the dropdown item. Usage: `c4d-masthead-l1::part(dropdown-item-li)`
+ * @csspart dropdown-login-link-li - The li element for the login link. Usage: `c4d-masthead-l1::part(dropdown-login-link-li)`
+ * @csspart cta-li - The li element for the cta. Usage: `c4d-masthead-l1::part(cta-li)`
+ * @csspart dropdown-item-link-li - The li element for the dropdown item link. Usage: `c4d-masthead-l1::part(dropdown-item-link-li)`
+ * @csspart dropdown-item-span-li - The li element for the dropdown item span. Usage: `c4d-masthead-l1::part(dropdown-item-span-li)`
+ * @csspart dropdown-item-button-li - The li element for the dropdown item button. Usage: `c4d-masthead-l1::part(dropdown-item-button-li)`
+ * @csspart dropdown-column - The dropdown column container. Usage: `c4d-masthead-l1::part(dropdown-column)
+ * @csspart dropdown-column--narrow - The dropdown column narrow modifier. Usage: `c4d-masthead-l1::part(dropdown-column--narrow)
+ * @csspart dropdown-column--wide - The dropdown column wide modifier. Usage: `c4d-masthead-l1::part(dropdown-column--wide)
  * @slot brand - The left hand area.
  * @slot nav - The nav content.
  * @slot profile - The right hand area.
@@ -611,7 +620,15 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       [`${prefix}--masthead__l1-dropdown-column-wide`]: hasWide && isWide,
     });
     return hasWide
-      ? html`<div class=${classes}>${renderedSections}</div>`
+      ? html`<div
+          class=${classes}
+          part="dropdown-column${hasWide && !isWide
+            ? ' dropdown-column--narrow'
+            : hasWide && isWide
+            ? ' dropdown-column--wide'
+            : ''}">
+          ${renderedSections}
+        </div>`
       : html`${renderedSections}`;
   }
 
@@ -639,7 +656,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         data-dropdown-target
         class="${prefix}--masthead__l1-dropdown">
         ${url
-          ? html` <li>
+          ? html` <li part="dropdown-item-li">
               <a
                 part="l1-dropdown-item"
                 class="${prefix}--masthead__l1-dropdown-item"
@@ -650,7 +667,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           : ''}
         ${menuItems?.map((menuItem) => this._renderL1MobileSubnav(menuItem))}
         ${login && login.url && login.title
-          ? html` <li>
+          ? html` <li part="dropdown-login-link-li">
               <a
                 part="l1-dropdown-login-link"
                 class="${prefix}--masthead__l1-dropdown-login"
@@ -659,7 +676,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
               </a>
             </li>`
           : ''}
-        ${cta ? html`<li>${this._renderCta()}</li>` : ''}
+        ${cta ? html`<li part="cta-li">${this._renderCta()}</li>` : ''}
       </ul>
     `;
   }
@@ -676,7 +693,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
 
     if (!submenu && url) {
       return html`
-        <li>
+        <li part="dropdown-item-link-li">
           <a
             part="l1-dropdown-item-link"
             class="${prefix}--masthead__l1-dropdown-item"
@@ -688,7 +705,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       `;
     } else if (!submenu) {
       return html`
-        <li>
+        <li part="dropdown-item-span-li">
           <span
             part="l1-dropdown-item-span"
             class="${prefix}--masthead__l1-dropdown-item"
@@ -701,7 +718,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     const { announcement, menuSections, footer } = submenu ?? {};
 
     return html`
-      <li>
+      <li part="dropdown-item-button-li">
         <button
           part="l1-dropdown-item-button"
           class="${prefix}--masthead__l1-dropdown-item"

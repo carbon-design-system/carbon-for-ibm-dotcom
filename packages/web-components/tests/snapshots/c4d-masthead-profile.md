@@ -15,7 +15,10 @@
   tabindex="0"
 >
 </a>
-<ul class="cds--header__menu">
+<ul
+  class="cds--header__menu"
+  part="header-menu-ul"
+>
   <slot>
   </slot>
 </ul>
@@ -38,6 +41,7 @@
 <ul
   aria-label="menu-label-foo"
   class="cds--header__menu"
+  part="header-menu-ul"
 >
   <slot>
   </slot>
