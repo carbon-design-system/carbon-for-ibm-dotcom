@@ -108,8 +108,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       )
     );
     return html`
-      <slot name="heading"></slot
-      ><c4d-card-heading>${caption}</c4d-card-heading>
+      <slot name="heading"
+        ><c4d-card-heading>${caption}</c4d-card-heading></slot
+      >
     `;
   }
 
