@@ -9,6 +9,7 @@
 
 import { property } from 'lit/decorators.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DMegaMenuHeading from './megamenu-heading';
 import styles from './masthead.scss';
@@ -23,7 +24,10 @@ const { stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-megamenu-category-heading`)
 class C4DMegaMenuCategoryHeading extends C4DMegaMenuHeading {
-  protected _arrowIcon = ArrowRight20();
+  protected get _arrowIcon() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft20() : ArrowRight20();
+  }
 
   @property({ reflect: true, type: Number, attribute: 'heading-level' })
   headingLevel = 3;

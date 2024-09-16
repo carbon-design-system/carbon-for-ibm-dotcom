@@ -10,6 +10,7 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import ArrowRight24 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/24.js';
+import ArrowLeft24 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/24.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -49,7 +50,10 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
   /**
    * Arrow icon to use when presented as link.
    */
-  protected _arrowIcon = ArrowRight24();
+  protected get _arrowIcon() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft24() : ArrowRight24();
+  }
 
   /**
    * Render heading as link.

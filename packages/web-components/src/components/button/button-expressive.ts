@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,6 +27,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-button-expressive
  * @csspart button - The button. Usage `c4d-button-expressive::part(button)`
+ * @csspart hidden-paragraph - The hidden paragraph that contains the link. Usage `c4d-button-expressive::part(hidden-paragraph)`
+ * @csspart hidden-span - The span inside of the hidden paragraph. Usage `c4d-button-expressive::part(hidden-span)`
  */
 @customElement(`${c4dPrefix}-button-expressive`)
 class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
@@ -100,8 +102,11 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
-      <p class="${prefix}--btn--hidden" aria-hidden="true">
-        <span>:</span> ${this.href}
+      <p
+        class="${prefix}--btn--hidden"
+        aria-hidden="true"
+        part="hidden-paragraph">
+        <span part="hidden-span">:</span> ${this.href}
       </p>
       <slot name="icon" @slotchange="${handleSlotChange}"></slot>
     `;

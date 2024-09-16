@@ -13,6 +13,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
+import ArrowLeft16 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/16';
 import Calendar16 from '../../internal/vendor/@carbon/web-components/icons/calendar/16.js';
 import Chat16 from '../../internal/vendor/@carbon/web-components/icons/chat/16.js';
 import Demo16 from '../../internal/vendor/@carbon/web-components/icons/demo/16.js';
@@ -137,7 +138,9 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
     }
 
     if (href) {
-      const icon = isMobileVersion ? ArrowRight16() : '';
+      const isRTL = document.dir.toLowerCase() === 'rtl';
+      const ArrowIcon = isRTL ? ArrowLeft16 : ArrowRight16;
+      const icon = isMobileVersion ? ArrowIcon() : '';
       return html`
         <a part="l1-link" class="${classname}" href="${href}">
           ${desktopWrapper(html`<slot name="cta-text"></slot>${icon}`)}

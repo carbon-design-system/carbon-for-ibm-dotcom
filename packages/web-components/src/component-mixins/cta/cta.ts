@@ -72,6 +72,7 @@ export const types = CTA_TYPE;
 /**
  * @param Base The base class.
  * @returns A mix-in implementing the logic of handling link for CTA.
+ * @csspart icon-visually-hidden - The cta icon element for screen readers. Usage: `c4d-left-nav-name::part(icon-visually-hidden)`
  */
 const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   class CTAMixinImpl extends Base {
@@ -197,7 +198,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
       return html`
         <slot name="icon">
-          <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
+          <span class="${prefix}--visually-hidden" part="icon-visually-hidden"
+            >${ariaLabels[ctaType]}</span
+          >
           ${icon?.({
             class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}
@@ -297,18 +300,23 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const { eventRequestVideoData } = this.constructor as typeof CTAMixinImpl;
       if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
         if (typeof videoDuration === 'undefined') {
-          this.dispatchEvent(
-            new CustomEvent(eventRequestVideoData, {
-              bubbles: true,
-              cancelable: true,
-              composed: true,
-              detail: {
-                href,
-                videoName,
-                videoDescription,
-              },
-            })
-          );
+          // Wait for the container to be ready without blocking.
+          customElements
+            .whenDefined(`${c4dPrefix}-video-cta-container`)
+            .then(() => {
+              this.dispatchEvent(
+                new CustomEvent(eventRequestVideoData, {
+                  bubbles: true,
+                  cancelable: true,
+                  composed: true,
+                  detail: {
+                    href,
+                    videoName,
+                    videoDescription,
+                  },
+                })
+              );
+            });
         }
       }
 
@@ -317,18 +325,23 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           (videoName === null || videoName === 'null')) ||
         changedProperties.has('videoDescription')
       ) {
-        this.dispatchEvent(
-          new CustomEvent(eventRequestVideoData, {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: {
-              videoName,
-              videoDescription,
-              href,
-            },
-          })
-        );
+        // Wait for the container to be ready without blocking.
+        customElements
+          .whenDefined(`${c4dPrefix}-video-cta-container`)
+          .then(() => {
+            this.dispatchEvent(
+              new CustomEvent(eventRequestVideoData, {
+                bubbles: true,
+                cancelable: true,
+                composed: true,
+                detail: {
+                  videoName,
+                  videoDescription,
+                  href,
+                },
+              })
+            );
+          });
       }
 
       if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {

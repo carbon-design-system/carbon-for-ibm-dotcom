@@ -11,6 +11,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import ArrowLeft16 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/16.js';
 import CDSSideNavMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-menu-item.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -54,6 +55,9 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
   render() {
     const { active, href, title, isHeading, isViewAll } = this;
 
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    const Arrow = isRTL ? ArrowLeft16 : ArrowRight16;
+
     const linkClasses = classMap({
       [`${prefix}--side-nav__link`]: true,
       [`${prefix}--side-nav__link--current`]: active,
@@ -70,7 +74,7 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
             data-attribute3="${title}">
             <span part="title" class="${prefix}--side-nav__link-text">
               <slot>${title}</slot>
-              ${isHeading || isViewAll ? ArrowRight16() : ''}
+              ${isHeading || isViewAll ? Arrow() : ''}
             </span>
           </a>
         `
