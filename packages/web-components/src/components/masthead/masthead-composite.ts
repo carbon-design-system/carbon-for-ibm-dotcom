@@ -171,12 +171,10 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     return this._renderMegaMenuListing(menu, _parentKey);
   }
 
-
   protected get ArrowIcon() {
     const isRTL = document.dir.toLowerCase() === 'rtl';
     return isRTL ? ArrowLeft16 : ArrowRight16;
   }
-
 
   /**
    *  Render MegaMenu content in tabbed layout.
@@ -226,7 +224,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-left"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${this.ArrowIcon({ slot: 'icon' })}
+                  <span>${viewAll.title}</span>${this.ArrowIcon({
+                    slot: 'icon',
+                  })}
                 </c4d-megamenu-link-with-icon>
               `
             : null}
@@ -341,7 +341,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${this.ArrowIcon({ slot: 'icon' })}
+                  <span>${viewAll.title}</span>${this.ArrowIcon({
+                    slot: 'icon',
+                  })}
                 </c4d-megamenu-link-with-icon>
               `
             : null}

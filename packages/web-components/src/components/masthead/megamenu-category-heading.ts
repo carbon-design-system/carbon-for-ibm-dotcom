@@ -29,7 +29,6 @@ class C4DMegaMenuCategoryHeading extends C4DMegaMenuHeading {
     return isRTL ? ArrowLeft20() : ArrowRight20();
   }
 
-
   @property({ reflect: true, type: Number, attribute: 'heading-level' })
   headingLevel = 3;
 

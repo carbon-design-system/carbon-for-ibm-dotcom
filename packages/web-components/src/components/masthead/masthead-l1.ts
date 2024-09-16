@@ -187,19 +187,15 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
   @queryAll(`.${prefix}--masthead__l1-menu-container-scroller`)
   menuScrollerButtons?: NodeListOf<HTMLButtonElement>;
 
-
   protected get Arrow16() {
-    const isRTL = document.dir.toLowerCase() === 'rtl'
+    const isRTL = document.dir.toLowerCase() === 'rtl';
     return isRTL ? ArrowLeft16 : ArrowRight16;
   }
 
-
   protected get Arrow20() {
-    const isRTL = document.dir.toLowerCase() === 'rtl'
+    const isRTL = document.dir.toLowerCase() === 'rtl';
     return isRTL ? ArrowLeft20 : ArrowRight20;
   }
-
-
 
   /**
    * Resize Observer responsible for show/hiding the scrolling buttons.

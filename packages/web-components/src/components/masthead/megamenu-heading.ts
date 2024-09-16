@@ -51,10 +51,9 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
    * Arrow icon to use when presented as link.
    */
   protected get _arrowIcon() {
-    const isRTL = document.dir.toLowerCase() === "rtl"
+    const isRTL = document.dir.toLowerCase() === 'rtl';
     return isRTL ? ArrowLeft24() : ArrowRight24();
   }
-
 
   /**
    * Render heading as link.
