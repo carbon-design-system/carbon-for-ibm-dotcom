@@ -25,6 +25,8 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowLeft16 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/16';
+import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -193,6 +195,16 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   @queryAll(`.${prefix}--masthead__l1-menu-container-scroller`)
   menuScrollerButtons?: NodeListOf<HTMLButtonElement>;
+
+  protected get Arrow16() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft16 : ArrowRight16;
+  }
+
+  protected get Arrow20() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft20 : ArrowRight20;
+  }
 
   /**
    * Resize Observer responsible for show/hiding the scrolling buttons.
@@ -539,7 +551,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                 part="l1-dropdown-viewall"
                 class="${prefix}--masthead__l1-dropdown-viewall"
                 href="${footer.url}"
-                >${footer.title}${ArrowRight16()}</a
+                >${footer.title}${this.Arrow16()}</a
               >`
             : ''}
         </div>
@@ -660,7 +672,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                 part="l1-dropdown-login-link"
                 class="${prefix}--masthead__l1-dropdown-login"
                 href="${ifDefined(login.url)}">
-                ${login.title}${ArrowRight16()}
+                ${login.title}${this.Arrow16()}
               </a>
             </li>`
           : ''}
@@ -758,7 +770,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                   class="${prefix}--masthead__l1-dropdown-viewall"
                   href="${footer.url}"
                 >
-                  ${footer.title}${ArrowRight16()}
+                  ${footer.title}${this.Arrow16()}
                 </li>`
             : ''}
         </div>
@@ -970,7 +982,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
             part="l1-dropdown-item-link l1-dropdown-item-link--heading"
             class="${prefix}--masthead__l1-dropdown-item"
             href="${heading.url}">
-            ${heading.title}${isMobileVersion ? ArrowRight16() : ArrowRight20()}
+            ${heading.title}${isMobileVersion ? this.Arrow16() : this.Arrow20()}
           </a>
         `
       : html` ${heading.title} `;
