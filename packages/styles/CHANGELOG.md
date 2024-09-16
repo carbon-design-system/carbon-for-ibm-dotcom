@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.12.0...@carbon/ibmdotcom-styles@2.13.0-rc.0) (2024-09-16)
+
+
+### Bug Fixes
+
+* **callout-quote:** non-latin typefaces do not support serif ([#11991](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11991)) ([f2a7155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f2a71551319c98f91b31f458a519d52a56dbbd8e))
+* **deps:** update dependency @carbon/icons-react to v11.48.0 ([#12006](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12006)) ([d2fd0e6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d2fd0e623c54775d3aa86e0a5f1fc02cb47a2f6f))
+* **deps:** update dependency @carbon/layout to v11.25.0 ([#12007](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12007)) ([4c7254f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4c7254ff5aa8efaf76afaff7d050f0bffdc6de33))
+
+
+
+
+
 # [2.12.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.12.0-rc.1...@carbon/ibmdotcom-styles@2.12.0) (2024-09-03)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
