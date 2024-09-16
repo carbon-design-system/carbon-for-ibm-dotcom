@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.12.0-rc.0...@carbon/web-components@2.12.0) (2024-09-03)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [2.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.11.1...@carbon/web-components@2.12.0-rc.0) (2024-08-26)
+
+
+### Bug Fixes
+
+* **accordion:** apply carbon element decorator for accordion skeleton ([#11989](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11989)) ([dfdc39b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dfdc39bca433fc210e45fd2f4540bf7e19aa4b08))
+
+
+### Features
+
+* **dotcom-components:** add shadowparts ([#11812](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11812)) ([b8983f2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b8983f2c98b8339cc5e678db5b9ac0d4e5508278)), closes [#11673](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11673)
+
+
+
+
+
+## [2.11.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.11.1-rc.0...@carbon/web-components@2.11.1) (2024-07-30)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+## [2.11.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.11.0...@carbon/web-components@2.11.1-rc.0) (2024-07-25)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [2.11.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.11.0-rc.1...@carbon/web-components@2.11.0) (2024-07-23)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [2.11.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.11.0-rc.0...@carbon/web-components@2.11.0-rc.1) (2024-07-23)
+
+
+### Bug Fixes
+
+* **custom-element:** ensure all cwc components use carbonElement ([#11937](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11937)) ([f727bae](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f727bae4e80fce59991dc8ad7bf5ea9e68c01cbc))
+
+
+
+
+
+# [2.11.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.10.0-rc.0...@carbon/web-components@2.11.0-rc.0) (2024-07-12)
+
+
+### Bug Fixes
+
+* **left-nav:** fix focus trapping ([#11842](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11842)) ([5f824ec](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5f824ecee9f2bb086bdebee41e2271faa7972cbe))
+
+
+
+
+
 # [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@2.9.0-rc.0...@carbon/web-components@2.10.0-rc.0) (2024-05-28)
 
 

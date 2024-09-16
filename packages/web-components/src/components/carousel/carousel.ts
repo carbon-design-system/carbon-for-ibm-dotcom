@@ -1,14 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import { LitElement, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
-import 'wicg-inert';
 import { slow01 } from '@carbon/motion';
 import { classMap } from 'lit/directives/class-map.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
@@ -38,8 +37,14 @@ const minIntersectionRatio = 0.75;
  * Carousel.
  *
  * @element c4d-carousel
- * @csspart prev-button The button to go to the previous page.
- * @csspart next-button The button to go to the next page.
+ * @csspart prev-button - The button to go to the previous page. Usage: `c4d-carousel::part(prev-button)`
+ * @csspart next-button - The button to go to the next page. Usage: `c4d-carousel::part(next-button)`
+ * @csspart region - The component container. Usage: `c4d-carousel::part(region)`
+ * @csspart title - The title. Usage `c4d-carousel::part(title)`
+ * @csspart scroll-container - Container for the scrolling elements. Usage: `c4d-carousel::part(scroll-container)`
+ * @csspart contents - The scrolling elements. Usage: `c4d-carousel::part(contents)`
+ * @csspart navigation - The navigation controls. Usage: `c4d-carousel::part(navigation)`
+ * @csspart status - The navigation status. Usage: `c4d-carousel::part(status)`
  */
 @customElement(`${c4dPrefix}-carousel`)
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
@@ -738,13 +743,14 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     });
     // Use another div from the host `<c4d-carousel>` to reflect private state
     return html`
-      <div role="region" aria-labelledby="carousel-title">
-        <div id="carousel-title">
+      <div part="region" role="region" aria-labelledby="carousel-title">
+        <div part="title" id="carousel-title">
           <slot name="title">
             <span class="cds--visually-hidden">Carousel</span>
           </slot>
         </div>
         <div
+          part="scroll-container"
           class="${prefix}--carousel__scroll-container"
           @scroll="${handleScrollFocus}"
           @touchstart="${handleTouchStartEvent}"
@@ -754,11 +760,12 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               ? null
               : `${customPropertyPageSize}: ${pageSizeExplicit}`
           )}">
-          <div class="${scrollContentsClasses}">
+          <div part="contents" class="${scrollContentsClasses}">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
         <nav
+          part="navigation"
           aria-label="Carousel Navigation"
           class="${prefix}--carousel__navigation">
           <button
@@ -771,6 +778,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             ${CaretLeft20()}
           </button>
           <span
+            part="status"
             class="${prefix}--carousel__navigation__status"
             aria-hidden="true"
             >${formatStatus(status)}</span

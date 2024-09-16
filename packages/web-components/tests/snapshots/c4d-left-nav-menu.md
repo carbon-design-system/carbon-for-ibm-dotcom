@@ -13,12 +13,22 @@
     data-attribute1="headerNav"
     data-attribute2="L0"
     data-attribute3=""
+    part="side-nav-item-button"
     type="button"
   >
-    <div class="cds--side-nav__submenu-content">
-      <span class="cds--side-nav__submenu-title">
+    <div
+      class="cds--side-nav__submenu-content"
+      part="side-nav-submenu-content"
+    >
+      <span
+        class="cds--side-nav__submenu-title"
+        part="side-nav-submenu-title"
+      >
       </span>
-      <div class="cds--side-nav__icon cds--side-nav__icon--small cds--side-nav__submenu-chevron">
+      <div
+        class="cds--side-nav__icon cds--side-nav__icon--small cds--side-nav__submenu-chevron"
+        part="side-nav-icon"
+      >
       </div>
     </div>
   </button>
@@ -37,13 +47,23 @@
     data-attribute1="headerNav"
     data-attribute2="L0"
     data-attribute3="title-foo"
+    part="side-nav-item-button"
     type="button"
   >
-    <div class="cds--side-nav__submenu-content">
-      <span class="cds--side-nav__submenu-title">
+    <div
+      class="cds--side-nav__submenu-content"
+      part="side-nav-submenu-content"
+    >
+      <span
+        class="cds--side-nav__submenu-title"
+        part="side-nav-submenu-title"
+      >
         title-foo
       </span>
-      <div class="cds--side-nav__icon cds--side-nav__icon--small cds--side-nav__submenu-chevron">
+      <div
+        class="cds--side-nav__icon cds--side-nav__icon--small cds--side-nav__submenu-chevron"
+        part="side-nav-icon"
+      >
       </div>
     </div>
   </button>

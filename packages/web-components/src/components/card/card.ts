@@ -43,6 +43,14 @@ const slotExistencePropertyNames = {
  * @slot heading - The heading content.
  * @slot image - The image content.
  * @slot footer - The footer content.
+ * @csspart caption - The Caption (default heading). Usage: `c4d-card::part(caption)`
+ * @csspart copy - The Copy. Usage: `c4d-card::part(copy)`
+ * @csspart container - The Inner content container. Usage: `c4d-card::part(container)`
+ * @csspart video-thumbnail - The video thumbnail. Usage: `c4d-card::part(video-thumbnail)`
+ * @csspart disabled-link - . Disabled link. Usage: `c4d-card::part(disabled-link)`
+ * @csspart wrapper - The component wrapper. Usage: `c4d-card::part(wrapper)`
+ * @csspart content - The content container. Usage: `c4d-card::part(content)`
+ * @csspart link - Active link. Usage: `c4d-card::part(link)`
  */
 @customElement(`${c4dPrefix}-card`)
 class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
@@ -108,9 +116,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       )
     );
     return html`
-      <slot name="heading"
-        ><c4d-card-heading>${caption}</c4d-card-heading></slot
-      >
+      <slot name="heading">
+        <c4d-card-heading>${caption}</c4d-card-heading>
+      </slot>
     `;
   }
 
@@ -120,7 +128,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy" part="copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
@@ -141,6 +149,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         : html`
             <c4d-image
               class="${prefix}--card__video-thumbnail"
+              part="video-thumbnail"
               alt="${videoName}"
               default-src="${videoThumbnailUrl}">
             </c4d-image>
@@ -156,7 +165,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <div id="link" class="${classes}">${this._renderInner()}</div>
+      <div id="link" class="${classes}" part="disabled-link">
+        ${this._renderInner()}
+      </div>
     `;
   }
 
@@ -171,8 +182,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''}">
-        <div class="${prefix}--card__content">
+          : ''}"
+        part="wrapper">
+        <div class="${prefix}--card__content" part="content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? html`
@@ -397,10 +409,11 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   render() {
     return this._hasPictogram
       ? html`
-          <div>
+          <div part="container">
             ${this._renderInner()}
             <a
               class="${`${prefix}--card__link`}"
+              part="link"
               href="${ifDefined(this.href)}"
               aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
                 ?.textContent || ''}"
@@ -408,7 +421,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             >
           </div>
         `
-      : html` <div>${this._renderInner()}</div> `;
+      : html` <div part="container">${this._renderInner()}</div> `;
   }
 
   static get stableSelector() {

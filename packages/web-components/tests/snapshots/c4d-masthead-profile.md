@@ -10,6 +10,7 @@
   aria-label="User profile"
   class="cds--header__menu-item cds--header__menu-title"
   href="javascript:void 0"
+  part="profile-link"
   role="button"
   tabindex="0"
 >
@@ -29,6 +30,7 @@
   aria-label="User profile"
   class="cds--header__menu-item cds--header__menu-title"
   href="javascript:void 0"
+  part="profile-link"
   role="button"
   tabindex="0"
 >
