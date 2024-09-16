@@ -11,6 +11,7 @@ import { LitElement, html } from 'lit';
 import { state, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './masthead.scss';
@@ -49,6 +50,8 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
   _renderHeading() {
     const { headingText, url } = this;
 
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+
     const headingClasses = {
       [`${prefix}--side-nav__menu-section-title`]: this.boostSize || false,
       [`${prefix}--side-nav__heading-title`]: !url,
@@ -64,7 +67,7 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
               data-attribute1="headerNav"
               data-attribute2="FlatHdline"
               data-attribute3="${headingText}">
-              ${headingText}${ArrowRight20()}
+              ${headingText}${isRTL ? ArrowLeft20() : ArrowRight20()}
             </a>
           </h2>
         `
