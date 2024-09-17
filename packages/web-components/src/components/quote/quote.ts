@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import { LocaleAPI } from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 
 export { QUOTE_TYPES };
 
