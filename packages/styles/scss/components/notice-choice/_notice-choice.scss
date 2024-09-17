@@ -8,10 +8,12 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/convert';
 
 @mixin notice-choice {
   .#{$prefix}--nc {
     max-inline-size: 640px;
+
     p,
     .#{$prefix}--checkbox-group {
       margin-block-end: $spacing-06;
@@ -20,5 +22,23 @@
     a {
       color: $link-primary;
     }
+
+    :dir(rtl) .#{$prefix}--checkbox-label-text {
+      padding-inline-end: convert.to-rem(10px);
+
+    }
+
+    :dir(rtl) .#{$prefix}--checkbox-label::after {
+      margin-block-start: 0;
+      margin-inline-start: convert.to-rem(-1px);
+      transform-origin: center;
+    }
+
+    :dir(rtl) .#{$prefix}--checkbox:checked+.#{$prefix}--checkbox-label::after,
+    :dir(rtl) .#{$prefix}--checkbox-label[data-contained-checkbox-state='true']::after {
+      transform: scale(1.2) rotate3d(0.5, 1, 0, 158deg);
+    }
+
   }
+
 }
