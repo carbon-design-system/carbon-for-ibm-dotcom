@@ -15,7 +15,10 @@
     part="title"
   >
     <slot name="title">
-      <span class="cds--visually-hidden">
+      <span
+        class="cds--visually-hidden"
+        part="visually-hidden"
+      >
         Carousel
       </span>
     </slot>
@@ -56,6 +59,7 @@
     <span
       aria-live="polite"
       class="cds--visually-hidden"
+      part="visually-hidden"
     >
     </span>
     <button

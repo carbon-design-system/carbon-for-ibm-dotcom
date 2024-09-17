@@ -20,6 +20,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The copy content of content item.
  *
  * @element c4d-content-item-copy
+ * @csspart paragraph - The paragraph element within the content item copy. Usage: `c4d-content-item-copy::part(paragraph)`
  */
 @customElement(`${c4dPrefix}-content-item-copy`)
 class C4DContentItemCopy extends StableSelectorMixin(C4DMarkdown) {
@@ -38,7 +39,7 @@ class C4DContentItemCopy extends StableSelectorMixin(C4DMarkdown) {
 
     return Object.assign(super._renderer, {
       paragraph(text) {
-        return `<${c4dPrefix}-content-item-paragraph>${text}</${c4dPrefix}-content-item-paragraph>`;
+        return `<${c4dPrefix}-content-item-paragraph part="paragraph">${text}</${c4dPrefix}-content-item-paragraph>`;
       },
     });
   }

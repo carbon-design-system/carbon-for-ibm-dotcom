@@ -22,7 +22,10 @@
   <slot>
   </slot>
   <slot name="icon">
-    <span class="cds--visually-hidden">
+    <span
+      class="cds--visually-hidden"
+      part="visually-hidden-span"
+    >
       undefined
     </span>
     undefined

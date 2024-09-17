@@ -14,6 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { LocaleAPI } from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale';
 
 export { QUOTE_TYPES };
 
@@ -60,6 +61,9 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
 
+  @property({ reflect: true, attribute: 'lang' })
+  lc;
+
   /**
    * `true` if there is source heading.
    */
@@ -83,6 +87,14 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
   /**
    * Handles `slotchange` event.
    */
+
+  connectedCallback() {
+    super.connectedCallback();
+    LocaleAPI.getLang().then(({ lc }) => {
+      this.lc = lc;
+    });
+  }
+
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
@@ -171,14 +183,14 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
       default:
         return html`
           <span class="${prefix}--quote__mark" part="mark mark--opening"
-            >“</span
+            >${this.lc !== 'ar' ? '“' : '”'}</span
           >
           <blockquote class="${prefix}--quote__copy" part="copy">
             <slot></slot
             ><span
               class="${prefix}--quote__mark-closing"
               part="mark mark--closing"
-              >”</span
+              >${this.lc !== 'ar' ? '”' : '“'}</span
             >
           </blockquote>
         `;

@@ -38,7 +38,7 @@
       <slot>
       </slot>
     </div>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>
@@ -90,7 +90,7 @@
       <slot>
       </slot>
     </div>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>
@@ -144,7 +144,7 @@
       <slot>
       </slot>
     </div>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>
@@ -196,7 +196,7 @@
       <slot>
       </slot>
     </div>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>
@@ -248,7 +248,7 @@
       <slot>
       </slot>
     </div>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>

@@ -52,7 +52,7 @@
       <slot name="regions-selector">
       </slot>
     </div>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>
@@ -130,7 +130,7 @@
       <slot name="regions-selector">
       </slot>
     </div>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>
@@ -209,7 +209,7 @@
     </div>
     <slot name="locales-selector">
     </slot>
-    <div>
+    <div part="footer-container">
       <slot name="footer">
       </slot>
     </div>
