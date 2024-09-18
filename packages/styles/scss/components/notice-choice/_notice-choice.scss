@@ -35,7 +35,7 @@
         transform-origin: center;
       }
 
-      .#{$prefix}--checkbox:checked+.#{$prefix}--checkbox-label::after,
+      .#{$prefix}--checkbox:checked + .#{$prefix}--checkbox-label::after,
       .#{$prefix}--checkbox-label[data-contained-checkbox-state='true']::after {
         transform: scale(1.2) rotate3d(0.5, 1, 0, 158deg);
       }
