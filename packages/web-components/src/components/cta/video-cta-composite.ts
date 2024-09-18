@@ -91,7 +91,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
     const videoData = await this._loadVideoData?.(href);
-    if (videoData) {
+    if (videoData && videoData?.id) {
       const { duration, name } = videoData;
       const videoName = customVideoName || name;
 

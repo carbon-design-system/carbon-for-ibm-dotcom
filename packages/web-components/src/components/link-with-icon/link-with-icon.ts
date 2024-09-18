@@ -29,6 +29,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-link-with-icon
  * @slot icon - The icon.
  * @slot icon-left - The CTA icon to place at the left.
+ * @csspart span - The span element. Usage: `c4d-lightbox-video-player::part(span)`
  */
 @customElement(`${c4dPrefix}-link-with-icon`)
 class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
@@ -74,7 +75,7 @@ class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
   _renderContent() {
     const { ctaType, _hasContent: hasContent } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
-      return html`<span><slot></slot></span>`;
+      return html`<span part="span"><slot></slot></span>`;
     }
     const {
       videoDuration,

@@ -21,7 +21,10 @@
     </slot>
   </span>
   <slot name="icon">
-    <span class="cds--visually-hidden">
+    <span
+      class="cds--visually-hidden"
+      part="icon-visually-hidden"
+    >
     </span>
   </slot>
 </a>
@@ -48,7 +51,10 @@
     </slot>
   </span>
   <slot name="icon">
-    <span class="cds--visually-hidden">
+    <span
+      class="cds--visually-hidden"
+      part="icon-visually-hidden"
+    >
       - This link plays a video
     </span>
   </slot>

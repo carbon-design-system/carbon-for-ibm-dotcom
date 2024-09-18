@@ -45,6 +45,7 @@ const minIntersectionRatio = 0.75;
  * @csspart contents - The scrolling elements. Usage: `c4d-carousel::part(contents)`
  * @csspart navigation - The navigation controls. Usage: `c4d-carousel::part(navigation)`
  * @csspart status - The navigation status. Usage: `c4d-carousel::part(status)`
+ * @csspart visually-hidden - The span element used to hide content from view and keep it accessible for assistive technologies. Usage: `c4d-button::part(visually-hidden)`
  */
 @customElement(`${c4dPrefix}-carousel`)
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
@@ -746,7 +747,9 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       <div part="region" role="region" aria-labelledby="carousel-title">
         <div part="title" id="carousel-title">
           <slot name="title">
-            <span class="cds--visually-hidden">Carousel</span>
+            <span class="cds--visually-hidden" part="visually-hidden"
+              >Carousel</span
+            >
           </slot>
         </div>
         <div
@@ -783,7 +786,10 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             aria-hidden="true"
             >${formatStatus(status)}</span
           >
-          <span class="${prefix}--visually-hidden" aria-live="polite"></span>
+          <span
+            class="${prefix}--visually-hidden"
+            aria-live="polite"
+            part="visually-hidden"></span>
           <button
             part="next-button"
             class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"

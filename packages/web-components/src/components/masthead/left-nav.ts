@@ -38,6 +38,9 @@ const FOLLOWING =
  * Masthead left nav.
  *
  * @element c4d-left-nav
+ * @csspart side-nav-wrapper - The wrapper element for the side nav. Usage: `c4d-left-nav::part(side-nav-wrapper)`
+ * @csspart platform-name - The element containing the platform name slot. Usage: `c4d-left-nav::part(platform-name)`
+ * @csspart menu-sections - The element containing the menu sections slot. Usage: `c4d-left-nav::part(menu-sections)`
  */
 @customElement(`${c4dPrefix}-left-nav`)
 class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
@@ -335,12 +338,12 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   render() {
     const { _renderSentinel: renderSentinel } = this;
     return html`
-      <div class="${prefix}--side-nav__wrapper">
+      <div class="${prefix}--side-nav__wrapper" part="side-nav-wrapper">
         ${renderSentinel('start')}
-        <div class="${prefix}--side-nav__platform-name">
+        <div class="${prefix}--side-nav__platform-name" part="platform-name">
           <slot name="platform-id"></slot>
         </div>
-        <div class="${prefix}--side-nav__menu-sections">
+        <div class="${prefix}--side-nav__menu-sections" part="menu-sections">
           <slot></slot>
         </div>
         ${renderSentinel('end')}

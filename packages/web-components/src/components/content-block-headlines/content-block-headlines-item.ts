@@ -20,15 +20,17 @@ const { stablePrefix: c4dPrefix } = settings;
  * Content Block Headlines item
  *
  * @element c4d-content-block-headlines-item
+ * @csspart heading - The heading element within the content block headlines item. Usage: `c4d-content-block-headlines-item::part(heading)`
+ * @csspart copy - The paragraph element containing the copy text in the content block headlines item. Usage: `c4d-content-block-headlines-item::part(copy)`
  */
 @customElement(`${c4dPrefix}-content-block-headlines-item`)
 class C4DContentBlockHeadlinesItem extends StableSelectorMixin(C4DContentItem) {
   render() {
     return html`
-      <h4 class="cds--content-block-headlines__heading">
+      <h4 class="cds--content-block-headlines__heading" part="heading">
         <slot name="heading"></slot>
       </h4>
-      <p class="cds--content-block-headlines__copy">
+      <p class="cds--content-block-headlines__copy" part="copy">
         <slot name="copy"></slot>
       </p>
       <slot name="footer"></slot>
