@@ -37,6 +37,7 @@ const slotExistencePropertyNames = {
  * @csspart media - The media content. Usage: `c4d-content-item::part(media)`
  * @csspart cta - The footer CTA. Usage: `c4d-content-item::part(cta)`
  * @csspart heading - The heading content. Usage: `c4d-content-item::part(heading)`
+ * @csspart body - The body content. Usage: `c4d-content-item::part(body)`
  */
 @customElement(`${c4dPrefix}-content-item`)
 class C4DContentItem extends StableSelectorMixin(LitElement) {
@@ -171,7 +172,7 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${horizontalClass}" part="heading">
         ${this._renderStatistic()} ${this._renderMedia()}
-        <div>
+        <div part="body">
           <slot name="heading"></slot>
           ${this._renderBody()}${this._renderFooter()}
         </div>

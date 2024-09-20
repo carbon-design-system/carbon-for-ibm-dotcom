@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,6 +21,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The copy content in content group.
  *
  * @element c4d-content-group-copy
+ * @csspart paragraph - The paragraph element within the content group copy. Usage: `c4d-content-group-copy::part(paragraph)`
  */
 @customElement(`${c4dPrefix}-content-group-copy`)
 class C4DContentGroupCopy extends StableSelectorMixin(C4DMarkdown) {
@@ -33,7 +34,7 @@ class C4DContentGroupCopy extends StableSelectorMixin(C4DMarkdown) {
   protected get _renderer() {
     return Object.assign(super._renderer, {
       paragraph(text) {
-        return `<${c4dPrefix}-content-group-paragraph>${text}</${c4dPrefix}-content-group-paragraph>`;
+        return `<${c4dPrefix}-content-group-paragraph part="paragraph">${text}</${c4dPrefix}-content-group-paragraph>`;
       },
     });
   }

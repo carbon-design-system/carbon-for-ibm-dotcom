@@ -5,7 +5,10 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--side-nav__item">
+<div
+  class="cds--side-nav__item"
+  part="side-nav-item-container"
+>
   <button
     aria-expanded="false"
     aria-haspopup="true"
@@ -39,7 +42,10 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--side-nav__item">
+<div
+  class="cds--side-nav__item"
+  part="side-nav-item-container"
+>
   <button
     aria-expanded="true"
     aria-haspopup="true"

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,6 +33,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * Card CTA.
  *
  * @element c4d-card-cta
+ * @csspart heading - The heading content. Usage: `c4d-card-link-cta::part(heading)`
  */
 @customElement(`${c4dPrefix}-card-link-cta`)
 class C4DCardLinkCTA extends VideoCTAMixin(CTAMixin(C4DCardLink)) {
@@ -48,7 +49,7 @@ class C4DCardLinkCTA extends VideoCTAMixin(CTAMixin(C4DCardLink)) {
     const caption = formatVideoCaptionInEffect({ name: videoName });
     return html`
       <slot name="heading"></slot
-      ><c4d-card-link-heading>${caption}</c4d-card-link-heading>
+      ><c4d-card-link-heading part="heading">${caption}</c4d-card-link-heading>
     `;
   }
 

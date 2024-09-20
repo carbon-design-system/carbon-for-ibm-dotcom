@@ -31,6 +31,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @csspart content - The inner wrapper around content. Usage: `c4d-lightbox-video-player::part(content)`
  * @csspart title - The title of the media. Usage: `c4d-lightbox-video-player::part(title)`
  * @csspart description - The description of the media. Usage: `c4d-lightbox-video-player::part(description)`
+ * @csspart h2 - The h2 element that holds the title. Usage: `c4d-lightbox-video-player::part(h2)`
  */
 @customElement(`${c4dPrefix}-lightbox-media-viewer`)
 class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
@@ -48,7 +49,9 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   _renderTitle() {
     const { title } = this;
     return html`
-      <slot name="title"><h2 style="all: inherit;">${title}</h2></slot>
+      <slot name="title"
+        ><h2 part="h2" style="all: inherit;">${title}</h2></slot
+      >
     `;
   }
 

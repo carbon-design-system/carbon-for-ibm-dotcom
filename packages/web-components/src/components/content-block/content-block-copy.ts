@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The copy content of content block.
  *
  * @element c4d-content-block-copy
+ * @csspart content-block-paragraph - The paragraph element within the content block. Usage: `c4d-content-block-copy::part(content-block-paragraph)`
  */
 @customElement(`${c4dPrefix}-content-block-copy`)
 class C4DContentBlockCopy extends StableSelectorMixin(C4DMarkdown) {
@@ -43,7 +44,7 @@ class C4DContentBlockCopy extends StableSelectorMixin(C4DMarkdown) {
 
     return Object.assign(super._renderer, {
       paragraph(text) {
-        return `<${c4dPrefix}-content-block-paragraph>${text}</${c4dPrefix}-content-block-paragraph>`;
+        return `<${c4dPrefix}-content-block-paragraph part="content-block-paragraph">${text}</${c4dPrefix}-content-block-paragraph>`;
       },
     });
   }

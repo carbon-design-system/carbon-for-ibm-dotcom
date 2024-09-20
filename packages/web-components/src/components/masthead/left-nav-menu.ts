@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,6 +30,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart side-nav-submenu-content - The content of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-submenu-content)`
  * @csspart side-nav-submenu-title - The title of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-submenu-title)`
  * @csspart side-nav-icon - The icon of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-icon)`
+ *  @csspart side-nav-item-container - The container for the side navigation item. Usage: `c4d-left-nav-menu::part(side-nav-item-container)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu`)
 class C4DLeftNavMenu extends FocusMixin(LitElement) {
@@ -113,7 +114,7 @@ class C4DLeftNavMenu extends FocusMixin(LitElement) {
     const isSubitem = this.parentElement?.hasAttribute('is-submenu') || false;
 
     return html`
-      <div class="${prefix}--side-nav__item">
+      <div class="${prefix}--side-nav__item" part="side-nav-item-container">
         <button
           part="side-nav-item-button"
           type="button"

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,6 +34,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * Component that renders dotcom shell from links, etc. data.
  *
  * @element c4d-dotcom-shell-composite
+ * @csspart shell - The root element of the dotcom shell. Usage: `c4d-dotcom-shell-composite::part(shell)`
  */
 @customElement(`${c4dPrefix}-dotcom-shell-composite`)
 class C4DDotcomShellComposite extends LitElement {
@@ -489,7 +490,7 @@ class C4DDotcomShellComposite extends LitElement {
 
   render() {
     return html`
-      <c4d-dotcom-shell>
+      <c4d-dotcom-shell part="shell">
         <slot></slot>
       </c4d-dotcom-shell>
     `;

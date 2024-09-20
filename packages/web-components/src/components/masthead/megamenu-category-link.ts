@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,6 +26,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-megamenu-category-link
  * @csspart link-heading - The link heading. Usage: `c4d-megamenu-category-link::part(link-heading)`
  * @csspart link-description - The link description. Usage: `c4d-megamenu-category-link::part(link-description)`
+ * @csspart span - The span element. Usage: `c4d-megamenu-category-link::part(span)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-link`)
 class C4DMegaMenuCategoryLink extends CDSLink {
@@ -60,7 +61,7 @@ class C4DMegaMenuCategoryLink extends CDSLink {
       ${title
         ? html`
             <div part="link-heading">
-              <span>${title}${this._renderIcon()}</span>
+              <span part="span">${title}${this._renderIcon()}</span>
               <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
             </div>
           `

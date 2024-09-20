@@ -35,6 +35,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @csspart description - The description of the media. Usage: `c4d-lightbox-video-player::part(description)`
  * @csspart video-player - The wrapper around the video player. Usage: `c4d-lightbox-video-player::part(video-player)`
  * @csspart video-container - The inner wrapper around the slotted video player. Usage: `c4d-lightbox-video-player::part(video-container)`
+ * @csspart h2 - The h2 element that holds the title. Usage: `c4d-lightbox-video-player::part(h2)`
  */
 @customElement(`${c4dPrefix}-lightbox-video-player`)
 class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
@@ -62,7 +63,7 @@ class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
     const { duration, formatCaption, formatDuration, name } = this;
     return html`
       <slot name="title">
-        <h2 style="all: inherit;">
+        <h2 style="all: inherit;" part="h2">
           ${formatCaption({
             duration: formatDuration({
               duration: !duration ? duration : duration * 1000,

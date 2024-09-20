@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -91,7 +91,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
     const videoData = await this._loadVideoData?.(href);
-    if (videoData) {
+    if (videoData && videoData?.id) {
       const { duration, name } = videoData;
       const videoName = customVideoName || name;
 
