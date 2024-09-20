@@ -10,7 +10,6 @@
 'use strict';
 
 const createSVGResultFromIconDescriptor = require('./svg-result-from-icon-descriptor');
-const path = require('path');
 const svg2js = require('svgo/lib/svgo/svg2js');
 
 /**
@@ -72,10 +71,7 @@ function svgResultIBMDotcomIconLoader(content) {
           null,
           `
           import { svg } from 'lit';
-          import spread from '${path.resolve(
-            __dirname,
-            '../src/internal/vendor/@carbon/web-components/globals/directives/spread'
-          )}';
+          import spread from '@carbon/web-components/es/globals/directives/spread.js';
           const svgResultCarbonIcon = ${createSVGResultFromIconDescriptor(
             convertAttrs(svgNode)
           )};

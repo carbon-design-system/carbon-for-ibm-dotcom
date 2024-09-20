@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ArrowRight24 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/24.js';
-import ArrowLeft24 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/24.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import ArrowRight24 from '@carbon/web-components/es/icons/arrow--right/24.js';
+import ArrowLeft24 from '@carbon/web-components/es/icons/arrow--left/24.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

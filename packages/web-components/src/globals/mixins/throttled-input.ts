@@ -8,7 +8,7 @@
  */
 
 import throttle from 'lodash-es/throttle';
-import on from '../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
 import Handle from '../internal/handle';
 
 import { Constructor } from '../defs';

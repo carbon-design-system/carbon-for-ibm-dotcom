@@ -10,14 +10,14 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import CDSHeaderMenuButton from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu-button.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import CDSHeaderMenuButton from '@carbon/web-components/es/components/ui-shell/header-menu-button.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

@@ -14,7 +14,7 @@ import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilit
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 export { GRID_MODE };
 

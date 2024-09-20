@@ -9,9 +9,9 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import on from '../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -25,7 +25,7 @@ import {
 } from '../video-player/video-player';
 import './lightbox-video-player';
 import styles from './lightbox-media-viewer.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

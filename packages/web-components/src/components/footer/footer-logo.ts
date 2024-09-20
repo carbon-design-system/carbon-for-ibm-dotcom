@@ -9,7 +9,7 @@
 
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import IBM8BarLogoH65White from '../../../es/icons/IBM-8bar-logo--h65-white.js';
 import IBM8BarLogoH23White from '../../../es/icons/IBM-8bar-logo--h23-white.js';
@@ -17,7 +17,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { FOOTER_SIZE } from './footer';
 import styles from './footer.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

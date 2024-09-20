@@ -69,7 +69,6 @@ body:
       multiple: true
       options:
         - '@carbon/ibmdotcom-web-components'
-        - '@carbon/web-components'
         - '@carbon/ibmdotcom-styles'
         - '@carbon/ibmdotcom-services'
         - '@carbon/ibmdotcom-utilities'

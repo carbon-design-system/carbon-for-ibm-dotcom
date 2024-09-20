@@ -11,7 +11,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DCard from '../card/card';
 import styles from './content-group-cards.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

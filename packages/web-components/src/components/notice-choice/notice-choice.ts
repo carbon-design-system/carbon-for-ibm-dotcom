@@ -20,7 +20,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

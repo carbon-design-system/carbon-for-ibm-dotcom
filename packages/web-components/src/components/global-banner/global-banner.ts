@@ -16,7 +16,7 @@ import styles from './global-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import C4DButton from '../button/button';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 

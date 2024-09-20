@@ -14,7 +14,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 

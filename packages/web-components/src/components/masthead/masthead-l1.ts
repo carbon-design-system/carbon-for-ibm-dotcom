@@ -22,16 +22,16 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import ArrowLeft16 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/16';
-import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20';
-import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
-import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
+import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
+import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
 import { classMap } from 'lit/directives/class-map.js';
 import layoutBreakpoint from './masthead-breakpoint';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

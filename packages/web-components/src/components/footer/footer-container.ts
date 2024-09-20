@@ -41,7 +41,7 @@ import {
   LocaleModalContainerActions,
 } from '../locale-modal/locale-modal-container';
 import C4DFooterComposite from './footer-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 
