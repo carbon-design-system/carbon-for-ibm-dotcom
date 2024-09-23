@@ -31,7 +31,7 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * @csspart row - The wrapper element around the entire shadow root. Usage: `dds-content-item-horizontal-media::part(row)`
  * @csspart row--content - The wrapper element around the entire shadow root. Usage: `dds-content-item-horizontal-media::part(row--content)`
  * @csspart text-column-content-wrapper - The wrapper element around the text column. Usage: `dds-content-item-horizontal-media::part(text-column-content-wrapper)`
- * @csspart media-wrapper - The wrapper element around the media. Usage: `dds-content-item-horizontal-media::part(media)`
+ * @csspart media-wrapper - The wrapper element around the media. Usage: `dds-content-item-horizontal-media::part(media-wrapper)`
  * @csspart footer-wrapper - The wrapper element around the footer. Usage: `dds-content-item-horizontal::part(footer-wrapper)`
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-media`)
