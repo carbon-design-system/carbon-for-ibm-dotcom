@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,6 +21,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * A component to present a content in a horizontal orientation.
  *
  * @element dds-content-item-horizontal
+ * @csspart heading-wrapper - The wrapper element around the header. Usage: `dds-content-item-horizontal::part(heading-wrapper)`
+ * @csspart content-wrapper - The wrapper element around the content. Usage: `dds-content-item-horizontal::part(content-wrapper)`
+ * @csspart body-wrapper - The wrapper element around the body. Usage: `dds-content-item-horizontal::part(body-wrapper)`
+ * @csspart footer-wrapper - The wrapper element around the footer. Usage: `dds-content-item-horizontal::part(footer-wrapper)`
+ * @csspart thumbnail-wrapper - The wrapper element around the thumbnail. Usage: `dds-content-item-horizontal::part(thumbnail-wrapper)`
  */
 @customElement(`${ddsPrefix}-content-item-horizontal`)
 class DDSContentItemHorizontal extends DDSContentItem {
@@ -42,26 +47,38 @@ class DDSContentItemHorizontal extends DDSContentItem {
     return html`
       ${!this.thumbnail
         ? html`
-            <div class="${prefix}--content-item-horizontal__heading-wrapper">
+            <div
+              part="heading-wrapper"
+              class="${prefix}--content-item-horizontal__heading-wrapper">
               <slot
                 name="eyebrow"
                 @slotchange="${this._handleSlotChange}"></slot>
               <slot name="heading"></slot>
             </div>
-            <div class="${prefix}--content-item-horizontal__content-wrapper">
+            <div
+              part="content-wrapper"
+              class="${prefix}--content-item-horizontal__content-wrapper">
               ${this._renderBody()}${this._renderFooter()}${this._renderMedia()}
             </div>
           `
         : html`
-            <div class="${prefix}--content-item-horizontal__body-wrapper">
-              <div class="${prefix}--content-item-horizontal__heading-wrapper">
+            <div
+              part="body-wrapper"
+              class="${prefix}--content-item-horizontal__body-wrapper">
+              <div
+                part="heading-wrapper"
+                class="${prefix}--content-item-horizontal__heading-wrapper">
                 <slot name="heading"></slot>
               </div>
-              <div class="${prefix}--content-item-horizontal__content-wrapper">
+              <div
+                part="content-wrapper"
+                class="${prefix}--content-item-horizontal__content-wrapper">
                 ${this._renderBody()}${this._renderFooter()}
               </div>
             </div>
-            <div class="${prefix}--content-item-horizontal__col--2">
+            <div
+              part="thumbnail-wrapper"
+              class="${prefix}--content-item-horizontal__col--2">
               <slot name="thumbnail" @slotchange="${this._handleSlotChange}">
               </slot>
             </div>
