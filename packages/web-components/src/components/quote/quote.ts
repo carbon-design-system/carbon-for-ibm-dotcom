@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import { LocaleAPI } from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 
 export { QUOTE_TYPES, QUOTE_COLOR_SCHEMES };
 
