@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,6 +28,11 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * A component to present content in a horizontal orientation with media.
  *
  * @element dds-content-item-horizontal-media
+ * @csspart row - The wrapper element around the entire shadow root. Usage: `dds-content-item-horizontal-media::part(row)`
+ * @csspart row--content - The wrapper element around the entire shadow root. Usage: `dds-content-item-horizontal-media::part(row--content)`
+ * @csspart text-column-content-wrapper - The wrapper element around the text column. Usage: `dds-content-item-horizontal-media::part(text-column-content-wrapper)`
+ * @csspart media-wrapper - The wrapper element around the media. Usage: `dds-content-item-horizontal-media::part(media-wrapper)`
+ * @csspart footer-wrapper - The wrapper element around the footer. Usage: `dds-content-item-horizontal::part(footer-wrapper)`
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-media`)
 class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
@@ -54,7 +59,9 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
    */
   protected _renderTextCol(): TemplateResult | string | void {
     return html`
-      <div class="${prefix}--content-item-horizontal__col">
+      <div
+        part="text-column-content-wrapper"
+        class="${prefix}--content-item-horizontal__col">
         <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
         <slot name="heading"></slot>
         ${this._renderBody()} ${this._renderFooter()}
@@ -71,12 +78,16 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
     return alignedRight
       ? html`
           ${this._renderTextCol()}
-          <div class="${prefix}--content-item-horizontal__col">
+          <div
+            part="media-wrapper"
+            class="${prefix}--content-item-horizontal__col">
             <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
           </div>
         `
       : html`
-          <div class="${prefix}--content-item-horizontal__col">
+          <div
+            part="media-wrapper"
+            class="${prefix}--content-item-horizontal__col">
             <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
           </div>
           ${this._renderTextCol()}
@@ -86,6 +97,7 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
   render() {
     return html`
       <div
+        part="row row--content"
         class="${prefix}--content-item-horizontal__row ${prefix}--content-item-horizontal-media__align-${this
           .align}">
         ${this._renderContent()}

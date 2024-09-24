@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,6 +31,8 @@ const slotExistencePropertyNames = {
  * @slot media - The media content.
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
+ * @csspart wrapper - The wrapper element around the entire shadow root. Usage: `dds-content-item::part(wrapper)`
+ * @csspart footer-wrapper - The wrapper element around the footer. Usage: `dds-content-item::part(footer-wrapper)`
  */
 @customElement(`${ddsPrefix}-content-item`)
 class DDSContentItem extends StableSelectorMixin(LitElement) {
@@ -88,7 +90,10 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   protected _renderFooter(): TemplateResult | string | void {
     const { _hasFooter: hasFooter } = this;
     return html`
-      <div ?hidden="${!hasFooter}" class="${prefix}--content-item__cta">
+      <div
+        part="footer-wrapper"
+        ?hidden="${!hasFooter}"
+        class="${prefix}--content-item__cta">
         <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
@@ -97,7 +102,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <slot name="heading"></slot>
-      <div>
+      <div part="wrapper">
         <slot name="media"></slot>
       </div>
       ${this._renderBody()}${this._renderFooter()}
