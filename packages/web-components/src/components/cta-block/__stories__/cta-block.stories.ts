@@ -8,8 +8,8 @@
  */
 
 import { boolean, number, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import Launch20 from '../../../internal/vendor/@carbon/web-components/icons/launch/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import Launch20 from '@carbon/web-components/es/icons/launch/20';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
@@ -18,7 +18,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../tabs-extended/index';
 import '../index';
 import '../../link-list/index';
-import { prefix } from '../../../internal/vendor/@carbon/web-components/globals/settings';
+import { prefix } from '@carbon/web-components/es/globals/settings';
 
 import content from '../../cta-section/__stories__/content';
 

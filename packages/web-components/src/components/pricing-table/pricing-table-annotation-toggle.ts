@@ -10,12 +10,12 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
-import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
+import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
+import Close16 from '@carbon/web-components/es/icons/close/16.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import C4DPricingTableRow from './pricing-table-row';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

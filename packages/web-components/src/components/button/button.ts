@@ -12,9 +12,9 @@ import { property, query } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import CTAMixin from '../../component-mixins/cta/cta';
-import CDSButton from '../../internal/vendor/@carbon/web-components/components/button/button.js';
+import CDSButton from '@carbon/web-components/es/components/button/button.js';
 
 import { ariaLabels, icons } from '../../component-mixins/cta/cta';
 const { prefix, stablePrefix: c4dPrefix } = settings;

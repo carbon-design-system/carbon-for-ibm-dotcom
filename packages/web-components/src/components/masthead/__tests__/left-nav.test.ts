@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { SIDE_NAV_USAGE_MODE } from '../../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
+import { SIDE_NAV_USAGE_MODE } from '@carbon/web-components/es/components/ui-shell/side-nav.js';
 import '../left-nav';
 import C4DLeftNavOverlay from '../left-nav-overlay';
 

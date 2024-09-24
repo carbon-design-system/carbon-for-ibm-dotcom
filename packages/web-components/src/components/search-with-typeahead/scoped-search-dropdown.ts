@@ -10,11 +10,11 @@
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CDSDropdown, {
   DROPDOWN_TYPE,
-} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+} from '@carbon/web-components/es/components/dropdown/dropdown.js';
 
 import styles from './search-with-typeahead.scss';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from '../footer/defs';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 export { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE, DROPDOWN_TYPE };
 

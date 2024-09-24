@@ -16,7 +16,7 @@ import {
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

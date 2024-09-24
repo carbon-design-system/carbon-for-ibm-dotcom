@@ -27,7 +27,7 @@ import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerComposite from './video-player-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

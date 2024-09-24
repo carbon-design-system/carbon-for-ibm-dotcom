@@ -31,7 +31,7 @@ import {
 } from '../masthead/masthead-container';
 import C4DMastheadComposite from '../masthead/masthead-composite';
 import C4DDotcomShellComposite from './dotcom-shell-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

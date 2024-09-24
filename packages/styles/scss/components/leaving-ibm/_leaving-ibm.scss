@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
-@use '../../../../carbon-web-components/src/components/modal/modal' as *;
+@use '@carbon/web-components/scss/components/modal/modal' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 @mixin leaving-ibm {

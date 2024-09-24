@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import Close from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
+import Close from '@carbon/web-components/es/icons/close/16.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
