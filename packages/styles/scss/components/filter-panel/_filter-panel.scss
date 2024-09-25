@@ -14,8 +14,8 @@
 @use '@carbon/styles/scss/layout' as *;
 @use '@carbon/styles/scss/components/button' as *;
 @use '@carbon/styles/scss/components/checkbox';
-@use '../../../../carbon-web-components/src/components/modal/modal';
-@use '../../../../carbon-web-components/scss/components/accordion/accordion';
+@use '@carbon/web-components/scss/components/accordion/accordion';
+@use '@carbon/web-components/scss/components/modal/modal';
 @use '../../globals/vars' as *;
 
 @mixin filter-panel {

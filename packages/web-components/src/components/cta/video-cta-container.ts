@@ -23,7 +23,7 @@ import {
 } from '../video-player/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
 import C4DVideoCTAComposite from './video-cta-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

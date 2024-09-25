@@ -14,7 +14,7 @@ import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import C4DVideoPlayerContainer from '../video-player/video-player-container';
 import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -28,7 +28,7 @@ import styles from './cta.scss';
 import '../card/card-eyebrow';
 import '../card/card-heading';
 import '../image/image';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 

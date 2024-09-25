@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
@@ -18,10 +18,10 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
-import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import '@carbon/web-components/es/components/checkbox/checkbox.js';
+import '@carbon/web-components/es/components/modal/modal-close-button.js';
+import '@carbon/web-components/es/components/modal/modal-header.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

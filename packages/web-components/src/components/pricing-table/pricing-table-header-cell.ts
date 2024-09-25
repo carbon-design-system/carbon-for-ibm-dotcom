@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredListHeaderCell from '../structured-list/structured-list-header-cell';
 import styles from './pricing-table.scss';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

@@ -11,14 +11,14 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
-import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
+import Close20 from '@carbon/web-components/es/icons/close/20.js';
+import Search20 from '@carbon/web-components/es/icons/search/20.js';
 import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
-import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+} from '@carbon/web-components/es/components/dropdown/dropdown.js';
+import CDSDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
@@ -26,7 +26,7 @@ import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DSearchWithTypeaheadItem from './search-with-typeahead-item';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

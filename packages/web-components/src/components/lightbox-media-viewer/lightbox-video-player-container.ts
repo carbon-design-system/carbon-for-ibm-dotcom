@@ -21,7 +21,7 @@ import {
   mapDispatchToProps,
 } from '../video-player/video-player-container';
 import C4DLightboxVideoPlayerComposite from './lightbox-video-player-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 
