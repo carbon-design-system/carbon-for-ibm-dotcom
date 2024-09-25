@@ -9,14 +9,20 @@
 
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import '../../../internal/vendor/@carbon/web-components/components/accordion/index';
 import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
+import '../../card-group/index';
 import '../../content-item-horizontal/index';
 import '../../image/index';
+import '../../video-player/video-player-composite';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import { WithMedia as ContentItemHorizontalWithMedia } from '../../content-item-horizontal/__stories__/content-item-horizontal.stories';
+import ctaSectionContent from '../../cta-section/__stories__/content';
+import { Default as CardGroup } from '../../card-group/__stories__/card-group.stories';
 
 const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,
@@ -28,9 +34,29 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
+const ctaBlockItem = ({ heading, copy, links }) => html`
+  <dds-cta-block-item>
+    <dds-content-item-heading>${heading}</dds-content-item-heading>
+    <dds-content-item-copy>${copy}</dds-content-item-copy>
+    ${links.map(
+      (elem) =>
+        html`
+          <dds-text-cta
+            slot="footer"
+            cta-type="local"
+            icon-placement="right"
+            href="${elem.href}"
+            >${elem.copy}</dds-text-cta
+          >
+        `
+    )}
+  </dds-cta-block-item>
+`;
+
 export const Default = (args) => {
-  const { sectionHeading, sectionHeadingText, align, type } =
+  const { sectionHeading, sectionHeadingText } =
     args?.TabsExtendedWithMedia ?? {};
+  const { align, type } = args?.TabsExtendedWithMediaDefault ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -89,13 +115,8 @@ export const Default = (args) => {
 Default.story = {
   parameters: {
     knobs: {
-      TabsExtendedWithMedia: () => {
-        const sectionHeading = boolean('Section heading', true);
-        const sectionHeadingText =
-          sectionHeading && textNullable('Heading', 'Section heading');
+      TabsExtendedWithMediaDefault: () => {
         return {
-          sectionHeading,
-          sectionHeadingText,
           align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
           type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         };
@@ -103,14 +124,146 @@ Default.story = {
     },
     propsSet: {
       default: {
-        TabsExtendedWithMedia: {
-          sectionHeading: 'TitleHeading',
+        TabsExtendedWithMediaDefault: {
           align: 'left',
-          type: 'image',
+          type: MEDIA_TYPE.IMAGE,
         },
       },
     },
   },
+};
+
+export const WithMixedContent = (args) => {
+  const { sectionHeading, sectionHeadingText } =
+    args?.TabsExtendedWithMedia ?? {};
+
+  // Needed to bypass html`` template strings from putting strings with line breaks
+  // (which are forced by prettier formatting) into <pre> tags.
+  const exampleStrings = [
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.`,
+    `Donec tempus, urna eu elementum porta, justo massa porta nulla, et mattis mauris augue sit amet dolor.`,
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.`,
+  ];
+
+  const cardGroupItems = [
+    html`
+      <dds-card-group-item cta-type="local" href="/">
+        <dds-card-eyebrow>Topic (Local)</dds-card-eyebrow>
+        <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+        <p>${exampleStrings[0]}</p>
+        <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
+      </dds-card-group-item>
+    `,
+    html`
+      <dds-card-group-item cta-type="external" href="https://example.com">
+        <dds-card-eyebrow>Topic (External)</dds-card-eyebrow>
+        <dds-card-heading>Consectetur adipiscing elit</dds-card-heading>
+        <p>${exampleStrings[1]}</p>
+        <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
+      </dds-card-group-item>
+    `,
+  ];
+
+  const tabs = [
+    html`
+      <dds-tab label="Item horizontal">
+        ${ContentItemHorizontalWithMedia({
+          ContentItemHorizontal: {
+            align: MEDIA_ALIGN.RIGHT,
+            type: MEDIA_TYPE.VIDEO,
+            heading: 'Item horizontal with media',
+            eyebrow: 'Eyebrow',
+            copy: 'Plain text - Take root and flourish the carbon in our apple pies ship of the imagination circumnavigated gathered by gravity science. How far away extra-planetary Drake Equation hydrogen atoms concept of the number one made in the interiors of collapsing stars.',
+          },
+        })}
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="CTA section">
+        <dds-cta-block no-border>
+          <dds-content-block-heading>CTA Title</dds-content-block-heading>
+          <dds-content-block-copy size="md">
+            <dds-content-block-paragraph
+              data-autoid="dds--content-block-paragraph"
+              >Want to discuss your options with a DevOps expert? Contact our
+              sales team to evaluate your needs.</dds-content-block-paragraph
+            >
+          </dds-content-block-copy>
+          <dds-cta-block-item-row>
+            ${ctaBlockItem({ ...ctaSectionContent[0] })}
+            ${ctaBlockItem({ ...ctaSectionContent[1] })}
+            ${ctaBlockItem({ ...ctaSectionContent[2] })}
+          </dds-cta-block-item-row>
+        </dds-cta-block>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Card links group">
+        <dds-content-block-cards>
+          <dds-content-block-heading
+            >Card links group title</dds-content-block-heading
+          >
+          ${CardGroup({
+            CardGroup: {
+              cards: 3,
+              cardType: 'Card link',
+              cardsPerRow: 'dds-ce-demo-devenv--cards-in-row-3',
+            },
+          })}
+        </dds-content-block-cards>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Image">
+        <dds-image
+          alt="Image alt text"
+          default-src="${imgLg16x9}"
+          heading="Optional caption text"></dds-image>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Card Group">
+        <dds-card-group cards-per-row="3" grid-mode="narrow">
+          ${[...Array(5).keys()].map((i) => cardGroupItems[i % 2])}
+        </dds-card-group>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Content Group">
+        <dds-content-group>
+          <dds-content-group-heading
+            >Natural language processing (NLP)</dds-content-group-heading
+          >
+          <dds-content-group-copy>${exampleStrings[2]}</dds-content-group-copy>
+          <dds-card-link-cta
+            slot="footer"
+            cta-type="local"
+            href="https://www.example.com">
+            <dds-card-link-heading
+              >Learn more about natual language
+              processing</dds-card-link-heading
+            >
+            <dds-card-cta-footer></dds-card-cta-footer>
+          </dds-card-link-cta>
+        </dds-content-group>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Disabled" disabled>
+        <p>${exampleStrings[0]}</p>
+      </dds-tab>
+    `,
+  ];
+
+  return html`
+    <dds-tabs-extended-media
+      section-heading=${sectionHeading ? 'true' : 'false'}>
+      <dds-content-section-heading
+        >${ifNonNull(sectionHeadingText)}</dds-content-section-heading
+      >
+      ${tabs}
+    </dds-tabs-extended-media>
+  `;
 };
 
 export default {
@@ -132,6 +285,24 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {},
+    knobs: {
+      TabsExtendedWithMedia: () => {
+        const sectionHeading = boolean('Section heading', true);
+        const sectionHeadingText =
+          sectionHeading && textNullable('Heading', 'Section heading');
+
+        return {
+          sectionHeading,
+          sectionHeadingText,
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        TabsExtendedWithMedia: {
+          sectionHeading: 'TitleHeading',
+        },
+      },
+    },
   },
 };
