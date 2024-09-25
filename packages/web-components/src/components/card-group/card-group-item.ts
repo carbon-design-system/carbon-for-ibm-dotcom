@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,12 +22,6 @@ const { stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-card-group-item`)
 class C4DCardGroupItem extends C4DCard {
-  /**
-   * `true` if the card group is using border.
-   */
-  @property({ type: Boolean, reflect: true })
-  border = false;
-
   /**
    * `true` if the card group item is empty.
    */
