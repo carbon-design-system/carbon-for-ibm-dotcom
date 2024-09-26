@@ -15,7 +15,6 @@ import {
   resetToWorldWideContent,
   supportedLanguages,
 } from './utils';
-// import this.countrySettings from './country-settings';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';

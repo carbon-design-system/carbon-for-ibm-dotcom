@@ -40,7 +40,6 @@ we support!
 | [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services)             | IBM.com ES6 Service classes                              |
 | [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles)                 | Framework agnostic styles package for IBM.com components |
 | [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/utilities)           | IBM.com ES6 Utility classes                              |
-| [`@carbon/web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/carbon-web-components)    | Carbon Web Components                                    |
 
 If you are building pages for IBM.com,
 [see what is needed on the page](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/building-for-ibm-dotcom.md).
@@ -51,7 +50,6 @@ If you are building pages for IBM.com,
   https://www.ibm.com/standards/carbon/web-components
 - `@carbon/ibmdotcom-web-components` - React Wrappers:
   https://www.ibm.com/standards/carbon/web-components/react
-- `@carbon/web-components`: https://web-components.carbondesignsystem.com
 
 ## Documentation
 

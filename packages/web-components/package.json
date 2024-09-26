@@ -215,6 +215,7 @@
     "marked": "^4.0.10",
     "mini-css-extract-plugin": "~2.9.0",
     "mkdirp": "^0.5.0",
+    "null-loader": "^4.0.1",
     "polymer-webpack-loader": "^2.0.0",
     "postcss": "^8.2.10",
     "postcss-loader": "^3.0.0",

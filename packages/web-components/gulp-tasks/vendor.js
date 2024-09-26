@@ -11,10 +11,6 @@
 
 const gulp = require('gulp');
 const {
-  carbonWebComponentsCJSSrcDir,
-  carbonWebComponentsESSrcDir,
-  carbonWebComponentsVendorCJSDstDir,
-  carbonWebComponentsVendorESDstDir,
   servicesCJSSrcDir,
   servicesESSrcDir,
   servicesVendorCJSDstDir,
@@ -28,22 +24,6 @@ const {
   utilitiesVendorCJSDstDir,
   utilitiesVendorESDstDir,
 } = require('./config');
-
-/**
- * Generate `es/internal/vendor` contents.
- */
-const carbonWebComponentsVendorESDst = () =>
-  gulp
-    .src([`${carbonWebComponentsESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(carbonWebComponentsVendorESDstDir));
-
-/**
- * Generate `lib/internal/vendor` contents.
- */
-const carbonWebComponentsVendorCJSDst = () =>
-  gulp
-    .src([`${carbonWebComponentsCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(carbonWebComponentsVendorCJSDstDir));
 
 /**
  * Generate `es/internal/vendor` contents.
@@ -95,10 +75,6 @@ const utilitiesVendorCJSDst = () =>
 
 // Vendor builds
 gulp.task(
-  'vendor:carbon-web-components',
-  gulp.parallel(carbonWebComponentsVendorCJSDst, carbonWebComponentsVendorESDst)
-);
-gulp.task(
   'vendor:utilities',
   gulp.parallel(utilitiesVendorCJSDst, utilitiesVendorESDst)
 );
@@ -113,7 +89,6 @@ gulp.task(
 gulp.task(
   'vendor',
   gulp.series(
-    gulp.task('vendor:carbon-web-components'),
     gulp.task('vendor:utilities'),
     gulp.task('vendor:services'),
     gulp.task('vendor:services-store')
