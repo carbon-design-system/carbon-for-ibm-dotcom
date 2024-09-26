@@ -29,6 +29,7 @@
     background: none;
     gap: 1px;
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto auto auto 1rem);
 
     @include breakpoint(md) {
       grid-template-columns: repeat(2, 1fr);
@@ -56,10 +57,30 @@
   }
 
   :host(#{$c4d-prefix}-card-group-item) {
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+
     .#{$prefix}--card {
+      display: grid;
       border: 0;
+      grid-row: 1 / -1;
+      grid-template-rows: subgrid;
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
+
+      .#{$prefix}--card__wrapper {
+        display: grid;
+        grid-row: 1 / -1;
+        grid-template-rows: subgrid;
+      }
+
+      .#{$prefix}--card__content {
+        display: grid;
+        grid-row: 1 / -1;
+        grid-template-rows: subgrid;
+        row-gap: 0;
+      }
     }
 
     .#{$prefix}--image {
@@ -83,6 +104,11 @@
       .#{$prefix}--card {
         outline-offset: -1px;
       }
+    }
+
+    ::slotted(#{$c4d-prefix}-card-footer) {
+      display: revert;
+      margin-block-start: revert;
     }
   }
 
