@@ -83,7 +83,7 @@
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "rimraf": "^3.0.0",
-    "rollup": "^2.55.1",
+    "rollup": "^3.29.5",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-sizes": "^1.0.4",
     "whatwg-fetch": "^2.0.3"
