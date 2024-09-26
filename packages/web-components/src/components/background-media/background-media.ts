@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
 import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';

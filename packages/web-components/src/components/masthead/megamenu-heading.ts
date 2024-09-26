@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import ArrowRight24 from '@carbon/web-components/es/icons/arrow--right/24.js';
 import ArrowLeft24 from '@carbon/web-components/es/icons/arrow--left/24.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
