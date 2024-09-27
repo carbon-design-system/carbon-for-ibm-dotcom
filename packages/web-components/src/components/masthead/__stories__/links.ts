@@ -472,6 +472,21 @@ const mastheadL1Data: MastheadL1 = {
   },
 };
 
+const mastheadL1EmptyMenuItemsData: MastheadL1 = {
+  title: 'IBM Data Virtualization',
+  url: 'https://www.ibm.com/products/watson\u002Dquery',
+  actions: {
+    login: {
+      title: 'Try it free',
+      url: 'https://dataplatform.cloud.ibm.com/registration/stepone?context=cpdaas\x26uucid=04fff6e19e3bf9ae\x26utm_content=CPDWW',
+    },
+    cta: {
+      title: 'Book a meeting',
+      url: 'https://www.ibm.com/products/watson\u002Dquery?schedulerform=',
+    },
+  },
+};
+
 const mastheadL0Data: L0MenuItem[] = [
   {
     title: 'Faceted Megamenu',
@@ -2194,4 +2209,9 @@ const mastheadL0Data: L0MenuItem[] = [
 
 /* eslint-enable max-len */
 
-export { mastheadLogoData, mastheadL1Data, mastheadL0Data };
+export {
+  mastheadLogoData,
+  mastheadL1Data,
+  mastheadL1EmptyMenuItemsData,
+  mastheadL0Data,
+};
