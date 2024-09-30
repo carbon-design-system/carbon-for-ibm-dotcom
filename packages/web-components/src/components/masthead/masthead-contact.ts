@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import styles from './masthead.scss';
 import C4DMastheadProfile from './masthead-profile';

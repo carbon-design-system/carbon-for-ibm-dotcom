@@ -436,10 +436,6 @@ Connecting to `@carbon/ibmdotcom-services-store` is done with
 [`ConnectMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/connect.ts)
 that has a similar feature set to [`react-redux`](https://react-redux.js.org).
 
-> 💡 `import`s of `@carbon/ibmdotcom-services-store` are slightly different from
-> other NPM packages. See [vendor directory](#vendor-directory) section for more
-> details.
-
 Similar to `react-redux`, `ConnectMixin` uses two callbacks:
 
 | Callback                                                                                                              | Description                                                                                                                                                                                                                                                                                                         |
@@ -553,30 +549,17 @@ procedure can be found
 ## Vendor directory
 
 The `@carbon/ibmdotcom-services-store` package is a private package that is not
-published to NPM. Adding it to `package.json` will break application because it
-won't be found.
+published to NPM. Adding it to `package.json` will break your application
+because it won't be found.
 
 To solve this problem, the
 [build process](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/vendor.js)
 of `@carbon/ibmdotcom-web-components` copies build artifacts of
 `@carbon/ibmdotcom-services-store` to
-`packages/web-components/src/internal/vendor/@carbon/ibmdotcom-services-store`
-as well as to
 `packages/web-components/es/internal/vendor/@carbon/ibmdotcom-services-store`.
-The former is used for our development, while the latter is for the application,
-being part of the
-[`@carbon/ibmdotcom-web-components` package](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/es/internal/vendor/@carbon/ibmdotcom-services-store/).
-
-The `import`s of `@carbon/ibmdotcom-services-store` in
-`@carbon/ibmdotcom-web-components` refer to those copies, rather than the
-`@carbon/ibmdotcom-services-store` package:
-
-```javascript
-import {
-  loadLanguage,
-  setLanguage,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-```
+This is for your application, being part of the
+[`@carbon/ibmdotcom-web-components` package](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/es/internal/vendor/@carbon/ibmdotcom-services-store/),
+they are available should you need them.
 
 ## Rollup bundle for Dotcom shell
 

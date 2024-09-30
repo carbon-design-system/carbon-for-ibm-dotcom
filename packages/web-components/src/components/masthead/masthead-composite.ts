@@ -17,9 +17,9 @@ import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
-import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
+import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo.js';
 import {
   BasicLink,
   MastheadL1,
@@ -30,12 +30,12 @@ import {
   L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 import {
   UNAUTHENTICATED_STATUS,
   CLOUD_UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import C4DMastheadLogo from './masthead-logo';
@@ -67,7 +67,7 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DMastheadMenuButton from './masthead-menu-button';
 
 const { stablePrefix: c4dPrefix, prefix } = settings;

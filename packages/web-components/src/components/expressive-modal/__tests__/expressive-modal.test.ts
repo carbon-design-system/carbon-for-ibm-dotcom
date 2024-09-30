@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,8 +10,8 @@
 import { html, render } from 'lit/html.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import C4DExpressiveModal from '../expressive-modal';
-import '@carbon/web-components/es/components/button/button';
-import CDSModalCloseButton from '@carbon/web-components/es/components/modal/modal-close-button';
+import '@carbon/web-components/es/components/button/button.js';
+import CDSModalCloseButton from '@carbon/web-components/es/components/modal/modal-close-button.js';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import { Default } from '../__stories__/expressive-modal.stories';
 

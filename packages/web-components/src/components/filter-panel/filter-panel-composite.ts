@@ -15,7 +15,7 @@ import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import '@carbon/web-components/es/components/checkbox/checkbox.js';

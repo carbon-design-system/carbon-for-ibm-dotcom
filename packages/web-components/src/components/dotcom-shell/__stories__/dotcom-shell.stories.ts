@@ -37,7 +37,7 @@ import {
   tocContent,
   contentLeadspaceSearch,
 } from './data/content';
-import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports

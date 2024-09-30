@@ -15,7 +15,7 @@ import UserOnline20 from '@carbon/web-components/es/icons/user--online/20.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
