@@ -10,7 +10,7 @@
 import { LitElement, html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { INPUT_SIZE } from '@carbon/web-components/es/components/text-input/text-input.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
 import CDSSearch from '@carbon/web-components/es/components/search/search.js';

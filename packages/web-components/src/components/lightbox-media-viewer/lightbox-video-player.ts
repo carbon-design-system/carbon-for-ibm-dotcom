@@ -10,13 +10,13 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

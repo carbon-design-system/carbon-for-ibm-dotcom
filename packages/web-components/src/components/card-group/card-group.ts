@@ -9,12 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { GRID_MODE };
 

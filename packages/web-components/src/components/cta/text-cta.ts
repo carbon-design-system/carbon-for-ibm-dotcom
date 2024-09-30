@@ -9,17 +9,17 @@
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 

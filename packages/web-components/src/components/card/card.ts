@@ -10,11 +10,11 @@
 import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DCardFooter from './card-footer';
@@ -104,7 +104,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     if (ctaType !== CTA_TYPE.VIDEO) {
       return html`<slot name="heading"></slot>`;
     }
-    const caption = formatVideoCaptionInEffect({ name: videoName });
+    const formatedVideoName = formatVideoCaptionInEffect({ name: videoName });
 
     this.dispatchEvent(
       new CustomEvent(
@@ -116,8 +116,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       )
     );
     return html`
-      <slot name="heading"></slot
-      ><c4d-card-heading part="caption">${caption}</c4d-card-heading>
+      <slot name="heading">
+        <c4d-card-heading>${formatedVideoName}</c4d-card-heading>
+      </slot>
     `;
   }
 

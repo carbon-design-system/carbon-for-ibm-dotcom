@@ -12,10 +12,10 @@ import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
+import { MediaData } from '@carbon/ibmdotcom-services-store/es/types/kalturaPlayerAPI';
 import {
   VIDEO_PLAYER_CONTENT_STATE,
   VIDEO_PLAYER_PLAYING_MODE,

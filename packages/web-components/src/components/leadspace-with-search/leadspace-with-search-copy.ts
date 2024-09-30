@@ -9,11 +9,11 @@
 
 import { css } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './leadspace-with-search.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentBlockParagraph from '../content-block/content-block-paragraph';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

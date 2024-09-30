@@ -18,7 +18,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

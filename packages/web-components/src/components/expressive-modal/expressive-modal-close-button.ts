@@ -9,7 +9,7 @@
 
 import { property } from 'lit/decorators.js';
 import CDSModalCloseButton from '@carbon/web-components/es/components/modal/modal-close-button.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

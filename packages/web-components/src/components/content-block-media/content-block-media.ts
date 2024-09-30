@@ -8,8 +8,8 @@
  */
 
 import { css } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DContentBlock from '../content-block/content-block';
 import styles from './content-block-media.scss';
 

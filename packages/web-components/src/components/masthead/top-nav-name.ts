@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMastheadTopNav from './top-nav';
 import C4DLeftNavName from './left-nav-name';
 import styles from './masthead.scss';

@@ -16,9 +16,9 @@ import PlayVideo from '../../../es/icons/play-video.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
 import styles from './video-player.scss';

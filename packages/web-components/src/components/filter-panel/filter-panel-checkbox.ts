@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CDSCheckbox from '@carbon/web-components/es/components/checkbox/checkbox';
-import FocusMixin from '@carbon/web-components/es/globals/mixins/focus';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import '@carbon/web-components/es/components/modal/modal';
+import CDSCheckbox from '@carbon/web-components/es/components/checkbox/checkbox.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import '@carbon/web-components/es/components/modal/modal.js';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

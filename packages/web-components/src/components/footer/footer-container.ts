@@ -14,34 +14,34 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import store from '@carbon/ibmdotcom-services-store/es/store.js';
+import { LocaleAPIState } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
   TranslateAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 import {
   loadLanguage,
   setLanguage,
   loadLocaleList,
   setLocaleList,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/actions/localeAPI.js';
+import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
 import {
   loadTranslation,
   setTranslation,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
-import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/actions/translateAPI.js';
+import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
 import {
   LocaleModalContainerState,
   LocaleModalContainerStateProps,
   LocaleModalContainerActions,
 } from '../locale-modal/locale-modal-container';
 import C4DFooterComposite from './footer-composite';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -8,8 +8,8 @@
  */
 
 import { css } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DCardCTA from '../cta/card-cta';
 import styles from './feature-section.scss';
 

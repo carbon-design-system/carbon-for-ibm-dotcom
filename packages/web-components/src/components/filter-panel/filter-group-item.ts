@@ -9,7 +9,7 @@
 
 import { property, query, state } from 'lit/decorators.js';
 import CDSAccordionItem from '@carbon/web-components/es/components/accordion/accordion-item.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DFilterPanelComposite from './filter-panel-composite';

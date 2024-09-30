@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
 import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';

@@ -9,10 +9,10 @@
 
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

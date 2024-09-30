@@ -12,10 +12,10 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import Download20 from '@carbon/web-components/es/icons/download/20.js';
 import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
 import PlayFilledAlt20 from '@carbon/web-components/es/icons/play--filled--alt/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

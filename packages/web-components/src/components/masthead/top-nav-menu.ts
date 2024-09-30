@@ -9,7 +9,7 @@
 
 import { property } from 'lit/decorators.js';
 import CDSHeaderMenu from '@carbon/web-components/es/components/ui-shell/header-menu.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

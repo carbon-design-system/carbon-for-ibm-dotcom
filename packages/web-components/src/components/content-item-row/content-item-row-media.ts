@@ -12,7 +12,7 @@ import { property, state } from 'lit/decorators.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentItem from '../content-item/content-item';
 import styles from './content-item-row-media.scss';
 

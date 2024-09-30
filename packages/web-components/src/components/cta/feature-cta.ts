@@ -16,7 +16,7 @@ import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import C4DFeatureCard from '../feature-card/feature-card';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';

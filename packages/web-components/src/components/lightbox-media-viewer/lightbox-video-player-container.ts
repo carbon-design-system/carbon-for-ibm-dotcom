@@ -8,9 +8,9 @@
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import store from '@carbon/ibmdotcom-services-store/es/store.js';
+import { MediaPlayerAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI';
 import ConnectMixin from '../../globals/mixins/connect';
 import {
   VideoPlayerContainerState,
@@ -21,7 +21,7 @@ import {
   mapDispatchToProps,
 } from '../video-player/video-player-container';
 import C4DLightboxVideoPlayerComposite from './lightbox-video-player-composite';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

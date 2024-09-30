@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

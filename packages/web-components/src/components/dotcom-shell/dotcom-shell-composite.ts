@@ -10,9 +10,9 @@
 import pickBy from 'lodash-es/pickBy.js';
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
-import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
+import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
@@ -20,13 +20,13 @@ import {
   L0MenuItem,
   MastheadProfileItem,
   Translation,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

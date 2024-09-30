@@ -8,13 +8,13 @@
  */
 
 import { query, state, property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenu from './megamenu';
 import C4DTopNav from './top-nav';
 import C4DTopNavMenu from './top-nav-menu';
 import C4DMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

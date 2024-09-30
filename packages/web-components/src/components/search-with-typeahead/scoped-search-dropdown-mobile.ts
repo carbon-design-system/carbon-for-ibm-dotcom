@@ -14,7 +14,7 @@ import CDSSelect from '@carbon/web-components/es/components/select/select.js';
 import { INPUT_SIZE } from '@carbon/web-components/es/components/text-input/text-input.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

@@ -11,7 +11,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentSection from '../content-section/content-section';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

@@ -36,7 +36,7 @@ import {
 import { mastheadL1Data as l1Data } from '../../masthead/__stories__/links';
 import mockLangList from '../../footer/__stories__/language-list';
 import { FOOTER_SIZE } from '../../footer/footer';
-import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports

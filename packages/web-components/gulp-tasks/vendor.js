@@ -13,28 +13,17 @@ const gulp = require('gulp');
 const {
   servicesCJSSrcDir,
   servicesESSrcDir,
-  servicesVendorSrcDir,
   servicesVendorCJSDstDir,
   servicesVendorESDstDir,
   servicesStoreCJSSrcDir,
   servicesStoreESSrcDir,
-  servicesStoreVendorSrcDir,
   servicesStoreVendorCJSDstDir,
   servicesStoreVendorESDstDir,
   utilitiesCJSSrcDir,
   utilitiesESSrcDir,
-  utilitiesVendorSrcDir,
   utilitiesVendorCJSDstDir,
   utilitiesVendorESDstDir,
 } = require('./config');
-
-/**
- * Generates `src/internal/vendor` contents.
- */
-const servicesVendorSrc = () =>
-  gulp
-    .src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
@@ -53,14 +42,6 @@ const servicesVendorCJSDst = () =>
     .pipe(gulp.dest(servicesVendorCJSDstDir));
 
 /**
- * Generates `src/internal/vendor` contents.
- */
-const servicesStoreVendorSrc = () =>
-  gulp
-    .src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesStoreVendorSrcDir));
-
-/**
  * Generate `es/internal/vendor` contents.
  */
 const servicesStoreVendorESDst = () =>
@@ -75,14 +56,6 @@ const servicesStoreVendorCJSDst = () =>
   gulp
     .src([`${servicesStoreCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
     .pipe(gulp.dest(servicesStoreVendorCJSDstDir));
-
-/**
- * Generates `src/internal/vendor` contents.
- */
-const utilitiesVendorSrc = () =>
-  gulp
-    .src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(utilitiesVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
@@ -103,19 +76,15 @@ const utilitiesVendorCJSDst = () =>
 // Vendor builds
 gulp.task(
   'vendor:utilities',
-  gulp.parallel(utilitiesVendorSrc, utilitiesVendorCJSDst, utilitiesVendorESDst)
+  gulp.parallel(utilitiesVendorCJSDst, utilitiesVendorESDst)
 );
 gulp.task(
   'vendor:services',
-  gulp.parallel(servicesVendorSrc, servicesVendorCJSDst, servicesVendorESDst)
+  gulp.parallel(servicesVendorCJSDst, servicesVendorESDst)
 );
 gulp.task(
   'vendor:services-store',
-  gulp.parallel(
-    servicesStoreVendorSrc,
-    servicesStoreVendorCJSDst,
-    servicesStoreVendorESDst
-  )
+  gulp.parallel(servicesStoreVendorCJSDst, servicesStoreVendorESDst)
 );
 gulp.task(
   'vendor',

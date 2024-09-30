@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredListRow from '../structured-list/structured-list-row';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';

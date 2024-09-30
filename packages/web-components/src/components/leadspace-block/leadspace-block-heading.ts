@@ -9,7 +9,7 @@
 
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DLeadspaceHeading from '../leadspace/leadspace-heading';
 import styles from './leadspace-block.scss';
 

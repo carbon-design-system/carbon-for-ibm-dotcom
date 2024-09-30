@@ -14,21 +14,21 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import store from '@carbon/ibmdotcom-services-store/es/store.js';
 import {
   LocaleList,
   LocaleAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   loadLanguage,
   setLanguage,
   loadLocaleList,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/actions/localeAPI.js';
+import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
 import C4DLocaleModalComposite from './locale-modal-composite';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

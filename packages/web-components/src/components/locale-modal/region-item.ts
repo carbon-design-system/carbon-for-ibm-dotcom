@@ -11,7 +11,7 @@ import { html, css } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
 import C4DCard from '../card/card';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

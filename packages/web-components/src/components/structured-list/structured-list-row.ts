@@ -9,7 +9,7 @@
 
 import CDSStructuredListRow from '@carbon/web-components/es/components/structured-list/structured-list-row.js';
 import { html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

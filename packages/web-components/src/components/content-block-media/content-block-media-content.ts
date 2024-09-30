@@ -8,11 +8,11 @@
  */
 
 import { css, html, TemplateResult } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block-media.scss';
 import C4DContentGroup from '../content-group/content-group';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

@@ -13,7 +13,7 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import throttle from 'lodash-es/throttle.js';
 import UpToTop20 from '@carbon/web-components/es/icons/up-to-top/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './back-to-top.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

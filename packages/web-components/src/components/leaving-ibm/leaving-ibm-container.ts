@@ -8,10 +8,10 @@
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
-import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import store from '@carbon/ibmdotcom-services-store/es/store.js';
+import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
+import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
 import ConnectMixin from '../../globals/mixins/connect';
 import {
   mapStateToProps,
@@ -21,7 +21,7 @@ import {
   LeavingIbmContainerActions,
 } from './leaving-ibm-connect';
 import C4DLeavingIbmComposite from './leaving-ibm-composite';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

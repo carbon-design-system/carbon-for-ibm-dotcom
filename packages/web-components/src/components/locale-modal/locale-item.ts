@@ -10,8 +10,8 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie.js';
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

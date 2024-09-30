@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DMegaMenuRightNavigation from './megamenu-right-navigation';
 import styles from './masthead.scss';
 

@@ -13,15 +13,15 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import Error20 from '@carbon/web-components/es/icons/error/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import {
   Country,
   LocaleList,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import './locale-modal';
 import C4DLocaleModal from './locale-modal';
 import './regions';
