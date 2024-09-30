@@ -16,7 +16,7 @@ import CDSDropdown, {
   NAVIGATION_DIRECTION,
 } from '@carbon/web-components/es/components/dropdown/dropdown.js';
 import Close16 from '@carbon/web-components/es/icons/close/16.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

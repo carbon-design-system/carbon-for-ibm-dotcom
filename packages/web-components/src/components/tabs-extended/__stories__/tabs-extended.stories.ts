@@ -14,7 +14,7 @@ import '../../card-group/index';
 import { TABS_TYPE } from '../defs';
 import readme from './README.stories.mdx';
 import styles from './tabs-extended-stories.scss';
-import { prefix } from '@carbon/web-components/es/globals/settings';
+import { prefix } from '@carbon/web-components/es/globals/settings.js';
 
 const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Vivamus sed interdum tortor. Sed id pellentesque diam.

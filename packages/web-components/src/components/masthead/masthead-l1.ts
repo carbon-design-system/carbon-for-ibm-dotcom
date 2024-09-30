@@ -10,7 +10,7 @@
 import { TemplateResult as _TemplateResult, html, LitElement } from 'lit';
 import { property, query, queryAll, state } from 'lit/decorators.js';
 import root from 'window-or-global';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead-l1.scss';
 import {
@@ -19,12 +19,12 @@ import {
   L1CtaLink,
   L1SubmenuSectionHeading,
   MastheadL1,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
 import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';

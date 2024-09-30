@@ -12,21 +12,21 @@ import { property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
 } from '../../component-mixins/media-query/media-query';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
-import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
+import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
   Translation,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 import { FOOTER_SIZE } from './footer';
 import { DROPDOWN_SIZE } from './combo-box';
 // Above import is interface-only ref and thus code won't be brought into the build

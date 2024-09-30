@@ -11,7 +11,7 @@ import {
   MastheadL1,
   MastheadLogoData,
   L0MenuItem,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 
 /* eslint-disable max-len */
 

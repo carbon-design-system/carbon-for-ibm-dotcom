@@ -35,7 +35,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn clean && gulp vendor && node scripts/build.js",
+    "build": "yarn clean && node scripts/build.js",
     "ci-check": "yarn build && yarn test",
     "clean": "rimraf es lib umd",
     "contributors:add": "all-contributors add",
