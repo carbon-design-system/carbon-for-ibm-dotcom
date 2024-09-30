@@ -84,6 +84,12 @@
         grid-template-rows: subgrid;
         row-gap: 0;
       }
+
+      .#{$prefix}--card__copy {
+        display: grid;
+        grid-row: span 2;
+        grid-template-rows: subgrid;
+      }
     }
 
     .#{$prefix}--image {
