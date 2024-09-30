@@ -485,6 +485,7 @@ const mastheadL1EmptyMenuItemsData: MastheadL1 = {
       url: 'https://www.ibm.com/products/watson\u002Dquery?schedulerform=',
     },
   },
+  menuItems: [],
 };
 
 const mastheadL0Data: L0MenuItem[] = [
