@@ -15,19 +15,19 @@ import {
 } from 'redux';
 import {} from 'lit';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import store from '@carbon/ibmdotcom-services-store/es/store.js';
 import {
   MediaData,
   MediaPlayerAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
-import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
-import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/kalturaPlayerAPI';
+import { loadMediaData } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI.js';
+import { MediaPlayerAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI';
 import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerComposite from './video-player-composite';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

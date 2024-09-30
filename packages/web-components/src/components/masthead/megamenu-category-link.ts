@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import Launch16 from '@carbon/web-components/es/icons/launch/16.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import styles from './masthead.scss';

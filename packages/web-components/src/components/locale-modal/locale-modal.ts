@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
 import '../expressive-modal/expressive-modal-heading';
@@ -23,7 +23,7 @@ import C4DLocaleSearch from './locale-search';
 import C4DRegionItem from './region-item';
 import styles from './locale-modal.scss';
 import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
-import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

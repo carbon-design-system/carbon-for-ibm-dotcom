@@ -10,7 +10,7 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from './defs';

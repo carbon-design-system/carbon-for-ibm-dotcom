@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import '../../card/card-heading';
 import '../content-group-cards';
 import '../content-group-cards-item';

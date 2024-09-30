@@ -19,7 +19,7 @@ import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import { LIGHTBOX_CONTRAST } from './defs';
 import Maximize20 from '@carbon/web-components/es/icons/maximize/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';

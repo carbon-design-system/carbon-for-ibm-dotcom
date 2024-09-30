@@ -9,10 +9,10 @@
 
 import { html, LitElement, TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
 import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
 import Calendar16 from '@carbon/web-components/es/icons/calendar/16.js';
 import Chat16 from '@carbon/web-components/es/icons/chat/16.js';
