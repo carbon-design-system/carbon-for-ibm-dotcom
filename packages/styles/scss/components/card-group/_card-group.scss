@@ -29,7 +29,6 @@
     background: none;
     gap: 1px;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, auto auto auto 1rem);
 
     @include breakpoint(md) {
       grid-template-columns: repeat(2, 1fr);
@@ -57,27 +56,31 @@
   }
 
   :host(#{$c4d-prefix}-card-group-item) {
-    display: grid;
-    grid-row: span 4;
-    grid-template-rows: subgrid;
+    display: contents;
 
     .#{$prefix}--card {
       display: grid;
       border: 0;
-      grid-row: 1 / -1;
+      grid-row: span 10;
       grid-template-rows: subgrid;
+      margin-block-end: 2rem;
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
 
       .#{$prefix}--card__wrapper {
         display: grid;
-        grid-row: 1 / -1;
+        grid-row: span 10;
         grid-template-rows: subgrid;
+
+        &::before,
+        &::after {
+          content: revert;
+        }
       }
 
       .#{$prefix}--card__content {
         display: grid;
-        grid-row: 1 / -1;
+        grid-row: span 10;
         grid-template-rows: subgrid;
         row-gap: 0;
       }
@@ -136,24 +139,24 @@
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='narrow'] {
     @include breakpoint(sm) {
-      gap: $spacing-03;
+      gap: 0 $spacing-03;
       padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
-      gap: $spacing-05;
+      gap: 0 $spacing-05;
       padding-block-start: $spacing-05;
     }
   }
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='default'] {
     @include breakpoint(sm) {
-      gap: $spacing-07;
+      gap: 0 $spacing-07;
       padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
-      gap: $spacing-07;
+      gap: 0 $spacing-07;
       padding-block-start: $spacing-05;
     }
   }
