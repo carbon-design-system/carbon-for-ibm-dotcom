@@ -104,7 +104,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     if (ctaType !== CTA_TYPE.VIDEO) {
       return html`<slot name="heading"></slot>`;
     }
-    const caption = formatVideoCaptionInEffect({ name: videoName });
+    const formatedVideoName = formatVideoCaptionInEffect({ name: videoName });
 
     this.dispatchEvent(
       new CustomEvent(
@@ -116,8 +116,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       )
     );
     return html`
-      <slot name="heading"></slot
-      ><c4d-card-heading part="caption">${caption}</c4d-card-heading>
+      <slot name="heading">
+        <c4d-card-heading>${formatedVideoName}</c4d-card-heading>
+      </slot>
     `;
   }
 
