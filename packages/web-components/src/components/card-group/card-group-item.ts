@@ -12,6 +12,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DCard from '../card/card';
 import styles from './card-group.scss';
+import { GRID_MODE } from './defs';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -27,6 +28,13 @@ class C4DCardGroupItem extends C4DCard {
    */
   @property({ type: Boolean, reflect: true })
   empty = false;
+
+  /**
+   * The inherited grid mode the card group item lives within.
+   * Condensed (1px) | Narrow (16px) | Default(32px).
+   */
+  @property({ attribute: 'grid-mode', reflect: true })
+  gridMode = GRID_MODE.DEFAULT;
 
   static get stableSelector() {
     return `${c4dPrefix}--card-group-item`;

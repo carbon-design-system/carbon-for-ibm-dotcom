@@ -45,7 +45,7 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
         )
       );
 
-    // retrieve item heading, eyebrows, and footers to set same height
+    // Retrieve item heading, eyebrows, and footers to set same height.
     if (this._childItems) {
       this._childItems.forEach((e) => {
         if (!e.hasAttribute('href') && this.gridMode === GRID_MODE.CONDENSED) {
@@ -113,6 +113,14 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
       )
     ) {
       this.setAttribute('with-card-in-card', '');
+    }
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    if (changedProperties.has('gridMode')) {
+      this._childItems.forEach((e) => (e.gridMode = this.gridMode));
     }
   }
 
