@@ -115,6 +115,18 @@
       }
     }
 
+    &[grid-mode='narrow'] {
+      .#{$prefix}--card {
+        margin-block-end: 1rem;
+      }
+    }
+
+    &[grid-mode='condensed'] {
+      .#{$prefix}--card {
+        margin-block-end: 0;
+      }
+    }
+
     ::slotted(#{$c4d-prefix}-card-footer) {
       display: revert;
       margin-block-start: revert;
