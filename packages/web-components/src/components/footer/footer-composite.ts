@@ -406,7 +406,8 @@ class C4DFooterComposite extends MediaQueryMixin(
 
         <c4d-legal-nav
           size="${ifDefined(size)}"
-          navLabel="${ifDefined(navLabel)}">
+          navLabel="${ifDefined(navLabel)}"
+          adjunctLinksLenght="${adjunctLinks.length ?? 0}">
           <c4d-footer-logo
             size="${ifDefined(size)}"
             ?disable-locale-button="${disableLocaleButton}"></c4d-footer-logo>

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { LitElement, PropertyValues, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -45,6 +45,10 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   /**
    * The adjunct links container
    */
+
+  @property()
+  adjunctLinksLenght = 0;
+
   @query(`.${c4dPrefix}--adjunct-links__container`)
   private _adjunctLinksContainer?: HTMLDivElement;
 
@@ -64,6 +68,21 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     });
   }
 
+  protected _handleAdjunctLinksVisibility() {
+    const {
+      _adjunctLinksContainer: adjunctLinksContainer,
+      _adjunctLinksSlot: adjunctLinksSlot,
+    } = this;
+    const hideAdjunctLinksContainer =
+      adjunctLinksSlot?.assignedNodes().length === 0
+        ? adjunctLinksContainer?.classList.add(
+            `${prefix}--adjunct-links__container--hidden`
+          )
+        : adjunctLinksContainer?.classList.remove(
+            `${prefix}--adjunct-links__container--hidden`
+          );
+    return hideAdjunctLinksContainer;
+  }
   /**
    * The shadow slot this legal nav should be in.
    */
@@ -75,6 +94,9 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
       this.removeAttribute('role');
     }
     super.connectedCallback();
+  }
+  attributeChangedCallback() {
+    this.requestUpdate();
   }
 
   render() {
@@ -120,17 +142,10 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   }
 
   firstUpdated() {
-    const {
-      _adjunctLinksContainer: adjunctLinksContainer,
-      _adjunctLinksSlot: adjunctLinksSlot,
-    } = this;
-    const hideAdjunctLinksContainer =
-      adjunctLinksSlot?.assignedNodes().length === 0
-        ? adjunctLinksContainer?.classList.add(
-            `${prefix}--adjunct-links__container--hidden`
-          )
-        : '';
-    return hideAdjunctLinksContainer;
+    this._handleAdjunctLinksVisibility();
+  }
+  updated() {
+    this._handleAdjunctLinksVisibility();
   }
 
   static get stableSelector() {
