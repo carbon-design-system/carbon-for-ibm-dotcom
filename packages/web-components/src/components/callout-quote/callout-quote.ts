@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-quote.scss';
 import C4DCalloutMixin from '../../component-mixins/callout/callout';
 import C4DQuote from '../quote/quote';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { property } from 'lit/decorators.js';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import C4DCalloutLinkWithIcon from './callout-link-with-icon';

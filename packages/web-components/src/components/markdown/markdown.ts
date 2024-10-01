@@ -15,7 +15,7 @@ import '@carbon/web-components/es/components/list/ordered-list.js';
 import '@carbon/web-components/es/components/list/unordered-list.js';
 import '@carbon/web-components/es/components/list/list-item.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './markdown.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

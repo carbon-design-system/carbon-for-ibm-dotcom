@@ -10,7 +10,7 @@
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import ChevronRight16 from '@carbon/web-components/es/icons/chevron--right/16.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,

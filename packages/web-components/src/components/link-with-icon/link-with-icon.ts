@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-with-icon.scss';

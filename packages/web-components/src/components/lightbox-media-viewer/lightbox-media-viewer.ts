@@ -9,12 +9,12 @@
 
 import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import C4DVideoPlayerContainer from '../video-player/video-player-container';
 import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
