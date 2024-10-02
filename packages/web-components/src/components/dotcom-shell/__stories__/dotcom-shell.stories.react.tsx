@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,7 +36,7 @@ import {
 import { mastheadL1Data as l1Data } from '../../masthead/__stories__/links';
 import mockLangList from '../../footer/__stories__/language-list';
 import { FOOTER_SIZE } from '../../footer/footer';
-import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports

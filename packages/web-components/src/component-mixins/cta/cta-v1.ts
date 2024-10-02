@@ -21,7 +21,7 @@ import Phone20 from '@carbon/web-components/es/icons/phone/20.js';
 import Calendar20 from '@carbon/web-components/es/icons/calendar/20.js';
 import Email20 from '@carbon/web-components/es/icons/email/20.js';
 import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 

@@ -14,7 +14,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import C4DCardLink from '../card-link/card-link';
 import '../card-link/card-link-heading';
 import CTAMixin from '../../component-mixins/cta/cta-v1';

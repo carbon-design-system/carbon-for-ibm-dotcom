@@ -13,8 +13,8 @@ import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
-import { LocaleAPI } from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 
 export { QUOTE_TYPES };
 

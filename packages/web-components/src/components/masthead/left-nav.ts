@@ -15,8 +15,8 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import CDSSideNav, {
   SIDE_NAV_USAGE_MODE,
 } from '@carbon/web-components/es/components/ui-shell/side-nav.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap.js';
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

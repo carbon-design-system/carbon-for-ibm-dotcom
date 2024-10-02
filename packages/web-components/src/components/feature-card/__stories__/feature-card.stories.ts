@@ -20,7 +20,7 @@ import imgMd1x1 from '../../../../.storybook/storybook-images/assets/480/fpo--1x
 import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXlg1x1 from '../../../../.storybook/storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
 import imgMax1x1 from '../../../../.storybook/storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
-import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 
 const { stablePrefix: c4dPrefix, prefix } = settings;
 

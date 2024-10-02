@@ -12,7 +12,7 @@ import CDSModal, {
   MODAL_SIZE,
 } from '@carbon/web-components/es/components/modal/modal.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leaving-ibm.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
