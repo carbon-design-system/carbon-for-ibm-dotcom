@@ -46,9 +46,6 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    * The adjunct links container
    */
 
-  @property()
-  adjunctLinksLength = 0;
-
   @query(`.${c4dPrefix}--adjunct-links__container`)
   private _adjunctLinksContainer?: HTMLDivElement;
 
@@ -73,15 +70,10 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
       _adjunctLinksContainer: adjunctLinksContainer,
       _adjunctLinksSlot: adjunctLinksSlot,
     } = this;
-    const hideAdjunctLinksContainer =
-      adjunctLinksSlot?.assignedNodes().length === 0
-        ? adjunctLinksContainer?.classList.add(
-            `${prefix}--adjunct-links__container--hidden`
-          )
-        : adjunctLinksContainer?.classList.remove(
-            `${prefix}--adjunct-links__container--hidden`
-          );
-    return hideAdjunctLinksContainer;
+
+    const hiddenClass = `${prefix}--adjunct-links__container--hidden`;
+    const isEmpty = (adjunctLinksSlot?.assignedNodes().length || 0) === 0;
+    adjunctLinksContainer?.classList.toggle(hiddenClass, isEmpty);
   }
   /**
    * The shadow slot this legal nav should be in.
@@ -94,9 +86,6 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
       this.removeAttribute('role');
     }
     super.connectedCallback();
-  }
-  attributeChangedCallback() {
-    this.requestUpdate();
   }
 
   render() {
@@ -119,7 +108,9 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
               part="adjunct-links-container"
               class="${c4dPrefix}--adjunct-links__container">
               <ul part="adjunct-links-list">
-                <slot name="adjunct-links"></slot>
+                <slot
+                  name="adjunct-links"
+                  @slotchange="${this._handleAdjunctLinksVisibility}"></slot>
               </ul>
             </div>
           </nav>
@@ -141,9 +132,6 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
         `;
   }
 
-  firstUpdated() {
-    this._handleAdjunctLinksVisibility();
-  }
   updated() {
     this._handleAdjunctLinksVisibility();
   }
