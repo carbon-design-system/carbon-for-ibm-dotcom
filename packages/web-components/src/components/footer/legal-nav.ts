@@ -132,10 +132,6 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
         `;
   }
 
-  updated() {
-    this._handleAdjunctLinksVisibility();
-  }
-
   static get stableSelector() {
     return `${c4dPrefix}--footer-legal-nav`;
   }
