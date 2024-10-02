@@ -17,7 +17,12 @@ import '../masthead-container';
 import { L1_CTA_TYPES } from '../defs';
 import styles from './masthead.stories.scss';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
+import {
+  mastheadL0Data,
+  mastheadL1Data,
+  mastheadL1EmptyMenuItemsData,
+  mastheadLogoData,
+} from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
@@ -323,8 +328,13 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, selectedMenuItemL1, l1CtaType, useMock } =
-    args?.MastheadComposite ?? {};
+  const {
+    selectedMenuItem,
+    selectedMenuItemL1,
+    l1CtaType,
+    useMock,
+    useL1EmptyData,
+  } = args?.MastheadComposite ?? {};
 
   let l1Data = { ...mastheadL1Data };
   if (l1Data?.actions?.cta) {
@@ -347,7 +357,7 @@ export const withL1 = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .l1Data="${l1Data}"
+            .l1Data="${useL1EmptyData ? mastheadL1EmptyMenuItemsData : l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
@@ -356,7 +366,7 @@ export const withL1 = (args) => {
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            .l1Data="${l1Data}"
+            .l1Data="${useL1EmptyData ? mastheadL1EmptyMenuItemsData : l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
@@ -384,6 +394,7 @@ withL1.story = {
           L1_CTA_TYPES.NONE
         ),
         useMock: boolean('use mock nav data (use-mock)', false),
+        useL1EmptyData: boolean('Use empty data for L1 menu items', false),
       }),
     },
     propsSet: {

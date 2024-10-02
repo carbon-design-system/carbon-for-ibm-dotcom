@@ -231,7 +231,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       } = this;
 
       // Only act if all the needed elements are present.
-      if (
+      const menuItems = this.l1Data?.menuItems ?? [];
+      if (menuItems.length === 0) {
+        menuScrollerButtons?.forEach((button) => {
+          button.setAttribute('hidden', '');
+        });
+      } else if (
         menuFirstItem &&
         menuLastItem &&
         menuContainerInner &&
