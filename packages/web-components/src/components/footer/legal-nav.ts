@@ -47,7 +47,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    */
 
   @property()
-  adjunctLinksLenght = 0;
+  adjunctLinksLength = 0;
 
   @query(`.${c4dPrefix}--adjunct-links__container`)
   private _adjunctLinksContainer?: HTMLDivElement;
