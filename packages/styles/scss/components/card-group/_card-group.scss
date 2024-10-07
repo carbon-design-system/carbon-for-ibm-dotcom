@@ -69,6 +69,7 @@
 
       .#{$prefix}--card__wrapper {
         display: grid;
+        justify-content: revert;
         grid-row: span 10;
         grid-template-rows: subgrid;
 
