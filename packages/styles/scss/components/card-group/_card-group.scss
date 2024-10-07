@@ -132,6 +132,13 @@
       display: revert;
       margin-block-start: revert;
     }
+
+    // Selects elements that contain tags which are slotted into the default
+    // slot. Note that this does not work in Chrome at time of writing.
+    // @see https://developer.chrome.com/blog/has-m105/#performance_and_limitations
+    ::slotted(:not([slot]):has(#{$prefix}-tag, #{$c4d-prefix}-tag)) {
+      grid-row: -1;
+    }
   }
 
   :host(#{$c4d-prefix}-card-group-item[href='']) {
