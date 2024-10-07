@@ -63,7 +63,7 @@
       border: 0;
       grid-row: span 10;
       grid-template-rows: subgrid;
-      margin-block-end: 2rem;
+      margin-block-end: $spacing-07;
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
 
@@ -117,7 +117,7 @@
 
     &[grid-mode='narrow'] {
       .#{$prefix}--card {
-        margin-block-end: 1rem;
+        margin-block-end: $spacing-05;
       }
     }
 
