@@ -185,6 +185,10 @@
       }
     }
 
+    .#{$prefix}--card__pictogram-wrapper {
+      display: flex;
+    }
+
     &[pictogram] .#{$prefix}--card {
       ::slotted(#{$c4d-prefix}-card-heading) {
         padding-block-start: 0;
@@ -417,6 +421,7 @@
 
   :host(#{$c4d-prefix}-card-eyebrow),
   .#{$prefix}--card__eyebrow {
+    display: block;
     @include content-width;
     @include type-style('label-02');
 
@@ -597,6 +602,7 @@
 
   :host(#{$c4d-prefix}-card-heading),
   :host(#{$c4d-prefix}-card-link-heading) {
+    display: block;
     @include content-width;
 
     color: $text-primary;

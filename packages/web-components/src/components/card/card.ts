@@ -102,9 +102,11 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       formatVideoCaption: formatVideoCaptionInEffect,
     } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
-      return html`<slot name="heading"></slot>`;
+      return html`<div part="heading-wrapper">
+        <slot name="heading"></slot>
+      </div>`;
     }
-    const formatedVideoName = formatVideoCaptionInEffect({ name: videoName });
+    const formattedVideoName = formatVideoCaptionInEffect({ name: videoName });
 
     this.dispatchEvent(
       new CustomEvent(
@@ -116,9 +118,11 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       )
     );
     return html`
-      <slot name="heading">
-        <c4d-card-heading>${formatedVideoName}</c4d-card-heading>
-      </slot>
+      <div part="heading-wrapper">
+        <slot name="heading">
+          <c4d-card-heading>${formattedVideoName}</c4d-card-heading>
+        </slot>
+      </div>
     `;
   }
 
@@ -155,7 +159,11 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             </c4d-image>
           `;
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}">${image}</slot>
+      <div part="image-wrapper">
+        <slot name="image" @slotchange="${this._handleSlotChange}">
+          ${image}
+        </slot>
+      </div>
     `;
   }
 
@@ -171,12 +179,23 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     `;
   }
 
+  protected _renderPictogramSlot(placement: PICTOGRAM_PLACEMENT) {
+    const { _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <div part="pictogram-wrapper" class="${prefix}--card__pictogram-wrapper">
+        <slot
+          name="pictogram"
+          data-pictogram-placement="${placement}"
+          @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
   /**
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } =
-      this;
+    const { _hasPictogram: hasPictogram } = this;
     return html`
       ${this._renderImage()}
       <div
@@ -187,12 +206,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         <div class="${prefix}--card__content" part="content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
+            ? this._renderPictogramSlot(PICTOGRAM_PLACEMENT.TOP)
             : ''}
           ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
             ? this._renderHeading()
@@ -202,12 +216,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             ? this._renderCopy()
             : ''}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.BOTTOM}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
+            ? this._renderPictogramSlot(PICTOGRAM_PLACEMENT.BOTTOM)
             : ''}
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? this._renderHeading()
@@ -215,7 +224,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? this._renderCopy()
             : ''}
-          <slot name="footer"></slot>
+          <div part="footer-wrapper" class="${prefix}--card__footer">
+            <slot name="footer"></slot>
+          </div>
         </div>
       </div>
     `;
