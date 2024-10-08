@@ -360,7 +360,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    */
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event) => {
-    if (event && this.ctaType === CTA_TYPE.VIDEO) {
+    const { videoId } = event.detail || {};
+
+    if (event && this.ctaType === CTA_TYPE.VIDEO && this.href === videoId) {
       const { videoDuration, videoName } = event.detail as any;
       const { formatVideoDuration, formatVideoCaption } = this;
       const formattedVideoDuration = formatVideoDuration({
