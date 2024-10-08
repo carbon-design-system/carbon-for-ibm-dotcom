@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { TemplateResult, html, LitElement} from 'lit';
+import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
@@ -224,20 +224,21 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
 
   /**
    * @returns The CTA arrow.
-   * 
+   *
    */
-  protected _renderArrow(){
-    const isLTR = window.getComputedStyle(this).direction.toUpperCase() === 'LTR';
+  protected _renderArrow() {
+    const isLTR =
+      window.getComputedStyle(this).direction.toUpperCase() === 'LTR';
     return html`
-            <a
-              class="${`${prefix}--card__link`}"
-              part="link"
-              href="${ifDefined(this.href)}"
-              aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
-                ?.textContent || ''}"
-              >${isLTR ? ArrowRight20() : ArrowLeft20()}</a
-            >
-    `
+      <a
+        class="${`${prefix}--card__link`}"
+        part="link"
+        href="${ifDefined(this.href)}"
+        aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
+          ?.textContent || ''}"
+        >${isLTR ? ArrowRight20() : ArrowLeft20()}</a
+      >
+    `;
   }
   /**
    * The color scheme.
@@ -429,8 +430,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     return this._hasPictogram
       ? html`
           <div part="container">
-            ${this._renderInner()}
-            ${this._renderArrow()}
+            ${this._renderInner()} ${this._renderArrow()}
           </div>
         `
       : html` <div part="container">${this._renderInner()}</div> `;
