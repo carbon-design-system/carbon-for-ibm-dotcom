@@ -141,9 +141,13 @@
 
     .#{$prefix}--card__heading,
     .#{$prefix}--card__copy {
-      @include content-width;
-
       color: $text-primary;
+      max-inline-size: to-rem(640px);
+      padding-inline-end: 10%;
+
+      @include breakpoint(md) {
+        padding-inline-end: $spacing-07;
+      }
     }
 
     .#{$prefix}--card__copy:not([hidden]) {
