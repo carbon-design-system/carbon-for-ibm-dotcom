@@ -90,6 +90,7 @@
         display: grid;
         grid-row: span 2;
         grid-template-rows: subgrid;
+        row-gap: 0;
       }
     }
 
