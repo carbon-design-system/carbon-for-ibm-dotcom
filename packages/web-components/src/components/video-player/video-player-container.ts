@@ -170,27 +170,20 @@ export const DDSVideoPlayerContainerMixin = <
       const storedValue = localStorage.getItem(
         `${this.prefersAutoplayStorageKey}`
       );
-      const returnValue =
-        storedValue === null ? null : Boolean(parseInt(storedValue, 10));
-      return returnValue;
+
+      if (storedValue === null) {
+        return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } else {
+        return Boolean(parseInt(storedValue, 10))
+      }
     }
 
-    _getPlayerOptions(backgroundMode = false) {
+    _getPlayerOptions() {
+      const { backgroundMode, autoPlay, muted } = this as unknown as DDSVideoPlayerComposite;
       let playerOptions = {};
+      const autoplayPreference = this._getAutoplayPreference();
 
       if (backgroundMode) {
-        const storedMotionPreference: boolean | null =
-          this._getAutoplayPreference();
-
-        let autoplayPreference: boolean | undefined;
-
-        if (storedMotionPreference === null) {
-          autoplayPreference = !window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-          ).matches;
-        } else {
-          autoplayPreference = storedMotionPreference;
-        }
         playerOptions = {
           'topBarContainer.plugin': false,
           'controlBarContainer.plugin': false,
@@ -209,6 +202,11 @@ export const DDSVideoPlayerContainerMixin = <
             plugin: false,
           },
         };
+      } else {
+        playerOptions = {
+          autoMute: muted,
+          autoPlay: autoplayPreference,
+        }
       }
 
       return playerOptions;

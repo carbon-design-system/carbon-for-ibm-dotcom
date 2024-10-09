@@ -17,6 +17,13 @@ import '../../lightbox-media-viewer/lightbox-video-player-container';
 export const Default = (args) => {
   const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
   return html`
+    <style>
+      dds-video-player-container[background-mode] {
+        display: block;
+        aspect-ratio: 16/9;
+        outline: 2px solid red;
+      }
+    </style>
     <dds-video-player-container
       playing-mode="inline"
       video-id=${videoId}
@@ -74,6 +81,42 @@ export const withLightboxMediaViewer = (args) => {
       playing-mode="lightbox">
     </dds-video-player-container>
     <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
+  `;
+};
+
+export const autoplay = (args) => {
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
+    args?.VideoPlayer ?? {};
+  return html`
+    <dds-video-player-container
+      auto-play
+      playing-mode="inline"
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+      caption=${caption}
+      ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}></dds-video-player-container>
+  `;
+};
+
+export const autoplayMuted = (args) => {
+  const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
+  return html`
+    <style>
+      dds-video-player-container[background-mode] {
+        display: block;
+        aspect-ratio: 16/9;
+        outline: 2px solid red;
+      }
+    </style>
+    <dds-video-player-container
+      auto-play
+      muted
+      playing-mode="inline"
+      video-id=${videoId}
+      caption=${caption}
+      ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}></dds-video-player-container>
   `;
 };
 
@@ -165,6 +208,63 @@ withLightboxMediaViewer.story = {
     },
   },
 };
+
+autoplay.story = {
+  name: 'Autoplay',
+  parameters: {
+    knobs: {
+      VideoPlayer: () => {
+        return {
+          aspectRatio: '4x3',
+          caption: text('Custom caption (caption):', ''),
+          hideCaption: boolean('Hide caption (hideCaption):', false),
+          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          videoId: '0_ibuqxqbe',
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '4x3',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '0_ibuqxqbe',
+        },
+      },
+    },
+  },
+};
+
+autoplayMuted.story = {
+  name: 'Autoplay muted',
+  parameters: {
+    knobs: {
+      VideoPlayer: () => {
+        return {
+          aspectRatio: '4x3',
+          caption: text('Custom caption (caption):', ''),
+          hideCaption: boolean('Hide caption (hideCaption):', false),
+          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          videoId: '0_ibuqxqbe',
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '4x3',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '0_ibuqxqbe',
+        },
+      },
+    },
+  },
+};
+
 
 export default {
   title: 'Components/Video player',

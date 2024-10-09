@@ -79,7 +79,7 @@ class DDSVideoPlayer extends FocusMixin(
   private _renderContent() {
     const { contentState, name, thumbnailUrl, backgroundMode } = this;
     return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
-      !backgroundMode
+      !backgroundMode && !this.autoplay
       ? html`
           <div class="${prefix}--video-player__video">
             <button
@@ -183,8 +183,14 @@ class DDSVideoPlayer extends FocusMixin(
   /**
    * `true` to autoplay, mute video, and hide UI
    */
-  @property({ attribute: 'background-mode', reflect: true })
+  @property({ attribute: 'background-mode', reflect: true, type: Boolean })
   backgroundMode: boolean = false;
+
+  /**
+   * `true` to autoplay
+   */
+  @property({ attribute: 'auto-play', reflect: true, type: Boolean })
+  autoplay: boolean = false;
 
   /**
    * Custom video description. This property should only be set when using `playing-mode="lightbox"`
@@ -288,7 +294,12 @@ class DDSVideoPlayer extends FocusMixin(
       (this.parentElement as DDSVideoPlayerContainer)?.backgroundMode
     );
 
+    const parentIsAutoplay = Boolean(
+      (this.parentElement as DDSVideoPlayerContainer)?.autoPlay
+    );
+
     this.backgroundMode = parentIsBackground;
+    this.autoplay = parentIsAutoplay;
   }
 
   /**

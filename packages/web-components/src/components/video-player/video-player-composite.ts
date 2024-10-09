@@ -142,6 +142,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
   autoPlay = false;
 
   /**
+   * `true` load videos with sound muted.
+   */
+  @property({ type: Boolean, attribute: 'muted' })
+  muted = false;
+
+  /**
    * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
    */
   @property({ attribute: false })
