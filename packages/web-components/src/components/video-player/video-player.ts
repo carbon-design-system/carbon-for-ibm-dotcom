@@ -79,7 +79,8 @@ class DDSVideoPlayer extends FocusMixin(
   private _renderContent() {
     const { contentState, name, thumbnailUrl, backgroundMode } = this;
     return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
-      !backgroundMode && !this.autoplay
+      !backgroundMode &&
+      !this.autoplay
       ? html`
           <div class="${prefix}--video-player__video">
             <button

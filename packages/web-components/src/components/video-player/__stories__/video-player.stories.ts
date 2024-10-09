@@ -265,7 +265,6 @@ autoplayMuted.story = {
   },
 };
 
-
 export default {
   title: 'Components/Video player',
   decorators: [

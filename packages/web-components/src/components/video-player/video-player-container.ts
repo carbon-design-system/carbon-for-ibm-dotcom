@@ -174,12 +174,13 @@ export const DDSVideoPlayerContainerMixin = <
       if (storedValue === null) {
         return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       } else {
-        return Boolean(parseInt(storedValue, 10))
+        return Boolean(parseInt(storedValue, 10));
       }
     }
 
     _getPlayerOptions() {
-      const { backgroundMode, autoPlay, muted } = this as unknown as DDSVideoPlayerComposite;
+      const { backgroundMode, autoPlay, muted } =
+        this as unknown as DDSVideoPlayerComposite;
       let playerOptions = {};
       const autoplayPreference = this._getAutoplayPreference();
 
@@ -206,7 +207,7 @@ export const DDSVideoPlayerContainerMixin = <
         playerOptions = {
           autoMute: muted,
           autoPlay: autoplayPreference,
-        }
+        };
       }
 
       return playerOptions;
