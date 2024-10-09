@@ -17,13 +17,6 @@ import '../../lightbox-media-viewer/lightbox-video-player-container';
 export const Default = (args) => {
   const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
   return html`
-    <style>
-      dds-video-player-container[background-mode] {
-        display: block;
-        aspect-ratio: 16/9;
-        outline: 2px solid red;
-      }
-    </style>
     <dds-video-player-container
       playing-mode="inline"
       video-id=${videoId}
