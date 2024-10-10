@@ -218,7 +218,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
   /**
    * The current playback state
    */
-  @property()
+  @property({ type: Boolean })
   isPlaying = false;
 
   /**
