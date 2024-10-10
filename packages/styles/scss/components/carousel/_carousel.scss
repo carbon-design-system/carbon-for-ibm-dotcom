@@ -1,7 +1,7 @@
 //
 // @license
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -36,19 +36,21 @@
 
     overflow: hidden;
     flex-direction: column;
-    inline-size: calc(
-      100% + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-    );
+    inline-size: 100%;
     margin-inline-end: calc(
       -1 * var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
-    padding-inline: $spacing-05
-      calc(
-        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-      );
+    padding-inline: $spacing-05;
 
     @include breakpoint(md) {
-      padding-inline-start: 0;
+      inline-size: calc(
+        100% +
+          var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      );
+      padding-inline: 0
+        calc(
+          #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+        );
     }
 
     ::slotted(:not([name])) {
