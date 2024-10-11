@@ -110,6 +110,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
           detail: {
             videoName,
             videoDuration: duration,
+            videoId: href,
           },
         }
       );
