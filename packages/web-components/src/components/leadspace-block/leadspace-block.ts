@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,11 +9,11 @@
 
 import { LitElement, html } from 'lit';
 import { state, property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-block.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -28,6 +28,9 @@ const slotExistencePropertyNames = {
  * LeadSpace Block Component.
  *
  * @element c4d-leadspace-block
+ * @csspart content-layout - The outer wrapper. Usage: c4d-leadpsace-block::part(content-layout)
+ * @csspart content-body - The inner wrapper. Usage: c4d-leadpsace-block::part(content-body)
+ * @csspart hr - The horizontal rule. Usage: c4d-leadpsace-block::part(hr)
  */
 @customElement(`${c4dPrefix}-leadspace-block`)
 class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
@@ -74,11 +77,11 @@ class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--content-layout">
+      <div class="${prefix}--content-layout" part="content-layout">
         ${this._renderHeading()}
-        <div class="${prefix}--content-layout__body">
+        <div class="${prefix}--content-layout__body" part="content-body">
           <slot></slot>
-          ${this.border ? html`<c4d-hr></c4d-hr>` : ``}
+          ${this.border ? html`<c4d-hr part="hr"></c4d-hr>` : ``}
         </div>
       </div>
     `;

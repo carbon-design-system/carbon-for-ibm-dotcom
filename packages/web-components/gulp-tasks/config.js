@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -64,32 +64,8 @@ module.exports = {
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
   vendorSrcDirBase: path.resolve(__dirname, '../src/internal/vendor'),
-  carbonWebComponentsCJSSrcDir: path.resolve(
-    __dirname,
-    '../../carbon-web-components/lib'
-  ),
-  carbonWebComponentsESSrcDir: path.resolve(
-    __dirname,
-    '../../carbon-web-components/es'
-  ),
-  carbonWebComponentsVendorSrcDir: path.resolve(
-    __dirname,
-    '../src/internal/vendor/@carbon/web-components'
-  ),
-  carbonWebComponentsVendorESDstDir: path.resolve(
-    __dirname,
-    '../es/internal/vendor/@carbon/web-components'
-  ),
-  carbonWebComponentsVendorCJSDstDir: path.resolve(
-    __dirname,
-    '../lib/internal/vendor/@carbon/web-components'
-  ),
   servicesCJSSrcDir: path.resolve(__dirname, '../../services/lib'),
   servicesESSrcDir: path.resolve(__dirname, '../../services/es'),
-  servicesVendorSrcDir: path.resolve(
-    __dirname,
-    '../src/internal/vendor/@carbon/ibmdotcom-services'
-  ),
   servicesVendorESDstDir: path.resolve(
     __dirname,
     '../es/internal/vendor/@carbon/ibmdotcom-services'
@@ -110,10 +86,6 @@ module.exports = {
     ),
     'es'
   ),
-  servicesStoreVendorSrcDir: path.resolve(
-    __dirname,
-    '../src/internal/vendor/@carbon/ibmdotcom-services-store'
-  ),
   servicesStoreVendorESDstDir: path.resolve(
     __dirname,
     '../es/internal/vendor/@carbon/ibmdotcom-services-store'
@@ -124,10 +96,6 @@ module.exports = {
   ),
   utilitiesCJSSrcDir: path.resolve(__dirname, '../../utilities/lib'),
   utilitiesESSrcDir: path.resolve(__dirname, '../../utilities/es'),
-  utilitiesVendorSrcDir: path.resolve(
-    __dirname,
-    '../src/internal/vendor/@carbon/ibmdotcom-utilities'
-  ),
   utilitiesVendorESDstDir: path.resolve(
     __dirname,
     '../es/internal/vendor/@carbon/ibmdotcom-utilities'

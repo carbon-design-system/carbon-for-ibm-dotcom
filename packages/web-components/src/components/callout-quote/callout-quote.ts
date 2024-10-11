@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-quote.scss?lit';
 import C4DCalloutMixin from '../../component-mixins/callout/callout';
 import C4DQuote from '../quote/quote';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { property } from 'lit/decorators.js';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import C4DCalloutLinkWithIcon from './callout-link-with-icon';
@@ -23,6 +23,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Callout Quote.
  *
  * @element c4d-callout-quote
+ * @csspart  column - The colunm housing the callout content. Usage: 'c4d-callout-quote::part(column)'
+ * @csspart  content - The quote content. Usage: 'c4d-callout-quote::part(content)'
+ * @csspart  container - The quote container . Usage: 'c4d-callout-quote::part(container)'
+ * @csspart  wrapper - The quote wrapper. Usage: 'c4d-callout-quote::part(wrapper)'
  */
 @customElement(`${c4dPrefix}-callout-quote`)
 class C4DCalloutQuote extends C4DCalloutMixin(C4DQuote) {
@@ -45,10 +49,10 @@ class C4DCalloutQuote extends C4DCalloutMixin(C4DQuote) {
 
   render() {
     return html`
-      <div class="${prefix}--callout__column">
-        <div class="${prefix}--callout__content">
-          <div class="${prefix}--quote__container">
-            <div class="${prefix}--quote__wrapper">
+      <div class="${prefix}--callout__column" part="column">
+        <div class="${prefix}--callout__content" part="content">
+          <div class="${prefix}--quote__container" part="container">
+            <div class="${prefix}--quote__wrapper" part="wrapper">
               ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
             </div>
           </div>

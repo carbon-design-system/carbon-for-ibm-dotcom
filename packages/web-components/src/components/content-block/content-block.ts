@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,11 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { html, LitElement, TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
@@ -35,11 +35,15 @@ const slotExistencePropertyNames = {
 /**
  * Content block.
  *
+ * @element c4d-content-block
  * @slot heading - The heading content.
  * @slot copy - The copy content.
  * @slot media - The media content.
  * @slot footer - The footer (CTA) content.
  * @slot complementary - The complementary (aside) content.
+ * @csspart body - The body. Usage: `c4d-content-block::part(body)`
+ * @csspart footer - The footer. Usage: `c4d-content-block::part(footer)`
+ * @csspart content-layout - The content wrapper. Usage: `c4d-content-block::part(content-layout)`
  * @abstract
  */
 @customElement(`${c4dPrefix}-content-block`)
@@ -84,15 +88,21 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
    * The CSS class list for the container (grid) node.
    */
   protected _getContainerClasses() {
-    const { complementaryStyleScheme, _hasComplementary: hasComplementary } =
-      this;
-    return {
+    const {
+      complementaryStyleScheme,
+      _hasContent: hasContent,
+      _hasComplementary: hasComplementary,
+      _hasFooter: hasFooter,
+    } = this;
+    return classMap({
       [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--with-children`]: hasContent,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
+      [`${prefix}--content-layout--with-footer`]: hasFooter,
       [`${prefix}--layout--border`]:
         complementaryStyleScheme ===
         CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-    };
+    });
   }
 
   /**
@@ -130,6 +140,7 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
   protected _renderBody(): TemplateResult | string | void {
     return html`
       <div
+        part="body"
         ?hidden="${!this._hasBodyContent()}"
         class="${prefix}--content-layout__body">
         ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
@@ -167,11 +178,12 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
 
     return html`
       <div
+        part="footer"
         ?hidden="${!hasFooter}"
-        class="${cardGroup &&
-        hasFooter &&
-        `${c4dPrefix}--content-block-footer`}"
-        style="${cardGroupStyle}">
+        class="${hasFooter && `${c4dPrefix}--content-block-footer`}"
+        style="${cardGroupStyle}"
+        ?card-group="${cardGroup}"
+        grid-mode="${cardGroup?.getAttribute('grid-mode')}">
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -220,7 +232,7 @@ class C4DContentBlock extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${classMap(this._getContainerClasses())}">
+      <div part="content-layout" class="${this._getContainerClasses()}">
         ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
       </div>
     `;

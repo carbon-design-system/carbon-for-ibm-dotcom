@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss?lit';
-import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead.
  *
  * @element c4d-masthead
+ * @csspart l0 - The Masthead L0. Usage: `c4d-masthead::part(l0)`
+ * @csspart header - The header. Usage: `c4d-masthead::part(header)`
+ * @csspart header-search - The header search. Usage: `c4d-masthead::part(header-search)`
+ * @csspart header-nav-container - The header nav container. Usage: `c4d-masthead::part(header-nav-container)`
  * @slot brand - The left hand area.
  * @slot nav - The nav content.
  * @slot profile - The right hand area.
@@ -48,11 +52,13 @@ class C4DMasthead extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--masthead__l0">
-        <div class="${prefix}--header">
+      <div part="l0" class="${prefix}--masthead__l0">
+        <div part="header" class="${prefix}--header">
           <slot name="brand"></slot>
-          <div class="${prefix}--header__search">
-            <div class="${prefix}--header__nav-container">
+          <div part="header-search" class="${prefix}--header__search">
+            <div
+              part="header-nav-container"
+              class="${prefix}--header__nav-container">
               <slot></slot>
             </div>
             <slot name="search"></slot>

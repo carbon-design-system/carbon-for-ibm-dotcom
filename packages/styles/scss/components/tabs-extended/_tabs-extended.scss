@@ -1,307 +1,168 @@
-// /**
-//  * Copyright IBM Corp. 2016, 2024
-//  *
-//  * This source code is licensed under the Apache-2.0 license found in the
-//  * LICENSE file in the root directory of this source tree.
-//  */
+/**
+ * Copyright IBM Corp. 2016, 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
-// @use 'sass:math';
+@use 'sass:math';
 
-// @use '@carbon/styles/scss/config' as *;
-// @use '@carbon/styles/scss/motion' as *;
-// @use '@carbon/styles/scss/spacing' as *;
-// @use '@carbon/styles/scss/theme' as *;
-// @use '@carbon/styles/scss/type' as *;
-// @use '@carbon/styles/scss/utilities' as *;
-// @use '@carbon/styles/scss/components/button' as *;
-// @use '../../globals/vars' as *;
-// @use '@carbon/styles/scss/components/tabs/vars' as *;
-// @use '@carbon/styles/scss/components/tabs' as *;
-// // @use '../../../../carbon-web-components/src/components/tabs/tabs';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/styles/scss/components/tabs/vars' as *;
+@use '@carbon/web-components/scss/components/tabs/tabs';
 
 @mixin tabs-extended {
-  //   :host(#{$c4d-prefix}-tabs-extended),
-  //   :host(#{$c4d-prefix}-tabs-extended-media) {
-  //     @extend .#{$prefix}--tabs;
+  :host(#{$c4d-prefix}-tabs-extended),
+  :host(#{$c4d-prefix}-tabs-extended-media) {
+    @extend :host(#{$prefix}-tabs);
+  }
 
-  //   .#{$prefix}--tabs-nav-content-container {
-  //     position: relative;
-  //     overflow: scroll;
-  //     flex: 1 1 0%;
-  //     // for some reason, overflow: hidden shrinks the content
-  //     block-size: $spacing-09;
-  //     scrollbar-width: none;
+  :host(#{$c4d-prefix}-tab) {
+    @extend :host(#{$prefix}-tab);
 
-  //     &::-webkit-scrollbar {
-  //       display: none;
-  //     }
-  //   }
-  // .#{$prefix}--tabs__nav-link {
-  //   display: flex;
-  //   block-size: $spacing-08;
-  //   font-size: $spacing-05;
-  // }
+    .#{$prefix}--tabs__nav-link {
+      display: flex;
+      block-size: $spacing-08;
+      font-size: $spacing-05;
+    }
 
-  //   /* Set to zero-specificity so it can be overridden by dynamic stylesheet */
-  //   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  //   :where(.#{$prefix}--tabs-nav-content) {
-  //     position: absolute;
-  //     block-size: 100%;
-  //     inset-inline-start: 0;
-  //     transition: $inset-transition;
-  //   }
+    &[selected] {
+      .#{$prefix}--tabs__nav-link {
+        @include type-style('heading-compact-01');
 
-  //   .#{$prefix}--tabs-nav {
-  //     position: absolute;
-  //     display: block;
-  //   }
-  //       border-block-end: $spacing-01 solid $border-interactive;
-  //     }
-  //   }
-  // }
+        border-block-end: $spacing-01 solid $border-interactive;
+      }
+    }
+  }
 
-  //   .#{$prefix}--tab--overflow-nav-button {
-  //     z-index: 1;
-  //   }
-  //   }
+  :host(#{$c4d-prefix}-tab:hover) {
+    background-color: transparent;
+    box-shadow: 0 -1px 0 $background-hover;
 
-  //   :host(#{$c4d-prefix}-tab) {
-  //     @extend .#{$prefix}--tabs;
-  //   a.#{$prefix}--tabs__nav-link {
-  //     border-block-end: $tab-underline-color-hover;
-  //     color: $text-primary;
-  //   }
-  // }
+    a.#{$prefix}--tabs__nav-link {
+      border-block-end: $tab-underline-color-hover;
+      color: $text-primary;
+    }
+  }
 
-  //   .#{$prefix}--tabs-nav-content-container {
-  //     position: relative;
-  //     overflow: scroll;
-  //     flex: 1 1 0%;
-  //     // for some reason, overflow: hidden shrinks the content
-  //     block-size: $spacing-09;
-  //     scrollbar-width: none;
+  :host(#{$c4d-prefix}-tab[disabled][role]),
+  :host(#{$c4d-prefix}-tab[disabled][role]:hover) {
+    background-color: transparent;
+    box-shadow: none;
+    cursor: not-allowed;
+    outline: none;
 
-  //     &::-webkit-scrollbar {
-  //       display: none;
-  //     }
-  //   }
+    .#{$prefix}--tabs__nav-link {
+      border-block-end: $tab-underline-disabled;
+      color: $tab-text-disabled;
+      outline: none;
+      pointer-events: none;
+    }
+  }
 
-  //   /* Set to zero-specificity so it can be overridden by dynamic stylesheet */
-  //   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  //   :where(.#{$prefix}--tabs-nav-content) {
-  //     position: absolute;
-  //     block-size: 100%;
-  //     inset-inline-start: 0;
-  //     transition: $inset-transition;
-  //   }
+  :host(#{$c4d-prefix}-tab[selected]) {
+    display: flex;
+    background-color: transparent;
+    transition: color $duration-fast-01 motion(standard, productive);
 
-  //   .#{$prefix}--tabs-nav {
-  //     position: absolute;
-  //     display: block;
-  //   }
+    .#{$prefix}--tabs__nav-link {
+      @include type-style('heading-01');
 
-  //   .#{$prefix}--tab--overflow-nav-button {
-  //     z-index: 1;
-  //   }
+      font-size: $spacing-05;
 
-  //     .#{$prefix}--tabs__nav-link {
-  //       display: flex;
-  //       block-size: $spacing-08;
-  //       font-size: $spacing-05;
-  //     }
-  //   .#{$prefix}--tabs__nav-link {
-  //     border-block-end: $tab-underline-disabled;
-  //     color: $tab-text-disabled;
-  //     outline: none;
-  //     pointer-events: none;
-  //   }
-  // }
+      &,
+       // Need to override core Carbon's non-selected focus color
+       &:focus,
+       &:active {
+        color: $text-primary;
+      }
+    }
+  }
 
-  // :host(#{$c4d-prefix}-tab[selected]) {
-  //   display: flex;
-  //   background-color: transparent;
-  //   transition: color $duration-fast-01 motion(standard, productive);
+  // Disabled tab never gets selected, but we guard for manual addition of `selected` attribute
+  :host(#{$c4d-prefix}-tab[disabled][selected]),
+  :host(#{$c4d-prefix}-tab[disabled][selected]:hover),
+  :host(#{$c4d-prefix}-tab[disabled][in-focus][selected]),
+  :host(#{$c4d-prefix}-tab[disabled][in-focus][selected]:hover) {
+    display: flex;
+    background-color: transparent;
+    box-shadow: none;
 
-  //   .#{$prefix}--tabs__nav-link {
-  //     @include type-style('heading-01');
+    @include focus-outline('reset');
 
-  //     font-size: $spacing-05;
+    .#{$prefix}--tabs__nav-link {
+      @include type-style('body-short-01');
 
-  //     &,
-  //     // Need to override core Carbon's non-selected focus color
-  //     &:focus,
-  //     &:active {
-  //       color: $text-primary;
-  //     }
-  //   }
-  // }
+      border-block-end: $tab-underline-disabled;
 
-  //     &[selected] {
-  //       .#{$prefix}--tabs__nav-link {
-  //         @include type-style('heading-compact-01');
+      color: $tab-text-disabled;
 
-  //         border-block-end: $spacing-01 solid $border-interactive;
-  //       }
-  //     }
-  //   }
+      &:focus,
+      &:active {
+        border-block-end-width: to-rem(3px);
+      }
+    }
+  }
 
-  //   :host(#{$c4d-prefix}-tab:hover) {
-  //     background-color: transparent;
-  //     box-shadow: 0 -1px 0 $background-hover;
+  :host(#{$c4d-prefix}-tabs-extended[type='contained']) {
+    @extend :host(#{$prefix}-tabs[type='contained']);
+  }
 
-  //     a.#{$prefix}--tabs__nav-link {
-  //       border-block-end: $tab-underline-color-hover;
-  //       color: $text-primary;
-  //     }
-  //   }
+  :host(#{$c4d-prefix}-tab[type='contained']) {
+    background-color: $layer-accent-01;
 
-  //   :host(#{$c4d-prefix}-tab[disabled][role]),
-  //   :host(#{$c4d-prefix}-tab[disabled][role]:hover) {
-  //     background-color: transparent;
-  //     box-shadow: none;
-  //     cursor: not-allowed;
-  //     outline: none;
-  //     border-block-end: $tab-underline-disabled;
+    a.#{$prefix}--tabs__nav-link {
+      padding: 0 $spacing-05;
+      block-size: $spacing-09;
+      font-size: $spacing-05;
+    }
+  }
 
-  //     color: $tab-text-disabled;
+  :host(#{$c4d-prefix}-tab[type='contained']),
+  :host(#{$c4d-prefix}-tab[type='contained']:hover) {
+    a.#{$prefix}--tabs__nav-link {
+      border-block-end: none;
+      // Draws the border without affecting the inner-content
+      box-shadow: to-rem(-1px) 0 0 0 $border-strong;
+    }
+  }
 
-  //     &:focus,
-  //     &:active {
-  //       border-block-end-width: to-rem(3px);
-  //     }
-  //   }
-  // }
+  :host(#{$c4d-prefix}-tab[type='contained'][hide-divider])
+    a.#{$prefix}--tabs__nav-link {
+    box-shadow: to-rem(-1px) 0 0 0 transparent;
+  }
 
-  //     .#{$prefix}--tabs__nav-link {
-  //       border-block-end: $tab-underline-disabled;
-  //       color: $tab-text-disabled;
-  //       outline: none;
-  //       pointer-events: none;
-  //     }
-  //   }
+  :host(#{$c4d-prefix}-tab[type='contained'][disabled][role])
+    .#{$prefix}--tabs__nav-link {
+    background-color: $button-disabled;
+    border-block-end: none;
+    color: $text-on-color-disabled;
+  }
 
-  //   :host(#{$c4d-prefix}-tab[selected]) {
-  //     display: flex;
-  //     background-color: transparent;
-  //     transition: color $duration-fast-01 motion(standard, productive);
+  :host(#{$c4d-prefix}-tab[type='contained'][selected]),
+  :host(#{$c4d-prefix}-tab[type='contained'][selected]:hover) {
+    background-color: $layer-01;
 
-  //     .#{$prefix}--tabs__nav-link {
-  //       @include type-style('heading-01');
+    .#{$prefix}--tabs__nav-link {
+      border-block-end: none;
+      // Draws the border without affecting the inner-content
+      box-shadow: inset 0 $spacing-01 0 0 $interactive;
+    }
 
-  //       font-size: $spacing-05;
-  //   a.#{$prefix}--tabs__nav-link {
-  //     padding: 0 $spacing-05;
-  //     block-size: $spacing-09;
-  //     font-size: $spacing-05;
-  //   }
-  // }
+    .#{$prefix}--tabs__nav-link:focus,
+    .#{$prefix}--tabs__nav-link:active {
+      box-shadow: none;
+    }
+  }
 
-  // :host(#{$c4d-prefix}-tab[type='contained']),
-  // :host(#{$c4d-prefix}-tab[type='contained']:hover) {
-  //   a.#{$prefix}--tabs__nav-link {
-  //     border-block-end: none;
-  //     // Draws the border without affecting the inner-content
-  //     box-shadow: to-rem(-1px) 0 0 0 $border-strong;
-  //   }
-  // }
-
-  //       &,
-  //       // Need to override core Carbon's non-selected focus color
-  //       &:focus,
-  //       &:active {
-  //         color: $text-primary;
-  //       }
-  //     }
-  //   }
-
-  //   // Disabled tab never gets selected, but we guard for manual addition of `selected` attribute
-  //   :host(#{$c4d-prefix}-tab[disabled][selected]),
-  //   :host(#{$c4d-prefix}-tab[disabled][selected]:hover),
-  //   :host(#{$c4d-prefix}-tab[disabled][in-focus][selected]),
-  //   :host(#{$c4d-prefix}-tab[disabled][in-focus][selected]:hover) {
-  //     display: flex;
-  //     background-color: transparent;
-  //     box-shadow: none;
-  // :host(#{$c4d-prefix}-tab[type='contained'][disabled][role])
-  //   .#{$prefix}--tabs__nav-link {
-  //   background-color: $button-disabled;
-  //   border-block-end: none;
-  //   color: $text-on-color-disabled;
-  // }
-
-  //     @include focus-outline('reset');
-
-  //     .#{$prefix}--tabs__nav-link {
-  //       @include type-style('body-short-01');
-  // .#{$prefix}--tabs__nav-link {
-  //   border-block-end: none;
-  //   // Draws the border without affecting the inner-content
-  //   box-shadow: inset 0 $spacing-01 0 0 $interactive;
-  // }
-
-  //       border-block-end: $tab-underline-disabled;
-
-  //       color: $tab-text-disabled;
-
-  //       &:focus,
-  //       &:active {
-  //         border-block-end-width: to-rem(3px);
-  //       }
-  //     }
-  //   }
-
-  //   :host(#{$c4d-prefix}-tabs-extended[type='contained']) {
-  //     // @extend :host(#{$prefix}-tabs[type='contained']);
-  //   }
-
-  //   :host(#{$c4d-prefix}-tab[type='contained']) {
-  //     background-color: $layer-accent-01;
-
-  //     a.#{$prefix}--tabs__nav-link {
-  //       padding: 0 $spacing-05;
-  //       block-size: $spacing-09;
-  //       font-size: $spacing-05;
-  //     }
-  //   }
-
-  //   :host(#{$c4d-prefix}-tab[type='contained']),
-  //   :host(#{$c4d-prefix}-tab[type='contained']:hover) {
-  //     a.#{$prefix}--tabs__nav-link {
-  //       border-block-end: none;
-  //       // Draws the border without affecting the inner-content
-  //       box-shadow: to-rem(-1px) 0 0 0 $border-strong;
-  //     }
-  //   }
-
-  //   :host(#{$c4d-prefix}-tab[type='contained'][hide-divider])
-  //     a.#{$prefix}--tabs__nav-link {
-  //     box-shadow: to-rem(-1px) 0 0 0 transparent;
-  //   }
-
-  //   :host(#{$c4d-prefix}-tab[type='contained'][disabled][role])
-  //     .#{$prefix}--tabs__nav-link {
-  //     background-color: $button-disabled;
-  //     border-block-end: none;
-  //     color: $text-on-color-disabled;
-  //   }
-
-  //   :host(#{$c4d-prefix}-tab[type='contained'][selected]),
-  //   :host(#{$c4d-prefix}-tab[type='contained'][selected]:hover) {
-  //     background-color: $layer-01;
-
-  //     .#{$prefix}--tabs__nav-link {
-  //       border-block-end: none;
-  //       // Draws the border without affecting the inner-content
-  //       box-shadow: inset 0 $spacing-01 0 0 $interactive;
-  //     }
-
-  //     .#{$prefix}--tabs__nav-link:focus,
-  //     .#{$prefix}--tabs__nav-link:active {
-  //       box-shadow: none;
-  //     }
-  //   }
-
-  //   :host(#{$c4d-prefix}-tab[type='contained']:hover) {
-  //     background-color: $layer-accent-hover;
-  //   }
+  :host(#{$c4d-prefix}-tab[type='contained']:hover) {
+    background-color: $layer-accent-hover;
+  }
 }

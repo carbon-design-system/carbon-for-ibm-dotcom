@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,6 @@ import '../../card/index';
 import '../../image/image';
 import '../index';
 import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -21,7 +20,7 @@ import imgMd1x1 from '../../../../.storybook/storybook-images/assets/480/fpo--1x
 import imgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXlg1x1 from '../../../../.storybook/storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
 import imgMax1x1 from '../../../../.storybook/storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
-import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 
 const { stablePrefix: c4dPrefix, prefix } = settings;
 
@@ -39,7 +38,8 @@ export const Medium = (args) => {
   return html`
     <c4d-feature-card
       href=${ifDefined(href || undefined)}
-      color-scheme=${colorSchemeMap[colorScheme]}>
+      color-scheme=${colorSchemeMap[colorScheme]}
+      cta-type="local">
       <c4d-image slot="image" alt="Image alt text" default-src="${imgMax1x1}">
         <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg1x1}">
         </c4d-image-item>
@@ -53,11 +53,17 @@ export const Medium = (args) => {
         </c4d-image-item>
       </c4d-image>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      <c4d-feature-card-footer>
-        ${ArrowRight20({ slot: 'icon' })}
-      </c4d-feature-card-footer>
+      <c4d-feature-card-footer></c4d-feature-card-footer>
     </c4d-feature-card>
   `;
+};
+
+Medium.story = {
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Large = (args) => {
@@ -74,7 +80,8 @@ export const Large = (args) => {
     <c4d-feature-card
       size="large"
       href=${ifDefined(href || undefined)}
-      color-scheme=${colorSchemeMap[colorScheme]}>
+      color-scheme=${colorSchemeMap[colorScheme]}
+      cta-type="local">
       <c4d-image slot="image" default-src="${ifDefined(imgLg1x1)}">
         <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg1x1}">
         </c4d-image-item>
@@ -90,15 +97,16 @@ export const Large = (args) => {
       <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
       <c4d-card-heading>${heading}</c4d-card-heading>
       ${copy && html`<p></p>`}
-      <c4d-feature-card-footer>
-        ${ArrowRight20({ slot: 'icon' })}
-      </c4d-feature-card-footer>
+      <c4d-feature-card-footer> </c4d-feature-card-footer>
     </c4d-feature-card>
   `;
 };
 
 Large.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     storyGrid: `${prefix}--col-lg-12`,
     knobs: {
       [`${c4dPrefix}-feature-card`]: () => ({

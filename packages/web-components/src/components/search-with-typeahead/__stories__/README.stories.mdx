@@ -12,7 +12,7 @@ import '../index';
 > [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/search-with-typeahead)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/search-with-typeahead)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/search-with-typeahead)
 
 ## Getting started
 
@@ -38,7 +38,7 @@ button, the search bar will contract back to its single search button, ready to
 be activated again.
 
 ```html
-<c4d-search-with-typeahead></search-with-typeahead>
+<c4d-search-with-typeahead></c4d-search-with-typeahead>
 ```
 
 ### Search Open On Load
@@ -48,7 +48,7 @@ page. The close functionality will still apply upon focusing out or clicking the
 close button.
 
 ```html
-<c4d-search-with-typeahead active></search-with-typeahead>
+<c4d-search-with-typeahead active></c4d-search-with-typeahead>
 ```
 
 ### Search Should Remain Open
@@ -58,7 +58,15 @@ out or close button is clicked. You can combine the previous attribute with this
 one to ensure it will always be open.
 
 ```html
-<c4d-search-with-typeahead should-remain-open></search-with-typeahead>
+<c4d-search-with-typeahead should-remain-open></c4d-search-with-typeahead>
+```
+
+### Initial Search Term
+
+This will set a default query in the search's text input.
+
+```html
+<c4d-search-with-typeahead initial-search-term="Example search text"></c4d-search-with-typeahead>
 ```
 
 ## Slots

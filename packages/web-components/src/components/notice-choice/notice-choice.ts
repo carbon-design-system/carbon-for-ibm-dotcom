@@ -15,12 +15,11 @@ import {
   resetToWorldWideContent,
   supportedLanguages,
 } from './utils';
-// import this.countrySettings from './country-settings';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss?lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -31,6 +30,14 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @fires c4d-notice-choice-change
  * The custom event fired when default choice loaded or user change some preferences.
  * The field and value should be taken from the detail object and send it to MRS.
+ * @csspart checkbox-wrapper - The checkbox wrapper. Usage `c4d-notice-choice::part(checkbox-wrapper)`
+ * @csspart checkbox - An input checkbox. Usage `c4d-notice-choice::part(checkbox)`
+ * @csspart checkbox-label - The checkbox label. Usage `c4d-notice-choice::part(checkbox-label)`
+ * @csspart checkbox-label-text - The checkbox label text. Usage `c4d-notice-choice::part(checkbox-label-text)`
+ * @csspart error - The error message. Usage `c4d-notice-choice::part(error)`
+ * @csspart section - A section. Usage `c4d-notice-choice::part(section)`
+ * @csspart container - The container. Usage `c4d-notice-choice::part(container)`
+ * @csspart tooltip-link - The tooltip link. Usage `c4d-notice-choice::part(tooltip-link)`
  */
 @customElement(`c4d-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
@@ -420,24 +427,32 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         const legalTextName = key.replace(/([A-Z]+)/g, '-$1').toLowerCase();
         const mandatoryCheckboxTemplate = html`
           <span>
-            <div class="${prefix}--form-item bx--checkbox-wrapper">
+            <div
+              class="${prefix}--form-item bx--checkbox-wrapper"
+              part="checkbox-wrapper checkbox-wrapper--mandatory">
               <p part=${legalTextName} class=${legalTextName}>
                 <input
                   type="checkbox"
                   class="${prefix}--checkbox"
+                  part="checkbox checkbox--mandatory"
                   id="${mandatoryCheckbox.mrs_field}"
                   name="${mandatoryCheckbox.mrs_field}"
                   @change="${this.checkBoxLegalChange}" />
                 <label
                   for="${mandatoryCheckbox.mrs_field}"
                   class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${mandatoryCheckbox.mrs_field}"
-                  ><span class="${prefix}--checkbox-label-text" dir="auto"
+                  part="checkbox-label checkbox-label--mandatory"
+                  ><span
+                    class="${prefix}--checkbox-label-text"
+                    part="checkbox-label-text checkbox-label-text--mandatory"
+                    dir="auto"
                     >${mandatoryCheckbox.text}
                   </span>
                 </label>
                 ${!this.hideErrorMessage && this.preventFormSubmission
                   ? html`<span
                       class="nc-error"
+                      part="error"
                       style="color:#da1e28;font-size:.75rem"
                       >${mandatoryCheckbox.error}</span
                     >`
@@ -455,11 +470,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   checkBoxTemplate(checkbox, checked, hiddenBox) {
     this._onChange(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
-    return html`<span>
-      <div class="${prefix}--form-item cds--checkbox-wrapper">
+    return html`<span part="container">
+      <div
+        class="${prefix}--form-item cds--checkbox-wrapper"
+        part="checkbox-wrapper">
         <input
           type="checkbox"
           class="${prefix}--checkbox"
+          part="checkbox"
           id="${checkbox.id}"
           name="${checkbox.id}"
           ?checked=${checked}
@@ -467,7 +485,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         <label
           for="${checkbox.id}"
           class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${checkbox.id}"
-          ><span class="${prefix}--checkbox-label-text" dir="auto"
+          part="checkbox-label"
+          ><span
+            class="${prefix}--checkbox-label-text"
+            part="checkbox-label-text"
+            dir="auto"
             >${checkbox.labelText}
           </span>
         </label>
@@ -522,7 +544,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
-          const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
+          const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' part="tooltip-link">${anrTagHtml}</a>`;
           const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
 
           postText =
@@ -560,7 +582,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ].chinaPIPLtext.mrs_field;
       this._onChange(mrsField, 'countyBasedCheckedNo');
     }
-    return html`<section class="${prefix}--nc">
+    return html`<section class="${prefix}--nc" part="section">
     <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${this.countryBasedLegalNotice()} ${this.preTextTemplate()} </p>
       <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
             ${

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,12 +10,12 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss?lit';
 import './megamenu-link-with-icon';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
 
@@ -25,6 +25,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu right navigation section
  *
  * @element c4d-megamenu-right-navigation
+ * @csspart container - The container for the megamenu. Usage: `c4d-megamenu-right-navigation::part(container)`
+ * @csspart container-inner - The inner container of the megamenu. Usage: `c4d-megamenu-right-navigation::part(container-inner)`
+ * @csspart heading - The heading of the megamenu. Usage: `c4d-megamenu-right-navigation::part(heading)`
+ * @csspart categories - The categories section of the megamenu. Usage: `c4d-megamenu-right-navigation::part(categories)`
+ * @csspart view-all - The view all section of the megamenu. Usage: `c4d-megamenu-right-navigation::part(view-all)`
+ * @csspart view-all-border - The border for the view all section. Usage: `c4d-megamenu-right-navigation::part(view-all-border)`
  */
 @customElement(`${c4dPrefix}-megamenu-right-navigation`)
 class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
@@ -41,11 +47,11 @@ class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    * Returns a class-name(s) for megamenu container
    */
   protected _getClassNames() {
-    return {
+    return classMap({
       [`${prefix}--masthead__megamenu-container`]: true,
       [`${prefix}--masthead__megamenu-container--has-sidebar`]:
         this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR,
-    };
+    });
   }
 
   /**
@@ -84,17 +90,23 @@ class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${classMap(this._getClassNames())}">
-        <div class="${prefix}--masthead__megamenu-container-inner">
-          <div class="${prefix}--masthead__megamenu__heading">
+      <div part="container" class="${this._getClassNames()}">
+        <div
+          part="container-inner"
+          class="${prefix}--masthead__megamenu-container-inner">
+          <div part="heading" class="${prefix}--masthead__megamenu__heading">
             <slot name="heading"></slot>
           </div>
-          <div class="${prefix}--masthead__megamenu__categories">
+          <div
+            part="categories"
+            class="${prefix}--masthead__megamenu__categories">
             <slot @slotchange="${this._handleSlotChange}"></slot>
           </div>
         </div>
-        <div class="${prefix}--masthead__megamenu__view-all">
-          <span class="${prefix}--masthead__megamenu__view-all__border"></span>
+        <div part="view-all" class="${prefix}--masthead__megamenu__view-all">
+          <span
+            part="view-all-border"
+            class="${prefix}--masthead__megamenu__view-all__border"></span>
           <slot name="view-all"></slot>
         </div>
       </div>

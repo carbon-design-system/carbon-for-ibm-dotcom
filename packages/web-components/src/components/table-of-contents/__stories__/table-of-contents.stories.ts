@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, nothing } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';

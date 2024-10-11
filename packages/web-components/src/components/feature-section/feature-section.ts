@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,13 +9,13 @@
 
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-section.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { COLOR_SCHEME } from './defs';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -23,6 +23,16 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Feature Section.
  *
  * @element c4d-feature-section
+ * @csspart grid - All grid itens. Usage: `c4d-feature-section::part(grid)`
+ * @csspart grid--wrapper - The grid Wrapper. Usage: `c4d-feature-section::part(grid--wrapper)`
+ * @csspart grid--body - Thw grid body. Usage: `c4d-feature-section::part(grid--body)`
+ * @csspart row - All row items. Usage: `c4d-feature-section::part(row)`
+ * @csspart row--container -  The row container. Usage: `c4d-feature-section::part(row--container)`
+ * @csspart row--body -  The row body. Usage: `c4d-feature-section::part(row--body)`
+ * @csspart col -  All column itens. Usage: `c4d-feature-section::part(col)`
+ * @csspart col--body-wrapper - The column wrapper. Usage: `c4d-feature-section::part(col--body-wrapper)`
+ * @csspart col--body -  The column body. Usage: `c4d-feature-section::part(col--body)`
+ * @csspart col--image - The column image. Usage: `c4d-feature-section::part(col--image)`
  */
 @customElement(`${c4dPrefix}-feature-section`)
 class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
@@ -34,14 +44,20 @@ class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
 
   render() {
     return html`
-      <div class="${prefix}--grid ${prefix}--feature-section">
-        <div class="${prefix}--row ${prefix}--feature-section__container">
+      <div
+        class="${prefix}--grid ${prefix}--feature-section"
+        part="grid grid--wrapper">
+        <div
+          class="${prefix}--row ${prefix}--feature-section__container"
+          part="row row--container">
           <div
-            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
-            <div class="${prefix}--grid">
-              <div class="${prefix}--row">
+            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body"
+            part="col col--body-wrapper">
+            <div class="${prefix}--grid" part="grid grid--body">
+              <div class="${prefix}--row" part="row row--body">
                 <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12"
+                  part="col col--body">
                   <slot name="eyebrow"></slot>
                   <slot name="heading"></slot>
                   <slot name="copy"></slot>
@@ -50,7 +66,8 @@ class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
             </div>
           </div>
           <div
-            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
+            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image"
+            part="col col--image">
             <slot name="image"></slot>
             <slot name="footer"></slot>
           </div>

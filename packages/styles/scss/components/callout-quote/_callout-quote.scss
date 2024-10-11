@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,6 +9,7 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
 @use '../../globals/utils/flex-grid' as *;
@@ -33,6 +34,15 @@
     ::slotted(#{$c4d-prefix}-callout-link-with-icon) {
       outline: transparent;
       padding-inline-start: $spacing-07;
+    }
+
+    &[lang='ar'],
+    &[lang='zh'],
+    &[lang='jp'],
+    &[lang='ko'] {
+      .#{$prefix}--quote__copy {
+        @include font-family('sans');
+      }
     }
   }
 

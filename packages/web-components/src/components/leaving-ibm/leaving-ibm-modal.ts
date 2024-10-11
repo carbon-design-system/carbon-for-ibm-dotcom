@@ -10,12 +10,12 @@
 import { property } from 'lit/decorators.js';
 import CDSModal, {
   MODAL_SIZE,
-} from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+} from '@carbon/web-components/es/components/modal/modal.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leaving-ibm.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -40,7 +40,7 @@ class C4DLeavingIbmModal extends StableSelectorMixin(CDSModal) {
    */
   @HostListener('shadowRoot:slotchange')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleSlotChange = (event: Event) => {
+  private _handleShadowRootSlotChange = (event: Event) => {
     const { selectorHeading } = this.constructor as typeof C4DLeavingIbmModal;
     if (!this.hasAttribute('aria-labelledby')) {
       const headingNode = (event.target as HTMLSlotElement)

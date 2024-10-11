@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
-import EarthFilled16 from '../../internal/vendor/@carbon/web-components/icons/earth--filled/16.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
 import '../expressive-modal/expressive-modal-heading';
@@ -23,8 +23,8 @@ import C4DLocaleSearch from './locale-search';
 import C4DRegionItem from './region-item';
 import styles from './locale-modal.scss?lit';
 import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
-import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -34,6 +34,15 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-locale-modal
  * @slot regions-selector - The area for the regions selector.
  * @slot locales-selector - The area for the locales selector.
+ * @csspart header-label - The header label. Usage: `c4d-locale-modal::part(header-label)`
+ * @csspart link-with-icon - The link with icon. Usage: `c4d-locale-modal::part(link-with-icon)`
+ * @csspart link-heading - The link heading. Usage: `c4d-locale-modal::part(link-heading)`
+ * @csspart modal-content - The modal-content. Usage: `c4d-locale-modal::part(modal-content)`
+ * @csspart header-container - The header container. Usage: `c4d-locale-modal::part(header-container)`
+ * @csspart header - The header. Usage: `c4d-locale-modal::part(header)`
+ * @csspart close-button - The close button. Usage: `c4d-locale-modal::part(close-button)`
+ * @csspart heading - The heading. Usage: `c4d-locale-modal::part(heading)`
+ * @csspart title - The title. Usage: `c4d-locale-modal::part(title)`
  */
 @customElement(`${c4dPrefix}-locale-modal`)
 // `CDSModal` extends `HostListenerMixin`
@@ -103,7 +112,9 @@ class C4DLocaleModal extends C4DExpressiveModal {
     return html`
       ${langDisplay &&
       html`
-        <p class="${prefix}--modal-header__label ${prefix}--type-delta">
+        <p
+          class="${prefix}--modal-header__label ${prefix}--type-delta"
+          part="header-label">
           ${langDisplay}${EarthFilled16({
             class: `${c4dPrefix}--locale-modal__label-globe`,
           })}
@@ -112,7 +123,9 @@ class C4DLocaleModal extends C4DExpressiveModal {
       ${langDisplay &&
       headerTitle &&
       html`
-        <p class="cds--modal-header__heading cds--type-beta">${headerTitle}</p>
+        <p class="cds--modal-header__heading cds--type-beta" part="title">
+          ${headerTitle}
+        </p>
       `}
     `;
   }
@@ -130,13 +143,17 @@ class C4DLocaleModal extends C4DExpressiveModal {
       <c4d-link-with-icon
         icon-placement="${ICON_PLACEMENT.LEFT}"
         href="#"
+        part="link-with-icon"
         @click="${handleClickBackButton}">
         ${headerTitle}${ArrowLeft20({
           slot: 'icon',
           class: `${c4dPrefix}--locale-modal__label-arrow`,
         })}
       </c4d-link-with-icon>
-      <p class="cds--modal-header__heading cds--type-beta" tabindex="0">
+      <p
+        class="cds--modal-header__heading cds--type-beta"
+        tabindex="0"
+        part="link-heading">
         ${currentRegion}
       </p>
     `;
@@ -160,7 +177,8 @@ class C4DLocaleModal extends C4DExpressiveModal {
     return html`
       <div
         class="${prefix}--modal-content ${c4dPrefix}--locale-modal"
-        @click="${handleClickRegionSelector}">
+        @click="${handleClickRegionSelector}"
+        part="modal-content">
         <slot name="regions-selector"></slot>
       </div>
     `;
@@ -177,12 +195,13 @@ class C4DLocaleModal extends C4DExpressiveModal {
   protected _renderHeader() {
     const { closeButtonAssistiveText } = this;
     return html`
-      <div id="${prefix}--modal-header">
-        <c4d-expressive-modal-header>
+      <div id="${prefix}--modal-header" part="header-container">
+        <c4d-expressive-modal-header part="header">
           <c4d-expressive-modal-close-button
-            assistive-text="${ifDefined(closeButtonAssistiveText)}">
+            assistive-text="${ifDefined(closeButtonAssistiveText)}"
+            part="close-button">
           </c4d-expressive-modal-close-button>
-          <c4d-expressive-modal-heading
+          <c4d-expressive-modal-heading part="heading"
             >${this._renderHeading()}</c4d-expressive-modal-heading
           >
         </c4d-expressive-modal-header>

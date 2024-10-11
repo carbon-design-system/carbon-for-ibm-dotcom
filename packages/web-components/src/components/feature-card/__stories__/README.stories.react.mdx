@@ -13,7 +13,7 @@ import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-rea
 > [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components-react/feature-card)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/feature-card)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components-react/feature-card)
 
 ## Getting started
 
@@ -41,6 +41,65 @@ function App() {
   );
 }
 ```
+
+Here's an example using the Feature Card Large variant (previously known as
+`FeatureCardBlockLarge`)
+
+```javascript
+<C4DFeatureCard size="large" href="https://example.com">
+  <img />
+  <C4DCardEyebrow>This is an eyebrow</C4DCardEyebrow>
+  <C4DCardHeading>Explore AI use cases in all industries</C4DCardHeading>
+  <C4DCardCopy>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.
+  </C4DCardCopy>
+  <C4DFeatureCardFooter>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20">
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </C4DFeatureCardFooter>
+</C4DFeatureCard>
+```
+
+### CTA features
+
+The `cta-type` attribute allows every type of CTA and icon available in the
+Carbon for IBM.com library. The default CTA style is `local`, which provides a
+basic link and arrow icon.
+
+In order to use the desired type, modify the `cta-type` attribute to one of the
+following:
+
+- local
+- jump
+- external
+- new tab
+- download
+- video
+- pdf
+- blog
+- email
+- schedule
+- chat
+- call
+
+Notes:
+
+- When using `video`, you need to pass the video ID as the `href` attribute.
+- The Feature Card component will need to be wrapped within a
+  `C4DVideoCTAContainer` components for videos to play.
+- Custom icons can replace the built-in ones within `C4DCardFooter`, they only
+  need to be assigned to the `icon` slot.
 
 ## Props
 

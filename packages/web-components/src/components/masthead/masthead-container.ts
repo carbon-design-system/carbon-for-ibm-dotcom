@@ -14,27 +14,27 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { LocaleAPIState } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   L0MenuItem,
   TranslateAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+import { ProfileAPIState } from '@carbon/ibmdotcom-services-store/es/types/profileAPI';
+import store from '@carbon/ibmdotcom-services-store/es/store.js';
 import {
   loadLanguage,
   setLanguage,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
-import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
-import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
-import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
-import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/actions/localeAPI.js';
+import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
+import { loadTranslation } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI.js';
+import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
+import { loadUserStatus } from '@carbon/ibmdotcom-services-store/es/actions/profileAPI.js';
+import { ProfileAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/profileAPI';
 import ConnectMixin from '../../globals/mixins/connect';
 
 import C4DMastheadComposite from './masthead-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -84,21 +84,24 @@ export type MastheadContainerActions =
 
 /**
  * @param state The Redux state for masthead.
+ * @param self A reference to the masthead composite instance.
  * @returns The converted version of the given state, tailored for `<c4d-masthead-container>`.
  */
 export function mapStateToProps(
-  state: MastheadContainerState
+  state: MastheadContainerState,
+  self: C4DMastheadComposite
 ): MastheadContainerStateProps {
   const { localeAPI, translateAPI, profileAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = profileAPI ?? {};
+  const getUserL0Data = self.getL0Data.bind(self);
 
   // Attempt to collect data from current/new and deprecated locations.
-  let l0Data;
+  let endpointl0Data;
   let profileItems;
   if (language) {
-    l0Data = {
+    endpointl0Data = {
       current: translations?.[language]?.masthead?.nav,
       deprecated: translations?.[language]?.mastheadNav?.links,
     };
@@ -118,8 +121,11 @@ export function mapStateToProps(
 
   return pickBy(
     {
-      // Progressively enhance to new L0 data shape.
-      l0Data: !language ? undefined : l0Data.current || l0Data.deprecated,
+      // Respect user-set L0 data. Otherwise, progressively enhance to new shape.
+      l0Data:
+        !language || getUserL0Data()
+          ? undefined
+          : endpointl0Data.current || endpointl0Data.deprecated,
       // Progressively enhance to new profile items shape.
       authenticatedProfileItems: !language
         ? undefined

@@ -64,7 +64,7 @@ jobs:
           path: packages/web-components/storybook-static
 
       - name: Clear remnant failure files
-        uses: geekyeggo/delete-artifact@v2
+        uses: geekyeggo/delete-artifact@v5
         with:
           name: failure-wc.txt
 
@@ -147,7 +147,7 @@ jobs:
       - name: Check failure file existence
         continue-on-error: true
         id: check_files
-        uses: andstor/file-existence-action@v2
+        uses: andstor/file-existence-action@v3
         with:
           files: "failure-wc.txt"
 

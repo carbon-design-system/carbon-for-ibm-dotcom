@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -120,7 +120,7 @@
       display: flex;
       flex: 1;
       justify-content: space-between;
-      min-block-size: carbon--mini-units(20);
+      min-block-size: $spacing-13;
       transition: $duration-moderate-01 motion(standard, productive);
 
       @include ratio-base(2, 1, false);
@@ -141,9 +141,13 @@
 
     .#{$prefix}--card__heading,
     .#{$prefix}--card__copy {
-      @include content-width;
-
       color: $text-primary;
+      max-inline-size: to-rem(640px);
+      padding-inline-end: 10%;
+
+      @include breakpoint(md) {
+        padding-inline-end: $spacing-07;
+      }
     }
 
     .#{$prefix}--card__copy:not([hidden]) {
@@ -183,6 +187,10 @@
           padding-inline-start: 0;
         }
       }
+    }
+
+    .#{$prefix}--card__pictogram-wrapper {
+      display: flex;
     }
 
     &[pictogram] .#{$prefix}--card {
@@ -417,6 +425,7 @@
 
   :host(#{$c4d-prefix}-card-eyebrow),
   .#{$prefix}--card__eyebrow {
+    display: block;
     @include content-width;
     @include type-style('label-02');
 
@@ -597,6 +606,7 @@
 
   :host(#{$c4d-prefix}-card-heading),
   :host(#{$c4d-prefix}-card-link-heading) {
+    display: block;
     @include content-width;
 
     color: $text-primary;

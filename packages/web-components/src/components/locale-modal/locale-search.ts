@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { LitElement, html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { INPUT_SIZE } from '@carbon/web-components/es/components/text-input/text-input.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
 import CDSSearch from '@carbon/web-components/es/components/search/search.js';
@@ -18,7 +18,7 @@ import '@carbon/web-components/es/components/search/search.js';
 import C4DLocaleItem from './locale-item';
 import styles from './locale-modal.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -41,6 +41,12 @@ function search(target?: (string | void)[], searchText?: string) {
  * Locale search box.
  *
  * @element c4d-locale-search
+ * @csspart filter - The filter. Usage: `c4d-locale-search::part(filter)`
+ * @csspart search - The search. Usage: `c4d-locale-search::part(search)`
+ * @csspart aria-updates - The hidden div between searchbox and search-text. Usage: `c4d-locale-search::part(aria-updates)`
+ * @csspart search-text - The search text. Usage: `c4d-locale-search::part(search-text)`
+ * @csspart list - The list. Usage: `c4d-locale-search::part(ist)`
+ * @csspart searchbox - The searchbox. Usage: `c4d-locale-search::part(searchbox)`
  */
 @customElement(`${c4dPrefix}-locale-search`)
 class C4DLocaleSearch extends ThrottedInputMixin(
@@ -206,8 +212,8 @@ class C4DLocaleSearch extends ThrottedInputMixin(
       _hasAvailableItem: hasAvailableItem,
     } = this;
     return html`
-      <div class="${c4dPrefix}--locale-modal__filter">
-        <div class="${c4dPrefix}--locale-modal__search">
+      <div class="${c4dPrefix}--locale-modal__filter" part="filter">
+        <div class="${c4dPrefix}--locale-modal__search" part="search">
           <cds-search
             part="searchbox"
             close-button-assistive-text="${closeButtonAssistiveText}"
@@ -216,14 +222,17 @@ class C4DLocaleSearch extends ThrottedInputMixin(
             size="${INPUT_SIZE.LARGE}"
             data-autoid="${c4dPrefix}--locale-modal__filter">
           </cds-search>
-          <div class="${prefix}--visually-hidden" aria-live="polite"></div>
-          <p class="${c4dPrefix}--locale-modal__search-text">
+          <div
+            class="${prefix}--visually-hidden"
+            aria-live="polite"
+            part="aria-updates"></div>
+          <p class="${c4dPrefix}--locale-modal__search-text" part="search-text">
             ${hasAvailableItem
               ? availabilityLabelText
               : unavailabilityLabelText}
           </p>
         </div>
-        <div class="${c4dPrefix}--locale-modal__list" role="list">
+        <div class="${c4dPrefix}--locale-modal__list" part="list" role="list">
           <slot></slot>
         </div>
       </div>

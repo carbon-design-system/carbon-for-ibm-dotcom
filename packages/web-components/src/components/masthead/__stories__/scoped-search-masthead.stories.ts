@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
-import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -17,7 +17,7 @@ import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss?lit';
 import { mastheadL0Data } from './links';
-import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,

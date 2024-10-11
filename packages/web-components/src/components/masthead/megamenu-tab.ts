@@ -8,11 +8,11 @@
  */
 
 import { html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import CDSTab from '@carbon/web-components/es/components/tabs/tab';
-import c4dSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import CDSTab from '@carbon/web-components/es/components/tabs/tab.js';
+import c4dSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: c4dPrefix } = c4dSettings;
@@ -21,6 +21,7 @@ const { stablePrefix: c4dPrefix } = c4dSettings;
  * Megamenu Tab.
  *
  * @element c4d-megamenu-tab
+ * @csspart nav-link - The text input. Usage: `c4d-megamenu-tab::part(nav-link)`
  */
 @customElement(`${c4dPrefix}-megamenu-tab`)
 class C4DMegaMenuTab extends CDSTab {
@@ -39,6 +40,7 @@ class C4DMegaMenuTab extends CDSTab {
 
     return html`
       <button
+        part="nav-link"
         class="${prefix}--tabs__nav-link"
         role="tab"
         ?disabled="${disabled}"

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,15 +9,15 @@
 
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import ChevronRight16 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/16.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ChevronRight16 from '@carbon/web-components/es/icons/chevron--right/16.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
 } from '../../component-mixins/media-query/media-query';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -25,6 +25,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Footer nav group.
  *
  * @element c4d-footer-nav-group
+ * @csspart nav-group-title - The nav group title. Usage: `c4d-footer-nav::part(nav-group-title)`
+ * @csspart accordion-heading - The accordion nav heading. Usage: `c4d-footer-nav::part(accordion-heading)`
+ * @csspart accordion-title - The accordion title. Usage: `c4d-footer-nav::part(accordion-title)`
+ * @csspart accordion-content - The accordion content. Usage: `c4d-footer-nav::part(accordion-content)`
+ * @csspart link-list - The list of links. Usage: `c4d-footer-nav-group::part(link-list)`
  * @slot title - The title content.
  */
 @customElement(`${c4dPrefix}-footer-nav-group`)
@@ -112,12 +117,13 @@ class C4DFooterNavGroup extends MediaQueryMixin(
 
     const heading = isMediumOrGreater
       ? html`
-          <h2 class="${prefix}--footer-nav-group__title">
+          <h2 part="nav-group-title" class="${prefix}--footer-nav-group__title">
             <slot name="title">${titleText}</slot>
           </h2>
         `
       : html`
           <button
+            part="accordion-heading"
             type="button"
             class="${prefix}--accordion__heading"
             aria-controls="content"
@@ -127,15 +133,18 @@ class C4DFooterNavGroup extends MediaQueryMixin(
             ${ChevronRight16({
               class: `${prefix}--accordion__arrow`,
             })}
-            <div class="${prefix}--accordion__title">
+            <div part="accordion-title" class="${prefix}--accordion__title">
               <slot name="title">${titleText}</slot>
             </div>
           </button>
         `;
     return html`
       ${heading}
-      <div id="content" class="${prefix}--accordion__content">
-        <ul>
+      <div
+        part="accordion-content"
+        id="content"
+        class="${prefix}--accordion__content">
+        <ul part="link-list">
           <slot></slot>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,6 +38,9 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
         }
       }
     }
+    #{$c4d-prefix}-image {
+      padding-block-start: 0;
+    }
   }
 
   :host(#{$c4d-prefix}-video-player[background-mode='true']),
@@ -45,6 +48,21 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     .#{$c4d-prefix}--video-player__video-container {
       padding: 0;
       block-size: 100%;
+    }
+
+    /**
+     * These styles mock `object-fit: cover;` and `object-position: center`.
+     *   - Aspect ratio forces the shape of the element.
+     *   - Min-width/height force the element to cover the entire parent footprint.
+     *   - inset/translate combine to ensure the element is centered over the parent footprint.
+     */
+    ::slotted(.#{$c4d-prefix}--video-player__video),
+    .#{$c4d-prefix}--video-player__video {
+      aspect-ratio: var(--native-file-aspect-ratio, 16 / 9);
+      inset: 50% 0 0 50%;
+      min-block-size: 100%;
+      min-inline-size: 100%;
+      translate: -50% -50%;
     }
   }
 

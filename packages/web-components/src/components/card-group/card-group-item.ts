@@ -1,17 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DCard from '../card/card';
 import styles from './card-group.scss?lit';
+import { GRID_MODE } from './defs';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -23,16 +24,17 @@ const { stablePrefix: c4dPrefix } = settings;
 @customElement(`${c4dPrefix}-card-group-item`)
 class C4DCardGroupItem extends C4DCard {
   /**
-   * `true` if the card group is using border.
-   */
-  @property({ type: Boolean, reflect: true })
-  border = false;
-
-  /**
    * `true` if the card group item is empty.
    */
   @property({ type: Boolean, reflect: true })
   empty = false;
+
+  /**
+   * The inherited grid mode the card group item lives within.
+   * Condensed (1px) | Narrow (16px) | Default(32px).
+   */
+  @property({ attribute: 'grid-mode', reflect: true })
+  gridMode = GRID_MODE.DEFAULT;
 
   static get stableSelector() {
     return `${c4dPrefix}--card-group-item`;

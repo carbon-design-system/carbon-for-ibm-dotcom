@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -90,9 +90,9 @@ describe('c4d-locale-modal | default', () => {
         );
       });
 
-    cy.get('dds-locale-modal')
+    cy.get('c4d-locale-modal')
       .shadow()
-      .find('dds-expressive-modal-close-button')
+      .find('c4d-expressive-modal-close-button')
       .shadow()
       .find('button')
       .click();

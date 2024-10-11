@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,10 +10,10 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie.js';
 import styles from './locale-modal.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -21,6 +21,8 @@ const { stablePrefix: c4dPrefix } = settings;
  * Locale item.
  *
  * @element c4d-locale-item
+ * @csspart country - the country text container. Usage: `c4d-locale-item::part(country)`
+ * @csspart language - the language text container. Usage: `c4d-locale-item::part(language)`
  */
 @customElement(`${c4dPrefix}-locale-item`)
 class C4DLocaleItem extends CDSLink {
@@ -75,8 +77,12 @@ class C4DLocaleItem extends CDSLink {
   _renderInner() {
     const { country, language } = this;
     return html`
-      <div class="${c4dPrefix}--locale-modal__locales__name">${country}</div>
-      <div class="${c4dPrefix}--locale-modal__locales__name">${language}</div>
+      <div class="${c4dPrefix}--locale-modal__locales__name" part="country">
+        ${country}
+      </div>
+      <div class="${c4dPrefix}--locale-modal__locales__name" part="language">
+        ${language}
+      </div>
     `;
   }
 

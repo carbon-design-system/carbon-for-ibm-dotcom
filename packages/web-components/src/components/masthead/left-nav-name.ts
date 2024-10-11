@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,10 +11,10 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import CDSHeaderName from '@carbon/web-components/es/components/ui-shell/header-name.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss?lit';
 import C4DLeftNav from './left-nav';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -22,6 +22,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The brand name UI in left nav.
  *
  * @element c4d-left-nav-name
+ * @csspart side-nav-submenu - The side navigation submenu. Usage: `c4d-left-nav-name::part(side-nav-submenu)`
+ * @csspart side-nav-name-prefix - The prefix for the side navigation name. Usage: `c4d-left-nav-name::part(side-nav-name-prefix)`
  */
 @customElement(`${c4dPrefix}-left-nav-name`)
 class C4DLeftNavName extends CDSHeaderName {
@@ -43,11 +45,15 @@ class C4DLeftNavName extends CDSHeaderName {
     const namePrefixPart = !namePrefix
       ? undefined
       : html`
-          <span class="${prefix}--header__name--prefix">${namePrefix}</span
+          <span
+            class="${prefix}--header__name--prefix"
+            part="side-nav-name-prefix"
+            >${namePrefix}</span
           >&nbsp;
         `;
     return html`
       <a
+        part="side-nav-submenu"
         class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform"
         href="${ifDefined(href)}">
         ${namePrefixPart}

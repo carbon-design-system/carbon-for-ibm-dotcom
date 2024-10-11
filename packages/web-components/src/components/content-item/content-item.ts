@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,10 +10,10 @@
 import { html, LitElement, TemplateResult } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-item.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -33,6 +33,11 @@ const slotExistencePropertyNames = {
  * @slot media - The media content.
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
+ * @csspart statistics - The element. Usage: `c4d-content-item::part(statistics)`
+ * @csspart media - The media content. Usage: `c4d-content-item::part(media)`
+ * @csspart cta - The footer CTA. Usage: `c4d-content-item::part(cta)`
+ * @csspart heading - The heading content. Usage: `c4d-content-item::part(heading)`
+ * @csspart body - The body content. Usage: `c4d-content-item::part(body)`
  */
 @customElement(`${c4dPrefix}-content-item`)
 class C4DContentItem extends StableSelectorMixin(LitElement) {
@@ -98,7 +103,8 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
     return html`
       <div
         ?hidden="${!hasStatistic}"
-        class="${c4dPrefix}--content-item__statitics">
+        class="${c4dPrefix}--content-item__statitics"
+        part="statistics">
         <slot name="statistics" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -111,7 +117,10 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
     const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
 
     return html`
-      <div ?hidden="${!hasMedia}" class="${c4dPrefix}--content-item__media">
+      <div
+        ?hidden="${!hasMedia}"
+        class="${c4dPrefix}--content-item__media"
+        part="media">
         <slot name="media" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -131,10 +140,26 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
   protected _renderFooter(): TemplateResult | string | void {
     const { _hasFooter: hasFooter } = this;
     return html`
-      <div ?hidden="${!hasFooter}" class="${prefix}--content-item__cta">
+      <div
+        ?hidden="${!hasFooter}"
+        class="${prefix}--content-item__cta"
+        part="cta">
         <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
+  }
+
+  updated() {
+    if (this._hasFooter) {
+      this.querySelector(`${c4dPrefix}-content-item-copy`)?.setAttribute(
+        'has-cta',
+        ''
+      );
+    } else {
+      this.querySelector(`${c4dPrefix}-content-item-copy`)?.removeAttribute(
+        'has-cta'
+      );
+    }
   }
 
   render() {
@@ -145,9 +170,9 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
     });
 
     return html`
-      <div class="${horizontalClass}">
+      <div class="${horizontalClass}" part="heading">
         ${this._renderStatistic()} ${this._renderMedia()}
-        <div>
+        <div part="body">
           <slot name="heading"></slot>
           ${this._renderBody()}${this._renderFooter()}
         </div>

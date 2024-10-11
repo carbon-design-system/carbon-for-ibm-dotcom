@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { LocaleList } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal-container';
 import localeData from '../__stories__/locale-data.json';

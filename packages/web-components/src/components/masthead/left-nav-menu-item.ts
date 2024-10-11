@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,12 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
+import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
 import CDSSideNavMenuItem from '@carbon/web-components/es/components/ui-shell/side-nav-menu-item.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -22,6 +23,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead left nav submenu item.
  *
  * @element c4d-left-nav-menu-item
+ * @csspart link - The link. Usage `c4d-left-nav-menu-item(link)`
+ * @csspart title - The title. Usage `c4d-left-nav-menu-item(title)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu-item`)
 class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
@@ -52,6 +55,9 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
   render() {
     const { active, href, title, isHeading, isViewAll } = this;
 
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    const Arrow = isRTL ? ArrowLeft16 : ArrowRight16;
+
     const linkClasses = classMap({
       [`${prefix}--side-nav__link`]: true,
       [`${prefix}--side-nav__link--current`]: active,
@@ -60,7 +66,6 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
     return href
       ? html`
           <a
-            tabindex="-1"
             part="link"
             class="${linkClasses}"
             href="${href}"
@@ -69,7 +74,7 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
             data-attribute3="${title}">
             <span part="title" class="${prefix}--side-nav__link-text">
               <slot>${title}</slot>
-              ${isHeading || isViewAll ? ArrowRight16() : ''}
+              ${isHeading || isViewAll ? Arrow() : ''}
             </span>
           </a>
         `

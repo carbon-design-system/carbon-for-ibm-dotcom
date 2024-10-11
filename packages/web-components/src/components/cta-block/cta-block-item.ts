@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@
 
 import { css, html, TemplateResult } from 'lit';
 import { state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentItem from '../content-item/content-item';
 
 import styles from './cta-block.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -36,6 +36,8 @@ const slotExistencePropertyNames = {
  * @slot heading
  * @slot .
  * @slot footer
+ * @csspart statistics -  The statistics. Usage: `c4d-cta-block-item::part(statistics)`
+ * @csspart media -  The media. Usage: `c4d-cta-block-item::part(media)`
  */
 @customElement(`${c4dPrefix}-cta-block-item`)
 class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {
@@ -76,7 +78,8 @@ class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {
     return html`
       <div
         ?hidden="${!hasStatistic}"
-        class="${prefix}--cta-block-item__statitics">
+        class="${prefix}--cta-block-item__statitics"
+        part="statistics">
         <slot name="statistics" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -89,7 +92,10 @@ class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {
     const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
 
     return html`
-      <div ?hidden="${!hasMedia}" class="${prefix}--cta-block-item__media">
+      <div
+        ?hidden="${!hasMedia}"
+        class="${prefix}--cta-block-item__media"
+        part="media">
         <slot name="media" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;

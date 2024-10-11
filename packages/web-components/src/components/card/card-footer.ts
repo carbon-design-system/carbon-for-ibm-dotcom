@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,10 +9,10 @@
 
 import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
-import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
+import Error20 from '@carbon/web-components/es/icons/error/20.js';
 import styles from './card.scss?lit';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -21,6 +21,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Card footer.
  *
  * @element c4d-card-footer
+ * @csspart copy - The Copy. Usage: `c4d-card-footer::part(copy)`
  */
 @customElement(`${c4dPrefix}-card-footer`)
 class C4DCardFooter extends C4DLinkWithIcon {
@@ -65,7 +66,10 @@ class C4DCardFooter extends C4DLinkWithIcon {
   _renderContent() {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <span ?hidden="${!hasCopy}" class="${prefix}--card__cta__copy">
+      <span
+        ?hidden="${!hasCopy}"
+        class="${prefix}--card__cta__copy"
+        part="copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </span>
     `;

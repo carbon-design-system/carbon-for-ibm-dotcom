@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,6 @@ import '../../content-block-cards/index';
 import '../../content-group-cards/index';
 import '../../content-group-pictograms/index';
 import '../../content-group-simple/index';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
@@ -98,6 +97,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
@@ -156,7 +158,7 @@ export const Default = (args) => {
         <c4d-content-group-heading
           >${cardsGroupHeading}</c4d-content-group-heading
         >
-        <c4d-content-group-cards-item href="www.ibm.com">
+        <c4d-content-group-cards-item cta-type="local" href="www.ibm.com">
           <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
@@ -165,11 +167,9 @@ export const Default = (args) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <c4d-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-card-footer>
+          <c4d-card-footer icon-placement="left"></c4d-card-footer>
         </c4d-content-group-cards-item>
-        <c4d-content-group-cards-item href="www.ibm.com">
+        <c4d-content-group-cards-item cta-type="local" href="www.ibm.com">
           <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
@@ -178,9 +178,7 @@ export const Default = (args) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <c4d-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-card-footer>
+          <c4d-card-footer icon-placement="left"></c4d-card-footer>
         </c4d-content-group-cards-item>
       </c4d-content-group-cards>
       <c4d-content-group-pictograms>
@@ -217,8 +215,11 @@ export const Default = (args) => {
                 >${itemHeading}</c4d-content-item-heading
               >
               <c4d-content-item-copy>${itemCopy}</c4d-content-item-copy>
-              <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+              <c4d-link-with-icon
+                href="${linkWithIcon.href}"
+                slot="footer"
+                cta-type="local">
+                ${linkWithIcon.copy}
               </c4d-link-with-icon>
             </c4d-pictogram-item>
           `
@@ -235,7 +236,7 @@ export const Default = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-group-simple>
     </c4d-content-block-mixed>
@@ -260,7 +261,7 @@ export const WithLinkList = (args) => {
         <c4d-content-group-heading
           >${cardsGroupHeading}</c4d-content-group-heading
         >
-        <c4d-content-group-cards-item href="www.ibm.com">
+        <c4d-content-group-cards-item href="www.ibm.com" cta-type="local">
           <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
@@ -269,11 +270,9 @@ export const WithLinkList = (args) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <c4d-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-card-footer>
+          <c4d-card-footer icon-placement="left"></c4d-card-footer>
         </c4d-content-group-cards-item>
-        <c4d-content-group-cards-item href="www.ibm.com">
+        <c4d-content-group-cards-item href="www.ibm.com" cta-type="local">
           <c4d-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt
@@ -282,9 +281,7 @@ export const WithLinkList = (args) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <c4d-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-card-footer>
+          <c4d-card-footer icon-placement="left"></c4d-card-footer>
         </c4d-content-group-cards-item>
       </c4d-content-group-cards>
       <c4d-content-group-pictograms>
@@ -321,8 +318,8 @@ export const WithLinkList = (args) => {
               </svg>
               <c4d-content-item-heading>${itemHeading}</c4d-content-item-heading>
               <c4d-content-item-copy>${itemCopy}</c4d-content-item-copy>
-              <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+              <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer" cta-type="local">
+                ${linkWithIcon.copy}
               </c4d-link-with-icon>
             </c4d-pictogram-item>
           `
@@ -339,7 +336,7 @@ export const WithLinkList = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-group-simple>
       <c4d-link-list type="default" slot="complementary">
@@ -364,6 +361,9 @@ export const WithLinkList = (args) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMixed: () => ({

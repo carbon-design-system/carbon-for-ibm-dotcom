@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,8 @@
 
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-block-horizontal.scss?lit';
@@ -21,6 +21,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * Horizontal version of content group.
  *
  * @element c4d-content-block-horizontal
+ * @csspart hr - The horizontal rule element that appears when the border property is true. Usage: `c4d-content-block-horizontal::part(hr)`
  */
 @customElement(`${c4dPrefix}-content-block-horizontal`)
 class C4DContentBlockHorizontal extends C4DContentGroup {
@@ -29,7 +30,8 @@ class C4DContentBlockHorizontal extends C4DContentGroup {
 
   render() {
     return html`
-      ${super.render()} ${this.border ? html` <c4d-hr></c4d-hr> ` : ''}
+      ${super.render()}
+      ${this.border ? html` <c4d-hr part="hr"></c4d-hr> ` : ''}
     `;
   }
 

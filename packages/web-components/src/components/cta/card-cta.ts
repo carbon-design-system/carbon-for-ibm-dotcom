@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,7 +27,7 @@ import C4DCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 
@@ -37,6 +37,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Card CTA.
  *
  * @element c4d-card-cta
+ * @csspart heading - The heading content. Usage: `c4d-card-cta::part(heading)`
  */
 @customElement(`${c4dPrefix}-card-cta`)
 class C4DCardCTA extends VideoCTAMixin(CTAMixin(C4DCard)) {
@@ -62,7 +63,7 @@ class C4DCardCTA extends VideoCTAMixin(CTAMixin(C4DCard)) {
     );
     return html`
       <slot name="heading"></slot
-      ><c4d-card-heading>${caption}</c4d-card-heading>
+      ><c4d-card-heading part="heading">${caption}</c4d-card-heading>
     `;
   }
 
@@ -81,6 +82,7 @@ class C4DCardCTA extends VideoCTAMixin(CTAMixin(C4DCard)) {
         : html`
             <c4d-card-cta-image
               class="${prefix}--card__video-thumbnail"
+              part="video-thumbnail"
               alt="${ifDefined(videoName)}"
               default-src="${ifDefined(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}

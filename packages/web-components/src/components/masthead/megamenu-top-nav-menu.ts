@@ -1,20 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { query, state, property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenu from './megamenu';
 import C4DTopNav from './top-nav';
 import C4DTopNavMenu from './top-nav-menu';
 import C4DMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -179,16 +179,18 @@ class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
       if (this.expanded) {
         // Import needed subcomponents on first expansion
         if (!(this.parentElement as C4DTopNav)?.importedMegamenu) {
-          await import('./megamenu-left-navigation');
-          await import('./megamenu-category-link');
-          await import('./megamenu-category-link-group');
-          await import('./megamenu-category-group');
-          await import('./megamenu-category-group-copy');
-          await import('./megamenu-category-heading');
-          await import('./megamenu-link-with-icon');
-          await import('./megamenu-overlay');
-          await import('./megamenu-tab');
-          await import('./megamenu-tabs');
+          await Promise.all([
+            import('./megamenu-left-navigation'),
+            import('./megamenu-category-link'),
+            import('./megamenu-category-link-group'),
+            import('./megamenu-category-group'),
+            import('./megamenu-category-group-copy'),
+            import('./megamenu-category-heading'),
+            import('./megamenu-link-with-icon'),
+            import('./megamenu-overlay'),
+            import('./megamenu-tab'),
+            import('./megamenu-tabs'),
+          ]);
           (this.parentElement as C4DTopNav).importedMegamenu = true;
         }
 

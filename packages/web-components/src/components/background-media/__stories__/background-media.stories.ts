@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -62,6 +62,15 @@ export const WithVideo = (args) => {
   `;
 };
 
+WithVideo.story = {
+  name: 'with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
+};
+
 export const WithDefaultSource = (args) => {
   const { alt, gradientDirection, backgroundOpacity } =
     args?.['c4d-background-media'] ?? {};
@@ -73,6 +82,15 @@ export const WithDefaultSource = (args) => {
       opacity="${ifDefined(backgroundOpacity)}">
     </c4d-background-media>
   `;
+};
+
+WithDefaultSource.story = {
+  name: 'with default source',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export default {
@@ -87,6 +105,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

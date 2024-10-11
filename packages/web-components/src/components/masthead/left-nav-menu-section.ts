@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,16 +9,15 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ChevronLeft16 from '../../internal/vendor/@carbon/web-components/icons/chevron--left/16.js';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
-import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { forEach } from '../../globals/internal/collection-helpers';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import ChevronLeft16 from '@carbon/web-components/es/icons/chevron--left/16.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss?lit';
 import C4DLeftNav from './left-nav';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -26,6 +25,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead left nav menu section.
  *
  * @element c4d-left-nav-menu-section
+ * @csspart side-nav-submenu-container - The container for the submenu. Usage: `c4d-left-nav-menu-section::part(side-nav-submenu-container)`
+ * @csspart menu-item - The submenu item. Usage: `c4d-left-nav-menu-section::part(menu-item)`
+ * @csspart menu-link - The side navigation link. Usage: `c4d-left-nav-menu-section::part(menu-link)`
+ * @csspart menu-link-text - The text within the side navigation link. Usage: `c4d-left-nav-menu-section::part(menu-link-text back-button-text)`
+ * @csspart back-button - The back button. Usage: `c4d-left-nav-menu-section::part(back-button)`
  * @fires c4d-left-nav-menu-beingtoggled
  *   The custom event fired before this side nav menu is being toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
@@ -177,36 +181,12 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   async updated(changedProperties) {
-    // make sure leftNavMenuSection updates before setting the tabIndex's per item
     await this._requestLeftNavMenuSectionUpdate();
 
     if (changedProperties.has('expanded')) {
-      const { selectorNavMenu, selectorNavItem } = this
-        .constructor as typeof C4DLeftNavMenuSection;
       const { expanded, isSubmenu } = this;
 
       if (expanded) {
-        if (isSubmenu) {
-          const backBtn = this.shadowRoot?.querySelector('button');
-          if (backBtn) {
-            backBtn.tabIndex = 0;
-          }
-        }
-        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector(
-            'button'
-          );
-          if (item) {
-            item.tabIndex = 0;
-          }
-        });
-        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
-          if (item) {
-            item.tabIndex = 0;
-          }
-        });
-
         // set focus to first element of menu panel to allow for tabbing through the menu
         let tabbable;
         if (isSubmenu) {
@@ -228,27 +208,6 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
             { once: true }
           );
         }
-      } else {
-        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector(
-            'button'
-          );
-          if (item) {
-            item.tabIndex = -1;
-          }
-        });
-        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
-          if (item) {
-            item.tabIndex = -1;
-          }
-        });
-        if (isSubmenu) {
-          const backBtn = this.shadowRoot?.querySelector('button');
-          if (backBtn) {
-            backBtn.tabIndex = -1;
-          }
-        }
       }
     }
   }
@@ -268,17 +227,20 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       showBackBtn,
     } = this;
     return html`
-      <ul>
+      <ul part="side-nav-submenu-container">
         ${showBackBtn
           ? html`
               <li
+                part="menu-item back-button-wrapper"
                 class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back"
                 role="none">
                 <button
+                  part="menu-link back-button"
                   class="${prefix}--side-nav__link"
-                  tabindex="-1"
                   @click="${handleClickBack}">
-                  <span class="${prefix}--side-nav__link-text"
+                  <span
+                    part="menu-link-text back-button-text"
+                    class="${prefix}--side-nav__link-text"
                     >${ChevronLeft16()}${backButtonText}</span
                   >
                 </button>

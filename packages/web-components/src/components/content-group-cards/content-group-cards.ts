@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { css, html, TemplateResult } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentGroup from '../content-group/content-group';
 import styles from './content-group-cards.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -19,6 +19,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Content group cards.
  *
  * @element c4d-content-group-cards
+ * @csspart children - The Element container. Usage: `c4d-content-group-cards::part(children)`
+ * @csspart cards-group - The cards group grid. Usage: `c4d-content-group-cards::part(cards-group)`
+ * @csspart cards-row - The cards group row. Usage: `c4d-content-group-cards::part(cards-row)`
  */
 @customElement(`${c4dPrefix}-content-group-cards`)
 class C4DContentGroupCards extends C4DContentGroup {
@@ -26,11 +29,13 @@ class C4DContentGroupCards extends C4DContentGroup {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
       <div
+        part="children"
         ?hidden="${!hasContent && !hasMedia}"
         class="${prefix}--content-group__children ${prefix}--content-group__col">
         <div
+          part="cards-group"
           class="${prefix}--content-group-cards-group ${prefix}--grid--condensed">
-          <div class="${prefix}--content-group-cards__row">
+          <div part="cards-row" class="${prefix}--content-group-cards__row">
             ${this._renderContent()}${this._renderMedia()}
           </div>
         </div>

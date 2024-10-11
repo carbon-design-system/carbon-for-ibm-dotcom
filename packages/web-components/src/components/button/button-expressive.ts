@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,13 +10,13 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from './defs';
 import styles from './button.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { BUTTON_KIND, BUTTON_SIZE };
 
@@ -26,7 +26,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Expressive button.
  *
  * @element c4d-button-expressive
- * @csspart button The button.
+ * @csspart button - The button. Usage `c4d-button-expressive::part(button)`
+ * @csspart hidden-paragraph - The hidden paragraph that contains the link. Usage `c4d-button-expressive::part(hidden-paragraph)`
+ * @csspart hidden-span - The span inside of the hidden paragraph. Usage `c4d-button-expressive::part(hidden-span)`
  */
 @customElement(`${c4dPrefix}-button-expressive`)
 class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
@@ -102,8 +104,11 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
-      <p class="${prefix}--btn--hidden" aria-hidden="true">
-        <span>:</span> ${this.href}
+      <p
+        class="${prefix}--btn--hidden"
+        aria-hidden="true"
+        part="hidden-paragraph">
+        <span part="hidden-span">:</span> ${this.href}
       </p>
       <slot name="icon" @slotchange="${handleSlotChange}"></slot>
     `;

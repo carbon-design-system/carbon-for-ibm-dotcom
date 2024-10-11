@@ -15,7 +15,7 @@ import React from 'react';
 import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
 import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
-import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';

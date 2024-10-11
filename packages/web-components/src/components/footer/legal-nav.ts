@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -22,6 +22,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Legal nav.
  *
  * @element c4d-legal-nav
+ * @csspart legal-nav - The <nav> container. Usage: `c4d-legal-nav::part(legal-nav)`
+ * @csspart legal-nav-list-container - The legal nav list container. Usage: `c4d-legal-nav::part(legal-nav-list-container)`
+ * @csspart legal-nav-list - The list of links. Usage: `c4d-legal-nav::part(legal-nav-list)`
+ * @csspart adjunct-links-list - The list of adjunct links. Usage: `c4d-legal-nav::part(adjunct-links-list)`
+ * @csspart adjunct-links-container - The adjunct links container. Usage: `c4d-legal-nav::part(adjunct-links-container)`
+ * @csspart legal-nav-items-container - The legal nav items container. Usage: `c4d-legal-nav::part(legal-nav-items-container)`
  */
 @customElement(`${c4dPrefix}-legal-nav`)
 class C4DLegalNav extends StableSelectorMixin(LitElement) {
@@ -30,7 +36,11 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    */
   @property()
   size = FOOTER_SIZE.REGULAR;
-
+  /**
+   * Navigation label for accessibility.
+   */
+  @property()
+  navLabel = 'Legal Navigation';
   /**
    * The adjunct links container
    */
@@ -67,28 +77,38 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    const { navLabel } = this;
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
-          <nav class="${c4dPrefix}--legal-nav">
-            <div class="${classMap(this._getTypeClass())}">
-              <ul>
+          <nav
+            part="legal-nav"
+            class="${c4dPrefix}--legal-nav"
+            aria-label="${ifDefined(navLabel)}">
+            <div
+              part="legal-nav-list-container"
+              class="${this._getTypeClass()}">
+              <ul part="legal-nav-list">
                 <slot></slot>
               </ul>
               <slot name="locale"></slot>
             </div>
-            <div class="${c4dPrefix}--adjunct-links__container">
-              <ul>
+            <div
+              part="adjunct-links-container"
+              class="${c4dPrefix}--adjunct-links__container">
+              <ul part="adjunct-links-list">
                 <slot name="adjunct-links"></slot>
               </ul>
             </div>
           </nav>
         `
       : html`
-          <nav class="${c4dPrefix}--legal-nav">
-            <div class="${classMap(this._getTypeClass())}">
-              <div>
+          <nav part="legal-nav" class="${c4dPrefix}--legal-nav">
+            <div
+              part="legal-nav-list-container"
+              class="${this._getTypeClass()}">
+              <div part="legal-nav-items-container">
                 <slot name="brand"></slot>
-                <ul>
+                <ul part="legal-nav-list">
                   <slot></slot>
                 </ul>
               </div>

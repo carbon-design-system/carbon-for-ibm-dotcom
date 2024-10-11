@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,10 +9,10 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -20,6 +20,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Masthead.
  *
  * @element c4d-masthead-l1-name
+ * @csspart l1-name-title - The title element. Usage: `c4d-masthead-l1-name::part(l1-name-title)`
+ * @csspart l1-name-link - The link element. Usage: `c4d-masthead-l1-name::part(l1-name-link)`
  */
 @customElement(`${c4dPrefix}-masthead-l1-name`)
 class C4DMastheadL1Name extends StableSelectorMixin(LitElement) {
@@ -37,8 +39,8 @@ class C4DMastheadL1Name extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <span class="${prefix}--masthead__l1-name-title">
-        <a href="${this.url}">${this.title}</a>
+      <span part="l1-name-title" class="${prefix}--masthead__l1-name-title">
+        <a part="l1-name-link" href="${this.url}">${this.title}</a>
       </span>
     `;
   }

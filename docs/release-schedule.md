@@ -3,12 +3,12 @@
 This is a living document outlining the plan for previous, current, and future
 major versions of the Carbon for IBM.com library.
 
-| Release | Status      | Initial release | Begin Active | Begin Maintenance | End of life |
-| ------- | ----------- | --------------- | ------------ | ----------------- | ----------- |
-| `main`  | unstable    | unstable        | unstable     | unstable          | unstable    |
-| v1      | Active      | 2019-10-31      | 2019-10-31   | 2023-09-30        | 2025-03-31  |
-| v2      | Unreleased  | 2023-10-30      | 2023-11-30   | 2025-03-31        | 2027-03-31  |
-| v3      | Unreleased  | 2024-06-30      | 2025-03-31   | 2027-03-31        | 2029-03-31  |
+| Release | Status      | Initial release | Begin Active | Begin Maintenance | End of Support |
+| ------- | ----------- | --------------- | ------------ | ----------------- | -------------- |
+| `main`  | unstable    | unstable        | unstable     | unstable          | unstable       |
+| v1      | Maintenance | 2019-10-31      | 2019-10-31   | 2023-09-30        | 2025-03-31     |
+| v2      | Active      | 2023-10-30      | 2023-11-30   | 2025-03-31        | 2027-03-31     |
+| v3      | Unreleased  | 2024-06-30      | 2025-03-31   | 2027-03-31        | 2029-03-31     |
 
 > Dates are subject to change
 
@@ -44,8 +44,7 @@ Maintenance release, please
 ## Assets managed under this release schedule
 
 This plan covers the design and development assets under maintenance of the
-Carbon for IBM.com team. This includes the `@carbon/web-components` and
-`@carbon/ibmdotcom-web-components` packages, as well as all other packages within the
+Carbon for IBM.com team. This includes all packages within the
 [`Carbon for IBM.com` monorepo](https://github.com/carbon-design-system/carbon-for-ibm-dotcom).
 
 This plan also includes all design guidance and design kit assets (figma, etc.)

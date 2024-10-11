@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,14 +9,14 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import throttle from 'lodash-es/throttle.js';
-import UpToTop20 from '../../internal/vendor/@carbon/web-components/icons/up-to-top/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import UpToTop20 from '@carbon/web-components/es/icons/up-to-top/20.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './back-to-top.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 interface Cancelable {
@@ -27,6 +27,7 @@ interface Cancelable {
  * Back to top
  *
  * @element c4d-back-to-top
+ * @csspart button - The button. Usage: `c4d-back-to-top::part(button)`
  */
 @customElement(`${c4dPrefix}-back-to-top`)
 class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
@@ -169,6 +170,7 @@ class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { backToTopAssistiveText, _handleOnClick: handleOnClick } = this;
     return html`
       <button
+        part="button"
         class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--back-to-top__btn"
         aria-label="${backToTopAssistiveText}"
         @click="${handleOnClick}">

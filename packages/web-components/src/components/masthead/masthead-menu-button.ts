@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,14 +10,14 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import CDSHeaderMenuButton from '@carbon/web-components/es/components/ui-shell/header-menu-button.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap.js';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -25,6 +25,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Toggle button for masthead left nav.
  *
  * @element c4d-masthead-menu-button
+ * @csspart sentinel-button - The sentinel button for managing focus.
+ * @csspart ce-header-menu-trigger-container - Container for the menu trigger button.
+ * @csspart sentinel-button--start - The start sentinel button for managing focus. Usage: `c4d-masthead-menu-button::part(sentinel-button--start)`
+ * @csspart sentinel-button--end - The end sentinel button for managing focus. Usage: `c4d-masthead-menu-button::part(sentinel-button--end)`
  */
 @customElement(`${c4dPrefix}-masthead-menu-button`)
 class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
@@ -115,6 +119,7 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
   private _renderSentinel = (side: String) => {
     return html`
       <button
+        part="sentinel-button sentinel-button--${side}"
         id="${side}-sentinel"
         type="button"
         class="${prefix}--visually-hidden"></button>
@@ -135,7 +140,7 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
     const startSentinel = active ? renderSentinel('start') : '';
     const endSentinel = active ? renderSentinel('end') : '';
     return html`
-      <div class="${classes}">
+      <div part="ce-header-menu-trigger-container" class="${classes}">
         ${startSentinel}${super.render()}${endSentinel}
       </div>
     `;

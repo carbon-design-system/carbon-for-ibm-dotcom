@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import Reset from '../../internal/vendor/@carbon/web-components/icons/reset/16.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import Reset from '@carbon/web-components/es/icons/reset/16.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -22,6 +22,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The filter panel.
  *
  * @element c4d-filter-panel
+ * @csspart section - The filter panel section. Usage: `c4d-filter-panel::part(section)`
+ * @csspart heading-clear - Contains the filter heading an the button. Usage: `c4d-filter-panel::part(heading-clear)`
+ * @csspart filter-heading - The heading. Usage: `c4d-filter-panel::part(filter-heading)`
+ * @csspart button-clear - The button. Usage: `c4d-filter-panel::part(button-clear)`
+ * @csspart container - The button inner container. Usage: `c4d-filter-panel::part(container)`
+ * @csspart icon - The button icon. Usage: `c4d-filter-panel::part(icon)`
  */
 @customElement(`${c4dPrefix}-filter-panel`)
 class C4DFilterPanel extends HostListenerMixin(
@@ -69,16 +75,19 @@ class C4DFilterPanel extends HostListenerMixin(
 
   render() {
     return html`
-      <section class="${prefix}--filter-panel__section">
-        <div class="${prefix}--heading-clear">
-          <div class="${prefix}--filter__heading">${this.heading}</div>
+      <section class="${prefix}--filter-panel__section" part="section">
+        <div class="${prefix}--heading-clear" part="heading-clear">
+          <div class="${prefix}--filter__heading" part="filter-heading">
+            ${this.heading}
+          </div>
           <button
             class="${prefix}--clear"
+            part="button-clear"
             @click=${this._handleClear}
             ?disabled="${!this.hasSelections}">
-            <div class="${prefix}--clear__container">
+            <div class="${prefix}--clear__container" part="container">
               Clear
-              <div class="${prefix}--reset__icon">${Reset()}</div>
+              <div class="${prefix}--reset__icon" part="icon">${Reset()}</div>
             </div>
           </button>
         </div>

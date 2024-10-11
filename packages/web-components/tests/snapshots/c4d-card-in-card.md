@@ -5,11 +5,20 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--card cds--card-in-card cds--tile">
+<div
+  class="cds--card cds--card-in-card cds--tile"
+  part="container"
+>
   <slot name="image">
   </slot>
-  <div class="cds--card__wrapper">
-    <div class="cds--card__content">
+  <div
+    class="cds--card__wrapper"
+    part="wrapper"
+  >
+    <div
+      class="cds--card__content"
+      part="content"
+    >
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
@@ -17,6 +26,7 @@
       <div
         class="cds--card__copy"
         hidden=""
+        part="copy"
       >
         <slot>
         </slot>
@@ -37,11 +47,20 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--card cds--card--link cds--card-in-card cds--tile cds--tile--clickable">
+<div
+  class="cds--card cds--card--link cds--card-in-card cds--tile cds--tile--clickable"
+  part="container"
+>
   <slot name="image">
   </slot>
-  <div class="cds--card__wrapper">
-    <div class="cds--card__content">
+  <div
+    class="cds--card__wrapper"
+    part="wrapper"
+  >
+    <div
+      class="cds--card__content"
+      part="content"
+    >
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
@@ -49,6 +68,7 @@
       <div
         class="cds--card__copy"
         hidden=""
+        part="copy"
       >
         <slot>
         </slot>

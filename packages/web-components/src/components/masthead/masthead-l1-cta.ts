@@ -9,16 +9,17 @@
 
 import { html, LitElement, TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
-import Calendar16 from '../../internal/vendor/@carbon/web-components/icons/calendar/16.js';
-import Chat16 from '../../internal/vendor/@carbon/web-components/icons/chat/16.js';
-import Demo16 from '../../internal/vendor/@carbon/web-components/icons/demo/16.js';
-import Email16 from '../../internal/vendor/@carbon/web-components/icons/email/16.js';
-import Phone16 from '../../internal/vendor/@carbon/web-components/icons/phone/16.js';
-import Quote16 from '../../internal/vendor/@carbon/web-components/icons/request-quote/16.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
+import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
+import Calendar16 from '@carbon/web-components/es/icons/calendar/16.js';
+import Chat16 from '@carbon/web-components/es/icons/chat/16.js';
+import Demo16 from '@carbon/web-components/es/icons/demo/16.js';
+import Email16 from '@carbon/web-components/es/icons/email/16.js';
+import Phone16 from '@carbon/web-components/es/icons/phone/16.js';
+import Quote16 from '@carbon/web-components/es/icons/request-quote/16.js';
 import styles from './masthead-l1.scss?lit';
 import { L1_CTA_TYPES } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
@@ -30,6 +31,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-masthead-l1-cta
  * @slot cta-text - The CTA text
+ * @csspart inner-wrapper-desktop - The inner wrapper for the desktop view. Usage: `c4d-masthead-l1-cta::part(inner-wrapper-desktop)`
+ * @csspart l1-button - The button element for CTA. Usage: `c4d-masthead-l1-cta::part(l1-button)`
+ * @csspart l1-link - The link element for CTA. Usage: `c4d-masthead-l1-cta::part(l1-link)`
  */
 @customElement(`${c4dPrefix}-masthead-l1-cta`)
 class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
@@ -94,7 +98,11 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
     // Adds inner wrapper markup in desktop displays.
     const desktopWrapper = (markup: TemplateResult) => {
       if (!isMobileVersion) {
-        return html` <div class="${classname}-inner">${markup}</div> `;
+        return html`
+          <div part="inner-wrapper-desktop" class="${classname}-inner">
+            ${markup}
+          </div>
+        `;
       }
       return markup;
     };
@@ -117,7 +125,10 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
     if (type && iconMap.has(type as L1_CTA_TYPES)) {
       const icon = iconMap.get(type as L1_CTA_TYPES);
       return html`
-        <button class="${classname}" data-ibm-contact="${type}-link">
+        <button
+          part="l1-button"
+          class="${classname}"
+          data-ibm-contact="${type}-link">
           ${desktopWrapper(html`
             <slot name="cta-text"></slot>
             ${icon}
@@ -127,9 +138,11 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
     }
 
     if (href) {
-      const icon = isMobileVersion ? ArrowRight16() : '';
+      const isRTL = document.dir.toLowerCase() === 'rtl';
+      const ArrowIcon = isRTL ? ArrowLeft16 : ArrowRight16;
+      const icon = isMobileVersion ? ArrowIcon() : '';
       return html`
-        <a class="${classname}" href="${href}">
+        <a part="l1-link" class="${classname}" href="${href}">
           ${desktopWrapper(html`<slot name="cta-text"></slot>${icon}`)}
         </a>
       `;

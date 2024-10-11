@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,13 +9,13 @@
 
 import { html, LitElement, TemplateResult } from 'lit';
 import { property, state, query } from 'lit/decorators.js';
-import Filter from '../../internal/vendor/@carbon/web-components/icons/filter/16.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import Filter from '@carbon/web-components/es/icons/filter/16.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss?lit';
 import '@carbon/web-components/es/components/checkbox/checkbox.js';
@@ -24,7 +24,7 @@ import C4DFilterGroupItem from './filter-group-item';
 import C4DFilterPanelCheckbox from './filter-panel-checkbox';
 import C4DFilterPanelInputSelect from './filter-panel-input-select';
 import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
@@ -36,6 +36,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Filter panel composite
  *
  * @element c4d-filter-panel-composite
+ * @csspart panel-modal - The panel modal. Usage: `c4d-filter-panel::part(panel-modal)`
+ * @csspart button - The button. Usage: `c4d-filter-panel::part(button)`
+ * @csspart filter-panel - The filter panel. Usage: `c4d-filter-panel::part(filter-panel)`
  */
 @customElement(`${c4dPrefix}-filter-panel-composite`)
 class C4DFilterPanelComposite extends MediaQueryMixin(
@@ -415,6 +418,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
    */
   protected _renderModal = (): TemplateResult => html`
     <c4d-filter-panel-modal
+      part="panel-modal"
       ?open=${this.openFilterModal}
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
@@ -423,7 +427,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
   `;
 
   protected _renderMobile = (): TemplateResult => html`
-    <cds-button kind="tertiary" @click=${this._openModal}>
+    <cds-button part="button" kind="tertiary" @click=${this._openModal}>
       ${this._getComposedHeadingFilterCount()} ${Filter({ slot: 'icon' })}
     </cds-button>
 
@@ -435,6 +439,7 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
    */
   protected _renderDesktop = (): TemplateResult => html`
     <c4d-filter-panel
+      part="filter-panel"
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
       <slot @slotchange="${this._handleSlotChange}"></slot>
@@ -443,10 +448,10 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
 
   render() {
     // Note that the <slot name="heading"> contents, intended to be
-    // <dds-filter-panel-heading> are never shown as is. The text contents
+    // <c4d-filter-panel-heading> are never shown as is. The text contents
     // are composed, using this._getComposedHeadingFilterCount(), together with
     // the current filter count, and passed as an attribute to
-    // <dds-filter-panel-modal> and <dds-filter-panel>.
+    // <c4d-filter-panel-modal> and <c4d-filter-panel>.
     return html`
       <slot
         name="heading"

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,59 +11,19 @@
 
 const gulp = require('gulp');
 const {
-  carbonWebComponentsCJSSrcDir,
-  carbonWebComponentsESSrcDir,
-  carbonWebComponentsVendorSrcDir,
-  carbonWebComponentsVendorCJSDstDir,
-  carbonWebComponentsVendorESDstDir,
   servicesCJSSrcDir,
   servicesESSrcDir,
-  servicesVendorSrcDir,
   servicesVendorCJSDstDir,
   servicesVendorESDstDir,
   servicesStoreCJSSrcDir,
   servicesStoreESSrcDir,
-  servicesStoreVendorSrcDir,
   servicesStoreVendorCJSDstDir,
   servicesStoreVendorESDstDir,
   utilitiesCJSSrcDir,
   utilitiesESSrcDir,
-  utilitiesVendorSrcDir,
   utilitiesVendorCJSDstDir,
   utilitiesVendorESDstDir,
 } = require('./config');
-
-/**
- * Generates `src/internal/vendor` contents.
- */
-const carbonWebComponentsVendorSrc = () =>
-  gulp
-    .src([`${carbonWebComponentsESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(carbonWebComponentsVendorSrcDir));
-
-/**
- * Generate `es/internal/vendor` contents.
- */
-const carbonWebComponentsVendorESDst = () =>
-  gulp
-    .src([`${carbonWebComponentsESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(carbonWebComponentsVendorESDstDir));
-
-/**
- * Generate `lib/internal/vendor` contents.
- */
-const carbonWebComponentsVendorCJSDst = () =>
-  gulp
-    .src([`${carbonWebComponentsCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(carbonWebComponentsVendorCJSDstDir));
-
-/**
- * Generates `src/internal/vendor` contents.
- */
-const servicesVendorSrc = () =>
-  gulp
-    .src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
@@ -82,14 +42,6 @@ const servicesVendorCJSDst = () =>
     .pipe(gulp.dest(servicesVendorCJSDstDir));
 
 /**
- * Generates `src/internal/vendor` contents.
- */
-const servicesStoreVendorSrc = () =>
-  gulp
-    .src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesStoreVendorSrcDir));
-
-/**
  * Generate `es/internal/vendor` contents.
  */
 const servicesStoreVendorESDst = () =>
@@ -104,14 +56,6 @@ const servicesStoreVendorCJSDst = () =>
   gulp
     .src([`${servicesStoreCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
     .pipe(gulp.dest(servicesStoreVendorCJSDstDir));
-
-/**
- * Generates `src/internal/vendor` contents.
- */
-const utilitiesVendorSrc = () =>
-  gulp
-    .src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(utilitiesVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
@@ -131,33 +75,20 @@ const utilitiesVendorCJSDst = () =>
 
 // Vendor builds
 gulp.task(
-  'vendor:carbon-web-components',
-  gulp.parallel(
-    carbonWebComponentsVendorSrc,
-    carbonWebComponentsVendorCJSDst,
-    carbonWebComponentsVendorESDst
-  )
-);
-gulp.task(
   'vendor:utilities',
-  gulp.parallel(utilitiesVendorSrc, utilitiesVendorCJSDst, utilitiesVendorESDst)
+  gulp.parallel(utilitiesVendorCJSDst, utilitiesVendorESDst)
 );
 gulp.task(
   'vendor:services',
-  gulp.parallel(servicesVendorSrc, servicesVendorCJSDst, servicesVendorESDst)
+  gulp.parallel(servicesVendorCJSDst, servicesVendorESDst)
 );
 gulp.task(
   'vendor:services-store',
-  gulp.parallel(
-    servicesStoreVendorSrc,
-    servicesStoreVendorCJSDst,
-    servicesStoreVendorESDst
-  )
+  gulp.parallel(servicesStoreVendorCJSDst, servicesStoreVendorESDst)
 );
 gulp.task(
   'vendor',
   gulp.series(
-    gulp.task('vendor:carbon-web-components'),
     gulp.task('vendor:utilities'),
     gulp.task('vendor:services'),
     gulp.task('vendor:services-store')

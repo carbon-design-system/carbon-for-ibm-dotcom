@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,11 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -26,6 +26,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *   The custom event fired before this side nav menu is being toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
  * @fires c4d-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
+ * @csspart side-nav-item-button - The button for the side navigation item. Usage: `c4d-left-nav-menu::part(side-nav-item-button)`
+ * @csspart side-nav-submenu-content - The content of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-submenu-content)`
+ * @csspart side-nav-submenu-title - The title of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-submenu-title)`
+ * @csspart side-nav-icon - The icon of the side navigation submenu. Usage: `c4d-left-nav-menu::part(side-nav-icon)`
+ *  @csspart side-nav-item-container - The container for the side navigation item. Usage: `c4d-left-nav-menu::part(side-nav-item-container)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu`)
 class C4DLeftNavMenu extends FocusMixin(LitElement) {
@@ -109,20 +114,27 @@ class C4DLeftNavMenu extends FocusMixin(LitElement) {
     const isSubitem = this.parentElement?.hasAttribute('is-submenu') || false;
 
     return html`
-      <div class="${prefix}--side-nav__item">
+      <div class="${prefix}--side-nav__item" part="side-nav-item-container">
         <button
+          part="side-nav-item-button"
           type="button"
           aria-haspopup="true"
-          tabindex="-1"
           aria-expanded="${expanded}"
           class="${buttonClasses}"
           @click=${handleClickExpando}
           data-attribute1="headerNav"
           data-attribute2="${isSubitem ? 'TabHdline' : 'L0'}"
           data-attribute3="${title}">
-          <div class="${prefix}--side-nav__submenu-content">
-            <span class="${prefix}--side-nav__submenu-title">${title}</span>
+          <div
+            part="side-nav-submenu-content"
+            class="${prefix}--side-nav__submenu-content">
+            <span
+              part="side-nav-submenu-title"
+              class="${prefix}--side-nav__submenu-title"
+              >${title}</span
+            >
             <div
+              part="side-nav-icon"
               class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
               ${ChevronDown16()}
             </div>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -128,7 +128,7 @@ export const Default = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-block-media-content>
       <c4d-content-block-media-content>
@@ -164,7 +164,7 @@ export const Default = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-block-media-content>
       <c4d-content-block-media-content>
@@ -239,7 +239,7 @@ export const withLinkList = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-block-media-content>
       <c4d-content-block-media-content>
@@ -275,7 +275,7 @@ export const withLinkList = (args) => {
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer></c4d-card-cta-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-link-cta>
       </c4d-content-block-media-content>
       <c4d-content-block-media-content>
@@ -314,6 +314,9 @@ export const withLinkList = (args) => {
 withLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      skip: true,
+    },
     gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMedia: () => ({
@@ -367,6 +370,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.44.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.44.2-rc.0...@carbon/storybook-addon-theme@1.44.2) (2024-09-18)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
+## [1.44.2-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.44.1...@carbon/storybook-addon-theme@1.44.2-rc.0) (2024-09-18)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
+## [1.44.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.44.1-rc.0...@carbon/storybook-addon-theme@1.44.1) (2024-07-30)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
+## [1.44.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.44.0...@carbon/storybook-addon-theme@1.44.1-rc.0) (2024-07-25)
+
+
+### Bug Fixes
+
+* **stackblitz:** fix and standardize masthead examples for v2 ([#11199](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11199)) ([c3ddeb8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c3ddeb8016b0259ce4f202cb2d99c16b6b5c2545))
+
+
+
+
+
 # [1.44.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.44.0-rc.2...@carbon/storybook-addon-theme@1.44.0) (2023-11-15)
 
 **Note:** Version bump only for package @carbon/storybook-addon-theme

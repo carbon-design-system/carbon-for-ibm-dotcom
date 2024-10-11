@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { css, html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentItem from '../content-item/content-item';
 import styles from './content-block-headlines.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -20,15 +20,17 @@ const { stablePrefix: c4dPrefix } = settings;
  * Content Block Headlines item
  *
  * @element c4d-content-block-headlines-item
+ * @csspart heading - The heading element within the content block headlines item. Usage: `c4d-content-block-headlines-item::part(heading)`
+ * @csspart copy - The paragraph element containing the copy text in the content block headlines item. Usage: `c4d-content-block-headlines-item::part(copy)`
  */
 @customElement(`${c4dPrefix}-content-block-headlines-item`)
 class C4DContentBlockHeadlinesItem extends StableSelectorMixin(C4DContentItem) {
   render() {
     return html`
-      <h4 class="cds--content-block-headlines__heading">
+      <h4 class="cds--content-block-headlines__heading" part="heading">
         <slot name="heading"></slot>
       </h4>
-      <p class="cds--content-block-headlines__copy">
+      <p class="cds--content-block-headlines__copy" part="copy">
         <slot name="copy"></slot>
       </p>
       <slot name="footer"></slot>

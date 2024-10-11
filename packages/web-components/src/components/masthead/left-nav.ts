@@ -10,20 +10,20 @@
 import findLast from 'lodash-es/findLast.js';
 import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import CDSSideNav, {
   SIDE_NAV_USAGE_MODE,
 } from '@carbon/web-components/es/components/ui-shell/side-nav.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap.js';
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss?lit';
 import C4DLeftNavMenuSection from './left-nav-menu-section';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -38,6 +38,9 @@ const FOLLOWING =
  * Masthead left nav.
  *
  * @element c4d-left-nav
+ * @csspart side-nav-wrapper - The wrapper element for the side nav. Usage: `c4d-left-nav::part(side-nav-wrapper)`
+ * @csspart platform-name - The element containing the platform name slot. Usage: `c4d-left-nav::part(platform-name)`
+ * @csspart menu-sections - The element containing the menu sections slot. Usage: `c4d-left-nav::part(menu-sections)`
  */
 @customElement(`${c4dPrefix}-left-nav`)
 class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
@@ -62,11 +65,31 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   private _importedSideNav = false;
 
   /**
-   * Handles `c4d-request-focus-wrap` event on the document.
+   * Handles `${prefix}-header-menu-button-toggle` event on the document.
+   */
+  @HostListener('parentRoot:eventButtonToggle')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _handleButtonToggle = async (event: CustomEvent) => {
+    if (!this._importedSideNav) {
+      await Promise.all([
+        import('./left-nav-name'),
+        import('./left-nav-menu'),
+        import('./left-nav-menu-section'),
+        import('./left-nav-menu-item'),
+        import('./left-nav-menu-category-heading'),
+        import('./left-nav-overlay'),
+      ]);
+      this._importedSideNav = true;
+    }
+    this.expanded = event.detail.active;
+  };
+
+  /**
+   * Handles `cds-request-focus-wrap` event on the document dispatched from focuswrap.
    *
    * @param event The event.
    */
-  @HostListener('document:c4d-request-focus-wrap')
+  @HostListener('document:cds-request-focus-wrap')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRequestMenuButtonFocusWrap = (event: CustomEvent) => {
     const { selectorButtonToggle } = this.constructor as typeof C4DLeftNav;
@@ -221,7 +244,7 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
     document.addEventListener('click', this._handleClickOut.bind(this));
   }
 
-  updated(changedProperties) {
+  async updated(changedProperties) {
     super.updated(changedProperties);
     const { usageMode } = this;
     if (
@@ -256,15 +279,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
           ${c4dPrefix}-masthead-composite`
         )
         ?.querySelector(`${c4dPrefix}-masthead`);
-      if (expanded && !this._importedSideNav) {
-        import('./left-nav-name');
-        import('./left-nav-menu');
-        import('./left-nav-menu-section');
-        import('./left-nav-menu-item');
-        import('./left-nav-menu-category-heading');
-        import('./left-nav-overlay');
-        this._importedSideNav = true;
-      }
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
@@ -312,7 +326,7 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
     }
   }
 
-  private _renderSentinel = (side: String) => {
+  private _renderSentinel = (side: string) => {
     return html`
       <button
         id="${side}-sentinel"
@@ -324,12 +338,12 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   render() {
     const { _renderSentinel: renderSentinel } = this;
     return html`
-      <div class="${prefix}--side-nav__wrapper">
+      <div class="${prefix}--side-nav__wrapper" part="side-nav-wrapper">
         ${renderSentinel('start')}
-        <div class="${prefix}--side-nav__platform-name">
+        <div class="${prefix}--side-nav__platform-name" part="platform-name">
           <slot name="platform-id"></slot>
         </div>
-        <div class="${prefix}--side-nav__menu-sections">
+        <div class="${prefix}--side-nav__menu-sections" part="menu-sections">
           <slot></slot>
         </div>
         ${renderSentinel('end')}

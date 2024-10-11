@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';
 import styles from './link-list.scss?lit';
 import C4DLinkListItem from './link-list-item';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -41,6 +41,8 @@ export enum END_TYPE_LAYOUT {
  *
  * @element c4d-link-list
  * @slot heading - The heading content.
+ * @csspart heading - The heading wrapper. Usage `c4d-link-list::part(heading)`
+ * @csspart list - The list wrapper. Usage `c4d-link-list::part(list)`
  */
 @customElement(`${c4dPrefix}-link-list`)
 class C4DLinkList extends StableSelectorMixin(LitElement) {
@@ -127,8 +129,10 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
         endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
     });
     return html`
-      <div class="${headingClasses}"><slot name="heading"></slot></div>
-      <ul name="list" class="${listClasses}">
+      <div class="${headingClasses}" part="heading">
+        <slot name="heading"></slot>
+      </div>
+      <ul part="list" name="list" class="${listClasses}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;

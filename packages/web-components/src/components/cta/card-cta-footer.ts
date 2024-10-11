@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,20 +14,21 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import C4DCardFooter from '../card/card-footer';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card CTA footer.
  *
- * @element c4d-card-cta-footer
+ * @element c4d-card-footer
+ * @csspart copy - The text content. Usage: `c4d-card-footer::part(copy)`
  */
 @customElement(`${c4dPrefix}-card-cta-footer`)
 class C4DCardCTAFooter extends VideoCTAMixin(CTAMixin(C4DCardFooter)) {
@@ -49,7 +50,7 @@ class C4DCardCTAFooter extends VideoCTAMixin(CTAMixin(C4DCardFooter)) {
           }),
         });
     return html`
-      <span class="${prefix}--card__cta__copy"
+      <span class="${prefix}--card__cta__copy" part="copy"
         ><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span
       >
     `;

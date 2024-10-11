@@ -44,6 +44,7 @@
     "@babel/preset-react": "~7.12.1",
     "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "@types/jest": "29.5.13",
     "async-done": "^1.3.0",
     "babel-preset-carbon": "^0.0.14",
     "browserslist-config-carbon": "^10.3.0",
@@ -153,5 +154,5 @@
       "scss/no-global-function-names": null
     }
   },
-  "packageManager": "yarn@4.0.1"
+  "packageManager": "yarn@4.5.0"
 }

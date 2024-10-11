@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,13 +10,13 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss?lit';
 import { ADJACENT_THEMES, DUAL_THEMES } from './defs';
-import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { themes } from '@carbon/themes';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -24,6 +24,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Leadspace with Search
  *
  * @element c4d-leadspace-with-search
+ * @csspart content-layout - The content container. Usage: `c4d-leadspace-with-search::part(content-layout)`
+ * @csspart content-layout-body - The content container body. Usage: `c4d-leadspace-with-search::part(content-layout-body)`
+ * @csspart search-container - The search container. Usage: `c4d-leadspace-with-search::part(search-container)`
+ * @csspart search-container-inner - The search container inner content. Usage: `c4d-leadspace-with-search::part(search-container-inner)`
+ * @csspart sticky-header - The sticky header container. Usage: `c4d-leadspace-with-search::part(sticky-header)`
  */
 @customElement(`${c4dPrefix}-leadspace-with-search`)
 class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
@@ -79,15 +84,15 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
    * Returns a class-name based on the Adjacent theme type
    */
   protected _getSearchClass() {
-    return {
+    return classMap({
       [`${prefix}--search-container`]: true,
       [`${prefix}--search-container-dual-theme`]:
         this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME,
-    };
+    });
   }
 
   protected firstUpdated() {
-    StickyHeader.global.leadspaceWithSearch = this;
+    StickyHeader.global.leadspaceSearch = this;
 
     this.querySelector(`${c4dPrefix}-leadspace-heading`)?.setAttribute(
       'type-style',
@@ -117,17 +122,21 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--content-layout">
+      <div part="content-layout" class="${prefix}--content-layout">
         <slot
           name="heading"
           @slotchange=${this._handleHeadingSlotChange}></slot>
-        <div class="${prefix}--content-layout__body">
+        <div part="content-layout-body" class="${prefix}--content-layout__body">
           <slot name="copy"></slot>
         </div>
       </div>
-      <div class="${classMap(this._getSearchClass())}">
-        <div class="${prefix}--search-container-inner">
-          <div class="${prefix}--sticky-header">${this._heading}</div>
+      <div part="search-container" class="${this._getSearchClass()}">
+        <div
+          part="search-container-inner"
+          class="${prefix}--search-container-inner">
+          <div part="sticky-header" class="${prefix}--sticky-header">
+            ${this._heading}
+          </div>
           <slot name="search"></slot>
         </div>
       </div>

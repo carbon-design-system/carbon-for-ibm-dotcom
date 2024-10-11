@@ -1,26 +1,27 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
-import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
-import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/play--outline/20.js';
-import Blog20 from '../../internal/vendor/@carbon/web-components/icons/blog/20.js';
-import DocumentPDF20 from '../../internal/vendor/@carbon/web-components/icons/document--pdf/20.js';
-import NewTab20 from '../../internal/vendor/@carbon/web-components/icons/new-tab/20.js';
-import Phone20 from '../../internal/vendor/@carbon/web-components/icons/phone/20.js';
-import Calendar20 from '../../internal/vendor/@carbon/web-components/icons/calendar/20.js';
-import Email20 from '../../internal/vendor/@carbon/web-components/icons/email/20.js';
-import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Download20 from '@carbon/web-components/es/icons/download/20.js';
+import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
+import PlayOutline20 from '@carbon/web-components/es/icons/play--outline/20.js';
+import Blog20 from '@carbon/web-components/es/icons/blog/20.js';
+import DocumentPDF20 from '@carbon/web-components/es/icons/document--pdf/20.js';
+import NewTab20 from '@carbon/web-components/es/icons/new-tab/20.js';
+import Phone20 from '@carbon/web-components/es/icons/phone/20.js';
+import Calendar20 from '@carbon/web-components/es/icons/calendar/20.js';
+import Email20 from '@carbon/web-components/es/icons/email/20.js';
+import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 
@@ -31,6 +32,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  */
 export const icons = {
   [CTA_TYPE.LOCAL]: ArrowRight20,
+  [`${CTA_TYPE.LOCAL}-rtl`]: ArrowLeft20,
   [CTA_TYPE.DOWNLOAD]: Download20,
   [CTA_TYPE.EXTERNAL]: Launch20,
   [CTA_TYPE.NEW_TAB]: NewTab20,
@@ -116,10 +118,11 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     _renderIcon() {
       const { ctaType } = this;
+      const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
       return html`
         <slot name="icon">
           <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
-          ${icons[ctaType]?.({
+          ${icon?.({
             class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}
         </slot>

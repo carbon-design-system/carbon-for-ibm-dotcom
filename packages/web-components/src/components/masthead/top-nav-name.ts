@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,11 +9,11 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMastheadTopNav from './top-nav';
 import C4DLeftNavName from './left-nav-name';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -21,6 +21,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The brand name UI in top nav.
  *
  * @element c4d-top-nav-name
+ * @csspart name-prefix - The header name prefix. Usage: `c4d-top-nav-name::part(name-prefix)`
+ * @csspart name-link - The header name prefix. Usage: `c4d-top-nav-name::part(name-link)`
  */
 @customElement(`${c4dPrefix}-top-nav-name`)
 class C4DTopNavName extends C4DLeftNavName {
@@ -47,11 +49,15 @@ class C4DTopNavName extends C4DLeftNavName {
     const namePrefixPart = !namePrefix
       ? undefined
       : html`
-          <span class="${prefix}--header__name--prefix">${namePrefix}</span
+          <span part="name-prefix" class="${prefix}--header__name--prefix"
+            >${namePrefix}</span
           >&nbsp;
         `;
     return html`
-      <a class="${prefix}--header__name" href="${ifDefined(href)}"
+      <a
+        part="name-link"
+        class="${prefix}--header__name"
+        href="${ifDefined(href)}"
         >${namePrefixPart}<slot></slot
       ></a>
     `;

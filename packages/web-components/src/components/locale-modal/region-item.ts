@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,9 +11,9 @@ import { html, css } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
 import C4DCard from '../card/card';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './locale-modal.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -21,6 +21,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Region item.
  *
  * @element c4d-region-item
+ * @csspart button - Targets all buttons  - Usage: `c4d-region-item::part(button)`
+ * @csspart button--disabled - The disabled button - Usage: `c4d-region-item::part(button--disabled)`
+ * @csspart button--enabled - The enabled button - Usage: `:c4d-region-item:part(button--enabled)`
+ * @csspart content- Targets all content wrappers - Usage: `c4d-region-item::part(content)`
+ * @csspart disabled-content - The disabled content wrapper - Usage: `c4d-region-item::part(disabled-content)`
+ * @csspart enabled-content - The enabled content wrapper - Usage: `:c4d-region-item:part(enabled-content)`
  */
 @customElement(`${c4dPrefix}-region-item`)
 class C4DRegionItem extends C4DCard {
@@ -36,12 +42,12 @@ class C4DRegionItem extends C4DCard {
   @property({ reflect: true })
   name = '';
 
-  protected _cardClasses = {
+  protected _cardClasses = classMap({
     [`${prefix}--tile`]: true,
     [`${prefix}--card`]: true,
     [`${prefix}--tile--clickable`]: true,
     [`${prefix}--card--link`]: true,
-  };
+  });
 
   /**
    * @returns The disabled link content.
@@ -49,8 +55,15 @@ class C4DRegionItem extends C4DCard {
   protected _renderDisabledLink() {
     const { _classes: classes, _cardClasses: cardClasses } = this;
     return html`
-      <button id="link" class="${classes}" disabled type="button">
-        <div class="${classMap(cardClasses)}">${this._renderInner()}</div>
+      <button
+        id="link"
+        class="${classes}"
+        disabled
+        type="button"
+        part="button button--disabled">
+        <div class="${cardClasses}" part="content disabled-content">
+          ${this._renderInner()}
+        </div>
       </button>
     `;
   }
@@ -60,8 +73,14 @@ class C4DRegionItem extends C4DCard {
     return disabled
       ? this._renderDisabledLink()
       : html`
-          <button id="link" class="${classes}" type="button">
-            <div class="${classMap(cardClasses)}">${this._renderInner()}</div>
+          <button
+            id="link"
+            class="${classes}"
+            type="button"
+            part="button button--enabled">
+            <div class="${cardClasses}" part="content enabled-content">
+              ${this._renderInner()}
+            </div>
           </button>
         `;
   }

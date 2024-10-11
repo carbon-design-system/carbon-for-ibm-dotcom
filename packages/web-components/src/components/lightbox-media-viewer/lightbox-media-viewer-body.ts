@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, LitElement, TemplateResult } from 'lit';
-import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './lightbox-media-viewer.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
@@ -35,13 +35,19 @@ abstract class C4DLightboxMediaViewerBody extends FocusMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${c4dPrefix}--lightbox-media-viewer__container">
-        <div class="${c4dPrefix}--lightbox-media-viewer__row">
-          <div class="${c4dPrefix}--lightbox-media-viewer__media">
+      <div
+        class="${c4dPrefix}--lightbox-media-viewer__container"
+        part="container">
+        <div class="${c4dPrefix}--lightbox-media-viewer__row" part="row">
+          <div class="${c4dPrefix}--lightbox-media-viewer__media" part="media">
             ${this._renderMedia()}
           </div>
-          <div class="${c4dPrefix}--lightbox-media-viewer__media-description">
-            <div class="${c4dPrefix}--lightbox-media-viewer__content">
+          <div
+            class="${c4dPrefix}--lightbox-media-viewer__media-description"
+            part="content-wrapper">
+            <div
+              class="${c4dPrefix}--lightbox-media-viewer__content"
+              part="content">
               <div
                 part="title"
                 class="${c4dPrefix}--lightbox-media-viewer__content__title"

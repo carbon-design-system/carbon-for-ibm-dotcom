@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,9 +9,10 @@
 
 import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import ArrowDown20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
-import Pdf20 from '../../../internal/vendor/@carbon/web-components/icons/PDF/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import Pdf20 from '@carbon/web-components/es/icons/PDF/20.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -143,6 +144,11 @@ export const SuperWithImage = (args) => {
 
 SuperWithImage.story = {
   name: 'Super with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const SuperWithVideo = (args) => {
@@ -192,6 +198,11 @@ export const SuperWithVideo = (args) => {
 
 SuperWithVideo.story = {
   name: 'Super with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Tall = (args) => {
@@ -278,6 +289,11 @@ export const TallWithImage = (args) => {
 
 TallWithImage.story = {
   name: 'Tall with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const TallWithVideo = (args) => {
@@ -327,6 +343,11 @@ export const TallWithVideo = (args) => {
 
 TallWithVideo.story = {
   name: 'Tall with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Medium = (args) => {
@@ -413,6 +434,11 @@ export const MediumWithImage = (args) => {
 
 MediumWithImage.story = {
   name: 'Medium with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const MediumWithVideo = (args) => {
@@ -462,6 +488,11 @@ export const MediumWithVideo = (args) => {
 
 MediumWithVideo.story = {
   name: 'Medium with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Short = (args) => {
@@ -479,6 +510,9 @@ export const Short = (args) => {
 
 Short.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       LeadSpace: () => ({
         navElements: select(
@@ -546,6 +580,9 @@ export const ShortWithImage = (args) => {
 ShortWithImage.story = {
   name: 'Short with image',
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       LeadSpace: () => ({
         navElements: select(
@@ -606,6 +643,11 @@ export const ShortWithVideo = (args) => {
 
 ShortWithVideo.story = {
   name: 'Short with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const Centered = (args) => {
@@ -677,6 +719,11 @@ export const CenteredWithImage = (args) => {
 
 CenteredWithImage.story = {
   name: 'Centered with image',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const CenteredWithVideo = (args) => {
@@ -715,6 +762,11 @@ export const CenteredWithVideo = (args) => {
 
 CenteredWithVideo.story = {
   name: 'Centered with video',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 const getAriaLabel = (type) => {
@@ -730,15 +782,18 @@ const getAriaLabel = (type) => {
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
+  ArrowLeft20: ArrowLeft20({ slot: 'icon' }),
   ArrowDown20: ArrowDown20({ slot: 'icon' }),
   Pdf20: Pdf20({ slot: 'icon' }),
 };
 
-const iconOptions = {
-  None: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
+const iconOptions = () => {
+  return {
+    None: null,
+    'Arrow Inline End': document.dir === 'rtl' ? 'ArrowLeft20' : 'ArrowRight20',
+    'Arrow Down': 'ArrowDown20',
+    PDF: 'Pdf20',
+  };
 };
 
 export default {
@@ -747,6 +802,9 @@ export default {
     (story) => html` <div class="cds--grid cds--no-gutter">${story()}</div> `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     'carbon-theme': { preventReload: true },
@@ -766,8 +824,11 @@ export default {
           length: number('Number of buttons', 2, {}),
         }).map((_, i) => {
           const icon =
-            select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ??
-            0;
+            select(
+              `Icon ${i + 1}`,
+              iconOptions(),
+              iconOptions()['Arrow Inline End']
+            ) ?? 0;
           return {
             href: textNullable(`Link ${i + 1}`, `https://example.com`),
             copy: text(
@@ -799,13 +860,13 @@ export default {
             {
               href: 'https://example.com',
               copy: 'Primary action',
-              renderIcon: iconOptions['Arrow Right'],
+              renderIcon: iconOptions()['Arrow Inline End'],
               label: '',
             },
             {
               href: 'https://example.com',
               copy: 'Secondary action',
-              renderIcon: iconOptions['Arrow Right'],
+              renderIcon: iconOptions()['Arrow Inline End'],
               label: '',
             },
           ],

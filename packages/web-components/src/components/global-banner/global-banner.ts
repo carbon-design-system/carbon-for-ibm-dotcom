@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,13 +10,13 @@
 import { LitElement, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './global-banner.scss?lit';
-import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
 import C4DButton from '../button/button';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -26,6 +26,14 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Global banner
  *
  * @element c4d-global-banner
+ * @csspart container - Targets all container elements. Usage: `c4d-global-banner::part(container)`
+ * @csspart container--static - Container for Static type. Usage: `c4d-global-banner::part(container--static)`
+ * @csspart container--link - Container for Link type. Usage: `c4d-global-banner::part(container--link)`
+ * @csspart content - The content. Usage: `c4d-global-banner::part(content)`
+ * @csspart image-container -  The image container. Usage: `c4d-global-banner::part(image-container)`
+ * @csspart text-container - The text container. Usage: `c4d-global-banner::part(text-container)`
+ * @csspart cta-container - The CTA container. Usage: `c4d-global-banner::part(cta-container)`
+ * @csspart icon - The icon. Usage: `c4d-global-banner::part(icon)`
  */
 @customElement(`${c4dPrefix}-global-banner`)
 class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
@@ -130,7 +138,9 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
    */
   _renderAsStatic() {
     return html`
-      <div class="${prefix}--global-banner-layout-container">
+      <div
+        class="${prefix}--global-banner-layout-container"
+        part="container container--static">
         ${this._renderInnerContents()}
       </div>
     `;
@@ -140,7 +150,8 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
     return html`
       <a
         href="${this.buttonHref}"
-        class="${prefix}--global-banner-layout-container">
+        class="${prefix}--global-banner-layout-container"
+        part="container container--link">
         ${this._renderInnerContents()}
       </a>
     `;
@@ -152,25 +163,30 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
 
   _renderInnerContents() {
     return html`
-      <div class="${prefix}--global-banner-content-wrapper">
+      <div class="${prefix}--global-banner-content-wrapper" part="content">
         <div
           ?hidden="${!this.hasImage}"
-          class="${prefix}--global-banner-image-container">
+          class="${prefix}--global-banner-image-container"
+          part="image-container">
           <slot
             name="image"
             @slotchange="${this._handleImageSlotChange}"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-text-container">
+        <div
+          class="${prefix}--global-banner-text-container"
+          part="text-container">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-cta-container">
+        <div
+          class="${prefix}--global-banner-cta-container"
+          part="cta-container">
           <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
         </div>
 
-        <div class="${prefix}--global-banner-icon">
+        <div class="${prefix}--global-banner-icon" part="icon">
           ${this.ctaType ? this._renderIcon() : ''}
         </div>
       </div>

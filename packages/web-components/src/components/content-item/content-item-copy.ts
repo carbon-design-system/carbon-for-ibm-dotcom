@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import { css } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DMarkdown from '../markdown/markdown';
 import './content-item-paragraph';
 import styles from './content-item.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -20,6 +20,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The copy content of content item.
  *
  * @element c4d-content-item-copy
+ * @csspart paragraph - The paragraph element within the content item copy. Usage: `c4d-content-item-copy::part(paragraph)`
  */
 @customElement(`${c4dPrefix}-content-item-copy`)
 class C4DContentItemCopy extends StableSelectorMixin(C4DMarkdown) {
@@ -38,7 +39,7 @@ class C4DContentItemCopy extends StableSelectorMixin(C4DMarkdown) {
 
     return Object.assign(super._renderer, {
       paragraph(text) {
-        return `<${c4dPrefix}-content-item-paragraph>${text}</${c4dPrefix}-content-item-paragraph>`;
+        return `<${c4dPrefix}-content-item-paragraph part="paragraph">${text}</${c4dPrefix}-content-item-paragraph>`;
       },
     });
   }

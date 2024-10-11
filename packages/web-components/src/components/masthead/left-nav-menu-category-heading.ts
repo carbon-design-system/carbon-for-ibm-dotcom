@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,9 +10,10 @@
 import { LitElement, html } from 'lit';
 import { state, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import styles from './masthead.scss?lit';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -21,6 +22,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu Category Group Description.
  *
  * @element c4d-megamenu-category-group-desc
+ * @csspart heading - The h2 element of the left navigation menu category heading. Usage: `c4d-left-nav-menu-category-heading::part(heading)`
+ * @csspart heading-link - The link element of the left navigation menu category heading. Usage: `c4d-left-nav-menu-category-heading::part(heading-link)`
+ * @csspart container - The side navigation heading container. Usage: `c4d-left-nav-menu-category-heading::part(container)`
+ * @csspart description - The description container within the side navigation heading. Usage: `c4d-left-nav-menu-category-heading::part(description)`
  */
 @customElement(`${c4dPrefix}-left-nav-menu-category-heading`)
 class C4DLeftNavMenuCategoryHeading extends LitElement {
@@ -45,6 +50,8 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
   _renderHeading() {
     const { headingText, url } = this;
 
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+
     const headingClasses = {
       [`${prefix}--side-nav__menu-section-title`]: this.boostSize || false,
       [`${prefix}--side-nav__heading-title`]: !url,
@@ -52,25 +59,32 @@ class C4DLeftNavMenuCategoryHeading extends LitElement {
 
     return url
       ? html`
-          <h2 class="${classMap(headingClasses)}">
+          <h2 part="heading" class="${classMap(headingClasses)}">
             <a
+              part="heading-link"
               href="${url}"
               class="${prefix}--side-nav__heading-title"
               data-attribute1="headerNav"
               data-attribute2="FlatHdline"
               data-attribute3="${headingText}">
-              ${headingText}${ArrowRight20()}
+              ${headingText}${isRTL ? ArrowLeft20() : ArrowRight20()}
             </a>
           </h2>
         `
-      : html` <h2 class="${classMap(headingClasses)}">${headingText}</h2> `;
+      : html`
+          <h2 part="heading" class="${classMap(headingClasses)}">
+            ${headingText}
+          </h2>
+        `;
   }
 
   render() {
     return html`
-      <div class="${prefix}--side-nav__heading">
+      <div part="container" class="${prefix}--side-nav__heading">
         ${this._renderHeading()}
-        <div class="${prefix}--side-nav__heading-description">
+        <div
+          part="description"
+          class="${prefix}--side-nav__heading-description">
           <slot></slot>
         </div>
       </div>

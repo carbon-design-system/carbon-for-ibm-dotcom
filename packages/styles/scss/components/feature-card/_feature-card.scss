@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,7 +21,6 @@
 @use '../../components/card';
 @use '../../globals/utils/aspect-ratio' as *;
 @use '../../globals/utils/hang' as *;
-@use '../../../../web-components/src/components/card/card' as *;
 
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;
@@ -169,12 +168,12 @@ $feature-flags: (
     @include breakpoint-down(md) {
       .#{$prefix}--card__content {
         justify-content: space-between;
-        padding: carbon--mini-units(2);
+        padding: $spacing-05;
         block-size: 100%;
       }
 
       #{$prefix}--card__heading {
-        padding: carbon--mini-units(2);
+        padding: $spacing-05;
         margin: 0;
         inline-size: 100%;
         padding-block-end: $spacing-07;
@@ -182,7 +181,7 @@ $feature-flags: (
       }
 
       .#{$prefix}--card__footer {
-        margin-block-start: carbon--mini-units(-4);
+        margin-block-start: -1 * $spacing-07;
         padding-block-start: 0;
       }
 
@@ -588,7 +587,7 @@ $feature-flags: (
     }
 
     &[size='large'] {
-      .dds-ce--card__footer ::slotted(svg[slot='icon']) {
+      .#{$c4d-prefix}-ce--card__footer ::slotted(svg[slot='icon']) {
         @include breakpoint(max) {
           block-size: $spacing-10;
           inline-size: $spacing-10;

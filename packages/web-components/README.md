@@ -482,6 +482,13 @@ cds-locale-modal::part(back-button) {
 }
 ```
 
+> **⚠️ Warning**  
+> While shadow parts selectors are available as an option, use them at your own
+> risk. Changing component styles may cause components to not behave as
+> expected. You are responsible for ensuring your components remain functional
+> while using shadow parts selectors. We cannot guarantee updates to our
+> library's component styles won't conflict with shadow part modifications.
+
 #### Advanced usage for IBM.com site owners
 
 There are some other key advanced usage patterns that are suitable for IBM.com
@@ -490,3 +497,12 @@ site owners. IBM.com site owners can see them at [here](https://ibm.biz/Bdq5q2).
 ## Contributing to Carbon for IBM.com Web Components
 
 Can be found at [here](./docs/contributing-to-web-components.md).
+
+## <picture><source height="20" width="20" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ibm-telemetry/telemetry-js/main/docs/images/ibm-telemetry-dark.svg"><source height="20" width="20" media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ibm-telemetry/telemetry-js/main/docs/images/ibm-telemetry-light.svg"><img height="20" width="20" alt="IBM Telemetry" src="https://raw.githubusercontent.com/ibm-telemetry/telemetry-js/main/docs/images/ibm-telemetry-light.svg"></picture> IBM Telemetry
+
+This package uses IBM Telemetry to collect metrics data. By installing this
+package as a dependency you are agreeing to telemetry collection. To opt out,
+see
+[Opting out of IBM Telemetry data collection](https://github.com/ibm-telemetry/telemetry-js/tree/main#opting-out-of-ibm-telemetry-data-collection).
+For more information on the data being collected, please see the
+[IBM Telemetry documentation](https://github.com/ibm-telemetry/telemetry-js/tree/main#ibm-telemetry-collection-basics).

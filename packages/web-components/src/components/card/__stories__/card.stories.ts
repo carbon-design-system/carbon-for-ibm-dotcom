@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-// import '../../image/image';
+import '../../image/image';
 import '@carbon/web-components/es/components/tag/tag.js';
 import '../index';
-// import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import { boolean, select } from '@storybook/addon-knobs';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import imgXlg4x3 from '../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -518,40 +518,43 @@ const pictogramPlacements = {
 //   `;
 // };
 
-// Logo.story = {
-//   parameters: {
-//     ...readme.parameters,
-//     knobs: {
-//       Card: () => ({
-//         alt: 'Image alt text',
-//         defaultSrc: logoMicrosoft2x1,
-//         tagGroup: boolean('Add tags', true, 'logo'),
-//         eyebrow: textNullable('Card Eyebrow:', 'Microsoft', 'logo'),
-//         heading: textNullable('Card Heading (optional):', '', 'logo'),
-//         copy: textNullable(
-//           'Card body copy:',
-//           'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-//           'logo'
-//         ),
-//         href: 'https://example.com',
-//       }),
-//     },
-//     propsSet: {
-//       default: {
-//         Card: {
-//           image: false,
-//           eyebrow: 'Microsoft',
-//           heading: '',
-//           copy: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-//           alt: 'Image alt text',
-//           defaultSrc: imgXlg4x3,
-//           tagGroup: false,
-//           href: 'https://example.com',
-//         },
-//       },
-//     },
-//   },
-// };
+Logo.story = {
+  parameters: {
+    percy: {
+      skip: true,
+    },
+    ...readme.parameters,
+    knobs: {
+      Card: () => ({
+        alt: 'Image alt text',
+        defaultSrc: logoMicrosoft2x1,
+        tagGroup: boolean('Add tags', true, 'logo'),
+        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', 'logo'),
+        heading: textNullable('Card Heading (optional):', '', 'logo'),
+        copy: textNullable(
+          'Card body copy:',
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          'logo'
+        ),
+        href: 'https://example.com',
+      }),
+    },
+    propsSet: {
+      default: {
+        Card: {
+          image: false,
+          eyebrow: 'Microsoft',
+          heading: '',
+          copy: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          tagGroup: false,
+          href: 'https://example.com',
+        },
+      },
+    },
+  },
+};
 
 export default {
   title: 'Components/Card',

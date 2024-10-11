@@ -10,23 +10,23 @@
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
-import { property, query } from 'lit/decorators.js';
-import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
-import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
+import { property, query, state } from 'lit/decorators.js';
+import Close20 from '@carbon/web-components/es/icons/close/20.js';
+import Search20 from '@carbon/web-components/es/icons/search/20.js';
 import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
-import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+} from '@carbon/web-components/es/components/dropdown/dropdown.js';
+import CDSDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead.js';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DSearchWithTypeaheadItem from './search-with-typeahead-item';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -36,9 +36,20 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * Search with Typeahead
  *
  * @element c4d-search-with-typeahead
- * @csspart open-button The button to show the search box.
- * @csspart close-button The button to hide the search box.
- * @csspart search-input The input box for search.
+ * @csspart search-input - The input box for search. Usage `c4d-search-with-typeahead::part(search-input)`
+ * @csspart search-form - The search form. Usage `c4d-search-with-typeahead::part(search-form)`
+ * @csspart container - The search form container. Usage `c4d-search-with-typeahead::part(container)`
+ * @csspart dropdown - The search dropdown. Usage `c4d-search-with-typeahead::part(dropdown)`
+ * @csspart dropdown-item - The dropdown item. Usage `c4d-search-with-typeahead::part(dropdown-item)`
+ * @csspart dropdown-mobile - The search dropdown for mobile. Usage `c4d-search-with-typeahead::part(dropdown-mobile)`
+ * @csspart select-item - The item selector. Usage `c4d-search-with-typeahead::part(select-item)`
+ * @csspart suggestions-container - The suggestions container. Usage `c4d-search-with-typeahead::part(suggestions-container)`
+ * @csspart suggestions-list - The suggestions list. Usage `c4d-search-with-typeahead::part(suggestions-list)`
+ * @csspart search-with-typeahead-item - The search item. Usage `c4d-search-with-typeahead::part(search-with-typeahead-item)`
+ * @csspart open-button - The button to show the search box. Usage `c4d-search-with-typeahead::part(open-button)`
+ * @csspart close-button - The button to hide the search box. Usage `c4d-search-with-typeahead::part(close-button)`
+ * @csspart header-search-actions - The container for the search bar. Usage `c4d-search-with-typeahead::part(header-search-actions)`
+ * @csspart suggestion-item - The search item. Usage `c4d-search-with-typeahead::part(suggestion-item)`
  * @fires c4d-search-with-typeahead-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.
@@ -82,6 +93,9 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
   @property()
   groupedResults;
 
+  @property({ attribute: 'initial-search-term', reflect: true })
+  initialSearchTerm?: string;
+
   @property({ attribute: 'scope-parameters' })
   scopeParameters;
 
@@ -96,6 +110,9 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
 
   @property({ attribute: 'scope-value', reflect: true })
   scopeValue;
+
+  @state()
+  userHasInputSearch = false;
 
   /**
    * The `<button>` to open the search box.
@@ -388,6 +405,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
    * Handles `input` event in the search input.
    */
   private _handleInput(event: InputEvent) {
+    const { userHasInputSearch } = this;
     const { target } = event;
     const { value } = target as HTMLInputElement;
     this.removeAttribute('unfocused');
@@ -433,6 +451,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
           `${prefix}--header__search--hide`
         );
       }
+    }
+
+    if (!userHasInputSearch) {
+      this.userHasInputSearch = true;
     }
 
     // accomodate search results box's width with the scope dropdown
@@ -600,8 +622,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
    */
   protected _renderTriggerContent() {
     const {
+      initialSearchTerm,
       searchPlaceholder,
       searchLabel,
+      userHasInputSearch,
       _handleInput: handleInput,
       _handleKeyInput: handleKeyInput,
     } = this;
@@ -612,6 +636,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
         class="${prefix}--header__search--input"
         name="q"
         placeholder="${searchPlaceholder}"
+        value="${!userHasInputSearch ? initialSearchTerm : ''}"
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
@@ -663,6 +688,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     return html`
       <form
         role="search"
+        part="search-form"
         method="get"
         action="${redirectUrl}"
         @submit="${handleSubmit}">
@@ -686,6 +712,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
         <div
           role="combobox"
           class="${classes}"
+          part="container"
           aria-haspopup="listbox"
           aria-owns="result-list"
           aria-expanded="${Boolean(this.active)}"
@@ -695,19 +722,26 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
           @keypress="${handleKeypressInner}">
           ${this.scopeParameters
             ? html`
-                <c4d-scoped-search-dropdown value="${this.appId}">
+                <c4d-scoped-search-dropdown
+                  part="dropdown"
+                  value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
-                      <cds-dropdown-item value="${scope.appId}"
+                      <cds-dropdown-item
+                        part="dropdown-item"
+                        value="${scope.appId}"
                         >${scope.name}</cds-dropdown-item
                       >
                     `
                   )}
                 </c4d-scoped-search-dropdown>
-                <c4d-scoped-search-dropdown-mobile value="${this.appId}">
+                <c4d-scoped-search-dropdown-mobile
+                  part="dropdown-mobile"
+                  value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
                       <cds-select-item
+                        part="select-item"
                         label="${scope.name}"
                         value="${scope.appId}"
                         >${scope.name}</cds-select-item
@@ -722,15 +756,18 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
             ? html`
                 <div
                   id="result-list"
-                  class="react-autosuggest__suggestions-container">
+                  class="react-autosuggest__suggestions-container"
+                  part="suggestions-container">
                   <ul
                     role="listbox"
-                    class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                    class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list"
+                    part="suggestions-list">
                     ${this.searchResults &&
                     this.searchResults.map(
                       (item) =>
                         html`
                           <c4d-search-with-typeahead-item
+                            part="suggestion-item"
                             text="${item}"></c4d-search-with-typeahead-item>
                         `
                     )}
@@ -739,12 +776,14 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                       (group) =>
                         html`
                           <c4d-search-with-typeahead-item
+                            part="suggestion-item"
                             groupTitle
                             text="${group.title}"></c4d-search-with-typeahead-item>
                           ${group.items.map(
                             (item) =>
                               html`
                                 <c4d-search-with-typeahead-item
+                                  part="suggestion-item"
                                   text="${item.name}"
                                   href="${item.href}"></c4d-search-with-typeahead-item>
                               `
@@ -926,7 +965,9 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       ${!this.leadspaceSearch
         ? html`
             ${this._renderForm()}
-            <div class="${prefix}--header__search--actions">
+            <div
+              part="header-search-actions"
+              class="${prefix}--header__search--actions">
               <button
                 type="button"
                 part="open-button"
@@ -946,7 +987,9 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
             </div>
           `
         : html`
-            <div class="${prefix}--header__search--actions">
+            <div
+              part="header-search-actions"
+              class="${prefix}--header__search--actions">
               ${Search20({
                 part: 'search-icon',
                 class: `${prefix}--search-magnifier-icon`,
@@ -967,15 +1010,18 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
             </div>
             <div
               id="result-list"
-              class="react-autosuggest__suggestions-container">
+              class="react-autosuggest__suggestions-container"
+              part="suggestions-container">
               <ul
                 role="listbox"
-                class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list"
+                part="suggestions-list">
                 ${this.searchResults &&
                 this.searchResults.map(
                   (item) =>
                     html`
                       <c4d-search-with-typeahead-item
+                        part="suggestion-item"
                         text="${item}"
                         @click=${handleClickItem}></c4d-search-with-typeahead-item>
                     `

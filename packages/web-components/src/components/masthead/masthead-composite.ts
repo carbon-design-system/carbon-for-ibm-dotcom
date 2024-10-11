@@ -10,15 +10,16 @@
 import { LitElement, html, TemplateResult } from 'lit';
 import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
+import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
-import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
+import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo.js';
 import {
   BasicLink,
   MastheadL1,
@@ -29,12 +30,12 @@ import {
   L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 import {
   UNAUTHENTICATED_STATUS,
   CLOUD_UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import C4DMastheadLogo from './masthead-logo';
@@ -66,9 +67,10 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss?lit';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import C4DMastheadMenuButton from './masthead-menu-button';
 
-const { stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix, prefix } = settings;
 
 /**
  * Globally-scoped Contact Module variable.
@@ -96,6 +98,10 @@ export interface CMApp {
  * Component that renders masthead from links, etc. data.
  *
  * @element c4d-masthead-composite
+ * @csspart view-all -  Targets all view-all elements. Usage: `c4d-masthead-composite::part(view-all)`
+ * @csspart view-all-left -  Targets the view all left. Usage: `c4d-masthead-composite::part(view-all-left)`
+ * @csspart view-all-right -  Targets the view all right. Usage: `c4d-masthead-composite::part(view-all-right)`
+ * @csspart view-all-bottom -  Targets the view all bottom. Usage: `c4d-masthead-composite::part(view-all-bottom)`
  */
 @customElement(`${c4dPrefix}-masthead-composite`)
 class C4DMastheadComposite extends HostListenerMixin(LitElement) {
@@ -165,6 +171,11 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     return this._renderMegaMenuListing(menu, _parentKey);
   }
 
+  protected get ArrowIcon() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft16 : ArrowRight16;
+  }
+
   /**
    *  Render MegaMenu content in tabbed layout.
    *
@@ -213,7 +224,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-left"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                  <span>${viewAll.title}</span>${this.ArrowIcon({
+                    slot: 'icon',
+                  })}
                 </c4d-megamenu-link-with-icon>
               `
             : null}
@@ -262,7 +275,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${itemViewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
-                  <span>${itemViewAll.title}</span>${ArrowRight16({
+                  <span>${itemViewAll.title}</span>${this.ArrowIcon({
                     slot: 'icon',
                   })}
                 </c4d-megamenu-link-with-icon>
@@ -328,7 +341,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                  <span>${viewAll.title}</span>${this.ArrowIcon({
+                    slot: 'icon',
+                  })}
                 </c4d-megamenu-link-with-icon>
               `
             : null}
@@ -338,7 +353,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               <c4d-megamenu-link-with-icon
                 href="${viewAll.url}"
                 part="view-all view-all-bottom">
-                <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
+                <span>${viewAll.title}</span>${this.ArrowIcon({ slot: 'icon' })}
               </c4d-megamenu-link-with-icon>
             `
           : null}
@@ -543,7 +558,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   protected _renderLeftNav() {
     const { platform } = this;
     const menu: any[] = [];
-    const menuItems = this._getl0Data();
+    const menuItems = this.getL0Data();
     const autoid = `${c4dPrefix}--masthead__l0`;
     const level0Items = menuItems?.map((elem: L0MenuItem, i) => {
       // Instantiate bucket for first level submenus.
@@ -888,14 +903,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderTopNav() {
     const { selectedMenuItem, menuBarAssistiveText, activateSearch } = this;
-    return !this._getl0Data()
+    return !this.getL0Data()
       ? undefined
       : html`
           <c4d-top-nav
             selected-menu-item=${selectedMenuItem}
             menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
             ?hideNav="${activateSearch}">
-            ${this._getl0Data().map((link, i) => {
+            ${this.getL0Data().map((link, i) => {
               return this._renderNavItem(link, i, `${c4dPrefix}--masthead__l0`);
             })}
           </c4d-top-nav>
@@ -996,6 +1011,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
       // Close the Contact Module upon opening megamenu.
       this.contactModuleApp?.minimize();
+
+      // Set positioning property upon opening megamenu.
+      this._setCustomPropertyL0BottomEdge();
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
@@ -1043,6 +1061,32 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   };
 
   contactModuleApp?: CMApp;
+
+  /**
+   * Performs actions on left nav button toggle.
+   */
+  @HostListener(C4DMastheadMenuButton.eventToggle)
+  protected _handleMenuButtonToggle = (event) => {
+    if (event.detail?.active) {
+      this._setCustomPropertyL0BottomEdge();
+    }
+  };
+
+  /**
+   * Sets a CSS value for the position of the L0's bottom edge.
+   */
+  protected _setCustomPropertyL0BottomEdge() {
+    const mastheadL0 = this.mastheadRef?.shadowRoot.querySelector(
+      `.${prefix}--masthead__l0`
+    );
+    if (mastheadL0) {
+      this.style.setProperty(
+        (this.constructor as typeof C4DMastheadComposite)
+          .customPropertyL0BottomEdge,
+        `${mastheadL0.getBoundingClientRect().bottom}px`
+      );
+    }
+  }
 
   /**
    * Gets localized platform URL.
@@ -1093,6 +1137,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       currentSearchResults,
       customTypeaheadAPI,
       hasSearch,
+      initialSearchTerm,
       inputTimeout,
       language,
       openSearchDropdown,
@@ -1106,6 +1151,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
             ?active="${activateSearch}"
             .currentSearchResults="${ifDefined(currentSearchResults)}"
             ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             input-timeout="${inputTimeout}"
             language="${ifDefined(language)}"
             ?open="${openSearchDropdown}"
@@ -1272,6 +1318,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   searchOpenOnload = this.activateSearch;
 
   /**
+   * Sets a default query in the masthead's search input.
+   */
+  @property({ attribute: 'initial-search-term', reflect: true })
+  initialSearchTerm?: string;
+
+  /**
    * The profile items for authenticated state.
    */
   @property({ attribute: false })
@@ -1417,7 +1469,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Temporary getter to fetch data until navLinks prop is phased out.
    */
-  private _getl0Data() {
+  public getL0Data() {
     const { l0Data, navLinks } = this;
     if (navLinks) {
       console.warn(
@@ -1529,6 +1581,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(c4d-masthead-container) in stylesheets
     this.style.zIndex = '900';
+    this.style.position = 'relative';
 
     // Allows conditional rendering of left/top navs.
     layoutBreakpoint.addEventListener('change', () => {
@@ -1589,6 +1642,13 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
   protected createRenderRoot() {
     return this;
+  }
+
+  /**
+   * The name of the CSS custom property to track bottom edge position.
+   */
+  static get customPropertyL0BottomEdge() {
+    return `--${c4dPrefix}-masthead-l0-bottom-edge`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

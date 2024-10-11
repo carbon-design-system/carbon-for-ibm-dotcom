@@ -10,11 +10,15 @@
   aria-label="User profile"
   class="cds--header__menu-item cds--header__menu-title"
   href="javascript:void 0"
+  part="profile-link"
   role="button"
   tabindex="0"
 >
 </a>
-<ul class="cds--header__menu">
+<ul
+  class="cds--header__menu"
+  part="header-menu-ul"
+>
   <slot>
   </slot>
 </ul>
@@ -29,6 +33,7 @@
   aria-label="User profile"
   class="cds--header__menu-item cds--header__menu-title"
   href="javascript:void 0"
+  part="profile-link"
   role="button"
   tabindex="0"
 >
@@ -36,6 +41,7 @@
 <ul
   aria-label="menu-label-foo"
   class="cds--header__menu"
+  part="header-menu-ul"
 >
   <slot>
   </slot>

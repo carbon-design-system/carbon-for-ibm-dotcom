@@ -1,18 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { property } from 'lit/decorators.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenuHeading from './megamenu-heading';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -23,7 +24,10 @@ const { stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-megamenu-category-heading`)
 class C4DMegaMenuCategoryHeading extends C4DMegaMenuHeading {
-  protected _arrowIcon = ArrowRight20();
+  protected get _arrowIcon() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft20() : ArrowRight20();
+  }
 
   @property({ reflect: true, type: Number, attribute: 'heading-level' })
   headingLevel = 3;

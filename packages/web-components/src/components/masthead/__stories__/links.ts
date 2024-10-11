@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import {
   MastheadL1,
   MastheadLogoData,
   L0MenuItem,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 
 /* eslint-disable max-len */
 
@@ -398,6 +398,11 @@ const mastheadL1Data: MastheadL1 = {
       url: 'https://example.com',
     },
     {
+      title: 'Plain Link With Target',
+      url: 'https://example.com',
+      target: '_blank',
+    },
+    {
       title: 'Two Column',
       submenu: {
         columns: 2,
@@ -465,6 +470,22 @@ const mastheadL1Data: MastheadL1 = {
       url: 'https://example.com',
     },
   },
+};
+
+const mastheadL1EmptyMenuItemsData: MastheadL1 = {
+  title: 'IBM Data Virtualization',
+  url: 'https://www.ibm.com/products/watson\u002Dquery',
+  actions: {
+    login: {
+      title: 'Try it free',
+      url: 'https://dataplatform.cloud.ibm.com/registration/stepone?context=cpdaas\x26uucid=04fff6e19e3bf9ae\x26utm_content=CPDWW',
+    },
+    cta: {
+      title: 'Book a meeting',
+      url: 'https://www.ibm.com/products/watson\u002Dquery?schedulerform=',
+    },
+  },
+  menuItems: [],
 };
 
 const mastheadL0Data: L0MenuItem[] = [
@@ -2189,4 +2210,9 @@ const mastheadL0Data: L0MenuItem[] = [
 
 /* eslint-enable max-len */
 
-export { mastheadLogoData, mastheadL1Data, mastheadL0Data };
+export {
+  mastheadLogoData,
+  mastheadL1Data,
+  mastheadL1EmptyMenuItemsData,
+  mastheadL0Data,
+};

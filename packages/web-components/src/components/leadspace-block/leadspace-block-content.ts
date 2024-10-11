@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { css, html, TemplateResult } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentBlock from '../content-block/content-block';
 import styles from './leadspace-block.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -19,6 +19,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * LeadSpace Block content Component.
  *
  * @element c4d-leadspace-block-content
+ * @csspart children - The wrapper around child items. Usage: c4d-leadspace-block-content::part(children)
  */
 @customElement(`${c4dPrefix}-leadspace-block-content`)
 class C4DLeadSpaceBlockContent extends C4DContentBlock {
@@ -27,7 +28,8 @@ class C4DLeadSpaceBlockContent extends C4DContentBlock {
     return html`
       <div
         ?hidden="${!hasContent && !hasMedia}"
-        class="${prefix}--content-block__children">
+        class="${prefix}--content-block__children"
+        part="children">
         ${this._renderMedia()}${this._renderContent()}
       </div>
     `;

@@ -7,18 +7,29 @@
 ```
 <div
   aria-labelledby="carousel-title"
+  part="region"
   role="region"
 >
-  <div id="carousel-title">
+  <div
+    id="carousel-title"
+    part="title"
+  >
     <slot name="title">
-      <span class="cds--visually-hidden">
+      <span
+        class="cds--visually-hidden"
+        part="visually-hidden"
+      >
         Carousel
       </span>
     </slot>
   </div>
-  <div class="cds--carousel__scroll-container">
+  <div
+    class="cds--carousel__scroll-container"
+    part="scroll-container"
+  >
     <div
       class="cds--carousel__scroll-contents"
+      part="contents"
       style="inset-inline-start: 0px;"
     >
       <slot>
@@ -28,6 +39,7 @@
   <nav
     aria-label="Carousel Navigation"
     class="cds--carousel__navigation"
+    part="navigation"
   >
     <button
       aria-label="previous"
@@ -40,12 +52,14 @@
     <span
       aria-hidden="true"
       class="cds--carousel__navigation__status"
+      part="status"
     >
       1 / 0
     </span>
     <span
       aria-live="polite"
       class="cds--visually-hidden"
+      part="visually-hidden"
     >
     </span>
     <button

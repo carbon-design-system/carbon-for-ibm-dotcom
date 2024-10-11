@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,23 +10,23 @@
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
 } from '../../component-mixins/media-query/media-query';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
-import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
+import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
   Translation,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
 import { FOOTER_SIZE } from './footer';
 import { DROPDOWN_SIZE } from './combo-box';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -45,7 +45,7 @@ import './language-selector-desktop';
 import './language-selector-mobile';
 import '@carbon/web-components/es/components/combo-box/combo-box-item.js';
 import '@carbon/web-components/es/components/select/select-item.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { moderate02 } from '@carbon/motion';
 
 const { stablePrefix: c4dPrefix } = settings;
@@ -125,6 +125,12 @@ class C4DFooterComposite extends MediaQueryMixin(
    */
   @property()
   buttonLabel?: string;
+
+  /**
+   * The aria-label to use for the legal-nav
+   */
+  @property()
+  navLabel?: string;
 
   /**
    * The clear button label for language selector.
@@ -356,6 +362,7 @@ class C4DFooterComposite extends MediaQueryMixin(
       links,
       legalLinks,
       adjunctLinks,
+      navLabel,
     } = this;
     return html`
       <c4d-footer
@@ -397,8 +404,12 @@ class C4DFooterComposite extends MediaQueryMixin(
           ? this.renderLanguageSelector()
           : ``}
 
-        <c4d-legal-nav size="${ifDefined(size)}">
-          <c4d-footer-logo size="${ifDefined(size)}"></c4d-footer-logo>
+        <c4d-legal-nav
+          size="${ifDefined(size)}"
+          navLabel="${ifDefined(navLabel)}">
+          <c4d-footer-logo
+            size="${ifDefined(size)}"
+            ?disable-locale-button="${disableLocaleButton}"></c4d-footer-logo>
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`
               <c4d-legal-nav-item

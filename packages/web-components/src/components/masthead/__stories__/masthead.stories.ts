@@ -9,19 +9,24 @@
 
 import { html } from 'lit';
 import { select, boolean } from '@storybook/addon-knobs';
-import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
-import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import { L1_CTA_TYPES } from '../defs';
 import styles from './masthead.stories.scss?lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
+import {
+  mastheadL0Data,
+  mastheadL1Data,
+  mastheadL1EmptyMenuItemsData,
+  mastheadLogoData,
+} from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
@@ -69,20 +74,31 @@ const dataEndpoints = {
   'v2.1': '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1',
 };
 
-async function customTypeaheadApiFunction(searchVal) {
-  return fetch(
-    `https://ibm.com/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
-  )
+async function customTypeaheadApiFunction(query, grouped = false) {
+  return fetch(`https://www-api.ibm.com/search/typeahead/v1?query=${query}`)
     .then((response) => response.json())
     .then((data) => {
-      const searchResults = [
-        data.hints,
+      if (!grouped) {
+        return [data.response.map((result) => result[0])];
+      }
+      const resultHasCarbon = (result) =>
+        result[0].toLowerCase().includes('carbon');
+      return [
+        // Results not including "carbon"
+        data.response
+          .filter((result) => !resultHasCarbon(result))
+          .map((result) => result[0]),
+        // Optional grouped category results including "carbon"
         {
-          title: 'Product pages',
-          items: data.products,
+          title: 'Carbon',
+          items: data.response
+            .filter((result) => resultHasCarbon(result))
+            .map((result) => ({
+              name: result[0],
+              href: `https://www.example.com/${encodeURIComponent(result[0])}`,
+            })),
         },
       ];
-      return searchResults;
     });
 }
 
@@ -97,6 +113,7 @@ export const Default = (args) => {
     hasProfile,
     hasSearch,
     hasContact,
+    initialSearchTerm,
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
@@ -109,9 +126,10 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
@@ -122,13 +140,14 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-composite>
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             user-status="${ifNonEmpty(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
@@ -140,13 +159,14 @@ export const Default = (args) => {
 };
 
 export const WithCustomTypeahead = (args) => {
-  const { useMock } = args?.MastheadComposite ?? {};
+  const { useMock, grouped } = args?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener(
     'c4d-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
-        (e as CustomEvent).detail.value
+        (e as CustomEvent).detail.value,
+        grouped
       );
       document.dispatchEvent(
         new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
@@ -160,7 +180,7 @@ export const WithCustomTypeahead = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -168,7 +188,7 @@ export const WithCustomTypeahead = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            ?custom-typeahead-api=${true}></c4d-masthead-composite>
+            ?custom-typeahead-api=${true}></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -182,11 +202,14 @@ WithCustomTypeahead.story = {
   name: 'With custom typeahead',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({}),
+      MastheadComposite: () => ({
+        grouped: boolean('With grouped results for "carbon"', false),
+      }),
     },
     propsSet: {
       default: {
         MastheadComposite: {
+          grouped: 'false',
           hasProfile: 'true',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
@@ -199,14 +222,15 @@ WithCustomTypeahead.story = {
 };
 
 export const searchOpenOnload = (args) => {
-  const { searchPlaceholder, useMock } = args?.MastheadComposite ?? {};
+  const { initialSearchTerm, searchPlaceholder, useMock } =
+    args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -215,14 +239,16 @@ export const searchOpenOnload = (args) => {
               unauthenticatedProfileItems
             )}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></c4d-masthead-composite>
+            )}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></c4d-masthead-container>
@@ -252,7 +278,7 @@ export const withPlatform = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             platform="${ifNonEmpty(platform)}"
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
@@ -261,7 +287,7 @@ export const withPlatform = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-composite>
+            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -302,8 +328,13 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, selectedMenuItemL1, l1CtaType, useMock } =
-    args?.MastheadComposite ?? {};
+  const {
+    selectedMenuItem,
+    selectedMenuItemL1,
+    l1CtaType,
+    useMock,
+    useL1EmptyData,
+  } = args?.MastheadComposite ?? {};
 
   let l1Data = { ...mastheadL1Data };
   if (l1Data?.actions?.cta) {
@@ -318,7 +349,7 @@ export const withL1 = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -326,16 +357,16 @@ export const withL1 = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .l1Data="${l1Data}"
+            .l1Data="${useL1EmptyData ? mastheadL1EmptyMenuItemsData : l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
-            )}"></c4d-masthead-composite>
+            )}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            .l1Data="${l1Data}"
+            .l1Data="${useL1EmptyData ? mastheadL1EmptyMenuItemsData : l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
@@ -363,6 +394,7 @@ withL1.story = {
           L1_CTA_TYPES.NONE
         ),
         useMock: boolean('use mock nav data (use-mock)', false),
+        useL1EmptyData: boolean('Use empty data for L1 menu items', false),
       }),
     },
     propsSet: {
@@ -386,7 +418,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -396,7 +428,7 @@ export const withAlternateLogoAndTooltip = (args) => {
             )}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? mastheadLogoData
-              : null}"></c4d-masthead-composite>
+              : null}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -446,7 +478,7 @@ export const WithScopedSearch = (args) => {
     </style>
     ${useMock
       ? html`
-          <c4d-masthead-composite
+          <c4d-masthead-container
             .l0Data="${mastheadL0Data}"
             .authenticatedProfileItems="${ifNonEmpty(
               authenticatedProfileItems
@@ -454,7 +486,7 @@ export const WithScopedSearch = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .scopeParameters=${scopeParameters}></c4d-masthead-composite>
+            .scopeParameters=${scopeParameters}></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -538,6 +570,10 @@ export default {
           ['true', 'false'],
           'true'
         ),
+        initialSearchTerm: textNullable(
+          'initial search term (initial-search-term)',
+          ''
+        ),
         searchPlaceholder: textNullable(
           'search placeholder (searchPlaceholder)',
           'Search all of IBM'
@@ -566,6 +602,7 @@ export default {
           platform: null,
           hasProfile: 'true',
           hasSearch: 'true',
+          initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,

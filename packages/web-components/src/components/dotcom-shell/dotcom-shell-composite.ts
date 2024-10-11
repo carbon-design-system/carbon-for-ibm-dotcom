@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,9 +10,9 @@
 import pickBy from 'lodash-es/pickBy.js';
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
-import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
+import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
@@ -20,13 +20,13 @@ import {
   L0MenuItem,
   MastheadProfileItem,
   Translation,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -34,6 +34,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * Component that renders dotcom shell from links, etc. data.
  *
  * @element c4d-dotcom-shell-composite
+ * @csspart shell - The root element of the dotcom shell. Usage: `c4d-dotcom-shell-composite::part(shell)`
  */
 @customElement(`${c4dPrefix}-dotcom-shell-composite`)
 class C4DDotcomShellComposite extends LitElement {
@@ -68,7 +69,7 @@ class C4DDotcomShellComposite extends LitElement {
    */
   private _createMastheadRenderRoot() {
     const masthead = this.ownerDocument!.createElement(
-      `${c4dPrefix}-masthead-composite`
+      `${c4dPrefix}-masthead-container`
     );
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
@@ -319,9 +320,19 @@ class C4DDotcomShellComposite extends LitElement {
    * The navigation links. This goes to masthead.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
+   *
+   * @deprecated Use l0Data instead.
    */
   @property({ attribute: false })
   navLinks?: L0MenuItem[];
+
+  /**
+   * The navigation links. This goes to masthead.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
+   */
+  @property({ attribute: false })
+  l0Data?: L0MenuItem[];
 
   /**
    * The parameters passed to the search-with-typeahead for search scope
@@ -382,6 +393,7 @@ class C4DDotcomShellComposite extends LitElement {
       footerSize,
       openSearchDropdown,
       navLinks,
+      l0Data,
       hasProfile,
       hasSearch,
       searchPlaceholder,
@@ -414,6 +426,7 @@ class C4DDotcomShellComposite extends LitElement {
           l1Data,
           language,
           navLinks,
+          l0Data,
           hasProfile,
           hasSearch,
           searchPlaceholder,
@@ -463,7 +476,7 @@ class C4DDotcomShellComposite extends LitElement {
     // moving global banner outside of dotcom shell if placed within
     if (this.querySelector(`${c4dPrefix}-global-banner`)) {
       this.ownerDocument
-        .querySelector(`${c4dPrefix}-masthead-composite`)
+        .querySelector(`${c4dPrefix}-masthead-container`)
         ?.before(
           this.querySelector(`${c4dPrefix}-global-banner`) as HTMLElement
         );
@@ -477,7 +490,7 @@ class C4DDotcomShellComposite extends LitElement {
 
   render() {
     return html`
-      <c4d-dotcom-shell>
+      <c4d-dotcom-shell part="shell">
         <slot></slot>
       </c4d-dotcom-shell>
     `;

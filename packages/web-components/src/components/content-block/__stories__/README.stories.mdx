@@ -5,11 +5,13 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # `<c4d-content-block>`
 
+> Content block is one of the main layout components that can be used to build web experiences on IBM.com. It includes a large heading, subheading, body copy and CTA, and can accept many child components to enable customization and flexibility. The Content block should be used in a 12 column grid.
+
 > 💡 Check our
 > [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/content-block)
 
 ## Getting started
 
@@ -19,6 +21,8 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
+
 ```
 
 <Markdown>{`${cdnJs({ components: ['content-block'] })}`}</Markdown>
@@ -27,17 +31,23 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block/index.js';
 ### HTML
 
 ```html
-<c4d-content-block>
-  <c4d-content-block-heading>Heading text</c4d-content-block-heading>
-  <c4d-content-block-copy>Copy test</c4d-content-block-copy>
-  <c4d-card link
-    slot="footer"
-    cta-type="local"
-    href="https://www.example.com">
-    <c4d-card-link-heading>cta copy</c4d-card-link-heading>
-    <c4d-card-footer></c4d-card-footer>
-  </c4d-card>
-</c4d-content-block>
+<div class="cds--grid">
+  <div class="cds--row">
+    <div class="cds--col-lg-12 cds--no-gutter">
+      <c4d-content-block>
+        <c4d-content-block-heading>Heading text</c4d-content-block-heading>
+        <c4d-content-block-copy>Copy test</c4d-content-block-copy>
+        <c4d-card link
+          slot="footer"
+          cta-type="local"
+          href="https://www.example.com">
+          <c4d-card-heading>cta copy</c4d-card-heading>
+          <c4d-card-footer></c4d-card-footer>
+        </c4d-card>
+      </c4d-content-block>
+    </div>
+  </div>
+</div>
 ```
 
 ## Props

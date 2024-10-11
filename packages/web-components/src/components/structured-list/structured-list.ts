@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './structured-list.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -19,6 +19,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * StructuredList
  *
  * @element c4d-structured-list
+ * @csspart overflow-indicator - Overflow indicator. Usage `c4d-structured-list::part(overflow-indicator)`
+ * @csspart overflow-indicator--left - Overflow indicator left. Usage `c4d-structured-list::part(overflow-indicator--left)`
+ * @csspart overflow-indicator--right - Overflow indicator right. Usage `c4d-structured-list::part(overflow-indicator--right)`
+ * @csspart section - List section. Usage `c4d-structured-list::part(section)`
  */
 @customElement(`${c4dPrefix}-structured-list`)
 class C4DStructuredList extends StableSelectorMixin(LitElement) {
@@ -104,16 +108,23 @@ class C4DStructuredList extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="overflow-indicator left"></div>
+      <div
+        class="overflow-indicator left"
+        part="overflow-indicator overflow-indicator--left"></div>
       ${this.renderInner()}
-      <div class="overflow-indicator right"></div>
+      <div
+        class="overflow-indicator right"
+        part="overflow-indicator overflow-indicator--right"></div>
     `;
   }
 
   protected renderInner() {
     const { wrapperId } = this.constructor as typeof C4DStructuredList;
     return html`
-      <section id="${wrapperId}" class="${prefix}--structured-list">
+      <section
+        id="${wrapperId}"
+        class="${prefix}--structured-list"
+        part="section">
         <slot></slot>
       </section>
     `;

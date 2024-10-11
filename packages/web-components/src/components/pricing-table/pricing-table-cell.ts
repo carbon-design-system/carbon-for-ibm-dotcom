@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,16 +9,23 @@
 
 import { html } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DStructuredListCell from '../structured-list/structured-list-cell';
 import C4DPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss?lit';
 import C4DPricingTableCellAnnotation from './pricing-table-cell-annotation';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
+
+/**
+ * @element c4d-pricing-table-cell
+ *
+ * @csspart container - The cell container. Usage `c4d-pricing-table-cell::part(container)`
+ * @csspart content - The cell content. Usage `c4d-pricing-table-cell::part(content)`
+ */
 
 @customElement(`${c4dPrefix}-pricing-table-cell`)
 class C4DPricingTableCell extends StableSelectorMixin(
@@ -69,8 +76,8 @@ class C4DPricingTableCell extends StableSelectorMixin(
 
   render() {
     return html`
-      <div class="${prefix}--pricing-table-cell-inner">
-        <div class="${prefix}--pricing-table-cell-content">
+      <div class="${prefix}--pricing-table-cell-inner" part="container">
+        <div class="${prefix}--pricing-table-cell-content" part="content">
           ${super.render()}
         </div>
         <slot name="toggle"></slot>

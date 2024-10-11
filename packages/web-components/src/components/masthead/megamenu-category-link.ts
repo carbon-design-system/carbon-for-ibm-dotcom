@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,14 +9,14 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import Launch16 from '@carbon/web-components/es/icons/launch/16.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -24,6 +24,9 @@ const { stablePrefix: c4dPrefix } = settings;
  * MegaMenu category sublink
  *
  * @element c4d-megamenu-category-link
+ * @csspart link-heading - The link heading. Usage: `c4d-megamenu-category-link::part(link-heading)`
+ * @csspart link-description - The link description. Usage: `c4d-megamenu-category-link::part(link-description)`
+ * @csspart span - The span element. Usage: `c4d-megamenu-category-link::part(span)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-link`)
 class C4DMegaMenuCategoryLink extends CDSLink {
@@ -58,7 +61,7 @@ class C4DMegaMenuCategoryLink extends CDSLink {
       ${title
         ? html`
             <div part="link-heading">
-              <span>${title}${this._renderIcon()}</span>
+              <span part="span">${title}${this._renderIcon()}</span>
               <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
             </div>
           `

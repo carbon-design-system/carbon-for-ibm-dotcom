@@ -41,6 +41,11 @@ const iconProps = {
   slot: 'icon',
 };
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 const iconMap = {
   ArrowRight: <ArrowRight {...iconProps} />,
   Launch: <Launch {...iconProps} />,

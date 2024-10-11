@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,16 +10,16 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import pauseIcon from '../../internal/vendor/@carbon/web-components/icons/pause--outline--filled/32.js';
-import playIcon from '../../internal/vendor/@carbon/web-components/icons/play--filled/32.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
+import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './background-media.scss?lit';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';
 import C4DVideoPlayer from '../video-player/video-player';
 import C4DVideoPlayerContainer from '../video-player/video-player-container';
 import C4DLeadSpace from '../leadspace/leadspace';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -27,10 +27,39 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Background media.
  *
  * @element c4d-background-media
+ * @csspart controls - The video player controls. Usage: `c4d-background-media::part(controls)`
+ * @csspart gradient - The gradient covering the image. Usage: `c4d-background-media::part(gradient)`
+ * @csspart container - The component's container. Usage: `c4d-background-media::part(container)`
+ * @csspart item - The image container. Usage: `c4d-background-media::part(item)`
  */
 
 @customElement(`${c4dPrefix}-background-media`)
 class C4DBackgroundMedia extends C4DImage {
+  /**
+   * Returns a class-name based on the Gradient Direction type
+   */
+  protected _getGradientClass() {
+    return classMap({
+      [`${prefix}--background-media--gradient`]: true,
+      [`${prefix}--background-media--gradient--${this.gradientDirection}`]:
+        this.gradientDirection,
+    });
+  }
+
+  /**
+   * Returns a class-name based on the Mobile Position type
+   */
+  protected _getMobilePositionClass() {
+    return classMap({
+      [`${prefix}--background-media--container`]: true,
+      [`${prefix}--background-media--mobile-position`]: true,
+      [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]:
+        this.mobilePosition,
+      [`${prefix}--background-media--image`]: this.videoPlayer === null,
+      [`${prefix}--background-media--video`]: this.videoPlayer !== null,
+    });
+  }
+
   /**
    * The opacity of the background image or video. 100 is fully visible, 0 is fully transparent.
    */
@@ -82,27 +111,6 @@ class C4DBackgroundMedia extends C4DImage {
   videoPlayer: C4DVideoPlayer | null = null;
 
   /**
-   * Returns a class-name based on the Gradient Direction type
-   */
-  protected _getGradientClass = {
-    [`${prefix}--background-media--gradient`]: true,
-    [`${prefix}--background-media--gradient--${this.gradientDirection}`]:
-      this.gradientDirection,
-  };
-
-  /**
-   * Returns a class-name based on the Mobile Position type
-   */
-  protected _getMobilePositionClass = {
-    [`${prefix}--background-media--container`]: true,
-    [`${prefix}--background-media--mobile-position`]: true,
-    [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]:
-      this.mobilePosition,
-    [`${prefix}--background-media--image`]: this.videoPlayer === null,
-    [`${prefix}--background-media--video`]: this.videoPlayer !== null,
-  };
-
-  /**
    * Conditionally runs super.render() if all children are `c4d-image-item`
    */
   private _handleBackgroundMedia(event: Event) {
@@ -141,6 +149,7 @@ class C4DBackgroundMedia extends C4DImage {
 
     return html`
       <button
+        part="controls"
         @click=${toggleVideoState}
         class="${prefix}--video-player__controls"
         aria-pressed="${!videoIsPlaying}"
@@ -152,7 +161,9 @@ class C4DBackgroundMedia extends C4DImage {
   }
 
   renderGradient() {
-    return html` <div class="${classMap(this._getGradientClass)}"></div> `;
+    return html`
+      <div part="gradient" class="${this._getGradientClass()}"></div>
+    `;
   }
 
   _getMediaOpacity() {
@@ -182,9 +193,10 @@ class C4DBackgroundMedia extends C4DImage {
 
   render() {
     return html`
-      <div class="${classMap(this._getMobilePositionClass)}">
+      <div part="container" class="${this._getMobilePositionClass()}">
         ${this.gradientHidden ? '' : this.renderGradient()}
         <div
+          part="item"
           class="${prefix}--background-media--item"
           style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}

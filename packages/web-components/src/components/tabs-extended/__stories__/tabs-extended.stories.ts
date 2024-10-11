@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,11 +11,10 @@ import { html } from 'lit';
 import '../index';
 import '../../content-block-media/index';
 import '../../card-group/index';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { TABS_TYPE } from '../defs';
 import readme from './README.stories.mdx';
 import styles from './tabs-extended-stories.scss?lit';
-import { prefix } from '../../../internal/vendor/@carbon/web-components/globals/settings';
+import { prefix } from '@carbon/web-components/es/globals/settings.js';
 
 const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Vivamus sed interdum tortor. Sed id pellentesque diam.
@@ -98,11 +97,15 @@ export const Contained = () => {
           <c4d-content-item-copy>${copy}</c4d-content-item-copy>
         </c4d-content-item>
 
-        <c4d-card link slot="footer" href="https://example.com">
+        <c4d-card
+          link
+          slot="footer"
+          href="https://example.com"
+          cta-type="local">
           <c4d-card-link-heading>
             Lorem ipsum dolor sit amet
           </c4d-card-link-heading>
-          <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card>
       </div>
       <div

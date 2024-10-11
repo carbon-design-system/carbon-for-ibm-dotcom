@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,11 @@
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-with-icon.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 import CTAMixin from '../../component-mixins/cta/cta';
 import { CTA_TYPE } from '../cta/defs';
@@ -29,6 +29,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-link-with-icon
  * @slot icon - The icon.
  * @slot icon-left - The CTA icon to place at the left.
+ * @csspart span - The span element. Usage: `c4d-lightbox-video-player::part(span)`
  */
 @customElement(`${c4dPrefix}-link-with-icon`)
 class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
@@ -74,7 +75,7 @@ class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
   _renderContent() {
     const { ctaType, _hasContent: hasContent } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
-      return html`<span><slot></span></slot>`;
+      return html`<span part="span"><slot></slot></span>`;
     }
     const {
       videoDuration,

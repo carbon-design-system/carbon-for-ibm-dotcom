@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,9 +15,9 @@ import '@carbon/web-components/es/components/list/ordered-list.js';
 import '@carbon/web-components/es/components/list/unordered-list.js';
 import '@carbon/web-components/es/components/list/list-item.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './markdown.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -25,6 +25,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * Markdown content.
  *
  * @element c4d-markdown
+ * @csspart link - The custom link element. Usage: `c4d-markdown::part(link)`
+ * @csspart ordered-list - The ordered list element. Usage: `c4d-markdown::part(ordered-list)`
+ * @csspart unordered-list - The unordered list element. Usage: `c4d-markdown::part(unordered-list)`
+ * @csspart list - The list element. Usage: `c4d-markdown::part(list)`
+ * @csspart list-item - The list item element. Usage: `c4d-markdown::part(list-item)`
  */
 @customElement(`${c4dPrefix}-markdown`)
 class C4DMarkdown extends LitElement {
@@ -55,14 +60,16 @@ class C4DMarkdown extends LitElement {
       link(href, title, text) {
         return `<${prefix}-link href="${href}" size="lg" ${
           title ? `title="${title}"` : ''
-        }>${text}</${prefix}-link>`;
+        } part="link">${text}</${prefix}-link>`;
       },
       list(body, ordered) {
         const tag = `${prefix}-${ordered ? 'ordered' : 'unordered'}-list`;
-        return `<${tag}>${body}</${tag}>`;
+        return `<${tag} part="${
+          ordered ? 'list ordered-list' : 'list unordered-list'
+        }">${body}</${tag}>`;
       },
       listitem(text) {
-        return `<${prefix}-list-item>${text}</${prefix}-list-item>`;
+        return `<${prefix}-list-item part="list-item">${text}</${prefix}-list-item>`;
       },
     };
   }

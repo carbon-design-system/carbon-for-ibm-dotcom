@@ -13,14 +13,14 @@ import { EXPRESSIVE_MODAL_MODE, EXPRESSIVE_MODAL_SIZE } from './defs';
 import { classMap } from 'lit/directives/class-map.js';
 import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModalCloseButton from './expressive-modal-close-button';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import on from '../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
-import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './expressive-modal.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -62,6 +62,13 @@ const slotExistencePropertyNames = {
  * @fires c4d-expressive-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  * @slot header - The header content.
  * @slot footer - The footer content.
+ * @csspart modal-header - The modal header. Usage: `c4d-expressive-modal::part(modal-header)`
+ * @csspart modal-body - The modal body. Usage: `c4d-expressive-modal::part(modal-body)`
+ * @csspart sentinel-button - Taget all Sentinels buttons Usage: `c4d-expressive-modal::part(sentinel-button)`
+ * @csspart sentinel-button--start - Button labled START. Usage: `c4d-expressive-modal::part(sentinel-button--start)`
+ * @csspart sentinel-button--end - Button labled END. Usage: `c4d-expressive-modal::part(sentinel-button--end)`
+ * @csspart modal-container - The modal container. Usage: `c4d-expressive-modal::part(modal-container)`
+ * @csspart footer-container - The footer container. Usage: `c4d-expressive-modal::part(footer-container)`
  */
 @customElement(`${c4dPrefix}-expressive-modal`)
 class C4DExpressiveModal extends StableSelectorMixin(
@@ -365,7 +372,10 @@ class C4DExpressiveModal extends StableSelectorMixin(
         hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="${prefix}--modal-header" class="${headerClasses}">
+      <div
+        id="${prefix}--modal-header"
+        class="${headerClasses}"
+        part="modal-header">
         <slot name="header"></slot>
       </div>
     `;
@@ -380,7 +390,9 @@ class C4DExpressiveModal extends StableSelectorMixin(
       [`${c4dPrefix}-ce--modal__body`]: true,
       [`${c4dPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
-    return html` <div class="${bodyClasses}"><slot></slot></div> `;
+    return html`
+      <div class="${bodyClasses}" part="modal-body"><slot></slot></div>
+    `;
   }
 
   /**
@@ -388,7 +400,9 @@ class C4DExpressiveModal extends StableSelectorMixin(
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderFooter(): TemplateResult | SVGTemplateResult | void {
-    return html` <div><slot name="footer"></slot></div> `;
+    return html`
+      <div part="footer-container"><slot name="footer"></slot></div>
+    `;
   }
 
   /**
@@ -436,23 +450,26 @@ class C4DExpressiveModal extends StableSelectorMixin(
       <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
+        part="sentinel-button sentinel-button--start"
         @focusin="${handleFocusIn}">
         START
       </button>
       <div
         class="${containerClasses}"
+        part="modal-container"
         tabindex="-1"
         role="dialog"
         aria-labelledby="${c4dPrefix}--modal-header"
         @click="${handleClickContainer}"
         @slotchange="${handleSlotChange}">
-        <div class="${prefix}--modal-content">
+        <div class="${prefix}--modal-content" part="modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
       <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
+        part="sentinel-button sentinel-button--end"
         @focusin="${handleFocusIn}">
         END
       </button>

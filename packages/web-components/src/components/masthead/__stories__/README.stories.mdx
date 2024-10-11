@@ -1,5 +1,5 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md?raw';
+import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Masthead
@@ -16,11 +16,11 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 ### Masthead (L0):
 
-[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/masthead)
 
 ### Masthead (L1):
 
-[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead-l1)
+[![Edit @carbon/ibmdotcom-web-components](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/masthead-l1)
 
 ## Getting started
 
@@ -90,12 +90,12 @@ document.getElementById('masthead').platformUrl = urlObject;
 ### Custom navigation
 
 In order to set custom navigation for the masthead, use JavaScript to set the
-`navLinks` property of the masthead-composite component. This property should be
-an array of `L0MenuItem` objects as defined in
+`l0Data` property. This property should be an array of `L0MenuItem` objects as
+defined in
 [the services-store package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services-store/src/types/translateAPI.ts).
 
 ```html
-<c4d-masthead-composite id="masthead"></c4d-masthead-composite>
+<c4d-masthead-container id="masthead"></c4d-masthead-container>
 ```
 
 ```javascript
@@ -130,7 +130,7 @@ const customNavData = [
     },
   },
 ];
-document.getElementById('masthead').navLinks = customNavData;
+document.getElementById('masthead').l0Data = customNavData;
 ```
 
 #### Custom data endpoint
@@ -184,9 +184,14 @@ const l1Data = {
 }
 ```
 
-You can also set a `ctaType` to render as a button that will integrate with the IBM Contact Module application on supported domains. Available CTA types are defined by the `L1_CTA_TYPES` enum in [the definitions file](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/masthead/defs.ts)
+You can also set a `ctaType` to render as a button that will integrate with the
+IBM Contact Module application on supported domains. Available CTA types are
+defined by the `L1_CTA_TYPES` enum in
+[the definitions file](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/masthead/defs.ts)
 
-> See the [Contact Module as a Service (CMaaS) documentation](https://github.ibm.com/live-advisor/cm-app/blob/master/docs/cm-doc.md#calls-to-action) for more information.
+> See the
+> [Contact Module as a Service (CMaaS) documentation](https://github.ibm.com/live-advisor/cm-app/blob/master/docs/cm-doc.md#calls-to-action)
+> for more information.
 
 ```javascript
 const l1Data = {
@@ -424,14 +429,14 @@ This array will be passed into the `scopeParameters` property. If using
 the `.`), in order for the array to be processed properly in the component.
 
 ```html
-<c4d-masthead-composite
-  .scopeParameters="${scopeParameters}"></c4d-masthead-composite>
+<c4d-masthead-container
+  .scopeParameters="${scopeParameters}"></c4d-masthead-container>
 ```
 
 Alternatively, JavaScript can be used to insert it into the component.
 
 ```javascript
-document.querySelector('c4d-masthead-composite').scopeParameters =
+document.querySelector('c4d-masthead-container').scopeParameters =
   scopeParameters;
 ```
 

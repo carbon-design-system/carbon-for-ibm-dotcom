@@ -10,12 +10,12 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import styles from './masthead.scss?lit';
 import C4DMastheadProfile from './masthead-profile';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -23,6 +23,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * The contact button UI in the masthead.
  *
  * @element c4d-masthead-contact
+ * @csspart contact-link -The masthead contact link. Usage `c4d-masthead-contact::part(contact-link)`
  */
 @customElement(`${c4dPrefix}-masthead-contact`)
 class C4DMastheadContact extends C4DMastheadProfile {
@@ -58,6 +59,7 @@ class C4DMastheadContact extends C4DMastheadProfile {
     const { triggerLabel, _handleClick: handleClick } = this;
     return html`
       <a
+        part="contact-link"
         href="javascript:void 0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         aria-label="${ifDefined(triggerLabel)}"

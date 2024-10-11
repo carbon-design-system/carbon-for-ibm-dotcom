@@ -33,6 +33,11 @@ const iconProps = {
   slot: 'icon',
 };
 
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
+
 export const Default = (args) => {
   const { href, ctaText, ctaType } = args?.LeavingIBM ?? {};
   return (

@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentItem from '../content-item/content-item';
 import styles from './content-item-row-media.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -20,21 +20,24 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * media beneath.
  *
  * @element c4d-content-item-row-media-featured
+ * @csspart row--eyebrow - The eyebrow. Usage: `c4d-contenr-item-row-media-featured::part(row--eyebrow)`
+ * @csspart col--body - The body. Usage: `c4d-contenr-item-row-media-featured::part(col--body)`
+ * @csspart row--media - The media. Usage: `c4d-contenr-item-row-media-featured::part(row--media)`
  */
 @customElement(`${c4dPrefix}-content-item-row-media-featured`)
 class C4DContentItemRowMediaFeatured extends C4DContentItem {
   render() {
     return html`
-      <div class="${prefix}--content-item-row__row">
-        <div class="${prefix}--content-item-row__col">
+      <div class="${prefix}--content-item-row__row" part="row row--eyebrow">
+        <div class="${prefix}--content-item-row__col" part="col col--eyebrow">
           <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
           <slot name="heading"></slot>
         </div>
-        <div class="${prefix}--content-item-row__col">
+        <div class="${prefix}--content-item-row__col" part="col col--body">
           ${this._renderBody()} ${this._renderFooter()}
         </div>
       </div>
-      <div class="${prefix}--content-item-row__row">
+      <div class="${prefix}--content-item-row__row" part="row row--media">
         <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;

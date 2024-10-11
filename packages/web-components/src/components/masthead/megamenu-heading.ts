@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,11 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ArrowRight24 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/24.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ArrowRight24 from '@carbon/web-components/es/icons/arrow--right/24.js';
+import ArrowLeft24 from '@carbon/web-components/es/icons/arrow--left/24.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -21,6 +22,13 @@ const { stablePrefix: c4dPrefix } = settings;
  * MegaMenu Heading.
  *
  * @element c4d-megamenu-heading
+ * @csspart heading-link - The link element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-link)`
+ * @csspart heading-h2 - The h2 element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-h2)`
+ * @csspart heading-h3 - The h3 element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-h3)`
+ * @csspart heading-h4 - The h4 element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-h4)`
+ * @csspart heading-h5 - The h5 element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-h5)`
+ * @csspart heading-h6 - The h6 element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-h6)`
+ * @csspart heading-span - The span element containing slotted content. Usage: `c4d-megamenu-heading::part(heading-span)`
  */
 @customElement(`${c4dPrefix}-megamenu-heading`)
 class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
@@ -42,7 +50,10 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
   /**
    * Arrow icon to use when presented as link.
    */
-  protected _arrowIcon = ArrowRight24();
+  protected get _arrowIcon() {
+    const isRTL = document.dir.toLowerCase() === 'rtl';
+    return isRTL ? ArrowLeft24() : ArrowRight24();
+  }
 
   /**
    * Render heading as link.
@@ -51,6 +62,7 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
     const { _arrowIcon } = this;
     return html`
       <a
+        part="heading-link"
         href="${this.href}"
         data-attribute1="headerNav"
         data-attribute2="FlatHdline"
@@ -76,23 +88,33 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
     switch (headingLevel) {
       case 3:
         return html`
-          <h3 ?data-has-href="${hasHref}">${this.renderHeadingInner()}</h3>
+          <h3 part="heading-h3" ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h3>
         `;
       case 4:
         return html`
-          <h4 ?data-has-href="${hasHref}">${this.renderHeadingInner()}</h4>
+          <h4 part="heading-h4" ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h4>
         `;
       case 5:
         return html`
-          <h5 ?data-has-href="${hasHref}">${this.renderHeadingInner()}</h5>
+          <h5 part="heading-h5" ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h5>
         `;
       case 6:
         return html`
-          <h6 ?data-has-href="${hasHref}">${this.renderHeadingInner()}</h6>
+          <h6 part="heading-h6" ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h6>
         `;
       default:
         return html`
-          <h2 ?data-has-href="${hasHref}">${this.renderHeadingInner()}</h2>
+          <h2 part="heading-h2" ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h2>
         `;
     }
   }
@@ -116,7 +138,7 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
   render() {
     return html`
       ${this.renderHeading()}
-      <span>
+      <span part="heading-span">
         <slot @slotchange=${this._handleSlotChange}></slot>
       </span>
     `;

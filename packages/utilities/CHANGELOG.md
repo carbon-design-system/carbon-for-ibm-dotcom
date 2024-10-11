@@ -3,6 +3,338 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.13.1-rc.0...@carbon/ibmdotcom-utilities@2.13.1) (2024-09-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [2.13.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.13.0...@carbon/ibmdotcom-utilities@2.13.1-rc.0) (2024-09-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.13.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.13.0-rc.0...@carbon/ibmdotcom-utilities@2.13.0) (2024-09-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.13.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.12.0...@carbon/ibmdotcom-utilities@2.13.0-rc.0) (2024-09-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.12.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.12.0-rc.0...@carbon/ibmdotcom-utilities@2.12.0) (2024-09-03)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.11.1...@carbon/ibmdotcom-utilities@2.12.0-rc.0) (2024-08-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [2.11.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.11.1-rc.0...@carbon/ibmdotcom-utilities@2.11.1) (2024-07-30)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [2.11.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.11.0...@carbon/ibmdotcom-utilities@2.11.1-rc.0) (2024-07-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.11.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.11.0-rc.0...@carbon/ibmdotcom-utilities@2.11.0) (2024-07-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.11.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.10.0-rc.0...@carbon/ibmdotcom-utilities@2.11.0-rc.0) (2024-07-12)
+
+
+### Features
+
+* **sticky-header:** allow mixed prefixes with warning ([#11868](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11868)) ([1df637a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1df637a7be35d4e8de11899c0f0d7740550cf252))
+
+
+
+
+
+# [2.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.9.0-rc.0...@carbon/ibmdotcom-utilities@2.10.0-rc.0) (2024-05-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.9.0-rc.0...@carbon/ibmdotcom-utilities@2.9.0) (2024-05-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.9.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.8.0...@carbon/ibmdotcom-utilities@2.9.0-rc.0) (2024-05-06)
+
+
+### Features
+
+* instrument with telemetry JS scope ([#11747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11747)) ([650739e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/650739e4d23677dd4891c781be20d76060170533))
+
+
+
+
+
+# [2.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.8.0-rc.0...@carbon/ibmdotcom-utilities@2.8.0) (2024-04-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.7.0...@carbon/ibmdotcom-utilities@2.8.0-rc.0) (2024-04-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.7.0-rc.0...@carbon/ibmdotcom-utilities@2.7.0) (2024-04-09)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.7.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.6.0-rc.0...@carbon/ibmdotcom-utilities@2.7.0-rc.0) (2024-04-02)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.6.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.6.0-rc.0...@carbon/ibmdotcom-utilities@2.6.0) (2024-03-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.6.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.5.0...@carbon/ibmdotcom-utilities@2.6.0-rc.0) (2024-03-21)
+
+
+### Bug Fixes
+
+* **toc:** adjust mobile selector, should always be navbar ([#11589](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11589)) ([0393906](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0393906c105e3452c1f089c8f556eb14649cdf5f)), closes [#11587](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11587)
+
+
+
+
+
+# [2.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.5.0-rc.0...@carbon/ibmdotcom-utilities@2.5.0) (2024-03-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.4.0...@carbon/ibmdotcom-utilities@2.5.0-rc.0) (2024-03-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.4.0-rc.3...@carbon/ibmdotcom-utilities@2.4.0) (2024-02-26)
+
+
+
+# 2.4.0-rc.4 (2024-02-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.4.0-rc.4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.4.0-rc.3...@carbon/ibmdotcom-utilities@2.4.0-rc.4) (2024-02-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.4.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.4.0-rc.2...@carbon/ibmdotcom-utilities@2.4.0-rc.3) (2024-02-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.4.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.4.0-rc.1...@carbon/ibmdotcom-utilities@2.4.0-rc.2) (2024-02-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.4.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.4.0-rc.0...@carbon/ibmdotcom-utilities@2.4.0-rc.1) (2024-02-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.4.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.3.0...@carbon/ibmdotcom-utilities@2.4.0-rc.0) (2024-02-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.3.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.3.0-rc.1...@carbon/ibmdotcom-utilities@2.3.0) (2024-02-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.3.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.3.0-rc.0...@carbon/ibmdotcom-utilities@2.3.0-rc.1) (2024-02-09)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.2.0-rc.0...@carbon/ibmdotcom-utilities@2.3.0-rc.0) (2024-02-02)
+
+
+### Bug Fixes
+
+* **stackblitz:** fix and standardize masthead examples for v2 ([#11199](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11199)) ([c3ddeb8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c3ddeb8016b0259ce4f202cb2d99c16b6b5c2545))
+
+
+### Features
+
+* **sidepanel:** introduce side panel component ([#11201](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11201)) ([c2c5bca](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c2c5bcae45745193dca47bbab8799e8a22d181f8))
+
+
+
+
+
+# [2.2.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.2.0-rc.1...@carbon/ibmdotcom-utilities@2.2.0) (2024-01-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.2.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.2.0-rc.0...@carbon/ibmdotcom-utilities@2.2.0-rc.1) (2024-01-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.2.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.1.0-rc.0...@carbon/ibmdotcom-utilities@2.2.0-rc.0) (2024-01-19)
+
+
+
+# 2.1.0 (2024-01-17)
+
+
+### Features
+
+* **masthead:** spacing style regression fix and maintainability refactor ([#11252](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11252)) ([67cc49b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67cc49b287eeb77d274c2c937ab99e3290960d38)), closes [#11251](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11251)
+
+
+
+
+
+# [2.1.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.1.0-rc.0...@carbon/ibmdotcom-utilities@2.1.0) (2024-01-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [2.1.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.0.0...@carbon/ibmdotcom-utilities@2.1.0-rc.0) (2024-01-09)
+
+
+
+# 1.53.0 (2023-11-15)
+
+
+
+# 1.53.0-rc.2 (2023-11-06)
+
+
+
+# 1.53.0-rc.1 (2023-11-02)
+
+
+
+# 1.53.0-rc.0 (2023-10-30)
+
+
+
+# 1.52.0-rc.0 (2023-10-03)
+
+
+
+# 1.51.0 (2023-09-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [2.0.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.0.0-rc.3...@carbon/ibmdotcom-utilities@2.0.0) (2023-12-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

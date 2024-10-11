@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import styles from './link-list-section.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentSection from '../content-section/content-section';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -20,6 +20,10 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-link-list
  * @slot heading - The heading content.
+ * @csspart grid - The outer wrapper. Usage `c4d-link-list-section::part(grid)`
+ * @csspart row - The inner wrapper. Usage `c4d-link-list-section::part(row)`
+ * @csspart heading - The heading's column container. Usage `c4d-link-list-section::part(heading)`
+ * @csspart children - The link-list's column container. Usage `c4d-link-list-section::part(children)`
  */
 @customElement(`${c4dPrefix}-link-list-section`)
 class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
@@ -42,12 +46,12 @@ class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
   render() {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div class="${prefix}--content-section__grid">
-        <div class="${prefix}--content-section__row">
-          <div class="${prefix}--content-section__left">
+      <div class="${prefix}--content-section__grid" part="grid">
+        <div class="${prefix}--content-section__row" part="row">
+          <div class="${prefix}--content-section__left" part="heading">
             <slot name="heading"></slot>
           </div>
-          <div class="${prefix}--content-section__children">
+          <div class="${prefix}--content-section__children" part="children">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>

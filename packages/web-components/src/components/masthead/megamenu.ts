@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,10 +9,10 @@
 
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -21,6 +21,8 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * MegaMenu
  *
  * @element c4d-megamenu
+ * @csspart container - The masthead megamenu container. Usage: c4d-megamenu::part(container)
+ * @csspart container-row - The masthead megamenu container row. Usage: c4d-megamenu::part(container-row)
  */
 @customElement(`${c4dPrefix}-megamenu`)
 class C4DMegaMenu extends StableSelectorMixin(LitElement) {
@@ -90,8 +92,9 @@ class C4DMegaMenu extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--masthead__megamenu__container">
+      <div part="container" class="${prefix}--masthead__megamenu__container">
         <div
+          part="container-row"
           class="${prefix}--masthead__megamenu__container--row ${prefix}--masthead__megamenu__container--row--${this
             .layout}">
           <slot></slot>

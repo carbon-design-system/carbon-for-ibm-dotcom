@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,10 +9,10 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-section.scss?lit';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -21,6 +21,9 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  *
  * @element c4d-content-section
  * @slot heading - Section heading
+ * @csspart layout - The component wrapper. Usage: `c4d-content-section::part(layout)`
+ * @csspart leading - The leading. Usage: `c4d-content-section::part(leading)`
+ * @csspart body - The body. Usage: `c4d-content-section::part(body)`
  */
 @customElement(`${c4dPrefix}-content-section`)
 class C4DContentSection extends StableSelectorMixin(LitElement) {
@@ -58,14 +61,17 @@ class C4DContentSection extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--content-section ${prefix}--content-section-layout">
-        <div class="${prefix}--content-section__leading">
+      <div
+        class="${prefix}--content-section ${prefix}--content-section-layout"
+        part="layout">
+        <div class="${prefix}--content-section__leading" part="leading">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
           <slot name="footer"></slot>
         </div>
         <div
-          class="${prefix}--content-section__body ${this.childrenCustomClass}">
+          class="${prefix}--content-section__body ${this.childrenCustomClass}"
+          part="body">
           <slot @slotchange="${this.handleSlotChange}"></slot>
         </div>
       </div>

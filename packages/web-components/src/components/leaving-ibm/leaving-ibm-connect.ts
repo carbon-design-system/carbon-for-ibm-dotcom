@@ -1,22 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { ActionCreatorsMapObject, Dispatch, bindActionCreators } from 'redux';
-import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import { LocaleAPIState } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
 import {
   LeavingIBMLabels,
   MiscLabels,
   TranslateAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
-import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
-import { setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+import { loadTranslation } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI.js';
+import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
+import { setLanguage } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI.js';
 
 /**
  * The Redux state used for `<c4d-leaving-ibm-container>`.
