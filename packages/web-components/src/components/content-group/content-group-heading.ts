@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { LitElement, html, render } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -29,18 +29,23 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'heading');
-    }
-    if (!this.hasAttribute('aria-level')) {
-      this.setAttribute('aria-level', '3');
-    }
-    super.connectedCallback();
+  /**
+   * Render the heading tag into the light DOM of this component.
+   */
+  protected _renderHeading() {
+    const template = document.createElement('template');
+    template.innerHTML = `<h3>${this.innerHTML.trim()}</h3>`;
+    this.innerHTML = '';
+    const heading = template.content.firstChild;
+    render(html`${heading}`, this);
+  }
+
+  firstUpdated() {
+    this._renderHeading();
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html`<slot></slot>`;
   }
 
   static get stableSelector() {
