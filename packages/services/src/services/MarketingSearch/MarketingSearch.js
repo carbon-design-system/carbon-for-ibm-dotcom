@@ -12,13 +12,15 @@ import axios from 'axios';
  * @private
  */
 const _host =
-  (process && process.env.MARKETING_SEARCH_HOST) || 'https://www.ibm.com';
+  (import.meta && import.meta.env.MARKETING_SEARCH_HOST) ||
+  'https://www.ibm.com';
 
 /**
  * @constant {string | string} API version
  * @private
  */
-const _version = (process && process.env.MARKETING_SEARCH_VERSION) || 'v3';
+const _version =
+  (import.meta && import.meta.env.MARKETING_SEARCH_VERSION) || 'v3';
 
 /**
  * MarketingSearch endpoint

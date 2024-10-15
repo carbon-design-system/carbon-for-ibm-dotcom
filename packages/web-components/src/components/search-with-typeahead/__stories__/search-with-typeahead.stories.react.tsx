@@ -14,7 +14,7 @@ import React from 'react';
 import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 /* eslint-enable max-len */
 import readme from './README.stories.react.mdx';
-import styles from '../../carousel/__stories__/carousel.stories.scss';
+import styles from '../../carousel/__stories__/carousel.stories.scss?lit';
 
 export const Default = () => {
   return <C4DSearchWithTypeahead></C4DSearchWithTypeahead>;

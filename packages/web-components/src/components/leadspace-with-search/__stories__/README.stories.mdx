@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Leadspace with Search
@@ -25,9 +25,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/index';
 ```
 
-<Description markdown={`${cdnJs({ components: ['leadspace-with-search'] })}`} />
+<Markdown>{`${cdnJs({ components: ['leadspace-with-search'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

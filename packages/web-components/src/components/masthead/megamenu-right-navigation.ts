@@ -13,7 +13,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import './megamenu-link-with-icon';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

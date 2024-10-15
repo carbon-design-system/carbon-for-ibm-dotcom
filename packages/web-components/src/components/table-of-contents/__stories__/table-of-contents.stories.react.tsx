@@ -20,7 +20,7 @@ import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import { ArrowLeft } from '@carbon/icons-react';
 import content, { headings, LOREM } from './wrapper-content';
 import readme from './README.stories.react.mdx';
-import styles from './table-of-contents.stories.scss';
+import styles from './table-of-contents.stories.scss?lit';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
 const iconProps = {

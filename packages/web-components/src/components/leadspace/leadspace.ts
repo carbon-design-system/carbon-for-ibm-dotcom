@@ -16,7 +16,7 @@ import {
   LEADSPACE_GRADIENT_STYLE_SCHEME,
   LEADSPACE_SIZE,
 } from './defs';
-import styles from './leadspace.scss';
+import styles from './leadspace.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

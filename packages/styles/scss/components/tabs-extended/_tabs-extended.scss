@@ -78,9 +78,9 @@
       font-size: $spacing-05;
 
       &,
-      // Need to override core Carbon's non-selected focus color
-      &:focus,
-      &:active {
+       // Need to override core Carbon's non-selected focus color
+       &:focus,
+       &:active {
         color: $text-primary;
       }
     }

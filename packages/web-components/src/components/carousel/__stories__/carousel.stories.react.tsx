@@ -26,7 +26,7 @@ import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components
 import imgLg2x1 from '../../../../.storybook/storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
 import imgLg4x3 from '../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 
-import styles from './carousel.stories.scss';
+import styles from './carousel.stories.scss?lit';
 import readme from './README.stories.react.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';

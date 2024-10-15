@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import C4DLogoGrid from '../logo-grid';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
@@ -26,9 +26,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/logo-grid/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['logo-grid'] })}`} />
+<Markdown>{`${cdnJs({ components: ['logo-grid'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

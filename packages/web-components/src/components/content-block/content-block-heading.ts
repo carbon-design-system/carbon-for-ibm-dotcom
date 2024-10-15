@@ -13,7 +13,7 @@ import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/in
 import { render } from 'lit/html.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './content-block.scss';
+import styles from './content-block.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

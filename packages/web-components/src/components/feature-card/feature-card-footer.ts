@@ -10,7 +10,7 @@
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DCardFooter from '../card/card-footer';
-import styles from './feature-card.scss';
+import styles from './feature-card.scss?lit';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

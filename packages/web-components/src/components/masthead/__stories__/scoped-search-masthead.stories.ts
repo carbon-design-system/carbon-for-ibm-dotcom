@@ -15,7 +15,7 @@ import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
-import styles from './masthead.stories.scss';
+import styles from './masthead.stories.scss?lit';
 import { mastheadL0Data } from './links';
 import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
 import {

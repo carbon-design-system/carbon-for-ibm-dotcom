@@ -7,13 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
 import { css, html } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentBlock, {
   CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME,
 } from '../content-block/content-block';
-import styles from './content-block-segmented.scss';
+import styles from './content-block-segmented.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -34,7 +33,7 @@ class C4DContentBlockSegmented extends C4DContentBlock {
       _hasHeading: hasHeading,
       _hasMedia: hasMedia,
     } = this;
-    return classMap({
+    return {
       [`${prefix}--content-layout`]: true,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
       [`${c4dPrefix}-ce--content-layout--with-adjacent-heading-content`]:
@@ -42,7 +41,7 @@ class C4DContentBlockSegmented extends C4DContentBlock {
       [`${prefix}--layout--border`]:
         complementaryStyleScheme ===
         CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-    });
+    };
   }
 
   protected _renderInnerBody() {

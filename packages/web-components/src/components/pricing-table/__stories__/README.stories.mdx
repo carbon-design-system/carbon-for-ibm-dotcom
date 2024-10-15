@@ -1,5 +1,5 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Structured List
@@ -20,9 +20,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/pricing-table/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['pricing-table'] })}`} />
+<Markdown>{`${cdnJs({ components: ['pricing-table'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

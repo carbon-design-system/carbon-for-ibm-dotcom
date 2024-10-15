@@ -13,7 +13,6 @@
 @mixin notice-choice {
   .#{$prefix}--nc {
     max-inline-size: 640px;
-
     p,
     .#{$prefix}--checkbox-group {
       margin-block-end: $spacing-06;

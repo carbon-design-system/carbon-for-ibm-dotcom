@@ -14,7 +14,7 @@ import CDSModal, {
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './leaving-ibm.scss';
+import styles from './leaving-ibm.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

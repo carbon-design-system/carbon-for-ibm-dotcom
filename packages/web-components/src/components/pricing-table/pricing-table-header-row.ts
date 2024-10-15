@@ -13,7 +13,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import C4DStructuredListHeaderRow from '../structured-list/structured-list-header-row';
 import C4DPricingTableHeaderCell from './pricing-table-header-cell';
-import styles from './pricing-table.scss';
+import styles from './pricing-table.scss?lit';
 import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

@@ -12,7 +12,7 @@ import inPercy from '@percy-io/in-percy';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import localeData from './locale-data.json';
-import styles from './locale-modal.stories.scss';
+import styles from './locale-modal.stories.scss?lit';
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {

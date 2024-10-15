@@ -34,7 +34,12 @@ import C4DTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-ex
 import content from '../../cta-section/__stories__/content';
 
 import readme from './README.stories.react.mdx';
-import styles from './cta-block.stories.scss';
+import styles from './cta-block.stories.scss?lit';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const iconProps = {
   size: 20,

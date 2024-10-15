@@ -10,7 +10,7 @@
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DMegaMenuRightNavigation from './megamenu-right-navigation';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

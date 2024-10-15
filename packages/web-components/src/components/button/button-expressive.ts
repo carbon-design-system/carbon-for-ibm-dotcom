@@ -14,7 +14,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import { ifDefined } from 'lit/directives/if-defined.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from './defs';
-import styles from './button.scss';
+import styles from './button.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
@@ -55,7 +55,7 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
       _hasIcon: hasIcon,
       _hasMainContent: hasMainContent,
     } = this;
-    return classMap({
+    return {
       [`${prefix}--btn`]: true,
       [`${prefix}--btn--${kind}`]: kind,
       [`${prefix}--btn--disabled`]: disabled,
@@ -63,7 +63,7 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
       [`${prefix}--btn--expressive`]: true,
       [`${prefix}--btn--${size}`]: size,
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
-    });
+    };
   }
 
   /**
@@ -91,7 +91,9 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <p id="button" part="button" class="${classes}">${this._renderInner()}</p>
+      <p id="button" part="button" class="${classMap(classes)}">
+        ${this._renderInner()}
+      </p>
     `;
   }
 
@@ -213,7 +215,7 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
               id="button"
               part="button"
               role="${ifDefined(linkRole)}"
-              class="${classes}"
+              class="${classMap(classes)}"
               download="${ifDefined(download)}"
               href="${ifDefined(href)}"
               hreflang="${ifDefined(hreflang)}"
@@ -230,7 +232,7 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
       <button
         id="button"
         part="button"
-        class="${classes}"
+        class="${classMap(classes)}"
         ?autofocus="${autofocus}"
         ?disabled="${disabled}"
         type="${ifDefined(type)}"

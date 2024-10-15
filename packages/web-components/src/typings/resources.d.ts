@@ -25,7 +25,7 @@ declare global {
   }
 }
 
-declare module '*.scss';
+declare module '*.scss?lit';
 declare module '*.svg';
 declare module '*.jpg';
 declare module '*.png';

@@ -5,7 +5,7 @@ import {
   Story,
 } from '@storybook/addon-docs/blocks';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Callout with Media
@@ -39,7 +39,7 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callou
   })}`}
 />
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### SCSS
 
@@ -85,7 +85,7 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callou
   })}`}
 />
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

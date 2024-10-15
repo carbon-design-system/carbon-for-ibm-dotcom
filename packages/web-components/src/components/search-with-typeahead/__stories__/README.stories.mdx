@@ -1,5 +1,5 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 import '../index';
 
@@ -26,9 +26,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/search-with-typeahead/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['search-with-typeahead'] })}`} />
+<Markdown>{`${cdnJs({ components: ['search-with-typeahead'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ## Example HTML
 

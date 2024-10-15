@@ -13,7 +13,7 @@ import { carbonElement as customElement } from '@carbon/web-components/es/global
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import { property } from 'lit/decorators.js';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
-import styles from './callout-quote.scss';
+import styles from './callout-quote.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

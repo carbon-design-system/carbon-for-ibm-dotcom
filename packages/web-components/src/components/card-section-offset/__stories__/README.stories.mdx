@@ -1,6 +1,6 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # `<c4d-card-section-offset>`
@@ -22,9 +22,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/card-section-offset/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['card-section-offset'] })}`} />
+<Markdown>{`${cdnJs({ components: ['card-section-offset'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

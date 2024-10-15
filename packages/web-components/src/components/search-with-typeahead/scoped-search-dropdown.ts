@@ -12,7 +12,7 @@ import CDSDropdown, {
   DROPDOWN_TYPE,
 } from '@carbon/web-components/es/components/dropdown/dropdown.js';
 
-import styles from './search-with-typeahead.scss';
+import styles from './search-with-typeahead.scss?lit';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from '../footer/defs';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

@@ -21,7 +21,7 @@ import '../expressive-modal/expressive-modal-heading';
 import '../expressive-modal/expressive-modal-close-button';
 import C4DLocaleSearch from './locale-search';
 import C4DRegionItem from './region-item';
-import styles from './locale-modal.scss';
+import styles from './locale-modal.scss?lit';
 import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

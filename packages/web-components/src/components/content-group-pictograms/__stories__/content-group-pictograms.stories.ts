@@ -12,7 +12,7 @@ import '../index';
 import { html } from 'lit';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import styles from './content-group-pictograms.stories.scss';
+import styles from './content-group-pictograms.stories.scss?lit';
 
 const pictogramsItems = [
   {

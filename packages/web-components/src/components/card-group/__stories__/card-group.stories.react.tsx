@@ -34,7 +34,7 @@ import imgMd16x9 from '../../../../.storybook/storybook-images/assets/960/fpo--1
 import { GRID_MODE } from '../defs';
 
 import readme from './README.stories.react.mdx';
-import styles from './card-group.stories.scss';
+import styles from './card-group.stories.scss?lit';
 
 let count = 0;
 const phraseArray = [

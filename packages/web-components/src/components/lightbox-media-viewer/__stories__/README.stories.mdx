@@ -5,7 +5,7 @@ import {
   Story,
 } from '@storybook/addon-docs/blocks';
 import '../lightbox-video-player';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Lightbox Media Viewer
@@ -24,9 +24,9 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 document.getElementById('my-lightbox').open = true;
 ```
 
-<Description markdown={`${cdnJs({ components: ['lightbox-media-viewer'] })}`} />
+<Markdown>{`${cdnJs({ components: ['lightbox-media-viewer'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ## Accessibility Notes
 

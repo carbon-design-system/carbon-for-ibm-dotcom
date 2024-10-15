@@ -18,7 +18,7 @@ import mockLinks from './links';
 import mockLegalLinks from './legal-links';
 import mockAdjunctLinks from './adjunct-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
-import styles from './footer.stories.scss';
+import styles from './footer.stories.scss?lit';
 
 import { FOOTER_SIZE } from '../footer';
 

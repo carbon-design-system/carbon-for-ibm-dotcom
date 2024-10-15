@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME } from './defs';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME };

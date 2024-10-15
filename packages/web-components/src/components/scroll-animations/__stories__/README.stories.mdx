@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import {
   cdnJs,
   cdnCss,
@@ -49,13 +49,13 @@ import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.j
 
 ## Example using CDN
 
-<Description markdown={`${cdnJs({ components: ['scroll-animations'] })}`} />
+<Markdown>{`${cdnJs({ components: ['scroll-animations'] })}`}</Markdown>
 
 <Description
   markdown={`${cdnCssAdditional({ components: ['scroll-animations'] })}`}
 />
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ## Example HTML
 

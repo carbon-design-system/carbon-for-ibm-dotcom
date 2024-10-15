@@ -17,7 +17,7 @@ import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './filter-panel.scss';
+import styles from './filter-panel.scss?lit';
 import '@carbon/web-components/es/components/checkbox/checkbox.js';
 import '@carbon/web-components/es/components/modal/modal-close-button.js';
 import '@carbon/web-components/es/components/modal/modal-header.js';

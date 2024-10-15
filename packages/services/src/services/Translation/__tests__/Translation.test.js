@@ -85,7 +85,9 @@ describe('TranslationAPI', () => {
       href: 'https://www.loremipsum.com',
     };
     // Expected endpoint called
-    const endpoint = `${process.env.TRANSLATION_HOST}/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1`;
+    const endpoint = `${
+      import.meta.env.TRANSLATION_HOST
+    }/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1`;
     const fetchUrl = `${endpoint}/usen.json`;
 
     const response = await TranslationAPI.getTranslation({
@@ -109,7 +111,7 @@ describe('TranslationAPI', () => {
   it('should fetch the i18n data from given endpoint', async () => {
     // Expected endpoint called
     const givenEndpoint = '/common/carbon-for-ibm-dotcom/custom-endpoint';
-    const endpoint = `${process.env.TRANSLATION_HOST}${givenEndpoint}`;
+    const endpoint = `${import.meta.env.TRANSLATION_HOST}${givenEndpoint}`;
     const fetchUrl = `${endpoint}/usen.json`;
 
     await TranslationAPI.getTranslation(

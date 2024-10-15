@@ -15,7 +15,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import '../index';
-import styles from './expressive-modal.stories.scss';
+import styles from './expressive-modal.stories.scss?lit';
 import readme from './README.stories.mdx';
 
 const sizes = {

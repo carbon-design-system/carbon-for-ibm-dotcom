@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import styles from './cta.scss';
+import styles from './cta.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import {

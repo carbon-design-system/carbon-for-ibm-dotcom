@@ -4,7 +4,7 @@ import {
   Description,
   Story,
 } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Card section — carousel
@@ -19,9 +19,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/card-section-carousel/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['card-section-carousel'] })}`} />
+<Markdown>{`${cdnJs({ components: ['card-section-carousel'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

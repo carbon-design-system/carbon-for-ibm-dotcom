@@ -1,6 +1,6 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # `<c4d-content-item>`
@@ -21,9 +21,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/content-item/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['content-item'] })}`} />
+<Markdown>{`${cdnJs({ components: ['content-item'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
@@ -92,9 +92,9 @@ import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/video-player/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['content-item'] })}`} />
+<Markdown>{`${cdnJs({ components: ['content-item'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 
@@ -132,9 +132,9 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/image/image-logo.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['content-item'] })}`} />
+<Markdown>{`${cdnJs({ components: ['content-item'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

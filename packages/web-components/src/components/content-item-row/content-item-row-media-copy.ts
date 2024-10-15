@@ -11,7 +11,7 @@ import { html } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentItemCopy from '../content-item/content-item-copy';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './content-item-row-media.scss';
+import styles from './content-item-row-media.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

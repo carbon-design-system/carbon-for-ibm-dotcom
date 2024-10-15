@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './global-banner.scss';
+import styles from './global-banner.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DMarkdown from '../markdown/markdown';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

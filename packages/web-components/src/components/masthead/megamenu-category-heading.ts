@@ -12,7 +12,7 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenuHeading from './megamenu-heading';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

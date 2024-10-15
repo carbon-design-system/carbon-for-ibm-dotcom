@@ -20,7 +20,7 @@ import Demo16 from '@carbon/web-components/es/icons/demo/16.js';
 import Email16 from '@carbon/web-components/es/icons/email/16.js';
 import Phone16 from '@carbon/web-components/es/icons/phone/16.js';
 import Quote16 from '@carbon/web-components/es/icons/request-quote/16.js';
-import styles from './masthead-l1.scss';
+import styles from './masthead-l1.scss?lit';
 import { L1_CTA_TYPES } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
 

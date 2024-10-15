@@ -6,7 +6,7 @@ import {
 } from '@storybook/addon-docs/blocks';
 import '../button-group';
 import '../button-group-item';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Button Group
@@ -28,9 +28,9 @@ import '@carbon/ibmdotcom-web-components/es/components/button-group/index.js';
 import '@carbon/web-components/es/icons/arrow--right/20.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['button-group'] })}`} />
+<Markdown>{`${cdnJs({ components: ['button-group'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

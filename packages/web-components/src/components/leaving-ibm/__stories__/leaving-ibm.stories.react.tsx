@@ -26,7 +26,12 @@ import { Launch } from '@carbon/icons-react';
 import C4DLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
 import mediumImgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import readme from './README.stories.react.mdx';
-import styles from './leaving-ibm.stories.scss';
+import styles from './leaving-ibm.stories.scss?lit';
+
+const iconProps = {
+  size: 20,
+  slot: 'icon',
+};
 
 const iconProps = {
   size: 20,

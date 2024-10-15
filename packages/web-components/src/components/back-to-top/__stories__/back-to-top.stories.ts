@@ -12,7 +12,7 @@ import '../index';
 import '../../dotcom-shell/dotcom-shell-container';
 import readme from './README.stories.mdx';
 import { StoryContent } from './data/content';
-import styles from './back-to-top.stories.scss';
+import styles from './back-to-top.stories.scss?lit';
 
 export const Default = () => {
   return html`

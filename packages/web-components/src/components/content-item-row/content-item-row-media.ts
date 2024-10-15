@@ -14,7 +14,7 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentItem from '../content-item/content-item';
-import styles from './content-item-row-media.scss';
+import styles from './content-item-row-media.scss?lit';
 
 import { MEDIA_ALIGN } from './defs';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

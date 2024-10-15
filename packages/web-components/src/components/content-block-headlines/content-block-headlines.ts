@@ -11,7 +11,7 @@ import { css, html, TemplateResult } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentBlock from '../content-block/content-block';
-import styles from './content-block-headlines.scss';
+import styles from './content-block-headlines.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -28,7 +28,11 @@ class C4DContentBlockHeadlines extends StableSelectorMixin(C4DContentBlock) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _getContainerClasses() {
-    return `${prefix}--content-layout ${prefix}--content-layout--with-headlines ${prefix}--layout--border`;
+    return {
+      [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--with-headlines`]: true,
+      [`${prefix}--layout--border`]: true,
+    };
   }
 
   protected _renderInnerBody(): TemplateResult | string | void {

@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { text, select } from '@storybook/addon-knobs';
 import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
-import styles from './leaving-ibm.stories.scss';
+import styles from './leaving-ibm.stories.scss?lit';
 import mediumImgLg1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import '../index';
 import '../../link-with-icon/index';

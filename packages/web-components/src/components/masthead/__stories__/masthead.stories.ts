@@ -15,7 +15,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import { L1_CTA_TYPES } from '../defs';
-import styles from './masthead.stories.scss';
+import styles from './masthead.stories.scss?lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
   mastheadL0Data,

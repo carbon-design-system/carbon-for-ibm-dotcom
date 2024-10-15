@@ -10,7 +10,7 @@
 import { html, LitElement, TemplateResult } from 'lit';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './lightbox-media-viewer.scss';
+import styles from './lightbox-media-viewer.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

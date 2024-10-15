@@ -11,7 +11,7 @@ import { TemplateResult, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DContentItem from '../content-item/content-item';
-import styles from './content-item-row.scss';
+import styles from './content-item-row.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

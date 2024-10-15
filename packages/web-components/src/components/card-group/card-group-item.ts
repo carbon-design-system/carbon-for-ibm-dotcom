@@ -11,7 +11,7 @@ import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DCard from '../card/card';
-import styles from './card-group.scss';
+import styles from './card-group.scss?lit';
 import { GRID_MODE } from './defs';
 
 const { stablePrefix: c4dPrefix } = settings;

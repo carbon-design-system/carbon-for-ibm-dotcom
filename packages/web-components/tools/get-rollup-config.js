@@ -9,6 +9,7 @@
 
 'use strict';
 
+const alias = require('@rollup/plugin-alias');
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
@@ -135,6 +136,9 @@ function getRollupConfig({
   const rollupConfig = {
     input: inputs,
     plugins: [
+      alias({
+        entries: [{ find: /^(.*)\.scss\?lit$/, replacement: '$1.scss' }],
+      }),
       multiInput(),
       nodeResolve({
         browser: true,

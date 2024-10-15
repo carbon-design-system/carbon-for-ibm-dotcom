@@ -14,7 +14,7 @@ import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-lis
 import throttle from 'lodash-es/throttle.js';
 import UpToTop20 from '@carbon/web-components/es/icons/up-to-top/20.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './back-to-top.scss';
+import styles from './back-to-top.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

@@ -25,7 +25,7 @@ import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/type
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
-import styles from './dotcom-shell.scss';
+import styles from './dotcom-shell.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

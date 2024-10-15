@@ -14,7 +14,7 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

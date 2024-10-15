@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import '../index';
 import readme from './README.stories.mdx';
-import styles from '../../carousel/__stories__/carousel.stories.scss';
+import styles from '../../carousel/__stories__/carousel.stories.scss?lit';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { boolean } from '@storybook/addon-knobs';
 

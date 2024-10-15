@@ -11,7 +11,7 @@ import { css } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DContentGroup from '../content-group/content-group';
-import styles from './content-group-pictograms.scss';
+import styles from './content-group-pictograms.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

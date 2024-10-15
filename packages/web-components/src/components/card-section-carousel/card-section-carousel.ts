@@ -9,7 +9,7 @@
 
 import { css } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './card-section-carousel.scss';
+import styles from './card-section-carousel.scss?lit';
 import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

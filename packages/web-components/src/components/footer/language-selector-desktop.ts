@@ -14,7 +14,7 @@ import CDSComboBoxItem from '@carbon/web-components/es/components/combo-box/comb
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
 import C4DComboBox from './combo-box';
-import styles from './footer.scss';
+import styles from './footer.scss?lit';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

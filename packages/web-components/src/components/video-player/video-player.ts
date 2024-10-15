@@ -21,7 +21,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
-import styles from './video-player.scss';
+import styles from './video-player.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerContainer from './video-player-container';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

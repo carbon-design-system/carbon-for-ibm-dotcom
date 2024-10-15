@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspectRatio/parseAspectRatio.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './cta-section.scss';
+import styles from './cta-section.scss?lit';
 import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

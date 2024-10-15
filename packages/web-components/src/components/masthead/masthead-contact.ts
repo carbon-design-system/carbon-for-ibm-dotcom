@@ -13,7 +13,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import C4DMastheadProfile from './masthead-profile';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

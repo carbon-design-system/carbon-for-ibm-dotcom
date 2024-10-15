@@ -17,7 +17,7 @@ import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-lis
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
-import styles from './carousel.scss';
+import styles from './carousel.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { ifDefined } from 'lit/directives/if-defined.js';

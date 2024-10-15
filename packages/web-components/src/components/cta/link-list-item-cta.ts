@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DTextCTA from './text-cta';
-import styles from '../link-list/link-list.scss';
+import styles from '../link-list/link-list.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

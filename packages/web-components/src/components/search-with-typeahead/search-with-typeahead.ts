@@ -23,7 +23,7 @@ import { baseFontSize, breakpoints } from '@carbon/layout';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead.js';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
-import styles from './search-with-typeahead.scss';
+import styles from './search-with-typeahead.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

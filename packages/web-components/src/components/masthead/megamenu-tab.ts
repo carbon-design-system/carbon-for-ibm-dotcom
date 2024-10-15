@@ -11,7 +11,7 @@ import { html } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CDSTab from '@carbon/web-components/es/components/tabs/tab.js';
 import c4dSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;

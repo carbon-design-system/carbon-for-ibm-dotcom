@@ -12,7 +12,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DMarkdown from '../markdown/markdown';
 import './content-group-paragraph';
-import styles from './content-group.scss';
+import styles from './content-group.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

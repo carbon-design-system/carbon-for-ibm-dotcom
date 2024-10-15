@@ -19,7 +19,7 @@ import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-lis
 import on from '@carbon/web-components/es/globals/mixins/on.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './expressive-modal.scss';
+import styles from './expressive-modal.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

@@ -14,7 +14,7 @@ import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
 import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
 import CDSSideNavMenuItem from '@carbon/web-components/es/components/ui-shell/side-nav-menu-item.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

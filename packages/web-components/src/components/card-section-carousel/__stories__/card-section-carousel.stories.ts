@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../index';
-import styles from './card-section-carousel.stories.scss';
+import styles from './card-section-carousel.stories.scss?lit';
 import readme from './README.stories.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';

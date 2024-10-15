@@ -20,7 +20,7 @@ module.exports = function resourceJSPaths(babel) {
       ImportDeclaration(path, state) {
         const { node } = path;
         const { value: source } = node.source;
-        if (/^\..*\.scss$/i.test(source)) {
+        if (/^\..*\.scss\?lit$/i.test(source)) {
           const declaration = t.cloneNode(node);
           declaration.source.value = `./${replaceExtension(source, '.css.js')}`;
           path.replaceWith(declaration);

@@ -25,7 +25,7 @@
 
 ```
 
-####   `should render with minimum attributes for wide screen`
+####   `should render with various attributes for narrow screen`
 
 ```
 <button
@@ -56,7 +56,7 @@
 
 ```
 
-####   `should render with various attributes for narrow screen`
+####   `should render with various attributes for wide screen`
 
 ```
 <h2

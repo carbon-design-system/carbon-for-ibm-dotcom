@@ -26,7 +26,7 @@ import '@carbon/web-components/es/components/modal/modal-header.js';
 import '@carbon/web-components/es/components/modal/modal-close-button.js';
 import '@carbon/web-components/es/components/modal/modal-footer.js';
 import '@carbon/web-components/es/components/button/button.js';
-import styles from './leaving-ibm.scss';
+import styles from './leaving-ibm.scss?lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;

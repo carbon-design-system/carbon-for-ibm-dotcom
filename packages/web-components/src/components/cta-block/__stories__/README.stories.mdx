@@ -1,6 +1,6 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import contributing from '../../../../../../docs/contributing-license.md';
+import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # `<c4d-cta-block>`
@@ -23,9 +23,9 @@ import '@carbon/ibmdotcom-web-components/es/components/cta-block/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['cta-block'] })}`} />
+<Markdown>{`${cdnJs({ components: ['cta-block'] })}`}</Markdown>
 
-<Description markdown={`${cdnCss()}`} />
+<Markdown>{`${cdnCss()}`}</Markdown>
 
 ### HTML
 

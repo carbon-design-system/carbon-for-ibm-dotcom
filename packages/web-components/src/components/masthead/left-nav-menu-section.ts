@@ -15,7 +15,7 @@ import ChevronLeft16 from '@carbon/web-components/es/icons/chevron--left/16.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './masthead.scss';
+import styles from './masthead.scss?lit';
 import C4DLeftNav from './left-nav';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

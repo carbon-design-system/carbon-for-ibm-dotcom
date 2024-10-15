@@ -23,7 +23,7 @@ import VideoCTAMixin from '../../component-mixins/cta/video';
 import C4DFeatureCTAFooter from './feature-cta-footer';
 import './feature-cta-footer';
 import { CTA_TYPE } from './defs';
-import styles from './cta.scss';
+import styles from './cta.scss?lit';
 
 import '../card/card-eyebrow';
 import '../card/card-heading';
