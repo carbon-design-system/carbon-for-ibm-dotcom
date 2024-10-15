@@ -170,27 +170,23 @@ export const DDSVideoPlayerContainerMixin = <
       const storedValue = localStorage.getItem(
         `${this.prefersAutoplayStorageKey}`
       );
-      const returnValue =
-        storedValue === null ? null : Boolean(parseInt(storedValue, 10));
-      return returnValue;
+
+      if (storedValue === null) {
+        return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } else {
+        return Boolean(parseInt(storedValue, 10));
+      }
     }
 
-    _getPlayerOptions(backgroundMode = false) {
+    _getPlayerOptions() {
+      const { backgroundMode, autoPlay, muted } =
+        this as unknown as DDSVideoPlayerComposite;
       let playerOptions = {};
+      const autoplayPreference = autoPlay
+        ? this._getAutoplayPreference()
+        : false;
 
       if (backgroundMode) {
-        const storedMotionPreference: boolean | null =
-          this._getAutoplayPreference();
-
-        let autoplayPreference: boolean | undefined;
-
-        if (storedMotionPreference === null) {
-          autoplayPreference = !window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-          ).matches;
-        } else {
-          autoplayPreference = storedMotionPreference;
-        }
         playerOptions = {
           'topBarContainer.plugin': false,
           'controlBarContainer.plugin': false,
@@ -209,6 +205,11 @@ export const DDSVideoPlayerContainerMixin = <
             plugin: false,
           },
         };
+      } else {
+        playerOptions = {
+          autoMute: muted,
+          autoPlay: autoplayPreference,
+        };
       }
 
       return playerOptions;
@@ -221,7 +222,7 @@ export const DDSVideoPlayerContainerMixin = <
      * @private
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
-    async _embedVideoImpl(videoId: string, backgroundMode = false) {
+    async _embedVideoImpl(videoId: string) {
       const doc = Object.prototype.hasOwnProperty.call(this, 'getRootNode')
         ? (this.getRootNode() as Document | ShadowRoot)
         : this.ownerDocument;
@@ -242,7 +243,7 @@ export const DDSVideoPlayerContainerMixin = <
       const embedVideoHandle = await KalturaPlayerAPI.embedMedia(
         videoId,
         playerId,
-        this._getPlayerOptions(backgroundMode)
+        this._getPlayerOptions()
       );
       const { width, height } = await KalturaPlayerAPI.api(videoId);
       videoPlayer.style.setProperty('--native-file-width', `${width}px`);
@@ -282,7 +283,7 @@ export const DDSVideoPlayerContainerMixin = <
      * @param videoId The video ID.
      * @internal
      */
-    _embedMedia = async (videoId: string, backgroundMode = false) => {
+    _embedMedia = async (videoId: string) => {
       const { _requestsEmbedVideo: requestsEmbedVideo } = this;
       const requestEmbedVideo = requestsEmbedVideo[videoId];
 
@@ -290,7 +291,7 @@ export const DDSVideoPlayerContainerMixin = <
         return requestEmbedVideo;
       }
 
-      const promiseEmbedVideo = this._embedVideoImpl(videoId, backgroundMode);
+      const promiseEmbedVideo = this._embedVideoImpl(videoId);
 
       this._setRequestEmbedVideoInProgress(videoId, promiseEmbedVideo);
       try {
