@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.13.1...@carbon/ibmdotcom-web-components@2.14.0-rc.0) (2024-10-15)
+
+
+### Bug Fixes
+
+* **card:** arrow direction on RTL ([#12068](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12068)) ([48268fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/48268fb975d19509c6442f13c8069c3cc88867f5))
+* **card:** component renders multiple headings ([#12030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12030)) ([e715924](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e715924889be0a360e65d648fb58c10f81a48b5e)), closes [#12000](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12000)
+* **legal-nav:** fix adjunct links not showing ([#12064](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12064)) ([f017f01](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f017f012149dee5e8e5944dccfea697c922f99b7)), closes [#12037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12037)
+* **masthead:** hide scroller buttons when there are no menuItems ([#12059](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12059)) ([1760d41](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1760d419d54a1fc07e08a46bb2b3e59a80f704e2))
+
+
+### Features
+
+* **card:** fix video cta data ([#12069](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12069)) ([ea8ea2d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea8ea2d78302ac58a4d9b152f6458f85c3ae2104))
+
+
+
+
+
 ## [2.13.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.13.1-rc.0...@carbon/ibmdotcom-web-components@2.13.1) (2024-09-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
