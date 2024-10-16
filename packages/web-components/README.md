@@ -205,7 +205,7 @@ pre-built CDN bundles available for each individual component.
 Here is an example of implementing the `dotcom-shell`:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <script type="module">
@@ -251,7 +251,7 @@ For example, the following adds Carbon reset and necessary Plex fonts to the
 page:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link
