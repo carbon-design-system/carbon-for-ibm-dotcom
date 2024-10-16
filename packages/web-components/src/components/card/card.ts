@@ -11,6 +11,7 @@ import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
@@ -239,6 +240,24 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   }
 
   /**
+   * @returns The CTA arrow.
+   *
+   */
+  protected _renderArrow() {
+    const isLTR =
+      window.getComputedStyle(this).direction.toUpperCase() === 'LTR';
+    return html`
+      <a
+        class="${`${prefix}--card__link`}"
+        part="link"
+        href="${ifDefined(this.href)}"
+        aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
+          ?.textContent || ''}"
+        >${isLTR ? ArrowRight20() : ArrowLeft20()}</a
+      >
+    `;
+  }
+  /**
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    *
@@ -425,19 +444,12 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       this._handleVideoTitleUpdate
     );
   }
+
   render() {
     return this._hasPictogram
       ? html`
           <div part="container">
-            ${this._renderInner()}
-            <a
-              class="${`${prefix}--card__link`}"
-              part="link"
-              href="${ifDefined(this.href)}"
-              aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
-                ?.textContent || ''}"
-              >${ArrowRight20()}</a
-            >
+            ${this._renderInner()} ${this._renderArrow()}
           </div>
         `
       : html` <div part="container">${this._renderInner()}</div> `;
