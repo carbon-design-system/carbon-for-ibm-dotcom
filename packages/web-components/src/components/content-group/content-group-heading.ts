@@ -20,6 +20,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The heading content in content group.
  *
  * @element c4d-content-group-heading
+ * @csspart heading - The Heading. Usage: `c4d-content-group-heading::part(heading)`
  */
 @customElement(`${c4dPrefix}-content-group-heading`)
 class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
@@ -34,10 +35,19 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
    */
   protected _renderHeading() {
     const template = document.createElement('template');
-    template.innerHTML = `<h3>${this.innerHTML.trim()}</h3>`;
-    this.innerHTML = '';
+    template.innerHTML = this.innerHTML;
     const heading = template.content.firstChild;
     render(html`${heading}`, this);
+  }
+
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'heading');
+    }
+    if (!this.hasAttribute('aria-level')) {
+      this.setAttribute('aria-level', '3');
+    }
+    super.connectedCallback();
   }
 
   firstUpdated() {
@@ -45,7 +55,7 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html`<slot></slot>`;
+    return html`<h3 part="heading"><slot></slot></h3>`;
   }
 
   static get stableSelector() {
