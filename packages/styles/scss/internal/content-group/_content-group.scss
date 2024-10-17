@@ -59,14 +59,12 @@
 
     display: block;
     margin-block-end: $spacing-07;
-
-    h3 {
-      display: inline;
-      margin: none;
-      font-size: inherit;
-      font-weight: inherit;
+    ::slotted(h3) {
+      font-size: inherit !important;
     }
+
   }
+
 
   :host(#{$c4d-prefix}-content-group-heading),
   :host(#{$c4d-prefix}-content-group-copy),

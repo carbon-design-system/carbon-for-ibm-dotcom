@@ -35,7 +35,8 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
    */
   protected _renderHeading() {
     const template = document.createElement('template');
-    template.innerHTML = this.innerHTML;
+    template.innerHTML =`<h3>${this.innerHTML.trim()}</h3>`;
+    this.innerHTML = ""
     const heading = template.content.firstChild;
     render(html`${heading}`, this);
   }
@@ -55,7 +56,7 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html`<h3 part="heading"><slot></slot></h3>`;
+    return html`<slot></slot>`;
   }
 
   static get stableSelector() {
