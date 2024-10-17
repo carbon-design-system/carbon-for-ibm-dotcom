@@ -9,11 +9,11 @@
 
 import { render } from 'lit/html.js';
 import { forEach } from '../../../globals/internal/collection-helpers';
-import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+import { LocaleList } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import '../footer-composite';
 import { Default } from '../__stories__/footer.stories';
 

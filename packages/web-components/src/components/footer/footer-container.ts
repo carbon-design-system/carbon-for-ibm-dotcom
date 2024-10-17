@@ -16,25 +16,25 @@ import {
 } from 'redux';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
-import store from '@carbon/ibmdotcom-services-store/es/store.js';
-import { LocaleAPIState } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
+import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
   TranslateAPIState,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import {
   loadLanguage,
   setLanguage,
   loadLocaleList,
   setLocaleList,
-} from '@carbon/ibmdotcom-services-store/es/actions/localeAPI.js';
-import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.js';
+import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import {
   loadTranslation,
   setTranslation,
-} from '@carbon/ibmdotcom-services-store/es/actions/translateAPI.js';
-import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.js';
+import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import {
   LocaleModalContainerState,
   LocaleModalContainerStateProps,

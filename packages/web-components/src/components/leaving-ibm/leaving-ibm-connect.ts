@@ -8,15 +8,15 @@
  */
 
 import { ActionCreatorsMapObject, Dispatch, bindActionCreators } from 'redux';
-import { LocaleAPIState } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import {
   LeavingIBMLabels,
   MiscLabels,
   TranslateAPIState,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
-import { loadTranslation } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI.js';
-import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
-import { setLanguage } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI.js';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
+import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.js';
+import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
+import { setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.js';
 
 /**
  * The Redux state used for `<c4d-leaving-ibm-container>`.

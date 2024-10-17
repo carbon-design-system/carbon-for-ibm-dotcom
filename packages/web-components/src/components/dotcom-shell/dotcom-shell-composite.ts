@@ -12,7 +12,7 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
-import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
@@ -20,8 +20,8 @@ import {
   L0MenuItem,
   MastheadProfileItem,
   Translation,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
-import { UNAUTHENTICATED_STATUS } from '@carbon/ibmdotcom-services-store/es/types/profileAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
+import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';

@@ -12,10 +12,10 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import {
   MediaData,
   MediaPlayerAPIState,
-} from '@carbon/ibmdotcom-services-store/es/types/kalturaPlayerAPI';
-import store from '@carbon/ibmdotcom-services-store/es/store.js';
-import { loadMediaData } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI.js';
-import { MediaPlayerAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
+import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.js';
+import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
 import {
   C4DVideoPlayerContainerMixin,
   mapStateToProps,

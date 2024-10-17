@@ -10,11 +10,11 @@
 import { ActionCreatorsMapObject, Dispatch, Store } from 'redux';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
-import store from '@carbon/ibmdotcom-services-store/es/store.js';
-import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
-import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
-import { ProfileAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/profileAPI';
-import { SearchAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/searchAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
+import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
+import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
+import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
 import {
   FooterContainerActions,
   FooterContainerState,

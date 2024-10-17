@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+import { LocaleList } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal-container';
 import localeData from '../__stories__/locale-data.json';

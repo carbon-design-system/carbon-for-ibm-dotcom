@@ -15,22 +15,22 @@ import {
   bindActionCreators,
 } from 'redux';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LocaleAPIState } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import {
   L0MenuItem,
   TranslateAPIState,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
-import { ProfileAPIState } from '@carbon/ibmdotcom-services-store/es/types/profileAPI';
-import store from '@carbon/ibmdotcom-services-store/es/store.js';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
+import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
 import {
   loadLanguage,
   setLanguage,
-} from '@carbon/ibmdotcom-services-store/es/actions/localeAPI.js';
-import { LocaleAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/localeAPI';
-import { loadTranslation } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI.js';
-import { TranslateAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/translateAPI';
-import { loadUserStatus } from '@carbon/ibmdotcom-services-store/es/actions/profileAPI.js';
-import { ProfileAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/profileAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.js';
+import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.js';
+import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
+import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.js';
+import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
 import ConnectMixin from '../../globals/mixins/connect';
 
 import C4DMastheadComposite from './masthead-composite';

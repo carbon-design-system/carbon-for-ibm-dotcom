@@ -15,7 +15,7 @@ import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-lis
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import { MediaData } from '@carbon/ibmdotcom-services-store/es/types/kalturaPlayerAPI';
+import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
 import {
   VIDEO_PLAYER_CONTENT_STATE,
   VIDEO_PLAYER_PLAYING_MODE,

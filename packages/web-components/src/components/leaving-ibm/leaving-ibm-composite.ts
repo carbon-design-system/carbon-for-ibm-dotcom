@@ -16,7 +16,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import {
   LeavingIBMLabels,
   Translation,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
