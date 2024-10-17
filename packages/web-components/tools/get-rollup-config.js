@@ -157,7 +157,6 @@ function getRollupConfig({
         {
           C4D_CONTENT_BLOCK_HEADLINES: 'true',
           C4D_CONTENT_BLOCK_CARD_STATIC: 'true',
-          C4D_CLOUD_MASTHEAD: 'true',
         },
         {
           include: ['**/feature-flags.ts'],

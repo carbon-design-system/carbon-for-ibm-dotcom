@@ -45,12 +45,11 @@ jobs:
       - name: Build project
         run: yarn lerna run --stream build
 
-      - name: Set Cloud Masthead env var
+      - name: Turn on all feature flags
         uses: ./.github/actions/set-dotenv
         with:
           env-file: packages/web-components/.env
         env:
-          C4D_CLOUD_MASTHEAD: true
           C4D_FLAGS_ALL: true
 
       - name: Build storybook
