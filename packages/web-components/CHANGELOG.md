@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.50.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.49.0...@carbon/ibmdotcom-web-components@1.50.0-rc.0) (2024-10-17)
+
+
+### Features
+
+* **video-player:** enable autoplay & load as muted ([#12070](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12070)) ([3d98787](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3d98787c5c7b6ec26d1a4a10762f212dc1d2b23e))
+
+
+
+
+
 # [1.49.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.49.0-rc.0...@carbon/ibmdotcom-web-components@1.49.0) (2024-09-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
