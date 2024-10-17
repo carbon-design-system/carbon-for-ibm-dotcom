@@ -180,7 +180,6 @@ module.exports = function setupKarma(config) {
       plugins: [
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('test'),
-          'process.env.C4D_CLOUD_MASTHEAD': JSON.stringify('true'),
         }),
         new webpack.NormalModuleReplacementPlugin(reServices, (resource) => {
           const { request } = resource;
