@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -178,7 +178,6 @@ module.exports = function setupKarma(config) {
       plugins: [
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('test'),
-          'process.env.C4D_CLOUD_MASTHEAD': JSON.stringify('true'),
         }),
         new webpack.NormalModuleReplacementPlugin(reServices, (resource) => {
           const { request } = resource;
