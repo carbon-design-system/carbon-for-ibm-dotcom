@@ -21,12 +21,12 @@ import MediaQueryMixin, {
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global.js';
-import { LocaleList } from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import {
   BasicLink,
   BasicLinkSet,
   Translation,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import { FOOTER_SIZE } from './footer';
 import { DROPDOWN_SIZE } from './combo-box';
 // Above import is interface-only ref and thus code won't be brought into the build

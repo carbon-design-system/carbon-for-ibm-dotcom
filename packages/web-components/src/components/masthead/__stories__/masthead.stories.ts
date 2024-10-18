@@ -26,7 +26,7 @@ import {
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
-} from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.js';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
