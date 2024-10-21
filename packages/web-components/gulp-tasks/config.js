@@ -86,6 +86,10 @@ module.exports = {
     ),
     'es'
   ),
+  servicesStoreVendorSrcDir: path.resolve(
+    __dirname,
+    '../src/internal/vendor/@carbon/ibmdotcom-services-store'
+  ),
   servicesStoreVendorESDstDir: path.resolve(
     __dirname,
     '../es/internal/vendor/@carbon/ibmdotcom-services-store'
