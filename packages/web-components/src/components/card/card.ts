@@ -29,11 +29,13 @@ import CTAMixin from '../../component-mixins/cta/cta';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
- * The table mapping slot name with the private property name that indicates the existence of the slot content.
+ * The table mapping slot name with the private property name that indicates the
+ * existence of the slot content.
  */
 const slotExistencePropertyNames = {
   image: '_hasImage',
   pictogram: '_hasPictogram',
+  eyebrow: '_hasEyebrow',
 };
 
 /**
@@ -79,17 +81,32 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   @state()
   protected _hasPictogram = false;
 
+  /**
+   * `true` if there is eyebrow content.
+   */
+  @state()
+  protected _hasEyebrow = false;
+
   @property({ attribute: 'no-poster', type: Boolean })
   noPoster;
 
   /**
-   * Handles `slotchange` event.
+   * Handles `slotchange` event for slots other than the copy slot.
    */
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
-    const hasContent = Boolean(this.querySelector('p'));
-    this[slotExistencePropertyNames[name]] = hasContent;
-    this._hasCopy = hasContent;
+    this[slotExistencePropertyNames[name]] = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
+  }
+
+  /**
+   * Handles `slotchange` event for the copy slot.
+   */
+  protected _handleCopySlotChange() {
+    this._hasCopy = Boolean(this.querySelector('p'));
   }
 
   /**
@@ -134,7 +151,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     const { _hasCopy: hasCopy } = this;
     return html`
       <div ?hidden="${!hasCopy}" class="${prefix}--card__copy" part="copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>
+        <slot @slotchange="${this._handleCopySlotChange}"></slot>
       </div>
     `;
   }
@@ -181,9 +198,14 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   }
 
   protected _renderPictogramSlot(placement: PICTOGRAM_PLACEMENT) {
-    const { _handleSlotChange: handleSlotChange } = this;
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } =
+      this;
     return html`
-      <div part="pictogram-wrapper" class="${prefix}--card__pictogram-wrapper">
+      <div
+        part="pictogram-wrapper"
+        class="${prefix}--card__pictogram-wrapper ${!hasPictogram
+          ? `${prefix}--card__pictogram-wrapper--empty`
+          : ''}">
         <slot
           name="pictogram"
           data-pictogram-placement="${placement}"
@@ -193,8 +215,13 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   }
 
   protected _renderEyebrowSlot() {
-    return html`<div part="eyebrow-wrapper">
-      <slot name="eyebrow"></slot>
+    const { _hasEyebrow: hasEyebrow } = this;
+    return html`<div
+      part="eyebrow-wrapper"
+      class="${prefix}--card__eyebrow-wrapper ${!hasEyebrow
+        ? `${prefix}--card__eyebrow-wrapper--empty`
+        : ''}">
+      <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
     </div>`;
   }
 

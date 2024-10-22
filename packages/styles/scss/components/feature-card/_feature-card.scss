@@ -103,6 +103,11 @@ $feature-flags: (
         motion(standard, productive);
     }
 
+    .#{$prefix}--card__eyebrow-wrapper--empty,
+    .#{$prefix}--card__pictogram-wrapper--empty {
+      display: none;
+    }
+
     ::slotted([slot='image']),
     #{$c4d-prefix}-image,
     .#{$prefix}--image {
