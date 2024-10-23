@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -170,7 +170,7 @@ export const SuperWithVideo = (args) => {
       <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="0_ibuqxqbe"
-          background-mode="true"></dds-video-player-container>
+          background-mode></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -291,7 +291,7 @@ export const TallWithVideo = (args) => {
       <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="0_ibuqxqbe"
-          background-mode="true"></dds-video-player-container>
+          background-mode></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -412,7 +412,7 @@ export const MediumWithVideo = (args) => {
       <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="0_ibuqxqbe"
-          background-mode="true"></dds-video-player-container>
+          background-mode></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -536,7 +536,7 @@ export const ShortWithVideo = (args) => {
       <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="0_ibuqxqbe"
-          background-mode="true"></dds-video-player-container>
+          background-mode></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -645,7 +645,7 @@ export const CenteredWithVideo = (args) => {
       <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="0_ibuqxqbe"
-          background-mode="true"></dds-video-player-container>
+          background-mode></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;

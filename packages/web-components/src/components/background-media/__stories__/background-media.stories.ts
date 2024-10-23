@@ -58,7 +58,7 @@ export const WithVideo = (args) => {
         opacity="${ifNonNull(backgroundOpacity)}">
         <dds-video-player-container
           video-id="0_ibuqxqbe"
-          background-mode="true"></dds-video-player-container>
+          background-mode></dds-video-player-container>
       </dds-background-media>
     </div>
   `;
