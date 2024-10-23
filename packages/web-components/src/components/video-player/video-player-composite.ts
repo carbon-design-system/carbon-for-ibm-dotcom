@@ -196,7 +196,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * `true` to autoplay, mute, and hide player UI.
    */
-  @property({ type: Boolean, attribute: 'background-mode' })
+  @property({ type: Boolean, attribute: 'background-mode', reflect: true })
   backgroundMode = false;
 
   /**
