@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,8 +39,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$dds-prefix}-video-player[background-mode='true']),
-  .#{$prefix}--video-player[background-mode='true'] {
+  :host(#{$dds-prefix}-video-player[background-mode]),
+  .#{$prefix}--video-player[background-mode] {
     .#{$prefix}--video-player__video-container {
       height: 100%;
       padding: 0;

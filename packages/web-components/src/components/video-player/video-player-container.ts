@@ -182,34 +182,42 @@ export const DDSVideoPlayerContainerMixin = <
       const { backgroundMode, autoPlay, muted } =
         this as unknown as DDSVideoPlayerComposite;
       let playerOptions = {};
-      const autoplayPreference = autoPlay
-        ? this._getAutoplayPreference()
-        : false;
+      const autoplayPreference = this._getAutoplayPreference();
 
-      if (backgroundMode) {
-        playerOptions = {
-          'topBarContainer.plugin': false,
-          'controlBarContainer.plugin': false,
-          'largePlayBtn.plugin': false,
-          'loadingSpinner.plugin': false,
-          'unMuteOverlayButton.plugin': false,
-          'EmbedPlayer.DisableVideoTagSupport': false,
-          loop: true,
-          autoMute: true,
-          autoPlay: autoplayPreference,
-          // Turn off CTA's including mid-roll card and end cards.
-          'ibm.callToActions': false,
-          // Turn off captions display, background/ambient videos have no
-          // audio.
-          closedCaptions: {
-            plugin: false,
-          },
-        };
-      } else {
-        playerOptions = {
-          autoMute: muted,
-          autoPlay: autoplayPreference,
-        };
+      switch (true) {
+        case autoPlay:
+          playerOptions = {
+            autoMute: muted,
+            autoPlay: autoplayPreference,
+          };
+          break;
+
+        case backgroundMode:
+          playerOptions = {
+            'topBarContainer.plugin': false,
+            'controlBarContainer.plugin': false,
+            'largePlayBtn.plugin': false,
+            'loadingSpinner.plugin': false,
+            'unMuteOverlayButton.plugin': false,
+            'EmbedPlayer.DisableVideoTagSupport': false,
+            loop: true,
+            autoMute: true,
+            autoPlay: autoplayPreference,
+            // Turn off CTA's including mid-roll card and end cards.
+            'ibm.callToActions': false,
+            // Turn off captions display, background/ambient videos have no
+            // audio.
+            closedCaptions: {
+              plugin: false,
+            },
+          };
+          break;
+
+        default:
+          playerOptions = {
+            autoMute: muted,
+          };
+          break;
       }
 
       return playerOptions;
