@@ -208,7 +208,6 @@ export const DDSVideoPlayerContainerMixin = <
       } else {
         playerOptions = {
           autoMute: muted,
-          autoPlay: autoplayPreference,
         };
       }
 
