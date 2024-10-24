@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.66.0...@carbon/ibmdotcom-react@1.66.1) (2024-10-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.66.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.66.0-rc.0...@carbon/ibmdotcom-react@1.66.0) (2024-10-21)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

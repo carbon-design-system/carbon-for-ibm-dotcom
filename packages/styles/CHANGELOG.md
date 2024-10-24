@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.66.0...@carbon/ibmdotcom-styles@1.66.1) (2024-10-24)
+
+
+### Bug Fixes
+
+* **video-player:** correct a visual regression with background video in some contexts ([#12081](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12081)) ([863dfdc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/863dfdc3690b98a44a1c862877bd1fa106cef12b))
+
+
+
+
+
 # [1.66.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.66.0-rc.0...@carbon/ibmdotcom-styles@1.66.0) (2024-10-21)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
