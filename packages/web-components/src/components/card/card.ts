@@ -177,7 +177,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             </c4d-image>
           `;
     return html`
-      <div part="image-wrapper">
+      <div part="image-wrapper" class="${prefix}--card__image-wrapper">
         <slot name="image" @slotchange="${this._handleSlotChange}">
           ${image}
         </slot>
