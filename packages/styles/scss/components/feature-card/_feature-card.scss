@@ -63,6 +63,7 @@ $feature-flags: (
 
       @include breakpoint(md) {
         flex-direction: row;
+        aspect-ratio: 2 / 1;
       }
 
       &:focus-within {
@@ -163,6 +164,16 @@ $feature-flags: (
 
     ::slotted(#{$c4d-prefix}-card-eyebrow) {
       margin-inline-end: $spacing-03;
+    }
+  }
+
+  // All large feature cards.
+  :host(#{$c4d-prefix}-feature-card)[size='large'],
+  :host(#{$c4d-prefix}-feature-cta)[size='large'] {
+    .#{$prefix}--card__content {
+      @include breakpoint(xlg) {
+        padding: $spacing-07;
+      }
     }
   }
 
