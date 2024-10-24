@@ -152,14 +152,6 @@ $feature-flags: (
 
     ::slotted(#{$c4d-prefix}-card-heading) {
       margin-block-end: $spacing-07;
-
-      @include breakpoint(sm) {
-        @include type-style('heading-03');
-      }
-
-      @include breakpoint(lg) {
-        @include type-style('heading-04');
-      }
     }
 
     ::slotted(#{$c4d-prefix}-card-eyebrow) {
@@ -173,6 +165,12 @@ $feature-flags: (
     .#{$prefix}--card__content {
       @include breakpoint(xlg) {
         padding: $spacing-07;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-card-heading) {
+      @include breakpoint(xlg) {
+        @include type-style('heading-04');
       }
     }
   }
