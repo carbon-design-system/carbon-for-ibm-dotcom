@@ -59,7 +59,9 @@
 
     display: block;
     margin-block-end: $spacing-07;
+
     ::slotted(h3) {
+      // stylelint-disable-next-line declaration-no-important
       font-size: inherit !important;
     }
   }
