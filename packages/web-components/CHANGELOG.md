@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.14.0-rc.2...@carbon/ibmdotcom-web-components@2.14.0) (2024-10-25)
+
+
+### Bug Fixes
+
+* **conten-group-heading:** render h3 tag to light DOM ([#12074](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12074)) ([cf153d0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cf153d0556404b60bf9876348f52c1ee05725360))
+* **content-block-simple:** update footer spacing ([#12083](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12083)) ([e221b3c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e221b3cb505773640ce7e5f4da805e5ff4cede10))
+* **feature-card:** fix feature card broken styles and refactor ([#12082](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12082)) ([465a022](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/465a02296ad54b5c49b3e6a6620a8cc7c6433990))
+
+
+
+
+
 # [2.14.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.14.0-rc.1...@carbon/ibmdotcom-web-components@2.14.0-rc.2) (2024-10-21)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
