@@ -22,11 +22,6 @@
 @use '../../globals/utils/aspect-ratio' as *;
 @use '../../globals/utils/hang' as *;
 
-$fcb-large-custom-bp-copy: 992px;
-$fcb-large-custom-bp-nocopy: 752px;
-$fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
-  to-rem(1px);
-
 $feature-flags: (
   enable-experimental-tile-contrast: true,
 );
@@ -63,7 +58,6 @@ $feature-flags: (
 
       @include breakpoint(md) {
         flex-direction: row;
-        aspect-ratio: 2 / 1;
       }
 
       &:focus-within {
@@ -92,12 +86,23 @@ $feature-flags: (
       flex: 1 0 50%;
     }
 
+    .#{$prefix}--card__wrapper {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
     .#{$prefix}--card__content {
       justify-content: space-between;
       padding: $spacing-05;
       aspect-ratio: 2 / 1;
       transition: background-color $duration-moderate-01
         motion(standard, productive);
+
+      @include breakpoint(md) {
+        aspect-ratio: auto;
+      }
     }
 
     .#{$prefix}--card__eyebrow-wrapper--empty,
