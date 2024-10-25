@@ -12,7 +12,7 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+import PlayFilled from '@carbon/web-components/es/icons/play--filled/32.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -49,6 +49,7 @@ class C4DFeatureCTA extends VideoCTAMixin(CTAMixin(C4DFeatureCard)) {
       videoName,
       formatVideoCaption: formatCaptionInEffect,
       formatVideoDuration: formatDurationInEffect,
+      _hasCopy: hasCopy,
     } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
       return super._renderCopy();
@@ -63,8 +64,8 @@ class C4DFeatureCTA extends VideoCTAMixin(CTAMixin(C4DFeatureCard)) {
     this.captionHeading = caption;
 
     return html`
-      <div class="${prefix}--card__copy" part="copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy" part="copy">
+        <slot @slotchange="${this._handleCopySlotChange}"></slot>
       </div>
     `;
   }
@@ -79,15 +80,17 @@ class C4DFeatureCTA extends VideoCTAMixin(CTAMixin(C4DFeatureCard)) {
               alt="${ifDefined(videoName)}"
               default-src="${ifDefined(thumbnail || videoThumbnailUrl)}"
               slot="image">
-              ${PlayVideo({ slot: 'icon' })}
+              ${PlayFilled({ slot: 'icon' })}
             </c4d-image>
           `;
     return noPoster
       ? undefined
       : html`
-          <slot name="image" @slotchange="${this._handleSlotChange}"
-            >${image}</slot
-          >
+          <div part="image-wrapper" class="${prefix}--card__image-wrapper">
+            <slot name="image" @slotchange="${this._handleSlotChange}">
+              ${image}
+            </slot>
+          </div>
         `;
   }
 
