@@ -3257,7 +3257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/colors@npm:^11.26.0, @carbon/colors@npm:^11.27.1":
+"@carbon/colors@npm:^11.26.0, @carbon/colors@npm:^11.27.0, @carbon/colors@npm:^11.27.1":
   version: 11.27.1
   resolution: "@carbon/colors@npm:11.27.1"
   dependencies:
@@ -3404,7 +3404,7 @@ __metadata:
     "@carbon/icons-react": "npm:11.49.0"
     "@carbon/layout": "npm:11.26.0"
     "@carbon/styles": "npm:1.65.0"
-    "@carbon/themes": "npm:11.41.1"
+    "@carbon/themes": "npm:11.42.0"
     "@carbon/type": "npm:11.32.1"
     "@ibm/telemetry-js": "npm:^1.5.0"
     del: "npm:^6.0.0"
@@ -3694,7 +3694,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:^11.26.0, @carbon/layout@npm:^11.27.1":
+"@carbon/layout@npm:^11.26.0, @carbon/layout@npm:^11.27.0, @carbon/layout@npm:^11.27.1":
   version: 11.27.1
   resolution: "@carbon/layout@npm:11.27.1"
   dependencies:
@@ -3804,7 +3804,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:11.41.1, @carbon/themes@npm:^11.40.0":
+"@carbon/themes@npm:11.42.0":
+  version: 11.42.0
+  resolution: "@carbon/themes@npm:11.42.0"
+  dependencies:
+    "@carbon/colors": "npm:^11.27.0"
+    "@carbon/layout": "npm:^11.27.0"
+    "@carbon/type": "npm:^11.32.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+    color: "npm:^4.0.0"
+  checksum: 10/7a3c87566edcc94a2a567f193d30414603521ae834f2cd7de3fc162bc866fde3a41a622e9e8ac11b1f34e262e3b11c4b95b43a97304f5beb26f213a701248ec3
+  languageName: node
+  linkType: hard
+
+"@carbon/themes@npm:^11.40.0":
   version: 11.41.1
   resolution: "@carbon/themes@npm:11.41.1"
   dependencies:
@@ -3817,7 +3830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:11.32.1, @carbon/type@npm:^11.31.0, @carbon/type@npm:^11.32.1":
+"@carbon/type@npm:11.32.1, @carbon/type@npm:^11.31.0, @carbon/type@npm:^11.32.0, @carbon/type@npm:^11.32.1":
   version: 11.32.1
   resolution: "@carbon/type@npm:11.32.1"
   dependencies:
