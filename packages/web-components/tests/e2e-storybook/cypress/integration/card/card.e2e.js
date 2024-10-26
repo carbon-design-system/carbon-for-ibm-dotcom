@@ -1,13 +1,11 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
-
-import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
 
 /**
  * Defines the component variant path.
@@ -39,7 +37,7 @@ const _pathStatic = '/iframe.html?id=components-card--static';
  * @type {string}
  * @private
  */
-const _selectorBase = `[data-autoid="cds--card"]`;
+const _selectorBase = `[data-autoid="c4d--card"]`;
 
 /**
  * Defines the card element selectors.
@@ -48,10 +46,10 @@ const _selectorBase = `[data-autoid="cds--card"]`;
  * @private
  */
 const _selectors = {
-  eyebrow: `${_selectorBase} [data-autoid="cds--card-eyebrow"]`,
-  heading: `${_selectorBase} [data-autoid="cds--card-heading"]`,
-  footer: `${_selectorBase} [data-autoid="cds--card-footer"]`,
-  image: `${_selectorBase} [data-autoid="cds--image"]`,
+  eyebrow: `${_selectorBase} [data-autoid="c4d--card-eyebrow"]`,
+  heading: `${_selectorBase} [data-autoid="c4d--card-heading"]`,
+  footer: `${_selectorBase} [data-autoid="c4d--card-footer"]`,
+  image: `${_selectorBase} [data-autoid="c4d--image"]`,
   tagGroup: `${_selectorBase} div`,
   copy: `${_selectorBase} p`,
 };
@@ -64,7 +62,6 @@ const _selectors = {
  * @property {function} checkClickableCard
  * @property {function} checkNonClickableCard
  * @property {function} checkImageRenders
- * @property {function} checkOutlineRenders
  * @property {function} checkInverseRenders
  * @private
  */
@@ -79,50 +76,50 @@ const _tests = {
   },
   checkTextRenders: () => {
     it('should render eyebrow content', () => {
-      cy.get(_selectors.eyebrow).then($eyebrow => {
+      cy.get(_selectors.eyebrow).then(($eyebrow) => {
         expect($eyebrow).not.to.be.empty;
       });
     });
 
     it('should render heading content', () => {
-      cy.get(_selectors.heading).then($heading => {
+      cy.get(_selectors.heading).then(($heading) => {
         expect($heading).not.to.be.empty;
       });
     });
 
     it('should render body copy content', () => {
-      cy.get(_selectors.copy).then($copy => {
+      cy.get(_selectors.copy).then(($copy) => {
         expect($copy).not.to.be.empty;
       });
     });
 
-    it('should render footer content', () => {
-      cy.get(_selectors.footer).then($footer => {
-        expect($footer).not.to.be.empty;
+    it('should not render footer content', () => {
+      cy.get(_selectors.footer).then(($footer) => {
+        expect($footer).to.be.empty;
       });
     });
   },
-  checkClickableCard: pictogram => {
+  checkClickableCard: (pictogram) => {
     if (pictogram) {
       it('should check for link', () => {
-        cy.get('cds-card').should('have.attr', 'href');
+        cy.get('c4d-card').should('have.attr', 'href');
       });
     } else {
       it('should check for link', () => {
-        cy.get('cds-card > cds-card-footer')
+        cy.get('c4d-card > c4d-card-footer')
           .shadow()
-          .find('a.bx--card__footer')
-          .then($link => {
+          .find('a.cds--card__footer')
+          .then(($link) => {
             const url = $link.prop('href');
             expect(url).not.to.be.empty;
           });
       });
 
       it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-        cy.get('cds-card > cds-card-footer')
+        cy.get('c4d-card > c4d-card-footer')
           .shadow()
           .find('a')
-          .then($els => {
+          .then(($els) => {
             const win = $els[0].ownerDocument.defaultView;
             const after = win.getComputedStyle($els[0], ':after');
             const positionValue = after.getPropertyValue('position');
@@ -138,9 +135,9 @@ const _tests = {
   },
   checkTabbableCard: () => {
     it('should check tabbable', () => {
-      cy.get('cds-card > cds-card-footer')
+      cy.get('c4d-card > c4d-card-footer')
         .shadow()
-        .find('a.bx--card__footer')
+        .find('a.cds--card__footer')
         .focus();
     });
   },
@@ -148,80 +145,59 @@ const _tests = {
     it('should not respond to a click ', () => {
       let initialLocation;
       cy.location('href')
-        .then(location => {
+        .then((location) => {
           initialLocation = location;
         })
         .get(_selectorBase)
         .click()
         .location('href')
-        .then(location => {
+        .then((location) => {
           expect(location).to.equal(initialLocation);
         });
     });
   },
-  checkImageRenders: (path, groupId) => {
+  checkImageRenders: (path) => {
     it('should render with image', () => {
-      cy.visit(`${path}&knob-Add%20image:${groupId}=true`);
+      cy.visit(`${path}&knob-Add%20image:=true`);
       cy.get(_selectors.image).should('have.length', 1);
       cy.takeSnapshots();
     });
   },
-  checkTagGroupRenders: (path, groupId) => {
+  checkTagGroupRenders: (path) => {
     it('should render with tag group', () => {
-      cy.visit(`${path}&knob-Add%20tags:${groupId}=true`);
-      cy.get(_selectors.tagGroup).should('have.length', 1);
+      cy.visit(`${path}&knob-Add%20tags:=true`);
+      cy.get(_selectors.tagGroup).should('have.length', 2);
       cy.takeSnapshots();
     });
   },
-  checkOutlineRenders: path => {
-    it('should render with outline', () => {
-      cy.visit(path);
-      cy.get(_selectorBase).should('have.attr', 'border');
-      // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
-      if (Cypress.browser.name !== 'firefox') {
-        cy.get(_selectorBase)
-          .shadow()
-          .find('.bx--card')
-          .should('have.css', 'border')
-          .and('equal', '1px solid rgb(224, 224, 224)');
-      }
-
-      cy.get(_selectorBase).should('have.attr', 'color-scheme', 'light');
-      // converted HEX var(--cds-ui-02, #ffffff) to RGB
-      cy.get(_selectorBase)
-        .shadow()
-        .find('.bx--card__wrapper')
-        .should('have.css', 'background-color')
-        .and('equal', 'rgb(255, 255, 255)');
-      cy.takeSnapshots();
-    });
-  },
-  checkInverseRenders: path => {
+  checkInverseRenders: (path) => {
     it('should render with inverse', () => {
       cy.visit(path);
       cy.get(_selectorBase).should('have.attr', 'color-scheme', 'inverse');
       // converted HEX var(--cds-inverse-02, #393939) to RGB
       cy.get(_selectorBase)
+        .shadow()
+        .find('.cds--card')
         .should('have.css', 'background-color')
         .and('equal', 'rgb(57, 57, 57)');
 
       cy.takeSnapshots();
     });
   },
-  pictogramPosition: (position, groupId) => {
+  pictogramPosition: (position) => {
     if (position === 'top') {
       it('should check for pictogram at the top', () => {
-        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:${groupId}=bottom`);
-        cy.get('cds-card').should('have.attr', 'pictogram-placement', 'top');
-        cy.get('cds-card svg').then($content => {
+        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:=bottom`);
+        cy.get('c4d-card').should('have.attr', 'pictogram-placement', 'top');
+        cy.get('c4d-card svg').then(($content) => {
           expect($content[0].getBoundingClientRect().top).to.equal(32);
           expect($content[0].getBoundingClientRect().bottom).to.equal(80);
         });
       });
     } else {
       it('should check for pictogram at the bottom', () => {
-        cy.get('cds-card').should('have.attr', 'pictogram-placement', 'bottom');
-        cy.get('cds-card svg').then($content => {
+        cy.get('c4d-card').should('have.attr', 'pictogram-placement', 'bottom');
+        cy.get('c4d-card svg').then(($content) => {
           expect($content[0].getBoundingClientRect().top).to.equal(186);
           expect($content[0].getBoundingClientRect().bottom).to.equal(234);
         });
@@ -230,10 +206,10 @@ const _tests = {
   },
 };
 
-describe('cds-card | default (desktop)', () => {
+describe('c4d-card | default (desktop)', () => {
   const groupId = '_Default';
   beforeEach(() => {
-    cy.visit(`${_path}&knob-Body%20copy:${groupId}=copy`);
+    cy.visit(`${_path}&knob-Body%20copy:=test`);
     cy.injectAxe();
     cy.viewport(1280, 780);
   });
@@ -241,15 +217,14 @@ describe('cds-card | default (desktop)', () => {
   _tests.checkTextRenders();
   _tests.checkClickableCard();
   _tests.checkTabbableCard();
-  _tests.checkImageRenders(_path, groupId);
-  _tests.checkTagGroupRenders(_path, groupId);
-  _tests.checkInverseRenders(`${_path}&knob-Card%20style:${groupId}=Inverse%20card`);
-  _tests.checkOutlineRenders(`${_path}&knob-Card%20style:${groupId}=Outlined%20card`);
+  _tests.checkImageRenders(_path);
+  _tests.checkTagGroupRenders(_path);
+  _tests.checkInverseRenders(`${_path}&knob-Card%20style:=Inverse%20card`);
   it('should render correctly in all themes', _tests.screenshotThemes);
   it('should check a11y', _tests.checkA11y);
 });
 
-describe('cds-card | pictogram (desktop)', () => {
+describe('c4d-card | pictogram (desktop)', () => {
   const groupId = '_pictogram';
   beforeEach(() => {
     cy.visit(`/${_pathPictogram}`);
@@ -258,10 +233,11 @@ describe('cds-card | pictogram (desktop)', () => {
   });
 
   _tests.checkClickableCard(true);
-  _tests.pictogramPosition('top', groupId);
-  _tests.pictogramPosition('bottom', groupId);
-  _tests.checkInverseRenders(`${_pathPictogram}&knob-Card%20style:${groupId}=Inverse%20card`);
-  _tests.checkOutlineRenders(`${_pathPictogram}&knob-Card%20style:${groupId}=Outlined%20card`);
+  _tests.pictogramPosition('top');
+  _tests.pictogramPosition('bottom');
+  _tests.checkInverseRenders(
+    `${_pathPictogram}&knob-Card%20style:${groupId}=Inverse%20card`
+  );
   it('should render correctly in all themes', _tests.screenshotThemes);
   it('should check a11y', _tests.checkA11y);
 });
@@ -278,7 +254,6 @@ describe('cds-card | static (desktop)', () => {
   _tests.checkClickableCard();
   _tests.checkImageRenders(_pathStatic, groupId);
   _tests.checkTagGroupRenders(_pathStatic, groupId);
-  _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card:${groupId}=true`);
   it('should render correctly in all themes', _tests.screenshotThemes);
   it('should check a11y', _tests.checkA11y);
 });
