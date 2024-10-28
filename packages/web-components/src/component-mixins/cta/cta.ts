@@ -325,23 +325,25 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           (videoName === null || videoName === 'null')) ||
         changedProperties.has('videoDescription')
       ) {
-        // Wait for the container to be ready without blocking.
-        customElements
-          .whenDefined(`${c4dPrefix}-video-cta-container`)
-          .then(() => {
-            this.dispatchEvent(
-              new CustomEvent(eventRequestVideoData, {
-                bubbles: true,
-                cancelable: true,
-                composed: true,
-                detail: {
-                  videoName,
-                  videoDescription,
-                  href,
-                },
-              })
-            );
-          });
+        if (typeof videoDuration === 'undefined') {
+          // Wait for the container to be ready without blocking.
+          customElements
+            .whenDefined(`${c4dPrefix}-video-cta-container`)
+            .then(() => {
+              this.dispatchEvent(
+                new CustomEvent(eventRequestVideoData, {
+                  bubbles: true,
+                  cancelable: true,
+                  composed: true,
+                  detail: {
+                    videoName,
+                    videoDescription,
+                    href,
+                  },
+                })
+              );
+            });
+        }
       }
 
       if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
