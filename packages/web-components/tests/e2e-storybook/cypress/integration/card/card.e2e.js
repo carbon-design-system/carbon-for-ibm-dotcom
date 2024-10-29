@@ -74,7 +74,7 @@ const _tests = {
       capture: 'viewport',
     });
   },
-  checkTextRenders: () => {
+  checkTextRenders: (emptyFooter = false) => {
     it('should render eyebrow content', () => {
       cy.get(_selectors.eyebrow).then(($eyebrow) => {
         expect($eyebrow).not.to.be.empty;
@@ -93,11 +93,19 @@ const _tests = {
       });
     });
 
-    it('should not render footer content', () => {
-      cy.get(_selectors.footer).then(($footer) => {
-        expect($footer).to.be.empty;
+    if (emptyFooter) {
+      it('should not render footer content', () => {
+        cy.get(_selectors.footer).then(($footer) => {
+          expect($footer).to.be.empty;
+        });
       });
-    });
+    } else {
+      it('should render footer content', () => {
+        cy.get(_selectors.footer).then(($footer) => {
+          expect($footer).not.to.be.empty;
+        });
+      });
+    }
   },
   checkClickableCard: (pictogram) => {
     if (pictogram) {
@@ -156,16 +164,16 @@ const _tests = {
         });
     });
   },
-  checkImageRenders: (path) => {
+  checkImageRenders: (path, groupId = '') => {
     it('should render with image', () => {
-      cy.visit(`${path}&knob-Add%20image:=true`);
+      cy.visit(`${path}&knob-Add%20image:${groupId}=true`);
       cy.get(_selectors.image).should('have.length', 1);
       cy.takeSnapshots();
     });
   },
-  checkTagGroupRenders: (path) => {
+  checkTagGroupRenders: (path, groupId = '') => {
     it('should render with tag group', () => {
-      cy.visit(`${path}&knob-Add%20tags:=true`);
+      cy.visit(`${path}&knob-Add%20tags:${groupId}=true`);
       cy.get(_selectors.tagGroup).should('have.length', 2);
       cy.takeSnapshots();
     });
@@ -184,22 +192,25 @@ const _tests = {
       cy.takeSnapshots();
     });
   },
-  pictogramPosition: (position) => {
+  pictogramPosition: (position, groupId = '') => {
     if (position === 'top') {
       it('should check for pictogram at the top', () => {
-        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:=bottom`);
+        cy.visit(`${_pathPictogram}&knob-Pictogram%20position:${groupId}=top`);
         cy.get('c4d-card').should('have.attr', 'pictogram-placement', 'top');
         cy.get('c4d-card svg').then(($content) => {
-          expect($content[0].getBoundingClientRect().top).to.equal(32);
-          expect($content[0].getBoundingClientRect().bottom).to.equal(80);
+          expect($content[0].getBoundingClientRect().top).to.equal(33);
+          expect($content[0].getBoundingClientRect().bottom).to.equal(81);
         });
       });
     } else {
       it('should check for pictogram at the bottom', () => {
+        cy.visit(
+          `${_pathPictogram}&knob-Pictogram%20position:${groupId}=bottom`
+        );
         cy.get('c4d-card').should('have.attr', 'pictogram-placement', 'bottom');
         cy.get('c4d-card svg').then(($content) => {
-          expect($content[0].getBoundingClientRect().top).to.equal(186);
-          expect($content[0].getBoundingClientRect().bottom).to.equal(234);
+          expect($content[0].getBoundingClientRect().top).to.equal(221);
+          expect($content[0].getBoundingClientRect().bottom).to.equal(269);
         });
       });
     }
@@ -214,7 +225,7 @@ describe('c4d-card | default (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(true);
   _tests.checkClickableCard();
   _tests.checkTabbableCard();
   _tests.checkImageRenders(_path);
@@ -227,14 +238,14 @@ describe('c4d-card | default (desktop)', () => {
 describe('c4d-card | pictogram (desktop)', () => {
   const groupId = '_pictogram';
   beforeEach(() => {
-    cy.visit(`/${_pathPictogram}`);
+    cy.visit(`${_pathPictogram}`);
     cy.injectAxe();
     cy.viewport(1280, 780);
   });
 
   _tests.checkClickableCard(true);
-  _tests.pictogramPosition('top');
-  _tests.pictogramPosition('bottom');
+  _tests.pictogramPosition('top', '_pictogram');
+  _tests.pictogramPosition('bottom', '_pictogram');
   _tests.checkInverseRenders(
     `${_pathPictogram}&knob-Card%20style:${groupId}=Inverse%20card`
   );
