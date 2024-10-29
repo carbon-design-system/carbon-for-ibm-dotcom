@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -68,7 +68,7 @@ describe('c4d-filter-panel | (desktop)', () => {
     // Switch to mobile and open modal
     cy.viewport(..._viewportWidths['mobile'])
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click();
     // Verify box is checked
     cy.get(_selector)
@@ -98,7 +98,7 @@ describe('c4d-filter-panel | (desktop)', () => {
     // Switch to mobile and open modal
     cy.viewport(..._viewportWidths['mobile'])
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click();
     // Verify box is checked
     cy.get(_selector)
@@ -162,7 +162,7 @@ describe('c4d-filter-panel | (desktop)', () => {
       .first()
       .as('filterGroupItem')
       .shadow()
-      .find('.bx--accordion__heading')
+      .find('.cds--accordion__heading')
       .as('toggle')
       .click()
       .get('@filterGroupItem')
@@ -188,7 +188,7 @@ describe('c4d-filter-panel | (desktop)', () => {
       .first()
       .as('filterGroupItem')
       .shadow()
-      .find('.bx--accordion__heading')
+      .find('.cds--accordion__heading')
       .as('toggle')
       .click()
       .get('@filterGroupItem')
@@ -225,7 +225,7 @@ describe('c4d-filter-panel | (mobile)', () => {
     // Check box on mobile
     cy.visit(_path)
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click()
       .get(_selector)
       .find('c4d-filter-group-item')
@@ -256,7 +256,7 @@ describe('c4d-filter-panel | (mobile)', () => {
     // Check box on mobile
     cy.visit(_path)
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click()
       .get(_selector)
       .find('c4d-filter-group-item')
@@ -286,7 +286,7 @@ describe('c4d-filter-panel | (mobile)', () => {
       `${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1&knob-Number%20of%20selected%20items=0`
     )
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click()
       .get(_selector)
       .find('c4d-filter-group-item')
@@ -303,7 +303,7 @@ describe('c4d-filter-panel | (mobile)', () => {
       `${_path}&knob-Max%20filters=${filterCount}&knob-Number%20of%20selected%20items=0`
     )
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click()
       .get(_selector)
       .find('c4d-filter-group-item')
@@ -318,7 +318,7 @@ describe('c4d-filter-panel | (mobile)', () => {
 
     cy.visit(`${_path}&knob-View%20all%20text=${customText}`)
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click()
       .get(_selector)
       .find('c4d-filter-group-item')
@@ -332,14 +332,14 @@ describe('c4d-filter-panel | (mobile)', () => {
   it('should re-hide excess elements when filter groups are closed and reopened', () => {
     cy.visit(_path)
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click()
       .get(_selector)
       .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .shadow()
-      .find('.bx--accordion__heading')
+      .find('.cds--accordion__heading')
       .as('toggle')
       .click()
       .get('@filterGroupItem')
@@ -360,14 +360,14 @@ describe('c4d-filter-panel | (mobile)', () => {
   it('should not re-hide elements when an element that would be hidden has been selected', () => {
     cy.visit(_path)
       .get(_selector)
-      .find('.bx--filter-button')
+      .find('.cds--filter-button')
       .click()
       .get(_selector)
       .find('c4d-filter-group-item')
       .first()
       .as('filterGroupItem')
       .shadow()
-      .find('.bx--accordion__heading')
+      .find('.cds--accordion__heading')
       .as('toggle')
       .click()
       .get('@filterGroupItem')

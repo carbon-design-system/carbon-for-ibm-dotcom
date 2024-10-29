@@ -17,7 +17,7 @@ const _paths = {
 };
 
 /**
- * Collection of all tests for cds-card-section-simple
+ * Collection of all tests for c4d-card-section-simple
  *
  * @function checkForBlocklink - Asserts a full-sized pseudoelement from the footer link
  * @function checkForTitlePosition - Asserts left-aligned title (16 || 32)px from left edge

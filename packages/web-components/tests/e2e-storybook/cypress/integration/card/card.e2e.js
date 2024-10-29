@@ -55,7 +55,7 @@ const _selectors = {
 };
 
 /**
- * Collection of all tests for cds-card
+ * Collection of all tests for c4d-card
  *
  * @property {function} screenshotThemes
  * @property {function} checkTextRenders
@@ -253,7 +253,7 @@ describe('c4d-card | pictogram (desktop)', () => {
   it('should check a11y', _tests.checkA11y);
 });
 
-describe('cds-card | static (desktop)', () => {
+describe('c4d-card | static (desktop)', () => {
   const groupId = '_static';
   beforeEach(() => {
     cy.visit(`${_pathStatic}&knob-Add%20CTA:${groupId}=true`);

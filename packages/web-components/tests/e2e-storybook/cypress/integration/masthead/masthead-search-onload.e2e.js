@@ -16,7 +16,7 @@ const _selectors = {
   mastheadSearch: 'c4d-search-with-typeahead',
   mastheadSearchItem: 'c4d-search-with-typeahead-item',
   mastheadTopNav: 'c4d-top-nav',
-}
+};
 
 const _pathSearchOpenOnload =
   '/iframe.html?id=components-masthead--search-open-onload&knob-use%20mock%20nav%20data%20(use-mock)=true';
@@ -34,7 +34,11 @@ describe('c4d-masthead | search open onload (desktop)', () => {
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy
+        .get('[data-autoid="c4d--masthead-default__l0-nav0"]')
+        .should('not.be.empty')
+    );
   });
 
   it('should check a11y', () => {

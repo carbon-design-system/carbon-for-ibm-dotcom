@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,17 +11,18 @@
  * @type {Object<string>}
  */
 export const selectors = {
-  annotation: '[data-autoid="cds--pricing-table-cell-annotation"]',
-  annotationToggle: '[data-autoid="cds--pricing-table-annotation-toggle"]',
-  body: '[data-autoid="cds--pricing-table-body"]',
-  group: '[data-autoid="cds--pricing-table-group"]',
-  headerRow: '[data-autoid="cds--pricing-table-header-row"]',
-  headerCell: '[data-autoid="cds--pricing-table-header-cell"]',
-  headerCellCta: '[data-autoid="cds--pricing-table-header-cell-cta"]',
-  headerCellDescription: '[data-autoid="cds--pricing-table-header-cell-description"]',
-  highlightLabel: '[data-autoid="cds--pricing-table-highlight-label"]',
-  row: '[data-autoid="cds--pricing-table-row"]',
-  table: '[data-autoid="cds--pricing-table"]',
+  annotation: '[data-autoid="c4d--pricing-table-cell-annotation"]',
+  annotationToggle: '[data-autoid="c4d--pricing-table-annotation-toggle"]',
+  body: '[data-autoid="c4d--pricing-table-body"]',
+  group: '[data-autoid="c4d--pricing-table-group"]',
+  headerRow: '[data-autoid="c4d--pricing-table-header-row"]',
+  headerCell: '[data-autoid="c4d--pricing-table-header-cell"]',
+  headerCellCta: '[data-autoid="c4d--pricing-table-header-cell-cta"]',
+  headerCellDescription:
+    '[data-autoid="c4d--pricing-table-header-cell-description"]',
+  highlightLabel: '[data-autoid="c4d--pricing-table-highlight-label"]',
+  row: '[data-autoid="c4d--pricing-table-row"]',
+  table: '[data-autoid="c4d--pricing-table"]',
 };
 
 /**
@@ -31,7 +32,7 @@ export const selectors = {
  *   The Story path.
  * @return {Array<function>}
  */
-export const createTests = path => [
+export const createTests = (path) => [
   () => {
     it('should check a11y', () => {
       cy.visit(path);
@@ -72,7 +73,7 @@ export const createTests = path => [
   () => {
     it('should should support customizable highlighted column', () => {
       const highlightedCol = 3;
-      const checkHighlight = row => {
+      const checkHighlight = (row) => {
         const children = row.children;
         const highlightedCell = children[highlightedCol - 1];
         expect(highlightedCell).to.have.class('highlighted');
@@ -80,11 +81,11 @@ export const createTests = path => [
 
       cy.visit(`${path}&knob-highlighted%20column=${highlightedCol}`)
         .get(selectors.headerRow)
-        .then($headerRow => {
+        .then(($headerRow) => {
           checkHighlight($headerRow[0]);
         })
         .get(selectors.row)
-        .then($rows => {
+        .then(($rows) => {
           $rows.each((index, row) => {
             checkHighlight(row);
           });
@@ -108,7 +109,7 @@ export const createTests = path => [
         .find(selectors.headerCell)
         .should('have.length', numberOfColumns)
         .get(selectors.row)
-        .each($row => {
+        .each(($row) => {
           expect($row.children().length).to.eq(numberOfColumns);
         });
     });
@@ -118,7 +119,7 @@ export const createTests = path => [
       cy.visit(path)
         .get(selectors.table)
         .find(selectors.headerCellCta)
-        .each($cta => {
+        .each(($cta) => {
           const link = $cta[0].shadowRoot.querySelector('a');
           expect(link.getAttribute('href')).not.to.be.empty;
         });
@@ -126,31 +127,40 @@ export const createTests = path => [
   },
   () => {
     it('should have rows that support toggling annotation visibility', () => {
-      const getCellsWithAnnotations = $row =>
-        Array.from($row[0].children).filter(cell => cell.querySelector(selectors.annotation));
+      const getCellsWithAnnotations = ($row) =>
+        Array.from($row[0].children).filter((cell) =>
+          cell.querySelector(selectors.annotation)
+        );
 
-      const getAnnotationHeight = cell => cell.querySelector(selectors.annotation).getBoundingClientRect().height;
+      const getAnnotationHeight = (cell) =>
+        cell.querySelector(selectors.annotation).getBoundingClientRect().height;
 
       cy.visit(path)
         .get(selectors.row)
-        .then($rows => $rows.filter((index, row) => row.querySelector(selectors.annotationToggle)).first())
+        .then(($rows) =>
+          $rows
+            .filter((index, row) =>
+              row.querySelector(selectors.annotationToggle)
+            )
+            .first()
+        )
         .as('firstRowWithAnnotations')
         .find(selectors.annotationToggle)
-        .then($toggle => $toggle[0].shadowRoot.querySelector('button'))
+        .then(($toggle) => $toggle[0].shadowRoot.querySelector('button'))
         .as('firstRowWithAnnotationsToggle')
         .click({ force: true })
         .get('@firstRowWithAnnotations')
-        .then($row => {
+        .then(($row) => {
           const cells = getCellsWithAnnotations($row);
-          cells.forEach(cell => {
+          cells.forEach((cell) => {
             expect(getAnnotationHeight(cell)).not.to.eq(0);
           });
         })
         .get('@firstRowWithAnnotationsToggle')
         .click({ force: true })
         .get('@firstRowWithAnnotations')
-        .then($row => {
-          getCellsWithAnnotations($row).forEach(cell => {
+        .then(($row) => {
+          getCellsWithAnnotations($row).forEach((cell) => {
             expect(getAnnotationHeight(cell)).to.eq(0);
           });
         });
@@ -166,7 +176,7 @@ export const createTests = path => [
  *   The Story path.
  * @return {Array<function>}
  */
-export const createTestsMobile = path => [
+export const createTestsMobile = (path) => [
   () => {
     it('should scroll horizontally', () => {
       cy.visit(path)
