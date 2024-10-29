@@ -26,7 +26,7 @@ describe('c4d-cta-block (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  xit('should set items to same height when made visible', () => {
+  it.skip('should set items to same height when made visible', () => {
     // Delay variable
     const forHeightsToBeSet = 100;
 

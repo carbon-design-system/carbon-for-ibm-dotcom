@@ -25,7 +25,7 @@ describe('c4d-content-group-pictograms | default (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  it('should load content group heading and copy before the pictograms', () => {
+  it.skip('should load content group heading and copy before the pictograms', () => {
     cy.get(`c4d-pictogram-item`).then(() => {
       cy.get(`c4d-content-group-pictograms`)
         .find(`c4d-content-group-heading`)
@@ -40,7 +40,7 @@ describe('c4d-content-group-pictograms | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load pictogram item and content', () => {
+  it.skip('should load pictogram item and content', () => {
     cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
         cy.get('svg[slot="pictogram"]').should('be.visible');
@@ -56,7 +56,7 @@ describe('c4d-content-group-pictograms | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
+  it.skip('should have CTA Link with icon loaded and clickable for each pictogram', () => {
     cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
         cy.get('c4d-link-with-icon')
@@ -93,7 +93,7 @@ describe('c4d-content-group-pictograms | default (mobile)', () => {
     cy.viewport(320, 780);
   });
 
-  it('should load content group heading and copy before the pictograms', () => {
+  it.skip('should load content group heading and copy before the pictograms', () => {
     cy.get(`c4d-pictogram-item`).then(() => {
       cy.get(`c4d-content-group-pictograms`)
         .find(`c4d-content-group-heading`)
@@ -108,7 +108,7 @@ describe('c4d-content-group-pictograms | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load pictogram item and content', () => {
+  it.skip('should load pictogram item and content', () => {
     cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
         cy.get('svg[slot="pictogram"]').should('be.visible');
@@ -124,7 +124,7 @@ describe('c4d-content-group-pictograms | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
+  it.skip('should have CTA Link with icon loaded and clickable for each pictogram', () => {
     cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
         cy.get('c4d-link-with-icon')

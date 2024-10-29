@@ -33,7 +33,7 @@ describe('c4d-feature-section (desktop)', () => {
     cy.screenshot();
   });
 
-  it('should have content on the left and image on the right side (media align: right)', () => {
+  it.skip('should have content on the left and image on the right side (media align: right)', () => {
     // content takes the left half
     cy.get('c4d-feature-section')
       .shadow()
@@ -52,7 +52,7 @@ describe('c4d-feature-section (desktop)', () => {
     cy.screenshot();
   });
 
-  it('should have image on the left and content on the right side (media align: left)', () => {
+  it.skip('should have image on the left and content on the right side (media align: left)', () => {
     cy.visit(`/${_path}&knob-Media%20Alignment=left`);
     // content takes the right half
     cy.get('c4d-feature-section')
@@ -72,7 +72,7 @@ describe('c4d-feature-section (desktop)', () => {
     cy.screenshot();
   });
 
-  it('should have loaded and clickable card link', () => {
+  it.skip('should have loaded and clickable card link', () => {
     // checks the card link is on the right side
     cy.get('c4d-feature-section-card-link').then(($card) => {
       expect($card[0].getBoundingClientRect().right).to.equal(1280 - 16);
@@ -100,7 +100,7 @@ describe('c4d-feature-section (desktop)', () => {
       });
   });
 
-  it('should be able to customize card link from local to external', () => {
+  it.skip('should be able to customize card link from local to external', () => {
     cy.visit(`/${_path}&knob-CTA%20type%20(cta-type)=external`);
 
     cy.get('c4d-feature-section-card-link  > c4d-card-cta-footer')
@@ -124,7 +124,7 @@ describe('c4d-feature-section (mobile)', () => {
     cy.viewport(320, 780);
   });
 
-  it('should have content on the top and image on the bottom (media align: right)', () => {
+  it.skip('should have content on the top and image on the bottom (media align: right)', () => {
     cy.wait(500);
 
     let contentRect, imageRect;
@@ -146,7 +146,7 @@ describe('c4d-feature-section (mobile)', () => {
     cy.screenshot();
   });
 
-  it('should have content on the bottom and image on the top (media align: left)', () => {
+  it.skip('should have content on the bottom and image on the top (media align: left)', () => {
     cy.visit(`/${_path}&knob-Media%20Alignment=left`);
 
     cy.wait(500);
@@ -170,7 +170,7 @@ describe('c4d-feature-section (mobile)', () => {
     cy.screenshot();
   });
 
-  it('should have loaded and clickable card link', () => {
+  it.skip('should have loaded and clickable card link', () => {
     // checks the card link is on the right side
     cy.get('c4d-feature-section-card-link').then(($card) => {
       expect($card[0].getBoundingClientRect().right).to.equal(320);

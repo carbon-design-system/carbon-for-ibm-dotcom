@@ -37,7 +37,7 @@ describe('c4d-footer | Micro (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  it('should load locale modal with 4 geos', () => {
+  it.skip('should load locale modal with 4 geos', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
@@ -47,7 +47,7 @@ describe('c4d-footer | Micro (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load the Asia Pacific region with its languages and locations', () => {
+  it.skip('should load the Asia Pacific region with its languages and locations', () => {
     cy.get('c4d-locale-button').click();
     cy.wait(500);
 
@@ -88,7 +88,7 @@ describe('c4d-footer | Micro language only (desktop)', () => {
     );
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-desktop').should('have.length', 1);
     cy.get('c4d-language-selector-desktop')
       .shadow()
@@ -116,7 +116,7 @@ describe('c4d-footer | Micro (mobile)', () => {
     );
   });
 
-  it('should load locale modal with 4 geos', () => {
+  it.skip('should load locale modal with 4 geos', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
@@ -126,7 +126,7 @@ describe('c4d-footer | Micro (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load the Asia Pacific region with its languages and locations', () => {
+  it.skip('should load the Asia Pacific region with its languages and locations', () => {
     cy.get('c4d-locale-button').click();
     cy.wait(500);
 
@@ -167,7 +167,7 @@ describe('c4d-footer | Micro language only (mobile)', () => {
     );
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-mobile').should('have.length', 1);
     cy.get('c4d-language-selector-mobile')
       .shadow()

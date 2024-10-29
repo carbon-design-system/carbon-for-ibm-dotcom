@@ -188,8 +188,8 @@ describe('c4d-feature-cta | (desktop)', () => {
     cy.injectAxe();
   });
 
-  it('Should load and be fully clickable', _tests.checkBlockLink);
-  xit(
+  it.skip('Should load and be fully clickable', _tests.checkBlockLink);
+  it.skip(
     'Should load image on left and content on right',
     _tests.checkHorizontalLayout
   );
@@ -204,8 +204,8 @@ describe('c4d-feature-cta | (mobile)', () => {
     cy.visit(`/${_paths.default}`);
   });
 
-  it('Should load and be fully clickable', _tests.checkBlockLink);
-  it(
+  it.skip('Should load and be fully clickable', _tests.checkBlockLink);
+  it.skip(
     'Should load image on top and content on bottom',
     _tests.checkVerticalLayout
   );

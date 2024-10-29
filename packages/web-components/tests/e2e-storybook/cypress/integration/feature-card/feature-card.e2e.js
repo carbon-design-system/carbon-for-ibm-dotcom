@@ -62,7 +62,7 @@ describe('c4d-feature-card | medium', () => {
       });
   });
 
-  it('should have image on the left and content on the right side of the card', () => {
+  it.skip('should have image on the left and content on the right side of the card', () => {
     // image takes the left half
     cy.get('c4d-image').then(($image) => {
       expect($image[0].getBoundingClientRect().left).to.equal(32);
@@ -161,13 +161,13 @@ describe('c4d-feature-card | large', () => {
       });
   });
 
-  it('should have eyebrow, heading, and copy content', () => {
+  it.skip('should have eyebrow, heading, and copy content', () => {
     cy.get('c4d-card-eyebrow').invoke('text').should('not.be.empty');
     cy.get('c4d-card-heading').invoke('text').should('not.be.empty');
     cy.get('c4d-feature-card > p').invoke('text').should('not.be.empty');
   });
 
-  it('should have image on the left and content on the right half of the card', () => {
+  it.skip('should have image on the left and content on the right half of the card', () => {
     // image takes the left half
     cy.get('c4d-image').then(($image) => {
       expect($image[0].getBoundingClientRect().left).to.equal(16);

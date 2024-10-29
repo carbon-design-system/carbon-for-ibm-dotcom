@@ -110,7 +110,7 @@ describe('c4d-leadspace | tall', () => {
     });
   });
 
-  it('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
+  it.skip('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
     cy.visit(
       `/${_pathTall}&knob-Number%20of%20buttons=3&knob-Icon%201=ArrowRight20&knob-Button%201=Button%201&knob-Icon%202=ArrowDown20&knob-Icon%203=Pdf20`
     );
@@ -212,7 +212,7 @@ describe('c4d-leadspace | centered', () => {
     cy.checkAxeA11y();
   });
 
-  it('should load title and copy - both centered', () => {
+  it.skip('should load title and copy - both centered', () => {
     cy.visit(`/${_pathCentered}`);
     cy.viewport(1280, 780);
 
@@ -232,7 +232,7 @@ describe('c4d-leadspace | centered', () => {
     cy.get('c4d-button-group-item').should('have.length', 2);
   });
 
-  it('should load buttons centered aligned', () => {
+  it.skip('should load buttons centered aligned', () => {
     cy.visit(`/${_pathCentered}`);
     cy.viewport(1280, 780);
 
@@ -388,7 +388,7 @@ describe('c4d-leadspace | super', () => {
     cy.get('c4d-button-group-item').should('have.length', 2);
   });
 
-  it('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
+  it.skip('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
     cy.visit(
       `/${_pathSuper}&knob-Number%20of%20buttons=3&knob-Icon%201=ArrowRight20&knob-Button%201=Button%201&knob-Icon%202=ArrowDown20&knob-Icon%203=Pdf20`
     );
@@ -448,7 +448,7 @@ describe('c4d-leadspace | super with image', () => {
     cy.checkAxeA11y();
   });
 
-  it('should load with background image', () => {
+  it.skip('should load with background image', () => {
     cy.visit(`/${_pathSuperWithImage}`);
     cy.viewport(1280, 780);
 

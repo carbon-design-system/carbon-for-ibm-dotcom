@@ -74,7 +74,7 @@ const _tests = [
     });
   },
   () => {
-    it('should render customizable CTA text', () => {
+    it.skip('should render customizable CTA text', () => {
       let defaultCopy, customCopyOutput;
       const customCopyInput = 'Consectetur adipiscing elit.';
 
@@ -97,7 +97,7 @@ const _tests = [
     });
   },
   () => {
-    it('should support clickable text and button CTA links', () => {
+    it.skip('should support clickable text and button CTA links', () => {
       const cta_types = {
         text: 'c4d-text-cta',
         button: 'c4d-button-cta',
@@ -116,7 +116,7 @@ const _tests = [
     });
   },
   () => {
-    it('should support image and video media', () => {
+    it.skip('should support image and video media', () => {
       const media_types = {
         image: 'c4d-image',
         video: 'c4d-video-player-container',

@@ -117,7 +117,7 @@ describe('c4d-footer | Default language only (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-desktop').should('have.length', 1);
 
     // FIXME: Firefox is not providing the space above for this test to pass

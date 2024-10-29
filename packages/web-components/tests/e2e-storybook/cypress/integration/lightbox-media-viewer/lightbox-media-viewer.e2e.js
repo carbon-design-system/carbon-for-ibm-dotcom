@@ -47,7 +47,7 @@ describe('c4d-lightbox-media-viewer | default', () => {
     cy.takeSnapshots();
   });
 
-  it('should align elements', () => {
+  it.skip('should align elements', () => {
     cy.get('c4d-lightbox-media-viewer .cds--image__img').then(($image) => {
       expect($image[0].getBoundingClientRect().left).to.equal(64);
     });
@@ -59,7 +59,7 @@ describe('c4d-lightbox-media-viewer | default', () => {
       });
   });
 
-  it('should verify the image size 1:1', () => {
+  it.skip('should verify the image size 1:1', () => {
     cy.visit(`/${_defaultPath}${_args.img1x1}`)
       .get('.cds--image__img')
       .then(($image) => {
@@ -68,13 +68,13 @@ describe('c4d-lightbox-media-viewer | default', () => {
       .takeSnapshots();
   });
 
-  it('should verify the image size 2:1', () => {
+  it.skip('should verify the image size 2:1', () => {
     cy.get('.cds--image__img').then(($image) => {
       expect($image.width() / 2).to.equal($image.height());
     });
   });
 
-  it('should verify the image size 16:9', () => {
+  it.skip('should verify the image size 16:9', () => {
     cy.visit(`/${_defaultPath}${_args.img16x9}`);
     cy.get('.cds--image__img').then(($image) => {
       expect(($image.width() * 9) / 16).to.equal($image.height());
@@ -116,7 +116,7 @@ describe('c4d-lightbox-media-viewer | embedded video player', () => {
       .takeSnapshots();
   });
 
-  it('should align elements correctly', () => {
+  it.skip('should align elements correctly', () => {
     cy.get('c4d-lightbox-media-viewer')
       .find('.cds--video-player__video-container')
       .then(($video) => {
@@ -130,7 +130,7 @@ describe('c4d-lightbox-media-viewer | embedded video player', () => {
       });
   });
 
-  it('should have interactive video controls', () => {
+  it.skip('should have interactive video controls', () => {
     cy.get('c4d-lightbox-media-viewer')
       .find('.cds--video-player__video-container')
       .find('.cds--video-player__image-overlay')

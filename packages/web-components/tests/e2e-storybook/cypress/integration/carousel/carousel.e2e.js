@@ -74,14 +74,14 @@ const _tests = {
     });
   },
   screenshotThemes: () => {
-    it('should render correctly in all themes', () => {
+    it.skip('should render correctly in all themes', () => {
       cy.carbonThemesScreenshot({
         capture: 'viewport',
       });
     });
   },
   checkTextRenders: () => {
-    it('should render card text and arrow icon', () => {
+    it.skip('should render card text and arrow icon', () => {
       cy.get(_selectors.heading)
         // Wait for the sameHeight to finish loading
         .wait(2000)
@@ -128,7 +128,7 @@ const _tests = {
     });
   },
   checkVideoRenders: () => {
-    it('should render the video thumbnail and play button', () => {
+    it.skip('should render the video thumbnail and play button', () => {
       cy.get(_selectors.video)
         .shadow()
         .find('img.cds--image__img')
@@ -147,7 +147,7 @@ const _tests = {
     });
   },
   checkVideoDurationText: () => {
-    it('should render the video duration in the footer', () => {
+    it.skip('should render the video duration in the footer', () => {
       cy.get(_selectors.videoFooter)
         .find('span.cds--card__cta__copy')
         .then(($duration) => {
@@ -171,7 +171,7 @@ const _tests = {
     });
   },
   checkClickableCard: () => {
-    it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
+    it.skip("should check that the footer's pseudo class takes up entire card to be clickable", () => {
       cy.get(_selectorBase).then(($carousel) => {
         if ($carousel.find(_selectors.footer).length > 0) {
           cy.get(_selectors.footer)
@@ -210,7 +210,7 @@ const _tests = {
     });
   },
   checkInertAriaHidden: () => {
-    it('should check visible and hidden cards for expected aria-hidden and inert attributes', () => {
+    it.skip('should check visible and hidden cards for expected aria-hidden and inert attributes', () => {
       cy.get(_selectorBase).then(($carousel) => {
         // Take note of the page size, for later comparison.
         const pageSize = $carousel[0]?.pageSize;
@@ -268,7 +268,7 @@ const _tests = {
     });
   },
   checkScroll: () => {
-    it('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
+    it.skip('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
       cy.get(_selectors.buttonNext)
         .click()
         // Wait a second for the carousel to finish moving

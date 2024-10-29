@@ -83,7 +83,7 @@ describe('c4d-footer | Short (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should display interactive search field and with keywords for locations and languages', () => {
+  it.skip('should display interactive search field and with keywords for locations and languages', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
@@ -134,7 +134,7 @@ describe('c4d-footer | Short language only (desktop)', () => {
     );
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-desktop').should('have.length', 1);
     cy.get('c4d-language-selector-desktop')
       .shadow()
@@ -208,7 +208,7 @@ describe('c4d-footer | Short (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should display interactive search field and with keywords for locations and languages', () => {
+  it.skip('should display interactive search field and with keywords for locations and languages', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);

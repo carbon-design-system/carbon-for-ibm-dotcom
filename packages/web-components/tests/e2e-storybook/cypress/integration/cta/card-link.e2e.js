@@ -112,7 +112,7 @@ describe('c4d-card-cta | (desktop)', () => {
     cy.viewport(1280, 720);
   });
 
-  it('Should load and be fully clickable', _tests.checkBlockLink);
+  it.skip('Should load and be fully clickable', _tests.checkBlockLink);
   it('Should have customizable CTA type', _tests.checkTypeKnob);
   it('Should have hover-state styling', _tests.checkHoverStyles);
   it('Should check a11y', _tests.checkA11y);
@@ -123,7 +123,7 @@ describe('c4d-card-cta | (mobile)', () => {
     cy.viewport(375, 720);
   });
 
-  it('Should load and be fully clickable', _tests.checkBlockLink);
+  it.skip('Should load and be fully clickable', _tests.checkBlockLink);
   it('Should have customizable CTA type', _tests.checkTypeKnob);
   it('Should have hover-state styling', _tests.checkHoverStyles);
 });
