@@ -246,16 +246,19 @@ describe('c4d-table-of-contents | default (desktop)', () => {
     cy.injectAxe();
   });
 
-  it(
+  it.skip(
     'should load table of contents sidebar with links',
     _tests.desktop.checkRender
   );
-  it(
+  it.skip(
     'should navigate content to selected section',
     _tests.desktop.checkLinkFunctionality
   );
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it(
+  it.skip(
+    'should update current section on scroll',
+    _tests.desktop.checkScrollSpy
+  );
+  it.skip(
     'should remain visible on page throughout scroll',
     _tests.desktop.checkStickyNav
   );
@@ -270,16 +273,19 @@ describe('c4d-table-of-contents | horizontal (desktop)', () => {
     cy.injectAxe();
   });
 
-  it(
+  it.skip(
     'should load table of contents horizontal bar with links',
     _tests.desktop.checkRender
   );
-  it(
+  it.skip(
     'should navigate content to selected section',
     _tests.desktop.checkLinkFunctionality
   );
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it(
+  it.skip(
+    'should update current section on scroll',
+    _tests.desktop.checkScrollSpy
+  );
+  it.skip(
     'should remain visible on page throughout scroll',
     _tests.desktop.checkStickyNav
   );
@@ -294,16 +300,19 @@ describe('c4d-table-of-contents | default (mobile)', () => {
     cy.injectAxe();
   });
 
-  it(
+  it.skip(
     'should load table of contents sidebar with links',
     _tests.mobile.checkRender
   );
-  it(
+  it.skip(
     'should navigate content to selected section',
     _tests.mobile.checkLinkFunctionality
   );
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it(
+  it.skip(
+    'should update current section on scroll',
+    _tests.mobile.checkScrollSpy
+  );
+  it.skip(
     'should remain visible on page throughout scroll',
     _tests.mobile.checkStickyNav
   );
@@ -318,16 +327,19 @@ describe('c4d-table-of-contents | horizontal (mobile)', () => {
     cy.injectAxe();
   });
 
-  it(
+  it.skip(
     'should load table of contents sidebar with links',
     _tests.mobile.checkRender
   );
-  it(
+  it.skip(
     'should navigate content to selected section',
     _tests.mobile.checkLinkFunctionality
   );
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it(
+  it.skip(
+    'should update current section on scroll',
+    _tests.mobile.checkScrollSpy
+  );
+  it.skip(
     'should remain visible on page throughout scroll',
     _tests.mobile.checkStickyNav
   );

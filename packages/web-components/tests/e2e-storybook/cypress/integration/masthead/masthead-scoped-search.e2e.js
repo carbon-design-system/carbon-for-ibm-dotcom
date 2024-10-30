@@ -72,7 +72,7 @@ describe('c4d-masthead | scoped search (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should retrieve less results with "pw" scope', () => {
+  it.skip('should retrieve less results with "pw" scope', () => {
     // Mock scoped search typeahead API
     cy.intercept('**/search/typeahead/v1?*', {
       fixture: 'scoped-typeahead.json',

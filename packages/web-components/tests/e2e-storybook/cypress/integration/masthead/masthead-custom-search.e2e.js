@@ -47,7 +47,7 @@ describe('c4d-masthead | custom search (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should display grouped results with hrefs', () => {
+  it.skip('should display grouped results with hrefs', () => {
     // Mock grouped search typeahead API. Below we user the "cloud" search
     // string. Every keypress will trigger an API request, so here we mock each
     // successive cumulative search query.

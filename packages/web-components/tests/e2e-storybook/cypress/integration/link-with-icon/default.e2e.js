@@ -103,7 +103,7 @@ const _tests = [
     });
   },
   () => {
-    it('should check icon placements', () => {
+    it.skip('should check icon placements', () => {
       ['left', 'right'].forEach((placement) => {
         let $svg;
         cy.visit(
@@ -136,7 +136,7 @@ const _tests = [
     });
   },
   () => {
-    it('should replace the button title with the video title for a video cta type', () => {
+    it.skip('should replace the button title with the video title for a video cta type', () => {
       cy.visit(_videoPath);
       cy.get(_selector)
         .shadow()

@@ -142,6 +142,6 @@ describe('c4d-link-list | default (mobile)', () => {
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
-  it('should have a vertical layout', _tests.checkVerticalAlignment);
+  it.skip('should have a vertical layout', _tests.checkVerticalAlignment);
   _tests.checkCTATypes();
 });

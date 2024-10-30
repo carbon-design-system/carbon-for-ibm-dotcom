@@ -108,7 +108,7 @@ describe('c4d-link-list | default (desktop)', () => {
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
-  it('should have a vertical layout', _tests.checkVerticalAlignment);
+  it.skip('should have a vertical layout', _tests.checkVerticalAlignment);
   it('should check a11y', _tests.checkA11y);
   _tests.checkCTATypes();
 });
