@@ -30,12 +30,12 @@ import {
   L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import {
   UNAUTHENTICATED_STATUS,
   CLOUD_UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
-} from '@carbon/ibmdotcom-services-store/es/types/profileAPI.js';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.js';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import C4DMastheadLogo from './masthead-logo';

@@ -14,6 +14,7 @@
 @use '@carbon/styles/scss/components/tag/index' as *;
 @use '@carbon/styles/scss/components/tile/index' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/ratio-base' as *;
