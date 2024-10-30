@@ -16,13 +16,13 @@ import {
 import {} from 'lit';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import store from '@carbon/ibmdotcom-services-store/es/store.js';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
 import {
   MediaData,
   MediaPlayerAPIState,
-} from '@carbon/ibmdotcom-services-store/es/types/kalturaPlayerAPI';
-import { loadMediaData } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI.js';
-import { MediaPlayerAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
+import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.js';
+import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
 import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

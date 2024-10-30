@@ -36,4 +36,8 @@
   ::slotted([slot='media']) {
     max-inline-size: to-rem(640px);
   }
+
+  .#{$c4d-prefix}--content-block-footer {
+    margin-block-start: $spacing-07;
+  }
 }
