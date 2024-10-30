@@ -346,7 +346,10 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         }
       }
 
-      if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
+      if (
+        ctaType === CTA_TYPE.VIDEO &&
+        this?.shadowRoot?.querySelector('.cds--card')?.offsetWidth > 0
+      ) {
         this._updateVideoThumbnailUrl();
       }
     }
