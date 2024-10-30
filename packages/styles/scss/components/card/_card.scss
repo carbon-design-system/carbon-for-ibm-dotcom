@@ -14,6 +14,7 @@
 @use '@carbon/styles/scss/components/tag/index' as *;
 @use '@carbon/styles/scss/components/tile/index' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/ratio-base' as *;
@@ -141,9 +142,13 @@
 
     .#{$prefix}--card__heading,
     .#{$prefix}--card__copy {
-      @include content-width;
-
       color: $text-primary;
+      max-inline-size: to-rem(640px);
+      padding-inline-end: 10%;
+
+      @include breakpoint(md) {
+        padding-inline-end: $spacing-07;
+      }
     }
 
     .#{$prefix}--card__copy:not([hidden]) {
@@ -183,6 +188,10 @@
           padding-inline-start: 0;
         }
       }
+    }
+
+    .#{$prefix}--card__pictogram-wrapper {
+      display: flex;
     }
 
     &[pictogram] .#{$prefix}--card {
@@ -417,6 +426,7 @@
 
   :host(#{$c4d-prefix}-card-eyebrow),
   .#{$prefix}--card__eyebrow {
+    display: block;
     @include content-width;
     @include type-style('label-02');
 
@@ -597,6 +607,7 @@
 
   :host(#{$c4d-prefix}-card-heading),
   :host(#{$c4d-prefix}-card-link-heading) {
+    display: block;
     @include content-width;
 
     color: $text-primary;

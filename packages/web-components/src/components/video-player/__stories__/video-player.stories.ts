@@ -22,7 +22,12 @@ export const Default = (args) => {
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></c4d-video-player-container>
+      thumbnail=${thumbnail}
+      background-mode></c4d-video-player-container>
+
+    <c4d-video-player-container
+      video-id="1_onstzigu"
+      auto-play></c4d-video-player-container>
   `;
 };
 

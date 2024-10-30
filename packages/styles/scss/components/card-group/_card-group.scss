@@ -56,10 +56,42 @@
   }
 
   :host(#{$c4d-prefix}-card-group-item) {
+    display: contents;
+
     .#{$prefix}--card {
+      display: grid;
       border: 0;
+      grid-row: span 10;
+      grid-template-rows: subgrid;
+      margin-block-end: $spacing-07;
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
+
+      .#{$prefix}--card__wrapper {
+        display: grid;
+        justify-content: revert;
+        grid-row: span 10;
+        grid-template-rows: subgrid;
+
+        &::before,
+        &::after {
+          content: revert;
+        }
+      }
+
+      .#{$prefix}--card__content {
+        display: grid;
+        grid-row: span 10;
+        grid-template-rows: subgrid;
+        row-gap: 0;
+      }
+
+      .#{$prefix}--card__copy {
+        display: grid;
+        grid-row: span 2;
+        grid-template-rows: subgrid;
+        row-gap: 0;
+      }
     }
 
     .#{$prefix}--image {
@@ -83,6 +115,30 @@
       .#{$prefix}--card {
         outline-offset: -1px;
       }
+    }
+
+    &[grid-mode='narrow'] {
+      .#{$prefix}--card {
+        margin-block-end: $spacing-05;
+      }
+    }
+
+    &[grid-mode='condensed'] {
+      .#{$prefix}--card {
+        margin-block-end: 0;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-card-footer) {
+      display: revert;
+      margin-block-start: revert;
+    }
+
+    // Selects elements that contain tags which are slotted into the default
+    // slot. Note that this does not work in Chrome at time of writing.
+    // @see https://developer.chrome.com/blog/has-m105/#performance_and_limitations
+    ::slotted(:not([slot]):has(#{$prefix}-tag, #{$c4d-prefix}-tag)) {
+      grid-row: -1;
     }
   }
 
@@ -110,24 +166,24 @@
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='narrow'] {
     @include breakpoint(sm) {
-      gap: $spacing-03;
+      gap: 0 $spacing-03;
       padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
-      gap: $spacing-05;
+      gap: 0 $spacing-05;
       padding-block-start: $spacing-05;
     }
   }
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='default'] {
     @include breakpoint(sm) {
-      gap: $spacing-07;
+      gap: 0 $spacing-07;
       padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
-      gap: $spacing-07;
+      gap: 0 $spacing-07;
       padding-block-start: $spacing-05;
     }
   }

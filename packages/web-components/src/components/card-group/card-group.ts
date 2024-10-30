@@ -10,7 +10,6 @@
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -19,9 +18,6 @@ import { carbonElement as customElement } from '@carbon/web-components/es/global
 export { GRID_MODE };
 
 const { stablePrefix: c4dPrefix } = settings;
-
-// tag constants used for same height calculations
-const headingBottomMargin = 64;
 
 /**
  * Card Group.
@@ -34,55 +30,6 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
    * Array to hold the card-heading elements within child items.
    */
   private _childItems: any[] = [];
-
-  /**
-   * Array to hold the card-heading elements within child items.
-   */
-  private _childItemHeadings: any[] = [];
-
-  /**
-   * Array to hold the card-eyebrow elements within child items.
-   */
-  private _childItemEyebrows: any[] = [];
-
-  /**
-   * Array to hold the tag-group elements within child items.
-   */
-  private _childItemTagGroup: any[] = [];
-
-  /**
-   * Array to hold the paragraph elements within child items.
-   */
-  private _childItemParagraphs: any[] = [];
-
-  /**
-   * Array to hold the card-cta-footer elements within child items.
-   */
-  private _childItemFooters: any[] = [];
-
-  /**
-   * The observer for the resize of the viewport.
-   */
-  private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-
-  /**
-   * Cleans-up and creats the resize observer for the scrolling container.
-   *
-   * @param [options] The options.
-   * @param [options.create] `true` to create the new resize observer.
-   */
-  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
-    if (this._observerResizeRoot) {
-      this._observerResizeRoot.disconnect();
-      this._observerResizeRoot = null;
-    }
-    if (create) {
-      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-      // @ts-ignore
-      this._observerResizeRoot = new ResizeObserver(this._resizeHandler);
-      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
-    }
-  }
 
   /**
    * Handler for @slotchange, set the height of all headings to the tallest height.
@@ -98,37 +45,12 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
         )
       );
 
-    // retrieve item heading, eyebrows, and footers to set same height
+    // Retrieve item heading, eyebrows, and footers to set same height.
     if (this._childItems) {
       this._childItems.forEach((e) => {
         if (!e.hasAttribute('href') && this.gridMode === GRID_MODE.CONDENSED) {
           this.gridMode = GRID_MODE.DEFAULT;
         }
-        this._childItemEyebrows.push(
-          (e as HTMLElement).querySelector(
-            (this.constructor as typeof C4DCardGroup).selectorItemEyebrow
-          )
-        );
-        this._childItemParagraphs.push(
-          (e as HTMLElement).querySelector(
-            (this.constructor as typeof C4DCardGroup).selectorItemParagraph
-          )
-        );
-        this._childItemTagGroup.push(
-          (e as HTMLElement).querySelector(
-            (this.constructor as typeof C4DCardGroup).selectorItemTagGroup
-          )
-        );
-        this._childItemHeadings.push(
-          (e as HTMLElement).querySelector(
-            (this.constructor as typeof C4DCardGroup).selectorItemHeading
-          )
-        );
-        this._childItemFooters.push(
-          (e as HTMLElement).querySelector(
-            (this.constructor as typeof C4DCardGroup).selectorItemFooter
-          )
-        );
       });
 
       const { customPropertyCardsPerRow } = this
@@ -137,69 +59,8 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
         customPropertyCardsPerRow,
         String(this.cardsPerRow)
       );
-
-      if (this.gridMode !== GRID_MODE.NARROW) {
-        this._resizeHandler();
-      }
     }
   }
-
-  /**
-   * The observer for the resize of the viewport, calls sameHeight utility function
-   */
-  private _resizeHandler = () => {
-    if (!this.pictograms) {
-      window.requestAnimationFrame(() => {
-        this._setSameHeight();
-      });
-    }
-  };
-
-  private _setSameHeight = () => {
-    // check if items are not null before using sameHeight
-
-    sameHeight(
-      this._childItemEyebrows.filter((item) => item !== null),
-      'md'
-    );
-    sameHeight(
-      this._childItemHeadings.filter((item) => item !== null),
-      'md'
-    );
-    sameHeight(
-      this._childItemParagraphs.filter((item) => item !== null),
-      'md'
-    );
-    sameHeight(
-      this._childItemFooters.filter((item) => item !== null),
-      'md'
-    );
-
-    let tagGroupHeight = 0;
-
-    // get tallest height of tag groups
-    this._childItemTagGroup.forEach((item) => {
-      if (item) {
-        const groupHeight = (item as HTMLElement).offsetHeight;
-        if (groupHeight > tagGroupHeight) {
-          tagGroupHeight = groupHeight;
-        }
-      }
-    });
-
-    this._childItemHeadings.forEach((e) => {
-      // add tag group height to heading to the cards lacking tag group
-      if (
-        e &&
-        !e.parentElement.hasAttribute('link') &&
-        !e.nextElementSibling?.matches(
-          (this.constructor as typeof C4DCardGroup).selectorItemTagGroup
-        )
-      ) {
-        e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
-      }
-    });
-  };
 
   /**
    * The number of columns per row. Min 2, max 4, default 3. Applies to >=`lg` breakpoint only.
@@ -243,16 +104,6 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   pictograms = false;
 
-  connectedCallback() {
-    super.connectedCallback();
-    this._cleanAndCreateObserverResize({ create: true });
-  }
-
-  disconnectedCallback() {
-    this._cleanAndCreateObserverResize();
-    super.disconnectedCallback();
-  }
-
   firstUpdated() {
     super.connectedCallback();
 
@@ -263,11 +114,14 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     ) {
       this.setAttribute('with-card-in-card', '');
     }
-    this._cleanAndCreateObserverResize({ create: true });
   }
 
-  updated() {
-    this._resizeHandler();
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    if (changedProperties.has('gridMode')) {
+      this._childItems.forEach((e) => (e.gridMode = this.gridMode));
+    }
   }
 
   render() {

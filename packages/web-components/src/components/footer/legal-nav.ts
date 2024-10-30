@@ -45,6 +45,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   /**
    * The adjunct links container
    */
+
   @query(`.${c4dPrefix}--adjunct-links__container`)
   private _adjunctLinksContainer?: HTMLDivElement;
 
@@ -64,6 +65,16 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     });
   }
 
+  protected _handleAdjunctLinksVisibility() {
+    const {
+      _adjunctLinksContainer: adjunctLinksContainer,
+      _adjunctLinksSlot: adjunctLinksSlot,
+    } = this;
+
+    const hiddenClass = `${prefix}--adjunct-links__container--hidden`;
+    const isEmpty = (adjunctLinksSlot?.assignedNodes().length || 0) === 0;
+    adjunctLinksContainer?.classList.toggle(hiddenClass, isEmpty);
+  }
   /**
    * The shadow slot this legal nav should be in.
    */
@@ -97,7 +108,9 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
               part="adjunct-links-container"
               class="${c4dPrefix}--adjunct-links__container">
               <ul part="adjunct-links-list">
-                <slot name="adjunct-links"></slot>
+                <slot
+                  name="adjunct-links"
+                  @slotchange="${this._handleAdjunctLinksVisibility}"></slot>
               </ul>
             </div>
           </nav>
@@ -117,20 +130,6 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
             </div>
           </nav>
         `;
-  }
-
-  firstUpdated() {
-    const {
-      _adjunctLinksContainer: adjunctLinksContainer,
-      _adjunctLinksSlot: adjunctLinksSlot,
-    } = this;
-    const hideAdjunctLinksContainer =
-      adjunctLinksSlot?.assignedNodes().length === 0
-        ? adjunctLinksContainer?.classList.add(
-            `${prefix}--adjunct-links__container--hidden`
-          )
-        : '';
-    return hideAdjunctLinksContainer;
   }
 
   static get stableSelector() {

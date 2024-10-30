@@ -19,7 +19,7 @@ import {
   L1CtaLink,
   L1SubmenuSectionHeading,
   MastheadL1,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
@@ -231,7 +231,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       } = this;
 
       // Only act if all the needed elements are present.
-      if (
+      const menuItems = this.l1Data?.menuItems ?? [];
+      if (menuItems.length === 0) {
+        menuScrollerButtons?.forEach((button) => {
+          button.setAttribute('hidden', '');
+        });
+      } else if (
         menuFirstItem &&
         menuLastItem &&
         menuContainerInner &&
