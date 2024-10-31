@@ -111,6 +111,7 @@ export const Default = (args) => {
   const {
     customProfileLogin,
     hasProfile,
+    hasCart,
     hasSearch,
     hasContact,
     initialSearchTerm,
@@ -132,6 +133,7 @@ export const Default = (args) => {
             initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
+            ?has-cart="${hasCart}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             .l0Data="${mastheadL0Data}"
@@ -150,6 +152,7 @@ export const Default = (args) => {
             initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
+            ?has-cart="${hasCart}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
@@ -211,6 +214,7 @@ WithCustomTypeahead.story = {
         MastheadComposite: {
           grouped: 'false',
           hasProfile: 'true',
+          hasCart: false,
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -317,6 +321,7 @@ withPlatform.story = {
         MastheadComposite: {
           platform: 'Platform',
           hasProfile: 'true',
+          hasCart: false,
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -460,6 +465,7 @@ withAlternateLogoAndTooltip.story = {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
+          hasCart: false,
           hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -506,6 +512,7 @@ WithScopedSearch.story = {
       default: {
         MastheadComposite: {
           hasProfile: 'true',
+          hasCard: false,
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -560,6 +567,7 @@ export default {
           ['true', 'false'],
           'true'
         ),
+        hasCart: boolean('show the cart functionality (has-cart)', false),
         hasSearch: select(
           'show the search functionality (has-search)',
           ['true', 'false'],
@@ -601,6 +609,7 @@ export default {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
+          hasCart: false,
           hasSearch: 'true',
           initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',
