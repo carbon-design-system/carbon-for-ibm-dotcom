@@ -346,9 +346,14 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         }
       }
 
+      const firstChild = this?.shadowRoot?.querySelector(':first-child') as
+        | HTMLElement
+        | null
+        | undefined;
       if (
         ctaType === CTA_TYPE.VIDEO &&
-        this?.shadowRoot?.querySelector(':first-child')?.offsetWidth > 0
+        firstChild &&
+        firstChild.offsetWidth > 0
       ) {
         this._updateVideoThumbnailUrl();
       }
@@ -398,11 +403,13 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * Updates video thumbnail url to match card width.
      */
     _updateVideoThumbnailUrl() {
+      const firstChild = this?.shadowRoot?.querySelector(':first-child') as
+        | HTMLElement
+        | null
+        | undefined;
       this.videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
         mediaId: this.href,
-        width: String(
-          this?.shadowRoot?.querySelector(':first-child')?.offsetWidth
-        ),
+        width: String(firstChild?.offsetWidth ?? 340),
       });
     }
 
