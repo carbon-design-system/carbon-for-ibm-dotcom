@@ -348,7 +348,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
 
       if (
         ctaType === CTA_TYPE.VIDEO &&
-        this?.shadowRoot?.querySelector('.cds--card')?.offsetWidth > 0
+        this?.shadowRoot?.querySelector(':first-child')?.offsetWidth > 0
       ) {
         this._updateVideoThumbnailUrl();
       }
@@ -400,7 +400,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     _updateVideoThumbnailUrl() {
       this.videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
         mediaId: this.href,
-        width: String(this.offsetWidth),
+        width: String(
+          this?.shadowRoot?.querySelector(':first-child')?.offsetWidth
+        ),
       });
     }
 
