@@ -9,11 +9,12 @@
 
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { html, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import ShoppingCart20 from '@carbon/web-components/es/icons/shopping--cart/20.js';
 import styles from './masthead.scss';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -38,20 +39,33 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
   @property({ attribute: 'has-active-cart', reflect: true, type: Boolean })
   hasActiveCart = true;
 
+  /**
+   * Store the locale. Defaults to en-us.
+   */
+  @state()
+  locale = { lc: 'en', cc: 'us' };
+
   connectedCallback() {
     super.connectedCallback();
     // @todo flesh out the logic for reading the cookie
+    // Fetch the locale for the page.
+    LocaleAPI.getLocale().then((locale) => {
+      this.locale = locale;
+    });
   }
 
   render() {
-    const { linkLabel, hasActiveCart } = this;
+    const {
+      linkLabel,
+      hasActiveCart,
+      locale: { cc, lc },
+    } = this;
 
-    // @todo vary link by locale
     return hasActiveCart
       ? html`
           <a
             part="cart-link"
-            href="/store/en/US/checkout"
+            href="/store/${lc}/${cc}/checkout"
             class="${prefix}--header__menu-item ${prefix}--header__menu-title"
             aria-label="${linkLabel}"
             >${ShoppingCart20()}</a
