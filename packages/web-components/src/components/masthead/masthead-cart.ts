@@ -15,6 +15,7 @@ import { carbonElement as customElement } from '@carbon/web-components/es/global
 import ShoppingCart20 from '@carbon/web-components/es/icons/shopping--cart/20.js';
 import styles from './masthead.scss';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import SAPCommerceAPI from '@carbon/ibmdotcom-services/es/services/SAPCommerce/SAPCommerce.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -34,10 +35,9 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
 
   /**
    * Tracks whether the user has an active cart to control the display.
-   * @todo flesh out the logic for reading the cookie
    */
   @property({ attribute: 'has-active-cart', reflect: true, type: Boolean })
-  hasActiveCart = true;
+  hasActiveCart = false;
 
   /**
    * Store the locale. Defaults to en-us.
@@ -47,7 +47,8 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
 
   connectedCallback() {
     super.connectedCallback();
-    // @todo flesh out the logic for reading the cookie
+    // Check the relevant cookie for whether the user has an active cart.
+    this.hasActiveCart = SAPCommerceAPI.hasActiveCart();
     // Fetch the locale for the page.
     LocaleAPI.getLocale().then((locale) => {
       this.locale = locale;
@@ -80,3 +81,5 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
 
   static styles = styles;
 }
+
+export default C4DMastheadCart;
