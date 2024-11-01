@@ -110,7 +110,7 @@ export default {
     (story, context) => {
       if (context.name === 'Double Tile') {
         return html`
-          <c4d-video-cta-container class="cds--grid caem-story-padding">
+          <c4d-video-cta-container class="cds--grid c4d-story-padding">
             <div class="cds--row">
               <div
                 class="cds--col-sm-8 cds--col-md-8 cds--col-lg-8 cds--no-gutter"
@@ -122,7 +122,7 @@ export default {
         `;
       } else {
         return html`
-          <c4d-video-cta-container class="cds--grid caem-story-padding">
+          <c4d-video-cta-container class="cds--grid c4d-story-padding">
             <div class="cds--row">
               <div
                 class="cds--col-sm-4 cds--col-md-4 cds--col-lg-4 cds--no-gutter"
@@ -146,7 +146,7 @@ export const Default = ({
   href,
 }) =>
   html`
-    <caem-tile
+    <c4d-tile
       label="${randomLabel()}"
       href="${href}"
       cta-type="${ctaType}"
@@ -158,7 +158,7 @@ export const Default = ({
       <p slot="cta">
         ${ctaCopy}
       </p>
-    </caem-tile>
+    </c4d-tile>
   `;
 
 export const WithImage = ({
@@ -169,7 +169,7 @@ export const WithImage = ({
   alignWithContent,
   href,
 }) => html`
-  <caem-tile
+  <c4d-tile
     label="${randomLabel()}"
     href="${href}"
     cta-type="${ctaType}"
@@ -188,7 +188,7 @@ export const WithImage = ({
     <p slot="cta">
       ${ctaCopy}
     </p>
-  </caem-tile>
+  </c4d-tile>
 `;
 
 // Double Tile
@@ -201,7 +201,7 @@ export const DoubleTile = ({
   href,
 }) => {
   return html`
-    <caem-tile
+    <c4d-tile
       label="${randomLabel()}"
       href="${href}"
       cta-type="${ctaType}"
@@ -214,13 +214,13 @@ export const DoubleTile = ({
         slot="image"
         alt="Image Alt Text"
         default-src="https://fakeimg.pl/160x160/F7F3FF/6829C1/?retina=1&text=1:1&font=museo"
-        class="caem-tile__image-double"
+        class="c4d-tile__image-double"
       ></c4d-image>
       ${randomHeadline()} ${hasTagGroup ? tagGroupContent : undefined}
 
       <p slot="cta">
         ${ctaCopy}
       </p>
-    </caem-tile>
+    </c4d-tile>
   `;
 };

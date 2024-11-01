@@ -1,20 +1,20 @@
 import { LitElement, html } from 'lit-element';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
-import settings from '../../globals/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './tile.scss';
 
-const { stablePrefix: caemPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Tile Group component.
  *
- * @element caem-tile-group
+ * @element c4d-tile-group
  */
-@customElement(`${caemPrefix}-tile-group`)
-class CAEMTileGroup extends LitElement {
+@customElement(`${c4dPrefix}-tile-group`)
+class C4DTileGroup extends LitElement {
   render() {
     return html`
-      <div class="${caemPrefix}-tile-group">
+      <div class="${c4dPrefix}-tile-group">
         <slot></slot>
       </div>
     `;
@@ -22,4 +22,4 @@ class CAEMTileGroup extends LitElement {
   static styles = styles;
 }
 
-export default CAEMTileGroup;
+export default C4DTileGroup;

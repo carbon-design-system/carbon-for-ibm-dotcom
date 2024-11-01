@@ -55,7 +55,7 @@ export default {
   },
   decorators: [
     (story, { args: { tocLayout } }) => html`
-      <c4d-video-cta-container class="cds--grid caem-story-padding">
+      <c4d-video-cta-container class="cds--grid c4d-story-padding">
         ${tocLayout
           ? html`
               <div class="cds--row">
@@ -91,7 +91,7 @@ export const Default = ({
   alignWithContent,
   href,
 }) => html`
-  <caem-tile-group>
+  <c4d-tile-group>
     ${[...Array(8)].map(() =>
       DefaultTile({
         ctaType,
@@ -102,7 +102,7 @@ export const Default = ({
         href,
       })
     )}
-  </caem-tile-group>
+  </c4d-tile-group>
 `;
 
 export const WithImage = ({
@@ -113,7 +113,7 @@ export const WithImage = ({
   alignWithContent,
   href,
 }) => html`
-  <caem-tile-group>
+  <c4d-tile-group>
     ${[...Array(8)].map(() =>
       TileWithImage({
         ctaType,
@@ -124,5 +124,5 @@ export const WithImage = ({
         href,
       })
     )}
-  </caem-tile-group>
+  </c4d-tile-group>
 `;

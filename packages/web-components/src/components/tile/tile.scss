@@ -1,7 +1,9 @@
-@use '../../globals/scss/vars' as *;
-@use '../../globals/scss/imports' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/link' as *;
 @use '@carbon/styles/scss/components/button' as *;
 @use '@carbon/grid' as *;
@@ -36,8 +38,8 @@ $xlg-12-column-lower-bound: (($xlg-breakpoint-width - 2rem) * (12 / 16)) - 2rem;
 $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) -
   2rem;
 
-:host(#{$caem-prefix}-tile) {
-  .#{$caem-prefix}-tile {
+:host(#{$c4d-prefix}-tile) {
+  .#{$c4d-prefix}-tile {
     &__outer {
       display: grid;
       grid-template-columns: 100%;
@@ -54,7 +56,7 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
     }
 
     &__wrapper {
-      border: 1px solid $border-subtle-01;
+      border: 1px solid $border-subtle;
       padding: $spacing-05;
       display: flex;
       gap: $spacing-05;
@@ -69,7 +71,7 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
     }
 
     &__content {
-      @include type-style('body-short-02');
+      @include type-style('body-compact-02');
 
       display: flex;
       flex-direction: column;
@@ -112,7 +114,7 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
     &__wrapper:hover {
       background: $background-hover;
 
-      .#{$caem-prefix}-tile__action {
+      .#{$c4d-prefix}-tile__action {
         color: $button-primary-hover;
       }
     }
@@ -122,7 +124,7 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
       outline: 2px solid $focus;
       outline-offset: -2px;
 
-      .#{$caem-prefix}-tile__action {
+      .#{$c4d-prefix}-tile__action {
         outline: none;
         color: $button-primary;
       }
@@ -132,7 +134,7 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
       outline: 2px solid $focus;
       outline-offset: -2px;
 
-      .#{$caem-prefix}-tile__action {
+      .#{$c4d-prefix}-tile__action {
         outline: none;
         color: $button-primary;
       }
@@ -167,17 +169,17 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
 
   /** Border styles for adjacent tiles **/
   @include breakpoint-down('md') {
-    &:nth-of-type(n + 2) .#{$caem-prefix}-tile__wrapper {
+    &:nth-of-type(n + 2) .#{$c4d-prefix}-tile__wrapper {
       border-top: none;
     }
   }
 
   @include breakpoint-between('md', 'lg') {
-    &:not(:nth-of-type(2n + 1)) .#{$caem-prefix}-tile__wrapper {
+    &:not(:nth-of-type(2n + 1)) .#{$c4d-prefix}-tile__wrapper {
       border-left: none;
     }
 
-    &:nth-of-type(n + 3) .#{$caem-prefix}-tile__wrapper {
+    &:nth-of-type(n + 3) .#{$c4d-prefix}-tile__wrapper {
       border-top: none;
     }
   }
@@ -188,22 +190,22 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
   @media (min-width: #{$lg-breakpoint-width}) and (max-width: #{$xlg-breakpoint-width - 0.02}) {
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (#{$lg-12-column-lower-bound} <= inline-size <= #{$lg-12-column-upper-bound}) {
-      &:not(:nth-of-type(3n + 1)) .#{$caem-prefix}-tile__wrapper {
+      &:not(:nth-of-type(3n + 1)) .#{$c4d-prefix}-tile__wrapper {
         border-left: none;
       }
 
-      &:nth-of-type(n + 4) .#{$caem-prefix}-tile__wrapper {
+      &:nth-of-type(n + 4) .#{$c4d-prefix}-tile__wrapper {
         border-top: none;
       }
     }
 
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (inline-size > #{$lg-12-column-upper-bound}) {
-      &:not(:nth-of-type(4n + 1)) .#{$caem-prefix}-tile__wrapper {
+      &:not(:nth-of-type(4n + 1)) .#{$c4d-prefix}-tile__wrapper {
         border-left: none;
       }
 
-      &:nth-of-type(n + 5) .#{$caem-prefix}-tile__wrapper {
+      &:nth-of-type(n + 5) .#{$c4d-prefix}-tile__wrapper {
         border-top: none;
       }
     }
@@ -212,22 +214,22 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
   @include breakpoint(xlg) {
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (#{$xlg-12-column-lower-bound} <= inline-size <= #{$xlg-12-column-upper-bound}) {
-      &:not(:nth-of-type(3n + 1)) .#{$caem-prefix}-tile__wrapper {
+      &:not(:nth-of-type(3n + 1)) .#{$c4d-prefix}-tile__wrapper {
         border-left: none;
       }
 
-      &:nth-of-type(n + 4) .#{$caem-prefix}-tile__wrapper {
+      &:nth-of-type(n + 4) .#{$c4d-prefix}-tile__wrapper {
         border-top: none;
       }
     }
 
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (inline-size > #{$xlg-12-column-upper-bound}) {
-      &:not(:nth-of-type(4n + 1)) .#{$caem-prefix}-tile__wrapper {
+      &:not(:nth-of-type(4n + 1)) .#{$c4d-prefix}-tile__wrapper {
         border-left: none;
       }
 
-      &:nth-of-type(n + 5) .#{$caem-prefix}-tile__wrapper {
+      &:nth-of-type(n + 5) .#{$c4d-prefix}-tile__wrapper {
         border-top: none;
       }
     }
@@ -237,8 +239,8 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
 }
 
 // Double Tile responsiveness.
-:host(#{$caem-prefix}-tile)[double-tile] {
-  .#{$caem-prefix}-tile {
+:host(#{$c4d-prefix}-tile)[double-tile] {
+  .#{$c4d-prefix}-tile {
     &__wrapper {
       gap: $spacing-07;
       @include breakpoint-down('sm') {
@@ -248,19 +250,19 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
   }
 }
 
-:host(#{$caem-prefix}-tile-group) {
+:host(#{$c4d-prefix}-tile-group) {
   display: block;
   /* stylelint-disable-next-line property-no-unknown */
   container: tile-group-container / inline-size;
   inline-size: 100%;
 
-  .#{$caem-prefix}-tile-group {
+  .#{$c4d-prefix}-tile-group {
     @include make-row();
 
     margin-inline: 0;
   }
 
-  ::slotted(#{$caem-prefix}-tile) {
+  ::slotted(#{$c4d-prefix}-tile) {
     @include make-col(4, 4);
 
     @include breakpoint(md) {
