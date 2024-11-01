@@ -109,10 +109,10 @@ const enumToArray = (en) =>
     .map((key) => en[key]);
 
 const setActiveCartId = (activeCartId?: string) => {
-  if (typeof activeCartId !== 'string') {
-    SAPCommerceAPI.removeActiveCartId();
-  } else {
+  if (typeof activeCartId === 'string') {
     SAPCommerceAPI.setActiveCartId(activeCartId);
+  } else {
+    SAPCommerceAPI.removeActiveCartId();
   }
 };
 
@@ -526,7 +526,8 @@ WithScopedSearch.story = {
       default: {
         MastheadComposite: {
           hasProfile: 'true',
-          hasCard: false,
+          hasCart: false,
+          mockActiveCartId: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
