@@ -1,0 +1,290 @@
+@use '../../globals/scss/vars' as *;
+@use '../../globals/scss/imports' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/link' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '@carbon/grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+
+// @use '@carbon/styles/scss/type' as *;
+// @use '@carbon/styles/scss/theme' as *;
+// @use '@carbon/styles/scss/utilities';
+// @use '@carbon/styles/scss/spacing' as *;
+// @use '@carbon/styles/scss/reset' as *;
+// @use '@carbon/grid' as *;
+// @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+
+$md-breakpoint-width: map-get(map-get($grid-breakpoints, md), width);
+$lg-breakpoint-width: map-get(map-get($grid-breakpoints, lg), width);
+$xlg-breakpoint-width: map-get(map-get($grid-breakpoints, xlg), width);
+$max-breakpoint-width: map-get(map-get($grid-breakpoints, max), width);
+
+// We need lower and upper bounds for a container occupying 12 / 16 columns at
+// the lg and xlg breakpoints. For the lower bound we take the breakpoint
+// size, less the 2rem of outer padding, multiplied by 12 / 16, less 2rem of
+// column padding. For the upper bound we take the next breakpoint size and
+// do a similar calculation with a slight tweak of subtracting 0.02 from the
+// breakpoint size as a starting point, similar to how the
+// breakpoint-between mixin works. Note that this approach my not work
+// cleanly for the narrow or condensed grid due to the necessary assumptions
+// made for padding widths.
+$lg-12-column-lower-bound: (($lg-breakpoint-width - 2rem) * (12 / 16)) - 2rem;
+$lg-12-column-upper-bound: (($xlg-breakpoint-width - 0.02 - 2rem) * (12 / 16)) -
+  2rem;
+$xlg-12-column-lower-bound: (($xlg-breakpoint-width - 2rem) * (12 / 16)) - 2rem;
+$xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) -
+  2rem;
+
+:host(#{$caem-prefix}-tile) {
+  .#{$caem-prefix}-tile {
+    &__outer {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 1fr;
+      height: 100%;
+
+      &::before {
+        content: '';
+        display: block;
+        /* stylelint-disable-next-line property-no-unknown */
+        aspect-ratio: var(--caem-tile-aspect-ratio, 16 / 9);
+        grid-area: 1 / 1 / 2 / 2;
+      }
+    }
+
+    &__wrapper {
+      border: 1px solid $border-subtle-01;
+      padding: $spacing-05;
+      display: flex;
+      gap: $spacing-05;
+      position: relative;
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &__pictogram {
+      margin-block-end: $spacing-06;
+      height: 5.5rem;
+      width: 5.5rem;
+    }
+
+    &__content {
+      @include type-style('body-short-02');
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__text {
+      margin-block-end: $spacing-07;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-06;
+    }
+
+    &__label {
+      @include type-style('label-01');
+
+      color: $text-secondary;
+      margin-block-end: $spacing-03;
+    }
+
+    &__action {
+      margin-block-start: auto;
+
+      .#{$c4d-prefix}-ce--cta__icon {
+        display: inline;
+        vertical-align: middle;
+        white-space: nowrap;
+        margin-left: $spacing-03;
+        align-self: center;
+        fill: currentcolor;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+    }
+
+    &__wrapper:hover {
+      background: $background-hover;
+
+      .#{$caem-prefix}-tile__action {
+        color: $button-primary-hover;
+      }
+    }
+
+    &__wrapper:focus-within {
+      background: $background-hover;
+      outline: 2px solid $focus;
+      outline-offset: -2px;
+
+      .#{$caem-prefix}-tile__action {
+        outline: none;
+        color: $button-primary;
+      }
+    }
+
+    &__wrapper:active {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
+
+      .#{$caem-prefix}-tile__action {
+        outline: none;
+        color: $button-primary;
+      }
+    }
+
+    &__image {
+      flex: 0 0 50%;
+      overflow: hidden;
+
+      @include breakpoint('lg') {
+        flex-basis: 28.5%;
+      }
+      @include breakpoint('xlg') {
+        flex-basis: 50%;
+      }
+
+      // Double width tile image responsive handling.
+      &-double {
+        flex-basis: calc(50% - #{$spacing-05});
+
+        @include breakpoint-down('sm') {
+          flex: 1;
+        }
+      }
+    }
+
+    &__footer-placement {
+      margin-block-start: 0;
+      margin-block-end: $spacing-07;
+    }
+  }
+
+  /** Border styles for adjacent tiles **/
+  @include breakpoint-down('md') {
+    &:nth-of-type(n + 2) .#{$caem-prefix}-tile__wrapper {
+      border-top: none;
+    }
+  }
+
+  @include breakpoint-between('md', 'lg') {
+    &:not(:nth-of-type(2n + 1)) .#{$caem-prefix}-tile__wrapper {
+      border-left: none;
+    }
+
+    &:nth-of-type(n + 3) .#{$caem-prefix}-tile__wrapper {
+      border-top: none;
+    }
+  }
+
+  // Manually doing the media query here b/c breakpoint-between produces
+  // a lower bound of $lg-breakpoint-width + 0.02, which would net us double
+  // borders for a pixel or so of viewport width right at 1056px.
+  @media (min-width: #{$lg-breakpoint-width}) and (max-width: #{$xlg-breakpoint-width - 0.02}) {
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (#{$lg-12-column-lower-bound} <= inline-size <= #{$lg-12-column-upper-bound}) {
+      &:not(:nth-of-type(3n + 1)) .#{$caem-prefix}-tile__wrapper {
+        border-left: none;
+      }
+
+      &:nth-of-type(n + 4) .#{$caem-prefix}-tile__wrapper {
+        border-top: none;
+      }
+    }
+
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (inline-size > #{$lg-12-column-upper-bound}) {
+      &:not(:nth-of-type(4n + 1)) .#{$caem-prefix}-tile__wrapper {
+        border-left: none;
+      }
+
+      &:nth-of-type(n + 5) .#{$caem-prefix}-tile__wrapper {
+        border-top: none;
+      }
+    }
+  }
+
+  @include breakpoint(xlg) {
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (#{$xlg-12-column-lower-bound} <= inline-size <= #{$xlg-12-column-upper-bound}) {
+      &:not(:nth-of-type(3n + 1)) .#{$caem-prefix}-tile__wrapper {
+        border-left: none;
+      }
+
+      &:nth-of-type(n + 4) .#{$caem-prefix}-tile__wrapper {
+        border-top: none;
+      }
+    }
+
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (inline-size > #{$xlg-12-column-upper-bound}) {
+      &:not(:nth-of-type(4n + 1)) .#{$caem-prefix}-tile__wrapper {
+        border-left: none;
+      }
+
+      &:nth-of-type(n + 5) .#{$caem-prefix}-tile__wrapper {
+        border-top: none;
+      }
+    }
+  }
+
+  /** /Border styles for adjacent tiles **/
+}
+
+// Double Tile responsiveness.
+:host(#{$caem-prefix}-tile)[double-tile] {
+  .#{$caem-prefix}-tile {
+    &__wrapper {
+      gap: $spacing-07;
+      @include breakpoint-down('sm') {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+:host(#{$caem-prefix}-tile-group) {
+  display: block;
+  /* stylelint-disable-next-line property-no-unknown */
+  container: tile-group-container / inline-size;
+  inline-size: 100%;
+
+  .#{$caem-prefix}-tile-group {
+    @include make-row();
+
+    margin-inline: 0;
+  }
+
+  ::slotted(#{$caem-prefix}-tile) {
+    @include make-col(4, 4);
+
+    @include breakpoint(md) {
+      @include make-col(4, 8);
+    }
+
+    @include breakpoint(lg) {
+      @include make-col(4, 16);
+
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container tile-group-container (#{$lg-12-column-lower-bound} <= inline-size <= #{$lg-12-column-upper-bound}) {
+        display: block;
+        max-width: calc(100% / 3);
+        flex: 0 0 calc(100% / 3);
+      }
+    }
+
+    @include breakpoint(xlg) {
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container tile-group-container (#{$xlg-12-column-lower-bound} <= inline-size <= #{$xlg-12-column-upper-bound}) {
+        display: block;
+        max-width: calc(100% / 3);
+        flex: 0 0 calc(100% / 3);
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+import {
+  Meta,
+  Props,
+  Story,
+  Canvas,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { cdnJs } from "../../../globals/internal/storybook-cdn";
+import "../index";
+
+<Meta title="Tile Group" />
+
+# Tile Group
+
+<Canvas withToolbar>
+  <Story id="components-tile-group--default" height="100px" />
+</Canvas>
+
+<Description markdown={`${cdnJs({ components: ["tile"] })}`} />
+
+### `<caem-tile-group>` attributes, properties, and events
+<Props of="caem-tile-group" />
