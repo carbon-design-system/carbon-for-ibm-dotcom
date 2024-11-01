@@ -12,9 +12,10 @@ import { classMap } from 'lit-html/directives/class-map.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import CTAMixin from '@carbon/ibmdotcom-web-components/es/component-mixins/cta/cta';
-import VideoCTAMixin from '@carbon/ibmdotcom-web-components/es/component-mixins/cta/video';
-import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
+import CTAMixin from "../../component-mixins/cta/cta";
+import VideoCTAMixin from '../../component-mixins/cta/video';
+import { CTA_TYPE } from '../cta/defs';
+
 import styles from './tile.scss';
 
 const { stablePrefix: c4dPrefix } = settings;
