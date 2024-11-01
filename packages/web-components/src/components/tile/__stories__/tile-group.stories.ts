@@ -8,7 +8,7 @@ import {
 } from './tile.stories';
 import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
 
-const ctaTypeOptions = Object.values(CTA_TYPE).filter(value => !!value);
+const ctaTypeOptions = Object.values(CTA_TYPE).filter((value) => !!value);
 
 export default {
   title: 'Components/Tile Group',
@@ -60,22 +60,18 @@ export default {
           ? html`
               <div class="cds--row">
                 <div
-                  class="cds--col cds--col-sm-4 cds--col-md-4 cds--col-lg-4 cds--col-xlg-4 cds--col-max-4"
-                >
+                  class="cds--col cds--col-sm-4 cds--col-md-4 cds--col-lg-4 cds--col-xlg-4 cds--col-max-4">
                   <p>Table of contents placeholder</p>
                 </div>
                 <div
-                  class="cds--col cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--col-xlg-12 cds--col-max-12"
-                >
+                  class="cds--col cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--col-xlg-12 cds--col-max-12">
                   ${story()}
                 </div>
               </div>
             `
           : html`
               <div class="cds--row">
-                <div class="cds--col">
-                  ${story()}
-                </div>
+                <div class="cds--col">${story()}</div>
               </div>
             `}
       </c4d-video-cta-container>

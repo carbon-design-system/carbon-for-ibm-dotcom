@@ -104,8 +104,7 @@ class C4DTile extends VideoCTAMixin(CTAMixin(LitElement)) {
             <div
               class="${c4dPrefix}-tile__pictogram"
               part="pictogram"
-              ?hidden=${!slottedPictogram}
-            >
+              ?hidden=${!slottedPictogram}>
               <slot name="pictogram" @slotchange="${handleSlotChange}"></slot>
             </div>
 
@@ -125,8 +124,7 @@ class C4DTile extends VideoCTAMixin(CTAMixin(LitElement)) {
               href=${ifDefined(href)}
               @click="${handleClick}"
               class="${ctaClasses} cds--link cds--link--lg cds--link-with-icon cds--link-with-icon__icon-right cds--link-with-icon--inline-icon"
-              part="cta"
-            >
+              part="cta">
               <slot name="cta"></slot>
               ${this._renderIcon()}
             </a>

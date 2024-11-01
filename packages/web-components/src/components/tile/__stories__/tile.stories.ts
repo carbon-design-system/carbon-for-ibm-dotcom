@@ -27,19 +27,17 @@ const pictogramContent = html`
     viewBox="0 0 32 32"
     role="img"
     class="cds--card__pictogram"
-    fill="#0f62fe"
-  >
+    fill="#0f62fe">
     <path
       id="desktop_1_"
       d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
         c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
         0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-        18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
-    />
+        18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
   </svg>
 `;
 
-const ctaTypeOptions = Object.values(CTA_TYPE).filter(value => !!value);
+const ctaTypeOptions = Object.values(CTA_TYPE).filter((value) => !!value);
 
 const randomLabel = () => {
   const labels = [
@@ -113,8 +111,7 @@ export default {
           <c4d-video-cta-container class="cds--grid c4d-story-padding">
             <div class="cds--row">
               <div
-                class="cds--col-sm-8 cds--col-md-8 cds--col-lg-8 cds--no-gutter"
-              >
+                class="cds--col-sm-8 cds--col-md-8 cds--col-lg-8 cds--no-gutter">
                 ${story()}
               </div>
             </div>
@@ -125,8 +122,7 @@ export default {
           <c4d-video-cta-container class="cds--grid c4d-story-padding">
             <div class="cds--row">
               <div
-                class="cds--col-sm-4 cds--col-md-4 cds--col-lg-4 cds--no-gutter"
-              >
+                class="cds--col-sm-4 cds--col-md-4 cds--col-lg-4 cds--no-gutter">
                 ${story()}
               </div>
             </div>
@@ -150,14 +146,11 @@ export const Default = ({
       label="${randomLabel()}"
       href="${href}"
       cta-type="${ctaType}"
-      ?align-with-content="${alignWithContent}"
-    >
+      ?align-with-content="${alignWithContent}">
       ${hasPictogram ? pictogramContent : undefined} ${randomHeadline()}
       ${hasTagGroup ? tagGroupContent : undefined}
 
-      <p slot="cta">
-        ${ctaCopy}
-      </p>
+      <p slot="cta">${ctaCopy}</p>
     </c4d-tile>
   `;
 
@@ -173,21 +166,17 @@ export const WithImage = ({
     label="${randomLabel()}"
     href="${href}"
     cta-type="${ctaType}"
-    ?align-with-content="${alignWithContent}"
-  >
+    ?align-with-content="${alignWithContent}">
     ${hasPictogram ? pictogramContent : undefined}
 
     <c4d-image
       slot="image"
       alt="Image Alt Text"
-      default-src="https://fakeimg.pl/160x160/F7F3FF/6829C1/?retina=1&text=1:1&font=museo"
-    ></c4d-image>
+      default-src="https://fakeimg.pl/160x160/F7F3FF/6829C1/?retina=1&text=1:1&font=museo"></c4d-image>
 
     ${randomHeadline()} ${hasTagGroup ? tagGroupContent : undefined}
 
-    <p slot="cta">
-      ${ctaCopy}
-    </p>
+    <p slot="cta">${ctaCopy}</p>
   </c4d-tile>
 `;
 
@@ -206,21 +195,17 @@ export const DoubleTile = ({
       href="${href}"
       cta-type="${ctaType}"
       ?align-with-content="${alignWithContent}"
-      ?double-tile="${true}"
-    >
+      ?double-tile="${true}">
       ${hasPictogram ? pictogramContent : undefined}
 
       <c4d-image
         slot="image"
         alt="Image Alt Text"
         default-src="https://fakeimg.pl/160x160/F7F3FF/6829C1/?retina=1&text=1:1&font=museo"
-        class="c4d-tile__image-double"
-      ></c4d-image>
+        class="c4d-tile__image-double"></c4d-image>
       ${randomHeadline()} ${hasTagGroup ? tagGroupContent : undefined}
 
-      <p slot="cta">
-        ${ctaCopy}
-      </p>
+      <p slot="cta">${ctaCopy}</p>
     </c4d-tile>
   `;
 };
