@@ -33,6 +33,7 @@ import {
 } from './profile-items';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
+import SAPCommerceAPI from '@carbon/ibmdotcom-services/es/services/SAPCommerce/SAPCommerce.js';
 
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
@@ -107,11 +108,20 @@ const enumToArray = (en) =>
     .filter((value) => typeof value === 'string')
     .map((key) => en[key]);
 
+const setActiveCartId = (activeCartId?: string) => {
+  if (typeof activeCartId !== 'string') {
+    SAPCommerceAPI.removeActiveCartId();
+  } else {
+    SAPCommerceAPI.setActiveCartId(activeCartId);
+  }
+};
+
 export const Default = (args) => {
   const {
     customProfileLogin,
     hasProfile,
     hasCart,
+    mockActiveCartId,
     hasSearch,
     hasContact,
     initialSearchTerm,
@@ -121,6 +131,7 @@ export const Default = (args) => {
     authMethod,
     useMock,
   } = args?.MastheadComposite ?? {};
+  setActiveCartId(mockActiveCartId);
   return html`
     <style>
       ${styles}
@@ -215,6 +226,7 @@ WithCustomTypeahead.story = {
           grouped: 'false',
           hasProfile: 'true',
           hasCart: false,
+          mockActiveCartId: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -322,6 +334,7 @@ withPlatform.story = {
           platform: 'Platform',
           hasProfile: 'true',
           hasCart: false,
+          mockActiveCartId: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -466,6 +479,7 @@ withAlternateLogoAndTooltip.story = {
           platform: null,
           hasProfile: 'true',
           hasCart: false,
+          mockActiveCartId: '',
           hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -568,6 +582,7 @@ export default {
           'true'
         ),
         hasCart: boolean('show the cart functionality (has-cart)', false),
+        mockActiveCartId: textNullable('mock active cart id', ''),
         hasSearch: select(
           'show the search functionality (has-search)',
           ['true', 'false'],
@@ -610,6 +625,7 @@ export default {
           platform: null,
           hasProfile: 'true',
           hasCart: false,
+          mockActiveCartId: '',
           hasSearch: 'true',
           initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',

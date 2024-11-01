@@ -35,6 +35,23 @@ class SAPCommerceAPI {
       ? activeCartId.trim()
       : '';
   }
+
+  /**
+   * Set the active cart id.
+   *
+   * @param {string} activeCartId
+   *   The active cart id.
+   */
+  static setActiveCartId(activeCartId) {
+    Cookies.set(_cookieName, activeCartId.trim());
+  }
+
+  /**
+   * Remove the active cart id.
+   */
+  static removeActiveCartId() {
+    Cookies.remove(_cookieName);
+  }
 }
 
 export default SAPCommerceAPI;
