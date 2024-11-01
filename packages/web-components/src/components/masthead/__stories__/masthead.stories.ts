@@ -122,6 +122,7 @@ export const Default = (args) => {
     hasProfile,
     hasCart,
     mockActiveCartId,
+    cartLabel,
     hasSearch,
     hasContact,
     initialSearchTerm,
@@ -153,7 +154,8 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-container>
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
+            cart-label="${ifNonEmpty(cartLabel)}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -167,7 +169,8 @@ export const Default = (args) => {
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${authMethod}"></c4d-masthead-container>
+            auth-method="${authMethod}"
+            cart-label="${ifNonEmpty(cartLabel)}"></c4d-masthead-container>
         `}
   `;
 };
@@ -227,6 +230,7 @@ WithCustomTypeahead.story = {
           hasProfile: 'true',
           hasCart: false,
           mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -335,6 +339,7 @@ withPlatform.story = {
           hasProfile: 'true',
           hasCart: false,
           mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -480,6 +485,7 @@ withAlternateLogoAndTooltip.story = {
           hasProfile: 'true',
           hasCart: false,
           mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -528,6 +534,7 @@ WithScopedSearch.story = {
           hasProfile: 'true',
           hasCart: false,
           mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -584,6 +591,7 @@ export default {
         ),
         hasCart: boolean('show the cart functionality (has-cart)', false),
         mockActiveCartId: textNullable('mock active cart id', ''),
+        cartLabel: textNullable('cart label (cart-label)', ''),
         hasSearch: select(
           'show the search functionality (has-search)',
           ['true', 'false'],
@@ -627,6 +635,7 @@ export default {
           hasProfile: 'true',
           hasCart: false,
           mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',

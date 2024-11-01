@@ -1181,8 +1181,10 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   protected _renderCart() {
-    const { hasCart } = this;
-    return hasCart ? html`<c4d-masthead-cart></c4d-masthead-cart>` : undefined;
+    const { hasCart, cartLabel } = this;
+    return hasCart
+      ? html`<c4d-masthead-cart link-label="${cartLabel}"></c4d-masthead-cart>`
+      : undefined;
   }
 
   /**
@@ -1514,6 +1516,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ type: Boolean, reflect: true, attribute: 'has-cart' })
   hasCart = false;
+
+  /**
+   * Label for the cart icon.
+   */
+  @property({ type: String, reflect: true, attribute: 'cart-label' })
+  cartLabel = 'Cart';
 
   /**
    * The selected authentication method, either `profile-api` (default), `cookie`, or `docs-api`.
