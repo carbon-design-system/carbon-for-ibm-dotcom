@@ -36,7 +36,7 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
   /**
    * Tracks whether the user has an active cart to control the display.
    */
-  @property({ attribute: 'has-active-cart', reflect: true, type: Boolean })
+  @state()
   hasActiveCart = false;
 
   /**
@@ -55,24 +55,29 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
     });
   }
 
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    const { hasActiveCart } = this;
+    if (changedProperties.has('hasActiveCart')) {
+      this.hidden = !hasActiveCart;
+    }
+  }
+
   render() {
     const {
       linkLabel,
-      hasActiveCart,
       locale: { cc, lc },
     } = this;
 
-    return hasActiveCart
-      ? html`
-          <a
-            part="cart-link"
-            href="/store/${lc}/${cc}/checkout"
-            class="${prefix}--header__menu-item ${prefix}--header__menu-title"
-            aria-label="${linkLabel}"
-            >${ShoppingCart20()}</a
-          >
-        `
-      : undefined;
+    return html`
+      <a
+        part="cart-link"
+        href="/store/${lc}/${cc}/checkout"
+        class="${prefix}--header__menu-item ${prefix}--header__menu-title"
+        aria-label="${linkLabel}"
+        >${ShoppingCart20()}</a
+      >
+    `;
   }
 
   static get stableSelector() {

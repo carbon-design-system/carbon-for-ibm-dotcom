@@ -176,7 +176,7 @@ $pos-btn-bottom: calc(
 
 :host(#{$c4d-prefix}-masthead-profile),
 :host(#{$c4d-prefix}-masthead-contact),
-:host(#{$c4d-prefix}-masthead-cart[has-active-cart]) {
+:host(#{$c4d-prefix}-masthead-cart) {
   background-color: $background;
   inline-size: $spacing-09;
 
@@ -307,18 +307,18 @@ $pos-btn-bottom: calc(
 
 :host(#{$c4d-prefix}-masthead-cart) {
   position: relative;
-}
 
-:host(#{$c4d-prefix}-masthead-cart[has-active-cart])::after {
-  position: absolute;
-  display: block;
-  border-radius: 50%;
-  background-color: $button-primary-hover;
-  block-size: 10px;
-  content: '';
-  inline-size: 10px;
-  inset-block-start: 12px;
-  inset-inline-end: 10px;
+  &::after {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background-color: $button-primary-hover;
+    block-size: 10px;
+    content: '';
+    inline-size: 10px;
+    inset-block-start: 12px;
+    inset-inline-end: 10px;
+  }
 }
 
 :host(#{$c4d-prefix}-top-nav-item),
