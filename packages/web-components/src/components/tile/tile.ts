@@ -12,7 +12,7 @@ import { classMap } from 'lit-html/directives/class-map.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import CTAMixin from "../../component-mixins/cta/cta";
+import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from '../cta/defs';
 
