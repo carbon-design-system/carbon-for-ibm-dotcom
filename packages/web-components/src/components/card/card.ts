@@ -258,7 +258,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? this._renderCopy()
             : ''}
-          <div part="footer-wrapper">
+          <div part="footer-wrapper" class="${prefix}--card__footer-wrapper">
             <slot name="footer"></slot>
           </div>
         </div>
