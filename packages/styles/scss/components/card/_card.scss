@@ -464,6 +464,7 @@
     }
   }
 
+  .#{$prefix}--card .#{$prefix}--card__footer,
   :host(#{$c4d-prefix}-card-footer) a,
   :host(#{$c4d-prefix}-card-cta-footer) a,
   :host(#{$c4d-prefix}-card-in-card-footer) a,
