@@ -33,6 +33,7 @@ import {
 } from './profile-items';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
+import SAPCommerceAPI from '@carbon/ibmdotcom-services/es/services/SAPCommerce/SAPCommerce.js';
 
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
@@ -107,10 +108,21 @@ const enumToArray = (en) =>
     .filter((value) => typeof value === 'string')
     .map((key) => en[key]);
 
+const setActiveCartId = (activeCartId?: string) => {
+  if (typeof activeCartId === 'string') {
+    SAPCommerceAPI.setActiveCartId(activeCartId);
+  } else {
+    SAPCommerceAPI.removeActiveCartId();
+  }
+};
+
 export const Default = (args) => {
   const {
     customProfileLogin,
     hasProfile,
+    hasCart,
+    mockActiveCartId,
+    cartLabel,
     hasSearch,
     hasContact,
     initialSearchTerm,
@@ -120,6 +132,7 @@ export const Default = (args) => {
     authMethod,
     useMock,
   } = args?.MastheadComposite ?? {};
+  setActiveCartId(mockActiveCartId);
   return html`
     <style>
       ${styles}
@@ -132,6 +145,7 @@ export const Default = (args) => {
             initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
+            ?has-cart="${hasCart}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             .l0Data="${mastheadL0Data}"
@@ -140,7 +154,8 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-container>
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
+            cart-label="${ifNonEmpty(cartLabel)}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
@@ -150,10 +165,12 @@ export const Default = (args) => {
             initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
+            ?has-cart="${hasCart}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${authMethod}"></c4d-masthead-container>
+            auth-method="${authMethod}"
+            cart-label="${ifNonEmpty(cartLabel)}"></c4d-masthead-container>
         `}
   `;
 };
@@ -211,6 +228,9 @@ WithCustomTypeahead.story = {
         MastheadComposite: {
           grouped: 'false',
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -317,6 +337,9 @@ withPlatform.story = {
         MastheadComposite: {
           platform: 'Platform',
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -460,6 +483,9 @@ withAlternateLogoAndTooltip.story = {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -506,6 +532,9 @@ WithScopedSearch.story = {
       default: {
         MastheadComposite: {
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -560,6 +589,9 @@ export default {
           ['true', 'false'],
           'true'
         ),
+        hasCart: boolean('show the cart functionality (has-cart)', false),
+        mockActiveCartId: textNullable('mock active cart id', ''),
+        cartLabel: textNullable('cart label (cart-label)', ''),
         hasSearch: select(
           'show the search functionality (has-search)',
           ['true', 'false'],
@@ -601,6 +633,9 @@ export default {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',
