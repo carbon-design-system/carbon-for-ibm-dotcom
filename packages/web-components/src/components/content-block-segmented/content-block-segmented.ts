@@ -35,7 +35,6 @@ class C4DContentBlockSegmented extends C4DContentBlock {
       _hasMedia: hasMedia,
     } = this;
     return classMap({
-      [`${prefix}--content-layout`]: true,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
       [`${c4dPrefix}-ce--content-layout--with-adjacent-heading-content`]:
         hasHeading && hasContent && !hasCopy && !hasMedia,
