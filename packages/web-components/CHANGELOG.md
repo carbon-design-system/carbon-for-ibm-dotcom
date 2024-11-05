@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.14.0...@carbon/ibmdotcom-web-components@2.15.0-rc.0) (2024-11-05)
+
+
+### Bug Fixes
+
+* **cta:** prevent an infinate loop of fetching video details ([#12084](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12084)) ([9964cf1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9964cf1130ea56d4ef1fcb9cc57526b953860a60))
+* **deps:** update dependency @carbon/layout to v11.27.0 ([#12073](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12073)) ([321a1e2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/321a1e25b6be654cd096fc8c2b9b0980effff669))
+
+
+
+
+
 # [2.14.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.14.0-rc.2...@carbon/ibmdotcom-web-components@2.14.0) (2024-10-25)
 
 
