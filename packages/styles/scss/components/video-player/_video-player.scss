@@ -13,9 +13,17 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
+@use '@carbon/styles/scss/components/button/vars' as *;
 $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
+  // Make the video player container a block for purposes of the intersection
+  // observer.
+  :host(#{$c4d-prefix}-video-player-container) {
+    display: block;
+  }
+
   :host(#{$c4d-prefix}-video-player),
   .#{$c4d-prefix}--video-player {
     color: var(--#{$c4d-prefix}--video-caption--color, $text-secondary);
@@ -25,19 +33,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       inline-size: 100%;
     }
 
-    &:focus {
-      outline: none;
-      .#{$c4d-prefix}--video-player__video-container {
-        &::before {
-          position: absolute;
-          z-index: 1;
-          border: 1px solid $focus-inverse;
-          content: ' ';
-          inset: $spacing-01;
-          outline: $spacing-01 solid $focus;
-        }
-      }
-    }
     #{$c4d-prefix}-image {
       padding-block-start: 0;
     }
@@ -128,6 +123,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       &.#{$c4d-prefix}--video-player__aspect-ratio {
         &--#{$width}x#{$height} {
           @include ratio-base($width, $height, true);
+
+          overflow: visible;
         }
       }
     }
@@ -199,6 +196,46 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       .#{$c4d-prefix}--image::before {
         opacity: 0.12;
       }
+    }
+  }
+
+  .#{$c4d-prefix}--video-player__toggle-playback {
+    position: absolute;
+    z-index: 100;
+    padding: $button-padding to-rem(15px);
+    border: 0;
+
+    background-color: $overlay;
+    color: #ffffff;
+
+    &--top-left {
+      inset-block-start: 0;
+      inset-inline-start: 0;
+    }
+
+    &--top-right {
+      inset-block-start: 0;
+      inset-inline-end: 0;
+    }
+
+    &--bottom-right {
+      inset-block-end: 0;
+      inset-inline-end: 0;
+    }
+
+    &--bottom-left {
+      inset-block-end: 0;
+      inset-inline-start: 0;
+    }
+
+    /* stylelint-disable-next-line caem/require-color-with-bg */
+    &:hover {
+      // Grey 100, more opaque.
+      background-color: rgba(22, 22, 22, 0.9);
+    }
+
+    &:focus {
+      outline: 2px solid $focus;
     }
   }
 }
