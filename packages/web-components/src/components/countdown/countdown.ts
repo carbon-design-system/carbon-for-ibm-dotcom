@@ -1,0 +1,222 @@
+import { html, property, state, LitElement } from 'lit-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import settings from '../../globals/settings';
+import { LocaleAPI } from '@carbon/ibmdotcom-services/es/services/Locale/index';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '@carbon/ibmdotcom-web-components/es/component-mixins/media-query/media-query';
+
+const { stablePrefix: caemPrefix } = settings;
+
+const ms_per = {
+  second: 1_000,
+  minute: 1_000 * 60,
+  hour: 1_000 * 60 * 60,
+  day: 1_000 * 60 * 60 * 24,
+};
+
+const units = Object.keys(ms_per);
+
+const getFormatters = (locale: Locale, labelType: UnitDisplay) => {
+  const lc_cc = `${locale.lc}-${locale.cc}`;
+
+  return Object.fromEntries(
+    units.map(unit => [
+      `to_${unit}s`,
+      new Intl.NumberFormat(lc_cc, {
+        style: 'unit',
+        unit,
+        unitDisplay: labelType,
+        minimumIntegerDigits: unit === 'day' ? 1 : 2,
+      }),
+    ])
+  ) as FormattersList;
+};
+
+type TimeDiff = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+type FormattersList = {
+  to_days: Intl.NumberFormat;
+  to_hours: Intl.NumberFormat;
+  to_minutes: Intl.NumberFormat;
+  to_seconds: Intl.NumberFormat;
+};
+
+type Locale = {
+  lc: string;
+  cc: string;
+};
+
+type UnitDisplay = 'short' | 'narrow' | 'long' | 'none';
+
+/**
+ * The Countdown component.
+ * @element caem-countdown
+ */
+@customElement(`${caemPrefix}-countdown`)
+class CAEMCountdown extends MediaQueryMixin(LitElement, {
+  [MQBreakpoints.MD]: MQDirs.MIN,
+}) {
+  @state()
+  isMdOrLarger = this.carbonBreakpoints.md.matches;
+
+  @state()
+  timeDiff?: TimeDiff;
+
+  @state()
+  targetDateTime?: number;
+
+  @state()
+  locale: Locale = {
+    lc: 'en',
+    cc: 'us',
+  };
+
+  /**
+   * The target date, either in date time string format (ISO 8601), or UNIX timestamp.
+   */
+  @property({ attribute: 'target' })
+  targetInput?: string;
+
+  /**
+   * Optional date parts separator.
+   */
+  @property({ attribute: 'separator' })
+  separator?: string;
+
+  /**
+   * Optional date parts label type. One of 'short', 'narrow', 'long', or 'none'.
+   */
+  @property({ attribute: 'label-type' })
+  labelType: UnitDisplay = 'long';
+
+  _clock?;
+
+  _formatters: FormattersList = getFormatters(this.locale, this.labelType);
+
+  calculateDiff() {
+    const { targetDateTime } = this;
+    const now = Date.now();
+    let diff = (targetDateTime ?? 0) - now;
+
+    if (diff < 0) {
+      clearInterval(this._clock);
+
+      this.timeDiff = {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+      return;
+    }
+
+    const days = Math.floor(diff / ms_per.day);
+    diff = diff - days * ms_per.day;
+
+    const hours = Math.floor(diff / ms_per.hour);
+    diff = diff - hours * ms_per.hour;
+
+    const minutes = Math.floor(diff / ms_per.minute);
+    diff = diff - minutes * ms_per.minute;
+
+    const seconds = Math.floor(diff / ms_per.second);
+
+    this.timeDiff = { days, hours, minutes, seconds };
+  }
+
+  _padInt(int: number, padLength: number) {
+    return int.toString().padStart(padLength, '0');
+  }
+
+  formatOutput(): string {
+    const {
+      _formatters: formatters,
+      timeDiff,
+      separator,
+      labelType,
+      isMdOrLarger,
+      _padInt: padInt,
+    } = this;
+
+    if (timeDiff === undefined) return '';
+
+    const { days, hours, minutes, seconds } = timeDiff;
+
+    let values;
+
+    if (labelType === 'none') {
+      values = [days, hours, minutes, seconds].join(separator ?? '');
+    } else {
+      const { to_days, to_hours, to_minutes, to_seconds } = formatters;
+
+      values = isMdOrLarger
+        ? [
+            to_days.format(days),
+            to_hours.format(hours),
+            to_minutes.format(minutes),
+            to_seconds.format(seconds),
+          ].join(separator ?? '')
+        : `${to_days.format(days)} ${padInt(hours, 2)}:${padInt(
+            minutes,
+            2
+          )}:${padInt(seconds, 2)}`;
+    }
+
+    return values;
+  }
+
+  protected mediaQueryCallbackMD() {
+    this.isMdOrLarger = this.carbonBreakpoints.md.matches;
+  }
+
+  async firstUpdated() {
+    super.firstUpdated();
+    this.style.display = 'contents';
+    this.locale = await LocaleAPI.getLocale();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('targetInput')) {
+      let target = new Date(this.targetInput as string);
+      const epochTime = parseInt(this.targetInput as string);
+
+      // If date is invalid and epochTime is a valid number, assume a valid
+      // epochTime and create a new Date from it.
+      if (isNaN(target.valueOf()) && !isNaN(epochTime)) {
+        target = new Date(epochTime);
+      }
+
+      if (!isNaN(target.valueOf())) {
+        this.targetDateTime = target.getTime();
+      }
+    }
+
+    if (changedProperties.has('targetDateTime')) {
+      clearInterval(this._clock);
+      this._clock = setInterval(this.calculateDiff.bind(this), 1000);
+    }
+
+    if (changedProperties.has('locale') || changedProperties.has('labelType')) {
+      this._formatters = getFormatters(this.locale, this.labelType);
+    }
+  }
+
+  createRenderRoot() {
+    return this;
+  }
+
+  render() {
+    return html`
+      ${this.formatOutput()}
+    `;
+  }
+}
+
+export default CAEMCountdown;
