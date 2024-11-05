@@ -1,13 +1,22 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { html, property, state, LitElement } from 'lit-element';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
-import settings from '../../globals/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleAPI } from '@carbon/ibmdotcom-services/es/services/Locale/index';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
 } from '@carbon/ibmdotcom-web-components/es/component-mixins/media-query/media-query';
 
-const { stablePrefix: caemPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 const ms_per = {
   second: 1_000,
@@ -22,7 +31,7 @@ const getFormatters = (locale: Locale, labelType: UnitDisplay) => {
   const lc_cc = `${locale.lc}-${locale.cc}`;
 
   return Object.fromEntries(
-    units.map(unit => [
+    units.map((unit) => [
       `to_${unit}s`,
       new Intl.NumberFormat(lc_cc, {
         style: 'unit',
@@ -57,10 +66,10 @@ type UnitDisplay = 'short' | 'narrow' | 'long' | 'none';
 
 /**
  * The Countdown component.
- * @element caem-countdown
+ * @element c4d-countdown
  */
-@customElement(`${caemPrefix}-countdown`)
-class CAEMCountdown extends MediaQueryMixin(LitElement, {
+@customElement(`${c4dPrefix}-countdown`)
+class c4dCountdown extends MediaQueryMixin(LitElement, {
   [MQBreakpoints.MD]: MQDirs.MIN,
 }) {
   @state()
@@ -213,10 +222,8 @@ class CAEMCountdown extends MediaQueryMixin(LitElement, {
   }
 
   render() {
-    return html`
-      ${this.formatOutput()}
-    `;
+    return html` ${this.formatOutput()} `;
   }
 }
 
-export default CAEMCountdown;
+export default c4dCountdown;

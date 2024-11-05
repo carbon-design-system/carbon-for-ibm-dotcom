@@ -1,18 +1,22 @@
-import {
-  Meta,
-  Props,
-  Story,
-  Canvas,
-  Description,
-} from "@storybook/addon-docs";
-import { cdnJs } from "../../../globals/internal/storybook-cdn";
-import "../index.ts";
+/\*\*
+
+- @license
+-
+- Copyright IBM Corp. 2024
+-
+- This source code is licensed under the Apache-2.0 license found in the
+- LICENSE file in the root directory of this source tree. \*/
+
+import { Meta, Props, Story, Canvas, Description } from '@storybook/addon-docs';
+import { cdnJs } from '../../../globals/internal/storybook-cdn';
+import '../index.ts';
 
 <Meta title="Countdown" />
 
 # Countdown
-The countdown component will present a countdown to a target date and time. The target
-date can be passed along as a date time string that is
+
+The countdown component will present a countdown to a target date and time. The
+target date can be passed along as a date time string that is
 [accepted by the Date constructor in Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format),
 i.e. ISO 8601. It includes support for limited formatting options as well as a
 custom separator.
@@ -21,7 +25,8 @@ custom separator.
   <Story id="components-countdown--default" height="100px" />
 </Canvas>
 
-<Description markdown={`${cdnJs({ components: ["countdown"] })}`} />
+<Description markdown={`${cdnJs({ components: ['countdown'] })}`} />
 
-## `<caem-countdown>` attributes, properties, and events
-<Props of="caem-countdown" />
+## `<c4d-countdown>` attributes, properties, and events
+
+<Props of="c4d-countdown" />

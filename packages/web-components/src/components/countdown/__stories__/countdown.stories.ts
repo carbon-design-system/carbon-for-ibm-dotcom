@@ -1,3 +1,12 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { html } from 'lit-element';
 import '../index';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty';
@@ -33,23 +42,22 @@ export default {
       defaultValue: 'long',
     },
   },
-  decorators: [story => bxGrid16Col(story)],
+  decorators: [(story) => bxGrid16Col(story)],
 };
 
-const Template = args => {
+const Template = (args) => {
   const { targetDate, separator, labelType } = args;
   return html`
-    <caem-countdown
+    <c4d-countdown
       target="${ifNonEmpty(targetDate)}"
       separator="${ifNonEmpty(separator)}"
-      label-type="${ifNonEmpty(labelType)}"
-    ></caem-countdown>
+      label-type="${ifNonEmpty(labelType)}"></c4d-countdown>
   `;
 };
 
-export const Default = _args => Template(_args);
+export const Default = (_args) => Template(_args);
 
-export const WithTimestamp = _args => Template(_args);
+export const WithTimestamp = (_args) => Template(_args);
 
 WithTimestamp.argTypes = {
   targetDate: {
@@ -59,24 +67,21 @@ WithTimestamp.argTypes = {
   },
 };
 
-export const InPromoBanner = _args => {
+export const InPromoBanner = (_args) => {
   return html`
-    <caem-promo-banner>
+    <c4d-promo-banner>
       <c4d-image
         alt="Image alt text"
         slot="image"
         width="300"
         height="300"
-        default-src="https://fpoimg.com/300x300?&bg_color=5396ee&text_color=161616"
-      >
+        default-src="https://fpoimg.com/300x300?&bg_color=5396ee&text_color=161616">
         <c4d-image-item
           media="(min-width:1584px)"
-          srcset="https://fpoimg.com/600x600?&bg_color=ee5396&text_color=161616"
-        ></c4d-image-item>
+          srcset="https://fpoimg.com/600x600?&bg_color=ee5396&text_color=161616"></c4d-image-item>
         <c4d-image-item
           media="(min-width:1312px)"
-          srcset="https://fpoimg.com/400x400?&bg_color=53ee96&text_color=161616"
-        ></c4d-image-item>
+          srcset="https://fpoimg.com/400x400?&bg_color=53ee96&text_color=161616"></c4d-image-item>
       </c4d-image>
       <h5>${Template(_args)}</h5>
       <p>Optional short body text</p>
@@ -87,6 +92,6 @@ export const InPromoBanner = _args => {
         href="https://example.com"
         >Call To Action</c4d-button-cta
       >
-    </caem-promo-banner>
+    </c4d-promo-banner>
   `;
 };
