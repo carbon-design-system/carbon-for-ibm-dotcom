@@ -27,42 +27,26 @@ export default {
     hasStoryPadding: true,
     knobs: {
       TileGroup: () => {
-
         const ctaType = select(
           'CTA type (cta-type)',
           ctaTypeOptions,
           ctaTypeOptions[0]
         );
 
-        const ctaCopy = text(
-          'CTA text',
-          'Sign up for the trial'
-        );
+        const ctaCopy = text('CTA text', 'Sign up for the trial');
 
-        const href = text(
-          'CTA href',
-          'https://example.com'
-        )
+        const href = text('CTA href', 'https://example.com');
 
-        const hasPictogram = boolean(
-          'Add pictogram',
-          false
-        );
+        const hasPictogram = boolean('Add pictogram', false);
 
-        const hasTagGroup = boolean(
-          'Add tag group',
-          false
-        );
+        const hasTagGroup = boolean('Add tag group', false);
 
         const alignWithContent = boolean(
           'Align link with card contents',
           false
         );
 
-        const tocLayout = boolean(
-          'Use 3/4 layout',
-          false
-        );
+        const tocLayout = boolean('Use 3/4 layout', false);
 
         return {
           ctaType,
@@ -71,10 +55,9 @@ export default {
           hasPictogram,
           alignWithContent,
           href,
-          tocLayout
-        }
-
-      }
+          tocLayout,
+        };
+      },
     },
   },
   decorators: [
@@ -103,14 +86,16 @@ export default {
   ],
 };
 
-export const Default = ({ TileGroup: {
-  ctaType,
-  hasTagGroup,
-  ctaCopy,
-  hasPictogram,
-  alignWithContent,
-  href
-} }) => html`
+export const Default = ({
+  TileGroup: {
+    ctaType,
+    hasTagGroup,
+    ctaCopy,
+    hasPictogram,
+    alignWithContent,
+    href,
+  },
+}) => html`
   <c4d-tile-group>
     ${[...Array(8)].map(() =>
       DefaultTile({
@@ -125,14 +110,16 @@ export const Default = ({ TileGroup: {
   </c4d-tile-group>
 `;
 
-export const WithImage = ({ TileGroup: {
-  ctaType,
-  hasTagGroup,
-  ctaCopy,
-  hasPictogram,
-  alignWithContent,
-  href
-} }) => html`
+export const WithImage = ({
+  TileGroup: {
+    ctaType,
+    hasTagGroup,
+    ctaCopy,
+    hasPictogram,
+    alignWithContent,
+    href,
+  },
+}) => html`
   <c4d-tile-group>
     ${[...Array(8)].map(() =>
       TileWithImage({
