@@ -49,7 +49,7 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
         content: '';
         display: block;
         /* stylelint-disable-next-line property-no-unknown */
-        aspect-ratio: var(--caem-tile-aspect-ratio, 16 / 9);
+        aspect-ratio: var(--c4d-tile-aspect-ratio, 16 / 9);
         grid-area: 1 / 1 / 2 / 2;
       }
     }
