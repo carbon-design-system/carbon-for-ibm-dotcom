@@ -15,6 +15,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container';
 import '@carbon/ibmdotcom-web-components/es/components/image';
 
 import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 const tagGroupContent = html`
   <c4d-tag-group>
@@ -78,6 +79,50 @@ export default {
   title: 'Components/Tile',
   parameters: {
     ...readme.parameters,
+    knobs: {
+      Tile: () => {
+
+        const ctaType = select(
+          'CTA type (cta-type)',
+          ctaTypeOptions,
+          ctaTypeOptions[0]
+        );
+
+        const ctaCopy = text(
+          'CTA text',
+          'Sign up for the trial'
+        );
+
+        const href = text(
+          'CTA href',
+          'https://example.com'
+        )
+
+        const hasPictogram = boolean(
+          'Add pictogram',
+          false
+        );
+
+        const hasTagGroup = boolean(
+          'Add tag group',
+          false
+        );
+
+        const alignWithContent = boolean(
+          'Align link with card contents',
+          false
+        );
+
+        return {
+          hasPictogram,
+          hasTagGroup,
+          ctaType,
+          ctaCopy,
+          alignWithContent,
+          href
+        }
+      }
+    }
   },
   argTypes: {
     hasPictogram: {
@@ -141,14 +186,14 @@ export default {
   ],
 };
 
-export const Default = ({
+export const Default = ({ Tile: {
   ctaType,
   hasTagGroup,
   ctaCopy,
   hasPictogram,
   alignWithContent,
-  href,
-}) =>
+  href
+} }) =>
   html`
     <c4d-tile
       label="${randomLabel()}"
@@ -162,14 +207,14 @@ export const Default = ({
     </c4d-tile>
   `;
 
-export const WithImage = ({
+export const WithImage = ({ Tile: {
   ctaType,
   hasTagGroup,
   ctaCopy,
   hasPictogram,
   alignWithContent,
-  href,
-}) => html`
+  href
+} }) => html`
   <c4d-tile
     label="${randomLabel()}"
     href="${href}"
@@ -189,14 +234,14 @@ export const WithImage = ({
 `;
 
 // Double Tile
-export const DoubleTile = ({
+export const DoubleTile = ({ Tile: {
   ctaType,
   hasTagGroup,
   ctaCopy,
   hasPictogram,
   alignWithContent,
-  href,
-}) => {
+  href
+} }) => {
   return html`
     <c4d-tile
       label="${randomLabel()}"

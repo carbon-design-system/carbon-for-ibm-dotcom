@@ -15,7 +15,8 @@ import {
   Default as DefaultTile,
   WithImage as TileWithImage,
 } from './tile.stories';
-import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
+import { CTA_TYPE } from '../../cta/defs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 const ctaTypeOptions = Object.values(CTA_TYPE).filter((value) => !!value);
 
@@ -23,43 +24,57 @@ export default {
   title: 'Components/Tile Group',
   parameters: {
     ...readme.parameters,
-  },
-  argTypes: {
-    ctaType: {
-      control: { type: 'select' },
-      name: 'CTA type (optional)',
-      options: ctaTypeOptions,
-      defaultValue: ctaTypeOptions[0],
-    },
-    hasPictogram: {
-      control: { type: 'boolean' },
-      name: 'pictogram (optional)',
-      defaultValue: false,
-    },
-    hasTagGroup: {
-      control: { type: 'boolean' },
-      name: 'tags (optional)',
-      defaultValue: false,
-    },
-    ctaCopy: {
-      control: { type: 'text' },
-      name: 'cta text (optional)',
-      defaultValue: 'Sign up for the trial',
-    },
-    alignWithContent: {
-      control: { type: 'boolean' },
-      name: 'align link with card content',
-      defaultValue: false,
-    },
-    tocLayout: {
-      control: { type: 'boolean' },
-      name: 'TOC layout',
-      defaultValue: false,
-    },
-    href: {
-      control: { type: 'text' },
-      name: 'href',
-      defaultValue: 'https://example.com',
+    hasStoryPadding: true,
+    knobs: {
+      TileGroup: () => {
+
+        const ctaType = select(
+          'CTA type (cta-type)',
+          ctaTypeOptions,
+          ctaTypeOptions[0]
+        );
+
+        const ctaCopy = text(
+          'CTA text',
+          'Sign up for the trial'
+        );
+
+        const href = text(
+          'CTA href',
+          'https://example.com'
+        )
+
+        const hasPictogram = boolean(
+          'Add pictogram',
+          false
+        );
+
+        const hasTagGroup = boolean(
+          'Add tag group',
+          false
+        );
+
+        const alignWithContent = boolean(
+          'Align link with card contents',
+          false
+        );
+
+        const tocLayout = boolean(
+          'Use 3/4 layout',
+          false
+        );
+
+        return {
+          ctaType,
+          hasTagGroup,
+          ctaCopy,
+          hasPictogram,
+          alignWithContent,
+          href,
+          tocLayout
+        }
+
+      }
     },
   },
   decorators: [
@@ -88,14 +103,14 @@ export default {
   ],
 };
 
-export const Default = ({
+export const Default = ({ TileGroup: {
   ctaType,
   hasTagGroup,
   ctaCopy,
   hasPictogram,
   alignWithContent,
-  href,
-}) => html`
+  href
+} }) => html`
   <c4d-tile-group>
     ${[...Array(8)].map(() =>
       DefaultTile({
@@ -110,14 +125,14 @@ export const Default = ({
   </c4d-tile-group>
 `;
 
-export const WithImage = ({
+export const WithImage = ({ TileGroup: {
   ctaType,
   hasTagGroup,
   ctaCopy,
   hasPictogram,
   alignWithContent,
-  href,
-}) => html`
+  href
+} }) => html`
   <c4d-tile-group>
     ${[...Array(8)].map(() =>
       TileWithImage({
