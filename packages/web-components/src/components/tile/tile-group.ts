@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './tile.scss';

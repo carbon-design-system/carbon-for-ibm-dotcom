@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import '../index';
 import readme from './README--tile-group.stories.mdx';
 import '@carbon/ibmdotcom-web-components/es/components/image';

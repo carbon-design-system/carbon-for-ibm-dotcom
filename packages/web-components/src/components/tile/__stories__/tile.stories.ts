@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import '@carbon/web-components/es/components/tag/tag';
 import '../index';
 import readme from './README--tile.stories.mdx';
