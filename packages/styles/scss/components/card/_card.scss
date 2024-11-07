@@ -166,6 +166,10 @@
       content: '';
       inset: 0;
     }
+
+    .#{$prefix}--card__footer-wrapper {
+      margin-block-start: auto;
+    }
   }
 
   // Card with pictogram placement style
@@ -466,8 +470,6 @@
   :host(#{$c4d-prefix}-card-in-card-footer) a,
   :host(#{$c4d-prefix}-feature-card-footer) a,
   :host(#{$c4d-prefix}-feature-cta-footer) a {
-    /* Moves the footer down to the bottom in the card */
-    margin-block-start: auto;
     text-decoration: none;
 
     &:focus {
