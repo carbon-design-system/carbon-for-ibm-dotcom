@@ -69,7 +69,7 @@ type UnitDisplay = 'short' | 'narrow' | 'long' | 'none';
  * @element c4d-countdown
  */
 @customElement(`${c4dPrefix}-countdown`)
-class c4dCountdown extends MediaQueryMixin(LitElement, {
+class C4DCountdown extends MediaQueryMixin(LitElement, {
   [MQBreakpoints.MD]: MQDirs.MIN,
 }) {
   @state()
