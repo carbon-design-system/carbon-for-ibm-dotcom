@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,6 +13,7 @@ export * from './Locale';
 export * from './MarketingSearch';
 export * from './MastheadLogo';
 export * from './Profile';
+export * from './SAPCommerce';
 export * from './SearchTypeahead';
 export * from './Translation';
 export * from './KalturaPlayer';
