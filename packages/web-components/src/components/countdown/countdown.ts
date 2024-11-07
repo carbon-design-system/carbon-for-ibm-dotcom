@@ -30,6 +30,13 @@ const units = Object.keys(ms_per);
 const getFormatters = (locale: Locale, labelType: UnitDisplay) => {
   const lc_cc = `${locale.lc}-${locale.cc}`;
 
+  // The Typescript compiler sees unitDisplay as type
+  // "short" | "long" | "narrow" | undefined. Convert 'none' to undefined to
+  // avoid passing an unknown value to the unitDisplay option.
+  if (labelType === 'none') {
+    labelType = undefined;
+  }
+
   return Object.fromEntries(
     units.map((unit) => [
       `to_${unit}s`,
@@ -62,7 +69,7 @@ type Locale = {
   cc: string;
 };
 
-type UnitDisplay = 'short' | 'narrow' | 'long' | 'none';
+type UnitDisplay = 'short' | 'narrow' | 'long' | 'none' | undefined;
 
 /**
  * The Countdown component.
