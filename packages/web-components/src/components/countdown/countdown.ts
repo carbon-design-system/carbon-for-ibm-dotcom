@@ -226,4 +226,4 @@ class C4DCountdown extends MediaQueryMixin(LitElement, {
   }
 }
 
-export default c4dCountdown;
+export default C4DCountdown;
