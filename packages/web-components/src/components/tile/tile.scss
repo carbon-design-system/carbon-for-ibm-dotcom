@@ -1,4 +1,4 @@
-//
++//
 // Copyright IBM Corp. 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
@@ -15,14 +15,6 @@
 @use '@carbon/styles/scss/components/button' as *;
 @use '@carbon/grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
-
-// @use '@carbon/styles/scss/type' as *;
-// @use '@carbon/styles/scss/theme' as *;
-// @use '@carbon/styles/scss/utilities';
-// @use '@carbon/styles/scss/spacing' as *;
-// @use '@carbon/styles/scss/reset' as *;
-// @use '@carbon/grid' as *;
-// @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 
 $md-breakpoint-width: map-get(map-get($grid-breakpoints, md), width);
 $lg-breakpoint-width: map-get(map-get($grid-breakpoints, lg), width);
