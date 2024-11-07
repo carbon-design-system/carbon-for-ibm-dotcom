@@ -154,7 +154,9 @@ class C4DCountdown extends MediaQueryMixin(LitElement, {
       _padInt: padInt,
     } = this;
 
-    if (timeDiff === undefined) return '';
+    if (timeDiff === undefined) {
+      return '';
+    }
 
     const { days, hours, minutes, seconds } = timeDiff;
 
