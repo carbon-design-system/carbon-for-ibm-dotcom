@@ -29,7 +29,6 @@ const pictogramContent = html`
     focusable="false"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
-    data-autoid="dds--card__pictogram"
     aria-label="Pictogram description"
     width="88"
     height="88"
