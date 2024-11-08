@@ -54,7 +54,7 @@
         </slot>
       </div>
       <div
-        class="cds--card__footer"
+        class="cds--card__footer-wrapper"
         part="footer-wrapper"
       >
         <slot name="footer">
@@ -118,7 +118,7 @@
         </slot>
       </div>
       <div
-        class="cds--card__footer"
+        class="cds--card__footer-wrapper"
         part="footer-wrapper"
       >
         <slot name="footer">
