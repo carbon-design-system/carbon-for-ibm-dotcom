@@ -1,9 +1,18 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { html, state, LitElement, queryAssignedNodes } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import styles from './promo-banner.scss';
-import settings from '../../globals/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CTAMixin, {
   icons as ctaIcons,
 } from '@carbon/ibmdotcom-web-components/es/component-mixins/cta/cta';
@@ -11,17 +20,17 @@ import { CTAMixinImpl } from '@carbon/ibmdotcom-web-components/es/component-mixi
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty';
 import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
 
-const { stablePrefix: caemPrefix, c4dPrefix, prefix } = settings;
+const { stablePrefix: c4dPrefix, prefix } = settings;
 
 const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 const layoutBreakpoint = window.matchMedia(`(min-width: ${breakpoint}px)`);
 
 /**
  * The Promo Banner component.
- * @element caem-promo-banner
+ * @element c4d-promo-banner
  */
-@customElement(`${caemPrefix}-promo-banner`)
-class CAEMPromoBanner extends CTAMixin(LitElement) {
+@customElement(`${c4dPrefix}-promo-banner`)
+class C4DPromoBanner extends CTAMixin(LitElement) {
   @state()
   isDesktopVersion = layoutBreakpoint.matches;
 
@@ -154,4 +163,4 @@ class CAEMPromoBanner extends CTAMixin(LitElement) {
   }
 }
 
-export default CAEMPromoBanner;
+export default C4DPromoBanner;

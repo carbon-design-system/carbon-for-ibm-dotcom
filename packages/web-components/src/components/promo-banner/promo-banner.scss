@@ -1,7 +1,17 @@
-@use '../../globals/scss/vars' as *;
-@use '../../globals/scss/imports' as *;
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+ 
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/styles/scss/utilities';
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
 @use '@carbon/grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 
@@ -29,7 +39,7 @@ $lg-12-column-upper-bound: ($xlg-breakpoint-width - 0.02) * (12 / 16);
 $xlg-12-column-lower-bound: $xlg-breakpoint-width * (12 / 16);
 $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
 
-:host(#{$caem-prefix}-promo-banner) {
+:host(#{$c4d-prefix}-promo-banner) {
   display: block;
   /* stylelint-disable-next-line property-no-unknown */
   container: promo-banner / inline-size;
@@ -49,7 +59,7 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
 
     @include breakpoint-down(lg) {
       &:not(.no-cta) {
-        /* stylelint-disable-next-line caem/require-color-with-bg */
+        /* stylelint-disable-next-line c4d/require-color-with-bg */
         &:hover {
           background-color: $layer-hover;
         }

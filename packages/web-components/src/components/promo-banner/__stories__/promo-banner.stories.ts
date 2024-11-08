@@ -1,3 +1,12 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { html } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import '../index';
@@ -55,7 +64,7 @@ export default {
   },
   decorators: [
     (story, { args: { tocLayout } }) => html`
-      <div class="caem-story-padding">
+      <div class="c4d-story-padding">
         ${tocLayout
           ? html`
               <c4d-table-of-contents class="cds--grid">
@@ -84,7 +93,7 @@ const Template = (args) => {
   const { heading, body, hasImage, cta, ctaType } = args;
 
   return html`
-    <caem-promo-banner>
+    <c4d-promo-banner>
       ${hasImage !== false // Need explicit check to test image container queries.
         ? html`
             <c4d-image
@@ -114,7 +123,7 @@ const Template = (args) => {
             >
           `
         : ''}
-    </caem-promo-banner>
+    </c4d-promo-banner>
   `;
 };
 
