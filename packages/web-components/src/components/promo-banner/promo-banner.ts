@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, state, LitElement, queryAssignedNodes } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
+import { LitElement, html } from 'lit';
+import { state, queryAssignedNodes } from 'lit/decorators';
+import { classMap } from 'lit/directives/class-map';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import styles from './promo-banner.scss';
