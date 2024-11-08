@@ -16,6 +16,7 @@ import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/index';
 import { types } from '@carbon/ibmdotcom-web-components/es/component-mixins/cta/cta';
 
 import readme from './README.stories.mdx';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 const incompatibleTypes = ['video', 'email', 'schedule', 'chat', 'call'];
 const ctaTypes = Object.values(types).filter(
@@ -26,6 +27,30 @@ export default {
   title: 'Components/Promo Banner',
   parameters: {
     ...readme.parameters,
+    knobs: {
+      PromoBanner: () => {
+        const heading = text(
+          'Heading (HTML Enabled)',
+          '<h5>Try a demo of Watson<span style="color:#0f62fe;">X</span></h5>'
+        );
+        const body = text(
+          'Body Text (HTML Enabled)',
+          '<p>Easily deploy and embed AI across your business.</p>'
+        );
+        const cta = text('CTA Label', 'Try Today');
+        const ctaType = select('CTA Type', ctaTypes, ctaTypes[0]);
+        const tocLayout = boolean('Render in TOC', false);
+        const hasImage = boolean('Has Image', true);
+        return {
+          heading,
+          body,
+          cta,
+          ctaType,
+          tocLayout,
+          hasImage,
+        };
+      },
+    },
   },
   argTypes: {
     heading: {
@@ -89,8 +114,8 @@ export default {
   ],
 };
 
-const Template = (args) => {
-  const { heading, body, hasImage, cta, ctaType } = args;
+const Template = (PromoBanner) => {
+  const { heading, body, hasImage, cta, ctaType } = PromoBanner;
 
   return html`
     <c4d-promo-banner>
@@ -127,4 +152,4 @@ const Template = (args) => {
   `;
 };
 
-export const Default = (_args) => Template(_args);
+export const Default = (PromoBanner) => Template(PromoBanner);
