@@ -41,32 +41,32 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
   .#{$c4d-prefix}-tile {
     &__outer {
       display: grid;
+      block-size: 100%;
       grid-template-columns: 100%;
       grid-template-rows: 1fr;
-      height: 100%;
 
       &::before {
-        content: '';
         display: block;
         /* stylelint-disable-next-line property-no-unknown */
         aspect-ratio: var(--c4d-tile-aspect-ratio, 16 / 9);
+        content: '';
         grid-area: 1 / 1 / 2 / 2;
       }
     }
 
     &__wrapper {
-      border: 1px solid $border-subtle;
-      padding: $spacing-05;
-      display: flex;
-      gap: $spacing-05;
       position: relative;
+      display: flex;
+      padding: $spacing-05;
+      border: 1px solid $border-subtle;
+      gap: $spacing-05;
       grid-area: 1 / 1 / 2 / 2;
     }
 
     &__pictogram {
+      block-size: 5.5rem;
+      inline-size: 5.5rem;
       margin-block-end: $spacing-06;
-      height: 5.5rem;
-      width: 5.5rem;
     }
 
     &__content {
@@ -77,10 +77,10 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
     }
 
     &__text {
-      margin-block-end: $spacing-07;
       display: flex;
       flex-direction: column;
       gap: $spacing-06;
+      margin-block-end: $spacing-07;
     }
 
     &__label {
@@ -95,18 +95,18 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
 
       .#{$c4d-prefix}-ce--cta__icon {
         display: inline;
-        vertical-align: middle;
-        white-space: nowrap;
-        margin-left: $spacing-03;
         align-self: center;
         fill: currentcolor;
+        margin-inline-start: $spacing-03;
+        vertical-align: middle;
+        white-space: nowrap;
       }
 
       &::after {
-        content: '';
         position: absolute;
-        inset: 0;
         z-index: 1;
+        content: '';
+        inset: 0;
       }
     }
 
@@ -124,8 +124,8 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
       outline-offset: -2px;
 
       .#{$c4d-prefix}-tile__action {
-        outline: none;
         color: $button-primary;
+        outline: none;
       }
     }
 
@@ -134,14 +134,14 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
       outline-offset: -2px;
 
       .#{$c4d-prefix}-tile__action {
-        outline: none;
         color: $button-primary;
+        outline: none;
       }
     }
 
     &__image {
-      flex: 0 0 50%;
       overflow: hidden;
+      flex: 0 0 50%;
 
       @include breakpoint('lg') {
         flex-basis: 28.5%;
@@ -161,25 +161,24 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
     }
 
     &__footer-placement {
-      margin-block-start: 0;
-      margin-block-end: $spacing-07;
+      margin-block: 0 $spacing-07;
     }
   }
 
   /** Border styles for adjacent tiles **/
   @include breakpoint-down('md') {
     &:nth-of-type(n + 2) .#{$c4d-prefix}-tile__wrapper {
-      border-top: none;
+      border-block-start: none;
     }
   }
 
   @include breakpoint-between('md', 'lg') {
     &:not(:nth-of-type(2n + 1)) .#{$c4d-prefix}-tile__wrapper {
-      border-left: none;
+      border-inline-start: none;
     }
 
     &:nth-of-type(n + 3) .#{$c4d-prefix}-tile__wrapper {
-      border-top: none;
+      border-block-start: none;
     }
   }
 
@@ -190,22 +189,22 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (#{$lg-12-column-lower-bound} <= inline-size <= #{$lg-12-column-upper-bound}) {
       &:not(:nth-of-type(3n + 1)) .#{$c4d-prefix}-tile__wrapper {
-        border-left: none;
+        border-inline-start: none;
       }
 
       &:nth-of-type(n + 4) .#{$c4d-prefix}-tile__wrapper {
-        border-top: none;
+        border-block-start: none;
       }
     }
 
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (inline-size > #{$lg-12-column-upper-bound}) {
       &:not(:nth-of-type(4n + 1)) .#{$c4d-prefix}-tile__wrapper {
-        border-left: none;
+        border-inline-start: none;
       }
 
       &:nth-of-type(n + 5) .#{$c4d-prefix}-tile__wrapper {
-        border-top: none;
+        border-block-start: none;
       }
     }
   }
@@ -214,22 +213,22 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (#{$xlg-12-column-lower-bound} <= inline-size <= #{$xlg-12-column-upper-bound}) {
       &:not(:nth-of-type(3n + 1)) .#{$c4d-prefix}-tile__wrapper {
-        border-left: none;
+        border-inline-start: none;
       }
 
       &:nth-of-type(n + 4) .#{$c4d-prefix}-tile__wrapper {
-        border-top: none;
+        border-block-start: none;
       }
     }
 
     /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @container (inline-size > #{$xlg-12-column-upper-bound}) {
       &:not(:nth-of-type(4n + 1)) .#{$c4d-prefix}-tile__wrapper {
-        border-left: none;
+        border-inline-start: none;
       }
 
       &:nth-of-type(n + 5) .#{$c4d-prefix}-tile__wrapper {
-        border-top: none;
+        border-block-start: none;
       }
     }
   }
@@ -274,8 +273,8 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
       /* stylelint-disable-next-line scss/at-rule-no-unknown */
       @container tile-group-container (#{$lg-12-column-lower-bound} <= inline-size <= #{$lg-12-column-upper-bound}) {
         display: block;
-        max-width: calc(100% / 3);
         flex: 0 0 calc(100% / 3);
+        max-inline-size: calc(100% / 3);
       }
     }
 
@@ -283,8 +282,8 @@ $xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) 
       /* stylelint-disable-next-line scss/at-rule-no-unknown */
       @container tile-group-container (#{$xlg-12-column-lower-bound} <= inline-size <= #{$xlg-12-column-upper-bound}) {
         display: block;
-        max-width: calc(100% / 3);
         flex: 0 0 calc(100% / 3);
+        max-inline-size: calc(100% / 3);
       }
     }
   }
