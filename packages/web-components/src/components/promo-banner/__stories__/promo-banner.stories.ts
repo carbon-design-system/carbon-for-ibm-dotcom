@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html';
 import '../index';
 import '@carbon/ibmdotcom-web-components/es/components/cta/index';
 import '@carbon/ibmdotcom-web-components/es/components/image/index';
