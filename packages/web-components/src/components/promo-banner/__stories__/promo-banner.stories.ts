@@ -84,7 +84,7 @@ export default {
       control: { type: 'boolean' },
       name: 'Has Image',
       defaultValue: true,
-      if: { arg: 'tocLayout', truthy: false },
+      if: { arg: 'tocLayout', truthy: true },
     },
   },
   decorators: [
@@ -114,9 +114,7 @@ export default {
   ],
 };
 
-const Template = (PromoBanner) => {
-  const { heading, body, hasImage, cta, ctaType } = PromoBanner;
-
+export const Default = ({ heading, body, hasImage, cta, ctaType }) => {
   return html`
     <c4d-promo-banner>
       ${hasImage !== false // Need explicit check to test image container queries.
@@ -151,5 +149,3 @@ const Template = (PromoBanner) => {
     </c4d-promo-banner>
   `;
 };
-
-export const Default = (PromoBanner) => Template(PromoBanner);
