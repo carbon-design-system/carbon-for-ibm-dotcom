@@ -111,39 +111,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    hasPictogram: {
-      control: { type: 'boolean' },
-      name: 'pictogram (optional)',
-      defaultValue: false,
-    },
-    hasTagGroup: {
-      control: { type: 'boolean' },
-      name: 'tags (optional)',
-      defaultValue: false,
-    },
-    ctaType: {
-      control: { type: 'select' },
-      name: 'cta type (optional)',
-      options: ctaTypeOptions,
-      defaultValue: ctaTypeOptions[0],
-    },
-    ctaCopy: {
-      control: { type: 'text' },
-      name: 'cta text (optional)',
-      defaultValue: 'Sign up for the trial',
-    },
-    alignWithContent: {
-      control: { type: 'boolean' },
-      name: 'align link with card content',
-      defaultValue: false,
-    },
-    href: {
-      control: { type: 'text' },
-      name: 'href',
-      defaultValue: 'https://example.com',
-    },
-  },
   decorators: [
     (story, context) => {
       if (context.name === 'Double Tile') {
