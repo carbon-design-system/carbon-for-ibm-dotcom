@@ -99,12 +99,14 @@ export const Default = (args) => {
     <c4d-tile-group>
       ${[...Array(8)].map(() =>
         DefaultTile({
-          ctaType,
-          hasTagGroup,
-          ctaCopy,
-          hasPictogram,
-          alignWithContent,
-          href,
+          Tile: {
+            ctaType,
+            hasTagGroup,
+            ctaCopy,
+            hasPictogram,
+            alignWithContent,
+            href,
+          },
         })
       )}
     </c4d-tile-group>
@@ -124,12 +126,14 @@ export const WithImage = (args) => {
     <c4d-tile-group>
       ${[...Array(8)].map(() =>
         TileWithImage({
-          ctaType,
-          hasTagGroup,
-          ctaCopy,
-          hasPictogram,
-          alignWithContent,
-          href,
+          Tile: {
+            ctaType,
+            hasTagGroup,
+            ctaCopy,
+            hasPictogram,
+            alignWithContent,
+            href,
+          },
         })
       )}
     </c4d-tile-group>
