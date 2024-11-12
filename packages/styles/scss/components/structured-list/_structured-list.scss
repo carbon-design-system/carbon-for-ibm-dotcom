@@ -287,14 +287,23 @@
     vertical-align: sub;
 
     svg {
+      flex-shrink: 0;
       fill: $icon-secondary;
     }
   }
 
   .#{$prefix}--structured-list-cell[icon],
   :host(#{$c4d-prefix}-structured-list-cell[icon]) {
-    &[icon='checkmark'] {
+    &[icon='checkmark'] svg {
       color: $support-success;
     }
+
+    svg {
+      margin-inline-end: $spacing-03;
+    }
+  }
+
+  .#{$prefix}--structured-list-cell-icon-text-container {
+    display: flex;
   }
 }
