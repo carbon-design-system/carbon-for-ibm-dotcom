@@ -7,46 +7,50 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { select, date, text } from '@storybook/addon-knobs';
+import textNullable from '../../../../.storybook/knob-text-nullable';
+import { html } from 'lit';
 import '../index';
-import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty';
-import { bxGrid16Col } from '../../../globals/internal/storybook-decorators';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 
 import readme from './README.stories.mdx';
 
 const msInDay = 86400000;
 const twoWeeksFromNowTimestamp =
   Number(new Date().getTime().toString()) + 14 * msInDay;
-const twoWeeksFromNowISO = new Date(twoWeeksFromNowTimestamp).toISOString();
+const twoWeeksFromNowISO = new Date(twoWeeksFromNowTimestamp);
 
 export default {
   title: 'Components/Countdown',
   parameters: {
     ...readme.parameters,
-  },
-  argTypes: {
-    targetDate: {
-      control: { type: 'date' },
-      name: 'Target Date',
-      defaultValue: twoWeeksFromNowISO,
-    },
-    separator: {
-      control: { type: 'text' },
-      name: 'Separator',
-      defaultValue: ', ',
-    },
-    labelType: {
-      control: { type: 'select' },
-      options: ['long', 'short', 'narrow', 'none'],
-      name: 'Label Type',
-      defaultValue: 'long',
+    hasStoryPadding: true,
+    knobs: {
+      Countdown: () => ({
+        targetDate: date('Target Date', twoWeeksFromNowISO),
+        separator: text('Separator', ', '),
+        labelType: select(
+          'Label Type',
+          ['long', 'short', 'narrow', 'none'],
+          'long'
+        ),
+      }),
     },
   },
-  decorators: [(story) => bxGrid16Col(story)],
+  decorators: [
+    (story) => html`
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-16">${story()}</div>
+        </div>
+      </div>
+    `,
+  ],
 };
 
 const Template = (args) => {
-  const { targetDate, separator, labelType } = args;
+  const { targetDate, separator, labelType } = args?.Countdown ?? {};
+
   return html`
     <c4d-countdown
       target="${ifNonEmpty(targetDate)}"
@@ -55,19 +59,17 @@ const Template = (args) => {
   `;
 };
 
-export const Default = (_args) => Template(_args);
+export const Default = (args) => Template(args);
 
-export const WithTimestamp = (_args) => Template(_args);
+export const WithTimestamp = (args) => Template(args);
 
-WithTimestamp.argTypes = {
-  targetDate: {
-    control: { type: 'text' },
-    name: 'Timestamp',
-    defaultValue: `${twoWeeksFromNowTimestamp}`,
-  },
+WithTimestamp.knobs = {
+  Countdown: () => ({
+    targetDate: textNullable('Timestamp', twoWeeksFromNowTimestamp),
+  }),
 };
 
-export const InPromoBanner = (_args) => {
+export const InPromoBanner = (args) => {
   return html`
     <c4d-promo-banner>
       <c4d-image
@@ -83,7 +85,7 @@ export const InPromoBanner = (_args) => {
           media="(min-width:1312px)"
           srcset="https://fpoimg.com/400x400?&bg_color=53ee96&text_color=161616"></c4d-image-item>
       </c4d-image>
-      <h5>${Template(_args)}</h5>
+      <h5>${Template(args)}</h5>
       <p>Optional short body text</p>
       <c4d-button-cta
         cta-type="local"
