@@ -265,6 +265,7 @@
 
     svg {
       margin-inline-end: $spacing-03;
+      flex-shrink: 0;
     }
   }
 

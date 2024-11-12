@@ -288,6 +288,7 @@
 
     svg {
       fill: $icon-secondary;
+      flex-shrink: 0;
     }
   }
 
