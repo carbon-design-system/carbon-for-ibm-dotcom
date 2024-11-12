@@ -1,0 +1,290 @@
+//
+// Copyright IBM Corp. 2024
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/link' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '@carbon/grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+
+$md-breakpoint-width: map-get(map-get($grid-breakpoints, md), width);
+$lg-breakpoint-width: map-get(map-get($grid-breakpoints, lg), width);
+$xlg-breakpoint-width: map-get(map-get($grid-breakpoints, xlg), width);
+$max-breakpoint-width: map-get(map-get($grid-breakpoints, max), width);
+
+// We need lower and upper bounds for a container occupying 12 / 16 columns at
+// the lg and xlg breakpoints. For the lower bound we take the breakpoint
+// size, less the 2rem of outer padding, multiplied by 12 / 16, less 2rem of
+// column padding. For the upper bound we take the next breakpoint size and
+// do a similar calculation with a slight tweak of subtracting 0.02 from the
+// breakpoint size as a starting point, similar to how the
+// breakpoint-between mixin works. Note that this approach my not work
+// cleanly for the narrow or condensed grid due to the necessary assumptions
+// made for padding widths.
+$lg-12-column-lower-bound: (($lg-breakpoint-width - 2rem) * (12 / 16)) - 2rem;
+$lg-12-column-upper-bound: (($xlg-breakpoint-width - 0.02 - 2rem) * (12 / 16)) -
+  2rem;
+$xlg-12-column-lower-bound: (($xlg-breakpoint-width - 2rem) * (12 / 16)) - 2rem;
+$xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) -
+  2rem;
+
+:host(#{$c4d-prefix}-tile) {
+  .#{$c4d-prefix}-tile {
+    &__outer {
+      display: grid;
+      block-size: 100%;
+      grid-template-columns: 100%;
+      grid-template-rows: 1fr;
+
+      &::before {
+        display: block;
+        /* stylelint-disable-next-line property-no-unknown */
+        aspect-ratio: var(--c4d-tile-aspect-ratio, 16 / 9);
+        content: '';
+        grid-area: 1 / 1 / 2 / 2;
+      }
+    }
+
+    &__wrapper {
+      position: relative;
+      display: flex;
+      padding: $spacing-05;
+      border: 1px solid $border-subtle;
+      gap: $spacing-05;
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &__pictogram {
+      block-size: 5.5rem;
+      inline-size: 5.5rem;
+      margin-block-end: $spacing-06;
+    }
+
+    &__content {
+      @include type-style('body-compact-02');
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-06;
+      margin-block-end: $spacing-07;
+    }
+
+    &__label {
+      @include type-style('label-01');
+
+      color: $text-secondary;
+      margin-block-end: $spacing-03;
+    }
+
+    &__action {
+      margin-block-start: auto;
+
+      .#{$c4d-prefix}-ce--cta__icon {
+        display: inline;
+        align-self: center;
+        fill: currentcolor;
+        margin-inline-start: $spacing-03;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+
+      &::after {
+        position: absolute;
+        z-index: 1;
+        content: '';
+        inset: 0;
+      }
+    }
+
+    &__wrapper:hover {
+      background: $background-hover;
+
+      .#{$c4d-prefix}-tile__action {
+        color: $button-primary-hover;
+      }
+    }
+
+    &__wrapper:focus-within {
+      background: $background-hover;
+      outline: 2px solid $focus;
+      outline-offset: -2px;
+
+      .#{$c4d-prefix}-tile__action {
+        color: $button-primary;
+        outline: none;
+      }
+    }
+
+    &__wrapper:active {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
+
+      .#{$c4d-prefix}-tile__action {
+        color: $button-primary;
+        outline: none;
+      }
+    }
+
+    &__image {
+      overflow: hidden;
+      flex: 0 0 50%;
+
+      @include breakpoint('lg') {
+        flex-basis: 28.5%;
+      }
+      @include breakpoint('xlg') {
+        flex-basis: 50%;
+      }
+
+      // Double width tile image responsive handling.
+      &-double {
+        flex-basis: calc(50% - #{$spacing-05});
+
+        @include breakpoint-down('sm') {
+          flex: 1;
+        }
+      }
+    }
+
+    &__footer-placement {
+      margin-block: 0 $spacing-07;
+    }
+  }
+
+  /** Border styles for adjacent tiles **/
+  @include breakpoint-down('md') {
+    &:nth-of-type(n + 2) .#{$c4d-prefix}-tile__wrapper {
+      border-block-start: none;
+    }
+  }
+
+  @include breakpoint-between('md', 'lg') {
+    &:not(:nth-of-type(2n + 1)) .#{$c4d-prefix}-tile__wrapper {
+      border-inline-start: none;
+    }
+
+    &:nth-of-type(n + 3) .#{$c4d-prefix}-tile__wrapper {
+      border-block-start: none;
+    }
+  }
+
+  // Manually doing the media query here b/c breakpoint-between produces
+  // a lower bound of $lg-breakpoint-width + 0.02, which would net us double
+  // borders for a pixel or so of viewport width right at 1056px.
+  @media (min-width: #{$lg-breakpoint-width}) and (max-width: #{$xlg-breakpoint-width - 0.02}) {
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (#{$lg-12-column-lower-bound} <= inline-size <= #{$lg-12-column-upper-bound}) {
+      &:not(:nth-of-type(3n + 1)) .#{$c4d-prefix}-tile__wrapper {
+        border-inline-start: none;
+      }
+
+      &:nth-of-type(n + 4) .#{$c4d-prefix}-tile__wrapper {
+        border-block-start: none;
+      }
+    }
+
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (inline-size > #{$lg-12-column-upper-bound}) {
+      &:not(:nth-of-type(4n + 1)) .#{$c4d-prefix}-tile__wrapper {
+        border-inline-start: none;
+      }
+
+      &:nth-of-type(n + 5) .#{$c4d-prefix}-tile__wrapper {
+        border-block-start: none;
+      }
+    }
+  }
+
+  @include breakpoint(xlg) {
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (#{$xlg-12-column-lower-bound} <= inline-size <= #{$xlg-12-column-upper-bound}) {
+      &:not(:nth-of-type(3n + 1)) .#{$c4d-prefix}-tile__wrapper {
+        border-inline-start: none;
+      }
+
+      &:nth-of-type(n + 4) .#{$c4d-prefix}-tile__wrapper {
+        border-block-start: none;
+      }
+    }
+
+    /* stylelint-disable-next-line scss/at-rule-no-unknown */
+    @container (inline-size > #{$xlg-12-column-upper-bound}) {
+      &:not(:nth-of-type(4n + 1)) .#{$c4d-prefix}-tile__wrapper {
+        border-inline-start: none;
+      }
+
+      &:nth-of-type(n + 5) .#{$c4d-prefix}-tile__wrapper {
+        border-block-start: none;
+      }
+    }
+  }
+
+  /** /Border styles for adjacent tiles **/
+}
+
+// Double Tile responsiveness.
+:host(#{$c4d-prefix}-tile)[double-tile] {
+  .#{$c4d-prefix}-tile {
+    &__wrapper {
+      gap: $spacing-07;
+      @include breakpoint-down('sm') {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+:host(#{$c4d-prefix}-tile-group) {
+  display: block;
+  /* stylelint-disable-next-line property-no-unknown */
+  container: tile-group-container / inline-size;
+  inline-size: 100%;
+
+  .#{$c4d-prefix}-tile-group {
+    @include make-row();
+
+    margin-inline: 0;
+  }
+
+  ::slotted(#{$c4d-prefix}-tile) {
+    @include make-col(4, 4);
+
+    @include breakpoint(md) {
+      @include make-col(4, 8);
+    }
+
+    @include breakpoint(lg) {
+      @include make-col(4, 16);
+
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container tile-group-container (#{$lg-12-column-lower-bound} <= inline-size <= #{$lg-12-column-upper-bound}) {
+        display: block;
+        flex: 0 0 calc(100% / 3);
+        max-inline-size: calc(100% / 3);
+      }
+    }
+
+    @include breakpoint(xlg) {
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container tile-group-container (#{$xlg-12-column-lower-bound} <= inline-size <= #{$xlg-12-column-upper-bound}) {
+        display: block;
+        flex: 0 0 calc(100% / 3);
+        max-inline-size: calc(100% / 3);
+      }
+    }
+  }
+}

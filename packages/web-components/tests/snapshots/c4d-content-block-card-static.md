@@ -9,6 +9,7 @@
   <c4d-card-group-item
     color-scheme=""
     data-autoid="c4d--card-group-item"
+    grid-mode="default"
     pictogram-placement="bottom"
     size=""
   >
@@ -72,6 +73,7 @@
   <c4d-card-group-item
     color-scheme=""
     data-autoid="c4d--card-group-item"
+    grid-mode="default"
     pictogram-placement="bottom"
     size=""
   >
@@ -85,6 +87,7 @@
     <c4d-card-group-item
       color-scheme=""
       data-autoid="c4d--card-group-item"
+      grid-mode="default"
       href="https://example.com"
       pictogram-placement="bottom"
       size=""

@@ -17,7 +17,7 @@
 </a>
 <ul
   class="cds--header__menu"
-  part="header-menu-ul"
+  part="header-menu"
 >
   <slot>
   </slot>
@@ -41,7 +41,7 @@
 <ul
   aria-label="menu-label-foo"
   class="cds--header__menu"
-  part="header-menu-ul"
+  part="header-menu"
 >
   <slot>
   </slot>
