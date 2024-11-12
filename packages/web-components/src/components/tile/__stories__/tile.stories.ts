@@ -11,8 +11,8 @@ import { html } from 'lit';
 import '@carbon/web-components/es/components/tag/tag';
 import '../index';
 import readme from './README--tile.stories.mdx';
-import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container';
-import '@carbon/ibmdotcom-web-components/es/components/image';
+import '../../cta/video-cta-container';
+import '../../image';
 
 import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
 import { boolean, select, text } from '@storybook/addon-knobs';

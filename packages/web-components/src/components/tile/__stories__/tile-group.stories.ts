@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import '../index';
 import readme from './README--tile-group.stories.mdx';
-import '@carbon/ibmdotcom-web-components/es/components/image';
+import '../../image';
 import {
   Default as DefaultTile,
   WithImage as TileWithImage,
