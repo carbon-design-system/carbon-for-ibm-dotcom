@@ -12,14 +12,13 @@ export const Default = ({
   starCount,
   tooltipText,
 }) => html`
-  <caem-star-rating
+  <c4d-star-rating
     ?disableTooltip="${disableTooltip}"
     label="${ifDefined(label || undefined)}"
     label-href="${ifDefined(labelHref || undefined)}"
     rating="${rating}"
     star-count="${starCount}"
-    tooltip="${tooltipText}"
-  ></caem-star-rating>
+    tooltip="${tooltipText}"></c4d-star-rating>
 `;
 
 export const NoLabel = ({
@@ -28,12 +27,11 @@ export const NoLabel = ({
   starCount,
   tooltipText,
 }) => html`
-  <caem-star-rating
+  <c4d-star-rating
     ?disableTooltip="${disableTooltip}"
     rating="${rating}"
     star-count="${starCount}"
-    tooltip="${tooltipText}"
-  ></caem-star-rating>
+    tooltip="${tooltipText}"></c4d-star-rating>
 `;
 
 NoLabel.argTypes = {
@@ -83,10 +81,7 @@ export default {
     ...readme.parameters,
   },
   decorators: [
-    story => bxGrid8ColCentered(story),
-    story =>
-      html`
-        <div style="margin-block-start: 2rem;">${story()}</div>
-      `,
+    (story) => bxGrid8ColCentered(story),
+    (story) => html` <div style="margin-block-start: 2rem;">${story()}</div> `,
   ],
 };

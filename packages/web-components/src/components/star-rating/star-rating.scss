@@ -13,9 +13,9 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/tooltip' as *;
 @use '@carbon/styles/scss/components/button/tokens' as *;
-@use '../../globals/scss/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$caem-prefix}-star-rating) {
+:host(#{$c4d-prefix}-star-rating) {
   display: inline-block;
 
   .#{$prefix}-star-rating {

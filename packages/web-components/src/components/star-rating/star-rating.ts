@@ -6,16 +6,16 @@ import StarHalf16 from '@carbon/web-components/es/icons/star--half/16';
 import StarFilled16 from '@carbon/web-components/es/icons/star--filled/16';
 import styles from './star-rating.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import settings from '../../globals/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 
-const { stablePrefix: caemPrefix, prefix } = settings;
+const { stablePrefix: c4dPrefix, prefix } = settings;
 
 /**
  * The Star Rating component.
- * @element caem-star-rating
+ * @element c4d-star-rating
  */
-@customElement(`${caemPrefix}-star-rating`)
-class CAEMStarRating extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-star-rating`)
+class C4DStarRating extends StableSelectorMixin(LitElement) {
   /**
    * Maximum number of stars that may be in a rating.
    */
@@ -110,11 +110,7 @@ class CAEMStarRating extends StableSelectorMixin(LitElement) {
     }
     return html`
       <div class="${prefix}-star-rating__label" part="label">
-        ${labelHref
-          ? html`
-              <a href="${labelHref}">${label}</a>
-            `
-          : label}
+        ${labelHref ? html` <a href="${labelHref}">${label}</a> ` : label}
       </div>
     `;
   }
@@ -126,7 +122,7 @@ class CAEMStarRating extends StableSelectorMixin(LitElement) {
    */
   protected _renderStars() {
     const { disableTooltip, tooltip, rating, starCount } = this;
-    const { renderStar } = this.constructor as typeof CAEMStarRating;
+    const { renderStar } = this.constructor as typeof C4DStarRating;
     const integer = Math.floor(rating);
     const decimal = rating - integer;
 
@@ -143,9 +139,8 @@ class CAEMStarRating extends StableSelectorMixin(LitElement) {
         aria-label="${tooltip}"
         class="${prefix}-star-rating__stars"
         ?disableTooltip="${disableTooltip}"
-        part="stars"
-      >
-        ${fillValues.map(fillValue => renderStar(fillValue))}
+        part="stars">
+        ${fillValues.map((fillValue) => renderStar(fillValue))}
       </figure>
     `;
   }
@@ -177,9 +172,7 @@ class CAEMStarRating extends StableSelectorMixin(LitElement) {
       markup = StarFilled16();
       classModifier = 'filled';
     } else if (fill >= 0.25) {
-      markup = html`
-        ${Star16()}${StarHalf16()}
-      `;
+      markup = html` ${Star16()}${StarHalf16()} `;
       classModifier = 'half';
     } else {
       markup = Star16();
@@ -188,18 +181,17 @@ class CAEMStarRating extends StableSelectorMixin(LitElement) {
     return html`
       <div
         class="${prefix}-star-count__star ${prefix}-star-count__star--${classModifier}"
-        part="star"
-      >
+        part="star">
         ${markup}
       </div>
     `;
   }
 
   static get stableSelector() {
-    return `${caemPrefix}--star-rating`;
+    return `${c4dPrefix}--star-rating`;
   }
 
   static styles = styles;
 }
 
-export default CAEMStarRating;
+export default C4DStarRating;
