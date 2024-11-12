@@ -63,10 +63,23 @@ export const Default = (args) => Template(args);
 
 export const WithTimestamp = (args) => Template(args);
 
-WithTimestamp.knobs = {
-  Countdown: () => ({
-    targetDate: textNullable('Timestamp', twoWeeksFromNowTimestamp),
-  }),
+WithTimestamp.story = {
+  parameters: {
+    knobs: {
+      Countdown: () => ({
+        targetDate: textNullable(
+          'Timestamp',
+          twoWeeksFromNowTimestamp.toString()
+        ),
+        separator: text('Separator', ', '),
+        labelType: select(
+          'Label Type',
+          ['long', 'short', 'narrow', 'none'],
+          'long'
+        ),
+      }),
+    },
+  },
 };
 
 export const InPromoBanner = (args) => {
