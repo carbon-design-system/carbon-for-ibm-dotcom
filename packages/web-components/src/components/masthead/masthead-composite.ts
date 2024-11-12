@@ -51,6 +51,7 @@ import './masthead-contact';
 import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
+import './masthead-cart';
 import './megamenu';
 import './megamenu-heading';
 import './megamenu-top-nav-menu';
@@ -1179,6 +1180,13 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         `;
   }
 
+  protected _renderCart() {
+    const { hasCart, cartLabel } = this;
+    return hasCart
+      ? html`<c4d-masthead-cart link-label="${cartLabel}"></c4d-masthead-cart>`
+      : undefined;
+  }
+
   /**
    * Gets the appropriate profile items for the current masthead state.
    *
@@ -1504,6 +1512,18 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   hasContact = 'true';
 
   /**
+   * `true` if Cart should be shown.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'has-cart' })
+  hasCart = false;
+
+  /**
+   * Label for the cart icon.
+   */
+  @property({ type: String, reflect: true, attribute: 'cart-label' })
+  cartLabel = 'Cart';
+
+  /**
    * The selected authentication method, either `profile-api` (default), `cookie`, or `docs-api`.
    */
   @property({ attribute: 'auth-method' })
@@ -1632,7 +1652,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ${this._renderPlatformTitle()}
         ${!isMobileVersion ? this._renderTopNav() : ''} ${this._renderSearch()}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${this._renderContact()} ${this._renderProfileMenu()}
+          ${this._renderContact()} ${this._renderCart()}
+          ${this._renderProfileMenu()}
         </c4d-masthead-global-bar>
         ${this._renderL1()}
         <c4d-megamenu-overlay></c4d-megamenu-overlay>

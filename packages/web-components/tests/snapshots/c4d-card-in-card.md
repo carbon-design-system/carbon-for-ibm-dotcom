@@ -19,10 +19,17 @@
       class="cds--card__content"
       part="content"
     >
-      <slot name="eyebrow">
-      </slot>
-      <slot name="heading">
-      </slot>
+      <div
+        class="cds--card__eyebrow-wrapper cds--card__eyebrow-wrapper--empty"
+        part="eyebrow-wrapper"
+      >
+        <slot name="eyebrow">
+        </slot>
+      </div>
+      <div part="heading-wrapper">
+        <slot name="heading">
+        </slot>
+      </div>
       <div
         class="cds--card__copy"
         hidden=""
@@ -31,13 +38,23 @@
         <slot>
         </slot>
       </div>
-      <slot
-        data-pictogram-placement="bottom"
-        name="pictogram"
+      <div
+        class="cds--card__pictogram-wrapper cds--card__pictogram-wrapper--empty"
+        part="pictogram-wrapper"
       >
-      </slot>
-      <slot name="footer">
-      </slot>
+        <slot
+          data-pictogram-placement="bottom"
+          name="pictogram"
+        >
+        </slot>
+      </div>
+      <div
+        class="cds--card__footer-wrapper"
+        part="footer-wrapper"
+      >
+        <slot name="footer">
+        </slot>
+      </div>
     </div>
   </div>
 </div>
@@ -61,10 +78,17 @@
       class="cds--card__content"
       part="content"
     >
-      <slot name="eyebrow">
-      </slot>
-      <slot name="heading">
-      </slot>
+      <div
+        class="cds--card__eyebrow-wrapper cds--card__eyebrow-wrapper--empty"
+        part="eyebrow-wrapper"
+      >
+        <slot name="eyebrow">
+        </slot>
+      </div>
+      <div part="heading-wrapper">
+        <slot name="heading">
+        </slot>
+      </div>
       <div
         class="cds--card__copy"
         hidden=""
@@ -73,13 +97,23 @@
         <slot>
         </slot>
       </div>
-      <slot
-        data-pictogram-placement="bottom"
-        name="pictogram"
+      <div
+        class="cds--card__pictogram-wrapper cds--card__pictogram-wrapper--empty"
+        part="pictogram-wrapper"
       >
-      </slot>
-      <slot name="footer">
-      </slot>
+        <slot
+          data-pictogram-placement="bottom"
+          name="pictogram"
+        >
+        </slot>
+      </div>
+      <div
+        class="cds--card__footer-wrapper"
+        part="footer-wrapper"
+      >
+        <slot name="footer">
+        </slot>
+      </div>
     </div>
   </div>
 </div>
