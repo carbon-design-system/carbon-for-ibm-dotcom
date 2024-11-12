@@ -8,18 +8,18 @@
  */
 
 import { LitElement, html } from 'lit';
-import { state, queryAssignedNodes } from 'lit/decorators';
-import { classMap } from 'lit/directives/class-map';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { state, queryAssignedNodes } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import styles from './promo-banner.scss';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CTAMixin, {
   icons as ctaIcons,
-} from '@carbon/ibmdotcom-web-components/es/component-mixins/cta/cta';
-import { CTAMixinImpl } from '@carbon/ibmdotcom-web-components/es/component-mixins/cta/cta';
+  CTAMixinImpl,
+} from '../../component-mixins/cta/cta';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty';
-import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
+import { CTA_TYPE } from '../cta/defs';
 
 const { stablePrefix: c4dPrefix, prefix } = settings;
 

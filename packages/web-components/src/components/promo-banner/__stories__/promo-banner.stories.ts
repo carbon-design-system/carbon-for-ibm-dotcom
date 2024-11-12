@@ -7,16 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { html } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html';
 import '../index';
-import '@carbon/ibmdotcom-web-components/es/components/cta/index';
-import '@carbon/ibmdotcom-web-components/es/components/image/index';
-import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/index';
-import { types } from '@carbon/ibmdotcom-web-components/es/component-mixins/cta/cta';
+import '../../cta/index';
+import '../../image/index';
+import '../../table-of-contents/index';
+import { types } from '../../../component-mixins/cta/cta';
 
 import readme from './README.stories.mdx';
-import { boolean, select, text } from '@storybook/addon-knobs';
 
 const incompatibleTypes = ['video', 'email', 'schedule', 'chat', 'call'];
 const ctaTypes = Object.values(types).filter(
