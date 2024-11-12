@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 
 /**
  * Wraps provided Storybook story in Carbon grid with no columns.

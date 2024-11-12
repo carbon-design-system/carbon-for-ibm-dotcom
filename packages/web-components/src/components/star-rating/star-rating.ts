@@ -1,4 +1,14 @@
-import { html, LitElement, property } from 'lit-element';
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2020, 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import { html, LitElement } from 'lit';
+import { property } from 'lit/decorators';
 import '@carbon/web-components/es/components/tooltip';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
 import Star16 from '@carbon/web-components/es/icons/star/16';
