@@ -52,41 +52,7 @@ export default {
       },
     },
   },
-  argTypes: {
-    heading: {
-      control: { type: 'text' },
-      name: 'Heading (HTML Enabled)',
-      defaultValue:
-        '<h5>Try a demo of Watson<span style="color:#0f62fe;">X</span></h5>',
-    },
-    body: {
-      control: { type: 'text' },
-      name: 'Body Text (HTML Enabled)',
-      defaultValue: '<p>Easily deploy and embed AI across your business.</p>',
-    },
-    cta: {
-      control: { type: 'text' },
-      name: 'CTA Label',
-      defaultValue: 'Try Today',
-    },
-    ctaType: {
-      control: { type: 'select' },
-      options: ctaTypes,
-      name: 'CTA Type',
-      defaultValue: 'local',
-    },
-    tocLayout: {
-      control: { type: 'boolean' },
-      name: 'Render in TOC',
-      defaultValue: false,
-    },
-    hasImage: {
-      control: { type: 'boolean' },
-      name: 'Has Image',
-      defaultValue: true,
-      if: { arg: 'tocLayout', truthy: true },
-    },
-  },
+
   decorators: [
     (story, { args: { tocLayout } }) => html`
       <div class="c4d-story-padding">
@@ -114,7 +80,8 @@ export default {
   ],
 };
 
-export const Default = ({ heading, body, hasImage, cta, ctaType }) => {
+export const Default = (args) => {
+  const { heading, body, hasImage, cta, ctaType } = args?.PromoBanner ?? {};
   return html`
     <c4d-promo-banner>
       ${hasImage !== false // Need explicit check to test image container queries.
