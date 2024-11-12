@@ -9,7 +9,7 @@
 
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { html } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '../index';
 import '../../cta/index';
 import '../../image/index';
@@ -28,6 +28,7 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
+      escapeHTML: false,
       PromoBanner: () => {
         const heading = text(
           'Heading (HTML Enabled)',
