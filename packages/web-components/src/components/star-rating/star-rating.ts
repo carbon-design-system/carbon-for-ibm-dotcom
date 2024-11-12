@@ -173,7 +173,7 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
   /**
    * Renders an individual star at a given fill value.
    *
-   * @param {Number} fill The star's fill value.
+   * @param {number} fill The star's fill value.
    * @returns {TemplateResult} A template fragment representing a single star.
    */
   static renderStar(fill) {
