@@ -259,8 +259,13 @@
   }
 
   :host(#{$c4d-prefix}-pricing-table-cell[icon]) {
-    &[icon='checkmark'] {
+    &[icon='checkmark'] svg {
       color: $support-success;
+    }
+
+    svg {
+      flex-shrink: 0;
+      margin-inline-end: $spacing-03;
     }
   }
 
