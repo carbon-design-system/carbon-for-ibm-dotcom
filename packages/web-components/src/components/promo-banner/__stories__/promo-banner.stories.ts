@@ -55,29 +55,31 @@ export default {
   },
 
   decorators: [
-    (story, { args: { tocLayout } }) => html`
-      <div class="c4d-story-padding">
-        ${tocLayout
-          ? html`
-              <c4d-table-of-contents class="cds--grid">
-                <div class="cds--row">
-                  <div class="cds--col cds--no-gutter">
-                    <div name="TOC Label" data-title="Promotional Banner">
-                      ${story()}
+    (story, { args }) => {
+      return html`
+        <div class="c4d-story-padding">
+          ${args?.PromoBanner?.tocLayout
+            ? html`
+                <c4d-table-of-contents class="cds--grid">
+                  <div class="cds--row">
+                    <div class="cds--col cds--no-gutter">
+                      <div name="TOC Label" data-title="Promotional Banner">
+                        ${story()}
+                      </div>
                     </div>
                   </div>
+                </c4d-table-of-contents>
+              `
+            : html`
+                <div class="cds--grid">
+                  <div class="cds--row">
+                    <div class="cds--col cds--no-gutter">${story()}</div>
+                  </div>
                 </div>
-              </c4d-table-of-contents>
-            `
-          : html`
-              <div class="cds--grid">
-                <div class="cds--row">
-                  <div class="cds--col cds--no-gutter">${story()}</div>
-                </div>
-              </div>
-            `}
-      </div>
-    `,
+              `}
+        </div>
+      `;
+    },
   ],
 };
 
