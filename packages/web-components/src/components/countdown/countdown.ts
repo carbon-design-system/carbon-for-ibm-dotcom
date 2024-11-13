@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, LitElement } from 'lit-element';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { LitElement, html } from 'lit';
+import { property, state } from 'lit/decorators.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LocaleAPI } from '@carbon/ibmdotcom-services/es/services/Locale/index';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,

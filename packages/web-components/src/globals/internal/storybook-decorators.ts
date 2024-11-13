@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 
 /**
  * Wraps provided Storybook story in Carbon grid with no columns.
@@ -15,7 +15,7 @@ import { html } from 'lit-element';
  * @param story Storybook story
  * @returns {TemplateResult}
  */
-export const bxGridNoCol = (story) => html`
+export const gridNoCol = (story) => html`
   <div class="cds--grid c4d-story-padding">
     <div class="cds--row">${story instanceof Function ? story() : story}</div>
   </div>
@@ -27,8 +27,8 @@ export const bxGridNoCol = (story) => html`
  * @param story Storybook story
  * @returns {TemplateResult}
  */
-export const bxGrid16Col = (story) =>
-  bxGridNoCol(html` <div class="cds--col-lg-16">${story()}</div> `);
+export const grid16Col = (story) =>
+  gridNoCol(html` <div class="cds--col-lg-16">${story()}</div> `);
 
 /**
  * Wraps provided Storybook story in Carbon grid with a half-width, centered column.
@@ -36,7 +36,7 @@ export const bxGrid16Col = (story) =>
  * @param story Storybook story
  * @returns {TemplateResult}
  */
-export const bxGrid8ColCentered = (story) =>
-  bxGridNoCol(
+export const grid8ColCentered = (story) =>
+  gridNoCol(
     html` <div class="cds--offset-lg-4 cds--col-lg-8">${story()}</div> `
   );
