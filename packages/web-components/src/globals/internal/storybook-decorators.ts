@@ -15,7 +15,7 @@ import { html } from 'lit';
  * @param story Storybook story
  * @returns {TemplateResult}
  */
-export const GridNoCol = (story) => html`
+export const gridNoCol = (story) => html`
   <div class="cds--grid c4d-story-padding">
     <div class="cds--row">${story instanceof Function ? story() : story}</div>
   </div>
@@ -27,8 +27,8 @@ export const GridNoCol = (story) => html`
  * @param story Storybook story
  * @returns {TemplateResult}
  */
-export const Grid16Col = (story) =>
-  GridNoCol(html` <div class="cds--col-lg-16">${story()}</div> `);
+export const grid16Col = (story) =>
+  gridNoCol(html` <div class="cds--col-lg-16">${story()}</div> `);
 
 /**
  * Wraps provided Storybook story in Carbon grid with a half-width, centered column.
@@ -36,7 +36,7 @@ export const Grid16Col = (story) =>
  * @param story Storybook story
  * @returns {TemplateResult}
  */
-export const Grid8ColCentered = (story) =>
-  GridNoCol(
+export const grid8ColCentered = (story) =>
+  gridNoCol(
     html` <div class="cds--offset-lg-4 cds--col-lg-8">${story()}</div> `
   );
