@@ -8,10 +8,10 @@
  */
 
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../index';
 import readme from './README.stories.mdx';
-import { Grid8ColCentered } from '../../../globals/internal/storybook-decorators';
+import { grid8ColCentered } from '../../../globals/internal/storybook-decorators';
 import { boolean, number, text } from '@storybook/addon-knobs';
 
 export const Default = (args) => {
@@ -66,7 +66,7 @@ export default {
     },
   },
   decorators: [
-    (story) => Grid8ColCentered(story),
+    (story) => grid8ColCentered(story),
     (story) => html` <div style="margin-block-start: 2rem;">${story()}</div> `,
   ],
 };
