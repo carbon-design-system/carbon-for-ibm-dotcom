@@ -53,6 +53,10 @@
     svg:nth-of-type(1) {
       position: initial;
     }
+
+    svg:nth-of-type(2):dir(rtl) {
+      transform: scaleX(-1);
+    }
   }
 
   .#{$prefix}-star-rating__label,
