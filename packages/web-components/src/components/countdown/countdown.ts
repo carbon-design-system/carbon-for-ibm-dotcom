@@ -20,10 +20,10 @@ import MediaQueryMixin, {
 const { stablePrefix: c4dPrefix } = settings;
 
 const ms_per = {
-  second: 1_000,
-  minute: 1_000 * 60,
-  hour: 1_000 * 60 * 60,
-  day: 1_000 * 60 * 60 * 24,
+  second: 1000,
+  minute: 1000 * 60,
+  hour: 1000 * 60 * 60,
+  day: 1000 * 60 * 60 * 24,
 };
 
 const units = Object.keys(ms_per);
