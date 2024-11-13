@@ -1,0 +1,31 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import {
+  Meta,
+  Props,
+  Story,
+  Canvas,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { cdnJs } from "../../../globals/internal/storybook-cdn";
+import "../index";
+
+<Meta title="Tile Group" />
+
+# Tile Group
+
+<Canvas withToolbar>
+  <Story id="components-tile-group--default" height="100px" />
+</Canvas>
+
+<Description markdown={`${cdnJs({ components: ["tile"] })}`} />
+
+### `<c4d-tile-group>` attributes, properties, and events
+<Props of="c4d-tile-group" />

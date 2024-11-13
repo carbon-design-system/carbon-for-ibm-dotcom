@@ -11,6 +11,7 @@
 
 :root {
   @include theme.theme(themes.$white);
+
   background-color: var(--cds-background);
   color: var(--cds-text-primary);
 }
