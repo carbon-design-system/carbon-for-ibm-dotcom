@@ -113,6 +113,7 @@ jobs:
         continue-on-error: true
         working-directory: packages/web-components
         run: |
+          export CYPRESS_VERIFY_TIMEOUT=60000
           yarn cypress:verify
           yarn test:e2e-storybook:test:parallel
         env:
