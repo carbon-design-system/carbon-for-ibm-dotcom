@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import '../index';
 import readme from './README.stories.mdx';
-import { bxGrid8ColCentered } from '../../../globals/internal/storybook-decorators';
+import { Grid8ColCentered } from '../../../globals/internal/storybook-decorators';
 import { boolean, number, text } from '@storybook/addon-knobs';
 
 export const Default = (args) => {
@@ -41,20 +41,11 @@ export const NoLabel = (args) => {
   `;
 };
 
-NoLabel.argTypes = {
-  label: {
-    table: { disable: true },
-  },
-  labelHref: {
-    table: { disable: true },
-  },
-};
-
 export default {
   title: 'Components/Star Rating',
   parameters: {
     ...readme.parameters,
-    hasStoryPaddin: true,
+    hasStoryPadding: true,
     knobs: {
       StarRating: () => {
         const rating = number('Star Rating', 4.5);
@@ -75,7 +66,7 @@ export default {
     },
   },
   decorators: [
-    (story) => bxGrid8ColCentered(story),
+    (story) => Grid8ColCentered(story),
     (story) => html` <div style="margin-block-start: 2rem;">${story()}</div> `,
   ],
 };
