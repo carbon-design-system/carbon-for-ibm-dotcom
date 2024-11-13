@@ -14,7 +14,7 @@ import readme from './README--tile.stories.mdx';
 import '../../cta/video-cta-container';
 import '../../image';
 
-import { CTA_TYPE } from '@carbon/ibmdotcom-web-components/es/components/cta/defs';
+import { CTA_TYPE } from '../../cta/defs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 const tagGroupContent = html`
