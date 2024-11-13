@@ -16,8 +16,8 @@
 @include carbon--font-face-sans();
 
 body {
-  visibility: inherit; // Initially hidden to avoid FOUC
   padding: calc(#{mini-units(6)} + 1px) 0 0 0;
+  visibility: inherit; // Initially hidden to avoid FOUC
 }
 
 .bx--content.cds-ce-demo--ui-shell-content {
@@ -25,7 +25,7 @@ body {
     margin: 30px 0;
 
     &:first-of-type {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 }
