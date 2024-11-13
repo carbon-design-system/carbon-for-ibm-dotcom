@@ -50,12 +50,12 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
   }
 
   .banner-wrapper {
+    position: relative;
     display: flex;
     flex-wrap: nowrap;
     align-items: start;
-    color: $text-primary;
     background-color: $layer;
-    position: relative;
+    color: $text-primary;
 
     @include breakpoint-down(lg) {
       &:not(.no-cta) {
@@ -73,8 +73,8 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
   }
 
   .banner-image {
-    align-self: stretch;
     position: relative;
+    align-self: stretch;
 
     @include make-col(4, 16);
     @include breakpoint(lg) {
@@ -94,11 +94,11 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
 
   ::slotted([slot='image']) {
     /* stylelint-disable-next-line property-no-unknown */
-    aspect-ratio: auto;
-    padding-block: 0;
-    height: 100%;
-    width: 100%;
     position: absolute;
+    aspect-ratio: auto;
+    block-size: 100%;
+    inline-size: 100%;
+    padding-block: 0;
   }
 
   .banner-content {
@@ -124,9 +124,9 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
       }
 
       &::after {
-        content: '';
         position: absolute;
         display: block;
+        content: '';
         inset: 0;
       }
     }
@@ -158,6 +158,6 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
   }
 
   ::slotted([slot='cta']) {
-    width: 100%;
+    inline-size: 100%;
   }
 }
