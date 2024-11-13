@@ -14,7 +14,7 @@ import { LocaleAPI } from '@carbon/ibmdotcom-services/es/services/Locale/index';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
-} from '@carbon/ibmdotcom-web-components/es/component-mixins/media-query/media-query';
+} from '../../component-mixins/media-query/media-query';
 
 const { stablePrefix: c4dPrefix } = settings;
 
