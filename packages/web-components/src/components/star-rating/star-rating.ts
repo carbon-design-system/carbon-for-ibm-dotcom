@@ -8,12 +8,12 @@
  */
 
 import { html, LitElement } from 'lit';
-import { property } from 'lit/decorators';
-import '@carbon/web-components/es/components/tooltip';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
-import Star16 from '@carbon/web-components/es/icons/star/16';
-import StarHalf16 from '@carbon/web-components/es/icons/star--half/16';
-import StarFilled16 from '@carbon/web-components/es/icons/star--filled/16';
+import { property } from 'lit/decorators.js';
+import '@carbon/web-components/es/components/tooltip.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import Star16 from '@carbon/web-components/es/icons/star/16.js';
+import StarHalf16 from '@carbon/web-components/es/icons/star--half/16.js';
+import StarFilled16 from '@carbon/web-components/es/icons/star--filled/16.js';
 import styles from './star-rating.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
