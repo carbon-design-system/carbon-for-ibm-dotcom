@@ -46,6 +46,14 @@ const getFormatters = (locale: Locale, labelType: UnitDisplay) => {
         unit,
         unitDisplay: labelType,
         minimumIntegerDigits: unit === 'day' ? 1 : 2,
+        // Force latin numerals. This fits for all current locales
+        // supported on ibm.com with the added benefit of forcing preferred
+        // latin numerals on sa-ar. In the future, if necessary, we could
+        // expose this options object as a property which we would merge with
+        // our defaults here, allowing clients to override our options.
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        numberingSystem: 'latn',
       }),
     ])
   ) as FormattersList;
