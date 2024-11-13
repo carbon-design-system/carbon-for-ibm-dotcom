@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.15.0...@carbon/ibmdotcom-web-components@2.15.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* **structured-list, pricing-table:** correct coloration, spacing & alignment ([#12101](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12101)) ([b398375](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b3983758e266181070ee5de3c0f3b09dfb586c3b))
+
+
+
+
+
 # [2.15.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.15.0-rc.0...@carbon/ibmdotcom-web-components@2.15.0) (2024-11-05)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
