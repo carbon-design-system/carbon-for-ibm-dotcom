@@ -53,7 +53,7 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    align-items: start;
+    align-items: flex-start;
     background-color: $layer;
     color: $text-primary;
 
