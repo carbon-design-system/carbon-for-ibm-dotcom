@@ -15,7 +15,7 @@ import '../../cta/video-cta-container';
 import '../../image';
 
 import { CTA_TYPE } from '../../cta/defs';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, select, text, number } from '@storybook/addon-knobs';
 
 const tagGroupContent = html`
   <c4d-tag-group>
@@ -48,7 +48,14 @@ const pictogramContent = html`
 
 const ctaTypeOptions = Object.values(CTA_TYPE).filter((value) => !!value);
 
-const randomLabel = () => {
+const deterministicSequence = [
+  2, 5, 7, 4, 6, 0, 6, 4, 7, 4, 6, 6, 0, 4, 4, 3, 0, 0, 1, 6, 7, 7, 3, 0, 0, 0,
+  1, 7, 4, 5, 4, 6, 7, 4, 1, 4, 5, 0, 6, 7, 5, 3, 7, 0, 3, 3, 5, 2, 5, 3,
+];
+
+let steps = 0;
+
+const randomLabel = (startSequenceNumber) => {
   const labels = [
     'Est tempor per quam',
     'Velit vulputat lorem',
@@ -57,11 +64,19 @@ const randomLabel = () => {
     'Quisque non praesent',
     'Ornare turpis taciti in',
     'Ipsum egestas varius ut torquent',
+    'Natoque cras dictum nec sociosqu tempus phasellus',
   ];
-  return labels[Math.floor(Math.random() * labels.length)];
+  const label =
+    labels[
+      deterministicSequence[
+        (startSequenceNumber + steps) % deterministicSequence.length
+      ]
+    ];
+  steps++;
+  return label;
 };
 
-const randomHeadline = () => {
+const randomHeadline = (startSequenceNumber) => {
   const headlines = [
     'Est scelerisque habitant ac aptent ex suspendisse',
     'At quisque fringilla elementum adipiscing morbi',
@@ -72,7 +87,14 @@ const randomHeadline = () => {
     'Erat dictumst varius faucibus penatibus dignissim torquent',
     'Imperdiet commodo habitasse nisi eget mollis libero blandit tincidunt molestie',
   ];
-  return headlines[Math.floor(Math.random() * headlines.length)];
+  const headline =
+    headlines[
+      deterministicSequence[
+        (startSequenceNumber + steps) % deterministicSequence.length
+      ]
+    ];
+  steps++;
+  return headline;
 };
 
 export default {
@@ -100,6 +122,11 @@ export default {
           false
         );
 
+        const startSequenceNumber = number(
+          'Starting sequence number for random label and heading',
+          0
+        );
+
         return {
           hasPictogram,
           hasTagGroup,
@@ -107,6 +134,7 @@ export default {
           ctaCopy,
           alignWithContent,
           href,
+          startSequenceNumber,
         };
       },
     },
@@ -148,14 +176,16 @@ export const Default = (args) => {
     hasPictogram,
     alignWithContent,
     href,
+    startSequenceNumber,
   } = args?.Tile ?? {};
   return html`
     <c4d-tile
-      label="${randomLabel()}"
+      label="${randomLabel(startSequenceNumber)}"
       href="${href}"
       cta-type="${ctaType}"
       ?align-with-content="${alignWithContent}">
-      ${hasPictogram ? pictogramContent : undefined} ${randomHeadline()}
+      ${hasPictogram ? pictogramContent : undefined}
+      ${randomHeadline(startSequenceNumber)}
       ${hasTagGroup ? tagGroupContent : undefined}
 
       <p slot="cta">${ctaCopy}</p>
@@ -171,10 +201,11 @@ export const WithImage = (args) => {
     hasPictogram,
     alignWithContent,
     href,
+    startSequenceNumber,
   } = args?.Tile ?? {};
   return html`
     <c4d-tile
-      label="${randomLabel()}"
+      label="${randomLabel(startSequenceNumber)}"
       href="${href}"
       cta-type="${ctaType}"
       ?align-with-content="${alignWithContent}">
@@ -185,7 +216,8 @@ export const WithImage = (args) => {
         alt="Image Alt Text"
         default-src="https://fakeimg.pl/160x160/F7F3FF/6829C1/?retina=1&text=1:1&font=museo"></c4d-image>
 
-      ${randomHeadline()} ${hasTagGroup ? tagGroupContent : undefined}
+      ${randomHeadline(startSequenceNumber)}
+      ${hasTagGroup ? tagGroupContent : undefined}
 
       <p slot="cta">${ctaCopy}</p>
     </c4d-tile>
@@ -201,10 +233,11 @@ export const DoubleTile = (args) => {
     hasPictogram,
     alignWithContent,
     href,
+    startSequenceNumber,
   } = args?.Tile ?? {};
   return html`
     <c4d-tile
-      label="${randomLabel()}"
+      label="${randomLabel(startSequenceNumber)}"
       href="${href}"
       cta-type="${ctaType}"
       ?align-with-content="${alignWithContent}"
@@ -216,7 +249,8 @@ export const DoubleTile = (args) => {
         alt="Image Alt Text"
         default-src="https://fakeimg.pl/160x160/F7F3FF/6829C1/?retina=1&text=1:1&font=museo"
         class="c4d-tile__image-double"></c4d-image>
-      ${randomHeadline()} ${hasTagGroup ? tagGroupContent : undefined}
+      ${randomHeadline(startSequenceNumber)}
+      ${hasTagGroup ? tagGroupContent : undefined}
 
       <p slot="cta">${ctaCopy}</p>
     </c4d-tile>
