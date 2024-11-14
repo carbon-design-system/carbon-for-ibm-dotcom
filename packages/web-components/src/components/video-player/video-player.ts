@@ -28,9 +28,9 @@ import {
 import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import C4DVideoPlayerContainer from './video-player-container';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
+import C4DVideoPlayerComposite from './video-player-composite';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -131,7 +131,8 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
             ? html`
                 <c4d-image
                   default-src="${thumbnailUrl}"
-                  alt="${ifNonEmpty(name)}">
+                  alt="${ifNonEmpty(name)}"
+                  part="image">
                 </c4d-image>
               `
             : html` <slot></slot> `}
@@ -305,7 +306,8 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
               <button
                 class="${togglePlaybackClass}"
                 @click="${handleTogglePlayback}"
-                tabindex="0">
+                tabindex="0"
+                part="button">
                 ${this.isPlaying
                   ? PauseOutline({ 'aria-label': 'Pause' })
                   : PlayOutline({ 'aria-label': 'Play' })}
@@ -362,10 +364,10 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   firstUpdated() {
     this.tabIndex = 0;
     this.backgroundMode = Boolean(
-      (this.parentElement as C4DVideoPlayerContainer)?.backgroundMode
+      (this.parentElement as C4DVideoPlayerComposite)?.backgroundMode
     );
     this.intersectionMode = Boolean(
-      (this.parentElement as C4DVideoPlayerContainer)?.intersectionMode
+      (this.parentElement as C4DVideoPlayerComposite)?.intersectionMode
     );
   }
 
