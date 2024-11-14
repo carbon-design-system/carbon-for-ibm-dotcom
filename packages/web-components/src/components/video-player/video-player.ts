@@ -11,7 +11,7 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
-import PlayVideo from '@carbon/web-components/es/icons/play--video/20.js';
+import PlayVideo from '@carbon/web-components/es/icons/play/20.js';
 import PlayOutline from '@carbon/web-components/es/icons/play--outline/20.js';
 import PauseOutline from '@carbon/web-components/es/icons/pause--outline/20.js';
 import {
@@ -76,7 +76,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * Handles `click` event on the video thumbnail.
    */
-  protected _handleClickOverlay() {
+  protected _handleClickOverlay = () => {
     if (this.playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE) {
       this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
     }
@@ -96,9 +96,9 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         },
       })
     );
-  }
+  };
 
-  protected _handleTogglePlayback() {
+  protected _handleTogglePlayback = () => {
     const { videoId } = this;
     const { eventTogglePlayback } = this.constructor as typeof C4DVideoPlayer;
     this.dispatchEvent(
@@ -110,12 +110,12 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         },
       })
     );
-  }
+  };
 
   /**
    * @returns The video content.
    */
-  private _renderContent() {
+  protected _renderContent = () => {
     const {
       contentState,
       name,
@@ -158,7 +158,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
           `
         : html` <slot></slot> `;
     }
-  }
+  };
 
   /**
    * Updates video thumbnail url to match video width
