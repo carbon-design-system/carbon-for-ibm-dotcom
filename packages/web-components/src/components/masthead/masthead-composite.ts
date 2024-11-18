@@ -300,20 +300,19 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     const { heading } = megapanel;
     const { viewAll, highlights } = menu;
 
+    const { title } = this.getL0Data()[_parentKey] || {};
+
     return html`
       <c4d-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
-        ${highlights
-          ? html`
-              <c4d-megamenu-left-navigation>
-                ${highlights.map((group, i) =>
-                  this._renderMegapanelLinkGroup(group, {
-                    headingLevel: 2,
-                    autoid: `${c4dPrefix}--masthead__l0-nav-list${i}`,
-                  })
-                )}
-              </c4d-megamenu-left-navigation>
-            `
-          : null}
+        <c4d-megamenu-left-navigation>
+          <span>${title}</span>
+          ${highlights?.map((group, i) =>
+            this._renderMegapanelLinkGroup(group, {
+              headingLevel: 2,
+              autoid: `${c4dPrefix}--masthead__l0-nav-list${i}`,
+            })
+          )}
+        </c4d-megamenu-left-navigation>
         <c4d-megamenu-right-navigation
           style-scheme="${highlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR

@@ -598,6 +598,10 @@ $pos-btn-bottom: calc(
   }
 }
 
+:host(#{$c4d-prefix}-megamenu-left-navigation) {
+  @include type-style(heading-04);
+}
+
 :host(#{$c4d-prefix}-megamenu[layout='tab']) {
   ::slotted(#{$c4d-prefix}-megamenu-left-navigation) {
     display: flex;
