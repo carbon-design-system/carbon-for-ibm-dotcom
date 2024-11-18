@@ -202,11 +202,12 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   .#{$c4d-prefix}--video-player__toggle-playback {
     position: absolute;
     z-index: 100;
-    padding: $button-padding to-rem(15px);
+    padding: 0.875rem;
     border: 0;
-
     background-color: $overlay;
+    block-size: $spacing-09;
     color: #ffffff;
+    inline-size: $spacing-09;
 
     &--top-left {
       inset-block-start: 0;
@@ -232,6 +233,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     &:hover {
       // Grey 100, more opaque.
       background-color: rgba(22, 22, 22, 0.9);
+      cursor: pointer;
     }
 
     &:focus {
