@@ -8,11 +8,11 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, state, query } from 'lit/decorators';
-import { classMap } from 'lit/directives/class-map';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { property, state, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from '../cta/defs';
