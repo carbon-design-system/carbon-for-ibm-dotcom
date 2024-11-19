@@ -30,12 +30,12 @@ h2 {
   margin: $spacing-07 0;
 
   &:first-of-type {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 
 main {
-  margin: calc(#{mini-units(6)} + 1px) auto 0 auto;
+  max-inline-size: 99rem;
   padding: $spacing-09;
-  max-width: 99rem;
+  margin: calc(#{mini-units(6)} + 1px) auto 0 auto;
 }

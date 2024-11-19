@@ -1,0 +1,17 @@
+import { Meta, Props, Story, Canvas, Description } from '@storybook/addon-docs';
+import { cdnJs } from '../../../globals/internal/storybook-cdn';
+import '../index';
+
+<Meta title="Star Rating" />
+
+# Star Rating
+
+<Canvas withToolbar>
+  <Story id="components-star-rating--default" height="100px" />
+</Canvas>
+
+<Description markdown={`${cdnJs({ components: ['star-rating'] })}`} />
+
+## `<c4d-star-rating>` attributes, properties, and events
+
+<Props of="c4d-star-rating" />

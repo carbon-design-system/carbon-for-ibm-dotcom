@@ -1,0 +1,17 @@
+import { Meta, Props, Story, Canvas, Description } from '@storybook/addon-docs';
+import { cdnJs } from '../../../globals/internal/storybook-cdn';
+import '../index.ts';
+
+<Meta title="Promo Banner" />
+
+# Promo Banner
+
+<Canvas withToolbar>
+  <Story id="components-promo-banner--default" height="100px" />
+</Canvas>
+
+<Description markdown={`${cdnJs({ components: ['promo-banner'] })}`} />
+
+### `<c4d-promo-banner>` attributes, properties, and events
+
+<Props of="c4d-promo-banner" />
