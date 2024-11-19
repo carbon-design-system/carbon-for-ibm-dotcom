@@ -25,7 +25,6 @@ const { stablePrefix: c4dPrefix } = c4dSettings;
  */
 @customElement(`${c4dPrefix}-megamenu-tab`)
 class C4DMegaMenuTab extends CDSTab {
-
   connectedCallback() {
     super.connectedCallback();
     this.closeOnActivation = false;
