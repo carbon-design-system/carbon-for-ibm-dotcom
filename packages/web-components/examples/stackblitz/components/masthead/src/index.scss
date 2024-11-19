@@ -17,20 +17,22 @@ $feature-flags: (
 @import 'carbon-components/scss/components/ui-shell/content';
 
 body {
-  padding: calc(#{$spacing-09} + #{mini-units(6)} + 1px) $spacing-09 $spacing-09 $spacing-09;
+  padding: calc(#{$spacing-09} + #{mini-units(6)} + 1px) $spacing-09 $spacing-09
+    $spacing-09;
 }
 
 .cds--content.dds-ce-demo--ui-shell-content {
-  @media (min-width: 66rem) {
+  @media (width >= 66rem) {
     .cds--offset-lg-3 {
-      margin-left: 0;
+      margin-inline-start: 0;
     }
   }
+
   h2 {
     margin: 30px 0;
 
     &:first-of-type {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 }
