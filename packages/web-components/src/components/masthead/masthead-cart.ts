@@ -11,7 +11,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import ShoppingCart20 from '@carbon/web-components/es/icons/shopping--cart/20.js';
 import styles from './masthead.scss';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
