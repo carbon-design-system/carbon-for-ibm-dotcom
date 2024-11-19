@@ -935,7 +935,6 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     else {
       this.selectedElements = allLinks.filter((el) => {
         try {
-          el.href === currentUrlPath;
           const elURL = new URL(el.href);
           const currURL = new URL(currentUrlPath || '');
 
