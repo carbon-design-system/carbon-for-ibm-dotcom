@@ -389,6 +389,9 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     return `${c4dPrefix}--video-player`;
   }
 
+  /**
+   * The name of the custom event fired when a user action toggles playback.
+   */
   static get eventTogglePlayback() {
     return `${c4dPrefix}-video-player-toggle-playback`;
   }
