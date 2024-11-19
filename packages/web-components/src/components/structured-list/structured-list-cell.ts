@@ -10,7 +10,7 @@
 import CDSStructuredListCell from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import Info16 from '@carbon/web-components/es/icons/information/16.js';
 import Checkmark20 from '@carbon/web-components/es/icons/checkmark/20.js';
 import Error20 from '@carbon/web-components/es/icons/error/20.js';
