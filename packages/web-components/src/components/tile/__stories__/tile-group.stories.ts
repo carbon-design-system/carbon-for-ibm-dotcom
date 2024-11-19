@@ -16,7 +16,7 @@ import {
   WithImage as TileWithImage,
 } from './tile.stories';
 import { CTA_TYPE } from '../../cta/defs';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 
 const ctaTypeOptions = Object.values(CTA_TYPE).filter((value) => !!value);
 
@@ -46,6 +46,11 @@ export default {
           false
         );
 
+        const startSequenceNumber = number(
+          'Starting sequence number for random label and heading',
+          0
+        );
+
         const tocLayout = boolean('Use 3/4 layout', false);
 
         return {
@@ -55,6 +60,7 @@ export default {
           hasPictogram,
           alignWithContent,
           href,
+          startSequenceNumber,
           tocLayout,
         };
       },
@@ -94,6 +100,7 @@ export const Default = (args) => {
     hasPictogram,
     alignWithContent,
     href,
+    startSequenceNumber,
   } = args?.TileGroup ?? {};
   return html`
     <c4d-tile-group>
@@ -106,6 +113,7 @@ export const Default = (args) => {
             hasPictogram,
             alignWithContent,
             href,
+            startSequenceNumber,
           },
         })
       )}
@@ -121,6 +129,7 @@ export const WithImage = (args) => {
     hasPictogram,
     alignWithContent,
     href,
+    startSequenceNumber,
   } = args?.TileGroup ?? {};
   return html`
     <c4d-tile-group>
@@ -133,6 +142,7 @@ export const WithImage = (args) => {
             hasPictogram,
             alignWithContent,
             href,
+            startSequenceNumber,
           },
         })
       )}
