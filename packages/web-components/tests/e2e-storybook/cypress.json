@@ -14,8 +14,8 @@
   "screenshotOnRunFailure": false,
   "video": false,
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 90000,
-  "defaultCommandTimeout": 90000,
+  "pageLoadTimeout": 30000,
+  "defaultCommandTimeout": 4000,
   "retries": {
     "runMode": 2,
     "openMode": 0
