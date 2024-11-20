@@ -88,7 +88,7 @@ const mastheadL1Data: MastheadL1 = {
       submenu: {
         columns: 2,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="https://example.com">inline link</a>',
         footer: {
           title: 'View all lorem ipsum (B)',
           url: 'https://example.com',
@@ -145,7 +145,7 @@ const mastheadL1Data: MastheadL1 = {
       submenu: {
         columns: 3,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="htts://example.com">inline link</a>',
         menuSections: [
           {
             span: 1,
@@ -236,7 +236,7 @@ const mastheadL1Data: MastheadL1 = {
       submenu: {
         columns: 3,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="htts://example.com">inline link</a>',
         menuSections: [
           {
             span: 1,
@@ -407,7 +407,7 @@ const mastheadL1Data: MastheadL1 = {
       submenu: {
         columns: 2,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="htts://example.com">inline link</a>',
         footer: {
           title: 'View all lorem ipsum (E)',
           url: 'https://example.com',

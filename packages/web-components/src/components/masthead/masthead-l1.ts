@@ -933,9 +933,19 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     }
     // Fall back to automated selection based on URL.
     else {
-      this.selectedElements = allLinks.filter(
-        (el) => el.href === currentUrlPath
-      );
+      this.selectedElements = allLinks.filter((el) => {
+        try {
+          const elURL = new URL(el.href);
+          const currURL = new URL(currentUrlPath || '');
+
+          // Compare url without query params.
+          return (
+            elURL.host === currURL.host && elURL.pathname === currURL.pathname
+          );
+        } catch (_error) {
+          return false;
+        }
+      });
     }
 
     if (this.selectedElements.length) {

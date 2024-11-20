@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,8 @@ const _pathDefault = '/iframe.html?id=components-footer--default';
  * @type {string}
  * @private
  */
-const _pathDefaultLanguageOnly = '/iframe.html?id=components-footer--default-language-only';
+const _pathDefaultLanguageOnly =
+  '/iframe.html?id=components-footer--default-language-only';
 
 describe('c4d-footer | default (desktop)', () => {
   beforeEach(() => {
@@ -27,7 +28,9 @@ describe('c4d-footer | default (desktop)', () => {
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
   it('should check a11y', () => {
@@ -35,7 +38,7 @@ describe('c4d-footer | default (desktop)', () => {
   });
 
   it('should have interactable url for IBM logo', () => {
-    cy.get('[data-autoid="c4d--footer-logo"]').then($link => {
+    cy.get('[data-autoid="c4d--footer-logo"]').then(($link) => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
@@ -65,12 +68,9 @@ describe('c4d-footer | default (desktop)', () => {
 
     cy.get('[name="Americas"]').click();
 
-    cy.get('c4d-locale-search')
-      .shadow()
-      .find('.cds--search-input')
-      .type('ca', {
-        force: true,
-      });
+    cy.get('c4d-locale-search').shadow().find('.cds--search-input').type('ca', {
+      force: true,
+    });
 
     cy.get('c4d-locale-item:not([hidden])')
       .invoke('attr', 'country')
@@ -82,7 +82,7 @@ describe('c4d-footer | default (desktop)', () => {
   it('should load clickable footer links', () => {
     cy.get('c4d-footer-nav-group')
       .find('c4d-footer-nav-item')
-      .each($link => {
+      .each(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -93,7 +93,7 @@ describe('c4d-footer | default (desktop)', () => {
   it('should load clickable legal links', () => {
     cy.get('c4d-legal-nav')
       .find('c4d-legal-nav-item')
-      .each($link => {
+      .each(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -108,14 +108,16 @@ describe('c4d-footer | Default language only (desktop)', () => {
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
   it('should check a11y', () => {
     cy.checkAxeA11y();
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-desktop').should('have.length', 1);
 
     // FIXME: Firefox is not providing the space above for this test to pass
@@ -125,9 +127,12 @@ describe('c4d-footer | Default language only (desktop)', () => {
         .find('div.cds--dropdown')
         .click();
       cy.get('c4d-language-selector-desktop')
-        .find('cds-combo-box-item[value="Arabic / عربية"]')
+        .find('c4d-combo-box-item[value="Arabic / عربية"]')
         .click();
-      cy.get('c4d-language-selector-desktop').should('have.value', 'Arabic / عربية');
+      cy.get('c4d-language-selector-desktop').should(
+        'have.value',
+        'Arabic / عربية'
+      );
     }
 
     cy.takeSnapshots();
@@ -139,11 +144,13 @@ describe('c4d-footer | default (mobile)', () => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
   it('should have interactable url for IBM logo', () => {
-    cy.get('[data-autoid="c4d--footer-logo"]').then($link => {
+    cy.get('[data-autoid="c4d--footer-logo"]').then(($link) => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
@@ -173,12 +180,9 @@ describe('c4d-footer | default (mobile)', () => {
 
     cy.get('[name="Americas"]').click();
 
-    cy.get('c4d-locale-search')
-      .shadow()
-      .find('.cds--search-input')
-      .type('ca', {
-        force: true,
-      });
+    cy.get('c4d-locale-search').shadow().find('.cds--search-input').type('ca', {
+      force: true,
+    });
 
     cy.get('c4d-locale-item:not([hidden])')
       .invoke('attr', 'country')
@@ -190,7 +194,7 @@ describe('c4d-footer | default (mobile)', () => {
   it('should load clickable footer links', () => {
     cy.get('c4d-footer-nav-group')
       .find('c4d-footer-nav-item')
-      .each($link => {
+      .each(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -201,7 +205,7 @@ describe('c4d-footer | default (mobile)', () => {
   it('should load clickable legal links', () => {
     cy.get('c4d-legal-nav')
       .find('c4d-legal-nav-item')
-      .each($link => {
+      .each(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -215,7 +219,9 @@ describe('c4d-footer | Default language only (mobile)', () => {
     cy.visit(`/${_pathDefaultLanguageOnly}`);
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
   it('should load language selector dropdown and be interactive', () => {

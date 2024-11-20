@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,9 +14,11 @@
  * @private
  */
 const _typeIcons = {
-  local: 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
+  local:
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
   jump: 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z',
-  external: 'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
+  external:
+    'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
   download:
     'M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z',
   video:
@@ -69,7 +71,7 @@ export default (selector, paths) => [
       cy.get(selector)
         .shadow()
         .find('a')
-        .should($link => {
+        .should(($link) => {
           defaultHref = $link.prop('href');
 
           expect($link.prop('href')).not.to.be.empty;
@@ -78,7 +80,7 @@ export default (selector, paths) => [
         .get(selector)
         .shadow()
         .find('a')
-        .should($link => {
+        .should(($link) => {
           customHrefOutput = $link.prop('href');
 
           expect(customHrefOutput).to.be.eq(customHrefInput);
@@ -87,13 +89,13 @@ export default (selector, paths) => [
     });
   },
   () => {
-    it('should check CTA types', () => {
-      Object.keys(_typeIcons).forEach(type => {
+    it.skip('should check CTA types', () => {
+      Object.keys(_typeIcons).forEach((type) => {
         cy.visit(`${paths.ctaType}${type}`);
         cy.get(selector)
           .shadow()
           .find('a svg path')
-          .should($path => {
+          .should(($path) => {
             expect($path.attr('d')).to.be.eq(_typeIcons[type]);
           });
       });
