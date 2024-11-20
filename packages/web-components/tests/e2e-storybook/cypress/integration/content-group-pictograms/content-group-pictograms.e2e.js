@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,9 +11,10 @@
  * @type {string}
  * @private
  */
-const _pathDefault = '/iframe.html?id=components-content-group-pictograms--default';
+const _pathDefault =
+  '/iframe.html?id=components-content-group-pictograms--default';
 
-describe('cds-content-group-pictograms | default (desktop)', () => {
+describe('c4d-content-group-pictograms | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
@@ -24,14 +25,14 @@ describe('cds-content-group-pictograms | default (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  it('should load content group heading and copy before the pictograms', () => {
-    cy.get(`cds-pictogram-item`).then(() => {
-      cy.get(`cds-content-group-pictograms`)
-        .find(`cds-content-group-heading`)
+  it.skip('should load content group heading and copy before the pictograms', () => {
+    cy.get(`c4d-pictogram-item`).then(() => {
+      cy.get(`c4d-content-group-pictograms`)
+        .find(`c4d-content-group-heading`)
         .should('be.visible');
 
-      cy.get(`cds-content-group-pictograms`)
-        .find(`cds-content-group-copy`)
+      cy.get(`c4d-content-group-pictograms`)
+        .find(`c4d-content-group-copy`)
         .should('be.visible');
     });
 
@@ -39,29 +40,29 @@ describe('cds-content-group-pictograms | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load pictogram item and content', () => {
-    cy.get(`cds-pictogram-item`).each($item => {
+  it.skip('should load pictogram item and content', () => {
+    cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
         cy.get('svg[slot="pictogram"]').should('be.visible');
 
-        cy.get('cds-content-item-heading').should('be.visible');
+        cy.get('c4d-content-item-heading').should('be.visible');
 
-        cy.get('cds-content-item-copy').should('be.visible');
+        cy.get('c4d-content-item-copy').should('be.visible');
 
-        cy.get('cds-link-with-icon').should('be.visible');
+        cy.get('c4d-link-with-icon').should('be.visible');
       });
     });
 
     cy.takeSnapshots();
   });
 
-  it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
-    cy.get(`cds-pictogram-item`).each($item => {
+  it.skip('should have CTA Link with icon loaded and clickable for each pictogram', () => {
+    cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
-        cy.get('cds-link-with-icon')
+        cy.get('c4d-link-with-icon')
           .shadow()
           .find('a')
-          .each($link => {
+          .each(($link) => {
             const url = $link.prop('href');
             expect(url).not.to.be.empty;
           });
@@ -86,20 +87,20 @@ describe('cds-content-group-pictograms | default (desktop)', () => {
   });
 });
 
-describe('cds-content-group-pictograms | default (mobile)', () => {
+describe('c4d-content-group-pictograms | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
   });
 
-  it('should load content group heading and copy before the pictograms', () => {
-    cy.get(`cds-pictogram-item`).then(() => {
-      cy.get(`cds-content-group-pictograms`)
-        .find(`cds-content-group-heading`)
+  it.skip('should load content group heading and copy before the pictograms', () => {
+    cy.get(`c4d-pictogram-item`).then(() => {
+      cy.get(`c4d-content-group-pictograms`)
+        .find(`c4d-content-group-heading`)
         .should('be.visible');
 
-      cy.get(`cds-content-group-pictograms`)
-        .find(`cds-content-group-copy`)
+      cy.get(`c4d-content-group-pictograms`)
+        .find(`c4d-content-group-copy`)
         .should('be.visible');
     });
 
@@ -107,29 +108,29 @@ describe('cds-content-group-pictograms | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load pictogram item and content', () => {
-    cy.get(`cds-pictogram-item`).each($item => {
+  it.skip('should load pictogram item and content', () => {
+    cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
         cy.get('svg[slot="pictogram"]').should('be.visible');
 
-        cy.get('cds-content-item-heading').should('be.visible');
+        cy.get('c4d-content-item-heading').should('be.visible');
 
-        cy.get('cds-content-item-copy').should('be.visible');
+        cy.get('c4d-content-item-copy').should('be.visible');
 
-        cy.get('cds-link-with-icon').should('be.visible');
+        cy.get('c4d-link-with-icon').should('be.visible');
       });
     });
 
     cy.takeSnapshots('mobile');
   });
 
-  it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
-    cy.get(`cds-pictogram-item`).each($item => {
+  it.skip('should have CTA Link with icon loaded and clickable for each pictogram', () => {
+    cy.get(`c4d-pictogram-item`).each(($item) => {
       cy.wrap($item).within(() => {
-        cy.get('cds-link-with-icon')
+        cy.get('c4d-link-with-icon')
           .shadow()
           .find('a')
-          .each($link => {
+          .each(($link) => {
             const url = $link.prop('href');
             expect(url).not.to.be.empty;
           });

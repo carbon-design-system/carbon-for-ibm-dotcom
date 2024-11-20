@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,7 @@ const _pathWithCTA =
   '/iframe.html?id=components-logo-grid--default&knob-Heading%20(heading)=Our%20customers&knob-Display%20CTA:=true&knob-CTA%20Copy%20(ctaCopy)=Lorem%20ipsum%20dolor%20sit%20amet&knob-CTA%20Href%20(ctaHref):=http://local.url.com/';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('cds-logo-grid | default', () => {
+describe('c4d-logo-grid | default', () => {
   beforeEach(() => {
     cy.visit(`/${_defaultPath}`);
     cy.injectAxe();
@@ -35,10 +35,12 @@ describe('cds-logo-grid | default', () => {
   });
 
   it('should have page heading with different brand logos', () => {
-    cy.get('cds-logo-grid cds-content-block-heading').should('have.length', 1);
-    cy.get('cds-logo-grid-item').then($els => {
-      const logoItems = Array.from($els, el => el.defaultSrc);
-      const equalLogos = logoItems.filter((item, i, ar) => ar.indexOf(item) != i);
+    cy.get('c4d-logo-grid c4d-content-block-heading').should('have.length', 1);
+    cy.get('c4d-logo-grid-item').then(($els) => {
+      const logoItems = Array.from($els, (el) => el.defaultSrc);
+      const equalLogos = logoItems.filter(
+        (item, i, ar) => ar.indexOf(item) != i
+      );
 
       // resulting array only has duplicate images -- empty array means distinct images
       expect(equalLogos).to.be.length(0);
@@ -50,13 +52,13 @@ describe('cds-logo-grid | default', () => {
   it('should have clickable CTA card link with heading', () => {
     cy.visit(`/${_pathWithCTA}`);
 
-    cy.get('cds-logo-grid-link').should('have.length', 1);
-    cy.get('cds-logo-grid-link cds-card-link-heading').should('have.length', 1);
+    cy.get('c4d-logo-grid-link').should('have.length', 1);
+    cy.get('c4d-logo-grid-link c4d-card-link-heading').should('have.length', 1);
 
-    cy.get('cds-logo-grid-link cds-card-footer')
+    cy.get('c4d-logo-grid-link c4d-card-footer')
       .shadow()
       .find('a')
-      .then($els => {
+      .then(($els) => {
         const win = $els[0].ownerDocument.defaultView;
         const after = win.getComputedStyle($els[0], 'after');
         const positionValue = after.getPropertyValue('position');

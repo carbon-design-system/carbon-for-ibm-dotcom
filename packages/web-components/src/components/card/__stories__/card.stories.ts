@@ -56,7 +56,6 @@ export const Default = (args) => {
     customVideoTitle,
   } = args?.Card ?? {};
   /* eslint-disable no-nested-ternary */
-
   let videoCopy;
   let videoFooterCopy;
 
@@ -97,7 +96,7 @@ export const Default = (args) => {
           : ``}
         <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
         <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        ${copy ? html`<p></p>` : ``}
+        ${copy ? html`<p>${copy}</p>` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
         ${ctaType === CTA_TYPE.VIDEO
           ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
