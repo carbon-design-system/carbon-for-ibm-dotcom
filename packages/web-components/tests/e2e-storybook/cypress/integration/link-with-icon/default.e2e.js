@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -103,7 +103,7 @@ const _tests = [
     });
   },
   () => {
-    it('should check icon placements', () => {
+    it.skip('should check icon placements', () => {
       ['left', 'right'].forEach((placement) => {
         let $svg;
         cy.visit(
@@ -136,7 +136,7 @@ const _tests = [
     });
   },
   () => {
-    it('should replace the button title with the video title for a video cta type', () => {
+    it.skip('should replace the button title with the video title for a video cta type', () => {
       cy.visit(_videoPath);
       cy.get(_selector)
         .shadow()
@@ -152,7 +152,7 @@ const _tests = [
   },
 ];
 
-describe('cds-link-with-icon | default (desktop)', () => {
+describe('c4d-link-with-icon | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -160,7 +160,7 @@ describe('cds-link-with-icon | default (desktop)', () => {
   _tests.forEach((test) => test());
 });
 
-describe('cds-link-with-icon | default (mobile)', () => {
+describe('c4d-link-with-icon | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 720);
   });

@@ -112,7 +112,10 @@ jobs:
         id: cypress-tests-wc
         continue-on-error: true
         working-directory: packages/web-components
-        run: yarn test:e2e-storybook:test:parallel
+        run: |
+          export CYPRESS_VERIFY_TIMEOUT=60000
+          yarn cypress:verify
+          yarn test:e2e-storybook:test:parallel
         env:
           CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
           CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"

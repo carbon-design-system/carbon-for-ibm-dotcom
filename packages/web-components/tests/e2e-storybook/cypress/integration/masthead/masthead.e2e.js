@@ -28,8 +28,7 @@ const _selectors = {
   mastheadCategoryGroup: 'c4d-megamenu-category-group',
   mastheadCategoryLink: 'c4d-megamenu-category-link',
   mastheadNavMenuSection: 'c4d-left-nav-menu-section',
-
-}
+};
 
 const _pathDefault = '/iframe.html?id=components-masthead--default';
 
@@ -39,7 +38,11 @@ describe('c4d-masthead | default (desktop)', () => {
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy
+        .get('[data-autoid="c4d--masthead-default__l0-nav0"]')
+        .should('not.be.empty')
+    );
   });
 
   it('should check a11y', () => {
@@ -50,7 +53,7 @@ describe('c4d-masthead | default (desktop)', () => {
     cy.get(_selectors.mastheadLogo)
       .shadow()
       .find('a')
-      .then($link => {
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -59,7 +62,7 @@ describe('c4d-masthead | default (desktop)', () => {
   it('should load menu item with selected state', () => {
     let selectedState = false;
     cy.get(_selectors.mastheadMenuItem)
-      .each($menuItem => {
+      .each(($menuItem) => {
         if ($menuItem.attr('active') !== undefined) {
           selectedState = true;
         }
@@ -93,17 +96,14 @@ describe('c4d-masthead | default (desktop)', () => {
     )
       .shadow()
       .find('a')
-      .then($link => {
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
   });
 
   it('should open the login menu', () => {
-    cy.get(_selectors.mastheadProfileBtn)
-      .shadow()
-      .find('a')
-      .click();
+    cy.get(_selectors.mastheadProfileBtn).shadow().find('a').click();
 
     cy.takeSnapshots();
   });
@@ -144,7 +144,11 @@ describe('c4d-masthead | default (mobile)', () => {
     cy.injectAxe();
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy
+        .get('[data-autoid="c4d--masthead-default__l0-nav0"]')
+        .should('not.be.empty')
+    );
   });
 
   it('should check a11y', () => {
@@ -152,21 +156,17 @@ describe('c4d-masthead | default (mobile)', () => {
   });
 
   it('should load the mobile menu', () => {
-    cy.get(_selectors.mastheadMenuBtnMobile)
-      .shadow()
-      .find('button')
-      .click();
+    cy.get(_selectors.mastheadMenuBtnMobile).shadow().find('button').click();
 
     cy.takeSnapshots('mobile');
   });
 
   it('should load the mobile menu | level 2', () => {
-    cy.get(_selectors.mastheadMenuBtnMobile)
-      .shadow()
-      .find('button')
-      .click();
+    cy.get(_selectors.mastheadMenuBtnMobile).shadow().find('button').click();
 
-    cy.get(`${_selectors.mastheadNavMenuSection}:nth-child(1) > ${_selectors.mastheadLeftNav}:nth-child(2)`)
+    cy.get(
+      `${_selectors.mastheadNavMenuSection}:nth-child(1) > ${_selectors.mastheadLeftNav}:nth-child(2)`
+    )
       .shadow()
       .find('button')
       .click();
