@@ -528,7 +528,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 30rem;
+        min-block-size: 30rem;
       }
     }
 
