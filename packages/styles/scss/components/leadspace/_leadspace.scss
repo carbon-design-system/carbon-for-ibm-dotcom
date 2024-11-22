@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -513,8 +513,8 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     @include breakpoint(lg) {
-      .#{$c4d-prefix}--leadspace__overlay {
-        min-block-size: 40rem;
+      .#{$c4d-prefix}--leadspace--content__container {
+        min-block-size: 38rem;
       }
     }
 
@@ -527,8 +527,8 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     @include breakpoint(lg) {
-      .#{$c4d-prefix}--leadspace__overlay {
-        min-block-size: 30rem;
+      .#{$c4d-prefix}--leadspace--content__container {
+        min-block-size: 28rem;
       }
     }
 
@@ -578,8 +578,8 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
-      .#{$c4d-prefix}--leadspace__overlay {
-        min-block-size: 35rem;
+      .#{$c4d-prefix}--leadspace--content__container {
+        min-block-size: 33rem;
       }
     }
 
