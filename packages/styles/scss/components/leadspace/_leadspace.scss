@@ -514,7 +514,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 40rem;
+        min-block-size: 40rem;
       }
     }
 
@@ -548,7 +548,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 20rem;
+        min-block-size: 20rem;
       }
     }
 
@@ -579,7 +579,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 35rem;
+        min-block-size: 35rem;
       }
     }
 
