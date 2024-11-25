@@ -69,6 +69,7 @@
 
       .#{$prefix}--card__wrapper {
         display: grid;
+        aspect-ratio: 16 / 9;
         justify-content: revert;
         grid-row: span 10;
         grid-template-rows: subgrid;
@@ -140,6 +141,7 @@
     ::slotted(:not([slot]):has(#{$prefix}-tag, #{$c4d-prefix}-tag)) {
       grid-row: -1;
     }
+
   }
 
   :host(#{$c4d-prefix}-card-group-item[href='']) {
