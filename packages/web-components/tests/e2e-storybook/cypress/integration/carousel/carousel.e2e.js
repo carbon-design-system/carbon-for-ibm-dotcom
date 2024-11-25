@@ -37,7 +37,7 @@ const _selectorBase = `[data-autoid="c4d--carousel"]`;
  * @type {Object.<string>}
  *
  * @param card - carousel card
- * @param videoCard - a video card has distict markup
+ * @param videoCard - a video card has distinct markup
  * @param heading - card heading
  * @param copy - card copy/body text
  * @param footer - card footer, including CTA
@@ -49,8 +49,8 @@ const _selectorBase = `[data-autoid="c4d--carousel"]`;
  * @private
  */
 const _selectors = {
-  card: `${_selectorBase} [data-autoid="c4d--card"]`,
-  videoCard: `${_selectorBase} c4d-video-cta-container`,
+  card: `[data-autoid="c4d--card"]`,
+  videoCard: `c4d-video-cta-container`,
   heading: `[data-autoid="c4d--card-heading"]`,
   copy: `.cds--card__copy`,
   footer: `[data-autoid="c4d--card-footer"]`,
@@ -127,7 +127,7 @@ const _tests = {
   },
   checkVideoRenders: () => {
     it('should render the video thumbnail', () => {
-      cy.get(_selectors.card)
+      cy.get(`${_selectorBase} ${_selectors.card}`)
         .shadow()
         .find('.cds--card__video-thumbnail')
         .should('be.visible');
@@ -181,14 +181,14 @@ const _tests = {
       });
     });
   },
-  checkInertAriaHidden: () => {
-    it.only('should check visible and hidden cards for expected aria-hidden and inert attributes', () => {
+  checkInertAriaHidden: (childSelector) => {
+    it('should check visible and hidden cards for expected aria-hidden and inert attributes', () => {
       cy.get(_selectorBase).then(($carousel) => {
         // Take note of the page size, for later comparison.
         const pageSize = $carousel[0]?.pageSize;
 
         cy.wrap($carousel)
-          .children(':not([slot="title"])')
+          .find(childSelector ?? _selectors.card)
           .then(($carouselItems) => {
             // Verify that the carousel items have the expected aria-hidden
             // and inert attributes.
@@ -287,7 +287,7 @@ describe('c4d-carousel | default (mobile)', () => {
     'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
   );
   _tests.checkClickableCard();
-  // _tests.checkInertAriaHidden();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -323,7 +323,7 @@ describe('c4d-carousel | with images (mobile)', () => {
   );
   _tests.checkImageRenders();
   _tests.checkClickableCard();
-  // _tests.checkInertAriaHidden();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -343,7 +343,7 @@ describe('c4d-carousel | with videos (desktop)', () => {
   _tests.checkVideoDurationText();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
-  // _tests.checkInertAriaHidden();
+  _tests.checkInertAriaHidden(_selectors.videoCard);
   _tests.checkScroll();
 });
 
@@ -362,7 +362,7 @@ describe('c4d-carousel | with videos (mobile)', () => {
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkClickableCard();
-  // _tests.checkInertAriaHidden();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -381,7 +381,7 @@ describe('c4d-carousel | with media (desktop)', () => {
   _tests.checkVideoDurationText();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
-  // _tests.checkInertAriaHidden();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -399,6 +399,6 @@ describe('c4d-carousel | with media (mobile)', () => {
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkClickableCard();
-  // _tests.checkInertAriaHidden();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
