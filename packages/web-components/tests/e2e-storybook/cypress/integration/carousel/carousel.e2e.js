@@ -240,7 +240,7 @@ const _tests = {
     });
   },
   checkScroll: () => {
-    it.skip('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
+    it('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
       cy.get(_selectors.buttonNext)
         .click()
         // Wait a second for the carousel to finish moving
