@@ -102,14 +102,17 @@ $hover-transition-timing: 95ms;
 
     position: inherit;
     z-index: 10;
-    padding: 0;
+
+    box-sizing: border-box;
     inset-block-start: auto;
+    padding-inline-start: 0;
   }
 
   .#{$prefix}--tableofcontents__content {
     @extend .#{$prefix}--col-lg-12;
 
-    padding: $spacing-05 0 $spacing-09 0;
+    box-sizing: border-box;
+    padding-block: $spacing-05 $spacing-09;
   }
 
   .#{$prefix}--tableofcontents {
