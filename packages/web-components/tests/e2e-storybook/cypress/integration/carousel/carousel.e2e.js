@@ -80,8 +80,8 @@ const _tests = {
       });
     });
   },
-  checkTextRenders: () => {
-    it.skip('should render card text and arrow icon', () => {
+  checkTextRenders: (iconPath) => {
+    it('should render card text and arrow icon', () => {
       cy.get(_selectors.heading)
         // Wait for the sameHeight to finish loading
         .wait(2000)
@@ -94,14 +94,12 @@ const _tests = {
       });
 
       cy.get(_selectorBase).then(($carousel) => {
-        if ($carousel.find(_selectors.footer).length > 0) {
+        if (iconPath && $carousel.find(_selectors.footer).length > 0) {
           cy.get(_selectors.footer)
-            .find('svg[slot="icon"] path')
+            .shadow()
+            .find('svg path')
             .each(($icon) => {
-              expect($icon).to.have.attr(
-                'd',
-                'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
-              );
+              expect($icon).to.have.attr('d', iconPath);
             });
         }
 
@@ -293,7 +291,9 @@ describe('c4d-carousel | default (desktop)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkSameHeight();
   _tests.checkClickableCard();
   _tests.checkInertAriaHidden();
@@ -309,7 +309,9 @@ describe('c4d-carousel | default (mobile)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkClickableCard();
   _tests.checkInertAriaHidden();
   _tests.checkScroll();
@@ -324,7 +326,9 @@ describe('c4d-carousel | with images (desktop)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkImageRenders();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
@@ -340,7 +344,9 @@ describe('c4d-carousel | with images (mobile)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkImageRenders();
   _tests.checkClickableCard();
   _tests.checkInertAriaHidden();
@@ -356,7 +362,9 @@ describe('c4d-carousel | with videos (desktop)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M7,28a1,1,0,0,1-1-1V5a1,1,0,0,1,1.4819-.8763l20,11a1,1,0,0,1,0,1.7525l-20,11A1.0005,1.0005,0,0,1,7,28Z'
+  );
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkSameHeight();
@@ -374,7 +382,9 @@ describe('c4d-carousel | with videos (mobile)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M7,28a1,1,0,0,1-1-1V5a1,1,0,0,1,1.4819-.8763l20,11a1,1,0,0,1,0,1.7525l-20,11A1.0005,1.0005,0,0,1,7,28Z'
+  );
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkClickableCard();
