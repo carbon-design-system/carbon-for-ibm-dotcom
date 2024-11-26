@@ -120,6 +120,7 @@
     padding-inline: 0;
 
     ::slotted(#{$c4d-prefix}-image) {
+      height: 100%;
       overflow: hidden;
 
       @include breakpoint(sm) {
