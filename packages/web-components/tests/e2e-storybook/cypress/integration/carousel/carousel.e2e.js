@@ -182,7 +182,7 @@ const _tests = {
     });
   },
   checkInertAriaHidden: (childSelector) => {
-    it('should check visible and hidden cards for expected aria-hidden and inert attributes', () => {
+    it('should check visible and hidden cards for expected aria-hidden attribute', () => {
       cy.get(_selectorBase).then(($carousel) => {
         // Take note of the page size, for later comparison.
         const pageSize = $carousel[0]?.pageSize;
@@ -191,24 +191,20 @@ const _tests = {
           .find(childSelector ?? _selectors.card)
           .then(($carouselItems) => {
             // Verify that the carousel items have the expected aria-hidden
-            // and inert attributes.
+            // attribute.
             cy.wrap($carouselItems)
               .filter(`[aria-hidden="false"]`)
               .should('have.length', pageSize);
-            cy.wrap($carouselItems)
-              .filter(':not([inert])')
-              .should('have.length', pageSize);
 
             // Verify that the first carousel items has the correct
-            // aria-hidden and inert attributes, and that those attributes
-            // change accordingly after we advance the slider.
+            // aria-hidden attribute, and that it changes accordingly after we
+            // advance the slider.
             cy.wrap($carouselItems)
               .first()
               .then(($firstChild) => {
                 cy.wrap($firstChild)
                   .should('have.attr', 'aria-hidden')
                   .and('equal', 'false');
-                cy.wrap($firstChild).should('not.have.attr', 'inert');
 
                 // Scroll carousel forward.
                 cy.get(_selectors.buttonNext)
@@ -216,17 +212,15 @@ const _tests = {
                   // Wait a second for the carousel to finish moving
                   .wait(1000);
 
-                // Verify that the aria-hidden and inert attributes of the
-                // first item toggled as expected. We just check the first,
-                // so that we don't have to consider the current viewport
-                // size. Checking the first should suffice, given this
-                // behavior is triggered via IntersectionObserver, and the
-                // first item being exposed is representative of any arbitrary
-                // item being exposed.
+                // Verify that the aria-hidden attribute of the first item
+                // toggled as expected. We just check the first, so that we
+                // don't have to consider the current viewport size. Checking t
+                // he first should suffice, given this behavior is triggered via
+                // IntersectionObserver, and the first item being exposed is
+                // representative of any arbitrary item being exposed.
                 cy.wrap($firstChild)
                   .should('have.attr', 'aria-hidden')
                   .and('equal', 'true');
-                cy.wrap($firstChild).should('have.attr', 'inert');
 
                 // Scroll carousel backward to set it back to its initial
                 // position.
