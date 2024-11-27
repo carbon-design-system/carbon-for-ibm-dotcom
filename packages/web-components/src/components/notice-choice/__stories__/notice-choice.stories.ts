@@ -118,8 +118,6 @@ const props = () => {
   };
 };
 
-
-
 export const Default = (args) => {
   const {
     language,
@@ -133,7 +131,7 @@ export const Default = (args) => {
     hiddenPhone,
     ncTeleDetail,
     ncEmailDetail,
-    combineEmailPhone
+    combineEmailPhone,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice

@@ -6,7 +6,6 @@
  */
 
 export function loadContent(locale: string, onSuccess: any, onError: any) {
-
   const script = document.createElement('script');
   script.async = false;
   script.charset = 'utf-8';
@@ -15,7 +14,6 @@ export function loadContent(locale: string, onSuccess: any, onError: any) {
   script.onload = () => {
     try {
       if (onSuccess) {
-     
         onSuccess(window.NoticeChoice.Content);
       }
     } catch (e) {
