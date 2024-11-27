@@ -81,10 +81,8 @@
 
       .#{$prefix}--card__content {
         display: flex;
-        min-height: 10rem;
-
+        min-block-size: 10rem;
       }
-
 
       .#{$prefix}--card__copy {
         display: grid;
@@ -140,7 +138,6 @@
     ::slotted(:not([slot]):has(#{$prefix}-tag, #{$c4d-prefix}-tag)) {
       grid-row: -1;
     }
-
   }
 
   :host(#{$c4d-prefix}-card-group-item[href='']) {
