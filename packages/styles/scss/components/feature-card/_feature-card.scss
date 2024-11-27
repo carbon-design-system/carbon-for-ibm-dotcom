@@ -125,7 +125,7 @@ $feature-flags: (
     ::slotted([slot='image']),
     #{$c4d-prefix}-image {
       z-index: 0;
-      height: 100%;
+      block-size: 100%;
 
       // Opacity is adjusted on hover. See above.
       &::before {
