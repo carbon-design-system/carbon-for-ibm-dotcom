@@ -87,6 +87,11 @@ const hideErrorMessages = {
   true: 'true',
   false: 'false',
 };
+
+const combineEmailPhone = {
+  true: 'true',
+  false: 'false',
+};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
@@ -109,10 +114,11 @@ const props = () => {
       hideErrorMessages,
       'false'
     ),
+    combineEmailPhone: select('Combine Email Phone', combineEmailPhone, 'true'),
   };
 };
 
-console.log(props);
+
 
 export const Default = (args) => {
   const {
@@ -127,6 +133,7 @@ export const Default = (args) => {
     hiddenPhone,
     ncTeleDetail,
     ncEmailDetail,
+    combineEmailPhone
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -141,6 +148,7 @@ export const Default = (args) => {
       .hiddenPhone="${hiddenPhone}"
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
+      combine-email-phone="${combineEmailPhone}"
       @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };
