@@ -69,7 +69,6 @@
 
       .#{$prefix}--card__wrapper {
         display: grid;
-        aspect-ratio: 16 / 9;
         justify-content: revert;
         grid-row: span 10;
         grid-template-rows: subgrid;
@@ -81,11 +80,11 @@
       }
 
       .#{$prefix}--card__content {
-        display: grid;
-        grid-row: span 10;
-        grid-template-rows: subgrid;
-        row-gap: 0;
+        display: flex;
+        min-height: 10rem;
+
       }
+
 
       .#{$prefix}--card__copy {
         display: grid;
