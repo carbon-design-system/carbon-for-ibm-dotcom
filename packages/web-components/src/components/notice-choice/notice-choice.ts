@@ -729,18 +729,21 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             this.combinedEmailPhonePrechecked = checked ? true : false;
           }
 
-          if (Object.keys(this.checkboxes).length === 1) {
-            this._onChange(`NC_HIDDEN_VALUE`, `NC_HIDDEN_PHONE_NONE`);
-          }
+         
           this._onChange(
             `NC_${key === 'PHONE' ? 'TELE' : key}_DETAIL`,
             `${key}_${punsStatus}`
           );
-
+          console.log( `${hiddenBox.id}_VALUE`,
+            `NC_HIDDEN_${hiddenBox.value}`)
           this._onChange(
             `${hiddenBox.id}_VALUE`,
             `NC_HIDDEN_${hiddenBox.value}`
           );
+
+          if (Object.keys(this.checkboxes).length === 1) {
+            this._onChange(`NC_HIDDEN_PHONE_VALUE`, `NC_HIDDEN_PHONE_NONE`);
+          }
 
           return createHiddenInput(hiddenBox.id, hiddenBox.value);
         })}
