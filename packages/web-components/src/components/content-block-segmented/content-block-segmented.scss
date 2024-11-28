@@ -32,12 +32,20 @@
   }
 }
 
+:host(#{$c4d-prefix}-content-block-segmented-item) ::slotted(*) {
+  margin-inline: $spacing-05;
+}
+
 // TODO: Consider applying this rule in general
 :host(#{$c4d-prefix}-content-block-segmented-item) {
   ::slotted(#{$c4d-prefix}-content-item-copy) {
     @include breakpoint(md) {
       inline-size: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
+  }
+
+  ::slotted([slot='footer']) {
+    margin-inline: 0;
   }
 }
 
