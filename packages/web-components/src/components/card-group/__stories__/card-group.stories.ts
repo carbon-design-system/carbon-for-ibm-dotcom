@@ -328,6 +328,7 @@ withCardInCard.story = {
         tagGroup: boolean('Add tags:', false),
         gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW),
         cards: number('Number of cards', 5, { min: 2, max: 6 }),
+        inverse: boolean('Inverse color:', false),
       }),
     },
     propsSet: {
@@ -337,6 +338,7 @@ withCardInCard.story = {
           tagGroup: false,
           gridMode: 'narrow',
           cards: 5,
+          inverse: false,
         },
       },
     },
@@ -392,6 +394,10 @@ export default {
               )
             : select('Grid mode:', gridModes, gridModes['Default (32px)']);
         const cta = media ? '' : boolean('Add CTA card:', false);
+        const inverse =
+          cardType === 'Card - default' || cardType === 'Card static'
+            ? boolean('Inverse color:', false)
+            : '';
         return {
           cardType,
           media,
@@ -400,6 +406,7 @@ export default {
           cards,
           gridMode,
           cta,
+          inverse,
         };
       },
     },
@@ -413,6 +420,7 @@ export default {
           cards: 5,
           gridMode: 'collapsed',
           cta: false,
+          inverse: false,
         },
       },
     },
