@@ -249,7 +249,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       const mrsField = this.ncData?.mandatoryCheckbox[countyCode]
         .countryTransferText
         ? this.ncData?.mandatoryCheckbox[countyCode].countryTransferText
-          .mrs_field
+            .mrs_field
         : this.ncData?.mandatoryCheckbox[countyCode].chinaPIPLtext.mrs_field;
       this._onChange(mrsField, 'countyBasedCheckedNo');
 
@@ -380,10 +380,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.emailPrechecked && !checked
             ? 'CU'
             : !this.emailPrechecked && checked
-              ? 'UC'
-              : this.emailPrechecked && checked
-                ? 'CC'
-                : 'UU';
+            ? 'UC'
+            : this.emailPrechecked && checked
+            ? 'CC'
+            : 'UU';
 
         break;
       case 'PHONE':
@@ -391,10 +391,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.telephonePrechecked && checked
             ? 'CC'
             : this.telephonePrechecked && !checked
-              ? 'CU'
-              : !this.telephonePrechecked && checked
-                ? 'UC'
-                : 'UU';
+            ? 'CU'
+            : !this.telephonePrechecked && checked
+            ? 'UC'
+            : 'UU';
 
         break;
     }
@@ -426,8 +426,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const mrsField = this.ncData?.mandatoryCheckbox[countyCode]
       .countryTransferText
       ? this.ncData?.mandatoryCheckbox[
-        this.isMandatoryCheckboxDisplayed.countryCode
-      ].countryTransferText.mrs_field
+          this.isMandatoryCheckboxDisplayed.countryCode
+        ].countryTransferText.mrs_field
       : this.ncData?.mandatoryCheckbox[countyCode].chinaPIPLtext.mrs_field;
     legalCheckbox.value = isChecked ? 1 : 0;
     this.preventFormSubmission = !isChecked;
@@ -478,13 +478,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                   </span>
                 </label>
                 ${!this.hideErrorMessage && this.preventFormSubmission
-            ? html`<span
+                  ? html`<span
                       class="nc-error"
                       part="error"
                       style="color:#da1e28;font-size:.75rem"
                       >${mandatoryCheckbox.error}</span
                     >`
-            : ''}
+                  : ''}
               </p>
             </div>
           </span>
@@ -640,7 +640,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     Object.keys(this.checkboxes).map((id) => {
       newValues[id] = !!checked;
       this.values = newValues;
-      console.log(this.combinedEmailPhonePrechecked)
+      console.log(this.combinedEmailPhonePrechecked);
       const hiddenFieldName = `NC_HIDDEN_${id}`;
       const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
       this.values[id] = {};
@@ -653,14 +653,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             this.combinedEmailPhonePrechecked && !checked
               ? 'CU'
               : !this.combinedEmailPhonePrechecked && checked
-                ? 'UC'
-                : this.combinedEmailPhonePrechecked && checked
-                  ? 'CC'
-                  : 'UU';
+              ? 'UC'
+              : this.combinedEmailPhonePrechecked && checked
+              ? 'CC'
+              : 'UU';
 
           break;
       }
       this.values[id]['punsStatus'] = statusPrechecked;
+
       this._onChange(hiddenFieldName, hiddenFieldStatus);
       this._onChange(
         `${hiddenFieldName}_VALUE`,
@@ -714,38 +715,42 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ${this.countryBasedLegalNotice()} ${this.combinedPreTextTemplate()}
         </p>
         ${Object.keys(this.checkboxes).map((key) => {
-      const checked = this.values.EMAIL;
-      const punsStatus = getPunsStatus(key, checked);
-      const hiddenBox = {
-        id: `NC_HIDDEN_${key}`,
-        value: this.values[key]['checkBoxStatus']
-          ? this.values[key]['checkBoxStatus']
-          : this.values.EMAIL
-            ? 'PERMISSION'
-            : 'SUPPRESSION',
-      };
-      if (typeof checked !== 'object') {
-        this.combinedEmailPhonePrechecked = checked ? true : false;
-      }
-      this._onChange(
-        `NC_${key === 'PHONE' ? 'TELE' : key}_DETAIL`,
-        `${key}_${punsStatus}`
-      );
+          const checked = this.values.EMAIL;
+          const punsStatus = getPunsStatus(key, checked);
+          const hiddenBox = {
+            id: `NC_HIDDEN_${key}`,
+            value: this.values[key]['checkBoxStatus']
+              ? this.values[key]['checkBoxStatus']
+              : this.values.EMAIL
+              ? 'PERMISSION'
+              : 'SUPPRESSION',
+          };
+          if (typeof checked !== 'object') {
+            this.combinedEmailPhonePrechecked = checked ? true : false;
+          }
 
-      this._onChange(
-        `${hiddenBox.id}_VALUE`,
-        `NC_HIDDEN_${hiddenBox.value}`
-      );
+          if (Object.keys(this.checkboxes).length === 1) {
+            this._onChange(`NC_HIDDEN_VALUE`, `NC_HIDDEN_PHONE_NONE`);
+          }
+          this._onChange(
+            `NC_${key === 'PHONE' ? 'TELE' : key}_DETAIL`,
+            `${key}_${punsStatus}`
+          );
 
-      return createHiddenInput(hiddenBox.id, hiddenBox.value);
-    })}
+          this._onChange(
+            `${hiddenBox.id}_VALUE`,
+            `NC_HIDDEN_${hiddenBox.value}`
+          );
+
+          return createHiddenInput(hiddenBox.id, hiddenBox.value);
+        })}
         <div part="${prefix}--nc__post-text" class="${prefix}--nc__post-text">
           ${this.postTextTemplate()}
         </div>
         ${createHiddenInput(
-      'preventFormSubmission',
-      this.preventFormSubmission
-    )}
+          'preventFormSubmission',
+          this.preventFormSubmission
+        )}
         <input
           type="hidden"
           id="preventFormSubmission"
@@ -759,17 +764,17 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (
       this.isMandatoryCheckboxDisplayed.isDisplayed &&
       this.country.toLocaleLowerCase() !==
-      this.isMandatoryCheckboxDisplayed.countryCode
+        this.isMandatoryCheckboxDisplayed.countryCode
     ) {
       const mrsField = this.ncData?.mandatoryCheckbox[
         this.isMandatoryCheckboxDisplayed.countryCode
       ].countryTransferText
         ? this.ncData?.mandatoryCheckbox[
-          this.isMandatoryCheckboxDisplayed.countryCode
-        ].countryTransferText.mrs_field
+            this.isMandatoryCheckboxDisplayed.countryCode
+          ].countryTransferText.mrs_field
         : this.ncData?.mandatoryCheckbox[
-          this.isMandatoryCheckboxDisplayed.countryCode
-        ].chinaPIPLtext.mrs_field;
+            this.isMandatoryCheckboxDisplayed.countryCode
+          ].chinaPIPLtext.mrs_field;
       this._onChange(mrsField, 'countyBasedCheckedNo');
     }
 
@@ -780,55 +785,57 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     return html`<section class="${prefix}--nc" part="section">
     <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${this.countryBasedLegalNotice()} ${this.preTextTemplate()} </p>
       <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
-            ${Object.keys(this.checkboxes).length !== 0
-        ? Object.keys(this.checkboxes).length > 0 &&
-        Object.keys(this.checkboxes).map((key) => {
-          const checked = this.values[key];
-          const checkbox = this.checkboxes[key];
-          const punsStatus = this.values[key]['punsStatus']
-            ? this.values[key]['punsStatus']
-            : checked
-              ? 'CC'
-              : 'UU';
-          const hiddenBox = {
-            id: 'NC_HIDDEN_' + key,
-            value: this.values[key]['checkBoxStatus']
-              ? this.values[key]['checkBoxStatus']
-              : this.values[key]
-                ? 'PERMISSION'
-                : 'SUPPRESSION',
-          };
-          switch (key) {
-            case 'EMAIL':
-              this.hiddenEmail = hiddenBox.value;
-              this.ncEmailDetail = punsStatus;
-              if (typeof checked !== 'object') {
-                this.emailPrechecked = checked ? true : false;
-              }
-              break;
-            case 'PHONE':
-              this.hiddenPhone = hiddenBox.value;
-              this.ncTeleDetail = punsStatus;
-              if (typeof checked !== 'object') {
-                this.telephonePrechecked = checked ? true : false;
-              }
-              break;
-          }
-          const punsValue = key === 'PHONE' ? 'TELE' : key;
-          this._onChange(
-            `NC_${punsValue}_DETAIL`,
-            `${key}_${punsStatus}`
-          );
-          return this.checkBoxTemplate(checkbox, checked, hiddenBox);
-        })
-        : ''
-      }
+            ${
+              Object.keys(this.checkboxes).length !== 0
+                ? Object.keys(this.checkboxes).length > 0 &&
+                  Object.keys(this.checkboxes).map((key) => {
+                    const checked = this.values[key];
+                    const checkbox = this.checkboxes[key];
+                    const punsStatus = this.values[key]['punsStatus']
+                      ? this.values[key]['punsStatus']
+                      : checked
+                      ? 'CC'
+                      : 'UU';
+                    const hiddenBox = {
+                      id: 'NC_HIDDEN_' + key,
+                      value: this.values[key]['checkBoxStatus']
+                        ? this.values[key]['checkBoxStatus']
+                        : this.values[key]
+                        ? 'PERMISSION'
+                        : 'SUPPRESSION',
+                    };
+                    switch (key) {
+                      case 'EMAIL':
+                        this.hiddenEmail = hiddenBox.value;
+                        this.ncEmailDetail = punsStatus;
+                        if (typeof checked !== 'object') {
+                          this.emailPrechecked = checked ? true : false;
+                        }
+                        break;
+                      case 'PHONE':
+                        this.hiddenPhone = hiddenBox.value;
+                        this.ncTeleDetail = punsStatus;
+                        if (typeof checked !== 'object') {
+                          this.telephonePrechecked = checked ? true : false;
+                        }
+                        break;
+                    }
+                    const punsValue = key === 'PHONE' ? 'TELE' : key;
+                    this._onChange(
+                      `NC_${punsValue}_DETAIL`,
+                      `${key}_${punsStatus}`
+                    );
+                    return this.checkBoxTemplate(checkbox, checked, hiddenBox);
+                  })
+                : ''
+            }
 
           </div>
           <div part='${prefix}--nc__post-text' class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
-          <input type='hidden' id="preventFormSubmission" name="preventFormSubmission" value=${this.preventFormSubmission
-      } />
+          <input type='hidden' id="preventFormSubmission" name="preventFormSubmission" value=${
+            this.preventFormSubmission
+          } />
         </div>
     </section>`;
   }
@@ -919,6 +926,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       PHONE_UU: 'PHONE_UU',
       EMAIL_NOTICE_ONLY: 'EMAIL_NOTICE_ONLY',
       PHONE_NOTICE_ONLY: 'PHONE_NOTICE_ONLY',
+      NC_HIDDEN_PHONE_NONE: 'NC_HIDDEN_PHONE_NONE',
     };
 
     if (Object.prototype.hasOwnProperty.call(pwsFieldsMap, field)) {

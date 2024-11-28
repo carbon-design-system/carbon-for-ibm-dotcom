@@ -51,6 +51,7 @@ export function pwsValueMap(value) {
       PHONE_UU: 'UU',
       EMAIL_NOTICE_ONLY: 'NOTICE_ONLY',
       PHONE_NOTICE_ONLY: 'NOTICE_ONLY',
+      NC_HIDDEN_PHONE_NONE: 'N',
     }[value] || null
   );
 }
