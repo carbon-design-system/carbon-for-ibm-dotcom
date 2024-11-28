@@ -35,7 +35,9 @@
     }
 
     .#{$c4d-prefix}--link-list__list--vertical
-      ::slotted(#{$c4d-prefix}-link-list-item) {
+      ::slotted(#{$c4d-prefix}-link-list-item),
+    .#{$c4d-prefix}--link-list__list--vertical
+      ::slotted(#{$c4d-prefix}-link-list-item-cta) {
       display: flex;
     }
 
@@ -53,7 +55,8 @@
 
     .#{$c4d-prefix}-ce--link-list__list--split,
     .#{$c4d-prefix}-ce--link-list__list--three-columns {
-      ::slotted(#{$c4d-prefix}-link-list-item) {
+      ::slotted(#{$c4d-prefix}-link-list-item),
+      ::slotted(#{$c4d-prefix}-link-list-item-cta) {
         display: grid;
         align-items: stretch;
         // margin-right: -$spacing-05;
@@ -78,7 +81,8 @@
     }
   }
 
-  :host(#{$c4d-prefix}-link-list-item) {
+  :host(#{$c4d-prefix}-link-list-item),
+  :host(#{$c4d-prefix}-link-list-item-cta) {
     .#{$prefix}--link {
       align-content: flex-start;
 
@@ -103,7 +107,8 @@
 
   :host(#{$c4d-prefix}-link-list-item)[type='default'],
   :host(#{$c4d-prefix}-link-list-item-cta)[type='default'],
-  :host(#{$c4d-prefix}-link-list-item)[type='end'] {
+  :host(#{$c4d-prefix}-link-list-item)[type='end'],
+  :host(#{$c4d-prefix}-link-list-item-cta)[type='end'] {
     .#{$prefix}--link {
       display: flex;
       padding: $spacing-04 0;
