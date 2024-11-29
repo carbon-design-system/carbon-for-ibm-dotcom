@@ -37,17 +37,12 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    */
   @property()
   size = FOOTER_SIZE.REGULAR;
+
   /**
    * Navigation label for accessibility.
    */
   @property()
   navLabel = 'Legal Navigation';
-  /**
-   * The adjunct links container
-   */
-
-  @query(`.${c4dPrefix}--adjunct-links__container`)
-  private _adjunctLinksContainer?: HTMLDivElement;
 
   /**
    * The adjunct links slot
