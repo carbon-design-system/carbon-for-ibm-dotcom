@@ -118,7 +118,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
               class="${c4dPrefix}--adjunct-links__container${hasAdjunctLinks
                 ? ''
                 : ` ${c4dPrefix}--adjunct-links__container--hidden`}">
-              <ul part="adjunct-links-list adjunct-links-list--matt">
+              <ul part="adjunct-links-list adjunct-links-list">
                 <slot
                   name="adjunct-links"
                   @slotchange="${this._handleAdjunctLinksVisibility}"></slot>
