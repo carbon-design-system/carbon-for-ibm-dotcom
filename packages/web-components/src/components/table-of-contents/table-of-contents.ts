@@ -80,7 +80,7 @@ function findLastIndex<T>(
 @customElement(`${c4dPrefix}-table-of-contents`)
 class C4DTableOfContents extends MediaQueryMixin(
   HostListenerMixin(StableSelectorMixin(LitElement)),
-  { [MQBreakpoints.LG]: MQDirs.MAX }
+  { [MQBreakpoints.LG]: MQDirs.MIN }
 ) {
   /**
    * Defines TOC type, "" for default, `horizontal` for horizontal variant.
@@ -157,7 +157,7 @@ class C4DTableOfContents extends MediaQueryMixin(
    * Whether we're viewing smaller or larger window.
    */
   @state()
-  _isMobile = this.carbonBreakpoints.lg.matches;
+  _isMobile = !this.carbonBreakpoints.lg.matches;
 
   /**
    * The target elements matching `[name]` harvested from the document.
@@ -625,8 +625,8 @@ class C4DTableOfContents extends MediaQueryMixin(
     }
   }
 
-  mediaQueryCallbackMaxLG() {
-    this._isMobile = this.carbonBreakpoints.lg.matches;
+  mediaQueryCallbackLG() {
+    this._isMobile = !this.carbonBreakpoints.lg.matches;
   }
 
   /**
