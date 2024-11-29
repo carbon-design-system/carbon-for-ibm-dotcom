@@ -729,13 +729,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             this.combinedEmailPhonePrechecked = checked ? true : false;
           }
 
-         
           this._onChange(
             `NC_${key === 'PHONE' ? 'TELE' : key}_DETAIL`,
             `${key}_${punsStatus}`
           );
-          console.log( `${hiddenBox.id}_VALUE`,
-            `NC_HIDDEN_${hiddenBox.value}`)
+          console.log(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
           this._onChange(
             `${hiddenBox.id}_VALUE`,
             `NC_HIDDEN_${hiddenBox.value}`
