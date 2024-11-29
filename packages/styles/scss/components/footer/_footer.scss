@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -112,7 +112,7 @@
 
   :host(#{$c4d-prefix}-footer-nav-item),
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div {
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     display: list-item;
@@ -139,6 +139,12 @@
       &:visited:hover {
         color: $text-primary;
       }
+    }
+  }
+
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
+    .#{$prefix}--footer__link.#{$prefix}--link {
+      cursor: pointer;
     }
   }
 
