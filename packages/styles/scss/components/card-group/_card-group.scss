@@ -57,15 +57,7 @@
 
   :host(#{$c4d-prefix}-card-group-item) {
     display: contents;
-    .#{prefix}--tile{
-      &::before {
-        display: block;
-        aspect-ratio: 16 / 9;
-        content: '';
-        grid-area: 1 / 1 / 2 / 2;
-      }
 
-    }
     .#{$prefix}--card {
       display: grid;
       border: 0;
@@ -81,16 +73,22 @@
         grid-row: span 10;
         grid-template-rows: subgrid;
 
-        grid-area: 1 / 1 / 2 / 2;
         &::before,
         &::after {
           content: revert;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          grid-area: 1 / 1 / -1 / -1;
+          aspect-ratio: 16 / 9;
         }
       }
 
       .#{$prefix}--card__content {
         display: grid;
-        grid-row: span 10;
+        grid-area: 1 / 1 / -1 / -1;
         grid-template-rows: subgrid;
         row-gap: 0;
       }
