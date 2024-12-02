@@ -67,7 +67,7 @@
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
 
-     .#{$prefix}--card__wrapper {
+      .#{$prefix}--card__wrapper {
         display: grid;
         justify-content: revert;
         grid-row: span 10;
@@ -79,10 +79,10 @@
         }
 
         &::after {
-          content: '';
           display: block;
-          grid-area: 1 / 1 / -1 / -1;
           aspect-ratio: 16 / 9;
+          content: '';
+          grid-area: 1 / 1 / -1 / -1;
         }
       }
 
