@@ -92,6 +92,11 @@ const combineEmailPhone = {
   true: 'true',
   false: 'false',
 };
+
+const environment = {
+  Production: 'prod',
+  Stage: 'stage',
+};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
@@ -115,6 +120,7 @@ const props = () => {
       'false'
     ),
     combineEmailPhone: select('Combine Email Phone', combineEmailPhone, 'true'),
+    environment: select('Environment', environment, 'prod'),
   };
 };
 
@@ -132,6 +138,7 @@ export const Default = (args) => {
     ncTeleDetail,
     ncEmailDetail,
     combineEmailPhone,
+    environment,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -147,6 +154,7 @@ export const Default = (args) => {
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
       combine-email-phone="${combineEmailPhone}"
+      environment="${environment}"
       @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };

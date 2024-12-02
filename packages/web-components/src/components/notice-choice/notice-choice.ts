@@ -74,6 +74,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: Boolean, attribute: 'combine-email-phone' })
   combineEmailPhone = false;
 
+  @property({ type: String, attribute: 'environment' })
+  environment = 'prod';
+
   @property({ type: Object, attribute: false })
   checkboxes = {};
 
@@ -153,6 +156,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   defaultLoadContent() {
     loadContent(
       'en',
+      this.environment,
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
@@ -194,6 +198,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
     loadContent(
       defaultLanguage,
+      this.environment,
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
@@ -297,7 +302,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         break;
       }
-      case 'language': {
+      case 'language':
+      case 'environment': {
         // load content when locale changed.
         const [language] = newVal.split(/[-_]/);
 
@@ -311,6 +317,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         if (hasValue && oldVal !== newVal) {
           loadContent(
             defaultLanguage,
+            this.environment,
             (ncData) => {
               this.ncData = ncData;
               this.prepareCheckboxes();
