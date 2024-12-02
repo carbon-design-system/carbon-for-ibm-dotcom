@@ -64,11 +64,20 @@ const imageContent = html`
     default-src="${imgXlg4x3}"></c4d-image>
 `;
 
-const cardsDiffLengthPhrase = (index, tagGroup, media, cardType, addCta) => {
+const cardsDiffLengthPhrase = (
+  index,
+  tagGroup,
+  media,
+  cardType,
+  addCta,
+  inverse
+) => {
+  const colorScheme = inverse ? 'inverse' : undefined;
   const defaultCardGroupItem = html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
-      href=${cardType === 'Card static' ? '' : 'https://example.com'}>
+      href=${cardType === 'Card static' ? '' : 'https://example.com'}
+      color-scheme="${ifDefined(colorScheme)}">
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -107,11 +116,19 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, cardType, addCta) => {
     : defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = (tagGroup, media, cardType, addCta) => {
+const longHeadingCardGroupItem = (
+  tagGroup,
+  media,
+  cardType,
+  addCta,
+  inverse
+) => {
+  const colorScheme = inverse ? 'inverse' : undefined;
   return html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
-      href=${cardType === 'Card static' ? '' : 'https://example.com'}>
+      href=${cardType === 'Card static' ? '' : 'https://example.com'}
+      color-scheme="${ifDefined(colorScheme)}">
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -175,11 +192,15 @@ const cardLink = html`
   </c4d-card>
 `;
 
-const cardInCardItems = (i, tagGroup, media) => {
+const cardInCardItems = (i, tagGroup, media, inverse) => {
+  const colorScheme = inverse ? 'inverse' : undefined;
   if (media) {
     return i % 2 === 0
       ? html`
-          <c4d-card-group-item cta-type="local" href="https://example.com">
+          <c4d-card-group-item
+            cta-type="local"
+            href="https://example.com"
+            color-scheme="${ifDefined(colorScheme)}">
             ${imageContent}
             <c4d-card-eyebrow>Label</c4d-card-eyebrow>
             <c4d-card-heading
@@ -191,7 +212,10 @@ const cardInCardItems = (i, tagGroup, media) => {
           </c4d-card-group-item>
         `
       : html`
-          <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
+          <c4d-card-group-item
+            cta-type="video"
+            href="0_ibuqxqbe"
+            color-scheme="${ifDefined(colorScheme)}">
             <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
             <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
@@ -200,7 +224,10 @@ const cardInCardItems = (i, tagGroup, media) => {
         `;
   }
   return html`
-    <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-group-item
+      cta-type="local"
+      href="https://example.com"
+      color-scheme="${ifDefined(colorScheme)}">
       <c4d-card-eyebrow>Label</c4d-card-eyebrow>
       <c4d-card-heading
         >The United Nations Environment Program works with IBM to reduce marine
@@ -213,16 +240,18 @@ const cardInCardItems = (i, tagGroup, media) => {
 };
 
 export const Default = (args) => {
-  const { cards, cardType, media, tagGroup, gridMode, cta, addCta } =
+  const { cards, cardType, media, tagGroup, gridMode, cta, addCta, inverse } =
     args?.CardGroup ?? {};
 
   const allCards: object[] = [];
 
   if (cardType === 'Card - default') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, cardType, addCta));
+    allCards.push(
+      longHeadingCardGroupItem(tagGroup, media, cardType, addCta, inverse)
+    );
     for (let i = 1; i < cards; i++) {
       allCards.push(
-        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta)
+        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta, inverse)
       );
     }
     if (cta) {
@@ -244,10 +273,12 @@ export const Default = (args) => {
   }
 
   if (cardType === 'Card static') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, cardType, addCta));
+    allCards.push(
+      longHeadingCardGroupItem(tagGroup, media, cardType, addCta, inverse)
+    );
     for (let i = 1; i < cards; i++) {
       allCards.push(
-        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta)
+        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta, inverse)
       );
     }
     if (cta) {
@@ -278,10 +309,10 @@ export const Default = (args) => {
 };
 
 export const withCardInCard = (args) => {
-  const { cards, tagGroup, media, gridMode } = args?.CardGroup ?? {};
+  const { cards, tagGroup, media, gridMode, inverse } = args?.CardGroup ?? {};
   const allCards: object[] = [];
   for (let i = 0; i < cards; i++) {
-    allCards.push(cardInCardItems(i, tagGroup, media));
+    allCards.push(cardInCardItems(i, tagGroup, media, inverse));
   }
   return html`
     <c4d-video-cta-container>
@@ -394,10 +425,7 @@ export default {
               )
             : select('Grid mode:', gridModes, gridModes['Default (32px)']);
         const cta = media ? '' : boolean('Add CTA card:', false);
-        const inverse =
-          cardType === 'Card - default' || cardType === 'Card static'
-            ? boolean('Inverse color:', false)
-            : '';
+        const inverse = boolean('Inverse color:', false);
         return {
           cardType,
           media,
