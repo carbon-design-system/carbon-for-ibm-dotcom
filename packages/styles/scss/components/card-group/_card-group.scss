@@ -80,8 +80,10 @@
       }
 
       .#{$prefix}--card__content {
-        display: flex;
-        min-block-size: 10rem;
+        display: grid;
+        grid-row: span 10;
+        grid-template-rows: subgrid;
+        row-gap: 0;
       }
 
       .#{$prefix}--card__copy {
