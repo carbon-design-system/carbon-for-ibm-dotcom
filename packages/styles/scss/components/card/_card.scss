@@ -117,11 +117,16 @@
       }
     }
 
+    .#{$prefix}--card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .#{$prefix}--card__wrapper {
       display: flex;
       flex: 1;
       justify-content: space-between;
-      block-size: 100%;
       min-block-size: $spacing-13;
       transition: $duration-moderate-01 motion(standard, productive);
 
