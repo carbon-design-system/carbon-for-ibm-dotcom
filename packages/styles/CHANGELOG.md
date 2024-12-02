@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.0...@carbon/ibmdotcom-styles@2.16.0-rc.1) (2024-11-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.16.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.15.1...@carbon/ibmdotcom-styles@2.16.0-rc.0) (2024-11-25)
+
+
+### Bug Fixes
+
+* **leadspace:** in storybook adding long copy to copy knob led to button being clipped away ([#12117](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12117)) ([86647b3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/86647b30da9c503e303231e4e3954da745d8f4de))
+* **toc:** alignment issues ([#12118](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12118)) ([5908e7c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5908e7cb45c305452e9d377f91fc5304664c0739))
+
+
+
+
+
 ## [2.15.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.15.0...@carbon/ibmdotcom-styles@2.15.1) (2024-11-13)
 
 

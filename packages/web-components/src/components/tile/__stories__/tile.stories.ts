@@ -18,10 +18,10 @@ import { CTA_TYPE } from '../../cta/defs';
 import { boolean, select, text, number } from '@storybook/addon-knobs';
 
 const tagGroupContent = html`
-  <c4d-tag-group>
+  <div class="tag-group">
     <cds-tag type="cool-gray"> Most popular </cds-tag>
     <cds-tag type="cool-gray"> Enterprise </cds-tag>
-  </c4d-tag-group>
+  </div>
 `;
 
 const pictogramContent = html`
