@@ -57,7 +57,15 @@
 
   :host(#{$c4d-prefix}-card-group-item) {
     display: contents;
+    .#{prefix}--tile{
+      &::before {
+        display: block;
+        aspect-ratio: 16 / 9;
+        content: '';
+        grid-area: 1 / 1 / 2 / 2;
+      }
 
+    }
     .#{$prefix}--card {
       display: grid;
       border: 0;
@@ -67,12 +75,13 @@
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
 
-      .#{$prefix}--card__wrapper {
+     .#{$prefix}--card__wrapper {
         display: grid;
         justify-content: revert;
         grid-row: span 10;
         grid-template-rows: subgrid;
 
+        grid-area: 1 / 1 / 2 / 2;
         &::before,
         &::after {
           content: revert;
