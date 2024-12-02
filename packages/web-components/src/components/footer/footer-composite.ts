@@ -321,6 +321,7 @@ class C4DFooterComposite extends MediaQueryMixin(
             slot="${slot}"
             trigger-content="${languageSelectorLabel}"
             label-text="${languageSelectorLabel}"
+            label="${languageSelectorLabel}"
             value="${selectedLanguage}"
             clear-selection-label="${clearSelectionLabel}">
             ${langList?.map(
