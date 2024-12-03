@@ -247,10 +247,27 @@ $feature-flags: (
     }
   }
 
-  :host(#{$c4d-prefix}-feature-card-footer)[color-scheme='inverse']
-    .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']) {
-    fill: $link-inverse;
+  :host(#{$c4d-prefix}-feature-card-footer)[color-scheme='inverse'] {
+    .#{$c4d-prefix}-ce--card__footer {
+      .#{$c4d-prefix}-ce--cta__icon,
+      ::slotted(svg[slot='icon']) {
+        fill: $link-inverse;
+      }
+
+      &:hover {
+        .#{$c4d-prefix}-ce--cta__icon,
+        ::slotted(svg[slot='icon']) {
+          fill: $link-inverse-hover;
+        }
+      }
+
+      &:active {
+        .#{$c4d-prefix}-ce--cta__icon,
+        ::slotted(svg[slot='icon']) {
+          fill: $link-inverse-active;
+        }
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-feature-card[size='large']) {
