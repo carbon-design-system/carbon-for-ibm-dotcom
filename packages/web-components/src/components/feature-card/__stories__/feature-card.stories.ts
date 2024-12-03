@@ -96,7 +96,7 @@ export const Large = (args) => {
       </c4d-image>
       <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      ${copy && html`<p></p>`}
+      ${copy ? html`<p>${copy}</p>` : ''}
       <c4d-feature-card-footer> </c4d-feature-card-footer>
     </c4d-feature-card>
   `;
