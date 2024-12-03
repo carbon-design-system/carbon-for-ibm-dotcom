@@ -62,14 +62,6 @@ export const Medium = (args) => {
   `;
 };
 
-Medium.story = {
-  parameters: {
-    percy: {
-      skip: true,
-    },
-  },
-};
-
 export const Large = (args) => {
   const { eyebrow, heading, copy, href, colorScheme, ctaType } =
     args?.[`${c4dPrefix}-feature-card`] ?? {};
@@ -110,9 +102,6 @@ export const Large = (args) => {
 
 Large.story = {
   parameters: {
-    percy: {
-      skip: true,
-    },
     storyGrid: `${prefix}--col-lg-12`,
     knobs: {
       [`${c4dPrefix}-feature-card`]: () => ({
