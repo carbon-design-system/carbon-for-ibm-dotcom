@@ -22,6 +22,7 @@
 @use '../link-with-icon';
 
 @mixin card-group {
+  @include card.card;
   :host(#{$c4d-prefix}-card-group) {
     --#{$c4d-prefix}--card-group--cards-in-row: 1;
 
@@ -59,6 +60,7 @@
     display: contents;
 
     .#{$prefix}--card {
+      // @extend
       display: grid;
       border: 0;
       grid-row: span 10;
