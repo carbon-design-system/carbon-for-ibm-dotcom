@@ -464,6 +464,7 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
+    max-inline-size: 40rem;
     // need the !important to prevent CSS reset styles from overwritting margin for tags
     /* stylelint-disable declaration-no-important */
     padding-block-end: $spacing-05 !important;
