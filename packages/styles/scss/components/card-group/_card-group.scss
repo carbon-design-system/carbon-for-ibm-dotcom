@@ -77,11 +77,18 @@
         &::after {
           content: revert;
         }
+
+        &::after {
+          display: block;
+          aspect-ratio: 16 / 9;
+          content: '';
+          grid-area: 1 / 1 / -1 / -1;
+        }
       }
 
       .#{$prefix}--card__content {
         display: grid;
-        grid-row: span 10;
+        grid-area: 1 / 1 / -1 / -1;
         grid-template-rows: subgrid;
         row-gap: 0;
       }
