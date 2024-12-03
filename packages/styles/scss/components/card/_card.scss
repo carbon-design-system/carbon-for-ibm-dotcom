@@ -281,12 +281,6 @@
       flex-direction: column;
       gap: $spacing-05;
     }
-
-    ::slotted(div) {
-      /* stylelint-disable declaration-no-important */
-      // need the !important to prevent CSS reset styles from overwritting margin for tags
-      margin-inline-start: -$spacing-02 !important;
-    }
   }
 
   :host(#{$c4d-prefix}-card[aspect-ratio='1:1']) .#{$prefix}--card__wrapper {
