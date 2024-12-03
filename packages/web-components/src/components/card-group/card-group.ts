@@ -10,7 +10,6 @@
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -105,15 +104,6 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   pictograms = false;
 
-  /**
-   * The color scheme.
-   * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
-   *
-   * Color scheme options are: "inverse" and "regular"
-   */
-  @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = BASIC_COLOR_SCHEME.INVERSE;
-
   firstUpdated() {
     super.connectedCallback();
 
@@ -131,9 +121,6 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
 
     if (changedProperties.has('gridMode')) {
       this._childItems.forEach((e) => (e.gridMode = this.gridMode));
-    }
-    if (changedProperties.has('colorScheme')) {
-      this.setAttribute('colorScheme', BASIC_COLOR_SCHEME.INVERSE);
     }
   }
 
