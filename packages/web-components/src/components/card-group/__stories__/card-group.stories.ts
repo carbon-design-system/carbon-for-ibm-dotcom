@@ -99,7 +99,7 @@ const cardsDiffLengthPhrase = (
   `;
 
   const videoCardGroupItem = (videoId = '1_9h94wo6b') => html`
-    <c4d-card-group-item cta-type="video" href="${videoId}">
+    <c4d-card-group-item cta-type="video" href="${videoId}" color-scheme="${ifDefined(colorScheme)}">
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
@@ -150,47 +150,59 @@ const longHeadingCardGroupItem = (
   `;
 };
 
-const pictogramCard = () => html`
-  <c4d-card-group-item href="https://example.com" pictogram-placement="bottom">
-    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
-    <p>
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-      aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
-      exercitation.
-    </p>
-    <svg
-      slot="pictogram"
-      focusable="false"
-      preserveAspectRatio="xMidYMid meet"
-      xmlns="http://www.w3.org/2000/svg"
-      data-autoid="c4d--card__pictogram"
-      aria-label="Pictogram description"
-      width="48"
-      height="48"
-      viewBox="0 0 32 32"
-      role="img"
-      class="cds--card__pictogram">
-      <path
-        id="desktop_1_"
-        d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
-  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
-  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
-    </svg>
-  </c4d-card-group-item>
-`;
+const pictogramCard = (inverse) => {
+  const colorScheme = inverse ? 'inverse' : undefined;
+  return html`
+    <c4d-card-group-item
+      href="https://example.com"
+      pictogram-placement="bottom"
+      color-scheme="${ifDefined(colorScheme)}"
+    >
+      <c4d-card-heading>Aerospace and defence</c4d-card-heading>
+      <p>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
+        exercitation.
+      </p>
+      <svg
+        slot="pictogram"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        data-autoid="c4d--card__pictogram"
+        aria-label="Pictogram description"
+        width="48"
+        height="48"
+        viewBox="0 0 32 32"
+        role="img"
+        class="cds--card__pictogram">
+        <path
+          id="desktop_1_"
+          d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
+    c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+    0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+    18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
+      </svg>
+    </c4d-card-group-item>
+  `
+};
 
-const cardLink = html`
-  <c4d-card-group-item
-    link
-    cta-type="local"
-    href="https://example.com"
-    pattern-background>
-    <c4d-card-heading>IBM Developer</c4d-card-heading>
-    <p>Learn, code and connect with your community</p>
-    <c4d-card-footer> </c4d-card-footer>
-  </c4d-card>
-`;
+const cardLink = (inverse) => {
+  const colorScheme = inverse ? 'inverse' : undefined;
+  return html`
+    <c4d-card-group-item
+      link
+      cta-type="local"
+      href="https://example.com"
+      pattern-background
+      color-scheme="${ifDefined(colorScheme)}"
+    >
+      <c4d-card-heading>IBM Developer</c4d-card-heading>
+      <p>Learn, code and connect with your community</p>
+      <c4d-card-footer> </c4d-card-footer>
+    </c4d-card>
+  `;
+};
 
 const cardInCardItems = (i, tagGroup, media, inverse) => {
   const colorScheme = inverse ? 'inverse' : undefined;
@@ -268,7 +280,7 @@ export const Default = (args) => {
 
   if (cardType === 'Card - pictogram') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(pictogramCard());
+      allCards.push(pictogramCard(inverse));
     }
   }
 
@@ -295,7 +307,7 @@ export const Default = (args) => {
 
   if (cardType === 'Card link') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(cardLink);
+      allCards.push(cardLink(inverse));
     }
   }
 

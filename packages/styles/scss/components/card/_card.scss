@@ -555,8 +555,7 @@
   }
 
   :host(#{$c4d-prefix}-card)[color-scheme='inverse']:not([disabled]),
-  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not([disabled]),
-  .#{$prefix}--card {
+  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not([disabled]) {
     .#{$prefix}--tile {
       border-color: $background-inverse;
       background-color: $background-inverse;

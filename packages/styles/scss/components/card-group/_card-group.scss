@@ -60,7 +60,6 @@
     display: contents;
 
     .#{$prefix}--card {
-      // @extend
       display: grid;
       border: 0;
       grid-row: span 10;
