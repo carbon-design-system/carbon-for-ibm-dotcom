@@ -23,6 +23,7 @@ import { GRID_MODE } from '../defs';
 import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
+import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
 
 let count = 0;
 const phraseArray = [
@@ -32,6 +33,11 @@ const phraseArray = [
   'Te sint disputando pri, at his aliquip corrumpit',
   'Disputando lorem covallis',
 ];
+
+const colorSchemeMap = {
+  Regular: BASIC_COLOR_SCHEME.REGULAR,
+  Inverse: BASIC_COLOR_SCHEME.INVERSE,
+};
 
 const gridModes = {
   [`Condensed (1px)`]: GRID_MODE.CONDENSED,
@@ -70,14 +76,13 @@ const cardsDiffLengthPhrase = (
   media,
   cardType,
   addCta,
-  inverse
+  colorScheme
 ) => {
-  const colorScheme = inverse ? 'inverse' : undefined;
   const defaultCardGroupItem = html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
-      color-scheme="${ifDefined(colorScheme)}">
+      color-scheme=${colorSchemeMap[colorScheme]}>
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -124,14 +129,13 @@ const longHeadingCardGroupItem = (
   media,
   cardType,
   addCta,
-  inverse
+  colorScheme
 ) => {
-  const colorScheme = inverse ? 'inverse' : undefined;
   return html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
-      color-scheme="${ifDefined(colorScheme)}">
+      color-scheme=${colorSchemeMap[colorScheme]}>
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -153,13 +157,12 @@ const longHeadingCardGroupItem = (
   `;
 };
 
-const pictogramCard = (inverse) => {
-  const colorScheme = inverse ? 'inverse' : undefined;
+const pictogramCard = (colorScheme) => {
   return html`
     <c4d-card-group-item
       href="https://example.com"
       pictogram-placement="bottom"
-      color-scheme="${ifDefined(colorScheme)}">
+      color-scheme=${colorSchemeMap[colorScheme]}>
       <c4d-card-heading>Aerospace and defence</c4d-card-heading>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -189,15 +192,14 @@ const pictogramCard = (inverse) => {
   `;
 };
 
-const cardLink = (inverse) => {
-  const colorScheme = inverse ? 'inverse' : undefined;
+const cardLink = (colorScheme) => {
   return html`
     <c4d-card-group-item
       link
       cta-type="local"
       href="https://example.com"
       pattern-background
-      color-scheme="${ifDefined(colorScheme)}"
+      color-scheme=${colorSchemeMap[colorScheme]}
     >
       <c4d-card-heading>IBM Developer</c4d-card-heading>
       <p>Learn, code and connect with your community</p>
@@ -206,15 +208,14 @@ const cardLink = (inverse) => {
   `;
 };
 
-const cardInCardItems = (i, tagGroup, media, inverse) => {
-  const colorScheme = inverse ? 'inverse' : undefined;
+const cardInCardItems = (i, tagGroup, media, colorScheme) => {
   if (media) {
     return i % 2 === 0
       ? html`
           <c4d-card-group-item
             cta-type="local"
             href="https://example.com"
-            color-scheme="${ifDefined(colorScheme)}">
+            color-scheme=${colorSchemeMap[colorScheme]}>
             ${imageContent}
             <c4d-card-eyebrow>Label</c4d-card-eyebrow>
             <c4d-card-heading
@@ -229,7 +230,7 @@ const cardInCardItems = (i, tagGroup, media, inverse) => {
           <c4d-card-group-item
             cta-type="video"
             href="0_ibuqxqbe"
-            color-scheme="${ifDefined(colorScheme)}">
+            color-scheme=${colorSchemeMap[colorScheme]}>
             <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
             <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
@@ -241,7 +242,7 @@ const cardInCardItems = (i, tagGroup, media, inverse) => {
     <c4d-card-group-item
       cta-type="local"
       href="https://example.com"
-      color-scheme="${ifDefined(colorScheme)}">
+      color-scheme=${colorSchemeMap[colorScheme]}>
       <c4d-card-eyebrow>Label</c4d-card-eyebrow>
       <c4d-card-heading
         >The United Nations Environment Program works with IBM to reduce marine
@@ -254,18 +255,26 @@ const cardInCardItems = (i, tagGroup, media, inverse) => {
 };
 
 export const Default = (args) => {
-  const { cards, cardType, media, tagGroup, gridMode, cta, addCta, inverse } =
-    args?.CardGroup ?? {};
+  const {
+    cards,
+    cardType,
+    media,
+    tagGroup,
+    gridMode,
+    cta,
+    addCta,
+    colorScheme,
+  } = args?.CardGroup ?? {};
 
   const allCards: object[] = [];
 
   if (cardType === 'Card - default') {
     allCards.push(
-      longHeadingCardGroupItem(tagGroup, media, cardType, addCta, inverse)
+      longHeadingCardGroupItem(tagGroup, media, cardType, addCta, colorScheme)
     );
     for (let i = 1; i < cards; i++) {
       allCards.push(
-        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta, inverse)
+        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta, colorScheme)
       );
     }
     if (cta) {
@@ -282,17 +291,17 @@ export const Default = (args) => {
 
   if (cardType === 'Card - pictogram') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(pictogramCard(inverse));
+      allCards.push(pictogramCard(colorScheme));
     }
   }
 
   if (cardType === 'Card static') {
     allCards.push(
-      longHeadingCardGroupItem(tagGroup, media, cardType, addCta, inverse)
+      longHeadingCardGroupItem(tagGroup, media, cardType, addCta, colorScheme)
     );
     for (let i = 1; i < cards; i++) {
       allCards.push(
-        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta, inverse)
+        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta, colorScheme)
       );
     }
     if (cta) {
@@ -309,7 +318,7 @@ export const Default = (args) => {
 
   if (cardType === 'Card link') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(cardLink(inverse));
+      allCards.push(cardLink(colorScheme));
     }
   }
 
@@ -323,10 +332,11 @@ export const Default = (args) => {
 };
 
 export const withCardInCard = (args) => {
-  const { cards, tagGroup, media, gridMode, inverse } = args?.CardGroup ?? {};
+  const { cards, tagGroup, media, gridMode, colorScheme } =
+    args?.CardGroup ?? {};
   const allCards: object[] = [];
   for (let i = 0; i < cards; i++) {
-    allCards.push(cardInCardItems(i, tagGroup, media, inverse));
+    allCards.push(cardInCardItems(i, tagGroup, media, colorScheme));
   }
   return html`
     <c4d-video-cta-container>
@@ -373,7 +383,7 @@ withCardInCard.story = {
         tagGroup: boolean('Add tags:', false),
         gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW),
         cards: number('Number of cards', 5, { min: 2, max: 6 }),
-        inverse: boolean('Inverse color:', false),
+        colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
       }),
     },
     propsSet: {
@@ -383,7 +393,7 @@ withCardInCard.story = {
           tagGroup: false,
           gridMode: 'narrow',
           cards: 5,
-          inverse: false,
+          colorScheme: BASIC_COLOR_SCHEME.REGULAR,
         },
       },
     },
@@ -439,7 +449,11 @@ export default {
               )
             : select('Grid mode:', gridModes, gridModes['Default (32px)']);
         const cta = media ? '' : boolean('Add CTA card:', false);
-        const inverse = boolean('Inverse color:', false);
+        const colorScheme = select(
+          'Color scheme:',
+          ['Regular', 'Inverse'],
+          'Regular'
+        );
         return {
           cardType,
           media,
@@ -448,7 +462,7 @@ export default {
           cards,
           gridMode,
           cta,
-          inverse,
+          colorScheme,
         };
       },
     },
@@ -462,7 +476,7 @@ export default {
           cards: 5,
           gridMode: 'collapsed',
           cta: false,
-          inverse: false,
+          colorScheme: BASIC_COLOR_SCHEME.REGULAR,
         },
       },
     },
