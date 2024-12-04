@@ -622,6 +622,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ecmTranslateContent.state[country][state]?.combinedConsent ||
           ecmTranslateContent.combinedConsent;
       }
+    } else if (country === 'us') {
+      preText =
+        state === 'ca' || state === '' || typeof state === 'undefined'
+          ? ecmTranslateContent.state?.[country]?.['ca']?.noticeOnly
+            ? ecmTranslateContent.state?.[country]?.['ca']?.noticeOnly
+            : ecmTranslateContent.noticeOnly
+          : ecmTranslateContent.noticeOnly;
     }
 
     if (ecmTranslateContent.country?.[country]) {

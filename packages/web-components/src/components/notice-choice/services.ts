@@ -13,7 +13,6 @@ export function loadContent(
 ) {
   const script = document.createElement('script');
   const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
-  console.log(environment, 'env', env);
   script.async = false;
   script.charset = 'utf-8';
   script.src = `https://${environment}/common/translations/notice/v23/${locale.toLocaleLowerCase()}/ncContent_v23.js`; // URL for the third-party library being loaded.
