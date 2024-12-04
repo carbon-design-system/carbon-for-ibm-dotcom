@@ -11,6 +11,8 @@
 @use '@carbon/styles/scss/utilities/convert';
 @use '@carbon/type';
 
+@include type.reset();
+
 @mixin notice-choice {
   .#{$prefix}--nc {
     max-inline-size: 640px;
@@ -24,7 +26,7 @@
     a {
       color: $link-primary;
     }
-    
+
     // RTL styling
     :dir(rtl) {
       .#{$prefix}--checkbox-label-text {
@@ -37,7 +39,7 @@
         transform-origin: center;
       }
 
-      .#{$prefix}--checkbox:checked+.#{$prefix}--checkbox-label::after,
+      .#{$prefix}--checkbox:checked + .#{$prefix}--checkbox-label::after,
       .#{$prefix}--checkbox-label[data-contained-checkbox-state='true']::after {
         transform: scale(1.2) rotate3d(0.5, 1, 0, 158deg);
       }
