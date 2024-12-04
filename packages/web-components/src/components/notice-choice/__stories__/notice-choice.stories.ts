@@ -44,7 +44,7 @@ const languages = {
   'Ukrainian [uk]': 'uk',
 };
 const countryList = {
-  'Unites States': 'US',
+  'United States': 'US',
   Germany: 'DE',
   India: 'IN',
   China: 'CN',
@@ -87,6 +87,16 @@ const hideErrorMessages = {
   true: 'true',
   false: 'false',
 };
+
+const combineEmailPhone = {
+  true: 'true',
+  false: 'false',
+};
+
+const environment = {
+  Production: 'prod',
+  Stage: 'stage',
+};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
@@ -109,10 +119,14 @@ const props = () => {
       hideErrorMessages,
       'false'
     ),
+    combineEmailPhone: select(
+      'Combine Email Phone',
+      combineEmailPhone,
+      'false'
+    ),
+    environment: select('Environment', environment, 'prod'),
   };
 };
-
-console.log(props);
 
 export const Default = (args) => {
   const {
@@ -127,6 +141,8 @@ export const Default = (args) => {
     hiddenPhone,
     ncTeleDetail,
     ncEmailDetail,
+    combineEmailPhone,
+    environment,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -141,6 +157,8 @@ export const Default = (args) => {
       .hiddenPhone="${hiddenPhone}"
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
+      combine-email-phone="${combineEmailPhone}"
+      environment="${environment}"
       @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };

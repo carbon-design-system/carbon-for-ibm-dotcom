@@ -9,6 +9,9 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/convert';
+@use '@carbon/type';
+
+@include type.reset();
 
 @mixin notice-choice {
   .#{$prefix}--nc {
@@ -17,6 +20,7 @@
     p,
     .#{$prefix}--checkbox-group {
       margin-block-end: $spacing-06;
+      @include type.type-style('legal-02');
     }
 
     a {
