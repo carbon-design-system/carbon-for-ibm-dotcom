@@ -99,7 +99,10 @@ const cardsDiffLengthPhrase = (
   `;
 
   const videoCardGroupItem = (videoId = '1_9h94wo6b') => html`
-    <c4d-card-group-item cta-type="video" href="${videoId}" color-scheme="${ifDefined(colorScheme)}">
+    <c4d-card-group-item
+      cta-type="video"
+      href="${videoId}"
+      color-scheme="${ifDefined(colorScheme)}">
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
@@ -156,13 +159,12 @@ const pictogramCard = (inverse) => {
     <c4d-card-group-item
       href="https://example.com"
       pictogram-placement="bottom"
-      color-scheme="${ifDefined(colorScheme)}"
-    >
+      color-scheme="${ifDefined(colorScheme)}">
       <c4d-card-heading>Aerospace and defence</c4d-card-heading>
       <p>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
-        exercitation.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis
+        nostrud exercitation.
       </p>
       <svg
         slot="pictogram"
@@ -184,7 +186,7 @@ const pictogramCard = (inverse) => {
     18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
       </svg>
     </c4d-card-group-item>
-  `
+  `;
 };
 
 const cardLink = (inverse) => {
