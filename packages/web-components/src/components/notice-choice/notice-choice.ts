@@ -637,7 +637,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     if (country !== 'us') {
       const checked = this.values.EMAIL;
-      preText = preText?  this.renderCheckbox(preText, checked) : this.renderCheckbox( ecmTranslateContent.preText, checked);
+      preText = preText
+        ? this.renderCheckbox(preText, checked)
+        : this.renderCheckbox(ecmTranslateContent.preText, checked);
       return preText;
     }
 
