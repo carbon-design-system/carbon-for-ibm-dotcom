@@ -107,7 +107,7 @@ const cardsDiffLengthPhrase = (
     <c4d-card-group-item
       cta-type="video"
       href="${videoId}"
-      color-scheme="${ifDefined(colorScheme)}">
+      color-scheme=${colorSchemeMap[colorScheme]}>
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
