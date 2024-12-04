@@ -64,56 +64,35 @@ const lipsums = [
 const getDummyText = (i) => lipsums[i % lipsums.length];
 
 const makeLinkListItem = (args) => {
-  const { text } = args;
-  return html`
-    <c4d-link-list-item href="https://example.com" cta-type="local">
-      ${text}
-    </c4d-link-list-item>
-  `;
-};
-
-const makeLinkListItemCTA = (args) => {
   console.log(args);
 
   const { href, ctaType, download, text, placement } = args;
   return html`
-    <c4d-link-list-item-cta
-      href="${ifDefined(href)}"
+    <c4d-link-list-item
+      href="${href || "https://example.com"}"
       cta-type="${ifDefined(ctaType)}"
       download="${ifDefined(download)}"
       icon-placement="${placement}">
       ${ctaType !== CTA_TYPE.VIDEO ? html`${text}` : null}
-    </c4d-link-list-item-cta>
+    </c4d-link-list-item>
   `;
 };
 
 export const Default = (args) => {
   const knobs = args?.LinkListItem ?? {};
-  const { ctaType, count } = knobs;
+  const { count } = knobs;
 
-  return !ctaType
-    ? html`
-        <c4d-link-list type="default">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItem({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="default">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItemCTA({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `;
+  return html`
+    <c4d-link-list type="default">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
 };
 
 Default.story = {
@@ -133,31 +112,19 @@ Default.story = {
 
 export const Horizontal = (args) => {
   const knobs = args?.LinkListItem ?? {};
-  const { ctaType, count } = knobs;
+  const { count } = knobs;
 
-  return !ctaType
-    ? html`
-        <c4d-link-list type="horizontal">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItem({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="horizontal">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItemCTA({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `;
+  return html`
+    <c4d-link-list type="horizontal">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
 };
 
 Horizontal.story = {
@@ -177,31 +144,19 @@ Horizontal.story = {
 
 export const Vertical = (args) => {
   const knobs = args?.LinkListItem ?? {};
-  const { ctaType, count } = knobs;
+  const { count } = knobs;
 
-  return !ctaType
-    ? html`
-        <c4d-link-list type="vertical">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItem({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="vertical">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItemCTA({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `;
+  return html`
+    <c4d-link-list type="vertical">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
 };
 
 Vertical.story = {
@@ -221,31 +176,19 @@ Vertical.story = {
 
 export const End = (args) => {
   const knobs = args?.LinkListItem ?? {};
-  const { ctaType, count } = knobs;
+  const { count } = knobs;
 
-  return !ctaType
-    ? html`
-        <c4d-link-list type="end">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItem({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="end">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          ${[...new Array(count)].map((_item, i) =>
-            makeLinkListItemCTA({
-              text: getDummyText(i),
-              ...knobs,
-            })
-          )}
-        </c4d-link-list>
-      `;
+  return html`
+    <c4d-link-list type="end">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
 };
 
 End.story = {
@@ -271,7 +214,7 @@ export default {
     knobs: {
       LinkListItem: () => {
         const count = number('Number of Links', 3);
-        const ctaType = select('CTA type (cta-type)', types, null);
+        const ctaType = select('CTA type (cta-type)', types, types['Local (local)']);
         const placement = select(
           'Icon Placement (icon-placement)',
           placements,
