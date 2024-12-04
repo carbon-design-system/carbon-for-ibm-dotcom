@@ -7,16 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { html, LitElement } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
-import CTAMixin from '../../component-mixins/cta/cta';
+import CTAMixin, { ariaLabels, icons } from '../../component-mixins/cta/cta';
 import CDSButton from '@carbon/web-components/es/components/button/button.js';
+import { CTA_TYPE } from '../cta/defs';
 
-import { ariaLabels, icons } from '../../component-mixins/cta/cta';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
@@ -89,7 +89,11 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
    */
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event) => {
-    if (event) {
+    if (
+      event &&
+      this.ctaType === CTA_TYPE.VIDEO &&
+      this.href === event.detail?.videoId
+    ) {
       const { videoDuration, videoName } = event.detail as any;
       const { formatVideoDuration, formatVideoCaption } = this;
       const formattedVideoDuration = formatVideoDuration({
