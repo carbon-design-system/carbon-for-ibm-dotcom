@@ -340,7 +340,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const footer = this.querySelector(`${c4dPrefix}-card-footer`);
+      const footer = this.querySelector(
+        (this.constructor as typeof C4DCard).selectorFooter
+      );
 
       const headingText = this.querySelector(
         `${c4dPrefix}-card-heading`
