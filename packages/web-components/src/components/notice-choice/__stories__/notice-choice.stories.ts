@@ -119,7 +119,11 @@ const props = () => {
       hideErrorMessages,
       'false'
     ),
-    combineEmailPhone: select('Combine Email Phone', combineEmailPhone, 'false'),
+    combineEmailPhone: select(
+      'Combine Email Phone',
+      combineEmailPhone,
+      'false'
+    ),
     environment: select('Environment', environment, 'prod'),
   };
 };
