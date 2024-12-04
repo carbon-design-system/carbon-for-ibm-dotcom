@@ -69,7 +69,7 @@ const makeLinkListItem = (args) => {
   const { href, ctaType, download, text, placement } = args;
   return html`
     <c4d-link-list-item
-      href="${href || "https://example.com"}"
+      href="${href || 'https://example.com'}"
       cta-type="${ifDefined(ctaType)}"
       download="${ifDefined(download)}"
       icon-placement="${placement}">
@@ -214,7 +214,11 @@ export default {
     knobs: {
       LinkListItem: () => {
         const count = number('Number of Links', 3);
-        const ctaType = select('CTA type (cta-type)', types, types['Local (local)']);
+        const ctaType = select(
+          'CTA type (cta-type)',
+          types,
+          types['Local (local)']
+        );
         const placement = select(
           'Icon Placement (icon-placement)',
           placements,
