@@ -112,7 +112,6 @@ $hover-transition-timing: 95ms;
     @extend .#{$prefix}--col-lg-12;
 
     box-sizing: border-box;
-    padding-block: $spacing-05 $spacing-09;
   }
 
   .#{$prefix}--tableofcontents {
