@@ -9,7 +9,7 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 .#{$c4d-prefix}-ce-demo--table-of-contents {
-  padding: $spacing-07 $spacing-09;
+  padding: $spacing-05;
 
   h3 {
     padding-block: $spacing-07;
