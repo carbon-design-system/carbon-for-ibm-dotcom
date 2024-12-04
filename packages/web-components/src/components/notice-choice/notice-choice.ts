@@ -718,7 +718,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     return html`
       <section class="${prefix}--nc" part="section">
-        <p part="ncHeading" id="ncHeading" class="${c4dPrefix}--nc__pre-text">
+        <p part="ncHeading" id="ncHeading" class="${c4dPrefix}--nc__pre-text ">
           ${this.countryBasedLegalNotice()} ${this.combinedPreTextTemplate()}
         </p>
         ${Object.keys(this.checkboxes).map((key) => {

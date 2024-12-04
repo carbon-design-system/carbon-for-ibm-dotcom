@@ -9,6 +9,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/convert';
+@use '@carbon/type';
 
 @mixin notice-choice {
   .#{$prefix}--nc {
@@ -17,11 +18,14 @@
     p,
     .#{$prefix}--checkbox-group {
       margin-block-end: $spacing-06;
+      @include type.type-style('legal-02');
     }
 
     a {
       color: $link-primary;
     }
+
+
 
     // RTL styling
     :dir(rtl) {
@@ -35,7 +39,7 @@
         transform-origin: center;
       }
 
-      .#{$prefix}--checkbox:checked + .#{$prefix}--checkbox-label::after,
+      .#{$prefix}--checkbox:checked+.#{$prefix}--checkbox-label::after,
       .#{$prefix}--checkbox-label[data-contained-checkbox-state='true']::after {
         transform: scale(1.2) rotate3d(0.5, 1, 0, 158deg);
       }

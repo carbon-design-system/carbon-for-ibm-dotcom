@@ -44,7 +44,7 @@ const languages = {
   'Ukrainian [uk]': 'uk',
 };
 const countryList = {
-  'Unites States': 'US',
+  'United States': 'US',
   Germany: 'DE',
   India: 'IN',
   China: 'CN',
@@ -119,7 +119,7 @@ const props = () => {
       hideErrorMessages,
       'false'
     ),
-    combineEmailPhone: select('Combine Email Phone', combineEmailPhone, 'true'),
+    combineEmailPhone: select('Combine Email Phone', combineEmailPhone, 'false'),
     environment: select('Environment', environment, 'prod'),
   };
 };
