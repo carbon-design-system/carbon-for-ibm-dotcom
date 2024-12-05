@@ -293,7 +293,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     );
 
     const parentIsAutoplay = Boolean(
-      (this.parentElement as DDSVideoPlayerContainer)?.autoPlay
+      (this.parentElement as C4DVideoPlayerContainer)?.autoPlay
     );
 
     this.backgroundMode = parentIsBackground;

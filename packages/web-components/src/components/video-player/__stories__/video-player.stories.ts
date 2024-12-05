@@ -86,14 +86,14 @@ export const autoplay = (args) => {
   const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       auto-play
       playing-mode="inline"
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
@@ -101,20 +101,20 @@ export const autoplayMuted = (args) => {
   const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
   return html`
     <style>
-      dds-video-player-container[background-mode] {
+      c4d-video-player-container[background-mode] {
         display: block;
         aspect-ratio: 16/9;
         outline: 2px solid red;
       }
     </style>
-    <dds-video-player-container
+    <c4d-video-player-container
       auto-play
       muted
       playing-mode="inline"
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 

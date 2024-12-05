@@ -178,7 +178,7 @@ export const C4DVideoPlayerContainerMixin = <
 
     _getPlayerOptions() {
       const { backgroundMode, autoPlay, muted } =
-        this as unknown as DDSVideoPlayerComposite;
+        this as unknown as C4DVideoPlayerComposite;
       let playerOptions = {};
       const autoplayPreference = autoPlay
         ? this._getAutoplayPreference()
