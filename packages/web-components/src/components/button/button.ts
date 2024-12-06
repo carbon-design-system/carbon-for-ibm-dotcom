@@ -75,7 +75,7 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
     const { ctaType } = this;
     const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
     return `
-        <span class="matt ${prefix}--visually-hidden" part="visually-hidden-span">${
+        <span class="${prefix}--visually-hidden" part="visually-hidden-span">${
       ariaLabels[ctaType]
     }</span>
         ${icon?.()?.strings?.join()}
