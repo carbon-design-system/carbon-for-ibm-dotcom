@@ -280,7 +280,10 @@ export const Default = (args) => {
     if (cta) {
       allCards.push(
         html`
-          <c4d-card-group-item cta-type="local" href="https://example.com">
+          <c4d-card-group-item
+            cta-type="local"
+            href="https://example.com"
+            color-scheme=${colorSchemeMap[colorScheme]}>
             <c4d-card-heading>Top level card link</c4d-card-heading>
             <c4d-card-footer> </c4d-card-footer>
           </c4d-card-group-item>
@@ -307,7 +310,10 @@ export const Default = (args) => {
     if (cta) {
       allCards.push(
         html`
-          <c4d-card-group-item cta-type="local" href="https://example.com">
+          <c4d-card-group-item
+            cta-type="local"
+            href="https://example.com"
+            color-scheme=${colorSchemeMap[colorScheme]}>
             <c4d-card-heading>Top level card link</c4d-card-heading>
             <c4d-card-footer> </c4d-card-footer>
           </c4d-card-group-item>
