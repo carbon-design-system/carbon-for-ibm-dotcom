@@ -13,6 +13,7 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/colors' as *;
 @use '../lightbox-media-viewer/lightbox-media-viewer';
 

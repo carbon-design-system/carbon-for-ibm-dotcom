@@ -8,6 +8,7 @@
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block"
 @warn 'Deprecated scss import for `leadspace-block`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block`';
 @use '../../../components/leadspace-block';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
