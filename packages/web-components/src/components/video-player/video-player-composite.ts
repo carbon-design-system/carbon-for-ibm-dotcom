@@ -144,6 +144,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   autoPlay = false;
 
   /**
+   * `true` load videos with sound muted.
+   */
+  @property({ type: Boolean, attribute: 'muted' })
+  muted = false;
+
+  /**
    * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
    */
   @property({ attribute: false })
@@ -190,7 +196,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * `true` to autoplay, mute, and hide player UI.
    */
-  @property({ type: Boolean, attribute: 'background-mode' })
+  @property({ type: Boolean, attribute: 'background-mode', reflect: true })
   backgroundMode = false;
 
   /**
@@ -214,7 +220,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * The current playback state
    */
-  @property()
+  @property({ type: Boolean })
   isPlaying = false;
 
   /**
