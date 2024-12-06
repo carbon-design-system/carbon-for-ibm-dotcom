@@ -141,18 +141,20 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
       'tooltipText',
       'href',
     ];
+    const { iconSlot } = this;
 
     // Note that the parent may render a different <slot name="icon">
     // based on changes to either disabled, tooltipText, or href, so we make
     // sure to re-render the icon if any of those change, in addition to the
     // ctaType.
-    if (updateIconForProperties.some((prop) => changedProperties.has(prop))) {
-      const { iconSlot } = this;
-
+    if (
+      iconSlot &&
+      updateIconForProperties.some((prop) => changedProperties.has(prop))
+    ) {
       iconSlot.querySelector('svg')?.remove();
       iconSlot.innerHTML = this._renderButtonIcon();
       iconSlot
-        ?.querySelector('svg')
+        .querySelector('svg')
         ?.classList.add(`${prefix}--card__cta`, `${c4dPrefix}-ce--cta__icon`);
     }
   }
