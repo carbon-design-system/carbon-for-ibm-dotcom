@@ -84,8 +84,8 @@
   :host(#{$c4d-prefix}-link-list-item),
   :host(#{$c4d-prefix}-link-list-item-cta) {
     .#{$prefix}--link {
-      align-content: flex-start;
       display: flex;
+      align-content: flex-start;
       padding: $spacing-04 0;
       gap: $spacing-03;
       inline-size: 100%;
