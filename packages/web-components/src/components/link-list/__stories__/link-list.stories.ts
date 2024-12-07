@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { select } from '@storybook/addon-knobs';
+import { select, number } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
@@ -46,80 +46,58 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
+const placements = {
+  [`Left (${ICON_PLACEMENT.LEFT})`]: ICON_PLACEMENT.LEFT,
+  [`Right (${ICON_PLACEMENT.RIGHT})`]: ICON_PLACEMENT.RIGHT,
+};
+
+const lipsums = [
+  'Consectetur voluptate ea proident officia',
+  'Duis esse aliqua proident esse officia qui ullamco commodo laborum',
+  'Sunt mollit officia est irure laboris',
+  'Exercitation Lorem dolor dolore velit',
+  'Esse ut do velit voluptate irure officia',
+  'In sint sit adipisicing cupidatat tempor ullamco',
+  'Do nisi adipisicing voluptate fugiat culpa elit',
+];
+
+const getDummyText = (i) => lipsums[i % lipsums.length];
+
+const makeLinkListItem = (args) => {
+  console.log(args);
+
+  const { href, ctaType, download, text, placement } = args;
+  return html`
+    <c4d-link-list-item
+      href="${href || 'https://example.com'}"
+      cta-type="${ifDefined(ctaType)}"
+      download="${ifDefined(download)}"
+      icon-placement="${placement}">
+      ${ctaType !== CTA_TYPE.VIDEO ? html`${text}` : null}
+    </c4d-link-list-item>
+  `;
+};
+
 export const Default = (args) => {
-  const { ctaType, download, href } = args?.LinkListItem ?? {};
-  return !ctaType
-    ? html`
-        <c4d-link-list type="default">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item href="https://example.com" cta-type="local">
-            Learn more about Kubernetes
-          </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com" cta-type="local">
-            Containerization A Complete Guide
-          </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com" cta-type="local">
-            Microservices and containers
-          </c4d-link-list-item>
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="default">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}"
-            type="default">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Learn more about Kubernetes `
-              : null}
-          </c4d-link-list-item-cta>
-          <c4d-link-list-item-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}"
-            type="default">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Containerization A Complete Guide `
-              : null}
-          </c4d-link-list-item-cta>
-          <c4d-link-list-item-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}"
-            type="default">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Microservices and containers `
-              : null}
-          </c4d-link-list-item-cta>
-        </c4d-link-list>
-      `;
+  const knobs = args?.LinkListItem ?? {};
+  const { count } = knobs;
+
+  return html`
+    <c4d-link-list type="default">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
 };
 
 Default.story = {
   parameters: {
     colLgClass: 'cds--col-lg-6',
-    knobs: {
-      LinkListItem: () => {
-        const ctaType = select('CTA type (cta-type)', types, null);
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable(
-                'Download target (download)',
-                'IBM_Annual_Report_2019.pdf'
-              );
-        return {
-          ctaType,
-          download,
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
-        };
-      },
-    },
     propsSet: {
       default: {
         LinkListItem: {
@@ -133,82 +111,25 @@ Default.story = {
 };
 
 export const Horizontal = (args) => {
-  const {
-    ctaType,
-    download,
-    href,
-    iconPlacement = ICON_PLACEMENT.RIGHT,
-  } = args?.LinkListItem ?? {};
-  return !ctaType
-    ? html`
-        <c4d-link-list type="horizontal">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item
-            icon-placement="${iconPlacement}"
-            href="https://example.com"
-            type="horizontal"
-            cta-type="local">
-            Learn more about Kubernetes
-          </c4d-link-list-item>
-          <c4d-link-list-item
-            icon-placement="${iconPlacement}"
-            href="https://example.com"
-            type="horizontal"
-            cta-type="local">
-            Containerization A Complete Guide
-          </c4d-link-list-item>
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="horizontal">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item-cta
-            icon-placement="${iconPlacement}"
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}"
-            type="horizontal">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Learn more about Kubernetes `
-              : null}
-          </c4d-link-list-item-cta>
-          <c4d-link-list-item-cta
-            icon-placement="${iconPlacement}"
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}"
-            type="horizontal">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Containerization A Complete Guide `
-              : null}
-          </c4d-link-list-item-cta>
-        </c4d-link-list>
-      `;
+  const knobs = args?.LinkListItem ?? {};
+  const { count } = knobs;
+
+  return html`
+    <c4d-link-list type="horizontal">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
 };
 
 Horizontal.story = {
   parameters: {
-    colLgClass: 'cds--col-lg-10',
-    knobs: {
-      LinkListItem: () => {
-        const ctaType = select('CTA type (cta-type)', types, null);
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable(
-                'Download target (download)',
-                'IBM_Annual_Report_2019.pdf'
-              );
-        return {
-          ctaType,
-          download,
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
-        };
-      },
-    },
+    colLgClass: 'cds--col-lg-16',
     propsSet: {
       default: {
         LinkListItem: {
@@ -222,63 +143,57 @@ Horizontal.story = {
 };
 
 export const Vertical = (args) => {
-  const {
-    ctaType,
-    download,
-    href,
-    iconPlacement = ICON_PLACEMENT.RIGHT,
-  } = args?.LinkListItem ?? {};
-  return !ctaType
-    ? html`
-        <c4d-link-list type="vertical">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item
-            icon-placement="${iconPlacement}"
-            href="https://example.com"
-            type="horizontal"
-            cta-type="local">
-            Learn more about Kubernetes
-          </c4d-link-list-item>
-          <c4d-link-list-item
-            icon-placement="${iconPlacement}"
-            href="https://example.com"
-            type="horizontal"
-            cta-type="local">
-            Containerization A Complete Guide
-          </c4d-link-list-item>
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="vertical">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item-cta
-            icon-placement="${iconPlacement}"
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}"
-            type="horizontal">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Learn more about Kubernetes `
-              : null}
-          </c4d-link-list-item-cta>
-          <c4d-link-list-item-cta
-            icon-placement="${iconPlacement}"
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}"
-            type="horizontal">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Containerization A Complete Guide `
-              : null}
-          </c4d-link-list-item-cta>
-        </c4d-link-list>
-      `;
+  const knobs = args?.LinkListItem ?? {};
+  const { count } = knobs;
+
+  return html`
+    <c4d-link-list type="vertical">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
 };
 
 Vertical.story = {
   parameters: {
-    colLgClass: 'cds--col-lg-4',
-    knobs: Horizontal.story.parameters.knobs,
+    colLgClass: 'cds--col-lg-6',
+    propsSet: {
+      default: {
+        LinkListItem: {
+          ctaType: null,
+          download: undefined,
+          href: 'https://www.example.com',
+        },
+      },
+    },
+  },
+};
+
+export const End = (args) => {
+  const knobs = args?.LinkListItem ?? {};
+  const { count } = knobs;
+
+  return html`
+    <c4d-link-list type="end">
+      <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+      ${[...new Array(count)].map((_item, i) =>
+        makeLinkListItem({
+          text: getDummyText(i),
+          ...knobs,
+        })
+      )}
+    </c4d-link-list>
+  `;
+};
+
+End.story = {
+  parameters: {
+    colLgClass: 'cds--col-lg-16',
     propsSet: {
       default: {
         LinkListItem: {
@@ -296,9 +211,43 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    knobs: {
+      LinkListItem: () => {
+        const count = number('Number of Links', 3);
+        const ctaType = select(
+          'CTA type (cta-type)',
+          types,
+          types['Local (local)']
+        );
+        const placement = select(
+          'Icon Placement (icon-placement)',
+          placements,
+          ICON_PLACEMENT.RIGHT
+        );
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable(
+                'Download target (download)',
+                'IBM_Annual_Report_2019.pdf'
+              );
+        return {
+          count,
+          ctaType,
+          download,
+          placement,
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+        };
+      },
+    },
   },
   decorators: [
     (story, { parameters }) => {
+      console.log(parameters);
+
       const { colLgClass } = parameters;
       return html`
         <c4d-video-cta-container class="cds--grid">
