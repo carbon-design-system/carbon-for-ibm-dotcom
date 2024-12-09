@@ -117,6 +117,12 @@
       }
     }
 
+    .#{$prefix}--card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .#{$prefix}--card__wrapper {
       display: flex;
       flex: 1;
@@ -555,14 +561,15 @@
   }
 
   :host(#{$c4d-prefix}-card)[color-scheme='inverse']:not([disabled]),
-  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not([disabled])
-    .#{$prefix}--card {
+  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not(
+      [disabled]
+    ) {
     .#{$prefix}--tile {
       border-color: $background-inverse;
       background-color: $background-inverse;
 
       &:hover {
-        #{$c4d-prefix}-image,
+        .#{$c4d-prefix}-image,
         ::slotted(#{$c4d-prefix}-image),
         ::slotted(#{$c4d-prefix}-card-cta-image) {
           filter: brightness(108%);

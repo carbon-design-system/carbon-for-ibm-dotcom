@@ -34,8 +34,8 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   @query('a')
   _linkNode;
 
-  @property()
-  iconDiv;
+  @query(`slot[name='icon']`)
+  iconSlot?: HTMLElement;
 
   @property()
   span;
@@ -135,18 +135,26 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
+    const updateIconForProperties = [
+      'ctaType',
+      'disabled',
+      'tooltipText',
+      'href',
+    ];
+    const { iconSlot } = this;
 
-    if (changedProperties.has('ctaType')) {
-      if (!this.iconDiv) {
-        this.iconDiv = this.shadowRoot?.querySelector("slot[name='icon']");
-      }
-
-      const { iconDiv } = this;
-
-      iconDiv.querySelector('svg')?.remove();
-      iconDiv.innerHTML = this._renderButtonIcon();
-      iconDiv
-        ?.querySelector('svg')
+    // Note that the parent may render a different <slot name="icon">
+    // based on changes to either disabled, tooltipText, or href, so we make
+    // sure to re-render the icon if any of those change, in addition to the
+    // ctaType.
+    if (
+      iconSlot &&
+      updateIconForProperties.some((prop) => changedProperties.has(prop))
+    ) {
+      iconSlot.querySelector('svg')?.remove();
+      iconSlot.innerHTML = this._renderButtonIcon();
+      iconSlot
+        .querySelector('svg')
         ?.classList.add(`${prefix}--card__cta`, `${c4dPrefix}-ce--cta__icon`);
     }
   }

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.2...@carbon/ibmdotcom-styles@2.16.0-rc.3) (2024-12-07)
+
+
+### Bug Fixes
+
+* **card:** push the footer to the bottom of the card consistently ([#12137](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12137)) ([e817962](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e817962c042db7b49f25db44cbaed3d7c23b4a8f))
+* **link-list:** v2 style regressions ([#12125](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12125)) ([b400091](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b4000916f8743c6fcb9c3b7f8042d0fd93e55ed8))
+
+
+### Features
+
+* **video-player:** enable autoplay & load as muted ([#12150](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12150)) ([a68e9ba](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a68e9ba3e78deced9ff0fd1d9553741de8a56136))
+
+
+
+
+
 # [2.16.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.1...@carbon/ibmdotcom-styles@2.16.0-rc.2) (2024-12-05)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
