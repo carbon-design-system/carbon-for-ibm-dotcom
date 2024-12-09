@@ -14,6 +14,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/components/modal' as *;
 
@@ -31,7 +32,7 @@
     .#{$prefix}--modal-container {
       padding: $spacing-05;
       grid-template-rows: 1fr;
-      min-block-size: $spacing-10 + to-rem($icon-size);
+      min-block-size: $spacing-10 + $icon-size;
 
       @include breakpoint(md) {
         padding: $spacing-07;
