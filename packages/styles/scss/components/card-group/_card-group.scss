@@ -62,6 +62,7 @@
       display: grid;
       border: 0;
       grid-row: span 10;
+      grid-template-columns: subgrid;
       grid-template-rows: subgrid;
       margin-block-end: $spacing-07;
       outline: 1px solid $border-tile-01;
