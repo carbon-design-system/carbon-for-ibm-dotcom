@@ -157,7 +157,7 @@
       }
     }
 
-    .#{$prefix}--card__copy:not([hidden]) {
+    .#{$prefix}--card__copy {
       @include type-style('body-02');
 
       margin-block-end: $spacing-07;
@@ -219,10 +219,6 @@
 
       .#{$prefix}--card__copy {
         margin-block: $spacing-07 0;
-
-        &[hidden] {
-          margin: 0;
-        }
       }
 
       svg {
@@ -252,6 +248,16 @@
       &[pictogram-placement='bottom'] .#{$prefix}--card {
         ::slotted(#{$c4d-prefix}-card-heading) {
           align-items: flex-start;
+        }
+
+        .#{$prefix}--card__content {
+          padding-block-end: $spacing-10;
+        }
+
+        .#{$prefix}--card__pictogram-wrapper {
+          position: absolute;
+          inset-block-end: $spacing-05;
+          inset-inline-start: $spacing-05;
         }
 
         .#{$prefix}--card__copy {
@@ -286,6 +292,13 @@
       display: flex;
       flex-direction: column;
       gap: $spacing-05;
+
+      &[hidden] {
+        // Need important to force [hidden] to really mean hidden above many
+        // other variants setting display.
+        /* stylelint-disable declaration-no-important */
+        display: none !important;
+      }
     }
   }
 
