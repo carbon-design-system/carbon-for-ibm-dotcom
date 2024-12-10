@@ -157,7 +157,7 @@
       }
     }
 
-    .#{$prefix}--card__copy:not([hidden]) {
+    .#{$prefix}--card__copy {
       @include type-style('body-02');
 
       margin-block-end: $spacing-07;
@@ -219,10 +219,6 @@
 
       .#{$prefix}--card__copy {
         margin-block: $spacing-07 0;
-
-        &[hidden] {
-          margin: 0;
-        }
       }
 
       svg {
@@ -286,6 +282,10 @@
       display: flex;
       flex-direction: column;
       gap: $spacing-05;
+
+      &[hidden] {
+        display: none;
+      }
     }
   }
 
