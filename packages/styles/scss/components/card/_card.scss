@@ -294,7 +294,10 @@
       gap: $spacing-05;
 
       &[hidden] {
-        display: none;
+        // Need important to force [hidden] to really mean hidden above many
+        // other variants setting display.
+        /* stylelint-disable declaration-no-important */
+        display: none !important;
       }
     }
   }
