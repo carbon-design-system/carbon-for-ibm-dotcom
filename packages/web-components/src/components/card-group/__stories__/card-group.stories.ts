@@ -157,18 +157,20 @@ const longHeadingCardGroupItem = (
   `;
 };
 
-const pictogramCard = (colorScheme) => {
+const pictogramCard = (colorScheme, hideDescription = false) => {
   return html`
     <c4d-card-group-item
       href="https://example.com"
       pictogram-placement="bottom"
       color-scheme=${colorSchemeMap[colorScheme]}>
       <c4d-card-heading>Aerospace and defence</c4d-card-heading>
-      <p>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-        ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis
-        nostrud exercitation.
-      </p>
+      ${hideDescription
+        ? ''
+        : html` <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam,
+            quis nostrud exercitation.
+          </p>`}
       <svg
         slot="pictogram"
         focusable="false"
@@ -264,6 +266,7 @@ export const Default = (args) => {
     cta,
     addCta,
     colorScheme,
+    hideDescription,
   } = args?.CardGroup ?? {};
 
   const allCards: object[] = [];
@@ -294,7 +297,7 @@ export const Default = (args) => {
 
   if (cardType === 'Card - pictogram') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(pictogramCard(colorScheme));
+      allCards.push(pictogramCard(colorScheme, hideDescription));
     }
   }
 
@@ -460,6 +463,10 @@ export default {
           ['Regular', 'Inverse'],
           'Regular'
         );
+        const hideDescription =
+          cardType === 'Card - pictogram'
+            ? boolean('Hide description', false)
+            : false;
         return {
           cardType,
           media,
@@ -469,6 +476,7 @@ export default {
           gridMode,
           cta,
           colorScheme,
+          hideDescription,
         };
       },
     },
