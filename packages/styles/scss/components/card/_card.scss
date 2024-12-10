@@ -250,6 +250,16 @@
           align-items: flex-start;
         }
 
+        .#{$prefix}--card__content {
+          padding-block-end: $spacing-10;
+        }
+
+        .#{$prefix}--card__pictogram-wrapper {
+          position: absolute;
+          inset-block-end: $spacing-05;
+          inset-inline-start: $spacing-05;
+        }
+
         .#{$prefix}--card__copy {
           margin-block-end: $spacing-07;
         }
