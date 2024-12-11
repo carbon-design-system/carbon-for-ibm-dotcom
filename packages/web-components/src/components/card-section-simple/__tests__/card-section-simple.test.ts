@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../card/card-heading';
 import '../card-section-simple';
@@ -45,9 +45,9 @@ describe('c4d-card-section-simple', function () {
                 Phasellus at elit sollicitudin, sodales nulla quis, consequat
                 libero.
               </p>
-              <c4d-card-cta-footer slot="footer">
+              <c4d-card-footer>
                 ${ArrowRight20({ slot: 'icon' })}
-              </c4d-card-cta-footer>
+              </c4d-card-footer>
             </c4d-card-group-item>
           `,
         }),

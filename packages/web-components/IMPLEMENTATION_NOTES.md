@@ -55,7 +55,6 @@ umbrella.
     - [Seeing if a particular method has been called or a particular event has been fired](#seeing-if-a-particular-method-has-been-called-or-a-particular-event-has-been-fired)
   - [Defining mocks](#defining-mocks)
   - [Restoring state](#restoring-state)
-- [RTL support](#rtl-support)
 - [Storybook CSF integration](#storybook-csf-integration)
 - [License header](#license-header-1)
 - [Focus wrapping](#focus-wrapping)
@@ -437,10 +436,6 @@ Connecting to `@carbon/ibmdotcom-services-store` is done with
 [`ConnectMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/connect.ts)
 that has a similar feature set to [`react-redux`](https://react-redux.js.org).
 
-> 💡 `import`s of `@carbon/ibmdotcom-services-store` are slightly different from
-> other NPM packages. See [vendor directory](#vendor-directory) section for more
-> details.
-
 Similar to `react-redux`, `ConnectMixin` uses two callbacks:
 
 | Callback                                                                                                              | Description                                                                                                                                                                                                                                                                                                         |
@@ -554,30 +549,17 @@ procedure can be found
 ## Vendor directory
 
 The `@carbon/ibmdotcom-services-store` package is a private package that is not
-published to NPM. Adding it to `package.json` will break application because it
-won't be found.
+published to NPM. Adding it to `package.json` will break your application
+because it won't be found.
 
 To solve this problem, the
 [build process](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/vendor.js)
 of `@carbon/ibmdotcom-web-components` copies build artifacts of
 `@carbon/ibmdotcom-services-store` to
-`packages/web-components/src/internal/vendor/@carbon/ibmdotcom-services-store`
-as well as to
 `packages/web-components/es/internal/vendor/@carbon/ibmdotcom-services-store`.
-The former is used for our development, while the latter is for the application,
-being part of the
-[`@carbon/ibmdotcom-web-components` package](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/es/internal/vendor/@carbon/ibmdotcom-services-store/).
-
-The `import`s of `@carbon/ibmdotcom-services-store` in
-`@carbon/ibmdotcom-web-components` refer to those copies, rather than the
-`@carbon/ibmdotcom-services-store` package:
-
-```javascript
-import {
-  loadLanguage,
-  setLanguage,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-```
+This is for your application, being part of the
+[`@carbon/ibmdotcom-web-components` package](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/es/internal/vendor/@carbon/ibmdotcom-services-store/),
+they are available should you need them.
 
 ## Rollup bundle for Dotcom shell
 
@@ -782,47 +764,6 @@ to clean up event handlers after tests. This way, we can attach events with
 ([`events.on(element, eventName, eventHandler)`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/__tests__/expressive-modal.test.ts#L232))
 and clean them up with
 ([`events.reset()`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/__tests__/expressive-modal.test.ts#L264)).
-
-## RTL support
-
-While CSS
-[logical properties and values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
-allow us to support LTR and RTL in one codebase, there are several key
-properties that are not yet supported by some browsers, for example
-[`inset-inline-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start).
-
-We could use the `dir` attribute selector, but it causes problems with selector
-specificity between direction-specific CSS rulesets vs. non-direction-specific
-CSS rulesets.
-
-To deal with this problem, `@carbon/ibmdotcom-web-components` generates seprate
-CSS for LTR and RTL in its build process.
-
-The build process for the NPM package generates an
-[RTL version](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/build.js#L80)
-of CSS files as
-[`*.rtl.css.js`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/build.js#L90),
-in addition to the LTR version. It also generates RTL version of
-[pre-built bundle](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L65-L67)
-as
-[`ibmdotcom-web-components-dotcom-shell.rtl.min.js`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/build.js#L120).
-
-The development environment looks at the `STORYBOOK_USE_RTL` environment
-variable to determine the
-[`dir`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/config.ts#L24-L26)
-attribute of `<html>`, while also choosing either the LTR or RTL version of the
-[CSS build](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/webpack.config.js#L136)
-to use.
-
-Both of the above use [RTLCSS](https://rtlcss.com) to generate the RTL version.
-RTLCSS has [control](https://rtlcss.com/learn/usage-guide/control-directives/)
-and [value](https://rtlcss.com/learn/usage-guide/value-directives/) directives
-that `@carbon/ibmdotcom-web-components`
-[utilizes](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/masthead.scss#L347-L356).
-
-See the usage
-[documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/enable-rtl.md)
-for more information about the RTL version of the CSS.
 
 ## Storybook CSF integration
 

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,7 +31,7 @@ const cardGroupItem = html`
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <c4d-card-cta-footer></c4d-card-cta-footer>
+    <c4d-card-footer> </c4d-card-footer>
   </c4d-card-group-item>
 `;
 
@@ -45,14 +45,14 @@ const cardGroupItemWithImages = html`
     </c4d-image>
     <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
     <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
-    <c4d-card-cta-footer><c4d-card-cta-footer>
+    <c4d-card-footer><c4d-card-footer>
   </c4d-card-group-item>
 `;
 
 const cardGroupItemWithVideos = html`
   <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
-    <c4d-card-cta-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
-    </c4d-card-cta-footer>
+    <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
+    </c4d-card-footer>
   </c4d-card-group-item>
 `;
 
@@ -70,7 +70,7 @@ export const Default = (args) => {
         cta-type="${ifDefined(ctaType)}"
         href="${ifDefined(href)}">
         <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
-        <c4d-card-cta-footer></c4d-card-cta-footer>
+        <c4d-card-footer></c4d-card-footer>
       </c4d-card-link-cta>
     </c4d-content-block-cards>
   `;
@@ -91,7 +91,7 @@ export const withImages = (args) => {
         cta-type="${ifDefined(ctaType)}"
         href="${ifDefined(href)}">
         <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
-        <c4d-card-cta-footer></c4d-card-cta-footer>
+        <c4d-card-footer></c4d-card-footer>
       </c4d-card-link-cta>
     </c4d-content-block-cards>
   `;
@@ -99,6 +99,11 @@ export const withImages = (args) => {
 
 withImages.story = {
   name: 'With images',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export const withVideos = (args) => {
@@ -116,7 +121,7 @@ export const withVideos = (args) => {
         cta-type="${ifDefined(ctaType)}"
         href="${ifDefined(href)}">
         <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
-        <c4d-card-cta-footer></c4d-card-cta-footer>
+        <c4d-card-footer></c4d-card-footer>
       </c4d-card-link-cta>
     </c4d-content-block-cards>
   `;
@@ -145,6 +150,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

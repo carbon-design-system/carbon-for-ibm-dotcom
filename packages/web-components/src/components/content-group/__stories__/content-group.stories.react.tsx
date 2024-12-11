@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,11 +35,7 @@ import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = (
-  <C4DImage
-    slot="media"
-    alt="Image alt text"
-    default-src={imgLg16x9}
-    heading="Lorem ipsum dolor sit amet.">
+  <C4DImage slot="media" alt="Image alt text" default-src={imgLg16x9}>
     <C4DImageItem media="(min-width: 672px)" srcset={imgLg16x9}>
       {' '}
     </C4DImageItem>

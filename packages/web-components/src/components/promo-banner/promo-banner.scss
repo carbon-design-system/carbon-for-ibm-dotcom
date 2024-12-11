@@ -1,0 +1,163 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2024
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/styles/scss/utilities';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+
+$css--plex: true !default;
+$half-gutter: $grid-gutter / 2;
+
+$md-breakpoint-width: map-get(map-get($grid-breakpoints, md), width);
+$lg-breakpoint-width: map-get(map-get($grid-breakpoints, lg), width);
+$xlg-breakpoint-width: map-get(map-get($grid-breakpoints, xlg), width);
+$max-breakpoint-width: map-get(map-get($grid-breakpoints, max), width);
+
+// TODO: Move these calculations to a single importable file.
+//
+// We need lower and upper bounds for a container occupying 12 / 16 columns at
+// the lg and xlg breakpoints. For the lower bound we take the breakpoint
+// size, less the 2rem of outer padding, multiplied by 12 / 16, less 2rem of
+// column padding. For the upper bound we take the next breakpoint size and
+// do a similar calculation with a slight tweak of subtracting 0.02 from the
+// breakpoint size as a starting point, similar to how the
+// breakpoint-between mixin works. Note that this approach my not work
+// cleanly for the narrow or condensed grid due to the necessary assumptions
+// made for padding widths.
+$lg-12-column-lower-bound: ($lg-breakpoint-width * (12 / 16)) - 2rem;
+$lg-12-column-upper-bound: ($xlg-breakpoint-width - 0.02) * (12 / 16);
+$xlg-12-column-lower-bound: $xlg-breakpoint-width * (12 / 16);
+$xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
+
+:host(#{$c4d-prefix}-promo-banner) {
+  display: block;
+  /* stylelint-disable-next-line property-no-unknown */
+  container: promo-banner / inline-size;
+
+  [hidden] {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+  }
+
+  .banner-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    background-color: $layer;
+    color: $text-primary;
+
+    @include breakpoint-down(lg) {
+      &:not(.no-cta) {
+        /* stylelint-disable-next-line c4d/require-color-with-bg */
+        &:hover {
+          background-color: $layer-hover;
+        }
+
+        &:focus-within {
+          outline: $spacing-01 solid $focus;
+          outline-offset: calc(-1 * #{$spacing-01});
+        }
+      }
+    }
+  }
+
+  .banner-image {
+    position: relative;
+    align-self: stretch;
+
+    @include make-col(4, 16);
+    @include breakpoint(lg) {
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container promo-banner (inline-size <= #{$lg-12-column-upper-bound}) {
+        display: none;
+      }
+    }
+
+    @include breakpoint(xlg) {
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container promo-banner (inline-size <= #{$xlg-12-column-upper-bound}) {
+        display: none;
+      }
+    }
+  }
+
+  ::slotted([slot='image']) {
+    /* stylelint-disable-next-line property-no-unknown */
+    position: absolute;
+    aspect-ratio: auto;
+    block-size: 100%;
+    inline-size: 100%;
+    padding-block: 0;
+  }
+
+  .banner-content {
+    flex-grow: 1;
+    padding-block: $spacing-05;
+    padding-inline: $half-gutter;
+
+    @include breakpoint(md) {
+      padding-block: $spacing-07;
+    }
+  }
+
+  .banner-cta {
+    padding-block: $spacing-05;
+    padding-inline: $half-gutter;
+    text-align: end;
+
+    @include make-col(1, 4);
+
+    @include breakpoint-down(lg) {
+      &:focus {
+        outline: none;
+      }
+
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        inset: 0;
+      }
+    }
+
+    @include breakpoint(md) {
+      @include make-col(1, 8);
+
+      padding-block: $spacing-07;
+    }
+
+    @include breakpoint(lg) {
+      text-align: start;
+
+      @include make-col(4, 16);
+      @include make-col-offset(2, 16);
+
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container promo-banner (inline-size <= #{$lg-12-column-upper-bound}) {
+        @include make-col(4, 12);
+      }
+    }
+
+    @include breakpoint(xlg) {
+      /* stylelint-disable-next-line scss/at-rule-no-unknown */
+      @container promo-banner (inline-size <= #{$xlg-12-column-upper-bound}) {
+        @include make-col(4, 12);
+      }
+    }
+  }
+
+  ::slotted([slot='cta']) {
+    inline-size: 100%;
+  }
+}

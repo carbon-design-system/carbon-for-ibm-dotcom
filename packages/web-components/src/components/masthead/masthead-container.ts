@@ -14,27 +14,27 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import {
   L0MenuItem,
   TranslateAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
-import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
+import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
 import {
   loadLanguage,
   setLanguage,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
-import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
-import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
-import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
-import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.js';
+import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.js';
+import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
+import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.js';
+import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
 import ConnectMixin from '../../globals/mixins/connect';
 
 import C4DMastheadComposite from './masthead-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -95,7 +95,7 @@ export function mapStateToProps(
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = profileAPI ?? {};
-  const { l0Data: userL0Data } = self;
+  const getUserL0Data = self.getL0Data.bind(self);
 
   // Attempt to collect data from current/new and deprecated locations.
   let endpointl0Data;
@@ -123,7 +123,7 @@ export function mapStateToProps(
     {
       // Respect user-set L0 data. Otherwise, progressively enhance to new shape.
       l0Data:
-        !language || userL0Data
+        !language || getUserL0Data()
           ? undefined
           : endpointl0Data.current || endpointl0Data.deprecated,
       // Progressively enhance to new profile items shape.

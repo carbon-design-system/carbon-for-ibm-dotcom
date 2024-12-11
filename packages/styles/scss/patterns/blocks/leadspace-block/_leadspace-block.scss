@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,6 +8,7 @@
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block"
 @warn 'Deprecated scss import for `leadspace-block`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block`';
 @use '../../../components/leadspace-block';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
@@ -28,7 +29,7 @@
 
     &__media {
       inline-size: 100%;
-      max-inline-size: carbon--mini-units(80);
+      max-inline-size: to-rem(640px);
     }
 
     .#{$prefix}--content-block {
@@ -52,7 +53,7 @@
       }
 
       .#{$prefix}--link-list {
-        max-inline-size: carbon--mini-units(80);
+        max-inline-size: to-rem(640px);
         padding-block: $spacing-09;
 
         &__list__CTA {

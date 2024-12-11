@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,7 +32,10 @@ const promisifyStream = promisify(asyncDone);
  * @returns {Promise<void>} Gulp stream
  */
 async function icons() {
-  const banner = await readFileAsync(path.resolve(__dirname, '../../../../../tasks/license.js'), 'utf8');
+  const banner = await readFileAsync(
+    path.resolve(__dirname, '../../../../../tasks/license.js'),
+    'utf8'
+  );
   await promisifyStream(() =>
     gulp
       .src([`${config.iconsDir}/**/*.svg`])
@@ -41,15 +44,17 @@ async function icons() {
           const descriptor = await descriptorFromSVG(String(file.contents));
           file.contents = Buffer.from(`
                 import { svg } from 'lit';
-                import spread from '../internal/vendor/@carbon/web-components/globals/directives/spread.js';
-                const svgResultIBMdotcomIcon = ${createSVGResultFromIconDescriptor(descriptor)};
+                import spread from '@carbon/web-components/es/globals/directives/spread.js';
+                const svgResultIBMdotcomIcon = ${createSVGResultFromIconDescriptor(
+                  descriptor
+                )};
                 export default svgResultIBMdotcomIcon;
               `);
           done(null, file);
         })
       )
       .pipe(
-        rename(filePath => {
+        rename((filePath) => {
           filePath.extname = '.js';
         })
       )

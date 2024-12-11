@@ -1,4 +1,4 @@
-# `dds-filter-panel-composite`
+# `c4d-filter-panel-composite`
 
 ## `Misc attributes`
 
@@ -11,13 +11,13 @@
   <div class="bx--filter__modal__button">
   </div>
 </button>
-<dds-filter-panel-modal
-  data-autoid="dds-filter-panel-modal"
+<c4d-filter-panel-modal
+  data-autoid="c4d-filter-panel-modal"
   heading=""
 >
   <slot>
   </slot>
-</dds-filter-panel-modal>
+</c4d-filter-panel-modal>
 
 ```
 
@@ -30,13 +30,13 @@
   <div class="bx--filter__modal__button">
   </div>
 </button>
-<dds-filter-panel-modal
-  data-autoid="dds-filter-panel-modal"
+<c4d-filter-panel-modal
+  data-autoid="c4d-filter-panel-modal"
   heading=""
 >
   <slot>
   </slot>
-</dds-filter-panel-modal>
+</c4d-filter-panel-modal>
 
 ```
 

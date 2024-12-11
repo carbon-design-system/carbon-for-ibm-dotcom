@@ -19,14 +19,11 @@ import packageJson from '../../../package.json';
  *
  * @param {Array} components array of component names
  * @param {string} tag tag folder
- * @param {boolean} isRTL flag to show rtl version
  */
-function _renderScript(components, tag, isRTL = false) {
+function _renderScript(components, tag) {
   let scripts = '';
-  const rtl = isRTL ? '.rtl' : '';
-  const rtlFolder = isRTL ? 'rtl/' : '';
   components.forEach((component) => {
-    scripts += `<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${rtlFolder}${component}${rtl}.min.js"></script>\n`;
+    scripts += `<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${component}.min.js"></script>\n`;
   });
   return scripts;
 }
@@ -66,7 +63,7 @@ ${_renderScript(components, `version/v${packageJson.version}`)}
 
 \`\`\`html
 // SPECIFIC VERSION (available starting v2.0.0)
-${_renderScript(components, `version/v${packageJson.version}`, true)}
+${_renderScript(components, `version/v${packageJson.version}`)}
 \`\`\`
   `;
 };

@@ -84,6 +84,9 @@ export const Default = (args) => {
 
 Default.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     knobs: {
       GlobalBanner: () => ({

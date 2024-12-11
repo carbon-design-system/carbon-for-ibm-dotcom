@@ -1,29 +1,32 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { html, LitElement } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import CTAMixin from '../../component-mixins/cta/cta';
-import CDSButton from '../../internal/vendor/@carbon/web-components/components/button/button.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import CTAMixin, { ariaLabels, icons } from '../../component-mixins/cta/cta';
+import CDSButton from '@carbon/web-components/es/components/button/button.js';
+import { CTA_TYPE } from '../cta/defs';
 
-import { ariaLabels, icons } from '../../component-mixins/cta/cta';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Button.
  *
  * @element c4d-button
- * @csspart button.
+ * @csspart button - The button. Usage: `c4d-button::part(button)`
+ * @csspart hidden-paragraph - The hidden paragraph that contains the link. Usage: `c4d-button::part(hidden-paragraph)`
+ * @csspart hidden-icon-span - The span element inside the hidden paragraph. Usage: `c4d-button::part(hidden-icon-span)`
+ * @csspart visually-hidden-span - The visually hidden span element for accessibility. Usage: `c4d-button::part(visually-hidden-span)`
  */
 @customElement(`${c4dPrefix}-button`)
 // @ts-ignore
@@ -31,8 +34,8 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   @query('a')
   _linkNode;
 
-  @property()
-  iconDiv;
+  @query(`slot[name='icon']`)
+  iconSlot?: HTMLElement;
 
   @property()
   span;
@@ -55,8 +58,11 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
    */
   _renderIconPrintStyles() {
     return html`
-      <p class="${prefix}--btn--hidden" aria-hidden="true">
-        <span>:</span> ${this.href}
+      <p
+        class="${prefix}--btn--hidden"
+        aria-hidden="true"
+        part="hidden-paragraph">
+        <span part="hidden-icon-span">:</span> ${this.href}
       </p>
       <slot name="icon"></slot>
     `;
@@ -67,9 +73,12 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
    */
   _renderButtonIcon() {
     const { ctaType } = this;
+    const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
     return `
-        <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
-        ${icons[ctaType]?.()?.strings?.join()}
+        <span class="${prefix}--visually-hidden" part="visually-hidden-span">${
+      ariaLabels[ctaType]
+    }</span>
+        ${icon?.()?.strings?.join()}
       `;
   }
 
@@ -80,7 +89,11 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
    */
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event) => {
-    if (event) {
+    if (
+      event &&
+      this.ctaType === CTA_TYPE.VIDEO &&
+      this.href === event.detail?.videoId
+    ) {
       const { videoDuration, videoName } = event.detail as any;
       const { formatVideoDuration, formatVideoCaption } = this;
       const formattedVideoDuration = formatVideoDuration({
@@ -122,18 +135,26 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
+    const updateIconForProperties = [
+      'ctaType',
+      'disabled',
+      'tooltipText',
+      'href',
+    ];
+    const { iconSlot } = this;
 
-    if (changedProperties.has('ctaType')) {
-      if (!this.iconDiv) {
-        this.iconDiv = this.shadowRoot?.querySelector("slot[name='icon']");
-      }
-
-      const { iconDiv } = this;
-
-      iconDiv.querySelector('svg')?.remove();
-      iconDiv.innerHTML = this._renderButtonIcon();
-      iconDiv
-        ?.querySelector('svg')
+    // Note that the parent may render a different <slot name="icon">
+    // based on changes to either disabled, tooltipText, or href, so we make
+    // sure to re-render the icon if any of those change, in addition to the
+    // ctaType.
+    if (
+      iconSlot &&
+      updateIconForProperties.some((prop) => changedProperties.has(prop))
+    ) {
+      iconSlot.querySelector('svg')?.remove();
+      iconSlot.innerHTML = this._renderButtonIcon();
+      iconSlot
+        .querySelector('svg')
         ?.classList.add(`${prefix}--card__cta`, `${c4dPrefix}-ce--cta__icon`);
     }
   }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,21 +9,29 @@
 
 import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import C4DVideoPlayerContainer from '../video-player/video-player-container';
 import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The image content of lightbox media viewer.
  *
- * @element c4d-lightbox-image-viewer
+ * @element c4d-lightbox-media-viewer
  * @slot title - The title content.
  * @slot description - The description content.
+ * @csspart container - The wrapper around the lightbox media. Usage: `c4d-lightbox-video-player::part(container)`
+ * @csspart row - The wrapper around the row. Usage: `c4d-lightbox-video-player::part(row)`
+ * @csspart media - The wrapper around media. Usage: `c4d-lightbox-video-player::part(media)`
+ * @csspart content-wrapper - The wrapper around content. Usage: `c4d-lightbox-video-player::part(content-wrapper)`
+ * @csspart content - The inner wrapper around content. Usage: `c4d-lightbox-video-player::part(content)`
+ * @csspart title - The title of the media. Usage: `c4d-lightbox-video-player::part(title)`
+ * @csspart description - The description of the media. Usage: `c4d-lightbox-video-player::part(description)`
+ * @csspart h2 - The h2 element that holds the title. Usage: `c4d-lightbox-video-player::part(h2)`
  */
 @customElement(`${c4dPrefix}-lightbox-media-viewer`)
 class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
@@ -41,7 +49,9 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   _renderTitle() {
     const { title } = this;
     return html`
-      <slot name="title"><h2 style="all: inherit;">${title}</h2></slot>
+      <slot name="title"
+        ><h2 part="h2" style="all: inherit;">${title}</h2></slot
+      >
     `;
   }
 

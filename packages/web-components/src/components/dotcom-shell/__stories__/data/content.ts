@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
@@ -149,9 +149,7 @@ export const cardGroupItems = html`
     </c4d-image>
     <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
     <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
-    <c4d-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </c4d-card-cta-footer>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
   </c4d-card-group-item>
 `;
 
@@ -270,7 +268,7 @@ export const tocContent = html`
     ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
     <c4d-card-cta slot="footer" cta-type="local" href="https://example.com">
       Lorem ipsum dolor
-      <c4d-card-cta-footer></c4d-card-cta-footer>
+      <c4d-card-footer></c4d-card-footer>
     </c4d-card-cta>
   </c4d-content-block-segmented>
 
@@ -386,6 +384,7 @@ export const StoryContent = (
   config = {
     l1: false,
     leadspace: false,
+    leadspaceSearch: false,
     tocLayout: TOC_TYPES.DEFAULT,
   }
 ) => {
@@ -401,6 +400,7 @@ export const StoryContent = (
   return html`
     <div class="${mainClasses}">
       ${config?.leadspace ? contentLeadspace : null}
+      ${config?.leadspaceSearch ? contentLeadspaceSearch : null}
       ${config?.tocLayout === TOC_TYPES.HORIZONTAL
         ? html`
             <c4d-table-of-contents
@@ -470,7 +470,7 @@ export const StoryContentNoToC = () =>
             cta-type="local"
             href="https://example.com">
             Lorem ipsum dolor
-            <c4d-card-cta-footer></c4d-card-cta-footer>
+            <c4d-card-footer></c4d-card-footer>
           </c4d-card-cta>
         </c4d-content-block-segmented>
 

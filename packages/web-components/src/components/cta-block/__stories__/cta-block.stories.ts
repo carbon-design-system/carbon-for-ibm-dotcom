@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { boolean, number, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import Launch20 from '../../../internal/vendor/@carbon/web-components/icons/launch/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
@@ -18,6 +18,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../tabs-extended/index';
 import '../index';
 import '../../link-list/index';
+import { prefix } from '@carbon/web-components/es/globals/settings.js';
 
 import content from '../../cta-section/__stories__/content';
 
@@ -41,20 +42,26 @@ const renderCTA = {
     >
   `,
   button: (renderIcon) => html`
-    <c4d-button-cta
+    <c4d-button
       slot="action"
       cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}
       href="https://example.com"
-      >CTA Button link</c4d-button-cta
+      >CTA Button link</c4d-button
     >
   `,
   buttonGroup: (renderIcon, target) => html`
     <c4d-button-group slot="action">
-      <c4d-button-group-item target="${target}" href="https://example.com">
-        Secondary Button ${renderIcon}
+      <c4d-button-group-item
+        target="${target}"
+        href="https://example.com"
+        cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}>
+        Secondary button
       </c4d-button-group-item>
-      <c4d-button-group-item target="${target}" href="https://example.com">
-        Primary button ${renderIcon}
+      <c4d-button-group-item
+        target="${target}"
+        href="https://example.com"
+        cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}>
+        Primary button
       </c4d-button-group-item>
     </c4d-button-group>
   `,
@@ -213,26 +220,37 @@ export const WithinTabs = (args) => {
   const { contentItemType, contentItemCount } = args?.WithinTabs ?? {};
 
   return html`
-    <c4d-tabs-extended orientation="horizontal">
-      <c4d-tab label="Tab 1" selected>
+    <c4d-tabs-extended orientation="horizontal" value="first">
+      <c4d-tab id="tab-first" target="panel-first" value="first">Tab 1</c4d-tab>
+      <c4d-tab id="tab-second" target="panel-second" value="second"
+        >Tab 2</c4d-tab
+      >
+      <c4d-tab id="tab-third" target="panel-third" value="third">Tab 3</c4d-tab>
+    </c4d-tabs-extended>
+    <div class="${prefix}-ce-demo-devenv--tab-panels">
+      <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" hidden>
         <c4d-cta-block>
           <c4d-content-block-heading>Tab 1</c4d-content-block-heading>
           ${renderItems(contentItemType, contentItemCount)}
         </c4d-cta-block>
-      </c4d-tab>
-      <c4d-tab label="Tab 2">
+      </div>
+      <div
+        id="panel-second"
+        role="tabpanel"
+        aria-labelledby="tab-second"
+        hidden>
         <c4d-cta-block>
           <c4d-content-block-heading>Tab 2</c4d-content-block-heading>
           ${renderItems(contentItemType, contentItemCount)}
         </c4d-cta-block>
-      </c4d-tab>
-      <c4d-tab label="Tab 3">
+      </div>
+      <div id="panel-third" role="tabpanel" aria-labelledby="tab-third" hidden>
         <c4d-cta-block>
           <c4d-content-block-heading>Tab 3</c4d-content-block-heading>
           ${renderItems(contentItemType, contentItemCount)}
         </c4d-cta-block>
-      </c4d-tab>
-    </c4d-tabs-extended>
+      </div>
+    </div>
   `;
 };
 

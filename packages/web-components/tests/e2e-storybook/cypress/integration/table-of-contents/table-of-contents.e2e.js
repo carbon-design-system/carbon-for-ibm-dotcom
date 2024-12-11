@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ const _paths = {
 };
 
 /**
- * Collection of all tests for cds-table-of-contents
+ * Collection of all tests for c4d-table-of-contents
  *
  * @property {function} all
  * @property {function} desktop
@@ -53,12 +53,14 @@ const _tests = {
       const navItemsIds = [];
       const sectionIds = [];
 
-      cy.get('.bx--tableofcontents__desktop-container .bx--tableofcontents__desktop__item a')
-        .each(link => {
+      cy.get(
+        '.cds--tableofcontents__desktop-container .cds--tableofcontents__desktop__item a'
+      )
+        .each((link) => {
           navItemsIds.push(link.attr('data-target'));
         })
         .get('h3[name]')
-        .each(section => {
+        .each((section) => {
           sectionIds.push(section.attr('name'));
         })
         .then(() => {
@@ -76,12 +78,15 @@ const _tests = {
     checkLinkFunctionality: () => {
       const maxScrollVal = document.body.clientHeight - window.innerHeight;
 
-      cy.get('.bx--tableofcontents__desktop-container .bx--tableofcontents__desktop__item a').each(link => {
+      cy.get(
+        '.cds--tableofcontents__desktop-container .cds--tableofcontents__desktop__item a'
+      ).each((link) => {
         cy.get(link)
           .click()
           .get(`[name="${link.attr('data-target')}"]`)
           .then((section, i) => {
-            const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
+            const sectionScrolledTo =
+              section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
               cy.takeSnapshots(
@@ -100,9 +105,11 @@ const _tests = {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get(`a[data-target="${section.attr('name')}"]`)
-          .then(link => {
+          .then((link) => {
             expect(link.attr('aria-current')).to.equal('location');
-            expect(link.parent()).to.have.class('bx--tableofcontents__desktop__item--active');
+            expect(link.parent()).to.have.class(
+              'cds--tableofcontents__desktop__item--active'
+            );
             if (i === 1) {
               cy.takeSnapshots(
                 'desktop',
@@ -116,10 +123,10 @@ const _tests = {
       });
     },
     checkStickyNav: () => {
-      cy.wrap(['top', 'center', 'bottom']).each(pos => {
+      cy.wrap(['top', 'center', 'bottom']).each((pos) => {
         cy.scrollTo(pos)
-          .get('.bx--tableofcontents__desktop-container')
-          .then(sidebar => {
+          .get('.cds--tableofcontents__desktop-container')
+          .then((sidebar) => {
             expect(sidebar.offset().top).to.be.greaterThan(0);
             if (pos === 'bottom') {
               cy.takeSnapshots(
@@ -147,12 +154,12 @@ const _tests = {
       const navItemsIds = [];
       const sectionIds = [];
 
-      cy.get('.bx--tableofcontents__mobile__select__option')
-        .each(option => {
+      cy.get('.cds--tableofcontents__mobile__select__option')
+        .each((option) => {
           navItemsIds.push(option.val());
         })
         .get('h3[name]')
-        .each(section => {
+        .each((section) => {
           sectionIds.push(section.attr('name'));
         })
         .then(() => {
@@ -169,32 +176,35 @@ const _tests = {
     checkLinkFunctionality: () => {
       const maxScrollVal = document.body.clientHeight - window.innerHeight;
 
-      cy.get('.bx--tableofcontents__mobile__select__option').each((option, i) => {
-        cy.get(option)
-          .parent()
-          .select(option.val())
-          .get(`[name=${option.val()}]`)
-          .then(section => {
-            const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
-            expect(sectionScrolledTo).to.be.true;
-            if (i === 1) {
-              cy.takeSnapshots(
-                'mobile',
-                {},
-                {
-                  capture: 'viewport',
-                }
-              );
-            }
-          });
-      });
+      cy.get('.cds--tableofcontents__mobile__select__option').each(
+        (option, i) => {
+          cy.get(option)
+            .parent()
+            .select(option.val())
+            .get(`[name=${option.val()}]`)
+            .then((section) => {
+              const sectionScrolledTo =
+                section.offset().top === 0 || window.scrollY === maxScrollVal;
+              expect(sectionScrolledTo).to.be.true;
+              if (i === 1) {
+                cy.takeSnapshots(
+                  'mobile',
+                  {},
+                  {
+                    capture: 'viewport',
+                  }
+                );
+              }
+            });
+        }
+      );
     },
     checkScrollSpy: () => {
       cy.get('h3[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
-          .get('.bx--tableofcontents__mobile__select')
-          .then(select => {
+          .get('.cds--tableofcontents__mobile__select')
+          .then((select) => {
             expect(select.val()).to.equal(section.attr('name'));
             if (i === 1) {
               cy.takeSnapshots(
@@ -209,10 +219,10 @@ const _tests = {
       });
     },
     checkStickyNav: () => {
-      cy.wrap(['top', 'center', 'bottom']).each(pos => {
+      cy.wrap(['top', 'center', 'bottom']).each((pos) => {
         cy.scrollTo(pos)
-          .get('.bx--tableofcontents__mobile')
-          .then(mobileNav => {
+          .get('.cds--tableofcontents__mobile')
+          .then((mobileNav) => {
             expect(mobileNav.offset().top).to.be.greaterThan(0);
             if (pos === 'bottom') {
               cy.takeSnapshots(
@@ -229,62 +239,110 @@ const _tests = {
   },
 };
 
-describe('cds-table-of-contents | default (desktop)', () => {
+describe('c4d-table-of-contents | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
     cy.injectAxe();
   });
 
-  it('should load table of contents sidebar with links', _tests.desktop.checkRender);
-  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
+  it.skip(
+    'should load table of contents sidebar with links',
+    _tests.desktop.checkRender
+  );
+  it.skip(
+    'should navigate content to selected section',
+    _tests.desktop.checkLinkFunctionality
+  );
+  it.skip(
+    'should update current section on scroll',
+    _tests.desktop.checkScrollSpy
+  );
+  it.skip(
+    'should remain visible on page throughout scroll',
+    _tests.desktop.checkStickyNav
+  );
   it('should render correctly in all themes', _tests.all.screenshotThemes);
   it('should check a11y', _tests.all.checkA11y);
 });
 
-describe('cds-table-of-contents | horizontal (desktop)', () => {
+describe('c4d-table-of-contents | horizontal (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.horizontal}`);
     cy.injectAxe();
   });
 
-  it('should load table of contents horizontal bar with links', _tests.desktop.checkRender);
-  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
+  it.skip(
+    'should load table of contents horizontal bar with links',
+    _tests.desktop.checkRender
+  );
+  it.skip(
+    'should navigate content to selected section',
+    _tests.desktop.checkLinkFunctionality
+  );
+  it.skip(
+    'should update current section on scroll',
+    _tests.desktop.checkScrollSpy
+  );
+  it.skip(
+    'should remain visible on page throughout scroll',
+    _tests.desktop.checkStickyNav
+  );
   it('should render correctly in all themes', _tests.all.screenshotThemes);
   it('should check a11y', _tests.all.checkA11y);
 });
 
-describe('cds-table-of-contents | default (mobile)', () => {
+describe('c4d-table-of-contents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.default}`);
     cy.injectAxe();
   });
 
-  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
-  it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
+  it.skip(
+    'should load table of contents sidebar with links',
+    _tests.mobile.checkRender
+  );
+  it.skip(
+    'should navigate content to selected section',
+    _tests.mobile.checkLinkFunctionality
+  );
+  it.skip(
+    'should update current section on scroll',
+    _tests.mobile.checkScrollSpy
+  );
+  it.skip(
+    'should remain visible on page throughout scroll',
+    _tests.mobile.checkStickyNav
+  );
   it('should render correctly in all themes', _tests.all.screenshotThemes);
   it('should check a11y', _tests.all.checkA11y);
 });
 
-describe('cds-table-of-contents | horizontal (mobile)', () => {
+describe('c4d-table-of-contents | horizontal (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.horizontal}`);
     cy.injectAxe();
   });
 
-  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
-  it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
+  it.skip(
+    'should load table of contents sidebar with links',
+    _tests.mobile.checkRender
+  );
+  it.skip(
+    'should navigate content to selected section',
+    _tests.mobile.checkLinkFunctionality
+  );
+  it.skip(
+    'should update current section on scroll',
+    _tests.mobile.checkScrollSpy
+  );
+  it.skip(
+    'should remain visible on page throughout scroll',
+    _tests.mobile.checkStickyNav
+  );
   it('should render correctly in all themes', _tests.all.screenshotThemes);
   it('should check a11y', _tests.all.checkA11y);
 });

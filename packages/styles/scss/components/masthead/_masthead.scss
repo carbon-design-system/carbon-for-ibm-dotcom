@@ -312,7 +312,7 @@
     background-color: none;
     block-size: 100%;
     inline-size: 100%;
-    inset-block-start: $spacing-09;
+    inset-block-start: 0;
     inset-inline-start: 0;
     opacity: 0;
     transition: opacity $transition-expansion $standard-easing,

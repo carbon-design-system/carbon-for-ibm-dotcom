@@ -1,4 +1,4 @@
-# `c4d-card-cta-footer`
+# `c4d-card-footer`
 
 ## `Misc attributes`
 

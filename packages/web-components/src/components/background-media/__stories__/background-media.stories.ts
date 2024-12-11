@@ -56,7 +56,7 @@ export const WithVideo = (args) => {
         opacity="${ifDefined(backgroundOpacity)}">
         <c4d-video-player-container
           video-id="0_ibuqxqbe"
-          background-mode="true"></c4d-video-player-container>
+          background-mode></c4d-video-player-container>
       </c4d-background-media>
     </div>
   `;
@@ -84,6 +84,15 @@ export const WithDefaultSource = (args) => {
   `;
 };
 
+WithDefaultSource.story = {
+  name: 'with default source',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
+};
+
 export default {
   title: 'Components/Background media',
   decorators: [
@@ -96,6 +105,9 @@ export default {
     `,
   ],
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {

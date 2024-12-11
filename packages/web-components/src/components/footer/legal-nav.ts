@@ -8,21 +8,27 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Legal nav.
  *
  * @element c4d-legal-nav
+ * @csspart legal-nav - The <nav> container. Usage: `c4d-legal-nav::part(legal-nav)`
+ * @csspart legal-nav-list-container - The legal nav list container. Usage: `c4d-legal-nav::part(legal-nav-list-container)`
+ * @csspart legal-nav-list - The list of links. Usage: `c4d-legal-nav::part(legal-nav-list)`
+ * @csspart adjunct-links-list - The list of adjunct links. Usage: `c4d-legal-nav::part(adjunct-links-list)`
+ * @csspart adjunct-links-container - The adjunct links container. Usage: `c4d-legal-nav::part(adjunct-links-container)`
+ * @csspart legal-nav-items-container - The legal nav items container. Usage: `c4d-legal-nav::part(legal-nav-items-container)`
  */
 @customElement(`${c4dPrefix}-legal-nav`)
 class C4DLegalNav extends StableSelectorMixin(LitElement) {
@@ -31,22 +37,21 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    */
   @property()
   size = FOOTER_SIZE.REGULAR;
+
   /**
    * Navigation label for accessibility.
    */
   @property()
   navLabel = 'Legal Navigation';
-  /**
-   * The adjunct links container
-   */
-  @query(`.${c4dPrefix}--adjunct-links__container`)
-  private _adjunctLinksContainer?: HTMLDivElement;
 
   /**
    * The adjunct links slot
    */
   @query('[name="adjunct-links"]')
   private _adjunctLinksSlot?: HTMLSlotElement;
+
+  @state()
+  protected _hasAdjunctLinks = false;
 
   /**
    * Returns a class-name based on the type parameter type
@@ -57,6 +62,16 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
       [`${c4dPrefix}--legal-nav__micro`]: this.size === FOOTER_SIZE.MICRO,
     });
   }
+
+  /**
+   * Handles slot change event of adjunct-links slot to track if there are any.
+   */
+  protected _handleAdjunctLinksVisibility = () => {
+    const { _adjunctLinksSlot: adjunctLinksSlot } = this;
+
+    this._hasAdjunctLinks =
+      (adjunctLinksSlot?.assignedNodes().length || 0) !== 0;
+  };
 
   /**
    * The shadow slot this legal nav should be in.
@@ -71,32 +86,49 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
+  firstUpdated() {
+    const { _adjunctLinksSlot: adjunctLinksSlot } = this;
+    this._hasAdjunctLinks =
+      (adjunctLinksSlot?.assignedNodes().length || 0) !== 0;
+  }
+
   render() {
-    const { navLabel } = this;
+    const { navLabel, _hasAdjunctLinks: hasAdjunctLinks } = this;
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
           <nav
+            part="legal-nav"
             class="${c4dPrefix}--legal-nav"
             aria-label="${ifDefined(navLabel)}">
-            <div class="${this._getTypeClass()}">
-              <ul>
+            <div
+              part="legal-nav-list-container"
+              class="${this._getTypeClass()}">
+              <ul part="legal-nav-list">
                 <slot></slot>
               </ul>
               <slot name="locale"></slot>
             </div>
-            <div class="${c4dPrefix}--adjunct-links__container">
-              <ul>
-                <slot name="adjunct-links"></slot>
+            <div
+              part="adjunct-links-container"
+              class="${c4dPrefix}--adjunct-links__container${hasAdjunctLinks
+                ? ''
+                : ` ${c4dPrefix}--adjunct-links__container--hidden`}">
+              <ul part="adjunct-links-list adjunct-links-list">
+                <slot
+                  name="adjunct-links"
+                  @slotchange="${this._handleAdjunctLinksVisibility}"></slot>
               </ul>
             </div>
           </nav>
         `
       : html`
-          <nav class="${c4dPrefix}--legal-nav">
-            <div class="${this._getTypeClass()}">
-              <div>
+          <nav part="legal-nav" class="${c4dPrefix}--legal-nav">
+            <div
+              part="legal-nav-list-container"
+              class="${this._getTypeClass()}">
+              <div part="legal-nav-items-container">
                 <slot name="brand"></slot>
-                <ul>
+                <ul part="legal-nav-list">
                   <slot></slot>
                 </ul>
               </div>
@@ -104,20 +136,6 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
             </div>
           </nav>
         `;
-  }
-
-  firstUpdated() {
-    const {
-      _adjunctLinksContainer: adjunctLinksContainer,
-      _adjunctLinksSlot: adjunctLinksSlot,
-    } = this;
-    const hideAdjunctLinksContainer =
-      adjunctLinksSlot?.assignedNodes().length === 0
-        ? adjunctLinksContainer?.classList.add(
-            `${prefix}--adjunct-links__container--hidden`
-          )
-        : '';
-    return hideAdjunctLinksContainer;
   }
 
   static get stableSelector() {

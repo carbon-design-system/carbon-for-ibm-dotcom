@@ -9,25 +9,31 @@
 
 import { html } from 'lit';
 import { select, boolean } from '@storybook/addon-knobs';
-import on from '../../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
-import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
-import { CTA_TYPE } from '../../cta/defs';
+import { L1_CTA_TYPES } from '../defs';
 import styles from './masthead.stories.scss';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { mastheadL0Data, mastheadL1Data, mastheadLogoData } from './links';
+import {
+  mastheadL0Data,
+  mastheadL1Data,
+  mastheadL1EmptyMenuItemsData,
+  mastheadLogoData,
+} from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.js';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
 } from './profile-items';
 import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
+import SAPCommerceAPI from '@carbon/ibmdotcom-services/es/services/SAPCommerce/SAPCommerce.js';
 
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
@@ -69,35 +75,64 @@ const dataEndpoints = {
   'v2.1': '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1',
 };
 
-async function customTypeaheadApiFunction(searchVal) {
-  return fetch(
-    `https://ibm.com/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
-  )
+async function customTypeaheadApiFunction(query, grouped = false) {
+  return fetch(`https://www-api.ibm.com/search/typeahead/v1?query=${query}`)
     .then((response) => response.json())
     .then((data) => {
-      const searchResults = [
-        data.hints,
+      if (!grouped) {
+        return [data.response.map((result) => result[0])];
+      }
+      const resultHasCarbon = (result) =>
+        result[0].toLowerCase().includes('carbon');
+      return [
+        // Results not including "carbon"
+        data.response
+          .filter((result) => !resultHasCarbon(result))
+          .map((result) => result[0]),
+        // Optional grouped category results including "carbon"
         {
-          title: 'Product pages',
-          items: data.products,
+          title: 'Carbon',
+          items: data.response
+            .filter((result) => resultHasCarbon(result))
+            .map((result) => ({
+              name: result[0],
+              href: `https://www.example.com/${encodeURIComponent(result[0])}`,
+            })),
         },
       ];
-      return searchResults;
     });
 }
+
+const enumToArray = (en) =>
+  Object.keys(en)
+    .filter((value) => typeof value === 'string')
+    .map((key) => en[key]);
+
+const setActiveCartId = (activeCartId?: string) => {
+  if (typeof activeCartId === 'string') {
+    SAPCommerceAPI.setActiveCartId(activeCartId);
+  } else {
+    SAPCommerceAPI.removeActiveCartId();
+  }
+};
 
 export const Default = (args) => {
   const {
     customProfileLogin,
     hasProfile,
+    hasCart,
+    mockActiveCartId,
+    cartLabel,
     hasSearch,
     hasContact,
+    initialSearchTerm,
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
     authMethod,
     useMock,
   } = args?.MastheadComposite ?? {};
+  setActiveCartId(mockActiveCartId);
   return html`
     <style>
       ${styles}
@@ -107,8 +142,10 @@ export const Default = (args) => {
           <c4d-masthead-container
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
+            ?has-cart="${hasCart}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             .l0Data="${mastheadL0Data}"
@@ -117,31 +154,36 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-container>
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
+            cart-label="${ifNonEmpty(cartLabel)}"></c4d-masthead-container>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             user-status="${ifNonEmpty(userStatus)}"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
+            ?has-cart="${hasCart}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${authMethod}"></c4d-masthead-container>
+            auth-method="${authMethod}"
+            cart-label="${ifNonEmpty(cartLabel)}"></c4d-masthead-container>
         `}
   `;
 };
 
 export const WithCustomTypeahead = (args) => {
-  const { useMock } = args?.MastheadComposite ?? {};
+  const { useMock, grouped } = args?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener(
     'c4d-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
-        (e as CustomEvent).detail.value
+        (e as CustomEvent).detail.value,
+        grouped
       );
       document.dispatchEvent(
         new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
@@ -177,12 +219,18 @@ WithCustomTypeahead.story = {
   name: 'With custom typeahead',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({}),
+      MastheadComposite: () => ({
+        grouped: boolean('With grouped results for "carbon"', false),
+      }),
     },
     propsSet: {
       default: {
         MastheadComposite: {
+          grouped: 'false',
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -194,7 +242,8 @@ WithCustomTypeahead.story = {
 };
 
 export const searchOpenOnload = (args) => {
-  const { searchPlaceholder, useMock } = args?.MastheadComposite ?? {};
+  const { initialSearchTerm, searchPlaceholder, useMock } =
+    args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -210,6 +259,7 @@ export const searchOpenOnload = (args) => {
               unauthenticatedProfileItems
             )}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></c4d-masthead-container>
@@ -218,6 +268,7 @@ export const searchOpenOnload = (args) => {
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             activate-search="true"
+            initial-search-term="${ifDefined(initialSearchTerm)}"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></c4d-masthead-container>
@@ -286,6 +337,9 @@ withPlatform.story = {
         MastheadComposite: {
           platform: 'Platform',
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -297,13 +351,18 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, selectedMenuItemL1, showContactCta, useMock } =
-    args?.MastheadComposite ?? {};
+  const {
+    selectedMenuItem,
+    selectedMenuItemL1,
+    l1CtaType,
+    useMock,
+    useL1EmptyData,
+  } = args?.MastheadComposite ?? {};
 
   let l1Data = { ...mastheadL1Data };
   if (l1Data?.actions?.cta) {
-    showContactCta
-      ? (l1Data.actions.cta.ctaType = CTA_TYPE.CHAT)
+    l1CtaType
+      ? (l1Data.actions.cta.ctaType = l1CtaType)
       : delete l1Data.actions.cta.ctaType;
   }
 
@@ -321,7 +380,7 @@ export const withL1 = (args) => {
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .l1Data="${l1Data}"
+            .l1Data="${useL1EmptyData ? mastheadL1EmptyMenuItemsData : l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
@@ -330,7 +389,7 @@ export const withL1 = (args) => {
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            .l1Data="${l1Data}"
+            .l1Data="${useL1EmptyData ? mastheadL1EmptyMenuItemsData : l1Data}"
             selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
@@ -352,8 +411,13 @@ withL1.story = {
           'selected menu item in L1 (selected-menu-item-l1)',
           ''
         ),
-        showContactCta: boolean('use Contact module CTA', false),
+        l1CtaType: select(
+          'L1 CTA type',
+          enumToArray(L1_CTA_TYPES),
+          L1_CTA_TYPES.NONE
+        ),
         useMock: boolean('use mock nav data (use-mock)', false),
+        useL1EmptyData: boolean('Use empty data for L1 menu items', false),
       }),
     },
     propsSet: {
@@ -361,7 +425,7 @@ withL1.story = {
         MastheadComposite: {
           selectedMenuItem: 'Consulting',
           selectedMenuItemL1: '',
-          showContactCta: false,
+          l1CtaType: L1_CTA_TYPES.NONE,
           useMock: false,
         },
       },
@@ -419,6 +483,9 @@ withAlternateLogoAndTooltip.story = {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -465,6 +532,9 @@ WithScopedSearch.story = {
       default: {
         MastheadComposite: {
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -519,6 +589,9 @@ export default {
           ['true', 'false'],
           'true'
         ),
+        hasCart: boolean('show the cart functionality (has-cart)', false),
+        mockActiveCartId: textNullable('mock active cart id', ''),
+        cartLabel: textNullable('cart label (cart-label)', ''),
         hasSearch: select(
           'show the search functionality (has-search)',
           ['true', 'false'],
@@ -528,6 +601,10 @@ export default {
           'Contact us button visibility (has-contact)',
           ['true', 'false'],
           'true'
+        ),
+        initialSearchTerm: textNullable(
+          'initial search term (initial-search-term)',
+          ''
         ),
         searchPlaceholder: textNullable(
           'search placeholder (searchPlaceholder)',
@@ -556,7 +633,11 @@ export default {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
+          hasCart: false,
+          mockActiveCartId: '',
+          cartLabel: '',
           hasSearch: 'true',
+          initialSearchTerm: '',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,

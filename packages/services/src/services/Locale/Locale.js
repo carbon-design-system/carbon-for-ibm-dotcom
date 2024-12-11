@@ -7,7 +7,7 @@
 
 import axios from 'axios';
 import { DDOAPI } from '../DDO';
-import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
+import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie.js';
 import root from 'window-or-global';
 
 /**

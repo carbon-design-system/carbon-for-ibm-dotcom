@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2016, 2023
+// Copyright IBM Corp. 2016, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
 @use '../../internal/callout/callout' as *;
 @use '../../internal/content-block';
@@ -96,6 +97,8 @@
   :host(#{$c4d-prefix}-callout-with-media-video)
     ::slotted(#{$c4d-prefix}-video-player) {
     @extend :host(#{$c4d-prefix}-callout-caption);
+
+    margin-block-end: 0;
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='inverse'])
@@ -159,7 +162,7 @@
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
-    padding-block-end: $spacing-10;
+    padding-block-end: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image),

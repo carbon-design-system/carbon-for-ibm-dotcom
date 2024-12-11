@@ -7,7 +7,7 @@
 ```
 <slot>
 </slot>
-<picture>
+<picture part="picture">
   <img
     alt=""
     aria-describedby="image-caption long-description"
@@ -20,6 +20,7 @@
 <div
   class="c4d--image__longdescription"
   id="long-description"
+  part="long-description"
 >
   <slot name="long-description">
   </slot>
@@ -34,7 +35,7 @@
 ```
 <slot>
 </slot>
-<picture>
+<picture part="picture">
   <img
     alt=""
     aria-describedby="image-caption long-description"
@@ -47,6 +48,7 @@
 <div
   class="c4d--image__longdescription"
   id="long-description"
+  part="long-description"
 >
   <slot name="long-description">
   </slot>

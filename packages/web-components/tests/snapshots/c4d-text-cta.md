@@ -11,7 +11,7 @@
   part="link"
   tabindex="0"
 >
-  <span>
+  <span part="span">
     <slot>
     </slot>
   </span>

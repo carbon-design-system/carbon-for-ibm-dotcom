@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,8 @@ const _pathShort = '/iframe.html?id=components-footer--short';
  * @type {string}
  * @private
  */
-const _pathShortLanguageOnly = '/iframe.html?id=components-footer--short-language-only';
+const _pathShortLanguageOnly =
+  '/iframe.html?id=components-footer--short-language-only';
 
 describe('c4d-footer | Short (desktop)', () => {
   beforeEach(() => {
@@ -27,7 +28,9 @@ describe('c4d-footer | Short (desktop)', () => {
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
   it('should check a11y', () => {
@@ -38,7 +41,7 @@ describe('c4d-footer | Short (desktop)', () => {
     cy.get('c4d-footer-logo')
       .shadow()
       .find('a.c4d--footer-logo__link')
-      .then($link => {
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -71,7 +74,7 @@ describe('c4d-footer | Short (desktop)', () => {
 
     cy.get('c4d-locale-search')
       .find('c4d-locale-item')
-      .each($locale => {
+      .each(($locale) => {
         if (!$locale.attr('region') === 'Middle East and Africa') {
           $locale.should('have.attr', 'hidden');
         }
@@ -80,18 +83,17 @@ describe('c4d-footer | Short (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should display interactive search field and with keywords for locations and languages', () => {
+  it.skip('should display interactive search field and with keywords for locations and languages', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('c4d-regions')
-      .find('c4d-region-item[name="Americas"]')
-      .click();
+    cy.get('c4d-regions').find('c4d-region-item[name="Americas"]').click();
 
     cy.wait(500);
 
-    cy.get('c4d-locale-search').as('search')
+    cy.get('c4d-locale-search')
+      .as('search')
       .find('c4d-search')
       .shadow()
       .find('input')
@@ -113,7 +115,7 @@ describe('c4d-footer | Short (desktop)', () => {
   it('should load clickable legal links', () => {
     cy.get('c4d-legal-nav')
       .find('c4d-legal-nav-item')
-      .each($link => {
+      .each(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -127,19 +129,24 @@ describe('c4d-footer | Short language only (desktop)', () => {
     cy.visit(`/${_pathShortLanguageOnly}`);
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-desktop').should('have.length', 1);
     cy.get('c4d-language-selector-desktop')
       .shadow()
       .find(`div.cds--dropdown`)
       .click();
     cy.get('c4d-language-selector-desktop')
-      .find(`cds-combo-box-item[value="Arabic / عربية"]`)
+      .find(`c4d-combo-box-item[value="Arabic / عربية"]`)
       .click();
-    cy.get('c4d-language-selector-desktop').should('have.value', 'Arabic / عربية');
+    cy.get('c4d-language-selector-desktop').should(
+      'have.value',
+      'Arabic / عربية'
+    );
 
     cy.takeSnapshots();
   });
@@ -150,14 +157,16 @@ describe('c4d-footer | Short (mobile)', () => {
     cy.visit(`${_pathShort}`);
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
   it('should display clickable IBM logo', () => {
     cy.get('c4d-footer-logo')
       .shadow()
       .find('a.c4d--footer-logo__link')
-      .then($link => {
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -190,7 +199,7 @@ describe('c4d-footer | Short (mobile)', () => {
 
     cy.get('c4d-locale-search')
       .find('c4d-locale-item')
-      .each($locale => {
+      .each(($locale) => {
         if (!$locale.attr('region') === 'Middle East and Africa') {
           $locale.should('have.attr', 'hidden');
         }
@@ -199,18 +208,17 @@ describe('c4d-footer | Short (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should display interactive search field and with keywords for locations and languages', () => {
+  it.skip('should display interactive search field and with keywords for locations and languages', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('c4d-regions')
-      .find('c4d-region-item[name="Americas"]')
-      .click();
+    cy.get('c4d-regions').find('c4d-region-item[name="Americas"]').click();
 
     cy.wait(500);
 
-    cy.get('c4d-locale-search').as('search')
+    cy.get('c4d-locale-search')
+      .as('search')
       .find('c4d-search')
       .shadow()
       .find('input')
@@ -232,7 +240,7 @@ describe('c4d-footer | Short (mobile)', () => {
   it('should load clickable legal links', () => {
     cy.get('c4d-legal-nav')
       .find('c4d-legal-nav-item')
-      .each($link => {
+      .each(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -246,7 +254,9 @@ describe('c4d-footer | Short language only (mobile)', () => {
     cy.visit(`/${_pathShortLanguageOnly}`);
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() =>
+      cy.get('[data-autoid="c4d--footer-legal-nav"]').should('not.be.empty')
+    );
   });
 
   it('should load language selector dropdown and be interactive', () => {

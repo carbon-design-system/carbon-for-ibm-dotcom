@@ -13,12 +13,15 @@
   part="link"
   tabindex="0"
 >
-  <span>
+  <span part="span">
     <slot>
     </slot>
   </span>
   <slot name="icon">
-    <span class="cds--visually-hidden">
+    <span
+      class="cds--visually-hidden"
+      part="icon-visually-hidden"
+    >
     </span>
   </slot>
 </a>
@@ -33,12 +36,15 @@
   id="link"
   part="link"
 >
-  <span>
+  <span part="span">
     <slot>
     </slot>
   </span>
   <slot name="icon">
-    <span class="cds--visually-hidden">
+    <span
+      class="cds--visually-hidden"
+      part="icon-visually-hidden"
+    >
     </span>
   </slot>
 </p>

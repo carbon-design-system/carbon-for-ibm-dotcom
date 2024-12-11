@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,9 +11,16 @@
  * @type {string}
  * @private
  */
+
+const _selectors = {
+  masthead: 'c4d-masthead',
+  mastheadNavName: 'c4d-top-nav-name',
+  mastheadSearchBar: 'c4d-search-with-typeahead',
+}
+
 const _pathPlatform = '/iframe.html?id=components-masthead--with-platform&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
-describe('cds-masthead | with platform (desktop)', () => {
+describe('c4d-masthead | with platform (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathPlatform}`);
     cy.injectAxe();
@@ -25,7 +32,7 @@ describe('cds-masthead | with platform (desktop)', () => {
   });
 
   it('should load platform containing a link', () => {
-    cy.get('cds-masthead > cds-top-nav-name')
+    cy.get(`${_selectors.masthead} > ${_selectors.mastheadNavName}`)
       .shadow()
       .find('a')
       .then($link => {
@@ -35,15 +42,15 @@ describe('cds-masthead | with platform (desktop)', () => {
   });
 
   it('should render platform next to IBM logo', () => {
-    cy.get('cds-masthead > cds-top-nav-name').then($platform => {
-      cy.get('cds-masthead > cds-masthead-logo').then($logo => {
+    cy.get(`${_selectors.masthead} > ${_selectors.mastheadNavName}`).then($platform => {
+      cy.get(`${_selectors.masthead} > ${_selectors.masthead}-logo`).then($logo => {
         expect($logo[0].getBoundingClientRect().right).to.equal($platform[0].getBoundingClientRect().left);
       });
     });
   });
 
   it('should open the search bar with platform', () => {
-    cy.get('cds-masthead > cds-search-with-typeahead')
+    cy.get(`${_selectors.masthead} > ${_selectors.mastheadSearchBar}`)
       .shadow()
       .find('[part="open-button"]')
       .click();

@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import '../../image/image';
-import '../../../internal/vendor/@carbon/web-components/components/tag/tag.js';
+import '@carbon/web-components/es/components/tag/tag.js';
 import '../index';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import imgXlg4x3 from '../../../../.storybook/storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -56,7 +56,6 @@ export const Default = (args) => {
     customVideoTitle,
   } = args?.Card ?? {};
   /* eslint-disable no-nested-ternary */
-
   let videoCopy;
   let videoFooterCopy;
 
@@ -97,7 +96,7 @@ export const Default = (args) => {
           : ``}
         <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
         <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        ${copy ? html`<p></p>` : ``}
+        ${copy ? html`<p>${copy}</p>` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
         ${ctaType === CTA_TYPE.VIDEO
           ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
@@ -451,6 +450,9 @@ export const Logo = (args) => {
 
 Logo.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     ...readme.parameters,
     knobs: {
       Card: () => ({

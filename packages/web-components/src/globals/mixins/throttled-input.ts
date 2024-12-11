@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import throttle from 'lodash-es/throttle';
-import on from '../../internal/vendor/@carbon/web-components/globals/mixins/on.js';
+import on from '@carbon/web-components/es/globals/mixins/on.js';
 import Handle from '../internal/handle';
 
 import { Constructor } from '../defs';
@@ -72,7 +72,7 @@ const ThrottledInputMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     /**
      * The throttle timeout to run query upon user input.
      */
-    inputTimeout = 200;
+    abstract inputTimeout: number;
 
     connectedCallback() {
       // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition

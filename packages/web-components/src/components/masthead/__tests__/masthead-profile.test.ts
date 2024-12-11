@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,8 @@
 
 import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import User20 from '../../../internal/vendor/@carbon/web-components/icons/user/20.js';
-import UserOnline20 from '../../../internal/vendor/@carbon/web-components/icons/user--online/20.js';
+import User20 from '@carbon/web-components/es/icons/user/20.js';
+import UserOnline20 from '@carbon/web-components/es/icons/user--online/20.js';
 import C4DMastheadProfile from '../masthead-profile';
 
 const template = (props?) => {

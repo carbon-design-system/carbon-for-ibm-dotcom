@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,7 @@ const _pathMedium = '/iframe.html?id=components-feature-card--medium';
 const _pathLarge = '/iframe.html?id=components-feature-card--large';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('cds-feature-card | medium', () => {
+describe('c4d-feature-card | medium', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMedium}`);
     cy.injectAxe();
@@ -34,10 +34,10 @@ describe('cds-feature-card | medium', () => {
   });
 
   it('should check for link', () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
-      .find('a.bx--card__footer')
-      .then($link => {
+      .find('a.cds--card__footer')
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -46,10 +46,10 @@ describe('cds-feature-card | medium', () => {
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
       .find('a')
-      .then($els => {
+      .then(($els) => {
         const win = $els[0].ownerDocument.defaultView;
         const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
@@ -64,18 +64,18 @@ describe('cds-feature-card | medium', () => {
 
   it('should have image on the left and content on the right side of the card', () => {
     // image takes the left half
-    cy.get('cds-image').then($image => {
-      expect($image[0].getBoundingClientRect().left).to.equal(32);
+    cy.get('c4d-image').then(($image) => {
+      expect($image[0].getBoundingClientRect().left).to.equal(33);
       expect($image[0].getBoundingClientRect().right).to.equal(328);
     });
 
     // content takes the right half
-    cy.get('cds-feature-card')
+    cy.get('c4d-feature-card')
       .shadow()
-      .find('.bx--card__wrapper')
-      .then($content => {
+      .find('.cds--card__wrapper')
+      .then(($content) => {
         expect($content[0].getBoundingClientRect().left).to.equal(328);
-        expect($content[0].getBoundingClientRect().right).to.equal(624);
+        expect($content[0].getBoundingClientRect().right).to.equal(623);
       });
   });
 
@@ -87,17 +87,17 @@ describe('cds-feature-card | medium', () => {
   });
 });
 
-describe('cds-feature-card | medium (mobile)', () => {
+describe('c4d-feature-card | medium (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMedium}`);
     cy.viewport(320, 780);
   });
 
   it('should check for link', () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
-      .find('a.bx--card__footer')
-      .then($link => {
+      .find('a.cds--card__footer')
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -105,10 +105,10 @@ describe('cds-feature-card | medium (mobile)', () => {
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
       .find('a')
-      .then($els => {
+      .then(($els) => {
         const win = $els[0].ownerDocument.defaultView;
         const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
@@ -122,7 +122,7 @@ describe('cds-feature-card | medium (mobile)', () => {
   });
 });
 
-describe('cds-feature-card | large', () => {
+describe('c4d-feature-card | large', () => {
   beforeEach(() => {
     cy.visit(`/${_pathLarge}`);
     cy.injectAxe();
@@ -134,10 +134,10 @@ describe('cds-feature-card | large', () => {
   });
 
   it('should check for link', () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
-      .find('a.bx--card__footer')
-      .then($link => {
+      .find('a.cds--card__footer')
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -145,10 +145,10 @@ describe('cds-feature-card | large', () => {
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
       .find('a')
-      .then($els => {
+      .then(($els) => {
         const win = $els[0].ownerDocument.defaultView;
         const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
@@ -162,31 +162,26 @@ describe('cds-feature-card | large', () => {
   });
 
   it('should have eyebrow, heading, and copy content', () => {
-    cy.get('cds-card-eyebrow')
-      .invoke('text')
-      .should('not.be.empty');
-    cy.get('cds-card-heading')
-      .invoke('text')
-      .should('not.be.empty');
-    cy.get('cds-feature-card > p')
-      .invoke('text')
-      .should('not.be.empty');
+    cy.get('c4d-card-eyebrow').invoke('text').should('not.be.empty');
+    cy.get('c4d-card-heading').invoke('text').should('not.be.empty');
+    cy.get('c4d-feature-card > p').invoke('text').should('not.be.empty');
   });
+  
 
   it('should have image on the left and content on the right half of the card', () => {
     // image takes the left half
-    cy.get('cds-image').then($image => {
-      expect($image[0].getBoundingClientRect().left).to.equal(16);
+    cy.get('c4d-image').then(($image) => {
+      expect($image[0].getBoundingClientRect().left).to.equal(33);
       expect($image[0].getBoundingClientRect().right).to.equal(529);
     });
 
     // content takes the right half
-    cy.get('cds-feature-card')
+    cy.get('c4d-feature-card')
       .shadow()
-      .find('.bx--card__wrapper')
-      .then($content => {
+      .find('.cds--card__wrapper')
+      .then(($content) => {
         expect($content[0].getBoundingClientRect().left).to.equal(529);
-        expect($content[0].getBoundingClientRect().right).to.equal(1042);
+        expect($content[0].getBoundingClientRect().right).to.equal(1025);
       });
   });
 
@@ -198,17 +193,17 @@ describe('cds-feature-card | large', () => {
   });
 });
 
-describe('cds-feature-card | large (mobile)', () => {
+describe('c4d-feature-card | large (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathLarge}`);
     cy.viewport(320, 780);
   });
 
   it('should check for link', () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
-      .find('a.bx--card__footer')
-      .then($link => {
+      .find('a.cds--card__footer')
+      .then(($link) => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
@@ -217,10 +212,10 @@ describe('cds-feature-card | large (mobile)', () => {
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-    cy.get('cds-feature-card > cds-feature-card-footer')
+    cy.get('c4d-feature-card > c4d-feature-card-footer')
       .shadow()
       .find('a')
-      .then($els => {
+      .then(($els) => {
         const win = $els[0].ownerDocument.defaultView;
         const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');

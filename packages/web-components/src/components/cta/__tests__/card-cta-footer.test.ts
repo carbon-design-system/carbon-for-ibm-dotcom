@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,24 +21,24 @@ const template = (props?) => {
     children,
   } = props ?? {};
   return html`
-    <c4d-card-cta-footer
+    <c4d-card-footer
       cta-type="${ifDefined(ctaType)}"
       video-duration="${ifDefined(videoDuration)}"
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
       .formatVideoDuration="${ifDefined(formatVideoDuration)}">
       ${children}
-    </c4d-card-cta-footer>
+    </c4d-card-footer>
   `;
 };
 
-describe('c4d-card-cta-footer', function () {
+describe('c4d-card-footer', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(
-        document.body.querySelector('c4d-card-cta-footer')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('c4d-card-footer')).toMatchSnapshot({
+        mode: 'shadow',
+      });
     });
 
     it('should render with various attributes', async function () {
@@ -54,9 +54,9 @@ describe('c4d-card-cta-footer', function () {
         document.body
       );
       await Promise.resolve();
-      expect(
-        document.body.querySelector('c4d-card-cta-footer')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('c4d-card-footer')).toMatchSnapshot({
+        mode: 'shadow',
+      });
     });
   });
 
@@ -76,7 +76,7 @@ describe('c4d-card-cta-footer', function () {
       await Promise.resolve(); // Update cycle for rendering upon `slotchange` event
       expect(
         document.body
-          .querySelector('c4d-card-cta-footer')!
+          .querySelector('c4d-card-footer')!
           .shadowRoot!.querySelector('.cds--card__cta__copy')!
           .textContent!.trim()
       ).toBe('');

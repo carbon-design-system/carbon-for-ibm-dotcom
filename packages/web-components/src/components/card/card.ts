@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2023
+ * Copyright IBM Corp. 2019, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,12 @@
 import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import CDSLink from '@carbon/web-components/es/components/link/link.js';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
+import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DCardFooter from './card-footer';
@@ -28,11 +29,13 @@ import CTAMixin from '../../component-mixins/cta/cta';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
- * The table mapping slot name with the private property name that indicates the existence of the slot content.
+ * The table mapping slot name with the private property name that indicates the
+ * existence of the slot content.
  */
 const slotExistencePropertyNames = {
   image: '_hasImage',
   pictogram: '_hasPictogram',
+  eyebrow: '_hasEyebrow',
 };
 
 /**
@@ -43,6 +46,14 @@ const slotExistencePropertyNames = {
  * @slot heading - The heading content.
  * @slot image - The image content.
  * @slot footer - The footer content.
+ * @csspart caption - The Caption (default heading). Usage: `c4d-card::part(caption)`
+ * @csspart copy - The Copy. Usage: `c4d-card::part(copy)`
+ * @csspart container - The Inner content container. Usage: `c4d-card::part(container)`
+ * @csspart video-thumbnail - The video thumbnail. Usage: `c4d-card::part(video-thumbnail)`
+ * @csspart disabled-link - . Disabled link. Usage: `c4d-card::part(disabled-link)`
+ * @csspart wrapper - The component wrapper. Usage: `c4d-card::part(wrapper)`
+ * @csspart content - The content container. Usage: `c4d-card::part(content)`
+ * @csspart link - Active link. Usage: `c4d-card::part(link)`
  */
 @customElement(`${c4dPrefix}-card`)
 class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
@@ -70,17 +81,32 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   @state()
   protected _hasPictogram = false;
 
+  /**
+   * `true` if there is eyebrow content.
+   */
+  @state()
+  protected _hasEyebrow = false;
+
   @property({ attribute: 'no-poster', type: Boolean })
   noPoster;
 
   /**
-   * Handles `slotchange` event.
+   * Handles `slotchange` event for slots other than the copy slot.
    */
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
-    const hasContent = Boolean(this.querySelector('p'));
-    this[slotExistencePropertyNames[name]] = hasContent;
-    this._hasCopy = hasContent;
+    this[slotExistencePropertyNames[name]] = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
+  }
+
+  /**
+   * Handles `slotchange` event for the copy slot.
+   */
+  protected _handleCopySlotChange() {
+    this._hasCopy = Boolean(this.querySelector('p'));
   }
 
   /**
@@ -94,9 +120,11 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       formatVideoCaption: formatVideoCaptionInEffect,
     } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
-      return html`<slot name="heading"></slot>`;
+      return html`<div part="heading-wrapper">
+        <slot name="heading"></slot>
+      </div>`;
     }
-    const caption = formatVideoCaptionInEffect({ name: videoName });
+    const formattedVideoName = formatVideoCaptionInEffect({ name: videoName });
 
     this.dispatchEvent(
       new CustomEvent(
@@ -108,8 +136,11 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       )
     );
     return html`
-      <slot name="heading"></slot
-      ><c4d-card-heading>${caption}</c4d-card-heading>
+      <div part="heading-wrapper">
+        <slot name="heading">
+          <c4d-card-heading>${formattedVideoName}</c4d-card-heading>
+        </slot>
+      </div>
     `;
   }
 
@@ -119,8 +150,8 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy" part="copy">
+        <slot @slotchange="${this._handleCopySlotChange}"></slot>
       </div>
     `;
   }
@@ -140,12 +171,17 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         : html`
             <c4d-image
               class="${prefix}--card__video-thumbnail"
+              part="video-thumbnail"
               alt="${videoName}"
               default-src="${videoThumbnailUrl}">
             </c4d-image>
           `;
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
+      <div part="image-wrapper" class="${prefix}--card__image-wrapper">
+        <slot name="image" @slotchange="${this._handleSlotChange}">
+          ${image}
+        </slot>
+      </div>
     `;
   }
 
@@ -155,31 +191,56 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <div id="link" class="${classes}">${this._renderInner()}</div>
+      <div id="link" class="${classes}" part="disabled-link">
+        ${this._renderInner()}
+      </div>
     `;
+  }
+
+  protected _renderPictogramSlot(placement: PICTOGRAM_PLACEMENT) {
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } =
+      this;
+    return html`
+      <div
+        part="pictogram-wrapper"
+        class="${prefix}--card__pictogram-wrapper ${!hasPictogram
+          ? `${prefix}--card__pictogram-wrapper--empty`
+          : ''}">
+        <slot
+          name="pictogram"
+          data-pictogram-placement="${placement}"
+          @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  protected _renderEyebrowSlot() {
+    const { _hasEyebrow: hasEyebrow } = this;
+    return html`<div
+      part="eyebrow-wrapper"
+      class="${prefix}--card__eyebrow-wrapper ${!hasEyebrow
+        ? `${prefix}--card__eyebrow-wrapper--empty`
+        : ''}">
+      <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
+    </div>`;
   }
 
   /**
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } =
-      this;
+    const { _hasPictogram: hasPictogram } = this;
     return html`
       ${this._renderImage()}
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''}">
-        <div class="${prefix}--card__content">
-          ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
+          : ''}"
+        part="wrapper">
+        <div class="${prefix}--card__content" part="content">
+          ${this._renderEyebrowSlot()}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
+            ? this._renderPictogramSlot(PICTOGRAM_PLACEMENT.TOP)
             : ''}
           ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
             ? this._renderHeading()
@@ -189,12 +250,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             ? this._renderCopy()
             : ''}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.BOTTOM}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
+            ? this._renderPictogramSlot(PICTOGRAM_PLACEMENT.BOTTOM)
             : ''}
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? this._renderHeading()
@@ -202,12 +258,32 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? this._renderCopy()
             : ''}
-          <slot name="footer"></slot>
+          <div part="footer-wrapper" class="${prefix}--card__footer-wrapper">
+            <slot name="footer"></slot>
+          </div>
         </div>
       </div>
     `;
   }
 
+  /**
+   * @returns The CTA arrow.
+   *
+   */
+  protected _renderArrow() {
+    const isLTR =
+      window.getComputedStyle(this).direction.toUpperCase() === 'LTR';
+    return html`
+      <a
+        class="${`${prefix}--card__link`}"
+        part="link"
+        href="${ifDefined(this.href)}"
+        aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
+          ?.textContent || ''}"
+        >${isLTR ? ArrowRight20() : ArrowLeft20()}</a
+      >
+    `;
+  }
   /**
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
@@ -264,7 +340,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const footer = this.querySelector(`${c4dPrefix}-card-footer`);
+      const footer = this.querySelector(
+        (this.constructor as typeof C4DCard).selectorFooter
+      );
 
       const headingText = this.querySelector(
         `${c4dPrefix}-card-heading`
@@ -325,7 +403,6 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     }
 
     if (this._hasPictogram) {
-      this.onclick = () => window.open(this.href, '_self');
       this.setAttribute('pictogram', '');
     } else {
       this.removeAttribute('pictogram');
@@ -347,7 +424,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    */
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event) => {
-    if (event && this.ctaType === CTA_TYPE.VIDEO) {
+    const { videoId } = event.detail || {};
+
+    if (event && this.ctaType === CTA_TYPE.VIDEO && this.href === videoId) {
       const { videoDuration, videoName } = event.detail as any;
       const { formatVideoDuration, formatVideoCaption } = this;
       const formattedVideoDuration = formatVideoDuration({
@@ -393,21 +472,15 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       this._handleVideoTitleUpdate
     );
   }
+
   render() {
     return this._hasPictogram
       ? html`
-          <div>
-            ${this._renderInner()}
-            <a
-              class="${`${prefix}--card__link`}"
-              href="${ifDefined(this.href)}"
-              aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
-                ?.textContent || ''}"
-              >${ArrowRight20()}</a
-            >
+          <div part="container">
+            ${this._renderInner()} ${this._renderArrow()}
           </div>
         `
-      : html` <div>${this._renderInner()}</div> `;
+      : html` <div part="container">${this._renderInner()}</div> `;
   }
 
   static get stableSelector() {

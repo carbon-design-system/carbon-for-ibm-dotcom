@@ -15,7 +15,7 @@
     "ci-check": "npm run format:diff && yarn lint:license && yarn lint && yarn lint:styles",
     "clean": "lerna run clean && lerna clean --yes && rimraf node_modules",
     "doctoc": "doctoc --title '## Table of Contents' docs",
-    "format": "prettier --cache --write '**/*.{js,md,scss,ts}'",
+    "format": "prettier --cache --write '**/*.{js,md,scss,ts}' && stylelint '**/*.{css,scss}' --fix",
     "format:diff": "prettier --cache --list-different '**/*.{js,md,scss,ts}'",
     "lint": "eslint packages --ext .js,.ts",
     "lint:license": "gulp lint:license",
@@ -44,6 +44,7 @@
     "@babel/preset-react": "~7.12.1",
     "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "@types/jest": "29.5.13",
     "async-done": "^1.3.0",
     "babel-preset-carbon": "^0.0.14",
     "browserslist-config-carbon": "^10.3.0",
@@ -153,5 +154,5 @@
       "scss/no-global-function-names": null
     }
   },
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.5.0"
 }

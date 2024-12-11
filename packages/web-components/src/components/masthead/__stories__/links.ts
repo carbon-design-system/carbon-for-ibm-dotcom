@@ -11,7 +11,7 @@ import {
   MastheadL1,
   MastheadLogoData,
   L0MenuItem,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 
 /* eslint-disable max-len */
 
@@ -88,7 +88,7 @@ const mastheadL1Data: MastheadL1 = {
       submenu: {
         columns: 2,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="https://example.com">inline link</a>',
         footer: {
           title: 'View all lorem ipsum (B)',
           url: 'https://example.com',
@@ -145,7 +145,7 @@ const mastheadL1Data: MastheadL1 = {
       submenu: {
         columns: 3,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="htts://example.com">inline link</a>',
         menuSections: [
           {
             span: 1,
@@ -236,7 +236,7 @@ const mastheadL1Data: MastheadL1 = {
       submenu: {
         columns: 3,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="htts://example.com">inline link</a>',
         menuSections: [
           {
             span: 1,
@@ -398,11 +398,16 @@ const mastheadL1Data: MastheadL1 = {
       url: 'https://example.com',
     },
     {
+      title: 'Plain Link With Target',
+      url: 'https://example.com',
+      target: '_blank',
+    },
+    {
       title: 'Two Column',
       submenu: {
         columns: 2,
         announcement:
-          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="htts://example.com">inline link</a>',
         footer: {
           title: 'View all lorem ipsum (E)',
           url: 'https://example.com',
@@ -465,6 +470,22 @@ const mastheadL1Data: MastheadL1 = {
       url: 'https://example.com',
     },
   },
+};
+
+const mastheadL1EmptyMenuItemsData: MastheadL1 = {
+  title: 'IBM Data Virtualization',
+  url: 'https://www.ibm.com/products/watson\u002Dquery',
+  actions: {
+    login: {
+      title: 'Try it free',
+      url: 'https://dataplatform.cloud.ibm.com/registration/stepone?context=cpdaas\x26uucid=04fff6e19e3bf9ae\x26utm_content=CPDWW',
+    },
+    cta: {
+      title: 'Book a meeting',
+      url: 'https://www.ibm.com/products/watson\u002Dquery?schedulerform=',
+    },
+  },
+  menuItems: [],
 };
 
 const mastheadL0Data: L0MenuItem[] = [
@@ -2189,4 +2210,9 @@ const mastheadL0Data: L0MenuItem[] = [
 
 /* eslint-enable max-len */
 
-export { mastheadLogoData, mastheadL1Data, mastheadL0Data };
+export {
+  mastheadLogoData,
+  mastheadL1Data,
+  mastheadL1EmptyMenuItemsData,
+  mastheadL0Data,
+};

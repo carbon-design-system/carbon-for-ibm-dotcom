@@ -65,7 +65,7 @@ export const Horizontal = (args) => {
   const { numberOfItems: items } = args?.Other ?? {};
   return (
     <>
-      <C4DTableOfContents layout={'horizontal'}>
+      <C4DTableOfContents toc-layout={'horizontal'}>
         {content({ items })}
       </C4DTableOfContents>
     </>

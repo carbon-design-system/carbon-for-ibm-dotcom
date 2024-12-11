@@ -5,21 +5,32 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--content-layout">
+<div
+  class="cds--content-layout"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
     class="cds--content-layout__body"
     hidden=""
+    part="body"
   >
     <slot name="copy">
     </slot>
     <div
       class="cds--content-group__children cds--content-group__col"
       hidden=""
+      part="children"
     >
-      <div class="cds--content-group-cards-group cds--grid--condensed">
-        <div class="cds--content-group-cards__row">
+      <div
+        class="cds--content-group-cards-group cds--grid--condensed"
+        part="cards-group"
+      >
+        <div
+          class="cds--content-group-cards__row"
+          part="cards-row"
+        >
           <slot>
           </slot>
           <slot name="media">
@@ -28,7 +39,10 @@
       </div>
     </div>
     <div
+      class="false"
+      grid-mode=""
       hidden=""
+      part="footer"
       style=""
     >
       <slot name="footer">
@@ -44,21 +58,32 @@
 ####   `should render with various attributes`
 
 ```
-<div class="cds--content-layout">
+<div
+  class="cds--content-layout"
+  part="content-layout"
+>
   <slot name="heading">
   </slot>
   <div
     class="cds--content-layout__body"
     hidden=""
+    part="body"
   >
     <slot name="copy">
     </slot>
     <div
       class="cds--content-group__children cds--content-group__col"
       hidden=""
+      part="children"
     >
-      <div class="cds--content-group-cards-group cds--grid--condensed">
-        <div class="cds--content-group-cards__row">
+      <div
+        class="cds--content-group-cards-group cds--grid--condensed"
+        part="cards-group"
+      >
+        <div
+          class="cds--content-group-cards__row"
+          part="cards-row"
+        >
           <slot>
           </slot>
           <slot name="media">
@@ -67,7 +92,10 @@
       </div>
     </div>
     <div
+      class="false"
+      grid-mode=""
       hidden=""
+      part="footer"
       style=""
     >
       <slot name="footer">

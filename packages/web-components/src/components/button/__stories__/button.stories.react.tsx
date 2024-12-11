@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,14 +27,14 @@ import {
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
 
-export const Default = args => {
+export const Default = (args) => {
   const { copy, customVideoTitle, ctaType, disabled, download, href } =
     args?.Button ?? {};
 
   let videoCopy;
 
   if (ctaType === CTA_TYPE.VIDEO) {
-    const button = document.querySelector('dds-button') as any;
+    const button = document.querySelector('cds-button') as any;
     const duration = button?.videoTitle?.match(/\((.*)\)/)?.pop();
 
     if (!customVideoTitle) {
@@ -48,7 +48,11 @@ export const Default = args => {
 
   return (
     <DDSVideoCTAContainer>
-      <DDSButton disabled={disabled || undefined} href={href} download={download} cta-type={ctaType}>
+      <DDSButton
+        disabled={disabled || undefined}
+        href={href}
+        download={download}
+        cta-type={ctaType}>
         {videoCopy ?? copy}
       </DDSButton>
     </DDSVideoCTAContainer>
@@ -97,11 +101,13 @@ Default.story = {
 export default {
   title: 'Components/Button',
   decorators: [
-    story => {
+    (story) => {
       return (
         <div className="cds--grid">
           <div className="cds--row">
-            <div className="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">{story()}</div>
+            <div className="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">
+              {story()}
+            </div>
           </div>
         </div>
       );

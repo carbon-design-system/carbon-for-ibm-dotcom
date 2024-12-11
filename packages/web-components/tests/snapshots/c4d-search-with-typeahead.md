@@ -5,7 +5,10 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="cds--header__search--actions">
+<div
+  class="cds--header__search--actions"
+  part="header-search-actions"
+>
   <button
     aria-label="Open IBM search field"
     class="cds--header__action cds--header__search--search"
@@ -27,7 +30,10 @@
 ####   `should render with various attributes in the inactive state`
 
 ```
-<div class="cds--header__search--actions">
+<div
+  class="cds--header__search--actions"
+  part="header-search-actions"
+>
   <button
     aria-label="open-search-button-assistive-text-foo"
     class="cds--header__action cds--header__search--search"
@@ -52,6 +58,7 @@
 <form
   action="https://www.ibm.com/search"
   method="get"
+  part="search-form"
   role="search"
 >
   <input
@@ -75,6 +82,7 @@
     aria-label="IBM search field"
     aria-owns="result-list"
     class="react-autosuggest__container react-autosuggest__suggestions-container--open"
+    part="container"
     role="combobox"
   >
     <input
@@ -87,13 +95,16 @@
       part="search-input"
       placeholder="Search all of IBM"
       type="text"
+      value=""
     >
     <div
       class="react-autosuggest__suggestions-container"
       id="result-list"
+      part="suggestions-container"
     >
       <ul
         class="c4d-ce__search__list react-autosuggest__suggestions-list"
+        part="suggestions-list"
         role="listbox"
       >
       </ul>
@@ -101,13 +112,9 @@
   </div>
 </form>
 <div
-  aria-live="assertive"
-  aria-relevant="additions text"
-  class="cds--assistive-text"
-  role="status"
+  class="cds--header__search--actions"
+  part="header-search-actions"
 >
-</div>
-<div class="cds--header__search--actions">
   <button
     aria-label="perform-search-button-assistive-text-foo"
     class="cds--header__action cds--header__search--search"

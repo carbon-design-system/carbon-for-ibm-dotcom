@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@
 const _path = '/iframe.html?id=components-cta-block--within-tabs';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('cds-cta-block (desktop)', () => {
+describe('c4d-cta-block (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
     cy.injectAxe();
@@ -26,7 +26,7 @@ describe('cds-cta-block (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  xit('should set items to same height when made visible', () => {
+  it.skip('should set items to same height when made visible', () => {
     // Delay variable
     const forHeightsToBeSet = 100;
 
@@ -36,9 +36,9 @@ describe('cds-cta-block (desktop)', () => {
       const itemHeadingHeights = [];
       const itemCopyHeights = [];
 
-      cy.get('cds-tab:visible')
+      cy.get('c4d-tab:visible')
         // Only measure first row of items
-        .find('cds-cta-block-item:nth-child(-n+3)')
+        .find('c4d-cta-block-item:nth-child(-n+3)')
         .as('items')
         .should('be.visible')
         // Items should match from CSS Grid
@@ -46,22 +46,22 @@ describe('cds-cta-block (desktop)', () => {
           itemHeights.push(item.getBoundingClientRect().height);
         })
         .get('@items')
-        .find('cds-content-item-heading')
+        .find('c4d-content-item-heading')
         // Item headings should have inline style set
         .each(([itemHeading]) => {
           itemHeadingHeights.push(itemHeading.getBoundingClientRect().height);
         })
         .get('@items')
-        .find('cds-content-item-copy')
+        .find('c4d-content-item-copy')
         // Item copy should have inline style set
         .each(([itemCopy]) => {
           itemCopyHeights.push(itemCopy.getBoundingClientRect().height);
         })
         .wrap([itemHeights, itemHeadingHeights, itemCopyHeights])
         // Ensure each set of measurements are identical non-zero values
-        .each(heightSet => {
+        .each((heightSet) => {
           const isZero = heightSet.includes(0);
-          const isAllSame = heightSet.every(val => val === heightSet[0]);
+          const isAllSame = heightSet.every((val) => val === heightSet[0]);
           expect(isZero).to.be.false;
           expect(isAllSame).to.be.true;
         });
@@ -73,11 +73,8 @@ describe('cds-cta-block (desktop)', () => {
       .then(checkItemHeights)
       .get('[role="tablist"] [role="tab"] button')
       // Cycle across all tabs and ensure item heights are set
-      .each(button => {
-        cy.get(button)
-          .click()
-          .wait(forHeightsToBeSet)
-          .then(checkItemHeights);
+      .each((button) => {
+        cy.get(button).click().wait(forHeightsToBeSet).then(checkItemHeights);
       });
   });
 });

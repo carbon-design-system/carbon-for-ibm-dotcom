@@ -5,10 +5,11 @@
 ####   `should render with minimum attributes`
 
 ```
-<div>
+<div part="heading">
   <div
     class="c4d--content-item__statitics"
     hidden=""
+    part="statistics"
   >
     <slot name="statistics">
     </slot>
@@ -16,11 +17,12 @@
   <div
     class="c4d--content-item__media"
     hidden=""
+    part="media"
   >
     <slot name="media">
     </slot>
   </div>
-  <div>
+  <div part="body">
     <slot name="heading">
     </slot>
     <slot>
@@ -28,6 +30,7 @@
     <div
       class="cds--content-item__cta"
       hidden=""
+      part="cta"
     >
       <slot name="footer">
       </slot>
@@ -40,24 +43,31 @@
 ####   `should render with various attributes`
 
 ```
-<div>
+<div part="heading">
   <div
     class="c4d--content-item__statitics"
     hidden=""
+    part="statistics"
   >
     <slot name="statistics">
     </slot>
   </div>
-  <div class="c4d--content-item__media">
+  <div
+    class="c4d--content-item__media"
+    part="media"
+  >
     <slot name="media">
     </slot>
   </div>
-  <div>
+  <div part="body">
     <slot name="heading">
     </slot>
     <slot>
     </slot>
-    <div class="cds--content-item__cta">
+    <div
+      class="cds--content-item__cta"
+      part="cta"
+    >
       <slot name="footer">
       </slot>
     </div>
