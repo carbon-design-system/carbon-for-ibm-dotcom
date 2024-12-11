@@ -116,8 +116,7 @@ class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
         `${prefix}--link-with-icon__icon-${ICON_PLACEMENT.RIGHT}`,
         iconPlacement === ICON_PLACEMENT.RIGHT
       );
-
-      if (iconInline && iconPlacement === ICON_PLACEMENT.RIGHT) {
+      if (iconInline) {
         linkNode.classList.add(`${prefix}--link-with-icon--inline-icon`);
       }
     }
