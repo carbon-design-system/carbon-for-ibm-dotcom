@@ -93,12 +93,6 @@ class C4DBackgroundMedia extends C4DImage {
   mobilePosition = MOBILE_POSITION.BOTTOM;
 
   /**
-   * Current state of video playback
-   */
-  @property()
-  videoIsPlaying = false;
-
-  /**
    * Query selector to get the child video player container
    */
   protected get videoPlayerContainer() {
@@ -134,6 +128,8 @@ class C4DBackgroundMedia extends C4DImage {
     } else {
       video?.playAllVideos();
     }
+
+    this.requestUpdate();
   }
 
   renderVideoControls() {
