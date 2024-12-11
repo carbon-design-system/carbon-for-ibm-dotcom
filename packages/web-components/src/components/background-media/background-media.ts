@@ -102,7 +102,9 @@ class C4DBackgroundMedia extends C4DImage {
    * Query selector to get the child video player container
    */
   protected get videoPlayerContainer() {
-    return this.querySelector(`${c4dPrefix}-video-player-container`) as C4DVideoPlayerContainer | null;
+    return this.querySelector(
+      `${c4dPrefix}-video-player-container`
+    ) as C4DVideoPlayerContainer | null;
   }
 
   /**
@@ -115,33 +117,28 @@ class C4DBackgroundMedia extends C4DImage {
     const assignedImages = assignedElements.filter(
       (el) => el.tagName === `${c4dPrefix}-image-item`.toUpperCase()
     );
-    const assignedVideos = (assignedElements.filter(
+    const assignedVideos = assignedElements.filter(
       (el) => el.tagName === `${c4dPrefix}-video-player-container`.toUpperCase()
-    ) as C4DVideoPlayerContainer[]);
+    ) as C4DVideoPlayerContainer[];
 
-    if (
-      assignedImages.length &&
-      !assignedVideos.length
-    ) {
+    if (assignedImages.length && !assignedVideos.length) {
       this.containsOnlyImages = true;
     }
   }
 
   toggleVideoState() {
-    const {
-      videoPlayerContainer: video,
-    } = this;
+    const { videoPlayerContainer: video } = this;
 
     if (video?.isPlaying) {
-      video.pauseAllVideos()
+      video.pauseAllVideos();
     } else {
-      video?.playAllVideos()
+      video?.playAllVideos();
     }
   }
 
   renderVideoControls() {
     const { toggleVideoState, videoPlayerContainer } = this;
-    const { isPlaying } = videoPlayerContainer ?? {}
+    const { isPlaying } = videoPlayerContainer ?? {};
 
     return html`
       <button
