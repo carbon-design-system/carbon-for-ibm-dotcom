@@ -22,6 +22,10 @@
 @include callout;
 
 @mixin callout-with-media {
+  * {
+    box-sizing: border-box;
+  }
+
   :host(#{$c4d-prefix}-callout-with-media) {
     @extend :host(#{$c4d-prefix}-callout);
 
