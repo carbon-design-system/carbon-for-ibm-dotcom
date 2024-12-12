@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0-rc.3...@carbon/ibmdotcom-web-components@2.16.0) (2024-12-12)
+
+
+### Bug Fixes
+
+* **background-media:** avoid potential VPC setup race ([#12158](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12158)) ([55224e3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/55224e3c99120845d1e07d573f5759c007b563cb))
+* **card:** pictogram related style adjustments ([#12155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12155)) ([3e7bcc9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3e7bcc980c3a9cc1e1dde230610bbd57bf1f4f60))
+
+
+
+
+
 # [2.16.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0-rc.2...@carbon/ibmdotcom-web-components@2.16.0-rc.3) (2024-12-07)
 
 

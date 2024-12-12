@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.3...@carbon/ibmdotcom-styles@2.16.0) (2024-12-12)
+
+
+### Bug Fixes
+
+* **card:** pictogram related style adjustments ([#12155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12155)) ([3e7bcc9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3e7bcc980c3a9cc1e1dde230610bbd57bf1f4f60))
+* **content-group-cards:** fix alignment ([#12160](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12160)) ([19e9b4f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/19e9b4fa1339aa2c817ad66fd1ebafe5eadabb06))
+* **link-with-icon:** fix icon placement ([#12159](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12159)) ([8459cc7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8459cc79f407083861c33867c58ac9edfc61a818))
+
+
+
+
+
 # [2.16.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.2...@carbon/ibmdotcom-styles@2.16.0-rc.3) (2024-12-07)
 
 
