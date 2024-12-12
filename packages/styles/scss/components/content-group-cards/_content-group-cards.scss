@@ -44,6 +44,10 @@
       grid-auto-rows: 1fr;
       grid-template-columns: 1fr 1fr;
     }
+
+    @include breakpoint-down(md) {
+      max-inline-size: 100%;
+    }
   }
 
   :host(#{$c4d-prefix}-content-group-cards-item),
@@ -59,13 +63,5 @@
   :host(#{$c4d-prefix}-content-group-cards-item) {
     padding: list.slash($grid-gutter, 2);
     background: none;
-
-    @include breakpoint-down(lg) {
-      margin-inline-start: 0 !important;
-    }
-
-    @include breakpoint-down(md) {
-      padding-inline: $spacing-05;
-    }
   }
 }

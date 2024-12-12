@@ -92,6 +92,16 @@
       margin-inline-start: 0;
     }
 
+    ::slotted(#{$c4d-prefix}-content-group-cards-item:not([slot])) {
+      @include breakpoint('md') {
+        margin-inline-start: 0;
+      }
+
+      @include breakpoint('lg') {
+        margin-inline-start: $spacing-05;
+      }
+    }
+
     &__aside,
     ::slotted([slot='complementary']) {
       grid-area: complementary;
