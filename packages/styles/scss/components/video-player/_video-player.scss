@@ -38,8 +38,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$c4d-prefix}-video-player[background-mode='true']),
-  .#{$c4d-prefix}--video-player[background-mode='true'] {
+  :host(#{$c4d-prefix}-video-player[background-mode]),
+  .#{$c4d-prefix}--video-player[background-mode] {
     .#{$c4d-prefix}--video-player__video-container {
       padding: 0;
       block-size: 100%;

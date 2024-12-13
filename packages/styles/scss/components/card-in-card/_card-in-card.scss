@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/aspect-ratio';
 @use '../../globals/utils/ratio-base' as *;

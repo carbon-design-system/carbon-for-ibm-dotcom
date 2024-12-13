@@ -7,6 +7,7 @@
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 // Sets the Width and Max-Width of the Card to 90% / 640px.
 @mixin content-width {

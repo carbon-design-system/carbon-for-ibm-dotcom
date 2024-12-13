@@ -56,7 +56,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'language' })
   language = 'en';
 
-  @property({ type: String, attribute: 'currentLanguage' })
+  @property({ type: String, attribute: 'current-language' })
   currentLanguage = 'en';
 
   @property({ type: String, attribute: 'terms-condition-link' })

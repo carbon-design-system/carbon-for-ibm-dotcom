@@ -13,6 +13,7 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/carbon-grid' as *;
 @use '../../globals/vars' as *;
@@ -112,7 +113,6 @@ $hover-transition-timing: 95ms;
     @extend .#{$prefix}--col-lg-12;
 
     box-sizing: border-box;
-    padding-block: $spacing-05 $spacing-09;
   }
 
   .#{$prefix}--tableofcontents {

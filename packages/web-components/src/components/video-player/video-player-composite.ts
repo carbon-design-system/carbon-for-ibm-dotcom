@@ -218,6 +218,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       embeddedVideos[videoId].sendNotification('doPause');
     });
     this.isPlaying = false;
+    this._setAutoplayPreference(false);
   }
 
   playAllVideos() {
@@ -228,6 +229,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     });
     this.isPlaying = true;
     this.playbackTriggered = true;
+    this._setAutoplayPreference(true);
   }
 
   /**
@@ -235,6 +237,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   @property({ type: Boolean, attribute: 'auto-play' })
   autoPlay = false;
+
+  /**
+   * `true` load videos with sound muted.
+   */
+  @property({ type: Boolean, attribute: 'muted' })
+  muted = false;
 
   /**
    * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
@@ -283,7 +291,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * `true` to autoplay, mute, and hide player UI.
    */
-  @property({ type: Boolean, attribute: 'background-mode' })
+  @property({ type: Boolean, attribute: 'background-mode', reflect: true })
   backgroundMode = false;
 
   /**
@@ -325,7 +333,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * The current playback state
    */
-  @property()
+  @property({ type: Boolean })
   isPlaying = false;
 
   /**
