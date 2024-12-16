@@ -20,6 +20,10 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import { CTA_TYPE } from './defs';
+import C4DTextCTA from './text-cta';
+import C4DButtonCTA from './button-cta';
+import C4DCardLinkCTA from './card-link-cta';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -85,7 +89,14 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       });
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
 
-      if (this.ctaStyle !== 'card' && this.ctaStyle !== 'feature') {
+      if (
+        this.ctaStyle !== 'card' &&
+        this.ctaStyle !== 'feature' &&
+        this.ctaStyle !== 'link-list-item' &&
+        this.ctaType === CTA_TYPE.VIDEO &&
+        (this as C4DButtonCTA | C4DCardLinkCTA | C4DTextCTA).href ===
+          event.detail?.videoId
+      ) {
         const heading = formatVideoCaption({
           duration: formattedVideoDuration,
           name: videoName,

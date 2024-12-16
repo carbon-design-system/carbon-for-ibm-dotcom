@@ -60,6 +60,12 @@ class C4DCardLinkCTA extends VideoCTAMixin(CTAMixin(C4DCardLink)) {
   ctaType = CTA_TYPE.REGULAR;
 
   /**
+   * Link `href`.
+   */
+  @property({ attribute: 'href' })
+  href?: string;
+
+  /**
    * The formatter for the video caption, composed with the video name and the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
