@@ -91,7 +91,6 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       if (
         this.ctaStyle !== 'card' &&
         this.ctaStyle !== 'feature' &&
-        this.ctaStyle !== 'link-list-item' &&
         this.ctaType === CTA_TYPE.VIDEO &&
         (this as any).href === videoId
       ) {
