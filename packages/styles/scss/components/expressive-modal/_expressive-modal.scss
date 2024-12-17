@@ -8,6 +8,7 @@
 @use 'sass:math';
 
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;

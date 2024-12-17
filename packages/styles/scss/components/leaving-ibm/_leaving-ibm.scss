@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/web-components/scss/components/modal/modal' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin leaving-ibm {
   :host(#{$c4d-prefix}-leaving-ibm-composite),

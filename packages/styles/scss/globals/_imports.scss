@@ -24,9 +24,3 @@
 
 @forward './utils/content-width';
 @forward './utils/ratio-base';
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}

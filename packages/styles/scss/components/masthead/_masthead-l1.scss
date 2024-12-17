@@ -16,6 +16,7 @@
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/button/tokens' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use 'vars' as *;
 
 /// @access private
