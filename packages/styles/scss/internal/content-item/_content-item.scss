@@ -101,10 +101,6 @@
     margin-block-end: $spacing-05;
   }
 
-  ::slotted(#{$c4d-prefix}-link-with-icon) {
-    padding: $spacing-05 0 $spacing-07;
-  }
-
   :host(#{$c4d-prefix}-content-item-copy:not([has-cta])) {
     ::slotted(#{$c4d-prefix}-content-item-paragraph) {
       margin-block-end: 0;
@@ -121,5 +117,6 @@
 
   :host(#{$c4d-prefix}-content-item) ::slotted([slot='footer']) {
     margin-inline-start: 0;
+    padding-block: $spacing-05 $spacing-07;
   }
 }
