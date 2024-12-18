@@ -20,6 +20,7 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import { CTA_TYPE } from './defs';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -55,6 +56,9 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @property({ reflect: true })
   thumbnail;
 
+  @property({ attribute: 'href' })
+  href?: string;
+
   updated() {
     // transpose attributes from parent cta handler to desired cta style
     Array.from(this.attributes).forEach((e) => {
@@ -79,13 +83,17 @@ class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event: FocusEvent) => {
     if (event) {
-      const { videoDuration, videoName } = event.detail as any;
+      const { videoDuration, videoName, videoId } = event.detail as any;
       const formattedVideoDuration = formatVideoDuration({
         duration: !videoDuration ? videoDuration : videoDuration * 1000,
       });
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
-
-      if (this.ctaStyle !== 'card' && this.ctaStyle !== 'feature') {
+      if (
+        this.ctaStyle !== 'card' &&
+        this.ctaStyle !== 'feature' &&
+        this.ctaType === CTA_TYPE.VIDEO &&
+        (this as any).href === videoId
+      ) {
         const heading = formatVideoCaption({
           duration: formattedVideoDuration,
           name: videoName,
