@@ -38,6 +38,14 @@ const tagGroupContent = html`
   </div>
 `;
 
+const copyMarkupContent = html`
+  <ul>
+    <li>Placerat augue</li>
+    <li>Mauris aliquam</li>
+    <li>Habitant hac</li>
+  </ul>
+`;
+
 export const Default = (args) => {
   const {
     aspectRatio,
@@ -52,6 +60,7 @@ export const Default = (args) => {
     eyebrow,
     tagGroup,
     copy,
+    copyMarkup,
     cardStyles,
     customVideoTitle,
   } = args?.Card ?? {};
@@ -96,7 +105,7 @@ export const Default = (args) => {
           : ``}
         <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
         <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        ${copy ? html`<p>${copy}</p>` : ``}
+        ${copyMarkup ? copyMarkupContent : copy ? html`<p>${copy}</p>` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
         ${ctaType === CTA_TYPE.VIDEO
           ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
@@ -152,6 +161,7 @@ Default.story = {
           eyebrow: textNullable('Eyebrow:', 'Industry'),
           heading,
           copy: textNullable('Body copy:', ''),
+          copyMarkup: boolean('Body copy markup', false),
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
           tagGroup: boolean('Add tags:', false),
@@ -170,6 +180,7 @@ Default.story = {
           eyebrow: 'Industry',
           heading: 'Aerospace and defence',
           copy: '',
+          copyMarkup: false,
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
           tagGroup: false,
