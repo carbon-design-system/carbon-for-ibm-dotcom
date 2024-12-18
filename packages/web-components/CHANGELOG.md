@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.1...@carbon/ibmdotcom-web-components@2.16.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* **card-group:** subgrid fixes ([#12174](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12174)) ([658b50a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/658b50a592270b795e90804f6515552e652b7780))
+* **card:** allow copy other than <p> tags ([#12172](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12172)) ([856dc23](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/856dc2368619e8af9cddc4e488933db919f18337))
+* **cta:** cause ctas to only respond to relevant video events ([#12169](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12169)) ([2720e55](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2720e5567aabcd4406e6ae0980188d69bbbb85a4))
+* **video:** remove [@state](https://github.com/state) declaration for function _embedMedia ([#12168](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12168)) ([62fcdba](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/62fcdba555bec64184c2135cc48cd2a9aefcfda8))
+
+
+
+
+
 ## [2.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0...@carbon/ibmdotcom-web-components@2.16.1) (2024-12-12)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.1...@carbon/ibmdotcom-styles@2.16.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* **card-group:** subgrid fixes ([#12174](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12174)) ([658b50a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/658b50a592270b795e90804f6515552e652b7780))
+* **toc:** address horizontal overflow ([#12171](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12171)) ([9291729](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9291729ac0758048bdfa52b2e621b4fa378e620f))
+
+
+
+
+
 ## [2.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0...@carbon/ibmdotcom-styles@2.16.1) (2024-12-12)
 
 
