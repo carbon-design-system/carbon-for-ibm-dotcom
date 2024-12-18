@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.44.5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.44.4...@carbon/storybook-addon-theme@1.44.5) (2024-12-18)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
 ## [1.44.4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.44.3...@carbon/storybook-addon-theme@1.44.4) (2024-12-12)
 
 **Note:** Version bump only for package @carbon/storybook-addon-theme
