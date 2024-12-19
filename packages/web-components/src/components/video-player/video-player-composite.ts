@@ -140,7 +140,6 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       if (entry.isIntersecting && this._getAutoplayPreference() !== false) {
         this._embedMedia?.(videoId);
         this.playAllVideos();
-        this._setAutoplayPreference(true);
       }
     });
   }
@@ -155,7 +154,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   private _intersectionOutOfViewHandler(entries: IntersectionObserverEntry[]) {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
-        this.pauseAllVideos();
+        this.pauseAllVideos(false);
       }
     });
   }
@@ -211,17 +210,19 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     }
   }
 
-  pauseAllVideos() {
+  pauseAllVideos(updateAutoplayPreference = true) {
     const { embeddedVideos = {} } = this;
 
     Object.keys(embeddedVideos).forEach((videoId) => {
       embeddedVideos[videoId].sendNotification('doPause');
     });
     this.isPlaying = false;
-    this._setAutoplayPreference(false);
+    if (updateAutoplayPreference) {
+      this._setAutoplayPreference(false);
+    }
   }
 
-  playAllVideos() {
+  playAllVideos(updateAutoplayPreference = true) {
     const { embeddedVideos = {} } = this;
 
     Object.keys(embeddedVideos).forEach((videoId) => {
@@ -229,7 +230,9 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     });
     this.isPlaying = true;
     this.playbackTriggered = true;
-    this._setAutoplayPreference(true);
+    if (updateAutoplayPreference) {
+      this._setAutoplayPreference(true);
+    }
   }
 
   /**
