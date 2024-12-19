@@ -177,7 +177,7 @@ export const C4DVideoPlayerContainerMixin = <
     }
 
     _getPlayerOptions() {
-      const { backgroundMode, autoPlay, muted } =
+      const { backgroundMode, intersectionMode, autoPlay, muted } =
         this as unknown as C4DVideoPlayerComposite;
       let playerOptions = {};
       const autoplayPreference = this._getAutoplayPreference();
@@ -190,7 +190,7 @@ export const C4DVideoPlayerContainerMixin = <
           };
           break;
 
-        case backgroundMode:
+        case backgroundMode || intersectionMode:
           playerOptions = {
             'topBarContainer.plugin': false,
             'controlBarContainer.plugin': false,

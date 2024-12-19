@@ -49,7 +49,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    *
    * @internal
    */
-  _embedMedia?: (videoId: string, backgroundMode?: boolean) => Promise<any>;
+  _embedMedia?: (videoId: string) => Promise<any>;
 
   /**
    * The placeholder for `_setAutoplayPreference()` Redux action that may be mixed in.
@@ -138,7 +138,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     const { videoId } = this;
     entries.forEach((entry) => {
       if (entry.isIntersecting && this._getAutoplayPreference() !== false) {
-        this._embedMedia?.(videoId, true);
+        this._embedMedia?.(videoId);
         this.playAllVideos();
         this._setAutoplayPreference(true);
       }
@@ -174,7 +174,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE &&
       videoId
     ) {
-      this._embedMedia?.(videoId, this.backgroundMode);
+      this._embedMedia?.(videoId);
     }
   }
 
@@ -202,7 +202,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       this._setAutoplayPreference(!this.isPlaying);
 
       // First ensure that the media has actually been embedded.
-      this._embedMedia?.(videoId, this.intersectionMode || this.backgroundMode);
+      this._embedMedia?.(videoId);
       if (this.isPlaying) {
         this.pauseAllVideos();
       } else {
@@ -398,7 +398,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       if (videoId) {
         this._loadVideoData?.(videoId);
         if (autoPlay || backgroundMode) {
-          this._embedMedia?.(videoId, backgroundMode);
+          this._embedMedia?.(videoId);
         }
       }
     }
