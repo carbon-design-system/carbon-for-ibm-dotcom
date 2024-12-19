@@ -240,4 +240,12 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       outline: 2px solid $focus;
     }
   }
+
+  // Prevent any pointer events from getting through to the slotted player div
+  // when in intersection mode.
+  :host(#{$c4d-prefix}-video-player[intersection-mode]) {
+    ::slotted(.#{$c4d-prefix}--video-player__video) {
+      pointer-events: none;
+    }
+  }
 }
