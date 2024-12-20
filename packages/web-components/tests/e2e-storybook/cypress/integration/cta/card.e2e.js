@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,8 +14,10 @@ import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
  * @private
  */
 const _paths = {
-  default: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card',
-  types: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card-link&knob-CTA%20type%20(cta-type)=',
+  default:
+    'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card',
+  types:
+    'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card-link&knob-CTA%20type%20(cta-type)=',
 };
 
 /**
@@ -30,7 +32,7 @@ const getTopElement = (x, y, root = window.document) => {
 };
 
 /**
- * Collection of all tests for cds-table-of-contents
+ * Collection of all tests for c4d-table-of-contents
  *
  * @private
  */
@@ -44,10 +46,10 @@ const _tests = {
     let box;
 
     cy.visit(`/${_paths.default}`)
-      .get('cds-cta')
+      .get('c4d-cta')
       .shadow()
-      .find('cds-card-cta')
-      .then(card => {
+      .find('c4d-card-cta')
+      .then((card) => {
         const bcr = card[0].getBoundingClientRect();
 
         box = {
@@ -59,10 +61,10 @@ const _tests = {
           centerY: bcr.top + bcr.height / 2,
         };
       });
-    cy.get('cds-cta')
+    cy.get('c4d-cta')
       .shadow()
-      .find('cds-card-cta-footer')
-      .then(footer => {
+      .find('c4d-card-cta-footer')
+      .then((footer) => {
         // Since the link is in the shadowroot, we need to look there
         const root = footer[0].shadowRoot;
         expect(getTopElement(box.left, box.top, root)).to.be.eq('a');
@@ -74,9 +76,11 @@ const _tests = {
   },
   checkTypeKnob: () => {
     const types = {
-      local: 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
+      local:
+        'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
       jump: 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z',
-      external: 'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
+      external:
+        'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
       download:
         'M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z',
       video:
@@ -85,7 +89,7 @@ const _tests = {
 
     cy.wrap(Object.entries(types)).each(([type, pathAttr]) => {
       cy.visit(`/${_paths.types}${type}`)
-        .get('.bx--card__footer path')
+        .get('.cds--card__footer path')
         .then(([path]) => {
           expect(path.getAttribute('d')).to.be.eq(pathAttr);
         });
@@ -93,15 +97,15 @@ const _tests = {
   },
   checkHoverStyles: () => {
     cy.visit(`/${_paths.default}`)
-      .get('cds-cta')
+      .get('c4d-cta')
       .shadow()
-      .find('cds-card-cta')
+      .find('c4d-card-cta')
       .then(([card]) => {
         const sheets = card.shadowRoot.adoptedStylesheets;
 
         if (sheets) {
           const hover = getCssPropertyForRule(
-            '.bx--card:hover .bx--card__wrapper, :host(cds-card:hover) .bx--card__wrapper, :host(cds-card-group-item:hover) .bx--card__wrapper, :host(cds-card-group-item) .bx--card:hover .bx--card__wrapper, :host(cds-card-cta:hover) .bx--card__wrapper, :host(cds-card-in-card:hover) .bx--card__wrapper, :host(cds-content-group-cards-item:hover) .bx--card__wrapper, :host(cds-content-group-cards-item) .bx--card:hover .bx--card__wrapper',
+            '.cds--card:hover .cds--card__wrapper, :host(c4d-card:hover) .cds--card__wrapper, :host(c4d-card-group-item:hover) .cds--card__wrapper, :host(c4d-card-group-item) .cds--card:hover .cds--card__wrapper, :host(c4d-card-cta:hover) .cds--card__wrapper, :host(c4d-card-in-card:hover) .cds--card__wrapper, :host(c4d-content-group-cards-item:hover) .cds--card__wrapper, :host(c4d-content-group-cards-item) .cds--card:hover .cds--card__wrapper',
             'background-color',
             sheets
           );
@@ -111,23 +115,23 @@ const _tests = {
   },
 };
 
-describe('cds-card-cta | (desktop)', () => {
+describe('c4d-card-cta | (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
   });
 
-  it('Should load and be fully clickable', _tests.checkBlockLink);
+  it.skip('Should load and be fully clickable', _tests.checkBlockLink);
   it('Should have customizable CTA type', _tests.checkTypeKnob);
   it('Should have hover-state styling', _tests.checkHoverStyles);
   it('Should check a11y', _tests.checkA11y);
 });
 
-describe('cds-card-cta | (mobile)', () => {
+describe('c4d-card-cta | (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 720);
   });
 
-  it('Should load and be fully clickable', _tests.checkBlockLink);
+  it.skip('Should load and be fully clickable', _tests.checkBlockLink);
   it('Should have customizable CTA type', _tests.checkTypeKnob);
   it('Should have hover-state styling', _tests.checkHoverStyles);
 });

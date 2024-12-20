@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,15 +49,15 @@ const _tests = (path = path) => [
       let table, header, body;
       cy.visit(path)
         .get(selectors.table)
-        .then($table => {
+        .then(($table) => {
           table = $table.get(0);
         })
         .get(selectors.headerRow)
-        .then($header => {
+        .then(($header) => {
           header = $header.get(0);
         })
         .get(selectors.body)
-        .then($body => {
+        .then(($body) => {
           body = $body.get(0);
         })
         .window()
@@ -100,18 +100,20 @@ const _tests = (path = path) => [
   },
 ];
 
-describe('cds-pricing-table | with subheaders (desktop)', () => {
+describe('c4d-pricing-table | with subheaders (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
 
-  [...createTests(path), ..._tests(path)].forEach(test => test());
+  [...createTests(path), ..._tests(path)].forEach((test) => test());
 });
 
-describe('cds-pricing-table | with subheaders (mobile)', () => {
+describe('c4d-pricing-table | with subheaders (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
   });
 
-  [...createTests(path), ...createTestsMobile(path), ..._tests(path)].forEach(test => test());
+  [...createTests(path), ...createTestsMobile(path), ..._tests(path)].forEach(
+    (test) => test()
+  );
 });

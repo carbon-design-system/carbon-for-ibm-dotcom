@@ -17,6 +17,7 @@ const {
   servicesVendorESDstDir,
   servicesStoreCJSSrcDir,
   servicesStoreESSrcDir,
+  servicesStoreVendorSrcDir,
   servicesStoreVendorCJSDstDir,
   servicesStoreVendorESDstDir,
   utilitiesCJSSrcDir,
@@ -40,6 +41,14 @@ const servicesVendorCJSDst = () =>
   gulp
     .src([`${servicesCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
     .pipe(gulp.dest(servicesVendorCJSDstDir));
+
+/**
+ * Generates `src/internal/vendor` contents.
+ */
+const servicesStoreVendorSrc = () =>
+  gulp
+    .src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(servicesStoreVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
@@ -84,7 +93,11 @@ gulp.task(
 );
 gulp.task(
   'vendor:services-store',
-  gulp.parallel(servicesStoreVendorCJSDst, servicesStoreVendorESDst)
+  gulp.parallel(
+    servicesStoreVendorSrc,
+    servicesStoreVendorCJSDst,
+    servicesStoreVendorESDst
+  )
 );
 gulp.task(
   'vendor',

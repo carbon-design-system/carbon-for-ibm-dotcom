@@ -25,11 +25,11 @@ const { stablePrefix: c4dPrefix } = c4dSettings;
  */
 @customElement(`${c4dPrefix}-megamenu-tab`)
 class C4DMegaMenuTab extends CDSTab {
-  /**
-   * Disable unneeded properties inherited from CDS Content Switcher Item.
-   */
-  closeOnActivation = false;
-  hideDivider = false;
+  connectedCallback() {
+    super.connectedCallback();
+    this.closeOnActivation = false;
+    this.hideDivider = false;
+  }
 
   render() {
     const { disabled, selected, value } = this;

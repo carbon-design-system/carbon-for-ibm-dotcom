@@ -80,7 +80,8 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   private _renderContent() {
     const { contentState, name, thumbnailUrl, backgroundMode } = this;
     return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
-      !backgroundMode
+      !backgroundMode &&
+      !this.autoplay
       ? html`
           <div class="${c4dPrefix}--video-player__video" part="video">
             <button
@@ -184,8 +185,14 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * `true` to autoplay, mute video, and hide UI
    */
-  @property({ attribute: 'background-mode', reflect: true })
+  @property({ attribute: 'background-mode', reflect: true, type: Boolean })
   backgroundMode = false;
+
+  /**
+   * `true` to autoplay
+   */
+  @property({ attribute: 'auto-play', reflect: true, type: Boolean })
+  autoplay = false;
 
   /**
    * Custom video description. This property should only be set when using `playing-mode="lightbox"`
@@ -285,7 +292,12 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       (this.parentElement as C4DVideoPlayerContainer)?.backgroundMode
     );
 
+    const parentIsAutoplay = Boolean(
+      (this.parentElement as C4DVideoPlayerContainer)?.autoPlay
+    );
+
     this.backgroundMode = parentIsBackground;
+    this.autoplay = parentIsAutoplay;
   }
 
   /**

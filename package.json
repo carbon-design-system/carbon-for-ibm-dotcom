@@ -15,7 +15,7 @@
     "ci-check": "npm run format:diff && yarn lint:license && yarn lint && yarn lint:styles",
     "clean": "lerna run clean && lerna clean --yes && rimraf node_modules",
     "doctoc": "doctoc --title '## Table of Contents' docs",
-    "format": "prettier --cache --write '**/*.{js,md,scss,ts}'",
+    "format": "prettier --cache --write '**/*.{js,md,scss,ts}' && stylelint '**/*.{css,scss}' --fix",
     "format:diff": "prettier --cache --list-different '**/*.{js,md,scss,ts}'",
     "lint": "eslint packages --ext .js,.ts",
     "lint:license": "gulp lint:license",

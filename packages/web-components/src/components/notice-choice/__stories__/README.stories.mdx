@@ -39,7 +39,8 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
   state="CA"
   terms-condition-link=""
   hide-error-message="false"
-  enable-all-opt-in="">
+  combine-email-phone="false"
+  >
 </c4d-notice-choice>
 ```
 
@@ -65,6 +66,8 @@ document.addEventListener('cds-notice-choice-change', (event) => {
 | language             | form based on the country and language                                                      | en      |
 | terms-condition-link | Terms and conditions link appended to the end of the privacy statement - should be specific |         |
 | hide-error-message   | Hide Error Messages for PUNS statement                                                      | false   |
+| combine-email-phone  | Combine Email and Phone                                                                     | false   |
+| environment          | Set environment variable Prod or Stage                                                      | Prod    |
 
 <Props of="c4d-notice-choice" />
 

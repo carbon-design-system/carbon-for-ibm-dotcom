@@ -72,7 +72,7 @@ const ThrottledInputMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     /**
      * The throttle timeout to run query upon user input.
      */
-    inputTimeout = 200;
+    abstract inputTimeout: number;
 
     connectedCallback() {
       // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition

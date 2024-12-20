@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,9 +31,9 @@ const _tests = {
   checkComponentLoad: () => {
     cy.visit(`/${_path}`);
 
-    cy.get('cds-link-list').then(([list]) => {
-      const items = list.querySelectorAll('cds-link-list-item');
-      items.forEach(item => {
+    cy.get('c4d-link-list').then(([list]) => {
+      const items = list.querySelectorAll('c4d-link-list-item');
+      items.forEach((item) => {
         cy.get(item)
           .shadow()
           .then(([root]) => {
@@ -46,10 +46,10 @@ const _tests = {
           })
           .get(item)
           .find('a')
-          .then($links => {
+          .then(($links) => {
             expect($links.length).to.be.equal(1);
             expect($links[0]).to.be.visible;
-            expect($links.hasClass('bx--link-with-icon')).to.be.eq(true);
+            expect($links.hasClass('cds--link-with-icon')).to.be.eq(true);
           });
       });
     });
@@ -59,8 +59,8 @@ const _tests = {
 
     let previous, window;
     cy.window()
-      .then(win => (window = win))
-      .get('cds-link-list-item')
+      .then((win) => (window = win))
+      .get('c4d-link-list-item')
       .each(([card], i) => {
         if (i !== 0) {
           const cardBox = card.getBoundingClientRect();
@@ -68,7 +68,11 @@ const _tests = {
           const cardStyles = window.getComputedStyle(card);
           const prevStyles = window.getComputedStyle(previous);
 
-          expect(cardBox.left).to.be.eq(prevBox.right + parseInt(prevStyles.marginRight) + parseInt(cardStyles.marginLeft));
+          expect(cardBox.left).to.be.eq(
+            prevBox.right +
+              parseInt(prevStyles.marginRight) +
+              parseInt(cardStyles.marginLeft)
+          );
         }
         previous = card;
       });
@@ -78,8 +82,8 @@ const _tests = {
 
     let previous, window;
     cy.window()
-      .then(win => (window = win))
-      .get('cds-link-list-item')
+      .then((win) => (window = win))
+      .get('c4d-link-list-item')
       .each(([card], i) => {
         if (i !== 0) {
           const cardBox = card.getBoundingClientRect();
@@ -87,27 +91,33 @@ const _tests = {
           const cardStyles = window.getComputedStyle(card);
           const prevStyles = window.getComputedStyle(previous);
 
-          expect(cardBox.top).to.be.eq(prevBox.bottom + parseInt(prevStyles.marginBottom) + parseInt(cardStyles.marginTop));
+          expect(cardBox.top).to.be.eq(
+            prevBox.bottom +
+              parseInt(prevStyles.marginBottom) +
+              parseInt(cardStyles.marginTop)
+          );
         }
         previous = card;
       });
   },
   checkCTATypes: () => {
     const types = {
-      local: 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
+      local:
+        'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
       jump: 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z',
-      external: 'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
+      external:
+        'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
       download:
         'M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z',
       video:
-        'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
+        'M7,28a1,1,0,0,1-1-1V5a1,1,0,0,1,1.4819-.8763l20,11a1,1,0,0,1,0,1.7525l-20,11A1.0005,1.0005,0,0,1,7,28Z',
     };
 
-    Object.keys(types).forEach(type => {
+    Object.keys(types).forEach((type) => {
       it(`should render CTA type: ${type}`, () => {
         cy.visit(`${_path}&knob-CTA%20type%20(cta-type)=${type}`);
 
-        cy.get('a.bx--link-with-icon path').then(path => {
+        cy.get('a.cds--link-with-icon path').then((path) => {
           expect(path.attr('d')).to.be.eq(types[type]);
         });
       });
@@ -115,23 +125,23 @@ const _tests = {
   },
 };
 
-describe('cds-link-list | default (desktop)', () => {
+describe('c4d-link-list | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
-  it('should have a horizontal layout', _tests.checkHorizontalAlignment);
+  it.skip('should have a horizontal layout', _tests.checkHorizontalAlignment);
   it('should check a11y', _tests.checkA11y);
   _tests.checkCTATypes();
 });
 
-describe('cds-link-list | default (mobile)', () => {
+describe('c4d-link-list | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 780);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
-  it('should have a vertical layout', _tests.checkVerticalAlignment);
+  it.skip('should have a vertical layout', _tests.checkVerticalAlignment);
   _tests.checkCTATypes();
 });

@@ -15,7 +15,7 @@ import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-lis
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import { MediaData } from '@carbon/ibmdotcom-services-store/es/types/kalturaPlayerAPI';
+import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
 import {
   VIDEO_PLAYER_CONTENT_STATE,
   VIDEO_PLAYER_PLAYING_MODE,
@@ -126,6 +126,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       embeddedVideos[videoId].sendNotification('doPause');
     });
     this.isPlaying = false;
+    this._setAutoplayPreference(false);
   }
 
   playAllVideos() {
@@ -135,6 +136,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       embeddedVideos[videoId].sendNotification('doPlay');
     });
     this.isPlaying = true;
+    this._setAutoplayPreference(true);
   }
 
   /**
@@ -142,6 +144,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   @property({ type: Boolean, attribute: 'auto-play' })
   autoPlay = false;
+
+  /**
+   * `true` load videos with sound muted.
+   */
+  @property({ type: Boolean, attribute: 'muted' })
+  muted = false;
 
   /**
    * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
@@ -190,7 +198,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * `true` to autoplay, mute, and hide player UI.
    */
-  @property({ type: Boolean, attribute: 'background-mode' })
+  @property({ type: Boolean, attribute: 'background-mode', reflect: true })
   backgroundMode = false;
 
   /**
@@ -214,7 +222,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * The current playback state
    */
-  @property()
+  @property({ type: Boolean })
   isPlaying = false;
 
   /**

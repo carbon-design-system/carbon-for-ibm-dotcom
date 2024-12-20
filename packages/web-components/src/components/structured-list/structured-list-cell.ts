@@ -10,6 +10,7 @@
 import CDSStructuredListCell from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import Info16 from '@carbon/web-components/es/icons/information/16.js';
 import Checkmark20 from '@carbon/web-components/es/icons/checkmark/20.js';
 import Error20 from '@carbon/web-components/es/icons/error/20.js';
@@ -24,9 +25,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * StructuredListCell
  *
  * @element c4d-structured-list-cell
+ * @csspart icon-text-container - Text wrapping element. Usage `c4d-structured-list-cell::part(icon-text)`
  * @csspart icon-text - Descriptive text of the cell. Usage `c4d-structured-list-cell::part(icon-text)`
  * @csspart tag - Tags of the cell. Usage `c4d-structured-list-cell::part(tag)`
  * @csspart icon - An icon. Usage `c4d-structured-list-cell::part(icon)`
+ * @csspart tooltip - CDSTooltip. Usage `c4d-structured-list-cell::part(icon)`
  */
 @customElement(`${c4dPrefix}-structured-list-cell`)
 class C4DStructuredListCell extends CDSStructuredListCell {
@@ -59,10 +62,14 @@ class C4DStructuredListCell extends CDSStructuredListCell {
   private _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
 
-    return html`${iconMap[icon!.toLowerCase()].call()}
+    return html` <div
+      class="${prefix}--structured-list-cell-icon-text-container"
+      part="icon-text-container">
+      ${iconMap[icon!.toLowerCase()].call(null, { part: 'icon' })}
       <span class="${prefix}--structured-list-cell-icon-text" part="icon-text">
         <slot></slot>
-      </span>`;
+      </span>
+    </div>`;
   }
 
   private _renderTags() {
@@ -85,9 +92,9 @@ class C4DStructuredListCell extends CDSStructuredListCell {
 
     return html`
       <cds-tooltip-icon
-        part="icon"
+        part="tooltip"
         alignment="start"
-        body-text="${tooltip}"
+        body-text="${ifDefined(tooltip)}"
         direction="right">
         ${Info16()}
       </cds-tooltip-icon>

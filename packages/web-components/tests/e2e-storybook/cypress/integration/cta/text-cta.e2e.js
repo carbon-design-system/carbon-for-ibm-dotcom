@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,8 @@ import createTests from './_tests';
  * @type {string}
  * @private
  */
-const _path = '/iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=text';
+const _path =
+  '/iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=text';
 
 /**
  * Path definitions for the test creation function.
@@ -35,7 +36,7 @@ const _paths = {
  * @type {string}
  * @private
  */
-const _selector = 'cds-cta';
+const _selector = 'c4d-cta';
 
 /**
  * An array of test scenarios.
@@ -45,22 +46,22 @@ const _selector = 'cds-cta';
  */
 const _tests = createTests(_selector, _paths);
 
-describe('cds-cta | text (desktop)', () => {
+describe('c4d-cta | text (desktop)', () => {
   beforeEach(() => {
     cy.visit(_path);
     cy.injectAxe();
     cy.viewport(1280, 780);
   });
 
-  _tests.forEach(test => test());
+  _tests.forEach((test) => test());
 });
 
-describe('cds-cta | text (mobile)', () => {
+describe('c4d-cta | text (mobile)', () => {
   beforeEach(() => {
     cy.visit(_path);
     cy.injectAxe();
     cy.viewport(375, 720);
   });
 
-  _tests.forEach(test => test());
+  _tests.forEach((test) => test());
 });

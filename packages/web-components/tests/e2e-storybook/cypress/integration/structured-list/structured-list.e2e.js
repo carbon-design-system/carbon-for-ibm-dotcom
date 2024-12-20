@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,11 +13,9 @@
  */
 const _pathRoot = '/iframe.html?id=components-structured-list';
 
-describe('cds-structured-list | default (desktop)', () => {
+describe('c4d-structured-list | default (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_pathRoot}--default`)
-      .injectAxe()
-      .viewport(1280, 780);
+    cy.visit(`${_pathRoot}--default`).injectAxe().viewport(1280, 780);
   });
 
   it('should check a11y', () => {
@@ -25,19 +23,17 @@ describe('cds-structured-list | default (desktop)', () => {
   });
 
   it('should have column headers', () => {
-    cy.get('cds-structured-list-header-row cds-structured-list-header-cell')
+    cy.get('c4d-structured-list-header-row c4d-structured-list-header-cell')
       .should('exist')
-      .each(header_cell => {
+      .each((header_cell) => {
         cy.get(header_cell).should('not.be.empty');
       });
   });
 });
 
-describe('cds-structured-list | default (mobile)', () => {
+describe('c4d-structured-list | default (mobile)', () => {
   beforeEach(() => {
-    cy.visit(`${_pathRoot}--default`)
-      .injectAxe()
-      .viewport(320, 780);
+    cy.visit(`${_pathRoot}--default`).injectAxe().viewport(320, 780);
   });
 
   it('should check a11y', () => {
@@ -45,27 +41,25 @@ describe('cds-structured-list | default (mobile)', () => {
   });
 
   it('should have column headers', () => {
-    cy.get('cds-structured-list-header-row cds-structured-list-header-cell')
+    cy.get('c4d-structured-list-header-row c4d-structured-list-header-cell')
       .should('exist')
-      .each(header_cell => {
+      .each((header_cell) => {
         cy.get(header_cell).should('not.be.empty');
       });
   });
 
   it('should scroll to display all cells', () => {
-    cy.get('cds-structured-list-header-cell, cds-structured-list-cell').each(cell => {
-      cy.get(cell)
-        .scrollIntoView()
-        .should('be.visible');
-    });
+    cy.get('c4d-structured-list-header-cell, c4d-structured-list-cell').each(
+      (cell) => {
+        cy.get(cell).scrollIntoView().should('be.visible');
+      }
+    );
   });
 });
 
-describe('cds-structured-list | With Row Headers (desktop)', () => {
+describe('c4d-structured-list | With Row Headers (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_pathRoot}--with-row-headers`)
-      .injectAxe()
-      .viewport(1280, 780);
+    cy.visit(`${_pathRoot}--with-row-headers`).injectAxe().viewport(1280, 780);
   });
 
   it('should check a11y', () => {
@@ -73,19 +67,17 @@ describe('cds-structured-list | With Row Headers (desktop)', () => {
   });
 
   it('should have row headers', () => {
-    cy.get('cds-structured-list-row cds-structured-list-header-cell')
+    cy.get('c4d-structured-list-row c4d-structured-list-header-cell')
       .should('exist')
-      .each(header_cell => {
+      .each((header_cell) => {
         cy.get(header_cell).should('not.be.empty');
       });
   });
 });
 
-describe('cds-structured-list | With Row Headers (mobile)', () => {
+describe('c4d-structured-list | With Row Headers (mobile)', () => {
   beforeEach(() => {
-    cy.visit(`${_pathRoot}--with-row-headers`)
-      .injectAxe()
-      .viewport(320, 780);
+    cy.visit(`${_pathRoot}--with-row-headers`).injectAxe().viewport(320, 780);
   });
 
   it('should check a11y', () => {
@@ -93,27 +85,25 @@ describe('cds-structured-list | With Row Headers (mobile)', () => {
   });
 
   it('should have row headers', () => {
-    cy.get('cds-structured-list-row cds-structured-list-header-cell')
+    cy.get('c4d-structured-list-row c4d-structured-list-header-cell')
       .should('exist')
-      .each(header_cell => {
+      .each((header_cell) => {
         cy.get(header_cell).should('not.be.empty');
       });
   });
 
   it('should scroll to display all cells', () => {
-    cy.get('cds-structured-list-header-cell, cds-structured-list-cell').each(cell => {
-      cy.get(cell)
-        .scrollIntoView()
-        .should('be.visible');
-    });
+    cy.get('c4d-structured-list-header-cell, c4d-structured-list-cell').each(
+      (cell) => {
+        cy.get(cell).scrollIntoView().should('be.visible');
+      }
+    );
   });
 });
 
-describe('cds-structured-list | With Subheaders (desktop)', () => {
+describe('c4d-structured-list | With Subheaders (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_pathRoot}--with-subheaders`)
-      .injectAxe()
-      .viewport(1280, 780);
+    cy.visit(`${_pathRoot}--with-subheaders`).injectAxe().viewport(1280, 780);
   });
 
   it('should check a11y', () => {
@@ -121,7 +111,7 @@ describe('cds-structured-list | With Subheaders (desktop)', () => {
   });
 
   it('should have Subheaders', () => {
-    cy.get('cds-structured-list-group')
+    cy.get('c4d-structured-list-group')
       .shadow()
       .find('th')
       .each(([header]) => {
@@ -132,11 +122,9 @@ describe('cds-structured-list | With Subheaders (desktop)', () => {
   });
 });
 
-describe('cds-structured-list | With Subheaders (mobile)', () => {
+describe('c4d-structured-list | With Subheaders (mobile)', () => {
   beforeEach(() => {
-    cy.visit(`${_pathRoot}--with-subheaders`)
-      .injectAxe()
-      .viewport(1280, 780);
+    cy.visit(`${_pathRoot}--with-subheaders`).injectAxe().viewport(1280, 780);
   });
 
   it('should check a11y', () => {
@@ -144,7 +132,7 @@ describe('cds-structured-list | With Subheaders (mobile)', () => {
   });
 
   it('should have Subheaders', () => {
-    cy.get('cds-structured-list-group')
+    cy.get('c4d-structured-list-group')
       .shadow()
       .find('th')
       .each(([header]) => {
@@ -155,15 +143,15 @@ describe('cds-structured-list | With Subheaders (mobile)', () => {
   });
 
   it('should scroll to display all cells', () => {
-    cy.get('cds-structured-list-header-cell, cds-structured-list-cell').each(cell => {
-      cy.get(cell)
-        .scrollIntoView()
-        .should('be.visible');
-    });
+    cy.get('c4d-structured-list-header-cell, c4d-structured-list-cell').each(
+      (cell) => {
+        cy.get(cell).scrollIntoView().should('be.visible');
+      }
+    );
   });
 });
 
-describe('cds-structured-list | With Complex Content', () => {
+describe('c4d-structured-list | With Complex Content', () => {
   beforeEach(() => {
     cy.visit(`${_pathRoot}--with-complex-content`)
       .injectAxe()
@@ -171,23 +159,23 @@ describe('cds-structured-list | With Complex Content', () => {
   });
 
   it('should inject tooltip with tooltip attribute', () => {
-    cy.get('cds-structured-list-cell[tooltip]')
+    cy.get('c4d-structured-list-cell[tooltip]')
       .shadow()
-      .find('bx-tooltip-icon')
+      .find('cds-tooltip-icon')
       .should('exist');
   });
 
   it('should inject svg with icon attribute', () => {
-    cy.get('cds-structured-list-cell[icon]')
+    cy.get('c4d-structured-list-cell[icon]')
       .shadow()
       .find('svg')
       .should('exist');
   });
 
   it('should inject tags with tags attribute', () => {
-    cy.get('cds-structured-list-cell[tags]')
+    cy.get('c4d-structured-list-cell[tags]')
       .shadow()
-      .find('bx-tag')
+      .find('cds-tag')
       .should('exist');
   });
 });

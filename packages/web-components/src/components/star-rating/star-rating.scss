@@ -1,0 +1,76 @@
+//
+// Copyright IBM Corp. 2024
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/tooltip' as *;
+@use '@carbon/styles/scss/components/button/tokens' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+
+:host(#{$c4d-prefix}-star-rating) {
+  display: inline-block;
+
+  .#{$prefix}-star-rating {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-03 $spacing-05;
+  }
+
+  .#{$prefix}-star-rating__stars {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+
+    &:not([disableTooltip]) {
+      @include tooltip--trigger('definition', top);
+      @include tooltip--placement('definition', 'top', 'center');
+    }
+  }
+
+  .#{$prefix}-star-count__star {
+    svg {
+      display: block;
+      fill: $button-primary;
+    }
+  }
+
+  .#{$prefix}-star-count__star--half {
+    position: relative;
+
+    svg {
+      position: absolute;
+      inset: 0;
+    }
+
+    svg:nth-of-type(1) {
+      position: initial;
+    }
+
+    svg:nth-of-type(2):dir(rtl) {
+      transform: scaleX(-1);
+    }
+  }
+
+  .#{$prefix}-star-rating__label,
+  .#{$prefix}-star-rating__label a {
+    @include type-style('body-compact-02');
+
+    color: $border-inverse;
+  }
+
+  .#{$prefix}-star-rating__label a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}

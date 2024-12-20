@@ -16,13 +16,13 @@ import {
 import {} from 'lit';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import store from '@carbon/ibmdotcom-services-store/es/store.js';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
 import {
   MediaData,
   MediaPlayerAPIState,
-} from '@carbon/ibmdotcom-services-store/es/types/kalturaPlayerAPI';
-import { loadMediaData } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI.js';
-import { MediaPlayerAPIActions } from '@carbon/ibmdotcom-services-store/es/actions/kalturaPlayerAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
+import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.js';
+import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
 import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -168,45 +168,54 @@ export const C4DVideoPlayerContainerMixin = <
       const storedValue = localStorage.getItem(
         `${this.prefersAutoplayStorageKey}`
       );
-      const returnValue =
-        storedValue === null ? null : Boolean(parseInt(storedValue, 10));
-      return returnValue;
+
+      if (storedValue === null) {
+        return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } else {
+        return Boolean(parseInt(storedValue, 10));
+      }
     }
 
-    _getPlayerOptions(backgroundMode = false) {
+    _getPlayerOptions() {
+      const { backgroundMode, autoPlay, muted } =
+        this as unknown as C4DVideoPlayerComposite;
       let playerOptions = {};
+      const autoplayPreference = this._getAutoplayPreference();
 
-      if (backgroundMode) {
-        const storedMotionPreference: boolean | null =
-          this._getAutoplayPreference();
+      switch (true) {
+        case autoPlay:
+          playerOptions = {
+            autoMute: muted,
+            autoPlay: autoplayPreference,
+          };
+          break;
 
-        let autoplayPreference: boolean | undefined;
+        case backgroundMode:
+          playerOptions = {
+            'topBarContainer.plugin': false,
+            'controlBarContainer.plugin': false,
+            'largePlayBtn.plugin': false,
+            'loadingSpinner.plugin': false,
+            'unMuteOverlayButton.plugin': false,
+            'EmbedPlayer.DisableVideoTagSupport': false,
+            loop: true,
+            autoMute: true,
+            autoPlay: autoplayPreference,
+            // Turn off CTA's including mid-roll card and end cards.
+            'ibm.callToActions': false,
+            // Turn off captions display, background/ambient videos have no
+            // audio.
+            closedCaptions: {
+              plugin: false,
+            },
+          };
+          break;
 
-        if (storedMotionPreference === null) {
-          autoplayPreference = !window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-          ).matches;
-        } else {
-          autoplayPreference = storedMotionPreference;
-        }
-        playerOptions = {
-          'topBarContainer.plugin': false,
-          'controlBarContainer.plugin': false,
-          'largePlayBtn.plugin': false,
-          'loadingSpinner.plugin': false,
-          'unMuteOverlayButton.plugin': false,
-          'EmbedPlayer.DisableVideoTagSupport': false,
-          loop: true,
-          autoMute: true,
-          autoPlay: autoplayPreference,
-          // Turn off CTA's including mid-roll card and end cards.
-          'ibm.callToActions': false,
-          // Turn off captions display, background/ambient videos have no
-          // audio.
-          closedCaptions: {
-            plugin: false,
-          },
-        };
+        default:
+          playerOptions = {
+            autoMute: muted,
+          };
+          break;
       }
 
       return playerOptions;
@@ -219,7 +228,7 @@ export const C4DVideoPlayerContainerMixin = <
      * @private
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
-    async _embedVideoImpl(videoId: string, backgroundMode = false) {
+    async _embedVideoImpl(videoId: string) {
       const doc = Object.prototype.hasOwnProperty.call(this, 'getRootNode')
         ? (this.getRootNode() as Document | ShadowRoot)
         : this.ownerDocument;
@@ -240,7 +249,7 @@ export const C4DVideoPlayerContainerMixin = <
       const embedVideoHandle = await KalturaPlayerAPI.embedMedia(
         videoId,
         playerId,
-        this._getPlayerOptions(backgroundMode)
+        this._getPlayerOptions()
       );
       const { width, height } = await KalturaPlayerAPI.api(videoId);
       videoPlayer.style.setProperty('--native-file-width', `${width}px`);
@@ -264,7 +273,7 @@ export const C4DVideoPlayerContainerMixin = <
      * @param videoId The video ID.
      * @internal
      */
-    _embedMedia = async (videoId: string, backgroundMode = false) => {
+    _embedMedia = async (videoId: string) => {
       const { _requestsEmbedVideo: requestsEmbedVideo } = this;
       const requestEmbedVideo = requestsEmbedVideo[videoId];
 
@@ -272,7 +281,7 @@ export const C4DVideoPlayerContainerMixin = <
         return requestEmbedVideo;
       }
 
-      const promiseEmbedVideo = this._embedVideoImpl(videoId, backgroundMode);
+      const promiseEmbedVideo = this._embedVideoImpl(videoId);
 
       this._setRequestEmbedVideoInProgress(videoId, promiseEmbedVideo);
       try {

@@ -19,7 +19,7 @@ import {
   L1CtaLink,
   L1SubmenuSectionHeading,
   MastheadL1,
-} from '@carbon/ibmdotcom-services-store/es/types/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
@@ -933,9 +933,19 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     }
     // Fall back to automated selection based on URL.
     else {
-      this.selectedElements = allLinks.filter(
-        (el) => el.href === currentUrlPath
-      );
+      this.selectedElements = allLinks.filter((el) => {
+        try {
+          const elURL = new URL(el.href);
+          const currURL = new URL(currentUrlPath || '');
+
+          // Compare url without query params.
+          return (
+            elURL.host === currURL.host && elURL.pathname === currURL.pathname
+          );
+        } catch (_error) {
+          return false;
+        }
+      });
     }
 
     if (this.selectedElements.length) {

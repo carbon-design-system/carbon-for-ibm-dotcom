@@ -325,27 +325,37 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           (videoName === null || videoName === 'null')) ||
         changedProperties.has('videoDescription')
       ) {
-        // Wait for the container to be ready without blocking.
-        customElements
-          .whenDefined(`${c4dPrefix}-video-cta-container`)
-          .then(() => {
-            this.dispatchEvent(
-              new CustomEvent(eventRequestVideoData, {
-                bubbles: true,
-                cancelable: true,
-                composed: true,
-                detail: {
-                  videoName,
-                  videoDescription,
-                  href,
-                },
-              })
-            );
-          });
+        if (typeof videoDuration === 'undefined') {
+          // Wait for the container to be ready without blocking.
+          customElements
+            .whenDefined(`${c4dPrefix}-video-cta-container`)
+            .then(() => {
+              this.dispatchEvent(
+                new CustomEvent(eventRequestVideoData, {
+                  bubbles: true,
+                  cancelable: true,
+                  composed: true,
+                  detail: {
+                    videoName,
+                    videoDescription,
+                    href,
+                  },
+                })
+              );
+            });
+        }
       }
 
-      if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
-        this._updateVideoThumbnailUrl();
+      const firstChild = this?.shadowRoot?.querySelector(':first-child') as
+        | HTMLElement
+        | null
+        | undefined;
+      if (
+        ctaType === CTA_TYPE.VIDEO &&
+        firstChild &&
+        firstChild.offsetWidth > 0
+      ) {
+        this._updateVideoThumbnailUrl(String(firstChild.offsetWidth));
       }
     }
 
@@ -392,10 +402,10 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     /**
      * Updates video thumbnail url to match card width.
      */
-    _updateVideoThumbnailUrl() {
+    _updateVideoThumbnailUrl(width?: string) {
       this.videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
         mediaId: this.href,
-        width: String(this.offsetWidth),
+        width: width ?? '340',
       });
     }
 

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { LitElement, html, render } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -20,6 +20,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * The heading content in content group.
  *
  * @element c4d-content-group-heading
+ * @csspart heading - The Heading. Usage: `c4d-content-group-heading::part(heading)`
  */
 @customElement(`${c4dPrefix}-content-group-heading`)
 class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
@@ -28,6 +29,17 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
    */
   @property({ reflect: true })
   slot = 'heading';
+
+  /**
+   * Render the heading tag into the light DOM of this component.
+   */
+  protected _renderHeading() {
+    const template = document.createElement('template');
+    template.innerHTML = `<h3>${this.innerHTML.trim()}</h3>`;
+    this.innerHTML = '';
+    const heading = template.content.firstChild;
+    render(html`${heading}`, this);
+  }
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
@@ -39,8 +51,12 @@ class C4DContentGroupHeading extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
+  firstUpdated() {
+    this._renderHeading();
+  }
+
   render() {
-    return html` <slot></slot> `;
+    return html`<slot></slot>`;
   }
 
   static get stableSelector() {

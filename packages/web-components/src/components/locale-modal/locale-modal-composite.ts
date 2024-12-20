@@ -21,7 +21,7 @@ import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import {
   Country,
   LocaleList,
-} from '@carbon/ibmdotcom-services-store/es/types/localeAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI';
 import './locale-modal';
 import C4DLocaleModal from './locale-modal';
 import './regions';
