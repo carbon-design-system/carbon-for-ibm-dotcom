@@ -14,7 +14,7 @@ import { carbonElement as customElement } from '@carbon/web-components/es/global
 import Star16 from '@carbon/web-components/es/icons/star/16.js';
 import StarHalf16 from '@carbon/web-components/es/icons/star--half/16.js';
 import StarFilled16 from '@carbon/web-components/es/icons/star--filled/16.js';
-import styles from './star-rating.scss';
+import styles from './star-rating.scss?lit';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 

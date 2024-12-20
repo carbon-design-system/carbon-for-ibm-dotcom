@@ -17,7 +17,7 @@ import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from '../cta/defs';
 
-import styles from './tile.scss';
+import styles from './tile.scss?lit';
 
 const { stablePrefix: c4dPrefix } = settings;
 

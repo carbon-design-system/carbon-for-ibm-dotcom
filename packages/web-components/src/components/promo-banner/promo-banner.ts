@@ -12,7 +12,7 @@ import { state, queryAssignedNodes } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import styles from './promo-banner.scss';
+import styles from './promo-banner.scss?lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CTAMixin, {
   icons as ctaIcons,
@@ -35,10 +35,10 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
   @state()
   isDesktopVersion = layoutBreakpoint.matches;
 
-  @queryAssignedNodes('image', false)
+  @queryAssignedNodes({ slot: 'image', flatten: false })
   slottedImage;
 
-  @queryAssignedNodes('cta', false)
+  @queryAssignedNodes({ slot: 'cta', flatten: false })
   slottedCta;
 
   handleSlotChange(e) {
