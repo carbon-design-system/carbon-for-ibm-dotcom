@@ -11,6 +11,7 @@
 @use '@carbon/ibmdotcom-styles/scss/internal/content-section';
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin link-list-section {
   :host(#{$c4d-prefix}-link-list-section) {

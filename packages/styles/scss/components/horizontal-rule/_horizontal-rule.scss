@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin horizontal-rule {
   $subtle-contrast: $border-subtle-01;

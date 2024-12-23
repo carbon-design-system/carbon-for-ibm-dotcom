@@ -6,6 +6,7 @@
  */
 
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/ratio-base' as *;
 @use '@carbon/styles/scss/colors' as *;
 @use '@carbon/styles/scss/config' as *;
