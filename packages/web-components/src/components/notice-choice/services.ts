@@ -5,11 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export function loadContent(locale: string, onSuccess: any, onError: any) {
+export function loadContent(
+  locale: string,
+  env: string,
+  onSuccess: any,
+  onError: any
+) {
   const script = document.createElement('script');
+  const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
   script.async = false;
   script.charset = 'utf-8';
-  script.src = `https://www.ibm.com/common/translations/notice/v23/${locale.toLocaleLowerCase()}/ncContent_v23.js`; // URL for the third-party library being loaded.
+  script.src = `https://${environment}/common/translations/notice/v23/${locale.toLocaleLowerCase()}/ncContent_v23.js`; // URL for the third-party library being loaded.
   document.body.appendChild(script);
   script.onload = () => {
     try {

@@ -169,6 +169,7 @@
   position: relative;
   display: grid;
   grid-row: auto / span 5;
+  grid-template-columns: subgrid;
   grid-template-rows: subgrid;
   inline-size: 100%;
   margin-block: 0;

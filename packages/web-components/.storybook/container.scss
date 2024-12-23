@@ -1,7 +1,7 @@
 //
 // @license
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2024
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -25,28 +25,28 @@
 @include grid.flex-grid();
 
 :root {
-  @include theme($white, true);
+  @include theme($white);
 
-  height: 100%;
+  block-size: 100%;
 }
 
 :root[storybook-carbon-theme='g10'] {
-  @include theme($g10, true);
+  @include theme($g10);
 }
 
 :root[storybook-carbon-theme='g90'] {
-  @include theme($g90, true);
+  @include theme($g90);
 }
 
 :root[storybook-carbon-theme='g100'] {
-  @include theme($g100, true);
+  @include theme($g100);
 }
 
 body {
   // `@include css-body` has `font-family: inherit` via `@include type-style('body-short-01')`,
   // which kills `font-family` from `@include carbon--type-reset`
-  color: $text-primary;
   background-color: $background;
+  color: $text-primary;
   line-height: 1;
 }
 
@@ -71,6 +71,5 @@ html {
 }
 
 .c4d-story-padding {
-  padding-top: $spacing-05;
-  padding-bottom: $spacing-05;
+  padding-block: $spacing-05;
 }

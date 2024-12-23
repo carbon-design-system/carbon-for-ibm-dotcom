@@ -20,6 +20,10 @@
 @include quote;
 
 @mixin callout-quote {
+  * {
+    box-sizing: border-box;
+  }
+
   :host(#{$c4d-prefix}-callout-quote) {
     @extend :host(#{$c4d-prefix}-callout);
     @extend :host(#{$c4d-prefix}-callout-text);
@@ -99,12 +103,9 @@
   }
 
   :host(#{$c4d-prefix}-callout-quote) #{$c4d-prefix}-hr {
-    margin: $spacing-05;
+    margin: $spacing-05 $spacing-07;
     @include breakpoint(md) {
-      margin: $spacing-05 0;
-    }
-    @include breakpoint(lg) {
-      margin: $spacing-05 $spacing-03;
+      margin: $spacing-05;
     }
   }
 }

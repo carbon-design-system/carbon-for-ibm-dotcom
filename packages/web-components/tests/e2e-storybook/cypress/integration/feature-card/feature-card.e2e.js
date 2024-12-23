@@ -62,10 +62,10 @@ describe('c4d-feature-card | medium', () => {
       });
   });
 
-  it.skip('should have image on the left and content on the right side of the card', () => {
+  it('should have image on the left and content on the right side of the card', () => {
     // image takes the left half
     cy.get('c4d-image').then(($image) => {
-      expect($image[0].getBoundingClientRect().left).to.equal(32);
+      expect($image[0].getBoundingClientRect().left).to.equal(33);
       expect($image[0].getBoundingClientRect().right).to.equal(328);
     });
 
@@ -75,7 +75,7 @@ describe('c4d-feature-card | medium', () => {
       .find('.cds--card__wrapper')
       .then(($content) => {
         expect($content[0].getBoundingClientRect().left).to.equal(328);
-        expect($content[0].getBoundingClientRect().right).to.equal(624);
+        expect($content[0].getBoundingClientRect().right).to.equal(623);
       });
   });
 
@@ -161,16 +161,17 @@ describe('c4d-feature-card | large', () => {
       });
   });
 
-  it.skip('should have eyebrow, heading, and copy content', () => {
+  it('should have eyebrow, heading, and copy content', () => {
     cy.get('c4d-card-eyebrow').invoke('text').should('not.be.empty');
     cy.get('c4d-card-heading').invoke('text').should('not.be.empty');
     cy.get('c4d-feature-card > p').invoke('text').should('not.be.empty');
   });
+  
 
-  it.skip('should have image on the left and content on the right half of the card', () => {
+  it('should have image on the left and content on the right half of the card', () => {
     // image takes the left half
     cy.get('c4d-image').then(($image) => {
-      expect($image[0].getBoundingClientRect().left).to.equal(16);
+      expect($image[0].getBoundingClientRect().left).to.equal(33);
       expect($image[0].getBoundingClientRect().right).to.equal(529);
     });
 
@@ -180,7 +181,7 @@ describe('c4d-feature-card | large', () => {
       .find('.cds--card__wrapper')
       .then(($content) => {
         expect($content[0].getBoundingClientRect().left).to.equal(529);
-        expect($content[0].getBoundingClientRect().right).to.equal(1042);
+        expect($content[0].getBoundingClientRect().right).to.equal(1025);
       });
   });
 

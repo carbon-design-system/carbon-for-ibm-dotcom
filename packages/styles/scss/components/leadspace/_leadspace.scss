@@ -15,6 +15,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/utils/ratio-base' as *;
@@ -464,6 +465,7 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
+    max-inline-size: 40rem;
     // need the !important to prevent CSS reset styles from overwritting margin for tags
     /* stylelint-disable declaration-no-important */
     padding-block-end: $spacing-05 !important;

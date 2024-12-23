@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.1...@carbon/ibmdotcom-web-components@2.16.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* **card-group:** subgrid fixes ([#12174](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12174)) ([658b50a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/658b50a592270b795e90804f6515552e652b7780))
+* **card:** allow copy other than <p> tags ([#12172](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12172)) ([856dc23](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/856dc2368619e8af9cddc4e488933db919f18337))
+* **cta:** cause ctas to only respond to relevant video events ([#12169](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12169)) ([2720e55](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2720e5567aabcd4406e6ae0980188d69bbbb85a4))
+* **video:** remove [@state](https://github.com/state) declaration for function _embedMedia ([#12168](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12168)) ([62fcdba](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/62fcdba555bec64184c2135cc48cd2a9aefcfda8))
+
+
+
+
+
+## [2.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0...@carbon/ibmdotcom-web-components@2.16.1) (2024-12-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0-rc.3...@carbon/ibmdotcom-web-components@2.16.0) (2024-12-12)
+
+
+### Bug Fixes
+
+* **background-media:** avoid potential VPC setup race ([#12158](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12158)) ([55224e3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/55224e3c99120845d1e07d573f5759c007b563cb))
+* **card:** pictogram related style adjustments ([#12155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12155)) ([3e7bcc9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3e7bcc980c3a9cc1e1dde230610bbd57bf1f4f60))
+
+
+
+
+
+# [2.16.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0-rc.2...@carbon/ibmdotcom-web-components@2.16.0-rc.3) (2024-12-07)
+
+
+### Bug Fixes
+
+* **button:** fix disable state of the button ([#12151](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12151)) ([32a8214](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/32a8214c59bd72c031165460a509f0291f20a75f))
+* **link-list:** v2 style regressions ([#12125](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12125)) ([b400091](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b4000916f8743c6fcb9c3b7f8042d0fd93e55ed8))
+* **notice-choice:** switch attribute to snake case ([#12147](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12147)) ([ea9594e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea9594ed9dffec69161c98e2522591f7d92bb39e))
+
+
+### Features
+
+* **video-player:** enable autoplay & load as muted ([#12150](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12150)) ([a68e9ba](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a68e9ba3e78deced9ff0fd1d9553741de8a56136))
+
+
+
+
+
+# [2.16.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0-rc.1...@carbon/ibmdotcom-web-components@2.16.0-rc.2) (2024-12-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [2.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.0-rc.0...@carbon/ibmdotcom-web-components@2.16.0-rc.1) (2024-11-29)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

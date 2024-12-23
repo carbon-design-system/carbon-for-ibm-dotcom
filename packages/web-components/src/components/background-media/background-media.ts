@@ -16,7 +16,6 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';
-import C4DVideoPlayer from '../video-player/video-player';
 import C4DVideoPlayerContainer from '../video-player/video-player-container';
 import C4DLeadSpace from '../leadspace/leadspace';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
@@ -50,13 +49,14 @@ class C4DBackgroundMedia extends C4DImage {
    * Returns a class-name based on the Mobile Position type
    */
   protected _getMobilePositionClass() {
+    const { videoPlayerContainer: video } = this;
     return classMap({
       [`${prefix}--background-media--container`]: true,
       [`${prefix}--background-media--mobile-position`]: true,
       [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]:
         this.mobilePosition,
-      [`${prefix}--background-media--image`]: this.videoPlayer === null,
-      [`${prefix}--background-media--video`]: this.videoPlayer !== null,
+      [`${prefix}--background-media--image`]: video === null,
+      [`${prefix}--background-media--video`]: video !== null,
     });
   }
 
@@ -93,22 +93,13 @@ class C4DBackgroundMedia extends C4DImage {
   mobilePosition = MOBILE_POSITION.BOTTOM;
 
   /**
-   * Internal storage of the video ID
+   * Query selector to get the child video player container
    */
-  @property()
-  videoId: string | null = null;
-
-  /**
-   * Current state of video playback
-   */
-  @property()
-  videoIsPlaying = false;
-
-  /**
-   * Internal storage of the video player comonent
-   */
-  @property()
-  videoPlayer: C4DVideoPlayer | null = null;
+  protected get videoPlayerContainer() {
+    return this.querySelector(
+      `${c4dPrefix}-video-player-container`
+    ) as C4DVideoPlayerContainer | null;
+  }
 
   /**
    * Conditionally runs super.render() if all children are `c4d-image-item`
@@ -122,40 +113,38 @@ class C4DBackgroundMedia extends C4DImage {
     );
     const assignedVideos = assignedElements.filter(
       (el) => el.tagName === `${c4dPrefix}-video-player-container`.toUpperCase()
-    );
+    ) as C4DVideoPlayerContainer[];
 
-    if (
-      assignedElements.length === assignedImages.length &&
-      !assignedVideos.length
-    ) {
+    if (assignedImages.length && !assignedVideos.length) {
       this.containsOnlyImages = true;
-    }
-
-    if (assignedVideos.length) {
-      const [video] = assignedVideos;
-      this.videoId = video.getAttribute('video-id');
-      this.videoPlayer = video.querySelector(`${c4dPrefix}-video-player`);
-      this.videoIsPlaying = (video as C4DVideoPlayerContainer).isPlaying;
     }
   }
 
   toggleVideoState() {
-    this.videoPlayer?.userInitiatedTogglePlaybackState();
-    this.videoIsPlaying = !this.videoIsPlaying;
+    const { videoPlayerContainer: video } = this;
+
+    if (video?.isPlaying) {
+      video.pauseAllVideos();
+    } else {
+      video?.playAllVideos();
+    }
+
+    this.requestUpdate();
   }
 
   renderVideoControls() {
-    const { toggleVideoState, videoIsPlaying } = this;
+    const { toggleVideoState, videoPlayerContainer } = this;
+    const { isPlaying } = videoPlayerContainer ?? {};
 
     return html`
       <button
         part="controls"
         @click=${toggleVideoState}
         class="${prefix}--video-player__controls"
-        aria-pressed="${!videoIsPlaying}"
-        aria-label="${videoIsPlaying ? 'Pause the video' : 'Play the video'}"
+        aria-pressed="${!isPlaying}"
+        aria-label="${isPlaying ? 'Pause the video' : 'Play the video'}"
         hasTooltip>
-        ${videoIsPlaying ? pauseIcon() : playIcon()}
+        ${isPlaying ? pauseIcon() : playIcon()}
       </button>
     `;
   }
@@ -186,7 +175,7 @@ class C4DBackgroundMedia extends C4DImage {
       this.gradientHidden = true;
     }
 
-    if (this.hasAttribute('default-src') && !this.videoId) {
+    if (this.hasAttribute('default-src') && !this.videoPlayerContainer) {
       this.containsOnlyImages = true;
     }
   }
@@ -203,7 +192,7 @@ class C4DBackgroundMedia extends C4DImage {
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
         </div>
       </div>
-      ${this.videoId ? this.renderVideoControls() : ''}
+      ${this.videoPlayerContainer ? this.renderVideoControls() : ''}
     `;
   }
 
