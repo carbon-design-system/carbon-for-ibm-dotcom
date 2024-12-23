@@ -119,17 +119,7 @@
     margin-inline-start: 0;
   }
 
-  :host(#{$c4d-prefix}-content-item) ::slotted([slot='footer']:first-of-type) {
-    padding-top: $spacing-05;
-  }
-
-  :host(#{$c4d-prefix}-content-item) ::slotted([slot='footer']:last-of-type) {
-    padding-bottom: $spacing-07;
-  }
-
-  :host(#{$c4d-prefix}-content-item)
-    ::slotted([slot='footer']:not(:first-of-type):not(:last-of-type)) {
-    padding-top: 0;
-    padding-bottom: 0;
+  .#{$prefix}--content-item__cta {
+    padding-block: $spacing-05 $spacing-07;
   }
 }
