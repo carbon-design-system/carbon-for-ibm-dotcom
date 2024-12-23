@@ -22,6 +22,10 @@
 @include callout;
 
 @mixin callout-with-media {
+  * {
+    box-sizing: border-box;
+  }
+
   :host(#{$c4d-prefix}-callout-with-media) {
     @extend :host(#{$c4d-prefix}-callout);
 
@@ -179,7 +183,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__img {
+  :host(#{$c4d-prefix}-callout-with-media-image) .#{$c4d-prefix}--image__img {
     max-inline-size: 100%;
   }
 }

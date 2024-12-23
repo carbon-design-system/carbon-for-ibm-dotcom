@@ -126,6 +126,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       embeddedVideos[videoId].sendNotification('doPause');
     });
     this.isPlaying = false;
+    this._setAutoplayPreference(false);
   }
 
   playAllVideos() {
@@ -135,6 +136,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       embeddedVideos[videoId].sendNotification('doPlay');
     });
     this.isPlaying = true;
+    this._setAutoplayPreference(true);
   }
 
   /**
