@@ -17,6 +17,7 @@
 @use '@carbon/styles/scss/components/dropdown';
 @use '@carbon/styles/scss/components/select';
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../masthead/vars' as *;
 
 @mixin react-autosuggest-suggestion {

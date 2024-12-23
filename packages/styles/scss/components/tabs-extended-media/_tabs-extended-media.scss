@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/components/tabs';
 @use '../link-list';
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin tabs-extended-media {
   :host(#{$c4d-prefix}-tabs-extended-media) {

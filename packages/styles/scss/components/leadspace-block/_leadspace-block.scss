@@ -15,6 +15,7 @@
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/hang' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../link-list';
 @use '../image';
 @use '../../internal/content-block';

@@ -21,6 +21,7 @@
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../link-with-icon';
 @use 'vars' as *;
 
