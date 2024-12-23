@@ -86,6 +86,7 @@ module.exports = {
       ]
     );
     // Uses `@babel/plugin-proposal-decorators` configuration in our `.babelrc`
+    // @todo Wonder if this block interferes with decorators changes in Lit 3.x?
     config.module.rules = deepReplace(
       config.module.rules,
       (value, key, parent, parents) =>
@@ -153,7 +154,12 @@ module.exports = {
     if (babelLoaderRule) {
       config.module.rules.unshift({
         use: babelLoaderRule.use,
-        include: [path.dirname(require.resolve('lit'))],
+        include: [
+          path.dirname(require.resolve('lit')),
+          path.dirname(path.dirname(require.resolve('@lit/reactive-element'))),
+          path.dirname(require.resolve('lit-element')),
+          path.dirname(path.dirname(require.resolve('lit-html'))),
+        ],
       });
     }
 
