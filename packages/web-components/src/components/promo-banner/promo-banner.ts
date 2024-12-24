@@ -35,10 +35,10 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
   @state()
   isDesktopVersion = layoutBreakpoint.matches;
 
-  @queryAssignedNodes('image', false)
+  @queryAssignedNodes({ slot: 'image', flatten: false })
   slottedImage;
 
-  @queryAssignedNodes('cta', false)
+  @queryAssignedNodes({ slot: 'cta', flatten: false })
   slottedCta;
 
   handleSlotChange(e) {
