@@ -1,12 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+import type { Meta, StoryObj, ArgTypes, Args } from '@storybook/web-components';
 import { html } from 'lit';
 import {
   hrefsForType,
@@ -17,8 +18,11 @@ import {
 import { CTA_TYPE } from '../../cta/defs';
 import '../button';
 import '../../cta/video-cta-container';
+import storyDocs from './button.mdx';
 
-const controls = {
+type Story = StoryObj;
+
+const argTypes: ArgTypes = {
   ctaType: {
     control: 'select',
     description: 'CTA type (cta-type)',
@@ -49,7 +53,7 @@ const controls = {
   },
 };
 
-const defaultArgs = {
+const args: Args = {
   ctaType: types[CTA_TYPE.LOCAL],
   copy: 'Button text',
   customVideoTitle: 'Custom video title',
@@ -57,9 +61,9 @@ const defaultArgs = {
   download: 'IBM_Annual_Report_2019.pdf',
 };
 
-export const Default = {
-  argTypes: controls,
-  args: defaultArgs,
+export const Default: Story = {
+  argTypes,
+  args,
   render: ({ copy, ctaType, customVideoTitle, disabled, download }) => {
     const href = hrefsForType[ctaType ?? CTA_TYPE.REGULAR];
 
@@ -93,8 +97,13 @@ export const Default = {
   },
 };
 
-const meta = {
+const meta: Meta = {
   title: 'Components/Button',
+  parameters: {
+    docs: {
+      page: storyDocs,
+    },
+  },
 };
 
 export default meta;
