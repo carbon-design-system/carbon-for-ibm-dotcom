@@ -1,9 +1,4 @@
-import {
-  Preview,
-  Props,
-  Description,
-  Story,
-} from '@storybook/addon-docs/blocks';
+import { ArgTypes, Markdown } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
@@ -26,7 +21,6 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-quote/index.js';
 ```
 
 <Markdown>{`${cdnJs({ components: ['callout-quote'] })}`}</Markdown>
-
 <Markdown>{`${cdnCss()}`}</Markdown>
 
 ### SCSS
@@ -57,7 +51,7 @@ You can do this for example by adding the following:
 
 ## Props
 
-<Props of="c4d-callout-quote" />
+<ArgTypes of="c4d-callout-quote" />
 
 ## Stable selectors
 
@@ -69,4 +63,4 @@ to see how Web Components selector and `data-autoid` should be used.
 | ----------------------- | ---------------------------------- | ----------- |
 | `<c4d-callout-quote>`   | `data-autoid="c4d--callout-quote"` | Component   |
 
-<Description markdown={contributing} />
+<Markdown>{contributing}</Markdown>
