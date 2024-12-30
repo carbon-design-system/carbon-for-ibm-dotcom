@@ -384,6 +384,7 @@
 @use '@carbon/web-components/scss/components/accordion/accordion';
 @use '@carbon/web-components/scss/components/modal/modal';
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin filter-panel {
   .#{$prefix}--filter__heading {

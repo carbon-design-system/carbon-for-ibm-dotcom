@@ -183,7 +183,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
       if (videoId) {
         this._loadVideoData?.(videoId);
         if (open) {
-          this._embedMedia?.(videoId, false);
+          this._embedMedia?.(videoId);
           this._handleAriaAndHiddenState();
         }
       }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,4 +34,11 @@ export enum VIDEO_PLAYER_PLAYING_MODE {
    * Plays video in light box.
    */
   LIGHTBOX = 'lightbox',
+}
+
+export enum BUTTON_POSITION {
+  TOP_LEFT = 'top-left',
+  TOP_RIGHT = 'top-right',
+  BOTTOM_RIGHT = 'bottom-right',
+  BOTTOM_LEFT = 'bottom-left',
 }

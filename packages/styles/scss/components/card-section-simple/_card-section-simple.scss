@@ -6,5 +6,6 @@
  */
 
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../internal/content-section/content-section';
 @use '../card-group/card-group';

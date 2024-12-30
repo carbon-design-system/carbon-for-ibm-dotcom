@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 // Overridden column spanning
 @mixin structured-list-colspan($colNumber) {

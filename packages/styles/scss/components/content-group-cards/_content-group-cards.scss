@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../internal/content-group';
 @use '../link-with-icon';
 @use '../card';

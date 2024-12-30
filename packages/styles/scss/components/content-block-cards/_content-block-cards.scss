@@ -10,6 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../internal/content-block';
 @use '../card-group/card-group';
 
