@@ -19,9 +19,7 @@ const stories = glob.sync(
     // '../docs/**/*.mdx',
     // '../src/**/*.mdx',
     // '../src/**/*.stories.@(js|jsx|ts|tsx)',
-    '../src/**/button.mdx',
     '../src/**/button.stories.ts',
-    '../src/**/callout-quote.mdx',
     '../src/**/callout-quote.stories.ts',
   ],
   {
@@ -47,6 +45,7 @@ const config: StorybookConfig = {
     // '@storybook/addon-essentials',
     '@storybook/addon-storysource',
     'storybook-addon-accessibility-checker',
+    '@storybook/addon-controls',
   ],
   framework: {
     name: '@storybook/web-components-vite',
