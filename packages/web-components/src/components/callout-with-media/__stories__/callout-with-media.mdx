@@ -1,10 +1,5 @@
-import {
-  Preview,
-  Props,
-  Description,
-  Story,
-} from '@storybook/addon-docs/blocks';
-import markdownContents from '../../../../docs/markdown-contents.md';
+import { ArgTypes, Description, Markdown } from '@storybook/addon-docs/blocks';
+import markdownContents from '../../../../docs/markdown-contents.md?raw';
 import contributing from '../../../../../../docs/contributing-license.md?raw';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
@@ -33,11 +28,7 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/index.
 import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-image.js';
 ```
 
-<Description
-  markdown={`${cdnJs({
-    components: ['callout-with-media', 'callout-with-media-image'],
-  })}`}
-/>
+<Markdown>{`${cdnJs({components: ['callout-with-media', 'callout-with-media-image']})}`}</Markdown>
 
 <Markdown>{`${cdnCss()}`}</Markdown>
 
@@ -79,11 +70,7 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/index.
 import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-video.js';
 ```
 
-<Description
-  markdown={`${cdnJs({
-    components: ['callout-with-media', 'callout-with-media-video'],
-  })}`}
-/>
+<Markdown>{`${cdnJs({components: ['callout-with-media', 'callout-with-media-video']})}`}</Markdown>
 
 <Markdown>{`${cdnCss()}`}</Markdown>
 
@@ -107,16 +94,16 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callou
 
 ## Props
 
-<Props of="c4d-content-block-simple" />
+<ArgTypes of="c4d-content-block-simple" />
 
 ### `<c4d-callout-with-media-image>`
 
-<Props of="c4d-callout-with-media-image" />
+<ArgTypes of="c4d-callout-with-media-image" />
 
 ### `<c4d-callout-with-media-video>`
 
-<Props of="c4d-callout-with-media-video" />
-<Description markdown={markdownContents} />
+<ArgTypes of="c4d-callout-with-media-video" />
+<Markdown>{markdownContents}</Markdown>
 
 ## Stable selectors
 
@@ -131,4 +118,4 @@ to see how Web Components selector and `data-autoid` should be used.
 | `<c4d-callout-with-media-image>` | `data-autoid="c4d--callout-with-media-image"` | Component   |
 | `<c4d-callout-with-media-video>` | `data-autoid="c4d--callout-with-media-video"` | Component   |
 
-<Description markdown={contributing} />
+<Markdown>{contributing}</Markdown>

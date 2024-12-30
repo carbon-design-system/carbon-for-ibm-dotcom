@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,13 @@
 
 import '../index';
 import { html } from 'lit';
-import { select } from '@storybook/addon-knobs';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
-import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
+import storyDocs from './callout-with-media.mdx';
+import type { Meta, StoryObj, ArgTypes, Args } from '@storybook/web-components';
+
+type Story = StoryObj;
 
 const colorSchemeTypes = {
   [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
@@ -37,22 +38,51 @@ const video = html`
     video-id="1_9h94wo6b"></c4d-callout-with-media-video>
 `;
 
-export const Default = (args) => {
-  const { copy, heading, mediaType, colorScheme } =
-    args?.CalloutWithMedia ?? {};
-  return html`
-    <c4d-callout-with-media color-scheme="${colorScheme}">
-      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
-      <c4d-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
-        >${copy}</c4d-callout-with-media-copy
-      >
-      ${mediaType === 'image' ? image : ``}
-      ${mediaType === 'video' ? video : ``}
-    </c4d-callout-with-media>
-  `;
+const args: Args = {
+  mediaType: 'image',
+  heading: 'Curabitur malesuada varius mi eu posuere',
+  copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:`,
+  colorScheme: COLOR_SCHEME.REGULAR,
 };
 
-export default {
+const argTypes: ArgTypes = {
+  mediaType: {
+    control: 'select',
+    description: 'mediaType (optional)',
+    options: ['image', 'video', 'none'],
+  },
+  heading: {
+    control: 'text',
+    description: 'Heading',
+  },
+  colorScheme: {
+    control: 'select',
+    description: 'Color scheme',
+    options: colorSchemeTypes,
+  },
+};
+
+export const Default: Story = {
+  args,
+  argTypes,
+  render: ({ copy, heading, mediaType, colorScheme }) => {
+    return html`
+      <c4d-callout-with-media color-scheme="${colorScheme}">
+        <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+        <c4d-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+          >${copy}</c4d-callout-with-media-copy
+        >
+        ${mediaType === 'image' ? image : ``}
+        ${mediaType === 'video' ? video : ``}
+      </c4d-callout-with-media>
+    `;
+  },
+};
+
+const meta: Meta = {
   title: 'Components/Callout with media',
   decorators: [
     (story) => html`
@@ -67,41 +97,11 @@ export default {
     percy: {
       skip: true,
     },
-    ...readme.parameters,
+    docs: {
+      page: storyDocs,
+    },
     hasStoryPadding: true,
-    knobs: {
-      CalloutWithMedia: () => ({
-        mediaType: select(
-          'mediaType (optional)',
-          ['image', 'video', 'none'],
-          'image'
-        ),
-        heading: textNullable(
-          'Heading',
-          'Curabitur malesuada varius mi eu posuere'
-        ),
-        copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-  nulla quis, *consequat* libero. Here are
-  some common categories:`,
-        colorScheme: select(
-          'Color scheme:',
-          colorSchemeTypes,
-          COLOR_SCHEME.REGULAR
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        CalloutWithMedia: {
-          mediaType: 'image',
-          heading: 'Curabitur malesuada varius mi eu posuere',
-          copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-  nulla quis, *consequat* libero. Here are
-  some common categories:`,
-        },
-      },
-    },
   },
 };
+
+export default meta;
