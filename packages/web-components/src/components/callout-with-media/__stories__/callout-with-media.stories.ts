@@ -9,7 +9,7 @@
 
 import '../index';
 import { html } from 'lit';
-import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/defs';
 import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import imgLg16x9 from '../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import storyDocs from './callout-with-media.mdx';
@@ -17,13 +17,13 @@ import type { Meta, StoryObj, ArgTypes, Args } from '@storybook/web-components';
 
 type Story = StoryObj;
 
-const colorSchemeTypes = {
-  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
-  [`${COLOR_SCHEME.INVERSE}`]: COLOR_SCHEME.INVERSE,
-  [`${COLOR_SCHEME.LAYER}`]: COLOR_SCHEME.LAYER,
-  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
-  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
-};
+const colorSchemeTypes = [
+  COLOR_SCHEME.REGULAR,
+  COLOR_SCHEME.INVERSE,
+  COLOR_SCHEME.LAYER,
+  COLOR_SCHEME.PURPLE,
+  COLOR_SCHEME.CYAN,
+];
 
 const image = html`
   <c4d-callout-with-media-image

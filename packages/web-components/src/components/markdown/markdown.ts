@@ -99,7 +99,6 @@ class C4DMarkdown extends LitElement {
         )}
       `;
       this._hasRendered = true;
-      this.innerText = ''; // avoid text rendering twice
       render(lightDOMTemplateResult, this);
     }
     this.querySelectorAll('cds-ordered-list, cds-unordered-list').forEach(
