@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/link';
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin link-with-icon {

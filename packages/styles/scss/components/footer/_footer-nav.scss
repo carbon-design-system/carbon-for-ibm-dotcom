@@ -15,6 +15,7 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 /// Footer nav styles
 /// @access private

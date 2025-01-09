@@ -13,6 +13,7 @@
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../internal/content-block';
 @use '../../internal/content-item/content-item';
 @use '../button-group';
