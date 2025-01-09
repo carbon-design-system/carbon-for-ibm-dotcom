@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/layout' as *;
 @use '@carbon/styles/scss/components/button' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin button {
   :host(#{$c4d-prefix}-button) {

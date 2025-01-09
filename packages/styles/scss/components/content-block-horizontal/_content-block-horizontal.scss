@@ -11,6 +11,7 @@
 @use '../../internal/content-block';
 @use '../content-item-row';
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin content-block-horizontal {
   :host(#{$c4d-prefix}-content-block-horizontal) {

@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/web-components/scss/components/tooltip/tooltip' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../image';
 
 @mixin background-media {

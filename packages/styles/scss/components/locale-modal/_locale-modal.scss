@@ -15,6 +15,7 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/layout/scss/convert' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/flex-grid' as *;
 
 @use '../card' as *;
