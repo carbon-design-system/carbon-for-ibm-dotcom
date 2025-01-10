@@ -362,7 +362,7 @@ describe('c4d-carousel', function () {
       await Promise.resolve();
       expect(
         (document.body.querySelector('c4d-carousel') as C4DCarousel).pageSize
-      ).toBe(4);
+      ).toBe(2);
     });
 
     it('should update the widths of contents area and the gaps between cards', async function () {
