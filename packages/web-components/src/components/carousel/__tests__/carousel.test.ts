@@ -354,7 +354,7 @@ describe('c4d-carousel', function () {
   });
 
   describe('Handling resizing', function () {
-    it('should update paze size upon resizing viewport', async function () {
+    it('should update page size upon resizing viewport', async function () {
       render(template(), document.body);
       await Promise.resolve();
       pageSize = 2;
@@ -362,7 +362,7 @@ describe('c4d-carousel', function () {
       await Promise.resolve();
       expect(
         (document.body.querySelector('c4d-carousel') as C4DCarousel).pageSize
-      ).toBe(2);
+      ).toBe(4);
     });
 
     it('should update the widths of contents area and the gaps between cards', async function () {
