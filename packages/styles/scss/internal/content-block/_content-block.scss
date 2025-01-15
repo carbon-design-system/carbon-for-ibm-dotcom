@@ -86,6 +86,8 @@
     }
 
     ::slotted(#{$c4d-prefix}-content-group:not([slot])),
+    ::slotted(#{$c4d-prefix}-cta-block-item-row:not([slot])),
+    ::slotted(#{$c4d-prefix}-content-group-cards-item:not([slot])),
     ::slotted([data-autoid^='c4d--tabs-']:not([slot])),
     ::slotted([data-autoid^='c4d--card']:not([slot])) {
       margin-inline-start: 0;

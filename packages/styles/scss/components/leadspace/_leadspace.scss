@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,10 +15,12 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/utils/ratio-base' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../button-group';
 @use '../image';
 
@@ -464,6 +466,7 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
+    max-inline-size: 40rem;
     // need the !important to prevent CSS reset styles from overwritting margin for tags
     /* stylelint-disable declaration-no-important */
     padding-block-end: $spacing-05 !important;
@@ -513,8 +516,8 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     @include breakpoint(lg) {
-      .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 40rem;
+      .#{$c4d-prefix}--leadspace--content__container {
+        min-block-size: 38rem;
       }
     }
 
@@ -527,8 +530,8 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     @include breakpoint(lg) {
-      .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 30rem;
+      .#{$c4d-prefix}--leadspace--content__container {
+        min-block-size: 28rem;
       }
     }
 
@@ -548,7 +551,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
     @include breakpoint(lg) {
       .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 20rem;
+        min-block-size: 20rem;
       }
     }
 
@@ -578,8 +581,8 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
-      .#{$c4d-prefix}--leadspace__overlay {
-        block-size: 35rem;
+      .#{$c4d-prefix}--leadspace--content__container {
+        min-block-size: 33rem;
       }
     }
 

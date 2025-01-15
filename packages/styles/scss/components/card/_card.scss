@@ -16,6 +16,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/ratio-base' as *;
 @use '../lightbox-media-viewer/lightbox-media-viewer';
@@ -117,6 +118,12 @@
       }
     }
 
+    .#{$prefix}--card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .#{$prefix}--card__wrapper {
       display: flex;
       flex: 1;
@@ -151,7 +158,7 @@
       }
     }
 
-    .#{$prefix}--card__copy:not([hidden]) {
+    .#{$prefix}--card__copy {
       @include type-style('body-02');
 
       margin-block-end: $spacing-07;
@@ -213,10 +220,6 @@
 
       .#{$prefix}--card__copy {
         margin-block: $spacing-07 0;
-
-        &[hidden] {
-          margin: 0;
-        }
       }
 
       svg {
@@ -246,6 +249,16 @@
       &[pictogram-placement='bottom'] .#{$prefix}--card {
         ::slotted(#{$c4d-prefix}-card-heading) {
           align-items: flex-start;
+        }
+
+        .#{$prefix}--card__content {
+          padding-block-end: $spacing-10;
+        }
+
+        .#{$prefix}--card__pictogram-wrapper {
+          position: absolute;
+          inset-block-end: $spacing-05;
+          inset-inline-start: $spacing-05;
         }
 
         .#{$prefix}--card__copy {
@@ -280,12 +293,13 @@
       display: flex;
       flex-direction: column;
       gap: $spacing-05;
-    }
 
-    ::slotted(div) {
-      /* stylelint-disable declaration-no-important */
-      // need the !important to prevent CSS reset styles from overwritting margin for tags
-      margin-inline-start: -$spacing-02 !important;
+      &[hidden] {
+        // Need important to force [hidden] to really mean hidden above many
+        // other variants setting display.
+        /* stylelint-disable declaration-no-important */
+        display: none !important;
+      }
     }
   }
 
@@ -561,14 +575,15 @@
   }
 
   :host(#{$c4d-prefix}-card)[color-scheme='inverse']:not([disabled]),
-  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not([disabled])
-    .#{$prefix}--card {
+  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not(
+      [disabled]
+    ) {
     .#{$prefix}--tile {
       border-color: $background-inverse;
       background-color: $background-inverse;
 
       &:hover {
-        #{$c4d-prefix}-image,
+        .#{$c4d-prefix}-image,
         ::slotted(#{$c4d-prefix}-image),
         ::slotted(#{$c4d-prefix}-card-cta-image) {
           filter: brightness(108%);

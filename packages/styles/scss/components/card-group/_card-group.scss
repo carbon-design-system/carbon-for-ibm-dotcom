@@ -13,8 +13,10 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/ratio-base' as *;
 @use '../../internal/content-section';
 @use '../card';
@@ -58,10 +60,15 @@
   :host(#{$c4d-prefix}-card-group-item) {
     display: contents;
 
+    * {
+      row-gap: 0;
+    }
+
     .#{$prefix}--card {
       display: grid;
       border: 0;
       grid-row: span 10;
+      grid-template-columns: subgrid;
       grid-template-rows: subgrid;
       margin-block-end: $spacing-07;
       outline: 1px solid $border-tile-01;
@@ -71,26 +78,34 @@
         display: grid;
         justify-content: revert;
         grid-row: span 10;
+        grid-template-columns: subgrid;
         grid-template-rows: subgrid;
 
         &::before,
         &::after {
           content: revert;
         }
+
+        &::after {
+          display: block;
+          aspect-ratio: 16 / 9;
+          content: '';
+          grid-area: 1 / 1 / -1 / -1;
+        }
       }
 
       .#{$prefix}--card__content {
         display: grid;
-        grid-row: span 10;
+        grid-area: 1 / 1 / -1 / -1;
+        grid-template-columns: subgrid;
         grid-template-rows: subgrid;
-        row-gap: 0;
       }
 
       .#{$prefix}--card__copy {
         display: grid;
         grid-row: span 2;
+        grid-template-columns: subgrid;
         grid-template-rows: subgrid;
-        row-gap: 0;
       }
     }
 

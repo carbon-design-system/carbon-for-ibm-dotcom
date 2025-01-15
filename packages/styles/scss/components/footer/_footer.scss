@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,7 @@
 @use '@carbon/styles/scss/layout' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @use '@carbon/styles/scss/components/accordion';
 @use '@carbon/styles/scss/components/combo-box';
@@ -112,7 +113,7 @@
 
   :host(#{$c4d-prefix}-footer-nav-item),
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div {
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     display: list-item;
@@ -139,6 +140,12 @@
       &:visited:hover {
         color: $text-primary;
       }
+    }
+  }
+
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
+    .#{$prefix}--footer__link.#{$prefix}--link {
+      cursor: pointer;
     }
   }
 
@@ -220,7 +227,7 @@
         @include make-container;
       }
     }
-    .#{$prefix}--adjunct-links__container--hidden {
+    .#{$c4d-prefix}--adjunct-links__container--hidden {
       display: none;
     }
   }
@@ -481,7 +488,7 @@
     }
 
     .#{$prefix}--list-box__menu {
-      inset-block-end: to-rem($spacing-09);
+      inset-block-end: $spacing-09;
     }
 
     .#{$prefix}--dropdown,

@@ -17,6 +17,7 @@
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../components/image';
 @use '../../components/card';
 @use '../../globals/utils/aspect-ratio' as *;
@@ -86,6 +87,10 @@ $feature-flags: (
       flex: 1 0 50%;
     }
 
+    .#{$prefix}--card__image-wrapper {
+      aspect-ratio: 1 / 1;
+    }
+
     .#{$prefix}--card__wrapper {
       &::before,
       &::after {
@@ -125,6 +130,7 @@ $feature-flags: (
     ::slotted([slot='image']),
     #{$c4d-prefix}-image {
       z-index: 0;
+      block-size: 100%;
 
       // Opacity is adjusted on hover. See above.
       &::before {
@@ -246,10 +252,27 @@ $feature-flags: (
     }
   }
 
-  :host(#{$c4d-prefix}-feature-card-footer)[color-scheme='inverse']
-    .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']) {
-    fill: $link-inverse;
+  :host(#{$c4d-prefix}-feature-card-footer)[color-scheme='inverse'] {
+    .#{$c4d-prefix}-ce--card__footer {
+      .#{$c4d-prefix}-ce--cta__icon,
+      ::slotted(svg[slot='icon']) {
+        fill: $link-inverse;
+      }
+
+      &:hover {
+        .#{$c4d-prefix}-ce--cta__icon,
+        ::slotted(svg[slot='icon']) {
+          fill: $link-inverse-hover;
+        }
+      }
+
+      &:active {
+        .#{$c4d-prefix}-ce--cta__icon,
+        ::slotted(svg[slot='icon']) {
+          fill: $link-inverse-active;
+        }
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-feature-card[size='large']) {

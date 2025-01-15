@@ -105,8 +105,12 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
    * Handles `slotchange` event for the copy slot.
    */
-  protected _handleCopySlotChange() {
-    this._hasCopy = Boolean(this.querySelector('p'));
+  protected _handleCopySlotChange({ target }: Event) {
+    this._hasCopy = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
   }
 
   /**
@@ -340,7 +344,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const footer = this.querySelector(`${c4dPrefix}-card-footer`);
+      const footer = this.querySelector(
+        (this.constructor as typeof C4DCard).selectorFooter
+      );
 
       const headingText = this.querySelector(
         `${c4dPrefix}-card-heading`
@@ -401,7 +407,6 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     }
 
     if (this._hasPictogram) {
-      this.onclick = () => window.open(this.href, '_self');
       this.setAttribute('pictogram', '');
     } else {
       this.removeAttribute('pictogram');

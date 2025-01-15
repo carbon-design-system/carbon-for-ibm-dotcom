@@ -9,6 +9,7 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/layout' as *;
@@ -17,6 +18,7 @@
 @use '@carbon/web-components/scss/components/accordion/accordion';
 @use '@carbon/web-components/scss/components/modal/modal';
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin filter-panel {
   .#{$prefix}--filter__heading {

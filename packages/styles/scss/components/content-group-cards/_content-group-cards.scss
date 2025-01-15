@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../internal/content-group';
 @use '../link-with-icon';
 @use '../card';
@@ -38,7 +39,6 @@
 
   .#{$prefix}--content-group-cards__row {
     display: grid;
-    margin-inline: -$spacing-05;
 
     @include breakpoint(md) {
       grid-auto-rows: 1fr;

@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../card';
 @use '../link-with-icon';
@@ -27,7 +28,6 @@
     .#{$c4d-prefix}--link-list__list--vertical,
     .#{$c4d-prefix}-ce--link-list__list--end {
       display: grid;
-      grid-auto-rows: 1fr;
 
       ::slotted(#{$c4d-prefix}-link-list-item),
       ::slotted(#{$c4d-prefix}-link-list-item-cta) {
@@ -36,7 +36,9 @@
     }
 
     .#{$c4d-prefix}--link-list__list--vertical
-      ::slotted(#{$c4d-prefix}-link-list-item) {
+      ::slotted(#{$c4d-prefix}-link-list-item),
+    .#{$c4d-prefix}--link-list__list--vertical
+      ::slotted(#{$c4d-prefix}-link-list-item-cta) {
       display: flex;
     }
 
@@ -54,7 +56,8 @@
 
     .#{$c4d-prefix}-ce--link-list__list--split,
     .#{$c4d-prefix}-ce--link-list__list--three-columns {
-      ::slotted(#{$c4d-prefix}-link-list-item) {
+      ::slotted(#{$c4d-prefix}-link-list-item),
+      ::slotted(#{$c4d-prefix}-link-list-item-cta) {
         display: grid;
         align-items: stretch;
         // margin-right: -$spacing-05;
@@ -63,10 +66,6 @@
       @include breakpoint(md) {
         display: grid;
         grid-column-gap: $spacing-07;
-
-        ::slotted(#{$c4d-prefix}-link-list-item) {
-          margin-inline: -$spacing-05 0;
-        }
       }
     }
 
@@ -83,9 +82,14 @@
     }
   }
 
-  :host(#{$c4d-prefix}-link-list-item) {
+  :host(#{$c4d-prefix}-link-list-item),
+  :host(#{$c4d-prefix}-link-list-item-cta) {
     .#{$prefix}--link {
+      display: flex;
       align-content: flex-start;
+      padding: $spacing-04 0;
+      gap: $spacing-03;
+      inline-size: 100%;
 
       span,
       ::slotted(svg[slot='icon']) {
@@ -106,16 +110,6 @@
     @include type-style('heading-02');
   }
 
-  :host(#{$c4d-prefix}-link-list-item)[type='default'],
-  :host(#{$c4d-prefix}-link-list-item-cta)[type='default'],
-  :host(#{$c4d-prefix}-link-list-item)[type='end'] {
-    .#{$prefix}--link {
-      display: flex;
-      padding: $spacing-05 0;
-      inline-size: 100%;
-    }
-  }
-
   .#{$c4d-prefix}--link-list__list {
     ::slotted(#{$c4d-prefix}-link-list-item),
     ::slotted(#{$c4d-prefix}-link-list-item-cta) {
@@ -134,10 +128,6 @@
       border-block-end: 1px solid $border-subtle-01;
       border-block-start: 1px solid $border-subtle-01;
       margin-block-start: -1px;
-
-      @include breakpoint(lg) {
-        margin-inline: -$spacing-05;
-      }
     }
   }
 
@@ -156,7 +146,7 @@
 
   .#{$c4d-prefix}--link-list__list--vertical {
     ::slotted(*) {
-      margin-block-end: $spacing-05;
+      margin-block-end: 0;
     }
   }
 

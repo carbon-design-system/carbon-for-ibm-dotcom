@@ -10,8 +10,9 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
-
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../lightbox-media-viewer';
 @use '../button';
 

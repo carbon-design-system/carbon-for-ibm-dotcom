@@ -8,8 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
+import { property, state } from 'lit/decorators.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -23,6 +22,8 @@ import {
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import { BUTTON_POSITION } from './defs';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -48,7 +49,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    *
    * @internal
    */
-  _embedMedia?: (videoId: string, backgroundMode?: boolean) => Promise<any>;
+  _embedMedia?: (videoId: string) => Promise<any>;
 
   /**
    * The placeholder for `_setAutoplayPreference()` Redux action that may be mixed in.
@@ -86,6 +87,79 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   }
 
   /**
+   * Clean-up and create intersection observers.
+   *
+   * When this.intersectionMode, we use intersection observers to track when
+   * the video container is in view, and embed / play / pause the video
+   * accordingly.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create necessary intersection observers.
+   */
+  private _cleanAndCreateObserverIntersection({
+    create,
+  }: { create?: boolean } = {}) {
+    // Cleanup.
+    if (this._observerIntersectionIntoView) {
+      this._observerIntersectionIntoView.unobserve(this);
+    }
+    if (this._observerIntersectionOutOfView) {
+      this._observerIntersectionOutOfView.unobserve(this);
+    }
+    // Create new intersection observers.
+    if (create) {
+      this._observerIntersectionIntoView = new IntersectionObserver(
+        this._intersectionIntoViewHandler.bind(this),
+        {
+          root: this.closest('c4d-carousel'),
+          rootMargin: '0px',
+          threshold: 0.9,
+        }
+      );
+      this._observerIntersectionOutOfView = new IntersectionObserver(
+        this._intersectionOutOfViewHandler.bind(this),
+        {
+          root: this.closest('c4d-carousel'),
+          rootMargin: '0px',
+          threshold: 0.5,
+        }
+      );
+      this._observerIntersectionIntoView.observe(this);
+      this._observerIntersectionOutOfView.observe(this);
+    }
+  }
+
+  /**
+   * Observer for when the video container enters into view.
+   *
+   * Autoplay the video, resecting the users stored autoplay preference.
+   */
+  private _intersectionIntoViewHandler(entries: IntersectionObserverEntry[]) {
+    const { videoId } = this;
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && this._getAutoplayPreference() !== false) {
+        this._embedMedia?.(videoId);
+        this.playAllVideos();
+      }
+    });
+  }
+
+  /**
+   * Observer for when the video container goes out of view.
+   *
+   * Auto-pause the video, video playback controlled by intersection observers
+   * here are meant to be ambient, without audio. No reason for playback when
+   * user is not seeing the video content.
+   */
+  private _intersectionOutOfViewHandler(entries: IntersectionObserverEntry[]) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        this.pauseAllVideos(false);
+      }
+    });
+  }
+
+  /**
    * Handles `c4d-video-player-content-state-changed` event.
    * Such event is fired when user changes video content state, e.g. from thumbnail to video player.
    *
@@ -99,7 +173,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE &&
       videoId
     ) {
-      this._embedMedia?.(videoId, this.backgroundMode);
+      this._embedMedia?.(videoId);
     }
   }
 
@@ -117,24 +191,48 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     }
 
     this._setAutoplayPreference(this.isPlaying);
+    this.playbackTriggered = true;
   }
 
-  pauseAllVideos() {
+  @HostListener('eventTogglePlayback')
+  protected _handleEventTogglePlayback(event: CustomEvent) {
+    const { videoId } = event.detail;
+    if (videoId) {
+      this._setAutoplayPreference(!this.isPlaying);
+
+      // First ensure that the media has actually been embedded.
+      this._embedMedia?.(videoId);
+      if (this.isPlaying) {
+        this.pauseAllVideos();
+      } else {
+        this.playAllVideos();
+      }
+    }
+  }
+
+  pauseAllVideos(updateAutoplayPreference = true) {
     const { embeddedVideos = {} } = this;
 
     Object.keys(embeddedVideos).forEach((videoId) => {
       embeddedVideos[videoId].sendNotification('doPause');
     });
     this.isPlaying = false;
+    if (updateAutoplayPreference) {
+      this._setAutoplayPreference(false);
+    }
   }
 
-  playAllVideos() {
+  playAllVideos(updateAutoplayPreference = true) {
     const { embeddedVideos = {} } = this;
 
     Object.keys(embeddedVideos).forEach((videoId) => {
       embeddedVideos[videoId].sendNotification('doPlay');
     });
     this.isPlaying = true;
+    this.playbackTriggered = true;
+    if (updateAutoplayPreference) {
+      this._setAutoplayPreference(true);
+    }
   }
 
   /**
@@ -142,6 +240,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   @property({ type: Boolean, attribute: 'auto-play' })
   autoPlay = false;
+
+  /**
+   * `true` load videos with sound muted.
+   */
+  @property({ type: Boolean, attribute: 'muted' })
+  muted = false;
 
   /**
    * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
@@ -190,8 +294,26 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * `true` to autoplay, mute, and hide player UI.
    */
-  @property({ type: Boolean, attribute: 'background-mode' })
+  @property({ type: Boolean, attribute: 'background-mode', reflect: true })
   backgroundMode = false;
+
+  /**
+   * Triggers playback on intersection with the viewport / carousel.
+   */
+  @property({ attribute: 'intersection-mode', reflect: true, type: Boolean })
+  intersectionMode = false;
+
+  /**
+   * The position of the toggle playback button.
+   */
+  @property({ attribute: 'button-position', reflect: true })
+  buttonPosition = BUTTON_POSITION.BOTTOM_RIGHT;
+
+  /**
+   * Track when we have triggered initial playback.
+   */
+  @state()
+  playbackTriggered = false;
 
   /**
    * The video data, keyed by the video ID.
@@ -214,7 +336,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   /**
    * The current playback state
    */
-  @property()
+  @property({ type: Boolean })
   isPlaying = false;
 
   /**
@@ -235,6 +357,16 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   @property({ type: Number, attribute: 'video-thumbnail-width' })
   videoThumbnailWidth = 3;
 
+  /**
+   * Observe when the video container enters into view.
+   */
+  private _observerIntersectionIntoView?: IntersectionObserver;
+
+  /**
+   * Observe when the video container goes out of view.
+   */
+  private _observerIntersectionOutOfView?: IntersectionObserver;
+
   connectedCallback() {
     super.connectedCallback();
 
@@ -251,6 +383,15 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
         this.isPlaying = storedPreference;
       }
     }
+
+    if (this.intersectionMode) {
+      this._cleanAndCreateObserverIntersection({ create: true });
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._cleanAndCreateObserverIntersection();
   }
 
   updated(changedProperties) {
@@ -260,7 +401,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       if (videoId) {
         this._loadVideoData?.(videoId);
         if (autoPlay || backgroundMode) {
-          this._embedMedia?.(videoId, backgroundMode);
+          this._embedMedia?.(videoId);
         }
       }
     }
@@ -279,6 +420,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       videoThumbnailWidth,
       thumbnail,
       playingMode,
+      buttonPosition,
     } = this;
     const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { duration, name } = currentVideoData;
@@ -291,16 +433,21 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     return html`
       <c4d-video-player
         part="video-player"
-        duration="${ifDefined(duration)}"
+        duration="${ifNonEmpty(duration)}"
         ?hide-caption=${hideCaption}
-        name="${ifDefined(caption || name)}"
-        video-description="${ifDefined(customVideoDescription)}"
-        thumbnail-url="${ifDefined(thumbnailUrl)}"
-        video-id="${ifDefined(videoId)}"
-        aspect-ratio="${ifDefined(aspectRatio)}"
-        .formatCaption="${ifDefined(formatCaption)}"
-        .formatDuration="${ifDefined(formatDuration)}"
-        playing-mode="${ifDefined(playingMode)}">
+        name="${ifNonEmpty(caption || name)}"
+        video-description="${ifNonEmpty(customVideoDescription)}"
+        thumbnail-url="${ifNonEmpty(thumbnailUrl)}"
+        video-id="${ifNonEmpty(videoId)}"
+        aspect-ratio="${ifNonEmpty(aspectRatio)}"
+        playing-mode="${ifNonEmpty(playingMode)}"
+        content-state="${this.playbackTriggered
+          ? VIDEO_PLAYER_CONTENT_STATE.VIDEO
+          : VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL}"
+        button-position="${buttonPosition}"
+        .formatCaption="${ifNonEmpty(formatCaption)}"
+        .formatDuration="${ifNonEmpty(formatDuration)}"
+        .isPlaying=${this.isPlaying}>
       </c4d-video-player>
     `;
   }
@@ -328,6 +475,13 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   static get eventPlaybackStateChange() {
     return `${c4dPrefix}-video-player-playback-state-changed`;
+  }
+
+  /**
+   * The name of the custom event fired requesting to toggle playback.
+   */
+  static get eventTogglePlayback() {
+    return `${c4dPrefix}-video-player-toggle-playback`;
   }
 }
 

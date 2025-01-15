@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/flex-grid' as *;
 
 /// Legal nav styles
@@ -198,7 +199,7 @@
   }
 
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div,
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
     padding: $spacing-03 0 0 0;
     margin-inline-end: $spacing-07;

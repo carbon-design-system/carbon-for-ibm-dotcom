@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.1...@carbon/ibmdotcom-styles@2.16.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* **card-group:** subgrid fixes ([#12174](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12174)) ([658b50a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/658b50a592270b795e90804f6515552e652b7780))
+* **toc:** address horizontal overflow ([#12171](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12171)) ([9291729](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9291729ac0758048bdfa52b2e621b4fa378e620f))
+
+
+
+
+
+## [2.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0...@carbon/ibmdotcom-styles@2.16.1) (2024-12-12)
+
+
+### Bug Fixes
+
+* **callout-quote:** fix horizontal scroll for callout quote ([#12164](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12164)) ([be2e956](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/be2e9564cd8d1532720d07de365408b9b19395c5))
+* **callout-with-media:** spacing adjustments ([#12124](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12124)) ([4a7c1d1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4a7c1d1d982f2fa508a5b475d4229152bd28c384))
+* **card-group:** set min height to content ([#12128](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12128)) ([8dc1099](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8dc109929b6807a2fad759f41c8051d238b0c4f5))
+* **card:** remove bad styles ([#12141](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12141)) ([13fd7a5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/13fd7a5cb0bb56e345cb78bd684b8c93e09ef55b))
+* **cta-block:** adjust cta-block-item-row inline margin ([#12140](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12140)) ([b5ee952](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b5ee952f7ceee190df1cff0204b0dc6252b0feaf))
+* **feature-card:** inverse styles and cta-type="video" ([#12146](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12146)) ([888d642](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/888d642de7502eb4abfb215403ef9aec8835994e))
+* **feature-section:** stretch image if needed ([#12126](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12126)) ([8bc634a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8bc634af30b40e0b2884963c29781ef610431737))
+* **footer:** adjustments to adjunct links visibility ([#12136](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12136)) ([30b1ce7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30b1ce7d18c665f9665cb3f13d308b74b1ab9842))
+* **footer:** adjustments to style for color and positioning ([#12135](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12135)) ([8036383](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/80363830f4aa617fd5c24612b4ab9164309fdd3a))
+* **leadspace-breadcrumb:** leadspace breadcrumb was missing a max-width ([#12139](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12139)) ([3ee263d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3ee263d35f3746689f2cd4fae27194e467a3d852))
+* **toc:** remove implicit top and bottom padding for TOC ([#12144](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12144)) ([5e52b77](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5e52b771b54fcff284222f7d04e6e0f5c19cdc1a))
+
+
+
+
+
+# [2.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.3...@carbon/ibmdotcom-styles@2.16.0) (2024-12-12)
+
+
+### Bug Fixes
+
+* **card:** pictogram related style adjustments ([#12155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12155)) ([3e7bcc9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3e7bcc980c3a9cc1e1dde230610bbd57bf1f4f60))
+* **content-group-cards:** fix alignment ([#12160](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12160)) ([19e9b4f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/19e9b4fa1339aa2c817ad66fd1ebafe5eadabb06))
+* **link-with-icon:** fix icon placement ([#12159](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12159)) ([8459cc7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8459cc79f407083861c33867c58ac9edfc61a818))
+
+
+
+
+
+# [2.16.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.2...@carbon/ibmdotcom-styles@2.16.0-rc.3) (2024-12-07)
+
+
+### Bug Fixes
+
+* **card:** push the footer to the bottom of the card consistently ([#12137](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12137)) ([e817962](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e817962c042db7b49f25db44cbaed3d7c23b4a8f))
+* **link-list:** v2 style regressions ([#12125](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12125)) ([b400091](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b4000916f8743c6fcb9c3b7f8042d0fd93e55ed8))
+
+
+### Features
+
+* **video-player:** enable autoplay & load as muted ([#12150](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12150)) ([a68e9ba](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a68e9ba3e78deced9ff0fd1d9553741de8a56136))
+
+
+
+
+
+# [2.16.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.1...@carbon/ibmdotcom-styles@2.16.0-rc.2) (2024-12-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.16.0-rc.0...@carbon/ibmdotcom-styles@2.16.0-rc.1) (2024-11-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.16.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.15.1...@carbon/ibmdotcom-styles@2.16.0-rc.0) (2024-11-25)
+
+
+### Bug Fixes
+
+* **leadspace:** in storybook adding long copy to copy knob led to button being clipped away ([#12117](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12117)) ([86647b3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/86647b30da9c503e303231e4e3954da745d8f4de))
+* **toc:** alignment issues ([#12118](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12118)) ([5908e7c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5908e7cb45c305452e9d377f91fc5304664c0739))
+
+
+
+
+
 ## [2.15.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.15.0...@carbon/ibmdotcom-styles@2.15.1) (2024-11-13)
 
 

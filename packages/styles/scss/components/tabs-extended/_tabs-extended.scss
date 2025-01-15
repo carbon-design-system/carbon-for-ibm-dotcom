@@ -13,8 +13,10 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/button' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '@carbon/styles/scss/components/tabs/vars' as *;
 @use '@carbon/web-components/scss/components/tabs/tabs';
 

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2024
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/aspect-ratio';
 @use '../../globals/carbon-grid';
 @use '../../globals/utils/ratio-base' as *;
@@ -121,6 +122,7 @@
 
     ::slotted(#{$c4d-prefix}-image) {
       overflow: hidden;
+      block-size: 100%;
 
       @include breakpoint(sm) {
         block-size: aspect-ratio(1, 1);

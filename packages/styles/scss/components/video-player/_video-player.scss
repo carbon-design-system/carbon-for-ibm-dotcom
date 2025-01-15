@@ -6,6 +6,7 @@
  */
 
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/ratio-base' as *;
 @use '@carbon/styles/scss/colors' as *;
 @use '@carbon/styles/scss/config' as *;
@@ -13,9 +14,17 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
+@use '@carbon/styles/scss/components/button/vars' as *;
 $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
+  // Make the video player container a block for purposes of the intersection
+  // observer.
+  :host(#{$c4d-prefix}-video-player-container) {
+    display: block;
+  }
+
   :host(#{$c4d-prefix}-video-player),
   .#{$c4d-prefix}--video-player {
     color: var(--#{$c4d-prefix}--video-caption--color, $text-secondary);
@@ -25,26 +34,13 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       inline-size: 100%;
     }
 
-    &:focus {
-      outline: none;
-      .#{$c4d-prefix}--video-player__video-container {
-        &::before {
-          position: absolute;
-          z-index: 1;
-          border: 1px solid $focus-inverse;
-          content: ' ';
-          inset: $spacing-01;
-          outline: $spacing-01 solid $focus;
-        }
-      }
-    }
     #{$c4d-prefix}-image {
       padding-block-start: 0;
     }
   }
 
-  :host(#{$c4d-prefix}-video-player[background-mode='true']),
-  .#{$c4d-prefix}--video-player[background-mode='true'] {
+  :host(#{$c4d-prefix}-video-player[background-mode]),
+  .#{$c4d-prefix}--video-player[background-mode] {
     .#{$c4d-prefix}--video-player__video-container {
       padding: 0;
       block-size: 100%;
@@ -128,6 +124,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       &.#{$c4d-prefix}--video-player__aspect-ratio {
         &--#{$width}x#{$height} {
           @include ratio-base($width, $height, true);
+
+          overflow: visible;
         }
       }
     }
@@ -199,6 +197,56 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       .#{$c4d-prefix}--image::before {
         opacity: 0.12;
       }
+    }
+  }
+
+  .#{$c4d-prefix}--video-player__toggle-playback {
+    position: absolute;
+    z-index: 100;
+    padding: 0.875rem;
+    border: 0;
+    background-color: $overlay;
+    block-size: $spacing-09;
+    color: #ffffff;
+    inline-size: $spacing-09;
+
+    &--top-left {
+      inset-block-start: 0;
+      inset-inline-start: 0;
+    }
+
+    &--top-right {
+      inset-block-start: 0;
+      inset-inline-end: 0;
+    }
+
+    &--bottom-right {
+      inset-block-end: 0;
+      inset-inline-end: 0;
+    }
+
+    &--bottom-left {
+      inset-block-end: 0;
+      inset-inline-start: 0;
+    }
+
+    /* stylelint-disable-next-line caem/require-color-with-bg */
+    &:hover {
+      // Grey 100, more opaque.
+      background-color: rgba(22, 22, 22, 0.9);
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 2px solid $focus;
+    }
+  }
+
+  // Prevent any pointer events from getting through to the slotted player div
+  // when in intersection mode.
+  :host(#{$c4d-prefix}-video-player[intersection-mode]) {
+    ::slotted(.#{$c4d-prefix}--video-player__video) {
+      pointer-events: none;
     }
   }
 }

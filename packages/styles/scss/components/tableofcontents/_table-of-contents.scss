@@ -13,9 +13,11 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/carbon-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/hang' as *;
 @use '../layout/layout';
 
@@ -102,14 +104,16 @@ $hover-transition-timing: 95ms;
 
     position: inherit;
     z-index: 10;
-    padding: 0;
+
+    box-sizing: border-box;
     inset-block-start: auto;
+    padding-inline-start: 0;
   }
 
   .#{$prefix}--tableofcontents__content {
     @extend .#{$prefix}--col-lg-12;
 
-    padding: $spacing-05 0 $spacing-09 0;
+    box-sizing: border-box;
   }
 
   .#{$prefix}--tableofcontents {
@@ -337,7 +341,7 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--toc__navbar-chevron-right-container {
     z-index: 2;
-    inset-inline-end: -$spacing-01;
+    inset-inline-end: 0;
 
     @include breakpoint(md) {
       inset-inline-end: -$spacing-05;
@@ -414,11 +418,11 @@ $hover-transition-timing: 95ms;
       border-block-start: 1px solid $border-subtle-00;
       content: '';
       inset-block-start: -1px;
-      inset-inline: calc(-50vw + 50%) 100%;
+      inset-inline: calc(-50vw + 50% + $spacing-03) 100%;
     }
 
     &::after {
-      inset-inline: 100% calc(-50vw + 50%);
+      inset-inline: 100% calc(-50vw + 50% + $spacing-03);
     }
   }
 

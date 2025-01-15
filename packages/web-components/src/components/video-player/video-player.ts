@@ -10,21 +10,27 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import PlayVideo from '../../../es/icons/play-video.js';
+import PlayOutline from '@carbon/web-components/es/icons/play--outline/20.js';
+import PauseOutline from '@carbon/web-components/es/icons/pause--outline/20.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
+import {
+  BUTTON_POSITION,
+  VIDEO_PLAYER_CONTENT_STATE,
+  VIDEO_PLAYER_PLAYING_MODE,
+} from './defs';
 import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import C4DVideoPlayerContainer from './video-player-container';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
+import C4DVideoPlayerComposite from './video-player-composite';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -50,9 +56,27 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   playingMode = VIDEO_PLAYER_PLAYING_MODE.INLINE;
 
   /**
+   * Triggers playback on intersection with the viewport / carousel.
+   */
+  @property({ attribute: 'intersection-mode', reflect: true, type: Boolean })
+  intersectionMode = false;
+
+  /**
+   * The current playback state, inherited from the parent.
+   */
+  @property()
+  isPlaying = false;
+
+  /**
+   * The position of the toggle playback button.
+   */
+  @property({ attribute: 'button-position', reflect: true })
+  buttonPosition = BUTTON_POSITION.BOTTOM_RIGHT;
+
+  /**
    * Handles `click` event on the video thumbnail.
    */
-  private _handleClickOverlay() {
+  protected _handleClickOverlay = () => {
     if (this.playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE) {
       this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
     }
@@ -72,37 +96,75 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         },
       })
     );
-  }
+  };
+
+  protected _handleTogglePlayback = () => {
+    const { videoId } = this;
+    const { eventTogglePlayback } = this.constructor as typeof C4DVideoPlayer;
+    this.dispatchEvent(
+      new CustomEvent(eventTogglePlayback, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          videoId,
+        },
+      })
+    );
+  };
 
   /**
    * @returns The video content.
    */
-  private _renderContent() {
-    const { contentState, name, thumbnailUrl, backgroundMode } = this;
-    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
-      !backgroundMode
-      ? html`
-          <div class="${c4dPrefix}--video-player__video" part="video">
-            <button
-              class="${c4dPrefix}--video-player__image-overlay"
-              part="button"
-              @click="${this._handleClickOverlay}">
-              <c4d-image
-                default-src="${thumbnailUrl}"
-                alt="${ifDefined(name)}"
-                part="image">
-                ${PlayVideo()}
-              </c4d-image>
-            </button>
-          </div>
-        `
-      : html` <slot></slot> `;
-  }
+  protected _renderContent = () => {
+    const {
+      contentState,
+      name,
+      thumbnailUrl,
+      backgroundMode,
+      _handleClickOverlay: handleClickOverlay,
+      intersectionMode,
+    } = this;
+    if (intersectionMode) {
+      return html`
+        <div class="${c4dPrefix}--video-player__video">
+          ${contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
+            ? html`
+                <c4d-image
+                  default-src="${thumbnailUrl}"
+                  alt="${ifNonEmpty(name)}"
+                  part="image">
+                </c4d-image>
+              `
+            : html` <slot></slot> `}
+        </div>
+      `;
+    } else {
+      return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
+        !backgroundMode &&
+        !this.autoplay
+        ? html`
+            <div class="${c4dPrefix}--video-player__video" part="video">
+              <button
+                class="${c4dPrefix}--video-player__image-overlay"
+                part="button"
+                @click="${handleClickOverlay}">
+                <c4d-image
+                  default-src="${thumbnailUrl}"
+                  alt="${ifNonEmpty(name)}"
+                  part="image">
+                  ${PlayVideo({ slot: 'icon' })}
+                </c4d-image>
+              </button>
+            </div>
+          `
+        : html` <slot></slot> `;
+    }
+  };
 
   /**
    * Updates video thumbnail url to match video width
    */
-  private _updateThumbnailUrl() {
+  protected _updateThumbnailUrl() {
     let thumbnailSrc: false | URL = false;
 
     try {
@@ -184,8 +246,14 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * `true` to autoplay, mute video, and hide UI
    */
-  @property({ attribute: 'background-mode', reflect: true })
+  @property({ attribute: 'background-mode', reflect: true, type: Boolean })
   backgroundMode = false;
+
+  /**
+   * `true` to autoplay
+   */
+  @property({ attribute: 'auto-play', reflect: true, type: Boolean })
+  autoplay = false;
 
   /**
    * Custom video description. This property should only be set when using `playing-mode="lightbox"`
@@ -222,6 +290,10 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       formatDuration,
       hideCaption,
       name,
+      buttonPosition,
+      intersectionMode,
+      _handleTogglePlayback: handleTogglePlayback,
+      _renderContent: renderContent,
     } = this;
 
     const aspectRatioClass = classMap({
@@ -229,10 +301,27 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       [`${c4dPrefix}--video-player__aspect-ratio--${aspectRatio}`]:
         !!aspectRatio,
     });
+    const togglePlaybackClass = classMap({
+      [`${c4dPrefix}--video-player__toggle-playback`]: true,
+      [`${c4dPrefix}--video-player__toggle-playback--${buttonPosition}`]: true,
+    });
 
     return html`
-      <div class="${aspectRatioClass}" part="video-container">
-        ${this._renderContent()}
+      <div class="${aspectRatioClass}">
+        ${intersectionMode
+          ? html`
+              <button
+                class="${togglePlaybackClass}"
+                @click="${handleTogglePlayback}"
+                tabindex="0"
+                part="button">
+                ${this.isPlaying
+                  ? PauseOutline({ 'aria-label': 'Pause' })
+                  : PlayOutline({ 'aria-label': 'Play' })}
+              </button>
+            `
+          : null}
+        ${renderContent()}
       </div>
       ${hideCaption
         ? undefined
@@ -281,11 +370,15 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
 
   firstUpdated() {
     this.tabIndex = 0;
-    const parentIsBackground = Boolean(
-      (this.parentElement as C4DVideoPlayerContainer)?.backgroundMode
+    this.backgroundMode = Boolean(
+      (this.parentElement as C4DVideoPlayerComposite)?.backgroundMode
     );
-
-    this.backgroundMode = parentIsBackground;
+    this.intersectionMode = Boolean(
+      (this.parentElement as C4DVideoPlayerComposite)?.intersectionMode
+    );
+    this.autoplay = Boolean(
+      (this.parentElement as C4DVideoPlayerComposite)?.autoPlay
+    );
   }
 
   /**
@@ -304,6 +397,13 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
 
   static get stableSelector() {
     return `${c4dPrefix}--video-player`;
+  }
+
+  /**
+   * The name of the custom event fired when a user action toggles playback.
+   */
+  static get eventTogglePlayback() {
+    return `${c4dPrefix}-video-player-toggle-playback`;
   }
 
   static shadowRootOptions = {
