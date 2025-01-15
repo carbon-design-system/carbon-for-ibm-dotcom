@@ -16,6 +16,7 @@
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../globals/utils/ratio-base' as *;
 @use '../../internal/content-section';
 @use '../card';
@@ -59,6 +60,10 @@
   :host(#{$c4d-prefix}-card-group-item) {
     display: contents;
 
+    * {
+      row-gap: 0;
+    }
+
     .#{$prefix}--card {
       display: grid;
       border: 0;
@@ -73,6 +78,7 @@
         display: grid;
         justify-content: revert;
         grid-row: span 10;
+        grid-template-columns: subgrid;
         grid-template-rows: subgrid;
 
         &::before,
@@ -91,15 +97,15 @@
       .#{$prefix}--card__content {
         display: grid;
         grid-area: 1 / 1 / -1 / -1;
+        grid-template-columns: subgrid;
         grid-template-rows: subgrid;
-        row-gap: 0;
       }
 
       .#{$prefix}--card__copy {
         display: grid;
         grid-row: span 2;
+        grid-template-columns: subgrid;
         grid-template-rows: subgrid;
-        row-gap: 0;
       }
     }
 

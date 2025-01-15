@@ -41,7 +41,6 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
    *
    * @internal
    */
-  @state()
   _embedMedia?: (videoId: string) => Promise<any>;
 
   /**

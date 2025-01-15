@@ -105,8 +105,12 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
    * Handles `slotchange` event for the copy slot.
    */
-  protected _handleCopySlotChange() {
-    this._hasCopy = Boolean(this.querySelector('p'));
+  protected _handleCopySlotChange({ target }: Event) {
+    this._hasCopy = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
   }
 
   /**

@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 
 // $carbon--layouts has been replaced by standard spacing tokens
 $layout-spacings: $spacing-05, $spacing-06, $spacing-07, $spacing-09,
