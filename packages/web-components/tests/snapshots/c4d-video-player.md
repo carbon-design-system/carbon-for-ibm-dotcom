@@ -3,10 +3,7 @@
 #### `should render with minimum attributes`
 
 ```
-<div
-  class="c4d--video-player__video-container"
-  part="video-container"
->
+<div class="c4d--video-player__video-container">
   <div
     class="c4d--video-player__video"
     part="video"
@@ -16,7 +13,6 @@
       part="button"
     >
       <c4d-image
-        alt=""
         data-autoid="c4d--image"
         default-src="about:blank"
         part="image"
@@ -36,10 +32,7 @@
 #### `should render with various attributes`
 
 ```
-<div
-  class="c4d--video-player__video-container"
-  part="video-container"
->
+<div class="c4d--video-player__video-container">
   <slot>
   </slot>
 </div>

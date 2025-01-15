@@ -354,7 +354,7 @@ describe('c4d-carousel', function () {
   });
 
   describe('Handling resizing', function () {
-    it('should update paze size upon resizing viewport', async function () {
+    it('should update page size upon resizing viewport', async function () {
       render(template(), document.body);
       await Promise.resolve();
       pageSize = 2;
