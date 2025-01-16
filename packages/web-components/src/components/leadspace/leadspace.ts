@@ -153,6 +153,34 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   size = 'tall';
 
+  /**
+   *  Determines if the direction is right-to-left
+   */
+  @property({ type: Boolean })
+  isRTL = false;
+
+  private observer!: MutationObserver;
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    // initializing the MutationObserver
+    this.observer = new MutationObserver(() => {
+      this.isRTL =
+        this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl';
+    });
+
+    // observing the 'dir' attr in the root element
+    this.observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['dir'],
+    });
+
+    // Initial check for the direction
+    this.isRTL =
+      this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl';
+  }
+
   firstUpdated() {
     Array.from(this.children).forEach((child) => {
       if (
@@ -189,8 +217,12 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <defs>
-                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops" gradientTransform="${
-                  type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : ''
+                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops"     gradientTransform="${
+                  type === LEADSPACE_TYPE.CENTERED
+                    ? 'rotate(90)'
+                    : this.isRTL
+                    ? 'scale(-1, 1) translate(-1, 0)'
+                    : ''
                 }">
                       ${
                         type === LEADSPACE_TYPE.CENTERED

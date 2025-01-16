@@ -358,6 +358,14 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   videoThumbnailWidth = 3;
 
   /**
+   *  Determines if the direction is right-to-left
+   */
+  @property({ type: Boolean })
+  isRTL = false;
+
+  private observer!: MutationObserver;
+
+  /**
    * Observe when the video container enters into view.
    */
   private _observerIntersectionIntoView?: IntersectionObserver;
@@ -387,6 +395,22 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     if (this.intersectionMode) {
       this._cleanAndCreateObserverIntersection({ create: true });
     }
+
+    // initializing the MutationObserver to observe for changes in the direction mode
+    this.observer = new MutationObserver(() => {
+      this.isRTL =
+        this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl';
+    });
+
+    // observing the 'dir' attr in the root element
+    this.observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['dir'],
+    });
+
+    // Initial check for the direction
+    this.isRTL =
+      this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl';
   }
 
   disconnectedCallback() {
@@ -408,6 +432,11 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   }
 
   renderLightDOM() {
+    // setting the direction mode of the video player.
+    document
+      .querySelector('.c4d--video-player__video')
+      ?.setAttribute('dir-mode', `${this.isRTL ? 'rtl' : 'ltr'}`);
+
     const {
       aspectRatio,
       formatCaption,
