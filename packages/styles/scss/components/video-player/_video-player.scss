@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,6 +16,7 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/button/vars' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
 $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
@@ -59,6 +60,18 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       min-block-size: 100%;
       min-inline-size: 100%;
       translate: -50% -50%;
+    }
+
+    /**
+     * overwriting inset property so the video player is centered in the container when in RTL mode
+     */
+    ::slotted(.#{$c4d-prefix}--video-player__video[dir-mode='rtl']),
+    .#{$c4d-prefix}--video-player__video[dir-mode='rtl'] {
+      inset: 50% -50% 0 50%;
+
+      @include breakpoint-down('lg') {
+        inset: 50% -67% 0 50%;
+      }
     }
   }
 
