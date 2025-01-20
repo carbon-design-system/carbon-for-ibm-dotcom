@@ -42,11 +42,19 @@
         1fr
       );
     }
+
+    @include breakpoint(sm) {
+      padding-inline: 16px;
+    }
   }
 
   :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode]) {
     padding-block-start: 0;
     padding-inline: 1px;
+
+    @include breakpoint-down(md) {
+      padding-inline: 16px;
+    }
   }
 
   :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode='default']) {
