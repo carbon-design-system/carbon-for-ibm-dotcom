@@ -43,8 +43,8 @@
       );
     }
 
-    @include breakpoint(sm) {
-      padding-inline: 16px;
+    @include breakpoint-down(md) {
+      padding-inline: $spacing-05;
     }
   }
 
@@ -53,7 +53,7 @@
     padding-inline: 1px;
 
     @include breakpoint-down(md) {
-      padding-inline: 16px;
+      padding-inline: $spacing-05;
     }
   }
 
