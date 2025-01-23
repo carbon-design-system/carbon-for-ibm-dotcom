@@ -391,7 +391,7 @@ describe('c4d-carousel', function () {
       );
       await Promise.resolve();
       expect((carousel as any)._contentsBaseWidth).toBe(700);
-      expect((carousel as any)._gap).toBe(100);
+      expect((carousel as any)._gap).toBe(8);
     });
   });
 

@@ -565,16 +565,12 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   private _updateGap() {
     const { _slotNode: slotNode } = this;
-    const elems = slotNode!
-      .assignedNodes()
-      .filter((node) => node.nodeType === Node.ELEMENT_NODE);
-    const firstElementComputedStyle = getComputedStyle(elems[0] as HTMLElement);
+    const elems = slotNode!.assignedElements();
 
     this._gap =
       elems.length <= 1
         ? 0
-        : parseFloat(firstElementComputedStyle.marginLeft) +
-            parseFloat(firstElementComputedStyle.marginRight) ?? 0;
+        : elems[0].getBoundingClientRect().left;
   }
 
   private _updateContentsPosition(changedProperties) {
