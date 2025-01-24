@@ -13,6 +13,7 @@ import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
 import C4DCarousel from '../carousel';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../carousel';
+import { grid16Col } from '../../../globals/internal/storybook-decorators';
 
 const template = (props?) => {
   const { formatStatus, pageSize, start, children } = props ?? {};
@@ -369,8 +370,10 @@ describe('c4d-carousel', function () {
       render(
         template({
           children: html`
-            <div style="position:absolute;width:300px;height:1px"></div>
-            <div style="position:absolute;width:300px;height:1px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
           `,
         }),
         document.body
@@ -391,7 +394,7 @@ describe('c4d-carousel', function () {
       );
       await Promise.resolve();
       expect((carousel as any)._contentsBaseWidth).toBe(700);
-      expect((carousel as any)._gap).toBe(8);
+      expect((carousel as any)._gap).toBe(16);
     });
   });
 
