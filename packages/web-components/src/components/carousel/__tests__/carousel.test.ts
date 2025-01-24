@@ -13,7 +13,6 @@ import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
 import C4DCarousel from '../carousel';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../carousel';
-import { grid16Col } from '../../../globals/internal/storybook-decorators';
 
 const template = (props?) => {
   const { formatStatus, pageSize, start, children } = props ?? {};
