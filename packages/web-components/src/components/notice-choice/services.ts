@@ -35,7 +35,7 @@ export function loadContent(
   };
 }
 
-export function loadSettings( env: string,onSuccess: any, onError: any) {
+export function loadSettings(env: string, onSuccess: any, onError: any) {
   const script = document.createElement('script');
   const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
   script.async = false;
