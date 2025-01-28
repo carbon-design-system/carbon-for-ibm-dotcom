@@ -171,12 +171,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
   defaultLoadSettings() {
-
     loadSettings(
       this.environment,
       (countryPreferencesSettings) => {
         this.countrySettings = countryPreferencesSettings.preferences;
-        this.noticeOnly = countryPreferencesSettings.noticeOnly || ["us"]
+        this.noticeOnly = countryPreferencesSettings.noticeOnly || ['us'];
       },
       (error) => {
         console.error('error loading content', error);
@@ -198,7 +197,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this.environment,
       (countryPreferencesSettings) => {
         this.countrySettings = countryPreferencesSettings.preferences;
-        this.noticeOnly = countryPreferencesSettings.noticeOnly || ["us"]
+        this.noticeOnly = countryPreferencesSettings.noticeOnly || ['us'];
       },
       () => {
         this.countrySettings = this.defaultLoadSettings();
@@ -218,7 +217,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
   setDefaultSelections() {
-
     if (!this.enableAllOptIn && this.checkboxes) {
       const newValues = { ...this.values };
       Object.keys(this.checkboxes).forEach((key) => {
@@ -236,10 +234,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         const hiddenFieldName = `NC_HIDDEN_${key}`;
         newValues[hiddenFieldName] = option[hiddenFieldName];
 
-        this._onChange(
-          hiddenFieldName,
-          newValues.EMAIL ? 'OPT_IN' : 'OPT_OUT'
-        );
+        this._onChange(hiddenFieldName, newValues.EMAIL ? 'OPT_IN' : 'OPT_OUT');
       });
       if (JSON.stringify(this.values) !== JSON.stringify(newValues)) {
         this.values = newValues;
@@ -247,14 +242,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   countryChangeAction() {
-
     this.preventFormSubmission = false;
     if (this.ncData?.mandatoryCheckbox[this.country?.toLocaleLowerCase()]) {
       const countyCode = this.country?.toLocaleLowerCase();
       const mrsField = this.ncData?.mandatoryCheckbox[countyCode]
         .countryTransferText
         ? this.ncData?.mandatoryCheckbox[countyCode].countryTransferText
-          .mrs_field
+            .mrs_field
         : this.ncData?.mandatoryCheckbox[countyCode].chinaPIPLtext.mrs_field;
       this._onChange(mrsField, 'countyBasedCheckedNo');
 
@@ -366,10 +360,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
         break;
       }
-
     }
   }
-
 
   static get stableSelector() {
     return `${c4dPrefix}--notice-choice`;
@@ -392,8 +384,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const mrsField = this.ncData?.mandatoryCheckbox[countyCode]
       .countryTransferText
       ? this.ncData?.mandatoryCheckbox[
-        this.isMandatoryCheckboxDisplayed.countryCode
-      ].countryTransferText.mrs_field
+          this.isMandatoryCheckboxDisplayed.countryCode
+        ].countryTransferText.mrs_field
       : this.ncData?.mandatoryCheckbox[countyCode].chinaPIPLtext.mrs_field;
     legalCheckbox.value = isChecked ? 1 : 0;
     this.preventFormSubmission = !isChecked;
@@ -444,13 +436,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                   </span>
                 </label>
                 ${!this.hideErrorMessage && this.preventFormSubmission
-            ? html`<span
+                  ? html`<span
                       class="nc-error"
                       part="error"
                       style="color:#da1e28;font-size:.75rem"
                       >${mandatoryCheckbox.error}</span
                     >`
-            : ''}
+                  : ''}
               </p>
             </div>
           </span>
@@ -533,13 +525,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
 
     if (!(this.noticeOnly || []).includes(country)) {
-
       let isPermissionOrSuppression = false;
       if (typeof this.values.EMAIL === 'object') {
-        const checkStatus: any = this.values.EMAIL
-        isPermissionOrSuppression = checkStatus.checkBoxStatus === "PERMISSION";
+        const checkStatus: any = this.values.EMAIL;
+        isPermissionOrSuppression = checkStatus.checkBoxStatus === 'PERMISSION';
       }
-      const checked = typeof this.values.EMAIL === 'object' ? isPermissionOrSuppression : this.values.EMAIL;
+      const checked =
+        typeof this.values.EMAIL === 'object'
+          ? isPermissionOrSuppression
+          : this.values.EMAIL;
 
       preText = preText
         ? this.renderCheckbox(preText, checked)
@@ -552,7 +546,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   checkCombineEmailPhoneBoxChange($event: any) {
-
     const checked = $event.target.checked;
     const newValues = {
       ...this.values,
@@ -575,10 +568,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             this.combinedEmailPhonePrechecked && !checked
               ? 'CU'
               : !this.combinedEmailPhonePrechecked && checked
-                ? 'UC'
-                : this.combinedEmailPhonePrechecked && checked
-                  ? 'CC'
-                  : 'UU';
+              ? 'UC'
+              : this.combinedEmailPhonePrechecked && checked
+              ? 'CC'
+              : 'UU';
 
           break;
       }
@@ -624,12 +617,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   renderCombinedEmailPhoneSection() {
-
     const getPunsStatus = (key, checked) => {
       const countryLowerCase = this.country?.toLocaleLowerCase();
       const isNoticeOnly = (this.noticeOnly || []).includes(countryLowerCase);
 
-      if (isNoticeOnly) { return 'NOTICE_ONLY'; }
+      if (isNoticeOnly) {
+        return 'NOTICE_ONLY';
+      }
 
       const defaultCountryStatus = { email: 'opt-in', phone: 'opt-in' };
       const countryStatus = countryLowerCase
@@ -639,12 +633,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       const checkboxStatus = this.values[key]?.checkBoxStatus;
 
       if (checkboxStatus === 'SUPPRESSION') {
-        if (countryStatus.email === 'opt-in') { return 'UU'; }
-        if (countryStatus.email === 'opt-out') { return 'CU'; }
+        if (countryStatus.email === 'opt-in') {
+          return 'UU';
+        }
+        if (countryStatus.email === 'opt-out') {
+          return 'CU';
+        }
       }
 
       return this.values[key]?.punsStatus || (checked ? 'CC' : 'UU');
-    }
+    };
 
     const createHiddenInput = (id, value) =>
       html`<input type="hidden" id=${id} name=${id} value=${value} />`;
@@ -655,51 +653,54 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ${this.countryBasedLegalNotice()} ${this.combinedPreTextTemplate()}
         </p>
         ${Object.keys(this.checkboxes).map((key) => {
-      const checked = this.values.EMAIL;
-      const punsStatus = getPunsStatus(key, checked);
-      const hiddenBox = {
-        id: `NC_HIDDEN_${key}`,
-        value: this.values[key]['checkBoxStatus']
-          ? this.values[key]['checkBoxStatus']
-          : this.values.EMAIL
-            ? 'PERMISSION'
-            : 'SUPPRESSION',
-      };
+          const checked = this.values.EMAIL;
+          const punsStatus = getPunsStatus(key, checked);
+          const hiddenBox = {
+            id: `NC_HIDDEN_${key}`,
+            value: this.values[key]['checkBoxStatus']
+              ? this.values[key]['checkBoxStatus']
+              : this.values.EMAIL
+              ? 'PERMISSION'
+              : 'SUPPRESSION',
+          };
 
-      if (typeof checked !== 'object') {
-        this.combinedEmailPhonePrechecked = checked ? true : false;
-      }
+          if (typeof checked !== 'object') {
+            this.combinedEmailPhonePrechecked = checked ? true : false;
+          }
 
-      if ((this.noticeOnly || []).includes(this.country.toLocaleLowerCase())) {
-        const countryStatus = this.country
-          ? this.countrySettings[this.country.toLocaleLowerCase()]
-          : { email: 'opt-in', phone: 'opt-in' };
-        hiddenBox.value = countryStatus.email === 'opt-out' ? "PERMISSION" : "SUPPRESSION"
-      }
+          if (
+            (this.noticeOnly || []).includes(this.country.toLocaleLowerCase())
+          ) {
+            const countryStatus = this.country
+              ? this.countrySettings[this.country.toLocaleLowerCase()]
+              : { email: 'opt-in', phone: 'opt-in' };
+            hiddenBox.value =
+              countryStatus.email === 'opt-out' ? 'PERMISSION' : 'SUPPRESSION';
+          }
 
-      this._onChange(
-        `NC_${key === 'PHONE' ? 'TELE' : key}_DETAIL`,
-        `${key}_${punsStatus}`
-      );
-      console.log(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
-      this._onChange(
-        `${hiddenBox.id}_VALUE`,
-        `NC_HIDDEN_${hiddenBox.value}`
-      );
+          this._onChange(
+            `NC_${key === 'PHONE' ? 'TELE' : key}_DETAIL`,
+            `${key}_${punsStatus}`
+          );
+          console.log(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
+          this._onChange(
+            `${hiddenBox.id}_VALUE`,
+            `NC_HIDDEN_${hiddenBox.value}`
+          );
 
-      if (Object.keys(this.checkboxes).length === 1) {
-        this._onChange(`NC_HIDDEN_PHONE_VALUE`, `NC_HIDDEN_PHONE_NONE`);
-      }
+          if (Object.keys(this.checkboxes).length === 1) {
+            this._onChange(`NC_HIDDEN_PHONE_VALUE`, `NC_HIDDEN_PHONE_NONE`);
+          }
 
-      return createHiddenInput(hiddenBox.id, hiddenBox.value);
-    })}
+          return createHiddenInput(hiddenBox.id, hiddenBox.value);
+        })}
         <div part="${prefix}--nc__post-text" class="${prefix}--nc__post-text">
           ${this.postTextTemplate()}
         </div>
         ${createHiddenInput(
-      'preventFormSubmission',
-      this.preventFormSubmission
-    )}
+          'preventFormSubmission',
+          this.preventFormSubmission
+        )}
         <input
           type="hidden"
           id="preventFormSubmission"
@@ -713,23 +714,21 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (
       this.isMandatoryCheckboxDisplayed.isDisplayed &&
       this.country.toLocaleLowerCase() !==
-      this.isMandatoryCheckboxDisplayed.countryCode
+        this.isMandatoryCheckboxDisplayed.countryCode
     ) {
       const mrsField = this.ncData?.mandatoryCheckbox[
         this.isMandatoryCheckboxDisplayed.countryCode
       ].countryTransferText
         ? this.ncData?.mandatoryCheckbox[
-          this.isMandatoryCheckboxDisplayed.countryCode
-        ].countryTransferText.mrs_field
+            this.isMandatoryCheckboxDisplayed.countryCode
+          ].countryTransferText.mrs_field
         : this.ncData?.mandatoryCheckbox[
-          this.isMandatoryCheckboxDisplayed.countryCode
-        ].chinaPIPLtext.mrs_field;
+            this.isMandatoryCheckboxDisplayed.countryCode
+          ].chinaPIPLtext.mrs_field;
       this._onChange(mrsField, 'countyBasedCheckedNo');
     }
 
     return this.renderCombinedEmailPhoneSection();
-
-
   }
 
   protected _getOptionByQuestion = (question) => {
