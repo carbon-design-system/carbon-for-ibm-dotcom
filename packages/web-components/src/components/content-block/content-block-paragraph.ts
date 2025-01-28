@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,6 +22,34 @@ const { stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-content-block-paragraph`)
 class C4DContentBlockParagraph extends StableSelectorMixin(LitElement) {
+  firstUpdated() {
+    if (!this.shadowRoot) return;
+
+    const slot = this.shadowRoot.querySelector('slot');
+    if (slot) {
+      slot.addEventListener('slotchange', () => this.toggleVisibility());
+    }
+    this.toggleVisibility();
+  }
+
+  toggleVisibility() {
+    if (!this.shadowRoot) return;
+
+    const slot = this.shadowRoot.querySelector('slot');
+    if (!slot) return;
+
+    const assignedNodes = slot.assignedNodes({ flatten: true });
+
+    // Check if all assigned nodes are empty or whitespace
+    const isEmpty = assignedNodes.every((node) => {
+      // Ensure `textContent` is non-null and trim for whitespace check
+      return node.nodeType !== Node.TEXT_NODE || !node.textContent?.trim();
+    });
+
+    // Hide or show the element based on slot content
+    this.style.display = isEmpty ? 'none' : 'block';
+  }
+
   render() {
     return html` <slot></slot> `;
   }
