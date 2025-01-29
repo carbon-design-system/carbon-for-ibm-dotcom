@@ -23,20 +23,29 @@ const { stablePrefix: c4dPrefix } = settings;
 @customElement(`${c4dPrefix}-content-block-paragraph`)
 class C4DContentBlockParagraph extends StableSelectorMixin(LitElement) {
   firstUpdated() {
-    if (!this.shadowRoot) return;
+    if (!this.shadowRoot) {
+      return;
+    }
 
     const slot = this.shadowRoot.querySelector('slot');
     if (slot) {
-      slot.addEventListener('slotchange', () => this.toggleVisibility());
+      slot.addEventListener('slotchange', () => {
+        this.toggleVisibility();
+      });
     }
+
     this.toggleVisibility();
   }
 
   toggleVisibility() {
-    if (!this.shadowRoot) return;
+    if (!this.shadowRoot) {
+      return;
+    }
 
     const slot = this.shadowRoot.querySelector('slot');
-    if (!slot) return;
+    if (!slot) {
+      return;
+    }
 
     const assignedNodes = slot.assignedNodes({ flatten: true });
 
@@ -47,7 +56,11 @@ class C4DContentBlockParagraph extends StableSelectorMixin(LitElement) {
     });
 
     // Hide or show the element based on slot content
-    this.style.display = isEmpty ? 'none' : 'block';
+    if (isEmpty) {
+      this.style.display = 'none';
+    } else {
+      this.style.display = 'block';
+    }
   }
 
   render() {
