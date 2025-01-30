@@ -369,8 +369,10 @@ describe('c4d-carousel', function () {
       render(
         template({
           children: html`
-            <div style="position:absolute;width:300px;height:1px"></div>
-            <div style="position:absolute;width:300px;height:1px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
+            <div style="width:300px;height:100px;margin-right:16px"></div>
           `,
         }),
         document.body
@@ -391,7 +393,7 @@ describe('c4d-carousel', function () {
       );
       await Promise.resolve();
       expect((carousel as any)._contentsBaseWidth).toBe(700);
-      expect((carousel as any)._gap).toBe(100);
+      expect((carousel as any)._gap).toBe(16);
     });
   });
 
