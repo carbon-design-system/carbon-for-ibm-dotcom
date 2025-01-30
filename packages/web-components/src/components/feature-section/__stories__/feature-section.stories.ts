@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,7 @@ import imgMd4x3 from '../../../../.storybook/storybook-images/assets/960/fpo--4x
 import imgSm1x1 from '../../../../.storybook/storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXs1x1 from '../../../../.storybook/storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
 import { CTA_TYPE } from '../../cta/defs';
-import { COLOR_SCHEME } from '../defs';
+import { COLOR_SCHEME, MEDIA_ALIGNMENT } from '../defs';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -31,6 +31,11 @@ import {
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
 
+const mediaAlignment = {
+  [`Left`]: MEDIA_ALIGNMENT.LEFT,
+  [`Right`]: MEDIA_ALIGNMENT.RIGHT,
+};
+
 const colorSchemeTypes = {
   [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
   [`${COLOR_SCHEME.INVERSE}`]: COLOR_SCHEME.INVERSE,
@@ -39,8 +44,16 @@ const colorSchemeTypes = {
 };
 
 export const Default = (args) => {
-  const { alt, colorScheme, eyebrow, heading, copy, href, ctaType } =
-    args?.['c4d-feature-section'] ?? {};
+  const {
+    alt,
+    mediaAlign,
+    colorScheme,
+    eyebrow,
+    heading,
+    copy,
+    href,
+    ctaType,
+  } = args?.['c4d-feature-section'] ?? {};
   let videoFooterCopy;
 
   if (ctaType === CTA_TYPE.VIDEO) {
@@ -51,7 +64,9 @@ export const Default = (args) => {
   }
   return html`
     <c4d-video-cta-container>
-      <c4d-feature-section color-scheme="${colorScheme}">
+      <c4d-feature-section
+        media-alignment="${mediaAlign}"
+        color-scheme="${colorScheme}">
         <c4d-image
           slot="image"
           default-src="${ifDefined(imgLg1x1)}"
@@ -109,6 +124,12 @@ export default {
         );
 
         return {
+          mediaAlign: select(
+            'Media Alignment',
+            mediaAlignment,
+            MEDIA_ALIGNMENT.RIGHT
+          ),
+
           colorScheme: select(
             'Color scheme:',
             colorSchemeTypes,
