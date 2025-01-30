@@ -13,6 +13,7 @@
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../internal/callout/callout' as *;
 @use '../../internal/content-block';
 @use '../../internal/content-item/content-item';

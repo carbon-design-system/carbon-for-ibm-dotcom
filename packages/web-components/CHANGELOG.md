@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.2...@carbon/ibmdotcom-web-components@2.16.3) (2025-01-17)
+
+
+### Bug Fixes
+
+* ci-check errors ([#12181](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12181)) ([44cead5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/44cead5e44e75d87e3727ff54552ac19ca4d2b8c))
+* **leadspace:** wrong gradient display when in RLT mode ([#12180](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12180)) ([bd22077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bd2207712cf1ebe09880d8cf49732fe574487a74))
+
+
+### Features
+
+* **video-player:** migrate caem-video-player features ([#12113](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12113)) ([cb49cbc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cb49cbcdf2683259bc5007286bd3dd86b0668c8a))
+
+
+
+
+
 ## [2.16.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.1...@carbon/ibmdotcom-web-components@2.16.2) (2024-12-18)
 
 

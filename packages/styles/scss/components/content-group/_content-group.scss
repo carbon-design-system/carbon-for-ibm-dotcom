@@ -10,6 +10,7 @@
 @use '@carbon/ibmdotcom-styles/scss/internal/content-block';
 @use '@carbon/ibmdotcom-styles/scss/internal/content-group';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../globals/imports' as *;
 
 @mixin content-group {
   :host(#{$c4d-prefix}-content-group),

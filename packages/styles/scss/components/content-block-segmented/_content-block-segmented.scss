@@ -9,6 +9,7 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/imports' as *;
 @use '../../internal/content-block';
 @use '../../internal/content-group';
 @use '../../internal/content-item/content-item';

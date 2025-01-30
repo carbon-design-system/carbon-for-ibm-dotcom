@@ -4,10 +4,13 @@
 
 ```
 <c4d-video-player-composite
+  button-position="bottom-right"
   playing-mode="inline"
   video-id="video-id-foo"
 >
   <c4d-video-player
+    button-position="bottom-right"
+    content-state="thumbnail"
     data-autoid="c4d--video-player"
     duration="120"
     name="video-name-foo"

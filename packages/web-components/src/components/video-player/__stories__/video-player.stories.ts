@@ -8,11 +8,13 @@
  */
 
 import { html } from 'lit';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean, text, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
+import { enumValsToArray } from '../../../globals/internal/enum-helpers';
+import { BUTTON_POSITION } from '../defs';
 
 export const Default = (args) => {
   const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
@@ -116,6 +118,26 @@ export const autoplayMuted = (args) => {
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}></c4d-video-player-container>
   `;
+};
+
+export const intersectionMode = (args) => {
+  const {
+    aspectRatio,
+    caption,
+    hideCaption,
+    thumbnail,
+    videoId,
+    buttonPosition,
+  } = args?.VideoPlayer ?? {};
+  return html` <c4d-video-player-container
+    aspect-ratio="${aspectRatio}"
+    playing-mode="inline"
+    video-id=${videoId}
+    caption=${caption}
+    ?hide-caption=${hideCaption}
+    thumbnail=${thumbnail}
+    intersection-mode
+    button-position="${buttonPosition}"></c4d-video-player-container>`;
 };
 
 aspectRatio4x3.story = {
@@ -253,6 +275,49 @@ autoplayMuted.story = {
       default: {
         VideoPlayer: {
           aspectRatio: '4x3',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '0_ibuqxqbe',
+        },
+      },
+    },
+  },
+};
+
+intersectionMode.story = {
+  name: 'Intersection mode',
+  decorators: [
+    (story) => html`
+      <p>
+        Scroll down ⬇️<br />
+        To illustrate playback beginning only when the video comes into view,
+        we've added intentional space to push the video below the fold.
+      </p>
+      <div style="margin-top: 120vh;">${story()}</div>
+    `,
+  ],
+  parameters: {
+    knobs: {
+      VideoPlayer: () => {
+        return {
+          aspectRatio: '16x9',
+          caption: text('Custom caption (caption):', ''),
+          hideCaption: boolean('Hide caption (hideCaption):', false),
+          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          videoId: '0_ibuqxqbe',
+          buttonPosition: select(
+            'Button position (buttonPosition)',
+            enumValsToArray(BUTTON_POSITION),
+            BUTTON_POSITION.BOTTOM_RIGHT
+          ),
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '16x9',
           caption: '',
           hideCaption: false,
           thumbnail: '',
