@@ -3527,7 +3527,7 @@ __metadata:
     "@carbon/icons": "npm:10.48.5"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.27.0"
-    "@carbon/motion": "npm:11.22.0"
+    "@carbon/motion": "npm:11.24.0"
     "@carbon/pictograms-react": "npm:11.67.1"
     "@carbon/react": "npm:1.66.0"
     "@carbon/styles": "npm:1.65.0"
@@ -3753,7 +3753,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/motion@npm:11.22.0, @carbon/motion@npm:^11.22.0":
+"@carbon/motion@npm:11.24.0":
+  version: 11.24.0
+  resolution: "@carbon/motion@npm:11.24.0"
+  dependencies:
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/ac358bf2a09ea7d77aae5dbe92abafaef817012abd0bb25a5ef33a77e7d88d32c33d796511f7e36a443ce32b7441eacea40869e2552042143fe3262cb8c4ea3d
+  languageName: node
+  linkType: hard
+
+"@carbon/motion@npm:^11.22.0":
   version: 11.22.0
   resolution: "@carbon/motion@npm:11.22.0"
   dependencies:
@@ -30883,9 +30892,9 @@ __metadata:
   linkType: hard
 
 "store2@npm:^2.12.0":
-  version: 2.14.3
-  resolution: "store2@npm:2.14.3"
-  checksum: 10/f95f6fbacff14cc3bb9e5e16ced2f29e2d706e30b248c16cf19abed8b2bb31d8f3907c8ccf1a5284d806fdcaf06e96710e4f4f52195e51522a452536beaf7af9
+  version: 2.14.4
+  resolution: "store2@npm:2.14.4"
+  checksum: 10/c92713e75544693b47053531b6e98d7b538512061017e06b8c7e99937da67866856227862f7bf1a818ecc36673b8d343c7b67c9cce03bd4ba0f68eff7cccaa8c
   languageName: node
   linkType: hard
 
