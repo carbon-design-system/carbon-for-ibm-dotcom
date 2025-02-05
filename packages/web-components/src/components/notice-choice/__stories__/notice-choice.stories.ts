@@ -88,11 +88,6 @@ const hideErrorMessages = {
   false: 'false',
 };
 
-const combineEmailPhone = {
-  true: 'true',
-  false: 'false',
-};
-
 const environment = {
   Production: 'prod',
   Stage: 'stage',
@@ -119,11 +114,6 @@ const props = () => {
       hideErrorMessages,
       'false'
     ),
-    combineEmailPhone: select(
-      'Combine Email Phone',
-      combineEmailPhone,
-      'false'
-    ),
     environment: select('Environment', environment, 'prod'),
   };
 };
@@ -141,7 +131,6 @@ export const Default = (args) => {
     hiddenPhone,
     ncTeleDetail,
     ncEmailDetail,
-    combineEmailPhone,
     environment,
   } = args?.NoticeChoice ?? {};
   return html`
@@ -157,7 +146,6 @@ export const Default = (args) => {
       .hiddenPhone="${hiddenPhone}"
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
-      combine-email-phone="${combineEmailPhone}"
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
