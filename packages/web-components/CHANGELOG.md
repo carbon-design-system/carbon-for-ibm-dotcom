@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.3...@carbon/ibmdotcom-web-components@2.17.0-rc.0) (2025-02-07)
+
+
+### Bug Fixes
+
+* **carousel:** Fix gap calculation ([#12179](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12179)) ([cedc806](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cedc806d602421e772d1d5979ad33611e474aa40))
+* **deps:** update dependency @carbon/motion to v11.24.0 ([#12194](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12194)) ([d6ffd24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d6ffd248c616eeb6386b24facc950f27d7ce8563))
+
+
+### Features
+
+* **carousel:** hide controls when no content overflow ([#12197](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12197)) ([1f92dae](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1f92dae1ee79860ddc1b0262efa8713e2cafacc8))
+* **content-block:** paragraph collapse if no text ([#12198](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12198)) ([004f551](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/004f551093a1c66f67d10cc3a76fee2cd69174cf))
+* **feature-section:** adding media alignment ([#12195](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12195)) ([e097f2d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e097f2dbf37146b65c83bdddefb13bb1f336e2c0))
+
+
+### Reverts
+
+* Revert "chore: bump version number" ([d79fcad](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d79fcadf969a5b6b0f07ab400a07eba224b1549d))
+
+
+
+
+
 ## [2.16.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.16.2...@carbon/ibmdotcom-web-components@2.16.3) (2025-01-17)
 
 
