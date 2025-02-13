@@ -194,8 +194,8 @@
         padding-block-start: $spacing-07;
 
         @include breakpoint(md) {
-          display: flex;
-          flex: 1;
+          display: block;
+          // flex: 1;
           padding-inline-start: 0;
         }
       }
@@ -219,6 +219,7 @@
       }
 
       .#{$prefix}--card__copy {
+        display: none;
         margin-block: $spacing-07 0;
       }
 
@@ -227,6 +228,24 @@
         color: $link-primary;
         inset-block-end: $spacing-05;
         inset-inline-end: $spacing-05;
+      }
+    }
+
+    /* Desktop Hover & Focus - Show Pictogram + Copy */
+    @media (hover: hover) {
+      .#{$prefix}--card:hover .#{$prefix}--card__heading {
+        display: none;
+      }
+      .#{$prefix}--card:hover .#{$prefix}--card__copy {
+        display: block;
+      }
+    }
+
+    /* Mobile - Always Show Everything */
+    @media (width <= 767px) {
+      .#{$prefix}--card__heading,
+      .#{$prefix}--card__copy {
+        display: block;
       }
     }
 
