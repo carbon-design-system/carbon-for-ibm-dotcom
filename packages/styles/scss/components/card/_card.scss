@@ -192,12 +192,6 @@
       ::slotted(#{$c4d-prefix}-card-heading) {
         margin-block-end: 0;
         padding-block-start: $spacing-07;
-
-        @include breakpoint(md) {
-          display: block;
-          // flex: 1;
-          padding-inline-start: 0;
-        }
       }
     }
 
@@ -218,6 +212,10 @@
         position: relative;
       }
 
+      .#{$prefix}--card__heading {
+        display: none;
+      }
+
       .#{$prefix}--card__copy {
         display: none;
         margin-block: $spacing-07 0;
@@ -233,10 +231,14 @@
 
     /* Desktop Hover & Focus - Show Pictogram + Copy */
     @media (hover: hover) {
-      .#{$prefix}--card:hover .#{$prefix}--card__heading {
+      .#{$prefix}--card:hover
+        .#{$prefix}--card__motion
+        ::slotted(#{$c4d-prefix}-card-heading) {
         display: none;
       }
-      .#{$prefix}--card:hover .#{$prefix}--card__copy {
+      .#{$prefix}--card:hover
+        .#{$prefix}--card__motion
+        .#{$prefix}--card__copy {
         display: block;
       }
     }
@@ -245,7 +247,7 @@
     @media (width <= 767px) {
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy {
-        display: block;
+        display: block !important;
       }
     }
 

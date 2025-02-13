@@ -239,6 +239,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
+          : ''} ${prefix}--card__motion
           : ''}"
         part="wrapper">
         <div class="${prefix}--card__content" part="content">
