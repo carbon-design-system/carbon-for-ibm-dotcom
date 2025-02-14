@@ -139,7 +139,7 @@ jobs:
 
   wc-tests-completed:
     if: always()
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     needs: web-components-tests
     steps:
       - uses: actions/download-artifact@v4

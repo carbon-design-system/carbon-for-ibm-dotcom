@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   check-packages:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 18.x
@@ -29,7 +29,7 @@ jobs:
           yarn ci-check
           yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
   web-components:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 18.x
