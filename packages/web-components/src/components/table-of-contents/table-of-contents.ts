@@ -200,6 +200,15 @@ class C4DTableOfContents extends MediaQueryMixin(
     const target = event.target as HTMLAnchorElement;
     if (target.matches?.(selectorItem)) {
       this._handleUserInitiatedJump(target.dataset.target!);
+
+      // This will make sure the clicked tab scrolls into view and is centered being completely visible in mobile res.
+      if (this._isMobile) {
+        target.scrollIntoView({
+          block: 'nearest',
+          inline: 'center',
+          behavior: 'smooth',
+        });
+      }
       event.preventDefault();
     }
   }
