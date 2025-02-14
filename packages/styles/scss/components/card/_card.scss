@@ -212,10 +212,6 @@
         position: relative;
       }
 
-      .#{$prefix}--card__heading {
-        display: none;
-      }
-
       .#{$prefix}--card__copy {
         display: none;
         margin-block: $spacing-07 0;
@@ -229,8 +225,8 @@
       }
     }
 
-    /* Desktop Hover & Focus - Show Pictogram + Copy */
-    @media (hover: hover) {
+    /* Desktop Hover - Show Pictogram + Copy */
+    @include breakpoint-up(md) {
       .#{$prefix}--card:hover
         .#{$prefix}--card__motion
         ::slotted(#{$c4d-prefix}-card-heading) {
@@ -241,10 +237,31 @@
         .#{$prefix}--card__copy {
         display: block;
       }
+
+      &[pictogram] {
+        &[pictogram-placement='top'] .#{$prefix}--card {
+          ::slotted(#{$c4d-prefix}-card-heading) {
+            position: absolute;
+            inset-block-end: $spacing-05;
+            margin-block: auto 0;
+          }
+
+          .#{$prefix}--card__copy {
+            margin-block-start: $spacing-07;
+          }
+        }
+
+        &[pictogram-placement='bottom'] .#{$prefix}--card {
+          .#{$prefix}--card__copy {
+            position: relative;
+            inset-block-start: -$spacing-07;
+          }
+        }
+      }
     }
 
     /* Mobile - Always Show Everything */
-    @media (width <= 767px) {
+    @include breakpoint-down(md) {
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy {
         display: block !important;
