@@ -34,6 +34,11 @@
   :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
     @include tile($enable-experimental-tile-contrast: true);
 
+    @include breakpoint-down(md) {
+      margin-inline: $spacing-05;
+      width: auto;
+    }
+
     position: relative;
     display: flex;
     flex-direction: column;
