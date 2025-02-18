@@ -25,9 +25,18 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
 ```
 
+### JS (via CDN latest code) 
+
+```javascript
+<script type="module" src="https://www.ibm.com/common/carbon-for-ibm-dotcom/tag/v2/latest/notice-choice.min.js"></script>
+```
+
+
 <Description markdown={`${cdnJs({ components: ['notice-choice'] })}`} />
 
 <Description markdown={`${cdnCss()}`} />
+
+
 
 ### HTML
 
@@ -39,7 +48,6 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
   state="CA"
   terms-condition-link=""
   hide-error-message="false"
-  combine-email-phone="false"
   >
 </c4d-notice-choice>
 ```
@@ -66,7 +74,6 @@ document.addEventListener('cds-notice-choice-change', (event) => {
 | language             | form based on the country and language                                                      | en      |
 | terms-condition-link | Terms and conditions link appended to the end of the privacy statement - should be specific |         |
 | hide-error-message   | Hide Error Messages for PUNS statement                                                      | false   |
-| combine-email-phone  | Combine Email and Phone                                                                     | false   |
 | environment          | Set environment variable Prod or Stage                                                      | Prod    |
 
 <Props of="c4d-notice-choice" />

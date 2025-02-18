@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.17.0-rc.0...@carbon/ibmdotcom-services@2.17.0) (2025-02-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.17.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.16.3...@carbon/ibmdotcom-services@2.17.0-rc.0) (2025-02-07)
+
+
+### Reverts
+
+* Revert "chore: bump version number" ([d79fcad](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d79fcadf969a5b6b0f07ab400a07eba224b1549d))
+
+
+
+
+
 ## [2.16.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.16.2...@carbon/ibmdotcom-services@2.16.3) (2025-01-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

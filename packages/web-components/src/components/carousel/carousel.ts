@@ -564,19 +564,14 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * Calculates the width between cards.
    */
   private _updateGap() {
-    const { _contentsNode: contentsNode, _slotNode: slotNode } = this;
-    const elems = slotNode!
-      .assignedNodes()
-      .filter((node) => node.nodeType === Node.ELEMENT_NODE);
+    const { _slotNode: slotNode } = this;
+    const elems = slotNode!.assignedElements();
+
     this._gap =
-      elems.length <= 1
+      elems.length <= 2
         ? 0
-        : (contentsNode!.scrollWidth -
-            elems.reduce(
-              (acc, elem) => acc + ((elem as HTMLElement).offsetWidth ?? 0),
-              0
-            )) /
-          (elems.length - 1);
+        : elems[1].getBoundingClientRect().left -
+          elems[0].getBoundingClientRect().right;
   }
 
   private _updateContentsPosition(changedProperties) {
@@ -742,6 +737,11 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       [`${prefix}--carousel__scroll-contents`]: true,
       [`${prefix}--carousel__scroll-contents--scrolling`]: isScrolling,
     });
+
+    // Hide the navigation controls if there is only one page
+    const numberOfPages = this.formatStatus(status);
+    const hideControls = numberOfPages === '1 / 1';
+
     // Use another div from the host `<c4d-carousel>` to reflect private state
     return html`
       <div part="region" role="region" aria-labelledby="carousel-title">
@@ -767,39 +767,44 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
-        <nav
-          part="navigation"
-          aria-label="Carousel Navigation"
-          class="${prefix}--carousel__navigation">
-          <button
-            part="prev-button"
-            class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-            ?disabled="${pagesBefore === 0}"
-            @click="${handleClickPrevButton}"
-            aria-label="${prevButtonText || defaultPrevButtonText}"
-            title="${prevButtonText || defaultPrevButtonText}">
-            ${CaretLeft20()}
-          </button>
-          <span
-            part="status"
-            class="${prefix}--carousel__navigation__status"
-            aria-hidden="true"
-            >${formatStatus(status)}</span
-          >
-          <span
-            class="${prefix}--visually-hidden"
-            aria-live="polite"
-            part="visually-hidden"></span>
-          <button
-            part="next-button"
-            class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-            ?disabled="${pagesSince <= 1}"
-            @click="${handleClickNextButton}"
-            aria-label="${nextButtonText || defaultNextButtonText}"
-            title="${nextButtonText || defaultNextButtonText}">
-            ${CaretRight20()}
-          </button>
-        </nav>
+
+        ${!hideControls
+          ? html`
+              <nav
+                part="navigation"
+                aria-label="Carousel Navigation"
+                class="${prefix}--carousel__navigation">
+                <button
+                  part="prev-button"
+                  class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+                  ?disabled="${pagesBefore === 0}"
+                  @click="${handleClickPrevButton}"
+                  aria-label="${prevButtonText || defaultPrevButtonText}"
+                  title="${prevButtonText || defaultPrevButtonText}">
+                  ${CaretLeft20()}
+                </button>
+                <span
+                  part="status"
+                  class="${prefix}--carousel__navigation__status"
+                  aria-hidden="true"
+                  >${formatStatus(status)}</span
+                >
+                <span
+                  class="${prefix}--visually-hidden"
+                  aria-live="polite"
+                  part="visually-hidden"></span>
+                <button
+                  part="next-button"
+                  class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+                  ?disabled="${pagesSince <= 1}"
+                  @click="${handleClickNextButton}"
+                  aria-label="${nextButtonText || defaultNextButtonText}"
+                  title="${nextButtonText || defaultNextButtonText}">
+                  ${CaretRight20()}
+                </button>
+              </nav>
+            `
+          : ''}
       </div>
     `;
   }

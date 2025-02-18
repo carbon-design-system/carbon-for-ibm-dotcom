@@ -35,16 +35,17 @@ export function loadContent(
   };
 }
 
-export function loadSettings(onSuccess: any, onError: any) {
+export function loadSettings(env: string, onSuccess: any, onError: any) {
   const script = document.createElement('script');
+  const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
   script.async = false;
   script.charset = 'utf-8';
-  script.src = `https://1.www.s81c.com/common/noticechoice/settings.js`; // URL for the third-party library being loaded.
+  script.src = `https://${environment}/common/noticechoice/settings.js`; // URL for the third-party library being loaded.
   document.body.appendChild(script);
   script.onload = () => {
     try {
       if (onSuccess) {
-        onSuccess(window.NoticeChoice.settings?.preferences);
+        onSuccess(window.NoticeChoice.settings);
       }
     } catch (e) {
       if (onError) {
