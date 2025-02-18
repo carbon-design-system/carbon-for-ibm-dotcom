@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,6 +24,11 @@
   :host(#{$c4d-prefix}-card-in-card) {
     block-size: auto;
 
+    @include breakpoint-down(md) {
+      background: none;
+      padding-inline: $spacing-05;
+    }
+
     .#{$prefix}--card:focus-within {
       border-color: $background;
       outline: none;
@@ -43,6 +48,10 @@
     &:hover {
       cursor: pointer;
 
+      @include breakpoint-down(md) {
+        cursor: auto;
+      }
+
       &::after {
         position: absolute;
         background: $card-background;
@@ -50,6 +59,10 @@
         content: '';
         inline-size: 100%;
         opacity: 0.08;
+
+        @include breakpoint-down(md) {
+          inline-size: auto;
+        }
       }
     }
 
