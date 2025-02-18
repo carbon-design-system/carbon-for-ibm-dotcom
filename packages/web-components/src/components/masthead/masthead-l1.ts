@@ -937,7 +937,9 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         try {
           const elURL = new URL(el.href);
           const currURL = new URL(currentUrlPath || '');
-
+          if (el.href.includes('#')) {
+            return false;
+          }
           // Compare url without query params.
           return (
             elURL.host === currURL.host && elURL.pathname === currURL.pathname
