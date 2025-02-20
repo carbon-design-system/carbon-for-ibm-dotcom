@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.17.0...@carbon/ibmdotcom-web-components@2.17.1) (2025-02-20)
+
+
+### Bug Fixes
+
+* **content-block-paragraph:** fixing the logic to hide the component … ([#12214](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12214)) ([5dc83a3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5dc83a33abbeb22f9c3f3b5605aaa999c687bff7))
+
+
+
+
+
 # [2.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.17.0-rc.0...@carbon/ibmdotcom-web-components@2.17.0) (2025-02-07)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
