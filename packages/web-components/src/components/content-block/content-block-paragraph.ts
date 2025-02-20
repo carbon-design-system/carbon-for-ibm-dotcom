@@ -48,7 +48,7 @@ class C4DContentBlockParagraph extends StableSelectorMixin(LitElement) {
     }
 
     const assignedNodes = slot.assignedNodes({ flatten: true });
-  
+
     const hasTextContent = (node) => {
       if (node.nodeType === Node.TEXT_NODE) {
         return !!node.textContent?.trim();
@@ -58,9 +58,9 @@ class C4DContentBlockParagraph extends StableSelectorMixin(LitElement) {
       }
       return false;
     };
-  
+
     const isEmpty = !assignedNodes.some(hasTextContent);
-  
+
     this.style.display = isEmpty ? 'none' : 'block';
   }
 
