@@ -49,18 +49,19 @@ class C4DContentBlockParagraph extends StableSelectorMixin(LitElement) {
 
     const assignedNodes = slot.assignedNodes({ flatten: true });
 
-    // Check if all assigned nodes are empty or whitespace
-    const isEmpty = assignedNodes.every((node) => {
-      // Ensure `textContent` is non-null and trim for whitespace check
-      return node.nodeType !== Node.TEXT_NODE || !node.textContent?.trim();
-    });
+    const hasTextContent = (node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        return !!node.textContent?.trim();
+      }
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        return [...node.childNodes].some(hasTextContent);
+      }
+      return false;
+    };
 
-    // Hide or show the element based on slot content
-    if (isEmpty) {
-      this.style.display = 'none';
-    } else {
-      this.style.display = 'block';
-    }
+    const isEmpty = !assignedNodes.some(hasTextContent);
+
+    this.style.display = isEmpty ? 'none' : 'block';
   }
 
   render() {
