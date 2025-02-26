@@ -179,6 +179,14 @@
     }
   }
 
+  // Gutter space for mobile view
+  :host(#{$c4d-prefix}-content-group-cards-item) {
+    @include breakpoint-down(md) {
+      inline-size: auto;
+      margin-inline: $spacing-05;
+    }
+  }
+
   // Card with pictogram placement style
   :host(#{$c4d-prefix}-card-group-item),
   :host(#{$c4d-prefix}-card-in-card),
