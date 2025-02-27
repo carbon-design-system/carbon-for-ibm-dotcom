@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -197,6 +197,68 @@
           display: flex;
           flex: 1;
           padding-inline-start: 0;
+        }
+      }
+    }
+    //Replicating V1 hover behavior
+
+    @media (pointer: fine) {
+      &[pictogram-placement='top'] .#{$prefix}--card,
+      &[pictogram-placement='bottom'] .#{$prefix}--card {
+        .#{$prefix}--card__motion {
+          ::slotted(#{$c4d-prefix}-card-heading) {
+            padding-block-start: 0;
+
+            @include breakpoint('md') {
+              /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+              display: -webkit-box;
+              /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+              overflow: hidden;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              max-inline-size: calc(100% - #{$spacing-10});
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+              transition: all $duration-moderate-02 motion(standard, productive)
+                0.25s;
+            }
+          }
+
+          .#{$prefix}--card__copy {
+            margin-block: $spacing-07 0;
+
+            @include breakpoint('md') {
+              margin-block-start: 0;
+              opacity: 0;
+              transform: translate3d(0, -16px, 0);
+              transition: all $duration-moderate-02 motion(standard, productive);
+              visibility: hidden;
+            }
+          }
+        }
+
+        &:hover,
+        &:focus {
+          .#{$prefix}--card__motion {
+            ::slotted(#{$c4d-prefix}-card-heading) {
+              @include breakpoint('md') {
+                opacity: 0;
+                transform: translate3d(0, 16px, 0);
+                transition-delay: 0s;
+              }
+            }
+
+            .#{$prefix}--card__copy {
+              @include breakpoint('md') {
+                display: block;
+                overflow: hidden;
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+                transition-delay: 0.2s;
+                visibility: visible;
+              }
+            }
+          }
         }
       }
     }
