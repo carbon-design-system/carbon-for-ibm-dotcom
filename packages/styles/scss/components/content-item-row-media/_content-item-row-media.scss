@@ -121,10 +121,6 @@
       grid-column: 1 / span 4;
       text-align: start;
 
-      &:first-of-type {
-        margin-inline-end: $spacing-07;
-      }
-
       &:last-of-type {
         @include breakpoint(lg) {
           grid-column: 5 / span 8;
@@ -138,14 +134,12 @@
         &:first-of-type {
           @include breakpoint(lg) {
             grid-column: 1 / span 8;
-            margin-inline-end: 0;
           }
         }
 
         &:last-of-type {
           @include breakpoint(lg) {
             grid-column: 9 / span 4;
-            margin-inline-end: $spacing-07;
           }
         }
       }
