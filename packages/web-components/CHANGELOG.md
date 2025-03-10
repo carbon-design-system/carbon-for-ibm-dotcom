@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.17.1...@carbon/ibmdotcom-web-components@2.18.0) (2025-03-10)
+
+
+### Bug Fixes
+
+* **content-block-paragraph:** fixing the logic to hide the component … ([#12214](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12214)) ([dcf6bf2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dcf6bf27eadbb22de4e24d6ebada3b5b0c3d690b))
+* **masthead-l1:** fix unwanted item highlighting ([#12212](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12212)) ([2dcc5ed](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2dcc5edd2f7d2fa680c6e74426860cb3b81269a3))
+* **toc:** centering clicked tabs in mobile ([#12209](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12209)) ([4094a6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4094a6f16a3f00a3969299a63935a300bc29cfd9)), closes [#6635](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6635)
+
+
+### Features
+
+* **card:** replicate v1 hover behavior ([#12218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12218)) ([970b158](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/970b158cd53edf42a5374067df36c90382685256))
+
+
+
+
+
 ## [2.17.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.17.0...@carbon/ibmdotcom-web-components@2.17.1) (2025-02-20)
 
 

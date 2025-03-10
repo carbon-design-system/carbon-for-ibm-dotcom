@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.17.1",
+  "version": "2.18.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -92,9 +92,9 @@
     "cypress:verify": "cypress verify"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "2.17.1",
-    "@carbon/ibmdotcom-styles": "2.17.0",
-    "@carbon/ibmdotcom-utilities": "2.17.1",
+    "@carbon/ibmdotcom-services": "2.18.0",
+    "@carbon/ibmdotcom-styles": "2.18.0",
+    "@carbon/ibmdotcom-utilities": "2.18.0",
     "@carbon/layout": "11.27.0",
     "@carbon/motion": "11.24.0",
     "@carbon/styles": "1.65.0",
