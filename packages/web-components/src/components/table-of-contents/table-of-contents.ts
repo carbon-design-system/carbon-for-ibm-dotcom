@@ -371,7 +371,6 @@ class C4DTableOfContents extends MediaQueryMixin(
             elem.innerText.match(notWhiteSpace) ||
             elem.dataset.title?.match(notWhiteSpace);
           const hasNameAttr = elem.matches(selectorTarget);
-          u;
           const notExcluded =
             !tagNamesToAvoid.includes(elem.tagName.toLowerCase()) &&
             !elem.closest(`[${disableTargetAttribute}]`);
