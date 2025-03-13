@@ -363,7 +363,7 @@ class C4DTableOfContents extends MediaQueryMixin(
           selectorTarget
         ) as NodeListOf<HTMLElement>;
         const elems = [node, ...descendants].filter((elem) => {
-          if (!elem) {
+          if (!elem.innerText) {
             return false;
           }
           const notWhiteSpace = /[^\s\n\r]/g;
