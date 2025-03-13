@@ -103,6 +103,7 @@ export interface CMApp {
  * @csspart view-all-left -  Targets the view all left. Usage: `c4d-masthead-composite::part(view-all-left)`
  * @csspart view-all-right -  Targets the view all right. Usage: `c4d-masthead-composite::part(view-all-right)`
  * @csspart view-all-bottom -  Targets the view all bottom. Usage: `c4d-masthead-composite::part(view-all-bottom)`
+ * @csspart l0-view-all-products-arrow -  Targets the view all products arrow icon. Usage: `c4d-masthead-composite::part(l0-view-all-products-arrow)`
  */
 @customElement(`${c4dPrefix}-masthead-composite`)
 class C4DMastheadComposite extends HostListenerMixin(LitElement) {
@@ -226,7 +227,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   part="view-all view-all-left"
                   slot="view-all">
                   <span>${viewAll.title}</span>${this.ArrowIcon({
-                    slot: 'icon',
+                    slot: 'icon', part: 'l0-view-all-products-arrow'
                   })}
                 </c4d-megamenu-link-with-icon>
               `

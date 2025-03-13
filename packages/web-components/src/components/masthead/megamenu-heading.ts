@@ -29,6 +29,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @csspart heading-h5 - The h5 element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-h5)`
  * @csspart heading-h6 - The h6 element of the megamenu heading. Usage: `c4d-megamenu-heading::part(heading-h6)`
  * @csspart heading-span - The span element containing slotted content. Usage: `c4d-megamenu-heading::part(heading-span)`
+ * @csspart l0-heading-arrow -  Targets the heading arrow icon. Usage: `c4d-megamenu-heading::part(l0-heading-arrow)`
  */
 @customElement(`${c4dPrefix}-megamenu-heading`)
 class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
@@ -52,7 +53,7 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
    */
   protected get _arrowIcon() {
     const isRTL = document.dir.toLowerCase() === 'rtl';
-    return isRTL ? ArrowLeft24() : ArrowRight24();
+    return isRTL ? ArrowLeft24({part:'l0-heading-arrow'}) : ArrowRight24({part:'l0-heading-arrow'});
   }
 
   /**
