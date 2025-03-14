@@ -53,7 +53,9 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
    */
   protected get _arrowIcon() {
     const isRTL = document.dir.toLowerCase() === 'rtl';
-    return isRTL ? ArrowLeft24({part:'l0-heading-arrow'}) : ArrowRight24({part:'l0-heading-arrow'});
+    return isRTL
+      ? ArrowLeft24({ part: 'l0-heading-arrow' })
+      : ArrowRight24({ part: 'l0-heading-arrow' });
   }
 
   /**

@@ -27,7 +27,9 @@ const { stablePrefix: c4dPrefix } = settings;
 class C4DMegaMenuCategoryHeading extends C4DMegaMenuHeading {
   protected get _arrowIcon() {
     const isRTL = document.dir.toLowerCase() === 'rtl';
-    return isRTL ? ArrowLeft20({part: 'l0-arrow-cat-heading'}) : ArrowRight20({part: 'l0-arrow-cat-heading'});
+    return isRTL
+      ? ArrowLeft20({ part: 'l0-arrow-cat-heading' })
+      : ArrowRight20({ part: 'l0-arrow-cat-heading' });
   }
 
   @property({ reflect: true, type: Number, attribute: 'heading-level' })

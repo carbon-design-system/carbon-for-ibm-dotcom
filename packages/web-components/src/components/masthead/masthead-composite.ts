@@ -227,7 +227,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   part="view-all view-all-left"
                   slot="view-all">
                   <span>${viewAll.title}</span>${this.ArrowIcon({
-                    slot: 'icon', part: 'l0-view-all-products-arrow'
+                    slot: 'icon',
+                    part: 'l0-view-all-products-arrow',
                   })}
                 </c4d-megamenu-link-with-icon>
               `
