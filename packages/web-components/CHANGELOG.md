@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.18.0...@carbon/ibmdotcom-web-components@2.19.0) (2025-03-14)
+
+
+### Features
+
+* **masthead:** adding shadow parts to svg arrow icons ([#12226](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12226)) ([f2046fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f2046fba5930285f5d1ae4b5224fc073acad71ca))
+
+
+
+
+
 # [2.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.17.1...@carbon/ibmdotcom-web-components@2.18.0) (2025-03-10)
 
 
