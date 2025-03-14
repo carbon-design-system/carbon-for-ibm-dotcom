@@ -28,12 +28,12 @@
   :host(#{$c4d-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    margin-block: $spacing-07;
-    margin-block-end: $spacing-12;
+    padding-block: $spacing-07;
+    padding-block-end: $spacing-12;
 
     @include breakpoint('lg') {
-      margin-block: $spacing-10;
-      margin-block-end: $spacing-13;
+      padding-block: $spacing-10;
+      padding-block-end: $spacing-13;
     }
 
     &[complementary-style-scheme='with-border'] {
