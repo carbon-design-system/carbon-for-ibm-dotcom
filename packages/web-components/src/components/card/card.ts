@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -233,13 +233,13 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _hasPictogram: hasPictogram } = this;
+    const { _hasPictogram: hasPictogram, _hasCopy: hasCopy } = this;
     return html`
       ${this._renderImage()}
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''}"
+          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}"
         part="wrapper">
         <div class="${prefix}--card__content" part="content">
           ${this._renderEyebrowSlot()}

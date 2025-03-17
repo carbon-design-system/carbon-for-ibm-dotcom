@@ -21,12 +21,15 @@ const { stablePrefix: c4dPrefix } = settings;
  * MegaMenu Category Heading.
  *
  * @element c4d-megamenu-category-heading
+ * @csspart l0-arrow-cat-heading -  Targets the heading category arrow icon. Usage: `c4d-megamenu-category-heading::part(l0-arrow-cat-heading)`
  */
 @customElement(`${c4dPrefix}-megamenu-category-heading`)
 class C4DMegaMenuCategoryHeading extends C4DMegaMenuHeading {
   protected get _arrowIcon() {
     const isRTL = document.dir.toLowerCase() === 'rtl';
-    return isRTL ? ArrowLeft20() : ArrowRight20();
+    return isRTL
+      ? ArrowLeft20({ part: 'l0-arrow-cat-heading' })
+      : ArrowRight20({ part: 'l0-arrow-cat-heading' });
   }
 
   @property({ reflect: true, type: Number, attribute: 'heading-level' })
