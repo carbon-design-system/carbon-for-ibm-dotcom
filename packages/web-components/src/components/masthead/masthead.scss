@@ -157,6 +157,17 @@ $pos-btn-bottom: calc(
     }
   }
 
+  ::slotted(div.earth-language-icon){
+    display: flex;
+    align-items: center;
+    padding: 1rem !important;
+    cursor: pointer;
+  }
+
+  ::slotted(div.earth-language-icon:hover){
+    background-color: $background-hover;
+  }
+
   &[has-search-active] {
     @include breakpoint-down(md) {
       display: none;
