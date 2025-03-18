@@ -12,6 +12,7 @@ import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
 import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
+import EarthFilled from '@carbon/web-components/es/icons/earth--filled/20.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
@@ -1182,6 +1183,17 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         `;
   }
 
+  protected _renderLanguageSelector() {
+    const { hasLanguageSelector } = this;
+    return hasLanguageSelector === 'false'
+      ? undefined
+      : html`
+          <div class="earth-language-icon" part="earth-l0-icon">
+            ${EarthFilled({ part: 'earth-l0-svg' })}
+          </div>
+        `;
+  }
+
   protected _renderCart() {
     const { hasCart, cartLabel } = this;
     return hasCart
@@ -1514,6 +1526,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   hasContact = 'true';
 
   /**
+   * `true` if Language Selector should be shown.
+   */
+  @property({ type: String, reflect: true, attribute: 'has-language-selector' })
+  hasLanguageSelector = 'true';
+
+  /**
    * `true` if Cart should be shown.
    */
   @property({ type: Boolean, reflect: true, attribute: 'has-cart' })
@@ -1654,7 +1672,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ${this._renderPlatformTitle()}
         ${!isMobileVersion ? this._renderTopNav() : ''} ${this._renderSearch()}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${this._renderContact()} ${this._renderCart()}
+          ${this._renderContact()}
+          ${this._renderCart()}${this._renderLanguageSelector()}
           ${this._renderProfileMenu()}
         </c4d-masthead-global-bar>
         ${this._renderL1()}
