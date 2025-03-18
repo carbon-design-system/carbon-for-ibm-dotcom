@@ -1188,10 +1188,10 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     return hasLanguageSelector === 'false'
       ? undefined
       : html`
-        <div class="earth-language-icon" part="earth-l0-icon">
-          ${EarthFilled({ part: 'earth-l0-svg' })}
-        </div>
-      `;
+          <div class="earth-language-icon" part="earth-l0-icon">
+            ${EarthFilled({ part: 'earth-l0-svg' })}
+          </div>
+        `;
   }
 
   protected _renderCart() {
@@ -1526,8 +1526,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   hasContact = 'true';
 
   /**
- * `true` if Language Selector should be shown.
- */
+   * `true` if Language Selector should be shown.
+   */
   @property({ type: String, reflect: true, attribute: 'has-language-selector' })
   hasLanguageSelector = 'true';
 
@@ -1672,7 +1672,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ${this._renderPlatformTitle()}
         ${!isMobileVersion ? this._renderTopNav() : ''} ${this._renderSearch()}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${this._renderContact()} ${this._renderCart()}${this._renderLanguageSelector()}
+          ${this._renderContact()}
+          ${this._renderCart()}${this._renderLanguageSelector()}
           ${this._renderProfileMenu()}
         </c4d-masthead-global-bar>
         ${this._renderL1()}
