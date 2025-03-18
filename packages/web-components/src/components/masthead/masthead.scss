@@ -160,6 +160,7 @@ $pos-btn-bottom: calc(
   ::slotted(div.earth-language-icon) {
     display: flex;
     align-items: center;
+/* stylelint-disable-next-line declaration-no-important */
     padding: 1rem !important;
     cursor: pointer;
   }
