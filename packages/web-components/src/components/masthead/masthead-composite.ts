@@ -1633,7 +1633,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     // Keep render root's height in sync with c4d-masthead.
     this._heightResizeObserver.observe(this.mastheadRef);
 
-    const mastheadHasLanguageSelector = this.querySelector('c4d-masthead[has-language-selector]');
+    const mastheadHasLanguageSelector = this.querySelector(
+      'c4d-masthead[has-language-selector]'
+    );
     if (mastheadHasLanguageSelector) {
       this.hasLanguageSelector = 'true';
     } else {
