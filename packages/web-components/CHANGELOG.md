@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.19.0...@carbon/ibmdotcom-web-components@2.20.0-rc.0) (2025-03-18)
+
+
+### Bug Fixes
+
+* **masthead:** adding language selector at L0 ([#12234](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12234)) ([93bc243](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/93bc243d92c77113feb99618214df3231d8085ff))
+* **table-of-contents:** fix false positives on error handling ([#12233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12233)) ([40a41c7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40a41c71e4885625e7c5fe521c1e3b2b92d28e86))
+
+
+
+
+
 # [2.19.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.18.0...@carbon/ibmdotcom-web-components@2.19.0) (2025-03-14)
 
 
