@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.20.0-rc.0...@carbon/ibmdotcom-web-components@2.20.0-rc.1) (2025-03-21)
+
+
+### Bug Fixes
+
+* **masthead:** globe icon logic fixed to display ([#12237](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12237)) ([6774a23](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6774a2390b3fa74fe80ef1590ad32546a08d87ea))
+
+
+
+
+
 # [2.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.19.0...@carbon/ibmdotcom-web-components@2.20.0-rc.0) (2025-03-18)
 
 
