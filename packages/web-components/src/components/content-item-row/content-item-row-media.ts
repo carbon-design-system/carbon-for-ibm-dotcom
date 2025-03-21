@@ -66,22 +66,35 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
   }
 
   /**
+   * @returns The media column content.
+   */
+  protected _renderMediaCol(): TemplateResult | string | void {
+    return html`
+      <div class="${prefix}--content-item-row__col" part="col col--media">
+        <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  /**
    * @returns The component content in the appropriate tabbing order.
    */
   protected _renderContent(): TemplateResult | string | void {
-    const alignedRight = this._isOneColumn || this.align === MEDIA_ALIGN.RIGHT;
+    const alignedRight = this.align === MEDIA_ALIGN.RIGHT;
+
+    // Always return image first when stacked on mobile
+    if (this._isOneColumn) return html`
+      ${this._renderMediaCol()}
+      ${this._renderTextCol()}
+    `;
 
     return alignedRight
       ? html`
           ${this._renderTextCol()}
-          <div class="${prefix}--content-item-row__col" part="col col--media">
-            <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-          </div>
+          ${this._renderMediaCol()}
         `
       : html`
-          <div class="${prefix}--content-item-row__col" part="col col--media">
-            <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-          </div>
+          ${this._renderMediaCol()}
           ${this._renderTextCol()}
         `;
   }
