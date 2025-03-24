@@ -363,12 +363,12 @@ class C4DTableOfContents extends MediaQueryMixin(
           selectorTarget
         ) as NodeListOf<HTMLElement>;
         const elems = [node, ...descendants].filter((elem) => {
-          if (!elem.innerText) {
+          if (elem.innerText == null && elem.innerText == undefined) {
             return false;
           }
           const notWhiteSpace = /[^\s\n\r]/g;
           const hasTitle =
-            elem.innerText.match(notWhiteSpace) ||
+            elem.innerText?.match(notWhiteSpace) ||
             elem.dataset.title?.match(notWhiteSpace);
           const hasNameAttr = elem.matches(selectorTarget);
           const notExcluded =
