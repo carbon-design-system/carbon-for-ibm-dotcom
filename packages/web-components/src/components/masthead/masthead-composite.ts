@@ -1673,6 +1673,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     return html`
       ${isMobileVersion ? this._renderLeftNav() : ''}
       <c4d-masthead
+        has-language-selector
         ?has-l1=${this.l1Data}
         aria-label="${ifNonEmpty(mastheadAssistiveText)}">
         <c4d-skip-to-content
