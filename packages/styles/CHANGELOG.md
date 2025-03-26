@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.20.0-rc.0...@carbon/ibmdotcom-styles@2.20.0) (2025-03-26)
+
+
+### Features
+
+* **css-styles:** new radius tokens to be used project wide ([#12224](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12224)) ([a9b0780](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a9b07804c287ad05fbd9b9fec2efe708936abac3))
+
+
+
+
+
 # [2.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.19.0...@carbon/ibmdotcom-styles@2.20.0-rc.0) (2025-03-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
