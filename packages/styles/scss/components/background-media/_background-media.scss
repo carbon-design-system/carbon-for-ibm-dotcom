@@ -44,13 +44,11 @@
     inset-block-start: 0;
     inset-inline-end: 0;
 
-    @include breakpoint(md) {
-      background-image: linear-gradient(
-        to bottom,
-        $background 0%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
+    background-image: linear-gradient(
+      to bottom,
+      $background 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   .#{$prefix}--background-media--gradient--left-to-right {
