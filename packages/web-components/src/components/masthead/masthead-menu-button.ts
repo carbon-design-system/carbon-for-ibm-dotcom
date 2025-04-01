@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit/directives/class-map.js';
-import { html } from 'lit';
+import { html, PropertyValues } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
@@ -93,7 +93,12 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
       buttonNode.focus();
     }
   }
-
+  firstUpdated() {
+    const boundHideButton = this.hideButtonIfNoNavItemsFound.bind(this);
+    window.addEventListener(`load`, () => {
+      boundHideButton();
+    });
+  }
   updated(changedProperties) {
     if (changedProperties.has('active')) {
       const {
@@ -124,6 +129,9 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
     if (!NavMenuItems?.length) {
       this.hideMenuButton = true;
       this.style.display = 'none';
+    } else if (this.style.display == 'none') {
+      this.hideMenuButton = false;
+      this.style.display = '';
     }
   }
 
