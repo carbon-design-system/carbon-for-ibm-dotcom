@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -213,6 +213,60 @@ export const WithCustomTypeahead = (args) => {
             ?custom-typeahead-api=${true}></c4d-masthead-container>
         `}
   `;
+};
+
+export const WithNoNavData = (args) => {
+  const { grouped } = args?.MastheadComposite ?? {};
+
+  document.documentElement.addEventListener(
+    'c4d-search-with-typeahead-input',
+    async (e) => {
+      const results = await customTypeaheadApiFunction(
+        (e as CustomEvent).detail.value,
+        grouped
+      );
+      document.dispatchEvent(
+        new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
+      );
+    }
+  );
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${html`
+      <c4d-masthead-container
+        .l0Data="${[]}"
+        .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+        .unauthenticatedProfileItems="${ifNonEmpty(
+          unauthenticatedProfileItems
+        )}"
+        ?custom-typeahead-api=${true}></c4d-masthead-container>
+    `}
+  `;
+};
+
+WithNoNavData.story = {
+  name: 'With no nav data',
+  parameters: {
+    knobs: {},
+  },
+  propsSet: {
+    default: {
+      MastheadComposite: {
+        grouped: 'false',
+        hasProfile: 'true',
+        hasCart: false,
+        mockActiveCartId: '',
+        cartLabel: '',
+        hasSearch: 'true',
+        searchPlaceHolder: 'Search all of IBM',
+        selectedMenuItem: 'Services & Consulting',
+        userStatus: userStatuses.unauthenticated,
+      },
+    },
+  },
 };
 
 WithCustomTypeahead.story = {
