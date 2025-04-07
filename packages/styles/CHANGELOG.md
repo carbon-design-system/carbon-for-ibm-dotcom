@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.20.0...@carbon/ibmdotcom-styles@2.21.0) (2025-04-07)
+
+
+### Bug Fixes
+
+* **background-media:** missing overlay in mobile resolutions ([#12241](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12241)) ([b151788](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b15178878f5ab037f28a6e575bb24779be880cc7))
+
+
+
+
+
 # [2.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.20.0-rc.0...@carbon/ibmdotcom-styles@2.20.0) (2025-03-26)
 
 

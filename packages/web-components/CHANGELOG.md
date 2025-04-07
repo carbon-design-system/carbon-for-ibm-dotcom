@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.20.0...@carbon/ibmdotcom-web-components@2.21.0) (2025-04-07)
+
+
+### Bug Fixes
+
+* **masthead-menu-button:** hide hamburger button when no nav menu items are present ([#12242](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12242)) ([90fb92b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/90fb92bbee414ce9ee16ed66d0f786d4a0d5b1dd))
+
+
+
+
+
 # [2.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.20.0-rc.1...@carbon/ibmdotcom-web-components@2.20.0) (2025-03-26)
 
 
