@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -200,6 +200,15 @@ class C4DTableOfContents extends MediaQueryMixin(
     const target = event.target as HTMLAnchorElement;
     if (target.matches?.(selectorItem)) {
       this._handleUserInitiatedJump(target.dataset.target!);
+
+      // This will make sure the clicked tab scrolls into view and is centered being completely visible in mobile res.
+      if (this._isMobile) {
+        target.scrollIntoView({
+          block: 'nearest',
+          inline: 'center',
+          behavior: 'smooth',
+        });
+      }
       event.preventDefault();
     }
   }
@@ -354,9 +363,12 @@ class C4DTableOfContents extends MediaQueryMixin(
           selectorTarget
         ) as NodeListOf<HTMLElement>;
         const elems = [node, ...descendants].filter((elem) => {
+          if (elem.innerText == null && elem.innerText == undefined) {
+            return false;
+          }
           const notWhiteSpace = /[^\s\n\r]/g;
           const hasTitle =
-            elem.innerText.match(notWhiteSpace) ||
+            elem.innerText?.match(notWhiteSpace) ||
             elem.dataset.title?.match(notWhiteSpace);
           const hasNameAttr = elem.matches(selectorTarget);
           const notExcluded =
