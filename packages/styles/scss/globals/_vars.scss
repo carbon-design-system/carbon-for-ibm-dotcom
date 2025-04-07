@@ -1,8 +1,13 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 $c4d-prefix: 'c4d' !default;
+
+//Radius tokens to be used in 'border-radius'
+$radius-sm: 0.25rem !default;
+$radius-md: 0.5rem !default;
+$radius-lg: 1rem !default;

@@ -12,6 +12,7 @@ import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
 import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
+import Wikis from '@carbon/web-components/es/icons/wikis/20.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
@@ -103,6 +104,7 @@ export interface CMApp {
  * @csspart view-all-left -  Targets the view all left. Usage: `c4d-masthead-composite::part(view-all-left)`
  * @csspart view-all-right -  Targets the view all right. Usage: `c4d-masthead-composite::part(view-all-right)`
  * @csspart view-all-bottom -  Targets the view all bottom. Usage: `c4d-masthead-composite::part(view-all-bottom)`
+ * @csspart l0-view-all-products-arrow -  Targets the view all products arrow icon. Usage: `c4d-masthead-composite::part(l0-view-all-products-arrow)`
  */
 @customElement(`${c4dPrefix}-masthead-composite`)
 class C4DMastheadComposite extends HostListenerMixin(LitElement) {
@@ -227,6 +229,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   slot="view-all">
                   <span>${viewAll.title}</span>${this.ArrowIcon({
                     slot: 'icon',
+                    part: 'l0-view-all-products-arrow',
                   })}
                 </c4d-megamenu-link-with-icon>
               `
@@ -1180,6 +1183,18 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         `;
   }
 
+  protected _renderLanguageSelector() {
+    const { hasLanguageSelector } = this;
+
+    return hasLanguageSelector === 'false'
+      ? undefined
+      : html`
+          <div class="earth-language-icon" part="earth-l0-icon">
+            ${Wikis({ part: 'earth-l0-svg' })}
+          </div>
+        `;
+  }
+
   protected _renderCart() {
     const { hasCart, cartLabel } = this;
     return hasCart
@@ -1512,6 +1527,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   hasContact = 'true';
 
   /**
+   * `true` if Language Selector should be shown.
+   */
+  @property({ type: String, reflect: true, attribute: 'has-language-selector' })
+  hasLanguageSelector = 'true';
+
+  /**
    * `true` if Cart should be shown.
    */
   @property({ type: Boolean, reflect: true, attribute: 'has-cart' })
@@ -1611,6 +1632,15 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
     // Keep render root's height in sync with c4d-masthead.
     this._heightResizeObserver.observe(this.mastheadRef);
+
+    const mastheadHasLanguageSelector = this.querySelector(
+      'c4d-masthead[has-language-selector]'
+    );
+    if (mastheadHasLanguageSelector) {
+      this.hasLanguageSelector = 'true';
+    } else {
+      this.hasLanguageSelector = 'false';
+    }
   }
 
   updated(changedProperties) {
@@ -1643,6 +1673,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     return html`
       ${isMobileVersion ? this._renderLeftNav() : ''}
       <c4d-masthead
+        has-language-selector
         ?has-l1=${this.l1Data}
         aria-label="${ifNonEmpty(mastheadAssistiveText)}">
         <c4d-skip-to-content
@@ -1652,7 +1683,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ${this._renderPlatformTitle()}
         ${!isMobileVersion ? this._renderTopNav() : ''} ${this._renderSearch()}
         <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${this._renderContact()} ${this._renderCart()}
+          ${this._renderContact()}
+          ${this._renderCart()}${this._renderLanguageSelector()}
           ${this._renderProfileMenu()}
         </c4d-masthead-global-bar>
         ${this._renderL1()}
