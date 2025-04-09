@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.20.0...@carbon/ibmdotcom-styles@2.21.0) (2025-04-07)
+
+
+### Bug Fixes
+
+* **background-media:** missing overlay in mobile resolutions ([#12241](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12241)) ([b151788](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b15178878f5ab037f28a6e575bb24779be880cc7))
+
+
+
+
+
+# [2.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.20.0-rc.0...@carbon/ibmdotcom-styles@2.20.0) (2025-03-26)
+
+
+### Features
+
+* **css-styles:** new radius tokens to be used project wide ([#12224](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12224)) ([a9b0780](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a9b07804c287ad05fbd9b9fec2efe708936abac3))
+
+
+
+
+
+# [2.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.19.0...@carbon/ibmdotcom-styles@2.20.0-rc.0) (2025-03-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.19.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.18.0...@carbon/ibmdotcom-styles@2.19.0) (2025-03-14)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.17.0...@carbon/ibmdotcom-styles@2.18.0) (2025-03-10)
+
+
+### Features
+
+* **card:** replicate v1 hover behavior ([#12218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12218)) ([970b158](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/970b158cd53edf42a5374067df36c90382685256))
+* **content-group-cards-item:** add gutters for mobile ([#12217](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12217)) ([0da27ca](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0da27ca854bb1c23e041c545e15bae019501574a))
+
+
+
+
+
 # [2.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.17.0-rc.0...@carbon/ibmdotcom-styles@2.17.0) (2025-02-07)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

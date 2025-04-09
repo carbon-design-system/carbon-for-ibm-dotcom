@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -93,7 +93,12 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
       buttonNode.focus();
     }
   }
-
+  firstUpdated() {
+    const boundHideButton = this.hideButtonIfNoNavItemsFound.bind(this);
+    window.addEventListener(`load`, () => {
+      boundHideButton();
+    });
+  }
   updated(changedProperties) {
     if (changedProperties.has('active')) {
       const {
@@ -113,6 +118,20 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
 
     if (changedProperties.has('hideMenuButton')) {
       this._hasSearchActive = this.hideMenuButton;
+    }
+    this.hideButtonIfNoNavItemsFound();
+  }
+
+  hideButtonIfNoNavItemsFound() {
+    const NavMenuItems = this.closest(
+      `${c4dPrefix}-masthead-container`
+    )?.querySelectorAll(`${c4dPrefix}-left-nav-menu`);
+    if (!NavMenuItems?.length) {
+      this.hideMenuButton = true;
+      this.style.display = 'none';
+    } else if (this.style.display == 'none') {
+      this.hideMenuButton = false;
+      this.style.display = '';
     }
   }
 

@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.20.0...@carbon/ibmdotcom-web-components@2.21.0) (2025-04-07)
+
+
+### Bug Fixes
+
+* **masthead-menu-button:** hide hamburger button when no nav menu items are present ([#12242](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12242)) ([90fb92b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/90fb92bbee414ce9ee16ed66d0f786d4a0d5b1dd))
+
+
+
+
+
+# [2.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.20.0-rc.1...@carbon/ibmdotcom-web-components@2.20.0) (2025-03-26)
+
+
+### Bug Fixes
+
+* **masthead:** enabling the icon and using the correct icon ([#12238](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12238)) ([adba500](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/adba500af9ee530569d8a630c7300b677ba97fb2))
+
+
+
+
+
+# [2.20.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.20.0-rc.0...@carbon/ibmdotcom-web-components@2.20.0-rc.1) (2025-03-21)
+
+
+### Bug Fixes
+
+* **masthead:** globe icon logic fixed to display ([#12237](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12237)) ([6774a23](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6774a2390b3fa74fe80ef1590ad32546a08d87ea))
+
+
+
+
+
+# [2.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.19.0...@carbon/ibmdotcom-web-components@2.20.0-rc.0) (2025-03-18)
+
+
+### Bug Fixes
+
+* **masthead:** adding language selector at L0 ([#12234](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12234)) ([93bc243](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/93bc243d92c77113feb99618214df3231d8085ff))
+* **table-of-contents:** fix false positives on error handling ([#12233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12233)) ([40a41c7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40a41c71e4885625e7c5fe521c1e3b2b92d28e86))
+
+
+
+
+
+# [2.19.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.18.0...@carbon/ibmdotcom-web-components@2.19.0) (2025-03-14)
+
+
+### Features
+
+* **masthead:** adding shadow parts to svg arrow icons ([#12226](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12226)) ([f2046fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f2046fba5930285f5d1ae4b5224fc073acad71ca))
+
+
+
+
+
+# [2.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.17.1...@carbon/ibmdotcom-web-components@2.18.0) (2025-03-10)
+
+
+### Bug Fixes
+
+* **content-block-paragraph:** fixing the logic to hide the component … ([#12214](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12214)) ([dcf6bf2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dcf6bf27eadbb22de4e24d6ebada3b5b0c3d690b))
+* **masthead-l1:** fix unwanted item highlighting ([#12212](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12212)) ([2dcc5ed](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2dcc5edd2f7d2fa680c6e74426860cb3b81269a3))
+* **toc:** centering clicked tabs in mobile ([#12209](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12209)) ([4094a6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4094a6f16a3f00a3969299a63935a300bc29cfd9)), closes [#6635](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6635)
+
+
+### Features
+
+* **card:** replicate v1 hover behavior ([#12218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12218)) ([970b158](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/970b158cd53edf42a5374067df36c90382685256))
+
+
+
+
+
 ## [2.17.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.17.0...@carbon/ibmdotcom-web-components@2.17.1) (2025-02-20)
 
 
