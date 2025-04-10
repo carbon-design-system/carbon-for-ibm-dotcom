@@ -24,8 +24,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
-const MAX_GESTURE_DURATION = 300; // max time allowed to do swipe
-const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swipe
+const MAX_GESTURE_DURATION = 600; // max time allowed to do swipe
+const MIN_DISTANCE_TRAVELLED = 25; // min distance traveled to be considered swipe
 const headingBottomMargin = 64; // tag constants used for same height calculations
 
 /**
