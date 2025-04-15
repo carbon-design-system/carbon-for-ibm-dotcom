@@ -392,6 +392,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       } else {
         this.start = Math.max(start - pageSize, 0);
       }
+      this._handleIsScrolling();
     }
   }
 
