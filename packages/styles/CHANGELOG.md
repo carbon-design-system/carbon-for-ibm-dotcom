@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.21.0...@carbon/ibmdotcom-styles@2.22.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* **pricing-table:** enabling overflow hints in mobile ([#12249](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12249)) ([4590e3d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4590e3d5bcbed8f1b6a4217d8447f2c69b920725))
+
+
+### Features
+
+* **content-item-row-media:** optimize component for mobile ([#12220](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12220)) ([b77d80b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b77d80b5a6efb0f051d5587d9a04b364062c19aa))
+
+
+
+
+
 # [2.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.20.0...@carbon/ibmdotcom-styles@2.21.0) (2025-04-07)
 
 
