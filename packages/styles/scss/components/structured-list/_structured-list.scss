@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2023
+// Copyright IBM Corp. 2019, 2025
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -19,6 +19,13 @@
   ::slotted(*:nth-child(#{$colNumber})) {
     --cols: var(--col-span-#{$colNumber}, 2);
     --width: calc((var(--cols) / var(--max-cols)) * 100%);
+
+    @include breakpoint-down(md) {
+      //Adjusting the mobile column width calculation. We're subtracting 5% of its width in mobile so that the next column 'peeks out' from the right side of the screen, indicating there's more scrollable content.
+      --width: calc(
+        (var(--cols) / var(--max-cols)) * 100% - var(--mobile-peek, 5%)
+      );
+    }
 
     flex: 0 0 var(--width);
 
