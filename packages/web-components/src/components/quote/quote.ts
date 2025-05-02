@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -45,6 +45,9 @@ const slotExistencePropertyNames = {
  * @csspart container - Quote container. Usage `c4d-quote::part(container)`
  * @csspart wrapper - Quote wrapper. Usage `c4d-quote::part(wrapper)`
  * @csspart hr - Horizontal rule. Usage `c4d-quote::part(wrapper)`
+ * @csspart bubble-pointer-svg - The bubble quote variation pointer. Usage `c4d-quote::part(bubble-pointer-svg)`
+ * @csspart bubble-pointer-fill-svg - The fill color of the pointer. Usage `c4d-quote::part(bubble-pointer-fill-svg)`
+ * @csspart bubble-pointer-stroke-svg - The stroke color of the pointer. Usage `c4d-quote::part(bubble-pointer-stroke-svg)`
  */
 @customElement(`${c4dPrefix}-quote`)
 class C4DQuote extends StableSelectorMixin(LitElement) {
@@ -177,6 +180,41 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
               class="${prefix}--quote__mark-closing"
               part="mark mark--closing"
               >」</span
+            >
+          </blockquote>
+        `;
+      case QUOTE_TYPES.BUBBLE_QUOTE:
+        return html`
+          <span class="${prefix}--quote__mark" part="mark mark--opening">
+            ${this.lc !== 'ar' ? '“' : '”'}
+          </span>
+          <blockquote
+            class="${prefix}--quote__copy ${prefix}-bubble-quote"
+            part="copy">
+            <slot></slot>
+            <svg
+              width="47"
+              height="37"
+              viewBox="0 0 47 37"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="bubble-pointer"
+              part="bubble-pointer-svg">
+              <path
+                d="M4 31.84V4.5C4 2.29086 2.20914 0.5 0 0.5V0H46.6569V0.5C45.596 0.5 44.5786 0.919855 43.8284 1.67L10.8284 34.67C8.30857 37.1899 4 35.4036 4 31.84Z"
+                fill="#F4F4F4"
+                class="bubble-pointer-fill"
+                part="bubble-pointer-fill-svg" />
+              <path
+                d="M0 0.5C2.20914 0.5 4 2.29086 4 4.5V31.84C4 35.4036 8.30857 37.1899 10.8284 34.67L43.8284 1.67C44.5786 0.919855 45.596 0.5 46.6569 0.5"
+                stroke="#8D8D8D"
+                class="bubble-pointer-stroke"
+                part="bubble-pointer-stroke-svg" />
+            </svg>
+            <span
+              class="${prefix}--quote__mark-closing"
+              part="mark mark--closing"
+              >${this.lc !== 'ar' ? '”' : '“'}</span
             >
           </blockquote>
         `;

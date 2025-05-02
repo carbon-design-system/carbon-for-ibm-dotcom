@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -189,5 +189,64 @@
     @extend .#{$c4d-prefix}--link-with-icon !optional;
 
     display: inline-block;
+  }
+
+  .#{$prefix}-bubble-quote {
+    position: relative;
+    padding: 2.5rem;
+    border: 1px solid #8d8d8d;
+    border-radius: 0.25rem;
+    background: #f4f4f4;
+    margin-block-end: 3.81rem; /* match svg pointer height */
+    margin-inline: 0;
+
+    @include breakpoint-down(md) {
+      /* mobile inline gutters for the bubble quote */
+      margin-inline: 16px;
+      max-inline-size: calc(100% - 32px);
+    }
+
+    .bubble-pointer {
+      --fill: #f4f4f4;
+      --stroke: #8d8d8d;
+
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline-start: 2rem;
+
+      @include breakpoint-down(md) {
+        /* adjusting the pointer top position a bit since the max-inline-size calc changes in mobile. */
+        inset-block-start: calc(100% - 1px);
+      }
+    }
+
+    .bubble-pointer-fill {
+      fill: var(--fill);
+    }
+
+    .bubble-pointer-stroke {
+      stroke: var(--stroke);
+    }
+  }
+
+  :host([mark-type='bubble-quote']) {
+    span.cds--quote__mark[part~='mark--opening'] {
+      z-index: 1;
+      inset-block-start: 2.5rem;
+      inset-inline-start: 0.875rem;
+
+      @include breakpoint-down(lg) {
+        inset-inline-start: 1.25rem;
+      }
+      @include breakpoint-down(md) {
+        inset-inline-start: 2.8rem;
+      }
+    }
+  }
+
+  /* Mirroing the bubble quote in RTL modes */
+  :host([lang='ar']) .#{$prefix}-bubble-quote .bubble-pointer {
+    inset-inline: auto 2rem;
+    transform: scaleX(-1);
   }
 }
