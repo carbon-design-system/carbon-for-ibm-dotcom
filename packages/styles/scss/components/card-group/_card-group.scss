@@ -44,7 +44,7 @@
     }
   }
 
-  :not(:host(#{$c4d-prefix}-card-group.is-full-width-template)) {
+  :host(#{$c4d-prefix}-card-group):not(.is-full-width-template) {
     @include breakpoint-down(md) {
       padding-inline: $spacing-05;
     }
