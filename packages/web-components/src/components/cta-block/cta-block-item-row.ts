@@ -32,11 +32,11 @@ class C4DCTABlockItemRow extends StableSelectorMixin(LitElement) {
   _hasChildWithMedia = false;
   checkForMedia() {
     const childrenWithMedia = Array.from(this.children).filter((elem) => {
-      if (elem.tagName.toLowerCase() === `${c4dPrefix}-content-item`) {
-        return (elem as C4DContentItem)?._hasMedia &&
+      if (elem instanceof C4DContentItem) {
+        return (
+          (elem as C4DContentItem)?._hasMedia &&
           !(elem as C4DContentItem)?._hasPictogram
-          ? true
-          : false;
+        );
       }
       return false;
     });
