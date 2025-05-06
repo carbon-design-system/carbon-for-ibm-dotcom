@@ -1,18 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-block.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import C4DContentItem from '../content-item/content-item';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -27,9 +28,29 @@ class C4DCTABlockItemRow extends StableSelectorMixin(LitElement) {
   /** Defines if the bottom border is rendered */
   @property({ type: Boolean, reflect: true, attribute: 'no-border' })
   _noBorder = false;
+  @state()
+  _hasChildWithMedia = false;
+  checkForMedia() {
+    const childrenWithMedia = Array.from(this.children).filter((elem) => {
+      if (elem.tagName.toLowerCase() === `${c4dPrefix}-content-item`) {
+        return (elem as C4DContentItem)?._hasMedia &&
+          !(elem as C4DContentItem)?._hasPictogram
+          ? true
+          : false;
+      }
+      return false;
+    });
+    this._hasChildWithMedia = childrenWithMedia.length > 0;
+    this.render();
+  }
 
   render() {
-    return html`<slot></slot>`;
+    const { _hasChildWithMedia: hasChildWithMedia } = this;
+    if (hasChildWithMedia) {
+      return html`<div class="scroll-container"><slot></slot></div>`;
+    } else {
+      return html`<slot></slot>`;
+    }
   }
 
   /**
@@ -42,6 +63,9 @@ class C4DCTABlockItemRow extends StableSelectorMixin(LitElement) {
         !this._noBorder
       );
     }
+    this.updateComplete.then(() => {
+      this.checkForMedia();
+    });
   }
 
   static get stableSelector() {
