@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -66,24 +66,29 @@ class C4DContentItemRowMedia extends HostListenerMixin(C4DContentItem) {
   }
 
   /**
+   * @returns The media column content.
+   */
+  protected _renderMediaCol(): TemplateResult | string | void {
+    return html`
+      <div class="${prefix}--content-item-row__col" part="col col--media">
+        <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  /**
    * @returns The component content in the appropriate tabbing order.
    */
   protected _renderContent(): TemplateResult | string | void {
-    const alignedRight = this._isOneColumn || this.align === MEDIA_ALIGN.RIGHT;
+    const alignedRight = this.align === MEDIA_ALIGN.RIGHT;
 
+    // Always return image first when stacked on mobile
+    if (this._isOneColumn) {
+      return html` ${this._renderMediaCol()} ${this._renderTextCol()} `;
+    }
     return alignedRight
-      ? html`
-          ${this._renderTextCol()}
-          <div class="${prefix}--content-item-row__col" part="col col--media">
-            <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-          </div>
-        `
-      : html`
-          <div class="${prefix}--content-item-row__col" part="col col--media">
-            <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-          </div>
-          ${this._renderTextCol()}
-        `;
+      ? html` ${this._renderTextCol()} ${this._renderMediaCol()} `
+      : html` ${this._renderMediaCol()} ${this._renderTextCol()} `;
   }
 
   render() {

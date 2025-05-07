@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.21.0...@carbon/ibmdotcom-web-components@2.22.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* **carousel:** gesture-duration-mobile ([#12247](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12247)) ([346310d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/346310d5b0651be6f7d2b45e15f568a8cd607710))
+
+
+### Features
+
+* **content-item-row-media:** optimize component for mobile ([#12220](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12220)) ([b77d80b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b77d80b5a6efb0f051d5587d9a04b364062c19aa))
+
+
+
+
+
 # [2.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.20.0...@carbon/ibmdotcom-web-components@2.21.0) (2025-04-07)
 
 
