@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.22.0...@carbon/ibmdotcom-styles@2.23.0) (2025-05-07)
+
+
+### Bug Fixes
+
+* **callout-quote:** enabling bubble quote variation ([#12258](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12258)) ([c9201b9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c9201b907272ad336709dce3472417b726643bcd))
+* **card-group:** incorrect mobile gutters for FW layout pages in AEM ([#12256](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12256)) ([bc92e4a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bc92e4a192707f0c99a0e17990ca49962b361a6e))
+* **masthead-l1:** mobile dropdown with 0 width on iOS devices ([#12257](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12257)) ([d1ce271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d1ce271a91c1eceab8c686403fa6756256cf5d20))
+
+
+### Features
+
+* **cta-section:** optimize for mobile ([#12259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12259)) ([b02e72e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b02e72e15bf732ee47e50dbc62019f951aa5fde9))
+* **structured-list:** column-width-mobile-6607 ([#12255](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12255)) ([860defb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/860defbd37563540e81a02c407538704d1a47ed9))
+
+
+
+
+
 # [2.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.21.0...@carbon/ibmdotcom-styles@2.22.0) (2025-04-16)
 
 
