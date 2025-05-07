@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -114,6 +114,12 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     ) {
       this.setAttribute('with-card-in-card', '');
     }
+
+    // Check if the component is living in a Full Width or Table of Contents template.
+    const isFullWidthTemplate =
+      document.body.getAttribute('data-fullwidthtemplate') === 'true';
+    //Adds a class if true, for better css treatment in mobile for FW pages.
+    this.classList.toggle('is-full-width-template', isFullWidthTemplate);
   }
 
   updated(changedProperties) {
