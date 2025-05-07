@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2024
+// Copyright IBM Corp. 2020, 2025
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/layout';
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-
+@use '@carbon/ibmdotcom-styles/scss/globals/scroll-snap' as *;
 :host(#{$c4d-prefix}-cta-block) {
   display: block;
 
@@ -128,6 +128,41 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   inline-size: 100%;
+
+  .scroll-container {
+    $gutter: 1rem;
+    $gap: 1rem;
+
+    @include breakpoint('md') {
+      display: contents;
+    }
+    @include breakpoint-down('md') {
+      @include scroll-snap-container();
+
+      display: flex;
+      gap: $gap;
+      padding-inline: $gutter;
+
+      &::after {
+        flex-basis: 1px;
+        flex-shrink: 0;
+        content: '';
+      }
+
+      ::slotted(#{$c4d-prefix}-content-item),
+      ::slotted(#{$c4d-prefix}-cta-block-item) {
+        box-sizing: border-box;
+        flex-basis: clamp(220px, 65vw, 400px);
+        flex-shrink: 0;
+        align-content: start;
+        block-size: auto;
+        // override web component internal padding and rely on gap instead
+        padding-inline: 0;
+        scroll-margin: $gutter;
+        scroll-snap-align: start;
+      }
+    }
+  }
 
   // Hide last row's items' bottom border
   &::after {

@@ -1,0 +1,24 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2020, 2025
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+
+@mixin scroll-snap-container() {
+  overflow: scroll hidden;
+  // Width safeguards
+  inline-size: 100%;
+  max-inline-size: 100vw;
+  overscroll-behavior-x: contain;
+
+  // Extra space for auto-appearing scrollbar
+  padding-block: 4px 1rem;
+
+  // Extra space for css outlines on inner cards
+  scroll-snap-type: x mandatory;
+}
