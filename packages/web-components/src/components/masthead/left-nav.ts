@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -162,6 +162,7 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   };
 
   private _handleClickOut(event: MouseEvent) {
+    debugger;
     const { selectorButtonToggle } = this.constructor as typeof C4DLeftNav;
     const toggleButton: HTMLElement | null = (
       this.getRootNode() as Document
@@ -232,6 +233,17 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
       }
     }
   };
+
+  //TODO: Remove this override when upstream bug is fixed.
+  //@ts-ignore: Overriding the Focus Out Function
+  private _handleFocusOut({ relatedTarget }: FocusEvent) {
+    const { collapseMode } = this;
+    if (collapseMode !== this.collapseMode) {
+      if (!this.contains(relatedTarget as Node)) {
+        this.expanded = false;
+      }
+    }
+  }
 
   /**
    * Usage mode of the side nav.
