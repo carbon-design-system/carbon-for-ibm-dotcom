@@ -43,6 +43,7 @@ const FOLLOWING =
  * @csspart menu-sections - The element containing the menu sections slot. Usage: `c4d-left-nav::part(menu-sections)`
  */
 @customElement(`${c4dPrefix}-left-nav`)
+//@ts-ignore: Temporary override. shoud be removed when fixed upstream.
 class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   /**
    * The handle for focus wrapping.
