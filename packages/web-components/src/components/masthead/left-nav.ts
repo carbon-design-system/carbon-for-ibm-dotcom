@@ -162,7 +162,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   };
 
   private _handleClickOut(event: MouseEvent) {
-    debugger;
     const { selectorButtonToggle } = this.constructor as typeof C4DLeftNav;
     const toggleButton: HTMLElement | null = (
       this.getRootNode() as Document
