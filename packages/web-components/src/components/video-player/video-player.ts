@@ -307,7 +307,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     });
 
     return html`
-      <div class="${aspectRatioClass}">
+      <div class="${aspectRatioClass}" part="video-container">
         ${intersectionMode
           ? html`
               <button
