@@ -145,17 +145,12 @@ class C4DCardGroup extends MediaQueryMixin(
     }
 
     //Setting grid mode to condensed in mobile in favor of scroll snap behavior
-    const hasMediaLogo = this.classList.contains(
-      'media-type-block-cards__logo'
-    );
-
-    if (!this._isMediumOrGreater && !hasMediaLogo) {
+    if (!this._isMediumOrGreater) {
       this.gridMode = GRID_MODE.CONDENSED;
     }
   }
 
   render() {
-    console.log(this._isMediumOrGreater);
     return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
