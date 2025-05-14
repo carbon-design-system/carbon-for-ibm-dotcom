@@ -14,6 +14,11 @@ import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 
 export { GRID_MODE };
 
@@ -25,7 +30,10 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-card-group
  */
 @customElement(`${c4dPrefix}-card-group`)
-class C4DCardGroup extends StableSelectorMixin(LitElement) {
+class C4DCardGroup extends MediaQueryMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement)),
+  { [MQBreakpoints.MD]: MQDirs.MIN }
+) {
   /**
    * Array to hold the card-heading elements within child items.
    */
@@ -73,6 +81,13 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
    */
   @state()
   private _cardsPerRowAuto = 3;
+
+  @state()
+  private _isMediumOrGreater = this.carbonBreakpoints.md.matches;
+
+  protected mediaQueryCallbackMD() {
+    this._isMediumOrGreater = this.carbonBreakpoints.md.matches;
+  }
 
   /**
    * Number of cards per column.
@@ -128,9 +143,19 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     if (changedProperties.has('gridMode')) {
       this._childItems.forEach((e) => (e.gridMode = this.gridMode));
     }
+
+    //Setting grid mode to condensed in mobile in favor of scroll snap behavior
+    const hasMediaLogo = this.classList.contains(
+      'media-type-block-cards__logo'
+    );
+
+    if (!this._isMediumOrGreater && !hasMediaLogo) {
+      this.gridMode = GRID_MODE.CONDENSED;
+    }
   }
 
   render() {
+    console.log(this._isMediumOrGreater);
     return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
