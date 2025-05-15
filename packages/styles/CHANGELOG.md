@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.23.0...@carbon/ibmdotcom-styles@2.24.0) (2025-05-15)
+
+
+### Bug Fixes
+
+* **cont-block-cards:** enhancing the logic condition for the card group ([#12271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12271)) ([cdb4994](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cdb49948978ab1e17d0151fe5ecf94fac7d2a7f8))
+
+
+
+
+
 # [2.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.22.0...@carbon/ibmdotcom-styles@2.23.0) (2025-05-07)
 
 
