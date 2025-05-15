@@ -245,7 +245,9 @@
   }
 
   // Mobile horizontal scroll snap behavior
-  :host(#{$c4d-prefix}-card-group):not(.media-type-block-cards__logo) {
+  :host(#{$c4d-prefix}-card-group).inside-block-cards:not(
+      .media-type-block-cards__logo
+    ) {
     $gutter: 1rem;
     $gap: 1rem;
 

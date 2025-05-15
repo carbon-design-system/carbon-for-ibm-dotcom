@@ -119,6 +119,19 @@ class C4DCardGroup extends MediaQueryMixin(
   @property({ type: Boolean, reflect: true })
   pictograms = false;
 
+  // Adding a class that will identify that c4d-card-group is inside c4d-content-block-cards for special treatment.
+  private isInsideBlockCards() {
+    const cardGroupParentEl = this.parentElement;
+    console.log(cardGroupParentEl);
+
+    if (
+      cardGroupParentEl?.tagName.toLowerCase() ===
+      `${c4dPrefix}-content-block-cards`
+    ) {
+      this.classList.add('inside-block-cards');
+    }
+  }
+
   firstUpdated() {
     super.connectedCallback();
 
@@ -135,6 +148,8 @@ class C4DCardGroup extends MediaQueryMixin(
       document.body.getAttribute('data-fullwidthtemplate') === 'true';
     //Adds a class if true, for better css treatment in mobile for FW pages.
     this.classList.toggle('is-full-width-template', isFullWidthTemplate);
+
+    this.isInsideBlockCards();
   }
 
   updated(changedProperties) {
