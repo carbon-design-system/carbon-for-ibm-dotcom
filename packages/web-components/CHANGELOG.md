@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.23.0...@carbon/ibmdotcom-web-components@2.24.0) (2025-05-15)
+
+
+### Bug Fixes
+
+* **cont-block-cards:** enhancing the logic condition for the card group ([#12271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12271)) ([cdb4994](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cdb49948978ab1e17d0151fe5ecf94fac7d2a7f8))
+* **left-nav:** fix menu closing on iOS devices ([#12264](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12264)) ([fafbe04](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fafbe04c6be66c45381d6e880f86e63c76fd01d5))
+* **table-of-contents:** ignore input and select tag names ([#12266](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12266)) ([20564fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/20564fbcd82fe52eb2ec0495b3209ad74c4b75a8))
+
+
+### Features
+
+* **video-player:** adding player icon shadow part ([#12268](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12268)) ([fda8c26](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fda8c26980bd4f6f9761ac9460292c492bede32d))
+* **video-player:** adding shadow-part for video-container ([#12265](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12265)) ([e766253](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e7662532e7ede569edcbec0cb8fb70b92288012f))
+
+
+
+
+
 # [2.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.22.0...@carbon/ibmdotcom-web-components@2.23.0) (2025-05-07)
 
 
