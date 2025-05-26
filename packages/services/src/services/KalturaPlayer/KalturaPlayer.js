@@ -208,6 +208,12 @@ class KalturaPlayerAPI {
           closedCaptions: {
             plugin: true,
           },
+          /**
+           * When altering this default prop,
+           * please also check the video-player-container
+           * _getPlayerOptions prop of same name - as it also
+           * replicates the value bellow except for text
+           */
           titleLabel: {
             plugin: true,
             align: 'left',

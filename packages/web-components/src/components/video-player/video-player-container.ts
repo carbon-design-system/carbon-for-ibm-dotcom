@@ -179,6 +179,15 @@ export const C4DVideoPlayerContainerMixin = <
     _getPlayerOptions() {
       const { backgroundMode, intersectionMode, autoPlay, muted } =
         this as unknown as C4DVideoPlayerComposite;
+      /**
+       * The overwritten media title.
+       *
+       * Quick and dirty turn around as C4DVideoPlayerComposite uses caption
+       * and C4DLightboxVideoPlayer uses customVideoName and none are
+       * part of the same type
+       */
+      const mediaTitle = this?.['customVideoName'] || this?.['caption'];
+
       let playerOptions = {};
       const autoplayPreference = this._getAutoplayPreference();
 
@@ -216,6 +225,19 @@ export const C4DVideoPlayerContainerMixin = <
             autoMute: muted,
           };
           break;
+      }
+
+      if (mediaTitle) {
+        playerOptions = {
+          ...playerOptions,
+          ...{
+            titleLabel: {
+              plugin: true,
+              align: 'left',
+              text: mediaTitle,
+            },
+          },
+        };
       }
 
       return playerOptions;
