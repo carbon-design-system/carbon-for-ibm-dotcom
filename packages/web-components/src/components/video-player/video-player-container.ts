@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,7 @@ import {
   bindActionCreators,
 } from 'redux';
 import {} from 'lit';
+import { property } from 'lit/decorators.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
@@ -114,6 +115,9 @@ export const C4DVideoPlayerContainerMixin = <
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
     _requestsEmbedVideo: { [videoId: string]: Promise<any> } = {};
 
+    @property({ type: String, attribute: 'customvideoname' })
+    customVideoName = '';
+
     /**
      * Sets the state that the API call for embedding the video for the given video ID is in progress.
      *
@@ -179,6 +183,18 @@ export const C4DVideoPlayerContainerMixin = <
     _getPlayerOptions() {
       const { backgroundMode, intersectionMode, autoPlay, muted } =
         this as unknown as C4DVideoPlayerComposite;
+      /**
+       * The overwritten media title.
+       *
+       * Quick and dirty turn around as C4DVideoPlayerComposite uses caption
+       * and C4DLightboxVideoPlayer uses customVideoName and none are
+       * part of the same type
+       *
+       * <c4d-video-player-container customVideoName="overwritten media title here">...
+       *
+       */
+      const mediaTitle = this?.['customVideoName'] || this?.['caption'];
+
       let playerOptions = {};
       const autoplayPreference = this._getAutoplayPreference();
 
@@ -216,6 +232,19 @@ export const C4DVideoPlayerContainerMixin = <
             autoMute: muted,
           };
           break;
+      }
+
+      if (mediaTitle) {
+        playerOptions = {
+          ...playerOptions,
+          ...{
+            titleLabel: {
+              plugin: true,
+              align: 'left',
+              text: mediaTitle,
+            },
+          },
+        };
       }
 
       return playerOptions;

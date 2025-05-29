@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -208,6 +208,12 @@ class KalturaPlayerAPI {
           closedCaptions: {
             plugin: true,
           },
+          /**
+           * When altering this default prop,
+           * please also check the video-player-container
+           * _getPlayerOptions prop of same name - as it also
+           * replicates the value below except for text
+           */
           titleLabel: {
             plugin: true,
             align: 'left',
