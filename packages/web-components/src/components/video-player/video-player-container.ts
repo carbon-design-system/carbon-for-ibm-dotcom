@@ -189,6 +189,9 @@ export const C4DVideoPlayerContainerMixin = <
        * Quick and dirty turn around as C4DVideoPlayerComposite uses caption
        * and C4DLightboxVideoPlayer uses customVideoName and none are
        * part of the same type
+       *
+       * <c4d-video-player-container customVideoName="overwritten media title here">...
+       *
        */
       const mediaTitle = this?.['customVideoName'] || this?.['caption'];
 
