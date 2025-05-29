@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.24.0...@carbon/ibmdotcom-styles@2.25.0) (2025-05-29)
+
+
+### Bug Fixes
+
+* **background-media:** gradient rtl display issue ([#12274](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12274)) ([b28a819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b28a819ecfb60b769e651e61f8d853f51a2cce6f))
+
+
+
+
+
 # [2.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.23.0...@carbon/ibmdotcom-styles@2.24.0) (2025-05-15)
 
 
