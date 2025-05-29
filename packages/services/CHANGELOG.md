@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.24.0...@carbon/ibmdotcom-services@2.25.0) (2025-05-29)
+
+
+### Bug Fixes
+
+* **video-player-container:** enabling the usage of custom title override ([#12275](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12275)) ([c30096b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c30096b43e919246195ae61bf58cfb6ac87a31e9))
+
+
+
+
+
 # [2.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.23.0...@carbon/ibmdotcom-services@2.24.0) (2025-05-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
