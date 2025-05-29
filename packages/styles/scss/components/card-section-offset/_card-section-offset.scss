@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -103,6 +103,19 @@
       @include breakpoint(lg) {
         padding-block-start: $spacing-07;
       }
+    }
+  }
+
+  :host(:dir(rtl)) {
+    ::slotted([slot='heading']) {
+      margin-right: 1rem;
+    }
+
+    ::slotted([slot='action']) {
+      //important needed because <a slot="action" style="display: contents;"> in AEM has an inline style
+      /* stylelint-disable declaration-no-important */
+      display: block !important;
+      margin-right: 1rem !important;
     }
   }
 
