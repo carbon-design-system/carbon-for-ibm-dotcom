@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -87,7 +87,7 @@
     .#{$prefix}--link {
       display: flex;
       align-content: flex-start;
-      padding: $spacing-04 0;
+      padding: $spacing-03 0;
       gap: $spacing-03;
       inline-size: 100%;
 
