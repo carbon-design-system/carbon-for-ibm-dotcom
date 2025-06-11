@@ -68,7 +68,7 @@ export function checkEmailStatus(
   onError: (err?: any) => void
 ) {
   const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
-  const url = `https://pf-api-dummyemail.urx-perform.wdc.dev.cirrus.ibm.com/pf/api/v1/userEmail?email=${encodeURIComponent(email)&&encodeURIComponent(country)}&env=${environment}`;
+  const url = `https://pf-api-dummyemail.urx-perform.wdc.dev.cirrus.ibm.com/pf/api/v1/userEmail?email=${encodeURIComponent(email) && encodeURIComponent(country)}&env=${environment}`;
 
   fetch(url)
     .then((response) => {
