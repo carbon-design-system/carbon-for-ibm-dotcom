@@ -401,7 +401,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
         if (!isValidDate) {
           console.warn('Invalid annualPeriod:', annualPeriod);
-           this.showCheckBox = true;
+          this.showCheckBox = true;
           this.renderCombinedEmailPhoneSection();
           return;
         }
@@ -409,7 +409,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         const isExpired = emailStatus === 'P' && annualPeriodDate < oneYearAgo;
         this.isAnnualPeriodExpired = isExpired;
         this.showCheckBox = isExpired ? true : false;
-        
+
       },
       (error) => {
         console.error('Error checking email status:', error);
