@@ -133,7 +133,7 @@ export const Default = (args) => {
     ncTeleDetail,
     ncEmailDetail,
     environment,
-    email
+    email,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
