@@ -20,7 +20,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
-import { ConnectionSend } from '@carbon/icons-react';
+
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
