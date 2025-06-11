@@ -15,7 +15,8 @@ export function loadContent(
   const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
   script.async = false;
   script.charset = 'utf-8';
-  script.src = `https://${environment}/common/translations/notice/v23/${locale.toLocaleLowerCase()}/ncContent_v23.js`; // URL for the third-party library being loaded.
+  const timestamp = Date.now();
+  script.src = `https://${environment}/common/translations/notice/v23/${locale.toLocaleLowerCase()}/ncContent_v23.js?t=${timestamp}`;
   document.body.appendChild(script);
   script.onload = () => {
     try {
@@ -40,7 +41,7 @@ export function loadSettings(env: string, onSuccess: any, onError: any) {
   const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
   script.async = false;
   script.charset = 'utf-8';
-  script.src = `https://${environment}/common/noticechoice/settings.js`; // URL for the third-party library being loaded.
+  script.src = `https://${environment}/common/noticechoice/settings.js`;
   document.body.appendChild(script);
   script.onload = () => {
     try {
@@ -59,3 +60,29 @@ export function loadSettings(env: string, onSuccess: any, onError: any) {
     }
   };
 }
+export function checkEmailStatus(
+  email: string,
+  country: string,
+  env: string,
+  onSuccess: (data: any) => void,
+  onError: (err?: any) => void
+) {
+  const url = `https://pf-api-dummyemail.urx-perform.wdc.dev.cirrus.ibm.com/pf/api/v1/userEmail?email=${encodeURIComponent(email)}`;
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      onSuccess(data);
+    })
+    .catch((err) => {
+      onError(err);
+    });
+
+}
+
+
