@@ -15,6 +15,7 @@ import { QUOTE_TYPES } from '../../quote/quote';
 import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import { APPEARANCE } from '../../quote/defs';
 
 const quoteTypes = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
@@ -24,7 +25,12 @@ const quoteTypes = {
   [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]:
     QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
-  [`${QUOTE_TYPES.BUBBLE_QUOTE}`]: QUOTE_TYPES.BUBBLE_QUOTE,
+};
+
+const appearance = {
+  [`${APPEARANCE.DEFAULT}`]: APPEARANCE.DEFAULT,
+  [`${APPEARANCE.CARD}`]: APPEARANCE.CARD,
+  [`${APPEARANCE.BUBBLE_QUOTE}`]: APPEARANCE.BUBBLE_QUOTE,
 };
 
 const colorSchemeTypes = {
@@ -39,13 +45,17 @@ export const Default = (args) => {
   const {
     copy,
     quoteMark,
+    appearance,
     sourceHeading,
     sourceCopy,
     sourceBottomCopy,
     colorScheme,
   } = args?.CalloutQuote ?? {};
   return html`
-    <c4d-callout-quote mark-type="${quoteMark}" color-scheme="${colorScheme}">
+    <c4d-callout-quote
+      mark-type="${quoteMark}"
+      appearance="${appearance}"
+      color-scheme="${colorScheme}">
       ${copy}
       <c4d-quote-source-heading> ${sourceHeading} </c4d-quote-source-heading>
       <c4d-quote-source-copy> ${sourceCopy} </c4d-quote-source-copy>
@@ -87,6 +97,11 @@ export default {
           'Quote Mark (markType):',
           quoteTypes,
           quoteTypes['double-curved']
+        ),
+        appearance: select(
+          'Appearance (Default - legacy | card and bubble-quote are mobile only):',
+          appearance,
+          appearance['legacy']
         ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',
