@@ -37,6 +37,18 @@ export enum QUOTE_TYPES {
    * corner-bracket
    */
   CORNER_BRACKET = 'corner-bracket',
+}
+
+export enum APPEARANCE {
+  /**
+   * Default - legacy
+   */
+  DEFAULT = 'legacy',
+
+  /**
+   * card
+   */
+  CARD = 'card',
 
   /**
    * bubble-quote
