@@ -408,7 +408,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.renderCombinedEmailPhoneSection();
           return;
         }
-        
+
         const isExpired = emailStatus === 'P' && annualPeriodDate < oneYearAgo;
         this.isAnnualPeriodExpired = isExpired;
         this.showCheckBox = isExpired || emailStatus !== 'P';
