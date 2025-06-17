@@ -21,6 +21,8 @@ import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
+import '@carbon/web-components/es/components/loading/index.js';
+
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
@@ -121,6 +123,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Boolean, attribute: false })
   showCheckBox = false;
+
+  @property({ type: Boolean, attribute: false })
+  isLoading = false;
 
   /**
    * End properties for passed attributes.
@@ -382,34 +387,38 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   onEmailChange() {
     const email = this.email;
-    const country = this.country?.toLowerCase() || '';
     const oneYearAgo = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000);
 
     this.isAnnualPeriodExpired = true;
-
+    this.isLoading = true;
     checkEmailStatus(
       email,
-      country,
       this.environment,
       (data) => {
-        const { email: emailStatus, annualPeriod } = data;
+        const { email: emailStatus, lastUpdated } = data;
+        this.isLoading = false;
 
-        const annualPeriodDate = new Date(annualPeriod);
+        const annualPeriodDate = new Date(lastUpdated);
         const isValidDate = !isNaN(annualPeriodDate.getTime());
 
         if (!isValidDate) {
-          console.warn('Invalid annualPeriod:', annualPeriod);
+          console.warn('Invalid annualPeriod:', lastUpdated);
+          this.isAnnualPeriodExpired = false;
           this.showCheckBox = true;
           this.renderCombinedEmailPhoneSection();
           return;
         }
-
+        
         const isExpired = emailStatus === 'P' && annualPeriodDate < oneYearAgo;
         this.isAnnualPeriodExpired = isExpired;
-        this.showCheckBox = isExpired ? true : false;
+        this.showCheckBox = isExpired || emailStatus !== 'P';
       },
       (error) => {
-        console.error('Error checking email status:', error);
+        this.isLoading = false;
+        this.isAnnualPeriodExpired = false;
+        this.showCheckBox = true;
+        this.renderCombinedEmailPhoneSection();
+        console.error('if error then return N:', error);
       }
     );
   }
@@ -555,7 +564,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (!this.email) {
       preText = ecmTranslateContent.annualDefaultText;
     } else {
-      preText = this.isAnnualPeriodExpired
+      preText = this.showCheckBox
         ? ecmTranslateContent.combinedConsent
         : ecmTranslateContent.annualText;
     }
@@ -778,6 +787,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    if (this.isLoading) {
+      return html`<div
+        style="position: relative; padding: 3rem; display: flex;">
+        <cds-loading type="small"></cds-loading>
+      </div>`;
+    }
+
     if (
       this.isMandatoryCheckboxDisplayed.isDisplayed &&
       this.country.toLocaleLowerCase() !==

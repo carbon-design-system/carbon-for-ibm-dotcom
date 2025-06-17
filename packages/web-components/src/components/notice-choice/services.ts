@@ -60,19 +60,23 @@ export function loadSettings(env: string, onSuccess: any, onError: any) {
     }
   };
 }
+
 export function checkEmailStatus(
   email: string,
-  country: string,
   env: string,
   onSuccess: (data: any) => void,
   onError: (err?: any) => void
 ) {
-  const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
-  const url = `https://pf-api-dummyemail.urx-perform.wdc.dev.cirrus.ibm.com/pf/api/v1/userEmail?email=${
-    encodeURIComponent(email) && encodeURIComponent(country)
-  }&env=${environment}`;
+  const environment = env === 'prod' ? 'www.ibm.com' : 'wwwstage.ibm.com';
+  const url = `https://${environment}/account/apis/v2.0/preference/get`;
 
-  fetch(url)
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }), // sending email in request body
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -83,6 +87,8 @@ export function checkEmailStatus(
       onSuccess(data);
     })
     .catch((err) => {
+      console.error('Error checking email status:', err);
+
       onError(err);
     });
 }
