@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { loadContent, loadSettings } from './services';
+import { loadContent, loadSettings, checkEmailStatus } from './services';
 import { TemplateResult, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import {
@@ -20,6 +20,8 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+
+import '@carbon/web-components/es/components/loading/index.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -46,6 +48,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
    */
   @property({ type: String, reflect: true, attribute: 'question-choices' })
   questionchoices = '1';
+
+  @property({ type: String, attribute: 'email' })
+  email = '';
 
   @property({ type: String, attribute: 'country' })
   country = 'US';
@@ -112,6 +117,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Boolean, attribute: false })
   combinedEmailPhonePrechecked = false;
+
+  @property({ type: Boolean, attribute: false })
+  isAnnualPeriodExpired = true;
+
+  @property({ type: Boolean, attribute: false })
+  showCheckBox = false;
+
+  @property({ type: Boolean, attribute: false })
+  isLoading = false;
 
   /**
    * End properties for passed attributes.
@@ -360,7 +374,53 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
         break;
       }
+      case 'email': {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (hasValue && oldVal !== newVal && emailRegex.test(newVal)) {
+          this.email = newVal;
+          this.onEmailChange();
+        }
+        break;
+      }
     }
+  }
+
+  onEmailChange() {
+    const email = this.email;
+    const oneYearAgo = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000);
+
+    this.isAnnualPeriodExpired = true;
+    this.isLoading = true;
+    checkEmailStatus(
+      email,
+      this.environment,
+      (data) => {
+        const { email: emailStatus, lastUpdated } = data;
+        this.isLoading = false;
+
+        const annualPeriodDate = new Date(lastUpdated);
+        const isValidDate = !isNaN(annualPeriodDate.getTime());
+
+        if (!isValidDate) {
+          console.warn('Invalid annualPeriod:', lastUpdated);
+          this.isAnnualPeriodExpired = false;
+          this.showCheckBox = true;
+          this.renderCombinedEmailPhoneSection();
+          return;
+        }
+
+        const isExpired = emailStatus === 'P' && annualPeriodDate < oneYearAgo;
+        this.isAnnualPeriodExpired = isExpired;
+        this.showCheckBox = isExpired || emailStatus !== 'P';
+      },
+      (error) => {
+        this.isLoading = false;
+        this.isAnnualPeriodExpired = false;
+        this.showCheckBox = true;
+        this.renderCombinedEmailPhoneSection();
+        console.error('if error then return N:', error);
+      }
+    );
   }
 
   static get stableSelector() {
@@ -498,7 +558,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const ecmTranslateContent = this.ncData;
     const country = this.country?.toLocaleLowerCase() || '';
     const state = this.state?.toLocaleLowerCase() || '';
-    let preText = ecmTranslateContent.combinedConsent;
+
+    let preText = '';
+
+    if (!this.email) {
+      preText = ecmTranslateContent.annualDefaultText;
+    } else {
+      preText = this.showCheckBox
+        ? ecmTranslateContent.combinedConsent
+        : ecmTranslateContent.annualText;
+    }
 
     if (ecmTranslateContent.state[country]) {
       if ((this.noticeOnly || []).includes(country)) {
@@ -520,8 +589,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           : ecmTranslateContent.noticeOnly;
     }
 
-    if (ecmTranslateContent.country?.[country]) {
-      preText = ecmTranslateContent.country[country].combinedConsent;
+    const countryContent = ecmTranslateContent.country?.[country];
+
+    if (countryContent) {
+      if (!this.email) {
+        preText = ecmTranslateContent.annualDefaultText;
+      } else {
+        preText = this.isAnnualPeriodExpired
+          ? countryContent.combinedConsent
+          : countryContent.annualText;
+      }
     }
 
     if (!(this.noticeOnly || []).includes(country)) {
@@ -535,11 +612,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ? isPermissionOrSuppression
           : this.values.EMAIL;
 
-      preText = preText
-        ? this.renderCheckbox(preText, checked)
-        : this.renderCheckbox(ecmTranslateContent.preText, checked);
-
-      return preText;
+      if (this.showCheckBox) {
+        return this.renderCheckbox(preText, checked);
+      }
+      return html`${unsafeHTML(preText)}`;
     }
 
     return html`${unsafeHTML(preText)}`;
@@ -711,6 +787,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    if (this.isLoading) {
+      return html`<div
+        style="position: relative; padding: 3rem; display: flex;">
+        <cds-loading type="small"></cds-loading>
+      </div>`;
+    }
+
     if (
       this.isMandatoryCheckboxDisplayed.isDisplayed &&
       this.country.toLocaleLowerCase() !==
