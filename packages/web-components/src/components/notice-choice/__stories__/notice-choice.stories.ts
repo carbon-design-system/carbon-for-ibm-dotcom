@@ -114,8 +114,7 @@ const props = () => {
       hideErrorMessages,
       'false'
     ),
-    environment: select('Environment', environment, 'stage'),
-    email: text('Email', ''),
+    environment: select('Environment', environment, 'prod'),
   };
 };
 
@@ -133,13 +132,11 @@ export const Default = (args) => {
     ncTeleDetail,
     ncEmailDetail,
     environment,
-    email,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
       language="${language}"
       country="${country}"
-      email="${email || ''}"
       question-choices="${questionchoices}"
       state="${state}"
       terms-condition-link="${termsConditionLink || ''}"

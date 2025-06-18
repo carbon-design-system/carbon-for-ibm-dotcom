@@ -11,11 +11,6 @@
     data-ibm-contact="contact-link"
   >
   </c4d-masthead-contact>
-  <div
-    class="earth-language-icon"
-    part="earth-l0-icon"
-  >
-  </div>
   <c4d-masthead-profile data-autoid="c4d--masthead-profile">
     <c4d-masthead-profile-item href="https://myibm.ibm.com/?lnk=mmi">
       My IBM
@@ -37,11 +32,6 @@
     data-ibm-contact="contact-link"
   >
   </c4d-masthead-contact>
-  <div
-    class="earth-language-icon"
-    part="earth-l0-icon"
-  >
-  </div>
   <c4d-masthead-profile
     authenticated=""
     data-autoid="c4d--masthead-profile"
