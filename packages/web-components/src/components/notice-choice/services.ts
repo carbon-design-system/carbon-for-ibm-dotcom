@@ -15,8 +15,7 @@ export function loadContent(
   const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
   script.async = false;
   script.charset = 'utf-8';
-  const timestamp = Date.now();
-  script.src = `https://${environment}/common/translations/notice/v23/${locale.toLocaleLowerCase()}/ncContent_v23.js?t=${timestamp}`;
+  script.src = `https://${environment}/common/translations/notice/v23/${locale.toLocaleLowerCase()}/ncContent_v23.js`; // URL for the third-party library being loaded.
   document.body.appendChild(script);
   script.onload = () => {
     try {
@@ -41,7 +40,7 @@ export function loadSettings(env: string, onSuccess: any, onError: any) {
   const environment = env === 'prod' ? '1.www.s81c.com' : '1.wwwstage.s81c.com';
   script.async = false;
   script.charset = 'utf-8';
-  script.src = `https://${environment}/common/noticechoice/settings.js`;
+  script.src = `https://${environment}/common/noticechoice/settings.js`; // URL for the third-party library being loaded.
   document.body.appendChild(script);
   script.onload = () => {
     try {
@@ -59,36 +58,4 @@ export function loadSettings(env: string, onSuccess: any, onError: any) {
       onError();
     }
   };
-}
-
-export function checkEmailStatus(
-  email: string,
-  env: string,
-  onSuccess: (data: any) => void,
-  onError: (err?: any) => void
-) {
-  const environment = env === 'prod' ? 'www.ibm.com' : 'wwwstage.ibm.com';
-  const url = `https://${environment}/account/apis/v2.0/preference/get`;
-
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email }), // sending email in request body
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      onSuccess(data);
-    })
-    .catch((err) => {
-      console.error('Error checking email status:', err);
-
-      onError(err);
-    });
 }
