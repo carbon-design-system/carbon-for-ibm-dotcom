@@ -191,55 +191,71 @@
     display: inline-block;
   }
 
+  //Hiding bubble-pointer as bubble-quote is mobible only
   .#{$prefix}-bubble-quote {
-    position: relative;
-    padding: 2.5rem;
-    border: 1px solid #8d8d8d;
-    border-radius: 0.25rem;
-    background: #f4f4f4;
-    margin-block-end: 3.81rem; /* match svg pointer height */
-    margin-inline: 0;
-
-    @include breakpoint-down(md) {
-      /* mobile inline gutters for the bubble quote */
-      margin-inline: 16px;
-      max-inline-size: calc(100% - 32px);
-    }
-
     .bubble-pointer {
-      --fill: #f4f4f4;
-      --stroke: #8d8d8d;
-
-      position: absolute;
-      inset-block-start: 100%;
-      inset-inline-start: 2rem;
-
-      @include breakpoint-down(md) {
-        /* adjusting the pointer top position a bit since the max-inline-size calc changes in mobile. */
-        inset-block-start: calc(100% - 1px);
-      }
-    }
-
-    .bubble-pointer-fill {
-      fill: var(--fill);
-    }
-
-    .bubble-pointer-stroke {
-      stroke: var(--stroke);
+      display: none;
     }
   }
 
-  :host([mark-type='bubble-quote']) {
-    span.cds--quote__mark[part~='mark--opening'] {
-      z-index: 1;
-      inset-block-start: 2.5rem;
-      inset-inline-start: 0.875rem;
+  //Bubble-quote variation is mobile only
+  @include breakpoint-down(md) {
+    .#{$prefix}-bubble-quote {
+      position: relative;
+      padding: 2.5rem;
+      border: 1px solid #8d8d8d;
+      border-radius: 0.25rem;
+      background: #f4f4f4;
+      margin-block-end: 3.81rem; /* match svg pointer height */
+      margin-inline: 16px;
+      max-inline-size: calc(100% - 32px);
 
-      @include breakpoint-down(lg) {
-        inset-inline-start: 1.25rem;
+      .bubble-pointer {
+        --fill: #f4f4f4;
+        --stroke: #8d8d8d;
+
+        position: absolute;
+
+        display: block;
+        inset-block-start: 100%;
+        inset-inline-start: 2rem;
       }
-      @include breakpoint-down(md) {
+
+      .bubble-pointer-fill {
+        fill: var(--fill);
+      }
+
+      .bubble-pointer-stroke {
+        stroke: var(--stroke);
+      }
+    }
+  }
+
+  @include breakpoint-down(md) {
+    :host([appearance='bubble-quote']),
+    :host([appearance='card']) {
+      span.cds--quote__mark[part~='mark--opening'] {
+        z-index: 1;
+        inset-block-start: 2.5rem;
         inset-inline-start: 2.8rem;
+      }
+    }
+  }
+
+  @include breakpoint-down(md) {
+    :host([appearance='bubble-quote'])[mark-type='corner-bracket'],
+    :host([appearance='card'])[mark-type='corner-bracket'] {
+      span.cds--quote__mark[part~='mark--opening'] {
+        inset-inline-start: 2.2rem;
+      }
+    }
+  }
+
+  @include breakpoint-up(md) {
+    :host([appearance='bubble-quote'])[mark-type='corner-bracket'],
+    :host([appearance='card'])[mark-type='corner-bracket'] {
+      span.cds--quote__mark[part~='mark--opening'] {
+        inset-inline-start: -1.125rem;
       }
     }
   }

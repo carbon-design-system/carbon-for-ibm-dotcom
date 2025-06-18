@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.26.0-rc.0...@carbon/ibmdotcom-styles@2.26.0) (2025-06-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.26.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.25.0...@carbon/ibmdotcom-styles@2.26.0-rc.0) (2025-06-13)
+
+
+### Bug Fixes
+
+* **careousel:** rtl focus fix ([#12276](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12276)) ([c8e0a67](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c8e0a678df94a9623118131e923e3264bcb4a7a5))
+* **image:** caption preventing image to span full width ([#12279](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12279)) ([c6546e7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c6546e71a66410fa5916b63c63320e8a16d11f05))
+* **link-list:** asjust spacing ([#12277](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12277)) ([8944bb6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8944bb6fe268f8a217b353882a3c5bbb2d2253ee))
+
+
+### Features
+
+* **callout-quote:** new appearances enabled card and bubble ([#12278](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12278)) ([9e5fade](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9e5fade5a6e60da1bef1693d7651d13d60320215))
+
+
+
+
+
+# [2.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.24.0...@carbon/ibmdotcom-styles@2.25.0) (2025-05-29)
+
+
+### Bug Fixes
+
+* **background-media:** gradient rtl display issue ([#12274](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12274)) ([b28a819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b28a819ecfb60b769e651e61f8d853f51a2cce6f))
+
+
+
+
+
 # [2.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.23.0...@carbon/ibmdotcom-styles@2.24.0) (2025-05-15)
 
 

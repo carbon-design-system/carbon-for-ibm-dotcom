@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,9 @@ const { stablePrefix: c4dPrefix } = settings;
  * The heading content of leadspace.
  *
  * @element c4d-leadspace-heading
+ * @csspart heading - the heading text. Usage: `c4d-leadspace-heading::part(heading)`
  */
+
 @customElement(`${c4dPrefix}-leadspace-heading`)
 class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   /**
@@ -78,7 +80,7 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html` <h1 part="heading"><slot></slot></h1> `;
   }
 
   static get stableSelector() {
