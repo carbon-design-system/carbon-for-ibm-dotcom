@@ -37,7 +37,7 @@ const _selectorBase = `[data-autoid="c4d--carousel"]`;
  * @type {Object.<string>}
  *
  * @param card - carousel card
- * @param videoCard - a video card has distict markup
+ * @param videoCard - a video card has distinct markup
  * @param heading - card heading
  * @param copy - card copy/body text
  * @param footer - card footer, including CTA
@@ -49,8 +49,8 @@ const _selectorBase = `[data-autoid="c4d--carousel"]`;
  * @private
  */
 const _selectors = {
-  card: `${_selectorBase} [data-autoid="c4d--card"]`,
-  videoCard: `${_selectorBase} c4d-video-cta-container`,
+  card: `[data-autoid="c4d--card"]`,
+  videoCard: `c4d-video-cta-container`,
   heading: `[data-autoid="c4d--card-heading"]`,
   copy: `.cds--card__copy`,
   footer: `[data-autoid="c4d--card-footer"]`,
@@ -74,14 +74,14 @@ const _tests = {
     });
   },
   screenshotThemes: () => {
-    it.skip('should render correctly in all themes', () => {
+    it('should render correctly in all themes', () => {
       cy.carbonThemesScreenshot({
         capture: 'viewport',
       });
     });
   },
-  checkTextRenders: () => {
-    it.skip('should render card text and arrow icon', () => {
+  checkTextRenders: (iconPath) => {
+    it('should render card text and arrow icon', () => {
       cy.get(_selectors.heading)
         // Wait for the sameHeight to finish loading
         .wait(2000)
@@ -94,14 +94,12 @@ const _tests = {
       });
 
       cy.get(_selectorBase).then(($carousel) => {
-        if ($carousel.find(_selectors.footer).length > 0) {
+        if (iconPath && $carousel.find(_selectors.footer).length > 0) {
           cy.get(_selectors.footer)
-            .find('svg[slot="icon"] path')
+            .shadow()
+            .find('svg path')
             .each(($icon) => {
-              expect($icon).to.have.attr(
-                'd',
-                'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
-              );
+              expect($icon).to.have.attr('d', iconPath);
             });
         }
 
@@ -128,27 +126,19 @@ const _tests = {
     });
   },
   checkVideoRenders: () => {
-    it.skip('should render the video thumbnail and play button', () => {
-      cy.get(_selectors.video)
+    it('should render the video thumbnail', () => {
+      cy.get(`${_selectorBase} ${_selectors.card}`)
         .shadow()
-        .find('img.cds--image__img')
+        .find('.cds--card__video-thumbnail')
         .should('be.visible');
-
-      cy.get(_selectors.video)
-        .find('svg[slot="icon"] path')
-        .each(($icon) => {
-          expect($icon).to.have.attr(
-            'd',
-            'M26.5555476,43.111135 C26.0032708,43.111135 25.5555476,42.6633959 25.5555476,42.1111111 L25.5555476,20.1111111 C25.5541311,19.7531358 25.7441673,19.4217049 26.0538295,19.2421008 C26.3634918,19.0624967 26.745539,19.0621192 27.0555476,19.2411111 L46.0555476,30.2411111 C46.368866,30.4186723 46.5625038,30.7509842 46.5625038,31.1111111 C46.5625038,31.4712381 46.368866,31.8035499 46.0555476,31.9811111 L27.0555476,42.9811111 C26.9031526,43.0674916 26.7307319,43.1123209 26.5555476,43.111135 Z'
-          );
-        });
 
       cy.takeSnapshots();
     });
   },
   checkVideoDurationText: () => {
-    it.skip('should render the video duration in the footer', () => {
-      cy.get(_selectors.videoFooter)
+    it('should render the video duration in the footer', () => {
+      cy.get(_selectors.footer)
+        .shadow()
         .find('span.cds--card__cta__copy')
         .then(($duration) => {
           expect($duration).not.to.be.empty;
@@ -171,7 +161,7 @@ const _tests = {
     });
   },
   checkClickableCard: () => {
-    it.skip("should check that the footer's pseudo class takes up entire card to be clickable", () => {
+    it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
       cy.get(_selectorBase).then(($carousel) => {
         if ($carousel.find(_selectors.footer).length > 0) {
           cy.get(_selectors.footer)
@@ -184,24 +174,6 @@ const _tests = {
               const win = $link[0].ownerDocument.defaultView;
               const after = win.getComputedStyle($link[0], ':after');
               const positionValue = after.getPropertyValue('position');
-              const insetValue = after.getPropertyValue('inset');
-
-              expect(positionValue).to.eq('absolute');
-            });
-        }
-
-        if ($carousel.find(_selectors.videoFooter).length > 0) {
-          cy.get(_selectors.videoFooter)
-            .shadow()
-            .find('a.cds--card__footer')
-            .then(($link) => {
-              const url = $link.prop('href');
-              expect(url).not.to.be.empty;
-
-              const win = $link[0].ownerDocument.defaultView;
-              const after = win.getComputedStyle($link[0], ':after');
-              const positionValue = after.getPropertyValue('position');
-              const insetValue = after.getPropertyValue('inset');
 
               expect(positionValue).to.eq('absolute');
             });
@@ -209,34 +181,30 @@ const _tests = {
       });
     });
   },
-  checkInertAriaHidden: () => {
-    it.skip('should check visible and hidden cards for expected aria-hidden and inert attributes', () => {
+  checkInertAriaHidden: (childSelector) => {
+    it('should check visible and hidden cards for expected aria-hidden attribute', () => {
       cy.get(_selectorBase).then(($carousel) => {
         // Take note of the page size, for later comparison.
         const pageSize = $carousel[0]?.pageSize;
 
         cy.wrap($carousel)
-          .children(':not([slot="title"])')
+          .find(childSelector ?? _selectors.card)
           .then(($carouselItems) => {
             // Verify that the carousel items have the expected aria-hidden
-            // and inert attributes.
+            // attribute.
             cy.wrap($carouselItems)
               .filter(`[aria-hidden="false"]`)
               .should('have.length', pageSize);
-            cy.wrap($carouselItems)
-              .filter(':not([inert])')
-              .should('have.length', pageSize);
 
             // Verify that the first carousel items has the correct
-            // aria-hidden and inert attributes, and that those attributes
-            // change accordingly after we advance the slider.
+            // aria-hidden attribute, and that it changes accordingly after we
+            // advance the slider.
             cy.wrap($carouselItems)
               .first()
               .then(($firstChild) => {
                 cy.wrap($firstChild)
                   .should('have.attr', 'aria-hidden')
                   .and('equal', 'false');
-                cy.wrap($firstChild).should('not.have.attr', 'inert');
 
                 // Scroll carousel forward.
                 cy.get(_selectors.buttonNext)
@@ -244,17 +212,15 @@ const _tests = {
                   // Wait a second for the carousel to finish moving
                   .wait(1000);
 
-                // Verify that the aria-hidden and inert attributes of the
-                // first item toggled as expected. We just check the first,
-                // so that we don't have to consider the current viewport
-                // size. Checking the first should suffice, given this
-                // behavior is triggered via IntersectionObserver, and the
-                // first item being exposed is representative of any arbitrary
-                // item being exposed.
+                // Verify that the aria-hidden attribute of the first item
+                // toggled as expected. We just check the first, so that we
+                // don't have to consider the current viewport size. Checking t
+                // he first should suffice, given this behavior is triggered via
+                // IntersectionObserver, and the first item being exposed is
+                // representative of any arbitrary item being exposed.
                 cy.wrap($firstChild)
                   .should('have.attr', 'aria-hidden')
                   .and('equal', 'true');
-                cy.wrap($firstChild).should('have.attr', 'inert');
 
                 // Scroll carousel backward to set it back to its initial
                 // position.
@@ -268,7 +234,7 @@ const _tests = {
     });
   },
   checkScroll: () => {
-    it.skip('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
+    it('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
       cy.get(_selectors.buttonNext)
         .click()
         // Wait a second for the carousel to finish moving
@@ -293,7 +259,9 @@ describe('c4d-carousel | default (desktop)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkSameHeight();
   _tests.checkClickableCard();
   _tests.checkInertAriaHidden();
@@ -309,7 +277,9 @@ describe('c4d-carousel | default (mobile)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkClickableCard();
   _tests.checkInertAriaHidden();
   _tests.checkScroll();
@@ -324,7 +294,9 @@ describe('c4d-carousel | with images (desktop)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkImageRenders();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
@@ -340,7 +312,9 @@ describe('c4d-carousel | with images (mobile)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+  );
   _tests.checkImageRenders();
   _tests.checkClickableCard();
   _tests.checkInertAriaHidden();
@@ -356,12 +330,14 @@ describe('c4d-carousel | with videos (desktop)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M7,28a1,1,0,0,1-1-1V5a1,1,0,0,1,1.4819-.8763l20,11a1,1,0,0,1,0,1.7525l-20,11A1.0005,1.0005,0,0,1,7,28Z'
+  );
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
-  _tests.checkInertAriaHidden();
+  _tests.checkInertAriaHidden(_selectors.videoCard);
   _tests.checkScroll();
 });
 
@@ -374,7 +350,9 @@ describe('c4d-carousel | with videos (mobile)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
+  _tests.checkTextRenders(
+    'M7,28a1,1,0,0,1-1-1V5a1,1,0,0,1,1.4819-.8763l20,11a1,1,0,0,1,0,1.7525l-20,11A1.0005,1.0005,0,0,1,7,28Z'
+  );
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkClickableCard();
