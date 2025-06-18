@@ -3537,7 +3537,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": "npm:2.26.0"
     "@carbon/ibmdotcom-utilities": "npm:2.26.0"
     "@carbon/icon-helpers": "npm:10.53.0"
-    "@carbon/icons": "npm:10.48.5"
+    "@carbon/icons": "npm:10.48.6"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.27.0"
     "@carbon/motion": "npm:11.24.0"
@@ -3730,12 +3730,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:10.48.5":
-  version: 10.48.5
-  resolution: "@carbon/icons@npm:10.48.5"
+"@carbon/icons@npm:10.48.6":
+  version: 10.48.6
+  resolution: "@carbon/icons@npm:10.48.6"
   dependencies:
     "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/7848ee13e2959478f76e8e4983e71c0b94ac3a697e256ad1047d9dc2493d42429fe68accbbe7f14dc29c3e06d646bd9c11b629368d0b2a1f934bbbe2eb673a35
+  checksum: 10/c03ca9751e0a1e161eb27b92e2b581ea6eb23c1deb081e5c1610180747d027df04af54fa9644fbd6eb67d8cff780e2ec16543c01eed0e1f7b829a5faebf0c63d
   languageName: node
   linkType: hard
 
