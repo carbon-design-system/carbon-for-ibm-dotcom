@@ -59,3 +59,35 @@ export function loadSettings(env: string, onSuccess: any, onError: any) {
     }
   };
 }
+
+export function checkEmailStatus(
+  email: string,
+  env: string,
+  onSuccess: (data: any) => void,
+  onError: (err?: any) => void
+) {
+  const environment = env === 'prod' ? 'www.ibm.com' : 'wwwstage.ibm.com';
+  const url = `https://${environment}/account/apis/v2.0/preference/get`;
+
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }), // sending email in request body
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      onSuccess(data);
+    })
+    .catch((err) => {
+      console.error('Error checking email status:', err);
+
+      onError(err);
+    });
+}
