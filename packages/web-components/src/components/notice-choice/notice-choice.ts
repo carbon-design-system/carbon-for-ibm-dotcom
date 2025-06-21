@@ -406,14 +406,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.isAnnualPeriodExpired = true;
           this.showCheckBox = true;
           this.renderCombinedEmailPhoneSection();
-          this._onBlur('emailStats', { ...data, isAnnualPeriodExpired: true });
+          this._emailChanged('emailStats', { ...data, isAnnualPeriodExpired: true });
           return;
         }
 
         const isExpired = emailStatus === 'P' && annualPeriodDate < oneYearAgo;
         this.isAnnualPeriodExpired = isExpired;
         this.showCheckBox = isExpired || emailStatus !== 'P';
-        this._onBlur('emailStats', {
+        this._emailChanged('emailStats', {
           ...data,
           isAnnualPeriodExpired: isExpired,
         });
@@ -422,7 +422,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.isLoading = false;
         this.isAnnualPeriodExpired = true;
         this.showCheckBox = true;
-        this._onBlur('emailStats', { ...error, isAnnualPeriodExpired: true });
+        this._emailChanged('emailStats', { ...error, isAnnualPeriodExpired: true });
         this.renderCombinedEmailPhoneSection();
         console.error('if error then return N:', error);
       }
@@ -927,7 +927,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
 
-  _onBlur(field: string, value: string | null) {
+  _emailChanged(field: string, value: string | null) {
     console.log('onBlur', field, value);
     const init = {
       bubbles: true,
