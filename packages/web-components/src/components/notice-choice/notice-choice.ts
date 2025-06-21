@@ -406,7 +406,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.isAnnualPeriodExpired = true;
           this.showCheckBox = true;
           this.renderCombinedEmailPhoneSection();
-          this._emailChanged('emailStats', { ...data, isAnnualPeriodExpired: true });
+          this._emailChanged('emailStats', {
+            ...data,
+            isAnnualPeriodExpired: true,
+          });
           return;
         }
 
@@ -422,7 +425,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.isLoading = false;
         this.isAnnualPeriodExpired = true;
         this.showCheckBox = true;
-        this._emailChanged('emailStats', { ...error, isAnnualPeriodExpired: true });
+        this._emailChanged('emailStats', {
+          ...error,
+          isAnnualPeriodExpired: true,
+        });
         this.renderCombinedEmailPhoneSection();
         console.error('if error then return N:', error);
       }
