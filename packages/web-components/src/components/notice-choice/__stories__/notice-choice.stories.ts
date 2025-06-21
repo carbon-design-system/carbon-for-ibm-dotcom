@@ -96,7 +96,7 @@ const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
 
-const onBlur = (event: CustomEvent) => {
+const emailChanged = (event: CustomEvent) => {
   console.log('onBlur', event);
 };
 
@@ -114,7 +114,7 @@ const props = () => {
       'https://www.ibm.com/legal'
     ),
     onChange: action('c4d-notice-choice-change'),
-    onBlur: action('c4d-notice-choice-blur'),
+    emailChanged: action('c4d-notice-choice-blur'),
     hideErrorMessages: select(
       'Hide Error Messages',
       hideErrorMessages,
@@ -157,7 +157,7 @@ export const Default = (args) => {
       .nc-email-detail="${ncEmailDetail}"
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}>
-      @c4d-notice-choice-blur=${onBlur}</c4d-notice-choice
+      @c4d-notice-choice-blur=${emailChanged}</c4d-notice-choice
     >
   `;
 };
