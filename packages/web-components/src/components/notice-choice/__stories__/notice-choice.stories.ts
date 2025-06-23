@@ -156,9 +156,8 @@ export const Default = (args) => {
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
       environment="${environment}"
-      @c4d-notice-choice-change=${onChange}>
-      @c4d-notice-choice-blur=${emailChanged}</c4d-notice-choice
-    >
+      @c4d-notice-choice-change=${onChange}
+      @c4d-notice-choice-blur=${emailChanged}</c4d-notice-choice>
   `;
 };
 
