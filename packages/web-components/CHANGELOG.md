@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.26.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.26.0...@carbon/ibmdotcom-web-components@2.26.1-rc.0) (2025-06-24)
+
+
+### Bug Fixes
+
+* **carousel:** fix carousel rtl gap calc ([e899eea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e899eea6d249b32b000e2ef00ebdfcee12f614d1))
+
+
+
+
+
 # [2.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.26.0-rc.0...@carbon/ibmdotcom-web-components@2.26.0) (2025-06-13)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
