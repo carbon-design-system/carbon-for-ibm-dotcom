@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.26.1-rc.0...@carbon/ibmdotcom-web-components@2.27.0-rc.0) (2025-06-27)
+
+
+### Bug Fixes
+
+* **card:** fix simple narrative size ([#12288](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12288)) ([05c7f44](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05c7f443c8964fc4c2cb1795e3d6cfb20f3e1f3c))
+* **content-block-simple:** adjust card alignment ([#12287](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12287)) ([e807029](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e8070292b6dce0d5daf4e882f41e3d17902395dc))
+
+
+### Reverts
+
+* Revert "Notice & Choice served annually once marketing permission is … (#12283) ([3b23f8c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3b23f8c9d8f3e61dbcdcea3b04b18bc007d63682)), closes [#12283](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12283)
+
+
+
+
+
 ## [2.26.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.26.0...@carbon/ibmdotcom-web-components@2.26.1-rc.0) (2025-06-24)
 
 
