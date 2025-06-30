@@ -128,7 +128,6 @@ const props = () => {
     environment: select('Environment', environment, 'stage'),
     email: text('Email', ''),
     isAnnual: select('Is Annual', isAnnualText, 'false'),
-
   };
 };
 
@@ -147,7 +146,7 @@ export const Default = (args) => {
     ncEmailDetail,
     environment,
     email,
-    isAnnual
+    isAnnual,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
