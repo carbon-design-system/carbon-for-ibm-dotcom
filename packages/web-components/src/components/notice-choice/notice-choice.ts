@@ -21,7 +21,6 @@ import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import '@carbon/web-components/es/components/skeleton-text/index.js';
-import { boolean } from '@storybook/addon-knobs';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -78,8 +77,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'environment' })
   environment = 'prod';
 
-  @property({ type: boolean, attribute: 'is-annual', reflect: true })
-  isAnnual = true;
   /**
    * End properties for passed attributes.
    */
@@ -611,11 +608,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         : content.annualText;
     }
 
-    if (this.isAnnual) {
-      preText = content.combinedConsent;
-      this.showCheckBox = true;
-    }
-
     // 2. country+state specific override
     const stateConfig = content.state?.[country];
     if (stateConfig) {
@@ -645,11 +637,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         : this.isAnnualPeriodExpired
         ? countryContent.combinedConsent
         : countryContent.annualText;
-
-      if (this.isAnnual) {
-        preText = content.combinedConsent;
-        this.showCheckBox = true;
-      }
     }
 
     // 4. permission/suppression logic
