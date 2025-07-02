@@ -93,10 +93,6 @@ const environment = {
   Stage: 'stage',
 };
 
-const isAnnualText = {
-  true: 'true',
-  false: 'false',
-};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
