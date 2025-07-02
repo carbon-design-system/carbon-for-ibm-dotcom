@@ -126,8 +126,7 @@ const props = () => {
       'false'
     ),
     environment: select('Environment', environment, 'stage'),
-    email: text('Email', ''),
-    isAnnual: select('Is Annual', isAnnualText, 'false'),
+    email: text('Email', '')
   };
 };
 
@@ -146,7 +145,6 @@ export const Default = (args) => {
     ncEmailDetail,
     environment,
     email,
-    isAnnual,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -163,7 +161,6 @@ export const Default = (args) => {
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
       environment="${environment}"
-      is-annual="${isAnnual}"
       @c4d-notice-choice-change=${onChange}
       @c4d-notice-choice-blur=${emailChanged}</c4d-notice-choice>
   `;
