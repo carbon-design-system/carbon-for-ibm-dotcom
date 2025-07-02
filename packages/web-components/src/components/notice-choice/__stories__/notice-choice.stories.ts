@@ -126,7 +126,7 @@ const props = () => {
       'false'
     ),
     environment: select('Environment', environment, 'stage'),
-    email: text('Email', '')
+    email: text('Email', ''),
   };
 };
 
