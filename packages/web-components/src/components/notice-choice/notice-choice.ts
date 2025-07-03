@@ -248,7 +248,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       }
 
       case 'email': {
-        console.log('email changed');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         this.emailValid = false;
         if (
@@ -297,7 +296,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
         this.isAnnualPeriodExpired = emailStatus !== 'P' || isExpired;
         this.showCheckBox = isExpired || emailStatus !== 'P';
-        console.log("Email status:', emailStatus);", this.showCheckBox);
 
         this._emailChanged('emailStats', {
           ...data,
@@ -870,7 +868,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   _emailChanged(field: string, value: string | null) {
-    console.log('onBlur', field, value);
     const init = {
       bubbles: true,
       detail: {
