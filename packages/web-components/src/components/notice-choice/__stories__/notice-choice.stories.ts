@@ -115,7 +115,7 @@ const props = () => {
       'https://www.ibm.com/legal'
     ),
     onChange: action('c4d-notice-choice-change'),
-    emailChanged: action('c4d-notice-choice-blur'),
+    emailChanged: action('c4d-notice-choice-emailChange'),
     hideErrorMessages: select(
       'Hide Error Messages',
       hideErrorMessages,
@@ -158,7 +158,7 @@ export const Default = (args) => {
       .nc-email-detail="${ncEmailDetail}"
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
-      @c4d-notice-choice-blur=${emailChanged}</c4d-notice-choice>
+      @c4d-notice-choice-emailChange=${emailChanged}</c4d-notice-choice>
   `;
 };
 
