@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -107,6 +107,38 @@
     margin: $spacing-05 $spacing-07;
     @include breakpoint(md) {
       margin: $spacing-05;
+    }
+  }
+
+  :host(#{$c4d-prefix}-callout-quote[appearance='card']) {
+    @include breakpoint-down(md) {
+      padding-block-end: 0;
+
+      div.cds--quote__source {
+        margin-block: 1rem -1rem;
+        margin-inline-start: -2rem;
+      }
+
+      div.cds--quote__footer {
+        margin-inline-start: -2rem;
+
+        /* stylelint-disable-next-line */
+        > c4d-hr {
+          /* stylelint-disable-next-line */
+          margin-right: -0.1rem;
+          margin-inline-end: 2rem;
+        }
+      }
+
+      div.cds--quote__wrapper {
+        > div.cds--quote__source {
+          display: none;
+        }
+
+        > div.cds--quote__footer {
+          display: none;
+        }
+      }
     }
   }
 }
