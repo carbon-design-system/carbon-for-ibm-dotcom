@@ -158,7 +158,7 @@ $xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
   }
 
   ::slotted([slot='cta']) {
-    padding-inline-start: 2rem;
     inline-size: 100%;
+    padding-inline-start: 2rem;
   }
 }
