@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -15,6 +15,11 @@ import { APPEARANCE, QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 
 export { QUOTE_TYPES };
 
@@ -50,7 +55,10 @@ const slotExistencePropertyNames = {
  * @csspart bubble-pointer-stroke-svg - The stroke color of the pointer. Usage `c4d-quote::part(bubble-pointer-stroke-svg)`
  */
 @customElement(`${c4dPrefix}-quote`)
-class C4DQuote extends StableSelectorMixin(LitElement) {
+class C4DQuote extends MediaQueryMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement)),
+  { [MQBreakpoints.MD]: MQDirs.MIN }
+) {
   /**
    * Defines rendered quote mark style
    * styles:
@@ -91,6 +99,9 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
    */
   protected _hasFooter = false;
 
+  @state()
+  _isMobile = !this.carbonBreakpoints.md.matches;
+
   /**
    * Handles `slotchange` event.
    */
@@ -100,6 +111,10 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
     LocaleAPI.getLang().then(({ lc }) => {
       this.lc = lc;
     });
+  }
+
+  mediaQueryCallbackMD() {
+    this._isMobile = !this.carbonBreakpoints.md.matches;
   }
 
   protected _handleSlotChange({ target }: Event) {
@@ -268,6 +283,9 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
             part="mark mark--closing">
             ${marks.close}
           </span>
+          ${this._isMobile && this.appearance == 'card'
+            ? html` ${this._renderSource()} ${this._renderFooter()} `
+            : ''}
         </blockquote>
       `;
     }
