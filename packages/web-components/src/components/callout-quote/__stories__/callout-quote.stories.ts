@@ -99,7 +99,7 @@ export default {
           quoteTypes['double-curved']
         ),
         appearance: select(
-          'Appearance (Default - legacy | card and bubble-quote are mobile only):',
+          'Appearance (card and bubble-quote - MOBILE ONLY | Default - legacy):',
           appearance,
           appearance['legacy']
         ),
