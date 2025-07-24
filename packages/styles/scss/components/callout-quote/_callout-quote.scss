@@ -130,14 +130,26 @@
         }
       }
 
-      div.cds--quote__wrapper {
-        > div.cds--quote__source {
-          display: none;
-        }
+      .cds--quote__wrapper > blockquote > .cds--quote__source,
+      .cds--quote__wrapper > blockquote > .cds--quote__footer {
+        display: block;
+      }
 
-        > div.cds--quote__footer {
-          display: none;
-        }
+      .cds--quote__wrapper .cds--quote__source,
+      .cds--quote__wrapper .cds--quote__footer {
+        display: none;
+      }
+    }
+
+    @include breakpoint-up(md) {
+      .cds--quote__wrapper > blockquote > .cds--quote__source,
+      .cds--quote__wrapper > blockquote > .cds--quote__footer {
+        display: none;
+      }
+
+      .cds--quote__wrapper .cds--quote__source,
+      .cds--quote__wrapper .cds--quote__footer {
+        display: block;
       }
     }
   }

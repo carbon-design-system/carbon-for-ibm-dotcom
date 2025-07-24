@@ -115,7 +115,6 @@ class C4DQuote extends MediaQueryMixin(
 
   mediaQueryCallbackMD() {
     this._isMobile = !this.carbonBreakpoints.md.matches;
-    this.requestUpdate();
   }
 
   protected _handleSlotChange({ target }: Event) {
@@ -284,7 +283,7 @@ class C4DQuote extends MediaQueryMixin(
             part="mark mark--closing">
             ${marks.close}
           </span>
-          ${this.appearance === 'card' && this._isMobile
+          ${this._isMobile && this.appearance == 'card'
             ? html` ${this._renderSource()} ${this._renderFooter()} `
             : ''}
         </blockquote>
