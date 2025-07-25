@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.27.0...@carbon/ibmdotcom-styles@2.28.0) (2025-07-25)
+
+
+### Bug Fixes
+
+* **callout-quote:** card appearance not correct in mobile ([#12294](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12294)) ([927305d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/927305dfa79b181707efd61d4f192470fee75ea8))
+* **card-in-card:** video to better fill parent container ([#12289](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12289)) ([5eed2f0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5eed2f0673d2ce47bbd90675167a5fc0680e761f))
+
+
+
+
+
 # [2.27.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.27.0-rc.0...@carbon/ibmdotcom-styles@2.27.0) (2025-06-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
