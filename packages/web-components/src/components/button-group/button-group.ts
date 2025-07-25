@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,19 +31,7 @@ class C4DButtonGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter((elem) =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches(
-              (this.constructor as typeof C4DButtonGroup).selectorItem
-            ) ||
-            (elem as HTMLElement).matches(
-              (this.constructor as typeof C4DButtonGroup).selectorItemCTA
-            ) ||
-            (elem as HTMLElement).matches(
-              (this.constructor as typeof C4DButtonGroup).selectorItemDefaultCTA
-            )
-          : false
-      );
+      .filter((elem) => (elem as HTMLElement).matches !== undefined);
 
     childItems.forEach((elem, index) => {
       (elem as HTMLElement).setAttribute(
