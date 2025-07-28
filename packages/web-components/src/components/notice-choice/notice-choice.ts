@@ -34,6 +34,7 @@ interface MandatoryCheckbox {
  *
  * @element c4d-notice-choice
  * @fires c4d-notice-choice-change
+ * @fires c4d-notice-choice-email-status-changed
  * The custom event fired when default choice loaded or user change some preferences.
  * The field and value should be taken from the detail object and send it to MRS.
  * @csspart checkbox-wrapper - The checkbox wrapper. Usage `c4d-notice-choice::part(checkbox-wrapper)`
@@ -193,9 +194,18 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
       case 'language':
       case 'environment': {
-        const langPart = (value as string | undefined)?.split(/[-_]/)[0];
+        if (['stage', 'prod'].includes(value as string)) {
+          this.environment = value as string;
+        } else {
+          this.language = value as string;
+        }
+        const langPart = (this.language as string | undefined)?.split(
+          /[-_]/
+        )[0];
         const supportedLang =
-          supportedLanguages(value) || supportedLanguages(langPart) || 'en';
+          supportedLanguages(this.language) ||
+          supportedLanguages(langPart) ||
+          'en';
 
         this.isLoading = true;
         loadSettings(
@@ -297,7 +307,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.isAnnualPeriodExpired = emailStatus !== 'P' || isExpired;
         this.showCheckBox = isExpired || emailStatus !== 'P';
 
-        this._emailChanged('emailStats', {
+        this._onEmailStatusChanged('emailStats', {
           ...data,
           isAnnualPeriodExpired: isExpired,
         });
@@ -318,7 +328,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     this.isAnnualPeriodExpired = expired;
     this.showCheckBox = true;
     this.renderCombinedEmailPhoneSection();
-    this._emailChanged('emailStats', {
+    this._onEmailStatusChanged('emailStats', {
       ...responseData,
       isAnnualPeriodExpired: expired,
     });
@@ -853,30 +863,42 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   /**
    * Dispatch field change event to parent form
    */
-  _onChange(field: string, value: string | null): void {
-    const mappedField = this.pwsFieldsMap.get(field) ?? field;
-
-    this.dispatchEvent(
-      new CustomEvent(`${c4dPrefix}-notice-choice-change`, {
+  private dispatchCustomEvent(
+    eventName: string,
+    field: string,
+    value: string | null
+  ): void {
+    try {
+      const eventDetail = {
         bubbles: true,
         detail: {
-          field: mappedField,
-          value: pwsValueMap(value),
+          field,
+          value,
         },
-      })
+      };
+
+      this.dispatchEvent(new CustomEvent(eventName, eventDetail));
+    } catch (error) {
+      console.error(`[${eventName}] dispatch failed:`, error);
+    }
+  }
+
+  _onChange(field: string, value: string | null): void {
+    const mappedField = this.pwsFieldsMap?.get(field) ?? field;
+    const mappedValue = pwsValueMap?.(value) ?? value;
+
+    this.dispatchCustomEvent(
+      `${c4dPrefix}-notice-choice-change`,
+      mappedField,
+      mappedValue
     );
   }
 
-  _emailChanged(field: string, value: string | null) {
-    const init = {
-      bubbles: true,
-      detail: {
-        field,
-        value: value,
-      },
-    };
-    this.dispatchEvent(
-      new CustomEvent(`${c4dPrefix}-notice-choice-blur`, init)
+  _onEmailStatusChanged(field: string, value: string | null): void {
+    this.dispatchCustomEvent(
+      `${c4dPrefix}-notice-choice-email-status-changed`,
+      field,
+      value
     );
   }
 

@@ -94,11 +94,11 @@ const environment = {
 };
 
 const onChange = (event: CustomEvent) => {
-  console.log(event.detail);
+  console.log(`[${event.type}] :`, event.detail);
 };
 
-const emailChanged = (event: CustomEvent) => {
-  console.log('onBlur', event);
+const onEmailStatusChanged = (events: CustomEvent) => {
+  console.log(`[${events.type}] :`, events.detail);
 };
 
 const props = () => {
@@ -115,7 +115,7 @@ const props = () => {
       'https://www.ibm.com/legal'
     ),
     onChange: action('c4d-notice-choice-change'),
-    emailChanged: action('c4d-notice-choice-emailChange'),
+    onEmailStatusChanged: action('c4d-notice-choice-email-status-changed'),
     hideErrorMessages: select(
       'Hide Error Messages',
       hideErrorMessages,
@@ -158,7 +158,8 @@ export const Default = (args) => {
       .nc-email-detail="${ncEmailDetail}"
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
-      @c4d-notice-choice-emailChange=${emailChanged}</c4d-notice-choice>
+      @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}>
+    </c4d-notice-choice>
   `;
 };
 
@@ -189,8 +190,6 @@ export default {
       default: {
         NoticeChoice: {
           'question-choices': [1, 2],
-          onChange: 'c4d-notice-choice-change',
-          onBlur: 'c4d-notice-choice-blur',
         },
       },
     },
