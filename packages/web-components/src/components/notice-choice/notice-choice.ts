@@ -69,11 +69,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'terms-condition-link' })
   termsConditionLink = html``;
 
-  @property({ type: Boolean, attribute: 'enable-all-opt-in' })
-  enableAllOptIn = false;
+  @property({ type: String, attribute: 'enable-all-opt-in' })
+  enableAllOptIn = 'false';
 
-  @property({ type: Boolean, attribute: 'hide-error-message' })
-  hideErrorMessage = false;
+  @property({ type: String, attribute: 'hide-error-message' })
+  hideErrorMessage = 'false';
 
   @property({ type: String, attribute: 'environment' })
   environment = 'prod';
@@ -241,7 +241,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         break;
       }
 
-      case 'enable-all-opt-in': {
+      case 'enableAllOptIn': {
         if (oldValue !== value && typeof value === 'string') {
           this.enableAllOptIn = JSON.parse(value);
           this.setDefaultSelections();
@@ -249,7 +249,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         break;
       }
 
-      case 'hide-error-message': {
+      case 'hideErrorMessage': {
         if (oldValue !== value && typeof value === 'string') {
           this.hideErrorMessage = JSON.parse(value);
           this.countryBasedLegalNotice();

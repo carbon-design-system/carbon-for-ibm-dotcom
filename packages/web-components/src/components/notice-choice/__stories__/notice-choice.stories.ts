@@ -83,9 +83,9 @@ const stateList = {
     Sachsen: 'SN',
   },
 };
-const hideErrorMessages = {
-  true: 'true',
-  false: 'false',
+const hideerrormessages = {
+  True: 'true',
+  False: 'false',
 };
 
 const environment = {
@@ -116,9 +116,9 @@ const props = () => {
     ),
     onChange: action('c4d-notice-choice-change'),
     onEmailStatusChanged: action('c4d-notice-choice-email-status-changed'),
-    hideErrorMessages: select(
+    hideerrormessages: select(
       'Hide Error Messages',
-      hideErrorMessages,
+      hideerrormessages,
       'false'
     ),
     environment: select('Environment', environment, 'stage'),
@@ -133,8 +133,8 @@ export const Default = (args) => {
     state,
     termsConditionLink,
     questionchoices,
-    hideErrorMessages,
-    enableAllOptIn,
+    hideerrormessages,
+    enablealloptin,
     hiddenEmail,
     hiddenPhone,
     ncTeleDetail,
@@ -150,8 +150,8 @@ export const Default = (args) => {
       question-choices="${questionchoices}"
       state="${state}"
       terms-condition-link="${termsConditionLink || ''}"
-      hide-error-message="${hideErrorMessages}"
-      ?enable-all-opt-in=${enableAllOptIn}
+      hide-error-message="${hideerrormessages}"
+      ?enable-all-opt-in=${enablealloptin}
       .hiddenEmail="${hiddenEmail}"
       .hiddenPhone="${hiddenPhone}"
       .nc-tele-detail="${ncTeleDetail}"
