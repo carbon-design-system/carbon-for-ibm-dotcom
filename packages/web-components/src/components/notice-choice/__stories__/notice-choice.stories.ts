@@ -84,17 +84,23 @@ const stateList = {
   },
 };
 const hideErrorMessages = {
-  true: 'true',
-  false: 'false',
+  True: 'true',
+  False: 'false',
 };
 
 const environment = {
   Production: 'prod',
   Stage: 'stage',
 };
+
 const onChange = (event: CustomEvent) => {
-  console.log(event.detail);
+  console.log(`[${event.type}] :`, event.detail);
 };
+
+const onEmailStatusChanged = (events: CustomEvent) => {
+  console.log(`[${events.type}] :`, events.detail);
+};
+
 const props = () => {
   const selectedCountry = select('Country', countryList, 'US');
   let availableStates = stateList[selectedCountry] || [{ Unknown: '' }];
@@ -109,12 +115,14 @@ const props = () => {
       'https://www.ibm.com/legal'
     ),
     onChange: action('c4d-notice-choice-change'),
+    onEmailStatusChanged: action('c4d-notice-choice-email-status-changed'),
     hideErrorMessages: select(
       'Hide Error Messages',
       hideErrorMessages,
       'false'
     ),
-    environment: select('Environment', environment, 'prod'),
+    environment: select('Environment', environment, 'stage'),
+    email: text('Email', ''),
   };
 };
 
@@ -132,11 +140,13 @@ export const Default = (args) => {
     ncTeleDetail,
     ncEmailDetail,
     environment,
+    email,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
       language="${language}"
       country="${country}"
+      email="${email || ''}"
       question-choices="${questionchoices}"
       state="${state}"
       terms-condition-link="${termsConditionLink || ''}"
@@ -147,7 +157,9 @@ export const Default = (args) => {
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
       environment="${environment}"
-      @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
+      @c4d-notice-choice-change=${onChange}
+      @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}>
+    </c4d-notice-choice>
   `;
 };
 
@@ -178,7 +190,6 @@ export default {
       default: {
         NoticeChoice: {
           'question-choices': [1, 2],
-          onChange: 'c4d-notice-choice-change',
         },
       },
     },
