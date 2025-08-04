@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -299,6 +299,9 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocus = async ({ target }: FocusEvent) => {
+    if (this.dir === 'rtl') {
+      return;
+    }
     const containsCurrent =
       target !== this && this.contains(target as HTMLElement);
     let currentItemIndex = 0;
@@ -565,11 +568,14 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * Calculates the width between cards.
    */
   private _updateGap() {
+    if (this.dir === 'rtl') {
+      return;
+    }
     const { _slotNode: slotNode } = this;
     const elems = slotNode!.assignedElements();
 
     this._gap =
-      elems.length <= 2
+      elems.length < 2
         ? 0
         : elems[1].getBoundingClientRect().left -
           elems[0].getBoundingClientRect().right;

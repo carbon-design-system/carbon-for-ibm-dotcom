@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -85,6 +85,12 @@ class C4DBackgroundMedia extends C4DImage {
   gradientHidden = false;
 
   /**
+   *  Determines if the direction is right-to-left
+   */
+  @property({ type: Boolean })
+  isRTL = false;
+
+  /**
    * @deprecated
    *
    * Mobile Position (bottom (default) | top)
@@ -162,6 +168,17 @@ class C4DBackgroundMedia extends C4DImage {
     return '';
   }
 
+  _handleIsRTL() {
+    this.isRTL =
+      this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl';
+
+    if (this.isRTL) {
+      this.gradientDirection = GRADIENT_DIRECTION.RIGHT_TO_LEFT;
+    }
+
+    console.log(this.isRTL);
+  }
+
   /**
    * Append the c4d-background-media to the parent element where this component is being used.
    */
@@ -178,6 +195,10 @@ class C4DBackgroundMedia extends C4DImage {
     if (this.hasAttribute('default-src') && !this.videoPlayerContainer) {
       this.containsOnlyImages = true;
     }
+  }
+
+  firstUpdated(): void {
+    this._handleIsRTL();
   }
 
   render() {

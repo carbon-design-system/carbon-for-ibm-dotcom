@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.22.0",
+  "version": "2.28.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -92,9 +92,9 @@
     "cypress:verify": "cypress verify"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "2.22.0",
-    "@carbon/ibmdotcom-styles": "2.22.0",
-    "@carbon/ibmdotcom-utilities": "2.22.0",
+    "@carbon/ibmdotcom-services": "2.28.0",
+    "@carbon/ibmdotcom-styles": "2.28.0",
+    "@carbon/ibmdotcom-utilities": "2.28.0",
     "@carbon/layout": "11.27.0",
     "@carbon/motion": "11.24.0",
     "@carbon/styles": "1.65.0",
@@ -133,7 +133,7 @@
     "@babel/traverse": "~7.23.7",
     "@carbon/ibmdotcom-services-store": "1.53.6",
     "@carbon/icon-helpers": "10.53.0",
-    "@carbon/icons": "10.48.5",
+    "@carbon/icons": "10.48.6",
     "@carbon/icons-react": "^11.33.0",
     "@carbon/pictograms-react": "11.67.1",
     "@carbon/react": "1.66.0",
@@ -184,7 +184,7 @@
     "cypress-wait-until": "^1.7.2",
     "del": "^6.0.0",
     "doctoc": "^2.0.0",
-    "dompurify": "^2.0.0",
+    "dompurify": "3.2.5",
     "enzyme": "^3.11.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",

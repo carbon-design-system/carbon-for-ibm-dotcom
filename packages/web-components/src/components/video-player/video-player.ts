@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,6 +44,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @csspart video - The video. Usage `c4d-video-player::part(video)`
  * @csspart button - The play button. Usage `c4d-video-player::part(button)`
  * @csspart image - The thumbnail image. Usage `c4d-video-player::part(image)`
+ * @csspart play-video - The play video icon. Usage `c4d-video-player::part(play-video)`
  * @csspart video-container - The video container. Usage `c4d-video-player::part(video-container)`
  * @csspart caption - The caption. Usage `c4d-video-player::part(caption)`
  */
@@ -152,7 +153,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
                   default-src="${thumbnailUrl}"
                   alt="${ifNonEmpty(name)}"
                   part="image">
-                  ${PlayVideo({ slot: 'icon' })}
+                  ${PlayVideo({ slot: 'icon', part: 'play-video' })}
                 </c4d-image>
               </button>
             </div>
@@ -307,7 +308,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     });
 
     return html`
-      <div class="${aspectRatioClass}">
+      <div class="${aspectRatioClass}" part="video-container">
         ${intersectionMode
           ? html`
               <button

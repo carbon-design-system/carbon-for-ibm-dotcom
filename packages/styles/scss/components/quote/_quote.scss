@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -189,5 +189,80 @@
     @extend .#{$c4d-prefix}--link-with-icon !optional;
 
     display: inline-block;
+  }
+
+  //Hiding bubble-pointer as bubble-quote is mobible only
+  .#{$prefix}-bubble-quote {
+    .bubble-pointer {
+      display: none;
+    }
+  }
+
+  //Bubble-quote variation is mobile only
+  @include breakpoint-down(md) {
+    .#{$prefix}-bubble-quote {
+      position: relative;
+      padding: 2.5rem;
+      border: 1px solid #8d8d8d;
+      border-radius: 0.25rem;
+      background: #f4f4f4;
+      margin-block-end: 3.81rem; /* match svg pointer height */
+      margin-inline: 16px;
+      max-inline-size: calc(100% - 32px);
+
+      .bubble-pointer {
+        --fill: #f4f4f4;
+        --stroke: #8d8d8d;
+
+        position: absolute;
+
+        display: block;
+        inset-block-start: 100%;
+        inset-inline-start: 2rem;
+      }
+
+      .bubble-pointer-fill {
+        fill: var(--fill);
+      }
+
+      .bubble-pointer-stroke {
+        stroke: var(--stroke);
+      }
+    }
+  }
+
+  @include breakpoint-down(md) {
+    :host([appearance='bubble-quote']),
+    :host([appearance='card']) {
+      span.cds--quote__mark[part~='mark--opening'] {
+        z-index: 1;
+        inset-block-start: 2.5rem;
+        inset-inline-start: 2.8rem;
+      }
+    }
+  }
+
+  @include breakpoint-down(md) {
+    :host([appearance='bubble-quote'])[mark-type='corner-bracket'],
+    :host([appearance='card'])[mark-type='corner-bracket'] {
+      span.cds--quote__mark[part~='mark--opening'] {
+        inset-inline-start: 2.2rem;
+      }
+    }
+  }
+
+  @include breakpoint-up(md) {
+    :host([appearance='bubble-quote'])[mark-type='corner-bracket'],
+    :host([appearance='card'])[mark-type='corner-bracket'] {
+      span.cds--quote__mark[part~='mark--opening'] {
+        inset-inline-start: -1.125rem;
+      }
+    }
+  }
+
+  /* Mirroing the bubble quote in RTL modes */
+  :host([lang='ar']) .#{$prefix}-bubble-quote .bubble-pointer {
+    inset-inline: auto 2rem;
+    transform: scaleX(-1);
   }
 }

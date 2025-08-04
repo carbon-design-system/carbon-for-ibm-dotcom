@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -50,8 +50,12 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
    * `true` if there are CTA media in the content item area.
    */
   @state()
-  protected _hasMedia = false;
-
+  _hasMedia = false;
+  /**
+   * `true` if there is a pictogram in the content
+   */
+  @state()
+  _hasPictogram = false;
   /**
    * `true` if there are CTA statistic in the content item area.
    */
@@ -91,6 +95,12 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
       this._hasLogo = true;
     } else {
       this._hasLogo = false;
+    }
+    if ((target as HTMLElement).getAttribute('name') == 'media') {
+      const hasPictogram = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some((node) => (node as HTMLElement).tagName.toLowerCase() == 'svg');
+      this._hasPictogram = hasPictogram;
     }
   }
 

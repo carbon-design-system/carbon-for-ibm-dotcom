@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,7 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/scroll-snap' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/imports' as *;
@@ -42,7 +43,9 @@
         1fr
       );
     }
+  }
 
+  :host(#{$c4d-prefix}-card-group):not(.is-full-width-template) {
     @include breakpoint-down(md) {
       padding-inline: $spacing-05;
     }
@@ -237,6 +240,53 @@
           inset: 0;
           pointer-events: none;
         }
+      }
+    }
+  }
+
+  // Mobile horizontal scroll snap behavior
+  :host(#{$c4d-prefix}-card-group).inside-block-cards:not(
+      .media-type-block-cards__logo
+    ) {
+    $gutter: 1rem;
+    $gap: 1rem;
+
+    @include breakpoint-down('md') {
+      @include scroll-snap-container();
+
+      display: flex;
+      gap: $gap;
+      padding-inline: $gutter;
+
+      > ::slotted(a) {
+        /* stylelint-disable-next-line declaration-no-important */
+        display: grid !important;
+        box-sizing: border-box;
+        flex-basis: clamp(220px, 65vw, 400px);
+        flex-shrink: 0;
+        align-content: start;
+        block-size: auto;
+
+        // override web component internal padding and rely on gap instead
+        padding-inline: 0;
+
+        scroll-margin: $gutter;
+        scroll-snap-align: start;
+      }
+
+      > ::slotted(#{$c4d-prefix}-card-group-item) {
+        display: grid;
+        box-sizing: border-box;
+        flex-basis: clamp(220px, 65vw, 400px);
+        flex-shrink: 0;
+        align-content: start;
+        block-size: auto;
+
+        // // override web component internal padding and rely on gap instead
+        padding-inline: 0;
+
+        scroll-margin: $gutter;
+        scroll-snap-align: start;
       }
     }
   }

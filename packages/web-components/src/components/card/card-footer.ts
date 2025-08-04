@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,6 +43,18 @@ class C4DCardFooter extends C4DLinkWithIcon {
   protected get _shouldUseParentLink() {
     const { href, parentHref } = this;
     return Boolean(parentHref) && (!href || parentHref === href);
+  }
+
+  /**
+   * Contact Module won't work if card-footer has parent-href attribute
+   * this function removes parent-href if the cta type is 'chat' or 'contact'
+   */
+  protected _cleanParentHrefForContactModule() {
+    const { ctaType } = this;
+
+    if (ctaType === 'chat' || ctaType === 'contact') {
+      this.removeAttribute('parent-href');
+    }
   }
 
   /**
@@ -134,6 +146,8 @@ class C4DCardFooter extends C4DLinkWithIcon {
     if (iconInline) {
       targetNode!.classList.add(`${prefix}--link-with-icon--inline-icon`);
     }
+
+    this._cleanParentHrefForContactModule();
   }
 
   static get stableSelector() {

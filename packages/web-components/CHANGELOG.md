@@ -3,6 +3,127 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.27.0...@carbon/ibmdotcom-web-components@2.28.0) (2025-07-25)
+
+
+### Bug Fixes
+
+* **button-group:** remove element selector restrictions ([#12291](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12291)) ([7206b39](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7206b39887586b403a7ebe7d23055cbe6fe9928f))
+* **callout-quote:** card appearance not correct in mobile ([#12294](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12294)) ([927305d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/927305dfa79b181707efd61d4f192470fee75ea8))
+
+
+
+
+
+# [2.27.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.27.0-rc.0...@carbon/ibmdotcom-web-components@2.27.0) (2025-06-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.27.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.26.1-rc.0...@carbon/ibmdotcom-web-components@2.27.0-rc.0) (2025-06-27)
+
+
+### Bug Fixes
+
+* **card:** fix simple narrative size ([#12288](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12288)) ([05c7f44](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05c7f443c8964fc4c2cb1795e3d6cfb20f3e1f3c))
+* **content-block-simple:** adjust card alignment ([#12287](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12287)) ([e807029](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e8070292b6dce0d5daf4e882f41e3d17902395dc))
+
+
+### Reverts
+
+* Revert "Notice & Choice served annually once marketing permission is … (#12283) ([3b23f8c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3b23f8c9d8f3e61dbcdcea3b04b18bc007d63682)), closes [#12283](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12283)
+
+
+
+
+
+## [2.26.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.26.0...@carbon/ibmdotcom-web-components@2.26.1-rc.0) (2025-06-24)
+
+
+### Bug Fixes
+
+* **carousel:** fix carousel rtl gap calc ([e899eea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e899eea6d249b32b000e2ef00ebdfcee12f614d1))
+
+
+
+
+
+# [2.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.26.0-rc.0...@carbon/ibmdotcom-web-components@2.26.0) (2025-06-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.26.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.25.0...@carbon/ibmdotcom-web-components@2.26.0-rc.0) (2025-06-13)
+
+
+### Bug Fixes
+
+* **careousel:** rtl focus fix ([#12276](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12276)) ([c8e0a67](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c8e0a678df94a9623118131e923e3264bcb4a7a5))
+
+
+### Features
+
+* **callout-quote:** new appearances enabled card and bubble ([#12278](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12278)) ([9e5fade](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9e5fade5a6e60da1bef1693d7651d13d60320215))
+* **leadspace-heading:** wrap content on h1 tag ([#12281](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12281)) ([74f405a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/74f405a1764d6b3b7c24f3aeaefc10b1dbeb86ff))
+
+
+
+
+
+# [2.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.24.0...@carbon/ibmdotcom-web-components@2.25.0) (2025-05-29)
+
+
+### Bug Fixes
+
+* **background-media:** gradient rtl display issue ([#12274](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12274)) ([b28a819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b28a819ecfb60b769e651e61f8d853f51a2cce6f))
+* **video-player-container:** enabling the usage of custom title override ([#12275](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12275)) ([c30096b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c30096b43e919246195ae61bf58cfb6ac87a31e9))
+
+
+
+
+
+# [2.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.23.0...@carbon/ibmdotcom-web-components@2.24.0) (2025-05-15)
+
+
+### Bug Fixes
+
+* **cont-block-cards:** enhancing the logic condition for the card group ([#12271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12271)) ([cdb4994](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cdb49948978ab1e17d0151fe5ecf94fac7d2a7f8))
+* **left-nav:** fix menu closing on iOS devices ([#12264](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12264)) ([fafbe04](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fafbe04c6be66c45381d6e880f86e63c76fd01d5))
+* **table-of-contents:** ignore input and select tag names ([#12266](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12266)) ([20564fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/20564fbcd82fe52eb2ec0495b3209ad74c4b75a8))
+
+
+### Features
+
+* **video-player:** adding player icon shadow part ([#12268](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12268)) ([fda8c26](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fda8c26980bd4f6f9761ac9460292c492bede32d))
+* **video-player:** adding shadow-part for video-container ([#12265](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12265)) ([e766253](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e7662532e7ede569edcbec0cb8fb70b92288012f))
+
+
+
+
+
+# [2.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.22.0...@carbon/ibmdotcom-web-components@2.23.0) (2025-05-07)
+
+
+### Bug Fixes
+
+* **callout-quote:** enabling bubble quote variation ([#12258](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12258)) ([c9201b9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c9201b907272ad336709dce3472417b726643bcd))
+* **card-group:** incorrect mobile gutters for FW layout pages in AEM ([#12256](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12256)) ([bc92e4a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bc92e4a192707f0c99a0e17990ca49962b361a6e))
+
+
+### Features
+
+* **cta-section:** optimize for mobile ([#12259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12259)) ([b02e72e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b02e72e15bf732ee47e50dbc62019f951aa5fde9))
+
+
+
+
+
 # [2.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.21.0...@carbon/ibmdotcom-web-components@2.22.0) (2025-04-16)
 
 

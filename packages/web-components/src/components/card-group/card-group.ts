@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,11 @@ import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 
 export { GRID_MODE };
 
@@ -25,7 +30,10 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-card-group
  */
 @customElement(`${c4dPrefix}-card-group`)
-class C4DCardGroup extends StableSelectorMixin(LitElement) {
+class C4DCardGroup extends MediaQueryMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement)),
+  { [MQBreakpoints.MD]: MQDirs.MIN }
+) {
   /**
    * Array to hold the card-heading elements within child items.
    */
@@ -74,6 +82,13 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   @state()
   private _cardsPerRowAuto = 3;
 
+  @state()
+  private _isMediumOrGreater = this.carbonBreakpoints.md.matches;
+
+  protected mediaQueryCallbackMD() {
+    this._isMediumOrGreater = this.carbonBreakpoints.md.matches;
+  }
+
   /**
    * Number of cards per column.
    * If `--c4d--card-group--cards-in-row` CSS custom property is set to `<c4d-card-group>`.
@@ -104,6 +119,19 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   pictograms = false;
 
+  // Adding a class that will identify that c4d-card-group is inside c4d-content-block-cards for special treatment.
+  private isInsideBlockCards() {
+    const cardGroupParentEl = this.parentElement;
+    console.log(cardGroupParentEl);
+
+    if (
+      cardGroupParentEl?.tagName.toLowerCase() ===
+      `${c4dPrefix}-content-block-cards`
+    ) {
+      this.classList.add('inside-block-cards');
+    }
+  }
+
   firstUpdated() {
     super.connectedCallback();
 
@@ -114,6 +142,14 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     ) {
       this.setAttribute('with-card-in-card', '');
     }
+
+    // Check if the component is living in a Full Width or Table of Contents template.
+    const isFullWidthTemplate =
+      document.body.getAttribute('data-fullwidthtemplate') === 'true';
+    //Adds a class if true, for better css treatment in mobile for FW pages.
+    this.classList.toggle('is-full-width-template', isFullWidthTemplate);
+
+    this.isInsideBlockCards();
   }
 
   updated(changedProperties) {
@@ -121,6 +157,11 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
 
     if (changedProperties.has('gridMode')) {
       this._childItems.forEach((e) => (e.gridMode = this.gridMode));
+    }
+
+    //Setting grid mode to condensed in mobile in favor of scroll snap behavior
+    if (!this._isMediumOrGreater) {
+      this.gridMode = GRID_MODE.CONDENSED;
     }
   }
 

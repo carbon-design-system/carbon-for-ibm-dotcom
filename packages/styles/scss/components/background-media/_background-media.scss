@@ -69,6 +69,16 @@
     }
   }
 
+  .#{$prefix}--background-media--gradient--right-to-left {
+    @include breakpoint(lg) {
+      background-image: linear-gradient(
+        to left,
+        $background 25%,
+        rgba(255, 255, 255, 0) 75%
+      );
+    }
+  }
+
   .#{$prefix}--background-media--gradient--top-to-bottom {
     @include breakpoint(lg) {
       background-image: linear-gradient(

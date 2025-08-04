@@ -169,7 +169,7 @@ class C4DTableOfContents extends MediaQueryMixin(
    * The Element.tagName values that should never be used as a TOC target.
    * Typically added here because these elements have their own `[name]` attribute.
    */
-  private _tagNamesToAvoid = [`${c4dPrefix}-video-player`];
+  private _tagNamesToAvoid = [`${c4dPrefix}-video-player`, 'select', 'input'];
 
   /**
    * The name of an attribute that will prevent the DOM element and any elements
@@ -664,7 +664,7 @@ class C4DTableOfContents extends MediaQueryMixin(
   @HostListener(`document:${c4dPrefix}-table-of-contents-reharvest`)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _retriggerHarvest = () => {
-    this._targets = Array.from(this.querySelectorAll('[name]'));
+    this._targets = Array.from(this.querySelectorAll('a[name]'));
   };
 
   connectedCallback() {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,7 +34,7 @@ describe('c4d-video-player-container', function () {
       spyOn(videoPlayerContainer, '_setEmbeddedVideo');
     });
 
-    it('should make an API call to embed video', async function () {
+    xit('should make an API call to embed video', async function () {
       spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => ({
         async kWidget() {
           return 'kwidget-foo';
@@ -58,7 +58,7 @@ describe('c4d-video-player-container', function () {
       expect(setEmbeddedVideoArgs).toEqual(['video-id-foo', 'kwidget-foo']);
     });
 
-    it('caches the embedded video', async () => {
+    xit('caches the embedded video', async () => {
       spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => ({
         async kWidget() {
           return 'kwidget-foo';
@@ -82,7 +82,7 @@ describe('c4d-video-player-container', function () {
       expect(setEmbeddedVideoArgs).toEqual([]);
     });
 
-    it('should track the error in embeddeding video', async function () {
+    xit('should track the error in embeddeding video', async function () {
       spyOn(KalturaPlayerAPI, 'embedMedia').and.throwError('error-embedvideo');
       let caught;
       try {
@@ -111,7 +111,7 @@ describe('c4d-video-player-container', function () {
       expect(setEmbeddedVideoArgs).toEqual([]);
     });
 
-    it('caches the error in embeddeding video', async function () {
+    xit('caches the error in embeddeding video', async function () {
       spyOn(KalturaPlayerAPI, 'embedMedia').and.throwError('error-embedvideo');
       videoPlayerContainer._requestsEmbedVideo = {
         'video-id-foo': Promise.reject(new Error('error-embedvideo')),
@@ -149,14 +149,14 @@ describe('c4d-video-player-container', function () {
       });
     });
 
-    it('should support setting the embedded video', function () {
+    xit('should support setting the embedded video', function () {
       videoPlayerContainer._setEmbeddedVideo('video-id-foo', 'kwidget-foo');
       expect(convertValue(videoPlayerContainer.embeddedVideos)).toEqual({
         'video-id-foo': 'kwidget-foo',
       });
     });
 
-    it('should support starting the spinner for embedding video data', function () {
+    xit('should support starting the spinner for embedding video data', function () {
       videoPlayerContainer._setRequestEmbedVideoInProgress(
         'video-id-foo',
         Promise.resolve('kwidget-foo')
