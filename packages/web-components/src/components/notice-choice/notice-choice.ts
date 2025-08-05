@@ -315,9 +315,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       (error) => {
         this.emailValid = true;
         this.isLoading = false;
-        console.error('checkEmailStatus error:', error);
         this._onChange('preventFormSubmission', 'formSubmissionYes');
-        this._handleEmailCheckFailure(error, true);
+        this._handleEmailCheckFailure({ errorMessage: error.message }, true);
       }
     );
   }
