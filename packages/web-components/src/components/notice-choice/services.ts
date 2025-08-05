@@ -69,14 +69,19 @@ export function checkEmailStatus(
   const environment = env === 'prod' ? 'www.ibm.com' : 'wwwstage.ibm.com';
   const url = `https://${environment}/account/apis/v2.0/preference/get`;
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+
   fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email }), // sending email in request body
+    body: JSON.stringify({ email }),
+    signal: controller.signal,
   })
     .then((response) => {
+      clearTimeout(timeoutId);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -86,7 +91,11 @@ export function checkEmailStatus(
       onSuccess(data);
     })
     .catch((err) => {
-      console.error('Error checking email status:', err);
+      if (err.name === 'AbortError') {
+        console.error('Request timed out after 10 seconds');
+      } else {
+        console.error('Error checking email status:', err);
+      }
 
       onError(err);
     });
