@@ -282,7 +282,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     this.isAnnualPeriodExpired = true;
     this.isLoading = true;
-
+    this._onChange('preventFormSubmission', 'formSubmissionNo');
     checkEmailStatus(
       email,
       this.environment,
@@ -295,7 +295,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         const isValidDate = !isNaN(annualPeriodDate.getTime());
         const isExpired =
           isValidDate && emailStatus === 'P' && annualPeriodDate < oneYearAgo;
-
+        this._onChange('preventFormSubmission', 'formSubmissionYes');
         // If bad date, treat as expired
         if (!isValidDate) {
           console.warn('Invalid annualPeriod:', lastUpdated);
@@ -316,6 +316,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.emailValid = true;
         this.isLoading = false;
         console.error('checkEmailStatus error:', error);
+        this._onChange('preventFormSubmission', 'formSubmissionYes');
         this._handleEmailCheckFailure(error, true);
       }
     );
