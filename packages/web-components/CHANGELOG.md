@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.28.0...@carbon/ibmdotcom-web-components@2.29.0) (2025-08-07)
+
+
+### Bug Fixes
+
+* **card:** parent-href preventing CM variation from working ([#12297](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12297)) ([5d2bf0e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5d2bf0e23e462308b037195df4aeb4ce87af9d5e))
+
+
+
+
+
 # [2.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.27.0...@carbon/ibmdotcom-web-components@2.28.0) (2025-07-25)
 
 
