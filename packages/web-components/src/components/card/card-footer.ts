@@ -55,12 +55,6 @@ class C4DCardFooter extends C4DLinkWithIcon {
     if (ctaType === 'chat' || ctaType === 'contact') {
       this.removeAttribute('parent-href');
     }
-
-    const anchorElement = this.shadowRoot?.querySelector(
-      `a.${prefix}--card__footer`
-    );
-
-    anchorElement?.classList.remove(`${prefix}--card__footer`);
   }
 
   /**
