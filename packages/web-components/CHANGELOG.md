@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.29.0...@carbon/ibmdotcom-web-components@2.30.0) (2025-08-22)
+
+
+### Bug Fixes
+
+* **card:** fixing footer CTA for CM ([bca35cb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bca35cb6025e3ebd3a28660b276ca7e76404e6c5))
+
+
+
+
+
 # [2.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.28.0...@carbon/ibmdotcom-web-components@2.29.0) (2025-08-07)
 
 

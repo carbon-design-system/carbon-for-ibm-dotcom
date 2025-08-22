@@ -436,11 +436,14 @@ class C4DTableOfContents extends MediaQueryMixin(
       const currentY = window.scrollY;
       let targetY;
 
-      if (currentY > elem.offsetTop && masthead) {
-        targetY = elem.offsetTop - masthead.offsetHeight;
+      const rect = elem.getBoundingClientRect();
+      const offset = rect.top + currentY;
+
+      if (currentY > offset && masthead) {
+        targetY = offset - masthead.offsetHeight;
       } else {
         targetY =
-          elem.offsetTop -
+          offset -
           parseInt(
             window.getComputedStyle(elem).getPropertyValue('padding-top')
           ) -
