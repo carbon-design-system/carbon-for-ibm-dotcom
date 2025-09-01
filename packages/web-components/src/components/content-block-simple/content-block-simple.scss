@@ -43,8 +43,19 @@
 
   ::slotted(#{$c4d-prefix}-card) {
     @include breakpoint('md') {
-      inline-size: 34%;
+      // inline-size: calc((100% - 2 * #{$spacing-05}) * 0.9);
       margin-inline-start: -$spacing-05;
+    }
+  }
+}
+
+:host(
+    #{$c4d-prefix}-content-block-simple.cds--content-block--full-width-template
+  ) {
+  ::slotted(#{$c4d-prefix}-card) {
+    inline-size: 34%;
+    @include breakpoint-down('lg') {
+      inline-size: 100%;
     }
   }
 }
