@@ -43,8 +43,24 @@
 
   ::slotted(#{$c4d-prefix}-card) {
     @include breakpoint('md') {
-      // inline-size: calc((100% - 2 * #{$spacing-05}) * 0.9);
       margin-inline-start: -$spacing-05;
+    }
+  }
+
+  /* TOC template (anything that's not FW) */
+  &:not(.cds--content-block--full-width-template) {
+    ::slotted(#{$c4d-prefix}-card[slot='footer']) {
+      /* sm and down */
+      @include breakpoint-down(md) {
+        inline-size: 100%;
+        max-inline-size: 100%;
+      }
+
+      /* md and larger */
+      @include breakpoint('md') {
+        inline-size: calc(50% + 1rem);
+        max-inline-size: 100vw;
+      }
     }
   }
 }
@@ -52,10 +68,20 @@
 :host(
     #{$c4d-prefix}-content-block-simple.cds--content-block--full-width-template
   ) {
-  ::slotted(#{$c4d-prefix}-card) {
+  ::slotted(#{$c4d-prefix}-card[slot='footer']) {
+    /* default for lg, xlg, max */
     inline-size: 34%;
-    @include breakpoint-down('lg') {
+
+    /* sm and down */
+    @include breakpoint-down(md) {
       inline-size: 100%;
+      max-inline-size: 100%;
+    }
+
+    /* md only */
+    @media (width >= 672px) and (width <= 1055.98px) {
+      inline-size: calc(50% + 1rem);
+      max-inline-size: 100vw;
     }
   }
 }
