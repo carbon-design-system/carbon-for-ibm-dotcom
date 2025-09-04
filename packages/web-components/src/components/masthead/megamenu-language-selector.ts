@@ -325,26 +325,6 @@ class C4DMegaMenuLanguageSelector extends StableSelectorMixin(LitElement) {
   }
 
   protected getCurrentRegion() {
-    // TESTS START
-    // const metaCC = document.createElement('meta');
-    // metaCC.name = 'countryCode';
-    // metaCC.content = 'us';
-
-    // const metaLC = document.createElement('meta');
-    // metaLC.name = 'languageCode';
-    // metaLC.content = 'en';
-
-    // document.head.appendChild(metaCC);
-    // document.head.appendChild(metaLC);
-
-    // const countryMeta2 = document.querySelector(
-    //   "meta[name='countryCode']"
-    // ) as HTMLMetaElement;
-
-    // console.log(countryMeta2.content.toUpperCase());
-
-    // TESTS END
-
     const countryMeta = document.querySelector(
       "meta[name='countryCode']"
     ) as HTMLMetaElement;
@@ -354,7 +334,7 @@ class C4DMegaMenuLanguageSelector extends StableSelectorMixin(LitElement) {
     ) as HTMLMetaElement;
 
     if (!countryMeta || !langMeta) {
-      return { country: 'Unknown', language: 'Unknown' };
+      return { country: 'Not available', language: 'Not available' };
     }
 
     const countryCode = countryMeta.content.toUpperCase();
