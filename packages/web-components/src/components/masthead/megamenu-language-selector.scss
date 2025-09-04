@@ -1,0 +1,170 @@
+//
+// Copyright IBM Corp. 2020, 2025
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/styles/scss/utilities/convert' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/compat/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/colors' as *;
+@use '@carbon/styles/scss/type' as *;
+
+:host {
+  position: relative;
+  display: block;
+}
+
+.earth-language-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: $icon-secondary;
+  cursor: pointer;
+  padding-block-end: 14px;
+
+  svg {
+    margin-block-start: -2px;
+  }
+
+  &:hover {
+    background: $background-hover;
+    color: $icon-primary;
+  }
+
+  &:active {
+    background: $background-hover;
+    color: $icon-primary;
+    outline: 2px solid var(--cds-button-primary, #0f62fe);
+    outline-offset: -2px;
+  }
+
+  &:focus {
+    outline: 2px solid var(--cds-button-primary, #0f62fe);
+    outline-offset: -2px;
+  }
+
+  &[aria-expanded='true'] {
+    color: $icon-secondary;
+    outline: 2px solid $focus;
+
+    &:hover {
+      background-color: $background-selected;
+      color: $icon-primary;
+    }
+  }
+}
+
+#countrySwitcher {
+  position: absolute;
+  z-index: 1000;
+  inset-block-start: 0.2vh;
+  inset-inline: auto 0;
+}
+
+#countryDropdown {
+  overflow: hidden auto;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  inline-size: 320px;
+  margin-block-start: calc(var(--c4d-masthead-l0-bottom-edge, 3rem) + 1px);
+  max-block-size: calc(
+    100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
+  );
+
+  &.hidden {
+    display: none;
+  }
+
+  @include breakpoint-between(320px, 671px) {
+    position: fixed;
+    z-index: 8000;
+    block-size: calc(100% - 1px - 3rem);
+    inline-size: 100vw;
+    inset-block: 0;
+    inset-inline-start: 0;
+    max-inline-size: 100vw;
+    will-change: inline-size;
+  }
+}
+
+.current-region-container {
+  background: $background-inverse;
+
+  .current-region-label {
+    padding: 15px 16px;
+    border-block-end-width: 1px;
+    @include type-style('label-01');
+
+    color: $text-on-color;
+  }
+
+  .current-region-value {
+    padding: 0 16px 15px;
+    border-block-end-width: 1px;
+    color: $text-on-color;
+    @include type-style('body-compact-01');
+  }
+}
+
+.region-selection {
+  @include type-style('label-01');
+
+  padding: 15px 16px;
+  background: $background;
+  border-block-end: 1px solid $border-subtle-01;
+  color: $text-primary;
+}
+
+.region-list-container {
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  list-style: none;
+
+  li {
+    padding: 15px 16px;
+    background: $background;
+    border-block-end: 1px solid $border-subtle-01;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+      background: $background-hover;
+    }
+
+    &:focus {
+      outline: 2px solid var(--cds-button-primary, #0f62fe);
+      outline-offset: -2px;
+    }
+
+    &:active {
+      background: $background-selected;
+      color: $text-primary;
+      outline: 2px solid var(--cds-button-primary, #0f62fe);
+      outline-offset: -2px;
+      @include type-style('body-compact-01');
+    }
+  }
+}
+
+@include breakpoint-between(320px, 799px) {
+  // Stylelint here complains that the tags for the selector are not valid, but they're web component's tags
+  /* stylelint-disable selector-type-no-unknown */
+  :host-context(c4d-masthead-container) {
+    c4d-masthead {
+      c4d-masthead-global-bar {
+        c4d-masthead-contact {
+          /* stylelint-disable-next-line declaration-no-important */
+          display: none !important;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2024
+// Copyright IBM Corp. 2020, 2025
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -17,8 +17,7 @@
 @use '@carbon/styles/scss/components/tooltip/tooltip' as *;
 @use '@carbon/styles/scss/components/ui-shell/header' as *;
 @use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
-// @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
-@use '../../../../styles/scss/components/masthead' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/web-components/scss/components/tooltip/tooltip' as *;
