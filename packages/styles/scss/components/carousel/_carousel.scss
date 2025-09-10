@@ -183,3 +183,11 @@
     }
   }
 }
+
+// AEM nav space for last carousel when hr is hidden
+body[data-fullwidthtemplate='true']
+  .table-of-contents
+  .carousel:last-of-type:not(:has(.#{$prefix}--grid > [horizontal-ruler]))
+  #{$c4d-prefix}-carousel::part(navigation) {
+  margin-block-end: $spacing-10;
+}
