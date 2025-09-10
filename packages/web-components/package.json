@@ -100,7 +100,7 @@
     "@carbon/motion": "11.24.0",
     "@carbon/styles": "1.65.0",
     "@carbon/web-components": "2.13.1",
-    "@ibm/telemetry-js": "^1.10.1",
+    "@ibm/telemetry-js": "^1.10.2",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",
     "redux": "^4.0.0",
