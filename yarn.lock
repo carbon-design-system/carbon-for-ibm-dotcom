@@ -3546,7 +3546,7 @@ __metadata:
     "@carbon/styles": "npm:1.65.0"
     "@carbon/type": "npm:11.32.1"
     "@carbon/web-components": "npm:2.13.1"
-    "@ibm/telemetry-js": "npm:^1.5.0"
+    "@ibm/telemetry-js": "npm:^1.10.2"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.28.5"
@@ -4625,6 +4625,15 @@ __metadata:
   version: 6.0.0-next.6
   resolution: "@ibm/plex@npm:6.0.0-next.6"
   checksum: 10/1a814759646855a01aa0e76fd3bb76ff3ce67e6eee3173a89faeb9ab2df9147319cf2f6e4e711ffd7e2b253e1e1046a0fc4dd54c4cf11c91addc8a25f00509de
+  languageName: node
+  linkType: hard
+
+"@ibm/telemetry-js@npm:^1.10.2":
+  version: 1.10.2
+  resolution: "@ibm/telemetry-js@npm:1.10.2"
+  bin:
+    ibmtelemetry: dist/collect.js
+  checksum: 10/bc1802cf691b0bb9df8cc19c8f4ab03b8022b5a53df778a9e99c817f708c51a02f440ea395ceb3656f057c8aa6356d5271f54eb3af3bcbb5c0b536fea9af2e36
   languageName: node
   linkType: hard
 
