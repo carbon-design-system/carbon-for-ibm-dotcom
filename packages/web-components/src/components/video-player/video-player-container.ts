@@ -212,8 +212,6 @@ export const C4DVideoPlayerContainerMixin = <
         mediaTitle = ' ';
       }
 
-      console.log('TEST PLAYER OPTIONS', this.lc, 'mon15sep25');
-
       let playerOptions = {};
       const autoplayPreference = this._getAutoplayPreference();
 
