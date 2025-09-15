@@ -29,6 +29,7 @@ import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerComposite from './video-player-composite';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import { LocaleAPI } from '@carbon/ibmdotcom-services/es/services/Locale/index';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -115,8 +116,17 @@ export const C4DVideoPlayerContainerMixin = <
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
     _requestsEmbedVideo: { [videoId: string]: Promise<any> } = {};
 
+    /**
+     * Custom video name
+     */
     @property({ type: String, attribute: 'customvideoname' })
     customVideoName = '';
+
+    /**
+     * Language code
+     */
+    @property()
+    lc = '';
 
     /**
      * Sets the state that the API call for embedding the video for the given video ID is in progress.
@@ -193,7 +203,16 @@ export const C4DVideoPlayerContainerMixin = <
        * <c4d-video-player-container customVideoName="overwritten media title here">...
        *
        */
-      const mediaTitle = this?.['customVideoName'] || this?.['caption'];
+
+      let mediaTitle: string;
+
+      if (this.lc.toLowerCase() === 'en') {
+        mediaTitle = this?.['customVideoName'] || this?.['caption'];
+      } else {
+        mediaTitle = ' ';
+      }
+
+      console.log('TEST PLAYER OPTIONS', this.lc, 'mon15sep25');
 
       let playerOptions = {};
       const autoplayPreference = this._getAutoplayPreference();
@@ -324,7 +343,7 @@ export const C4DVideoPlayerContainerMixin = <
     /**
      * Calls the data-* attribute transpose function to target `c4d-video-player`'s button element.
      */
-    firstUpdated() {
+    async firstUpdated() {
       window.requestAnimationFrame(() => {
         const button =
           this.querySelector('c4d-video-player')?.shadowRoot?.querySelector(
@@ -338,6 +357,10 @@ export const C4DVideoPlayerContainerMixin = <
         }
         this.transposeAttributes(button, ['href']);
       });
+
+      //get LC
+      const { lc } = await LocaleAPI.getLocale();
+      this.lc = lc;
     }
 
     prefersAutoplayStorageKey = `${c4dPrefix}-background-video-prefers-autoplay`;
