@@ -8,11 +8,16 @@
  */
 
 import { css, Part } from 'lit';
+import { state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DContentBlock from '../content-block/content-block';
 import styles from './content-block-cards.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -22,7 +27,15 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-content-block-cards
  */
 @customElement(`${c4dPrefix}-content-block-cards`)
-class C4DContentBlockCards extends StableSelectorMixin(C4DContentBlock) {
+class C4DContentBlockCards extends MediaQueryMixin(
+  StableSelectorMixin(C4DContentBlock),
+  {
+    [MQBreakpoints.MD]: MQDirs.MAX,
+  }
+) {
+  @state()
+  private _isMobileOrMedium = this.carbonBreakpoints.md.matches;
+
   /**
    * The CSS class list for the container (grid) node.
    */
@@ -33,6 +46,61 @@ class C4DContentBlockCards extends StableSelectorMixin(C4DContentBlock) {
 
   static get stableSelector() {
     return `${c4dPrefix}--content-block-cards`;
+  }
+
+  protected setSameHeightOnMobile() {
+    requestAnimationFrame(() => {
+      let maxHeightHeading = 0;
+      let maxHeightParagraph = 0;
+
+      const blockCards = this.querySelectorAll(`${c4dPrefix}-card-group-item`);
+
+      blockCards.forEach((card) => {
+        const heading = card.querySelector('c4d-card-heading') as HTMLElement;
+        const para =
+          card.querySelector('p') ||
+          card?.shadowRoot?.querySelector('div.cds--card__copy');
+
+        let headingHeight = 0;
+        let paraHeight = 0;
+
+        if (heading && para) {
+          headingHeight = heading?.getBoundingClientRect().height;
+          paraHeight = para?.getBoundingClientRect().height;
+        }
+
+        maxHeightHeading =
+          maxHeightHeading > headingHeight ? maxHeightHeading : headingHeight;
+
+        maxHeightParagraph =
+          maxHeightParagraph > paraHeight ? maxHeightParagraph : paraHeight;
+      });
+
+      for (const card of blockCards) {
+        const heading = card.querySelector('c4d-card-heading');
+        const para =
+          card.querySelector('p') ||
+          card?.shadowRoot?.querySelector('div.cds--card__copy');
+        if (heading && para) {
+          heading.setAttribute(
+            'style',
+            `height: ${maxHeightHeading}px; display: block;`
+          );
+          para.setAttribute(
+            'style',
+            `height: ${maxHeightParagraph}px; display: block;`
+          );
+        }
+      }
+    });
+  }
+
+  firstUpdated() {
+    window.addEventListener('load', () => {
+      if (this._isMobileOrMedium) {
+        this.setSameHeightOnMobile();
+      }
+    });
   }
 
   connectedCallback() {
