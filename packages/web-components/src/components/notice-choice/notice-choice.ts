@@ -10,11 +10,7 @@
 import { loadContent, loadSettings, checkEmailStatus } from './services';
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import {
-  pwsValueMap,
-  resetToWorldWideContent,
-  supportedLanguages,
-} from './utils';
+import { pwsValueMap, resetToWorldWideContent } from './utils';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
@@ -161,6 +157,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   hiddenPhone = '';
 
+  @property({ type: Object, attribute: false })
+  supportedLanguages = {};
+
   connectedCallback() {
     super.connectedCallback();
     this._initSettingsAndContent(this.language);
@@ -203,8 +202,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           /[-_]/
         )[0];
         const supportedLang =
-          supportedLanguages(this.language) ||
-          supportedLanguages(langPart) ||
+          (this.language &&
+            this.supportedLanguages[this.language?.toLowerCase()]) ||
+          (langPart && this.supportedLanguages[langPart?.toLowerCase()]) ||
           'en';
 
         this.isLoading = true;
@@ -212,6 +212,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.environment,
           (settings) => {
             this.countrySettings = settings.preferences;
+            this.noticeOnly = settings.noticeOnly || ['us'];
+            this.supportedLanguages = settings.supportedLanguages || {};
           },
           (err) => console.error('error loading settings', err)
         );
@@ -337,13 +339,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   private _initSettingsAndContent(language: string) {
     const [lang] = language.split(/[-_]/);
     const defaultLang =
-      supportedLanguages(language) || supportedLanguages(lang) || 'en';
+      this.supportedLanguages[language?.toLocaleLowerCase()] ||
+      this.supportedLanguages[lang?.toLocaleLowerCase()] ||
+      'en';
 
     loadSettings(
       this.environment,
       (settings) => {
         this.countrySettings = settings.preferences;
         this.noticeOnly = settings.noticeOnly || ['us'];
+        this.supportedLanguages = settings.supportedLanguages || {};
       },
       () => this.defaultLoadSettings()
     );
@@ -519,6 +524,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       (countryPreferencesSettings) => {
         this.countrySettings = countryPreferencesSettings.preferences;
         this.noticeOnly = countryPreferencesSettings.noticeOnly || ['us'];
+        this.supportedLanguages = settings.supportedLanguages || {};
       },
       (error) => {
         console.error('error loading content', error);

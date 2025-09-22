@@ -20,7 +20,8 @@ const questionChoices = {
 };
 const languages = {
   'English [en]': 'en',
-  'Arabic [ar]': 'ar',
+  'Arabic  [ar]': 'ar',
+  'Arabic (Qatar) [qa-ar]': 'qa-ar',
   'Chinese (PRC) [zh-cn]': 'zh-cn',
   'Chinese (Taiwan) [zh-tw]': 'zh-tw',
   'French [fr]': 'fr',
