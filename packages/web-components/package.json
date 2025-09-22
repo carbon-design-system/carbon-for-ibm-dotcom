@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -85,6 +85,7 @@
     "test:e2e-storybook:test:no-percy:with-video": "npx -y start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --config video=true,screenshotOnRunFailure=true --config-file tests/e2e-storybook/cypress.json'",
     "test:unit": "gulp test:unit",
     "test:unit:updateSnapshot": "gulp test:unit --update-snapshot",
+    "telemetry:config": "npx -y @ibm/telemetry-js-config-generator generate --wc --id 2a67e3ca-af1a-470d-87e5-474e71848221 --endpoint https://www-api.ibm.com/ibm-telemetry/v1/metrics --files ./src/components",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "upgrade-carbon": "yarn upgrade-interactive @carbon/web-components @carbon/icon-helpers @carbon/icons --latest --exact",
     "visual-snapshot": "yarn percy storybook:start ./storybook-static",
@@ -92,14 +93,14 @@
     "cypress:verify": "cypress verify"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "2.31.0",
-    "@carbon/ibmdotcom-styles": "2.31.0",
-    "@carbon/ibmdotcom-utilities": "2.31.0",
+    "@carbon/ibmdotcom-services": "2.32.0",
+    "@carbon/ibmdotcom-styles": "2.32.0",
+    "@carbon/ibmdotcom-utilities": "2.32.0",
     "@carbon/layout": "11.27.0",
     "@carbon/motion": "11.24.0",
     "@carbon/styles": "1.65.0",
     "@carbon/web-components": "2.13.1",
-    "@ibm/telemetry-js": "^1.5.0",
+    "@ibm/telemetry-js": "^1.10.2",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",
     "redux": "^4.0.0",
