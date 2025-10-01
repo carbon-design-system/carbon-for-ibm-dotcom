@@ -151,6 +151,14 @@
   }
 }
 
+:host(#{$c4d-prefix}-carousel[dir='rtl'].featured-carousel) {
+  nav.cds--carousel__navigation {
+    //need to use 'right' to override the LTR property.
+    /* stylelint-disable-next-line */
+    right: calc(50% + 32px);
+  }
+}
+
 @media print {
   :host(#{$c4d-prefix}-carousel),
   .#{$prefix}--carousel {
