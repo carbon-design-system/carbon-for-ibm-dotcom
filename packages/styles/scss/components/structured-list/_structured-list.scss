@@ -36,7 +36,7 @@
     ::slotted(*:nth-child(#{$colNumber})) {
       --cols: var(
         --col-span-md-#{$colNumber},
-        var(--col-span-#{$colNumber}, 2)
+        var(--col-span-#{$colNumber}, 3)
       );
       --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
@@ -108,7 +108,7 @@
       border-block-end: 1px solid $layer-accent-01;
       color: $text-primary;
 
-      @include breakpoint-down(md) {
+      @include breakpoint-down(lg) {
         box-shadow: extended-box-shadow();
       }
     }
