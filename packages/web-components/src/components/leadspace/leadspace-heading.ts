@@ -80,7 +80,7 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html` <h1 part="heading"><slot></slot></h1> `;
+    return html` <slot><h1 part="heading"></h1></slot> `;
   }
 
   static get stableSelector() {
