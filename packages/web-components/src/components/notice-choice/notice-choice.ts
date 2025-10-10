@@ -213,7 +213,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
 
-  private handleLanguageOrEnvironmentChange(field: string, value: string) {
+  private handleLanguageOrEnvironmentChange(value: string) {
     if (['stage', 'prod'].includes(value)) {
       this.environment = value;
     } else {
@@ -260,7 +260,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
       case 'language':
       case 'environment':
-        this.handleLanguageOrEnvironmentChange(field, stringValue);
+        this.handleLanguageOrEnvironmentChange(stringValue);
         return;
 
       case 'country':
