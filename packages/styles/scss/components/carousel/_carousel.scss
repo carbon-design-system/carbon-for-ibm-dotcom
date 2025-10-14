@@ -85,9 +85,9 @@
       // Achieves `sameHeight` effect for card group.
       // The cards must have `height:auto`.
       align-items: stretch;
-      margin-inline-end: calc(
-        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
-      );
+      // margin-inline-end: calc(
+      //   #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      // );
     }
 
     .#{$prefix}--carousel__scroll-contents--scrolling {
