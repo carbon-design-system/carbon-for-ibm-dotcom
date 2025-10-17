@@ -79,6 +79,32 @@ $pos-btn-bottom: calc(
     inline-size: 58px;
   }
 
+  [part='link']:has(img.custom-logo-override) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    block-size: 48px;
+    inline-size: 142px;
+
+    @include breakpoint-between(lg, max) {
+      inline-size: 126px;
+    }
+
+    @include breakpoint-between(sm, lg) {
+      inline-size: 94px;
+    }
+  }
+
+  [part='link'] img.custom-logo-override {
+    display: block;
+    block-size: auto;
+    inline-size: auto;
+    max-block-size: 100%;
+    max-inline-size: 100%;
+    object-fit: contain;
+  }
+
   .#{$c4d-prefix}-ce--header__logo--has-search-active {
     @include breakpoint-down(md) {
       display: none;

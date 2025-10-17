@@ -83,7 +83,7 @@ $btn-min-width: 26;
 
 @mixin leadspace {
   ::slotted([slot='action']) {
-    padding-block-start: $spacing-07;
+    padding-block: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-leadspace) {
@@ -279,7 +279,7 @@ $btn-min-width: 26;
 
       ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$c4d-prefix}--leadspace__title {
-        inline-size: percentage(math.div(8, 16));
+        inline-size: percentage(math.div(6, 16));
       }
 
       .#{$c4d-prefix}--leadspace__desc {
@@ -289,7 +289,7 @@ $btn-min-width: 26;
       .#{$c4d-prefix}--leadspace--productive {
         ::slotted(#{$c4d-prefix}-leadspace-heading),
         .#{$c4d-prefix}--leadspace__title {
-          @include make-col(7, 16);
+          @include make-col(6, 16);
         }
       }
     }
