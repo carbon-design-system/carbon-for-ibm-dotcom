@@ -178,106 +178,125 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     });
   }
 
+  private handleEmailChange(
+    value: unknown,
+    oldValue: unknown,
+    hasValue: boolean
+  ) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    this.emailValid = false;
+
+    if (
+      hasValue &&
+      typeof value === 'string' &&
+      value.trim() &&
+      oldValue !== value &&
+      emailRegex.test(value.trim())
+    ) {
+      this.email = value.trim();
+      this.onEmailChange();
+    } else {
+      this.showCheckBox = false;
+    }
+  }
+
+  private loadContentWithFallback(lang: string) {
+    loadContent(
+      lang,
+      this.environment,
+      (ncData) => {
+        this.isLoading = false;
+        this.ncData = ncData;
+        this.prepareCheckboxes();
+      },
+      () => this.defaultLoadContent()
+    );
+  }
+
+  private handleLanguageOrEnvironmentChange(value: string) {
+    if (['stage', 'prod'].includes(value)) {
+      this.environment = value;
+    } else {
+      this.language = value;
+    }
+
+    const langPart = this.language?.split(/[-_]/)[0];
+    this.isLoading = true;
+
+    loadSettings(
+      this.environment,
+      (settings) => {
+        this.countrySettings = settings.preferences;
+        this.noticeOnly = settings.noticeOnly || ['us'];
+        this.supportedLanguages = settings.supportedLanguages || {};
+
+        const supportedLang =
+          this.supportedLanguages[this.language?.toLowerCase() || ''] ||
+          (langPart && this.supportedLanguages[langPart.toLowerCase()]) ||
+          'en';
+
+        this.loadContentWithFallback(supportedLang);
+      },
+      (err) => {
+        console.error('Error loading settings', err);
+        this.loadContentWithFallback('en');
+      }
+    );
+  }
+
   private _dispatchChange(
     field: string,
     value: unknown,
     hasValue: boolean,
     oldValue?: unknown
   ) {
+    const stringValue = typeof value === 'string' ? value : '';
+
     switch (field) {
-      case 'questionchoices': {
+      case 'questionchoices':
         this.prepareCheckboxes();
         this.setDefaultSelections();
-        break;
-      }
+        return;
 
       case 'language':
-      case 'environment': {
-        if (['stage', 'prod'].includes(value as string)) {
-          this.environment = value as string;
-        } else {
-          this.language = value as string;
-        }
-        const langPart = (this.language as string | undefined)?.split(
-          /[-_]/
-        )[0];
-        const supportedLang =
-          (this.language &&
-            this.supportedLanguages[this.language?.toLowerCase()]) ||
-          (langPart && this.supportedLanguages[langPart?.toLowerCase()]) ||
-          'en';
+      case 'environment':
+        this.handleLanguageOrEnvironmentChange(stringValue);
+        return;
 
-        this.isLoading = true;
-        loadSettings(
-          this.environment,
-          (settings) => {
-            this.countrySettings = settings.preferences;
-            this.noticeOnly = settings.noticeOnly || ['us'];
-            this.supportedLanguages = settings.supportedLanguages || {};
-          },
-          (err) => console.error('error loading settings', err)
-        );
-
-        loadContent(
-          supportedLang,
-          this.environment,
-          (ncData) => {
-            this.isLoading = false;
-            this.ncData = ncData;
-            this.prepareCheckboxes();
-          },
-          () => this.defaultLoadContent()
-        );
-        break;
-      }
-
-      case 'country': {
+      case 'country':
         if (
           hasValue &&
-          typeof value === 'string' &&
+          stringValue &&
           oldValue !== value &&
-          this.countrySettings?.[value.toLowerCase()]
+          this.countrySettings?.[stringValue.toLowerCase()]
         ) {
           this.countryChanged();
         }
-        break;
-      }
+        return;
 
-      case 'enableAllOptIn': {
+      case 'enableAllOptIn':
         if (oldValue !== value && typeof value === 'string') {
           this.enableAllOptIn = JSON.parse(value);
           this.setDefaultSelections();
         }
-        break;
-      }
+        return;
 
-      case 'hideErrorMessage': {
+      case 'hideErrorMessage':
         if (oldValue !== value && typeof value === 'string') {
           this.hideErrorMessage = JSON.parse(value);
           this.countryBasedLegalNotice();
         }
-        break;
-      }
+        return;
 
-      case 'email': {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        this.emailValid = false;
-        if (
-          hasValue &&
-          oldValue !== value &&
-          typeof value === 'string' &&
-          emailRegex.test(value.trim()) &&
-          value.trim() !== ''
-        ) {
-          this.email = value.trim();
-          this.onEmailChange();
-        } else {
-          this.showCheckBox = false;
-        }
-        break;
-      }
+      case 'email':
+        this.handleEmailChange(value, oldValue, hasValue);
+        return;
+
+      default:
+        return;
     }
   }
+
   onEmailChange() {
     const email = this.email;
     const oneYearAgo = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000);
