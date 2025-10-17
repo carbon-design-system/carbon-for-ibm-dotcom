@@ -18,7 +18,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 18.x
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '18.x'
           cache: 'yarn'
@@ -133,7 +133,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 18.x
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '18.x'
           cache: 'yarn'
@@ -185,7 +185,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 18.x
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '18.x'
           cache: 'yarn'
