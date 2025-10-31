@@ -677,7 +677,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
 
     if (this.doubleOptInCountries.includes(country)) {
-      preText += ` <span part="double-opt-in-text">${content.mkDoubleOptInText}</span>`;
+      const text = content?.mkDoubleOptInText || '';
+      preText += text ? ` <span part="double-opt-in-text">${text}</span>` : '';
     }
 
     // 4. permission/suppression logic
