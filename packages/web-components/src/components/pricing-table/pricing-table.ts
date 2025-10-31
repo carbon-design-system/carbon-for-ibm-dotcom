@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2024
+ * Copyright IBM Corp. 2022, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -133,6 +133,31 @@ class C4DPricingTable extends HostListenerMixin(
       });
   }
 
+  // Adjusting the col span of the pricing table that comes from the API call
+  setAPIPricingTableWidth() {
+    const parentHasApiCall = this.closest(
+      'div.tableProductPrice[isapicall="Api"]'
+    );
+
+    if (parentHasApiCall) {
+      this.replaceColSpanVars(this);
+    }
+  }
+
+  replaceColSpanVars(element) {
+    const styleAttr = element.getAttribute('style');
+    if (!styleAttr) {
+      return;
+    }
+
+    const newStyle = styleAttr.replace(
+      /--col-span-(\d+)\s*:/g,
+      '--col-span-lg-$1:'
+    );
+
+    element.setAttribute('style', newStyle);
+  }
+
   /**
    * Host listener for updating header element references when cells are
    * updated.
@@ -181,6 +206,8 @@ class C4DPricingTable extends HostListenerMixin(
 
   renderInner() {
     const { sentinelClass } = this.constructor as typeof C4DPricingTable;
+
+    this.setAPIPricingTableWidth();
 
     return html`
       <section
