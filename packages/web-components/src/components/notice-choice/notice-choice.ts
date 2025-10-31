@@ -74,9 +74,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'environment' })
   environment = 'prod';
 
-  @property({ type: String, attribute: 'form-type' })
-  formType = 'marketing';
-
   /**
    * End properties for passed attributes.
    */
@@ -680,15 +677,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
 
     if (this.doubleOptInCountries.includes(country)) {
-      const text =
-        this.formType === 'marketing'
-          ? content.mkDoubleOptInText
-          : this.formType === 'newsletter'
-          ? content.nlDoubleOptInText
-          : '';
-      if (text) {
-        preText += ` <span part="double-opt-in-text">${text}</span>`;
-      }
+      preText += ` <span part="double-opt-in-text">${content.mkDoubleOptInText}</span>`;
     }
 
     // 4. permission/suppression logic
