@@ -102,6 +102,11 @@ const onEmailStatusChanged = (events: CustomEvent) => {
   console.log(`[${events.type}] :`, events.detail);
 };
 
+const formType = {
+  marketing: 'marketing',
+  newsletter: 'newsletter',
+};
+
 const props = () => {
   const selectedCountry = select('Country', countryList, 'US');
   let availableStates = stateList[selectedCountry] || [{ Unknown: '' }];
@@ -124,6 +129,7 @@ const props = () => {
     ),
     environment: select('Environment', environment, 'stage'),
     email: text('Email', ''),
+    formType: select('Form Type', formType, 'marketing'),
   };
 };
 
@@ -142,6 +148,7 @@ export const Default = (args) => {
     ncEmailDetail,
     environment,
     email,
+    formType,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -158,6 +165,7 @@ export const Default = (args) => {
       .nc-tele-detail="${ncTeleDetail}"
       .nc-email-detail="${ncEmailDetail}"
       environment="${environment}"
+      form-type="${formType}"
       @c4d-notice-choice-change=${onChange}
       @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}>
     </c4d-notice-choice>
