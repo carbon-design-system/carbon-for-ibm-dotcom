@@ -135,6 +135,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: html, attribute: false })
   defaultPreText = html``;
 
+  @property({ type: Array, attribute: false })
+  doubleOptInCountries: string[] = [];
+
   @property({ type: Object, attribute: false })
   values = {
     EMAIL: false,
@@ -368,6 +371,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countrySettings = settings.preferences;
         this.noticeOnly = settings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
+        this.doubleOptInCountries = settings.doubleOptInCountries || [];
       },
       () => this.defaultLoadSettings()
     );
@@ -670,6 +674,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         : this.isAnnualPeriodExpired
         ? countryContent.combinedConsent
         : countryContent.annualText;
+    }
+
+    if (this.doubleOptInCountries.includes(country)) {
+      const text = content?.mkDoubleOptInText || '';
+      preText += text ? ` <span part="double-opt-in-text">${text}</span>` : '';
     }
 
     // 4. permission/suppression logic
