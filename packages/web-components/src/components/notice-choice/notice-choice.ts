@@ -676,19 +676,21 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         : countryContent.annualText;
     }
 
-    if (this.doubleOptInCountries.includes(country)) {
-      const text = content?.mkDoubleOptInText || '';
-      preText += text ? ` <span part="double-opt-in-text">${text}</span>` : '';
+    const hasEmail = Boolean(this.values?.EMAIL);
+    const inDoubleOptIn = this.doubleOptInCountries?.includes(country);
+    const inNoticeOnly = this.noticeOnly?.includes(country);
+
+    // 4. Add double opt-in text if applicable
+    if (hasEmail && inDoubleOptIn) {
+      const text = content?.mkDoubleOptInText?.trim();
+      if (text) {
+        preText += ` <span part="double-opt-in-text">${text}</span>`;
+      }
     }
 
-    // 4. permission/suppression logic
-    if (!(this.noticeOnly || []).includes(country)) {
-      let isPermission = false;
-
-      isPermission = this.values.EMAIL;
-
-      const checked = isPermission;
-
+    // 5. permission/suppression logic
+    if (!inNoticeOnly) {
+      const checked = hasEmail;
       if (this.showCheckBox) {
         return this.renderCheckbox(preText, checked);
       }
