@@ -724,6 +724,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       }
     }
 
+    this._onCustomNoticeTextChange('customNoticeText', preText);
+
     // 5. permission/suppression logic
     if (!inNoticeOnly) {
       const checked = hasEmail;
@@ -969,6 +971,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   _onEmailStatusChanged(field: string, value: string | null): void {
     this.dispatchCustomEvent(
       `${c4dPrefix}-notice-choice-email-status-changed`,
+      field,
+      value
+    );
+  }
+
+  _onCustomNoticeTextChange(field: string, value: string | null): void {
+    this.dispatchCustomEvent(
+      `${c4dPrefix}-notice-choice-custom-notice-text-change`,
       field,
       value
     );

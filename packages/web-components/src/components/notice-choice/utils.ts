@@ -56,38 +56,40 @@ export function pwsValueMap(value) {
   );
 }
 
-export function processCustomText(customNoticeText: {
+export function processCustomText({
+  text,
+  optOutLink,
+  psLink,
+  ccpaLink,
+}: {
   text?: string;
   optOutLink?: string;
   psLink?: string;
+  ccpaLink?: string;
 }) {
-  if (
-    !customNoticeText?.text ||
-    !customNoticeText?.optOutLink ||
-    !customNoticeText?.psLink
-  ) {
+  if (!text || !optOutLink || !psLink) {
     return '';
   }
 
-  let preText = customNoticeText.text;
+  const replaceTag = (
+    str: string,
+    tag: string,
+    href: string | undefined,
+    part: string
+  ) =>
+    href
+      ? str.replace(
+          new RegExp(`<${tag}>(.*?)</${tag}>`, 'g'),
+          `<a href="${href}" part="${part}" target="_blank" aria-label="$1 (opens in new tab)" class="cds-inline">$1</a>`
+        )
+      : str.replace(new RegExp(`<${tag}>(.*?)</${tag}>`, 'g'), '$1');
 
-  preText = preText
-    .replace(
-      /<optout>(.*?)<\/optout>/g,
-      `<span id="optout">
-        <a href="${customNoticeText.optOutLink}" part="nc-opt-out" target="_blank">$1</a>
-      </span>`
-    )
-    .replace(
-      /<ps>(.*?)<\/ps>/g,
-      `<span id="ps">
-        <a href="${customNoticeText.psLink}" 
-           part="nc-privacy-statement" 
-           target="_blank" 
-           aria-label="$1 (opens in new tab)" 
-           class="cds-inline">$1</a>
-      </span>`
-    );
-
-  return preText;
+  return [
+    { tag: 'optout', link: optOutLink, part: 'nc-opt-out' },
+    { tag: 'ps', link: psLink, part: 'nc-privacy-statement' },
+    { tag: 'ccpa', link: ccpaLink, part: 'nc-ccpa-link' },
+  ].reduce(
+    (acc, { tag, link, part }) => replaceTag(acc, tag, link, part),
+    text
+  );
 }

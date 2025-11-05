@@ -102,15 +102,20 @@ const onEmailStatusChanged = (events: CustomEvent) => {
   console.log(`[${events.type}] :`, events.detail);
 };
 
+const onCustomNoticeTextChange = (events: CustomEvent) => {
+  console.log(`[${events.type}] :`, events.detail);
+};
+
 const showCustomNotice = {
   True: true,
   False: false,
 };
 
 const customNoticeText = {
-  text: `I’d like Apptio, an IBM Company, to use my contact details to keep me informed about products, services, and offers. More information on how Apptio uses data and ways to <optout>opt-out</optout> can be found in the <ps>Apptio Privacy Statement</ps>.`,
+  text: `I’d like Apptio, an IBM Company, to use my contact details to keep me informed about products, services, and offers. More information on how Apptio uses data and ways to <optout>opt-out</optout> can be found in the <ps>Apptio Privacy Statement</ps>. California residents, review the <ccpa>California Supplemental Privacy Statement</ccpa>.`,
   optOutLink: 'https://respond.apptio.com/unsubscribe.html',
   psLink: 'https://www.apptio.com/company/data-privacy/',
+  ccpaLink: 'https://www.apptio.com/company/ccpa/',
 };
 
 const props = () => {
@@ -128,6 +133,9 @@ const props = () => {
     ),
     onChange: action('c4d-notice-choice-change'),
     onEmailStatusChanged: action('c4d-notice-choice-email-status-changed'),
+    onCustomNoticeTextChange: action(
+      'c4d-notice-choice-custom-notice-text-change'
+    ),
     hideErrorMessages: select(
       'Hide Error Messages',
       hideErrorMessages,
@@ -172,7 +180,8 @@ export const Default = (args) => {
       ?show-custom-notice-text=${showCustomNotice}
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
-      @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}>
+      @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}
+      @c4d-notice-choice-custom-notice-text-change=${onCustomNoticeTextChange}>
     </c4d-notice-choice>
   `;
 };
