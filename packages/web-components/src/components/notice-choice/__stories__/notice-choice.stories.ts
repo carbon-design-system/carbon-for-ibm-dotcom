@@ -133,9 +133,7 @@ const props = () => {
     ),
     onChange: action('c4d-notice-choice-change'),
     onEmailStatusChanged: action('c4d-notice-choice-email-status-changed'),
-    onCustomNoticeTextChange: action(
-      'c4d-notice-choice-custom-notice-text-change'
-    ),
+    onCustomNoticeTextChange: action('c4d-notice-choice-text-change'),
     hideErrorMessages: select(
       'Hide Error Messages',
       hideErrorMessages,
@@ -181,7 +179,7 @@ export const Default = (args) => {
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
       @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}
-      @c4d-notice-choice-custom-notice-text-change=${onCustomNoticeTextChange}>
+      @c4d-notice-choice-text-change=${onCustomNoticeTextChange}>
     </c4d-notice-choice>
   `;
 };
