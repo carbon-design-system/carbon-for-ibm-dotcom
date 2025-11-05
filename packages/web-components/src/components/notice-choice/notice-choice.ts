@@ -10,7 +10,11 @@
 import { loadContent, loadSettings, checkEmailStatus } from './services';
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import { pwsValueMap, resetToWorldWideContent } from './utils';
+import {
+  pwsValueMap,
+  resetToWorldWideContent,
+  processCustomText,
+} from './utils';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
@@ -73,6 +77,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: String, attribute: 'environment' })
   environment = 'prod';
+
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'show-custom-notice-text',
+  })
+  showCustomNoticeText = false;
 
   /**
    * End properties for passed attributes.
@@ -137,6 +148,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Array, attribute: false })
   doubleOptInCountries: string[] = [];
+
+  @property({ type: Object, attribute: false })
+  customNotice = {};
 
   @property({ type: Object, attribute: false })
   values = {
@@ -293,6 +307,17 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
       case 'email':
         this.handleEmailChange(value, oldValue, hasValue);
+        return;
+
+      case 'customNotice':
+        if (oldValue !== value && typeof value === 'object') {
+          this.customNotice = value || {};
+        }
+        return;
+      case 'showCustomNoticeText':
+        if (oldValue !== value && typeof value === 'boolean') {
+          this.showCustomNoticeText = value;
+        }
         return;
 
       default:
@@ -680,6 +705,17 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const inDoubleOptIn = this.doubleOptInCountries?.includes(country);
     const inNoticeOnly = this.noticeOnly?.includes(country);
 
+    if (this.showCustomNoticeText) {
+      const hasVendorText =
+        this.customNotice &&
+        typeof this.customNotice === 'object' &&
+        Object.keys(this.customNotice).length > 0;
+
+      preText = hasVendorText
+        ? processCustomText(this.customNotice)
+        : content.thirdPartyCombinedConsent;
+    }
+
     // 4. Add double opt-in text if applicable
     if (hasEmail && inDoubleOptIn) {
       const text = content?.mkDoubleOptInText?.trim();
@@ -691,7 +727,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     // 5. permission/suppression logic
     if (!inNoticeOnly) {
       const checked = hasEmail;
-      if (this.showCheckBox) {
+      if (this.showCheckBox || this.showCustomNoticeText) {
         return this.renderCheckbox(preText, checked);
       }
     }

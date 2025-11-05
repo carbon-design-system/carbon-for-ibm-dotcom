@@ -55,3 +55,39 @@ export function pwsValueMap(value) {
     }[value] || null
   );
 }
+
+export function processCustomText(customNotice: {
+  text?: string;
+  optOutLink?: string;
+  psLink?: string;
+}) {
+  if (
+    !customNotice?.text ||
+    !customNotice?.optOutLink ||
+    !customNotice?.psLink
+  ) {
+    return '';
+  }
+
+  let preText = customNotice.text;
+
+  preText = preText
+    .replace(
+      /<optout>(.*?)<\/optout>/g,
+      `<span id="optout">
+        <a href="${customNotice.optOutLink}" part="nc-opt-out" target="_blank">$1</a>
+      </span>`
+    )
+    .replace(
+      /<ps>(.*?)<\/ps>/g,
+      `<span id="ps">
+        <a href="${customNotice.psLink}" 
+           part="nc-privacy-statement" 
+           target="_blank" 
+           aria-label="$1 (opens in new tab)" 
+           class="cds-inline">$1</a>
+      </span>`
+    );
+
+  return preText;
+}
