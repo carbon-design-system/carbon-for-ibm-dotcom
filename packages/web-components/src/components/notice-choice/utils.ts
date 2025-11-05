@@ -56,32 +56,32 @@ export function pwsValueMap(value) {
   );
 }
 
-export function processCustomText(customNotice: {
+export function processCustomText(customNoticeText: {
   text?: string;
   optOutLink?: string;
   psLink?: string;
 }) {
   if (
-    !customNotice?.text ||
-    !customNotice?.optOutLink ||
-    !customNotice?.psLink
+    !customNoticeText?.text ||
+    !customNoticeText?.optOutLink ||
+    !customNoticeText?.psLink
   ) {
     return '';
   }
 
-  let preText = customNotice.text;
+  let preText = customNoticeText.text;
 
   preText = preText
     .replace(
       /<optout>(.*?)<\/optout>/g,
       `<span id="optout">
-        <a href="${customNotice.optOutLink}" part="nc-opt-out" target="_blank">$1</a>
+        <a href="${customNoticeText.optOutLink}" part="nc-opt-out" target="_blank">$1</a>
       </span>`
     )
     .replace(
       /<ps>(.*?)<\/ps>/g,
       `<span id="ps">
-        <a href="${customNotice.psLink}" 
+        <a href="${customNoticeText.psLink}" 
            part="nc-privacy-statement" 
            target="_blank" 
            aria-label="$1 (opens in new tab)" 

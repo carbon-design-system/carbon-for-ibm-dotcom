@@ -83,7 +83,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     reflect: true,
     attribute: 'show-custom-notice-text',
   })
-  showCustomNoticeText = false;
+  showCustomNotice = false;
 
   /**
    * End properties for passed attributes.
@@ -150,7 +150,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   doubleOptInCountries: string[] = [];
 
   @property({ type: Object, attribute: false })
-  customNotice = {};
+  customNoticeText = {};
 
   @property({ type: Object, attribute: false })
   values = {
@@ -309,14 +309,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.handleEmailChange(value, oldValue, hasValue);
         return;
 
-      case 'customNotice':
+      case 'customNoticeText':
         if (oldValue !== value && typeof value === 'object') {
-          this.customNotice = value || {};
+          this.customNoticeText = value || {};
         }
         return;
-      case 'showCustomNoticeText':
+      case 'showCustomNotice':
         if (oldValue !== value && typeof value === 'boolean') {
-          this.showCustomNoticeText = value;
+          this.showCustomNotice = value;
         }
         return;
 
@@ -705,14 +705,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const inDoubleOptIn = this.doubleOptInCountries?.includes(country);
     const inNoticeOnly = this.noticeOnly?.includes(country);
 
-    if (this.showCustomNoticeText) {
+    if (this.showCustomNotice) {
       const hasVendorText =
-        this.customNotice &&
-        typeof this.customNotice === 'object' &&
-        Object.keys(this.customNotice).length > 0;
+        this.customNoticeText &&
+        typeof this.customNoticeText === 'object' &&
+        Object.keys(this.customNoticeText).length > 0;
 
       preText = hasVendorText
-        ? processCustomText(this.customNotice)
+        ? processCustomText(this.customNoticeText)
         : content.thirdPartyCombinedConsent;
     }
 
@@ -727,7 +727,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     // 5. permission/suppression logic
     if (!inNoticeOnly) {
       const checked = hasEmail;
-      if (this.showCheckBox || this.showCustomNoticeText) {
+      if (this.showCheckBox || this.showCustomNotice) {
         return this.renderCheckbox(preText, checked);
       }
     }
