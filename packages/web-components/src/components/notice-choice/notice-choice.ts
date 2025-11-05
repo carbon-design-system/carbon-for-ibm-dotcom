@@ -724,7 +724,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       }
     }
 
-    this._onCustomNoticeTextChange('customNoticeText', preText);
+    this._onNoticeTextChange('noticeTextChange', preText);
 
     // 5. permission/suppression logic
     if (!inNoticeOnly) {
@@ -976,9 +976,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
 
-  _onCustomNoticeTextChange(field: string, value: string | null): void {
+  _onNoticeTextChange(field: string, value: string | null): void {
     this.dispatchCustomEvent(
-      `${c4dPrefix}-notice-choice-custom-notice-text-change`,
+      `${c4dPrefix}-notice-choice-text-change`,
       field,
       value
     );
