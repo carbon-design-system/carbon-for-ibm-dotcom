@@ -71,25 +71,23 @@ export function processCustomText({
     return '';
   }
 
-  const replaceTag = (
-    str: string,
-    tag: string,
-    href: string | undefined,
-    part: string
-  ) =>
-    href
-      ? str.replace(
-          new RegExp(`<${tag}>(.*?)</${tag}>`, 'g'),
-          `<a href="${href}" part="${part}" target="_blank" aria-label="$1 (opens in new tab)" class="cds-inline">$1</a>`
-        )
-      : str.replace(new RegExp(`<${tag}>(.*?)</${tag}>`, 'g'), '$1');
-
-  return [
+  const linkMap = [
     { tag: 'optout', link: optOutLink, part: 'nc-opt-out' },
     { tag: 'ps', link: psLink, part: 'nc-privacy-statement' },
     { tag: 'ccpa', link: ccpaLink, part: 'nc-ccpa-link' },
-  ].reduce(
-    (acc, { tag, link, part }) => replaceTag(acc, tag, link, part),
-    text
-  );
+  ];
+
+  let result = text;
+
+  for (const { tag, link, part } of linkMap) {
+    const regex = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'gi');
+
+    result = result.replace(regex, (_match, inner) =>
+      link
+        ? `<a href="${link}" part="${part}" target="_blank" aria-label="${inner} (opens in new tab)" class="cds-inline">${inner}</a>`
+        : inner
+    );
+  }
+
+  return result;
 }

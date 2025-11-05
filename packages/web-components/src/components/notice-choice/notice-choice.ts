@@ -729,7 +729,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     // 5. permission/suppression logic
     if (!inNoticeOnly) {
       const checked = hasEmail;
-      if (this.showCheckBox || this.showCustomNotice) {
+      if (this.showCheckBox) {
         return this.renderCheckbox(preText, checked);
       }
     }
