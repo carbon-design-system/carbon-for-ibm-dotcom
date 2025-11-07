@@ -17,12 +17,84 @@ import '../masthead-container';
 import { L1_CTA_TYPES } from '../defs';
 import styles from './masthead.stories.scss';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import {
-  mastheadL0Data,
-  mastheadL1Data,
-  mastheadL1EmptyMenuItemsData,
-  mastheadLogoData,
-} from './links';
+import linksJson from './masthead-links.json';
+
+const mastheadL0Data =
+  (linksJson &&
+    linksJson.us &&
+    linksJson.us.en &&
+    linksJson.us.en.mastheadNav &&
+    linksJson.us.en.mastheadNav.links) ||
+  [];
+
+const buildL1FromL0 = (l0Item) => {
+  if (!l0Item || !l0Item.submenu) {
+    return {
+      title: l0Item?.title || '',
+      url: l0Item?.url || '',
+      menuItems: [],
+      actions: {
+        login: { title: 'Log in', url: '' },
+        cta: { title: '', url: '' },
+      },
+    };
+  }
+
+  const menuItems = (l0Item.submenu.sections || []).flatMap((section) =>
+    (section.groups || []).map((group) => ({
+      title: group.heading?.title || '',
+      submenu: {
+        columns: 1,
+        menuSections: [
+          {
+            span: 1,
+            heading: group.heading
+              ? {
+                  headingLevel: 2,
+                  title: group.heading.title || '',
+                  url: group.heading.url || undefined,
+                }
+              : undefined,
+            items: (group.links || []).map((lnk) => ({
+              title: lnk.title || '',
+              url: lnk.url || '',
+              description: lnk.description || undefined,
+            })),
+          },
+        ],
+      },
+    }))
+  );
+
+  return {
+    title: l0Item.title || 'L1 section name',
+    url: l0Item.url || '',
+    menuItems,
+    actions: {
+      login: { title: 'Log in', url: '' },
+
+      cta: { title: '', url: '', ctaType: undefined },
+    },
+  };
+};
+
+const mastheadL1Data = buildL1FromL0(mastheadL0Data[0]);
+
+const mastheadL1EmptyMenuItemsData = {
+  ...buildL1FromL0(mastheadL0Data[0]),
+  menuItems: [],
+};
+
+const mastheadLogoData = (linksJson as any).logo || {
+  svg: '<svg></svg>',
+  tooltip: '',
+  denylist: [],
+  allowlist: [],
+  end: '',
+  path: '/',
+  href: '',
+};
+
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
@@ -383,7 +455,7 @@ withPlatform.story = {
           'platform url (platformUrl)',
           'https://www.ibm.com'
         ),
-        useMock: boolean('use mock nav data (use-mock)', false),
+        useMock: boolean('Use live data for links', false),
       }),
     },
     propsSet: {
@@ -470,7 +542,7 @@ withL1.story = {
           enumToArray(L1_CTA_TYPES),
           L1_CTA_TYPES.NONE
         ),
-        useMock: boolean('use mock nav data (use-mock)', false),
+        useMock: boolean('Use live data for links', false),
         useL1EmptyData: boolean('Use empty data for L1 menu items', false),
       }),
     },
@@ -679,7 +751,7 @@ export default {
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'
           ),
-        useMock: boolean('use mock nav data (use-mock)', false),
+        useMock: boolean('Use live data for links', false),
       }),
     },
     propsSet: {
