@@ -107,16 +107,16 @@ const onCustomNoticeTextChange = (events: CustomEvent) => {
 };
 
 const showCustomNotice = {
-  True: true,
-  False: false,
+  True: 'true',
+  False: 'false',
 };
 
-const customNoticeText = {
+const customNoticeText = JSON.stringify({
   text: `I’d like Apptio, an IBM Company, to use my contact details to keep me informed about products, services, and offers. More information on how Apptio uses data and ways to <optout>opt-out</optout> can be found in the <ps>Apptio Privacy Statement</ps>. California residents, review the <ccpa>California Supplemental Privacy Statement</ccpa>.`,
   optOutLink: 'https://respond.apptio.com/unsubscribe.html',
   psLink: 'https://www.apptio.com/company/data-privacy/',
   ccpaLink: 'https://www.apptio.com/company/ccpa/',
-};
+});
 
 const props = () => {
   const selectedCountry = select('Country', countryList, 'US');
@@ -145,7 +145,7 @@ const props = () => {
     showCustomNotice: select(
       'Show Custom Notice Text',
       showCustomNotice,
-      false
+      'false'
     ),
   };
 };
@@ -175,7 +175,7 @@ export const Default = (args) => {
       hide-error-message="${hideErrorMessages}"
       ?enable-all-opt-in=${enableAllOptIn}
       .customNoticeText=${customNoticeText}
-      ?show-custom-notice-text=${showCustomNotice}
+      show-custom-notice-text=${showCustomNotice}
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
       @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}
