@@ -78,12 +78,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'environment' })
   environment = 'prod';
 
-  @property({
-    type: Boolean,
-    reflect: true,
-    attribute: 'show-custom-notice-text',
-  })
-  showCustomNotice = false;
+  @property({ type: String, attribute: 'show-custom-notice-text' })
+  showCustomNotice = 'false';
 
   /**
    * End properties for passed attributes.
@@ -310,13 +306,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         return;
 
       case 'customNoticeText':
-        if (oldValue !== value && typeof value === 'object') {
-          this.customNoticeText = value || {};
+        if (oldValue === value) {
+          return;
         }
+        this.customNoticeText =
+          typeof value === 'string' ? JSON.parse(value) || {} : value ?? {};
         return;
       case 'showCustomNotice':
-        if (oldValue !== value && typeof value === 'boolean') {
-          this.showCustomNotice = value;
+        if (oldValue !== value && typeof value === 'string') {
+          this.showCustomNotice = JSON.parse(value) || false;
         }
         return;
 
