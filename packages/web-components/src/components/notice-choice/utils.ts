@@ -57,7 +57,7 @@ export function pwsValueMap(value) {
 }
 
 export function processCustomText({
-  text,
+  text = '',
   optOutLink,
   psLink,
   ccpaLink,
@@ -67,10 +67,6 @@ export function processCustomText({
   psLink?: string;
   ccpaLink?: string;
 }) {
-  if (!text || !optOutLink || !psLink) {
-    return '';
-  }
-
   const linkMap = [
     { tag: 'optout', link: optOutLink, part: 'nc-opt-out' },
     { tag: 'ps', link: psLink, part: 'nc-privacy-statement' },
@@ -81,7 +77,6 @@ export function processCustomText({
 
   for (const { tag, link, part } of linkMap) {
     const regex = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'gi');
-
     result = result.replace(regex, (_match, inner) =>
       link
         ? `<a href="${link}" part="${part}" target="_blank" aria-label="${inner} (opens in new tab)" class="cds-inline">${inner}</a>`
