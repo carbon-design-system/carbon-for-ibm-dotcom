@@ -148,6 +148,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: Object, attribute: false })
   customNoticeText = {};
 
+  @property({ type: Boolean, attribute: false })
+  isOriginalTextChanged = false;
+
   @property({ type: Object, attribute: false })
   values = {
     EMAIL: false,
@@ -242,6 +245,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countrySettings = settings.preferences;
         this.noticeOnly = settings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
+        this.isOriginalTextChanged = true;
 
         const supportedLang =
           this.supportedLanguages[this.language?.toLowerCase() || ''] ||
@@ -395,6 +399,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.noticeOnly = settings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
         this.doubleOptInCountries = settings.doubleOptInCountries || [];
+        this.isOriginalTextChanged = true;
       },
       () => this.defaultLoadSettings()
     );
@@ -571,6 +576,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countrySettings = countryPreferencesSettings.preferences;
         this.noticeOnly = countryPreferencesSettings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
+        this.isOriginalTextChanged = true;
       },
       (error) => {
         console.error('error loading content', error);
@@ -703,16 +709,23 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const inDoubleOptIn = this.doubleOptInCountries?.includes(country);
     const inNoticeOnly = this.noticeOnly?.includes(country);
 
-    if (this.showCustomNotice) {
-      const hasVendorText =
-        this.customNoticeText &&
-        typeof this.customNoticeText === 'object' &&
-        Object.keys(this.customNoticeText).length > 0;
-
-      preText = hasVendorText
-        ? processCustomText(this.customNoticeText)
-        : content.thirdPartyCombinedConsent;
+    if (this.isOriginalTextChanged) {
+      this._onNoticeTextChange('noticeTextChange', preText);
+      this.isOriginalTextChanged = false;
     }
+
+    if (this.showCustomNotice) {
+      if (
+        this.customNoticeText &&
+        Object.keys(this.customNoticeText).length > 0
+      ) {
+        preText = processCustomText(this.customNoticeText);
+      } else {
+        preText = content.thirdPartyCombinedConsent;
+      }
+    }
+
+    // Call only if changed
 
     // 4. Add double opt-in text if applicable
     if (hasEmail && inDoubleOptIn) {
@@ -721,8 +734,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         preText += ` <span part="double-opt-in-text">${text}</span>`;
       }
     }
-
-    this._onNoticeTextChange('noticeTextChange', preText);
 
     // 5. permission/suppression logic
     if (!inNoticeOnly) {
@@ -782,6 +793,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   countryBasedLegalNotice() {
     const countryCode = this.country.toLowerCase();
+    this.isOriginalTextChanged = true;
     const mandatoryCheckboxes = this.ncData?.mandatoryCheckbox?.[
       countryCode
     ] as Record<string, MandatoryCheckbox> | undefined;
