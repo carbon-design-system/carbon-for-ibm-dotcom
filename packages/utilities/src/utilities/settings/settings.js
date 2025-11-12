@@ -12,10 +12,10 @@
  * @type {object} Settings object
  * @property {string} [stablePrefix=c4d] stable prefix
  * @property {string} [prefix=cds] core Carbon prefix
- * Carbon for IBM.com v2.35.0',
+ * Carbon for IBM.com v2.36.0',
  */
 const settings = {
-  version: 'Carbon for IBM.com v2.35.0',
+  version: 'Carbon for IBM.com v2.36.0',
   stablePrefix: 'c4d',
   prefix: 'cds',
 };
