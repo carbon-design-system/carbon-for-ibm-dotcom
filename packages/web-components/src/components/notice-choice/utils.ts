@@ -68,9 +68,9 @@ export function processCustomText(
 ) {
   const {
     text = '',
-    optOutLink,
-    psLink,
-    ccpaLink,
+    optOutLink = '',
+    psLink = '',
+    ccpaLink = '',
   } = typeof input === 'string' ? { text: input } : input ?? {};
 
   const linkMap = [
@@ -84,7 +84,7 @@ export function processCustomText(
   for (const { tag, link, part } of linkMap) {
     const regex = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'gi');
     result = result.replace(regex, (_match, inner) =>
-      link
+      link && link.trim() !== ''
         ? `<a href="${link}" part="${part}" target="_blank" aria-label="${inner} (opens in new tab)" class="cds-inline">${inner}</a>`
         : inner
     );
