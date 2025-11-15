@@ -81,6 +81,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'show-custom-notice-text' })
   showCustomNotice = 'false';
 
+  @property({ type: String, attribute: 'custom-notice-text' })
+  customNoticeText = '';
+
   /**
    * End properties for passed attributes.
    */
@@ -144,9 +147,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Array, attribute: false })
   doubleOptInCountries: string[] = [];
-
-  @property({ type: Object, attribute: false })
-  customNoticeText = {};
 
   @property({ type: Boolean, attribute: false })
   isOriginalTextChanged = false;
@@ -261,6 +261,27 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
 
+  private parseCustomNoticeText(value: string) {
+    if (typeof value !== 'string') {
+      return value;
+    }
+
+    const txt = document.createElement('textarea');
+    txt.innerHTML = value;
+    const decoded = txt.value.trim();
+
+    try {
+      const parsed = JSON.parse(decoded);
+
+      if (typeof parsed !== 'object' || parsed === null) {
+        return { text: decoded };
+      }
+      return parsed;
+    } catch (err) {
+      return { text: decoded };
+    }
+  }
+
   private _dispatchChange(
     field: string,
     value: unknown,
@@ -309,13 +330,13 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.handleEmailChange(value, oldValue, hasValue);
         return;
 
-      case 'customNoticeText':
+      case 'customNoticeText': {
         if (oldValue === value) {
           return;
         }
-        this.customNoticeText =
-          typeof value === 'string' ? JSON.parse(value) || {} : value ?? {};
+        this.customNoticeText = this.parseCustomNoticeText(value as string);
         return;
+      }
       case 'showCustomNotice':
         if (oldValue !== value && typeof value === 'string') {
           this.showCustomNotice = JSON.parse(value) || false;
