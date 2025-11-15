@@ -56,17 +56,23 @@ export function pwsValueMap(value) {
   );
 }
 
-export function processCustomText({
-  text = '',
-  optOutLink,
-  psLink,
-  ccpaLink,
-}: {
-  text?: string;
-  optOutLink?: string;
-  psLink?: string;
-  ccpaLink?: string;
-}) {
+export function processCustomText(
+  input:
+    | string
+    | {
+        text?: string;
+        optOutLink?: string;
+        psLink?: string;
+        ccpaLink?: string;
+      }
+) {
+  const {
+    text = '',
+    optOutLink,
+    psLink,
+    ccpaLink,
+  } = typeof input === 'string' ? { text: input } : input;
+
   const linkMap = [
     { tag: 'optout', link: optOutLink, part: 'nc-opt-out' },
     { tag: 'ps', link: psLink, part: 'nc-privacy-statement' },
