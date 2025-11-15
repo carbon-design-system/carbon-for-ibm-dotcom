@@ -71,7 +71,7 @@ export function processCustomText(
     optOutLink,
     psLink,
     ccpaLink,
-  } = typeof input === 'string' ? { text: input } : input;
+  } = typeof input === 'string' ? { text: input } : input ?? {};
 
   const linkMap = [
     { tag: 'optout', link: optOutLink, part: 'nc-opt-out' },
