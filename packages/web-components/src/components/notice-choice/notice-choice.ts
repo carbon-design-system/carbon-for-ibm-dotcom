@@ -81,8 +81,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'show-custom-notice-text' })
   showCustomNotice = 'false';
 
-  @property({ type: Object, attribute: false })
-  customNoticeText = {};
+  @property({ type: String, attribute: 'custom-notice-text' })
+  customNoticeText = '';
 
   /**
    * End properties for passed attributes.
