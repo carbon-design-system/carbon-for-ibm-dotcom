@@ -22,7 +22,6 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import '@carbon/web-components/es/components/skeleton-text/index.js';
 
-
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 interface MandatoryCheckbox {

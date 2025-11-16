@@ -111,7 +111,6 @@ const showCustomNotice = {
   False: 'false',
 };
 
-
 const props = () => {
   const selectedCountry = select('Country', countryList, 'US');
   let availableStates = stateList[selectedCountry] || [{ Unknown: '' }];
@@ -135,7 +134,7 @@ const props = () => {
     ),
     environment: select('Environment', environment, 'stage'),
     email: text('Email', ''),
-    customNoticeText: text('Custom Notice Text', ""),
+    customNoticeText: text('Custom Notice Text', ''),
     showCustomNotice: select(
       'Show Custom Notice Text',
       showCustomNotice,
