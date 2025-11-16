@@ -22,6 +22,7 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import '@carbon/web-components/es/components/skeleton-text/index.js';
 
+
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 interface MandatoryCheckbox {
@@ -175,6 +176,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Object, attribute: false })
   supportedLanguages = {};
+
+  @property({ type: Object, attribute: false })
+  customNoticeTextValue = { text: '' };
 
   connectedCallback() {
     super.connectedCallback();
@@ -368,7 +372,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           return;
         }
         console.log(value, typeof value);
-        this.customNoticeText = this.parseCustomNoticeText(value as string);
+        this.customNoticeTextValue = this.parseCustomNoticeText(
+          value as string
+        );
         return;
       }
       case 'showCustomNotice':
@@ -771,15 +777,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     if (this.showCustomNotice) {
       if (
-        this.customNoticeText &&
-        Object.keys(this.customNoticeText).length > 0
+        this.customNoticeTextValue &&
+        this.customNoticeTextValue.text?.trim()
       ) {
-        preText = processCustomText(this.customNoticeText);
+        preText = processCustomText(this.customNoticeTextValue);
       } else {
         preText = content.thirdPartyCombinedConsent;
       }
     }
-
     // Call only if changed
 
     // 4. Add double opt-in text if applicable

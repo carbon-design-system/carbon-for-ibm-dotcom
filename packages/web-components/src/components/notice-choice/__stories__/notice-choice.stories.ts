@@ -111,12 +111,6 @@ const showCustomNotice = {
   False: 'false',
 };
 
-const customNoticeText = JSON.stringify({
-  text: `I’d like Apptio, an IBM Company, to use my contact details to keep me informed about products, services, and offers. More information on how Apptio uses data and ways to <optout>opt-out</optout> can be found in the <ps>Apptio Privacy Statement</ps>. California residents, review the <ccpa>California Supplemental Privacy Statement</ccpa>.`,
-  optOutLink: 'https://respond.apptio.com/unsubscribe.html',
-  psLink: 'https://www.apptio.com/company/data-privacy/',
-  ccpaLink: 'https://www.apptio.com/company/ccpa/',
-});
 
 const props = () => {
   const selectedCountry = select('Country', countryList, 'US');
@@ -141,7 +135,7 @@ const props = () => {
     ),
     environment: select('Environment', environment, 'stage'),
     email: text('Email', ''),
-    customNoticeText: text('Custom Notice Text', customNoticeText),
+    customNoticeText: text('Custom Notice Text', ""),
     showCustomNotice: select(
       'Show Custom Notice Text',
       showCustomNotice,
