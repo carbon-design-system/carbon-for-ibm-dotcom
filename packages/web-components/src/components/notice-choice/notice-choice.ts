@@ -81,8 +81,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'show-custom-notice-text' })
   showCustomNotice = 'false';
 
-  @property({ type: String, attribute: 'custom-notice-text' })
-  customNoticeText = '';
+  @property({ type: Object, attribute: false })
+  customNoticeText = {};
 
   /**
    * End properties for passed attributes.
@@ -261,25 +261,58 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
 
-  private parseCustomNoticeText(value: string) {
-    if (typeof value !== 'string') {
-      return value;
-    }
+  private htmlDecode(text: string): string {
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = text;
+    return textarea.value;
+  }
 
-    const txt = document.createElement('textarea');
-    txt.innerHTML = value;
-    const decoded = txt.value.trim();
-
+  private tryParseJson(text: string): any {
     try {
-      const parsed = JSON.parse(decoded);
-
-      if (typeof parsed !== 'object' || parsed === null) {
-        return { text: decoded };
-      }
-      return parsed;
-    } catch (err) {
-      return { text: decoded };
+      return JSON.parse(text);
+    } catch {
+      return null;
     }
+  }
+
+  private normalizeObjectLiteral(input: string): string {
+    let normalized = input;
+
+    normalized = normalized.replace(
+      /`([^`]*)`/g,
+      (_, content) => `"${content}"`
+    );
+
+    normalized = normalized.replace(
+      /'([^']*)'/g,
+      (_, content) => `"${content}"`
+    );
+
+    normalized = normalized.replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":');
+
+    normalized = normalized.replace(/,(\s*[}\]])/g, '$1');
+
+    return normalized;
+  }
+
+  private parseCustomNoticeText(rawValue: string) {
+    if (typeof rawValue !== 'string') {
+      return rawValue;
+    }
+
+    const decodedText = this.htmlDecode(rawValue).trim();
+
+    const jsonDirect = this.tryParseJson(decodedText);
+    if (jsonDirect !== null) {
+      return jsonDirect;
+    }
+
+    const normalized = this.normalizeObjectLiteral(decodedText);
+    const jsonNormalized = this.tryParseJson(normalized);
+    if (jsonNormalized !== null) {
+      return jsonNormalized;
+    }
+    return { text: decodedText };
   }
 
   private _dispatchChange(
@@ -334,6 +367,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         if (oldValue === value) {
           return;
         }
+        console.log(value, typeof value);
         this.customNoticeText = this.parseCustomNoticeText(value as string);
         return;
       }

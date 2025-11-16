@@ -141,7 +141,7 @@ const props = () => {
     ),
     environment: select('Environment', environment, 'stage'),
     email: text('Email', ''),
-    customNoticeText: text('Custom Notice Text', customNoticeText),
+    customNoticeText: customNoticeText,
     showCustomNotice: select(
       'Show Custom Notice Text',
       showCustomNotice,
@@ -174,7 +174,7 @@ export const Default = (args) => {
       terms-condition-link="${termsConditionLink || ''}"
       hide-error-message="${hideErrorMessages}"
       ?enable-all-opt-in=${enableAllOptIn}
-      custom-notice-text=${customNoticeText}
+      .customNoticeText=${customNoticeText}
       show-custom-notice-text=${showCustomNotice}
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
