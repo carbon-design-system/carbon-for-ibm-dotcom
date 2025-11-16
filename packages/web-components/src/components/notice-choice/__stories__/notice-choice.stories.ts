@@ -112,10 +112,10 @@ const showCustomNotice = {
 };
 
 const customNoticeText = JSON.stringify({
-    "text": "By providing my contact details, I acknowledge that Apptio, an IBM Company will keep me informed about products, services, and offers. More information on how Apptio, an IBM Company uses data can be found in the <span id='ps'><ps>Apptio, an IBM Company Privacy Statement</ps></span>. California residents, review the <ccpa>California Supplemental Privacy Statement</ccpa>.",
-    "optOutLink": "https://respond.apptio.com/unsubscribe.html",
-    "psLink": "https://www.ibm.com/us-en/privacy",
-    "ccpaLink": "https://www.ibm.com/us-en/privacy/ccpa"
+  text: "By providing my contact details, I acknowledge that Apptio, an IBM Company will keep me informed about products, services, and offers. More information on how Apptio, an IBM Company uses data can be found in the <span id='ps'><ps>Apptio, an IBM Company Privacy Statement</ps></span>. California residents, review the <ccpa>California Supplemental Privacy Statement</ccpa>.",
+  optOutLink: 'https://respond.apptio.com/unsubscribe.html',
+  psLink: 'https://www.ibm.com/us-en/privacy',
+  ccpaLink: 'https://www.ibm.com/us-en/privacy/ccpa',
 });
 
 const props = () => {
