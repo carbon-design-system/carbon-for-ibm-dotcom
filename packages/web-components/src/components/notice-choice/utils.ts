@@ -55,3 +55,40 @@ export function pwsValueMap(value) {
     }[value] || null
   );
 }
+
+export function processCustomText(
+  input:
+    | string
+    | {
+        text?: string;
+        optOutLink?: string;
+        psLink?: string;
+        ccpaLink?: string;
+      }
+) {
+  const {
+    text = '',
+    optOutLink = '',
+    psLink = '',
+    ccpaLink = '',
+  } = typeof input === 'string' ? { text: input } : input ?? {};
+
+  const linkMap = [
+    { tag: 'optout', link: optOutLink, part: 'nc-opt-out' },
+    { tag: 'ps', link: psLink, part: 'nc-privacy-statement' },
+    { tag: 'ccpa', link: ccpaLink, part: 'nc-ccpa-link' },
+  ];
+
+  let result = text;
+
+  for (const { tag, link, part } of linkMap) {
+    const regex = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'gi');
+    result = result.replace(regex, (_match, inner) =>
+      link && link.trim() !== ''
+        ? `<a href="${link}" part="${part}" target="_blank" aria-label="${inner} (opens in new tab)" class="cds-inline">${inner}</a>`
+        : inner
+    );
+  }
+
+  return result;
+}

@@ -10,7 +10,11 @@
 import { loadContent, loadSettings, checkEmailStatus } from './services';
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import { pwsValueMap, resetToWorldWideContent } from './utils';
+import {
+  pwsValueMap,
+  resetToWorldWideContent,
+  processCustomText,
+} from './utils';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
@@ -74,6 +78,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'environment' })
   environment = 'prod';
 
+  @property({ type: String, attribute: 'show-custom-notice-text' })
+  showCustomNotice = 'false';
+
+  @property({ type: Object, attribute: false })
+  customNoticeText = {};
+
   /**
    * End properties for passed attributes.
    */
@@ -134,6 +144,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: html, attribute: false })
   defaultPreText = html``;
+
+  @property({ type: Array, attribute: false })
+  doubleOptInCountries: string[] = [];
+
+  @property({ type: Boolean, attribute: false })
+  isOriginalTextChanged = false;
 
   @property({ type: Object, attribute: false })
   values = {
@@ -229,6 +245,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countrySettings = settings.preferences;
         this.noticeOnly = settings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
+        this.isOriginalTextChanged = true;
 
         const supportedLang =
           this.supportedLanguages[this.language?.toLowerCase() || ''] ||
@@ -242,6 +259,60 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.loadContentWithFallback('en');
       }
     );
+  }
+
+  private htmlDecode(text: string): string {
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = text;
+    return textarea.value;
+  }
+
+  private tryParseJson(text: string): any {
+    try {
+      return JSON.parse(text);
+    } catch {
+      return null;
+    }
+  }
+
+  private normalizeObjectLiteral(input: string): string {
+    let normalized = input;
+
+    normalized = normalized.replace(
+      /`([^`]*)`/g,
+      (_, content) => `"${content}"`
+    );
+
+    normalized = normalized.replace(
+      /'([^']*)'/g,
+      (_, content) => `"${content}"`
+    );
+
+    normalized = normalized.replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":');
+
+    normalized = normalized.replace(/,(\s*[}\]])/g, '$1');
+
+    return normalized;
+  }
+
+  private parseCustomNoticeText(rawValue: string) {
+    if (typeof rawValue !== 'string') {
+      return rawValue;
+    }
+
+    const decodedText = this.htmlDecode(rawValue).trim();
+
+    const jsonDirect = this.tryParseJson(decodedText);
+    if (jsonDirect !== null) {
+      return jsonDirect;
+    }
+
+    const normalized = this.normalizeObjectLiteral(decodedText);
+    const jsonNormalized = this.tryParseJson(normalized);
+    if (jsonNormalized !== null) {
+      return jsonNormalized;
+    }
+    return { text: decodedText };
   }
 
   private _dispatchChange(
@@ -290,6 +361,20 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
       case 'email':
         this.handleEmailChange(value, oldValue, hasValue);
+        return;
+
+      case 'customNoticeText': {
+        if (oldValue === value) {
+          return;
+        }
+        console.log(value, typeof value);
+        this.customNoticeText = this.parseCustomNoticeText(value as string);
+        return;
+      }
+      case 'showCustomNotice':
+        if (oldValue !== value && typeof value === 'string') {
+          this.showCustomNotice = JSON.parse(value) || false;
+        }
         return;
 
       default:
@@ -368,6 +453,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countrySettings = settings.preferences;
         this.noticeOnly = settings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
+        this.doubleOptInCountries = settings.doubleOptInCountries || [];
+        this.isOriginalTextChanged = true;
       },
       () => this.defaultLoadSettings()
     );
@@ -544,6 +631,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countrySettings = countryPreferencesSettings.preferences;
         this.noticeOnly = countryPreferencesSettings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
+        this.isOriginalTextChanged = true;
       },
       (error) => {
         console.error('error loading content', error);
@@ -672,14 +760,39 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         : countryContent.annualText;
     }
 
-    // 4. permission/suppression logic
-    if (!(this.noticeOnly || []).includes(country)) {
-      let isPermission = false;
+    const hasEmail = Boolean(this.values?.EMAIL);
+    const inDoubleOptIn = this.doubleOptInCountries?.includes(country);
+    const inNoticeOnly = this.noticeOnly?.includes(country);
 
-      isPermission = this.values.EMAIL;
+    if (this.isOriginalTextChanged) {
+      this._onNoticeTextChange('noticeTextChange', preText);
+      this.isOriginalTextChanged = false;
+    }
 
-      const checked = isPermission;
+    if (this.showCustomNotice) {
+      if (
+        this.customNoticeText &&
+        Object.keys(this.customNoticeText).length > 0
+      ) {
+        preText = processCustomText(this.customNoticeText);
+      } else {
+        preText = content.thirdPartyCombinedConsent;
+      }
+    }
 
+    // Call only if changed
+
+    // 4. Add double opt-in text if applicable
+    if (hasEmail && inDoubleOptIn) {
+      const text = content?.mkDoubleOptInText?.trim();
+      if (text) {
+        preText += ` <span part="double-opt-in-text">${text}</span>`;
+      }
+    }
+
+    // 5. permission/suppression logic
+    if (!inNoticeOnly) {
+      const checked = hasEmail;
       if (this.showCheckBox) {
         return this.renderCheckbox(preText, checked);
       }
@@ -735,6 +848,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   countryBasedLegalNotice() {
     const countryCode = this.country.toLowerCase();
+    this.isOriginalTextChanged = true;
     const mandatoryCheckboxes = this.ncData?.mandatoryCheckbox?.[
       countryCode
     ] as Record<string, MandatoryCheckbox> | undefined;
@@ -922,6 +1036,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   _onEmailStatusChanged(field: string, value: string | null): void {
     this.dispatchCustomEvent(
       `${c4dPrefix}-notice-choice-email-status-changed`,
+      field,
+      value
+    );
+  }
+
+  _onNoticeTextChange(field: string, value: string | null): void {
+    this.dispatchCustomEvent(
+      `${c4dPrefix}-notice-choice-text-change`,
       field,
       value
     );
