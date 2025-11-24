@@ -551,8 +551,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       return;
     }
 
-    const countryCode = this.country?.toLowerCase();
+    const countryCode = this.country ? this.country.toLowerCase() : undefined;
     const countryStatus = (this.countrySettings &&
+      countryCode &&
       this.countrySettings[countryCode]) || {
       email: 'opt-in',
       phone: 'opt-in',
