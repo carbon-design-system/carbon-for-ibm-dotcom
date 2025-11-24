@@ -125,7 +125,9 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
   hideButtonIfNoNavItemsFound() {
     const NavMenuItems = this.closest(
       `${c4dPrefix}-masthead-container`
-    )?.querySelectorAll(`${c4dPrefix}-left-nav-menu, ${c4dPrefix}-left-nav-menu-item`);
+    )?.querySelectorAll(
+      `${c4dPrefix}-left-nav-menu, ${c4dPrefix}-left-nav-menu-item`
+    );
     if (!NavMenuItems?.length) {
       this.hideMenuButton = true;
       this.style.display = 'none';
