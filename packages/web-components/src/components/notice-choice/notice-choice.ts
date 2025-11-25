@@ -14,7 +14,7 @@ import {
   pwsValueMap,
   resetToWorldWideContent,
   processCustomText,
-  defaultCountrySettings
+  defaultCountrySettings,
 } from './utils';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
