@@ -547,31 +547,42 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   setDefaultSelections() {
-    if (this.enableAllOptIn || !this.checkboxes) {
+    const enableAll =
+      typeof this.enableAllOptIn === 'string'
+        ? JSON.parse(this.enableAllOptIn)
+        : Boolean(this.enableAllOptIn);
+
+    if (enableAll || !this.checkboxes) {
       return;
     }
-
-    const countryCode = this.country ? this.country.toLowerCase() : undefined;
-    const countryStatus = (this.countrySettings &&
-      countryCode &&
-      this.countrySettings[countryCode]) || {
+    const defaultCountySetting = {
       email: 'opt-in',
       phone: 'opt-in',
     };
 
+    const countryCode = this.country ? this.country.toLowerCase() : undefined;
+    const countryStatus =
+      (this.countrySettings &&
+        countryCode &&
+        this.countrySettings[countryCode]) ||
+      defaultCountySetting;
+
     const newValues = { ...this.values };
+
     for (const key of Object.keys(this.checkboxes)) {
       const isOptOut = countryStatus[key.toLowerCase()] === 'opt-out';
-      newValues[key] = isOptOut;
+      const checkboxBoolean = !isOptOut;
+      newValues[key] = checkboxBoolean;
 
       const hiddenFieldName = `NC_HIDDEN_${key}`;
-      newValues[hiddenFieldName] = isOptOut ? 'OPT_OUT' : 'OPT_IN';
+      newValues[hiddenFieldName] = checkboxBoolean ? 'OPT_IN' : 'OPT_OUT';
 
       if (Object.prototype.hasOwnProperty.call(this.defaultValues, key)) {
-        newValues[key] = this.defaultValues[key];
+        newValues[key] = !!this.defaultValues[key];
+        newValues[hiddenFieldName] = newValues[key] ? 'OPT_IN' : 'OPT_OUT';
       }
 
-      this._onChange(hiddenFieldName, newValues[key] ? 'OPT_IN' : 'OPT_OUT');
+      this._onChange(hiddenFieldName, newValues[hiddenFieldName]);
     }
 
     const changed = Object.keys(newValues).some(
