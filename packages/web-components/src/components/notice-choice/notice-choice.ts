@@ -558,7 +558,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     const defaultCountySetting = {
       email: 'opt-in',
-      phone: 'opt-in',
+      phone: 'opt-in'
     };
 
     const countryCode = this.country ? this.country.toLowerCase() : undefined;
