@@ -555,17 +555,22 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (enableAll || !this.checkboxes) {
       return;
     }
+
     const defaultCountySetting = {
       email: 'opt-in',
       phone: 'opt-in',
     };
 
     const countryCode = this.country ? this.country.toLowerCase() : undefined;
-    const countryStatus =
-      (this.countrySettings &&
-        countryCode &&
-        this.countrySettings[countryCode]) ||
-      defaultCountySetting;
+
+    let countryStatus = defaultCountySetting;
+    if (
+      countryCode &&
+      this.countrySettings &&
+      this.countrySettings[countryCode]
+    ) {
+      countryStatus = this.countrySettings[countryCode];
+    }
 
     const newValues = { ...this.values };
 
@@ -588,6 +593,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const changed = Object.keys(newValues).some(
       (field) => newValues[field] !== this.values[field]
     );
+
     if (changed) {
       this.values = newValues;
     }
