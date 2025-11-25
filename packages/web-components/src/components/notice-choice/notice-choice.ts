@@ -14,6 +14,7 @@ import {
   pwsValueMap,
   resetToWorldWideContent,
   processCustomText,
+  defaultCountrySettings
 } from './utils';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -556,14 +557,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       return;
     }
 
-    const defaultCountySetting = {
-      email: 'opt-in',
-      phone: 'opt-in'
-    };
-
     const countryCode = this.country ? this.country.toLowerCase() : undefined;
 
-    let countryStatus = defaultCountySetting;
+    let countryStatus = defaultCountrySettings();
     if (
       countryCode &&
       this.countrySettings &&

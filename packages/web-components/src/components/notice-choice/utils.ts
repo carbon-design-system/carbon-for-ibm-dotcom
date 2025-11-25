@@ -56,6 +56,13 @@ export function pwsValueMap(value) {
   );
 }
 
+export function defaultCountrySettings() {
+  return {
+    email: 'opt-in',
+    phone: 'opt-in',
+  } as const;
+}
+
 export function processCustomText(
   input:
     | string
