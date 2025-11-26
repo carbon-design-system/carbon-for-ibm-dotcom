@@ -548,10 +548,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   setDefaultSelections() {
-    const enableAll =
-      typeof this.enableAllOptIn === 'string'
-        ? JSON.parse(this.enableAllOptIn)
-        : Boolean(this.enableAllOptIn);
+    let enableAll;
+    if (typeof this.enableAllOptIn === 'string') {
+      enableAll = JSON.parse(this.enableAllOptIn);
+    } else {
+      enableAll = Boolean(this.enableAllOptIn);
+    }
 
     if (enableAll || !this.checkboxes) {
       return;
@@ -570,12 +572,14 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     const newValues = { ...this.values };
 
-    for (const key of Object.keys(this.checkboxes)) {
+    const checkboxKeys = Object.keys(this.checkboxes);
+    for (let i = 0; i < checkboxKeys.length; i++) {
+      const key = checkboxKeys[i];
       const isOptOut = countryStatus[key.toLowerCase()] === 'opt-out';
       const checkboxBoolean = !isOptOut;
       newValues[key] = checkboxBoolean;
 
-      const hiddenFieldName = `NC_HIDDEN_${key}`;
+      const hiddenFieldName = 'NC_HIDDEN_' + key;
       newValues[hiddenFieldName] = checkboxBoolean ? 'OPT_IN' : 'OPT_OUT';
 
       if (Object.prototype.hasOwnProperty.call(this.defaultValues, key)) {
@@ -586,9 +590,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this._onChange(hiddenFieldName, newValues[hiddenFieldName]);
     }
 
-    const changed = Object.keys(newValues).some(
-      (field) => newValues[field] !== this.values[field]
-    );
+    let changed = false;
+    const newValuesKeys = Object.keys(newValues);
+    for (let i = 0; i < newValuesKeys.length; i++) {
+      const field = newValuesKeys[i];
+      if (newValues[field] !== this.values[field]) {
+        changed = true;
+        break;
+      }
+    }
 
     if (changed) {
       this.values = newValues;
