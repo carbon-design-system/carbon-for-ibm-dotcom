@@ -140,22 +140,12 @@ class C4DPricingTable extends HostListenerMixin(
     );
 
     if (parentHasApiCall) {
-      this.replaceColSpanVars(this);
+      this.removeElementStyles(this);
     }
   }
 
-  replaceColSpanVars(element) {
-    const styleAttr = element.getAttribute('style');
-    if (!styleAttr) {
-      return;
-    }
-
-    const newStyle = styleAttr.replace(
-      /--col-span-(\d+)\s*:/g,
-      '--col-span-lg-$1:'
-    );
-
-    element.setAttribute('style', newStyle);
+  removeElementStyles(element) {
+    element.removeAttribute('style');
   }
 
   /**
