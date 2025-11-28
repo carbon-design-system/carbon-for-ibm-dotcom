@@ -11,6 +11,8 @@
     data-ibm-contact="contact-link"
   >
   </c4d-masthead-contact>
+  <c4d-megamenu-language-selector>
+  </c4d-megamenu-language-selector>
   <c4d-masthead-profile data-autoid="c4d--masthead-profile">
     <c4d-masthead-profile-item href="https://myibm.ibm.com/?lnk=mmi">
       My IBM
@@ -32,6 +34,8 @@
     data-ibm-contact="contact-link"
   >
   </c4d-masthead-contact>
+  <c4d-megamenu-language-selector>
+  </c4d-megamenu-language-selector>
   <c4d-masthead-profile
     authenticated=""
     data-autoid="c4d--masthead-profile"
