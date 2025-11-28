@@ -7,14 +7,19 @@
 ```
 <slot name="heading">
 </slot>
-<c4d-filter-panel
-  data-autoid="c4d-filter-panel"
+<cds-button
+  kind="tertiary"
+  part="button"
+>
+</cds-button>
+<c4d-filter-panel-modal
+  data-autoid="c4d-filter-panel-modal"
   heading=""
-  part="filter-panel"
+  part="panel-modal"
 >
   <slot>
   </slot>
-</c4d-filter-panel>
+</c4d-filter-panel-modal>
 
 ```
 
