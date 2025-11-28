@@ -213,7 +213,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     changedProps.forEach((oldValue, propName) => {
       const newValue = (this as any)[propName];
       const hasValue = newValue !== undefined && newValue !== null;
-      console.log('updated', propName, newValue, hasValue, oldValue);
       this._dispatchChange(propName, newValue, hasValue, oldValue);
     });
   }
@@ -275,7 +274,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         if (oldValue === value) {
           return;
         }
-        console.log(value, typeof value);
         this.customNoticeTextValue = this.parseCustomNoticeText(
           value as string
         );
@@ -299,7 +297,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   private tryParseJson(text: string): any {
-    return JSON.parse(text);
+    try {
+      return JSON.parse(text);
+    } catch (error) {
+      return null;
+    }
   }
 
   private normalizeObjectLiteral(input: string): string {
@@ -326,7 +328,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (typeof rawValue !== 'string') {
       return rawValue;
     }
-
     const decodedText = this.htmlDecode(rawValue).trim();
 
     const jsonDirect = this.tryParseJson(decodedText);
