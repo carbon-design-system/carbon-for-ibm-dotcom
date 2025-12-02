@@ -164,6 +164,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       checkBoxStatus: 'PERMISSION',
       punsStatus: '',
     },
+    PHONE: {
+      checkBoxStatus: 'PERMISSION',
+      punsStatus: '',
+    },
   };
 
   @property({ reflect: true })
@@ -639,11 +643,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
 
       this.valuesForEmailPhone[id]['checkBoxStatus'] = hiddenFieldStatus;
-      let statusPrechecked = '';
+      let statusPreChecked = '';
       switch (id) {
         case 'EMAIL':
         case 'PHONE':
-          statusPrechecked =
+          statusPreChecked =
             this.combinedEmailPhonePrechecked && !checked
               ? 'CU'
               : !this.combinedEmailPhonePrechecked && checked
@@ -654,7 +658,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
           break;
       }
-      this.valuesForEmailPhone[id]['punsStatus'] = statusPrechecked;
+      this.valuesForEmailPhone[id]['punsStatus'] = statusPreChecked;
 
       this._onChange(hiddenFieldName, hiddenFieldStatus);
       this._onChange(
