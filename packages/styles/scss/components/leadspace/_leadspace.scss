@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -219,7 +219,7 @@ $btn-min-width: 26;
       }
 
       @include breakpoint(md) {
-        inline-size: calc(60% - $spacing-07);
+        inline-size: calc(80% - $spacing-07);
       }
 
       @include breakpoint(lg) {
@@ -254,10 +254,6 @@ $btn-min-width: 26;
         flex-shrink: 1;
         inline-size: percentage(math.div(6, 8));
       }
-
-      .#{$c4d-prefix}--leadspace__desc {
-        @include make-col(6, 8);
-      }
     }
 
     @include breakpoint(lg) {
@@ -284,6 +280,14 @@ $btn-min-width: 26;
 
       .#{$c4d-prefix}--leadspace__desc {
         @include make-col(6, 16);
+
+        inline-size: percentage(math.div(6, 16));
+
+        @include breakpoint(md) {
+          inline-size: percentage(math.div(4, 8));
+          max-inline-size: 50%;
+          @include make-col(6, 16);
+        }
       }
 
       .#{$c4d-prefix}--leadspace--productive {
