@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,15 +46,74 @@ class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   @property({ reflect: true })
   slot = 'brand';
 
+  /**
+   * The custom logo path, if it's enabled
+   */
+  @property({ type: String, attribute: false })
+  customLogoPath = '';
+
+  /**
+   * The custom logo alternative text, if it's enabled
+   */
+  @property({ type: String, attribute: false })
+  customLogoAlt = '';
+
+  /**
+   * The custom logo href, if it's enabled
+   */
+  @property({ type: String, attribute: false })
+  customLogoHref = '';
+
+  /**
+   * If c4d-footer-container has the attribute 'custom-logo-override', it enables the custom logo and all its custom info
+   */
+  private hasCustomLogo() {
+    const footerContainerWithCustomLogo = this.closest(
+      'c4d-footer-container[custom-logo-override]'
+    );
+
+    if (!footerContainerWithCustomLogo) {
+      return;
+    }
+
+    const path = footerContainerWithCustomLogo.getAttribute(
+      'custom-logo-override'
+    );
+    const alt = footerContainerWithCustomLogo.getAttribute('custom-logo-alt');
+    const href = footerContainerWithCustomLogo.getAttribute('custom-logo-href');
+
+    if (path) {
+      this.customLogoPath = path;
+    }
+    if (alt) {
+      this.customLogoAlt = alt;
+    }
+    if (href) {
+      this.href = href;
+    }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.hasCustomLogo();
+  }
+
   render() {
-    const { href, size } = this;
+    const { href, size, customLogoPath, customLogoAlt } = this;
+
     return html`
       <a
         part="logo-link"
         class="${c4dPrefix}--footer-logo__link"
-        aria-label="IBM logo"
+        aria-label="${customLogoAlt || 'IBM logo'}"
         href="${ifDefined(href)}">
-        ${size !== FOOTER_SIZE.MICRO
+        ${customLogoPath
+          ? html`<img
+              class="custom-logo-override"
+              src="${customLogoPath}"
+              alt="${customLogoAlt || 'Logo'}"
+              part="custom-logo-footer" />`
+          : size !== FOOTER_SIZE.MICRO
           ? IBM8BarLogoH65White()
           : IBM8BarLogoH23White()}
         <slot></slot>

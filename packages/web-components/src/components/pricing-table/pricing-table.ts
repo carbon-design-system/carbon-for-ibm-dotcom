@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2024
+ * Copyright IBM Corp. 2022, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -133,6 +133,21 @@ class C4DPricingTable extends HostListenerMixin(
       });
   }
 
+  // Adjusting the col span of the pricing table that comes from the API call
+  setAPIPricingTableWidth() {
+    const parentHasApiCall = this.closest(
+      'div.tableProductPrice[isapicall="Api"]'
+    );
+
+    if (parentHasApiCall) {
+      this.removeElementStyles(this);
+    }
+  }
+
+  removeElementStyles(element) {
+    element.removeAttribute('style');
+  }
+
   /**
    * Host listener for updating header element references when cells are
    * updated.
@@ -181,6 +196,8 @@ class C4DPricingTable extends HostListenerMixin(
 
   renderInner() {
     const { sentinelClass } = this.constructor as typeof C4DPricingTable;
+
+    this.setAPIPricingTableWidth();
 
     return html`
       <section

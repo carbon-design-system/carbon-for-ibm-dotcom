@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.36.0...@carbon/ibmdotcom-services@2.37.0) (2025-11-27)
+
+
+### Bug Fixes
+
+* **translation-api:** add stop condition if url is malformed ([#12348](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12348)) ([5b0a4ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5b0a4eec6abbd791346776aaf6077d5a3183eb3c))
+
+
+
+
+
+# [2.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.35.0...@carbon/ibmdotcom-services@2.36.0) (2025-11-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.35.0-rc.0...@carbon/ibmdotcom-services@2.35.0) (2025-10-31)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.34.0...@carbon/ibmdotcom-services@2.35.0-rc.0) (2025-10-30)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.33.0...@carbon/ibmdotcom-services@2.34.0) (2025-10-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.32.1...@carbon/ibmdotcom-services@2.33.0) (2025-10-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+## [2.32.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.32.0...@carbon/ibmdotcom-services@2.32.1) (2025-09-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.32.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.31.0...@carbon/ibmdotcom-services@2.32.0) (2025-09-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.30.0...@carbon/ibmdotcom-services@2.31.0) (2025-09-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.29.0...@carbon/ibmdotcom-services@2.30.0) (2025-08-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.28.0...@carbon/ibmdotcom-services@2.29.0) (2025-08-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
 # [2.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.27.0...@carbon/ibmdotcom-services@2.28.0) (2025-07-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

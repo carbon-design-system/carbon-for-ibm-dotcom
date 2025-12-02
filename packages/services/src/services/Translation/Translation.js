@@ -164,6 +164,11 @@ class TranslationAPI {
         const host = regex.test(endpoint) ? '' : _host;
         const url = `${host}${urlEndpoint}/${locationParam}.json`;
 
+        // Stops the method if the url is malformed
+        if (/.*1.www.s81c.com\/#.*/.test(url)) {
+          return null;
+        }
+
         _requestsTranslation[key] = axios
           .get(url, {
             headers: {

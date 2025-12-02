@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2024
+// Copyright IBM Corp. 2020, 2025
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -17,8 +17,7 @@
 @use '@carbon/styles/scss/components/tooltip/tooltip' as *;
 @use '@carbon/styles/scss/components/ui-shell/header' as *;
 @use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
-// @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
-@use '../../../../styles/scss/components/masthead' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/web-components/scss/components/tooltip/tooltip' as *;
@@ -78,6 +77,32 @@ $pos-btn-bottom: calc(
   a ::slotted(svg) {
     block-size: 23px;
     inline-size: 58px;
+  }
+
+  [part='link']:has(img.custom-logo-override) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    block-size: 48px;
+    inline-size: 142px;
+
+    @include breakpoint-between(lg, max) {
+      inline-size: 126px;
+    }
+
+    @include breakpoint-between(sm, lg) {
+      inline-size: 94px;
+    }
+  }
+
+  [part='link'] img.custom-logo-override {
+    display: block;
+    block-size: auto;
+    inline-size: auto;
+    max-block-size: 100%;
+    max-inline-size: 100%;
+    object-fit: contain;
   }
 
   .#{$c4d-prefix}-ce--header__logo--has-search-active {
@@ -582,6 +607,58 @@ $pos-btn-bottom: calc(
 :host(#{$c4d-prefix}-megamenu-link-with-icon):focus,
 :host(#{$c4d-prefix}-megamenu-category-link):focus {
   outline: none;
+}
+
+:host(#{$c4d-prefix}-megamenu-link-with-icon) {
+  background-color: var(--cds-button-primary, #0f62fe);
+
+  a[part='link'] {
+    color: var(--cds-text-on-color, #ffffff);
+    @include type-style('body-compact-01');
+  }
+
+  a[part='link']:hover {
+    background-color: var(--cds-button-primary-hover, #0050e6);
+    /* stylelint-disable-next-line declaration-no-important */
+    color: var(--cds-text-on-color, #ffffff) !important;
+  }
+
+  a[part='link']:active {
+    background-color: var(--cds-button-primary-active, #002d9c);
+    box-shadow: -0.0625rem -0.0625rem 0 0 var(--cds-button-separator, #e0e0e0);
+  }
+
+  /* stylelint-disable-next-line a11y/media-prefers-reduced-motion */
+  a[part='link']:focus {
+    border-style: solid;
+    border-color: var(--cds-button-focus-color, var(--cds-focus, #0f62fe));
+    background-color: var(--cds-button-primary-hover, #0050e6);
+    box-shadow: inset 0 0 0 1px
+        var(--cds-button-focus-color, var(--cds-focus, #0f62fe)),
+      inset 0 0 0 2px var(--cds-background, #ffffff);
+    transition: background 70ms cubic-bezier(0, 0, 0.38, 0.9),
+      box-shadow 70ms cubic-bezier(0, 0, 0.38, 0.9),
+      border-color 70ms cubic-bezier(0, 0, 0.38, 0.9),
+      outline 70ms cubic-bezier(0, 0, 0.38, 0.9);
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-link-with-icon):focus {
+  border-style: solid;
+  border-color: var(--cds-button-focus-color, var(--cds-focus, #0f62fe));
+  background-color: var(--cds-button-primary-hover, #0050e6);
+  box-shadow: inset 0 0 0 1px
+      var(--cds-button-focus-color, var(--cds-focus, #0f62fe)),
+    inset 0 0 0 2px var(--cds-background, #ffffff);
+  transition: background 70ms cubic-bezier(0, 0, 0.38, 0.9),
+    box-shadow 70ms cubic-bezier(0, 0, 0.38, 0.9),
+    border-color 70ms cubic-bezier(0, 0, 0.38, 0.9),
+    outline 70ms cubic-bezier(0, 0, 0.38, 0.9);
+}
+
+:host(#{$c4d-prefix}-megamenu-link-with-icon):active {
+  background-color: var(--cds-button-primary-active, #002d9c);
+  box-shadow: -0.0625rem -0.0625rem 0 0 var(--cds-button-separator, #e0e0e0);
 }
 
 :host(#{$c4d-prefix}-masthead-search-composite),

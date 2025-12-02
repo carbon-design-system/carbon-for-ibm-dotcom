@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,6 +53,7 @@ import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
 import './masthead-cart';
+import './megamenu-language-selector';
 import './megamenu';
 import './megamenu-heading';
 import './megamenu-top-nav-menu';
@@ -1184,15 +1185,20 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   protected _renderLanguageSelector() {
+    const isAEMCMSpage = document.querySelector('[href *= adobe-cms]');
     const { hasLanguageSelector } = this;
 
-    return hasLanguageSelector === 'false'
-      ? undefined
-      : html`
+    return hasLanguageSelector === 'true' && isAEMCMSpage
+      ? html`
           <div class="earth-language-icon" part="earth-l0-icon">
             ${Wikis({ part: 'earth-l0-svg' })}
           </div>
-        `;
+        `
+      : hasLanguageSelector === 'true' && !isAEMCMSpage
+      ? html`
+          <c4d-megamenu-language-selector></c4d-megamenu-language-selector>
+        `
+      : undefined;
   }
 
   protected _renderCart() {
@@ -1634,8 +1640,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     this._heightResizeObserver.observe(this.mastheadRef);
 
     const mastheadHasLanguageSelector = this.querySelector(
-      'c4d-masthead[has-language-selector]'
+      `${c4dPrefix}-masthead[has-language-selector]`
     );
+
     if (mastheadHasLanguageSelector) {
       this.hasLanguageSelector = 'true';
     } else {

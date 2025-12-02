@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2025
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -67,9 +67,72 @@ class C4DMastheadLogo extends FocusMixin(
   @property({ reflect: true })
   slot = 'brand';
 
+  /**
+   * The custom logo path, if it's enabled
+   */
+  @property({ type: String, attribute: false })
+  customLogoPath = '';
+
+  /**
+   * The custom logo alternative text, if it's enabled
+   */
+  @property({ type: String, attribute: false })
+  customLogoAlt = '';
+
+  /**
+   * The custom logo href, if it's enabled
+   */
+  @property({ type: String, attribute: false })
+  customLogoHref = '';
+
+  /**
+   * If c4d-masthead-container has the attribute 'custom-logo-override', it enables the custom logo and all its custom info
+   */
+  private hasCustomLogo() {
+    const mastheadContainerWithCustomLogo = this.closest(
+      'c4d-masthead-container[custom-logo-override]'
+    );
+
+    if (!mastheadContainerWithCustomLogo) {
+      return;
+    }
+
+    const path = mastheadContainerWithCustomLogo.getAttribute(
+      'custom-logo-override'
+    );
+    const alt = mastheadContainerWithCustomLogo.getAttribute('custom-logo-alt');
+    const href =
+      mastheadContainerWithCustomLogo.getAttribute('custom-logo-href');
+
+    if (path) {
+      this.customLogoPath = path;
+    }
+    if (alt) {
+      this.customLogoAlt = alt;
+    }
+    if (href) {
+      this.href = href;
+    }
+  }
+
   // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
-    return html` <slot>${IBM8BarLogoH23()}</slot> `;
+    return html`
+      <slot>
+        ${this.customLogoPath
+          ? html`<img
+              class="custom-logo-override"
+              src="${this.customLogoPath}"
+              alt="${this.customLogoAlt || 'Logo'}"
+              part="custom-logo-masthead" />`
+          : IBM8BarLogoH23()}
+      </slot>
+    `;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.hasCustomLogo();
   }
 
   updated(changedProperties) {
@@ -79,7 +142,12 @@ class C4DMastheadLogo extends FocusMixin(
       this._hasSearchActive = this.hideLogo;
     }
     if (linkNode) {
-      linkNode.setAttribute('aria-label', 'IBM logo');
+      if (this.customLogoAlt) {
+        linkNode.setAttribute('aria-label', `${this.customLogoAlt}`);
+      } else {
+        linkNode.setAttribute('aria-label', 'IBM logo');
+      }
+
       linkNode.classList.remove(`${prefix}--link`);
       linkNode.classList.toggle(
         `${c4dPrefix}-ce--header__logo--has-search-active`,

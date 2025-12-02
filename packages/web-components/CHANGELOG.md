@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.36.0...@carbon/ibmdotcom-web-components@2.37.0) (2025-11-27)
+
+
+### Bug Fixes
+
+* **masthead-menu-button:** tweak hide condition to fix button hiding … ([#12347](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12347)) ([0e2f68d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0e2f68d11da6a7b8f6f247ccfd7a4a5d8fc42dde))
+
+
+
+
+
+# [2.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.35.0...@carbon/ibmdotcom-web-components@2.36.0) (2025-11-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.35.0-rc.0...@carbon/ibmdotcom-web-components@2.35.0) (2025-10-31)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.34.0...@carbon/ibmdotcom-web-components@2.35.0-rc.0) (2025-10-30)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.33.0...@carbon/ibmdotcom-web-components@2.34.0) (2025-10-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.32.1...@carbon/ibmdotcom-web-components@2.33.0) (2025-10-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [2.32.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.32.0...@carbon/ibmdotcom-web-components@2.32.1) (2025-09-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.32.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.31.0...@carbon/ibmdotcom-web-components@2.32.0) (2025-09-18)
+
+
+### Features
+
+* **telemetry:** add wc scope ([#12303](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12303)) ([7d1522f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7d1522f26ca5505edeafd8e9b222249f6deff7f1))
+
+
+
+
+
+# [2.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.30.0...@carbon/ibmdotcom-web-components@2.31.0) (2025-09-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.29.0...@carbon/ibmdotcom-web-components@2.30.0) (2025-08-22)
+
+
+### Bug Fixes
+
+* **card:** fixing footer CTA for CM ([bca35cb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bca35cb6025e3ebd3a28660b276ca7e76404e6c5))
+
+
+
+
+
+# [2.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.28.0...@carbon/ibmdotcom-web-components@2.29.0) (2025-08-07)
+
+
+### Bug Fixes
+
+* **card:** parent-href preventing CM variation from working ([#12297](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12297)) ([5d2bf0e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5d2bf0e23e462308b037195df4aeb4ce87af9d5e))
+
+
+
+
+
 # [2.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.27.0...@carbon/ibmdotcom-web-components@2.28.0) (2025-07-25)
 
 

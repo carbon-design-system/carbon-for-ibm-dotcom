@@ -639,6 +639,12 @@
     }
   }
 
+  //Contact card footer
+  :host(#{$c4d-prefix}-card-footer[cta-type='contact']),
+  :host(#{$c4d-prefix}-card-footer[cta-type='chat']) {
+    pointer-events: none;
+  }
+
   // static card footer
   :host(#{$c4d-prefix}-card-footer):not([parent-href]) {
     .#{$prefix}--card__footer {

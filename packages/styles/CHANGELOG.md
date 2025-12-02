@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.36.0...@carbon/ibmdotcom-styles@2.37.0) (2025-11-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.35.0...@carbon/ibmdotcom-styles@2.36.0) (2025-11-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.35.0-rc.0...@carbon/ibmdotcom-styles@2.35.0) (2025-10-31)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.34.0...@carbon/ibmdotcom-styles@2.35.0-rc.0) (2025-10-30)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.33.0...@carbon/ibmdotcom-styles@2.34.0) (2025-10-17)
+
+
+### Bug Fixes
+
+* **video-player:** remove padding zero causing issues ([#12331](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12331)) ([b71d4e1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b71d4e1164bae33895f3c9b5e66726e4ac2b87ad))
+
+
+
+
+
+# [2.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.32.1...@carbon/ibmdotcom-styles@2.33.0) (2025-10-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+## [2.32.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.32.0...@carbon/ibmdotcom-styles@2.32.1) (2025-09-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.32.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.31.0...@carbon/ibmdotcom-styles@2.32.0) (2025-09-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.30.0...@carbon/ibmdotcom-styles@2.31.0) (2025-09-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.29.0...@carbon/ibmdotcom-styles@2.30.0) (2025-08-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.28.0...@carbon/ibmdotcom-styles@2.29.0) (2025-08-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [2.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.27.0...@carbon/ibmdotcom-styles@2.28.0) (2025-07-25)
 
 

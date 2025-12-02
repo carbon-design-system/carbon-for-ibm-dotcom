@@ -20,7 +20,8 @@ const questionChoices = {
 };
 const languages = {
   'English [en]': 'en',
-  'Arabic [ar]': 'ar',
+  'Arabic  [ar]': 'ar',
+  'Arabic (Qatar) [qa-ar]': 'qa-ar',
   'Chinese (PRC) [zh-cn]': 'zh-cn',
   'Chinese (Taiwan) [zh-tw]': 'zh-tw',
   'French [fr]': 'fr',
@@ -101,6 +102,22 @@ const onEmailStatusChanged = (events: CustomEvent) => {
   console.log(`[${events.type}] :`, events.detail);
 };
 
+const onCustomNoticeTextChange = (events: CustomEvent) => {
+  console.log(`[${events.type}] :`, events.detail);
+};
+
+const showCustomNotice = {
+  True: 'true',
+  False: 'false',
+};
+
+const customNoticeText = JSON.stringify({
+  text: "By providing my contact details, I acknowledge that Apptio, an IBM Company will keep me informed about products, services, and offers. More information on how Apptio, an IBM Company uses data can be found in the <span id='ps'><ps>Apptio, an IBM Company Privacy Statement</ps></span>. California residents, review the <ccpa>California Supplemental Privacy Statement</ccpa>.",
+  optOutLink: 'https://respond.apptio.com/unsubscribe.html',
+  psLink: 'https://www.ibm.com/us-en/privacy',
+  ccpaLink: 'https://www.ibm.com/us-en/privacy/ccpa',
+});
+
 const props = () => {
   const selectedCountry = select('Country', countryList, 'US');
   let availableStates = stateList[selectedCountry] || [{ Unknown: '' }];
@@ -116,6 +133,7 @@ const props = () => {
     ),
     onChange: action('c4d-notice-choice-change'),
     onEmailStatusChanged: action('c4d-notice-choice-email-status-changed'),
+    onCustomNoticeTextChange: action('c4d-notice-choice-text-change'),
     hideErrorMessages: select(
       'Hide Error Messages',
       hideErrorMessages,
@@ -123,6 +141,12 @@ const props = () => {
     ),
     environment: select('Environment', environment, 'stage'),
     email: text('Email', ''),
+    customNoticeText: customNoticeText,
+    showCustomNotice: select(
+      'Show Custom Notice Text',
+      showCustomNotice,
+      'false'
+    ),
   };
 };
 
@@ -135,12 +159,10 @@ export const Default = (args) => {
     questionchoices,
     hideErrorMessages,
     enableAllOptIn,
-    hiddenEmail,
-    hiddenPhone,
-    ncTeleDetail,
-    ncEmailDetail,
+    customNoticeText,
     environment,
     email,
+    showCustomNotice,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -152,13 +174,12 @@ export const Default = (args) => {
       terms-condition-link="${termsConditionLink || ''}"
       hide-error-message="${hideErrorMessages}"
       ?enable-all-opt-in=${enableAllOptIn}
-      .hiddenEmail="${hiddenEmail}"
-      .hiddenPhone="${hiddenPhone}"
-      .nc-tele-detail="${ncTeleDetail}"
-      .nc-email-detail="${ncEmailDetail}"
+      custom-notice-text=${customNoticeText}
+      show-custom-notice-text=${showCustomNotice}
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
-      @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}>
+      @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}
+      @c4d-notice-choice-text-change=${onCustomNoticeTextChange}>
     </c4d-notice-choice>
   `;
 };
