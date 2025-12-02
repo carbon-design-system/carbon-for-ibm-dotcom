@@ -300,6 +300,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     try {
       return JSON.parse(text);
     } catch (error) {
+      // return null
       return null;
     }
   }
