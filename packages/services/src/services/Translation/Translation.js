@@ -165,7 +165,7 @@ class TranslationAPI {
         const url = `${host}${urlEndpoint}/${locationParam}.json`;
 
         // Stops the method if the url is malformed
-        if (/.*1.www.s81c.com\/#.*/.test(url)) {
+        if (/.*1.www.s81c.com\/?#.*/.test(url)) {
           return null;
         }
 
