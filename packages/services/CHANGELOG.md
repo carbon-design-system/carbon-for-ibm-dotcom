@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.37.0...@carbon/ibmdotcom-services@2.38.0) (2025-12-04)
+
+
+### Bug Fixes
+
+* **translation-api:** add edge-case coverage to error handling ([#12353](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12353)) ([0ec3164](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ec3164f4cee10abcf1dd363533850d024fd4ce6))
+
+
+
+
+
 # [2.37.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.36.0...@carbon/ibmdotcom-services@2.37.0) (2025-11-27)
 
 
