@@ -77,6 +77,13 @@
 >
   <div
     class="cds--content-item-row__col"
+    part="col col--media"
+  >
+    <slot name="media">
+    </slot>
+  </div>
+  <div
+    class="cds--content-item-row__col"
     part="col col--eyebrow"
   >
     <slot name="eyebrow">
@@ -93,13 +100,6 @@
       <slot name="footer">
       </slot>
     </div>
-  </div>
-  <div
-    class="cds--content-item-row__col"
-    part="col col--media"
-  >
-    <slot name="media">
-    </slot>
   </div>
 </div>
 
@@ -114,6 +114,13 @@
 >
   <div
     class="cds--content-item-row__col"
+    part="col col--media"
+  >
+    <slot name="media">
+    </slot>
+  </div>
+  <div
+    class="cds--content-item-row__col"
     part="col col--eyebrow"
   >
     <slot name="eyebrow">
@@ -130,13 +137,6 @@
       <slot name="footer">
       </slot>
     </div>
-  </div>
-  <div
-    class="cds--content-item-row__col"
-    part="col col--media"
-  >
-    <slot name="media">
-    </slot>
   </div>
 </div>
 

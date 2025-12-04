@@ -164,6 +164,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       checkBoxStatus: 'PERMISSION',
       punsStatus: '',
     },
+    PHONE: {
+      checkBoxStatus: 'PERMISSION',
+      punsStatus: '',
+    },
   };
 
   @property({ reflect: true })
@@ -213,7 +217,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     changedProps.forEach((oldValue, propName) => {
       const newValue = (this as any)[propName];
       const hasValue = newValue !== undefined && newValue !== null;
-      console.log('updated', propName, newValue, hasValue, oldValue);
       this._dispatchChange(propName, newValue, hasValue, oldValue);
     });
   }
@@ -275,7 +278,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         if (oldValue === value) {
           return;
         }
-        console.log(value, typeof value);
         this.customNoticeTextValue = this.parseCustomNoticeText(
           value as string
         );
@@ -299,7 +301,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   private tryParseJson(text: string): any {
-    return JSON.parse(text);
+    try {
+      return JSON.parse(text);
+    } catch (error) {
+      // return null
+      return null;
+    }
   }
 
   private normalizeObjectLiteral(input: string): string {
@@ -326,7 +333,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (typeof rawValue !== 'string') {
       return rawValue;
     }
-
     const decodedText = this.htmlDecode(rawValue).trim();
 
     const jsonDirect = this.tryParseJson(decodedText);
@@ -637,11 +643,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
 
       this.valuesForEmailPhone[id]['checkBoxStatus'] = hiddenFieldStatus;
-      let statusPrechecked = '';
+      let statusPreChecked = '';
       switch (id) {
         case 'EMAIL':
         case 'PHONE':
-          statusPrechecked =
+          statusPreChecked =
             this.combinedEmailPhonePrechecked && !checked
               ? 'CU'
               : !this.combinedEmailPhonePrechecked && checked
@@ -652,7 +658,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
           break;
       }
-      this.valuesForEmailPhone[id]['punsStatus'] = statusPrechecked;
+      this.valuesForEmailPhone[id]['punsStatus'] = statusPreChecked;
 
       this._onChange(hiddenFieldName, hiddenFieldStatus);
       this._onChange(
