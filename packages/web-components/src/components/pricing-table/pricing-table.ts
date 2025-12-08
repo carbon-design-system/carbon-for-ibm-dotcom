@@ -142,6 +142,16 @@ class C4DPricingTable extends HostListenerMixin(
     if (parentHasApiCall) {
       this.removeElementStyles(this);
     }
+
+    if (parentHasApiCall) {
+      const ctaBtns = document.querySelectorAll(
+        `${c4dPrefix}-pricing-table-header-cell-cta`
+      ) as NodeListOf<HTMLElement>;
+
+      ctaBtns.forEach((btn) => {
+        btn.style.maxWidth = '80%';
+      });
+    }
   }
 
   removeElementStyles(element) {
