@@ -3402,7 +3402,7 @@ __metadata:
     cypress-wait-until: "npm:^1.7.2"
     del: "npm:^6.0.0"
     doctoc: "npm:^2.0.0"
-    dompurify: "npm:3.2.5"
+    dompurify: "npm:3.3.1"
     enzyme: "npm:^3.11.0"
     file-loader: "npm:^6.2.0"
     fs-extra: "npm:^10.0.0"
@@ -14742,7 +14742,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:3.2.5, dompurify@npm:^3.2.5":
+"dompurify@npm:3.3.1":
+  version: 3.3.1
+  resolution: "dompurify@npm:3.3.1"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.7"
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 10/f71cca489e628591165d16e8cf4fa4f0d3e2ee48db4d73e9d2c5bedc6f915c92f9e9f101f8c4ba790bec0cdffe7f4e1747f5e31c69dc53ce7ae20a81ff6b0022
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^2.4.3":
+  version: 2.5.6
+  resolution: "dompurify@npm:2.5.6"
+  checksum: 10/ef5fdc075ee448246b2b54bf8c7e2608dbaa176d9366137d2ff4e4ed4e580a2e913d5a58f1d3609f63d67871574e5fdcce534b185a1b1efdd8b931cd843b045a
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.2.5":
   version: 3.2.5
   resolution: "dompurify@npm:3.2.5"
   dependencies:
@@ -14751,13 +14770,6 @@ __metadata:
     "@types/trusted-types":
       optional: true
   checksum: 10/03974f18851fb4e447d26adc0ebf7a64b6c5b4a11caebebec3e04de8fcaa19cdb67bf3575a2335727123d0fc1c2febc1bc992a84f327a8ce65a0bfd11e3afc50
-  languageName: node
-  linkType: hard
-
-"dompurify@npm:^2.4.3":
-  version: 2.5.6
-  resolution: "dompurify@npm:2.5.6"
-  checksum: 10/ef5fdc075ee448246b2b54bf8c7e2608dbaa176d9366137d2ff4e4ed4e580a2e913d5a58f1d3609f63d67871574e5fdcce534b185a1b1efdd8b931cd843b045a
   languageName: node
   linkType: hard
 
