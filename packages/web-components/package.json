@@ -185,7 +185,7 @@
     "cypress-wait-until": "^1.7.2",
     "del": "^6.0.0",
     "doctoc": "^2.0.0",
-    "dompurify": "3.2.5",
+    "dompurify": "3.3.1",
     "enzyme": "^3.11.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
