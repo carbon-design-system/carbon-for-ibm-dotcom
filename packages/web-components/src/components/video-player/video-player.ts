@@ -284,6 +284,9 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   aspectRatio?: string;
 
   render() {
+    const isRTL =
+      this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl';
+
     const {
       aspectRatio,
       duration,
@@ -329,7 +332,8 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         : html`
             <div
               class="${c4dPrefix}--video-player__video-caption"
-              part="caption">
+              part="caption"
+              dir="${isRTL ? 'rtl' : 'ltr'}">
               ${formatCaption({
                 duration: formatDuration({
                   duration: !duration ? duration : duration * 1000,

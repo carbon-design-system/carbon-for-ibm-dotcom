@@ -154,6 +154,13 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     );
   }
 
+  // Ensuring caption is correctly displayed when it has RTL mixed with LTR copy
+  .#{$c4d-prefix}--video-player__video-caption[dir='rtl'] {
+    direction: rtl;
+    text-align: end;
+    unicode-bidi: plaintext;
+  }
+
   .#{$c4d-prefix}--video-player__image-overlay {
     padding: 0;
     border: none;
