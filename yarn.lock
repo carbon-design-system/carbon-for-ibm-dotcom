@@ -3246,7 +3246,7 @@ __metadata:
     "@carbon/layout": "npm:11.27.0"
     "@carbon/styles": "npm:1.65.0"
     "@carbon/themes": "npm:11.64.0"
-    "@carbon/type": "npm:11.32.1"
+    "@carbon/type": "npm:11.50.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
@@ -3353,7 +3353,7 @@ __metadata:
     "@carbon/pictograms-react": "npm:11.67.1"
     "@carbon/react": "npm:1.66.0"
     "@carbon/styles": "npm:1.65.0"
-    "@carbon/type": "npm:11.32.1"
+    "@carbon/type": "npm:11.50.0"
     "@carbon/web-components": "npm:2.13.1"
     "@ibm/telemetry-js": "npm:^1.10.2"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
@@ -3702,18 +3702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:11.32.1, @carbon/type@npm:^11.31.0, @carbon/type@npm:^11.32.1":
-  version: 11.32.1
-  resolution: "@carbon/type@npm:11.32.1"
-  dependencies:
-    "@carbon/grid": "npm:^11.28.1"
-    "@carbon/layout": "npm:^11.27.1"
-    "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/679c2ed816ecb74e8ef1468edb4eba552bac1d77fd34c14e5b4b7c6f1cf03cab444e03947684e64013a7c3d5dcc2e421205f81a4ee92cd239267c1bfc7bf9c59
-  languageName: node
-  linkType: hard
-
-"@carbon/type@npm:^11.50.0":
+"@carbon/type@npm:11.50.0, @carbon/type@npm:^11.50.0":
   version: 11.50.0
   resolution: "@carbon/type@npm:11.50.0"
   dependencies:
@@ -3721,6 +3710,17 @@ __metadata:
     "@carbon/layout": "npm:^11.44.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
   checksum: 10/ce13856cbd0df2a95c9d93ecbe7704680df3e44862f63c9523347e3b9905ec1dfc2498c45912db395845285ba205e70866e6c4fb39053b1205a12de064b28238
+  languageName: node
+  linkType: hard
+
+"@carbon/type@npm:^11.31.0, @carbon/type@npm:^11.32.1":
+  version: 11.32.1
+  resolution: "@carbon/type@npm:11.32.1"
+  dependencies:
+    "@carbon/grid": "npm:^11.28.1"
+    "@carbon/layout": "npm:^11.27.1"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/679c2ed816ecb74e8ef1468edb4eba552bac1d77fd34c14e5b4b7c6f1cf03cab444e03947684e64013a7c3d5dcc2e421205f81a4ee92cd239267c1bfc7bf9c59
   languageName: node
   linkType: hard
 
