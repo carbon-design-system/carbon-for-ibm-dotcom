@@ -33,7 +33,7 @@ describe('Markdown converter utility', () => {
 
   it('returns the converted string with link', () => {
     const output = markdownToHtml(link);
-    const expected = `<p><a href="https://www.ibm.com" class="${prefix}--link ${prefix}--link--lg">This</a> is an anchor link.</p>`;
+    const expected = `<p><a class="${prefix}--link ${prefix}--link--lg" href="https://www.ibm.com">This</a> is an anchor link.</p>`;
     expect(output.trim()).toBe(expected);
   });
 
