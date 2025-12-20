@@ -3282,7 +3282,7 @@ __metadata:
     gulp-rename: "npm:^2.0.0"
     gulp-sass: "npm:^5.0.0"
     require-dir: "npm:^1.2.0"
-    sass: "npm:~1.96.0"
+    sass: "npm:~1.97.0"
     sass-loader: "npm:^13.0.0"
   languageName: unknown
   linkType: soft
@@ -30139,9 +30139,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:~1.96.0":
-  version: 1.96.0
-  resolution: "sass@npm:1.96.0"
+"sass@npm:~1.97.0":
+  version: 1.97.1
+  resolution: "sass@npm:1.97.1"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -30152,7 +30152,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10/be4c0030f8f973fff5ee10bc4fdf5026a63a66a06bc540c9efffb91bead7b22c13174af765196cb73d2f175dd5f4f879afd027312bf600158c7ced6c2de1c1aa
+  checksum: 10/c493d08f63ecd82b6db94bed16c1fffc0cccf94fc30f73f0f09fa6023a811cafb3862697d8a24264b511541474d2be5fac7ddba00ed56738d13f1837c93721b5
   languageName: node
   linkType: hard
 
