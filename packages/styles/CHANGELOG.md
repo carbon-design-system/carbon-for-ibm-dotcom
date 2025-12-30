@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.39.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.38.0...@carbon/ibmdotcom-styles@2.39.0) (2025-12-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/icons-react to v11.71.0 ([#12361](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12361)) ([4c190c9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4c190c969021874d910715ef27b927e0e4761cc0))
+* **deps:** update dependency @carbon/type to v11.50.0 ([#12369](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12369)) ([303972f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/303972fdbc0f0af0b71777fca157a31c90f760e4))
+
+
+
+
+
 # [2.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.37.0...@carbon/ibmdotcom-styles@2.38.0) (2025-12-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
