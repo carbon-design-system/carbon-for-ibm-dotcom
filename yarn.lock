@@ -3331,7 +3331,7 @@ __metadata:
     chalk: "npm:^4.1.1"
     cli-table: "npm:^0.3.0"
     gzip-size: "npm:^5.0.0"
-    isomorphic-dompurify: "npm:2.34.0"
+    isomorphic-dompurify: "npm:2.35.0"
     jest: "npm:25.5.4"
     jest-circus: "npm:25.5.4"
     js-cookie: "npm:^2.2.1"
@@ -4318,6 +4318,18 @@ __metadata:
   version: 8.57.0
   resolution: "@eslint/js@npm:8.57.0"
   checksum: 10/3c501ce8a997cf6cbbaf4ed358af5492875e3550c19b9621413b82caa9ae5382c584b0efa79835639e6e0ddaa568caf3499318e5bdab68643ef4199dce5eb0a0
+  languageName: node
+  linkType: hard
+
+"@exodus/bytes@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@exodus/bytes@npm:1.6.0"
+  peerDependencies:
+    "@exodus/crypto": ^1.0.0-rc.4
+  peerDependenciesMeta:
+    "@exodus/crypto":
+      optional: true
+  checksum: 10/4066bc5f2b7782fabdad4cac707031cbe7c3491bcd38f28e3b5144d687f858e834aaa9b0bcbe9685f1ccfaf4dc747172e82f28cf361e9623448ec80ab755b198
   languageName: node
   linkType: hard
 
@@ -19139,12 +19151,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-encoding-sniffer@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "html-encoding-sniffer@npm:4.0.0"
+"html-encoding-sniffer@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "html-encoding-sniffer@npm:6.0.0"
   dependencies:
-    whatwg-encoding: "npm:^3.1.1"
-  checksum: 10/e86efd493293a5671b8239bd099d42128433bb3c7b0fdc7819282ef8e118a21f5dead0ad6f358e024a4e5c84f17ebb7a9b36075220fac0a6222b207248bede6f
+    "@exodus/bytes": "npm:^1.6.0"
+  checksum: 10/97392e45d8aff57f180f62a1b12e62201c8451af68424b8bc3196f78e273891f2df285e5be43a3f28c7ba4badf9524ef305db65c4e4935a9e796afc86d9654b8
   languageName: node
   linkType: hard
 
@@ -20831,13 +20843,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"isomorphic-dompurify@npm:2.34.0":
-  version: 2.34.0
-  resolution: "isomorphic-dompurify@npm:2.34.0"
+"isomorphic-dompurify@npm:2.35.0":
+  version: 2.35.0
+  resolution: "isomorphic-dompurify@npm:2.35.0"
   dependencies:
     dompurify: "npm:^3.3.1"
-    jsdom: "npm:^27.3.0"
-  checksum: 10/3c999bd1ed0f174dd5219adb0f73f7ac404a00b11f9da28d3a07723026ebe05de6845e12c05ce102178bc63a7fac3e994ef63196e5d912915cb195acc209845a
+    jsdom: "npm:^27.4.0"
+  checksum: 10/d041cf2935e490baaeb8a089d24a159f370c85e541a7d5ed70a401d023c7a8595a26172bea64031ef5998a04d6193e8a4945f4b7fe99e53a173f101a566783bb
   languageName: node
   linkType: hard
 
@@ -22047,16 +22059,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:^27.3.0":
-  version: 27.3.0
-  resolution: "jsdom@npm:27.3.0"
+"jsdom@npm:^27.4.0":
+  version: 27.4.0
+  resolution: "jsdom@npm:27.4.0"
   dependencies:
     "@acemir/cssom": "npm:^0.9.28"
     "@asamuzakjp/dom-selector": "npm:^6.7.6"
+    "@exodus/bytes": "npm:^1.6.0"
     cssstyle: "npm:^5.3.4"
     data-urls: "npm:^6.0.0"
     decimal.js: "npm:^10.6.0"
-    html-encoding-sniffer: "npm:^4.0.0"
+    html-encoding-sniffer: "npm:^6.0.0"
     http-proxy-agent: "npm:^7.0.2"
     https-proxy-agent: "npm:^7.0.6"
     is-potential-custom-element-name: "npm:^1.0.1"
@@ -22066,7 +22079,6 @@ __metadata:
     tough-cookie: "npm:^6.0.0"
     w3c-xmlserializer: "npm:^5.0.0"
     webidl-conversions: "npm:^8.0.0"
-    whatwg-encoding: "npm:^3.1.1"
     whatwg-mimetype: "npm:^4.0.0"
     whatwg-url: "npm:^15.1.0"
     ws: "npm:^8.18.3"
@@ -22076,7 +22088,7 @@ __metadata:
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 10/c650e954df04a80e7309984450ce764ae2a840810b9575b20204194dee3c5cff42e65526519cb58b946ffe66a058b7b763bad4814b3903a9c86a2c1651b8b74b
+  checksum: 10/7c6db85ab91183b95204648e086cfc09ecee36d9e8fee0bb5d68e27543eca632de0af6d43de461176a7823820543d5c53561778af5f712b1a1cd28bfac084d51
   languageName: node
   linkType: hard
 
@@ -34719,15 +34731,6 @@ __metadata:
   dependencies:
     iconv-lite: "npm:0.6.3"
   checksum: 10/162d712d88fd134a4fe587e53302da812eb4215a1baa4c394dfd86eff31d0a079ff932c05233857997de07481093358d6e7587997358f49b8a580a777be22089
-  languageName: node
-  linkType: hard
-
-"whatwg-encoding@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "whatwg-encoding@npm:3.1.1"
-  dependencies:
-    iconv-lite: "npm:0.6.3"
-  checksum: 10/bbef815eb67f91487c7f2ef96329743f5fd8357d7d62b1119237d25d41c7e452dff8197235b2d3c031365a17f61d3bb73ca49d0ed1582475aa4a670815e79534
   languageName: node
   linkType: hard
 
