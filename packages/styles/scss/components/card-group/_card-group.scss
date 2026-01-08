@@ -98,11 +98,11 @@
         }
 
         &::after {
+          z-index: -1000;
           display: block;
           aspect-ratio: 16 / 9;
           content: '';
           grid-area: 1 / 1 / -1 / -1;
-          z-index: -1000;
         }
       }
 
