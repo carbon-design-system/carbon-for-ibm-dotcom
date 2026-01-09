@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,47 +26,8 @@ class C4DButtonGroupItem extends C4DButton {
 
   connectedCallback() {
     super.connectedCallback();
-
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
-    }
-
-    this._unwrapInvalidAnchor();
-  }
-
-  /**
-   * Prevent invalid <a><c4d-button-group-item></c4d-button-group-item></a> nesting
-   */
-  private _unwrapInvalidAnchor() {
-    const parent = this.parentElement;
-
-    // Only act if wrapped in an anchor
-    if (!parent || parent.tagName !== 'A') {
-      return;
-    }
-
-    // 🔔 DEV-ONLY, ONCE-PER-ELEMENT WARNING
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      !this.hasAttribute('data-anchor-warning')
-    ) {
-      console.warn(
-        `c4d-button-group-item should not be wrapped in an <a>. The wrapper was removed automatically.`
-      );
-      this.setAttribute('data-anchor-warning', '');
-    }
-
-    const grandParent = parent.parentNode;
-    if (!grandParent) {
-      return;
-    }
-
-    // Unwrap the invalid anchor
-    grandParent.insertBefore(this, parent);
-
-    // Remove empty anchor
-    if (!parent.hasChildNodes()) {
-      grandParent.removeChild(parent);
     }
   }
 
