@@ -234,6 +234,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       this._setAutoplayPreference(true);
     }
   }
+  getIsVideoPlaying() {
+    const iframe = this.querySelector('iframe');
+    const playerContainer =
+      iframe?.contentWindow?.document.querySelector('div.play-state');
+    return !(playerContainer == null);
+  }
 
   /**
    * `true` to autoplay the videos.
