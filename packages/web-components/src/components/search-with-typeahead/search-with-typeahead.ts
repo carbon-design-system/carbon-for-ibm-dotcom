@@ -761,7 +761,8 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                   <ul
                     role="listbox"
                     class="${c4dPrefix}-ce__search__list react-autosuggest__suggestions-list"
-                    part="suggestions-list">
+                    part="suggestions-list"
+                    aria-label="suggestions-list">
                     ${this.searchResults &&
                     this.searchResults.map(
                       (item) =>
