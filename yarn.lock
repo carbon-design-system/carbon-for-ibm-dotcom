@@ -3382,7 +3382,7 @@ __metadata:
     "@carbon/ibmdotcom-services-store": "npm:1.53.7"
     "@carbon/ibmdotcom-styles": "npm:2.39.0"
     "@carbon/ibmdotcom-utilities": "npm:2.39.0"
-    "@carbon/icon-helpers": "npm:10.69.0"
+    "@carbon/icon-helpers": "npm:10.70.0"
     "@carbon/icons": "npm:10.48.6"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.45.0"
@@ -3523,12 +3523,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.69.0, @carbon/icon-helpers@npm:^10.69.0":
-  version: 10.69.0
-  resolution: "@carbon/icon-helpers@npm:10.69.0"
+"@carbon/icon-helpers@npm:10.70.0":
+  version: 10.70.0
+  resolution: "@carbon/icon-helpers@npm:10.70.0"
   dependencies:
     "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/a3105fa3b3576c4166ac6e692af3c45ff81b6be6a9eecb12a5e609670f7c058c7e277a5712e64e4e495a4864858f7e9d54386a05e9bdb8e2cff734c40a3e769b
+  checksum: 10/da424bb426ecf82c63bcec7a4ba5e9debc8e37574349250179240bcfcf9f4c8a177517e19eee11fc1a03cd47df9dc3fe2bb67832ed0a862c7383069f74b35c9c
   languageName: node
   linkType: hard
 
@@ -3538,6 +3538,15 @@ __metadata:
   dependencies:
     "@ibm/telemetry-js": "npm:^1.5.0"
   checksum: 10/c009949b9f8b51afa32997206a41661ce57a01feb0ce3c3d0bbed6a91bc42d86c688fad357c472247a1c9409b4513b986c8fd687722bed808b3aa5b9457b7372
+  languageName: node
+  linkType: hard
+
+"@carbon/icon-helpers@npm:^10.69.0":
+  version: 10.69.0
+  resolution: "@carbon/icon-helpers@npm:10.69.0"
+  dependencies:
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/a3105fa3b3576c4166ac6e692af3c45ff81b6be6a9eecb12a5e609670f7c058c7e277a5712e64e4e495a4864858f7e9d54386a05e9bdb8e2cff734c40a3e769b
   languageName: node
   linkType: hard
 
