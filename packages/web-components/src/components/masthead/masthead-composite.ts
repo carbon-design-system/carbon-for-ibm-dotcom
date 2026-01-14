@@ -1177,7 +1177,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       ? undefined
       : html`
           <c4d-masthead-contact
-            data-ibm-contact="contact-link"
+            data-ibm-contact="${this.contactType}"
             trigger-label="${ifDefined(
               contactUsButton?.title
             )}"></c4d-masthead-contact>
@@ -1321,6 +1321,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @state()
   _activeMegamenuTabKey?: string;
+
+  /**
+   * Custom contact module typing
+   */
+  @property({ type: String, reflect: true, attribute: 'contact-type' })
+  contactType = 'chat-link';
 
   /**
    * `true` if there is a profile.
