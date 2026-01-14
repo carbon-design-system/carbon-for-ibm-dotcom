@@ -1325,8 +1325,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Custom contact module typing
    */
-   @property({type:String, reflect:true, attribute: 'contact-type'})
-  contactType = 'chat-link'
+  @property({ type: String, reflect: true, attribute: 'contact-type' })
+  contactType = 'chat-link';
 
   /**
    * `true` if there is a profile.
