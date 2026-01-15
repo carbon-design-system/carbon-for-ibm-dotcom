@@ -815,6 +815,13 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             `
           : html`
               <span
+                part="status"
+                class="${prefix}--carousel__navigation__status"
+                aria-hidden="true">
+                ${formatStatus(status)}
+              </span>
+
+              <span
                 class="${prefix}--visually-hidden"
                 aria-live="polite"
                 part="visually-hidden">
