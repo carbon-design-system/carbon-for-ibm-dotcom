@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -799,7 +799,9 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                 <span
                   class="${prefix}--visually-hidden"
                   aria-live="polite"
-                  part="visually-hidden"></span>
+                  part="visually-hidden"
+                  >${formatStatus(status)}</span
+                >
                 <button
                   part="next-button"
                   class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
@@ -811,7 +813,14 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                 </button>
               </nav>
             `
-          : ''}
+          : html`
+              <span
+                class="${prefix}--visually-hidden"
+                aria-live="polite"
+                part="visually-hidden">
+                ${formatStatus(status)}
+              </span>
+            `}
       </div>
     `;
   }
