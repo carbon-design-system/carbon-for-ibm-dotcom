@@ -165,7 +165,9 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const delay = parseInt(slow01, 10);
 
     this._intersectionTimeout = setTimeout(() => {
-      announcementNode.innerText = formatAnnouncement(status);
+      if (announcementNode) {
+        announcementNode.innerText = formatAnnouncement(status);
+      }
     }, delay);
   }
 
@@ -799,9 +801,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                 <span
                   class="${prefix}--visually-hidden"
                   aria-live="polite"
-                  part="visually-hidden"
-                  >${formatStatus(status)}</span
-                >
+                  part="visually-hidden"></span>
                 <button
                   part="next-button"
                   class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
@@ -825,7 +825,6 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                 class="${prefix}--visually-hidden"
                 aria-live="polite"
                 part="visually-hidden">
-                ${formatStatus(status)}
               </span>
             `}
       </div>
