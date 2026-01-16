@@ -792,16 +792,14 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                   title="${prevButtonText || defaultPrevButtonText}">
                   ${CaretLeft20()}
                 </button>
+
                 <span
                   part="status"
                   class="${prefix}--carousel__navigation__status"
-                  aria-hidden="true"
-                  >${formatStatus(status)}</span
-                >
-                <span
-                  class="${prefix}--visually-hidden"
-                  aria-live="polite"
-                  part="visually-hidden"></span>
+                  aria-hidden="true">
+                  ${formatStatus(status)}
+                </span>
+
                 <button
                   part="next-button"
                   class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
@@ -813,20 +811,13 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                 </button>
               </nav>
             `
-          : html`
-              <span
-                part="status"
-                class="${prefix}--carousel__navigation__status"
-                aria-hidden="true">
-                ${formatStatus(status)}
-              </span>
+          : null}
 
-              <span
-                class="${prefix}--visually-hidden"
-                aria-live="polite"
-                part="visually-hidden">
-              </span>
-            `}
+        <span
+          class="${prefix}--visually-hidden"
+          aria-live="polite"
+          part="visually-hidden">
+        </span>
       </div>
     `;
   }
