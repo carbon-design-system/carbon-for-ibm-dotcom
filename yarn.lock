@@ -3552,7 +3552,7 @@ __metadata:
     "@carbon/icons": "npm:10.48.6"
     "@carbon/icons-react": "npm:^11.33.0"
     "@carbon/layout": "npm:11.46.0"
-    "@carbon/motion": "npm:11.38.0"
+    "@carbon/motion": "npm:11.39.0"
     "@carbon/pictograms-react": "npm:11.67.1"
     "@carbon/react": "npm:1.66.0"
     "@carbon/styles": "npm:1.65.0"
@@ -3787,12 +3787,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/motion@npm:11.38.0":
-  version: 11.38.0
-  resolution: "@carbon/motion@npm:11.38.0"
+"@carbon/motion@npm:11.39.0":
+  version: 11.39.0
+  resolution: "@carbon/motion@npm:11.39.0"
   dependencies:
     "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/9cf21cf6e8248b09dafd5d9a7f03da3123b5954eaa4c1dfd9a374ac9c6f5e3aa01bf4cd081b82f4273370ed6a8f47b32934771f4f21b670deed8732678c5e861
+  checksum: 10/7acef61fff0fc567b89798ae89f32beed2a1094f62bed80a1fdfabbd548ef8183a7f827dbae984512c105c0d37efbe33e4f3fe372a05ae6141282c885c7863f2
   languageName: node
   linkType: hard
 
