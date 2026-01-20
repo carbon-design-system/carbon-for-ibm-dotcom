@@ -98,6 +98,7 @@
         }
 
         &::after {
+          z-index: -1000;
           display: block;
           aspect-ratio: 16 / 9;
           content: '';
