@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.40.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.39.0...@carbon/ibmdotcom-web-components@2.40.0) (2026-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/layout to v11.45.0 ([#12387](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12387)) ([0363cef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0363cef8c9f52786d6fce019bf29dfbdb00f3af2))
+* **deps:** update dependency @carbon/layout to v11.46.0 ([#12395](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12395)) ([c499d79](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c499d790bdfea6a2838b664453b905315a2a703d))
+* **deps:** update dependency @carbon/motion to v11.39.0 ([#12388](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12388)) ([e679890](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e679890afb4cb3ef5fee9d8d517d8ed0a36d21e4))
+* **deps:** update dependency @carbon/type to v11.51.0 ([#12389](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12389)) ([8ca362d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8ca362dc6ef83965004ced0c3ac68d6ce4b5aaf8))
+* **masthead:** Add aria labels to listbox and language selector ([#12390](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12390)) ([873574f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/873574fc285faeb0395cfb372ee1ee9c45d7dba3))
+
+
+### Features
+
+* **masthead:** custom contact module typing ([#12391](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12391)) ([d27aa60](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d27aa605b897058ee58481ea376407341212537f))
+
+
+
+
+
 # [2.39.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.38.0...@carbon/ibmdotcom-web-components@2.39.0) (2025-12-30)
 
 
