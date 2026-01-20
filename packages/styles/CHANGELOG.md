@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.40.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.39.0...@carbon/ibmdotcom-styles@2.40.0) (2026-01-20)
+
+
+### Bug Fixes
+
+* **card-grup:** card group item is clickable ([#12382](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12382)) ([db5b309](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/db5b309a6886f9051cfd2dbb62f996a50ae4eff5))
+* **deps:** update dependency @carbon/icons-react to v11.73.0 ([#12386](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12386)) ([f14e801](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f14e801131deca49d832988cc485349f9cdc815d))
+* **deps:** update dependency @carbon/layout to v11.45.0 ([#12387](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12387)) ([0363cef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0363cef8c9f52786d6fce019bf29dfbdb00f3af2))
+* **deps:** update dependency @carbon/layout to v11.46.0 ([#12395](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12395)) ([c499d79](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c499d790bdfea6a2838b664453b905315a2a703d))
+* **deps:** update dependency @carbon/type to v11.51.0 ([#12389](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12389)) ([8ca362d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8ca362dc6ef83965004ced0c3ac68d6ce4b5aaf8))
+
+
+
+
+
 # [2.39.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.38.0...@carbon/ibmdotcom-styles@2.39.0) (2025-12-30)
 
 
