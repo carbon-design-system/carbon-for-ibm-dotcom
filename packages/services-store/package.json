@@ -40,8 +40,8 @@
   "devDependencies": {
     "@babel/core": "~7.28.0",
     "@babel/plugin-proposal-decorators": "~7.28.0",
-    "@babel/plugin-transform-modules-commonjs": "~7.27.0",
-    "@babel/plugin-transform-nullish-coalescing-operator": "~7.27.0",
+    "@babel/plugin-transform-modules-commonjs": "~7.28.0",
+    "@babel/plugin-transform-nullish-coalescing-operator": "~7.28.0",
     "@babel/plugin-transform-optional-chaining": "~7.28.0",
     "@babel/plugin-transform-typescript": "~7.28.0",
     "@babel/preset-modules": "^0.1.5",

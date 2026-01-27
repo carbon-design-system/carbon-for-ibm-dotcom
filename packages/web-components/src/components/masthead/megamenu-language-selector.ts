@@ -476,6 +476,7 @@ class C4DMegaMenuLanguageSelector extends StableSelectorMixin(LitElement) {
         aria-haspopup="true"
         aria-expanded="${this.dropdownOpen ? 'true' : 'false'}"
         aria-controls="countryDropdown"
+        aria-label="page translations"
         @click=${this.toggleDropdown}>
         ${Wikis({ part: 'earth-l0-svg' })}
 

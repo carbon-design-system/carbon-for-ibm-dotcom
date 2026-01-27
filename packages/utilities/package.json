@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
   "description": "Carbon for IBM.com Utilities",
-  "version": "2.39.0",
+  "version": "2.40.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -59,7 +59,7 @@
     "@babel/core": "~7.28.0",
     "@babel/plugin-proposal-export-default-from": "~7.27.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
-    "@babel/plugin-transform-class-properties": "~7.27.0",
+    "@babel/plugin-transform-class-properties": "~7.28.0",
     "@babel/plugin-transform-export-namespace-from": "~7.27.0",
     "@babel/preset-env": "~7.28.0",
     "@rollup/plugin-babel": "^5.3.1",
