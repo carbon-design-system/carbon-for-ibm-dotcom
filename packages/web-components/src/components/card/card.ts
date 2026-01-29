@@ -177,7 +177,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
               class="${prefix}--card__video-thumbnail"
               part="video-thumbnail"
               alt="${videoName}"
-              default-src="${videoThumbnailUrl}">
+              default-src="${videoThumbnailUrl
+                ? videoThumbnailUrl
+                : `https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/${this.href}/width/333`}">
             </c4d-image>
           `;
     return html`
