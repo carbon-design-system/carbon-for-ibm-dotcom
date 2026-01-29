@@ -9,34 +9,27 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { boolean, object } from '@storybook/addon-knobs';
+import { object } from '@storybook/addon-knobs';
 import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
 import '../footer-composite';
 import '../footer-container';
-import mockLangList from './language-list';
+// import mockLangList from './language-list';
 import mockLinks from './links';
 import mockLegalLinks from './legal-links';
 import mockAdjunctLinks from './adjunct-links';
-import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
+// import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 import styles from './footer.stories.scss';
 
 export const base = (args) => {
-  const {
-    langDisplay,
-    language,
-    size,
-    langList,
-    legalLinks,
-    links,
-    localeList,
-    disableLocaleButton,
-    clearSelectionLabel,
-    languageSelectorLabel,
-    selectedLanguage,
-    adjunctLinks,
-  } = args?.FooterComposite ?? {};
+  const { langDisplay, language, size, legalLinks, links, adjunctLinks } =
+    args?.FooterComposite ?? {};
+
+  // Locale button & language selector are deprecated.
+  // Always disabled in Storybook to prevent usage.
+  const disableLocaleButton = true;
+
   const { useMock } = args?.Other ?? {};
 
   return html`
@@ -49,14 +42,9 @@ export const base = (args) => {
             language="${ifDefined(language)}"
             lang-display="${ifDefined(langDisplay)}"
             size="${ifDefined(size)}"
-            .langList="${ifDefined(langList)}"
             .adjunctLinks="${ifDefined(adjunctLinks)}"
             .legalLinks="${ifDefined(legalLinks)}"
             .links="${ifDefined(links)}"
-            .localeList="${ifDefined(localeList)}"
-            language-selector-label="${ifDefined(languageSelectorLabel)}"
-            clear-selection-label="${ifDefined(clearSelectionLabel)}"
-            selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
           </c4d-footer-composite>
         `
@@ -65,14 +53,9 @@ export const base = (args) => {
             language="${ifDefined(language)}"
             lang-display="${ifDefined(langDisplay)}"
             size="${ifDefined(size)}"
-            .langList="${ifDefined(langList)}"
             .adjunctLinks="${ifDefined(adjunctLinks)}"
             .legalLinks="${ifDefined(legalLinks)}"
             .links="${ifDefined(links)}"
-            .localeList="${ifDefined(localeList)}"
-            language-selector-label="${ifDefined(languageSelectorLabel)}"
-            clear-selection-label="${ifDefined(clearSelectionLabel)}"
-            selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
           </c4d-footer-container>
         `}
@@ -115,40 +98,40 @@ defaultWithAdjunctLegalLinks.story = {
   },
 };
 
-export const defaultLanguageOnly = (args) => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
-    size: FOOTER_SIZE.REGULAR,
-    languageSelectorLabel: 'Choose a language',
-    clearSelectionLabel: 'Clear language selection',
-    selectedLanguage: 'English',
-    adjunctLinks: [],
-  };
-  return html` <div class="default-language-only">${base(args)}</div> `;
-};
+// export const defaultLanguageOnly = (args) => {
+//   // args.FooterComposite = {
+//   //   ...(args.FooterComposite || {}),
+//   //   size: FOOTER_SIZE.REGULAR,
+//   //   languageSelectorLabel: 'Choose a language',
+//   //   clearSelectionLabel: 'Clear language selection',
+//   //   selectedLanguage: 'English',
+//   //   adjunctLinks: [],
+//   // };
+//   return html` <div class="default-language-only">${base(args)}</div> `;
+// };
 
-defaultLanguageOnly.story = {
-  name: 'Default language only',
-  parameters: {
-    knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean(
-          'hide the locale button (disable-locale-button)',
-          false
-        ),
-        langList: object('language dropdown items (langList)', mockLangList),
-      }),
-    },
-    propsSet: {
-      default: {
-        FooterComposite: {
-          disableLocaleButton: false,
-          langList: mockLangList,
-        },
-      },
-    },
-  },
-};
+// defaultLanguageOnly.story = {
+//   name: 'Default language only',
+//   parameters: {
+//     knobs: {
+//       FooterComposite: () => ({
+//         // disableLocaleButton: boolean(
+//         //  'hide the locale button (disable-locale-button)',
+//         //  false
+//         // ),
+//         // langList: object('language dropdown items (langList)', mockLangList),
+//       }),
+//     },
+//     propsSet: {
+//       default: {
+//         FooterComposite: {
+//           // disableLocaleButton: false,
+//           langList: mockLangList,
+//         },
+//       },
+//     },
+//   },
+// };
 
 export const short = (args) => {
   args.FooterComposite = {
@@ -186,40 +169,40 @@ shortWithAdjunctLegalLinks.story = {
   },
 };
 
-export const shortLanguageOnly = (args) => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
-    size: FOOTER_SIZE.SHORT,
-    languageSelectorLabel: 'Choose a language',
-    clearSelectionLabel: 'Clear language selection',
-    selectedLanguage: 'English',
-    adjunctLinks: [],
-  };
-  return base(args);
-};
+// export const shortLanguageOnly = (args) => {
+//   args.FooterComposite = {
+//     ...(args.FooterComposite || {}),
+//     size: FOOTER_SIZE.SHORT,
+//     languageSelectorLabel: 'Choose a language',
+//     clearSelectionLabel: 'Clear language selection',
+//     selectedLanguage: 'English',
+//     adjunctLinks: [],
+//   };
+//   return base(args);
+// };
 
-shortLanguageOnly.story = {
-  name: 'Short language only',
-  parameters: {
-    knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean(
-          'hide the locale button (disable-locale-button)',
-          false
-        ),
-        langList: object('language dropdown items (langList)', mockLangList),
-      }),
-    },
-    propsSet: {
-      default: {
-        FooterComposite: {
-          disableLocaleButton: false,
-          langList: mockLangList,
-        },
-      },
-    },
-  },
-};
+// shortLanguageOnly.story = {
+//   name: 'Short language only',
+//   parameters: {
+//     knobs: {
+//       FooterComposite: () => ({
+//         // disableLocaleButton: boolean(
+//         //   'hide the locale button (disable-locale-button)',
+//         //   false
+//         // ),
+//         langList: object('language dropdown items (langList)', mockLangList),
+//       }),
+//     },
+//     propsSet: {
+//       default: {
+//         FooterComposite: {
+//           // disableLocaleButton: false,
+//           langList: mockLangList,
+//         },
+//       },
+//     },
+//   },
+// };
 
 export const micro = (args) => {
   args.FooterComposite = {
@@ -230,52 +213,52 @@ export const micro = (args) => {
   return html` ${base(args)} `;
 };
 
-export const microLanguageOnly = (args) => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
-    size: FOOTER_SIZE.MICRO,
-    languageSelectorLabel: 'Choose a language',
-    clearSelectionLabel: 'Clear language selection',
-    selectedLanguage: 'English',
-  };
-  return html` ${base(args)} `;
-};
+// export const microLanguageOnly = (args) => {
+//   args.FooterComposite = {
+//     ...(args.FooterComposite || {}),
+//     size: FOOTER_SIZE.MICRO,
+//     languageSelectorLabel: 'Choose a language',
+//     clearSelectionLabel: 'Clear language selection',
+//     selectedLanguage: 'English',
+//   };
+//   return html` ${base(args)} `;
+// };
 
-microLanguageOnly.story = {
-  name: 'Micro language only',
-  parameters: {
-    knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean(
-          'hide the locale button (disable-locale-button)',
-          false
-        ),
-        langList: object('language dropdown items (langList)', mockLangList),
-      }),
-    },
-    propsSet: {
-      default: {
-        FooterComposite: {
-          disableLocaleButton: false,
-          langList: mockLangList,
-        },
-      },
-    },
-  },
-};
+// microLanguageOnly.story = {
+//   name: 'Micro language only',
+//   parameters: {
+//     knobs: {
+//       FooterComposite: () => ({
+//         // disableLocaleButton: boolean(
+//         //   'hide the locale button (disable-locale-button)',
+//         //   false
+//         // ),
+//         langList: object('language dropdown items (langList)', mockLangList),
+//       }),
+//     },
+//     propsSet: {
+//       default: {
+//         FooterComposite: {
+//           // disableLocaleButton: false,
+//           langList: mockLangList,
+//         },
+//       },
+//     },
+//   },
+// };
 
 export default {
   title: 'Components/Footer',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean(
-          'hide the locale button (disable-locale-button)',
-          false
-        ),
-      }),
-    },
+    // knobs: {
+    //   FooterComposite: () => ({
+    //     // disableLocaleButton: boolean(
+    //     //   'hide the locale button (disable-locale-button)',
+    //     //   false
+    //     // ),
+    //   }),
+    // },
     props: (() => {
       // Lets `<c4d-footer-container>` load the footer links
       const useMock =
@@ -286,7 +269,7 @@ export default {
           legalLinks: !useMock ? undefined : mockLegalLinks,
           adjunctLinks: !useMock ? undefined : mockAdjunctLinks,
           links: !useMock ? undefined : mockLinks,
-          localeList: !useMock ? undefined : mockLocaleList,
+          // localeList: !useMock ? undefined : mockLocaleList,
         },
         Other: {
           useMock,
@@ -296,12 +279,12 @@ export default {
     propsSet: {
       default: {
         FooterComposite: {
-          disableLocaleButton: false,
+          // disableLocaleButton: false,
           langDisplay: 'United States - English',
           legalLinks: mockLegalLinks,
           adjunctLinks: mockLegalLinks,
           links: mockLinks,
-          localeList: mockLocaleList,
+          // localeList: mockLocaleList,
         },
       },
     },

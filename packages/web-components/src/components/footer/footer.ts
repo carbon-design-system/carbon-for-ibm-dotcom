@@ -30,6 +30,11 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @csspart logo-row - The logo row. Usage: `c4d-footer::part(logo-row)`
  * @slot brand - The brand content.
  * @slot legal-nav - The legal nav content.
+ */
+
+/**
+ * @deprecated Locale button is deprecated and no longer rendered.
+ * This slot is kept temporarily for backward compatibility.
  * @slot locale-button - The locale button content.
  */
 @customElement(`${c4dPrefix}-footer`)
@@ -41,7 +46,8 @@ class C4DFooter extends StableSelectorMixin(LitElement) {
   size = FOOTER_SIZE.REGULAR;
 
   /**
-   * Update the CSS selectors depending on the locale button being rendered or not.
+   * @deprecated Locale button is deprecated and no longer rendered.
+   * This property will be removed in a future major release.
    */
   @property({ type: Boolean, attribute: 'disable-locale-button' })
   disableLocaleButton = false;
@@ -69,8 +75,9 @@ class C4DFooter extends StableSelectorMixin(LitElement) {
           <div part="logo-container" class=${classMap(classes)}>
             <div part="logo-row" class="${prefix}--footer__logo-row">
               <slot name="brand"></slot>
-              <slot name="locale-button"></slot>
-              <slot name="language-selector"></slot>
+              <!-- Locale button deprecated: intentionally -->
+              <!-- <slot name="locale-button"></slot> -->
+              <!-- <slot name="language-selector"></slot> -->
               <slot></slot>
             </div>
           </div>
@@ -78,6 +85,14 @@ class C4DFooter extends StableSelectorMixin(LitElement) {
       </section>
       <slot name="legal-nav"></slot>
     `;
+  }
+
+  updated() {
+    if (this.querySelector('[slot="locale-button"]')) {
+      console.warn(
+        '<c4d-footer>: locale-button slot is deprecated and will be removed.'
+      );
+    }
   }
 
   static get stableSelector() {
