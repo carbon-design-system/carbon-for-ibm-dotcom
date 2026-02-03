@@ -1,30 +1,28 @@
-# Setting colors
-export RED='\033[0;31m'
-export GREEN='\033[0;32m'
-export NC='\033[0m'
-
-RELEASE_VERSION=$(echo $RELEASE_BRANCH | cut -c 9-)
-
-# Switch to non-detached branch
-echo "${GREEN}Creating release branch...${NC}";
-git checkout -b ${RELEASE_BRANCH}
-
-# Set git user
-git config --global user.email "digdes@us.ibm.com"
-git config --global user.name "ibmdotcom-bot"
-git config --global github.token $GITHUBTOKEN
-
-# Update the settings file
-echo "${GREEN}Updating the settings file...${NC}";
-cd packages/utilities/src/utilities/settings
-sed -i "s/Carbon for IBM.*/Carbon for IBM\.com $RELEASE_VERSION\',/" settings.js
-cat settings.js
-cd "${WORKSPACE}"
-
-# Update all changes and commit directly
-echo "${GREEN}Committing and pushing the release branch...${NC}";
-git add -A
-git commit -m "chore(settings): update settings to ${RELEASE_VERSION}"
-git push origin ${RELEASE_BRANCH}
-
-echo "RELEASE_VERSION=${RELEASE_VERSION}" >> build.properties
+name : Cut Release branch
+on:
+  workflow_dispatch:
+    inputs:
+      version-number:
+        required: true
+        description: 'version number (ie: 2.3.0)'
+        type: string
+        default: '2.x.x'
+jobs:
+  create-release-branch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: '0'
+      # Config git user
+      - run: |
+          git config --global user.email ${{secrets.CARBON_BOT_EMAIL}}
+          git config --global user.name ${{secrets.CARBON_BOT_NAME}}
+          git checkout -b release/v${{ github.events.inputs.version-number }}
+          cd packages/utilities/src/utilities/settings
+          sed -i "s/Carbon for IBM.*/Carbon for IBM\.com ${{ github.events.inputs.version-number }}\',/" settings.js
+          cd ../../../../..
+          git add -A
+          git commit -m "chore(settings): update settings to v${{ github.events.inputs.version-number }}"
+          git push origin release/v${{ github.events.inputs.version-number }}
