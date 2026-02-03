@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.40.0...@carbon/ibmdotcom-web-components@2.41.0) (2026-02-03)
+
+
+### Bug Fixes
+
+* **card:** add default thumbnail image to card ([#12402](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12402)) ([a9866e4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a9866e4811635adf28af14ca933642f3d936c1a5))
+* **deps:** update dependency @carbon/motion to v11.40.0 ([#12409](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12409)) ([b1435ab](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b1435ab904557c8de8c29bfc3dad0c3a71e2cca5))
+* **deps:** update dependency @carbon/type to v11.52.0 ([#12400](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12400)) ([b406b02](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b406b02f0bb724cc933bce4a01c975575210a4dd))
+
+
+
+
+
 # [2.40.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.39.0...@carbon/ibmdotcom-web-components@2.40.0) (2026-01-20)
 
 
