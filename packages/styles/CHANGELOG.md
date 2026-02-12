@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.40.0...@carbon/ibmdotcom-styles@2.41.0) (2026-02-03)
+
+
+### Bug Fixes
+
+* **card-group:** spacing issue with condensed mode ([#12403](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12403)) ([ea1c494](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea1c4942d1750161dc3b53c2d3aa6693538de113))
+* **deps:** update dependency @carbon/type to v11.52.0 ([#12400](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12400)) ([b406b02](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b406b02f0bb724cc933bce4a01c975575210a4dd))
+
+
+
+
+
 # [2.40.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.39.0...@carbon/ibmdotcom-styles@2.40.0) (2026-01-20)
 
 
