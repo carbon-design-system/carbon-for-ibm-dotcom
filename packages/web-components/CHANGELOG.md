@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.41.0...@carbon/ibmdotcom-web-components@2.42.0) (2026-02-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/layout to v11.47.0 ([#12408](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12408)) ([9a45bcb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9a45bcb1092fccd9afee73279b46ebefedeb6264))
+* **deps:** update dependency @carbon/type to v11.53.0 ([#12413](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12413)) ([a8f8c5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a8f8c5ee5e8884c23ee7cc7f7390efb5742419e4))
+
+
+
+
+
 # [2.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.40.0...@carbon/ibmdotcom-web-components@2.41.0) (2026-02-03)
 
 
