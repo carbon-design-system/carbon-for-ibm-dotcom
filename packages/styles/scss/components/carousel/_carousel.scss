@@ -1,7 +1,7 @@
 //
 // @license
 //
-// Copyright IBM Corp. 2020, 2025
+// Copyright IBM Corp. 2020, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -156,6 +156,32 @@
     //need to use 'right' to override the LTR property.
     /* stylelint-disable-next-line */
     right: calc(50% + 32px);
+  }
+}
+
+:host([dir='rtl'].featured-carousel.slide-reverse) {
+  nav.cds--carousel__navigation {
+    //need to use 'right' to override the LTR property.
+    /* stylelint-disable-next-line */
+    right: 0;
+  }
+}
+
+:host-context([dir='ltr']) {
+  :host(.slide-reverse) {
+    nav.cds--carousel__navigation {
+      //need to use 'left' to override the LTR property.
+      /* stylelint-disable-next-line */
+      left: calc(50% - 32px);
+      transform: translateX(-90%);
+
+      @include breakpoint-down(lg) {
+        //need to use 'left' to override the LTR property.
+        /* stylelint-disable-next-line */
+        left: auto;
+        transform: none;
+      }
+    }
   }
 }
 
