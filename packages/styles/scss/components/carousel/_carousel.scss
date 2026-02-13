@@ -159,7 +159,7 @@
   }
 }
 
-:host(#{$c4d-prefix}-carousel[dir='rtl'].featured-carousel.slide-reverse) {
+:host([dir='rtl'].featured-carousel.slide-reverse) {
   nav.cds--carousel__navigation {
     //need to use 'right' to override the LTR property.
     /* stylelint-disable-next-line */
@@ -168,7 +168,7 @@
 }
 
 :host-context([dir='ltr']) {
-  :host(#{$c4d-prefix}-carousel.slide-reverse) {
+  :host(.slide-reverse) {
     nav.cds--carousel__navigation {
       //need to use 'left' to override the LTR property.
       /* stylelint-disable-next-line */
