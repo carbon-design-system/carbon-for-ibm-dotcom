@@ -359,7 +359,7 @@
 
             .#{$prefix}--card__copy {
               @include breakpoint('md') {
-                display: block;
+                display: grid;
                 overflow: hidden;
                 opacity: 1;
                 transform: translate3d(0, 0, 0);
