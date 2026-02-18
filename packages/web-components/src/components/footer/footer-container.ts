@@ -87,20 +87,32 @@ export interface FooterContainerStateProps
 }
 
 /**
- * @param state The Redux state for masthead.
+ * @param state The Redux state for footer
+ * @param ownProps The current component props
  * @returns The converted version of the given state, tailored for `<c4d-footer-container>`.
  */
 export function mapStateToProps(
-  state: FooterContainerState
+  state: FooterContainerState,
+  ownProps?: FooterContainerStateProps
 ): FooterContainerStateProps {
   const { localeAPI, translateAPI } = state;
   const { language, localeLists } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
+
+  const hasUserLinks = ownProps?.links !== undefined;
+  const hasUserLegalLinks = ownProps?.legalLinks !== undefined;
+
   return pickBy(
     {
       localeList: !language ? undefined : localeLists?.[language],
-      links: !language ? undefined : translations?.[language]?.footerMenu,
-      legalLinks: !language ? undefined : translations?.[language]?.footerThin,
+      links:
+        hasUserLinks || !language
+          ? undefined
+          : translations?.[language]?.footerMenu,
+      legalLinks:
+        hasUserLegalLinks || !language
+          ? undefined
+          : translations?.[language]?.footerThin,
     },
     (value) => value !== undefined
   );
@@ -130,7 +142,7 @@ export function mapDispatchToProps(
 }
 
 /**
- * Container component for masthead.
+ * Container component for footer.
  *
  * @element c4d-footer-container
  */
