@@ -57,13 +57,13 @@ export const aspectRatio4x3 = (args) => {
   const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
   return html`
-    <c4d-video-player-container
+    <c4d-video-player-container-v7
       playing-mode="inline"
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></c4d-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container-v7>
   `;
 };
 

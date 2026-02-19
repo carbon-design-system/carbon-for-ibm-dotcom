@@ -71,9 +71,10 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   protected _activateEmbeddedVideo(videoId: string) {
     const { embeddedVideos = {} } = this;
     Object.keys(embeddedVideos).forEach((key) => {
-      embeddedVideos[key].sendNotification(
-        key === videoId ? 'doPlay' : 'doStop'
-      );
+      const kalturaPlayer = embeddedVideos[key];
+      key === videoId
+        ? kalturaPlayer.play()
+        : kalturaPlayer.pause();
     });
   }
 
@@ -183,10 +184,10 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     const { embeddedVideos = {} } = this;
 
     if (this.isPlaying) {
-      embeddedVideos[videoId].sendNotification('doPause');
+      embeddedVideos[videoId].pause();
       this.isPlaying = false;
     } else {
-      embeddedVideos[videoId].sendNotification('doPlay');
+      embeddedVideos[videoId].play();
       this.isPlaying = true;
     }
 
@@ -214,7 +215,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     const { embeddedVideos = {} } = this;
 
     Object.keys(embeddedVideos).forEach((videoId) => {
-      embeddedVideos[videoId].sendNotification('doPause');
+      embeddedVideos[videoId]?.pause();
     });
     this.isPlaying = false;
     if (updateAutoplayPreference) {
@@ -226,7 +227,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     const { embeddedVideos = {} } = this;
 
     Object.keys(embeddedVideos).forEach((videoId) => {
-      embeddedVideos[videoId].sendNotification('doPlay');
+      embeddedVideos[videoId]?.play();
     });
     this.isPlaying = true;
     this.playbackTriggered = true;
@@ -235,6 +236,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     }
   }
   getIsVideoPlaying() {
+    // GET BACK INTO THIS
     const iframe = this.querySelector('iframe');
     const playerContainer =
       iframe?.contentWindow?.document.querySelector('div.play-state');
@@ -254,7 +256,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   muted = false;
 
   /**
-   * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
+   * The embedded Kaltura player element (that has APIs), keyed by the video ID.
    */
   @property({ attribute: false })
   embeddedVideos?: { [videoId: string]: any };
@@ -457,13 +459,14 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       playingMode,
       buttonPosition,
     } = this;
+
     const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { duration, name } = currentVideoData;
     const thumbnailUrl =
       thumbnail ||
       KalturaPlayerAPI.getThumbnailUrl({
         mediaId: videoId,
-        width: String(videoThumbnailWidth),
+        width: videoThumbnailWidth,
       });
     return html`
       <c4d-video-player-v7

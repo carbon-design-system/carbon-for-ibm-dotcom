@@ -5,11 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
 
 /**
- * Sets the Kaltura Partner ID, set by environment variable "KALTURA_PARTNER_ID"
+ * Sets the Kaltura Partner ID
  *
  * @type {number}
  * @private
@@ -21,22 +20,60 @@ const _partnerId =
   1511271;
 
 /**
- * Sets the Kaltura UIConf ID, set by environment variable "KALTURA_UICONF_ID"
+ * Sets the Kaltura UIConf IDs
  *
- * @type {number}
+ * @type {enum}
  * @private
  */
-const _uiConfId = process?.env?.REACT_APP_KALTURA_UICONF_ID ??
-  process?.env?.KALTURA_UICONF_ID ??
-  // 27941801;
-  56255302;
+const _uiConfIds = {
+  VIDEO: process?.env?.REACT_APP_KALTURA_UICONF_ID_VIDEO ??
+    process?.env?.KALTURA_UICONF_ID_VIDEO ??
+    56255302,
+  AUDIO: process?.env?.REACT_APP_KALTURA_UICONF_ID_AUDIO ??
+    process?.env?.KALTURA_UICONF_ID_AUDIO ??
+    57620213,
+  PLAYLIST: process?.env?.REACT_APP_KALTURA_UICONF_ID_PLAYLIST ??
+    process?.env?.KALTURA_UICONF_ID_PLAYLIST ??
+    56255302,
+  REELS: process?.env?.REACT_APP_KALTURA_UICONF_ID_REELS ??
+    process?.env?.KALTURA_UICONF_ID_REELS ??
+    56255302,
+};
 
+/**
+ * The IBM Mediacenter Loader and Player Environment
+ * to be called
+ *
+ * @type {string}
+ * @private
+ */
+const _ibmEnvironment =
+  (process &&
+    (process.env.REACT_APP_KALTURA_ENVIRONMENT ||
+      process.env.KALTURA_ENVIRONMENT)) ||
+  'LOCAL';
 
+/**
+ * All the available enviornments for the Streaming Services Kaltura Player Script
+ *
+ * @type {enum}
+ * @private
+ */
+const _ibmEnvironments = {
+  DEVELOPMENT: 'development',
+  LATEST: 'latest',
+  NEXT: 'next',
+  LOCAL: 'local'
+}
 
-
-// ======================================================================
-// ======================================================================
-// ======================================================================
+/**
+ * Streaming Services Kaltura Player Script URL
+ *
+ * @private
+ */
+const _ibmScriptUrl = _ibmEnvironments[_ibmEnvironment] !== _ibmEnvironments['LOCAL']
+  ? `https://1.www.s81c.com/common/mediacenter/player/loader/${_ibmEnvironments[_ibmEnvironment]}/loader.js`
+  : `http://localhost:3456/loader/loader.js`;
 
 /**
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
@@ -84,7 +121,7 @@ let _scriptLoading = false;
  */
 function _scriptReady(resolve, reject) {
   /**
-   * @param {object} root.IBM.Mediacenter.player if exists then resolve
+   * @param {object} root?.IBM.Mediacenter.player if exists then resolve
    */
   if (root?.IBM?.Mediacenter?.player) {
     _scriptLoading = false;
@@ -104,44 +141,6 @@ function _scriptReady(resolve, reject) {
     _scriptReady(resolve, reject);
   }
 }
-
-// ======================================================================
-// ======================================================================
-// ======================================================================
-
-/**
- * The
- *
- * @type {string}
- * @private
- */
-const _ibmEnvironment =
-  (process &&
-    (process.env.REACT_APP_KALTURA_ENVIRONMENT ||
-      process.env.KALTURA_ENVIRONMENT)) ||
-  'LOCAL';
-
-/**
- * All the available enviornments for the Streaming Services Kaltura Player Script
- *
- * @type {enum}
- * @private
- */
-const _ibmEnvironments = {
-  DEVELOPMENT: 'development',
-  LATEST: 'latest',
-  NEXT: 'next',
-  LOCAL: 'local'
-}
-
-/**
- * Streaming Services Kaltura Player Script URL
- *
- * @private
- */
-const _ibmScriptUrl = _ibmEnvironments[_ibmEnvironment] !== 'local'
-  ? `https://1.www.s81c.com/common/mediacenter/player/loader/${_ibmEnvironments[_ibmEnvironment]}/loader.js`
-  : `http://localhost:3456/loader/loader.js`;
 
 /**
  * KalturaPlayerAPI class with methods of checking script state and
@@ -173,7 +172,7 @@ class KalturaPlayerAPIV7 {
    * @param {string} params.mediaId specify the kaltura media id
    * @param {string} params.height specify height in pixels
    * @param {string} params.width specify width in pixels
-   * @param {string} params.partnerId specify the kaltura partner id
+   * @param {string} params.partnerId specify mediacenter's partner id
    * @returns {string} url of thumbnail image
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
@@ -191,21 +190,9 @@ class KalturaPlayerAPIV7 {
     mediaId = '',
     height = 0,
     width = 0,
-    partnerId
+    partnerId = _partnerId
   }) {
-    let url = `https://cdnsecakmi.kaltura.com/p/${partnerId ?? _partnerId}/thumbnail/entry_id/${mediaId}`;
-
-    if (height > 0) {
-      url = url + `/height/${height}`;
-    }
-    if (width > 0) {
-      url = url + `/width/${width}`;
-    }
-    if (width === 0 && height === 0) {
-      url = url + '/width/auto';
-    }
-
-    return url;
+    return root?.IBM?.Mediacenter?.player?.api?.getThumbnail(partnerId, mediaId, width, height) || '';
   }
 
   /**
@@ -213,9 +200,9 @@ class KalturaPlayerAPIV7 {
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
-   * @param {object} flashvars Determine any extra param or plugin for the player.
-   * @param {boolean} useIbmMetrics Whether or not should IBM Metrics events be fired.
+   * @param {object} configuration Determine any extra param or plugin for the player.
    * @param {Function} customReadyCallback Determine any extra functions that should be executed
+   * @param {string} partnerId specify mediacenter's partner id
    *  on player readyCallback.
    * @returns {object}  object
    * @example
@@ -230,14 +217,39 @@ class KalturaPlayerAPIV7 {
   static async embedMedia(
     mediaId,
     targetId,
-    flashvars = {},
-    useIbmMetrics = true,
-    customReadyCallback = () => {}
+    configuration = {},
+    customReadyCallback = () => {},
+    partnerId = _partnerId
   ) {
-    console.log('mc embed: flashvars | useIbmMetrics', flashvars, useIbmMetrics);
-
     return await this.checkScript().then(() => {
       const promiseKWidget = async () => {
+        /**
+         * Process player properties
+         */
+        const playerType = configuration?.type ?? 'VIDEO';
+        const autoPlay = configuration?.autoPlay ?? true;
+        const muted = configuration?.muted ?? true;
+        const loop = configuration?.loop ?? false;
+
+        const playerConfiguration = {
+          environment: _ibmEnvironments[_ibmEnvironment],
+          partnerId: partnerId,
+          uiConfId: _uiConfIds[playerType],
+          targetId,
+          autoPlay,
+          muted,
+          loop
+        }
+
+        if (playerType === 'VIDEO' || playerType === 'AUDIO') {
+          playerConfiguration.entryId = mediaId;
+        } else if (playerType === 'PLAYLIST' || playerType === 'REELS') {
+          // Implement when both players are ready in Mediacenter
+        }
+
+        /**
+         * Process the elements around the player
+         */
         let isCustomCreated;
 
         if (
@@ -251,16 +263,11 @@ class KalturaPlayerAPIV7 {
           isCustomCreated = true;
         }
 
-        const kdp = await root?.IBM?.Mediacenter?.player?.embed({
-          environment: 'local',
-          partnerId: _partnerId,
-          uiConfId: _uiConfId,
-          entryId: mediaId,
-          targetId,
-          autoPlay: true
-        });
-
-        customReadyCallback(kdp);
+        /**
+         * Embed the player and execute custom callback
+         */
+        const kalturaPlayer = await root?.IBM?.Mediacenter?.player?.embed(playerConfiguration);
+        customReadyCallback(kalturaPlayer);
 
         if (isCustomCreated) {
           const previousVideoDiv = document
@@ -273,42 +280,11 @@ class KalturaPlayerAPIV7 {
           );
         }
 
-        return kdp;
+        return kalturaPlayer;
       };
 
       return promiseKWidget();
     });
-  }
-
-  /**
-   * Fires a metrics event when the media was played.
-   * Pass events to common metrics event.
-   *
-   * @param {object} param params
-   * @param {number} param.playerState state detecting different user actions
-   * @param {object} param.kdp media object
-   * @param {string} param.mediaId id of the media
-   * @param {object} param.customMetricsData any extra parameter for custom events
-   */
-  static fireEvent({ playerState, kdp, mediaId, customMetricsData = {} }) {
-    // If media was played and timestamp is 0, it should be "launched" state.
-    var currentTime = Math.round(kdp.evaluate('{video.player.currentTime}'));
-
-    if (playerState === 2 && currentTime === 0) {
-      playerState = 0;
-    }
-
-    const eventData = {
-      playerType: 'kaltura',
-      title: kdp.evaluate('{mediaProxy.entry.name}'),
-      currentTime: currentTime,
-      duration: kdp.evaluate('{mediaProxy.entry.duration}'),
-      playerState: playerState,
-      mediaId: mediaId,
-      customMetricsData,
-    };
-
-    AnalyticsAPI.videoPlayerStats(eventData);
   }
 
   /**
@@ -317,6 +293,7 @@ class KalturaPlayerAPIV7 {
    * return the cached information in all subsequential calls
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
+   * @param {string} partnerId  The mediacenter partner id.
    * @returns {object}  object
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
@@ -326,56 +303,13 @@ class KalturaPlayerAPIV7 {
    *   console.log(data);
    * }
    */
-  static async api(mediaId) {
+  static async api(
+    mediaId,
+    partnerId = _partnerId
+  ) {
     return await this.checkScript().then(() => {
-        return root.IBM?.Mediacenter?.player?.api?.getMediaProperties(mediaId)
+      return root?.IBM?.Mediacenter?.player?.api?.getMediaProperties(partnerId, mediaId) || {}
     });
-  }
-
-  /**
-   * DEPRECATED
-   *
-   * @param {string} duration media duration in seconds
-   * @param {boolean} fromMilliseconds the duration argument is expressed in milliseconds rather than seconds
-   * @returns {string} converted duration
-   */
-  static getMediaDuration(duration = 0, fromMilliseconds) {
-    return KalturaPlayerAPIV7.getMediaDurationFormatted(duration, fromMilliseconds);
-  }
-
-  /**
-   * Convert media duration from milliseconds and seconds to HH:MM:SS
-   *
-   * @param {string} duration media duration in seconds
-   * @param {boolean} fromMilliseconds the duration argument is expressed in milliseconds rather than seconds
-   * @returns {string} converted duration
-   */
-  static getMediaDurationFormatted(duration = 0, fromMilliseconds) {
-    let ms = duration;
-    if (!fromMilliseconds) {
-      ms = duration * 1000;
-    }
-
-    const s = Math.floor((ms / 1000) % 60);
-    const m = Math.floor((ms / (1000 * 60)) % 60);
-    const h = Math.floor((ms / (1000 * 60 * 60)) % 24);
-    const seconds = KalturaPlayerAPIV7.formatTime(s, 'second');
-    const minutes = h || m ? KalturaPlayerAPIV7.formatTime(m, 'minute') : '';
-    const hours = h ? KalturaPlayerAPIV7.formatTime(h, 'hour') : '';
-
-    return `${hours} ${minutes} ${seconds}`.trim();
-  }
-
-  static formatTime(number, unit) {
-    const locale =
-      root.document.documentElement.lang || root.navigator.language;
-
-    return new Intl.NumberFormat(locale, {
-      style: 'unit',
-      // @ts-ignore: TS lacking support for standard option
-      unitDisplay: 'long',
-      unit,
-    }).format(number);
   }
 }
 
