@@ -29,7 +29,7 @@ const template = (props?) => {
     playingMode,
   } = props ?? {};
   return html`
-    <c4d-video-player
+    <c4d-video-player-v7
       content-state="${ifDefined(contentState)}"
       duration="${ifDefined(duration)}"
       ?hide-caption="${hideCaption}"
@@ -39,11 +39,11 @@ const template = (props?) => {
       .formatCaption="${ifDefined(formatCaption)}"
       .formatDuration="${ifDefined(formatDuration)}"
       .playingMode="${ifDefined(playingMode)}">
-    </c4d-video-player>
+    </c4d-video-player-v7>
   `;
 };
 
-describe('c4d-video-player', function () {
+describe('c4d-video-player-v7', function () {
   it('should render with minimum attributes', async function () {
     render(
       template({
@@ -52,7 +52,7 @@ describe('c4d-video-player', function () {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('c4d-video-player')).toMatchSnapshot({
+    expect(document.querySelector('c4d-video-player-v7')).toMatchSnapshot({
       mode: 'shadow',
     });
   });
@@ -69,12 +69,12 @@ describe('c4d-video-player', function () {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('c4d-video-player')).toMatchSnapshot({
+    expect(document.querySelector('c4d-video-player-v7')).toMatchSnapshot({
       mode: 'shadow',
     });
   });
 
-  it('should support hiding the caption', async function () {
+  it('should support hiding the caption (media title)', async function () {
     render(
       template({
         thumbnailUrl: 'about:blank',
@@ -85,12 +85,12 @@ describe('c4d-video-player', function () {
     await Promise.resolve();
     expect(
       document
-        .querySelector('c4d-video-player')!
+        .querySelector('c4d-video-player-v7')!
         .shadowRoot!.querySelector('.cds--video-player__video-caption')
     ).toBeNull();
   });
 
-  it('should support custom caption/duration formatter for localization', async function () {
+  it('should support custom caption (media title)/duration formatter for localization', async function () {
     render(
       template({
         duration: 60,
@@ -107,7 +107,7 @@ describe('c4d-video-player', function () {
     );
     await Promise.resolve();
     expect(
-      document.querySelector('c4d-video-player')!.getAttribute('aria-label')
+      document.querySelector('c4d-video-player-v7')!.getAttribute('aria-label')
     ).toBe('video-name-foo-1');
   });
 

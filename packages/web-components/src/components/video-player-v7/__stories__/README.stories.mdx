@@ -44,7 +44,7 @@ const resizeObserver = new ResizeObserver((entries) => {
     const { width, height } = entry.contentRect;
     if (width === 0 && height === 0) {
       // Uses Kaltura API to stop the video
-      entry.target.sendNotification('doStop');
+      entry.target?.pause();
     }
   });
 });
@@ -80,10 +80,10 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 ### HTML
 
 ```html
-<c4d-video-player-container
+<c4d-video-player-container-v7
   video-id="0_ibuqxqbe"
   aspect-ratio="16x9"
-  playing-mode="lightbox"></c4d-video-player-container>
+  playing-mode="lightbox"></c4d-video-player-container-v7>
 <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
 ```
 

@@ -25,7 +25,7 @@ const template = (props?) => {
     playingMode,
   } = props ?? {};
   return html`
-    <c4d-video-player-composite
+    <c4d-video-player-composite-v7
       ?hide-caption="${hideCaption}"
       video-id="${ifDefined(videoId)}"
       .embeddedVideos="${ifDefined(embeddedVideos)}"
@@ -33,11 +33,11 @@ const template = (props?) => {
       .formatDuration="${ifDefined(formatDuration)}"
       .mediaData="${ifDefined(mediaData)}"
       .playingMode="${ifDefined(playingMode)}">
-    </c4d-video-player-composite>
+    </c4d-video-player-composite-v7>
   `;
 };
 
-describe('c4d-video-player-composite', function () {
+describe('c4d-video-player-composite-v7', function () {
   it('should send props to video player', async function () {
     const formatCaption = () => {};
     const formatDuration = () => {};
@@ -53,7 +53,7 @@ describe('c4d-video-player-composite', function () {
     await Promise.resolve(); // Micro-task cycle for `VideoPlayer`
     await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
     const videoPlayer = document.querySelector(
-      'c4d-video-player'
+      'c4d-video-player-v7'
     ) as C4DVideoPlayer;
     expect(videoPlayer.formatCaption).toBe(formatCaption);
     expect(videoPlayer.formatDuration).toBe(formatDuration);
@@ -71,21 +71,23 @@ describe('c4d-video-player-composite', function () {
     render(template({ mediaData, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve();
     expect(
-      document.querySelector('c4d-video-player-composite')
+      document.querySelector('c4d-video-player-composite-v7')
     ).toMatchSnapshot();
   });
 
   it('should activate/deactivate videos as user switches video', async function () {
     render(template({ videoId: 'video-id-foo' }), document.body);
     await Promise.resolve();
+
     const videoPlayerComposite = document.querySelector(
-      'c4d-video-player-composite'
+      'c4d-video-player-composite-v7'
     ) as C4DVideoPlayerComposite;
-    videoPlayerComposite.querySelector('c4d-video-player')!.innerHTML = `
+    videoPlayerComposite.querySelector('c4d-video-player-v7')!.innerHTML = `
       <div data-video-id="video-id-foo"></div>
       <div data-video-id="video-id-bar"></div>
       <div data-video-id="video-id-baz"></div>
     `;
+
     const embeddedVideoFoo = videoPlayerComposite.querySelector(
       '[data-video-id="video-id-foo"]'
     );
@@ -95,9 +97,14 @@ describe('c4d-video-player-composite', function () {
     const embeddedVideoBaz = videoPlayerComposite.querySelector(
       '[data-video-id="video-id-baz"]'
     );
-    (embeddedVideoFoo as any).sendNotification = jasmine.createSpy();
-    (embeddedVideoBar as any).sendNotification = jasmine.createSpy();
-    (embeddedVideoBaz as any).sendNotification = jasmine.createSpy();
+
+    (embeddedVideoFoo as any).play = jasmine.createSpy();
+    (embeddedVideoBar as any).play = jasmine.createSpy();
+    (embeddedVideoBaz as any).play = jasmine.createSpy();
+    (embeddedVideoFoo as any).pause = jasmine.createSpy();
+    (embeddedVideoBar as any).pause = jasmine.createSpy();
+    (embeddedVideoBaz as any).pause = jasmine.createSpy();
+
     videoPlayerComposite.videoId = 'video-id-bar';
     videoPlayerComposite.embeddedVideos = {
       'video-id-foo': embeddedVideoFoo,
@@ -105,15 +112,9 @@ describe('c4d-video-player-composite', function () {
       'video-id-baz': embeddedVideoBaz,
     };
     await Promise.resolve();
-    expect((embeddedVideoFoo as any).sendNotification).toHaveBeenCalledWith(
-      'doStop'
-    );
-    expect((embeddedVideoBar as any).sendNotification).toHaveBeenCalledWith(
-      'doPlay'
-    );
-    expect((embeddedVideoBaz as any).sendNotification).toHaveBeenCalledWith(
-      'doStop'
-    );
+    expect((embeddedVideoFoo as any).pause).toHaveBeenCalled();
+    expect((embeddedVideoBar as any).play).toHaveBeenCalledWith();
+    expect((embeddedVideoBaz as any).pause).toHaveBeenCalledWith();
   });
 
   afterEach(function () {
