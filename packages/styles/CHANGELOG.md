@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.41.0...@carbon/ibmdotcom-styles@2.42.0) (2026-02-13)
+
+
+### Bug Fixes
+
+* **card-group:** add margin to card group items ([#12418](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12418)) ([eb68aa3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eb68aa3f676faf1f62cd4e2145957b41b4641147))
+* **card:** fix wrong display on hover ([#12410](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12410)) ([23c648d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/23c648d8046b263ab9af41ed2626f243b3b7b684))
+* **deps:** update dependency @carbon/icons-react to v11.74.0 ([#12407](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12407)) ([e4d2c71](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e4d2c71e71334dc97b382817ddd1bc3f71ed3cd8))
+* **deps:** update dependency @carbon/layout to v11.47.0 ([#12408](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12408)) ([9a45bcb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9a45bcb1092fccd9afee73279b46ebefedeb6264))
+* **deps:** update dependency @carbon/type to v11.53.0 ([#12413](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12413)) ([a8f8c5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a8f8c5ee5e8884c23ee7cc7f7390efb5742419e4))
+* **structured-list:** change max colspan on sm breakpoint ([#12411](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12411)) ([91b5f4d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/91b5f4d434db64a3df657197cb8231beb9b852fd))
+
+
+
+
+
 # [2.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.40.0...@carbon/ibmdotcom-styles@2.41.0) (2026-02-03)
 
 

@@ -143,6 +143,7 @@
 
     @include breakpoint(sm) {
       @include make-row();
+      --max-cols: 5;
 
       flex-wrap: nowrap;
     }

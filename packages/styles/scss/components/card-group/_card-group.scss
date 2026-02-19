@@ -152,7 +152,7 @@
 
     &[grid-mode='condensed'] {
       .#{$prefix}--card {
-        margin-block-end: 0;
+        margin-block-end: $spacing-05;
       }
     }
 
