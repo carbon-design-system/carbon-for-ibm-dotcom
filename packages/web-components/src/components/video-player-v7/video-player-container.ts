@@ -104,12 +104,12 @@ export const C4DVideoPlayerContainerMixin = <
     abstract _videoPlayer?: HTMLElement;
 
     /**
-     * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
+     * The embedded Kaltura player element (that has APIs), keyed by the video ID.
      */
     abstract embeddedVideos?: { [videoId: string]: any };
 
     /**
-     * The request for the embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
+     * The request for the embedded Kaltura player element (that has APIs), keyed by the video ID.
      *
      * @protected
      */
@@ -157,19 +157,19 @@ export const C4DVideoPlayerContainerMixin = <
     }
 
     /**
-     * Sets the given embedded Kaltura player element (that has `.sendNotification()`, etc. APIs) for the given video ID.
+     * Sets the given embedded Kaltura player element (that has APIs) for the given video ID.
      *
      * @param videoId The video ID.
-     * @param kWidget The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs).
+     * @param kalturaPlayer The embedded Kaltura player element (that has APIs).
      * @private
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
-    _setEmbeddedVideo(videoId: string, kWidget: any) {
-      this._setRequestEmbedVideoInProgress(videoId, Promise.resolve(kWidget));
+    _setEmbeddedVideo(videoId: string, kalturaPlayer: any) {
+      this._setRequestEmbedVideoInProgress(videoId, Promise.resolve(kalturaPlayer));
       const { embeddedVideos: oldEmbeddedVideos } = this;
       this.embeddedVideos = {
         ...oldEmbeddedVideos,
-        [videoId]: kWidget,
+        [videoId]: kalturaPlayer,
       };
     }
 
@@ -215,10 +215,11 @@ export const C4DVideoPlayerContainerMixin = <
       let playerOptions = {};
       const autoplayPreference = this._getAutoplayPreference();
 
+      // GET BACK HERE
       switch (true) {
         case autoPlay:
           playerOptions = {
-            autoMute: muted,
+            muted,
             autoPlay: autoplayPreference,
           };
           break;
@@ -232,7 +233,7 @@ export const C4DVideoPlayerContainerMixin = <
             'unMuteOverlayButton.plugin': false,
             'EmbedPlayer.DisableVideoTagSupport': false,
             loop: true,
-            autoMute: true,
+            muted: true,
             autoPlay: autoplayPreference,
             // Turn off CTA's including mid-roll card and end cards.
             'ibm.callToActions': false,
@@ -246,7 +247,7 @@ export const C4DVideoPlayerContainerMixin = <
 
         default:
           playerOptions = {
-            autoMute: muted,
+            muted,
           };
           break;
       }
@@ -261,6 +262,7 @@ export const C4DVideoPlayerContainerMixin = <
               text: mediaTitle,
             },
           },
+          type: 'VIDEO'
         };
       }
 

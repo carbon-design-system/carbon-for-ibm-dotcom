@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
@@ -126,20 +126,34 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       intersectionMode,
     } = this;
     if (intersectionMode) {
+      // IF the thumbnail url is empty, it should render nothing
+      const thumbnail = thumbnailUrl === ''
+        ? nothing
+        : html`
+          <c4d-image
+            default-src="${thumbnailUrl}"
+            alt="${ifNonEmpty(name)}"
+            part="image">
+          </c4d-image>`;
       return html`
         <div class="${c4dPrefix}--video-player__video">
           ${contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
-            ? html`
-                <c4d-image
-                  default-src="${thumbnailUrl}"
-                  alt="${ifNonEmpty(name)}"
-                  part="image">
-                </c4d-image>
-              `
+            ? thumbnail
             : html` <slot></slot> `}
         </div>
       `;
     } else {
+      // IF the thumbnail url is empty, it should render nothing
+      const thumbnail = thumbnailUrl === ''
+        ? nothing
+        : html`
+          <c4d-image
+            default-src="${thumbnailUrl}"
+            alt="${ifNonEmpty(name)}"
+            part="image">
+            ${PlayVideo({ slot: 'icon', part: 'play-video' })}
+          </c4d-image>`;
+
       return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
         !backgroundMode &&
         !this.autoplay
@@ -149,12 +163,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
                 class="${c4dPrefix}--video-player__image-overlay"
                 part="button"
                 @click="${handleClickOverlay}">
-                <c4d-image
-                  default-src="${thumbnailUrl}"
-                  alt="${ifNonEmpty(name)}"
-                  part="image">
-                  ${PlayVideo({ slot: 'icon', part: 'play-video' })}
-                </c4d-image>
+                ${thumbnail}
               </button>
             </div>
           `
@@ -182,7 +191,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     ) {
       this.thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
         mediaId: this.videoId,
-        width: String(this.offsetWidth),
+        width: this.offsetWidth,
       });
     }
   }
