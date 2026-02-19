@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.41.0...@carbon/ibmdotcom-utilities@2.42.0) (2026-02-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency isomorphic-dompurify to v2.36.0 ([#12414](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12414)) ([fa7d22c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fa7d22c5e75b2046034b52cfb40c1333b5adfc78))
+
+
+
+
+
 # [2.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.40.0...@carbon/ibmdotcom-utilities@2.41.0) (2026-02-03)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
