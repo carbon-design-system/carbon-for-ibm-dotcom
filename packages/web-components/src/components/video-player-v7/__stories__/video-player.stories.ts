@@ -25,17 +25,17 @@ export const Default = (args) => {
       thumbnail=${thumbnail}></c4d-video-player-container-v7>
   `;
   // return html`
-  //   <c4d-video-player-container
+  //   <c4d-video-player-container-v7
   //     playing-mode="inline"
   //     video-id=${videoId}
   //     caption=${caption}
   //     ?hide-caption=${hideCaption}
   //     thumbnail=${thumbnail}
-  //     background-mode></c4d-video-player-container>
+  //     background-mode></c4d-video-player-container-v7>
 
-  //   <c4d-video-player-container
-  //     video-id="1_onstzigu"
-  //     auto-play></c4d-video-player-container>
+  //   <c4d-video-player-container-v7
+  //     video-id="1_mq9h9c34"
+  //     auto-play></c4d-video-player-container-v7>
   // `;
 };
 
@@ -133,8 +133,7 @@ aspectRatio4x3.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_p2osmd1z',
         };
       },
     },
@@ -145,8 +144,7 @@ aspectRatio4x3.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_p2osmd1z',
         },
       },
     },
@@ -163,8 +161,7 @@ aspectRatio1x1.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_9h94wo6b',
         };
       },
     },
@@ -175,8 +172,7 @@ aspectRatio1x1.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_9h94wo6b',
         },
       },
     },
@@ -193,8 +189,7 @@ autoplay.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_p2osmd1z',
         };
       },
     },
@@ -205,8 +200,7 @@ autoplay.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_p2osmd1z',
         },
       },
     },
@@ -223,8 +217,7 @@ autoplayMuted.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_p2osmd1z',
         };
       },
     },
@@ -235,8 +228,7 @@ autoplayMuted.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_p2osmd1z',
         },
       },
     },
@@ -263,8 +255,7 @@ intersectionMode.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_mq9h9c34',
           buttonPosition: select(
             'Button position (buttonPosition)',
             enumValsToArray(BUTTON_POSITION),
@@ -280,8 +271,7 @@ intersectionMode.story = {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_mq9h9c34',
         },
       },
     },
@@ -307,8 +297,7 @@ export default {
         caption: text('Custom caption (caption):', ''),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnail: text('Custom thumbnail (thumbnail):', ''),
-        // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_mq9h9c34',
       }),
     },
     propsSet: {
@@ -317,8 +306,7 @@ export default {
           caption: '',
           hideCaption: false,
           thumbnail: '',
-          // videoId: '0_ibuqxqbe',
-          videoId: '1_hg7be2be',
+          videoId: '1_mq9h9c34',
         },
       },
     },

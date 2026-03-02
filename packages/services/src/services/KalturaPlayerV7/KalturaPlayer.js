@@ -17,7 +17,7 @@ const _partnerId =
   process?.env?.REACT_APP_KALTURA_PARTNER_ID ??
   process?.env?.KALTURA_PARTNER_ID ??
   // 1773841;
-  1511271;
+  1773841;
 
 /**
  * Sets the Kaltura UIConf IDs
@@ -28,16 +28,16 @@ const _partnerId =
 const _uiConfIds = {
   VIDEO: process?.env?.REACT_APP_KALTURA_UICONF_ID_VIDEO ??
     process?.env?.KALTURA_UICONF_ID_VIDEO ??
-    56255302,
+    57792212,
   AUDIO: process?.env?.REACT_APP_KALTURA_UICONF_ID_AUDIO ??
     process?.env?.KALTURA_UICONF_ID_AUDIO ??
-    57620213,
+    57792222,
   PLAYLIST: process?.env?.REACT_APP_KALTURA_UICONF_ID_PLAYLIST ??
     process?.env?.KALTURA_UICONF_ID_PLAYLIST ??
-    56255302,
+    57792212,
   REELS: process?.env?.REACT_APP_KALTURA_UICONF_ID_REELS ??
     process?.env?.KALTURA_UICONF_ID_REELS ??
-    56255302,
+    57792212,
 };
 
 /**
@@ -51,7 +51,7 @@ const _ibmEnvironment =
   (process &&
     (process.env.REACT_APP_KALTURA_ENVIRONMENT ||
       process.env.KALTURA_ENVIRONMENT)) ||
-  'LOCAL';
+  'LATEST';
 
 /**
  * All the available enviornments for the Streaming Services Kaltura Player Script
@@ -71,9 +71,7 @@ const _ibmEnvironments = {
  *
  * @private
  */
-const _ibmScriptUrl = _ibmEnvironments[_ibmEnvironment] !== _ibmEnvironments['LOCAL']
-  ? `https://1.www.s81c.com/common/mediacenter/player/loader/${_ibmEnvironments[_ibmEnvironment]}/loader.js`
-  : `http://localhost:3456/loader/loader.js`;
+const _ibmScriptUrl = `https://1.www.s81c.com/common/mediacenter/player/loader/${_ibmEnvironments[_ibmEnvironment]}/loader.js`;
 
 /**
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
@@ -230,6 +228,7 @@ class KalturaPlayerAPIV7 {
         const autoPlay = configuration?.autoPlay ?? true;
         const muted = configuration?.muted ?? true;
         const loop = configuration?.loop ?? false;
+        const playerMode = configuration?.playerMode ?? 'default';
 
         const playerConfiguration = {
           environment: _ibmEnvironments[_ibmEnvironment],
@@ -238,7 +237,8 @@ class KalturaPlayerAPIV7 {
           targetId,
           autoPlay,
           muted,
-          loop
+          loop,
+          playerMode
         }
 
         if (playerType === 'VIDEO' || playerType === 'AUDIO') {
