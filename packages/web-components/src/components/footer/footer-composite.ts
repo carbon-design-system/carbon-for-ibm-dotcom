@@ -191,20 +191,42 @@ class C4DFooterComposite extends MediaQueryMixin(
   /**
    * The legal nav links.
    */
+  private _links?: BasicLinkSet[];
+  private _legalLinks?: BasicLink[];
+  private _adjunctLinks?: BasicLink[];
+
   @property({ attribute: false })
-  legalLinks: BasicLink[] = [];
+  set links(value: BasicLinkSet[] | undefined) {
+    this._links = value;
+    this.requestUpdate('links');
+  }
+  get links() {
+    return this._links;
+  }
 
   /**
    * The adjunct links.
    */
   @property({ attribute: false })
-  adjunctLinks: BasicLink[] = [];
+  set legalLinks(value: BasicLink[] | undefined) {
+    this._legalLinks = value;
+    this.requestUpdate('legalLinks');
+  }
+  get legalLinks() {
+    return this._legalLinks;
+  }
 
   /**
    * The footer links.
    */
   @property({ attribute: false })
-  links: BasicLinkSet[] = [];
+  set adjunctLinks(value: BasicLink[] | undefined) {
+    this._adjunctLinks = value;
+    this.requestUpdate('adjunctLinks');
+  }
+  get adjunctLinks() {
+    return this._adjunctLinks;
+  }
 
   /**
    * The locale list.
