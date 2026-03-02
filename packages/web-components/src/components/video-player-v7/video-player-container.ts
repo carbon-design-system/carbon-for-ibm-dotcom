@@ -226,22 +226,10 @@ export const C4DVideoPlayerContainerMixin = <
 
         case backgroundMode || intersectionMode:
           playerOptions = {
-            'topBarContainer.plugin': false,
-            'controlBarContainer.plugin': false,
-            'largePlayBtn.plugin': false,
-            'loadingSpinner.plugin': false,
-            'unMuteOverlayButton.plugin': false,
-            'EmbedPlayer.DisableVideoTagSupport': false,
+            playerMode: 'background',
             loop: true,
             muted: true,
             autoPlay: autoplayPreference,
-            // Turn off CTA's including mid-roll card and end cards.
-            'ibm.callToActions': false,
-            // Turn off captions display, background/ambient videos have no
-            // audio.
-            closedCaptions: {
-              plugin: false,
-            },
           };
           break;
 
