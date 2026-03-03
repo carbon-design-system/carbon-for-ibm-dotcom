@@ -62,8 +62,7 @@ const _ibmEnvironment =
 const _ibmEnvironments = {
   DEVELOPMENT: 'development',
   LATEST: 'latest',
-  NEXT: 'next',
-  LOCAL: 'local'
+  NEXT: 'next'
 }
 
 /**
@@ -71,17 +70,19 @@ const _ibmEnvironments = {
  *
  * @private
  */
-const _ibmScriptUrl = `https://1.www.s81c.com/common/mediacenter/player/loader/${_ibmEnvironments[_ibmEnvironment]}/loader.js`;
+const _ibmScriptUrl = (environment = _ibmEnvironment) => {
+  return `https://1.www.s81c.com/common/mediacenter/player/loader/${_ibmEnvironments[environment]}/loader.js`;
+};
 
 /**
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
  *
  * @private
  */
-function _loadScript() {
+function _loadScript(environment = _ibmEnvironment) {
   _scriptLoading = true;
   const script = document.createElement('script');
-  script.src = _ibmScriptUrl;
+  script.src = _ibmScriptUrl(environment);
   script.async = true;
   document.body.appendChild(script);
 }
@@ -117,7 +118,7 @@ let _scriptLoading = false;
  * @param {Function} reject Reject function
  * @private
  */
-function _scriptReady(resolve, reject) {
+function _scriptReady(resolve, reject, environment = _ibmEnvironment) {
   /**
    * @param {object} root?.IBM.Mediacenter.player if exists then resolve
    */
@@ -129,14 +130,14 @@ function _scriptReady(resolve, reject) {
 
     if (_attempt < _timeoutRetries) {
       setTimeout(() => {
-        _scriptReady(resolve, reject);
+        _scriptReady(resolve, reject, environment);
       }, 100);
     } else {
       reject();
     }
   } else {
-    _loadScript();
-    _scriptReady(resolve, reject);
+    _loadScript(environment);
+    _scriptReady(resolve, reject, environment);
   }
 }
 
@@ -157,9 +158,9 @@ class KalturaPlayerAPIV7 {
    *
    * @returns {Promise<*>} Promise kaltura media player file
    */
-  static checkScript() {
+  static checkScript(environment = _ibmEnvironment) {
     return new Promise((resolve, reject) => {
-      _scriptReady(resolve, reject);
+      _scriptReady(resolve, reject, environment);
     });
   }
 
@@ -194,6 +195,31 @@ class KalturaPlayerAPIV7 {
   }
 
   /**
+   * Gets the api data
+   * The player api will only call kaltura once and cache the data
+   * return the cached information in all subsequential calls
+   *
+   * @param {string} mediaId  The mediaId we're embedding the placeholder for.
+   * @param {string} partnerId  The mediacenter partner id.
+   * @returns {object}  object
+   * @example
+   * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
+   *
+   * async function getMyVideoInfo(id) {
+   *   const data = await KalturaPlayerAPI.api(id);
+   *   console.log(data);
+   * }
+   */
+  static async api(
+    mediaId,
+    partnerId = _partnerId
+  ) {
+    return await this.checkScript().then(() => {
+      return root?.IBM?.Mediacenter?.player?.api?.getMediaProperties(partnerId, mediaId) || {}
+    });
+  }
+
+  /**
    * Gets the embed meta data
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
@@ -220,26 +246,23 @@ class KalturaPlayerAPIV7 {
     partnerId = _partnerId
   ) {
     return await this.checkScript().then(() => {
-      const promiseKWidget = async () => {
-        /**
-         * Process player properties
-         */
-        const playerType = configuration?.type ?? 'VIDEO';
-        const autoPlay = configuration?.autoPlay ?? true;
-        const muted = configuration?.muted ?? true;
-        const loop = configuration?.loop ?? false;
-        const playerMode = configuration?.playerMode ?? 'default';
+      const legacyPromiseKWidget = async () => {
+        const playerType = configuration?.playerType ?? 'VIDEO';
+        const playerEnvironment = _ibmEnvironments[configuration.playerEnvironment] ?? _ibmEnvironments[_ibmEnvironment];
+        const playerUiConfId = configuration.playerUiConfId ?? _uiConfIds[playerType];
 
         const playerConfiguration = {
-          environment: _ibmEnvironments[_ibmEnvironment],
-          partnerId: partnerId,
-          uiConfId: _uiConfIds[playerType],
+          playerType,
+          autoPlay: true,
+          muted: true,
+          loop: false,
+          playerMode: 'default',
+          environment: playerEnvironment,
+          partnerId,
+          uiConfId: playerUiConfId,
           targetId,
-          autoPlay,
-          muted,
-          loop,
-          playerMode
-        }
+          ...configuration,
+        };
 
         if (playerType === 'VIDEO' || playerType === 'AUDIO') {
           playerConfiguration.entryId = mediaId;
@@ -283,32 +306,7 @@ class KalturaPlayerAPIV7 {
         return kalturaPlayer;
       };
 
-      return promiseKWidget();
-    });
-  }
-
-  /**
-   * Gets the api data
-   * The player api will only call kaltura once and cache the data
-   * return the cached information in all subsequential calls
-   *
-   * @param {string} mediaId  The mediaId we're embedding the placeholder for.
-   * @param {string} partnerId  The mediacenter partner id.
-   * @returns {object}  object
-   * @example
-   * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
-   *
-   * async function getMyVideoInfo(id) {
-   *   const data = await KalturaPlayerAPI.api(id);
-   *   console.log(data);
-   * }
-   */
-  static async api(
-    mediaId,
-    partnerId = _partnerId
-  ) {
-    return await this.checkScript().then(() => {
-      return root?.IBM?.Mediacenter?.player?.api?.getMediaProperties(partnerId, mediaId) || {}
+      return legacyPromiseKWidget();
     });
   }
 }
