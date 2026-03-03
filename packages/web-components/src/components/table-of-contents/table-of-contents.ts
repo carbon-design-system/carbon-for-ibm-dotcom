@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -309,11 +309,19 @@ class C4DTableOfContents extends MediaQueryMixin(
               : null,
             position: elem.getBoundingClientRect().y,
           }))
-          .filter((elem, index, arr) =>
-            elem.height === null
-              ? arr[index - 1].position < arr[index - 1].height!
-              : elem.position - 50 - this.stickyOffset > -elem.height
-          );
+          .filter((elem, index, arr) => {
+            if (elem.height === null) {
+              if (index <= 0) {
+                return false;
+              }
+              const prev = arr[index - 1];
+              if (!prev) {
+                return false;
+              }
+              return prev.position < (prev.height ?? 0);
+            }
+            return elem.position - 50 - this.stickyOffset > -elem.height;
+          });
 
         // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
         const bottomReached =
