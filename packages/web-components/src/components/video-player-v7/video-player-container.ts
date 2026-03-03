@@ -212,7 +212,7 @@ export const C4DVideoPlayerContainerMixin = <
         mediaTitle = ' ';
       }
 
-      let playerOptions = {};
+      let playerOptions: any = {};
       const autoplayPreference = this._getAutoplayPreference();
 
       // GET BACK HERE
@@ -243,16 +243,15 @@ export const C4DVideoPlayerContainerMixin = <
       if (mediaTitle) {
         playerOptions = {
           ...playerOptions,
-          ...{
-            titleLabel: {
-              plugin: true,
-              align: 'left',
-              text: mediaTitle,
-            },
-          },
-          type: 'VIDEO'
+          mediaTitle
         };
       }
+
+      /**
+       * In the video player, the player type
+       * will always be video
+       */
+      playerOptions.playerType = 'VIDEO';
 
       return playerOptions;
     }
