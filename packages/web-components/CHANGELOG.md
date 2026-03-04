@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.43.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.42.0...@carbon/ibmdotcom-web-components@2.43.0) (2026-03-03)
+
+
+### Features
+
+* **masthead:** handle cart url exeptions ([#12428](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12428)) ([3908cb7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3908cb7740fdd5512ec1a2dbcc723aa56bf0904b))
+
+
+
+
+
 # [2.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.41.0...@carbon/ibmdotcom-web-components@2.42.0) (2026-02-13)
 
 
