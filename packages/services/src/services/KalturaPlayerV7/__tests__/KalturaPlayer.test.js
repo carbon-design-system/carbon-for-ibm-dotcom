@@ -37,7 +37,7 @@ const _kalturaPlayerPluginMock = () => {
           }
           static getMediaProperties = (_partnerId, _mediaId) => {
             return Promise.resolve(response);
-          }
+          };
 
           static getThumbnail = (
             partnerId = 'test-pid',
@@ -54,15 +54,15 @@ const _kalturaPlayerPluginMock = () => {
             }
 
             return thumbnailUrl;
-          }
+          };
         },
         embed: () => {
-          return document.getElementById(_kdpId)
-        }
-      }
-    }
+          return document.getElementById(_kdpId);
+        },
+      },
+    },
   };
-}
+};
 
 /**
  * Make the kaltura player plugin window object
@@ -73,7 +73,7 @@ const _kalturaPlayerPluginMock = () => {
  */
 const _kalturaPlayerPluginMockCleanToBypassChecks = () => {
   root.IBM.Mediacenter.player = {};
-}
+};
 
 /**
  * Unmocks the kaltura player plugin window object
@@ -82,7 +82,7 @@ const _kalturaPlayerPluginMockCleanToBypassChecks = () => {
  */
 const _kalturaPlayerPluginUnmock = () => {
   delete root.IBM;
-}
+};
 
 /**
  * Prototypes the addJsListener method to the kdp
@@ -95,12 +95,12 @@ const _mockKalturaPlayer = () => {
   document.body.innerHTML = `<div id="${_kdpId}"></div>`;
   Element.prototype.play = kdpPlayEvent;
   Element.prototype.pause = kdpPauseEvent;
-}
+};
 
 const _unmockKalturaPlayer = () => {
   kdpPauseEvent.mockReset();
   kdpPlayEvent.mockReset();
-}
+};
 
 jest.setTimeout(110000);
 
@@ -117,8 +117,7 @@ describe('KalturaPlayerAPI', () => {
 
   it('should succeed in checking if the KalturaPlayer Script is available', async () => {
     const spy = jest.fn();
-    KalturaPlayerAPI.checkScript()
-      .then(spy);
+    KalturaPlayerAPI.checkScript().then(spy);
 
     jest.advanceTimersByTime(200);
     await Promise.resolve();
@@ -132,8 +131,7 @@ describe('KalturaPlayerAPI', () => {
 
   it('should fail in checking if the KalturaPlayer Script is available', async () => {
     const spy = jest.fn();
-    KalturaPlayerAPI.checkScript()
-      .catch(spy);
+    KalturaPlayerAPI.checkScript().catch(spy);
 
     jest.advanceTimersByTime(100000);
     await Promise.resolve();
@@ -196,10 +194,12 @@ describe('KalturaPlayerAPI', () => {
   });
 
   it('should embed the media player with custom events', async () => {
-    const mockedCustomReadyCallback = jest.fn().mockImplementation((kalturaPlayer) => {
-      kalturaPlayer.play();
-      kalturaPlayer.pause();
-    });
+    const mockedCustomReadyCallback = jest
+      .fn()
+      .mockImplementation((kalturaPlayer) => {
+        kalturaPlayer.play();
+        kalturaPlayer.pause();
+      });
 
     const mediaId = 'test-media-id';
     _kalturaPlayerPluginMock();

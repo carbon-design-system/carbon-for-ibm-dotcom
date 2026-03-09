@@ -127,14 +127,14 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     } = this;
     if (intersectionMode) {
       // IF the thumbnail url is empty, it should render nothing
-      const thumbnail = thumbnailUrl === ''
-        ? nothing
-        : html`
-          <c4d-image
-            default-src="${thumbnailUrl}"
-            alt="${ifNonEmpty(name)}"
-            part="image">
-          </c4d-image>`;
+      const thumbnail =
+        thumbnailUrl === ''
+          ? nothing
+          : html` <c4d-image
+              default-src="${thumbnailUrl}"
+              alt="${ifNonEmpty(name)}"
+              part="image">
+            </c4d-image>`;
       return html`
         <div class="${c4dPrefix}--video-player__video">
           ${contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
@@ -144,15 +144,15 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       `;
     } else {
       // IF the thumbnail url is empty, it should render nothing
-      const thumbnail = thumbnailUrl === ''
-        ? nothing
-        : html`
-          <c4d-image
-            default-src="${thumbnailUrl}"
-            alt="${ifNonEmpty(name)}"
-            part="image">
-            ${PlayVideo({ slot: 'icon', part: 'play-video' })}
-          </c4d-image>`;
+      const thumbnail =
+        thumbnailUrl === ''
+          ? nothing
+          : html` <c4d-image
+              default-src="${thumbnailUrl}"
+              alt="${ifNonEmpty(name)}"
+              part="image">
+              ${PlayVideo({ slot: 'icon', part: 'play-video' })}
+            </c4d-image>`;
 
       return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
         !backgroundMode &&
