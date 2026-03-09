@@ -165,7 +165,10 @@ export const C4DVideoPlayerContainerMixin = <
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
     _setEmbeddedVideo(videoId: string, kalturaPlayer: any) {
-      this._setRequestEmbedVideoInProgress(videoId, Promise.resolve(kalturaPlayer));
+      this._setRequestEmbedVideoInProgress(
+        videoId,
+        Promise.resolve(kalturaPlayer)
+      );
       const { embeddedVideos: oldEmbeddedVideos } = this;
       this.embeddedVideos = {
         ...oldEmbeddedVideos,
@@ -243,7 +246,7 @@ export const C4DVideoPlayerContainerMixin = <
       if (mediaTitle) {
         playerOptions = {
           ...playerOptions,
-          mediaTitle
+          mediaTitle,
         };
       }
 
@@ -332,10 +335,9 @@ export const C4DVideoPlayerContainerMixin = <
      */
     async firstUpdated() {
       window.requestAnimationFrame(() => {
-        const button =
-          this.querySelector('c4d-video-player-v7')?.shadowRoot?.querySelector(
-            'button'
-          );
+        const button = this.querySelector(
+          'c4d-video-player-v7'
+        )?.shadowRoot?.querySelector('button');
         if (!this.getAttribute('href') && this.getAttribute('video-id')) {
           this.setAttribute(
             'href',

@@ -297,7 +297,7 @@ export default {
         caption: text('Custom caption (caption):', ''),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          videoId: '1_mq9h9c34',
+        videoId: '1_mq9h9c34',
       }),
     },
     propsSet: {

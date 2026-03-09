@@ -26,16 +26,20 @@ const _partnerId =
  * @private
  */
 const _uiConfIds = {
-  VIDEO: process?.env?.REACT_APP_KALTURA_UICONF_ID_VIDEO ??
+  VIDEO:
+    process?.env?.REACT_APP_KALTURA_UICONF_ID_VIDEO ??
     process?.env?.KALTURA_UICONF_ID_VIDEO ??
     57792212,
-  AUDIO: process?.env?.REACT_APP_KALTURA_UICONF_ID_AUDIO ??
+  AUDIO:
+    process?.env?.REACT_APP_KALTURA_UICONF_ID_AUDIO ??
     process?.env?.KALTURA_UICONF_ID_AUDIO ??
     57792222,
-  PLAYLIST: process?.env?.REACT_APP_KALTURA_UICONF_ID_PLAYLIST ??
+  PLAYLIST:
+    process?.env?.REACT_APP_KALTURA_UICONF_ID_PLAYLIST ??
     process?.env?.KALTURA_UICONF_ID_PLAYLIST ??
     57792212,
-  REELS: process?.env?.REACT_APP_KALTURA_UICONF_ID_REELS ??
+  REELS:
+    process?.env?.REACT_APP_KALTURA_UICONF_ID_REELS ??
     process?.env?.KALTURA_UICONF_ID_REELS ??
     57792212,
 };
@@ -62,8 +66,8 @@ const _ibmEnvironment =
 const _ibmEnvironments = {
   DEVELOPMENT: 'development',
   LATEST: 'latest',
-  NEXT: 'next'
-}
+  NEXT: 'next',
+};
 
 /**
  * Streaming Services Kaltura Player Script URL
@@ -189,9 +193,16 @@ class KalturaPlayerAPIV7 {
     mediaId = '',
     height = 0,
     width = 0,
-    partnerId = _partnerId
+    partnerId = _partnerId,
   }) {
-    return root?.IBM?.Mediacenter?.player?.api?.getThumbnail(partnerId, mediaId, width, height) || '';
+    return (
+      root?.IBM?.Mediacenter?.player?.api?.getThumbnail(
+        partnerId,
+        mediaId,
+        width,
+        height
+      ) || ''
+    );
   }
 
   /**
@@ -210,12 +221,14 @@ class KalturaPlayerAPIV7 {
    *   console.log(data);
    * }
    */
-  static async api(
-    mediaId,
-    partnerId = _partnerId
-  ) {
+  static async api(mediaId, partnerId = _partnerId) {
     return await this.checkScript().then(() => {
-      return root?.IBM?.Mediacenter?.player?.api?.getMediaProperties(partnerId, mediaId) || {}
+      return (
+        root?.IBM?.Mediacenter?.player?.api?.getMediaProperties(
+          partnerId,
+          mediaId
+        ) || {}
+      );
     });
   }
 
@@ -248,8 +261,11 @@ class KalturaPlayerAPIV7 {
     return await this.checkScript().then(() => {
       const legacyPromiseKWidget = async () => {
         const playerType = configuration?.playerType ?? 'VIDEO';
-        const playerEnvironment = _ibmEnvironments[configuration.playerEnvironment] ?? _ibmEnvironments[_ibmEnvironment];
-        const playerUiConfId = configuration.playerUiConfId ?? _uiConfIds[playerType];
+        const playerEnvironment =
+          _ibmEnvironments[configuration.playerEnvironment] ??
+          _ibmEnvironments[_ibmEnvironment];
+        const playerUiConfId =
+          configuration.playerUiConfId ?? _uiConfIds[playerType];
 
         const playerConfiguration = {
           playerType,
@@ -289,7 +305,9 @@ class KalturaPlayerAPIV7 {
         /**
          * Embed the player and execute custom callback
          */
-        const kalturaPlayer = await root?.IBM?.Mediacenter?.player?.embed(playerConfiguration);
+        const kalturaPlayer = await root?.IBM?.Mediacenter?.player?.embed(
+          playerConfiguration
+        );
         customReadyCallback(kalturaPlayer);
 
         if (isCustomCreated) {

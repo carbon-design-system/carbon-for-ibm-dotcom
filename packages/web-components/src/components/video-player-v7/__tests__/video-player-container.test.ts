@@ -17,7 +17,7 @@ describe('c4d-video-player-container-v7', function () {
 
   beforeEach(function () {
     videoPlayer = document.body.appendChild(document.createElement('div'));
-    console.log(C4DVideoPlayerContainerMixin)
+    console.log(C4DVideoPlayerContainerMixin);
     /*
     const VideoPlayerContainer = C4DVideoPlayerContainerMixin(
       class {
@@ -66,7 +66,7 @@ describe('c4d-video-player-container-v7', function () {
       expect(setEmbeddedVideoArgs).toEqual(['video-id-foo', 'kwidget-foo']);
     });
     */
-   /*
+    /*
     xit('caches the embedded video', async () => {
       spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => ({
         async kWidget() {
@@ -153,7 +153,7 @@ describe('c4d-video-player-container-v7', function () {
   //   it('should work', () => {
   //     expect(1).toBe(1);
   //   });
-    /*
+  /*
     xit('should support setting the error in embedding video data', function () {
       videoPlayerContainer._setErrorRequestEmbedVideo(
         'video-id-foo',
