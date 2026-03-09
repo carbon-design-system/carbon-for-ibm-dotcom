@@ -72,9 +72,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     const { embeddedVideos = {} } = this;
     Object.keys(embeddedVideos).forEach((key) => {
       const kalturaPlayer = embeddedVideos[key];
-      key === videoId
-        ? kalturaPlayer.play()
-        : kalturaPlayer.pause();
+      key === videoId ? kalturaPlayer.play() : kalturaPlayer.pause();
     });
   }
 
