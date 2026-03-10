@@ -3445,7 +3445,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/icons-react": "npm:11.74.0"
+    "@carbon/icons-react": "npm:11.76.0"
     "@carbon/layout": "npm:11.47.0"
     "@carbon/styles": "npm:1.65.0"
     "@carbon/themes": "npm:11.69.0"
@@ -3689,7 +3689,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.71.0, @carbon/icon-helpers@npm:^10.71.0":
+"@carbon/icon-helpers@npm:10.71.0":
   version: 10.71.0
   resolution: "@carbon/icon-helpers@npm:10.71.0"
   dependencies:
@@ -3707,16 +3707,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:11.74.0":
-  version: 11.74.0
-  resolution: "@carbon/icons-react@npm:11.74.0"
+"@carbon/icon-helpers@npm:^10.73.0":
+  version: 10.73.0
+  resolution: "@carbon/icon-helpers@npm:10.73.0"
   dependencies:
-    "@carbon/icon-helpers": "npm:^10.71.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10/b3e5c5223bc344a4aea73f8e4bae35cdf1be96831b203d4005a6b5da92485eec2525955c84cc22c40e268de61b6fd907cba609e5b6a0e27c8848b636e5251998
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:11.76.0":
+  version: 11.76.0
+  resolution: "@carbon/icons-react@npm:11.76.0"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.73.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     prop-types: "npm:^15.8.1"
   peerDependencies:
     react: ">=16"
-  checksum: 10/0f3aae8a62238b086c2023af6aa80a5e81e38f426d2f722c6dc29e34e1c358923d00354327cd4d641df6624d7049117914088b405e5ec47553caf039485b8867
+  checksum: 10/e4cd275eb33c35848edc77ef52bbc4483ce1665f8eff439444c524cb5feaa8b0638d5d14c62fb2f164ae0d70f0342876707ba9d9f4c902d8a963efe2a2f95063
   languageName: node
   linkType: hard
 
