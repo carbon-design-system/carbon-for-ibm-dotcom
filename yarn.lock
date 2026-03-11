@@ -3446,7 +3446,7 @@ __metadata:
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
     "@carbon/icons-react": "npm:11.76.0"
-    "@carbon/layout": "npm:11.47.0"
+    "@carbon/layout": "npm:11.49.0"
     "@carbon/styles": "npm:1.65.0"
     "@carbon/themes": "npm:11.69.0"
     "@carbon/type": "npm:11.53.0"
@@ -3551,7 +3551,7 @@ __metadata:
     "@carbon/icon-helpers": "npm:10.71.0"
     "@carbon/icons": "npm:10.48.6"
     "@carbon/icons-react": "npm:^11.33.0"
-    "@carbon/layout": "npm:11.47.0"
+    "@carbon/layout": "npm:11.49.0"
     "@carbon/motion": "npm:11.40.0"
     "@carbon/pictograms-react": "npm:11.67.1"
     "@carbon/react": "npm:1.66.0"
@@ -3751,12 +3751,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:11.47.0, @carbon/layout@npm:^11.47.0":
-  version: 11.47.0
-  resolution: "@carbon/layout@npm:11.47.0"
+"@carbon/layout@npm:11.49.0, @carbon/layout@npm:^11.49.0":
+  version: 11.49.0
+  resolution: "@carbon/layout@npm:11.49.0"
   dependencies:
     "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/4ff284b6b6b3fc827d7151d795d62dba1e6f3a8a4a6a07e63c01e2a0fe4f5bfceb9f0e77c2b07a1a55b7ae40c01d223661740eb33cc652eb4e6feda71e6be8d9
+  checksum: 10/51ae02c7c0602ea73350ec27e20527ec75ecb37443c09a86065aa8b47aef8feab5b8b27a85eecf7b2773a3959b874e2774f9d6b38499484b5f8cdb33413858ae
   languageName: node
   linkType: hard
 
@@ -3769,12 +3769,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:^11.49.0":
-  version: 11.49.0
-  resolution: "@carbon/layout@npm:11.49.0"
+"@carbon/layout@npm:^11.47.0":
+  version: 11.47.0
+  resolution: "@carbon/layout@npm:11.47.0"
   dependencies:
     "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/51ae02c7c0602ea73350ec27e20527ec75ecb37443c09a86065aa8b47aef8feab5b8b27a85eecf7b2773a3959b874e2774f9d6b38499484b5f8cdb33413858ae
+  checksum: 10/4ff284b6b6b3fc827d7151d795d62dba1e6f3a8a4a6a07e63c01e2a0fe4f5bfceb9f0e77c2b07a1a55b7ae40c01d223661740eb33cc652eb4e6feda71e6be8d9
   languageName: node
   linkType: hard
 
