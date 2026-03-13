@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.45.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.44.0...@carbon/ibmdotcom-web-components@2.45.0) (2026-03-13)
+
+
+### Bug Fixes
+
+* **masthead-cart:** refactor url handler ([#12442](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12442)) ([1e2d541](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1e2d541d2fd09edd0ad7aaf7000ae12d2475a8e3))
+
+
+
+
+
 # [2.44.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.43.0...@carbon/ibmdotcom-web-components@2.44.0) (2026-03-12)
 
 
