@@ -3309,16 +3309,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:^11.49.0":
-  version: 11.49.0
-  resolution: "@carbon/grid@npm:11.49.0"
-  dependencies:
-    "@carbon/layout": "npm:^11.47.0"
-    "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/cd67b64c947e25ae2dd328445c4b482b695073544d8ba4b1f5d6710cdaad5b51e29b21c8426540e7252c28bb31c64e654d0463e617902806130b99679caa6480
-  languageName: node
-  linkType: hard
-
 "@carbon/grid@npm:^11.51.0":
   version: 11.51.0
   resolution: "@carbon/grid@npm:11.51.0"
@@ -3449,7 +3439,7 @@ __metadata:
     "@carbon/layout": "npm:11.49.0"
     "@carbon/styles": "npm:1.65.0"
     "@carbon/themes": "npm:11.69.0"
-    "@carbon/type": "npm:11.53.0"
+    "@carbon/type": "npm:11.55.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
@@ -3556,7 +3546,7 @@ __metadata:
     "@carbon/pictograms-react": "npm:11.67.1"
     "@carbon/react": "npm:1.66.0"
     "@carbon/styles": "npm:1.65.0"
-    "@carbon/type": "npm:11.53.0"
+    "@carbon/type": "npm:11.55.0"
     "@carbon/web-components": "npm:2.13.1"
     "@ibm/telemetry-js": "npm:^1.10.2"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
@@ -3760,15 +3750,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:^11.47.0":
-  version: 11.47.0
-  resolution: "@carbon/layout@npm:11.47.0"
-  dependencies:
-    "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/4ff284b6b6b3fc827d7151d795d62dba1e6f3a8a4a6a07e63c01e2a0fe4f5bfceb9f0e77c2b07a1a55b7ae40c01d223661740eb33cc652eb4e6feda71e6be8d9
-  languageName: node
-  linkType: hard
-
 "@carbon/motion@npm:11.40.0":
   version: 11.40.0
   resolution: "@carbon/motion@npm:11.40.0"
@@ -3905,14 +3886,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:11.53.0":
-  version: 11.53.0
-  resolution: "@carbon/type@npm:11.53.0"
+"@carbon/type@npm:11.55.0, @carbon/type@npm:^11.55.0":
+  version: 11.55.0
+  resolution: "@carbon/type@npm:11.55.0"
   dependencies:
-    "@carbon/grid": "npm:^11.49.0"
-    "@carbon/layout": "npm:^11.47.0"
+    "@carbon/grid": "npm:^11.51.0"
+    "@carbon/layout": "npm:^11.49.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/5d12598734d0f8bc9dc06c3c211dc5745c942022c33dec824f5d8f57879be48c59fdd017253c0efdcc5380e05b0ec6935bd276b3bed2cf541462492d2291c756
+  checksum: 10/f49da61cb1535ebf9193e14e03ac6198f80b88a0f1fca81361cf3b3c2a515204b0bcd3825ca11b86ee370de72ae8de04053ea5ba61a85d09ef71f6377adc52e2
   languageName: node
   linkType: hard
 
@@ -3924,17 +3905,6 @@ __metadata:
     "@carbon/layout": "npm:^11.27.1"
     "@ibm/telemetry-js": "npm:^1.5.0"
   checksum: 10/679c2ed816ecb74e8ef1468edb4eba552bac1d77fd34c14e5b4b7c6f1cf03cab444e03947684e64013a7c3d5dcc2e421205f81a4ee92cd239267c1bfc7bf9c59
-  languageName: node
-  linkType: hard
-
-"@carbon/type@npm:^11.55.0":
-  version: 11.55.0
-  resolution: "@carbon/type@npm:11.55.0"
-  dependencies:
-    "@carbon/grid": "npm:^11.51.0"
-    "@carbon/layout": "npm:^11.49.0"
-    "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/f49da61cb1535ebf9193e14e03ac6198f80b88a0f1fca81361cf3b3c2a515204b0bcd3825ca11b86ee370de72ae8de04053ea5ba61a85d09ef71f6377adc52e2
   languageName: node
   linkType: hard
 
