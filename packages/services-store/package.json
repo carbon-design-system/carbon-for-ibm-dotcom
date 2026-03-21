@@ -38,8 +38,8 @@
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "~7.28.0",
-    "@babel/plugin-proposal-decorators": "~7.28.0",
+    "@babel/core": "~7.29.0",
+    "@babel/plugin-proposal-decorators": "~7.29.0",
     "@babel/plugin-transform-modules-commonjs": "~7.28.0",
     "@babel/plugin-transform-nullish-coalescing-operator": "~7.28.0",
     "@babel/plugin-transform-optional-chaining": "~7.28.0",
