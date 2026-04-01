@@ -52,6 +52,7 @@ export function pwsValueMap(value) {
       EMAIL_NOTICE_ONLY: 'NOTICE_ONLY',
       PHONE_NOTICE_ONLY: 'NOTICE_ONLY',
       NC_HIDDEN_PHONE_NONE: 'N',
+      NC_PREF_TYPE: 'IBM',
     }[value] || null
   );
 }
