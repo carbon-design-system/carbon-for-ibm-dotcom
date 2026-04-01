@@ -8,7 +8,7 @@
 <c4d-masthead-global-bar data-autoid="c4d--masthead-global-bar">
   <c4d-masthead-contact
     data-autoid="c4d--masthead-profile"
-    data-ibm-contact="contact-link"
+    data-ibm-contact="chat-link"
   >
   </c4d-masthead-contact>
   <c4d-megamenu-language-selector>
@@ -31,7 +31,7 @@
 <c4d-masthead-global-bar data-autoid="c4d--masthead-global-bar">
   <c4d-masthead-contact
     data-autoid="c4d--masthead-profile"
-    data-ibm-contact="contact-link"
+    data-ibm-contact="chat-link"
   >
   </c4d-masthead-contact>
   <c4d-megamenu-language-selector>

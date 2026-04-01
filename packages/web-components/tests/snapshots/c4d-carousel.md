@@ -56,12 +56,6 @@
     >
       1 / 0
     </span>
-    <span
-      aria-live="polite"
-      class="cds--visually-hidden"
-      part="visually-hidden"
-    >
-    </span>
     <button
       aria-label="next"
       class="cds--btn cds--btn--icon-only cds--btn--tertiary cds--carousel__navigation__btn"
@@ -71,6 +65,12 @@
     >
     </button>
   </nav>
+  <span
+    aria-live="polite"
+    class="cds--visually-hidden"
+    part="visually-hidden"
+  >
+  </span>
 </div>
 
 ```

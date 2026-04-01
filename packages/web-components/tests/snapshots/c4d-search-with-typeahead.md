@@ -103,6 +103,7 @@
       part="suggestions-container"
     >
       <ul
+        aria-label="suggestions-list"
         class="c4d-ce__search__list react-autosuggest__suggestions-list"
         part="suggestions-list"
         role="listbox"

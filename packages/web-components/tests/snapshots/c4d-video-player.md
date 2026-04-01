@@ -26,6 +26,7 @@
 </div>
 <div
   class="c4d--video-player__video-caption"
+  dir="ltr"
   part="caption"
 >
 </div>
@@ -44,6 +45,7 @@
 </div>
 <div
   class="c4d--video-player__video-caption"
+  dir="ltr"
   part="caption"
 >
   video-name-foo (0:30 min)

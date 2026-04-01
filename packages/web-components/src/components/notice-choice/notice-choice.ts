@@ -293,15 +293,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         return;
       }
- case 'prefType': {
-  if (oldValue != value) { 
-    const newValue = value !== '' ? value as string : 'IBM';
-    console.log('prefType changed', '==>', newValue);
-    this._onChange('NC_PREF_TYPE', newValue);
-  }
+      case 'prefType': {
+        if (oldValue != value) {
+          const newValue = value !== '' ? (value as string) : 'IBM';
+          console.log('prefType changed', '==>', newValue);
+          this._onChange('NC_PREF_TYPE', newValue);
+        }
 
-  return;
-}
+        return;
+      }
       default:
         return;
     }
