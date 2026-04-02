@@ -182,8 +182,7 @@ export const Default = (args) => {
       environment="${environment}"
       @c4d-notice-choice-change=${onChange}
       @c4d-notice-choice-email-status-changed=${onEmailStatusChanged}
-      @c4d-notice-choice-text-change=${onCustomNoticeTextChange}
-    >
+      @c4d-notice-choice-text-change=${onCustomNoticeTextChange}>
     </c4d-notice-choice>
   `;
 };
@@ -195,8 +194,7 @@ export default {
       <div class="cds--grid">
         <div class="cds--row">
           <div
-            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-2"
-          >
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-2">
             ${story()}
           </div>
         </div>

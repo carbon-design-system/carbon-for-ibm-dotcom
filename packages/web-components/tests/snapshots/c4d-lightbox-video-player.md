@@ -57,6 +57,14 @@
           <slot name="description">
           </slot>
         </div>
+        <div
+          class="c4d--lightbox-media-viewer__content__cta"
+          data-autoid="c4d--lightbox-media-viewer__content__cta"
+          part="cta"
+        >
+          <slot name="cta">
+          </slot>
+        </div>
       </div>
     </div>
   </div>
@@ -110,7 +118,7 @@
               part="h2"
               style="all: inherit;"
             >
-              video-name-foo (0:30 min)
+              video-name-foo (0:30)
             </h2>
           </slot>
         </div>
@@ -121,6 +129,14 @@
         >
           <slot name="description">
             video-description-foo
+          </slot>
+        </div>
+        <div
+          class="c4d--lightbox-media-viewer__content__cta"
+          data-autoid="c4d--lightbox-media-viewer__content__cta"
+          part="cta"
+        >
+          <slot name="cta">
           </slot>
         </div>
       </div>
