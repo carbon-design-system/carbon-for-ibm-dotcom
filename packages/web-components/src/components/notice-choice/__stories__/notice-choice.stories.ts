@@ -141,7 +141,7 @@ const props = () => {
     ),
     environment: select('Environment', environment, 'stage'),
     email: text('Email', ''),
-    prefType: text('Prefremce Type', ''),
+    prefType: text('Performance Type', ''),
     customNoticeText: customNoticeText,
     showCustomNotice: select(
       'Show Custom Notice Text',
