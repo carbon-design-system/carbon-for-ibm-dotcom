@@ -16,7 +16,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';
-import C4DVideoPlayerContainer from '../video-player/video-player-container';
+import C4DVideoPlayerContainer from '../video-player-v7/video-player-container';
 import C4DLeadSpace from '../leadspace/leadspace';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

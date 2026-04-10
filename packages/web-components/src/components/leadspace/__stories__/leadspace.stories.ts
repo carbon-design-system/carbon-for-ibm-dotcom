@@ -18,7 +18,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';
 import '../../background-media/index';
-import '../../video-player/video-player-container';
+import '../../video-player-v7/video-player-container';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
@@ -188,9 +188,11 @@ export const SuperWithVideo = (args) => {
         })}
       </c4d-button-group>
       <c4d-background-media slot="image" opacity="100">
-        <c4d-video-player-container
+        <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          background-mode></c4d-video-player-container>
+          auto-play
+          muted
+          playing-mode="background"></c4d-video-player-container-v7>
       </c4d-background-media>
     </c4d-leadspace>
   `;
@@ -333,9 +335,11 @@ export const TallWithVideo = (args) => {
         })}
       </c4d-button-group>
       <c4d-background-media slot="image" opacity="100">
-        <c4d-video-player-container
+        <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          background-mode></c4d-video-player-container>
+          auto-play
+          muted
+          playing-mode="background"></c4d-video-player-container-v7>
       </c4d-background-media>
     </c4d-leadspace>
   `;
@@ -478,9 +482,11 @@ export const MediumWithVideo = (args) => {
         })}
       </c4d-button-group>
       <c4d-background-media slot="image" opacity="100">
-        <c4d-video-player-container
+        <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          background-mode></c4d-video-player-container>
+          auto-play
+          muted
+          playing-mode="background"></c4d-video-player-container-v7>
       </c4d-background-media>
     </c4d-leadspace>
   `;
@@ -633,9 +639,11 @@ export const ShortWithVideo = (args) => {
         >${ifDefined(title)}</c4d-leadspace-heading
       >
       <c4d-background-media slot="image" opacity="100">
-        <c4d-video-player-container
+        <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          background-mode></c4d-video-player-container>
+          auto-play
+          muted
+          playing-mode="background"></c4d-video-player-container-v7>
       </c4d-background-media>
     </c4d-leadspace>
   `;
@@ -752,9 +760,11 @@ export const CenteredWithVideo = (args) => {
         })}
       </c4d-button-group>
       <c4d-background-media slot="image" opacity="100">
-        <c4d-video-player-container
+        <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          background-mode></c4d-video-player-container>
+          auto-play
+          muted
+          playing-mode="background"></c4d-video-player-container-v7>
       </c4d-background-media>
     </c4d-leadspace>
   `;

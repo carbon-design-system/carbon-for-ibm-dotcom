@@ -8,7 +8,7 @@
  */
 
 import '../index';
-import '../../video-player/video-player-container';
+import '../../video-player-v7/video-player-container';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { text, select, number } from '@storybook/addon-knobs';
@@ -54,9 +54,11 @@ export const WithVideo = (args) => {
       <c4d-background-media
         gradient-direction="${ifDefined(gradientDirection)}"
         opacity="${ifDefined(backgroundOpacity)}">
-        <c4d-video-player-container
+        <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          background-mode></c4d-video-player-container>
+          auto-play
+          muted
+          playing-mode="background"></c4d-video-player-container-v7>
       </c4d-background-media>
     </div>
   `;

@@ -19,7 +19,7 @@ import {
   C4DVideoPlayerContainerMixin,
   mapStateToProps,
   mapDispatchToProps,
-} from '../video-player/video-player-container';
+} from '../video-player-v7/video-player-container';
 import C4DLightboxVideoPlayerComposite from './lightbox-video-player-composite';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 

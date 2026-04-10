@@ -16,13 +16,13 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
-import C4DVideoPlayerComposite from '../video-player/video-player-composite';
+import C4DVideoPlayerComposite from '../video-player-v7/video-player-composite';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import {
   VIDEO_PLAYER_CONTENT_STATE,
   VIDEO_PLAYER_PLAYING_MODE,
-} from '../video-player/video-player';
+} from '../video-player-v7/video-player';
 import './lightbox-video-player';
 import styles from './lightbox-media-viewer.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';

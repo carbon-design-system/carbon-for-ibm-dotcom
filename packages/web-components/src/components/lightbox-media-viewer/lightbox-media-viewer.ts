@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
-import C4DVideoPlayerContainer from '../video-player/video-player-container';
+import C4DVideoPlayerContainer from '../video-player-v7/video-player-container';
 import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
@@ -157,14 +157,14 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
     if (this.videoId) {
       const { videoId, caption, hideCaption, thumbnail } = this;
       this.innerHTML = `
-        <c4d-video-player-container
+        <c4d-video-player-container-v7
           playing-mode="inline"
           video-id="${videoId}"
           caption="${caption}"
           ?hide-caption="${hideCaption}"
           thumbnail="${thumbnail}"
           slot="media"
-        ></c4d-video-player-container>
+        ></c4d-video-player-container-v7>
       `;
     } else {
       const { alt, defaultSrc } = this;
