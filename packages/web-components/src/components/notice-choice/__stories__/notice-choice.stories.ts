@@ -44,7 +44,7 @@ const languages = {
   'Turkish [tr]': 'tr',
   'Ukrainian [uk]': 'uk',
   'Japan [jp-ja]': 'jp-ja',
-  'Arabic (UAE) [ae-ar]': 'ae-ar'
+  'Arabic (UAE) [ae-ar]': 'ae-ar',
 };
 const countryList = {
   'United States': 'US',
