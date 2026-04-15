@@ -335,9 +335,7 @@ export const TallWithVideo = (args) => {
       <c4d-background-media slot="image" opacity="100">
         <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          auto-play
-          muted
-          playerMode="background"></c4d-video-player-container-v7>
+          background-mode></c4d-video-player-container-v7>
       </c4d-background-media>
     </c4d-leadspace>
   `;
