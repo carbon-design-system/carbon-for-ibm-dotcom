@@ -218,7 +218,6 @@ export const C4DVideoPlayerContainerMixin = <
       let playerOptions: any = {};
       const autoplayPreference = this._getAutoplayPreference();
 
-      // GET BACK HERE
       switch (true) {
         case autoPlay:
           playerOptions = {

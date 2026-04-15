@@ -24,19 +24,6 @@ export const Default = (args) => {
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}></c4d-video-player-container-v7>
   `;
-  // return html`
-  //   <c4d-video-player-container-v7
-  //     playing-mode="inline"
-  //     video-id=${videoId}
-  //     caption=${caption}
-  //     ?hide-caption=${hideCaption}
-  //     thumbnail=${thumbnail}
-  //     background-mode></c4d-video-player-container-v7>
-
-  //   <c4d-video-player-container-v7
-  //     video-id="1_mq9h9c34"
-  //     auto-play></c4d-video-player-container-v7>
-  // `;
 };
 
 export const aspectRatio1x1 = (args) => {
@@ -133,10 +120,7 @@ export const ambient = (args) => {
       }
     </style>
     <c4d-video-player-container-v7
-      playerMode="background"
-      autoplay="true"
-      muted="true"
-      loop="true"
+      background-mode
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}

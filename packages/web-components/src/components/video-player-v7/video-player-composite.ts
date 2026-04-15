@@ -234,7 +234,6 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     }
   }
   getIsVideoPlaying() {
-    // GET BACK INTO THIS
     const iframe = this.querySelector('iframe');
     const playerContainer =
       iframe?.contentWindow?.document.querySelector('div.play-state');
