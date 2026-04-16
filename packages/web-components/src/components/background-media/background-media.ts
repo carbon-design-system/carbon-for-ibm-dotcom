@@ -118,7 +118,8 @@ class C4DBackgroundMedia extends C4DImage {
       (el) => el.tagName === `${c4dPrefix}-image-item`.toUpperCase()
     );
     const assignedVideos = assignedElements.filter(
-      (el) => el.tagName === `${c4dPrefix}-video-player-container-v7`.toUpperCase()
+      (el) =>
+        el.tagName === `${c4dPrefix}-video-player-container-v7`.toUpperCase()
     ) as C4DVideoPlayerContainer[];
 
     if (assignedImages.length && !assignedVideos.length) {
