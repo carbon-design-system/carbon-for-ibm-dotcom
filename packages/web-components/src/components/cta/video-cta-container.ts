@@ -20,7 +20,7 @@ import {
   C4DVideoPlayerContainerMixin,
   mapStateToProps,
   mapDispatchToProps,
-} from '../video-player/video-player-container';
+} from '../video-player-v7/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
 import C4DVideoCTAComposite from './video-cta-composite';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
