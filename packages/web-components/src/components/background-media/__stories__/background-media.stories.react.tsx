@@ -14,7 +14,7 @@ import React from 'react';
 // @ts-ignore
 import C4DBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player-v7/video-player-container';
 import imgMax from '../../../../.storybook/storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../.storybook/storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
