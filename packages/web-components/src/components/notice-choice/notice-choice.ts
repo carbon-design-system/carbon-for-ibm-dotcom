@@ -185,6 +185,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: Object, attribute: false })
   customNoticeTextValue = { text: '' };
 
+  @property({ type: Array, attribute: false })
+  supportedBusinessPartners: string[] = [];
+
   pwsFieldsMap = new Map<string, string>([
     ['NC_HIDDEN_EMAIL', 'permission_email'],
     ['NC_HIDDEN_PHONE', 'permission_phone'],
@@ -296,10 +299,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       case 'prefType': {
         if (oldValue != value) {
           const newValue = value !== '' ? (value as string) : 'IBM';
+
           this.prefType = newValue;
           this._onChange('NC_PREF_TYPE', newValue);
-          if (newValue !== 'IBM') {
-            // Reload content with the new preference type
+
+          if (
+            this.supportedBusinessPartners.some(
+              (partner) => partner.toLowerCase() === newValue.toLowerCase()
+            )
+          ) {
             this.loadContentWithFallback(this.language);
           }
         }
@@ -564,6 +572,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.noticeOnly = countryPreferencesSettings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
         this.isOriginalTextChanged = true;
+        this.supportedBusinessPartners =
+          settings.supportedBusinessPartners || [];
       },
       (error) => {
         console.error('error loading content', error);
@@ -590,6 +600,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.supportedLanguages = settings.supportedLanguages || {};
         this.doubleOptInCountries = settings.doubleOptInCountries || [];
         this.isOriginalTextChanged = true;
+        this.supportedBusinessPartners =
+          settings.supportedBusinessPartners || [];
       },
       () => this.defaultLoadSettings()
     );
