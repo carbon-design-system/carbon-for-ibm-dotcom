@@ -58,6 +58,10 @@ class C4DLightboxImageViewer extends C4DLightboxMediaViewerBody {
     return html` <slot name="title">${title}</slot> `;
   }
 
+  _renderCTAs() {
+    return html` <slot name="cta">${this._ctaContents}</slot> `;
+  }
+
   /**
    * The alternate text.
    */
@@ -81,6 +85,13 @@ class C4DLightboxImageViewer extends C4DLightboxMediaViewerBody {
    */
   @property()
   title = '';
+
+  private _ctaContents?: HTMLElement;
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._ctaContents = this.querySelector('[slot="cta"]') || undefined;
+  }
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */

@@ -127,7 +127,10 @@
       Lorem ipsum
     </c4d-content-item-heading>
     <c4d-content-item-copy data-autoid="c4d--content-item__copy">
-      <c4d-content-item-paragraph data-autoid="c4d--content-item-paragraph">
+      <c4d-content-item-paragraph
+        data-autoid="c4d--content-item-paragraph"
+        part="paragraph"
+      >
         ipsum dolor sit amet
       </c4d-content-item-paragraph>
     </c4d-content-item-copy>

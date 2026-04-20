@@ -36,9 +36,7 @@ abstract class C4DLightboxMediaViewerBody extends FocusMixin(LitElement) {
   /**
    * @returns The CTA content.
    */
-  _renderCTAs(): TemplateResult | string | void {
-    return html`<slot name="cta"></slot>`;
-  }
+  abstract _renderCTAs(): TemplateResult | string | void;
 
   render() {
     return html`

@@ -57,7 +57,7 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   }
 
   _renderCTAs() {
-    return html` <slot name="cta"></slot> `;
+    return html` <slot name="cta">${this._ctaContents}</slot> `;
   }
 
   private _mediaItem?: HTMLElement;
@@ -68,6 +68,8 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   private _containingCarousel?: C4DCarousel;
 
   private _containingModal?: C4DExpressiveModal;
+
+  private _ctaContents?: HTMLElement;
 
   private _handleSlotChange(event: Event) {
     const { _containingModal: containingModal } = this;
@@ -146,6 +148,7 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   connectedCallback() {
     super.connectedCallback();
 
+    this._ctaContents = this.querySelector('[slot="cta"]') || undefined;
     this._containingCarousel =
       (this.closest(`${c4dPrefix}-carousel`) as C4DCarousel) || undefined;
     this._containingModal =
