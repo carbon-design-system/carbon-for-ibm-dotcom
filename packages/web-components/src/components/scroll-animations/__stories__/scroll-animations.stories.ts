@@ -17,6 +17,7 @@ import { StoryContent } from '../../dotcom-shell/__stories__/data/content';
 const selectorTargets = `c4d-content-block-heading,
    c4d-content-block-copy,
    c4d-video-player-container,
+   c4d-video-player-container-v7,
    c4d-link-list,
    c4d-leadspace-block-cta,
    c4d-content-group-heading,

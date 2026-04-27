@@ -89,7 +89,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
     const { embeddedVideos = {}, videoId } = this;
     const { [videoId]: currentEmbeddedVideo } = embeddedVideos;
     if (currentEmbeddedVideo) {
-      currentEmbeddedVideo.sendNotification('doStop');
+      currentEmbeddedVideo.pause();
     }
     this.open = false;
     this._handleAriaAndHiddenState();
