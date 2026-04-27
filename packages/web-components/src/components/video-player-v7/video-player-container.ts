@@ -21,7 +21,7 @@ import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.
 import {
   MediaData,
   MediaPlayerAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPIv7';
 import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPIv7.js';
 import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPIv7';
 import { Constructor } from '../../globals/defs';
