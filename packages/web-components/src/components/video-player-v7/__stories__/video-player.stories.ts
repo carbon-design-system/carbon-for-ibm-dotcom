@@ -9,6 +9,7 @@
 
 import { html } from 'lit';
 import { boolean, text, select } from '@storybook/addon-knobs';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import { enumValsToArray } from '../../../globals/internal/enum-helpers';
@@ -51,6 +52,29 @@ export const aspectRatio4x3 = (args) => {
       caption=${caption}
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}></c4d-video-player-container-v7>
+  `;
+};
+
+export const withLightboxMediaViewer = (args) => {
+  const {
+    aspectRatio,
+    caption,
+    hideCaption,
+    thumbnail,
+    videoId,
+    customVideoDescription,
+  } = args?.VideoPlayer ?? {};
+  return html`
+    <c4d-video-player-container-v7
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+      caption=${caption}
+      video-description="${ifDefined(customVideoDescription)}"
+      ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}
+      playing-mode="lightbox">
+    </c4d-video-player-container-v7>
+    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
   `;
 };
 
@@ -198,6 +222,39 @@ aspectRatio1x1.story = {
           hideCaption: false,
           thumbnail: '',
           videoId: '1_9h94wo6b',
+        },
+      },
+    },
+  },
+};
+
+withLightboxMediaViewer.story = {
+  name: 'With lightbox media viewer',
+  parameters: {
+    knobs: {
+      VideoPlayer: () => {
+        return {
+          aspectRatio: '16x9',
+          customVideoDescription: text(
+            'Custom video description',
+            'This is a custom video description.'
+          ),
+          caption: text('Custom caption (caption):', ''),
+          hideCaption: boolean('Hide caption (hideCaption):', false),
+          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          videoId: '0_ibuqxqbe',
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '16x9',
+          customVideoDescription: 'This is a custom video description',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '0_ibuqxqbe',
         },
       },
     },

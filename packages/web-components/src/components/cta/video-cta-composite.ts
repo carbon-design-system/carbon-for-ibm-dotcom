@@ -149,7 +149,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   }
 
   /**
-   * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
+   * The embedded Kaltura player element (that has all, etc. APIs), keyed by the video ID.
    */
   @property({ attribute: false })
   embeddedVideos?: { [videoId: string]: any };
