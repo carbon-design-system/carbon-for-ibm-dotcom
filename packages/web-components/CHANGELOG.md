@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.51.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.50.0...@carbon/ibmdotcom-web-components@2.51.0-rc.0) (2026-04-20)
+
+
+### Features
+
+* **lightbox-video-player:** add CTA render method ([#12488](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12488)) ([6c66b14](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6c66b1436105e59f118d3e4752d79c301482bfff))
+
+
+
+
+
 # [2.50.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.50.0-rc.0...@carbon/ibmdotcom-web-components@2.50.0) (2026-04-10)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
