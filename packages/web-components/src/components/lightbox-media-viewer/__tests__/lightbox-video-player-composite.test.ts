@@ -111,9 +111,7 @@ describe('c4d-lightbox-video-player-composite', function () {
       new CustomEvent('c4d-expressive-modal-closed', { bubbles: true })
     );
     expect((embeddedVideoFoo as any).pause).not.toHaveBeenCalled();
-    expect((embeddedVideoBar as any).pause).toHaveBeenCalledWith(
-      'doStop'
-    );
+    expect((embeddedVideoBar as any).pause).toHaveBeenCalledWith('doStop');
     expect((embeddedVideoBaz as any).pause).not.toHaveBeenCalled();
   });
 

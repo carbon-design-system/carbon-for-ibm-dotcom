@@ -154,11 +154,12 @@ export const WithMediaFeatured = (args) => {
 };
 
 export const WithVideoOverlay = (args) => {
-  const { align, heading, eyebrow, copy } =
-    args?.ContentItemRow ?? {};
+  const { align, heading, eyebrow, copy } = args?.ContentItemRow ?? {};
   return html`
     <c4d-content-item-row-media align="${align}">
-      <c4d-content-item-row-media-video video-id="0_ibuqxqbe" playing-mode="lightbox">
+      <c4d-content-item-row-media-video
+        video-id="0_ibuqxqbe"
+        playing-mode="lightbox">
       </c4d-content-item-row-media-video>
       <c4d-content-item-row-eyebrow>${eyebrow}</c4d-content-item-row-eyebrow>
       <c4d-content-item-heading>${heading}</c4d-content-item-heading>
@@ -292,7 +293,6 @@ WithVideoOverlay.story = {
     },
   },
 };
-
 
 export default {
   title: 'Components/Content item row',
