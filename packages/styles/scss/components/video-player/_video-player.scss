@@ -22,11 +22,11 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 @mixin video-player {
   // Make the video player container a block for purposes of the intersection
   // observer.
-  :host(#{$c4d-prefix}-video-player-container) {
+  :host(#{$c4d-prefix}-video-player-container-v7) {
     display: block;
   }
 
-  :host(#{$c4d-prefix}-video-player),
+  :host(#{$c4d-prefix}-video-player-v7),
   .#{$c4d-prefix}--video-player {
     color: var(--#{$c4d-prefix}--video-caption--color, $text-secondary);
 
@@ -40,7 +40,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$c4d-prefix}-video-player[background-mode]),
+  :host(#{$c4d-prefix}-video-player-v7[background-mode]),
   .#{$c4d-prefix}--video-player[background-mode] {
     .#{$c4d-prefix}--video-player__video-container {
       block-size: 100%;
@@ -84,7 +84,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     outline: $spacing-01 solid $focus;
   }
 
-  :host(#{$c4d-prefix}-video-player) #{$c4d-prefix}-image,
+  :host(#{$c4d-prefix}-video-player-v7) #{$c4d-prefix}-image,
   .#{$c4d-prefix}--video-player .#{$c4d-prefix}--image {
     position: relative;
     block-size: 100%;
@@ -208,7 +208,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$c4d-prefix}-video-player)
+  :host(#{$c4d-prefix}-video-player-v7)
     .#{$c4d-prefix}--video-player__image-overlay,
   .#{$c4d-prefix}--video-player .#{$c4d-prefix}--video-player__image-overlay {
     &:active {
@@ -263,7 +263,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
   // Prevent any pointer events from getting through to the slotted player div
   // when in intersection mode.
-  :host(#{$c4d-prefix}-video-player[intersection-mode]) {
+  :host(#{$c4d-prefix}-video-player-v7[intersection-mode]) {
     ::slotted(.#{$c4d-prefix}--video-player__video) {
       pointer-events: none;
     }
