@@ -38,7 +38,7 @@ jobs:
           AWS_REGION: ${{ secrets.COS_REGION }}
           AWS_S3_ENDPOINT: https://${{ secrets.COS_ENDPOINT }}
           SOURCE_DIR: 'packages/web-components/dist'
-          DEST_DIR: 'common/carbon-for-ibm-dotcom/version/2.0.0.alpha.${{ github.run_id }}'
+          DEST_DIR: 'common/carbon-for-ibm-dotcom/version/2.51.0'
       - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
