@@ -2,6 +2,23 @@ name: Release
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        default: 'minor'
+        description: "Please Select the type of Release"
+        type: choice
+        options:
+          - 'minor'
+          - 'patch'
+
+      dry-run:
+        required: true
+        default: true
+        description: "DRY RUN: runs whithout the --yes flag. Meaning nothing will be published"
+        type: boolean
+
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -34,4 +51,4 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.CARBON_BOT_NPM_TOKEN }}" >> .npmrc
       - name: Publish minor release of packages
         run: |
-          ./node_modules/.bin/lerna publish minor --conventional-graduate --no-private --force-publish --yes
+          ./node_modules/.bin/lerna publish ${{ github.event.inputs.environment }} --conventional-graduate --no-private --force-publish ${{ github.event.inputs.dry-run && '' || '--yes' }}
