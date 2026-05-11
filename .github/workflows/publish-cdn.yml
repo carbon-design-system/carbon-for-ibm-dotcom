@@ -1,8 +1,13 @@
-name: publish-v2alpha-cdn (Publish to CDN)
+name: Publish to CDN
 
 on:
   workflow_dispatch:
-
+    inputs:
+      release-tag:
+        required: true
+        description: 'Release tag: i.e (2.3.0)'
+        type: string
+        default: '2.x.x'
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -11,8 +16,6 @@ jobs:
   publish:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v6
       - name: Use Node.js 18.x
@@ -38,8 +41,4 @@ jobs:
           AWS_REGION: ${{ secrets.COS_REGION }}
           AWS_S3_ENDPOINT: https://${{ secrets.COS_ENDPOINT }}
           SOURCE_DIR: 'packages/web-components/dist'
-          DEST_DIR: 'common/carbon-for-ibm-dotcom/version/2.0.0.alpha.${{ github.run_id }}'
-      - uses: act10ns/slack@v2
-        with:
-          status: ${{ job.status }}
-        if: failure()
+          DEST_DIR: 'common/carbon-for-ibm-dotcom/version/v${{ github.event.inputs.release-tag }}'

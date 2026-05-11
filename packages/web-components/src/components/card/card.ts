@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2025
+ * Copyright IBM Corp. 2019, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -484,9 +484,15 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       ? html`
           <div part="container">
             ${this._renderInner()} ${this._renderArrow()}
+            <div part="after"></div>
           </div>
         `
-      : html` <div part="container">${this._renderInner()}</div> `;
+      : html`
+          <div part="container">
+            ${this._renderInner()}
+            <div part="after"></div>
+          </div>
+        `;
   }
 
   static get stableSelector() {

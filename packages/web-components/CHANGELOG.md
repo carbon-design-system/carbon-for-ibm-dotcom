@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.51.0-rc.0...@carbon/ibmdotcom-web-components@2.51.0) (2026-05-04)
+
+
+### Bug Fixes
+
+* **card-group:** add keyframe animation and a new part ([#12503](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12503)) ([ceee91d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ceee91d61c0e1e78d426caa982f1ee8d11f6f295))
+* **masthead-cart:** new filter for id-id URL ([#12496](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12496)) ([0e2e906](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0e2e906e912087bc1f4587dc90fa2330d4b1dd8c))
+
+
+### Features
+
+* **card-group-item:** render override to add a new div with part after ([#12497](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12497)) ([e4fc9b9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e4fc9b94267a3a2186f7c26f17e615b7d93da5ea))
+
+
+
+
+
 # [2.51.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.50.0...@carbon/ibmdotcom-web-components@2.51.0-rc.0) (2026-04-20)
 
 

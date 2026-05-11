@@ -1,10 +1,26 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 @use '@carbon/ibmdotcom-styles/scss/components/card-group' as *;
+
+@property --percentage {
+  inherits: false;
+  initial-value: 0%;
+  syntax: '<percentage>';
+}
+
+@keyframes wrap-border {
+  0% {
+    --percentage: 0%;
+  }
+
+  100% {
+    --percentage: 100%;
+  }
+}
