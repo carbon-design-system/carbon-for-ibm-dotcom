@@ -412,3 +412,51 @@ export default {
     },
   },
 };
+
+
+
+export const AudioPodcast = (args) => {
+  const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
+  return html`
+    <c4d-video-player-container-v7
+      playing-mode="inline"
+      player-type="AUDIO"
+      video-id=${videoId}
+      caption=${caption}
+      ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}>
+    </c4d-video-player-container-v7>
+  `;
+};
+
+AudioPodcast.story = {
+  name: 'Audio player',
+  parameters: {
+    knobs: {
+      VideoPlayer: () => ({
+        videoId: text('Media ID (video-id)', '1_mq9h9c34'),
+        caption: text('Caption (caption)', 'Audio Player Demo'),
+        thumbnail: text(
+          'Thumbnail (thumbnail)',
+          ''
+        ),
+        hideCaption: boolean('Hide caption (hide-caption)', false),
+      }),
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          videoId: '1_mq9h9c34',
+          caption: 'Audio Player Demo',
+          thumbnail: '',
+          hideCaption: false,
+        },
+      },
+    },
+    percy: {
+      skip: true,
+    },
+  },
+};
+
+

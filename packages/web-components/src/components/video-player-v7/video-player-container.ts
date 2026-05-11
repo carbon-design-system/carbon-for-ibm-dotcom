@@ -34,6 +34,11 @@ import { LocaleAPI } from '@carbon/ibmdotcom-services/es/services/Locale/index';
 const { stablePrefix: c4dPrefix } = settings;
 
 /**
+ * Media player types supported by Kaltura.
+ */
+type MediaPlayerType = 'VIDEO' | 'AUDIO';
+
+/**
  * The Redux state used for `<c4d-video-player-container-v7>`.
  */
 export interface VideoPlayerContainerState {
@@ -127,6 +132,27 @@ export const C4DVideoPlayerContainerMixin = <
      */
     @property()
     lc = '';
+
+    /**
+     * The type of media player (VIDEO or AUDIO).
+     * Set to 'AUDIO' for podcast/audio content.
+     */
+    @property({ attribute: 'player-type' })
+    playerType: MediaPlayerType = 'VIDEO';
+
+    /**
+     * Optional: Override the default UI configuration ID.
+     * Use this to specify a custom Kaltura player configuration.
+     */
+    @property({ attribute: 'ui-conf-id' })
+    uiConfId?: string;
+
+    /**
+     * Optional: Override the default partner ID.
+     * Use this to specify a custom Kaltura partner ID.
+     */
+    @property({ attribute: 'partner-id' })
+    partnerId?: string;
 
     /**
      * Sets the state that the API call for embedding the video for the given video ID is in progress.
@@ -251,10 +277,33 @@ export const C4DVideoPlayerContainerMixin = <
       }
 
       /**
-       * In the video player, the player type
-       * will always be video
+       * Set the player type (VIDEO or AUDIO)
+       * Defaults to VIDEO for backward compatibility
        */
-      playerOptions.playerType = 'VIDEO';
+      playerOptions.playerType = this.playerType;
+
+      /**
+       * For AUDIO player type, use audio-specific configuration as default
+       * These can still be overridden by explicit attributes
+       */
+      if (this.playerType === 'AUDIO') {
+        playerOptions.playerUiConfId = this.uiConfId || '57792222';
+        playerOptions.partnerId = this.partnerId || '1773841';
+      } else {
+        /**
+         * Add custom UI configuration ID if provided for VIDEO
+         */
+        if (this.uiConfId) {
+          playerOptions.playerUiConfId = this.uiConfId;
+        }
+
+        /**
+         * Add custom partner ID if provided for VIDEO
+         */
+        if (this.partnerId) {
+          playerOptions.partnerId = this.partnerId;
+        }
+      }
 
       return playerOptions;
     }

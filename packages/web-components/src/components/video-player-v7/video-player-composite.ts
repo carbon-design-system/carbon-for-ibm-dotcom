@@ -352,6 +352,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   playingMode = VIDEO_PLAYER_PLAYING_MODE.INLINE;
 
   /**
+   * The type of media player (VIDEO or AUDIO).
+   */
+  @property({ attribute: 'player-type' })
+  playerType: 'VIDEO' | 'AUDIO' = 'VIDEO';
+
+  /**
    * Optional custom video thumbnail
    */
   @property({ reflect: true, attribute: 'thumbnail' })
@@ -426,11 +432,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
 
   updated(changedProperties) {
     if (changedProperties.has('videoId')) {
-      const { autoPlay, videoId, backgroundMode } = this;
+      const { autoPlay, videoId, backgroundMode, playerType } = this;
       this._activateEmbeddedVideo(videoId);
       if (videoId) {
         this._loadVideoData?.(videoId);
-        if (autoPlay || backgroundMode) {
+        // Auto-embed for audio players, autoPlay, or backgroundMode
+        if (autoPlay || backgroundMode || playerType === 'AUDIO') {
           this._embedMedia?.(videoId);
         }
       }
@@ -456,16 +463,25 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       thumbnail,
       playingMode,
       buttonPosition,
+      playerType,
     } = this;
 
     const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { duration, name } = currentVideoData;
-    const thumbnailUrl =
-      thumbnail ||
-      KalturaPlayerAPI.getThumbnailUrl({
-        mediaId: videoId,
-        width: videoThumbnailWidth,
-      });
+    
+    // Only generate thumbnail URL for VIDEO player type
+    let thumbnailUrl = '';
+    if (playerType === 'VIDEO') {
+      thumbnailUrl =
+        thumbnail ||
+        KalturaPlayerAPI.getThumbnailUrl({
+          mediaId: videoId,
+          width: videoThumbnailWidth,
+        });
+    } else if (playerType === 'AUDIO' && thumbnail) {
+      // For AUDIO, only use explicitly provided artwork
+      thumbnailUrl = thumbnail;
+    }
     return html`
       <c4d-video-player-v7
         part="video-player"
@@ -477,7 +493,8 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
         video-id="${ifNonEmpty(videoId)}"
         aspect-ratio="${ifNonEmpty(aspectRatio)}"
         playing-mode="${ifNonEmpty(playingMode)}"
-        content-state="${this.playbackTriggered
+        player-type="${ifNonEmpty(playerType)}"
+        content-state="${this.playbackTriggered || playerType === 'AUDIO'
           ? VIDEO_PLAYER_CONTENT_STATE.VIDEO
           : VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL}"
         button-position="${buttonPosition}"
