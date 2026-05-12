@@ -122,9 +122,16 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       name,
       thumbnailUrl,
       backgroundMode,
+      playerType,
       _handleClickOverlay: handleClickOverlay,
       intersectionMode,
     } = this;
+    
+    // For audio players without artwork, skip thumbnail state
+    const shouldShowThumbnail = 
+      contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
+      (playerType === 'VIDEO' || (playerType === 'AUDIO' && thumbnailUrl !== ''));
+    
     if (intersectionMode) {
       // IF the thumbnail url is empty, it should render nothing
       const thumbnail =
@@ -137,7 +144,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
             </c4d-image>`;
       return html`
         <div class="${c4dPrefix}--video-player__video">
-          ${contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
+          ${shouldShowThumbnail
             ? thumbnail
             : html` <slot></slot> `}
         </div>
@@ -154,7 +161,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
               ${PlayVideo({ slot: 'icon', part: 'play-video' })}
             </c4d-image>`;
 
-      return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
+      return shouldShowThumbnail &&
         !backgroundMode &&
         !this.autoplay
         ? html`
@@ -175,6 +182,11 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    * Updates video thumbnail url to match video width
    */
   protected _updateThumbnailUrl() {
+    // Skip thumbnail update for audio players
+    if (this.playerType === 'AUDIO') {
+      return;
+    }
+
     let thumbnailSrc: false | URL = false;
 
     try {
@@ -282,6 +294,12 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    */
   @property({ attribute: 'video-id' })
   videoId?: string;
+
+  /**
+   * The type of media player (VIDEO or AUDIO).
+   */
+  @property({ attribute: 'player-type' })
+  playerType: 'VIDEO' | 'AUDIO' = 'VIDEO';
 
   /**
    * Override default aspect ratio of `16x9`.
