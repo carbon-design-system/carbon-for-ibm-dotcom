@@ -84,7 +84,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   customNoticeText = '';
 
   @property({ type: String, attribute: 'pref-type' })
-  prefType = '';
+  prefType = 'IBM';
 
   /**
    * End properties for passed attributes.
@@ -184,6 +184,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Object, attribute: false })
   customNoticeTextValue = { text: '' };
+
+  @property({ type: Array, attribute: false })
+  supportedBusinessPartners: string[] = [];
 
   pwsFieldsMap = new Map<string, string>([
     ['NC_HIDDEN_EMAIL', 'permission_email'],
@@ -296,8 +299,17 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       case 'prefType': {
         if (oldValue != value) {
           const newValue = value !== '' ? (value as string) : 'IBM';
-          console.log('prefType changed', '==>', newValue);
+
+          this.prefType = newValue;
           this._onChange('NC_PREF_TYPE', newValue);
+
+          if (
+            this.supportedBusinessPartners.some(
+              (partner) => partner.toLowerCase() === newValue.toLowerCase()
+            )
+          ) {
+            this.loadContentWithFallback(this.language);
+          }
         }
 
         return;
@@ -442,6 +454,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     loadContent(
       lang,
       this.environment,
+      this.prefType,
       (ncData) => {
         this.isLoading = false;
         this.ncData = ncData;
@@ -559,6 +572,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.noticeOnly = countryPreferencesSettings.noticeOnly || ['us'];
         this.supportedLanguages = settings.supportedLanguages || {};
         this.isOriginalTextChanged = true;
+        this.supportedBusinessPartners =
+          settings.supportedBusinessPartners || [];
       },
       (error) => {
         console.error('error loading content', error);
@@ -585,13 +600,15 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.supportedLanguages = settings.supportedLanguages || {};
         this.doubleOptInCountries = settings.doubleOptInCountries || [];
         this.isOriginalTextChanged = true;
+        this.supportedBusinessPartners =
+          settings.supportedBusinessPartners || [];
       },
       () => this.defaultLoadSettings()
     );
-
     loadContent(
       defaultLang,
       this.environment,
+      this.prefType,
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
@@ -605,6 +622,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     loadContent(
       'en',
       this.environment,
+      this.prefType,
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();

@@ -59,6 +59,10 @@ class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
     `;
   }
 
+  _renderCTAs() {
+    return html` <slot name="cta">${this._ctaContents}</slot> `;
+  }
+
   _renderTitle() {
     const { duration, formatCaption, name } = this;
 
@@ -103,8 +107,11 @@ class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
 
   connectedCallback() {
     this.setAttribute('role', 'dialog');
+    this._ctaContents = this.querySelector('[slot="cta"]') || undefined;
     super.connectedCallback();
   }
+
+  private _ctaContents?: HTMLElement;
 
   /**
    * The media description.

@@ -1,12 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+import { TemplateResult, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
@@ -55,6 +56,22 @@ class C4DCardGroupItem extends C4DCard {
    */
   static get selectorFooter() {
     return `${c4dPrefix}-card-footer`;
+  }
+
+  render(): TemplateResult<1> {
+    return this._hasPictogram
+      ? html`
+          <div part="container">
+            ${this._renderInner()} ${this._renderArrow()}
+            <div part="after"></div>
+          </div>
+        `
+      : html`
+          <div part="container">
+            ${this._renderInner()}
+            <div part="after"></div>
+          </div>
+        `;
   }
 
   static styles = styles;
