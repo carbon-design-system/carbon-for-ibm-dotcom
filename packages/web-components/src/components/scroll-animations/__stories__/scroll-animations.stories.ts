@@ -34,6 +34,7 @@ const selectorTargets = `c4d-content-block-heading,
    c4d-card-group-item,
    c4d-callout-quote,
    c4d-video-player,
+   c4d-video-player-v7,
    c4d-cta-section-copy,
    c4d-button-group,
    c4d-cta-section-item

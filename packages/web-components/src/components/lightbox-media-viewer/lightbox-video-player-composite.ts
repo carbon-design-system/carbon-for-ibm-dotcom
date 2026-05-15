@@ -193,7 +193,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
   renderLightDOM() {
     // In this class we render that in modal instead of in light DOM.
     // Overriding `.renderLightDOM()` here
-    // to prevent the parent `<c4d-video-player-composite>` from rendering `<c4d-video-player>` in light DOM.
+    // to prevent the parent `<c4d-video-player-composite-v7>` from rendering `<c4d-video-player--v7>` in light DOM.
     return html``;
   }
 
