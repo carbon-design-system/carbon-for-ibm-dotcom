@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 8
+  version: 9
   cacheKey: 10
 
 "@acemir/cssom@npm:^0.9.31":
@@ -3445,7 +3445,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/icons-react": "npm:11.76.0"
+    "@carbon/icons-react": "npm:11.80.0"
     "@carbon/layout": "npm:11.49.0"
     "@carbon/styles": "npm:1.65.0"
     "@carbon/themes": "npm:11.72.0"
@@ -3605,7 +3605,7 @@ __metadata:
     cypress-wait-until: "npm:^1.7.2"
     del: "npm:^6.0.0"
     doctoc: "npm:^2.0.0"
-    dompurify: "npm:3.3.3"
+    dompurify: "npm:3.4.0"
     enzyme: "npm:^3.11.0"
     file-loader: "npm:^6.2.0"
     fs-extra: "npm:^10.0.0"
@@ -3689,7 +3689,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.75.0":
+"@carbon/icon-helpers@npm:10.75.0, @carbon/icon-helpers@npm:^10.75.0":
   version: 10.75.0
   resolution: "@carbon/icon-helpers@npm:10.75.0"
   dependencies:
@@ -3707,25 +3707,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icon-helpers@npm:^10.73.0":
-  version: 10.73.0
-  resolution: "@carbon/icon-helpers@npm:10.73.0"
+"@carbon/icons-react@npm:11.80.0":
+  version: 11.80.0
+  resolution: "@carbon/icons-react@npm:11.80.0"
   dependencies:
-    "@ibm/telemetry-js": "npm:^1.5.0"
-  checksum: 10/b3e5c5223bc344a4aea73f8e4bae35cdf1be96831b203d4005a6b5da92485eec2525955c84cc22c40e268de61b6fd907cba609e5b6a0e27c8848b636e5251998
-  languageName: node
-  linkType: hard
-
-"@carbon/icons-react@npm:11.76.0":
-  version: 11.76.0
-  resolution: "@carbon/icons-react@npm:11.76.0"
-  dependencies:
-    "@carbon/icon-helpers": "npm:^10.73.0"
+    "@carbon/icon-helpers": "npm:^10.75.0"
     "@ibm/telemetry-js": "npm:^1.5.0"
     prop-types: "npm:^15.8.1"
   peerDependencies:
     react: ">=16"
-  checksum: 10/e4cd275eb33c35848edc77ef52bbc4483ce1665f8eff439444c524cb5feaa8b0638d5d14c62fb2f164ae0d70f0342876707ba9d9f4c902d8a963efe2a2f95063
+  checksum: 10/105e5fd204b69d9786b70ce7059a7f2369cfd83ad28a1370419392d848f205e520d5e74f6f78d0be30c6d69d3b977cdd4d0e60e2d1af1eb0332a100772323700
   languageName: node
   linkType: hard
 
@@ -15041,15 +15032,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:3.3.3":
-  version: 3.3.3
-  resolution: "dompurify@npm:3.3.3"
+"dompurify@npm:3.4.0":
+  version: 3.4.0
+  resolution: "dompurify@npm:3.4.0"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10/4cc9c539ed7136d46c6577613b8e20871c2b6165db01dfbd2a3c11c75f9e339c496ac6519a1c3190115def8cadae3720bef0417fc43fa28802c7407bab174da9
+  checksum: 10/ead40b78ec51cd451f2c74fada4233ee0afeafdbab54af2f4a4bd5d4d138ac04d0d85140e79f533803ecfd1c3758edc1176087039c1e7217824f9794a9d34d2c
   languageName: node
   linkType: hard
 
@@ -17451,23 +17442,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9":
-  version: 1.15.6
-  resolution: "follow-redirects@npm:1.15.6"
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.11":
+  version: 1.16.0
+  resolution: "follow-redirects@npm:1.16.0"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 10/70c7612c4cab18e546e36b991bbf8009a1a41cf85354afe04b113d1117569abf760269409cb3eb842d9f7b03d62826687086b081c566ea7b1e6613cf29030bf7
-  languageName: node
-  linkType: hard
-
-"follow-redirects@npm:^1.15.11":
-  version: 1.15.11
-  resolution: "follow-redirects@npm:1.15.11"
-  peerDependenciesMeta:
-    debug:
-      optional: true
-  checksum: 10/07372fd74b98c78cf4d417d68d41fdaa0be4dcacafffb9e67b1e3cf090bc4771515e65020651528faab238f10f9b9c0d9707d6c1574a6c0387c5de1042cde9ba
+  checksum: 10/3fbe3d80b3b544c22705d837aa5d4a0d07a740d913534a2620b0a004c610af4148e3b58723536dd099aaa1c9d3a155964bde9665d6e5cb331460809a1fc572fd
   languageName: node
   linkType: hard
 
