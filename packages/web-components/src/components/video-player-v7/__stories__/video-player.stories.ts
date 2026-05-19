@@ -12,6 +12,7 @@ import { boolean, text, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
+import '../../lightbox-media-viewer/lightbox-video-player-container';
 import { enumValsToArray } from '../../../globals/internal/enum-helpers';
 import { BUTTON_POSITION } from '../defs';
 
@@ -125,7 +126,7 @@ export const transparentBackground = (args) => {
       }
     </style>
     <c4d-video-player-container-v7
-      playerMode="background"
+      background-mode
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}

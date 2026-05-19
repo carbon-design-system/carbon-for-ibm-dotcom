@@ -9,10 +9,8 @@
 
 import { html } from 'lit';
 import { boolean, text, select } from '@storybook/addon-knobs';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
-import '../../lightbox-media-viewer/lightbox-video-player-container';
 import { enumValsToArray } from '../../../globals/internal/enum-helpers';
 import { BUTTON_POSITION } from '../defs';
 
