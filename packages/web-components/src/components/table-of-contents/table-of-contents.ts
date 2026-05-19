@@ -169,7 +169,12 @@ class C4DTableOfContents extends MediaQueryMixin(
    * The Element.tagName values that should never be used as a TOC target.
    * Typically added here because these elements have their own `[name]` attribute.
    */
-  private _tagNamesToAvoid = [`${c4dPrefix}-video-player`, 'select', 'input'];
+  private _tagNamesToAvoid = [
+    `${c4dPrefix}-video-player`,
+    `${c4dPrefix}-video-player-v7`,
+    'select',
+    'input',
+  ];
 
   /**
    * The name of an attribute that will prevent the DOM element and any elements

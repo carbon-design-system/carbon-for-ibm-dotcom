@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
 import C4DExpressiveModal from '../../expressive-modal/expressive-modal';
 import C4DLightboxVideoPlayerComposite from '../../lightbox-media-viewer/lightbox-video-player-composite';
 import '../video-cta-composite';

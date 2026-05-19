@@ -13,7 +13,7 @@ import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
 import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import Download20 from '@carbon/web-components/es/icons/download/20.js';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
 import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
 import PlayFilledAlt20 from '@carbon/web-components/es/icons/play--filled--alt/20.js';
 import Blog20 from '@carbon/web-components/es/icons/blog/20.js';

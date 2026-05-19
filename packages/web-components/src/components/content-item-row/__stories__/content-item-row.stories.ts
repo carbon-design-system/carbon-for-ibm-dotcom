@@ -153,6 +153,25 @@ export const WithMediaFeatured = (args) => {
   `;
 };
 
+export const WithVideoOverlay = (args) => {
+  const { align, heading, eyebrow, copy } = args?.ContentItemRow ?? {};
+  return html`
+    <c4d-content-item-row-media align="${align}">
+      <c4d-content-item-row-media-video
+        video-id="0_ibuqxqbe"
+        playing-mode="lightbox">
+      </c4d-content-item-row-media-video>
+      <c4d-content-item-row-eyebrow>${eyebrow}</c4d-content-item-row-eyebrow>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-row-media-copy>${copy}</c4d-content-item-row-media-copy>
+      <c4d-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</c4d-text-cta
+      >
+    </c4d-content-item-row-media>
+    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
+  `;
+};
+
 Default.story = {
   parameters: {
     percy: {
@@ -240,6 +259,35 @@ WithMediaFeatured.story = {
           heading: 'Aliquam condimentum',
           eyebrow: 'Lorem Ipsum',
           copy: bodyCopyWithFeaturedMedia,
+        },
+      },
+    },
+  },
+};
+
+WithVideoOverlay.story = {
+  name: 'With video overlay',
+  parameters: {
+    percy: {
+      skip: true,
+    },
+    gridContentClasses: 'cds--col-lg-12',
+    knobs: {
+      ContentItemRow: () => ({
+        align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
+        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+        eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
+        copy: shortBodyCopy,
+      }),
+    },
+    propsSet: {
+      default: {
+        ContentItemRow: {
+          align: 'right',
+          alt: 'Image alt text',
+          heading: 'Aliquam condimentum',
+          eyebrow: 'Lorem Ipsum',
+          copy: shortBodyCopy,
         },
       },
     },

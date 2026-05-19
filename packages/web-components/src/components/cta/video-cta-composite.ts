@@ -15,7 +15,7 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
+import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPIv7';
 import Handle from '../../globals/internal/handle';
 import C4DLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -149,7 +149,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   }
 
   /**
-   * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
+   * The embedded Kaltura player element (that has all, etc. APIs), keyed by the video ID.
    */
   @property({ attribute: false })
   embeddedVideos?: { [videoId: string]: any };

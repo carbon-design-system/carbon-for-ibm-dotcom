@@ -10,7 +10,7 @@
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-with-media.scss';
-import C4DVideoPlayerContainer from '../video-player/video-player-container';
+import C4DVideoPlayerContainer from '../video-player-v7/video-player-container';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
