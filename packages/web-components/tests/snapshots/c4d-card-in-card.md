@@ -57,6 +57,8 @@
       </div>
     </div>
   </div>
+  <div part="after">
+  </div>
 </div>
 
 ```
@@ -115,6 +117,8 @@
         </slot>
       </div>
     </div>
+  </div>
+  <div part="after">
   </div>
 </div>
 
