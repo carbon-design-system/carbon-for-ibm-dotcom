@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.52.0...@carbon/ibmdotcom-web-components@2.53.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/layout to v11.52.0 ([#12505](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12505)) ([77cdae1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77cdae19e27e3dd7b4acb47a9877ed5ec4065cc0))
+* **deps:** update dependency @carbon/motion to v11.45.0 ([#12519](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12519)) ([ea7f0ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea7f0ee812da2b4eae359ff95fc5cd2e8253ad25))
+* **stories:** kaltura-player ambient story quick fix ([#12489](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12489)) ([74b7904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/74b7904e7ab3bf562f181310ff2dc0e2e0777112))
+
+
+
+
+
 # [2.52.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.51.0...@carbon/ibmdotcom-web-components@2.52.0) (2026-05-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
