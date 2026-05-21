@@ -10,7 +10,7 @@
 import { ActionCreatorsMapObject, Store } from 'redux';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
-import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
+import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPIv7';
 import ConnectMixin from '../../globals/mixins/connect';
 import {
   VideoPlayerContainerState,

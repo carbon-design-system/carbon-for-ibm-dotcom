@@ -89,9 +89,9 @@ export const Default = (args) => {
               <c4d-content-item-heading
                 >Natural language understanding</c4d-content-item-heading
               >
-              <c4d-video-player-container
+              <c4d-video-player-container-v7
                 slot="media"
-                video-id="0_ibuqxqbe"></c4d-video-player-container>
+                video-id="0_ibuqxqbe"></c4d-video-player-container-v7>
               <c4d-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic
                 system for a machine to interpret its meaning, using formal

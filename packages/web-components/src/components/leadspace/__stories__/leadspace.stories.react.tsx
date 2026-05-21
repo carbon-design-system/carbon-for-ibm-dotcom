@@ -31,7 +31,7 @@ import C4DBreadcrumbItem from '@carbon/ibmdotcom-web-components/es/components-re
 // @ts-ignore
 import C4DBreadcrumb from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb';
 // @ts-ignore
-import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player-v7/video-player-container';
 import CDSTag from '@carbon/web-components/es/components-react/tag/tag';
 
 import leadspaceImg from '../../../../.storybook/storybook-images/assets/leadspace/leadspaceMax.jpg';

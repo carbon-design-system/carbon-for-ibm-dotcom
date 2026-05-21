@@ -15,7 +15,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../link-list/index';
 import '../index';
-import '../../video-player/video-player-container';
+import '../../video-player-v7/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 import '../../content-section/index';
 import logoMicrosoft2x1 from '../../../../.storybook/storybook-images/assets/logos/logo-microsoft--2x1.png';
@@ -100,13 +100,13 @@ const contentItemTypeMap = {
   `,
   media: ({ heading, copy, links }) => html`
     <c4d-content-item>
-      <c4d-video-player-container
+      <c4d-video-player-container-v7
         video-id="0_ibuqxqbe"
         aspect-ratio="4x3"
         slot="media"
         hide-caption
         playing-mode="lightbox">
-      </c4d-video-player-container>
+      </c4d-video-player-container-v7>
       <c4d-content-item-heading>${heading}</c4d-content-item-heading>
       <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
@@ -190,7 +190,7 @@ export const Simple = (args) => {
           : ''}
       </c4d-cta-block>
     </c4d-cta-section>
-    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
+    <c4d-lightbox-video-player-container-v7></c4d-lightbox-video-player-container-v7>
   `;
 };
 
