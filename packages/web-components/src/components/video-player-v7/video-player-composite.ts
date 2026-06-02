@@ -438,8 +438,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
 
   renderLightDOM() {
     // setting the direction mode of the video player.
-    document
-      .querySelector('.c4d--video-player__video')
+    this.querySelector('.c4d--video-player__video')
       ?.setAttribute('dir-mode', `${this.isRTL ? 'rtl' : 'ltr'}`);
 
     const {
