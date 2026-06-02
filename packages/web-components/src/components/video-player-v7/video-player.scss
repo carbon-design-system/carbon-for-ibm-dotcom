@@ -6,32 +6,3 @@
 //
 
 @use '@carbon/ibmdotcom-styles/scss/components/video-player';
-
-// Audio player specific styles
-:host([player-type='AUDIO']) {
-  .c4d--video-player__video-container {
-    aspect-ratio: unset;
-    height: auto;
-    min-height: 120px;
-    max-height: 180px;
-    padding-block-start: 0;
-    overflow: visible;
-  }
-
-  // Remove aspect ratio classes for audio players
-  .c4d--video-player__aspect-ratio--16x9,
-  .c4d--video-player__aspect-ratio--9x16,
-  .c4d--video-player__aspect-ratio--2x1,
-  .c4d--video-player__aspect-ratio--1x2,
-  .c4d--video-player__aspect-ratio--4x3,
-  .c4d--video-player__aspect-ratio--3x4,
-  .c4d--video-player__aspect-ratio--1x1 {
-    aspect-ratio: unset;
-    height: auto;
-    padding-block-start: 0;
-  }
-
-  .c4d--video-player__video-caption {
-    padding-block-start: 1rem;
-  }
-}
