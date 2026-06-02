@@ -100,14 +100,6 @@ function _loadScript(environment = _ibmEnvironment) {
 const _timeoutRetries = 50;
 
 /**
- * Tracks the number of attempts for the script ready loop
- *
- * @type {number}
- * @private
- */
-let _attempt = 0;
-
-/**
  * Tracks the script status
  *
  * @type {boolean} _scriptLoading to track the script loading or not
@@ -116,13 +108,30 @@ let _attempt = 0;
 let _scriptLoading = false;
 
 /**
+ * Serializes concurrent embed calls. The IBM Mediacenter player.embed() does
+ * not reliably support simultaneous calls for the same entryId, so we chain
+ * each call onto the previous one to ensure they run sequentially.
+ *
+ * @type {Promise<any>}
+ * @private
+ */
+let _embedQueue = Promise.resolve();
+
+/**
  * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state
  *
  * @param {Function} resolve Resolve function
  * @param {Function} reject Reject function
+ * @param {string} environment The player environment
+ * @param {number} attempt Per-call retry count
  * @private
  */
-function _scriptReady(resolve, reject, environment = _ibmEnvironment) {
+function _scriptReady(
+  resolve,
+  reject,
+  environment = _ibmEnvironment,
+  attempt = 0
+) {
   /**
    * @param {object} root?.IBM.Mediacenter.player if exists then resolve
    */
@@ -130,18 +139,16 @@ function _scriptReady(resolve, reject, environment = _ibmEnvironment) {
     _scriptLoading = false;
     resolve();
   } else if (_scriptLoading) {
-    _attempt++;
-
-    if (_attempt < _timeoutRetries) {
+    if (attempt < _timeoutRetries) {
       setTimeout(() => {
-        _scriptReady(resolve, reject, environment);
+        _scriptReady(resolve, reject, environment, attempt + 1);
       }, 100);
     } else {
       reject();
     }
   } else {
     _loadScript(environment);
-    _scriptReady(resolve, reject, environment);
+    _scriptReady(resolve, reject, environment, attempt);
   }
 }
 
@@ -324,7 +331,8 @@ class KalturaPlayerAPIV7 {
         return kalturaPlayer;
       };
 
-      return legacyPromiseKWidget();
+      _embedQueue = _embedQueue.then(() => legacyPromiseKWidget());
+      return _embedQueue;
     });
   }
 }
