@@ -126,7 +126,12 @@ let _embedQueue = Promise.resolve();
  * @param {number} attempt Per-call retry count
  * @private
  */
-function _scriptReady(resolve, reject, environment = _ibmEnvironment, attempt = 0) {
+function _scriptReady(
+  resolve,
+  reject,
+  environment = _ibmEnvironment,
+  attempt = 0
+) {
   /**
    * @param {object} root?.IBM.Mediacenter.player if exists then resolve
    */
