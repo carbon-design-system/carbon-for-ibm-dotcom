@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2022, 2025
+// Copyright IBM Corp. 2022, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/colors' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/imports' as *;
 @use '../button-group' as *;
@@ -130,6 +131,21 @@
     }
   }
 
+  :host(#{$c4d-prefix}-pricing-table-group) tr {
+    border: none;
+    border-radius: 4px;
+    background-color: $purple-20;
+
+    @include breakpoint-down(lg) {
+      box-shadow: 50vw 0 $purple-20;
+    }
+
+    &::after {
+      background-color: $purple-20;
+      block-size: 0;
+    }
+  }
+
   .#{$prefix}--pricing-table-header-row,
   .#{$prefix}--pricing-table-row,
   :host(#{$c4d-prefix}-pricing-table-header-row),
@@ -159,7 +175,7 @@
     background-color: $background;
 
     &.highlighted {
-      background-color: $layer-01;
+      background-color: $purple-10;
     }
 
     .#{$prefix}--pricing-table-cell-inner {
@@ -261,7 +277,7 @@
 
   :host(#{$c4d-prefix}-pricing-table-cell[icon]) {
     &[icon='checkmark'] svg {
-      color: $support-success;
+      color: $purple-60;
     }
 
     svg {
@@ -278,7 +294,8 @@
 
     display: none;
     padding: $spacing-03 $spacing-05;
-    background-color: $border-inverse;
+    border-radius: 4px 4px 0 0;
+    background-color: $purple-60;
     color: $icon-inverse;
     inset-block-end: 100%;
     inset-inline: 0;
@@ -287,7 +304,9 @@
   .#{$prefix}--pricing-table-header-cell-headline,
   :host(#{$c4d-prefix}-pricing-table-header-cell-headline) {
     display: block;
-    // @include type-style('fluid-heading-03');
+
+    @include type-style('heading-03');
+
     color: $text-primary;
   }
 
@@ -368,5 +387,11 @@
   :host(.overflowing-right) .overflow-indicator.right,
   :host(.overflowing-left) .overflow-indicator.left {
     opacity: 1;
+  }
+
+  :host([last-row]) {
+    ::slotted(.highlighted) {
+      border-radius: 0 0 10px 10px;
+    }
   }
 }
