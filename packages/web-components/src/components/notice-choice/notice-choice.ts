@@ -384,6 +384,17 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   onEmailChange() {
+    const isSupported = this.supportedBusinessPartners.some(
+      (partner) => partner.toLowerCase() === this.prefType.toLowerCase()
+    );
+
+    if (isSupported) {
+      this.isAnnualPeriodExpired = true;
+      this.emailValid = true;
+      this._handleEmailCheckFailure({ email: 'N', phone: 'N' }, true);
+      return;
+    }
+
     const email = this.email;
     const oneYearAgo = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000);
 
@@ -405,7 +416,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
         // If bad date, treat as expired
         if (!isValidDate) {
-          console.warn('Invalid annualPeriod:', lastUpdated);
           this.isAnnualPeriodExpired = true;
           this._handleEmailCheckFailure(data, true);
           return;
@@ -714,7 +724,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       <span part="container">
         <div
           class="${prefix}--form-item cds--checkbox-wrapper"
-          part="checkbox-wrapper">
+          part="checkbox-wrapper"
+        >
           <input
             type="checkbox"
             class="${prefix}--checkbox"
@@ -722,15 +733,18 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             id="${checkboxId}"
             name="${checkboxId}"
             ?checked="${checked}"
-            @change="${this.checkCombineEmailPhoneBoxChange}" />
+            @change="${this.checkCombineEmailPhoneBoxChange}"
+          />
           <label
             for="${checkboxId}"
             class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${checkboxId}"
-            part="checkbox-label">
+            part="checkbox-label"
+          >
             <span
               class="${prefix}--checkbox-label-text"
               part="checkbox-label-text"
-              dir="auto">
+              dir="auto"
+            >
               ${unsafeHTML(preText)}
             </span>
           </label>
@@ -750,6 +764,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     let preText = '';
 
     // 1. Base text depending on email
+    console.log('emailValid', this.emailValid);
     if (!this.emailValid) {
       preText = content.annualDefaultText;
     } else {
@@ -893,7 +908,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ? html`<span
               class="nc-error"
               part="error"
-              style="color:#da1e28;font-size:.75rem">
+              style="color:#da1e28;font-size:.75rem"
+            >
               ${checkbox.error}
             </span>`
           : null;
@@ -902,7 +918,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         <span>
           <div
             class="${prefix}--form-item bx--checkbox-wrapper"
-            part="checkbox-wrapper checkbox-wrapper--mandatory">
+            part="checkbox-wrapper checkbox-wrapper--mandatory"
+          >
             <p part=${legalTextName} class=${legalTextName}>
               <input
                 type="checkbox"
@@ -910,15 +927,18 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                 part="checkbox checkbox--mandatory"
                 id="${checkbox.mrs_field}"
                 name="${checkbox.mrs_field}"
-                @change="${this.checkBoxLegalChange}" />
+                @change="${this.checkBoxLegalChange}"
+              />
               <label
                 for="${checkbox.mrs_field}"
                 class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${checkbox.mrs_field}"
-                part="checkbox-label checkbox-label--mandatory">
+                part="checkbox-label checkbox-label--mandatory"
+              >
                 <span
                   class="${prefix}--checkbox-label-text"
                   part="checkbox-label-text checkbox-label-text--mandatory"
-                  dir="auto">
+                  dir="auto"
+                >
                   ${checkbox.text}
                 </span>
               </label>
@@ -1094,7 +1114,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         <cds-skeleton-text
           linecount="3"
           width="100%"
-          paragraph="true"></cds-skeleton-text>
+          paragraph="true"
+        ></cds-skeleton-text>
       </div>`;
     }
 
