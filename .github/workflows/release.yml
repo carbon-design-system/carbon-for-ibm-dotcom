@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        default: 'minor'
+        description: "Please Select the type of Release"
+        type: choice
+        options:
+          - 'minor'
+          - 'patch'
+
+      dry-run:
+        required: true
+        default: true
+        description: "DRY RUN: runs whithout the --yes flag. Meaning nothing will be published"
+        type: boolean
+
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ secrets.MERGE_ACTION }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: '0'
+          token: ${{ secrets.MERGE_ACTION }}
+      - name: Config github user
+        run: |
+          git config --global user.email "digdes@us.ibm.com"
+          git config --global user.name "ibmdotcom-bot"
+      - name: Install dependencies
+        run: yarn install
+      - name: Build project
+        run: yarn build
+      - name: Set NPM token
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.CARBON_BOT_NPM_TOKEN }}" >> .npmrc
+      - name: Publish minor release of packages
+        run: |
+          ./node_modules/.bin/lerna publish ${{ github.event.inputs.environment }} --conventional-graduate --no-private --force-publish ${{ github.event.inputs.dry-run && '' || '--yes' }}

@@ -72,17 +72,18 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
 
     let href;
 
+    // To be investigated: Using Switch Case triggers a race condition for some reason.
     if (cc === 'uk') {
       href = '/store/en/gb/checkout';
     } else if (cc === 'ae') {
       href = '/store/en/ae/checkout';
     } else if (cc === 'sa') {
       href = '/store/en/sa/checkout';
+    } else if (cc === 'id') {
+      href = '/store/en/id/checkout';
     } else {
       href = `/store/${lc}/${cc}/checkout`;
     }
-
-    console.log(href);
 
     return html`
       <a

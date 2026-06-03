@@ -117,6 +117,91 @@ Default.story = {
   },
 };
 
+export const WithCTA = (args) => {
+  const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
+  const { alt, defaultSrc, description, title, hideCaption, videoId } =
+    args?.LightboxMedia ?? {};
+  const handleBeforeClose = (event: CustomEvent) => {
+    onBeforeClose?.(event);
+    if (disableClose) {
+      event.preventDefault();
+    }
+  };
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <c4d-expressive-modal
+      expressive-size="full-width"
+      mode="lightbox"
+      ?open="${open}"
+      @c4d-expressive-modal-beingclosed="${handleBeforeClose}"
+      @c4d-expressive-modal-closed="${onClose}">
+      <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+      <c4d-lightbox-media-viewer
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}"
+        description="${ifDefined(description)}"
+        title="${ifDefined(title)}"
+        video-id="${ifDefined(videoId)}"
+        ?hideCaption="${ifDefined(hideCaption)}">
+        <div slot="cta">
+          <c4d-button href="https://example.com" cta-type="local">
+            Follow Link
+          </c4d-button>
+        </div>
+      </c4d-lightbox-media-viewer>
+    </c4d-expressive-modal>
+  `;
+};
+
+WithCTA.story = {
+  parameters: {
+    knobs: {
+      LightboxMedia: () => ({
+        defaultSrc: select(
+          'Image (default-src)',
+          images,
+          images['1312 x 656 (2:1)']
+        ),
+        alt: textNullable('Image alt text (alt)', 'Image alt text'),
+        videoId: select('Video ID (video-id)', videos, videos.none),
+        hideCaption: boolean('hide caption (hide-caption)', false),
+        title: textNullable(
+          'Title (title)',
+          'Curabitur malesuada varius mi eu posuere'
+        ),
+        description: textNullable(
+          'Description (description)',
+          `
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `
+        ),
+      }),
+    },
+    propsSet: {
+      default: {
+        LightboxMedia: {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg2x1,
+          description: `
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          title: 'Curabitur malesuada varius mi eu posuere',
+          hideCaption: false,
+          videoId: '0_ibuqxqbe',
+          customVideoName: 'Custom video name',
+          customVideoDescription: 'This is a custom video description',
+        },
+      },
+    },
+  },
+};
+
 export const WithCarousel = (args) => {
   const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
