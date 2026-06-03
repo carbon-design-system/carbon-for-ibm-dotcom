@@ -384,17 +384,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   onEmailChange() {
-    const isSupported = this.supportedBusinessPartners.some(
-      (partner) => partner.toLowerCase() === this.prefType.toLowerCase()
-    );
-
-    if (isSupported) {
-      this.isAnnualPeriodExpired = true;
-      this.emailValid = true;
-      this._handleEmailCheckFailure({ email: 'N', phone: 'N' }, true);
-      return;
-    }
-
     const email = this.email;
     const oneYearAgo = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000);
 
@@ -404,6 +393,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     checkEmailStatus(
       email,
       this.environment,
+      this.prefType,
       (data) => {
         this.isLoading = false;
         this.emailValid = true;
