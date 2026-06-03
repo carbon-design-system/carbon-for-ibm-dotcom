@@ -750,7 +750,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     let preText = '';
 
     // 1. Base text depending on email
-    console.log('emailValid', this.emailValid);
     if (!this.emailValid) {
       preText = content.annualDefaultText;
     } else {
