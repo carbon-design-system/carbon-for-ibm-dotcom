@@ -393,6 +393,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     checkEmailStatus(
       email,
       this.environment,
+      this.prefType,
       (data) => {
         this.isLoading = false;
         this.emailValid = true;
@@ -405,7 +406,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
         // If bad date, treat as expired
         if (!isValidDate) {
-          console.warn('Invalid annualPeriod:', lastUpdated);
           this.isAnnualPeriodExpired = true;
           this._handleEmailCheckFailure(data, true);
           return;
@@ -830,6 +830,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   checkBoxLegalChange(event: Event) {
+    event.preventDefault();
     const target = event.target as HTMLInputElement;
     if (!target) {
       return;
@@ -914,7 +915,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
               <label
                 for="${checkbox.mrs_field}"
                 class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${checkbox.mrs_field}"
-                part="checkbox-label checkbox-label--mandatory">
+                part="checkbox-label checkbox-label--mandatory"
+                @click="${(e: Event) =>
+                  this.mandatoryCheckboxLabelClick(e, checkbox.mrs_field)}">
                 <span
                   class="${prefix}--checkbox-label-text"
                   part="checkbox-label-text checkbox-label-text--mandatory"
@@ -929,6 +932,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       `;
     });
   }
+
+  mandatoryCheckboxLabelClick(event: Event, mrsField: string) {
+    event.preventDefault();
+    const input = this.shadowRoot?.getElementById(mrsField) as HTMLInputElement;
+    if (input) {
+      input.checked = !input.checked;
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+
   postTextTemplate() {
     if (this.ncData) {
       const OtherPreferences = this.ncData.trialPrivacyText;
