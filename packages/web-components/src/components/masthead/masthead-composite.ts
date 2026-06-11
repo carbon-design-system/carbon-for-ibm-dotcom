@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -1379,7 +1379,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * The platform url. Accepts both a string or an object with a specific URL for each locale.
    */
-  @property({ attribute: false })
+  @property()
   platformUrl?;
 
   /**
