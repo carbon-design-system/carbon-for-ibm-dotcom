@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.50.1...@carbon/ibmdotcom-styles@2.51.0) (2026-06-12)
+
+
+### Bug Fixes
+
+* **video-player:** rtl caption wrong inline size ([#12539](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12539)) ([5a84698](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a8469855a6212c51021955ca1b104227bd98b08))
+
+
+
+
+
 ## [2.50.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.50.0...@carbon/ibmdotcom-styles@2.50.1) (2026-06-02)
 
 

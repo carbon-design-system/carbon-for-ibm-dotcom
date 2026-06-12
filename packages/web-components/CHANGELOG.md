@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.53.1...@carbon/ibmdotcom-web-components@2.54.0) (2026-06-12)
+
+
+### Bug Fixes
+
+* **top-nav-menu:** allow platformUrl to be inputted as an attribute ([#12538](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12538)) ([0ea359e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ea359ed79f3325bcb4aee2fcae3b80175bf0614))
+
+
+
+
+
 ## [2.53.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.53.0...@carbon/ibmdotcom-web-components@2.53.1) (2026-06-02)
 
 
