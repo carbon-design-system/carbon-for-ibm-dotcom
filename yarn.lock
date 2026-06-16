@@ -3651,7 +3651,7 @@ __metadata:
     cypress-wait-until: "npm:^1.7.2"
     del: "npm:^6.0.0"
     doctoc: "npm:^2.0.0"
-    dompurify: "npm:3.4.4"
+    dompurify: "npm:3.4.10"
     enzyme: "npm:^3.11.0"
     file-loader: "npm:^6.2.0"
     fs-extra: "npm:^10.0.0"
@@ -15070,15 +15070,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:3.4.4":
-  version: 3.4.4
-  resolution: "dompurify@npm:3.4.4"
+"dompurify@npm:3.4.10":
+  version: 3.4.10
+  resolution: "dompurify@npm:3.4.10"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10/551c19bbbd1c71719c111b899030ecf38c7d1649431e216fc943a0edce44164a4139db82e3c45859bff2b2695fd2e91646816efd8a34226af2bd55be00c60c05
+  checksum: 10/e051c70e7a0729d8cc04d40d7863dc8977495140857e81dc668fb548b7a43c7f80cfc973e3c9c0a6cd18b8eaa94ea7de9603daa02d38c8b15a9b32cc25a6f440
   languageName: node
   linkType: hard
 
