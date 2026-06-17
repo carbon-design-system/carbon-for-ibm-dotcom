@@ -84,7 +84,7 @@ const _ibmScriptUrl = (environment = _ibmEnvironment) => {
  * @private
  */
 function _loadScript(environment = _ibmEnvironment) {
-  _scriptLoading = true;
+  root._ibmKalturaScriptLoading = true;
   const script = document.createElement('script');
   script.src = _ibmScriptUrl(environment);
   script.async = true;
@@ -100,12 +100,19 @@ function _loadScript(environment = _ibmEnvironment) {
 const _timeoutRetries = 50;
 
 /**
- * Tracks the script status
+ * Tracks the script loading status. Stored on `root` (window) so the value
+ * persists when this module is executed more than once in the same page
+ * (e.g. once as an async page script and again as a deferred Adobe Target
+ * Experience Fragment script). Without this, a second execution resets the
+ * flag to false and causes _loadScript() to inject loader.js a second time,
+ * creating a race condition that leaves embedMedia() pending indefinitely.
  *
- * @type {boolean} _scriptLoading to track the script loading or not
+ * @type {boolean}
  * @private
  */
-let _scriptLoading = false;
+if (root._ibmKalturaScriptLoading === undefined) {
+  root._ibmKalturaScriptLoading = false;
+}
 
 /**
  * Serializes concurrent embed calls. The IBM Mediacenter player.embed() does
@@ -136,9 +143,9 @@ function _scriptReady(
    * @param {object} root?.IBM.Mediacenter.player if exists then resolve
    */
   if (root?.IBM?.Mediacenter?.player) {
-    _scriptLoading = false;
+    root._ibmKalturaScriptLoading = false;
     resolve();
-  } else if (_scriptLoading) {
+  } else if (root._ibmKalturaScriptLoading) {
     if (attempt < _timeoutRetries) {
       setTimeout(() => {
         _scriptReady(resolve, reject, environment, attempt + 1);
