@@ -30,8 +30,8 @@
     "test:unit": "yarn jest"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.53.0",
-    "@carbon/ibmdotcom-utilities": "1.53.0",
+    "@carbon/ibmdotcom-services": "2.48.0",
+    "@carbon/ibmdotcom-utilities": "2.48.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
     "redux-thunk": "^2.3.0",
