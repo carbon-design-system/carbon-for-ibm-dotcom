@@ -40,28 +40,6 @@
         transition: none;
       }
     }
-    @media screen and (prefers-reduced-motion: reduce) {
-      svg,
-      ::slotted(svg[slot='icon']) {
-        display: inline;
-        align-self: middle;
-        fill: currentColor;
-        margin-inline-start: $spacing-03;
-        transform-origin: center;
-        transition: none;
-      }
-    }
-    @media screen and (prefers-reduced-motion: reduce) {
-      svg,
-      ::slotted(svg[slot='icon']) {
-        display: inline;
-        align-self: middle;
-        fill: currentColor;
-        margin-inline-start: $spacing-03;
-        transform-origin: center;
-        transition: none;
-      }
-    }
 
     svg,
     ::slotted(svg[slot='icon']) {
