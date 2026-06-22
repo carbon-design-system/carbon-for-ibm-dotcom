@@ -125,9 +125,9 @@ export const Default = (args) => {
       ${mediaType === 'Image' ? image({ heading: groupHeading }) : ``}
       ${mediaType === 'Video'
         ? html`
-            <c4d-video-player-container
+            <c4d-video-player-container-v7
               slot="media"
-              video-id="0_ibuqxqbe"></c4d-video-player-container>
+              video-id="0_ibuqxqbe"></c4d-video-player-container-v7>
           `
         : ``}
       ${items.map(

@@ -84,7 +84,7 @@ const _ibmScriptUrl = (environment = _ibmEnvironment) => {
  * @private
  */
 function _loadScript(environment = _ibmEnvironment) {
-  _scriptLoading = true;
+  root._ibmKalturaScriptLoading = true;
   const script = document.createElement('script');
   script.src = _ibmScriptUrl(environment);
   script.async = true;
@@ -100,48 +100,62 @@ function _loadScript(environment = _ibmEnvironment) {
 const _timeoutRetries = 50;
 
 /**
- * Tracks the number of attempts for the script ready loop
+ * Tracks the script loading status. Stored on `root` (window) so the value
+ * persists when this module is executed more than once in the same page
+ * (e.g. once as an async page script and again as a deferred Adobe Target
+ * Experience Fragment script). Without this, a second execution resets the
+ * flag to false and causes _loadScript() to inject loader.js a second time,
+ * creating a race condition that leaves embedMedia() pending indefinitely.
  *
- * @type {number}
+ * @type {boolean}
  * @private
  */
-let _attempt = 0;
+if (root._ibmKalturaScriptLoading === undefined) {
+  root._ibmKalturaScriptLoading = false;
+}
 
 /**
- * Tracks the script status
+ * Serializes concurrent embed calls. The IBM Mediacenter player.embed() does
+ * not reliably support simultaneous calls for the same entryId, so we chain
+ * each call onto the previous one to ensure they run sequentially.
  *
- * @type {boolean} _scriptLoading to track the script loading or not
+ * @type {Promise<any>}
  * @private
  */
-let _scriptLoading = false;
+let _embedQueue = Promise.resolve();
 
 /**
  * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state
  *
  * @param {Function} resolve Resolve function
  * @param {Function} reject Reject function
+ * @param {string} environment The player environment
+ * @param {number} attempt Per-call retry count
  * @private
  */
-function _scriptReady(resolve, reject, environment = _ibmEnvironment) {
+function _scriptReady(
+  resolve,
+  reject,
+  environment = _ibmEnvironment,
+  attempt = 0
+) {
   /**
    * @param {object} root?.IBM.Mediacenter.player if exists then resolve
    */
   if (root?.IBM?.Mediacenter?.player) {
-    _scriptLoading = false;
+    root._ibmKalturaScriptLoading = false;
     resolve();
-  } else if (_scriptLoading) {
-    _attempt++;
-
-    if (_attempt < _timeoutRetries) {
+  } else if (root._ibmKalturaScriptLoading) {
+    if (attempt < _timeoutRetries) {
       setTimeout(() => {
-        _scriptReady(resolve, reject, environment);
+        _scriptReady(resolve, reject, environment, attempt + 1);
       }, 100);
     } else {
       reject();
     }
   } else {
     _loadScript(environment);
-    _scriptReady(resolve, reject, environment);
+    _scriptReady(resolve, reject, environment, attempt);
   }
 }
 
@@ -324,7 +338,8 @@ class KalturaPlayerAPIV7 {
         return kalturaPlayer;
       };
 
-      return legacyPromiseKWidget();
+      _embedQueue = _embedQueue.then(() => legacyPromiseKWidget());
+      return _embedQueue;
     });
   }
 }

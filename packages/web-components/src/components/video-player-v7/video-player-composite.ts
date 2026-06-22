@@ -234,7 +234,6 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     }
   }
   getIsVideoPlaying() {
-    // GET BACK INTO THIS
     const iframe = this.querySelector('iframe');
     const playerContainer =
       iframe?.contentWindow?.document.querySelector('div.play-state');
@@ -439,9 +438,10 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
 
   renderLightDOM() {
     // setting the direction mode of the video player.
-    document
-      .querySelector('.c4d--video-player__video')
-      ?.setAttribute('dir-mode', `${this.isRTL ? 'rtl' : 'ltr'}`);
+    this.querySelector('.c4d--video-player__video')?.setAttribute(
+      'dir-mode',
+      `${this.isRTL ? 'rtl' : 'ltr'}`
+    );
 
     const {
       aspectRatio,

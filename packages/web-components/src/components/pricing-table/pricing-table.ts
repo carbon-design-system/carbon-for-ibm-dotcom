@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2025
+ * Copyright IBM Corp. 2022, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -206,6 +206,13 @@ class C4DPricingTable extends HostListenerMixin(
 
   renderInner() {
     const { sentinelClass } = this.constructor as typeof C4DPricingTable;
+
+    //a selector for the last slotted highlighted row item becomes too complex. It's easier to just JS a 'last-row' class into it.
+    const rows = this.querySelectorAll(`${c4dPrefix}-pricing-table-row`);
+
+    rows.forEach((row, i) => {
+      row.toggleAttribute('last-row', i === rows.length - 1);
+    });
 
     this.setAPIPricingTableWidth();
 

@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.51.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.51.0...@carbon/ibmdotcom-services@2.51.1) (2026-06-18)
+
+
+### Bug Fixes
+
+* **Kaltura:** Adding global scope variable to control other Kaltura i… ([#12544](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12544)) ([9790cf5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9790cf5edfc115bdadc2d9ffd0ae35f5cc64d9f9))
+
+
+
+
+
+# [2.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.50.1...@carbon/ibmdotcom-services@2.51.0) (2026-06-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+## [2.50.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.50.0...@carbon/ibmdotcom-services@2.50.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* **Videoplayer:** Fix container div to fit its parent height ([#12531](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12531)) ([990585d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/990585dcda3ced094ecc39c3a895c46e1f506251))
+
+
+
+
+
+# [2.50.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.49.0...@carbon/ibmdotcom-services@2.50.0) (2026-05-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [2.49.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.48.0...@carbon/ibmdotcom-services@2.49.0) (2026-05-15)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
 # [2.48.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.48.0-rc.0...@carbon/ibmdotcom-services@2.48.0) (2026-05-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.54.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.0...@carbon/ibmdotcom-web-components@2.54.1) (2026-06-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.53.1...@carbon/ibmdotcom-web-components@2.54.0) (2026-06-12)
+
+
+### Bug Fixes
+
+* **top-nav-menu:** allow platformUrl to be inputted as an attribute ([#12538](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12538)) ([0ea359e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ea359ed79f3325bcb4aee2fcae3b80175bf0614))
+
+
+
+
+
+## [2.53.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.53.0...@carbon/ibmdotcom-web-components@2.53.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* **Videoplayer:** Fix container div to fit its parent height ([#12531](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12531)) ([990585d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/990585dcda3ced094ecc39c3a895c46e1f506251))
+
+
+
+
+
+# [2.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.52.0...@carbon/ibmdotcom-web-components@2.53.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/layout to v11.52.0 ([#12505](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12505)) ([77cdae1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77cdae19e27e3dd7b4acb47a9877ed5ec4065cc0))
+* **deps:** update dependency @carbon/motion to v11.45.0 ([#12519](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12519)) ([ea7f0ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea7f0ee812da2b4eae359ff95fc5cd2e8253ad25))
+* **stories:** kaltura-player ambient story quick fix ([#12489](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12489)) ([74b7904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/74b7904e7ab3bf562f181310ff2dc0e2e0777112))
+
+
+
+
+
+# [2.52.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.51.0...@carbon/ibmdotcom-web-components@2.52.0) (2026-05-15)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [2.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.51.0-rc.0...@carbon/ibmdotcom-web-components@2.51.0) (2026-05-04)
 
 

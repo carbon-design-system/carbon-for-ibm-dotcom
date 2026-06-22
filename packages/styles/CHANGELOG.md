@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.51.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.51.0...@carbon/ibmdotcom-styles@2.51.1) (2026-06-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.50.1...@carbon/ibmdotcom-styles@2.51.0) (2026-06-12)
+
+
+### Bug Fixes
+
+* **video-player:** rtl caption wrong inline size ([#12539](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12539)) ([5a84698](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a8469855a6212c51021955ca1b104227bd98b08))
+
+
+
+
+
+## [2.50.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.50.0...@carbon/ibmdotcom-styles@2.50.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* **Videoplayer:** Fix container div to fit its parent height ([#12531](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12531)) ([990585d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/990585dcda3ced094ecc39c3a895c46e1f506251))
+
+
+
+
+
+# [2.50.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.49.0...@carbon/ibmdotcom-styles@2.50.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/layout to v11.52.0 ([#12505](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12505)) ([77cdae1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77cdae19e27e3dd7b4acb47a9877ed5ec4065cc0))
+* **stories:** kaltura-player ambient story quick fix ([#12489](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12489)) ([74b7904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/74b7904e7ab3bf562f181310ff2dc0e2e0777112))
+
+
+
+
+
+# [2.49.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.48.0...@carbon/ibmdotcom-styles@2.49.0) (2026-05-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/icons-react to v11.80.0 ([#12485](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12485)) ([59e5a76](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/59e5a764bc79ac3c1fccb1bc0fc1bcb9ec0ab92a))
+
+
+
+
+
 # [2.48.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.48.0-rc.0...@carbon/ibmdotcom-styles@2.48.0) (2026-05-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

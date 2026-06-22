@@ -13,7 +13,7 @@ import on from '@carbon/web-components/es/globals/mixins/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
+import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPIv7';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import C4DVideoPlayerComposite from '../video-player-v7/video-player-composite';
@@ -89,7 +89,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
     const { embeddedVideos = {}, videoId } = this;
     const { [videoId]: currentEmbeddedVideo } = embeddedVideos;
     if (currentEmbeddedVideo) {
-      currentEmbeddedVideo.sendNotification('doStop');
+      currentEmbeddedVideo.pause();
     }
     this.open = false;
     this._handleAriaAndHiddenState();
@@ -193,7 +193,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
   renderLightDOM() {
     // In this class we render that in modal instead of in light DOM.
     // Overriding `.renderLightDOM()` here
-    // to prevent the parent `<c4d-video-player-composite>` from rendering `<c4d-video-player>` in light DOM.
+    // to prevent the parent `<c4d-video-player-composite-v7>` from rendering `<c4d-video-player--v7>` in light DOM.
     return html``;
   }
 
