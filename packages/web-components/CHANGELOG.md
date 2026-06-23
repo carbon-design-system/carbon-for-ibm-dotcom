@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.54.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.1...@carbon/ibmdotcom-web-components@2.54.2) (2026-06-23)
+
+
+### Bug Fixes
+
+* **video-player:** add preventScroll to focus call after Kaltura embed ([#12551](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12551)) ([07eaad4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07eaad4d40cd68f2a01b4b25ddd0e1db0859e6f9)), closes [#8077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8077)
+
+
+
+
+
 ## [2.54.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.0...@carbon/ibmdotcom-web-components@2.54.1) (2026-06-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
