@@ -308,7 +308,7 @@ export const C4DVideoPlayerContainerMixin = <
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;
       if (videoEmbed) {
-        (videoEmbed as HTMLElement).focus();
+        (videoEmbed as HTMLElement).focus({ preventScroll: true });
       }
       return embedVideoHandle.kWidget();
     }
