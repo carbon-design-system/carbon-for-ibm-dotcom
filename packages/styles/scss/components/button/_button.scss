@@ -1,5 +1,5 @@
 /**
-* Copyright IBM Corp. 2016, 2024
+* Copyright IBM Corp. 2016, 2026
 *
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
@@ -12,20 +12,40 @@
 @use '@carbon/styles/scss/components/button' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/imports' as *;
+@use '@carbon/styles/scss/motion' as *;
 
 @mixin button {
   :host(#{$c4d-prefix}-button) {
     @include emit-layout-tokens();
 
-    display: inline-flex;
+    display: inline-flex;@media screen and (prefers-reduced-motion: reduce) {
+svg {
+      @extend .#{$prefix}--btn__icon;
+
+      transform-origin: center;
+      transition: none;
+}
+}
 
     svg {
       @extend .#{$prefix}--btn__icon;
+
+      transform-origin: center;
+      transition: transform $duration-moderate-01
+        motion('standard', 'productive');
     }
 
     .#{$prefix}--btn {
       flex-grow: 1;
       max-inline-size: 100%;
+
+      &:hover svg {
+        transform: scale(1.1);
+      }
+
+      &:focus-visible svg {
+        transform: scale(1.1);
+      }
     }
 
     .#{$prefix}--btn--hidden {
