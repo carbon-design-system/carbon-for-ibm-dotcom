@@ -18,16 +18,14 @@
   :host(#{$c4d-prefix}-button) {
     @include emit-layout-tokens();
 
-    display: inline-flex;
+    display: inline-flex;@media screen and (prefers-reduced-motion: reduce) {
+svg {
+      @extend .#{$prefix}--btn__icon;
 
-    @media screen and (prefers-reduced-motion: reduce) {
-      svg {
-        @extend .#{$prefix}--btn__icon;
-
-        transform-origin: center;
-        transition: none;
-      }
-    }
+      transform-origin: center;
+      transition: none;
+}
+}
 
     svg {
       @extend .#{$prefix}--btn__icon;
