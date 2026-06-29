@@ -98,7 +98,7 @@ export const withLightboxAndCTA = (args) => {
       thumbnail=${thumbnail}
       playing-mode="lightbox">
       <div slot="cta" style="display: flex; gap: 1rem; margin-top: 1rem;">
-         <div slot="cta">
+        <div slot="cta">
           <c4d-button href="https://example.com" cta-type="local">
             Follow Link
           </c4d-button>
@@ -314,7 +314,8 @@ withLightboxAndCTA.story = {
       default: {
         VideoPlayer: {
           aspectRatio: '16x9',
-          customVideoDescription: 'This is a custom video description with CTA buttons that will be forwarded to the lightbox.',
+          customVideoDescription:
+            'This is a custom video description with CTA buttons that will be forwarded to the lightbox.',
           caption: '',
           hideCaption: false,
           thumbnail: '',

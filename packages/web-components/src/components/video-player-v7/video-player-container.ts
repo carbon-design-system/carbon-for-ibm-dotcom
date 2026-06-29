@@ -141,7 +141,9 @@ export const C4DVideoPlayerContainerMixin = <
     _captureCTA(): HTMLElement | null {
       const ctaElement = this.querySelector('[slot="cta"]');
       if (ctaElement && ctaElement.parentNode) {
-        this.ctaElement = ctaElement.parentNode.removeChild(ctaElement) as HTMLElement;
+        this.ctaElement = ctaElement.parentNode.removeChild(
+          ctaElement
+        ) as HTMLElement;
         return this.ctaElement;
       }
       return null;

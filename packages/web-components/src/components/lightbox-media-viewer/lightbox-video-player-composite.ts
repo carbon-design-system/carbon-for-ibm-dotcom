@@ -91,7 +91,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
     if (currentEmbeddedVideo) {
       currentEmbeddedVideo.pause();
     }
-    
+
     // Return CTA element to original container
     if (this.ctaElement) {
       const container = document.querySelector(
@@ -102,7 +102,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
       }
       this.ctaElement = null;
     }
-    
+
     this.open = false;
     this._handleAriaAndHiddenState();
   };
@@ -205,11 +205,13 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
         if (open) {
           this._embedMedia?.(videoId);
           this._handleAriaAndHiddenState();
-          
+
           // Append CTA element to lightbox video player after modal renders
           if (this.ctaElement) {
             requestAnimationFrame(() => {
-              const lightboxPlayer = this.modalRenderRoot?.querySelector('c4d-lightbox-video-player');
+              const lightboxPlayer = this.modalRenderRoot?.querySelector(
+                'c4d-lightbox-video-player'
+              );
               if (lightboxPlayer && this.ctaElement) {
                 this.ctaElement.setAttribute('slot', 'cta');
                 lightboxPlayer.appendChild(this.ctaElement);
