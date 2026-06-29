@@ -129,6 +129,34 @@ export const C4DVideoPlayerContainerMixin = <
     lc = '';
 
     /**
+     * Stored CTA element for forwarding to lightbox
+     */
+    @property({ attribute: false })
+    ctaElement?: HTMLElement | null;
+
+    /**
+     * Captures and removes the CTA element from light DOM
+     * @returns The captured CTA element or null
+     */
+    _captureCTA(): HTMLElement | null {
+      const ctaElement = this.querySelector('[slot="cta"]');
+      if (ctaElement && ctaElement.parentNode) {
+        this.ctaElement = ctaElement.parentNode.removeChild(ctaElement) as HTMLElement;
+        return this.ctaElement;
+      }
+      return null;
+    }
+
+    /**
+     * Returns the CTA element to the container
+     */
+    _returnCTA(): void {
+      if (this.ctaElement) {
+        this.appendChild(this.ctaElement);
+      }
+    }
+
+    /**
      * Sets the state that the API call for embedding the video for the given video ID is in progress.
      *
      * @param videoId The video ID.

@@ -82,6 +82,16 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
     }
     const { videoId, name, customVideoDescription } = this;
+    
+    // Capture CTA element from parent container if in lightbox mode
+    let ctaElement = null;
+    if (this.playingMode === VIDEO_PLAYER_PLAYING_MODE.LIGHTBOX) {
+      const container = this.closest('c4d-video-player-container-v7') as any;
+      if (container && typeof container._captureCTA === 'function') {
+        ctaElement = container._captureCTA();
+      }
+    }
+    
     const { eventContentStateChange } = this
       .constructor as typeof C4DVideoPlayer;
     this.dispatchEvent(
@@ -94,6 +104,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
           playingMode: this.playingMode,
           name,
           customVideoDescription,
+          ctaElement,
         },
       })
     );

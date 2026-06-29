@@ -79,6 +79,36 @@ export const withLightboxMediaViewer = (args) => {
   `;
 };
 
+export const withLightboxAndCTA = (args) => {
+  const {
+    aspectRatio,
+    caption,
+    hideCaption,
+    thumbnail,
+    videoId,
+    customVideoDescription,
+  } = args?.VideoPlayer ?? {};
+  return html`
+    <c4d-video-player-container-v7
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+      caption=${caption}
+      video-description="${ifDefined(customVideoDescription)}"
+      ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}
+      playing-mode="lightbox">
+      <div slot="cta" style="display: flex; gap: 1rem; margin-top: 1rem;">
+         <div slot="cta">
+          <c4d-button href="https://example.com" cta-type="local">
+            Follow Link
+          </c4d-button>
+        </div>
+      </div>
+    </c4d-video-player-container-v7>
+    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
+  `;
+};
+
 export const autoplay = (args) => {
   const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
@@ -252,6 +282,39 @@ withLightboxMediaViewer.story = {
         VideoPlayer: {
           aspectRatio: '16x9',
           customVideoDescription: 'This is a custom video description',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '0_ibuqxqbe',
+        },
+      },
+    },
+  },
+};
+
+withLightboxAndCTA.story = {
+  name: 'With lightbox and CTA',
+  parameters: {
+    knobs: {
+      VideoPlayer: () => {
+        return {
+          aspectRatio: '16x9',
+          customVideoDescription: text(
+            'Custom video description',
+            'This is a custom video description with CTA buttons that will be forwarded to the lightbox.'
+          ),
+          caption: text('Custom caption (caption):', ''),
+          hideCaption: boolean('Hide caption (hideCaption):', false),
+          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          videoId: '0_ibuqxqbe',
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '16x9',
+          customVideoDescription: 'This is a custom video description with CTA buttons that will be forwarded to the lightbox.',
           caption: '',
           hideCaption: false,
           thumbnail: '',
