@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.52.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.51.1...@carbon/ibmdotcom-styles@2.52.0) (2026-06-30)
+
+
+### Features
+
+* **cta-text:** icon zoom on hover animation ([#12547](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12547)) ([f3adf00](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f3adf003c9e6806675f2f17815ff456505b5293b))
+
+
+
+
+
 ## [2.51.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.51.0...@carbon/ibmdotcom-styles@2.51.1) (2026-06-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
