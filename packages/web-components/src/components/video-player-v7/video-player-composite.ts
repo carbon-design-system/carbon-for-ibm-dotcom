@@ -166,7 +166,13 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   @HostListener('eventContentStateChange')
   protected _handleContentStateChange(event: CustomEvent) {
-    const { contentState, playingMode, videoId } = event.detail;
+    const { contentState, playingMode, videoId, ctaElement } = event.detail;
+
+    // Store CTA element for potential forwarding
+    if (ctaElement) {
+      this.ctaElement = ctaElement;
+    }
+
     if (
       contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO &&
       playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE &&
@@ -367,6 +373,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   @property({ type: Boolean })
   isRTL = false;
+
+  /**
+   * Stored CTA element for forwarding to lightbox
+   */
+  @property({ attribute: false })
+  ctaElement?: HTMLElement | null;
 
   private observer!: MutationObserver;
 
