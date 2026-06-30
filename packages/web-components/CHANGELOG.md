@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.55.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.2...@carbon/ibmdotcom-web-components@2.55.0) (2026-06-30)
+
+
+### Features
+
+* **video-player:** add cta handling to video-player lightbox mode ([#12556](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12556)) ([5b5e685](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5b5e685cd7cd3560f1cf8b8aa75752df9525197f))
+
+
+
+
+
 ## [2.54.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.1...@carbon/ibmdotcom-web-components@2.54.2) (2026-06-23)
 
 
