@@ -91,6 +91,18 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
     if (currentEmbeddedVideo) {
       currentEmbeddedVideo.pause();
     }
+
+    // Return CTA element to original container
+    if (this.ctaElement) {
+      const container = document.querySelector(
+        `c4d-video-player-container-v7[video-id="${videoId}"]`
+      ) as any;
+      if (container && typeof container._returnCTA === 'function') {
+        container._returnCTA();
+      }
+      this.ctaElement = null;
+    }
+
     this.open = false;
     this._handleAriaAndHiddenState();
   };
@@ -106,6 +118,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
       videoId: requestedVideoId,
       name,
       customVideoDescription,
+      ctaElement,
     } = event.detail;
     if (this.videoCtaLightBox === false) {
       this.videoId = requestedVideoId;
@@ -116,8 +129,9 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
         playingMode === VIDEO_PLAYER_PLAYING_MODE.LIGHTBOX
       ) {
         this.customVideoName = name;
-        this.open = true;
         this.customVideoDescription = customVideoDescription;
+        this.ctaElement = ctaElement;
+        this.open = true;
       }
     }
   };
@@ -157,6 +171,12 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
   @property({ type: Boolean, attribute: 'video-cta-lightbox' })
   videoCtaLightBox = false;
 
+  /**
+   * Stored CTA element for forwarding from video player
+   */
+  @property({ attribute: false })
+  ctaElement?: HTMLElement | null;
+
   connectedCallback() {
     super.connectedCallback();
     this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
@@ -185,6 +205,19 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
         if (open) {
           this._embedMedia?.(videoId);
           this._handleAriaAndHiddenState();
+
+          // Append CTA element to lightbox video player after modal renders
+          if (this.ctaElement) {
+            requestAnimationFrame(() => {
+              const lightboxPlayer = this.modalRenderRoot?.querySelector(
+                'c4d-lightbox-video-player'
+              );
+              if (lightboxPlayer && this.ctaElement) {
+                this.ctaElement.setAttribute('slot', 'cta');
+                lightboxPlayer.appendChild(this.ctaElement);
+              }
+            });
+          }
         }
       }
     }
