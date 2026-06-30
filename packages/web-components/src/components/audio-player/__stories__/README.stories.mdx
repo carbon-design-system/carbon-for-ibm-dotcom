@@ -1,0 +1,175 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Audio Player/Overview" />
+
+# Audio Player
+
+> A dedicated audio-only player component for podcast and audio content playback.
+
+## Overview
+
+The Audio Player is a simplified, standalone component specifically designed for audio-only content. It provides a clean interface for embedding and playing audio files with minimal configuration, separate from the video player component.
+
+## Features
+
+- **Simplified API** - Only requires `media-id` and optional `auto-play`
+- **Automatic Embedding** - Audio loads immediately, no click required
+- **Autoplay Support** - Respects user preferences and browser policies
+- **Multiple Players** - Proper DOM isolation for multiple audio players on the same page
+- **Kaltura Integration** - Uses audio-specific configuration by default
+- **Accessibility** - ARIA labels and keyboard navigation support
+- **Preference Storage** - Remembers user's autoplay preference
+- **Error Handling** - Cleanup on failed embeds
+
+## When to Use
+
+Use the Audio Player component when you need to:
+
+- Embed podcast episodes
+- Play music tracks
+- Deliver audiobook content
+- Provide audio lectures or educational materials
+- Stream radio shows on-demand
+- Present audio interviews and conversations
+
+## Component Structure
+
+The Audio Player consists of three main components:
+
+1. **`<c4d-audio-player>`** - Base UI component
+2. **`<c4d-audio-player-composite>`** - State management layer
+3. **`<c4d-audio-player-container>`** - Redux/Kaltura integration layer
+
+## Basic Usage
+
+```html
+<c4d-audio-player-container
+  media-id="1_abc123"
+  auto-play>
+</c4d-audio-player-container>
+```
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+|----------|-----------|------|---------|-------------|
+| `mediaId` | `media-id` | `string` | `''` | **Required.** The Kaltura media ID for the audio content |
+| `autoPlay` | `auto-play` | `boolean` | `false` | Enable autoplay (respects user preferences and browser policies) |
+| `muted` | `muted` | `boolean` | `false` | Start with audio muted |
+| `audioTitle` | `audio-title` | `string` | `undefined` | Custom title for the audio content |
+| `uiConfId` | `ui-conf-id` | `string` | `'57792222'` | Kaltura UI configuration ID (defaults to audio player config) |
+| `partnerId` | `partner-id` | `string` | `'1773841'` | Kaltura partner ID |
+
+## Events
+
+### `c4d-audio-player-playback-state-changed`
+
+Fired when the playback state changes (play/pause).
+
+**Event Detail:**
+```typescript
+{
+  mediaId: string;
+  isPlaying: boolean;
+}
+```
+
+## Examples
+
+### With Custom Title
+
+```html
+<c4d-audio-player-container
+  media-id="1_abc123"
+  audio-title="Episode 42: The Future of Web Components">
+</c4d-audio-player-container>
+```
+
+### Multiple Players
+
+```html
+<c4d-audio-player-container
+  media-id="1_track1"
+  audio-title="Track 1">
+</c4d-audio-player-container>
+
+<c4d-audio-player-container
+  media-id="1_track2"
+  audio-title="Track 2">
+</c4d-audio-player-container>
+```
+
+## Styling
+
+### CSS Parts
+
+The component exposes the following CSS parts for styling:
+
+- `audio-container` - The main audio player container
+
+**Example:**
+```css
+c4d-audio-player::part(audio-container) {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+```
+
+## Differences from Video Player
+
+| Feature | Video Player | Audio Player |
+|---------|-------------|--------------|
+| **Thumbnail** | Yes | No |
+| **Click-to-play** | Yes | No (auto-embed) |
+| **Aspect Ratio** | Configurable | Fixed height (120-180px) |
+| **Player Type** | VIDEO | AUDIO |
+| **UI Config** | Video config | Audio config (57792222) |
+| **Complexity** | Full-featured | Simplified |
+
+## Migration from Video Player
+
+If you're currently using the video player for audio content:
+
+**Before:**
+```html
+<c4d-video-player-container-v7
+  video-id="1_abc123"
+  player-type="AUDIO"
+  auto-play>
+</c4d-video-player-container-v7>
+```
+
+**After:**
+```html
+<c4d-audio-player-container
+  media-id="1_abc123"
+  auto-play>
+</c4d-audio-player-container>
+```
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+**Note:** Autoplay behavior may vary based on browser policies. Most browsers require user interaction before allowing autoplay with sound.
+
+## Accessibility
+
+The Audio Player component follows accessibility best practices:
+
+- Proper ARIA labels for screen readers
+- Keyboard navigation support
+- Focus management
+- Semantic HTML structure
+
+## Related Components
+
+- [Video Player V7](../?path=/docs/components-video-player-v7--overview) - Full video player with video support
+- [Video Player](../?path=/docs/components-video-player--overview) - Legacy video player (V2)
+
+## Feedback
+
+Help us improve this component by [opening an issue](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/new) or [contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md).
