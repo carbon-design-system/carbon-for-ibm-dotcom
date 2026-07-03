@@ -20,6 +20,10 @@
 
     display: inline-flex;
 
+    svg {
+      @extend .#{$prefix}--btn__icon;
+    }
+
     @media screen and (prefers-reduced-motion: reduce) {
       svg {
         transform-origin: center;
