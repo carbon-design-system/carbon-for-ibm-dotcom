@@ -20,10 +20,6 @@
 
     display: inline-flex;
 
-    svg {
-      @extend .#{$prefix}--btn__icon;
-    }
-
     @media screen and (prefers-reduced-motion: reduce) {
       svg {
         transform-origin: center;
@@ -32,6 +28,8 @@
     }
 
     svg {
+      @extend .#{$prefix}--btn__icon;
+
       transform-origin: center;
       transition: transform $duration-moderate-01
         motion('standard', 'productive');
