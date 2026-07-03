@@ -28,6 +28,8 @@
     }
 
     svg {
+      @extend .#{$prefix}--btn__icon;
+
       transform-origin: center;
       transition: transform $duration-moderate-01
         motion('standard', 'productive');
