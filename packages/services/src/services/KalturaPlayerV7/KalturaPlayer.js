@@ -84,9 +84,19 @@ const _ibmScriptUrl = (environment = _ibmEnvironment) => {
  * @private
  */
 function _loadScript(environment = _ibmEnvironment) {
+  // loader.js uses top-level const/let declarations and cannot be safely re-injected
+  // into the same page — doing so throws "SyntaxError: Identifier already declared".
+  // If a script tag for this URL already exists in the DOM, skip injection and rely
+  // on the existing execution to eventually set IBM.Mediacenter.player. We still set
+  // the flag to true so _scriptReady stays in polling mode.
+  const loaderUrl = _ibmScriptUrl(environment);
+  if (document.querySelector(`script[src="${loaderUrl}"]`)) {
+    root._ibmKalturaScriptLoading = true;
+    return;
+  }
   root._ibmKalturaScriptLoading = true;
   const script = document.createElement('script');
-  script.src = _ibmScriptUrl(environment);
+  script.src = loaderUrl;
   script.async = true;
   document.body.appendChild(script);
 }
@@ -98,6 +108,18 @@ function _loadScript(environment = _ibmEnvironment) {
  * @private
  */
 const _timeoutRetries = 50;
+
+/**
+ * Milliseconds to wait for IBM.Mediacenter.player.embed() to resolve before
+ * treating it as a missed-event hang. On cached page loads, loader.js's
+ * player-plugin.js can fire its ready event before embed() registers its
+ * listener, leaving the returned Promise pending indefinitely. If that
+ * happens we reset the loader state and retry from scratch.
+ *
+ * @type {number}
+ * @private
+ */
+const _embedTimeoutMs = 8000;
 
 /**
  * Tracks the script loading status. Stored on `root` (window) so the value
@@ -119,10 +141,70 @@ if (root._ibmKalturaScriptLoading === undefined) {
  * not reliably support simultaneous calls for the same entryId, so we chain
  * each call onto the previous one to ensure they run sequentially.
  *
+ * Stored on `root` (window) so the value persists when this module is executed
+ * more than once in the same page (e.g. once as an async page script and again
+ * as a deferred Adobe Target Experience Fragment script). Without this, a second
+ * execution resets the queue to Promise.resolve(), breaking serialization and
+ * allowing simultaneous embed() calls that hang indefinitely.
+ *
  * @type {Promise<any>}
  * @private
  */
-let _embedQueue = Promise.resolve();
+if (root._ibmKalturaEmbedQueue === undefined) {
+  root._ibmKalturaEmbedQueue = Promise.resolve();
+}
+
+/**
+ * Installs a one-time Object.defineProperty setter on root.IBM.Mediacenter.player
+ * so that resolve() is called SYNCHRONOUSLY the instant loader.js assigns the
+ * player object — before player-plugin.js can fire its ready event. This closes
+ * the ~100 ms gap that the polling fallback leaves between the assignment and
+ * the first poll tick, which was causing embed() to miss the ready event (Bug 2).
+ *
+ * Falls back to the polling loop (_scriptReady) if defineProperty is not available
+ * or if IBM.Mediacenter has already been replaced after the trap was installed.
+ *
+ * @param {Function} resolve Resolve function
+ * @private
+ */
+function _trapPlayerReady(resolve) {
+  // If the player is already set, resolve immediately.
+  if (root?.IBM?.Mediacenter?.player) {
+    root._ibmKalturaScriptLoading = false;
+    resolve();
+    return;
+  }
+
+  // Ensure the IBM.Mediacenter path exists so we have an object to trap.
+  root.IBM ??= {};
+  root.IBM.Mediacenter ??= {};
+
+  const mc = root.IBM.Mediacenter;
+  let trapped = false;
+
+  try {
+    Object.defineProperty(mc, 'player', {
+      configurable: true,
+      enumerable: true,
+      set(value) {
+        // Restore as a plain writable property before anything else runs.
+        Object.defineProperty(mc, 'player', {
+          configurable: true,
+          enumerable: true,
+          writable: true,
+          value,
+        });
+        if (!trapped) {
+          trapped = true;
+          root._ibmKalturaScriptLoading = false;
+          resolve();
+        }
+      },
+    });
+  } catch (_e) {
+    // defineProperty not supported in this environment — fall through to polling.
+  }
+}
 
 /**
  * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state
@@ -154,8 +236,10 @@ function _scriptReady(
       reject();
     }
   } else {
+    // Install the defineProperty trap BEFORE injecting loader.js so we catch
+    // the player assignment synchronously when loader.js sets IBM.Mediacenter.player.
+    _trapPlayerReady(resolve, reject);
     _loadScript(environment);
-    _scriptReady(resolve, reject, environment, attempt);
   }
 }
 
@@ -275,6 +359,7 @@ class KalturaPlayerAPIV7 {
     return await this.checkScript().then(() => {
       const legacyPromiseKWidget = async () => {
         const playerType = configuration?.playerType ?? 'VIDEO';
+        const envKey = configuration.playerEnvironment ?? _ibmEnvironment;
         const playerEnvironment =
           _ibmEnvironments[configuration.playerEnvironment] ??
           _ibmEnvironments[_ibmEnvironment];
@@ -317,11 +402,91 @@ class KalturaPlayerAPIV7 {
         }
 
         /**
-         * Embed the player and execute custom callback
+         * Embed the player and execute custom callback.
+         *
+         * Wraps embed() with a timeout guard: on cached page loads,
+         * loader.js's player-plugin.js may fire its ready event before
+         * embed() registers its listener, leaving the Promise pending
+         * indefinitely. If the timeout fires we reset the loader state so
+         * _scriptReady() re-injects loader.js, giving the plugin a fresh
+         * chance to fire its event after the listener is in place.
          */
-        const kalturaPlayer = await root?.IBM?.Mediacenter?.player?.embed(
-          playerConfiguration
-        );
+        // If the target element was removed from the DOM before we get here
+        // (e.g. Adobe Target replaced the mbox while embed() was queued),
+        // skip the embed entirely so we don't block _embedQueue indefinitely.
+        if (!document.getElementById(targetId)) {
+          return null;
+        }
+
+        let kalturaPlayer;
+        try {
+          kalturaPlayer = await Promise.race([
+            root.IBM.Mediacenter.player.embed(playerConfiguration),
+            new Promise((_, reject) =>
+              setTimeout(
+                () => reject(new Error('ibm_embed_timeout')),
+                _embedTimeoutMs
+              )
+            ),
+          ]);
+        } catch (embedErr) {
+          if (embedErr?.message !== 'ibm_embed_timeout') {
+            throw embedErr;
+          }
+
+          // Only perform a full reset (delete player, re-inject loader.js) when
+          // the loader has already finished (_ibmKalturaScriptLoading === false)
+          // AND loader.js is not yet in the DOM (so re-injection is safe).
+          // loader.js uses top-level const/let declarations and crashes with
+          // "SyntaxError: Identifier already declared" on a second injection, so
+          // we skip the delete+reinject path when it's already present and instead
+          // rely on polling to detect when IBM.Mediacenter.player becomes available.
+          const loaderUrl = _ibmScriptUrl(envKey);
+          const loaderAlreadyInjected = !!document.querySelector(
+            `script[src="${loaderUrl}"]`
+          );
+          if (root._ibmKalturaScriptLoading === false && !loaderAlreadyInjected) {
+            root._ibmKalturaScriptLoading = undefined;
+            if (root.IBM?.Mediacenter) {
+              delete root.IBM.Mediacenter;
+            }
+          }
+          await new Promise((res, rej) =>
+            _scriptReady(res, rej, envKey)
+          );
+
+          // Re-check after the async wait — the element may have been removed
+          // while _scriptReady was retrying (e.g. during a Target mbox swap).
+          if (!document.getElementById(targetId)) {
+            return null;
+          }
+
+          // Wrap the retry with the same timeout guard. If loader.js was already
+          // in the DOM (cannot be re-injected), IBM.Mediacenter.player.embed()
+          // may still hang because player-plugin.js's ready event already fired
+          // before this call was registered. In that case we return null so the
+          // queue unblocks rather than hanging the page permanently.
+          try {
+            kalturaPlayer = await Promise.race([
+              root.IBM.Mediacenter.player.embed(playerConfiguration),
+              new Promise((_, reject) =>
+                setTimeout(
+                  () => reject(new Error('ibm_embed_timeout_retry')),
+                  _embedTimeoutMs
+                )
+              ),
+            ]);
+          } catch (retryErr) {
+            if (retryErr?.message !== 'ibm_embed_timeout_retry') {
+              throw retryErr;
+            }
+            // Both the initial embed() and the retry timed out. The
+            // player-plugin.js ready event has been permanently missed on
+            // this page load. Return null to unblock _ibmKalturaEmbedQueue
+            // so subsequent embed calls can still proceed.
+            return null;
+          }
+        }
         customReadyCallback(kalturaPlayer);
 
         if (isCustomCreated) {
@@ -338,8 +503,10 @@ class KalturaPlayerAPIV7 {
         return kalturaPlayer;
       };
 
-      _embedQueue = _embedQueue.then(() => legacyPromiseKWidget());
-      return _embedQueue;
+      root._ibmKalturaEmbedQueue = root._ibmKalturaEmbedQueue
+        .catch(() => {})
+        .then(() => legacyPromiseKWidget());
+      return root._ibmKalturaEmbedQueue;
     });
   }
 }

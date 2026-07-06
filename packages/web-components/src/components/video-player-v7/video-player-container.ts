@@ -311,22 +311,51 @@ export const C4DVideoPlayerContainerMixin = <
           'Cannot find the video player component to put the video content into.'
         );
       }
-      videoPlayer.appendChild(div);
+      // Append the div to document.body (hidden off-screen) instead of videoPlayer.
+      // This prevents Lit's renderLightDOM() from detaching the div during the
+      // async _ibmKalturaEmbedQueue wait (which can be 6-20s). If the div is
+      // inside c4d-video-player-v7 when Lit re-renders after a Redux dispatch,
+      // the element is replaced and the div is detached — causing
+      // legacyPromiseKWidget's getElementById(playerId) to return null, so
+      // the embed returns null and the video stays on the thumbnail slot.
+      // By keeping the div in document.body, getElementById always finds it.
+      div.style.cssText = 'position:fixed;left:-9999px;visibility:hidden';
+      document.body.appendChild(div);
 
-      const embedVideoHandle = await KalturaPlayerAPI.embedMedia(
-        videoId,
-        playerId,
-        this._getPlayerOptions()
-      );
-      const { width, height } = await KalturaPlayerAPI.api(videoId);
-      videoPlayer.style.setProperty('--native-file-width', `${width}px`);
-      videoPlayer.style.setProperty('--native-file-height', `${height}px`);
-      videoPlayer.style.setProperty(
-        '--native-file-aspect-ratio',
-        `${width} / ${height}`
-      );
+      let embedVideoHandle;
+      try {
+        embedVideoHandle = await KalturaPlayerAPI.embedMedia(
+          videoId,
+          playerId,
+          this._getPlayerOptions()
+        );
+        const { width, height } = await KalturaPlayerAPI.api(videoId);
 
-      doc!.getElementById(playerId)!.dataset.videoId = videoId;
+        // Move the div (now containing Kaltura's iframe) into the video player.
+        // Re-fetch _videoPlayer in case Lit re-rendered and replaced the element
+        // while we were awaiting the embed queue.
+        const currentVideoPlayer = this._videoPlayer ?? videoPlayer;
+        div.style.cssText = '';
+        currentVideoPlayer.appendChild(div);
+
+        currentVideoPlayer.style.setProperty('--native-file-width', `${width}px`);
+        currentVideoPlayer.style.setProperty('--native-file-height', `${height}px`);
+        currentVideoPlayer.style.setProperty(
+          '--native-file-aspect-ratio',
+          `${width} / ${height}`
+        );
+      } catch (error) {
+        // Clean up hidden div if embed failed
+        if (div.parentElement) {
+          div.remove();
+        }
+        throw error;
+      }
+
+      const playerEl = doc!.getElementById(playerId);
+      if (playerEl) {
+        playerEl.dataset.videoId = videoId;
+      }
       const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;
       if (videoEmbed) {
         (videoEmbed as HTMLElement).focus({ preventScroll: true });

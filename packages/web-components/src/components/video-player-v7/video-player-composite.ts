@@ -52,6 +52,18 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   _embedMedia?: (videoId: string) => Promise<any>;
 
   /**
+   * Listener registered on `at-content-rendering-succeeded/failed` while waiting
+   * for Adobe Target to settle before setting up the IntersectionObserver.
+   * Stored so it can be removed in `disconnectedCallback`.
+   */
+  private _atSettleHandler?: () => void;
+
+  /**
+   * Fallback timer ID used when Adobe Target never fires its settle events.
+   */
+  private _atFallback?: number;
+
+  /**
    * The placeholder for `_setAutoplayPreference()` Redux action that may be mixed in.
    */
   // @ts-ignore
@@ -135,10 +147,18 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   private _intersectionIntoViewHandler(entries: IntersectionObserverEntry[]) {
     const { videoId } = this;
-    entries.forEach((entry) => {
+    entries.forEach(async (entry) => {
       if (entry.isIntersecting && this._getAutoplayPreference() !== false) {
-        this._embedMedia?.(videoId);
-        this.playAllVideos();
+        await this.updateComplete;
+        this._embedMedia?.(videoId)?.then?.((player) => {
+          if (player) {
+            this.playAllVideos();
+          }
+        })?.catch?.((err) => {
+          if (process.env.NODE_ENV !== 'production') {
+            console.warn('[VP-DEBUG] embed failed in IO handler', err);
+          }
+        });
       }
     });
   }
@@ -410,7 +430,27 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     }
 
     if (this.intersectionMode) {
-      this._cleanAndCreateObserverIntersection({ create: true });
+      const atJsActive = !!(window as any).adobe?.target;
+      if (atJsActive) {
+        const setupIO = () => this._cleanAndCreateObserverIntersection({ create: true });
+        const onATSettle = () => {
+          document.removeEventListener('at-content-rendering-succeeded', onATSettle);
+          document.removeEventListener('at-content-rendering-failed', onATSettle);
+          if (this._atFallback) {
+            clearTimeout(this._atFallback);
+            this._atFallback = undefined;
+          }
+          this._atSettleHandler = undefined;
+          setupIO();
+        };
+        this._atSettleHandler = onATSettle;
+        document.addEventListener('at-content-rendering-succeeded', onATSettle, { once: true });
+        document.addEventListener('at-content-rendering-failed', onATSettle, { once: true });
+        // Fallback: if AT events never fire, set up IO after 4s so video still works
+        this._atFallback = setTimeout(onATSettle, 4000) as unknown as number;
+      } else {
+        this._cleanAndCreateObserverIntersection({ create: true });
+      }
     }
 
     // initializing the MutationObserver to observe for changes in the direction mode
@@ -432,7 +472,24 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    if (this._atSettleHandler) {
+      document.removeEventListener('at-content-rendering-succeeded', this._atSettleHandler);
+      document.removeEventListener('at-content-rendering-failed', this._atSettleHandler);
+      this._atSettleHandler = undefined;
+    }
+    if (this._atFallback) {
+      clearTimeout(this._atFallback);
+      this._atFallback = undefined;
+    }
     this._cleanAndCreateObserverIntersection();
+    const { embeddedVideos = {} } = this;
+    Object.values(embeddedVideos).forEach((player: any) => {
+      try {
+        player?.destroy?.();
+      } catch (error) {
+        // Ignore errors from destroy.
+      }
+    });
   }
 
   updated(changedProperties) {
