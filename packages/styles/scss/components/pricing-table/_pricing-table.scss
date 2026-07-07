@@ -349,13 +349,6 @@
 
     display: block;
     margin-block-start: $spacing-06;
-
-    .#{$prefix}--btn svg {
-      position: absolute;
-      inset-block-start: 50%;
-      inset-inline-end: $spacing-05;
-      transform: translateY(-50%);
-    }
   }
 
   .#{$prefix}--pricing-table-annotation-toggle,
