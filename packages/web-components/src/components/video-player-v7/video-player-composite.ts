@@ -52,6 +52,39 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   _embedMedia?: (videoId: string) => Promise<any>;
 
   /**
+   * Listener registered on `at-content-rendering-succeeded/failed` while waiting
+   * for Adobe Target to settle before setting up the IntersectionObserver.
+   * Stored so it can be removed in `disconnectedCallback`.
+   */
+  private _atSettleHandler?: () => void;
+
+  /**
+   * Fallback timer ID used when Adobe Target never fires its settle events.
+   */
+  private _atFallback?: number;
+
+  /**
+   * Observer watching for removal of the AEP Web SDK (alloy) prehiding style
+   * (`<style id="alloy-prehiding">`), which signals that personalization
+   * decisions have been rendered. Used instead of the at.js
+   * `at-content-rendering-*` events on pages running alloy, which never fires
+   * those events.
+   */
+  private _atPrehidingObserver?: MutationObserver;
+
+  /**
+   * Placeholder divs parked in `document.body` by `_embedVideoImpl` (mixed in
+   * by the container) while a Kaltura embed is queued or in flight. Tracked so
+   * `disconnectedCallback` can remove them: once removed, the
+   * `getElementById(targetId)` guard in `legacyPromiseKWidget` returns null
+   * and the dead embed drains from `_ibmKalturaEmbedQueue` immediately instead
+   * of fully embedding a hidden orphaned player.
+   *
+   * @internal
+   */
+  _ibmPendingEmbedDivs?: Set<HTMLElement>;
+
+  /**
    * The placeholder for `_setAutoplayPreference()` Redux action that may be mixed in.
    */
   // @ts-ignore
@@ -135,10 +168,20 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    */
   private _intersectionIntoViewHandler(entries: IntersectionObserverEntry[]) {
     const { videoId } = this;
-    entries.forEach((entry) => {
+    entries.forEach(async (entry) => {
       if (entry.isIntersecting && this._getAutoplayPreference() !== false) {
-        this._embedMedia?.(videoId);
-        this.playAllVideos();
+        await this.updateComplete;
+        this._embedMedia?.(videoId)
+          ?.then?.((player) => {
+            if (player) {
+              this.playAllVideos();
+            }
+          })
+          ?.catch?.((err) => {
+            if (process.env.NODE_ENV !== 'production') {
+              console.warn('[VP-DEBUG] embed failed in IO handler', err);
+            }
+          });
       }
     });
   }
@@ -410,7 +453,79 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
     }
 
     if (this.intersectionMode) {
-      this._cleanAndCreateObserverIntersection({ create: true });
+      // alloy never fires at.js events, so we watch for #alloy-prehiding
+      // removal instead; classic at.js fires at-content-rendering-*. No
+      // signal pending means no personalization is coming, so skip the wait.
+      const prehidingEl = document.getElementById('alloy-prehiding');
+      const atObj = (window as any).adobe?.target;
+      const realAtJs =
+        !!atObj &&
+        (typeof atObj.getOffers === 'function' ||
+          typeof atObj.getOffer === 'function' ||
+          typeof atObj.applyOffers === 'function');
+      if (prehidingEl || realAtJs) {
+        // Warm the Kaltura SDK while we wait for AT to settle, so loader.js
+        // downloads in parallel with the AT defer instead of after it.
+        KalturaPlayerAPI.checkScript().catch(() => {});
+        let settled = false;
+        const setupIO = () =>
+          this._cleanAndCreateObserverIntersection({ create: true });
+        const onATSettle = () => {
+          if (settled) {
+            return;
+          }
+          settled = true;
+          document.removeEventListener(
+            'at-content-rendering-succeeded',
+            onATSettle
+          );
+          document.removeEventListener(
+            'at-content-rendering-failed',
+            onATSettle
+          );
+          if (this._atPrehidingObserver) {
+            this._atPrehidingObserver.disconnect();
+            this._atPrehidingObserver = undefined;
+          }
+          if (this._atFallback) {
+            clearTimeout(this._atFallback);
+            this._atFallback = undefined;
+          }
+          this._atSettleHandler = undefined;
+          setupIO();
+        };
+        this._atSettleHandler = onATSettle;
+        document.addEventListener(
+          'at-content-rendering-succeeded',
+          onATSettle,
+          { once: true }
+        );
+        document.addEventListener('at-content-rendering-failed', onATSettle, {
+          once: true,
+        });
+        if (prehidingEl) {
+          // alloy: settle when the prehiding style is removed from the DOM.
+          this._atPrehidingObserver = new MutationObserver(() => {
+            if (!document.getElementById('alloy-prehiding')) {
+              onATSettle();
+            }
+          });
+          this._atPrehidingObserver.observe(
+            prehidingEl.parentNode || document.documentElement,
+            { childList: true }
+          );
+          // Guard against a race: removed between getElementById and observe().
+          if (!document.getElementById('alloy-prehiding')) {
+            onATSettle();
+          }
+        }
+        // Fallback: if no settle signal ever arrives, set up IO after 4s so video still works
+        if (!settled) {
+          this._atFallback = setTimeout(onATSettle, 4000) as unknown as number;
+        }
+      } else {
+        this._cleanAndCreateObserverIntersection({ create: true });
+      }
     }
 
     // initializing the MutationObserver to observe for changes in the direction mode
@@ -432,7 +547,41 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    if (this._atSettleHandler) {
+      document.removeEventListener(
+        'at-content-rendering-succeeded',
+        this._atSettleHandler
+      );
+      document.removeEventListener(
+        'at-content-rendering-failed',
+        this._atSettleHandler
+      );
+      this._atSettleHandler = undefined;
+    }
+    if (this._atPrehidingObserver) {
+      this._atPrehidingObserver.disconnect();
+      this._atPrehidingObserver = undefined;
+    }
+    if (this._atFallback) {
+      clearTimeout(this._atFallback);
+      this._atFallback = undefined;
+    }
+    // Removing these placeholders makes legacyPromiseKWidget's getElementById
+    // guard fail fast, draining dead embeds from the queue instead of
+    // blocking the next one behind a hidden orphaned player.
+    if (this._ibmPendingEmbedDivs) {
+      this._ibmPendingEmbedDivs.forEach((div) => div.remove());
+      this._ibmPendingEmbedDivs.clear();
+    }
     this._cleanAndCreateObserverIntersection();
+    const { embeddedVideos = {} } = this;
+    Object.values(embeddedVideos).forEach((player: any) => {
+      try {
+        player?.destroy?.();
+      } catch (error) {
+        // Ignore errors from destroy.
+      }
+    });
   }
 
   updated(changedProperties) {
