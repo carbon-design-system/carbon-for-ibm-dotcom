@@ -445,15 +445,16 @@ class KalturaPlayerAPIV7 {
           const loaderAlreadyInjected = !!document.querySelector(
             `script[src="${loaderUrl}"]`
           );
-          if (root._ibmKalturaScriptLoading === false && !loaderAlreadyInjected) {
+          if (
+            root._ibmKalturaScriptLoading === false &&
+            !loaderAlreadyInjected
+          ) {
             root._ibmKalturaScriptLoading = undefined;
             if (root.IBM?.Mediacenter) {
               delete root.IBM.Mediacenter;
             }
           }
-          await new Promise((res, rej) =>
-            _scriptReady(res, rej, envKey)
-          );
+          await new Promise((res, rej) => _scriptReady(res, rej, envKey));
 
           // Re-check after the async wait — the element may have been removed
           // while _scriptReady was retrying (e.g. during a Target mbox swap).

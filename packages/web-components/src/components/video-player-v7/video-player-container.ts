@@ -117,6 +117,17 @@ export const C4DVideoPlayerContainerMixin = <
     _requestsEmbedVideo: { [videoId: string]: Promise<any> } = {};
 
     /**
+     * Placeholder divs parked in `document.body` by `_embedVideoImpl` while a
+     * Kaltura embed is queued or in flight. `disconnectedCallback` (in the
+     * composite) removes them so dead embeds drain from
+     * `_ibmKalturaEmbedQueue` immediately after this component is removed
+     * (e.g. when Adobe Target swaps DC for an XF).
+     *
+     * @internal
+     */
+    _ibmPendingEmbedDivs?: Set<HTMLElement>;
+
+    /**
      * Custom video name
      */
     @property({ type: String, attribute: 'customvideoname' })
@@ -311,25 +322,35 @@ export const C4DVideoPlayerContainerMixin = <
           'Cannot find the video player component to put the video content into.'
         );
       }
-      // Append the div to document.body (hidden off-screen) instead of videoPlayer.
-      // This prevents Lit's renderLightDOM() from detaching the div during the
-      // async _ibmKalturaEmbedQueue wait (which can be 6-20s). If the div is
-      // inside c4d-video-player-v7 when Lit re-renders after a Redux dispatch,
-      // the element is replaced and the div is detached — causing
-      // legacyPromiseKWidget's getElementById(playerId) to return null, so
-      // the embed returns null and the video stays on the thumbnail slot.
-      // By keeping the div in document.body, getElementById always finds it.
+      // Parked in document.body, not videoPlayer, so Lit's renderLightDOM()
+      // can't detach it mid-embed (the queue wait can run 6-20s) and orphan
+      // legacyPromiseKWidget's getElementById(playerId) lookup.
       div.style.cssText = 'position:fixed;left:-9999px;visibility:hidden';
       document.body.appendChild(div);
+      // Tracked so disconnectedCallback can remove it if this component is
+      // torn down mid-queue, freeing the embed instead of leaving it to
+      // finish as a hidden orphan.
+      (this._ibmPendingEmbedDivs ??= new Set()).add(div);
 
       let embedVideoHandle;
       try {
-        embedVideoHandle = await KalturaPlayerAPI.embedMedia(
-          videoId,
-          playerId,
-          this._getPlayerOptions()
-        );
-        const { width, height } = await KalturaPlayerAPI.api(videoId);
+        // Run the embed and the metadata fetch in parallel — saves a round-trip.
+        const [handle, { width, height }] = await Promise.all([
+          KalturaPlayerAPI.embedMedia(
+            videoId,
+            playerId,
+            this._getPlayerOptions()
+          ),
+          KalturaPlayerAPI.api(videoId),
+        ]);
+        embedVideoHandle = handle;
+
+        // If we were disconnected during the wait, discard the embed.
+        if (!this.isConnected) {
+          div.remove();
+          this._ibmPendingEmbedDivs?.delete(div);
+          return null;
+        }
 
         // Move the div (now containing Kaltura's iframe) into the video player.
         // Re-fetch _videoPlayer in case Lit re-rendered and replaced the element
@@ -337,9 +358,16 @@ export const C4DVideoPlayerContainerMixin = <
         const currentVideoPlayer = this._videoPlayer ?? videoPlayer;
         div.style.cssText = '';
         currentVideoPlayer.appendChild(div);
+        this._ibmPendingEmbedDivs?.delete(div);
 
-        currentVideoPlayer.style.setProperty('--native-file-width', `${width}px`);
-        currentVideoPlayer.style.setProperty('--native-file-height', `${height}px`);
+        currentVideoPlayer.style.setProperty(
+          '--native-file-width',
+          `${width}px`
+        );
+        currentVideoPlayer.style.setProperty(
+          '--native-file-height',
+          `${height}px`
+        );
         currentVideoPlayer.style.setProperty(
           '--native-file-aspect-ratio',
           `${width} / ${height}`
@@ -349,6 +377,7 @@ export const C4DVideoPlayerContainerMixin = <
         if (div.parentElement) {
           div.remove();
         }
+        this._ibmPendingEmbedDivs?.delete(div);
         throw error;
       }
 
