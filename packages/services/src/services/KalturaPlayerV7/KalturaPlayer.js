@@ -240,6 +240,15 @@ function _scriptReady(
     // the player assignment synchronously when loader.js sets IBM.Mediacenter.player.
     _trapPlayerReady(resolve, reject);
     _loadScript(environment);
+    // Also poll as a backstop: if IBM.Mediacenter gets replaced wholesale instead
+    // of mutated in place, the trap above is orphaned and would never fire.
+    if (attempt < _timeoutRetries) {
+      setTimeout(() => {
+        _scriptReady(resolve, reject, environment, attempt + 1);
+      }, 100);
+    } else {
+      reject();
+    }
   }
 }
 

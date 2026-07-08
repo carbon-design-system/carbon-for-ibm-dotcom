@@ -330,7 +330,10 @@ export const C4DVideoPlayerContainerMixin = <
       // Tracked so disconnectedCallback can remove it if this component is
       // torn down mid-queue, freeing the embed instead of leaving it to
       // finish as a hidden orphan.
-      (this._ibmPendingEmbedDivs ??= new Set()).add(div);
+      if (!this._ibmPendingEmbedDivs) {
+        this._ibmPendingEmbedDivs = new Set();
+      }
+      this._ibmPendingEmbedDivs.add(div);
 
       let embedVideoHandle;
       try {
