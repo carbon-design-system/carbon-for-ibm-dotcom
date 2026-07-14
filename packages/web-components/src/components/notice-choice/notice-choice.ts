@@ -188,6 +188,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: Array, attribute: false })
   supportedBusinessPartners: string[] = [];
 
+  @property({ type: Object, attribute: false })
+  emailPrefType = 'N';
+
   pwsFieldsMap = new Map<string, string>([
     ['NC_HIDDEN_EMAIL', 'permission_email'],
     ['NC_HIDDEN_PHONE', 'permission_phone'],
@@ -398,6 +401,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.isLoading = false;
         this.emailValid = true;
         const { email: emailStatus, lastUpdated } = data;
+        this.emailPrefType = emailStatus;
         const annualPeriodDate = new Date(lastUpdated);
 
         const isValidDate = !isNaN(annualPeriodDate.getTime());
@@ -714,7 +718,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       <span part="container">
         <div
           class="${prefix}--form-item cds--checkbox-wrapper"
-          part="checkbox-wrapper">
+          part="checkbox-wrapper"
+        >
           <input
             type="checkbox"
             class="${prefix}--checkbox"
@@ -722,15 +727,18 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             id="${checkboxId}"
             name="${checkboxId}"
             ?checked="${checked}"
-            @change="${this.checkCombineEmailPhoneBoxChange}" />
+            @change="${this.checkCombineEmailPhoneBoxChange}"
+          />
           <label
             for="${checkboxId}"
             class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${checkboxId}"
-            part="checkbox-label">
+            part="checkbox-label"
+          >
             <span
               class="${prefix}--checkbox-label-text"
               part="checkbox-label-text"
-              dir="auto">
+              dir="auto"
+            >
               ${unsafeHTML(preText)}
             </span>
           </label>
@@ -894,7 +902,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           ? html`<span
               class="nc-error"
               part="error"
-              style="color:#da1e28;font-size:.75rem">
+              style="color:#da1e28;font-size:.75rem"
+            >
               ${checkbox.error}
             </span>`
           : null;
@@ -903,7 +912,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         <span>
           <div
             class="${prefix}--form-item bx--checkbox-wrapper"
-            part="checkbox-wrapper checkbox-wrapper--mandatory">
+            part="checkbox-wrapper checkbox-wrapper--mandatory"
+          >
             <p part=${legalTextName} class=${legalTextName}>
               <input
                 type="checkbox"
@@ -911,17 +921,20 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                 part="checkbox checkbox--mandatory"
                 id="${checkbox.mrs_field}"
                 name="${checkbox.mrs_field}"
-                @change="${this.checkBoxLegalChange}" />
+                @change="${this.checkBoxLegalChange}"
+              />
               <label
                 for="${checkbox.mrs_field}"
                 class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${checkbox.mrs_field}"
                 part="checkbox-label checkbox-label--mandatory"
                 @click="${(e: Event) =>
-                  this.mandatoryCheckboxLabelClick(e, checkbox.mrs_field)}">
+                  this.mandatoryCheckboxLabelClick(e, checkbox.mrs_field)}"
+              >
                 <span
                   class="${prefix}--checkbox-label-text"
                   part="checkbox-label-text checkbox-label-text--mandatory"
-                  dir="auto">
+                  dir="auto"
+                >
                   ${checkbox.text}
                 </span>
               </label>
@@ -991,6 +1004,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         return 'NOTICE_ONLY';
       }
 
+      if (this.emailPrefType === 'P' && !this.showCheckBox) {
+        return 'CU';
+      }
       const checkboxStatus = this.valuesForEmailPhone[key]?.checkBoxStatus;
 
       if (checkboxStatus === 'SUPPRESSION') {
@@ -1012,6 +1028,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       let hiddenValue =
         this.values[key]?.checkBoxStatus ??
         (this.values.EMAIL ? 'PERMISSION' : 'SUPPRESSION');
+
+      if (this.emailPrefType === 'P' && !this.showCheckBox) {
+        hiddenValue = 'PERMISSION';
+      }
 
       if (typeof checked !== 'object') {
         this.combinedEmailPhonePrechecked = !!checked;
@@ -1107,7 +1127,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         <cds-skeleton-text
           linecount="3"
           width="100%"
-          paragraph="true"></cds-skeleton-text>
+          paragraph="true"
+        ></cds-skeleton-text>
       </div>`;
     }
 
