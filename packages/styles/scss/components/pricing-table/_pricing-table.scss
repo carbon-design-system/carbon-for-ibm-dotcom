@@ -39,6 +39,8 @@
 
     overflow-y: hidden;
 
+    padding-block-end: 15px;
+
     .#{$c4d-prefix}-pricing-table-sentinel {
       position: relative;
       display: block;
@@ -129,6 +131,19 @@
       inset-block-end: 0;
       inset-inline-end: 0;
     }
+  }
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  :host(c4d-pricing-table-group) tr[part~='row--group-title'] {
+    box-shadow: 0 -3px 0 #e8daff;
+  }
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  :host(c4d-pricing-table-header-cell) div[part~='heading-container'] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    block-size: 100%;
   }
 
   :host(#{$c4d-prefix}-pricing-table-group) tr {
@@ -383,8 +398,11 @@
   }
 
   :host([last-row]) {
-    ::slotted(.highlighted) {
+    ::slotted(.last-row-highlight) {
+      position: relative;
+      z-index: 0;
       border-radius: 0 0 10px 10px;
+      margin-block-end: -10px;
     }
   }
 }
