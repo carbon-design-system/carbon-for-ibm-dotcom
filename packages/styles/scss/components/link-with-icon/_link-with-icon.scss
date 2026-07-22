@@ -53,8 +53,8 @@
     }
 
     &:hover {
-      svg[part='test'],
-      ::slotted(svg[slot='icon'][part='test']) {
+      svg,
+      ::slotted(svg[slot='icon']) {
         transform: scale(1.1);
       }
     }
