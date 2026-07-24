@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.56.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.3...@carbon/ibmdotcom-web-components@2.56.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **pricing-table:** 11875 ux and qa findings recommendations ([#12569](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12569)) ([e8313cb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e8313cb45918508471f83d7055ba3126924503ab)), closes [comment-tabpanel#comment-29836670](https://github.com/comment-tabpanel/issues/comment-29836670) [comment-tabpanel#comment-29862732](https://github.com/comment-tabpanel/issues/comment-29862732) [comment-tabpanel#comment-29961245](https://github.com/comment-tabpanel/issues/comment-29961245)
+
+
+
+
+
 ## [2.55.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.2...@carbon/ibmdotcom-web-components@2.55.3) (2026-07-10)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
