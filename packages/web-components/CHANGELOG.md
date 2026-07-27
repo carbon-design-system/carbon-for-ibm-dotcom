@@ -3,6 +3,114 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.56.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.3...@carbon/ibmdotcom-web-components@2.56.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **pricing-table:** 11875 ux and qa findings recommendations ([#12569](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12569)) ([e8313cb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e8313cb45918508471f83d7055ba3126924503ab)), closes [comment-tabpanel#comment-29836670](https://github.com/comment-tabpanel/issues/comment-29836670) [comment-tabpanel#comment-29862732](https://github.com/comment-tabpanel/issues/comment-29862732) [comment-tabpanel#comment-29961245](https://github.com/comment-tabpanel/issues/comment-29961245)
+
+
+
+
+
+## [2.55.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.2...@carbon/ibmdotcom-web-components@2.55.3) (2026-07-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [2.55.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.1...@carbon/ibmdotcom-web-components@2.55.2) (2026-07-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [2.55.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.0...@carbon/ibmdotcom-web-components@2.55.1) (2026-07-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.55.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.2...@carbon/ibmdotcom-web-components@2.55.0) (2026-06-30)
+
+
+### Features
+
+* **video-player:** add cta handling to video-player lightbox mode ([#12556](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12556)) ([5b5e685](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5b5e685cd7cd3560f1cf8b8aa75752df9525197f))
+
+
+
+
+
+## [2.54.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.1...@carbon/ibmdotcom-web-components@2.54.2) (2026-06-23)
+
+
+### Bug Fixes
+
+* **video-player:** add preventScroll to focus call after Kaltura embed ([#12551](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12551)) ([07eaad4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07eaad4d40cd68f2a01b4b25ddd0e1db0859e6f9)), closes [#8077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8077)
+
+
+
+
+
+## [2.54.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.0...@carbon/ibmdotcom-web-components@2.54.1) (2026-06-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.53.1...@carbon/ibmdotcom-web-components@2.54.0) (2026-06-12)
+
+
+### Bug Fixes
+
+* **top-nav-menu:** allow platformUrl to be inputted as an attribute ([#12538](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12538)) ([0ea359e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ea359ed79f3325bcb4aee2fcae3b80175bf0614))
+
+
+
+
+
+## [2.53.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.53.0...@carbon/ibmdotcom-web-components@2.53.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* **Videoplayer:** Fix container div to fit its parent height ([#12531](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12531)) ([990585d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/990585dcda3ced094ecc39c3a895c46e1f506251))
+
+
+
+
+
+# [2.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.52.0...@carbon/ibmdotcom-web-components@2.53.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/layout to v11.52.0 ([#12505](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12505)) ([77cdae1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77cdae19e27e3dd7b4acb47a9877ed5ec4065cc0))
+* **deps:** update dependency @carbon/motion to v11.45.0 ([#12519](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12519)) ([ea7f0ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea7f0ee812da2b4eae359ff95fc5cd2e8253ad25))
+* **stories:** kaltura-player ambient story quick fix ([#12489](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12489)) ([74b7904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/74b7904e7ab3bf562f181310ff2dc0e2e0777112))
+
+
+
+
+
+# [2.52.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.51.0...@carbon/ibmdotcom-web-components@2.52.0) (2026-05-15)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [2.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.51.0-rc.0...@carbon/ibmdotcom-web-components@2.51.0) (2026-05-04)
 
 

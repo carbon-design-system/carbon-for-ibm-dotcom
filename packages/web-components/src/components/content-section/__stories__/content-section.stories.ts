@@ -101,9 +101,9 @@ export const Default = (args) => {
               <c4d-content-block-copy size="sm"
                 >${blockCopy}</c4d-content-block-copy
               >
-              <c4d-video-player-container
+              <c4d-video-player-container-v7
                 slot="media"
-                video-id="0_ibuqxqbe"></c4d-video-player-container>
+                video-id="0_ibuqxqbe"></c4d-video-player-container-v7>
               <c4d-text-cta
                 slot="footer"
                 cta-type="jump"

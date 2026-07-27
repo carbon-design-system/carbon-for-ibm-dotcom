@@ -213,8 +213,8 @@ export const tocContent = html`
         ut aliquip ex ea commodo consequat.
       </c4d-content-block-copy>
       <c4d-leadspace-block-media>
-        <c4d-video-player-container
-          video-id="0_ibuqxqbe"></c4d-video-player-container>
+        <c4d-video-player-container-v7
+          video-id="0_ibuqxqbe"></c4d-video-player-container-v7>
       </c4d-leadspace-block-media>
       <c4d-link-list type="end">
         <c4d-link-list-heading>Featured products</c4d-link-list-heading>

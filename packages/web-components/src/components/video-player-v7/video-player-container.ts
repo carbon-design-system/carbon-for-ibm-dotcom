@@ -21,7 +21,7 @@ import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.
 import {
   MediaData,
   MediaPlayerAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPIv7';
 import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPIv7.js';
 import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPIv7';
 import { Constructor } from '../../globals/defs';
@@ -117,6 +117,17 @@ export const C4DVideoPlayerContainerMixin = <
     _requestsEmbedVideo: { [videoId: string]: Promise<any> } = {};
 
     /**
+     * Placeholder divs parked in `document.body` by `_embedVideoImpl` while a
+     * Kaltura embed is queued or in flight. `disconnectedCallback` (in the
+     * composite) removes them so dead embeds drain from
+     * `_ibmKalturaEmbedQueue` immediately after this component is removed
+     * (e.g. when Adobe Target swaps DC for an XF).
+     *
+     * @internal
+     */
+    _ibmPendingEmbedDivs?: Set<HTMLElement>;
+
+    /**
      * Custom video name
      */
     @property({ type: String, attribute: 'customvideoname' })
@@ -127,6 +138,36 @@ export const C4DVideoPlayerContainerMixin = <
      */
     @property()
     lc = '';
+
+    /**
+     * Stored CTA element for forwarding to lightbox
+     */
+    @property({ attribute: false })
+    ctaElement?: HTMLElement | null;
+
+    /**
+     * Captures and removes the CTA element from light DOM
+     * @returns The captured CTA element or null
+     */
+    _captureCTA(): HTMLElement | null {
+      const ctaElement = this.querySelector('[slot="cta"]');
+      if (ctaElement && ctaElement.parentNode) {
+        this.ctaElement = ctaElement.parentNode.removeChild(
+          ctaElement
+        ) as HTMLElement;
+        return this.ctaElement;
+      }
+      return null;
+    }
+
+    /**
+     * Returns the CTA element to the container
+     */
+    _returnCTA(): void {
+      if (this.ctaElement) {
+        this.appendChild(this.ctaElement);
+      }
+    }
 
     /**
      * Sets the state that the API call for embedding the video for the given video ID is in progress.
@@ -218,7 +259,6 @@ export const C4DVideoPlayerContainerMixin = <
       let playerOptions: any = {};
       const autoplayPreference = this._getAutoplayPreference();
 
-      // GET BACK HERE
       switch (true) {
         case autoPlay:
           playerOptions = {
@@ -282,25 +322,75 @@ export const C4DVideoPlayerContainerMixin = <
           'Cannot find the video player component to put the video content into.'
         );
       }
-      videoPlayer.appendChild(div);
+      // Parked in document.body, not videoPlayer, so Lit's renderLightDOM()
+      // can't detach it mid-embed (the queue wait can run 6-20s) and orphan
+      // legacyPromiseKWidget's getElementById(playerId) lookup.
+      div.style.cssText = 'position:fixed;left:-9999px;visibility:hidden';
+      document.body.appendChild(div);
+      // Tracked so disconnectedCallback can remove it if this component is
+      // torn down mid-queue, freeing the embed instead of leaving it to
+      // finish as a hidden orphan.
+      if (!this._ibmPendingEmbedDivs) {
+        this._ibmPendingEmbedDivs = new Set();
+      }
+      this._ibmPendingEmbedDivs.add(div);
 
-      const embedVideoHandle = await KalturaPlayerAPI.embedMedia(
-        videoId,
-        playerId,
-        this._getPlayerOptions()
-      );
-      const { width, height } = await KalturaPlayerAPI.api(videoId);
-      videoPlayer.style.setProperty('--native-file-width', `${width}px`);
-      videoPlayer.style.setProperty('--native-file-height', `${height}px`);
-      videoPlayer.style.setProperty(
-        '--native-file-aspect-ratio',
-        `${width} / ${height}`
-      );
+      let embedVideoHandle;
+      try {
+        // Run the embed and the metadata fetch in parallel — saves a round-trip.
+        const [handle, { width, height }] = await Promise.all([
+          KalturaPlayerAPI.embedMedia(
+            videoId,
+            playerId,
+            this._getPlayerOptions()
+          ),
+          KalturaPlayerAPI.api(videoId),
+        ]);
+        embedVideoHandle = handle;
 
-      doc!.getElementById(playerId)!.dataset.videoId = videoId;
+        // If we were disconnected during the wait, discard the embed.
+        if (!this.isConnected) {
+          div.remove();
+          this._ibmPendingEmbedDivs?.delete(div);
+          return null;
+        }
+
+        // Move the div (now containing Kaltura's iframe) into the video player.
+        // Re-fetch _videoPlayer in case Lit re-rendered and replaced the element
+        // while we were awaiting the embed queue.
+        const currentVideoPlayer = this._videoPlayer ?? videoPlayer;
+        div.style.cssText = '';
+        currentVideoPlayer.appendChild(div);
+        this._ibmPendingEmbedDivs?.delete(div);
+
+        currentVideoPlayer.style.setProperty(
+          '--native-file-width',
+          `${width}px`
+        );
+        currentVideoPlayer.style.setProperty(
+          '--native-file-height',
+          `${height}px`
+        );
+        currentVideoPlayer.style.setProperty(
+          '--native-file-aspect-ratio',
+          `${width} / ${height}`
+        );
+      } catch (error) {
+        // Clean up hidden div if embed failed
+        if (div.parentElement) {
+          div.remove();
+        }
+        this._ibmPendingEmbedDivs?.delete(div);
+        throw error;
+      }
+
+      const playerEl = doc!.getElementById(playerId);
+      if (playerEl) {
+        playerEl.dataset.videoId = videoId;
+      }
       const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;
       if (videoEmbed) {
-        (videoEmbed as HTMLElement).focus();
+        (videoEmbed as HTMLElement).focus({ preventScroll: true });
       }
       return embedVideoHandle;
     }

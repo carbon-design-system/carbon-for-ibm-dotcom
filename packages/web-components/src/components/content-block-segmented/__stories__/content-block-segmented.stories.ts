@@ -8,7 +8,7 @@
  */
 
 import '../index';
-import '../../video-player/video-player-container';
+import '../../video-player-v7/video-player-container';
 import '../../link-list/index';
 import '../../cta/index';
 import { html } from 'lit';
@@ -72,9 +72,9 @@ const contentItemCopy =
   'elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.';
 
 const video = html`
-  <c4d-video-player-container
+  <c4d-video-player-container-v7
     slot="media"
-    video-id="0_uka1msg4"></c4d-video-player-container>
+    video-id="0_ibuqxqbe"></c4d-video-player-container-v7>
 `;
 
 const linkListItems = [

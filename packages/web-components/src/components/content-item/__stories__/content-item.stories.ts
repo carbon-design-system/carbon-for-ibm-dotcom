@@ -156,10 +156,10 @@ export const Default = (args) => {
                 default-src="${imgLg1x1}"></c4d-image>
             `
           : mediaType === 'video'
-          ? html`<c4d-video-player-container
+          ? html`<c4d-video-player-container-v7
               slot="media"
               video-id="0_ibuqxqbe"
-              hide-caption></c4d-video-player-container>`
+              hide-caption></c4d-video-player-container-v7>`
           : ``
         : ``}
       ${type === 'logo'

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2025
+ * Copyright IBM Corp. 2022, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -169,6 +169,28 @@ class C4DPricingTable extends HostListenerMixin(
     this._getHeaderElements();
   };
 
+  protected _setLastRowHighlight(): void {
+    const rows = this.querySelectorAll(`${c4dPrefix}-pricing-table-row`);
+
+    rows.forEach((row, i) => {
+      const isLastRow = i === rows.length - 1;
+      row.toggleAttribute('last-row', isLastRow);
+
+      row.querySelectorAll('.last-row-highlight').forEach((cell) => {
+        cell.classList.remove('last-row-highlight');
+      });
+
+      if (isLastRow) {
+        const highlightedCells = row.querySelectorAll(
+          `${c4dPrefix}-pricing-table-cell.highlighted, ${c4dPrefix}-pricing-table-header-cell.highlighted`
+        );
+        highlightedCells.forEach((cell) => {
+          cell.classList.add('last-row-highlight');
+        });
+      }
+    });
+  }
+
   updated(): void {
     const { highlightColumn } = this;
 
@@ -187,6 +209,8 @@ class C4DPricingTable extends HostListenerMixin(
       `)
       );
     }
+
+    this._setLastRowHighlight();
   }
 
   connectedCallback() {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,7 @@ import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
 import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import Download20 from '@carbon/web-components/es/icons/download/20.js';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
 import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
 import PlayFilledAlt20 from '@carbon/web-components/es/icons/play--filled--alt/20.js';
 import Blog20 from '@carbon/web-components/es/icons/blog/20.js';
@@ -203,6 +203,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           >
           ${icon?.({
             class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
+            part: 'cta-icon',
           })}
         </slot>
       `;

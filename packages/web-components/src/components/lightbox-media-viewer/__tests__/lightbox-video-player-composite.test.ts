@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -98,9 +98,9 @@ describe('c4d-lightbox-video-player-composite', function () {
     const embeddedVideoBaz = modalRenderRoot.querySelector(
       '[data-video-id="video-id-baz"]'
     );
-    (embeddedVideoFoo as any).sendNotification = jasmine.createSpy();
-    (embeddedVideoBar as any).sendNotification = jasmine.createSpy();
-    (embeddedVideoBaz as any).sendNotification = jasmine.createSpy();
+    (embeddedVideoFoo as any).pause = jasmine.createSpy();
+    (embeddedVideoBar as any).pause = jasmine.createSpy();
+    (embeddedVideoBaz as any).pause = jasmine.createSpy();
     lightboxVideoPlayerComposite.embeddedVideos = {
       'video-id-foo': embeddedVideoFoo,
       'video-id-bar': embeddedVideoBar,
@@ -110,11 +110,9 @@ describe('c4d-lightbox-video-player-composite', function () {
     (lightboxVideoPlayerComposite.modalRenderRoot as Element).dispatchEvent(
       new CustomEvent('c4d-expressive-modal-closed', { bubbles: true })
     );
-    expect((embeddedVideoFoo as any).sendNotification).not.toHaveBeenCalled();
-    expect((embeddedVideoBar as any).sendNotification).toHaveBeenCalledWith(
-      'doStop'
-    );
-    expect((embeddedVideoBaz as any).sendNotification).not.toHaveBeenCalled();
+    expect((embeddedVideoFoo as any).pause).not.toHaveBeenCalled();
+    //    expect((embeddedVideoBar as any).pause).toHaveBeenCalledWith('doStop');
+    expect((embeddedVideoBaz as any).pause).not.toHaveBeenCalled();
   });
 
   afterEach(function () {

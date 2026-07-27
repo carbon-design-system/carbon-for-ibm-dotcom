@@ -56,9 +56,7 @@ export const WithVideo = (args) => {
         opacity="${ifDefined(backgroundOpacity)}">
         <c4d-video-player-container-v7
           video-id="0_ibuqxqbe"
-          auto-play
-          muted
-          playing-mode="background"></c4d-video-player-container-v7>
+          background-mode></c4d-video-player-container-v7>
       </c4d-background-media>
     </div>
   `;

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -845,16 +845,44 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @param menuItem a top level L0 menu item
    * @returns boolean
    */
+  /**
+   * Normalizes a URL by removing trailing slashes and converting to lowercase
+   * for consistent comparison.
+   */
+  protected _normalizeUrl(url: string | undefined): string {
+    if (!url) return '';
+    // Remove trailing slash and convert to lowercase for comparison
+    return url.replace(/\/$/, '').toLowerCase();
+  }
+
   protected _isActiveMenuItem(menuItem: L0MenuItem) {
     const { currentUrlPath } = this;
     const { submenu } = menuItem;
     let matchFound = false;
 
+    // Normalize current URL for comparison
+    const normalizedCurrentUrl = this._normalizeUrl(currentUrlPath);
+
+    // If current URL is empty or just a base domain, don't mark anything as active
+    if (!normalizedCurrentUrl) {
+      return false;
+    }
+
     if (!submenu) {
-      matchFound = menuItem?.url === currentUrlPath;
+      const normalizedMenuUrl = this._normalizeUrl(menuItem?.url);
+      // Only match if both URLs exist and are equal
+      matchFound = !!(
+        normalizedMenuUrl && normalizedMenuUrl === normalizedCurrentUrl
+      );
     } else if (submenu instanceof Array) {
       matchFound = Boolean(
-        (submenu as BasicLink[]).find((link) => link.url === currentUrlPath)
+        (submenu as BasicLink[]).find((link) => {
+          const normalizedLinkUrl = this._normalizeUrl(link.url);
+          // Only match if link URL exists and equals current URL
+          return (
+            normalizedLinkUrl && normalizedLinkUrl === normalizedCurrentUrl
+          );
+        })
       );
     } else if (submenu.sections) {
       const { highlights, viewAll, sections } = submenu;
@@ -892,9 +920,15 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         flattenedLinks.push(viewAll);
       }
 
-      // Check flattened list for matching URL.
+      // Check flattened list for matching URL using normalized comparison.
+      // Only match if the link URL exists and equals current URL
       matchFound = Boolean(
-        flattenedLinks.find((link) => link.url === currentUrlPath)
+        flattenedLinks.find((link) => {
+          const normalizedLinkUrl = this._normalizeUrl(link.url);
+          return (
+            normalizedLinkUrl && normalizedLinkUrl === normalizedCurrentUrl
+          );
+        })
       );
     }
 
@@ -1379,7 +1413,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * The platform url. Accepts both a string or an object with a specific URL for each locale.
    */
-  @property({ attribute: false })
+  @property()
   platformUrl?;
 
   /**

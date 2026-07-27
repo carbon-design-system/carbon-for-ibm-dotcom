@@ -68,6 +68,7 @@ export function loadSettings(env: string, onSuccess: any, onError: any) {
 export function checkEmailStatus(
   email: string,
   env: string,
+  prefType: string,
   onSuccess: (data: any) => void,
   onError: (err?: any) => void
 ) {
@@ -79,7 +80,7 @@ export function checkEmailStatus(
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email }), // sending email in request body
+    body: JSON.stringify({ email, prefType }), // sending email in request body
   })
     .then((response) => {
       if (!response.ok) {

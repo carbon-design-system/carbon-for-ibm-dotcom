@@ -14,7 +14,7 @@ import Download20 from '@carbon/web-components/es/icons/download/20.js';
 
 import '../index';
 import '../../link-list/index';
-import '../../video-player/video-player-container';
+import '../../video-player-v7/video-player-container';
 import '../../button/button';
 import imgSm16x9 from '../../../../.storybook/storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
 import imgMd16x9 from '../../../../.storybook/storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
@@ -37,8 +37,8 @@ const image = html`
 `;
 
 const video = html`
-  <c4d-video-player-container
-    video-id="0_ibuqxqbe"></c4d-video-player-container>
+  <c4d-video-player-container-v7
+    video-id="0_ibuqxqbe"></c4d-video-player-container-v7>
 `;
 
 const linkList = html`
