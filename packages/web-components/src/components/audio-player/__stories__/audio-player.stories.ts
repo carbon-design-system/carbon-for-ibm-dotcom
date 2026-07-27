@@ -23,8 +23,9 @@ export default {
 };
 
 export const Default = (args) => {
-  const { mediaId, autoPlay, muted, audioTitle, uiConfId, partnerId } = args?.['c4d-audio-player-container'] ?? {};
-  
+  const { mediaId, autoPlay, muted, audioTitle, uiConfId, partnerId } =
+    args?.['c4d-audio-player-container'] ?? {};
+
   return html`
     <c4d-audio-player-container
       media-id="${ifDefined(mediaId)}"
@@ -66,8 +67,9 @@ Default.story = {
 };
 
 export const WithAutoplay = (args) => {
-  const { mediaId, autoPlay, muted, audioTitle, uiConfId, partnerId } = args?.['c4d-audio-player-container'] ?? {};
-  
+  const { mediaId, autoPlay, muted, audioTitle, uiConfId, partnerId } =
+    args?.['c4d-audio-player-container'] ?? {};
+
   return html`
     <c4d-audio-player-container
       media-id="${ifDefined(mediaId)}"
@@ -107,7 +109,3 @@ WithAutoplay.story = {
     },
   },
 };
-
-
-
-

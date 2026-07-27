@@ -37,7 +37,7 @@ $prefix: 'c4d';
   position: relative;
   width: 100%;
   height: 100%;
-  
+
   &[hidden] {
     display: none;
   }
@@ -47,7 +47,7 @@ $prefix: 'c4d';
   position: relative;
   width: 100%;
   height: 100%;
-  
+
   // Ensure Kaltura player iframe fills container
   iframe {
     width: 100%;

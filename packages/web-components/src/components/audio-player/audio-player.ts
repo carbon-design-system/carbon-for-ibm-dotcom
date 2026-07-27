@@ -95,9 +95,7 @@ class C4DAudioPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         <slot></slot>
         ${audioTitle
           ? html`
-              <div class="${c4dPrefix}--audio-player__title">
-                ${audioTitle}
-              </div>
+              <div class="${c4dPrefix}--audio-player__title">${audioTitle}</div>
             `
           : ''}
       </div>

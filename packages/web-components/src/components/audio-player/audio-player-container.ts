@@ -195,8 +195,7 @@ export const C4DAudioPlayerContainerMixin = <
     }
 
     _getPlayerOptions() {
-      const { autoPlay, muted } =
-        this as unknown as C4DAudioPlayerComposite;
+      const { autoPlay, muted } = this as unknown as C4DAudioPlayerComposite;
 
       const audioTitle = this.audioTitle || this?.['audioTitle'];
       const autoplayPreference = this._getAutoplayPreference();
@@ -226,7 +225,7 @@ export const C4DAudioPlayerContainerMixin = <
       const doc = Object.prototype.hasOwnProperty.call(this, 'getRootNode')
         ? (this.getRootNode() as Document | ShadowRoot)
         : this.ownerDocument;
-      
+
       const { _audioPlayer: audioPlayer } = this;
       if (!audioPlayer) {
         throw new TypeError(
@@ -238,7 +237,7 @@ export const C4DAudioPlayerContainerMixin = <
       const existingWrapper = audioPlayer.querySelector(
         `[data-video-id="${mediaId}"]`
       );
-      
+
       if (existingWrapper) {
         const existingPlayer = this.embeddedVideos?.[mediaId];
         if (existingPlayer) {
@@ -248,18 +247,20 @@ export const C4DAudioPlayerContainerMixin = <
       }
 
       // Create unique player ID
-      const playerId = `audio-player-${mediaId}-${Math.random().toString(36).slice(2)}`;
-      
+      const playerId = `audio-player-${mediaId}-${Math.random()
+        .toString(36)
+        .slice(2)}`;
+
       // Create wrapper container for isolation
       const wrapper = document.createElement('div');
       wrapper.className = `${c4dPrefix}--audio-player__wrapper`;
       wrapper.dataset.videoId = mediaId;
-      
+
       // Create player div
       const div = document.createElement('div');
       div.id = playerId;
       div.className = `${c4dPrefix}--audio-player__player`;
-      
+
       // Nest div inside wrapper
       wrapper.appendChild(div);
       audioPlayer.appendChild(wrapper);
@@ -270,7 +271,7 @@ export const C4DAudioPlayerContainerMixin = <
           playerId,
           this._getPlayerOptions()
         );
-        
+
         return embedVideoHandle;
       } catch (error) {
         // Clean up on error

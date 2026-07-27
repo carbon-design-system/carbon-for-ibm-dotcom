@@ -82,7 +82,7 @@ class C4DAudioPlayerComposite extends HybridRenderMixin(
         embeddedVideos[mediaId].pause();
         this.isPlaying = false;
       }
-      
+
       if (this._setAutoplayPreference) {
         this._setAutoplayPreference(isPlaying);
       }
@@ -170,7 +170,7 @@ class C4DAudioPlayerComposite extends HybridRenderMixin(
         this._loadVideoData?.(mediaId);
         // Auto-embed for audio players
         this._embedMedia?.(mediaId);
-        
+
         if (autoPlay && this.isPlaying) {
           // Trigger autoplay after embed
           setTimeout(() => {
@@ -186,14 +186,8 @@ class C4DAudioPlayerComposite extends HybridRenderMixin(
   }
 
   renderLightDOM() {
-    const {
-      audioTitle,
-      mediaData = {},
-      mediaId,
-      uiConfId,
-      partnerId,
-    } = this;
-    
+    const { audioTitle, mediaData = {}, mediaId, uiConfId, partnerId } = this;
+
     const { [mediaId]: currentMediaData = {} as MediaData } = mediaData;
     const { name } = currentMediaData;
     const title = audioTitle || name;
