@@ -222,10 +222,6 @@ export const C4DAudioPlayerContainerMixin = <
      * @private
      */
     async _embedVideoImpl(mediaId: string) {
-      const doc = Object.prototype.hasOwnProperty.call(this, 'getRootNode')
-        ? (this.getRootNode() as Document | ShadowRoot)
-        : this.ownerDocument;
-
       const { _audioPlayer: audioPlayer } = this;
       if (!audioPlayer) {
         throw new TypeError(
@@ -304,13 +300,6 @@ export const C4DAudioPlayerContainerMixin = <
       }
       return promiseEmbedVideo;
     };
-
-    /**
-     * The audio player element.
-     */
-    protected get _audioPlayer() {
-      return this.querySelector(`${c4dPrefix}-audio-player`);
-    }
 
     prefersAutoplayStorageKey = `${c4dPrefix}-audio-player-prefers-autoplay`;
   }

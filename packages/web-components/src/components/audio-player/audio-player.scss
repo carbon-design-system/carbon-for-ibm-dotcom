@@ -13,30 +13,32 @@ $prefix: 'c4d';
 
 :host(#{$prefix}-audio-player) {
   display: block;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .#{$prefix}--audio-player__container {
   position: relative;
-  width: 100%;
-  min-height: 120px;
-  background-color: $layer-01;
+  overflow: hidden;
   border: 1px solid $border-subtle-01;
   border-radius: 4px;
-  overflow: hidden;
+  background-color: $layer-01;
+  inline-size: 100%;
+  min-block-size: 120px;
 }
 
 .#{$prefix}--audio-player__title {
   padding: $spacing-05;
+  border-block-end: 1px solid $border-subtle-01;
+
   @include type-style('body-compact-01');
+
   color: $text-primary;
-  border-bottom: 1px solid $border-subtle-01;
 }
 
 .#{$prefix}--audio-player__wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 
   &[hidden] {
     display: none;
@@ -45,26 +47,26 @@ $prefix: 'c4d';
 
 .#{$prefix}--audio-player__player {
   position: relative;
-  width: 100%;
-  height: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 
   // Ensure Kaltura player iframe fills container
   iframe {
-    width: 100%;
-    height: 100%;
     border: 0;
+    block-size: 100%;
+    inline-size: 100%;
   }
 }
 
 // Dark theme support
 :host(#{$prefix}-audio-player[theme='dark']) {
   .#{$prefix}--audio-player__container {
-    background-color: $layer-01;
     border-color: $border-subtle-01;
+    background-color: $layer-01;
   }
 
   .#{$prefix}--audio-player__title {
+    border-block-end-color: $border-subtle-01;
     color: $text-primary;
-    border-bottom-color: $border-subtle-01;
   }
 }
