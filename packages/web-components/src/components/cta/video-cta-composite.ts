@@ -126,9 +126,9 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   @HostListener('eventRunAction')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRunAction(event: CustomEvent) {
-    const { ctaType, href, videoName, videoDescription, ctaContents } =
+    const { ctaType, href, videoName, videoDescription, ctaContents, theme } =
       event.detail;
-    const { selectorLightboxVideoPlayerComposite } = this
+    const { selectorVideoPlayer, selectorLightboxVideoPlayerComposite } = this
       .constructor as typeof C4DVideoCTAComposite;
     if (ctaType === CTA_TYPE.VIDEO) {
       this._activeVideoId = href;
@@ -142,6 +142,12 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
           selectorLightboxVideoPlayerComposite
         ) as C4DLightboxVideoPlayerComposite;
         videoPlayerComposite.ctaElement = this._ctaContents;
+      }
+      if (theme) {
+        const lightboxVideoPlayer = (
+          this.modalRenderRoot as Element
+        ).querySelector(selectorVideoPlayer) as Element;
+        lightboxVideoPlayer.setAttribute('theme', theme);
       }
     }
   }
