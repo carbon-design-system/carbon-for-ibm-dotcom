@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -219,6 +219,28 @@ export const Default = (args) => {
           </c4d-cta>
         `}
   `;
+};
+
+export const VideoWithSlottedCTA = () => {
+  return html`
+    <c4d-cta
+      cta-style="text"
+      cta-type="video"
+      href="0_ibuqxqbe"
+      video-name="Meet Mombo"
+      video-description="This is a custom video description with CTA buttons that will be forwarded to the lightbox.">
+      Video Link
+      <div slot="cta">
+        <c4d-button href="https://example.com" cta-type="local">
+          Follow Link
+        </c4d-button>
+      </div>
+    </c4d-cta>
+  `;
+};
+
+VideoWithSlottedCTA.story = {
+  parameters: {},
 };
 
 Default.story = {

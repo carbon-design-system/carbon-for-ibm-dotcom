@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -126,11 +126,23 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   @HostListener('eventRunAction')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRunAction(event: CustomEvent) {
-    const { ctaType, href, videoName, videoDescription } = event.detail;
+    const { ctaType, href, videoName, videoDescription, ctaContents } =
+      event.detail;
+    const { selectorLightboxVideoPlayerComposite } = this
+      .constructor as typeof C4DVideoCTAComposite;
     if (ctaType === CTA_TYPE.VIDEO) {
       this._activeVideoId = href;
       this._videoName = videoName;
       this._videoDescription = videoDescription;
+      this._ctaContents = ctaContents;
+      if (ctaContents) {
+        const videoPlayerComposite = (
+          this.modalRenderRoot as Element
+        ).querySelector(
+          selectorLightboxVideoPlayerComposite
+        ) as C4DLightboxVideoPlayerComposite;
+        videoPlayerComposite.ctaElement = this._ctaContents;
+      }
     }
   }
 
@@ -160,6 +172,12 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   @property({ attribute: false })
   mediaData?: { [videoId: string]: MediaData };
 
+  /**
+   *The CTA slotted content
+   */
+  @property()
+  _ctaContents?: HTMLElement;
+
   disconnectedCallback() {
     if (this._hCloseModal) {
       this._hCloseModal = this._hCloseModal.release();
@@ -178,6 +196,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
         selectorLightboxVideoPlayerComposite
       ) as C4DLightboxVideoPlayerComposite;
       // Manually hooks the event listeners on the modal render root to make the event names configurable
+      videoPlayerComposite.ctaElement = this._ctaContents;
       this._hCloseModal = on(
         videoPlayerComposite.modalRenderRoot,
         (this.constructor as typeof C4DVideoCTAComposite).eventCloseLightbox,
@@ -197,6 +216,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
       _activeVideoId: activeVideoId,
       _embedMedia: embedMedia,
       _videoDescription: videoDescription,
+      _ctaContents: ctaContents,
     } = this;
     return html`
       <c4d-lightbox-video-player-composite
@@ -208,6 +228,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
         .embeddedVideos="${ifDefined(embeddedVideos)}"
         .mediaData="${ifDefined(mediaData)}"
         ._embedMedia="${ifDefined(embedMedia)}">
+        ${ctaContents}
       </c4d-lightbox-video-player-composite>
     `;
   }
