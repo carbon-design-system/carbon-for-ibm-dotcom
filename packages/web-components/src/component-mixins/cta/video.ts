@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,7 +43,14 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     _handleClick(event: MouseEvent) {
       this.focus();
-      const { ctaType, disabled, href, videoName, videoDescription } = this;
+      const {
+        ctaType,
+        disabled,
+        href,
+        videoName,
+        videoDescription,
+        ctaContents,
+      } = this;
       if (ctaType === CTA_TYPE.VIDEO) {
         event.preventDefault(); // Stop following the link
       }
@@ -59,6 +66,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
               ctaType,
               videoName,
               videoDescription,
+              ctaContents,
             },
           })
         );
@@ -117,14 +125,25 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     abstract videoThumbnailUrl?: never | string;
 
     /**
+     * The HTML element of the cta slotted content container
+     */
+    abstract ctaContents?: never | HTMLElement;
+
+    /**
      * Handles `.updated()` method of `lit-element`.
      */
     updated(changedProperties) {
       // Declaring this mixin as it extends `LitElement` seems to cause a TS error
       // @ts-ignore
       super.updated(changedProperties);
-      const { ctaType, videoName, videoDescription, href, videoDuration } =
-        this;
+      const {
+        ctaType,
+        videoName,
+        videoDescription,
+        href,
+        videoDuration,
+        ctaContents,
+      } = this;
       const { eventRequestVideoData } = this
         .constructor as typeof VideoCTAMixinImpl;
       if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
@@ -138,6 +157,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
                 href,
                 videoName,
                 videoDescription,
+                ctaContents,
               },
             })
           );
