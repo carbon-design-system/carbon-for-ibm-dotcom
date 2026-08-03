@@ -89,7 +89,14 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @param event The event.
      */
     _handleClick(event: MouseEvent) {
-      const { ctaType, disabled, href, videoDescription, videoName } = this;
+      const {
+        ctaType,
+        disabled,
+        href,
+        videoDescription,
+        videoName,
+        ctaContents,
+      } = this;
 
       if (ctaType === CTA_TYPE.VIDEO) {
         event.preventDefault(); // Stop following the link
@@ -107,6 +114,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
               ctaType,
               videoName,
               videoDescription,
+              ctaContents,
             },
           })
         );
@@ -173,6 +181,12 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     videoName?: string;
 
     /**
+     *The CTA slotted content
+     */
+    @property()
+    ctaContents?: HTMLElement;
+
+    /**
      * The video description.
      */
     @property({ attribute: 'video-description', reflect: true })
@@ -214,6 +228,8 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // Check for the URL trigger meant to fire eventRunAction.
       if (ctaType === CTA_TYPE.VIDEO && href) {
         this._checkUrlVideoTrigger();
+        this.ctaContents =
+          (this.querySelector('[slot="cta"]') as HTMLElement) || undefined;
       }
     }
 
@@ -369,7 +385,14 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * clicks on the CTA.
      */
     _checkUrlVideoTrigger() {
-      const { ctaType, disabled, href, videoDescription, videoName } = this;
+      const {
+        ctaType,
+        disabled,
+        href,
+        videoDescription,
+        videoName,
+        ctaContents,
+      } = this;
       // Without a video id, or if the button is disabled, there is nothing to
       // do here.
       if (ctaType !== CTA_TYPE.VIDEO || !href || disabled) {
@@ -394,6 +417,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
               ctaType,
               videoName,
               videoDescription,
+              ctaContents,
             },
           })
         );
