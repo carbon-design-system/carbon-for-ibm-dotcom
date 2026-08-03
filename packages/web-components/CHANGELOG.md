@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.56.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.56.0...@carbon/ibmdotcom-web-components@2.56.1) (2026-08-03)
+
+
+### Features
+
+* **cta:** add suppor to chang theme prop ([#12589](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12589)) ([db3b338](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/db3b33822d76ec02f0fd07ac8cbf8fe5bf7ce746))
+* **cta:** pass slotted CTA data to lightbox ([#12587](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12587)) ([6ceaa5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6ceaa5e4aee99da7b4a847524df580052d19f6b8))
+
+
+
+
+
 # [2.56.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.3...@carbon/ibmdotcom-web-components@2.56.0) (2026-07-24)
 
 
