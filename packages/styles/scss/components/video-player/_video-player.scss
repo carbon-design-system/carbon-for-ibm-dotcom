@@ -191,8 +191,10 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
     svg {
       position: absolute;
-      inset-block-start: calc(50% - #{$spacing-07});
-      inset-inline-end: calc(50% - #{$spacing-07});
+      block-size: 2.5rem;
+      inline-size: 2.5rem;
+      inset-block-end: 1rem;
+      inset-inline-end: 1rem;
 
       circle,
       path {
