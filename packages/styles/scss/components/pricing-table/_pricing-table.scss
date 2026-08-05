@@ -39,7 +39,7 @@
 
     overflow-y: hidden;
 
-    padding-block-end: 15px;
+    padding-block-end: 20px;
 
     .#{$c4d-prefix}-pricing-table-sentinel {
       position: relative;
@@ -207,7 +207,7 @@
 
   .#{$prefix}--pricing-table-header-cell:not([scope='row']),
   :host(#{$c4d-prefix}-pricing-table-header-cell:not([scope='row'])) {
-    padding-block-end: $spacing-12;
+    padding-block-end: $spacing-07;
     transition: padding-block-end $duration-slow-01 motion(standard, productive);
 
     &.#{$prefix}--pricing-table-header-cell--sticky {
@@ -401,8 +401,8 @@
     ::slotted(.last-row-highlight) {
       position: relative;
       z-index: 0;
-      border-radius: 0 0 10px 10px;
-      margin-block-end: -10px;
+      border-radius: 0 0 4px 4px;
+      margin-block-end: -15px;
     }
   }
 }

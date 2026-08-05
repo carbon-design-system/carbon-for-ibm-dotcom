@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.53.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.53.0...@carbon/ibmdotcom-styles@2.53.1) (2026-08-03)
+
+
+### Bug Fixes
+
+* **pricing-table:** change spacing in some elements ([#12586](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12586)) ([815b52b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/815b52badf78e356afc4bdd3a302a7823bf34477))
+* **pricing-table:** change token value for header cell bot spacing ([#12596](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12596)) ([03ab5cf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/03ab5cf12c41ec1d7661279f88b12b4663be4446))
+
+
+
+
+
 # [2.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.52.3...@carbon/ibmdotcom-styles@2.53.0) (2026-07-24)
 
 

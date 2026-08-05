@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.56.0",
+  "version": "2.56.1",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -94,7 +94,7 @@
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "2.53.0",
-    "@carbon/ibmdotcom-styles": "2.53.0",
+    "@carbon/ibmdotcom-styles": "2.53.1",
     "@carbon/ibmdotcom-utilities": "2.53.0",
     "@carbon/layout": "11.52.0",
     "@carbon/motion": "11.45.0",
