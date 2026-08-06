@@ -570,17 +570,21 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * Calculates the width between cards.
    */
   private _updateGap() {
-    if (this.dir === 'rtl') {
-      return;
-    }
     const { _slotNode: slotNode } = this;
     const elems = slotNode!.assignedElements();
 
+    if (elems.length < 2) {
+      this._gap = 0;
+      return;
+    }
+
+    const firstRect = elems[0].getBoundingClientRect();
+    const secondRect = elems[1].getBoundingClientRect();
+
     this._gap =
-      elems.length < 2
-        ? 0
-        : elems[1].getBoundingClientRect().left -
-          elems[0].getBoundingClientRect().right;
+      this.dir === 'rtl'
+        ? firstRect.left - secondRect.right
+        : secondRect.left - firstRect.right;
   }
 
   private _updateContentsPosition(changedProperties) {
