@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.57.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.56.1...@carbon/ibmdotcom-web-components@2.57.0) (2026-08-10)
+
+
+### Bug Fixes
+
+* **carousel:** rtl slides position miscalculation ([#12608](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12608)) ([ee3f653](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ee3f6537a88fb5f4dbb0f1eb7359a9bb372eb6ad))
+* double highlight issue ([#12610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12610)) ([8b70a92](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8b70a92b3ff0ed7d632905b9a4e8963a46cfb68c))
+
+
+
+
+
 ## [2.56.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.56.0...@carbon/ibmdotcom-web-components@2.56.1) (2026-08-03)
 
 

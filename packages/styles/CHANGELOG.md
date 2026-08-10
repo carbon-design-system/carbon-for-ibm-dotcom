@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.53.1...@carbon/ibmdotcom-styles@2.54.0) (2026-08-10)
+
+
+### Bug Fixes
+
+* **pricing-table:** change spacing in some elements ([#12586](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12586)) ([c54d13e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c54d13e095a73ebed5c051df26bb0d6ab591224e))
+* **pricing-table:** change token value for header cell bot spacing ([#12596](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12596)) ([9bc9c67](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9bc9c6745edd81aff573b380024f56afe83788f3))
+* **video-player:** play icon to be positioned at the lower right ([#12584](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12584)) ([5ce73f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ce73f7ce79873cc3f7dd6f60f0b61e08ce722db))
+
+
+
+
+
 ## [2.53.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.53.0...@carbon/ibmdotcom-styles@2.53.1) (2026-08-03)
 
 
