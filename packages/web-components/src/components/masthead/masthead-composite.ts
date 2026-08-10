@@ -877,6 +877,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     } else if (submenu instanceof Array) {
       matchFound = Boolean(
         (submenu as BasicLink[]).find((link) => {
+          if (link.url == '') {
+            return false;
+          }
           const normalizedLinkUrl = this._normalizeUrl(link.url);
           // Only match if link URL exists and equals current URL
           return (
