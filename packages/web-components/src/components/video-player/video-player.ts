@@ -318,10 +318,9 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
                 class="${togglePlaybackClass}"
                 @click="${handleTogglePlayback}"
                 tabindex="0"
-                part="button">
-                ${this.isPlaying
-                  ? PauseOutline({ 'aria-label': 'Pause' })
-                  : PlayOutline({ 'aria-label': 'Play' })}
+                part="button"
+                aria-label="${this.isPlaying ? 'Pause' : 'Play'}">
+                ${this.isPlaying ? PauseOutline() : PlayOutline()}
               </button>
             `
           : null}
