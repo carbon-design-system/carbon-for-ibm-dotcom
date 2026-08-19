@@ -317,7 +317,7 @@
   }
 
   :host(#{$c4d-prefix}-structured-list-cell) {
-    #{$c4d-prefix}-text-cta {
+    ::slotted(#{$c4d-prefix}-text-cta) {
       margin-inline-start: 0;
     }
   }
