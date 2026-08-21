@@ -117,6 +117,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     position: relative;
     display: block;
     inline-size: 100%;
+    border-radius: $radius-sm;
 
     &:focus {
       outline: none;
@@ -137,8 +138,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       &.#{$c4d-prefix}--video-player__aspect-ratio {
         &--#{$width}x#{$height} {
           @include ratio-base($width, $height, true);
-
-          overflow: visible;
         }
       }
     }
