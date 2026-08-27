@@ -145,7 +145,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
       }
       if (theme) {
         const lightboxVideoPlayer = (
-          this.modalRenderRoot as Element
+          this.modalRenderRoot?.parentElement as Element
         ).querySelector(selectorVideoPlayer) as Element;
         lightboxVideoPlayer.setAttribute('theme', theme);
       }
