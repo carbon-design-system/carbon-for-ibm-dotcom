@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.58.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.58.0...@carbon/ibmdotcom-web-components@2.58.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **lightbox:** event run action not passing the theme attribute ([#12646](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12646)) ([7efff40](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7efff405bf1b8eab7737edadafc1143e668d201f))
+
+
+
+
+
 # [2.58.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.57.0...@carbon/ibmdotcom-web-components@2.58.0) (2026-08-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
