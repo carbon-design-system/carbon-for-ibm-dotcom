@@ -877,9 +877,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     } else if (submenu instanceof Array) {
       matchFound = Boolean(
         (submenu as BasicLink[]).find((link) => {
-          if (link.url == '') {
-            return false;
-          }
           const normalizedLinkUrl = this._normalizeUrl(link.url);
           // Only match if link URL exists and equals current URL
           return (
@@ -888,7 +885,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         })
       );
     } else if (submenu.sections) {
-      const { highlights, viewAll, sections } = submenu;
+      const { highlights, sections } = submenu;
+      // viewAll is intentionally excluded from active-state matching.
+      // On ibm.com/products, both the Software and Infrastructure megamenus
+      // carry an identical viewAll: { url: 'https://www.ibm.com/products' }.
+      // Including viewAll causes both to match when the user is on that page,
+      // producing a double active highlight. viewAll is a shared catalogue
+      // entry point, not evidence that the current page belongs to a specific
+      // nav category.
       const flattenedLinks: BasicLink[] = [];
       const flattenLinkGroup = (group: MegapanelLinkGroup): BasicLink[] => {
         const links: BasicLink[] = [];
@@ -903,7 +907,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         return links;
       };
 
-      // Flatten all data into array of BasicLinks.
+      // Flatten highlights and section links (excluding viewAll) into BasicLinks.
       if (highlights) {
         highlights.forEach((highlight) => {
           flattenedLinks.push(...flattenLinkGroup(highlight));
@@ -918,9 +922,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
             flattenedLinks.push(...flattenLinkGroup(group));
           });
         });
-      }
-      if (viewAll) {
-        flattenedLinks.push(viewAll);
       }
 
       // Check flattened list for matching URL using normalized comparison.
