@@ -94,11 +94,12 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
 
     // Return CTA element to original container
     if (this.ctaElement) {
-      const container = document.querySelector(
-        `c4d-video-player-container-v7[video-id="${videoId}"]`
-      ) as any;
-      if (container && typeof container._returnCTA === 'function') {
-        container._returnCTA();
+      const container = (this as Element).parentElement
+        ?.parentElement as Element;
+      if (container) {
+        container.querySelectorAll('[slot="cta"]').forEach((cta) => {
+          cta.remove();
+        });
       }
       this.ctaElement = null;
     }

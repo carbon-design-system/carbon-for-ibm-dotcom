@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.55.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.55.0...@carbon/ibmdotcom-styles@2.55.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **video-player:** apply rounded corners to video player container ([#12644](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12644)) ([c67ea04](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c67ea046aec535256acbd41c8c5d688f08ab037f))
+
+
+
+
+
+# [2.55.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.54.0...@carbon/ibmdotcom-styles@2.55.0) (2026-08-20)
+
+
+### Bug Fixes
+
+* **structured-list:** adjust text cta css for slots ([#12642](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12642)) ([0b756e6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0b756e60bf4461ab54487863300838fbe473f868))
+* **structured-list:** text ctas wrong aligment ([#12641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12641)) ([e88938c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e88938c4cab159d459cb1bd73dba5c3338f8f42c))
+
+
+
+
+
 # [2.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.53.1...@carbon/ibmdotcom-styles@2.54.0) (2026-08-10)
 
 
