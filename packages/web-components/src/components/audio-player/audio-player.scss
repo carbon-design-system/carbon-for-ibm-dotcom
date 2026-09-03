@@ -1,0 +1,72 @@
+/**
+ * Copyright IBM Corp. 2020, 2025
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+
+$prefix: 'c4d';
+
+:host(#{$prefix}-audio-player) {
+  display: block;
+  inline-size: 100%;
+}
+
+.#{$prefix}--audio-player__container {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border-subtle-01;
+  border-radius: 4px;
+  background-color: $layer-01;
+  inline-size: 100%;
+  min-block-size: 120px;
+}
+
+.#{$prefix}--audio-player__title {
+  padding: $spacing-05;
+  border-block-end: 1px solid $border-subtle-01;
+
+  @include type-style('body-compact-01');
+
+  color: $text-primary;
+}
+
+.#{$prefix}--audio-player__wrapper {
+  position: relative;
+  block-size: 100%;
+  inline-size: 100%;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.#{$prefix}--audio-player__player {
+  position: relative;
+  block-size: 100%;
+  inline-size: 100%;
+
+  // Ensure Kaltura player iframe fills container
+  iframe {
+    border: 0;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+}
+
+// Dark theme support
+:host(#{$prefix}-audio-player[theme='dark']) {
+  .#{$prefix}--audio-player__container {
+    border-color: $border-subtle-01;
+    background-color: $layer-01;
+  }
+
+  .#{$prefix}--audio-player__title {
+    border-block-end-color: $border-subtle-01;
+    color: $text-primary;
+  }
+}

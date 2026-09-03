@@ -204,6 +204,7 @@ describe('KalturaPlayerAPI', () => {
     const mediaId = 'test-media-id';
     _kalturaPlayerPluginMock();
     _mockKalturaPlayer();
+    document.body.innerHTML += '<div id="test-target-id"></div>';
 
     await KalturaPlayerAPI.embedMedia(
       mediaId,

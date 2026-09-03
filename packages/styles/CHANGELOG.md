@@ -3,6 +3,100 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.55.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.55.0...@carbon/ibmdotcom-styles@2.55.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **video-player:** apply rounded corners to video player container ([#12644](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12644)) ([c67ea04](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c67ea046aec535256acbd41c8c5d688f08ab037f))
+
+
+
+
+
+# [2.55.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.54.0...@carbon/ibmdotcom-styles@2.55.0) (2026-08-20)
+
+
+### Bug Fixes
+
+* **structured-list:** adjust text cta css for slots ([#12642](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12642)) ([0b756e6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0b756e60bf4461ab54487863300838fbe473f868))
+* **structured-list:** text ctas wrong aligment ([#12641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12641)) ([e88938c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e88938c4cab159d459cb1bd73dba5c3338f8f42c))
+
+
+
+
+
+# [2.54.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.53.1...@carbon/ibmdotcom-styles@2.54.0) (2026-08-10)
+
+
+### Bug Fixes
+
+* **pricing-table:** change spacing in some elements ([#12586](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12586)) ([c54d13e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c54d13e095a73ebed5c051df26bb0d6ab591224e))
+* **pricing-table:** change token value for header cell bot spacing ([#12596](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12596)) ([9bc9c67](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9bc9c6745edd81aff573b380024f56afe83788f3))
+* **video-player:** play icon to be positioned at the lower right ([#12584](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12584)) ([5ce73f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ce73f7ce79873cc3f7dd6f60f0b61e08ce722db))
+
+
+
+
+
+## [2.53.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.53.0...@carbon/ibmdotcom-styles@2.53.1) (2026-08-03)
+
+
+### Bug Fixes
+
+* **pricing-table:** change spacing in some elements ([#12586](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12586)) ([815b52b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/815b52badf78e356afc4bdd3a302a7823bf34477))
+* **pricing-table:** change token value for header cell bot spacing ([#12596](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12596)) ([03ab5cf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/03ab5cf12c41ec1d7661279f88b12b4663be4446))
+
+
+
+
+
+# [2.53.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.52.3...@carbon/ibmdotcom-styles@2.53.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **pricing-table:** 11875 ux and qa findings recommendations ([#12569](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12569)) ([e8313cb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e8313cb45918508471f83d7055ba3126924503ab)), closes [comment-tabpanel#comment-29836670](https://github.com/comment-tabpanel/issues/comment-29836670) [comment-tabpanel#comment-29862732](https://github.com/comment-tabpanel/issues/comment-29862732) [comment-tabpanel#comment-29961245](https://github.com/comment-tabpanel/issues/comment-29961245)
+
+
+
+
+
+## [2.52.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.52.2...@carbon/ibmdotcom-styles@2.52.3) (2026-07-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+## [2.52.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.52.1...@carbon/ibmdotcom-styles@2.52.2) (2026-07-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+## [2.52.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.52.0...@carbon/ibmdotcom-styles@2.52.1) (2026-07-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [2.52.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.51.1...@carbon/ibmdotcom-styles@2.52.0) (2026-06-30)
+
+
+### Features
+
+* **cta-text:** icon zoom on hover animation ([#12547](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12547)) ([f3adf00](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f3adf003c9e6806675f2f17815ff456505b5293b))
+
+
+
+
+
 ## [2.51.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.51.0...@carbon/ibmdotcom-styles@2.51.1) (2026-06-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

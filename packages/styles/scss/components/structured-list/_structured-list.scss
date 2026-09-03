@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2025
+// Copyright IBM Corp. 2019, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -314,5 +314,11 @@
 
   .#{$prefix}--structured-list-cell-icon-text-container {
     display: flex;
+  }
+
+  :host(#{$c4d-prefix}-structured-list-cell) {
+    ::slotted(#{$c4d-prefix}-text-cta) {
+      margin-inline-start: 0;
+    }
   }
 }

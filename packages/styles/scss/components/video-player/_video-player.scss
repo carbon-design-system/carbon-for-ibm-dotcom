@@ -116,6 +116,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   .#{$c4d-prefix}--video-player__video-container {
     position: relative;
     display: block;
+    border-radius: $radius-sm;
     inline-size: 100%;
 
     &:focus {
@@ -137,8 +138,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       &.#{$c4d-prefix}--video-player__aspect-ratio {
         &--#{$width}x#{$height} {
           @include ratio-base($width, $height, true);
-
-          overflow: visible;
         }
       }
     }
@@ -158,7 +157,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   // Ensuring caption is correctly displayed when it has RTL mixed with LTR copy
   .#{$c4d-prefix}--video-player__video-caption[dir='rtl'] {
     direction: rtl;
-    max-inline-size: none;
+    max-inline-size: fit-content;
     text-align: end;
     unicode-bidi: plaintext;
   }
@@ -191,8 +190,10 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
     svg {
       position: absolute;
-      inset-block-start: calc(50% - #{$spacing-07});
-      inset-inline-end: calc(50% - #{$spacing-07});
+      block-size: 2.5rem;
+      inline-size: 2.5rem;
+      inset-block-end: 1rem;
+      inset-inline-end: 1rem;
 
       circle,
       path {

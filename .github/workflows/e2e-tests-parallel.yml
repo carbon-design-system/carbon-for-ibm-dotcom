@@ -20,13 +20,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7.0.1
       - name: Use Node.js 18.x
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         name: Download any existing cache
         id: yarn-cache
         with:
@@ -82,9 +82,9 @@ jobs:
         browser: [ chromium ]
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
       - name: Use Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
@@ -95,7 +95,7 @@ jobs:
           name: storybook-build
           path: packages/web-components/storybook-static
 
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         name: Retrieve yarn cache
         id: yarn-cache
         with:

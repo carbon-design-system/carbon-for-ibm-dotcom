@@ -148,7 +148,9 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   connectedCallback() {
     super.connectedCallback();
 
-    this._ctaContents = this.querySelector('[slot="cta"]') || undefined;
+    this._ctaContents = this._ctaContents
+      ? this._ctaContents
+      : this.querySelector('[slot="cta"]') || undefined;
     this._containingCarousel =
       (this.closest(`${c4dPrefix}-carousel`) as C4DCarousel) || undefined;
     this._containingModal =

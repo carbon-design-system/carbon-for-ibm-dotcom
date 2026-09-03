@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.58.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.58.0...@carbon/ibmdotcom-web-components@2.58.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **lightbox:** event run action not passing the theme attribute ([#12646](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12646)) ([7efff40](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7efff405bf1b8eab7737edadafc1143e668d201f))
+
+
+
+
+
+# [2.58.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.57.0...@carbon/ibmdotcom-web-components@2.58.0) (2026-08-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.57.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.56.1...@carbon/ibmdotcom-web-components@2.57.0) (2026-08-10)
+
+
+### Bug Fixes
+
+* **carousel:** rtl slides position miscalculation ([#12608](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12608)) ([ee3f653](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ee3f6537a88fb5f4dbb0f1eb7359a9bb372eb6ad))
+* double highlight issue ([#12610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12610)) ([8b70a92](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8b70a92b3ff0ed7d632905b9a4e8963a46cfb68c))
+
+
+
+
+
+## [2.56.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.56.0...@carbon/ibmdotcom-web-components@2.56.1) (2026-08-03)
+
+
+### Features
+
+* **cta:** add suppor to chang theme prop ([#12589](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12589)) ([db3b338](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/db3b33822d76ec02f0fd07ac8cbf8fe5bf7ce746))
+* **cta:** pass slotted CTA data to lightbox ([#12587](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12587)) ([6ceaa5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6ceaa5e4aee99da7b4a847524df580052d19f6b8))
+
+
+
+
+
+# [2.56.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.3...@carbon/ibmdotcom-web-components@2.56.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **pricing-table:** 11875 ux and qa findings recommendations ([#12569](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12569)) ([e8313cb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e8313cb45918508471f83d7055ba3126924503ab)), closes [comment-tabpanel#comment-29836670](https://github.com/comment-tabpanel/issues/comment-29836670) [comment-tabpanel#comment-29862732](https://github.com/comment-tabpanel/issues/comment-29862732) [comment-tabpanel#comment-29961245](https://github.com/comment-tabpanel/issues/comment-29961245)
+
+
+
+
+
+## [2.55.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.2...@carbon/ibmdotcom-web-components@2.55.3) (2026-07-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [2.55.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.1...@carbon/ibmdotcom-web-components@2.55.2) (2026-07-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [2.55.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.55.0...@carbon/ibmdotcom-web-components@2.55.1) (2026-07-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.55.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.2...@carbon/ibmdotcom-web-components@2.55.0) (2026-06-30)
+
+
+### Features
+
+* **video-player:** add cta handling to video-player lightbox mode ([#12556](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12556)) ([5b5e685](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5b5e685cd7cd3560f1cf8b8aa75752df9525197f))
+
+
+
+
+
+## [2.54.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.1...@carbon/ibmdotcom-web-components@2.54.2) (2026-06-23)
+
+
+### Bug Fixes
+
+* **video-player:** add preventScroll to focus call after Kaltura embed ([#12551](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12551)) ([07eaad4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07eaad4d40cd68f2a01b4b25ddd0e1db0859e6f9)), closes [#8077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8077)
+
+
+
+
+
 ## [2.54.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.54.0...@carbon/ibmdotcom-web-components@2.54.1) (2026-06-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
