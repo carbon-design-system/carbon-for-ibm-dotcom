@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.59.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.58.1...@carbon/ibmdotcom-web-components@2.59.0) (2026-09-04)
+
+
+### Features
+
+* **lightbox:** take the theme from the slotted component ([#12648](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12648)) ([8ce016d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8ce016de7e5662dcaaaadea868555d0d00abb23a))
+
+
+
+
+
 ## [2.58.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.58.0...@carbon/ibmdotcom-web-components@2.58.1) (2026-08-28)
 
 
