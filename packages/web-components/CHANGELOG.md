@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.60.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.59.0...@carbon/ibmdotcom-web-components@2.60.0) (2026-09-11)
+
+
+### Bug Fixes
+
+* **cta:** adding fallback selector to circumvent AEM wrong rendering ([#12656](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12656)) ([797f9cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/797f9cd80f704ea2c35f2613035eafc03a555dae))
+
+
+
+
+
 # [2.59.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.58.1...@carbon/ibmdotcom-web-components@2.59.0) (2026-09-04)
 
 
