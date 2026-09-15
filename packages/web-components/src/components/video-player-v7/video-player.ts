@@ -41,12 +41,12 @@ const { stablePrefix: c4dPrefix } = settings;
  * Video player.
  *
  * @element c4d-video-player-v7
- * @csspart video - The video. Usage `c4d-video-player::part(video)`
- * @csspart button - The play button. Usage `c4d-video-player::part(button)`
- * @csspart image - The thumbnail image. Usage `c4d-video-player::part(image)`
- * @csspart play-video - The play video icon. Usage `c4d-video-player::part(play-video)`
- * @csspart video-container - The video container. Usage `c4d-video-player::part(video-container)`
- * @csspart caption - The caption. Usage `c4d-video-player::part(caption)`
+ * @csspart video - The video. Usage `c4d-video-player-v7::part(video)`
+ * @csspart button - The play button. Usage `c4d-video-player-v7::part(button)`
+ * @csspart image - The thumbnail image. Usage `c4d-video-player-v7::part(image)`
+ * @csspart play-video - The play video icon. Usage `c4d-video-player-v7::part(play-video)`
+ * @csspart video-container - The video container. Usage `c4d-video-player-v7::part(video-container)`
+ * @csspart caption - The caption. Usage `c4d-video-player-v7::part(caption)`
  */
 @customElement(`${c4dPrefix}-video-player-v7`)
 class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
