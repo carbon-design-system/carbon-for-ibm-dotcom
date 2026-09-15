@@ -42,7 +42,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
   :host(#{$c4d-prefix}-video-player-v7) #{$c4d-prefix}-image::part(image),
   .#{$c4d-prefix}--video-player #{$c4d-prefix}-image::part(image) {
-    transition: scale $duration-slow-01 motion(standard, productive);
+    transition: scale $duration-slow-01 motion(standard, expressive);
     will-change: scale;
 
     @media screen and (prefers-reduced-motion: reduce) {
