@@ -13,12 +13,13 @@ import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/compone
 import readme from './README.stories.react.mdx';
 
 export const Default = (args) => {
-  const { aspectRatio, caption, hideCaption, videoId } =
+  const { aspectRatio, caption, disableImageZoom, hideCaption, videoId } =
     args?.VideoPlayerContainer ?? {};
   return (
     <C4DVideoPlayerContainer
       aspectRatio={aspectRatio}
       caption={caption}
+      disableImageZoom={disableImageZoom}
       hideCaption={hideCaption}
       videoId={videoId}
     />
@@ -26,12 +27,13 @@ export const Default = (args) => {
 };
 
 export const aspectRatio1x1 = (args) => {
-  const { aspectRatio, caption, hideCaption, videoId } =
+  const { aspectRatio, caption, disableImageZoom, hideCaption, videoId } =
     args?.VideoPlayerContainer ?? {};
   return (
     <C4DVideoPlayerContainer
       aspectRatio={aspectRatio}
       caption={caption}
+      disableImageZoom={disableImageZoom}
       hideCaption={hideCaption}
       videoId={videoId}
     />
@@ -46,6 +48,7 @@ aspectRatio1x1.story = {
         return {
           aspectRatio: '1x1',
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean('Disable image zoom (disableImageZoom):', false),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '1_9h94wo6b',
@@ -56,12 +59,13 @@ aspectRatio1x1.story = {
 };
 
 export const aspectRatio4x3 = (args) => {
-  const { aspectRatio, caption, hideCaption, videoId } =
+  const { aspectRatio, caption, disableImageZoom, hideCaption, videoId } =
     args?.VideoPlayerContainer ?? {};
   return (
     <C4DVideoPlayerContainer
       aspectRatio={aspectRatio}
       caption={caption}
+      disableImageZoom={disableImageZoom}
       hideCaption={hideCaption}
       videoId={videoId}
     />
@@ -76,6 +80,7 @@ aspectRatio4x3.story = {
         return {
           aspectRatio: '4x3',
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean('Disable image zoom (disableImageZoom):', false),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '1_p2osmd1z',
@@ -101,6 +106,7 @@ export default {
     knobs: {
       VideoPlayerContainer: () => ({
         caption: text('Custom caption (caption):', ''),
+        disableImageZoom: boolean('Disable image zoom (disableImageZoom):', false),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnailUrl: text('Custom thumbnail (thumbnail):', ''),
         videoId: '1_w19e0yid',

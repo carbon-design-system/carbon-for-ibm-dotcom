@@ -257,6 +257,12 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   autoplay = false;
 
   /**
+   * `true` to disable the image zoom on hover effect.
+   */
+  @property({ type: Boolean, attribute: 'disable-image-zoom', reflect: true })
+  disableImageZoom = false;
+
+  /**
    * Custom video description. This property should only be set when using `playing-mode="lightbox"`
    */
   @property({ attribute: 'video-description' })

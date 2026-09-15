@@ -40,6 +40,16 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
+  :host(#{$c4d-prefix}-video-player-v7) #{$c4d-prefix}-image::part(image),
+  .#{$c4d-prefix}--video-player #{$c4d-prefix}-image::part(image) {
+    transition: scale $duration-slow-01 motion(standard, expressive);
+    will-change: scale;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
   :host(#{$c4d-prefix}-video-player-v7[background-mode]),
   .#{$c4d-prefix}--video-player[background-mode] {
     .#{$c4d-prefix}--video-player__video-container {
@@ -220,6 +230,15 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
         opacity: 0.12;
       }
     }
+  }
+
+  :host(#{$c4d-prefix}-video-player-v7:not([intersection-mode]):not([auto-play]):not([background-mode]):not([disable-image-zoom]))
+    .#{$c4d-prefix}--video-player__image-overlay:hover
+    #{$c4d-prefix}-image::part(image),
+  .#{$c4d-prefix}--video-player:not([intersection-mode]):not([auto-play]):not([background-mode]):not([disable-image-zoom])
+    .#{$c4d-prefix}--video-player__image-overlay:hover
+    #{$c4d-prefix}-image::part(image) {
+    scale: 1.05;
   }
 
   .#{$c4d-prefix}--video-player__toggle-playback {
