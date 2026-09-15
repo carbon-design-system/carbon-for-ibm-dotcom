@@ -38,6 +38,18 @@ const questions = [
     type: 'input',
     name: 'tagName',
     message: 'What is the release tag name to create? (e.g. v0.0.0-rc.0)',
+    validate: (input) => {
+      if (input.trim().startsWith('-')) {
+        return 'Tag name cannot start with "-" (to prevent argument injection).';
+      }
+      try {
+        // Use Git's internal tool to verify the refname format
+        child.execFileSync('git', ['check-ref-format', '--allow-onelevel', input]);
+        return true;
+      } catch (e) {
+        return 'Please enter a valid Git tag name.';
+      }
+    },
   },
   {
     type: 'confirm',
@@ -60,9 +72,13 @@ const questions = [
  * @param {string} tagName Tag name
  */
 function createTag(tagName) {
+  if (!tagName || tagName.trim().startsWith('-')) {
+    console.log(chalk.red('Error: Invalid or dangerous tag name. Operation aborted.'));
+    process.exit(1);
+  }
   console.log(chalk.green(`Tagging the repo with ${tagName}...`));
-  child.execSync(`git tag -a ${tagName} -m "Release ${tagName}"`);
-  child.execSync('git push --tags');
+  child.execFileSync('git', ['tag', '-a', tagName, '-m', `Release ${tagName}`]);
+  child.execFileSync('git', ['push', '--tags']);
 }
 
 /**
