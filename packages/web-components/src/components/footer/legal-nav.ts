@@ -104,7 +104,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
               part="legal-nav-list-container"
               class="${this._getTypeClass()}">
               <ul part="legal-nav-list">
-                <slot></slot>
+                <li><slot></slot></li>
               </ul>
               <slot name="locale"></slot>
             </div>
@@ -114,9 +114,11 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
                 ? ''
                 : ` ${c4dPrefix}--adjunct-links__container--hidden`}">
               <ul part="adjunct-links-list adjunct-links-list">
-                <slot
-                  name="adjunct-links"
-                  @slotchange="${this._handleAdjunctLinksVisibility}"></slot>
+                <li>
+                  <slot
+                    name="adjunct-links"
+                    @slotchange="${this._handleAdjunctLinksVisibility}"></slot>
+                </li>
               </ul>
             </div>
           </nav>
@@ -129,7 +131,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
               <div part="legal-nav-items-container">
                 <slot name="brand"></slot>
                 <ul part="legal-nav-list">
-                  <slot></slot>
+                  <li><slot></slot></li>
                 </ul>
               </div>
               <slot name="locale"></slot>
