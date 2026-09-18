@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,6 +8,7 @@
 import axios from 'axios';
 import { LocaleAPI } from '../Locale';
 import root from 'window-or-global';
+import localLinksData from '../../../../web-components/src/components/masthead/masthead-footer-nav.json';
 
 /**
  * @constant {string | string} Host for the Translation API call
@@ -126,6 +127,11 @@ class TranslationAPI {
       const locale = await LocaleAPI.getLocale();
       lang = locale.lc;
       country = locale.cc;
+    }
+
+    // Use local data only for en-us; all other locales fetch from the remote API as normal.
+    if (country === 'us' && lang === 'en') {
+      return Promise.resolve(localLinksData.us.en);
     }
 
     return new Promise((resolve, reject) => {

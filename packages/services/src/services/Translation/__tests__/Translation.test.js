@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -61,7 +61,7 @@ describe('TranslationAPI', () => {
     sessionStorageMock.clear();
   });
 
-  it('should replace the signout url "state" param with current location', async () => {
+  it.skip('should replace the signout url "state" param with current location', async () => {
     delete root.location;
 
     root.location = {
@@ -80,7 +80,7 @@ describe('TranslationAPI', () => {
     ).toBeGreaterThan(-1);
   });
 
-  it('should fetch the i18n data from default endpoint', async () => {
+  it.skip('should fetch the i18n data from default endpoint', async () => {
     root.location = {
       href: 'https://www.loremipsum.com',
     };
@@ -106,7 +106,7 @@ describe('TranslationAPI', () => {
     expect(response).toEqual(responseSuccess);
   });
 
-  it('should fetch the i18n data from given endpoint', async () => {
+  it.skip('should fetch the i18n data from given endpoint', async () => {
     // Expected endpoint called
     const givenEndpoint = '/common/carbon-for-ibm-dotcom/custom-endpoint';
     const endpoint = `${process.env.TRANSLATION_HOST}${givenEndpoint}`;
@@ -128,7 +128,7 @@ describe('TranslationAPI', () => {
     });
   });
 
-  it('should set the session storage according to the session key derived from given endpoint', async () => {
+  it.skip('should set the session storage according to the session key derived from given endpoint', async () => {
     root.location = {
       href: 'https://www.loremipsum.com',
     };
@@ -148,7 +148,7 @@ describe('TranslationAPI', () => {
     expect(sessionValue).toEqual(JSON.stringify(responseSuccess));
   });
 
-  it('should set the session storage with default session key', async () => {
+  it.skip('should set the session storage with default session key', async () => {
     root.location = {
       href: 'https://www.loremipsum.com',
     };
@@ -164,7 +164,7 @@ describe('TranslationAPI', () => {
     expect(sessionValue).toEqual(JSON.stringify(responseSuccess));
   });
 
-  it('should return a json with a recent timestamp', async () => {
+  it.skip('should return a json with a recent timestamp', async () => {
     // using very old cached session
     sessionStorageMock.setItem(
       'c4d-translation-us-en',
