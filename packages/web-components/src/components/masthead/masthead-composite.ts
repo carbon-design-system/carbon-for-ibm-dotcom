@@ -387,7 +387,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                 title="${heading.title}"
                 href="${ifNonEmpty(heading?.url)}"
                 slot="heading"
-                class="new-basic-links__menu-title"
                 heading-level="${ifNonEmpty(headingLevel)}">
                 ${heading?.description}
               </c4d-megamenu-category-heading>
@@ -396,16 +395,6 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ${links &&
         links.map((link, i) => {
           const linkAutoId = autoid ? `${autoid}-item${i}` : null;
-          if (link?.highlightedLink) {
-            return html`
-              <c4d-megamenu-link-with-icon
-                href="${ifNonEmpty(link?.url)}"
-                class="new-basic-links__optional-link"
-                data-autoid="${ifNonEmpty(linkAutoId)}">
-                <span>${link?.title}</span>${this.ArrowIcon({ slot: 'icon' })}
-              </c4d-megamenu-link-with-icon>
-            `;
-          }
           if (link?.description) {
             return html`
               <c4d-megamenu-category-link
