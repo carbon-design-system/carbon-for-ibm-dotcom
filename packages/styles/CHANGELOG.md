@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.57.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.57.0...@carbon/ibmdotcom-styles@2.57.1) (2026-09-18)
+
+
+### Bug Fixes
+
+* **card-group:** change logo handling to avoid CLS ([#12660](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12660)) ([ea60bdb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea60bdbbf3fe16fb974deef349ee8bce7c4a890f))
+
+
+
+
+
 # [2.57.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.56.0...@carbon/ibmdotcom-styles@2.57.0) (2026-09-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
