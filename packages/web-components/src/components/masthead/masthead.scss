@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2026
+// Copyright IBM Corp. 2020, 2025
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -879,68 +879,4 @@ $pos-btn-bottom: calc(
 
 :host(#{$c4d-prefix}-megamenu-category-heading.has-content) {
   margin-block-end: $spacing-06;
-}
-
-:host(#{$c4d-prefix}-megamenu-category-heading.new-basic-links__menu-title) {
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @include type-style('productive-heading-05', true);
-
-    color: $text-primary;
-    padding-block-start: 0.5rem;
-  }
-}
-
-:host(#{$c4d-prefix}-megamenu-link-with-icon.new-basic-links__optional-link) {
-  padding: 0 1rem;
-  background-color: transparent;
-
-  a[part='link'] {
-    @include type-style('body-compact-01');
-
-    display: inline-flex;
-    align-items: center;
-    padding: 1rem 0 0.5rem;
-
-    color: var(--cds-link-text-color, var(--cds-link-primary, #0f62fe));
-    gap: 4px;
-    text-decoration: none;
-  }
-
-  a[part='link']:hover {
-    background-color: transparent;
-    /* stylelint-disable declaration-no-important */
-    color: var(
-      --cds-link-text-color,
-      var(--cds-link-primary, #0f62fe)
-    ) !important;
-    /* stylelint-enable declaration-no-important */
-    text-decoration: underline;
-  }
-
-  a[part='link']:active {
-    background-color: transparent;
-    box-shadow: none;
-    color: var(--cds-link-primary, #0f62fe);
-  }
-
-  a[part='link']:focus {
-    border-style: none;
-    background-color: transparent;
-    box-shadow: none;
-    outline: rem(2px) solid $focus;
-    outline-offset: rem(2px);
-  }
-}
-
-// // This Resets the focus border that comes from the host level
-:host(
-    #{$c4d-prefix}-megamenu-link-with-icon.new-basic-links__optional-link
-  ):focus {
-  border-style: none;
-  background-color: transparent;
-  box-shadow: none;
 }
