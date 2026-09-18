@@ -23,6 +23,7 @@ const template = (props?) => {
     formatCaption,
     formatDuration,
     hideCaption,
+    disableImageZoom,
     name,
     thumbnailUrl,
     videoId,
@@ -33,6 +34,7 @@ const template = (props?) => {
       content-state="${ifDefined(contentState)}"
       duration="${ifDefined(duration)}"
       ?hide-caption="${hideCaption}"
+      ?disable-image-zoom="${disableImageZoom}"
       name="${ifDefined(name)}"
       thumbnail-url="${ifDefined(thumbnailUrl)}"
       video-id="${ifDefined(videoId)}"
@@ -72,6 +74,37 @@ describe('c4d-video-player', function () {
     expect(document.querySelector('c4d-video-player')).toMatchSnapshot({
       mode: 'shadow',
     });
+  });
+
+  it('should not have disable-image-zoom attribute by default', async function () {
+    render(
+      template({
+        thumbnailUrl: 'about:blank',
+      }),
+      document.body
+    );
+    await Promise.resolve();
+    expect(
+      document
+        .querySelector('c4d-video-player')!
+        .hasAttribute('disable-image-zoom')
+    ).toBe(false);
+  });
+
+  it('should reflect disable-image-zoom attribute when disableImageZoom is true', async function () {
+    render(
+      template({
+        thumbnailUrl: 'about:blank',
+        disableImageZoom: true,
+      }),
+      document.body
+    );
+    await Promise.resolve();
+    expect(
+      document
+        .querySelector('c4d-video-player')!
+        .hasAttribute('disable-image-zoom')
+    ).toBe(true);
   });
 
   it('should support hiding the caption', async function () {
