@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.57.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.57.0...@carbon/ibmdotcom-services@2.57.1) (2026-09-18)
+
+
+### Features
+
+* **masthead-footer:** update nav links and structure to match AEM ([#12663](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12663)) ([a552b72](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a552b72125d60b2ece14ce3f77e4ae685792da1b))
+
+
+
+
+
 # [2.57.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.56.0...@carbon/ibmdotcom-services@2.57.0) (2026-09-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
