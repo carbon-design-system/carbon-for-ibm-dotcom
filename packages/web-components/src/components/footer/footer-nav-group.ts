@@ -145,7 +145,7 @@ class C4DFooterNavGroup extends MediaQueryMixin(
         id="content"
         class="${prefix}--accordion__content">
         <ul part="link-list">
-          <slot></slot>
+          <li><slot></slot></li>
         </ul>
       </div>
     `;
