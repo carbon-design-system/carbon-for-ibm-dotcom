@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.60.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.60.1...@carbon/ibmdotcom-web-components@2.60.2) (2026-09-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [2.60.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.60.0...@carbon/ibmdotcom-web-components@2.60.1) (2026-09-18)
+
+
+### Bug Fixes
+
+* **footer:** fix html structure of ul elements ([#12662](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12662)) ([02c029c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/02c029cdc24c8910fd67bf3bfa2366a8a2224bbb))
+
+
+### Features
+
+* **masthead-footer:** update nav links and structure to match AEM ([#12663](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12663)) ([a552b72](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a552b72125d60b2ece14ce3f77e4ae685792da1b))
+
+
+
+
+
+# [2.60.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.59.0...@carbon/ibmdotcom-web-components@2.60.0) (2026-09-11)
+
+
+### Bug Fixes
+
+* **cta:** adding fallback selector to circumvent AEM wrong rendering ([#12656](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12656)) ([797f9cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/797f9cd80f704ea2c35f2613035eafc03a555dae))
+
+
+
+
+
 # [2.59.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.58.1...@carbon/ibmdotcom-web-components@2.59.0) (2026-09-04)
 
 

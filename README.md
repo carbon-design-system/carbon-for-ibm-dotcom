@@ -47,9 +47,7 @@ If you are building pages for IBM.com,
 ## Storybook demos
 
 - `@carbon/ibmdotcom-web-components`:
-  https://www.ibm.com/standards/carbon/web-components
-- `@carbon/ibmdotcom-web-components` - React Wrappers:
-  https://www.ibm.com/standards/carbon/web-components/react
+  https://carbon-design-system.github.io/carbon-for-ibm-dotcom/next/web-components
 
 ## Documentation
 
@@ -66,7 +64,7 @@ check out our guides:
 
 - [Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md)
 - [Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/developing.md)
-- [Contributing to the Web Components package](https://www.ibm.com/standards/carbon/web-components/?path=/story/overview-contributing-to-the-web-components-package--page)
+- [Contributing to the Web Components package](https://carbon-design-system.github.io/carbon-for-ibm-dotcom/next/web-components/?path=/story/overview-contributing-to-the-web-components-package--page)
 - [Contributing to the React package](https://www.ibm.com/standards/carbon/react/?path=/story/overview-contributing-to-the-react-package--page)
 
 ## 📝 License

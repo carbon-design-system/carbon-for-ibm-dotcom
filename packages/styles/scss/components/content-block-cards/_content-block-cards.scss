@@ -59,4 +59,14 @@
       max-inline-size: none;
     }
   }
+
+  :host(#{$c4d-prefix}-content-block-cards) {
+    container-name: content-block-cards;
+    container-type: normal;
+    --media-type--logo: false;
+
+    &.media-type__logo {
+      --media-type--logo: true;
+    }
+  }
 }
