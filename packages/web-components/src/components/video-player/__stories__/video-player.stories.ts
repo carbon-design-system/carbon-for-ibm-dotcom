@@ -34,8 +34,14 @@ export const Default = (args) => {
 };
 
 export const aspectRatio1x1 = (args) => {
-  const { aspectRatio, caption, disableImageZoom, hideCaption, thumbnail, videoId } =
-    args?.VideoPlayer ?? {};
+  const {
+    aspectRatio,
+    caption,
+    disableImageZoom,
+    hideCaption,
+    thumbnail,
+    videoId,
+  } = args?.VideoPlayer ?? {};
   return html`
     <c4d-video-player-container
       playing-mode="inline"
@@ -49,8 +55,14 @@ export const aspectRatio1x1 = (args) => {
 };
 
 export const aspectRatio4x3 = (args) => {
-  const { aspectRatio, caption, disableImageZoom, hideCaption, thumbnail, videoId } =
-    args?.VideoPlayer ?? {};
+  const {
+    aspectRatio,
+    caption,
+    disableImageZoom,
+    hideCaption,
+    thumbnail,
+    videoId,
+  } = args?.VideoPlayer ?? {};
   return html`
     <c4d-video-player-container
       playing-mode="inline"
@@ -79,8 +91,7 @@ export const autoplay = (args) => {
 };
 
 export const autoplayMuted = (args) => {
-  const { caption, hideCaption, thumbnail, videoId } =
-    args?.VideoPlayer ?? {};
+  const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
   return html`
     <style>
       c4d-video-player-container[background-mode] {
@@ -128,7 +139,10 @@ aspectRatio4x3.story = {
         return {
           aspectRatio: '4x3',
           caption: text('Custom caption (caption):', ''),
-          disableImageZoom: boolean('Disable image zoom (disableImageZoom):', false),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '0_ibuqxqbe',
@@ -158,7 +172,10 @@ aspectRatio1x1.story = {
         return {
           aspectRatio: '1x1',
           caption: text('Custom caption (caption):', ''),
-          disableImageZoom: boolean('Disable image zoom (disableImageZoom):', false),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '0_ibuqxqbe',
@@ -296,7 +313,10 @@ export default {
     knobs: {
       VideoPlayer: () => ({
         caption: text('Custom caption (caption):', ''),
-        disableImageZoom: boolean('Disable image zoom (disableImageZoom):', false),
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnail: text('Custom thumbnail (thumbnail):', ''),
         videoId: '0_ibuqxqbe',

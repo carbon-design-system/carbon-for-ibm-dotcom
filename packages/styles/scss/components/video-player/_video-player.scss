@@ -232,10 +232,16 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$c4d-prefix}-video-player-v7:not([intersection-mode]):not([auto-play]):not([background-mode]):not([disable-image-zoom]))
+  :host(
+      #{$c4d-prefix}-video-player-v7:not([intersection-mode]):not(
+          [auto-play]
+        ):not([background-mode]):not([disable-image-zoom])
+    )
     .#{$c4d-prefix}--video-player__image-overlay:hover
     #{$c4d-prefix}-image::part(image),
-  .#{$c4d-prefix}--video-player:not([intersection-mode]):not([auto-play]):not([background-mode]):not([disable-image-zoom])
+  .#{$c4d-prefix}--video-player:not([intersection-mode]):not([auto-play]):not(
+      [background-mode]
+    ):not([disable-image-zoom])
     .#{$c4d-prefix}--video-player__image-overlay:hover
     #{$c4d-prefix}-image::part(image) {
     scale: 1.05;
