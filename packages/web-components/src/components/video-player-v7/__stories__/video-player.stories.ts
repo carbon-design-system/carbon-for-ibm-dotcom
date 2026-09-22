@@ -17,19 +17,7 @@ import { enumValsToArray } from '../../../globals/internal/enum-helpers';
 import { BUTTON_POSITION } from '../defs';
 
 export const Default = (args) => {
-  const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
-  return html`
-    <c4d-video-player-container-v7
-      playing-mode="inline"
-      video-id=${videoId}
-      caption=${caption}
-      ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></c4d-video-player-container-v7>
-  `;
-};
-
-export const aspectRatio1x1 = (args) => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
+  const { caption, disableImageZoom, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
   return html`
     <c4d-video-player-container-v7
@@ -37,14 +25,41 @@ export const aspectRatio1x1 = (args) => {
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
+      thumbnail=${thumbnail}></c4d-video-player-container-v7>
+  `;
+};
+
+export const aspectRatio1x1 = (args) => {
+  const {
+    aspectRatio,
+    caption,
+    disableImageZoom,
+    hideCaption,
+    thumbnail,
+    videoId,
+  } = args?.VideoPlayer ?? {};
+  return html`
+    <c4d-video-player-container-v7
+      playing-mode="inline"
+      video-id=${videoId}
+      caption=${caption}
+      ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
       aspect-ratio=${aspectRatio}
       thumbnail=${thumbnail}></c4d-video-player-container-v7>
   `;
 };
 
 export const aspectRatio4x3 = (args) => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
-    args?.VideoPlayer ?? {};
+  const {
+    aspectRatio,
+    caption,
+    disableImageZoom,
+    hideCaption,
+    thumbnail,
+    videoId,
+  } = args?.VideoPlayer ?? {};
   return html`
     <c4d-video-player-container-v7
       playing-mode="inline"
@@ -52,6 +67,7 @@ export const aspectRatio4x3 = (args) => {
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
       thumbnail=${thumbnail}></c4d-video-player-container-v7>
   `;
 };
@@ -60,6 +76,7 @@ export const withLightboxMediaViewer = (args) => {
   const {
     aspectRatio,
     caption,
+    disableImageZoom,
     hideCaption,
     thumbnail,
     videoId,
@@ -72,6 +89,7 @@ export const withLightboxMediaViewer = (args) => {
       caption=${caption}
       video-description="${ifDefined(customVideoDescription)}"
       ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
       thumbnail=${thumbnail}
       playing-mode="lightbox">
     </c4d-video-player-container-v7>
@@ -83,6 +101,7 @@ export const withLightboxAndCTA = (args) => {
   const {
     aspectRatio,
     caption,
+    disableImageZoom,
     hideCaption,
     thumbnail,
     videoId,
@@ -95,6 +114,7 @@ export const withLightboxAndCTA = (args) => {
       caption=${caption}
       video-description="${ifDefined(customVideoDescription)}"
       ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
       thumbnail=${thumbnail}
       playing-mode="lightbox">
       <div slot="cta" style="display: flex; gap: 1rem; margin-top: 1rem;">
@@ -211,6 +231,10 @@ aspectRatio4x3.story = {
         return {
           aspectRatio: '4x3',
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '1_p2osmd1z',
@@ -222,6 +246,7 @@ aspectRatio4x3.story = {
         VideoPlayer: {
           aspectRatio: '4x3',
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '1_p2osmd1z',
@@ -239,6 +264,10 @@ aspectRatio1x1.story = {
         return {
           aspectRatio: '1x1',
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '1_9h94wo6b',
@@ -250,6 +279,7 @@ aspectRatio1x1.story = {
         VideoPlayer: {
           aspectRatio: '1x1',
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '1_9h94wo6b',
@@ -271,6 +301,10 @@ withLightboxMediaViewer.story = {
             'This is a custom video description.'
           ),
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '0_ibuqxqbe',
@@ -283,6 +317,7 @@ withLightboxMediaViewer.story = {
           aspectRatio: '16x9',
           customVideoDescription: 'This is a custom video description',
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '0_ibuqxqbe',
@@ -304,6 +339,10 @@ withLightboxAndCTA.story = {
             'This is a custom video description with CTA buttons that will be forwarded to the lightbox.'
           ),
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '0_ibuqxqbe',
@@ -317,6 +356,7 @@ withLightboxAndCTA.story = {
           customVideoDescription:
             'This is a custom video description with CTA buttons that will be forwarded to the lightbox.',
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '0_ibuqxqbe',
@@ -498,6 +538,10 @@ export default {
     knobs: {
       VideoPlayer: () => ({
         caption: text('Custom caption (caption):', ''),
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnail: text('Custom thumbnail (thumbnail):', ''),
         videoId: '1_mq9h9c34',
@@ -507,6 +551,7 @@ export default {
       default: {
         VideoPlayer: {
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '1_mq9h9c34',
