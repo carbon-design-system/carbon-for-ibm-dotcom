@@ -346,6 +346,12 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
   hideCaption = false;
 
   /**
+   * `true` to disable the image zoom on hover effect.
+   */
+  @property({ type: Boolean, attribute: 'disable-image-zoom' })
+  disableImageZoom = false;
+
+  /**
    * `true` to autoplay, mute, and hide player UI.
    */
   @property({ type: Boolean, attribute: 'background-mode', reflect: true })
@@ -609,6 +615,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
       formatCaption,
       formatDuration,
       hideCaption,
+      disableImageZoom,
       caption,
       customVideoDescription,
       mediaData = {},
@@ -632,6 +639,7 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
         part="video-player"
         duration="${ifNonEmpty(duration)}"
         ?hide-caption=${hideCaption}
+        ?disable-image-zoom=${disableImageZoom}
         name="${ifNonEmpty(caption || name)}"
         video-description="${ifNonEmpty(customVideoDescription)}"
         thumbnail-url="${ifNonEmpty(thumbnailUrl)}"
