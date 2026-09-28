@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,6 +31,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import C4DVideoPlayerComposite from './video-player-composite';
+import { boolean } from '@storybook/addon-knobs';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -65,7 +66,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * The current playback state, inherited from the parent.
    */
-  @property()
+  @property({ type: boolean, reflect: true })
   isPlaying = false;
 
   /**
@@ -181,6 +182,26 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         : html` <slot></slot> `;
     }
   };
+
+  /**
+   * setting the mutation observer on component load
+   */
+  connectedCallback() {
+    super.connectedCallback();
+    const playerObserver = new MutationObserver(() => {
+      if (this.querySelector('.playkit-is-playing')) {
+        this.isPlaying = true;
+      } else {
+        this.isPlaying = false;
+      }
+    });
+
+    playerObserver.observe(this as HTMLElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+  }
 
   /**
    * Updates video thumbnail url to match video width
