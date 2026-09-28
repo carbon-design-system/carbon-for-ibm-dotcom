@@ -31,7 +31,6 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import C4DVideoPlayerComposite from './video-player-composite';
-import { boolean } from '@storybook/addon-knobs';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -66,7 +65,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * The current playback state, inherited from the parent.
    */
-  @property({ type: boolean, reflect: true })
+  @property({ reflect: true })
   isPlaying = false;
 
   /**
