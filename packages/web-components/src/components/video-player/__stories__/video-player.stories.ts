@@ -15,13 +15,15 @@ import { enumValsToArray } from '../../../globals/internal/enum-helpers';
 import { BUTTON_POSITION } from '../defs';
 
 export const Default = (args) => {
-  const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
+  const { caption, disableImageZoom, hideCaption, thumbnail, videoId } =
+    args?.VideoPlayer ?? {};
   return html`
     <c4d-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
       thumbnail=${thumbnail}
       background-mode></c4d-video-player-container>
 
@@ -32,8 +34,14 @@ export const Default = (args) => {
 };
 
 export const aspectRatio1x1 = (args) => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
-    args?.VideoPlayer ?? {};
+  const {
+    aspectRatio,
+    caption,
+    disableImageZoom,
+    hideCaption,
+    thumbnail,
+    videoId,
+  } = args?.VideoPlayer ?? {};
   return html`
     <c4d-video-player-container
       playing-mode="inline"
@@ -41,13 +49,20 @@ export const aspectRatio1x1 = (args) => {
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
       thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
 export const aspectRatio4x3 = (args) => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
-    args?.VideoPlayer ?? {};
+  const {
+    aspectRatio,
+    caption,
+    disableImageZoom,
+    hideCaption,
+    thumbnail,
+    videoId,
+  } = args?.VideoPlayer ?? {};
   return html`
     <c4d-video-player-container
       playing-mode="inline"
@@ -55,6 +70,7 @@ export const aspectRatio4x3 = (args) => {
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      ?disable-image-zoom=${disableImageZoom}
       thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
@@ -123,6 +139,10 @@ aspectRatio4x3.story = {
         return {
           aspectRatio: '4x3',
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '0_ibuqxqbe',
@@ -134,6 +154,7 @@ aspectRatio4x3.story = {
         VideoPlayer: {
           aspectRatio: '4x3',
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '0_ibuqxqbe',
@@ -151,6 +172,10 @@ aspectRatio1x1.story = {
         return {
           aspectRatio: '1x1',
           caption: text('Custom caption (caption):', ''),
+          disableImageZoom: boolean(
+            'Disable image zoom (disableImageZoom):',
+            false
+          ),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
           videoId: '0_ibuqxqbe',
@@ -162,6 +187,7 @@ aspectRatio1x1.story = {
         VideoPlayer: {
           aspectRatio: '1x1',
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '0_ibuqxqbe',
@@ -287,6 +313,10 @@ export default {
     knobs: {
       VideoPlayer: () => ({
         caption: text('Custom caption (caption):', ''),
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnail: text('Custom thumbnail (thumbnail):', ''),
         videoId: '0_ibuqxqbe',
@@ -296,6 +326,7 @@ export default {
       default: {
         VideoPlayer: {
           caption: '',
+          disableImageZoom: false,
           hideCaption: false,
           thumbnail: '',
           videoId: '0_ibuqxqbe',
