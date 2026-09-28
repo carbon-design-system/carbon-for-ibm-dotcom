@@ -275,18 +275,27 @@
         }
 
         > ::slotted(#{$c4d-prefix}-card-group-item) {
-          display: grid;
+          display: flex;
           box-sizing: border-box;
           flex-basis: clamp(220px, 65vw, 400px);
+          flex-direction: column;
           flex-shrink: 0;
-          align-content: start;
           block-size: auto;
 
           // // override web component internal padding and rely on gap instead
           padding-inline: 0;
+          place-content: start flex-end;
 
           scroll-margin: $gutter;
           scroll-snap-align: start;
+        }
+      }
+    }
+    :host(#{$c4d-prefix}-card-group-item) {
+      @include breakpoint-down('md') {
+        .#{$prefix}--card {
+          /* stylelint-disable-next-line declaration-no-important */
+          margin-block-end: 0 !important;
         }
       }
     }
