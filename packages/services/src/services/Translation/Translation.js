@@ -8,6 +8,7 @@
 import axios from 'axios';
 import { LocaleAPI } from '../Locale';
 import root from 'window-or-global';
+import usenData from './masthead-footer-usen.js';
 
 /**
  * @constant {string | string} Host for the Translation API call
@@ -151,6 +152,11 @@ class TranslationAPI {
 
     if (sessionTranslation) {
       resolve(sessionTranslation);
+    } else if (country === 'us' && lang === 'en' && (!endpoint || endpoint === _c4dEndpointDefault)) {
+      _requestsTranslation['us-en'] =
+        _requestsTranslation['us-en'] ||
+        Promise.resolve(this.transformData(JSON.parse(JSON.stringify(usenData))));
+      _requestsTranslation['us-en'].then(resolve, reject);
     } else {
       const key = country !== 'undefined' ? `${country}-${lang}` : `${lang}`;
 
