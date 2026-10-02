@@ -188,6 +188,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: Array, attribute: false })
   supportedBusinessPartners: string[] = [];
 
+  @property({ type: Object, attribute: false })
+  emailPrefType = 'N';
+
   pwsFieldsMap = new Map<string, string>([
     ['NC_HIDDEN_EMAIL', 'permission_email'],
     ['NC_HIDDEN_PHONE', 'permission_phone'],
@@ -398,6 +401,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.isLoading = false;
         this.emailValid = true;
         const { email: emailStatus, lastUpdated } = data;
+        this.emailPrefType = emailStatus;
         const annualPeriodDate = new Date(lastUpdated);
 
         const isValidDate = !isNaN(annualPeriodDate.getTime());
@@ -991,6 +995,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         return 'NOTICE_ONLY';
       }
 
+      if (this.emailPrefType === 'P' && !this.showCheckBox) {
+        return 'CU';
+      }
       const checkboxStatus = this.valuesForEmailPhone[key]?.checkBoxStatus;
 
       if (checkboxStatus === 'SUPPRESSION') {
@@ -1012,6 +1019,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       let hiddenValue =
         this.values[key]?.checkBoxStatus ??
         (this.values.EMAIL ? 'PERMISSION' : 'SUPPRESSION');
+
+      if (this.emailPrefType === 'P' && !this.showCheckBox) {
+        hiddenValue = 'PERMISSION';
+      }
 
       if (typeof checked !== 'object') {
         this.combinedEmailPhonePrechecked = !!checked;
