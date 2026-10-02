@@ -152,10 +152,16 @@ class TranslationAPI {
 
     if (sessionTranslation) {
       resolve(sessionTranslation);
-    } else if (country === 'us' && lang === 'en' && (!endpoint || endpoint === _c4dEndpointDefault)) {
+    } else if (
+      country === 'us' &&
+      lang === 'en' &&
+      (!endpoint || endpoint === _c4dEndpointDefault)
+    ) {
       _requestsTranslation['us-en'] =
         _requestsTranslation['us-en'] ||
-        Promise.resolve(this.transformData(JSON.parse(JSON.stringify(usenData))));
+        Promise.resolve(
+          this.transformData(JSON.parse(JSON.stringify(usenData)))
+        );
       _requestsTranslation['us-en'].then(resolve, reject);
     } else {
       const key = country !== 'undefined' ? `${country}-${lang}` : `${lang}`;
