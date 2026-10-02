@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.58.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.57.3...@carbon/ibmdotcom-styles@2.58.0) (2026-10-02)
+
+
+### Bug Fixes
+
+* **card-group:** fix gray space bellow cards on mobile ([#12667](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12667)) ([a0221de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a0221dead4d653f43217d63f0ad843fc3abfcde0))
+
+
+
+
+
 ## [2.57.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.57.2...@carbon/ibmdotcom-styles@2.57.3) (2026-09-23)
 
 
