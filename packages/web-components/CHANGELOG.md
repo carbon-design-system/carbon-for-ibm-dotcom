@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.61.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.60.3...@carbon/ibmdotcom-web-components@2.61.0) (2026-10-02)
+
+
+### Bug Fixes
+
+* **video-player-v7:** remove misplaced import from class ([a8ae43b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a8ae43b58ec6dd044f392291e6a7b5432b3ddf9d))
+* **video-player:** Fix is playing property not updating ([#12669](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12669)) ([31c0841](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/31c08417f118fcce25917ef87a455d418543924c))
+
+
+### Features
+
+* **lightbox:** add fallback for cards with no title ([#12672](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12672)) ([b092e9a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b092e9aa6a5f23d290a94dae13fbb5c9ae8b9a38))
+* **masthead-footer:** update nav data to the latest ([#12674](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12674)) ([7e2f401](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7e2f4012a937a1920430b6e9e403dbdb8f95a244))
+
+
+
+
+
 ## [2.60.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.60.2...@carbon/ibmdotcom-web-components@2.60.3) (2026-09-23)
 
 
