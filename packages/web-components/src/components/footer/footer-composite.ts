@@ -153,6 +153,12 @@ class C4DFooterComposite extends MediaQueryMixin(
   disableLocaleButton = false;
 
   /**
+   * `true` to hide the cookie preferences placeholder.
+   */
+  @property({ type: Boolean, attribute: 'hide-cookie-preferences' })
+  hideCookiePreferences = false;
+
+  /**
    * The language used for query.
    */
   @property()
@@ -380,6 +386,7 @@ class C4DFooterComposite extends MediaQueryMixin(
   renderLightDOM() {
     const {
       disableLocaleButton,
+      hideCookiePreferences,
       langList,
       size,
       links,
@@ -454,7 +461,9 @@ class C4DFooterComposite extends MediaQueryMixin(
                 `
               )
             : ``}
-          <c4d-legal-nav-cookie-preferences-placeholder></c4d-legal-nav-cookie-preferences-placeholder>
+          ${!hideCookiePreferences
+            ? html`<c4d-legal-nav-cookie-preferences-placeholder></c4d-legal-nav-cookie-preferences-placeholder>`
+            : ``}
           ${size === FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
             ? this.renderLocaleButton('locale')
             : ``}
