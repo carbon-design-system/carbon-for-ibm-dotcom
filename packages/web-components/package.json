@@ -128,7 +128,7 @@
     "@babel/plugin-transform-template-literals": "~7.27.0",
     "@babel/plugin-transform-typescript": "~7.28.0",
     "@babel/preset-env": "~7.28.0",
-    "@babel/preset-modules": "^0.1.5",
+    "@babel/preset-modules": "^0.2.0",
     "@babel/preset-react": "~7.28.0",
     "@babel/template": "~7.28.0",
     "@babel/traverse": "~7.28.0",
