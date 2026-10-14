@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import on from '@carbon/web-components/es/globals/mixins/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
@@ -23,7 +23,6 @@ import '../lightbox-media-viewer/lightbox-video-player-composite';
 import { CTA_TYPE } from './defs';
 import { CTAMixinImpl } from '../../component-mixins/cta/cta';
 import styles from './video-cta-composite.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import KalturaPlayerAPIV7 from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
 
 const { stablePrefix: c4dPrefix } = settings;

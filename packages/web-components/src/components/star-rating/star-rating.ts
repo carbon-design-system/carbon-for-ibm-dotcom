@@ -1,16 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import '@carbon/web-components/es/components/tooltip/tooltip.js';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import Star16 from '@carbon/web-components/es/icons/star/16.js';
 import StarHalf16 from '@carbon/web-components/es/icons/star--half/16.js';
 import StarFilled16 from '@carbon/web-components/es/icons/star--filled/16.js';

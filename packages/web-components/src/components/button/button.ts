@@ -8,12 +8,10 @@
  */
 
 import { html, LitElement } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-// TEMP(lit3-migration): switch decorator import from deprecated carbonElement to Lit's customElement
-import { customElement } from 'lit/decorators.js';
 import CTAMixin, { ariaLabels, icons } from '../../component-mixins/cta/cta';
 import CDSButton from '@carbon/web-components/es/components/button/button.js';
 // TEMP(lit3-migration): import CWC button barrel for custom element registration

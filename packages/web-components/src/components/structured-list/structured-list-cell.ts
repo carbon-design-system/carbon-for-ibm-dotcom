@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import CDSStructuredListCell from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import Info16 from '@carbon/web-components/es/icons/information/16.js';
 import Checkmark20 from '@carbon/web-components/es/icons/checkmark/20.js';
@@ -17,7 +17,6 @@ import Error20 from '@carbon/web-components/es/icons/error/20.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import imgLg16x9 from '../../../../../.storybook/storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import imgXlg16x9 from '../../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';

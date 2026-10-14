@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
 import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
@@ -18,7 +18,6 @@ import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';
 import C4DVideoPlayerContainer from '../video-player-v7/video-player-container';
 import C4DLeadSpace from '../leadspace/leadspace';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

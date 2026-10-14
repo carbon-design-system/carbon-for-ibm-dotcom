@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, LitElement, TemplateResult } from 'lit';
-import { property, state, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import Filter from '@carbon/web-components/es/icons/filter/16.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
@@ -24,7 +24,6 @@ import C4DFilterGroupItem from './filter-group-item';
 import C4DFilterPanelCheckbox from './filter-panel-checkbox';
 import C4DFilterPanelInputSelect from './filter-panel-input-select';
 import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,

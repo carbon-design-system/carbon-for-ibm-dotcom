@@ -1,19 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { css } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME };
 

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { LitElement, html, render } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import '@carbon/web-components/es/components/link/link.js';
 import '@carbon/web-components/es/components/list/ordered-list.js';
 import '@carbon/web-components/es/components/list/unordered-list.js';
@@ -17,7 +17,6 @@ import '@carbon/web-components/es/components/list/list-item.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './markdown.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

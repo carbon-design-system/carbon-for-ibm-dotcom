@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html, TemplateResult } from 'lit';
-import { state, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
 import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
@@ -70,7 +70,6 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import C4DMastheadMenuButton from './masthead-menu-button';
 
 const { stablePrefix: c4dPrefix, prefix } = settings;

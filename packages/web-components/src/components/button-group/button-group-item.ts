@@ -6,7 +6,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-// TEMP(lit3-migration): switch decorator import from deprecated carbonElement to Lit's customElement
 import { customElement } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';

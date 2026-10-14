@@ -1,18 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-with-media.scss';
 import C4DVideoPlayerContainer from '../video-player-v7/video-player-container';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { TemplateResult, html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import CDSComboBoxItem from '@carbon/web-components/es/components/combo-box/combo-box-item.js';
 import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
@@ -19,7 +19,6 @@ import Close16 from '@carbon/web-components/es/icons/close/16.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,

@@ -1,20 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2024
+ * Copyright IBM Corp. 2022, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import ArrowRight24 from '@carbon/web-components/es/icons/arrow--right/24.js';
 import ArrowLeft24 from '@carbon/web-components/es/icons/arrow--left/24.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
