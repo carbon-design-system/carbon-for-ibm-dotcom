@@ -18,6 +18,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';
+import '@carbon/web-components/es/components/tag/index.js';
 import '../../background-media/index';
 import '../../video-player-v7/video-player-container';
 import textNullable from '../../../../.storybook/knob-text-nullable';

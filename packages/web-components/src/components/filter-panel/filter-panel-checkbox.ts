@@ -10,7 +10,7 @@
 import CDSCheckbox from '@carbon/web-components/es/components/checkbox/checkbox.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import '@carbon/web-components/es/components/modal/modal.js';
+import '@carbon/web-components/es/components/modal/index.js';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { customElement } from 'lit/decorators.js';

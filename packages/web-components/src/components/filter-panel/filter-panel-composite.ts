@@ -19,8 +19,8 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import '@carbon/web-components/es/components/checkbox/checkbox.js';
-import '@carbon/web-components/es/components/button/button.js';
+import '@carbon/web-components/es/components/checkbox/index.js';
+import '@carbon/web-components/es/components/button/index.js';
 import C4DFilterGroupItem from './filter-group-item';
 import C4DFilterPanelCheckbox from './filter-panel-checkbox';
 import C4DFilterPanelInputSelect from './filter-panel-input-select';

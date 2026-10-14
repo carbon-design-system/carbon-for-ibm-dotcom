@@ -8,7 +8,7 @@
  */
 
 import '../../image/image';
-import '@carbon/web-components/es/components/tag/tag.js';
+import '@carbon/web-components/es/components/tag/index.js';
 import '../index';
 import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';

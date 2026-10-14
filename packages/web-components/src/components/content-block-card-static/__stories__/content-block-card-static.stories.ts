@@ -8,6 +8,7 @@
  */
 
 import '../index';
+import '@carbon/web-components/es/components/tag/index.js';
 import { html } from 'lit';
 import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
 import Chat20 from '@carbon/icons/es/chat/20.js';

@@ -14,7 +14,6 @@ import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import CTAMixin, { ariaLabels, icons } from '../../component-mixins/cta/cta';
 import CDSButton from '@carbon/web-components/es/components/button/button.js';
-// TEMP(lit3-migration): import CWC button barrel for custom element registration
 import '@carbon/web-components/es/components/button/index.js';
 import { CTA_TYPE } from '../cta/defs';
 

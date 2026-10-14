@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 
-import '@carbon/web-components/es/components/skip-to-content/skip-to-content.js';
+import '@carbon/web-components/es/components/skip-to-content/index.js';
 
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';

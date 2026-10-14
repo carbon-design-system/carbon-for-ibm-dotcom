@@ -18,6 +18,8 @@ import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
 } from '@carbon/web-components/es/components/dropdown/dropdown.js';
 import CDSDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
+import '@carbon/web-components/es/components/dropdown/index.js';
+import '@carbon/web-components/es/components/select/index.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';

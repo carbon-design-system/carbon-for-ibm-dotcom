@@ -43,8 +43,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import '@carbon/web-components/es/components/combo-box/combo-box-item.js';
-import '@carbon/web-components/es/components/select/select-item.js';
+import '@carbon/web-components/es/components/combo-box/index.js';
+import '@carbon/web-components/es/components/select/index.js';
 import { moderate02 } from '@carbon/motion';
 
 const { stablePrefix: c4dPrefix } = settings;

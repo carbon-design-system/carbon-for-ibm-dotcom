@@ -8,6 +8,8 @@
  */
 
 import CDSStructuredListCell from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
+import '@carbon/web-components/es/components/tag/index.js';
+import '@carbon/web-components/es/components/tooltip/index.js';
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';

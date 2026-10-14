@@ -10,7 +10,7 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import '@carbon/web-components/es/components/search/search.js';
+import '@carbon/web-components/es/components/search/index.js';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 

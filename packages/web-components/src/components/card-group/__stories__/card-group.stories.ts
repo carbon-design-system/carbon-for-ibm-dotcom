@@ -10,6 +10,7 @@
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
+import '@carbon/web-components/es/components/tag/index.js';
 import '../../cta/video-cta-container';
 import { html } from 'lit';
 import { select, number, boolean } from '@storybook/addon-knobs';

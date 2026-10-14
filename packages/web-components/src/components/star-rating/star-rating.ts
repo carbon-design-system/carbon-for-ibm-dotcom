@@ -9,7 +9,7 @@
 
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import '@carbon/web-components/es/components/tooltip/tooltip.js';
+import '@carbon/web-components/es/components/tooltip/index.js';
 import Star16 from '@carbon/icons/es/star/16.js';
 import StarHalf16 from '@carbon/icons/es/star--half/16.js';
 import StarFilled16 from '@carbon/icons/es/star--filled/16.js';

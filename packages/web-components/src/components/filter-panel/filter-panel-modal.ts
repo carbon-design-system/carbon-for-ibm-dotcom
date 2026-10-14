@@ -18,9 +18,8 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import '@carbon/web-components/es/components/checkbox/checkbox.js';
-import '@carbon/web-components/es/components/modal/modal-close-button.js';
-import '@carbon/web-components/es/components/modal/modal-header.js';
+import '@carbon/web-components/es/components/checkbox/index.js';
+import '@carbon/web-components/es/components/modal/index.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

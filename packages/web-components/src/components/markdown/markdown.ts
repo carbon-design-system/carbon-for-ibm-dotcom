@@ -10,10 +10,8 @@
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { LitElement, html, render } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import '@carbon/web-components/es/components/link/link.js';
-import '@carbon/web-components/es/components/list/ordered-list.js';
-import '@carbon/web-components/es/components/list/unordered-list.js';
-import '@carbon/web-components/es/components/list/list-item.js';
+import '@carbon/web-components/es/components/link/index.js';
+import '@carbon/web-components/es/components/list/index.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './markdown.scss';

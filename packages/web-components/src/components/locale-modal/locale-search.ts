@@ -14,7 +14,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
 import CDSSearch from '@carbon/web-components/es/components/search/search.js';
-import '@carbon/web-components/es/components/search/search.js';
+import '@carbon/web-components/es/components/search/index.js';
 import C4DLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

@@ -22,10 +22,8 @@ import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
 import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import '@carbon/web-components/es/components/modal/modal-header.js';
-import '@carbon/web-components/es/components/modal/modal-close-button.js';
-import '@carbon/web-components/es/components/modal/modal-footer.js';
-import '@carbon/web-components/es/components/button/button.js';
+import '@carbon/web-components/es/components/modal/index.js';
+import '@carbon/web-components/es/components/button/index.js';
 import styles from './leaving-ibm.scss';
 
 const { stablePrefix: c4dPrefix } = settings;
