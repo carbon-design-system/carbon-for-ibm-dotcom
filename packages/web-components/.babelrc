@@ -1,8 +1,12 @@
 {
   "plugins": [
-    "@babel/plugin-transform-typescript",
-    "@babel/plugin-transform-class-properties",
-    ["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": true }],
+    ["@babel/plugin-transform-typescript", { "allowDeclareFields": true }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-transform-class-properties", { "loose": true }],
+    ["@babel/plugin-transform-private-methods", { "loose": true }],
+    ["@babel/plugin-transform-private-property-in-object", { "loose": true }],
+    "@babel/plugin-transform-class-static-block",
+    "@babel/plugin-transform-logical-assignment-operators",
     "@babel/plugin-transform-nullish-coalescing-operator",
     ["@babel/plugin-transform-object-rest-spread", { "useBuiltIns": true }],
     "@babel/plugin-transform-optional-chaining",

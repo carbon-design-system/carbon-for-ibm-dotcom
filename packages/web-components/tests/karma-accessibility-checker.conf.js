@@ -102,11 +102,7 @@ module.exports = function setupKarma(config) {
             ? {}
             : {
                 test: /\.[jt]s$/,
-                exclude: [
-                  __dirname,
-                  /__tests__/,
-                  path.resolve(__dirname, '../node_modules'),
-                ],
+                exclude: [__dirname, /__tests__/, /[\\/]node_modules[\\/]/],
                 enforce: 'post',
                 use: {
                   loader: 'istanbul-instrumenter-loader',
@@ -117,7 +113,11 @@ module.exports = function setupKarma(config) {
               },
           {
             test: /\.js$/,
-            include: [__dirname, path.dirname(require.resolve('lit'))],
+            include: [
+              __dirname,
+              path.dirname(require.resolve('lit')),
+              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components)/,
+            ],
             use: {
               loader: 'babel-loader',
               options: {

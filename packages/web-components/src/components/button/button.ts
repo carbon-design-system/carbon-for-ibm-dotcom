@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,9 +12,12 @@ import { property, query } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+// TEMP(lit3-migration): switch decorator import from deprecated carbonElement to Lit's customElement
+import { customElement } from 'lit/decorators.js';
 import CTAMixin, { ariaLabels, icons } from '../../component-mixins/cta/cta';
 import CDSButton from '@carbon/web-components/es/components/button/button.js';
+// TEMP(lit3-migration): import CWC button barrel for custom element registration
+import '@carbon/web-components/es/components/button/index.js';
 import { CTA_TYPE } from '../cta/defs';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -32,13 +35,13 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 // @ts-ignore
 class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   @query('a')
-  _linkNode;
+  _linkNode?: HTMLAnchorElement;
 
   @query(`slot[name='icon']`)
   iconSlot?: HTMLElement;
 
   @property()
-  span;
+  span?: any;
 
   /**
    * `true` if expressive theme enabled.

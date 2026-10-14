@@ -12,11 +12,13 @@
 
 ```
 <a
+  aria-describedby="badge-indicator"
   class="cds--btn cds--btn--expressive cds--btn--lg cds--btn--primary cds--layout--size-lg"
   href="https://example.com"
   id="button"
   part="button"
   role="button"
+  tabindex="0"
   type="button"
 >
   <slot>
@@ -31,6 +33,11 @@
     undefined
   </slot>
 </a>
+<slot
+  id="badge-indicator"
+  name="badge-indicator"
+>
+</slot>
 
 ```
 

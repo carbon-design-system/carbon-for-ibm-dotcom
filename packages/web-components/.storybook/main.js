@@ -19,7 +19,13 @@ const { getPaths } = deepReplace;
 const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
 
 module.exports = {
-  stories: ['../docs/*.mdx', '../src/**/*.stories.ts'],
+  // TEMP(lit3-migration): scoped to button stories for step 2 spike
+  stories: process.env.STORYBOOK_STORIES
+    ? [process.env.STORYBOOK_STORIES]
+    : [
+        '../src/components/button/__stories__/button.stories.ts',
+        '../src/components/button-group/__stories__/button-group.stories.ts',
+      ],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-links',
@@ -94,14 +100,18 @@ module.exports = {
         /@babel\/plugin-proposal-decorators/i.test(value[0]),
       () => deepReplace.DELETE
     );
-    // Normalizes several plugins with `loose: false` option
+    // Normalizes several plugins with `loose: false` option, except
+    // class features which require loose: true with legacy decorators
     config.module.rules = deepReplace(
       config.module.rules,
       (value, key, parent, parents) =>
         getPaths(parents) === 'use.options.plugins' &&
         Array.isArray(value) &&
         value[1] &&
-        value[1].loose,
+        value[1].loose &&
+        !/@babel\/plugin-(proposal|transform)-(class-properties|private-methods|private-property-in-object)/i.test(
+          value[0]
+        ),
       (value) => [
         value[0],
         {
@@ -153,7 +163,10 @@ module.exports = {
     if (babelLoaderRule) {
       config.module.rules.unshift({
         use: babelLoaderRule.use,
-        include: [path.dirname(require.resolve('lit'))],
+        include: [
+          path.dirname(require.resolve('lit')),
+          /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components)/,
+        ],
       });
     }
 

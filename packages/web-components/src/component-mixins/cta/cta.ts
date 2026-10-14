@@ -9,20 +9,36 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Download20 from '@carbon/web-components/es/icons/download/20.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
-import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
-import PlayFilledAlt20 from '@carbon/web-components/es/icons/play--filled--alt/20.js';
-import Blog20 from '@carbon/web-components/es/icons/blog/20.js';
-import DocumentPDF20 from '@carbon/web-components/es/icons/document--pdf/20.js';
-import NewTab20 from '@carbon/web-components/es/icons/new-tab/20.js';
-import Phone20 from '@carbon/web-components/es/icons/phone/20.js';
-import Calendar20 from '@carbon/web-components/es/icons/calendar/20.js';
-import Email20 from '@carbon/web-components/es/icons/email/20.js';
-import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+
+// TEMP(lit3-migration): placeholder icon stubs for step 2 spike until step 5 migrates all icon imports
+const createIconStub = () =>
+  html`<svg
+    focusable="false"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    aria-hidden="true"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20">
+    <path
+      d="M11.8 2.8L10.8 3.8 16.2 9.2 1 9.2 1 10.8 16.2 10.8 10.8 16.2 11.8 17.2 19 10z"></path>
+  </svg>`;
+
+const ArrowDown20 = createIconStub;
+const ArrowLeft20 = createIconStub;
+const ArrowRight20 = createIconStub;
+const Download20 = createIconStub;
+const Launch20 = createIconStub;
+const PlayFilledAlt20 = createIconStub;
+const Blog20 = createIconStub;
+const DocumentPDF20 = createIconStub;
+const NewTab20 = createIconStub;
+const Phone20 = createIconStub;
+const Calendar20 = createIconStub;
+const Email20 = createIconStub;
+const Chat20 = createIconStub;
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
@@ -81,7 +97,8 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @internal
      */
-    _linkNode;
+    // TEMP(lit3-migration): declare _linkNode so it does not emit runtime field assignment that clashes with child getter
+    declare _linkNode?: HTMLAnchorElement;
 
     /**
      * Handles `click` event on the `<a>.
