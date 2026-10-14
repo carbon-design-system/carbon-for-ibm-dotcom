@@ -272,7 +272,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           [CTA_TYPE.CALL]: 'phone-link',
         };
 
-        if (Object.keys(contactMethods).includes(ctaType)) {
+        if (linkNode && Object.keys(contactMethods).includes(ctaType)) {
           linkNode.dataset.ibmContact = contactMethods[ctaType];
         }
       }

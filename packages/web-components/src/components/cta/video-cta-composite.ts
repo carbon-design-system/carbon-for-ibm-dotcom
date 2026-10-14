@@ -228,7 +228,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
       // Manually hooks the event listeners on the modal render root to make the event names configurable
       videoPlayerComposite.ctaElement = this._ctaContents;
       this._hCloseModal = on(
-        videoPlayerComposite.modalRenderRoot,
+        videoPlayerComposite.modalRenderRoot as EventTarget,
         (this.constructor as typeof C4DVideoCTAComposite).eventCloseLightbox,
         this._handleCloseVideoPlayer as EventListener
       );

@@ -28,7 +28,6 @@
 ```
 <a
   class="cds--link cds--link--lg cds--link-with-icon cds--link-with-icon--inline-icon cds--link-with-icon__icon-right"
-  href="#"
   id="link"
   part="link"
   tabindex="0"
