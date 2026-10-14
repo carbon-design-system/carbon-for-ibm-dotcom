@@ -33,5 +33,10 @@
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx"
   ],
-  "exclude": []
+  "exclude": [
+    "src/**/*.react.tsx",
+    "src/**/*.stories.react.tsx",
+    "src/components/table-of-contents/__stories__/wrapper-content.tsx",
+    ".storybook/react/**/*"
+  ]
 }

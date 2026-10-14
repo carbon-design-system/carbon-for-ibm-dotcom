@@ -19,7 +19,9 @@ const { getPaths } = deepReplace;
 const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
 
 module.exports = {
-  // TEMP(lit3-migration): scoped to button stories for step 2 spike
+  // TEMP(lit3-migration): scoped to button stories for step 2 spike.
+  // Full globs for step 10 should keep React stories excluded:
+  // ['../docs/*.mdx', '../src/**/*.stories.ts', '!../src/**/*.stories.react.tsx', '!../src/**/*.stories.react.mdx']
   stories: process.env.STORYBOOK_STORIES
     ? [process.env.STORYBOOK_STORIES]
     : [
