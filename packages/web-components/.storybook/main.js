@@ -57,7 +57,7 @@ module.exports = {
     );
     return config;
   },
-  webpackFinal(config, mode) {
+  webpackFinal(config, _mode) {
     config.devtool = useStyleSourceMap ? 'source-map' : '';
 
     config.optimization = {
@@ -280,6 +280,22 @@ module.exports = {
     );
 
     config.resolve.extensions.push('.ts', '.tsx', '.d.ts');
+
+    // TEMP(lit3-migration): @storybook/react v6.5 has a dynamic import of
+    // react-dom/client that only exists in React 18.  When the framework is
+    // @storybook/web-components the @storybook/react framework-preset-react-dom-hack
+    // IgnorePlugin is not automatically applied, so we add it here manually.
+    // This can be removed once React wrappers are re-enabled in Step 13 with
+    // a React 18 upgrade, or when @storybook/react is removed as a dependency.
+    const reactDomPkg = require('react-dom/package.json');
+    if (!reactDomPkg.version.startsWith('18')) {
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /react-dom\/client$/,
+          contextRegExp: /(app[\\/]react|@storybook[\\/]react)/,
+        })
+      );
+    }
 
     return config;
   },

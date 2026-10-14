@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2025
+ * Copyright IBM Corp. 2016, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -79,12 +79,15 @@ $search-transition-timing: 95ms;
       --grid-width: calc(99rem - 3rem);
     }
 
-    @include theme($white, true);
-
+    // Declarations before mixin call to avoid mixed-decls deprecation (Sass 1.79):
+    // theme() emits a forced-colors @media rule; bare declarations after a
+    // nested rule trigger the warning.
     position: relative;
     overflow: visible;
     background-color: $layer-02;
     transition-timing-function: $search-transition;
+
+    @include theme($white, true);
   }
 
   // L1 Mobile Styles

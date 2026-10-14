@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -220,20 +220,21 @@
 
   :host(#{$c4d-prefix}-content-block-heading),
   .#{$prefix}--content-block__heading {
-    @include type-style('fluid-heading-05', true);
-
+    // Declarations before mixin to avoid mixed-decls (Sass 1.79):
+    // type-style() expands to @media nested rules.
     color: $text-primary;
-
     margin-block-end: $spacing-07;
+
+    @include type-style('fluid-heading-05', true);
   }
 
   :host(#{$c4d-prefix}-content-block-paragraph),
   .#{$prefix}--content-block__copy p {
-    @include type-style('fluid-heading-03', true);
-
+    // Declarations before mixin to avoid mixed-decls (Sass 1.79).
     color: $text-primary;
-
     margin-block-end: $spacing-07;
+
+    @include type-style('fluid-heading-03', true);
   }
 
   .#{$prefix}--content-block__cta {

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -13,20 +13,29 @@
 :host(#{$c4d-prefix}-search) {
   @extend :host(#{$prefix}-search);
 
+  // In Carbon v12 / @carbon/styles 2.0.0-alpha, .cds--search--{sm,md,lg} no
+  // longer exist; search sizing is done via layout tokens emitted per-host by
+  // CWC v3's search.scss.  Keep !optional so the build doesn't hard-fail; these
+  // extends are dead and should be removed once we verify no visual regression.
   &[size='sm'] {
-    @extend .#{$prefix}--search--sm;
+    // TODO(step8-cleanup): remove — .cds--search--sm removed in Carbon v12
+    @extend .#{$prefix}--search--sm !optional;
   }
 
   &[size='md'] {
-    @extend .#{$prefix}--search--md;
+    // TODO(step8-cleanup): remove — .cds--search--md removed in Carbon v12
+    @extend .#{$prefix}--search--md !optional;
   }
 
   &[size='lg'] {
-    @extend .#{$prefix}--search--lg;
+    // TODO(step8-cleanup): remove — .cds--search--lg removed in Carbon v12
+    @extend .#{$prefix}--search--lg !optional;
   }
 
   &[color-scheme='light'] {
-    @extend .#{$prefix}--search--light;
+    // TODO(step8-cleanup): verify — .cds--search--light still exists in v12
+    // but is nested inside a high-contrast media query; extend may be a no-op.
+    @extend .#{$prefix}--search--light !optional;
   }
 
   /**
