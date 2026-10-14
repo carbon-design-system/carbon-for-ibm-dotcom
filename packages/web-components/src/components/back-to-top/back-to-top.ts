@@ -12,7 +12,8 @@ import { customElement, property } from 'lit/decorators.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import throttle from 'lodash-es/throttle.js';
-import UpToTop20 from '@carbon/web-components/es/icons/up-to-top/20.js';
+import UpToTop20 from '@carbon/icons/es/up-to-top/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './back-to-top.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -173,7 +174,7 @@ class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--back-to-top__btn"
         aria-label="${backToTopAssistiveText}"
         @click="${handleOnClick}">
-        ${UpToTop20()}
+        ${iconLoader(UpToTop20)}
       </button>
     `;
   }

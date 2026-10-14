@@ -11,14 +11,15 @@ import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
-import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
-import Calendar16 from '@carbon/web-components/es/icons/calendar/16.js';
-import Chat16 from '@carbon/web-components/es/icons/chat/16.js';
-import Demo16 from '@carbon/web-components/es/icons/demo/16.js';
-import Email16 from '@carbon/web-components/es/icons/email/16.js';
-import Phone16 from '@carbon/web-components/es/icons/phone/16.js';
-import Quote16 from '@carbon/web-components/es/icons/request-quote/16.js';
+import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
+import ArrowLeft16 from '@carbon/icons/es/arrow--left/16.js';
+import Calendar16 from '@carbon/icons/es/calendar/16.js';
+import Chat16 from '@carbon/icons/es/chat/16.js';
+import Demo16 from '@carbon/icons/es/demo/16.js';
+import Email16 from '@carbon/icons/es/email/16.js';
+import Phone16 from '@carbon/icons/es/phone/16.js';
+import Quote16 from '@carbon/icons/es/request-quote/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import styles from './masthead-l1.scss';
 import { L1_CTA_TYPES } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
@@ -112,13 +113,13 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
      * @see https://github.ibm.com/live-advisor/cm-app/blob/master/docs/cm-doc.md#calls-to-action
      */
     const iconMap = new Map([
-      [L1_CTA_TYPES.CONTACT_US, Chat16()],
-      [L1_CTA_TYPES.CHAT_NOW, Chat16()],
-      [L1_CTA_TYPES.EMAIL_US, Email16()],
-      [L1_CTA_TYPES.CALL_US, Phone16()],
-      [L1_CTA_TYPES.BOOK_A_CONSULTATION, Calendar16()],
-      [L1_CTA_TYPES.REQUEST_A_DEMO, Demo16()],
-      [L1_CTA_TYPES.REQUEST_A_QUOTE, Quote16()],
+      [L1_CTA_TYPES.CONTACT_US, iconLoader(Chat16)],
+      [L1_CTA_TYPES.CHAT_NOW, iconLoader(Chat16)],
+      [L1_CTA_TYPES.EMAIL_US, iconLoader(Email16)],
+      [L1_CTA_TYPES.CALL_US, iconLoader(Phone16)],
+      [L1_CTA_TYPES.BOOK_A_CONSULTATION, iconLoader(Calendar16)],
+      [L1_CTA_TYPES.REQUEST_A_DEMO, iconLoader(Demo16)],
+      [L1_CTA_TYPES.REQUEST_A_QUOTE, iconLoader(Quote16)],
     ]);
 
     if (type && iconMap.has(type as L1_CTA_TYPES)) {
@@ -139,7 +140,7 @@ class C4DMastheadL1Cta extends StableSelectorMixin(LitElement) {
     if (href) {
       const isRTL = document.dir.toLowerCase() === 'rtl';
       const ArrowIcon = isRTL ? ArrowLeft16 : ArrowRight16;
-      const icon = isMobileVersion ? ArrowIcon() : '';
+      const icon = isMobileVersion ? iconLoader(ArrowIcon) : '';
       return html`
         <a part="l1-link" class="${classname}" href="${href}">
           ${desktopWrapper(html`<slot name="cta-text"></slot>${icon}`)}

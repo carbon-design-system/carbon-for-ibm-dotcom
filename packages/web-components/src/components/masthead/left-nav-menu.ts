@@ -10,7 +10,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
+import ChevronDown16 from '@carbon/icons/es/chevron--down/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
@@ -135,7 +136,7 @@ class C4DLeftNavMenu extends FocusMixin(LitElement) {
             <div
               part="side-nav-icon"
               class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-              ${ChevronDown16()}
+              ${iconLoader(ChevronDown16)}
             </div>
           </div>
         </button>

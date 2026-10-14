@@ -11,7 +11,8 @@ import { LitElement, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import Wikis from '@carbon/web-components/es/icons/wikis/20.js';
+import Wikis from '@carbon/icons/es/wikis/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import styles from './megamenu-language-selector.scss';
 
 const { stablePrefix: c4dPrefix } = settings;
@@ -477,7 +478,7 @@ class C4DMegaMenuLanguageSelector extends StableSelectorMixin(LitElement) {
         aria-controls="countryDropdown"
         aria-label="page translations"
         @click=${this.toggleDropdown}>
-        ${Wikis({ part: 'earth-l0-svg' })}
+        ${iconLoader(Wikis, { part: 'earth-l0-svg' })}
 
         <div id="countrySwitcher">
           <div id="countryDropdown" class=${this.dropdownOpen ? '' : 'hidden'}>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,8 @@ import '../../video-player/video-player-container';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 
 import imgXlg16x9 from '../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
 import imgMd16x9 from '../../../../.storybook/storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
@@ -110,7 +111,8 @@ export const WithCarouselVideo = (args) => {
           >Putting innovation in the driver's seat</c4d-card-heading
         >
         <c4d-card-cta-footer
-          >Link ${ArrowRight20({ slot: 'icon' })}</c4d-card-cta-footer
+          >Link
+          ${iconLoader(ArrowRight20, { slot: 'icon' })}</c4d-card-cta-footer
         >
         <c4d-video-player-container
           slot="image"
@@ -129,7 +131,8 @@ export const WithCarouselVideo = (args) => {
           >Putting innovation in the driver's seat</c4d-card-heading
         >
         <c4d-card-cta-footer
-          >Link ${ArrowRight20({ slot: 'icon' })}</c4d-card-cta-footer
+          >Link
+          ${iconLoader(ArrowRight20, { slot: 'icon' })}</c4d-card-cta-footer
         >
         <c4d-video-player-container
           slot="image"

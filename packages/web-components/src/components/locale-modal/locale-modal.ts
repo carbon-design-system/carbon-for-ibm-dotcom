@@ -9,8 +9,9 @@
 
 import { html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
-import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import ArrowLeft20 from '@carbon/icons/es/arrow--left/20.js';
+import EarthFilled16 from '@carbon/icons/es/earth--filled/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
@@ -114,7 +115,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
         <p
           class="${prefix}--modal-header__label ${prefix}--type-delta"
           part="header-label">
-          ${langDisplay}${EarthFilled16({
+          ${langDisplay}${iconLoader(EarthFilled16, {
             class: `${c4dPrefix}--locale-modal__label-globe`,
           })}
         </p>
@@ -144,7 +145,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
         href="#"
         part="link-with-icon"
         @click="${handleClickBackButton}">
-        ${headerTitle}${ArrowLeft20({
+        ${headerTitle}${iconLoader(ArrowLeft20, {
           slot: 'icon',
           class: `${c4dPrefix}--locale-modal__label-arrow`,
         })}

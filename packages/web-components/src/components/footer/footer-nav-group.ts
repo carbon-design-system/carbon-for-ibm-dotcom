@@ -9,7 +9,8 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import ChevronRight16 from '@carbon/web-components/es/icons/chevron--right/16.js';
+import ChevronRight16 from '@carbon/icons/es/chevron--right/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import MediaQueryMixin, {
   MQBreakpoints,
@@ -129,7 +130,7 @@ class C4DFooterNavGroup extends MediaQueryMixin(
             aria-expanded="${String(Boolean(open))}"
             @click="${handleClickExpando}"
             @keydown="${handleKeydownExpando}">
-            ${ChevronRight16({
+            ${iconLoader(ChevronRight16, {
               class: `${prefix}--accordion__arrow`,
             })}
             <div part="accordion-title" class="${prefix}--accordion__title">

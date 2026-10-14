@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import '../index';
 
 const template = (props?) => {
@@ -55,7 +56,7 @@ describe('c4d-content-block-card-static', function () {
                 libero.
               </p>
               <c4d-card-footer>
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-card-footer>
             </c4d-card-group-item>
           `,

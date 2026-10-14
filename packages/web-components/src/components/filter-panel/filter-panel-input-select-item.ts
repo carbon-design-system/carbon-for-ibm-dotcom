@@ -9,7 +9,8 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import Close from '@carbon/web-components/es/icons/close/16.js';
+import Close from '@carbon/icons/es/close/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -86,7 +87,7 @@ class C4DFilterPanelInputSelectItem extends FocusMixin(
     return html`
       <slot @slotchange=${this._handleSlotChange}></slot>
       <div class="${prefix}--close__icon" part="icon">
-        ${this.selected ? Close() : null}
+        ${this.selected ? iconLoader(Close) : null}
       </div>
     `;
   }

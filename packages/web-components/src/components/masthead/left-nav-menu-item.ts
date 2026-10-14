@@ -10,8 +10,9 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
-import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
+import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
+import ArrowLeft16 from '@carbon/icons/es/arrow--left/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import CDSSideNavMenuItem from '@carbon/web-components/es/components/ui-shell/side-nav-menu-item.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
@@ -73,7 +74,7 @@ class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
             data-attribute3="${title}">
             <span part="title" class="${prefix}--side-nav__link-text">
               <slot>${title}</slot>
-              ${isHeading || isViewAll ? Arrow() : ''}
+              ${isHeading || isViewAll ? iconLoader(Arrow) : ''}
             </span>
           </a>
         `

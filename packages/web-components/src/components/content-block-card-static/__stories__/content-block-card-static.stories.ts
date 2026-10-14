@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,9 @@
 
 import '../index';
 import { html } from 'lit';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import Chat20 from '@carbon/icons/es/chat/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 // eslint-disable-next-line sort-imports
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -59,10 +60,10 @@ export const Default = (args) => {
       </c4d-content-item>
       <c4d-button-group slot="footer">
         <c4d-button-group-item href="${href}">
-          Contact us ${Chat20({ slot: 'icon' })}
+          Contact us ${iconLoader(Chat20, { slot: 'icon' })}
         </c4d-button-group-item>
         <c4d-button-group-item href="${href}">
-          Free trial ${ArrowRight20({ slot: 'icon' })}
+          Free trial ${iconLoader(ArrowRight20, { slot: 'icon' })}
         </c4d-button-group-item>
       </c4d-button-group>
     </c4d-content-block-card-static>

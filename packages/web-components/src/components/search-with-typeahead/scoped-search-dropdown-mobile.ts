@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import Filter20 from '@carbon/web-components/es/icons/filter/20.js';
+import Filter20 from '@carbon/icons/es/filter/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import CDSSelect from '@carbon/web-components/es/components/select/select.js';
@@ -195,7 +196,7 @@ class C4DScopedSearchDropdownMobile extends CDSSelect {
               `}
           ${this._renderItemsMobile(this)}
         </select>
-        ${Filter20({ class: `${prefix}--select__arrow` })}
+        ${iconLoader(Filter20, { class: `${prefix}--select__arrow` })}
       </div>
       ${supplementalText}
     `;

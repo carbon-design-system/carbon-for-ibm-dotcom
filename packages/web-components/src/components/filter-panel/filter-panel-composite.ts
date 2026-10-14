@@ -9,7 +9,8 @@
 
 import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
-import Filter from '@carbon/web-components/es/icons/filter/16.js';
+import Filter from '@carbon/icons/es/filter/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-panel';
@@ -427,7 +428,8 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
 
   protected _renderMobile = (): TemplateResult => html`
     <cds-button part="button" kind="tertiary" @click=${this._openModal}>
-      ${this._getComposedHeadingFilterCount()} ${Filter({ slot: 'icon' })}
+      ${this._getComposedHeadingFilterCount()}
+      ${iconLoader(Filter, { slot: 'icon' })}
     </cds-button>
 
     ${this._renderModal()}

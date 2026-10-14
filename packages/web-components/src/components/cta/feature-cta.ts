@@ -12,7 +12,8 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import PlayFilled from '@carbon/web-components/es/icons/play--filled/32.js';
+import PlayFilled from '@carbon/icons/es/play--filled/32.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -79,7 +80,7 @@ class C4DFeatureCTA extends VideoCTAMixin(CTAMixin(C4DFeatureCard)) {
               alt="${ifDefined(videoName)}"
               default-src="${ifDefined(thumbnail || videoThumbnailUrl)}"
               slot="image">
-              ${PlayFilled({ slot: 'icon' })}
+              ${iconLoader(PlayFilled, { slot: 'icon' })}
             </c4d-image>
           `;
     return noPoster

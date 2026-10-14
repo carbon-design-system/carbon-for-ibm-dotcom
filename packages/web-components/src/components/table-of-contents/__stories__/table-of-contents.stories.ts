@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,8 @@
 
 import { html, nothing } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import ArrowLeft20 from '@carbon/icons/es/arrow--left/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';
@@ -30,17 +31,17 @@ export const Default = (args) => {
               <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
-                DevOps${ArrowLeft20({ slot: 'icon' })}
+                DevOps${iconLoader(ArrowLeft20, { slot: 'icon' })}
               </c4d-link-list-item>
               <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
-                Automation${ArrowLeft20({ slot: 'icon' })}
+                Automation${iconLoader(ArrowLeft20, { slot: 'icon' })}
               </c4d-link-list-item>
               <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
-                Development${ArrowLeft20({ slot: 'icon' })}
+                Development${iconLoader(ArrowLeft20, { slot: 'icon' })}
               </c4d-link-list-item>
             </c4d-link-list>
             <c4d-hr slot="menu-rule"></c4d-hr>

@@ -9,7 +9,8 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import EarthFilled16 from '@carbon/icons/es/earth--filled/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -53,7 +54,7 @@ class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
         class="${prefix}--btn ${prefix}--btn--tertiary ${c4dPrefix}--locale-btn"
         aria-label="${ifDefined(buttonLabel)}">
         <slot></slot>
-        ${EarthFilled16()}
+        ${iconLoader(EarthFilled16)}
       </button>
     `;
   }

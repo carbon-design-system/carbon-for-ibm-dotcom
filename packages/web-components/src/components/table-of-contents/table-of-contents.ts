@@ -17,8 +17,9 @@ import {
   queryAll,
   state,
 } from 'lit/decorators.js';
-import ChevronLeft20 from '@carbon/web-components/es/icons/chevron--left/20.js';
-import ChevronRight20 from '@carbon/web-components/es/icons/chevron--right/20.js';
+import ChevronLeft20 from '@carbon/icons/es/chevron--left/20.js';
+import ChevronRight20 from '@carbon/icons/es/chevron--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import throttle from 'lodash-es/throttle.js';
@@ -822,7 +823,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronRightContainerClasses}"
                         @click="${paginateLeft}">
-                        ${ChevronLeft20()}
+                        ${iconLoader(ChevronLeft20)}
                       </button>
                     `
                   : html`
@@ -832,7 +833,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronLeftContainerClasses}"
                         @click="${paginateLeft}">
-                        ${ChevronLeft20()}
+                        ${iconLoader(ChevronLeft20)}
                       </button>
                     `}
               `
@@ -922,7 +923,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronLeftContainerClasses}"
                         @click="${paginateRight}">
-                        ${ChevronRight20()}
+                        ${iconLoader(ChevronRight20)}
                       </button>
                     `
                   : html`
@@ -932,7 +933,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronRightContainerClasses}"
                         @click="${paginateRight}">
-                        ${ChevronRight20()}
+                        ${iconLoader(ChevronRight20)}
                       </button>
                     `}
               `

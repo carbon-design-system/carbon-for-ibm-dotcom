@@ -14,7 +14,8 @@ import imgXlg16x9 from '../../../../../.storybook/storybook-images/assets/1312/f
 import imgMd16x9 from '../../../../../.storybook/storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
 import imgLg4x3 from '../../../../../.storybook/storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 import imgSm4x3 from '../../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 
 export const cardGroupItem1 = html`
   <c4d-card-group-item href="https://www.example.com">
@@ -27,7 +28,7 @@ export const cardGroupItem1 = html`
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <c4d-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${iconLoader(ArrowRight20, { slot: 'icon' })}
     </c4d-card-footer>
   </c4d-card-group-item>
 `;
@@ -40,7 +41,7 @@ export const cardGroupItem2 = html`
     </c4d-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <c4d-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${iconLoader(ArrowRight20, { slot: 'icon' })}
     </c4d-card-footer>
   </c4d-card-group-item>
 `;

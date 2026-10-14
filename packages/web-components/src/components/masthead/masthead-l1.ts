@@ -28,13 +28,14 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
-import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
-import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
+import ChevronDown16 from '@carbon/icons/es/chevron--down/16.js';
+import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import ArrowLeft16 from '@carbon/icons/es/arrow--left/16.js';
+import ArrowLeft20 from '@carbon/icons/es/arrow--left/20.js';
+import CaretLeft20 from '@carbon/icons/es/caret--left/20.js';
+import CaretRight20 from '@carbon/icons/es/caret--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { classMap } from 'lit/directives/class-map.js';
 import layoutBreakpoint from './masthead-breakpoint';
 
@@ -419,7 +420,9 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           <div
             part="l1-menu-container-scroller-inner"
             class="${prefix}--masthead__l1-menu-container-scroller-inner">
-            ${direction === 'ltr' ? CaretLeft20() : CaretRight20()}
+            ${direction === 'ltr'
+              ? iconLoader(CaretLeft20)
+              : iconLoader(CaretRight20)}
           </div>
         </button>
         <div
@@ -439,7 +442,9 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           <div
             part="l1-menu-container-scroller-inner"
             class="${prefix}--masthead__l1-menu-container-scroller-inner">
-            ${direction === 'ltr' ? CaretRight20() : CaretLeft20()}
+            ${direction === 'ltr'
+              ? iconLoader(CaretRight20)
+              : iconLoader(CaretLeft20)}
           </div>
         </button>
       </div>
@@ -530,7 +535,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           class="${prefix}--masthead__l1-item"
           @click=${toggleSubsection}
           @focusin=${handleTopNavFocusIn}>
-          ${title}${ChevronDown16()}
+          ${title}${iconLoader(ChevronDown16)}
         </button>
         <div
           part="l1-dropdown"
@@ -561,7 +566,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                 part="l1-dropdown-viewall"
                 class="${prefix}--masthead__l1-dropdown-viewall"
                 href="${footer.url}"
-                >${footer.title}${this.Arrow16()}</a
+                >${footer.title}${iconLoader(this.Arrow16)}</a
               >`
             : ''}
         </div>
@@ -659,7 +664,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         part="l1-title-button"
         class="${prefix}--masthead__l1-title"
         @click=${toggleSubsection}>
-        ${title}${ChevronDown16()}
+        ${title}${iconLoader(ChevronDown16)}
       </button>
       <ul
         part="l1-dropdown"
@@ -682,7 +687,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                 part="l1-dropdown-login-link"
                 class="${prefix}--masthead__l1-dropdown-login"
                 href="${ifDefined(login.url)}">
-                ${login.title}${this.Arrow16()}
+                ${login.title}${iconLoader(this.Arrow16)}
               </a>
             </li>`
           : ''}
@@ -733,7 +738,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           part="l1-dropdown-item-button"
           class="${prefix}--masthead__l1-dropdown-item"
           @click=${toggleSubsection}>
-          ${title}${ChevronDown16()}
+          ${title}${iconLoader(ChevronDown16)}
         </button>
         <div
           part="l1-dropdown-subsection"
@@ -780,7 +785,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                   class="${prefix}--masthead__l1-dropdown-viewall"
                   href="${footer.url}"
                 >
-                  ${footer.title}${this.Arrow16()}
+                  ${footer.title}${iconLoader(this.Arrow16)}
                 </li>`
             : ''}
         </div>
@@ -1064,7 +1069,9 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
             part="l1-dropdown-item-link l1-dropdown-item-link--heading"
             class="${prefix}--masthead__l1-dropdown-item"
             href="${heading.url}">
-            ${heading.title}${isMobileVersion ? this.Arrow16() : this.Arrow20()}
+            ${heading.title}${isMobileVersion
+              ? iconLoader(this.Arrow16)
+              : iconLoader(this.Arrow20)}
           </a>
         `
       : html` ${heading.title} `;

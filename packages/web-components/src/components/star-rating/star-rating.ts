@@ -10,9 +10,10 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@carbon/web-components/es/components/tooltip/tooltip.js';
-import Star16 from '@carbon/web-components/es/icons/star/16.js';
-import StarHalf16 from '@carbon/web-components/es/icons/star--half/16.js';
-import StarFilled16 from '@carbon/web-components/es/icons/star--filled/16.js';
+import Star16 from '@carbon/icons/es/star/16.js';
+import StarHalf16 from '@carbon/icons/es/star--half/16.js';
+import StarFilled16 from '@carbon/icons/es/star--filled/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import styles from './star-rating.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -178,13 +179,13 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
   static renderStar(fill) {
     let markup, classModifier;
     if (fill >= 0.75) {
-      markup = StarFilled16();
+      markup = iconLoader(StarFilled16);
       classModifier = 'filled';
     } else if (fill >= 0.25) {
-      markup = html` ${Star16()}${StarHalf16()} `;
+      markup = html` ${iconLoader(Star16)}${iconLoader(StarHalf16)} `;
       classModifier = 'half';
     } else {
-      markup = Star16();
+      markup = iconLoader(Star16);
       classModifier = 'empty';
     }
     return html`

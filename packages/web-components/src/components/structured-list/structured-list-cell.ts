@@ -11,9 +11,10 @@ import CDSStructuredListCell from '@carbon/web-components/es/components/structur
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import Info16 from '@carbon/web-components/es/icons/information/16.js';
-import Checkmark20 from '@carbon/web-components/es/icons/checkmark/20.js';
-import Error20 from '@carbon/web-components/es/icons/error/20.js';
+import Info16 from '@carbon/icons/es/information/16.js';
+import Checkmark20 from '@carbon/icons/es/checkmark/20.js';
+import Error20 from '@carbon/icons/es/error/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
@@ -64,7 +65,7 @@ class C4DStructuredListCell extends CDSStructuredListCell {
     return html` <div
       class="${prefix}--structured-list-cell-icon-text-container"
       part="icon-text-container">
-      ${iconMap[icon!.toLowerCase()].call(null, { part: 'icon' })}
+      ${iconLoader(iconMap[icon!.toLowerCase()], { part: 'icon' })}
       <span class="${prefix}--structured-list-cell-icon-text" part="icon-text">
         <slot></slot>
       </span>
@@ -95,7 +96,7 @@ class C4DStructuredListCell extends CDSStructuredListCell {
         alignment="start"
         body-text="${ifDefined(tooltip)}"
         direction="right">
-        ${Info16()}
+        ${iconLoader(Info16)}
       </cds-tooltip-icon>
     `;
   }

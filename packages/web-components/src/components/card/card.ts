@@ -10,8 +10,9 @@
 import { TemplateResult, html, LitElement } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import ArrowLeft20 from '@carbon/icons/es/arrow--left/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -285,7 +286,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         href="${ifDefined(this.href)}"
         aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
           ?.textContent || ''}"
-        >${isLTR ? ArrowRight20() : ArrowLeft20()}</a
+        >${isLTR ? iconLoader(ArrowRight20) : iconLoader(ArrowLeft20)}</a
       >
     `;
   }

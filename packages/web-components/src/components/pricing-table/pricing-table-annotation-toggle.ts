@@ -10,8 +10,9 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
-import Close16 from '@carbon/web-components/es/icons/close/16.js';
+import ChevronDown16 from '@carbon/icons/es/chevron--down/16.js';
+import Close16 from '@carbon/icons/es/close/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import C4DPricingTableRow from './pricing-table-row';
@@ -65,7 +66,7 @@ class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
         type="button"
         aria-pressed="${toggled}"
         aria-label="cell annotations visibility">
-        ${toggled ? Close16() : ChevronDown16()}
+        ${toggled ? iconLoader(Close16) : iconLoader(ChevronDown16)}
       </button>
     `;
   }

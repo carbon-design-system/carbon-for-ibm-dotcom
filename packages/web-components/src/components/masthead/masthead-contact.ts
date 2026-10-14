@@ -10,7 +10,8 @@
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import Chat20 from '@carbon/icons/es/chat/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import styles from './masthead.scss';
@@ -63,7 +64,7 @@ class C4DMastheadContact extends C4DMastheadProfile {
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}>
-        ${Chat20()}
+        ${iconLoader(Chat20)}
       </a>
     `;
   }

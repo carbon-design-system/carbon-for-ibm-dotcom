@@ -10,9 +10,10 @@
 import { LitElement, html, TemplateResult } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
-import ArrowLeft16 from '@carbon/web-components/es/icons/arrow--left/16.js';
-import Wikis from '@carbon/web-components/es/icons/wikis/20.js';
+import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
+import ArrowLeft16 from '@carbon/icons/es/arrow--left/16.js';
+import Wikis from '@carbon/icons/es/wikis/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
@@ -227,7 +228,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-left"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${this.ArrowIcon({
+                  <span>${viewAll.title}</span>${iconLoader(this.ArrowIcon, {
                     slot: 'icon',
                     part: 'l0-view-all-products-arrow',
                   })}
@@ -279,9 +280,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${itemViewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
-                  <span>${itemViewAll.title}</span>${this.ArrowIcon({
-                    slot: 'icon',
-                  })}
+                  <span>${itemViewAll.title}</span>${iconLoader(
+                    this.ArrowIcon,
+                    {
+                      slot: 'icon',
+                    }
+                  )}
                 </c4d-megamenu-link-with-icon>
               `
             : null}
@@ -345,7 +349,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                   href="${viewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
-                  <span>${viewAll.title}</span>${this.ArrowIcon({
+                  <span>${viewAll.title}</span>${iconLoader(this.ArrowIcon, {
                     slot: 'icon',
                   })}
                 </c4d-megamenu-link-with-icon>
@@ -357,7 +361,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               <c4d-megamenu-link-with-icon
                 href="${viewAll.url}"
                 part="view-all view-all-bottom">
-                <span>${viewAll.title}</span>${this.ArrowIcon({ slot: 'icon' })}
+                <span>${viewAll.title}</span>${iconLoader(this.ArrowIcon, {
+                  slot: 'icon',
+                })}
               </c4d-megamenu-link-with-icon>
             `
           : null}
@@ -401,7 +407,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                 href="${ifNonEmpty(link?.url)}"
                 class="new-basic-links__optional-link"
                 data-autoid="${ifNonEmpty(linkAutoId)}">
-                <span>${link?.title}</span>${this.ArrowIcon({ slot: 'icon' })}
+                <span>${link?.title}</span>${iconLoader(this.ArrowIcon, {
+                  slot: 'icon',
+                })}
               </c4d-megamenu-link-with-icon>
             `;
           }
@@ -1239,7 +1247,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     return hasLanguageSelector === 'true' && isAEMCMSpage
       ? html`
           <div class="earth-language-icon" part="earth-l0-icon">
-            ${Wikis({ part: 'earth-l0-svg' })}
+            ${iconLoader(Wikis, { part: 'earth-l0-svg' })}
           </div>
         `
       : hasLanguageSelector === 'true' && !isAEMCMSpage

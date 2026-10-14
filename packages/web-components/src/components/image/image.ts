@@ -18,7 +18,8 @@ import '../expressive-modal/expressive-modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import { LIGHTBOX_CONTRAST } from './defs';
-import Maximize20 from '@carbon/web-components/es/icons/maximize/20.js';
+import Maximize20 from '@carbon/icons/es/maximize/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -257,7 +258,7 @@ class C4DImage extends StableSelectorMixin(
               <div
                 class="${c4dPrefix}--image-with-caption__zoom-button"
                 part="zoom-button">
-                ${Maximize20({ part: 'zoom-icon' })}
+                ${iconLoader(Maximize20, { part: 'zoom-icon' })}
               </div>
             </button>
           `

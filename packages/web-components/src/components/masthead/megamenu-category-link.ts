@@ -11,7 +11,8 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import Launch16 from '@carbon/web-components/es/icons/launch/16.js';
+import Launch16 from '@carbon/icons/es/launch/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
@@ -41,7 +42,7 @@ class C4DMegaMenuCategoryLink extends CDSLink {
   /**
    * Maps target value to icons.
    */
-  protected _targetMap = new Map([['external', Launch16()]]);
+  protected _targetMap = new Map([['external', iconLoader(Launch16)]]);
 
   /**
    * Renders an icon based on target value.
