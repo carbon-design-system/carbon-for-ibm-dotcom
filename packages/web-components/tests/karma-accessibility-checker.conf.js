@@ -116,7 +116,7 @@ module.exports = function setupKarma(config) {
             include: [
               __dirname,
               path.dirname(require.resolve('lit')),
-              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components)/,
+              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components|@carbon[\\/]motion)/,
             ],
             use: {
               loader: 'babel-loader',

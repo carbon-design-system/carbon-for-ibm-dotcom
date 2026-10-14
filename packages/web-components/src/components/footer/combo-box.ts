@@ -197,7 +197,7 @@ class C4DComboBox extends CDSDropdown {
     `;
   }
 
-  protected _renderFollowingLabel(): TemplateResult | void {
+  protected _renderFollowingLabel(): TemplateResult | undefined {
     const { clearSelectionLabel, _filterInputValue: filterInputValue } = this;
     return filterInputValue.length === 0
       ? undefined

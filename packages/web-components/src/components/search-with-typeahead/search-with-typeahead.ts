@@ -246,6 +246,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       );
     }
     this.active = this.shouldRemainOpen ? true : !this.active;
+    this.requestUpdate();
     this.searchResults = [];
     this.groupedResults = [];
 

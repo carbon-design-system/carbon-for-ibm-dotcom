@@ -167,7 +167,7 @@ module.exports = {
         use: babelLoaderRule.use,
         include: [
           path.dirname(require.resolve('lit')),
-          /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components)/,
+          /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components|@carbon[\\/]motion)/,
         ],
       });
     }
