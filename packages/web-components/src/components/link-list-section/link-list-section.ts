@@ -10,6 +10,7 @@ import { html } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { state } from 'lit/decorators.js';
 import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
@@ -43,27 +44,39 @@ class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
     }
   };
 
-  hasHeading = true;
+  @state() hasHeading = true;
 
-  firstUpdated() {
+  _checkHeading() {
     this.hasHeading =
-      this.shadowRoot?.querySelector('[name="heading"]')?.hasChildNodes() ||
-      false;
+      (
+        this.shadowRoot?.querySelector(`[name="heading"]`) as HTMLSlotElement
+      ).assignedNodes().length > 0 || false;
+  }
+
+  updated() {
+    this._checkHeading();
+  }
+
+  firsstUpdated() {
+    this._checkHeading();
   }
 
   render() {
-    const { _handleSlotChange: handleSlotChange } = this;
+    const { _handleSlotChange: handleSlotChange, _checkHeading: checkHeading } =
+      this;
     return html`
       <div class="${prefix}--content-section__grid" part="grid">
         <div class="${prefix}--content-section__row" part="row">
-          ${this.hasHeading
-            ? html`
-                <div class="${prefix}--content-section__left" part="heading">
-                  <slot name="heading"></slot>
-                </div>
-              `
-            : ''}
-          <div class="${prefix}--content-section__children" part="children">
+          <div
+            class="${this.hasHeading ? `${prefix}--content-section__left` : ''}"
+            part="heading">
+            <slot name="heading" @slotchange="${checkHeading}"></slot>
+          </div>
+          <div
+            class="${this.hasHeading
+              ? `${prefix}--content-section__children`
+              : ''}"
+            part="children">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
