@@ -84,7 +84,6 @@ class C4DMegaMenuCategoryLink extends CDSLink {
       title,
       type,
       _classes: classes,
-      _handleClick: handleClick,
     } = this;
     return html`
       <a
@@ -99,7 +98,6 @@ class C4DMegaMenuCategoryLink extends CDSLink {
         rel="${ifNonEmpty(rel)}"
         target="${ifNonEmpty(target)}"
         type="${ifNonEmpty(type)}"
-        @click="${ifNonEmpty(handleClick)}"
         data-attribute1="headerNav"
         data-attribute2="FlatItem"
         data-attribute3="${title}">
