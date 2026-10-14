@@ -13,6 +13,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import CTAMixin, { ariaLabels, icons } from '../../component-mixins/cta/cta';
+import { carbonIconToSVG } from '@carbon/web-components/es/globals/internal/icon-loader-utils.js';
 import CDSButton from '@carbon/web-components/es/components/button/button.js';
 import '@carbon/web-components/es/components/button/index.js';
 import { CTA_TYPE } from '../cta/defs';
@@ -78,7 +79,7 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
         <span class="${prefix}--visually-hidden" part="visually-hidden-span">${
       ariaLabels[ctaType]
     }</span>
-        ${icon?.()?.strings?.join()}
+        ${icon ? carbonIconToSVG(icon) : ''}
       `;
   }
 

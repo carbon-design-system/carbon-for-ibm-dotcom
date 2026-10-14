@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -119,8 +119,12 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
 
     /**
      * The stable selector for this component.
+     *
+     * `declare` keeps this a type-only member. Without it, Babel's class-properties transform emits
+     * `StableSelectorMixinImpl.stableSelector = void 0`, which throws when the base class already
+     * defines a getter-only static `stableSelector`.
      */
-    static stableSelector: string;
+    declare static stableSelector: string;
   }
   return StableSelectorMixinImpl;
 };

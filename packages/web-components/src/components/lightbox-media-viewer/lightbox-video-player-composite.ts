@@ -182,7 +182,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
     this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
     // Manually hooks the event listeners on the modal render root to make the event names configurable
     this._hCloseModal = on(
-      this.modalRenderRoot,
+      this.modalRenderRoot as EventTarget,
       (this.constructor as typeof C4DLightboxVideoPlayerComposite)
         .eventCloseModal,
       this._handleCloseModal as EventListener
