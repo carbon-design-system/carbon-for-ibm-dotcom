@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -151,6 +151,10 @@ module.exports = function setupKarma(config) {
                   implementation: sass,
                   webpackImporter: false,
                   sassOptions: {
+                    // TEMP(lit3-migration): hide deprecation warnings from dependencies,
+                    // and the legacy JS API notice that quietDeps cannot cover.
+                    quietDeps: true,
+                    silenceDeprecations: ['legacy-js-api'],
                     includePaths: [
                       path.resolve(__dirname, '..', 'node_modules'),
                       path.resolve(__dirname, '../../..', 'node_modules'),
