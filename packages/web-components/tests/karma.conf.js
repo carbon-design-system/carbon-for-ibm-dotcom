@@ -118,20 +118,61 @@ module.exports = function setupKarma(config) {
                   },
                 },
               },
+          // Our source: full .babelrc (TS, legacy decorators, class-properties, etc.)
           {
             test: /\.js$/,
-            include: [
-              __dirname,
-              path.dirname(require.resolve('lit')),
-              // @carbon v12-alpha packages ship ES2020+ syntax (nullish-coalescing,
-              // optional-chaining) that Webpack 4 cannot parse.  Transpile all
-              // @carbon/* through Babel until Webpack 5 is adopted.
-              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/])/,
-            ],
+            include: [__dirname],
             use: {
               loader: 'babel-loader',
               options: {
                 configFile: path.resolve(__dirname, '..', '.babelrc'),
+              },
+            },
+          },
+          // CWC v3 (@carbon/*): class-static-block + class-properties to fully
+          // downlevel static blocks. Safe here; CWC doesn't have Lit's forward-
+          // class-reference issue. Remove when webpack 5 is adopted.
+          {
+            test: /\.js$/,
+            include: [/[\\/]node_modules[\\/]@carbon[\\/]/],
+            use: {
+              loader: 'babel-loader',
+              options: {
+                sourceType: 'unambiguous',
+                plugins: [
+                  '@babel/plugin-transform-class-static-block',
+                  ['@babel/plugin-transform-class-properties', { loose: true }],
+                  ['@babel/plugin-transform-private-methods', { loose: true }],
+                  [
+                    '@babel/plugin-transform-private-property-in-object',
+                    { loose: true },
+                  ],
+                  '@babel/plugin-transform-logical-assignment-operators',
+                  '@babel/plugin-transform-nullish-coalescing-operator',
+                  '@babel/plugin-transform-optional-chaining',
+                ],
+              },
+            },
+          },
+          // Lit 3 / @lit: already compiled ES2017; only operator transforms.
+          // Must NOT apply class-property transforms — Lit uses forward class
+          // references that Babel's loose transform breaks (ReferenceError: k).
+          // Remove when webpack 5 is adopted.
+          {
+            test: /\.js$/,
+            include: [
+              path.dirname(require.resolve('lit')),
+              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element)[\\/]/,
+            ],
+            use: {
+              loader: 'babel-loader',
+              options: {
+                sourceType: 'unambiguous',
+                plugins: [
+                  '@babel/plugin-transform-logical-assignment-operators',
+                  '@babel/plugin-transform-nullish-coalescing-operator',
+                  '@babel/plugin-transform-optional-chaining',
+                ],
               },
             },
           },

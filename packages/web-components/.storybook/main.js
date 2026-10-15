@@ -159,31 +159,68 @@ module.exports = {
       config.module.rules.splice(fileLoaderRuleIndex, 1);
     }
 
-    // Add a Babel rule for node_modules dependencies that ship modern syntax
-    // (class static blocks, nullish coalescing, optional chaining) which
-    // webpack 4 cannot parse natively. We use our own plugin list rather than
-    // reusing Storybook's babelLoaderRule so that class-static-block is
-    // included (needed for CWC v3's `static { this.is = "cds-*" }` pattern).
-    // Remove when webpack 5 is adopted.
+    // @storybook/web-components injects a framework-preset rule
+    // (framework-preset-web-components.js) whose test array explicitly matches
+    // node_modules/lit-html and applies @babel/preset-env, which hoists Lit 3
+    // class declarations to var assignments and breaks the forward reference
+    // between class R and class k (ReferenceError: k is not defined).
+    // Remove that rule; our two explicit split rules below handle those packages.
+    const frameworkLitRuleIndex = config.module.rules.findIndex(
+      (item) =>
+        Array.isArray(item.test) &&
+        item.test.some(
+          (t) => t instanceof RegExp && /lit-html/.test(t.toString())
+        )
+    );
+    if (frameworkLitRuleIndex >= 0) {
+      config.module.rules.splice(frameworkLitRuleIndex, 1);
+    }
+
+    // Two Babel rules for node_modules that ship modern syntax webpack 4
+    // cannot parse natively. Split by package to apply only the transforms
+    // each group actually needs. Remove both when webpack 5 is adopted.
+    //
+    // Rule A — CWC v3 (@carbon/*): class-static-block + class-properties (loose)
+    // to fully downlevel `static { this.is = "…" }` to a plain assignment.
+    // class-properties is safe here because CWC's compiled output doesn't have
+    // the forward-reference issue that Lit's compiled output has.
     config.module.rules.unshift({
       test: /\.js$/,
-      include: [
-        path.dirname(require.resolve('lit')),
-        /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/])/,
-      ],
+      include: [/[\\/]node_modules[\\/]@carbon[\\/]/],
       use: {
         loader: require.resolve('babel-loader'),
         options: {
           sourceType: 'unambiguous',
           plugins: [
-            ['@babel/plugin-proposal-decorators', { legacy: true }],
+            '@babel/plugin-transform-class-static-block',
             ['@babel/plugin-transform-class-properties', { loose: true }],
             ['@babel/plugin-transform-private-methods', { loose: true }],
             [
               '@babel/plugin-transform-private-property-in-object',
               { loose: true },
             ],
-            '@babel/plugin-transform-class-static-block',
+            '@babel/plugin-transform-logical-assignment-operators',
+            '@babel/plugin-transform-nullish-coalescing-operator',
+            '@babel/plugin-transform-optional-chaining',
+          ],
+        },
+      },
+    });
+    // Rule B — Lit 3 / @lit: already compiled ES2017, only needs operator
+    // transforms for webpack 4 compatibility. Must NOT apply class-property
+    // transforms — Lit's compiled output uses forward class references that
+    // break when Babel re-hoists them (causes ReferenceError: k is not defined).
+    config.module.rules.unshift({
+      test: /\.js$/,
+      include: [
+        path.dirname(require.resolve('lit')),
+        /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element)[\\/]/,
+      ],
+      use: {
+        loader: require.resolve('babel-loader'),
+        options: {
+          sourceType: 'unambiguous',
+          plugins: [
             '@babel/plugin-transform-logical-assignment-operators',
             '@babel/plugin-transform-nullish-coalescing-operator',
             '@babel/plugin-transform-optional-chaining',
