@@ -50,8 +50,11 @@ const _cssStream = ({ banner }) =>
     )
     .pipe(
       sass({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies.  silenceDeprecations: ['legacy-js-api']
+        // silences the "The legacy JS API is deprecated" notice that quietDeps
+        // cannot cover.  Both options are kept deliberately: Carbon v12 alpha
+        // packages still emit dependency deprecations.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: [

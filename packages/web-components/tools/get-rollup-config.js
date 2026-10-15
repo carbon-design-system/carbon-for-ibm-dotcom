@@ -214,8 +214,10 @@ function getRollupConfig({
         ],
       }),
       litSCSS({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: [

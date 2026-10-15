@@ -840,3 +840,65 @@ in such conditions, and `<cds-left-nav>` handles the [`cds-request-focus-wrap`]
 event(https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/left-nav.ts#L61-L93)
 to decide whether `<cds-masthead-menu-button>` or `<cds-left-nav>` should get
 focus.
+
+## Lit 3 and Carbon Web Components v3 (current)
+
+This package targets **Lit 3** and **`@carbon/web-components` 3.0.0-alpha.3**
+(Carbon v12 alpha). The notes below describe what changed and why.
+
+### Decorator mode
+
+TypeScript decorators use the **legacy experimental** mode:
+
+```json
+// tsconfig.json
+{ "compilerOptions": { "experimentalDecorators": true } }
+```
+
+`@customElement`, `@property`, `@query`, and `@state` are imported from
+`lit/decorators.js` — **not** from the old `@carbon/web-components` decorator
+path. Lit's `@customElement` throws a `DOMException` on duplicate registrations
+(unlike the previous `carbonElement` decorator, which swallowed duplicates
+silently). Duplicate-registration errors are therefore surfaced immediately
+rather than hidden.
+
+### CDS class registration: barrel imports required
+
+In CWC v3 the CDS classes do **not** self-register. Registration lives in the
+per-component `index.js` barrel files which call `defineCustomElement` from
+`@carbon/web-components/es/globals/register.js`. Every `cds-*` tag that a
+`c4d-*` template renders must be explicitly activated by importing the matching
+CWC barrel:
+
+```typescript
+// registers cds-button and related tags
+import '@carbon/web-components/es/components/button/index.js';
+```
+
+A bare import of the component class file (e.g. `button.js`) no longer registers
+anything.
+
+### Icon usage
+
+Icons from `@carbon/icons/es/<name>/<size>.js` are plain descriptor objects in
+v3 (they are no longer callable functions). Render them with `iconLoader` from
+CWC v3:
+
+```typescript
+import { iconLoader } from '@carbon/web-components/es/globals/internal/icon-loader.js';
+import CaretLeft16 from '@carbon/icons/es/caret--left/16.js';
+
+// inside a Lit template:
+html`${iconLoader(CaretLeft16, { 'aria-hidden': 'true' })}`;
+```
+
+`@carbon/icons` is therefore a runtime dependency (not a peer-only or dev-only
+dependency).
+
+### `components-react` status
+
+The generated React wrapper pipeline (`gulp build:modules:react`) is
+**temporarily disabled** while the React wrapper fate is decided in step 13 of
+the Lit 3 / CWC v3 migration. The web components themselves, all ESM output, and
+the Rollup bundle are unaffected. See the `lit3-cwc3-migration-plan.md` step 13
+notes for context.

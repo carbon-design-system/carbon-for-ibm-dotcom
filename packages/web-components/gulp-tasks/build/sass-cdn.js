@@ -25,8 +25,10 @@ function _buildPlex() {
     .src([`${config.srcDir}/globals/scss/plex.scss`])
     .pipe(
       sass({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
@@ -46,8 +48,10 @@ function _buildGrid() {
     .src([`${config.srcDir}/globals/scss/grid.scss`])
     .pipe(
       sass({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
@@ -67,8 +71,10 @@ function _buildCSSGrid() {
     .src([`${config.srcDir}/globals/scss/cssgrid.scss`])
     .pipe(
       sass({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
@@ -88,8 +94,10 @@ function _buildThemes() {
     .src([`${config.srcDir}/globals/scss/themes.scss`])
     .pipe(
       sass({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
@@ -109,8 +117,10 @@ function _buildScroll() {
     .src([`${config.srcDir}/components/scroll-animations/scroll-animations-cdn.scss`])
     .pipe(
       sass({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
@@ -131,8 +141,10 @@ function _buildTOC() {
     .src([`${config.srcDir}/components/table-of-contents/table-of-contents-cdn.scss`])
     .pipe(
       sass({
-        // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-        // and the legacy JS API notice that quietDeps cannot cover.
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],

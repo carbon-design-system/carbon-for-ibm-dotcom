@@ -82,7 +82,8 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @internal
      */
-    // TEMP(lit3-migration): declare _linkNode so it does not emit runtime field assignment that clashes with child getter
+    // Lit 3 class field semantics: `declare` prevents a runtime field assignment
+    // that would shadow the getter defined on the parent class.
     declare _linkNode?: HTMLAnchorElement;
 
     /**

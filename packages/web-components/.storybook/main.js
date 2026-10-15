@@ -165,8 +165,8 @@ module.exports = {
         use: babelLoaderRule.use,
         include: [
           path.dirname(require.resolve('lit')),
-          // TEMP(lit3-migration): Carbon v12 alpha packages ship ES2020 syntax
-          // (`??`, `?.`) that webpack 4 cannot parse; transpile all `@carbon/*`.
+          // Carbon v12 alpha packages ship ES2020 syntax (`??`, `?.`) that
+          // webpack 4 cannot parse; transpile all `@carbon/*`.
           // Remove when webpack 5 is adopted.
           /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/])/,
         ],
@@ -255,8 +255,10 @@ module.exports = {
               sourceMap: useStyleSourceMap,
               webpackImporter: false,
               sassOptions: {
-                // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-                // and the legacy JS API notice that quietDeps cannot cover.
+                // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+                // other third-party dependencies (kept deliberately for Carbon v12
+                // alpha).  silenceDeprecations: ['legacy-js-api'] silences the
+                // API-level notice that quietDeps cannot cover.
                 quietDeps: true,
                 silenceDeprecations: ['legacy-js-api'],
                 includePaths: [

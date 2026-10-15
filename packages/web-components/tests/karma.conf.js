@@ -123,9 +123,9 @@ module.exports = function setupKarma(config) {
             include: [
               __dirname,
               path.dirname(require.resolve('lit')),
-              // TEMP(lit3-migration): @carbon v12-alpha packages ship ES2020+ syntax
-              // (nullish-coalescing, optional-chaining) that Webpack 4 cannot parse.
-              // Transpile all @carbon/* through Babel until Webpack 5 is adopted (step 10).
+              // @carbon v12-alpha packages ship ES2020+ syntax (nullish-coalescing,
+              // optional-chaining) that Webpack 4 cannot parse.  Transpile all
+              // @carbon/* through Babel until Webpack 5 is adopted.
               /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/])/,
             ],
             use: {
@@ -161,8 +161,10 @@ module.exports = function setupKarma(config) {
                   implementation: sass,
                   webpackImporter: false,
                   sassOptions: {
-                    // TEMP(lit3-migration): hide deprecation warnings from dependencies,
-                    // and the legacy JS API notice that quietDeps cannot cover.
+                    // quietDeps suppresses Sass deprecation warnings from @carbon/*
+                    // and other third-party dependencies (kept deliberately for
+                    // Carbon v12 alpha).  silenceDeprecations: ['legacy-js-api']
+                    // silences the API-level notice that quietDeps cannot cover.
                     quietDeps: true,
                     silenceDeprecations: ['legacy-js-api'],
                     includePaths: [
