@@ -55,7 +55,7 @@ module.exports = {
     );
     return config;
   },
-  webpackFinal(config, _mode) {
+  webpackFinal(config, options) {
     config.devtool = useStyleSourceMap ? 'source-map' : '';
 
     config.optimization = {
@@ -65,15 +65,20 @@ module.exports = {
         minSize: 30 * 1024,
         maxSize: 1024 * 1024,
       },
-      minimizer: [
-        new TerserPlugin({
-          minify: TerserPlugin.esbuildMinify,
-          sourceMap: useStyleSourceMap,
-          terserOptions: {
-            minify: true,
-          },
-        }),
-      ],
+      // Only minify in production. Running TerserPlugin/esbuild in dev mode
+      // mangles Lit 3 internal names (e.g. reactive-property descriptors),
+      // causing "ReferenceError: k is not defined" in the browser.
+      ...(options?.configType === 'PRODUCTION' && {
+        minimizer: [
+          new TerserPlugin({
+            minify: TerserPlugin.esbuildMinify,
+            sourceMap: useStyleSourceMap,
+            terserOptions: {
+              minify: true,
+            },
+          }),
+        ],
+      }),
     };
 
     // Uses our own option for `@babel/preset-env`
