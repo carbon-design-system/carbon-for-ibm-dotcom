@@ -30,7 +30,6 @@
     >
       undefined
     </span>
-    undefined
   </slot>
 </a>
 <slot

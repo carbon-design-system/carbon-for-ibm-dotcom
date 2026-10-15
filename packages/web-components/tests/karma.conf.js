@@ -123,7 +123,10 @@ module.exports = function setupKarma(config) {
             include: [
               __dirname,
               path.dirname(require.resolve('lit')),
-              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components|@carbon[\\/]motion)/,
+              // TEMP(lit3-migration): @carbon v12-alpha packages ship ES2020+ syntax
+              // (nullish-coalescing, optional-chaining) that Webpack 4 cannot parse.
+              // Transpile all @carbon/* through Babel until Webpack 5 is adopted (step 10).
+              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/])/,
             ],
             use: {
               loader: 'babel-loader',
