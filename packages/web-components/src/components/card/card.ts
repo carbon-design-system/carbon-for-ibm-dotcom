@@ -472,7 +472,8 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     );
   }
 
-  firstUpdated() {
+  firstUpdated(changedProperties) {
+    super.firstUpdated(changedProperties);
     // In Lit 3 the first `slotchange` event may fire after the initial render,
     // leaving _hasImage/_hasPictogram/_hasEyebrow/_hasCopy all false and the
     // card rendering as empty. Eagerly read all slots here so the first paint

@@ -169,7 +169,8 @@ class C4DImage extends StableSelectorMixin(
     );
   }
 
-  firstUpdated() {
+  firstUpdated(changedProperties) {
+    super.firstUpdated(changedProperties);
     // In Lit 3 the first `slotchange` event may fire after the initial render,
     // leaving `_images` empty and the `<picture>` sourceless. Eagerly collect
     // slotted image-item children here so the first paint is correct.

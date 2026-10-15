@@ -226,7 +226,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       `;
     }
 
-    firstUpdated() {
+    firstUpdated(changedProperties) {
+      // @ts-ignore — super.firstUpdated may not exist if the mixin base is plain HTMLElement
+      super.firstUpdated?.(changedProperties);
       const { ctaType, href } = this;
       // Check for the URL trigger meant to fire eventRunAction.
       if (ctaType === CTA_TYPE.VIDEO && href) {

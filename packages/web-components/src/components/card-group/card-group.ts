@@ -121,7 +121,6 @@ class C4DCardGroup extends MediaQueryMixin(
   // Adding a class that will identify that c4d-card-group is inside c4d-content-block-cards for special treatment.
   private isInsideBlockCards() {
     const cardGroupParentEl = this.parentElement;
-    console.log(cardGroupParentEl);
 
     if (
       cardGroupParentEl?.tagName.toLowerCase() ===
@@ -131,8 +130,8 @@ class C4DCardGroup extends MediaQueryMixin(
     }
   }
 
-  firstUpdated() {
-    super.connectedCallback();
+  firstUpdated(changedProperties) {
+    super.firstUpdated(changedProperties);
 
     if (
       this.previousElementSibling?.matches?.(

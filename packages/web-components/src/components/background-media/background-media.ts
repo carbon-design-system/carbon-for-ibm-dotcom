@@ -176,8 +176,6 @@ class C4DBackgroundMedia extends C4DImage {
     if (this.isRTL) {
       this.gradientDirection = GRADIENT_DIRECTION.RIGHT_TO_LEFT;
     }
-
-    console.log(this.isRTL);
   }
 
   /**
@@ -198,16 +196,9 @@ class C4DBackgroundMedia extends C4DImage {
     }
   }
 
-  firstUpdated(): void {
+  firstUpdated(changedProperties): void {
+    super.firstUpdated(changedProperties);
     this._handleIsRTL();
-    // In Lit 3 the first `slotchange` may fire after the initial render,
-    // leaving `containsOnlyImages` false. Eagerly check the default slot here.
-    const slot = this.shadowRoot?.querySelector(
-      'slot:not([name])'
-    ) as HTMLSlotElement | null;
-    if (slot) {
-      this._handleBackgroundMedia({ target: slot } as unknown as Event);
-    }
   }
 
   render() {
