@@ -19,15 +19,13 @@ const { getPaths } = deepReplace;
 const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
 
 module.exports = {
-  // TEMP(lit3-migration): scoped to button stories for step 2 spike.
-  // Full globs for step 10 should keep React stories excluded:
-  // ['../docs/*.mdx', '../src/**/*.stories.ts', '!../src/**/*.stories.react.tsx', '!../src/**/*.stories.react.mdx']
+  // React stories (`*.stories.react.tsx` / `*.stories.react.mdx`) are not
+  // matched by these globs, so they stay out of the build until step 13.
+  // Note: Storybook 6.5 (webpack 4) does not support `!` negated globs here
+  // (they produce `Can't resolve '../src'`), so none are used.
   stories: process.env.STORYBOOK_STORIES
     ? [process.env.STORYBOOK_STORIES]
-    : [
-        '../src/components/button/__stories__/button.stories.ts',
-        '../src/components/button-group/__stories__/button-group.stories.ts',
-      ],
+    : ['../docs/*.mdx', '../src/**/*.stories.ts'],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-links',
@@ -167,7 +165,10 @@ module.exports = {
         use: babelLoaderRule.use,
         include: [
           path.dirname(require.resolve('lit')),
-          /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/]web-components|@carbon[\\/]motion)/,
+          // TEMP(lit3-migration): Carbon v12 alpha packages ship ES2020 syntax
+          // (`??`, `?.`) that webpack 4 cannot parse; transpile all `@carbon/*`.
+          // Remove when webpack 5 is adopted.
+          /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element|@carbon[\\/])/,
         ],
       });
     }

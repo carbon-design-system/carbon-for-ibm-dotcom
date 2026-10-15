@@ -56,6 +56,13 @@ $search-transition-timing: 95ms;
   // Set up variables to store column-widths without using flexbox
   .#{$prefix}--masthead__l1,
   :host(#{$c4d-prefix}-masthead-l1) {
+    // Declarations before any nested @media rule (breakpoint-up, theme) to
+    // avoid the mixed-decls deprecation (Sass 1.79).
+    position: relative;
+    overflow: visible;
+    background-color: $layer-02;
+    transition-timing-function: $search-transition;
+
     /* stylelint-disable-next-line length-zero-no-unit */
     --page-width: calc(100vw - var(--scrollbar-width, 0px));
     --grid-width: var(--page-width);
@@ -78,14 +85,6 @@ $search-transition-timing: 95ms;
     @include breakpoint-up(max) {
       --grid-width: calc(99rem - 3rem);
     }
-
-    // Declarations before mixin call to avoid mixed-decls deprecation (Sass 1.79):
-    // theme() emits a forced-colors @media rule; bare declarations after a
-    // nested rule trigger the warning.
-    position: relative;
-    overflow: visible;
-    background-color: $layer-02;
-    transition-timing-function: $search-transition;
 
     @include theme($white, true);
   }
