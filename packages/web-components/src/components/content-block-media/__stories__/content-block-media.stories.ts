@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -311,46 +311,41 @@ export const withLinkList = (args) => {
   `;
 };
 
-withLinkList.story = {
-  name: 'With link list',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
-    knobs: {
-      ContentBlockMedia: () => ({
-        blockHeading: textNullable(
-          'Heading (required)',
-          'Curabitur malesuada varius mi eu posuere'
-        ),
-        simpleGroupHeading: textNullable(
-          'Simple Group Heading (required)',
-          'Lorem ipsum dolor sit amet'
-        ),
-        featureCard: select('FeatureCard (optional)', ['CTA', 'none'], 'CTA'),
-        linkListHeading: textNullable(
-          'Link list heading (heading)',
-          'Tutorials'
-        ),
-        totalLinks: select('Number of links', [2, 3, 4], 2),
-        complementaryStyleScheme: select(
-          'Container bottom border',
-          complementaryStyleSchemes,
-          complementaryStyleSchemes['With border']
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentBlockMedia: {
-          blockHeading: 'Curabitur malesuada varius mi eu posuere',
-          simpleGroupHeading: 'Lorem ipsum dolor sit amet',
-          featureCard: 'CTA',
-          linkListHeading: 'Tutorials',
-          totalLinks: '2',
-          complementaryStyleSchemes: 'with-border',
-        },
+withLinkList.storyName = 'With link list';
+withLinkList.parameters = {
+  percy: {
+    skip: true,
+  },
+  gridContentClasses: 'cds--col-lg-12',
+  knobs: {
+    ContentBlockMedia: () => ({
+      blockHeading: textNullable(
+        'Heading (required)',
+        'Curabitur malesuada varius mi eu posuere'
+      ),
+      simpleGroupHeading: textNullable(
+        'Simple Group Heading (required)',
+        'Lorem ipsum dolor sit amet'
+      ),
+      featureCard: select('FeatureCard (optional)', ['CTA', 'none'], 'CTA'),
+      linkListHeading: textNullable('Link list heading (heading)', 'Tutorials'),
+      totalLinks: select('Number of links', [2, 3, 4], 2),
+      complementaryStyleScheme: select(
+        'Container bottom border',
+        complementaryStyleSchemes,
+        complementaryStyleSchemes['With border']
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      ContentBlockMedia: {
+        blockHeading: 'Curabitur malesuada varius mi eu posuere',
+        simpleGroupHeading: 'Lorem ipsum dolor sit amet',
+        featureCard: 'CTA',
+        linkListHeading: 'Tutorials',
+        totalLinks: '2',
+        complementaryStyleSchemes: 'with-border',
       },
     },
   },

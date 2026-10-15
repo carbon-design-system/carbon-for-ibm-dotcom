@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,29 +38,27 @@ export const Default = (args) => {
   `;
 };
 
-Default.story = {
-  name: 'Default',
-  parameters: {
-    knobs: {
-      'c4d-audio-player-container': () => ({
+Default.storyName = 'Default';
+Default.parameters = {
+  knobs: {
+    'c4d-audio-player-container': () => ({
+      mediaId: '1_9h94wo6b',
+      autoPlay: false,
+      muted: false,
+      audioTitle: '',
+      uiConfId: '',
+      partnerId: '',
+    }),
+  },
+  propsSet: {
+    default: {
+      'c4d-audio-player-container': {
         mediaId: '1_9h94wo6b',
         autoPlay: false,
         muted: false,
         audioTitle: '',
         uiConfId: '',
         partnerId: '',
-      }),
-    },
-    propsSet: {
-      default: {
-        'c4d-audio-player-container': {
-          mediaId: '1_9h94wo6b',
-          autoPlay: false,
-          muted: false,
-          audioTitle: '',
-          uiConfId: '',
-          partnerId: '',
-        },
       },
     },
   },
@@ -82,29 +80,27 @@ export const WithAutoplay = (args) => {
   `;
 };
 
-WithAutoplay.story = {
-  name: 'With Autoplay',
-  parameters: {
-    knobs: {
-      'c4d-audio-player-container': () => ({
+WithAutoplay.storyName = 'With Autoplay';
+WithAutoplay.parameters = {
+  knobs: {
+    'c4d-audio-player-container': () => ({
+      mediaId: '1_9h94wo6b',
+      autoPlay: true,
+      muted: false,
+      audioTitle: '',
+      uiConfId: '',
+      partnerId: '',
+    }),
+  },
+  propsSet: {
+    default: {
+      'c4d-audio-player-container': {
         mediaId: '1_9h94wo6b',
         autoPlay: true,
         muted: false,
         audioTitle: '',
         uiConfId: '',
         partnerId: '',
-      }),
-    },
-    propsSet: {
-      default: {
-        'c4d-audio-player-container': {
-          mediaId: '1_9h94wo6b',
-          autoPlay: true,
-          muted: false,
-          audioTitle: '',
-          uiConfId: '',
-          partnerId: '',
-        },
       },
     },
   },

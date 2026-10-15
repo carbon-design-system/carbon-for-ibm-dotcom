@@ -271,10 +271,7 @@ export const WithoutRowHeaders = (args) => {
   `;
 };
 if (WithoutRowHeaders) {
-  // @ts-ignore
-  WithoutRowHeaders.story = {
-    name: 'Without row headers',
-  };
+  WithoutRowHeaders.storyName = 'Without row headers';
 }
 
 export const WithSubheaders = (args) => {
@@ -319,10 +316,7 @@ export const WithSubheaders = (args) => {
   `;
 };
 if (WithSubheaders) {
-  // @ts-ignore
-  WithSubheaders.story = {
-    name: 'With subheaders',
-  };
+  WithSubheaders.storyName = 'With subheaders';
 }
 
 export default {

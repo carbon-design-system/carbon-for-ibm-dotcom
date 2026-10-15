@@ -70,48 +70,46 @@ export const Default = (args) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    knobs: {
-      LightboxMedia: () => ({
-        defaultSrc: select(
-          'Image (default-src)',
-          images,
-          images['1312 x 656 (2:1)']
-        ),
-        alt: textNullable('Image alt text (alt)', 'Image alt text'),
-        videoId: select('Video ID (video-id)', videos, videos.none),
-        hideCaption: boolean('hide caption (hide-caption)', false),
-        title: textNullable(
-          'Title (title)',
-          'Curabitur malesuada varius mi eu posuere'
-        ),
-        description: textNullable(
-          'Description (description)',
-          `
+Default.parameters = {
+  knobs: {
+    LightboxMedia: () => ({
+      defaultSrc: select(
+        'Image (default-src)',
+        images,
+        images['1312 x 656 (2:1)']
+      ),
+      alt: textNullable('Image alt text (alt)', 'Image alt text'),
+      videoId: select('Video ID (video-id)', videos, videos.none),
+      hideCaption: boolean('hide caption (hide-caption)', false),
+      title: textNullable(
+        'Title (title)',
+        'Curabitur malesuada varius mi eu posuere'
+      ),
+      description: textNullable(
+        'Description (description)',
+        `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        LightboxMedia: {
-          alt: 'Image alt text',
-          defaultSrc: imgXlg2x1,
-          description: `
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      LightboxMedia: {
+        alt: 'Image alt text',
+        defaultSrc: imgXlg2x1,
+        description: `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `,
-          title: 'Curabitur malesuada varius mi eu posuere',
-          hideCaption: false,
-          videoId: '0_ibuqxqbe',
-          customVideoName: 'Custom video name',
-          customVideoDescription: 'This is a custom video description',
-        },
+        title: 'Curabitur malesuada varius mi eu posuere',
+        hideCaption: false,
+        videoId: '0_ibuqxqbe',
+        customVideoName: 'Custom video name',
+        customVideoDescription: 'This is a custom video description',
       },
     },
   },
@@ -155,48 +153,46 @@ export const WithCTA = (args) => {
   `;
 };
 
-WithCTA.story = {
-  parameters: {
-    knobs: {
-      LightboxMedia: () => ({
-        defaultSrc: select(
-          'Image (default-src)',
-          images,
-          images['1312 x 656 (2:1)']
-        ),
-        alt: textNullable('Image alt text (alt)', 'Image alt text'),
-        videoId: select('Video ID (video-id)', videos, videos.none),
-        hideCaption: boolean('hide caption (hide-caption)', false),
-        title: textNullable(
-          'Title (title)',
-          'Curabitur malesuada varius mi eu posuere'
-        ),
-        description: textNullable(
-          'Description (description)',
-          `
+WithCTA.parameters = {
+  knobs: {
+    LightboxMedia: () => ({
+      defaultSrc: select(
+        'Image (default-src)',
+        images,
+        images['1312 x 656 (2:1)']
+      ),
+      alt: textNullable('Image alt text (alt)', 'Image alt text'),
+      videoId: select('Video ID (video-id)', videos, videos.none),
+      hideCaption: boolean('hide caption (hide-caption)', false),
+      title: textNullable(
+        'Title (title)',
+        'Curabitur malesuada varius mi eu posuere'
+      ),
+      description: textNullable(
+        'Description (description)',
+        `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        LightboxMedia: {
-          alt: 'Image alt text',
-          defaultSrc: imgXlg2x1,
-          description: `
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      LightboxMedia: {
+        alt: 'Image alt text',
+        defaultSrc: imgXlg2x1,
+        description: `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `,
-          title: 'Curabitur malesuada varius mi eu posuere',
-          hideCaption: false,
-          videoId: '0_ibuqxqbe',
-          customVideoName: 'Custom video name',
-          customVideoDescription: 'This is a custom video description',
-        },
+        title: 'Curabitur malesuada varius mi eu posuere',
+        hideCaption: false,
+        videoId: '0_ibuqxqbe',
+        customVideoName: 'Custom video name',
+        customVideoDescription: 'This is a custom video description',
       },
     },
   },
@@ -272,8 +268,6 @@ export const WithCarousel = (args) => {
     </c4d-expressive-modal>
   `;
 };
-
-WithCarousel.story = {};
 
 export default {
   title: 'Components/Lightbox media viewer',

@@ -51,8 +51,8 @@ export const parameters = {
       ],
     },
   },
-  controls: { disabled: true },
-  actions: { disabled: true },
+  controls: { disable: true },
+  actions: { disable: true },
 };
 
 let preservedTheme;

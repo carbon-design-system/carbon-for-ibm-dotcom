@@ -472,6 +472,21 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     );
   }
 
+  firstUpdated() {
+    // In Lit 3 the first `slotchange` event may fire after the initial render,
+    // leaving _hasImage/_hasPictogram/_hasEyebrow/_hasCopy all false and the
+    // card rendering as empty. Eagerly read all slots here so the first paint
+    // reflects actual slot content.
+    this.shadowRoot?.querySelectorAll('slot').forEach((slot) => {
+      const name = slot.name ?? '';
+      if (name === '') {
+        this._handleCopySlotChange({ target: slot } as unknown as Event);
+      } else {
+        this._handleSlotChange({ target: slot } as unknown as Event);
+      }
+    });
+  }
+
   disconnectedCallback() {
     super.disconnectedCallback();
     const { eventRequestAdditionalVideoData } = this

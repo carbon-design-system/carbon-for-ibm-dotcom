@@ -239,117 +239,112 @@ export const VideoWithSlottedCTA = () => {
   `;
 };
 
-VideoWithSlottedCTA.story = {
-  parameters: {},
-};
+VideoWithSlottedCTA.parameters = {};
 
-Default.story = {
-  parameters: {
-    gridContentClasses: 'cds--col-sm-4 cds--col-lg-8',
-    knobs: {
-      DefaultCTA: () => {
-        const ctaStyle = select(
-          'CTA style (cta-style)',
-          styleOptions,
-          styleOptions[CTA_STYLE.TEXT] || 'text'
-        );
-        const ctaType = select(
-          'CTA type (cta-type)',
-          typeOptions,
-          types[CTA_TYPE.LOCAL]
-        );
+Default.parameters = {
+  gridContentClasses: 'cds--col-sm-4 cds--col-lg-8',
+  knobs: {
+    DefaultCTA: () => {
+      const ctaStyle = select(
+        'CTA style (cta-style)',
+        styleOptions,
+        styleOptions[CTA_STYLE.TEXT] || 'text'
+      );
+      const ctaType = select(
+        'CTA type (cta-type)',
+        typeOptions,
+        types[CTA_TYPE.LOCAL]
+      );
 
-        const noPoster =
-          (ctaStyle === CTA_STYLE.CARD || ctaStyle === CTA_STYLE.FEATURE) &&
-          ctaType === CTA_TYPE.VIDEO
-            ? boolean('No Video Poster ', false)
-            : null;
-        const heading =
-          ctaStyle === CTA_STYLE.TEXT ||
-          ctaStyle === CTA_STYLE.BUTTON ||
-          ctaType === CTA_TYPE.VIDEO
-            ? null
-            : textNullable(
-                'Heading (heading):',
-                'Explore AI use cases in all industries'
-              );
-
-        const thumbnail =
-          ctaStyle === CTA_STYLE.CARD && ctaType === CTA_TYPE.VIDEO
-            ? textNullable('Custom thumbnail (thumbnail):', '')
-            : null;
-
-        const customThumbnail =
-          ctaStyle === CTA_STYLE.FEATURE && ctaType === CTA_TYPE.VIDEO
-            ? boolean('Custom image ', false)
-            : null;
-
-        const copy =
-          ctaStyle === CTA_STYLE.FEATURE || ctaType === CTA_TYPE.VIDEO
-            ? undefined
-            : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet');
-        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
-          ? undefined
+      const noPoster =
+        (ctaStyle === CTA_STYLE.CARD || ctaStyle === CTA_STYLE.FEATURE) &&
+        ctaType === CTA_TYPE.VIDEO
+          ? boolean('No Video Poster ', false)
+          : null;
+      const heading =
+        ctaStyle === CTA_STYLE.TEXT ||
+        ctaStyle === CTA_STYLE.BUTTON ||
+        ctaType === CTA_TYPE.VIDEO
+          ? null
           : textNullable(
-              'Download target (download)',
-              'IBM_Annual_Report_2019.pdf'
+              'Heading (heading):',
+              'Explore AI use cases in all industries'
             );
-        const customVideoTitle =
-          ctaType === CTA_TYPE.VIDEO
-            ? textNullable('Custom video title', 'Custom video title')
-            : null;
 
-        const customVideoDescription =
-          ctaType === CTA_TYPE.VIDEO
-            ? textNullable(
-                'Custom video description',
-                'This is a custom video description'
-              )
-            : null;
+      const thumbnail =
+        ctaStyle === CTA_STYLE.CARD && ctaType === CTA_TYPE.VIDEO
+          ? textNullable('Custom thumbnail (thumbnail):', '')
+          : null;
 
-        const footerCopy =
-          ctaStyle ===
-          (CTA_STYLE.CARD || CTA_STYLE.FEATURE || CTA_STYLE.CARDLINK)
-            ? textNullable('Footer copy text', '')
-            : null;
-        const footerHref =
-          ctaStyle === (CTA_STYLE.CARD || CTA_STYLE.FEATURE)
-            ? textNullable(
-                footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-                hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-              )
-            : null;
-        return {
-          heading,
-          noPoster,
-          thumbnail,
-          copy,
-          ctaStyle,
-          ctaType,
-          download,
-          customVideoTitle,
-          customThumbnail,
-          customVideoDescription,
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
-          footerCopy,
-          footerHref,
-        };
-      },
+      const customThumbnail =
+        ctaStyle === CTA_STYLE.FEATURE && ctaType === CTA_TYPE.VIDEO
+          ? boolean('Custom image ', false)
+          : null;
+
+      const copy =
+        ctaStyle === CTA_STYLE.FEATURE || ctaType === CTA_TYPE.VIDEO
+          ? undefined
+          : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet');
+      const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+        ? undefined
+        : textNullable(
+            'Download target (download)',
+            'IBM_Annual_Report_2019.pdf'
+          );
+      const customVideoTitle =
+        ctaType === CTA_TYPE.VIDEO
+          ? textNullable('Custom video title', 'Custom video title')
+          : null;
+
+      const customVideoDescription =
+        ctaType === CTA_TYPE.VIDEO
+          ? textNullable(
+              'Custom video description',
+              'This is a custom video description'
+            )
+          : null;
+
+      const footerCopy =
+        ctaStyle === (CTA_STYLE.CARD || CTA_STYLE.FEATURE || CTA_STYLE.CARDLINK)
+          ? textNullable('Footer copy text', '')
+          : null;
+      const footerHref =
+        ctaStyle === (CTA_STYLE.CARD || CTA_STYLE.FEATURE)
+          ? textNullable(
+              footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+              hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+            )
+          : null;
+      return {
+        heading,
+        noPoster,
+        thumbnail,
+        copy,
+        ctaStyle,
+        ctaType,
+        download,
+        customVideoTitle,
+        customThumbnail,
+        customVideoDescription,
+        href: textNullable(
+          knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+          hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+        ),
+        footerCopy,
+        footerHref,
+      };
     },
-    propsSet: {
-      default: {
-        DefaultCTA: {
-          copy: 'Lorem ipsum dolor sit amet',
-          ctaStyle: 'text',
-          ctaType: 'local',
-          download: undefined,
-          customVideoTitle: null,
-          customVideoDescription: null,
-          href: 'https://www.example.com',
-        },
+  },
+  propsSet: {
+    default: {
+      DefaultCTA: {
+        copy: 'Lorem ipsum dolor sit amet',
+        ctaStyle: 'text',
+        ctaType: 'local',
+        download: undefined,
+        customVideoTitle: null,
+        customVideoDescription: null,
+        href: 'https://www.example.com',
       },
     },
   },

@@ -42,7 +42,8 @@ const Card = ({
   <c4d-card
     href="${ifDefined(href)}"
     cta-type="local"
-    ?disable-image-zoom=${disableImageZoom}>
+    ?disable-image-zoom=${disableImageZoom}
+  >
     <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
@@ -50,7 +51,8 @@ const Card = ({
           <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"></c4d-image>
+            default-src="${image}"
+          ></c4d-image>
         `
       : null}
     <c4d-card-footer></c4d-card-footer>
@@ -67,7 +69,8 @@ const CardWithLongHeading = ({
   <c4d-card
     href="${ifDefined(href)}"
     cta-type="local"
-    ?disable-image-zoom=${disableImageZoom}>
+    ?disable-image-zoom=${disableImageZoom}
+  >
     <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
@@ -75,7 +78,8 @@ const CardWithLongHeading = ({
           <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"></c4d-image>
+            default-src="${image}"
+          ></c4d-image>
         `
       : null}
     <c4d-card-footer></c4d-card-footer>
@@ -114,25 +118,23 @@ export const CardsWithImages = (args) => {
   `;
 };
 
-CardsWithImages.story = {
-  name: 'With cards with images',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      Carousel: () => ({
-        disableImageZoom: boolean(
-          'Disable image zoom (disableImageZoom):',
-          false
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        Carousel: {
-          disableImageZoom: false,
-        },
+CardsWithImages.storyName = 'With cards with images';
+CardsWithImages.parameters = {
+  percy: {
+    skip: true,
+  },
+  knobs: {
+    Carousel: () => ({
+      disableImageZoom: boolean(
+        'Disable image zoom (disableImageZoom):',
+        false
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      Carousel: {
+        disableImageZoom: false,
       },
     },
   },
@@ -158,12 +160,10 @@ export const CardsWithMedia = () => {
   `;
 };
 
-CardsWithMedia.story = {
-  name: 'With cards with media',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+CardsWithMedia.storyName = 'With cards with media';
+CardsWithMedia.parameters = {
+  percy: {
+    skip: true,
   },
 };
 

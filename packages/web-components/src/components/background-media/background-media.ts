@@ -200,6 +200,14 @@ class C4DBackgroundMedia extends C4DImage {
 
   firstUpdated(): void {
     this._handleIsRTL();
+    // In Lit 3 the first `slotchange` may fire after the initial render,
+    // leaving `containsOnlyImages` false. Eagerly check the default slot here.
+    const slot = this.shadowRoot?.querySelector(
+      'slot:not([name])'
+    ) as HTMLSlotElement | null;
+    if (slot) {
+      this._handleBackgroundMedia({ target: slot } as unknown as Event);
+    }
   }
 
   render() {

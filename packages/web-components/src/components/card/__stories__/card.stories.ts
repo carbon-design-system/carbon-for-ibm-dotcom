@@ -121,73 +121,71 @@ const pictogramPlacements = {
   [PICTOGRAM_PLACEMENT.BOTTOM]: PICTOGRAM_PLACEMENT.BOTTOM,
 };
 
-Default.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      Card: () => {
-        const aspectRatio = select(
-          'Aspect ratio (aspect-ratio)',
-          ['1:1', '2:1', '3:2', '4:3', '16:9', '1:1'],
-          '2:1'
-        );
-        const ctaType = select(
-          'CTA type (cta-type)',
-          typeOptions,
-          types[CTA_TYPE.LOCAL]
-        );
+Default.parameters = {
+  ...readme.parameters,
+  knobs: {
+    Card: () => {
+      const aspectRatio = select(
+        'Aspect ratio (aspect-ratio)',
+        ['1:1', '2:1', '3:2', '4:3', '16:9', '1:1'],
+        '2:1'
+      );
+      const ctaType = select(
+        'CTA type (cta-type)',
+        typeOptions,
+        types[CTA_TYPE.LOCAL]
+      );
 
-        const heading =
-          ctaType === CTA_TYPE.VIDEO
-            ? undefined
-            : textNullable('Heading:', 'Aerospace and defence');
+      const heading =
+        ctaType === CTA_TYPE.VIDEO
+          ? undefined
+          : textNullable('Heading:', 'Aerospace and defence');
 
-        const customVideoTitle =
-          ctaType === CTA_TYPE.VIDEO
-            ? textNullable('Custom video title', 'Custom video title')
-            : null;
+      const customVideoTitle =
+        ctaType === CTA_TYPE.VIDEO
+          ? textNullable('Custom video title', 'Custom video title')
+          : null;
 
-        const image =
-          ctaType === CTA_TYPE.VIDEO ? null : boolean('Add image:', false);
-        const noPoster =
-          ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
+      const image =
+        ctaType === CTA_TYPE.VIDEO ? null : boolean('Add image:', false);
+      const noPoster =
+        ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
 
-        return {
-          disabled: boolean('Disabled:', false),
-          aspectRatio,
-          customVideoTitle,
-          ctaType,
-          image,
-          noPoster,
-          eyebrow: textNullable('Eyebrow:', 'Industry'),
-          heading,
-          copy: textNullable('Body copy:', ''),
-          copyMarkup: boolean('Body copy markup', false),
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          tagGroup: boolean('Add tags:', false),
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
-          cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
-        };
-      },
+      return {
+        disabled: boolean('Disabled:', false),
+        aspectRatio,
+        customVideoTitle,
+        ctaType,
+        image,
+        noPoster,
+        eyebrow: textNullable('Eyebrow:', 'Industry'),
+        heading,
+        copy: textNullable('Body copy:', ''),
+        copyMarkup: boolean('Body copy markup', false),
+        alt: 'Image alt text',
+        defaultSrc: imgXlg4x3,
+        tagGroup: boolean('Add tags:', false),
+        href: textNullable(
+          knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+          hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+        ),
+        cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
+      };
     },
-    propsSet: {
-      default: {
-        Card: {
-          image: false,
-          eyebrow: 'Industry',
-          heading: 'Aerospace and defence',
-          copy: '',
-          copyMarkup: false,
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          tagGroup: false,
-          href: 'https://example.com',
-          cardStyles: 'none',
-        },
+  },
+  propsSet: {
+    default: {
+      Card: {
+        image: false,
+        eyebrow: 'Industry',
+        heading: 'Aerospace and defence',
+        copy: '',
+        copyMarkup: false,
+        alt: 'Image alt text',
+        defaultSrc: imgXlg4x3,
+        tagGroup: false,
+        href: 'https://example.com',
+        cardStyles: 'none',
       },
     },
   },
@@ -228,51 +226,45 @@ export const Pictogram = (args) => {
   `;
 };
 
-Pictogram.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      PictogramCard: () => {
-        const pictogramPlacement = select(
-          'Pictogram position:',
-          pictogramPlacements,
-          pictogramPlacements.bottom,
-          'pictogram'
-        );
-        const copy = textNullable(
-          'Body copy:',
-          `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Pictogram.parameters = {
+  ...readme.parameters,
+  knobs: {
+    PictogramCard: () => {
+      const pictogramPlacement = select(
+        'Pictogram position:',
+        pictogramPlacements,
+        pictogramPlacements.bottom,
+        'pictogram'
+      );
+      const copy = textNullable(
+        'Body copy:',
+        `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
            Ut enim ad minim veniam, quis nostrud exercitation.`,
+        'pictogram'
+      );
+      return {
+        pictogramPlacement,
+        heading: textNullable('Heading:', 'Aerospace and defence', 'pictogram'),
+        copy,
+        href: 'https://example.com',
+        cardStyles: select(
+          'Card style:',
+          ['Inverse card', 'none'],
+          'none',
           'pictogram'
-        );
-        return {
-          pictogramPlacement,
-          heading: textNullable(
-            'Heading:',
-            'Aerospace and defence',
-            'pictogram'
-          ),
-          copy,
-          href: 'https://example.com',
-          cardStyles: select(
-            'Card style:',
-            ['Inverse card', 'none'],
-            'none',
-            'pictogram'
-          ),
-        };
-      },
+        ),
+      };
     },
-    propsSet: {
-      default: {
-        PictogramCard: {
-          pictogramPlacement: 'top',
-          heading: 'Aerospace and defence',
-          copy: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  },
+  propsSet: {
+    default: {
+      PictogramCard: {
+        pictogramPlacement: 'top',
+        heading: 'Aerospace and defence',
+        copy: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
            Ut enim ad minim veniam, quis nostrud exercitation.`,
-          href: 'https://example.com',
-          cardStyles: 'none',
-        },
+        href: 'https://example.com',
+        cardStyles: 'none',
       },
     },
   },
@@ -316,51 +308,49 @@ export const Static = (args) => {
   `;
 };
 
-Static.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      Card: () => {
-        const image = boolean('Add image:', false, 'static');
-        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', 'static');
-        const heading = textNullable('Heading:', 'Free trial', 'static');
-        const copy = textNullable(
-          'Body copy:',
-          'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
-            'All trial registrants are restricted to one free trial per computer per user.',
-          'static'
-        );
-        const tagGroup = boolean('Add tags:', false, 'static');
-        const cta = boolean('Add CTA:', false, 'static');
-        const ctaCopy = cta
-          ? textNullable('CTA copy:', 'Sign up for the trial', 'static')
-          : '';
-        return {
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          image,
-          eyebrow,
-          heading,
-          copy,
-          tagGroup,
-          cta,
-          ctaCopy,
-        };
-      },
+Static.parameters = {
+  ...readme.parameters,
+  knobs: {
+    Card: () => {
+      const image = boolean('Add image:', false, 'static');
+      const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', 'static');
+      const heading = textNullable('Heading:', 'Free trial', 'static');
+      const copy = textNullable(
+        'Body copy:',
+        'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
+          'All trial registrants are restricted to one free trial per computer per user.',
+        'static'
+      );
+      const tagGroup = boolean('Add tags:', false, 'static');
+      const cta = boolean('Add CTA:', false, 'static');
+      const ctaCopy = cta
+        ? textNullable('CTA copy:', 'Sign up for the trial', 'static')
+        : '';
+      return {
+        alt: 'Image alt text',
+        defaultSrc: imgXlg4x3,
+        image,
+        eyebrow,
+        heading,
+        copy,
+        tagGroup,
+        cta,
+        ctaCopy,
+      };
     },
-    propsSet: {
-      default: {
-        Card: {
-          image: false,
-          eyebrow: 'Industry',
-          heading: 'Aerospace and defence',
-          copy: '',
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          tagGroup: false,
-          cta: false,
-          ctaCopy: 'Sign up for the trial',
-        },
+  },
+  propsSet: {
+    default: {
+      Card: {
+        image: false,
+        eyebrow: 'Industry',
+        heading: 'Aerospace and defence',
+        copy: '',
+        alt: 'Image alt text',
+        defaultSrc: imgXlg4x3,
+        tagGroup: false,
+        cta: false,
+        ctaCopy: 'Sign up for the trial',
       },
     },
   },
@@ -401,41 +391,39 @@ export const Link = (args) => {
   `;
 };
 
-Link.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      Card: () => {
-        const ctaType = select(
-          'CTA type (cta-type)',
-          typeOptions,
-          types[CTA_TYPE.LOCAL]
-        );
+Link.parameters = {
+  ...readme.parameters,
+  knobs: {
+    Card: () => {
+      const ctaType = select(
+        'CTA type (cta-type)',
+        typeOptions,
+        types[CTA_TYPE.LOCAL]
+      );
 
-        const heading =
-          ctaType === CTA_TYPE.VIDEO
-            ? undefined
-            : textNullable('Heading:', 'Aerospace and defence');
+      const heading =
+        ctaType === CTA_TYPE.VIDEO
+          ? undefined
+          : textNullable('Heading:', 'Aerospace and defence');
 
-        const customVideoTitle =
-          ctaType === CTA_TYPE.VIDEO
-            ? textNullable('Custom video title', 'Custom video title')
-            : null;
+      const customVideoTitle =
+        ctaType === CTA_TYPE.VIDEO
+          ? textNullable('Custom video title', 'Custom video title')
+          : null;
 
-        return {
-          disabled: boolean('Disabled: ', false),
-          customVideoTitle,
-          ctaType,
-          heading,
-          copy: textNullable('Body copy:', ''),
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
-        };
-      },
+      return {
+        disabled: boolean('Disabled: ', false),
+        customVideoTitle,
+        ctaType,
+        heading,
+        copy: textNullable('Body copy:', ''),
+        alt: 'Image alt text',
+        defaultSrc: imgXlg4x3,
+        href: textNullable(
+          knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+          hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+        ),
+      };
     },
   },
 };
@@ -515,39 +503,37 @@ export const Logo = (args) => {
   `;
 };
 
-Logo.story = {
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    ...readme.parameters,
-    knobs: {
-      Card: () => ({
+Logo.parameters = {
+  percy: {
+    skip: true,
+  },
+  ...readme.parameters,
+  knobs: {
+    Card: () => ({
+      alt: 'Image alt text',
+      defaultSrc: logoMicrosoft2x1,
+      tagGroup: boolean('Add tags', true, 'logo'),
+      eyebrow: textNullable('Card Eyebrow:', 'Microsoft', 'logo'),
+      heading: textNullable('Card Heading (optional):', '', 'logo'),
+      copy: textNullable(
+        'Card body copy:',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'logo'
+      ),
+      href: 'https://example.com',
+    }),
+  },
+  propsSet: {
+    default: {
+      Card: {
+        image: false,
+        eyebrow: 'Microsoft',
+        heading: '',
+        copy: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         alt: 'Image alt text',
-        defaultSrc: logoMicrosoft2x1,
-        tagGroup: boolean('Add tags', true, 'logo'),
-        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', 'logo'),
-        heading: textNullable('Card Heading (optional):', '', 'logo'),
-        copy: textNullable(
-          'Card body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          'logo'
-        ),
+        defaultSrc: imgXlg4x3,
+        tagGroup: false,
         href: 'https://example.com',
-      }),
-    },
-    propsSet: {
-      default: {
-        Card: {
-          image: false,
-          eyebrow: 'Microsoft',
-          heading: '',
-          copy: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          tagGroup: false,
-          href: 'https://example.com',
-        },
       },
     },
   },

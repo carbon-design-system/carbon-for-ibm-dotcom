@@ -68,33 +68,31 @@ export const Horizontal = (args) => {
   `;
 };
 
-Horizontal.story = {
-  name: 'Horizontal',
-  parameters: {
-    knobs: {
-      Other: () => ({
-        numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5),
-        }).map((_, i) => ({
-          heading: text(
-            `Section ${i + 1} heading`,
-            headings[i % headings.length]
-          ),
-          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
-        })),
-      }),
-    },
-    propsSet: {
-      default: {
-        Other: {
-          numberOfItems: [
-            { heading: 'Section 1 heading', copy: 'Section 1 copy' },
-            { heading: 'Section 2 heading', copy: 'Section 2 copy' },
-            { heading: 'Section 3 heading', copy: 'Section 3 copy' },
-            { heading: 'Section 4 heading', copy: 'Section 4 copy' },
-            { heading: 'Section 5 heading', copy: 'Section 5 copy' },
-          ],
-        },
+Horizontal.storyName = 'Horizontal';
+Horizontal.parameters = {
+  knobs: {
+    Other: () => ({
+      numberOfItems: Array.from({
+        length: select('Number of items', [5, 6, 7, 8], 5),
+      }).map((_, i) => ({
+        heading: text(
+          `Section ${i + 1} heading`,
+          headings[i % headings.length]
+        ),
+        copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
+      })),
+    }),
+  },
+  propsSet: {
+    default: {
+      Other: {
+        numberOfItems: [
+          { heading: 'Section 1 heading', copy: 'Section 1 copy' },
+          { heading: 'Section 2 heading', copy: 'Section 2 copy' },
+          { heading: 'Section 3 heading', copy: 'Section 3 copy' },
+          { heading: 'Section 4 heading', copy: 'Section 4 copy' },
+          { heading: 'Section 5 heading', copy: 'Section 5 copy' },
+        ],
       },
     },
   },

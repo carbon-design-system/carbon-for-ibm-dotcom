@@ -236,36 +236,34 @@ export const WithContentItems = (args) => {
   `;
 };
 
-WithContentItems.story = {
-  name: 'With content items',
-  parameters: {
-    knobs: {
-      WithContentItems: () => {
-        const contentItemType = select(
-          'Content item type',
-          contentItemTypeOptions,
-          contentItemTypeOptions.Text
-        );
+WithContentItems.storyName = 'With content items';
+WithContentItems.parameters = {
+  knobs: {
+    WithContentItems: () => {
+      const contentItemType = select(
+        'Content item type',
+        contentItemTypeOptions,
+        contentItemTypeOptions.Text
+      );
 
-        const logoAspectRatio =
-          contentItemType !== contentItemTypeOptions.Logo
-            ? undefined
-            : select('Logo aspect ratio', ['2:1', '1:1'], '2:1');
-        return {
-          contentItemType,
-          contentItemCount: Array.from({
-            length: number('Number of content items', 3, { min: 2, max: 6 }),
-          }),
-          logoAspectRatio,
-        };
-      },
+      const logoAspectRatio =
+        contentItemType !== contentItemTypeOptions.Logo
+          ? undefined
+          : select('Logo aspect ratio', ['2:1', '1:1'], '2:1');
+      return {
+        contentItemType,
+        contentItemCount: Array.from({
+          length: number('Number of content items', 3, { min: 2, max: 6 }),
+        }),
+        logoAspectRatio,
+      };
     },
-    propsSet: {
-      default: {
-        WithContentItems: {
-          contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
-          contentItemCount: Array(3),
-        },
+  },
+  propsSet: {
+    default: {
+      WithContentItems: {
+        contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
+        contentItemCount: Array(3),
       },
     },
   },
@@ -329,16 +327,14 @@ export const WithLinkList = (args) => {
   `;
 };
 
-WithLinkList.story = {
-  name: 'With link list',
-  parameters: {
-    propsSet: {
-      default: {
-        CTASection: {
-          heading: 'Optional title heading-05 color text-01',
-          copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-          boolean: false,
-        },
+WithLinkList.storyName = 'With link list';
+WithLinkList.parameters = {
+  propsSet: {
+    default: {
+      CTASection: {
+        heading: 'Optional title heading-05 color text-01',
+        copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+        boolean: false,
       },
     },
   },

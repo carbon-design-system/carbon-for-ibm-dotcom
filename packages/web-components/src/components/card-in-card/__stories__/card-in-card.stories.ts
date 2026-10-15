@@ -66,35 +66,33 @@ export const Default = (args) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    knobs: {
-      'c4d-card-in-card': () => {
-        const video = boolean('video', false);
-        const alt = video
-          ? undefined
-          : textNullable('Image alt text (alt):', 'Image alt text');
-        const defaultSrc = video
-          ? undefined
-          : textNullable('Image src (defaultSrc):', imgSm4x3);
-        const heading = video
-          ? undefined
-          : textNullable(
-              'Card Heading (heading):',
-              'Standard Bank Group prepares to embrace Africa’s AI opportunity'
-            );
-        const href = video
-          ? undefined
-          : textNullable('Card Href (href):', 'https://example.com');
-        return {
-          video,
-          alt,
-          defaultSrc,
-          heading,
-          href,
-          eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
-        };
-      },
+Default.parameters = {
+  knobs: {
+    'c4d-card-in-card': () => {
+      const video = boolean('video', false);
+      const alt = video
+        ? undefined
+        : textNullable('Image alt text (alt):', 'Image alt text');
+      const defaultSrc = video
+        ? undefined
+        : textNullable('Image src (defaultSrc):', imgSm4x3);
+      const heading = video
+        ? undefined
+        : textNullable(
+            'Card Heading (heading):',
+            'Standard Bank Group prepares to embrace Africa’s AI opportunity'
+          );
+      const href = video
+        ? undefined
+        : textNullable('Card Href (href):', 'https://example.com');
+      return {
+        video,
+        alt,
+        defaultSrc,
+        heading,
+        href,
+        eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
+      };
     },
   },
 };
@@ -148,22 +146,20 @@ export const WithCarouselVideo = (args) => {
   `;
 };
 
-WithCarouselVideo.story = {
-  name: 'With carousel video',
-  parameters: {
-    knobs: {
-      WithCarouselVideo: () => {
-        return {
-          video: null,
-          videoId: text('Video id (videoId):', '0_ibuqxqbe'),
-          thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          buttonPosition: select(
-            'Button position (buttonPosition)',
-            enumValsToArray(BUTTON_POSITION),
-            BUTTON_POSITION.BOTTOM_LEFT
-          ),
-        };
-      },
+WithCarouselVideo.storyName = 'With carousel video';
+WithCarouselVideo.parameters = {
+  knobs: {
+    WithCarouselVideo: () => {
+      return {
+        video: null,
+        videoId: text('Video id (videoId):', '0_ibuqxqbe'),
+        thumbnail: text('Custom thumbnail (thumbnail):', ''),
+        buttonPosition: select(
+          'Button position (buttonPosition)',
+          enumValsToArray(BUTTON_POSITION),
+          BUTTON_POSITION.BOTTOM_LEFT
+        ),
+      };
     },
   },
 };

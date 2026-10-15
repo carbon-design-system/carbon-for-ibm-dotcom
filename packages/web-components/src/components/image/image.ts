@@ -169,6 +169,18 @@ class C4DImage extends StableSelectorMixin(
     );
   }
 
+  firstUpdated() {
+    // In Lit 3 the first `slotchange` event may fire after the initial render,
+    // leaving `_images` empty and the `<picture>` sourceless. Eagerly collect
+    // slotted image-item children here so the first paint is correct.
+    const slot = this.shadowRoot?.querySelector(
+      'slot:not([name])'
+    ) as HTMLSlotElement | null;
+    if (slot) {
+      this._handleSlotChange({ target: slot } as unknown as Event);
+    }
+  }
+
   disconnectedCallback() {
     if (this._hCloseModal) {
       this._hCloseModal = this._hCloseModal.release();

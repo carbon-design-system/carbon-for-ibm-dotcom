@@ -145,23 +145,21 @@ export const WithContentItems = (args) => {
   `;
 };
 
-WithContentItems.story = {
-  name: 'With content items',
-  parameters: {
-    knobs: {
-      WithContentItems: () => ({
-        contentItemType: contentItemTextCTA,
-        contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }),
-        }),
+WithContentItems.storyName = 'With content items';
+WithContentItems.parameters = {
+  knobs: {
+    WithContentItems: () => ({
+      contentItemType: contentItemTextCTA,
+      contentItemCount: Array.from({
+        length: number('Number of content items', 3, { min: 2, max: 6 }),
       }),
-    },
-    propsSet: {
-      default: {
-        WithContentItems: {
-          contentItemType: contentItemTextCTA,
-          contentItemCount: Array(3),
-        },
+    }),
+  },
+  propsSet: {
+    default: {
+      WithContentItems: {
+        contentItemType: contentItemTextCTA,
+        contentItemCount: Array(3),
       },
     },
   },
@@ -213,9 +211,7 @@ export const WithLinkList = (args) => {
   `;
 };
 
-WithLinkList.story = {
-  name: 'With link list',
-};
+WithLinkList.storyName = 'With link list';
 
 export const WithinTabs = (args) => {
   const { contentItemType, contentItemCount } = args?.WithinTabs ?? {};
@@ -255,24 +251,22 @@ export const WithinTabs = (args) => {
   `;
 };
 
-WithinTabs.story = {
-  name: 'Within tabs',
-  parameters: {
-    knobs: {
-      CTABlock: () => ({}),
-      WithinTabs: () => ({
-        contentItemType: contentItemTextCTA,
-        contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }),
-        }),
+WithinTabs.storyName = 'Within tabs';
+WithinTabs.parameters = {
+  knobs: {
+    CTABlock: () => ({}),
+    WithinTabs: () => ({
+      contentItemType: contentItemTextCTA,
+      contentItemCount: Array.from({
+        length: number('Number of content items', 3, { min: 2, max: 6 }),
       }),
-    },
-    propsSet: {
-      default: {
-        WithinTabs: {
-          contentItemType: contentItemTextCTA,
-          contentItemCount: Array(3),
-        },
+    }),
+  },
+  propsSet: {
+    default: {
+      WithinTabs: {
+        contentItemType: contentItemTextCTA,
+        contentItemCount: Array(3),
       },
     },
   },
