@@ -692,9 +692,6 @@
   // static card footer
   :host(#{$c4d-prefix}-card-footer):not([parent-href]) {
     .#{$prefix}--card__footer {
-      justify-content: flex-start;
-      inline-size: auto;
-
       &:hover {
         color: $link-primary-hover;
       }
