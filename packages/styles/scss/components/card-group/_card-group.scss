@@ -85,6 +85,10 @@
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
 
+      @include breakpoint-down('md') {
+        margin-block-end: 0;
+      }
+
       .#{$prefix}--card__wrapper {
         display: grid;
         justify-content: revert;
@@ -147,12 +151,18 @@
     &[grid-mode='narrow'] {
       .#{$prefix}--card {
         margin-block-end: $spacing-05;
+        @include breakpoint-down('md') {
+          margin-block-end: 0;
+        }
       }
     }
 
     &[grid-mode='condensed'] {
       .#{$prefix}--card {
         margin-block-end: $spacing-05;
+        @include breakpoint-down('md') {
+          margin-block-end: 0;
+        }
       }
     }
 
@@ -280,6 +290,11 @@
           flex-basis: clamp(220px, 65vw, 400px);
           flex-shrink: 0;
           align-content: start;
+
+          @include breakpoint-down('md') {
+            align-content: stretch;
+          }
+
           block-size: auto;
 
           // // override web component internal padding and rely on gap instead
