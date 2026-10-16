@@ -27,6 +27,11 @@ class C4DQuoteSourceHeading extends LitElement {
   @property({ reflect: true })
   slot = 'source-heading';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'source-heading');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

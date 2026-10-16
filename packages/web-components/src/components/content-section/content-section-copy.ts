@@ -26,6 +26,11 @@ class C4DContentSectionCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'copy');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

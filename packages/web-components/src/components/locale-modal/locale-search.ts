@@ -201,6 +201,11 @@ class C4DLocaleSearch extends ThrottedInputMixin(
     }
   }
 
+  connectedCallback() {
+    this.setAttribute('slot', 'locales-selector');
+    super.connectedCallback();
+  }
+
   render() {
     const {
       availabilityLabelText,

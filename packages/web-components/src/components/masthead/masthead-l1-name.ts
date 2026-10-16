@@ -36,6 +36,11 @@ class C4DMastheadL1Name extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   title = '';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'name');
+    super.connectedCallback();
+  }
+
   render() {
     return html`
       <span part="l1-name-title" class="${prefix}--masthead__l1-name-title">

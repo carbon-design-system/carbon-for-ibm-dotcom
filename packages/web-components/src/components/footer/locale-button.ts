@@ -45,6 +45,11 @@ class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
   @property({ reflect: true })
   slot = 'locale-button';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'locale-button');
+    super.connectedCallback();
+  }
+
   render() {
     const { buttonLabel } = this;
     return html`

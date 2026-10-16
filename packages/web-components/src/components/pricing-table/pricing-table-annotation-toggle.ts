@@ -54,6 +54,8 @@ class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
 
   connectedCallback(): void {
     this.parentRow = this.closest(`${c4dPrefix}-pricing-table-row`);
+    this.setAttribute('slot', 'toggle');
+
     super.connectedCallback();
   }
 

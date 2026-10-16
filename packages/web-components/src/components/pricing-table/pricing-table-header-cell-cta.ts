@@ -23,6 +23,8 @@ class C4DPricingTableHeaderCellCta extends StableSelectorMixin(C4DButton) {
 
   connectedCallback(): void {
     this.kind = BUTTON_KIND.TERTIARY;
+    this.setAttribute('slot', 'cta');
+
     super.connectedCallback();
   }
 

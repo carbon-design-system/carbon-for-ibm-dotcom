@@ -27,6 +27,11 @@ class C4DQuoteSourceBottomCopy extends LitElement {
   @property({ reflect: true })
   slot = 'source-bottom-copy';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'source-bottom-copy');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

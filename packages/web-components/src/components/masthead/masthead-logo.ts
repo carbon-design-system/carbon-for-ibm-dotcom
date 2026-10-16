@@ -130,6 +130,8 @@ class C4DMastheadLogo extends FocusMixin(
   }
 
   connectedCallback() {
+    this.setAttribute('slot', 'brand');
+
     super.connectedCallback();
     this.hasCustomLogo();
   }

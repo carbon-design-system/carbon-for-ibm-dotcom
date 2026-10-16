@@ -82,6 +82,8 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
     if (this.hasAttribute('role')) {
       this.removeAttribute('role');
     }
+    this.setAttribute('slot', 'legal-nav');
+
     super.connectedCallback();
   }
 

@@ -27,6 +27,11 @@ class C4DQuoteSourceCopy extends LitElement {
   @property({ reflect: true })
   slot = 'source-copy';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'source-copy');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

@@ -28,6 +28,11 @@ class C4DGlobalBannerImage extends C4DImage {
   @property({ reflect: true })
   slot = 'image';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'image');
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${c4dPrefix}-global-banner-image`;
   }

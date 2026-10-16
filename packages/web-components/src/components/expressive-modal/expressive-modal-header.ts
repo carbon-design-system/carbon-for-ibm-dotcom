@@ -25,6 +25,11 @@ class C4DExpressiveModalHeader extends StableSelectorMixin(CDSModalHeader) {
   @property({ reflect: true })
   slot = 'header';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'header');
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${c4dPrefix}--expressive-modal-header`;
   }

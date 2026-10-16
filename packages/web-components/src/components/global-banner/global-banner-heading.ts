@@ -40,6 +40,8 @@ class C4DGlobalBannerHeading extends StableSelectorMixin(LitElement) {
     if (!this.hasAttribute('aria-level')) {
       this.setAttribute('aria-level', '2');
     }
+    this.setAttribute('slot', 'heading');
+
     super.connectedCallback();
   }
 

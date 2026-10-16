@@ -22,6 +22,11 @@ class C4DPricingTableHeaderCellHeadline extends StableSelectorMixin(
   @property({ reflect: true })
   slot = 'headline';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'headline');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

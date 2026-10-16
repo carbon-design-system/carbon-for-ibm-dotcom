@@ -35,6 +35,8 @@ class C4DContentItemHeading extends StableSelectorMixin(LitElement) {
     if (!this.hasAttribute('aria-level')) {
       this.setAttribute('aria-level', '4');
     }
+    this.setAttribute('slot', 'heading');
+
     super.connectedCallback();
   }
 

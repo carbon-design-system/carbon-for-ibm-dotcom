@@ -52,6 +52,11 @@ class C4DContentGroupCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'copy');
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${c4dPrefix}--content-group__copy`;
   }

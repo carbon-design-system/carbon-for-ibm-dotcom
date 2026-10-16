@@ -31,6 +31,11 @@ class C4DContentBlockHeadlinesHeading extends StableSelectorMixin(
   @property({ reflect: true })
   slot = 'heading';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'heading');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

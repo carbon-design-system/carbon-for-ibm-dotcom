@@ -20,6 +20,11 @@ class C4DPricingTableHighlightLabel extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'highlight-label';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'highlight-label');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

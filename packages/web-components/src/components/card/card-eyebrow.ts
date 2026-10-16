@@ -27,6 +27,11 @@ class C4DCardEyebrow extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'eyebrow';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'eyebrow');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

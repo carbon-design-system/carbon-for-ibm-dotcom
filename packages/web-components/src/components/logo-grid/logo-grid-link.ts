@@ -28,6 +28,11 @@ class C4DLogoGridLink extends StableSelectorMixin(C4DCardLink) {
   @property({ reflect: true })
   slot = 'footer';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'footer');
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${c4dPrefix}--logo-grid-link`;
   }

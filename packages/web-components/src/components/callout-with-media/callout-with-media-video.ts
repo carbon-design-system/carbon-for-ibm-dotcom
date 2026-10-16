@@ -34,6 +34,11 @@ class C4DCalloutWithMediaVideo extends C4DVideoPlayerContainer {
   @property({ reflect: true })
   slot = 'media';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'media');
+    super.connectedCallback();
+  }
+
   static styles = styles;
 }
 

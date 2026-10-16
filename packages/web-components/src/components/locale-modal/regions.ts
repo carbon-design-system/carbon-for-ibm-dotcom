@@ -29,6 +29,11 @@ class C4DRegions extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'regions-selector';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'regions-selector');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

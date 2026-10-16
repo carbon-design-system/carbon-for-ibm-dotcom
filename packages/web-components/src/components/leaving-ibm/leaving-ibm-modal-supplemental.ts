@@ -27,6 +27,11 @@ class C4DLeavingIbmModalSupplemental extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'supplemental';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'supplemental');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

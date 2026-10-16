@@ -31,6 +31,8 @@ class C4DContentBlockComplementary extends LitElement {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'complementary');
     }
+    this.setAttribute('slot', 'complementary');
+
     super.connectedCallback();
   }
 

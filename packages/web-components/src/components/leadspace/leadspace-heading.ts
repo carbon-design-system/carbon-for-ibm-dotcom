@@ -52,6 +52,8 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
     if (!this.hasAttribute('aria-level')) {
       this.setAttribute('aria-level', '1');
     }
+    this.setAttribute('slot', 'heading');
+
     super.connectedCallback();
   }
 

@@ -28,6 +28,11 @@ class C4DLeadSpaceBlockMedia extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'media';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'media');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

@@ -20,6 +20,11 @@ class C4DPricingTableCellAnnotation extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'annotation';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'annotation');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

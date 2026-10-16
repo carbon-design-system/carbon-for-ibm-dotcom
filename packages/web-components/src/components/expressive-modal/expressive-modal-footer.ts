@@ -28,6 +28,11 @@ class C4DExpressiveModalFooter extends StableSelectorMixin(CDSModalFooter) {
   @property({ reflect: true })
   slot = 'footer';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'footer');
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${c4dPrefix}--expressive-modal-footer`;
   }

@@ -151,6 +151,11 @@ class C4DCardFooter extends C4DLinkWithIcon {
     this._cleanParentHrefForContactModule();
   }
 
+  connectedCallback() {
+    this.setAttribute('slot', 'footer');
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${c4dPrefix}--card-footer`;
   }

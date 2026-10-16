@@ -34,6 +34,11 @@ class C4DCalloutWithMediaImage extends C4DImage {
   @property({ reflect: true })
   slot = 'media';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'media');
+    super.connectedCallback();
+  }
+
   static styles = styles;
 }
 

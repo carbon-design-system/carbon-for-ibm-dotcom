@@ -20,6 +20,11 @@ class C4DPricingTableHeaderCellTag extends StableSelectorMixin(C4DTagLink) {
   @property({ reflect: true })
   slot = 'tag';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'tag');
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${c4dPrefix}--pricing-table-header-cell-tag`;
   }

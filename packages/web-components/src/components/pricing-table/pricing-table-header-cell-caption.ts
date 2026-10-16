@@ -20,6 +20,11 @@ class C4DPricingTableHeaderCellCaption extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'caption';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'caption');
+    super.connectedCallback();
+  }
+
   render() {
     return html` <slot></slot> `;
   }

@@ -93,6 +93,8 @@ class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   }
 
   connectedCallback() {
+    this.setAttribute('slot', 'brand');
+
     super.connectedCallback();
     this.hasCustomLogo();
   }
