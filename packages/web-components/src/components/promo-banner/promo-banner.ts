@@ -13,14 +13,11 @@ import { classMap } from 'lit/directives/class-map.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import styles from './promo-banner.scss';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import CTAMixin, {
-  icons as ctaIcons,
-  CTAMixinImpl,
-} from '../../component-mixins/cta/cta';
+import CTAMixin, { CTAMixinImpl } from '../../component-mixins/cta/cta';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty';
 import { CTA_TYPE } from '../cta/defs';
 
-const { stablePrefix: c4dPrefix, prefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 const layoutBreakpoint = window.matchMedia(`(min-width: ${breakpoint}px)`);
@@ -40,7 +37,7 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
   @queryAssignedNodes({ slot: 'cta', flatten: false })
   slottedCta;
 
-  handleSlotChange(e) {
+  handleSlotChange = (e) => {
     this.requestUpdate();
 
     const slotname = e?.target?.name ?? '';
@@ -48,11 +45,17 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
     if (slotname === 'cta') {
       this.harvestCtaProps();
     }
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.harvestCtaProps();
   }
 
   firstUpdated() {
     layoutBreakpoint.addEventListener('change', (e) => {
       this.isDesktopVersion = e.matches;
+      this.harvestCtaProps();
     });
     this.harvestCtaProps();
   }
@@ -65,11 +68,14 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
         slotted_cta as CTAMixinImpl;
 
       this._linkNode = _linkNode;
-      this.ctaType = ctaType;
-      this.disabled = disabled;
-      this.download = download;
-      this.href = href;
-      this.target = target;
+      this.ctaType =
+        ctaType ||
+        (slotted_cta.getAttribute('cta-type') as CTA_TYPE) ||
+        CTA_TYPE.REGULAR;
+      this.disabled = disabled ?? slotted_cta.hasAttribute('disabled');
+      this.download = download || slotted_cta.getAttribute('download') || '';
+      this.href = href || slotted_cta.getAttribute('href') || '';
+      this.target = target || slotted_cta.getAttribute('target') || '';
       this.requestUpdate();
       return;
     }
@@ -81,20 +87,6 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
     this.href = '';
     this.target = '';
     this.requestUpdate();
-  }
-
-  /**
-   * @inheritdoc
-   */
-  _renderIcon() {
-    const { ctaType } = this;
-    return html`
-      <slot name="icon">
-        ${ctaIcons[ctaType]?.({
-          class: `${prefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
-        })}
-      </slot>
-    `;
   }
 
   _renderMobileLayout() {
@@ -131,19 +123,25 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
   }
 
   _renderDesktopLayout() {
-    const { slottedImage, slottedCta, handleSlotChange } = this;
+    const hasImage = Boolean(
+      this.slottedImage?.length || this.querySelector('[slot="image"]')
+    );
+    const hasCta = Boolean(
+      this.slottedCta?.length || this.querySelector('[slot="cta"]')
+    );
+
     return html`
       <div
         class="banner-wrapper"
-        @slotchange=${handleSlotChange}
+        @slotchange=${this.handleSlotChange}
         part="wrapper">
-        <div class="banner-image" ?hidden=${!slottedImage?.length} part="image">
+        <div class="banner-image" ?hidden=${!hasImage} part="image">
           <slot name="image"></slot>
         </div>
         <div class="banner-content" part="content">
           <slot></slot>
         </div>
-        <div class="banner-cta" ?hidden=${!slottedCta?.length} part="cta">
+        <div class="banner-cta" ?hidden=${!hasCta} part="cta">
           <slot name="cta"></slot>
         </div>
       </div>
