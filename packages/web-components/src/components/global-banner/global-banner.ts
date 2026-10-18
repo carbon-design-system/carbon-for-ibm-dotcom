@@ -15,6 +15,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './global-banner.scss';
 import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
 import C4DButton from '../button/button';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
@@ -73,6 +74,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
    * Handles `slotchange` event on the cta `<slot>`.
    */
   protected _handleImageSlotChange({ target }: Event) {
+    const { hasImage: oldHasImage, imageWidth: oldImageWidth } = this;
     this.hasImage = (target as HTMLSlotElement)
       .assignedNodes()
       .some(
@@ -82,6 +84,13 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
     if (this.hasImage && !this.imageWidth) {
       this.imageWidth = '4-col';
     }
+
+    // Assigning the fields above doesn't reliably schedule an update (see
+    // `_handleButtonSlotChange()`), and the `has-image`/`image-width`
+    // attributes drive the layout styles, so report the changes explicitly so
+    // that they get reflected.
+    this.requestUpdate('hasImage', oldHasImage);
+    this.requestUpdate('imageWidth', oldImageWidth);
   }
 
   /**
@@ -96,13 +105,20 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
         )
       );
 
+    const { buttonHref: oldButtonHref, ctaType: oldCtaType } = this;
     this.buttonHref = (hasContent[0] as HTMLElement)?.getAttribute('href');
     this.ctaType = (hasContent[0] as C4DButton)?.ctaType;
+    // The class fields above can shadow Lit's reactive accessors, so assigning
+    // them doesn't always schedule a render. Report the changes explicitly so
+    // the icon (rendered from `ctaType`) shows up.
+    this.requestUpdate('buttonHref', oldButtonHref);
+    this.requestUpdate('ctaType', oldCtaType);
   }
 
   protected _handleResize() {
-    const { _breakpoint: breakpoint } = this;
+    const { _breakpoint: breakpoint, _shouldRenderAsLink: oldValue } = this;
     this._shouldRenderAsLink = !breakpoint!.matches;
+    this.requestUpdate('_shouldRenderAsLink', oldValue);
   }
 
   firstUpdated() {
@@ -157,7 +173,9 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
   }
 
   _renderIcon() {
-    return html` ${ctaIcons[this.ctaType]()} `;
+    const { ctaType } = this;
+    const icon = ctaIcons[`${ctaType}-${document.dir}`] ?? ctaIcons[ctaType];
+    return html` ${iconLoader(icon)} `;
   }
 
   _renderInnerContents() {

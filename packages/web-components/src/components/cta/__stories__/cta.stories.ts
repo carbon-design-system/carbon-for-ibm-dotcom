@@ -20,6 +20,8 @@ import '../../button-group/index';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select, boolean } from '@storybook/addon-knobs';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
+
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE, CTA_STYLE } from '../defs';
@@ -164,7 +166,8 @@ export const Default = (args) => {
                     video-name="${ifDefined(customVideoTitle)}"
                     video-description="${ifDefined(customVideoDescription)}"
                     href="${ifDefined(footerHref)}">
-                    ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
+                    ${footerCopy ||
+                    iconLoader(ctaIcons[ctaType], { slot: 'icon' })}
                   </c4d-card-cta-footer>
                 `
               : ''}
@@ -198,7 +201,8 @@ export const Default = (args) => {
                     video-name="${ifDefined(customVideoTitle)}"
                     video-description="${ifDefined(customVideoDescription)}"
                     href="${ifDefined(footerHref)}">
-                    ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
+                    ${footerCopy ||
+                    iconLoader(ctaIcons[ctaType], { slot: 'icon' })}
                   </c4d-feature-cta-footer>
                 `
               : ''}
@@ -212,7 +216,8 @@ export const Default = (args) => {
                     video-name="${ifDefined(customVideoTitle)}"
                     video-description="${ifDefined(customVideoDescription)}"
                     href="${ifDefined(footerHref)}">
-                    ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
+                    ${footerCopy ||
+                    iconLoader(ctaIcons[ctaType], { slot: 'icon' })}
                   </c4d-card-cta-footer>
                 `
               : ''}
