@@ -64,7 +64,7 @@
 
 ```
 <div
-  class="cds--content-layout"
+  class="cds--content-layout cds--content-layout--border"
   part="content-layout"
 >
   <slot name="heading">
@@ -122,14 +122,13 @@
 
 ```
 <div
-  class="cds--content-layout"
+  class="cds--content-layout cds--content-layout--border cds--content-layout--with-children"
   part="content-layout"
 >
   <slot name="heading">
   </slot>
   <div
     class="cds--content-layout__body"
-    hidden=""
     part="body"
   >
     <div
@@ -142,7 +141,6 @@
     </div>
     <div
       class="cds--content-layout__cta"
-      hidden=""
       part="cta"
     >
       <slot name="action">
@@ -157,8 +155,7 @@
       </slot>
     </div>
     <div
-      class="cds--helper-wrapper cds--helper-wrapper--less-space"
-      hidden=""
+      class="cds--helper-wrapper"
       part="helper-wrapper"
     >
       <div

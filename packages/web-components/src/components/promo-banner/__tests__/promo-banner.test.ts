@@ -77,7 +77,6 @@ describe('c4d-promo-banner', function () {
         'c4d-promo-banner'
       ) as C4DPromoBanner;
       element.isDesktopVersion = false;
-      element.requestUpdate();
       await element.updateComplete;
 
       const ctaLink = element.shadowRoot?.querySelector('a.banner-cta');
@@ -107,14 +106,12 @@ describe('c4d-promo-banner', function () {
 
       // Switch to mobile layout
       element.isDesktopVersion = false;
-      element.requestUpdate();
       await element.updateComplete;
       expect(element.isDesktopVersion).toBe(false);
       expect(element.shadowRoot?.querySelector('a.banner-cta')).toBeDefined();
 
       // Switch to desktop layout
       element.isDesktopVersion = true;
-      element.requestUpdate();
       await element.updateComplete;
       expect(element.isDesktopVersion).toBe(true);
       expect(

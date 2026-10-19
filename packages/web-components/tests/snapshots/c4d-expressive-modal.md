@@ -24,6 +24,7 @@
     part="modal-content"
   >
     <div
+      class="c4d-ce--modal__header--with-body"
       id="cds--modal-header"
       part="modal-header"
     >
@@ -31,7 +32,7 @@
       </slot>
     </div>
     <div
-      class="c4d-ce--modal__body"
+      class="c4d-ce--modal__body c4d-ce--modal__body--with-footer"
       part="modal-body"
     >
       <slot>
@@ -75,6 +76,7 @@
     part="modal-content"
   >
     <div
+      class="c4d-ce--modal__header--with-body"
       id="cds--modal-header"
       part="modal-header"
     >
@@ -82,7 +84,7 @@
       </slot>
     </div>
     <div
-      class="c4d-ce--modal__body"
+      class="c4d-ce--modal__body c4d-ce--modal__body--with-footer"
       part="modal-body"
     >
       <slot>
@@ -128,6 +130,7 @@
     part="modal-content"
   >
     <div
+      class="c4d-ce--modal__header--with-body"
       id="cds--modal-header"
       part="modal-header"
     >
@@ -179,6 +182,7 @@
     part="modal-content"
   >
     <div
+      class="c4d-ce--modal__header--with-body"
       id="cds--modal-header"
       part="modal-header"
     >
@@ -230,6 +234,7 @@
     part="modal-content"
   >
     <div
+      class="c4d-ce--modal__header--with-body"
       id="cds--modal-header"
       part="modal-header"
     >
@@ -237,7 +242,7 @@
       </slot>
     </div>
     <div
-      class="c4d-ce--modal__body"
+      class="c4d-ce--modal__body c4d-ce--modal__body--with-footer"
       part="modal-body"
     >
       <slot>

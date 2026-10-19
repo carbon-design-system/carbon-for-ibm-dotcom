@@ -43,7 +43,7 @@
 
 ```
 <div
-  class="cds--content-layout cds--layout--border"
+  class="cds--content-layout cds--content-layout--with-complementary cds--layout--border"
   part="content-layout"
 >
   <slot name="heading">

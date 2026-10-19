@@ -43,14 +43,13 @@
 
 ```
 <div
-  class="cds--content-layout"
+  class="cds--content-layout cds--content-layout--with-footer"
   part="content-layout"
 >
   <slot name="heading">
   </slot>
   <div
     class="cds--content-layout__body"
-    hidden=""
     part="body"
   >
     <slot name="copy">
@@ -60,9 +59,8 @@
     <slot>
     </slot>
     <div
-      class="false"
+      class="c4d--content-block-footer"
       grid-mode=""
-      hidden=""
       part="footer"
       style=""
     >

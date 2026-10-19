@@ -54,7 +54,6 @@
   </div>
   <div
     class="c4d--content-item__media"
-    hidden=""
     part="media"
   >
     <slot name="media">
@@ -67,7 +66,6 @@
     </slot>
     <div
       class="cds--content-item__cta"
-      hidden=""
       part="cta"
     >
       <slot name="footer">
