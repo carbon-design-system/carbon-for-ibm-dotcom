@@ -50,7 +50,9 @@ class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
       this._filterInputValue = this._lastValidLang as string;
       this._filterInputNode.value = this._lastValidLang as string;
       this.open = false;
-      this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
+      // Kept: `_filterInputValue` is a plain field on `C4DComboBox` (no `@state()`), so
+      // assigning it does not schedule a render.
+      this.requestUpdate();
     }
   };
 
@@ -74,7 +76,8 @@ class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
     const { _filterInputNode: filterInput } = this;
     this._filterInputValue = !filterInput ? '' : filterInput.value;
     this.open = true;
-    this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
+    // Kept: `_filterInputValue` is a plain field on `C4DComboBox`, see `_handleClickOutside()`.
+    this.requestUpdate();
   }
 
   /**
@@ -95,6 +98,7 @@ class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
     this._filterInputValue = '';
     this._filterInputNode.focus();
     this.open = false;
+    // Kept: `_filterInputValue` is a plain field on `C4DComboBox`, see `_handleClickOutside()`.
     this.requestUpdate();
   }
 
@@ -115,6 +119,7 @@ class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
       //    even if there is no change in the selected value
       this._filterInputValue = item.textContent || '';
       this.open = false;
+      // Kept: `_filterInputValue` is a plain field on `C4DComboBox`, see `_handleClickOutside()`.
       this.requestUpdate();
     }
     this._lastValidLang = item?.textContent as string;

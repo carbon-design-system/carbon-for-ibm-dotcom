@@ -246,7 +246,6 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       );
     }
     this.active = this.shouldRemainOpen ? true : !this.active;
-    this.requestUpdate();
     this.searchResults = [];
     this.groupedResults = [];
 
@@ -617,6 +616,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     // IE falls back to the old behavior.
     nextItem.scrollIntoView({ block: 'nearest' });
 
+    // Kept: nothing above assigns a reactive field of this component (the
+    // highlight is set on the child items and the `unfocused` attribute is set
+    // directly), so this is not a shadowing workaround. It predates the Lit 3
+    // migration and no test covers keyboard navigation, so it is left as is.
     this.requestUpdate();
   }
 

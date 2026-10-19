@@ -112,7 +112,9 @@ class C4DComboBox extends CDSDropdown {
     const { _filterInputNode: filterInput } = this;
     this._filterInputValue = !filterInput ? '' : filterInput.value;
     this.open = true;
-    this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
+    // Kept: `_filterInputValue` is a plain field (no `@state()`), so assigning it
+    // does not schedule a render. `open` may not change (it is already `true`).
+    this.requestUpdate();
   }
 
   protected _handleClickInner(event: MouseEvent) {
@@ -153,6 +155,8 @@ class C4DComboBox extends CDSDropdown {
     this._filterInputValue = '';
     this._filterInputNode.focus();
     this.open = false;
+    // Kept: `_filterInputValue` is a plain field, so clearing it needs an explicit render
+    // when `open` was already `false`.
     this.requestUpdate();
   }
 
@@ -168,6 +172,7 @@ class C4DComboBox extends CDSDropdown {
       //    even if there is no change in the selected value
       this._filterInputValue = item.textContent || '';
       this.open = false;
+      // Kept: `_filterInputValue` is a plain field, see `_handleInput()`.
       this.requestUpdate();
     }
     super._handleUserInitiatedSelectItem(item);

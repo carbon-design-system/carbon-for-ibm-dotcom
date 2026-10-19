@@ -124,6 +124,9 @@ class C4DQuote extends MediaQueryMixin(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );
     this[slotExistencePropertyNames[name]] = hasContent;
+    // Kept: `_hasSourceHeading`, `_hasSourceCopy`, `_hasSourceBottomCopy` and
+    // `_hasFooter` are plain fields (no `@state()`), so assigning them does not
+    // schedule a render and the `?hidden` bindings would never update.
     this.requestUpdate();
   }
 

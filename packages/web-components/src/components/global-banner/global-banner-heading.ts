@@ -46,12 +46,7 @@ class C4DGlobalBannerHeading extends StableSelectorMixin(LitElement) {
   }
 
   firstUpdated() {
-    const { content: oldContent } = this;
     this.content = stripHTML(this.innerHTML);
-    // Assigning the field above doesn't reliably schedule an update (it can
-    // shadow Lit's reactive accessor), and the shadow DOM has no `<slot>`, so
-    // the heading renders empty unless the new content is reported explicitly.
-    this.requestUpdate('content', oldContent);
     render(html` ${this.content} `, this);
   }
 

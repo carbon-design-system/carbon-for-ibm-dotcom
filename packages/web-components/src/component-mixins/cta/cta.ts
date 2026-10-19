@@ -82,9 +82,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @internal
      */
-    // Lit 3 class field semantics: `declare` prevents a runtime field assignment
-    // that would shadow the getter defined on the parent class.
-    declare _linkNode?: HTMLAnchorElement;
+    _linkNode?: HTMLAnchorElement;
 
     /**
      * Handles `click` event on the `<a>.

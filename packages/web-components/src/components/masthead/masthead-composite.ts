@@ -1695,6 +1695,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     // Allows conditional rendering of left/top navs.
     layoutBreakpoint.addEventListener('change', () => {
       this._isMobileVersion = layoutBreakpoint.matches;
+      // Kept: `_isMobileVersion` is a plain field (no `@state()`), so assigning
+      // it does not schedule a render.
       this.requestUpdate();
     });
 

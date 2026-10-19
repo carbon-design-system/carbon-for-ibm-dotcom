@@ -81,7 +81,6 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );
     this[name === 'icon' ? '_hasIcon' : '_hasMainContent'] = hasContent;
-    this.requestUpdate();
   }
 
   /**

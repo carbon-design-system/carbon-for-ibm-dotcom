@@ -62,7 +62,6 @@ class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * Handles `slotchange` event on the default `<slot>`.
    */
   protected _handleSlotChange({ target }: Event) {
-    const { _hasContent: oldHasContent } = this;
     this._hasContent = (target as HTMLSlotElement)
       .assignedNodes()
       .some(
@@ -70,9 +69,6 @@ class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
           node.nodeType !== Node.COMMENT_NODE &&
           (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim())
       );
-    // Assigning the field above doesn't reliably schedule an update (it can
-    // shadow Lit's reactive accessor), so report the change explicitly.
-    this.requestUpdate('_hasContent', oldHasContent);
   }
 
   _renderContent() {

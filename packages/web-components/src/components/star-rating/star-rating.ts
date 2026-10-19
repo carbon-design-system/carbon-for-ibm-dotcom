@@ -51,10 +51,8 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'rating', reflect: true, type: Number })
   set rating(value: number) {
-    const oldValue = this._rating;
     // Place boundaries to avoid out-of-memory issues.
     this._rating = Math.min(Math.max(value, 0), this.starCount);
-    this.requestUpdate('rating', oldValue);
   }
   get rating() {
     return this._rating;
@@ -77,10 +75,8 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'star-count', reflect: true, type: Number })
   set starCount(value: number) {
-    const oldValue = this._starCount;
     // Place boundaries to avoid out-of-memory issues.
     this._starCount = Math.min(Math.max(value, 0), this.maxStarCount);
-    this.requestUpdate('starCount', oldValue);
   }
   get starCount() {
     return this._starCount;
@@ -92,9 +88,7 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'tooltip', reflect: true })
   set tooltip(value: string | null) {
-    const oldValue = this._tooltip;
     this._tooltip = value;
-    this.requestUpdate('tooltip', oldValue);
   }
   get tooltip() {
     return !this._tooltip

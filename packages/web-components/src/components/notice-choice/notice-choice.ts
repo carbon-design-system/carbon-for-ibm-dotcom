@@ -663,6 +663,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (this.ncData) {
       const newCheckboxes = this._buildCheckboxes();
       this.checkboxes = newCheckboxes;
+      // Kept: `checkboxes` is a reactive `@property`, so this is not a shadowing
+      // workaround. `performUpdate()` renders synchronously, unlike the async
+      // update that the assignment schedules, and callers may rely on that.
+      // It predates the Lit 3 migration and no test covers it, so it is left as is.
       this.performUpdate();
     }
   }

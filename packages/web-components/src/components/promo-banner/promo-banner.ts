@@ -38,6 +38,9 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
   slottedCta;
 
   handleSlotChange = (e) => {
+    // Needed for a real reason: `_renderDesktopLayout()` reads the slotted
+    // image/CTA through `queryAssignedNodes` and `querySelector`, which are not
+    // reactive fields, so a slot change does not schedule a render on its own.
     this.requestUpdate();
 
     const slotname = e?.target?.name ?? '';
@@ -76,7 +79,6 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
       this.download = download || slotted_cta.getAttribute('download') || '';
       this.href = href || slotted_cta.getAttribute('href') || '';
       this.target = target || slotted_cta.getAttribute('target') || '';
-      this.requestUpdate();
       return;
     }
 
@@ -86,7 +88,6 @@ class C4DPromoBanner extends CTAMixin(LitElement) {
     this.download = '';
     this.href = '';
     this.target = '';
-    this.requestUpdate();
   }
 
   _renderMobileLayout() {

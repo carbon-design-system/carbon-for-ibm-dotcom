@@ -136,6 +136,8 @@ class C4DBackgroundMedia extends C4DImage {
       video?.playAllVideos();
     }
 
+    // Kept: the play/pause button is rendered from `videoPlayerContainer.isPlaying`,
+    // which belongs to another element, so no reactive field of this component changes.
     this.requestUpdate();
   }
 

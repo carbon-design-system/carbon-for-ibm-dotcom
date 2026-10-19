@@ -42,7 +42,6 @@ class C4DTextCTA extends VideoCTAMixin(CTAMixin(C4DLinkWithIcon)) {
    * Handles `slotchange` event on the default `<slot>`.
    */
   protected _handleSlotChange({ target }: Event) {
-    const { _hasContent: oldHasContent } = this;
     this._hasContent = (target as HTMLSlotElement)
       .assignedNodes()
       .some(
@@ -50,10 +49,6 @@ class C4DTextCTA extends VideoCTAMixin(CTAMixin(C4DLinkWithIcon)) {
           node.nodeType !== Node.COMMENT_NODE &&
           (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim())
       );
-    // Assigning the field above doesn't reliably schedule an update (it can
-    // shadow Lit's reactive accessor). Without a re-render, the video caption
-    // rendered before this `slotchange` stays next to the slotted text.
-    this.requestUpdate('_hasContent', oldHasContent);
   }
 
   protected _renderContent() {
