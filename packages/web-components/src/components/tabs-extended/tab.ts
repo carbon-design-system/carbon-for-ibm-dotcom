@@ -12,6 +12,9 @@ import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { customElement } from 'lit/decorators.js';
 import CDSTab from '@carbon/web-components/es/components/tabs/tab.js';
+// CWC v3: `tabs/tab.js` renders `<cds-button>`, `<cds-tooltip>` and
+// `<cds-badge-indicator>` but only the `tabs/index.js` barrel registers them.
+import '@carbon/web-components/es/components/tabs/index.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

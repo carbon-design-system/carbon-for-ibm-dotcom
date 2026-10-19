@@ -150,8 +150,12 @@ class C4DTableOfContents extends MediaQueryMixin(
    */
   @query(`.${prefix}--sub-content-right`)
   private _intersectionRightSentinelNode?: HTMLElement;
+  // No initializer: `@queryAll` defines a getter-only accessor on the prototype,
+  // and under TypeScript semantics (`useDefineForClassFields: false`) an
+  // initializer is emitted as `this._itemNodes = []`, which throws in the
+  // constructor ("Cannot set property _itemNodes ... which has only a getter").
   @queryAll(`.${prefix}--tableofcontents__item`)
-  private _itemNodes?: HTMLElement[] = [];
+  private _itemNodes?: HTMLElement[];
 
   @query(`.${prefix}--tableofcontents__content`)
   private _contentDiv?: HTMLElement;

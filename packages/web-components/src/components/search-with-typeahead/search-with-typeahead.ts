@@ -29,6 +29,11 @@ import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
+// The template renders these two when `scopeParameters` is set. Before this,
+// only `search-with-typeahead/index.ts` registered them, so importing this file
+// alone (as `masthead-composite.ts` does) left them undefined.
+import './scoped-search-dropdown';
+import './scoped-search-dropdown-mobile';
 import C4DSearchWithTypeaheadItem from './search-with-typeahead-item';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;

@@ -19,6 +19,12 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DCardFooter from './card-footer';
+// `_renderHeading()` (video CTA) renders `<c4d-card-heading>` and
+// `_renderImage()` renders `<c4d-image>`. `card/index.ts` already loads both
+// (`image-logo` imports `image`), but `card.ts` is imported directly by
+// `card-link`, `feature-card`, `footer` and `locale-modal`.
+import './card-heading';
+import '../image/image';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
 
