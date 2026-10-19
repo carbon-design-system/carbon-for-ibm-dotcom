@@ -852,8 +852,54 @@ TypeScript decorators use the **legacy experimental** mode:
 
 ```json
 // tsconfig.json
-{ "compilerOptions": { "experimentalDecorators": true } }
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
+  }
+}
 ```
+
+#### Decorated fields must be compiled by TypeScript, not Babel
+
+`.ts` files must be compiled with TypeScript semantics
+(`experimentalDecorators: true`, `useDefineForClassFields: false`), the same way
+`@carbon/web-components` v3 is compiled. TypeScript emits
+`__decorate([property()], C.prototype, "field")` and a plain
+`this.field = value` in the constructor, so the assignment goes through the
+accessor Lit installs on the prototype.
+
+Babel's legacy decorator plugin (`@babel/plugin-proposal-decorators` with
+`legacy: true`) emits `_initializerDefineProperty(this, "field", ...)`, which
+calls `Object.defineProperty` on each instance. That own property shadows Lit's
+accessor, so assigning a reactive field never re-renders and never reflects to
+the attribute. Babel's `loose` option does not change this. Lit's docs say Babel
+does not support TypeScript experimental decorators.
+
+Where this is configured today (all interim, see `fix-components-plan.md` and
+the `TEMP(fix-components)` comments): `ts-loader` in `tests/karma*.conf.js` and
+`.storybook/main.js`, `gulp-typescript` in `gulp-tasks/build/modules/scripts.js`
+and `scripts-node.js`, and `ts.transpileModule()` in
+`tools/get-rollup-config.js`. Babel is only used for `.js` and for syntax
+lowering after TypeScript. Keep `experimentalDecorators` and
+`useDefineForClassFields: false` when the build tooling is replaced.
+
+Rules that follow from this:
+
+- A `@query`, `@queryAll`, `@queryAsync`, `@queryAssignedNodes` or
+  `@queryAssignedElements` field must **not** have an initializer. These
+  decorators install a getter-only accessor, so `this.field = ...` in the
+  constructor throws (`Cannot set property ... which has only a getter`). See
+  `_itemNodes` in `components/table-of-contents/table-of-contents.ts`.
+- `_linkNode` in `component-mixins/cta/cta.ts` is typed for the
+  `@query('#link')` getter on `CDSLink`. It is a plain field without `declare`
+  because it emits nothing under `useDefineForClassFields: false`. If a compiler
+  ever defaults that setting to `true`, it would define an own `undefined`
+  property and shadow the getter. Put `declare` back (or enable
+  `allowDeclareFields` in Babel) in that case.
+- `src/components/__tests__/shadowing.test.ts` checks that no reactive property
+  is shadowed and that no component constructor throws. Keep it running in CI
+  after any change to the compile path.
 
 `@customElement`, `@property`, `@query`, and `@state` are imported from
 `lit/decorators.js` — **not** from the old `@carbon/web-components` decorator
