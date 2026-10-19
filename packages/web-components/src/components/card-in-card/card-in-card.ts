@@ -35,7 +35,8 @@ class C4DCardInCard extends StableSelectorMixin(C4DCard) {
         : html`
             <c4d-card-in-card-image
               alt="${ifDefined(videoName)}"
-              default-src="${videoThumbnailUrl}"
+              default-src="${videoThumbnailUrl ||
+              `https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/${this.href}/width/333`}"
               part="image">
             </c4d-card-in-card-image>
           `;
