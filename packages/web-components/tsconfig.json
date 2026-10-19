@@ -18,6 +18,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "experimentalDecorators": true,
+    // Keep false (not TEMP): class fields must compile to plain constructor assignments,
+    // not Object.defineProperty, or they shadow Lit's prototype accessors and assignments
+    // stop re-rendering. TS defaults this to true for target >= ES2022, so set it
+    // explicitly. See https://lit.dev/docs/components/decorators/
+    "useDefineForClassFields": false,
     "skipLibCheck": true,
     "strict": true,
     "stripInternal": true,

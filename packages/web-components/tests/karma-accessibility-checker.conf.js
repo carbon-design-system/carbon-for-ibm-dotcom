@@ -85,15 +85,28 @@ module.exports = function setupKarma(config) {
             test: /[\\/]styles[\\/]icons[\\/]/i,
             use: [require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
           },
+          // TEMP(fix-components): replaced babel-loader (Babel legacy decorators shadow Lit's
+          // accessors) with ts-loader (transpileOnly) so TypeScript experimental-decorator semantics
+          // are used: __decorate on prototype + plain constructor assignments, matching CWC v3.
+          // See fix-components-plan.md sub-task 3 step 1.  Remove when sub-task 3 lands
+          // (build-toolchain-tsdown-plan.md / test-runner-web-test-runner-plan.md).
           {
             test: /\.ts$/,
             use: [
               {
-                // Build note: Locking down `@babel/plugin-transform-typescript` to `~7.6.0`
-                // given `7.7` or later versions seems to have a problem with using decorator with fields without an initializer
-                loader: 'babel-loader',
+                loader: 'ts-loader',
                 options: {
-                  configFile: path.resolve(__dirname, '..', '.babelrc'),
+                  transpileOnly: true,
+                  configFile: path.resolve(__dirname, '..', 'tsconfig.json'),
+                  compilerOptions: {
+                    // Ensure correct semantics even if tsconfig is updated later.
+                    // experimentalDecorators + useDefineForClassFields:false → Lit prototype
+                    // accessors are NOT shadowed by own-property initialisers.
+                    experimentalDecorators: true,
+                    useDefineForClassFields: false,
+                    // Keep module format webpack 4 understands.
+                    module: 'esnext',
+                  },
                 },
               },
             ],
@@ -111,7 +124,7 @@ module.exports = function setupKarma(config) {
                   },
                 },
               },
-          // Our source: full .babelrc
+          // Our own .js files: .babelrc (syntax lowering only). `.ts` is compiled by ts-loader above.
           {
             test: /\.js$/,
             include: [__dirname],

@@ -12,6 +12,10 @@
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
+// TEMP(fix-components): ts.transpileModule is used in the rollupTypescript plugin below
+// to compile .ts with TypeScript experimental-decorator semantics before Babel runs.
+// Replace when build-toolchain-tsdown-plan.md lands.
+const ts = require('typescript');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -163,20 +167,47 @@ function getRollupConfig({
           include: ['**/feature-flags.ts'],
         }
       ),
+      // TEMP(fix-components): transpile .ts with TypeScript experimental-decorator
+      // semantics (__decorate on prototype + plain constructor assignments) BEFORE Babel
+      // runs. ts.transpileModule() is per-file (matches isolatedModules / transpileOnly).
+      // The Babel step below then handles syntax lowering and path rewrites on the
+      // resulting JS. Remove when build-toolchain-tsdown-plan.md lands.
+      {
+        name: 'rollup-typescript-temp',
+        transform(code, id) {
+          if (!/\.ts$/.test(id) || /node_modules/.test(id)) {
+            return null;
+          }
+          const result = ts.transpileModule(code, {
+            compilerOptions: {
+              target: ts.ScriptTarget.ES2017,
+              module: ts.ModuleKind.ESNext,
+              experimentalDecorators: true,
+              useDefineForClassFields: false,
+              sourceMap: true,
+              inlineSources: true,
+            },
+            fileName: id,
+          });
+          return {
+            code: result.outputText,
+            map: result.sourceMapText ? JSON.parse(result.sourceMapText) : null,
+          };
+        },
+      },
       babel.babel({
         babelHelpers: 'inline',
+        // After rollup-typescript-temp transforms .ts → JS, Babel still sees the .ts
+        // extension (Rollup keeps the original ID).  We keep extensions:['.ts'] so Babel
+        // runs path rewrites and syntax-lowering on the TS-compiled JS output.
         extensions: ['.ts'],
         exclude: ['node_modules/**'], // only transpile our source code
+        // configFile:false keeps .babelrc out of this step.
+        configFile: false,
         presets: ['@babel/preset-modules'],
         plugins: [
-          ['@babel/plugin-transform-typescript', { allowDeclareFields: true }],
-          ['@babel/plugin-proposal-decorators', { legacy: true }],
-          ['@babel/plugin-transform-class-properties', { loose: true }],
-          ['@babel/plugin-transform-private-methods', { loose: true }],
-          [
-            '@babel/plugin-transform-private-property-in-object',
-            { loose: true },
-          ],
+          // No @babel/plugin-transform-typescript — tsc already compiled the TS above.
+          // No decorator plugins — __decorate was emitted by tsc.
           '@babel/plugin-transform-class-static-block',
           '@babel/plugin-transform-logical-assignment-operators',
           '@babel/plugin-transform-nullish-coalescing-operator',

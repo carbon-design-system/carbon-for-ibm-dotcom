@@ -96,35 +96,54 @@ module.exports = {
         },
       ]
     );
-    // Uses `@babel/plugin-proposal-decorators` configuration in our `.babelrc`
-    config.module.rules = deepReplace(
-      config.module.rules,
-      (value, key, parent, parents) =>
-        getPaths(parents) === 'use.options.plugins' &&
-        Array.isArray(value) &&
-        /@babel\/plugin-proposal-decorators/i.test(value[0]),
-      () => deepReplace.DELETE
+    // TEMP(fix-components): Storybook 6.5 / @storybook/builder-webpack4 injects a
+    // babel-loader rule matching /\.(mjs|tsx?|jsx?)$/ that compiles .ts with Babel
+    // legacy decorators (→ _initializerDefineProperty, own-property shadowing of Lit
+    // accessors).  Replace that rule's .ts extension with ts-loader (transpileOnly) so
+    // TypeScript experimental-decorator semantics are used: __decorate on prototype +
+    // plain constructor assignments, matching CWC v3.  The babel-loader rule stays for
+    // .js/.jsx/.mjs (no change to non-TS handling).  The earlier deepReplace patching of
+    // the Babel decorator and `loose` options was removed because `loose` never fixed
+    // the shadowing and .ts no longer goes through babel-loader.
+    // Remove when storybook-upgrade-plan.md lands.
+    const babelTsRuleIndex = config.module.rules.findIndex(
+      (rule) =>
+        rule &&
+        rule.use &&
+        Array.isArray(rule.use) &&
+        rule.use.some((u) => /babel-loader/i.test(u.loader)) &&
+        rule.test instanceof RegExp &&
+        rule.test.test('file.ts')
     );
-    // Normalizes several plugins with `loose: false` option, except
-    // class features which require loose: true with legacy decorators
-    config.module.rules = deepReplace(
-      config.module.rules,
-      (value, key, parent, parents) =>
-        getPaths(parents) === 'use.options.plugins' &&
-        Array.isArray(value) &&
-        value[1] &&
-        value[1].loose &&
-        !/@babel\/plugin-(proposal|transform)-(class-properties|private-methods|private-property-in-object)/i.test(
-          value[0]
-        ),
-      (value) => [
-        value[0],
-        {
-          ...value[1],
-          loose: false,
-        },
-      ]
-    );
+    if (babelTsRuleIndex >= 0) {
+      const existingRule = config.module.rules[babelTsRuleIndex];
+      // Keep the babel-loader entry but restrict it to .js/.jsx/.mjs only.
+      existingRule.test = /\.(mjs|jsx?)$/;
+      // Insert a new ts-loader rule before it for .ts/.tsx files.
+      config.module.rules.splice(babelTsRuleIndex, 0, {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: require.resolve('ts-loader'),
+            options: {
+              transpileOnly: true,
+              configFile: path.resolve(__dirname, '..', 'tsconfig.json'),
+              compilerOptions: {
+                // experimentalDecorators + useDefineForClassFields:false → Lit
+                // prototype accessors are NOT shadowed by own-property initialisers.
+                experimentalDecorators: true,
+                useDefineForClassFields: false,
+                // ESNext module format; webpack handles bundling.
+                module: 'esnext',
+                // Preserve JSX for the downstream babel preset-react rule on .tsx.
+                jsx: 'preserve',
+              },
+            },
+          },
+        ],
+      });
+    }
 
     // `@carbon/ibmdotcom-web-components` does not use `polymer-webpack-loader` as it does not use full-blown Polymer
     const htmlRuleIndex = config.module.rules.findIndex(
@@ -259,7 +278,10 @@ module.exports = {
         enforce: 'pre',
       },
       {
-        test: /\.tsx?$/,
+        // TEMP(fix-components): Changed from /\.tsx?$/ to /\.tsx$/ — plain .ts files
+        // are now handled by the ts-loader rule injected above in webpackFinal.
+        // This babel-loader rule handles React .tsx files only.
+        test: /\.tsx$/,
         use: [
           {
             loader: 'babel-loader',

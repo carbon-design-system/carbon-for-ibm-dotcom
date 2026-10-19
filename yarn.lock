@@ -2488,6 +2488,7 @@ __metadata:
     temp: "npm:^0.9.0"
     terser-webpack-plugin: "npm:^4.2.3"
     through2: "npm:^3.0.0"
+    ts-loader: "npm:9.6.2"
     typescript: "npm:^5.2.2"
     url-loader: "npm:^4.1.1"
     web-component-analyzer: "npm:1.2.0-next.0"
@@ -2709,15 +2710,15 @@ __metadata:
   linkType: hard
 
 "@carbon/styles@npm:^2.0.0-alpha.3, @carbon/styles@npm:^2.0.0-alpha.4":
-  version: 2.0.0-alpha.6
-  resolution: "@carbon/styles@npm:2.0.0-alpha.6"
+  version: 2.0.0-alpha.7
+  resolution: "@carbon/styles@npm:2.0.0-alpha.7"
   dependencies:
     "@carbon/colors": "npm:^12.0.0-alpha.4"
     "@carbon/feature-flags": "npm:^2.0.0-alpha.3"
     "@carbon/grid": "npm:^12.0.0-alpha.5"
     "@carbon/layout": "npm:^12.0.0-alpha.5"
     "@carbon/motion": "npm:^12.0.0-alpha.5"
-    "@carbon/themes": "npm:^12.0.0-alpha.6"
+    "@carbon/themes": "npm:^12.0.0-alpha.7"
     "@carbon/type": "npm:^12.0.0-alpha.5"
     "@ibm/plex": "npm:6.4.1"
     "@ibm/plex-mono": "npm:2.5.0"
@@ -2734,7 +2735,7 @@ __metadata:
   peerDependenciesMeta:
     sass:
       optional: true
-  checksum: 10/7c8f5caf3880df38f241fec44a8c0c7bae3d5bafb70a166dad40c64db93ae5f31b9724c31d3305b88bbf43e53278f0d4fdcca23ba1ecb2d4bd2fe312e461a4a0
+  checksum: 10/bf935e06d8255dd73906d764c824025d60165b2514acb96b13aee5dc589016c1e65e5d1db6fccb960f9a7fa71537c6ad0e9825b8ad761f925f8014dfd2b79225
   languageName: node
   linkType: hard
 
@@ -2760,16 +2761,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:^12.0.0-alpha.4, @carbon/themes@npm:^12.0.0-alpha.6":
-  version: 12.0.0-alpha.6
-  resolution: "@carbon/themes@npm:12.0.0-alpha.6"
+"@carbon/themes@npm:^12.0.0-alpha.4, @carbon/themes@npm:^12.0.0-alpha.7":
+  version: 12.0.0-alpha.7
+  resolution: "@carbon/themes@npm:12.0.0-alpha.7"
   dependencies:
     "@carbon/colors": "npm:^12.0.0-alpha.4"
     "@carbon/layout": "npm:^12.0.0-alpha.5"
     "@carbon/type": "npm:^12.0.0-alpha.5"
     "@ibm/telemetry-js": "npm:^1.5.0"
     color: "npm:^4.0.0"
-  checksum: 10/256c2b578ef737d25f7ce776fad9987336a7ca9644862da6fd5cbc3af99e7b199252732ab532dba5b483c52b8d22a4faa39f092469e1b63c27fe41dc1459fbbd
+  checksum: 10/67b99855fcdd60c80dbebc685e7eb1fdabe26f8b4ab18c0750454a8c8fa04e30428c95574337fd64bc62d1da6610a406a9fc0103cda4e14f453ee03242782bd1
   languageName: node
   linkType: hard
 
@@ -26564,7 +26565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^4.0.2, picomatch@npm:^4.0.4":
+"picomatch@npm:^4.0.0, picomatch@npm:^4.0.2, picomatch@npm:^4.0.4":
   version: 4.0.7
   resolution: "picomatch@npm:4.0.7"
   checksum: 10/66e1df34bc39c72fa3756be4069f7887ea3e35e94bba1c3f6167763007698cb04b8a0a365161d186fda6e9571a2d3efb606b2966eb6a7dea6252911224dc2f48
@@ -30805,7 +30806,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map@npm:^0.7.3, source-map@npm:^0.7.6":
+"source-map@npm:^0.7.3, source-map@npm:^0.7.4, source-map@npm:^0.7.6":
   version: 0.7.6
   resolution: "source-map@npm:0.7.6"
   checksum: 10/c8d2da7c57c14f3fd7568f764b39ad49bbf9dd7632b86df3542b31fed117d4af2fb74a4f886fc06baf7a510fee68e37998efc3080aacdac951c36211dc29a7a3
@@ -32780,6 +32781,24 @@ __metadata:
   version: 2.3.0
   resolution: "ts-dedent@npm:2.3.0"
   checksum: 10/fc56bfac5daf2a3d2197eda2c804125756ecfbbc830ad3ce28cf775cca0027fe848abf827a913be67d33fb0f57dfbdd536f9c908e9979fa65968443b514561b2
+  languageName: node
+  linkType: hard
+
+"ts-loader@npm:9.6.2":
+  version: 9.6.2
+  resolution: "ts-loader@npm:9.6.2"
+  dependencies:
+    chalk: "npm:^4.1.0"
+    picomatch: "npm:^4.0.0"
+    source-map: "npm:^0.7.4"
+  peerDependencies:
+    loader-utils: "*"
+    typescript: "*"
+    webpack: ^4.0.0 || ^5.0.0
+  peerDependenciesMeta:
+    loader-utils:
+      optional: true
+  checksum: 10/9df2167f5d558a57ade8e6340b854dbe19433ab1fe4ce0314995dd7f8133b03fb2a219e5206a130cf1d260717f838c9f735a5476d152c8777fcbe99d847f1f2d
   languageName: node
   linkType: hard
 
