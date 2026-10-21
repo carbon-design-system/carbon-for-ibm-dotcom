@@ -955,6 +955,18 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           if (elementHasTopLevelCounterpart) {
             return false;
           }
+
+          // Ignore selections in submenus if their hrefs have strings we want to ignore.
+          // Elements in the submenu are all anchor elements, so they should be typed as such.
+          const elAsAnchor = el as HTMLAnchorElement;
+
+          const hrefStringIgnoreList = ['/think/search'];
+
+          for (const string of hrefStringIgnoreList) {
+            if (elAsAnchor.href.includes(string)) {
+              return false;
+            }
+          }
         }
 
         return isElementSelected;
