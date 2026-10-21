@@ -986,12 +986,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           // Elements in the submenu are all anchor elements, so they should be typed as such.
           const elAsAnchor = el as HTMLAnchorElement;
 
-          const hrefStringIgnoreList = ['/think/search'];
-
-          for (const string of hrefStringIgnoreList) {
-            if (elAsAnchor.href.includes(string)) {
-              return false;
-            }
+          if (!this._validateHrefForHighlight(elAsAnchor.href)) {
+            return false;
           }
         }
 
@@ -1004,9 +1000,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         try {
           const elURL = new URL(el.href);
           const currURL = new URL(currentUrlPath || '');
-          if (el.href.includes('#')) {
+
+          // Ignore selections if their hrefs have strings we want to ignore.
+          if (!this._validateHrefForHighlight(el.href)) {
             return false;
           }
+
           // Compare url without query params.
           return (
             elURL.host === currURL.host && elURL.pathname === currURL.pathname
@@ -1042,6 +1041,26 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       l1Title.setAttribute('active', '');
       this.selectedElements.push(l1Title);
     }
+  }
+
+  /**
+   * Checks if a nav item's href is valid for
+   * highlighting its parent menu item.
+   *
+   * @param {string} href Nav item href
+   * @returns {boolean} Whether the href is valid for
+   * highlighting its parent menu item.
+   */
+  protected _validateHrefForHighlight(href: string) {
+    const hrefStringIgnoreList = ['#', '/think/search'];
+
+    for (const string of hrefStringIgnoreList) {
+      if (href.includes(string)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   /**
