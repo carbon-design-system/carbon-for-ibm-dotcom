@@ -949,7 +949,7 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           const elementHasTopLevelCounterpart = topLevelMenuItems.some(
             (item) =>
               el.textContent?.trim()?.toLowerCase() ===
-              item.textContent.trim().toLowerCase()
+              item.textContent?.trim()?.toLowerCase()
           );
 
           if (elementHasTopLevelCounterpart) {
