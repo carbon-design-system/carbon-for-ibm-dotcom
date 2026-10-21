@@ -908,11 +908,20 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
   protected _handleSelectedMenuItem() {
     const { selectedMenuItem, currentUrlPath } = this;
 
-    const menuItems = Array.from(
+    const topLevelMenuItems = Array.from(
       (this.shadowRoot as ShadowRoot).querySelectorAll(
-        `.${prefix}--masthead__l1-item, .${prefix}--masthead__l1-dropdown-item`
+        `.${prefix}--masthead__l1-item`
       )
     );
+
+    const subMenuItems = Array.from(
+      (this.shadowRoot as ShadowRoot).querySelectorAll(
+        `.${prefix}--masthead__l1-dropdown-item`
+      )
+    );
+
+    const menuItems = [...topLevelMenuItems, ...subMenuItems];
+
     const allLinks = Array.from(
       (this.shadowRoot as ShadowRoot).querySelectorAll('a')
     );
@@ -925,11 +934,31 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
 
     // Check for manually set selected item.
     if (selectedMenuItem) {
-      this.selectedElements = [...menuItems, ...allLinks].filter(
-        (el) =>
+      this.selectedElements = [...menuItems, ...allLinks].filter((el) => {
+        const isElementSelected =
           el.textContent?.trim()?.toLowerCase() ===
-          selectedMenuItem.trim().toLowerCase()
-      );
+          selectedMenuItem.trim().toLowerCase();
+
+        const elementIsSubMenuItem = el.classList.contains(
+          `${prefix}--masthead__l1-dropdown-item`
+        );
+
+        // Handle cases for ignoring selected submenu items.
+        if (isElementSelected && elementIsSubMenuItem) {
+          // Ignore selections in submenus if they simultaneously exist at top-level.
+          const elementHasTopLevelCounterpart = topLevelMenuItems.some(
+            (item) =>
+              el.textContent?.trim()?.toLowerCase() ===
+              item.textContent.trim().toLowerCase()
+          );
+
+          if (elementHasTopLevelCounterpart) {
+            return false;
+          }
+        }
+
+        return isElementSelected;
+      });
     }
     // Fall back to automated selection based on URL.
     else {
