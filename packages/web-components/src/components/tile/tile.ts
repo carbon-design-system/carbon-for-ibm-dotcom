@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { LitElement, html, PropertyValues } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -79,6 +79,16 @@ class C4DTile extends VideoCTAMixin(CTAMixin(LitElement)) {
     } else if (this.slotName === 'pictogram' && this.slotContent.length === 0) {
       this.slottedPictogram = false;
     }
+  }
+
+  firstUpdated(changedProperties: PropertyValues) {
+    super.firstUpdated(changedProperties);
+    // In Lit 3 the first `slotchange` event may fire after the initial render,
+    // leaving slottedImages/slottedPictogram false and content hidden.
+    // Eagerly read all named slots here so the first paint reflects actual slot content.
+    this.shadowRoot?.querySelectorAll('slot[name]').forEach((slot) => {
+      this._handleSlotChange({ target: slot } as unknown as Event);
+    });
   }
 
   render() {
