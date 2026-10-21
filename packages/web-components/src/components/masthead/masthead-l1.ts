@@ -388,13 +388,15 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     return html`
       <div
         part="masthead-l1-menu-container-mask"
-        class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--start"></div>
+        class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--start"
+      ></div>
       ${!title || !url
         ? undefined
         : html`
             <div
               part="masthead-background-wrapper"
-              class="${prefix}--masthead__background-wrapper">
+              class="${prefix}--masthead__background-wrapper"
+            >
               <a
                 part="masthead-l1-title"
                 class="${prefix}--masthead__l1-title"
@@ -405,21 +407,25 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           `}
       <div
         part="masthead-l1-menu-container-outer"
-        class="${prefix}--masthead__l1-menu-container-outer">
+        class="${prefix}--masthead__l1-menu-container-outer"
+      >
         <button
           part="l1-menu-container-scroller-button"
           class="${prefix}--masthead__l1-menu-container-scroller"
           id="scroll-prev"
-          @click=${scrollL1TopNav}>
+          @click=${scrollL1TopNav}
+        >
           <div
             part="l1-menu-container-scroller-inner"
-            class="${prefix}--masthead__l1-menu-container-scroller-inner">
+            class="${prefix}--masthead__l1-menu-container-scroller-inner"
+          >
             ${direction === 'ltr' ? CaretLeft20() : CaretRight20()}
           </div>
         </button>
         <div
           part="l1-menu-container-inner"
-          class="${prefix}--masthead__l1-menu-container-inner">
+          class="${prefix}--masthead__l1-menu-container-inner"
+        >
           <ul part="l1-menu" class="${prefix}--masthead__l1-menu">
             ${(menuItems ?? []).map((menuItem) =>
               this._renderL1TopNavDropDowns(menuItem)
@@ -430,10 +436,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           part="l1-menu-container-scroller"
           class="${prefix}--masthead__l1-menu-container-scroller"
           id="scroll-next"
-          @click=${scrollL1TopNav}>
+          @click=${scrollL1TopNav}
+        >
           <div
             part="l1-menu-container-scroller-inner"
-            class="${prefix}--masthead__l1-menu-container-scroller-inner">
+            class="${prefix}--masthead__l1-menu-container-scroller-inner"
+          >
             ${direction === 'ltr' ? CaretRight20() : CaretLeft20()}
           </div>
         </button>
@@ -442,7 +450,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         ? html`
             <div
               part="masthead-background-wrapper"
-              class="${prefix}--masthead__background-wrapper">
+              class="${prefix}--masthead__background-wrapper"
+            >
               <a
                 part="masthead-l1-login"
                 class="${prefix}--masthead__l1-login"
@@ -455,7 +464,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       ${this._renderCta()}
       <div
         part="masthead-l1-menu-container-mask"
-        class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--end"></div>
+        class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--end"
+      ></div>
     `;
   }
 
@@ -519,22 +529,26 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         part="masthead-l1-item"
         @focusout=${handleDropdownClose}
         @keydown=${handleDropdownClose}
-        tabindex="-1">
+        tabindex="-1"
+      >
         <button
           part="masthead-l1-item-button"
           class="${prefix}--masthead__l1-item"
           @click=${toggleSubsection}
-          @focusin=${handleTopNavFocusIn}>
+          @focusin=${handleTopNavFocusIn}
+        >
           ${title}${ChevronDown16()}
         </button>
         <div
           part="l1-dropdown"
           data-dropdown-target
-          class="${prefix}--masthead__l1-dropdown ${prefix}--masthead__l1-dropdown__${columns}-col">
+          class="${prefix}--masthead__l1-dropdown ${prefix}--masthead__l1-dropdown__${columns}-col"
+        >
           ${announcement
             ? html`<div
                 part="l1-dropdown-announcement"
-                class="${prefix}--masthead__l1-dropdown-announcement">
+                class="${prefix}--masthead__l1-dropdown-announcement"
+              >
                 ${unsafeHTML(announcement)}
               </div>`
             : ''}
@@ -578,12 +592,14 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       return html`
         <div
           part="l1-dropdown-section"
-          class="${prefix}--masthead__l1-dropdown-section">
+          class="${prefix}--masthead__l1-dropdown-section"
+        >
           ${heading ? html`${this._renderL1SubSectionHeading(heading)}` : ''}
           ${items
             ? html` <ul
                 part="l1-dropdown-menu-items"
-                class="${prefix}--masthead__l1-dropdown-menu-items">
+                class="${prefix}--masthead__l1-dropdown-menu-items"
+              >
                 ${items.map((item) => {
                   const { title, url, target, description } = item;
 
@@ -608,7 +624,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                         part="l1-dropdown-item-link"
                         class="${prefix}--masthead__l1-dropdown-item"
                         href="${url}"
-                        target="${target}">
+                        target="${target}"
+                      >
                         ${linkContents}
                       </a>
                     </li>
@@ -631,7 +648,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
             ? ' dropdown-column--narrow'
             : hasWide && isWide
             ? ' dropdown-column--wide'
-            : ''}">
+            : ''}"
+        >
           ${renderedSections}
         </div>`
       : html`${renderedSections}`;
@@ -653,19 +671,22 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       <button
         part="l1-title-button"
         class="${prefix}--masthead__l1-title"
-        @click=${toggleSubsection}>
+        @click=${toggleSubsection}
+      >
         ${title}${ChevronDown16()}
       </button>
       <ul
         part="l1-dropdown"
         data-dropdown-target
-        class="${prefix}--masthead__l1-dropdown">
+        class="${prefix}--masthead__l1-dropdown"
+      >
         ${url
           ? html` <li part="dropdown-item-li">
               <a
                 part="l1-dropdown-item"
                 class="${prefix}--masthead__l1-dropdown-item"
-                href="${url}">
+                href="${url}"
+              >
                 ${overviewText}
               </a>
             </li>`
@@ -676,7 +697,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
               <a
                 part="l1-dropdown-login-link"
                 class="${prefix}--masthead__l1-dropdown-login"
-                href="${ifDefined(login.url)}">
+                href="${ifDefined(login.url)}"
+              >
                 ${login.title}${this.Arrow16()}
               </a>
             </li>`
@@ -727,17 +749,20 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         <button
           part="l1-dropdown-item-button"
           class="${prefix}--masthead__l1-dropdown-item"
-          @click=${toggleSubsection}>
+          @click=${toggleSubsection}
+        >
           ${title}${ChevronDown16()}
         </button>
         <div
           part="l1-dropdown-subsection"
           data-dropdown-target
-          class="${prefix}--masthead__l1-dropdown-subsection">
+          class="${prefix}--masthead__l1-dropdown-subsection"
+        >
           ${announcement
             ? html`<div
                 part="l1-dropdown-announcement"
-                class="${prefix}--masthead__l1-dropdown-announcement">
+                class="${prefix}--masthead__l1-dropdown-announcement"
+              >
                 ${unsafeHTML(announcement)}
               </div>`
             : ''}
@@ -759,7 +784,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
                               part="l1-dropdown-item-link"
                               class="${prefix}--masthead__l1-dropdown-item"
                               target="${target}"
-                              href="${url}">
+                              href="${url}"
+                            >
                               ${title}
                             </a>
                           </li>`;
@@ -1039,7 +1065,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           <a
             part="l1-dropdown-item-link l1-dropdown-item-link--heading"
             class="${prefix}--masthead__l1-dropdown-item"
-            href="${heading.url}">
+            href="${heading.url}"
+          >
             ${heading.title}${isMobileVersion ? this.Arrow16() : this.Arrow20()}
           </a>
         `
@@ -1141,7 +1168,8 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
     return html`
       <div
         part="masthead-l1-inner-container"
-        class="${prefix}--masthead__l1-inner-container">
+        class="${prefix}--masthead__l1-inner-container"
+      >
         ${isMobileVersion
           ? html` ${this._renderL1MobileNav()} `
           : html` ${this._renderL1TopNav()} `}
