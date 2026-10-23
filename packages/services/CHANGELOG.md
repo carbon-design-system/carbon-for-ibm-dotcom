@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.58.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.57.3...@carbon/ibmdotcom-services@2.58.0) (2026-10-02)
+
+
+### Features
+
+* **masthead-footer:** update nav data to the latest ([#12674](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12674)) ([7e2f401](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7e2f4012a937a1920430b6e9e403dbdb8f95a244))
+
+
+
+
+
 ## [2.57.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@2.57.2...@carbon/ibmdotcom-services@2.57.3) (2026-09-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

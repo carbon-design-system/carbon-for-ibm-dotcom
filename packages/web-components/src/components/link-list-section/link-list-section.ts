@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,14 +43,26 @@ class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
     }
   };
 
+  hasHeading = true;
+
+  firstUpdated() {
+    this.hasHeading =
+      this.shadowRoot?.querySelector('[name="heading"]')?.hasChildNodes() ||
+      false;
+  }
+
   render() {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
       <div class="${prefix}--content-section__grid" part="grid">
         <div class="${prefix}--content-section__row" part="row">
-          <div class="${prefix}--content-section__left" part="heading">
-            <slot name="heading"></slot>
-          </div>
+          ${this.hasHeading
+            ? html`
+                <div class="${prefix}--content-section__left" part="heading">
+                  <slot name="heading"></slot>
+                </div>
+              `
+            : ''}
           <div class="${prefix}--content-section__children" part="children">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
