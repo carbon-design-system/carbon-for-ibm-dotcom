@@ -3677,7 +3677,7 @@ __metadata:
     karma-jasmine: "npm:^4.0.1"
     karma-snapshot: "npm:^0.6.0"
     karma-sourcemap-loader: "npm:^0.4.0"
-    karma-spec-reporter: "npm:0.0.36"
+    karma-spec-reporter: "npm:0.0.37"
     karma-webpack: "npm:^4.0.2"
     lit: "npm:^2.7.6"
     lodash-es: "npm:^4.17.21"
@@ -22713,14 +22713,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"karma-spec-reporter@npm:0.0.36":
-  version: 0.0.36
-  resolution: "karma-spec-reporter@npm:0.0.36"
+"karma-spec-reporter@npm:0.0.37":
+  version: 0.0.37
+  resolution: "karma-spec-reporter@npm:0.0.37"
   dependencies:
     colors: "npm:1.4.0"
   peerDependencies:
     karma: ">=0.9"
-  checksum: 10/a60db6dd94253b7e4cea338602f961db116143e40b30a0767ccad534953a30537519bc248dab5659806f36dfef4f42d2b933c89b367c4a48b20a056cee1a8ada
+  checksum: 10/a5556eed1e727380606dc00cc51f7927217ddb2ea382b6a218b2c0e35c246de5e68c1f216ef4be29c0c5d567f88e0c5d2d646b727beab1fdd87077585273f6ea
   languageName: node
   linkType: hard
 
