@@ -41,7 +41,26 @@
                         "url": "https://www.ibm.com/artificial-intelligence",
                         "description": ""
                       },
-                      "links": []
+                      "links": [
+                        {
+                          "title": "Download fixes, updates & drivers",
+                          "url": "https://www.ibm.com/support/fixcentral?lnk=flatitem"
+                        },
+                        {
+                          "title": "Download licensed software - Passport Advantage",
+                          "url": "https://www.ibm.com/software/passportadvantage/pao_customer.html?lnk=flatitem"
+                        },
+                        {
+                          "title": "IBM Software Licensing",
+                          "url": "https://www.ibm.com/about/software-licensing/?lnk=flatitem"
+                        }
+                      ]
+                    },
+                    {
+                      "heading": {
+                        "title": "IBM Software Licensing",
+                        "url": "https://www.ibm.com/about/software-licensing/?lnk=flatitem"
+                      }
                     },
                     {
                       "heading": {
@@ -49,7 +68,12 @@
                         "url": "https://www.ibm.com/consulting/artificial-intelligence",
                         "description": ""
                       },
-                      "links": []
+                      "links": [
+                        {
+                          "title": "View all topics",
+                          "url": "https://www.ibm.com/think/search"
+                        }
+                      ]
                     },
                     {
                       "heading": {
@@ -57,7 +81,12 @@
                         "url": "https://www.ibm.com/products/watsonx",
                         "description": ""
                       },
-                      "links": []
+                      "links": [
+                        {
+                          "title": "View all topics",
+                          "url": "https://www.ibm.com/think/search"
+                        }
+                      ]
                     },
                     {
                       "heading": {

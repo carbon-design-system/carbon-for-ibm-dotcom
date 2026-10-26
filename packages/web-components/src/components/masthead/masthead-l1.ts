@@ -908,11 +908,20 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
   protected _handleSelectedMenuItem() {
     const { selectedMenuItem, currentUrlPath } = this;
 
-    const menuItems = Array.from(
+    const topLevelMenuItems = Array.from(
       (this.shadowRoot as ShadowRoot).querySelectorAll(
-        `.${prefix}--masthead__l1-item, .${prefix}--masthead__l1-dropdown-item`
+        `.${prefix}--masthead__l1-item`
       )
     );
+
+    const subMenuItems = Array.from(
+      (this.shadowRoot as ShadowRoot).querySelectorAll(
+        `.${prefix}--masthead__l1-dropdown-item`
+      )
+    );
+
+    const menuItems = [...topLevelMenuItems, ...subMenuItems];
+
     const allLinks = Array.from(
       (this.shadowRoot as ShadowRoot).querySelectorAll('a')
     );
@@ -925,11 +934,39 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
 
     // Check for manually set selected item.
     if (selectedMenuItem) {
-      this.selectedElements = [...menuItems, ...allLinks].filter(
-        (el) =>
+      this.selectedElements = [...menuItems, ...allLinks].filter((el) => {
+        const isElementSelected =
           el.textContent?.trim()?.toLowerCase() ===
-          selectedMenuItem.trim().toLowerCase()
-      );
+          selectedMenuItem.trim().toLowerCase();
+
+        const elementIsSubMenuItem = el.classList.contains(
+          `${prefix}--masthead__l1-dropdown-item`
+        );
+
+        // Handle cases for ignoring selected submenu items.
+        if (isElementSelected && elementIsSubMenuItem) {
+          // Ignore selections in submenus if they simultaneously exist at top-level.
+          const elementHasTopLevelCounterpart = topLevelMenuItems.some(
+            (item) =>
+              el.textContent?.trim()?.toLowerCase() ===
+              item.textContent?.trim()?.toLowerCase()
+          );
+
+          if (elementHasTopLevelCounterpart) {
+            return false;
+          }
+
+          // Ignore selections in submenus if their hrefs have strings we want to ignore.
+          // Elements in the submenu are all anchor elements, so they should be typed as such.
+          const elAsAnchor = el as HTMLAnchorElement;
+
+          if (!this._validateHrefForHighlight(elAsAnchor.href)) {
+            return false;
+          }
+        }
+
+        return isElementSelected;
+      });
     }
     // Fall back to automated selection based on URL.
     else {
@@ -937,9 +974,12 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         try {
           const elURL = new URL(el.href);
           const currURL = new URL(currentUrlPath || '');
-          if (el.href.includes('#')) {
+
+          // Ignore selections if their hrefs have strings we want to ignore.
+          if (!this._validateHrefForHighlight(el.href)) {
             return false;
           }
+
           // Compare url without query params.
           return (
             elURL.host === currURL.host && elURL.pathname === currURL.pathname
@@ -975,6 +1015,26 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       l1Title.setAttribute('active', '');
       this.selectedElements.push(l1Title);
     }
+  }
+
+  /**
+   * Checks if a nav item's href is valid for
+   * highlighting its parent menu item.
+   *
+   * @param {string} href Nav item href
+   * @returns {boolean} Whether the href is valid for
+   * highlighting its parent menu item.
+   */
+  protected _validateHrefForHighlight(href: string) {
+    const hrefStringIgnoreList = ['#', '/think/search'];
+
+    for (const string of hrefStringIgnoreList) {
+      if (href.includes(string)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   /**

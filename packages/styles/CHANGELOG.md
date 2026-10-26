@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.59.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.59.0...@carbon/ibmdotcom-styles@2.59.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* **card-group-item:** fix space missing on logo type ([#12697](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12697)) ([b2a72c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b2a72c6c9fc72c30b1af32e80b00609dbdd4fb43))
+
+
+
+
+
+# [2.59.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.58.1...@carbon/ibmdotcom-styles@2.59.0) (2026-10-16)
+
+
+### Bug Fixes
+
+* **card-group-item:** fix grey spaces below cards ([#12693](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12693)) ([fbf2f02](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fbf2f02dd84edc50d13d59f004ca1f00c903d1cc))
+* **carousel:** correct display for nav element bug on safari ([#12692](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12692)) ([e22d482](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e22d482ad1febc7ea573cfd23b59debf68e7743c))
+
+
+
+
+
 ## [2.58.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@2.58.0...@carbon/ibmdotcom-styles@2.58.1) (2026-10-09)
 
 
