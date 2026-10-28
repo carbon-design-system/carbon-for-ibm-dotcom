@@ -25,7 +25,8 @@ const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
 const terser = require('@rollup/plugin-terser');
-const multiInput = require('rollup-plugin-multi-input').default;
+const _multiInput = require('rollup-plugin-multi-input');
+const multiInput = _multiInput.default || _multiInput;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
 
 const ibmdotcomIcon = require('./rollup-plugin-ibmdotcom-icon');
@@ -103,6 +104,10 @@ function getRollupConfig({
   ] = 'src/components/dotcom-shell/index.ts';
 
   folders.forEach((folder) => {
+    if (folder.startsWith('__') || folder.startsWith('.')) {
+      return;
+    }
+
     if (folder === 'cta') {
       inputs[
         `cta${dirSuffixes[dir]}${modeSuffixes[mode]}`
