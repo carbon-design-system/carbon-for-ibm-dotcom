@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import '../../image/image';
 import '../index';
 import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
 import { html } from 'lit';
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import mediumImgSm4x3 from '../../../../.storybook/storybook-images/assets/320/fpo--4x3--320x160--004.jpg';
 import imgSm4x3 from '../../../../.storybook/storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
@@ -35,14 +35,15 @@ const colorSchemeMap = {
 };
 
 export const Medium = (args) => {
-  const { heading, href, colorScheme, ctaType } =
+  const { heading, href, colorScheme, ctaType, disableImageZoom } =
     args?.[`${c4dPrefix}-feature-card`] ?? {};
   return html`
     <c4d-video-cta-container>
       <c4d-feature-card
         href=${ifDefined(href || undefined)}
         color-scheme=${colorSchemeMap[colorScheme]}
-        cta-type=${ctaType}>
+        cta-type=${ctaType}
+        ?disable-image-zoom=${disableImageZoom}>
         <c4d-image slot="image" alt="Image alt text" default-src="${imgMax1x1}">
           <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg1x1}">
           </c4d-image-item>
@@ -63,8 +64,15 @@ export const Medium = (args) => {
 };
 
 export const Large = (args) => {
-  const { eyebrow, heading, copy, href, colorScheme, ctaType } =
-    args?.[`${c4dPrefix}-feature-card`] ?? {};
+  const {
+    eyebrow,
+    heading,
+    copy,
+    href,
+    colorScheme,
+    ctaType,
+    disableImageZoom,
+  } = args?.[`${c4dPrefix}-feature-card`] ?? {};
 
   const copyComponent = document
     .querySelector(`${c4dPrefix}-feature-card`)
@@ -78,7 +86,8 @@ export const Large = (args) => {
         size="large"
         href=${ifDefined(href || undefined)}
         color-scheme=${colorSchemeMap[colorScheme]}
-        cta-type=${ctaType}>
+        cta-type=${ctaType}
+        ?disable-image-zoom=${disableImageZoom}>
         <c4d-image slot="image" default-src="${ifDefined(imgLg1x1)}">
           <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg1x1}">
           </c4d-image-item>
@@ -124,6 +133,10 @@ Large.story = {
           typeOptions,
           types[CTA_TYPE.LOCAL]
         ),
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
       }),
     },
     propsSet: {
@@ -133,6 +146,7 @@ Large.story = {
           heading: 'Explore AI use cases in all industries',
           copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
           href: 'https://example.com',
+          disableImageZoom: false,
         },
       },
     },
@@ -169,6 +183,10 @@ export default {
           typeOptions,
           types[CTA_TYPE.LOCAL]
         ),
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
       }),
     },
     propsSet: {
@@ -176,6 +194,7 @@ export default {
         [`${c4dPrefix}-feature-card`]: {
           heading: 'Explore AI use cases in all industries',
           href: 'https://example.com',
+          disableImageZoom: false,
         },
       },
     },

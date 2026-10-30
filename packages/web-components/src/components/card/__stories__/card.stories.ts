@@ -439,6 +439,61 @@ Link.story = {
   },
 };
 
+export const WithImages = (args) => {
+  const { alt, defaultSrc, eyebrow, heading, copy, href, disableImageZoom } =
+    args?.Card ?? {};
+
+  return html`
+    <c4d-card
+      href=${ifDefined(href || undefined)}
+      cta-type="local"
+      ?disable-image-zoom=${disableImageZoom}>
+      <c4d-image
+        slot="image"
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}"></c4d-image>
+      <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+      <c4d-card-heading>${heading}</c4d-card-heading>
+      ${copy ? html`<p>${copy}</p>` : ``}
+      <c4d-card-footer></c4d-card-footer>
+    </c4d-card>
+  `;
+};
+
+WithImages.story = {
+  name: 'With images',
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      Card: () => ({
+        alt: 'Image alt text',
+        defaultSrc: imgXlg4x3,
+        eyebrow: textNullable('Eyebrow:', 'Industry'),
+        heading: textNullable('Heading:', 'Aerospace and defence'),
+        copy: textNullable('Body copy:', ''),
+        href: 'https://example.com',
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
+      }),
+    },
+    propsSet: {
+      default: {
+        Card: {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          eyebrow: 'Industry',
+          heading: 'Aerospace and defence',
+          copy: '',
+          href: 'https://example.com',
+          disableImageZoom: false,
+        },
+      },
+    },
+  },
+};
+
 export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};

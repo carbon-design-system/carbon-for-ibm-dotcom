@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@ import { html } from 'lit';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { boolean } from '@storybook/addon-knobs';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
@@ -36,8 +37,12 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
   image = undefined,
+  disableImageZoom = false,
 } = {}) => html`
-  <c4d-card href="${ifDefined(href)}" cta-type="local">
+  <c4d-card
+    href="${ifDefined(href)}"
+    cta-type="local"
+    ?disable-image-zoom=${disableImageZoom}>
     <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
@@ -57,8 +62,12 @@ const CardWithLongHeading = ({
   heading = headingDefault,
   href = hrefDefault,
   image = undefined,
+  disableImageZoom = false,
 } = {}) => html`
-  <c4d-card href="${ifDefined(href)}" cta-type="local">
+  <c4d-card
+    href="${ifDefined(href)}"
+    cta-type="local"
+    ?disable-image-zoom=${disableImageZoom}>
     <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
@@ -90,15 +99,18 @@ export const Default = () => {
   `;
 };
 
-export const CardsWithImages = () => {
+export const CardsWithImages = (args) => {
+  const { disableImageZoom } = args?.Carousel ?? {};
   return html`
-    ${Card({ image: imgLg2x1 })}${Card({
+    ${Card({ image: imgLg2x1, disableImageZoom })}${Card({
       image: imgLg2x1,
       copy: copyOdd,
-    })}${Card({ image: imgLg2x1 })}${Card({
+      disableImageZoom,
+    })}${Card({ image: imgLg2x1, disableImageZoom })}${Card({
       image: imgLg2x1,
       copy: copyOdd,
-    })}${Card({ image: imgLg2x1 })}
+      disableImageZoom,
+    })}${Card({ image: imgLg2x1, disableImageZoom })}
   `;
 };
 
@@ -107,6 +119,21 @@ CardsWithImages.story = {
   parameters: {
     percy: {
       skip: true,
+    },
+    knobs: {
+      Carousel: () => ({
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
+      }),
+    },
+    propsSet: {
+      default: {
+        Carousel: {
+          disableImageZoom: false,
+        },
+      },
     },
   },
 };

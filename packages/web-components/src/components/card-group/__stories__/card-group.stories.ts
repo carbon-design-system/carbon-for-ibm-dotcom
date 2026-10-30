@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -76,13 +76,15 @@ const cardsDiffLengthPhrase = (
   media,
   cardType,
   addCta,
-  colorScheme
+  colorScheme,
+  disableImageZoom = false
 ) => {
   const defaultCardGroupItem = html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
-      color-scheme=${colorSchemeMap[colorScheme]}>
+      color-scheme=${colorSchemeMap[colorScheme]}
+      ?disable-image-zoom=${disableImageZoom}>
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -129,13 +131,15 @@ const longHeadingCardGroupItem = (
   media,
   cardType,
   addCta,
-  colorScheme
+  colorScheme,
+  disableImageZoom = false
 ) => {
   return html`
     <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
-      color-scheme=${colorSchemeMap[colorScheme]}>
+      color-scheme=${colorSchemeMap[colorScheme]}
+      ?disable-image-zoom=${disableImageZoom}>
       ${media ? imageContent : ''}
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading
@@ -338,6 +342,71 @@ export const Default = (args) => {
       ${allCards}
     </c4d-card-group>
   `;
+};
+
+export const WithImages = (args) => {
+  const { cards, disableImageZoom, tagGroup, gridMode, colorScheme } =
+    args?.CardGroup ?? {};
+
+  const allCards: object[] = [];
+  allCards.push(
+    longHeadingCardGroupItem(
+      tagGroup,
+      true,
+      'Card - default',
+      false,
+      colorScheme,
+      disableImageZoom
+    )
+  );
+  for (let i = 1; i < cards; i++) {
+    allCards.push(
+      cardsDiffLengthPhrase(
+        i,
+        tagGroup,
+        true,
+        'Card - default',
+        false,
+        colorScheme,
+        disableImageZoom
+      )
+    );
+  }
+
+  return html`
+    <c4d-card-group grid-mode=${gridMode}> ${allCards} </c4d-card-group>
+  `;
+};
+
+WithImages.story = {
+  name: 'With images',
+  parameters: {
+    ...readme.parameters,
+    hasStoryPadding: true,
+    knobs: {
+      CardGroup: () => ({
+        tagGroup: boolean('Add tags:', false),
+        gridMode: select('Grid mode:', gridModes, gridModes['Default (32px)']),
+        cards: number('Number of cards:', 5, { min: 2, max: 6 }),
+        colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
+        disableImageZoom: boolean(
+          'Disable image zoom (disableImageZoom):',
+          false
+        ),
+      }),
+    },
+    propsSet: {
+      default: {
+        CardGroup: {
+          tagGroup: false,
+          gridMode: GRID_MODE.DEFAULT,
+          cards: 5,
+          colorScheme: BASIC_COLOR_SCHEME.REGULAR,
+          disableImageZoom: false,
+        },
+      },
+    },
+  },
 };
 
 export const withCardInCard = (args) => {
