@@ -312,9 +312,6 @@
 
     min-block-size: 100%;
 
-    // Shift border left without breaking Carbon grid alignment.
-    padding-inline-start: $spacing-05;
-
     .#{$prefix}--masthead__megamenu__categories {
       columns: var(--#{$c4d-prefix}-left-nav-columns, 'initial');
       gap: 0;
@@ -576,6 +573,10 @@
     &[part*='view-all-left'] {
       [part='link'] {
         padding-inline-start: $spacing-05;
+
+        @include breakpoint-up(lg) {
+          padding-inline-start: $spacing-07;
+        }
       }
     }
 
