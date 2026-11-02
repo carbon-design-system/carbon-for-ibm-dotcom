@@ -9,6 +9,7 @@
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
@@ -238,6 +239,29 @@
     @include breakpoint(md) {
       padding-block-start: $spacing-05;
     }
+  }
+
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    )
+    ::slotted(#{$c4d-prefix}-image),
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    )
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--duration: #{$duration-slow-01};
+    --#{$c4d-prefix}--image-zoom--easing: #{motion(standard, expressive)};
+  }
+
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    ):hover
+    ::slotted(#{$c4d-prefix}-image),
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    ):hover
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--scale: 1.05;
   }
 
   // card with video focus outline

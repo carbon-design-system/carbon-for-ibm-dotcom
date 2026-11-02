@@ -30,6 +30,13 @@
       block-size: 100%;
       inline-size: 100%;
       object-fit: cover;
+      scale: var(--#{$c4d-prefix}--image-zoom--scale, 1);
+      transition: scale var(--#{$c4d-prefix}--image-zoom--duration, 0s)
+        var(--#{$c4d-prefix}--image-zoom--easing, ease);
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     .#{$c4d-prefix}--image__img--border {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.63.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.62.1...@carbon/ibmdotcom-web-components@2.63.0) (2026-10-30)
+
+
+### Bug Fixes
+
+* **masthead-l1:** ensure correct nav item highlights ([#12701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12701)) ([cc49783](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cc497832ccebf3c1bfc9393ee7dc8e2d38077a9c))
+
+
+
+
+
 ## [2.62.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.62.0...@carbon/ibmdotcom-web-components@2.62.1) (2026-10-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
