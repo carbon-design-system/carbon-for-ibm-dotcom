@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
-import Error20 from '@carbon/web-components/es/icons/error/20.js';
+import Error20 from '@carbon/icons/es/error/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import styles from './card.scss';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -89,7 +89,8 @@ class C4DCardFooter extends C4DLinkWithIcon {
 
   _renderInner() {
     return html`
-      ${this._renderContent()} ${this.disabled ? Error20() : this._renderIcon()}
+      ${this._renderContent()}
+      ${this.disabled ? iconLoader(Error20) : this._renderIcon()}
     `;
   }
 
@@ -148,6 +149,11 @@ class C4DCardFooter extends C4DLinkWithIcon {
     }
 
     this._cleanParentHrefForContactModule();
+  }
+
+  connectedCallback() {
+    this.setAttribute('slot', 'footer');
+    super.connectedCallback();
   }
 
   static get stableSelector() {

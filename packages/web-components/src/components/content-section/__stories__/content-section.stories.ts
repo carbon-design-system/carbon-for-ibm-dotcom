@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { optionsKnob } from '@storybook/addon-knobs';
 import '../index';
@@ -41,7 +42,7 @@ const card1 = html`
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <c4d-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${iconLoader(ArrowRight20, { slot: 'icon' })}
     </c4d-card-footer>
   </c4d-content-group-cards-item>
 `;
@@ -54,7 +55,7 @@ const card2 = html`
     </c4d-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <c4d-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
+      ${iconLoader(ArrowRight20, { slot: 'icon' })}
     </c4d-card-footer>
   </c4d-content-group-cards-item>
 `;
@@ -76,7 +77,9 @@ const Card = ({
   <c4d-card href="${ifDefined(href)}">
     <c4d-card-heading>${heading}</c4d-card-heading>
     ${copy}
-    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+    <c4d-card-footer>
+      ${iconLoader(ArrowRight20, { slot: 'icon' })}
+    </c4d-card-footer>
   </c4d-card>
 `;
 
@@ -123,24 +126,27 @@ export const Default = (args) => {
             <c4d-link-list>
               <c4d-link-list-item href="https://example.com">
                 Learn more about Kubernetes and automating deployment
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-link-list-item>
               <c4d-link-list-item href="https://example.com">
                 Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-link-list-item>
               <c4d-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+                Microservices and containers
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-link-list-item>
               <c4d-link-list-item href="https://example.com">
-                Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+                Learn more about Kubernetes
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-link-list-item>
               <c4d-link-list-item href="https://example.com">
                 Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-link-list-item>
               <c4d-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+                Microservices and containers
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-link-list-item>
             </c4d-link-list>
           `

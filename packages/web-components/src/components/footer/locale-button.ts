@@ -1,22 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import { customElement, property } from 'lit/decorators.js';
+import EarthFilled16 from '@carbon/icons/es/earth--filled/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -45,6 +45,11 @@ class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
   @property({ reflect: true })
   slot = 'locale-button';
 
+  connectedCallback() {
+    this.setAttribute('slot', 'locale-button');
+    super.connectedCallback();
+  }
+
   render() {
     const { buttonLabel } = this;
     return html`
@@ -54,7 +59,7 @@ class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
         class="${prefix}--btn ${prefix}--btn--tertiary ${c4dPrefix}--locale-btn"
         aria-label="${ifDefined(buttonLabel)}">
         <slot></slot>
-        ${EarthFilled16()}
+        ${iconLoader(EarthFilled16)}
       </button>
     `;
   }

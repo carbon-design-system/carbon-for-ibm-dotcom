@@ -1,20 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import Reset from '@carbon/web-components/es/icons/reset/16.js';
+import { customElement, property } from 'lit/decorators.js';
+import Reset from '@carbon/icons/es/reset/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -87,7 +87,9 @@ class C4DFilterPanel extends HostListenerMixin(
             ?disabled="${!this.hasSelections}">
             <div class="${prefix}--clear__container" part="container">
               Clear
-              <div class="${prefix}--reset__icon" part="icon">${Reset()}</div>
+              <div class="${prefix}--reset__icon" part="icon">
+                ${iconLoader(Reset)}
+              </div>
             </div>
           </button>
         </div>

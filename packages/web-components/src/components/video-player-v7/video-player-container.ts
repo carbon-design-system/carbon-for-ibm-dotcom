@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ import {
   bindActionCreators,
 } from 'redux';
 import {} from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store.js';
@@ -28,7 +28,6 @@ import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerComposite from './video-player-composite';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import { LocaleAPI } from '@carbon/ibmdotcom-services/es/services/Locale/index';
 
 const { stablePrefix: c4dPrefix } = settings;

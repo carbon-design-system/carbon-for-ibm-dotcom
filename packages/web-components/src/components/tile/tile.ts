@@ -1,16 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2024
+ * Copyright IBM Corp. 2024, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
-import { property, state, query } from 'lit/decorators.js';
+import { LitElement, html, PropertyValues } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import CTAMixin from '../../component-mixins/cta/cta';
@@ -80,6 +79,16 @@ class C4DTile extends VideoCTAMixin(CTAMixin(LitElement)) {
     } else if (this.slotName === 'pictogram' && this.slotContent.length === 0) {
       this.slottedPictogram = false;
     }
+  }
+
+  firstUpdated(changedProperties: PropertyValues) {
+    super.firstUpdated(changedProperties);
+    // In Lit 3 the first `slotchange` event may fire after the initial render,
+    // leaving slottedImages/slottedPictogram false and content hidden.
+    // Eagerly read all named slots here so the first paint reflects actual slot content.
+    this.shadowRoot?.querySelectorAll('slot[name]').forEach((slot) => {
+      this._handleSlotChange({ target: slot } as unknown as Event);
+    });
   }
 
   render() {

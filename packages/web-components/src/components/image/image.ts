@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import on from '@carbon/web-components/es/globals/mixins/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -18,13 +18,13 @@ import '../expressive-modal/expressive-modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import { LIGHTBOX_CONTRAST } from './defs';
-import Maximize20 from '@carbon/web-components/es/icons/maximize/20.js';
+import Maximize20 from '@carbon/icons/es/maximize/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -163,10 +163,23 @@ class C4DImage extends StableSelectorMixin(
     this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
     // Manually hooks the event listeners on the modal render root to make the event names configurable
     this._hCloseModal = on(
-      this.modalRenderRoot,
+      this.modalRenderRoot as EventTarget,
       (this.constructor as typeof C4DImage).eventCloseModal,
       this._handleCloseModal as EventListener
     );
+  }
+
+  firstUpdated(changedProperties) {
+    super.firstUpdated(changedProperties);
+    // In Lit 3 the first `slotchange` event may fire after the initial render,
+    // leaving `_images` empty and the `<picture>` sourceless. Eagerly collect
+    // slotted image-item children here so the first paint is correct.
+    const slot = this.shadowRoot?.querySelector(
+      'slot:not([name])'
+    ) as HTMLSlotElement | null;
+    if (slot) {
+      this._handleSlotChange({ target: slot } as unknown as Event);
+    }
   }
 
   disconnectedCallback() {
@@ -258,7 +271,7 @@ class C4DImage extends StableSelectorMixin(
               <div
                 class="${c4dPrefix}--image-with-caption__zoom-button"
                 part="zoom-button">
-                ${Maximize20({ part: 'zoom-icon' })}
+                ${iconLoader(Maximize20, { part: 'zoom-icon' })}
               </div>
             </button>
           `

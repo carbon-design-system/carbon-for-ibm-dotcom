@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2024
+ * Copyright IBM Corp. 2016, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,8 @@ import '../../../cta/index';
 import '../../../cta/link-list-item-cta';
 import '../../../button/index';
 
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import imgLg1x1 from '../../../../../.storybook/storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import leadspaceImg from '../../../../../.storybook/storybook-images/assets/leadspace/leadspaceMax2.jpg';
 
@@ -253,7 +254,7 @@ export const StoryContent = () =>
                   technology to ignite collaboration</c4d-card-heading
                 >
                 <c4d-feature-card-footer>
-                  ${ArrowRight20({ slot: 'icon' })}
+                  ${iconLoader(ArrowRight20, { slot: 'icon' })}
                 </c4d-feature-card-footer>
               </c4d-feature-card>
             </c4d-content-group-simple>
@@ -274,7 +275,7 @@ export const StoryContent = () =>
                   and data portfolio with data privacy, security, and cyber
                   resiliency.
                   <c4d-card-footer>
-                    ${ArrowRight20({ slot: 'icon' })}
+                    ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-card-footer>
                 </c4d-card-group-item>
                 <c4d-card-group-item href="https://example.com">
@@ -285,7 +286,7 @@ export const StoryContent = () =>
                     capabilities, plus minimal downtime.
                   </p>
                   <c4d-card-footer>
-                    ${ArrowRight20({ slot: 'icon' })}
+                    ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-card-footer>
                 </c4d-card-group-item>
                 <c4d-card-group-item href="https://example.com">
@@ -296,7 +297,7 @@ export const StoryContent = () =>
                     built-in acceleration.
                   </p>
                   <c4d-card-footer>
-                    ${ArrowRight20({ slot: 'icon' })}
+                    ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-card-footer>
                 </c4d-card-group-item>
               </c4d-card-group>
@@ -367,31 +368,33 @@ export const StoryContent = () =>
                     >More ways to explore Linux servers</c4d-link-list-heading
                   >
                   <c4d-link-list-item href="https://example.com">
-                    Products ${ArrowRight20({ slot: 'icon' })}
+                    Products ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Blogs ${ArrowRight20({ slot: 'icon' })}
+                    Blogs ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Latest research ${ArrowRight20({ slot: 'icon' })}
+                    Latest research
+                    ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Key concepts ${ArrowRight20({ slot: 'icon' })}
+                    Key concepts ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Client stories ${ArrowRight20({ slot: 'icon' })}
+                    Client stories ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Training ${ArrowRight20({ slot: 'icon' })}
+                    Training ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Analyst insights ${ArrowRight20({ slot: 'icon' })}
+                    Analyst insights
+                    ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Events ${ArrowRight20({ slot: 'icon' })}
+                    Events ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                   <c4d-link-list-item href="https://example.com">
-                    Partners ${ArrowRight20({ slot: 'icon' })}
+                    Partners ${iconLoader(ArrowRight20, { slot: 'icon' })}
                   </c4d-link-list-item>
                 </c4d-link-list>
               </c4d-cta-block>

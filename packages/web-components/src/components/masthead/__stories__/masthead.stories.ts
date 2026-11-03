@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -319,10 +319,17 @@ export const WithNoNavData = (args) => {
   `;
 };
 
-WithNoNavData.story = {
-  name: 'With no nav data',
-  parameters: {
-    knobs: {},
+WithNoNavData.storyName = 'With no nav data';
+WithNoNavData.parameters = {
+  knobs: {},
+};
+
+WithCustomTypeahead.storyName = 'With custom typeahead';
+WithCustomTypeahead.parameters = {
+  knobs: {
+    MastheadComposite: () => ({
+      grouped: boolean('With grouped results for "carbon"', false),
+    }),
   },
   propsSet: {
     default: {
@@ -336,32 +343,6 @@ WithNoNavData.story = {
         searchPlaceHolder: 'Search all of IBM',
         selectedMenuItem: 'Services & Consulting',
         userStatus: userStatuses.unauthenticated,
-      },
-    },
-  },
-};
-
-WithCustomTypeahead.story = {
-  name: 'With custom typeahead',
-  parameters: {
-    knobs: {
-      MastheadComposite: () => ({
-        grouped: boolean('With grouped results for "carbon"', false),
-      }),
-    },
-    propsSet: {
-      default: {
-        MastheadComposite: {
-          grouped: 'false',
-          hasProfile: 'true',
-          hasCart: false,
-          mockActiveCartId: '',
-          cartLabel: '',
-          hasSearch: 'true',
-          searchPlaceHolder: 'Search all of IBM',
-          selectedMenuItem: 'Services & Consulting',
-          userStatus: userStatuses.unauthenticated,
-        },
       },
     },
   },
@@ -402,17 +383,15 @@ export const searchOpenOnload = (args) => {
   `;
 };
 
-searchOpenOnload.story = {
-  name: 'Search open onload',
-  parameters: {
-    knobs: {
-      MastheadComposite: () => ({
-        searchPlaceholder: textNullable(
-          'search placeholder (searchPlaceholder)',
-          'Search all of IBM'
-        ),
-      }),
-    },
+searchOpenOnload.storyName = 'Search open onload';
+searchOpenOnload.parameters = {
+  knobs: {
+    MastheadComposite: () => ({
+      searchPlaceholder: textNullable(
+        'search placeholder (searchPlaceholder)',
+        'Search all of IBM'
+      ),
+    }),
   },
 };
 
@@ -444,33 +423,31 @@ export const withPlatform = (args) => {
   `;
 };
 
-withPlatform.story = {
-  name: 'With platform',
-  parameters: {
-    knobs: {
-      MastheadComposite: () => ({}),
-      WithPlatform: () => ({
-        platform: textNullable('platform name (platform)', 'Platform'),
-        platformUrl: textNullable(
-          'platform url (platformUrl)',
-          'https://www.ibm.com'
-        ),
-        useMock: boolean('Use live data for links', false),
-      }),
-    },
-    propsSet: {
-      default: {
-        MastheadComposite: {
-          platform: 'Platform',
-          hasProfile: 'true',
-          hasCart: false,
-          mockActiveCartId: '',
-          cartLabel: '',
-          hasSearch: 'true',
-          searchPlaceHolder: 'Search all of IBM',
-          selectedMenuItem: 'Services & Consulting',
-          userStatus: userStatuses.unauthenticated,
-        },
+withPlatform.storyName = 'With platform';
+withPlatform.parameters = {
+  knobs: {
+    MastheadComposite: () => ({}),
+    WithPlatform: () => ({
+      platform: textNullable('platform name (platform)', 'Platform'),
+      platformUrl: textNullable(
+        'platform url (platformUrl)',
+        'https://www.ibm.com'
+      ),
+      useMock: boolean('Use live data for links', false),
+    }),
+  },
+  propsSet: {
+    default: {
+      MastheadComposite: {
+        platform: 'Platform',
+        hasProfile: 'true',
+        hasCart: false,
+        mockActiveCartId: '',
+        cartLabel: '',
+        hasSearch: 'true',
+        searchPlaceHolder: 'Search all of IBM',
+        selectedMenuItem: 'Services & Consulting',
+        userStatus: userStatuses.unauthenticated,
       },
     },
   },
@@ -524,36 +501,34 @@ export const withL1 = (args) => {
   `;
 };
 
-withL1.story = {
-  name: 'With L1',
-  parameters: {
-    knobs: {
-      MastheadComposite: () => ({
-        selectedMenuItem: textNullable(
-          'selected menu item in L0 (selected-menu-item)',
-          'Consulting'
-        ),
-        selectedMenuItemL1: textNullable(
-          'selected menu item in L1 (selected-menu-item-l1)',
-          ''
-        ),
-        l1CtaType: select(
-          'L1 CTA type',
-          enumToArray(L1_CTA_TYPES),
-          L1_CTA_TYPES.NONE
-        ),
-        useMock: boolean('Use live data for links', false),
-        useL1EmptyData: boolean('Use empty data for L1 menu items', false),
-      }),
-    },
-    propsSet: {
-      default: {
-        MastheadComposite: {
-          selectedMenuItem: 'Consulting',
-          selectedMenuItemL1: '',
-          l1CtaType: L1_CTA_TYPES.NONE,
-          useMock: false,
-        },
+withL1.storyName = 'With L1';
+withL1.parameters = {
+  knobs: {
+    MastheadComposite: () => ({
+      selectedMenuItem: textNullable(
+        'selected menu item in L0 (selected-menu-item)',
+        'Consulting'
+      ),
+      selectedMenuItemL1: textNullable(
+        'selected menu item in L1 (selected-menu-item-l1)',
+        ''
+      ),
+      l1CtaType: select(
+        'L1 CTA type',
+        enumToArray(L1_CTA_TYPES),
+        L1_CTA_TYPES.NONE
+      ),
+      useMock: boolean('Use live data for links', false),
+      useL1EmptyData: boolean('Use empty data for L1 menu items', false),
+    }),
+  },
+  propsSet: {
+    default: {
+      MastheadComposite: {
+        selectedMenuItem: 'Consulting',
+        selectedMenuItemL1: '',
+        l1CtaType: L1_CTA_TYPES.NONE,
+        useMock: false,
       },
     },
   },
@@ -589,34 +564,32 @@ export const withAlternateLogoAndTooltip = (args) => {
   `;
 };
 
-withAlternateLogoAndTooltip.story = {
-  name: 'With alternate logo and tooltip',
-  parameters: {
-    knobs: {
-      MastheadComposite: () => ({
-        mastheadLogo: select(
-          'masthead logo data (logoData)',
-          {
-            defaultWithNoTooltip: null,
-            alternateWithTooltip: 'alternateWithTooltip',
-          },
-          'alternateWithTooltip'
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        MastheadComposite: {
-          platform: null,
-          hasProfile: 'true',
-          hasCart: false,
-          mockActiveCartId: '',
-          cartLabel: '',
-          hasSearch: 'true',
-          searchPlaceholder: 'Search all of IBM',
-          selectedMenuItem: 'Services & Consulting',
-          userStatus: userStatuses.unauthenticated,
+withAlternateLogoAndTooltip.storyName = 'With alternate logo and tooltip';
+withAlternateLogoAndTooltip.parameters = {
+  knobs: {
+    MastheadComposite: () => ({
+      mastheadLogo: select(
+        'masthead logo data (logoData)',
+        {
+          defaultWithNoTooltip: null,
+          alternateWithTooltip: 'alternateWithTooltip',
         },
+        'alternateWithTooltip'
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      MastheadComposite: {
+        platform: null,
+        hasProfile: 'true',
+        hasCart: false,
+        mockActiveCartId: '',
+        cartLabel: '',
+        hasSearch: 'true',
+        searchPlaceholder: 'Search all of IBM',
+        selectedMenuItem: 'Services & Consulting',
+        userStatus: userStatuses.unauthenticated,
       },
     },
   },
@@ -648,24 +621,22 @@ export const WithScopedSearch = (args) => {
   `;
 };
 
-WithScopedSearch.story = {
-  name: 'With scoped search',
-  parameters: {
-    knobs: {
-      MastheadComposite: () => ({}),
-    },
-    propsSet: {
-      default: {
-        MastheadComposite: {
-          hasProfile: 'true',
-          hasCart: false,
-          mockActiveCartId: '',
-          cartLabel: '',
-          hasSearch: 'true',
-          searchPlaceHolder: 'Search all of IBM',
-          selectedMenuItem: 'Services & Consulting',
-          userStatus: userStatuses.unauthenticated,
-        },
+WithScopedSearch.storyName = 'With scoped search';
+WithScopedSearch.parameters = {
+  knobs: {
+    MastheadComposite: () => ({}),
+  },
+  propsSet: {
+    default: {
+      MastheadComposite: {
+        hasProfile: 'true',
+        hasCart: false,
+        mockActiveCartId: '',
+        cartLabel: '',
+        hasSearch: 'true',
+        searchPlaceHolder: 'Search all of IBM',
+        selectedMenuItem: 'Services & Consulting',
+        userStatus: userStatuses.unauthenticated,
       },
     },
   },

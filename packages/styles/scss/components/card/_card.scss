@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2025
+ * Copyright IBM Corp. 2016, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,8 +32,9 @@
   :host(#{$c4d-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$c4d-prefix}-content-group-cards-item),
   :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
-    @include tile($enable-experimental-tile-contrast: true);
-
+    // Declarations before mixin call to avoid mixed-decls deprecation (Sass 1.79):
+    // tile() emits @media (prefers-contrast) and @media (prefers-reduced-motion)
+    // nested rules; bare declarations after nested rules trigger the warning.
     position: relative;
     display: flex;
     flex-direction: column;
@@ -43,6 +44,8 @@
     inline-size: 100%;
     text-decoration: none;
     transition: $duration-moderate-01 motion(standard, productive);
+
+    @include tile($enable-experimental-tile-contrast: true);
 
     &:focus-within {
       .#{$prefix}--tile--clickable {
@@ -142,9 +145,11 @@
     }
 
     .#{$prefix}--card__heading {
-      @include type-style('fluid-heading-03', true);
-
+      // Declarations before mixin to avoid mixed-decls (Sass 1.79):
+      // type-style() expands to @media nested rules.
       margin-block-end: $spacing-10;
+
+      @include type-style('fluid-heading-03', true);
     }
 
     .#{$prefix}--card__heading,
@@ -302,12 +307,13 @@
     }
 
     ::slotted(svg[slot='pictogram']) {
+      // margin-inline-start default (sm = smallest bp, no @media wrapper) must
+      // come before the breakpoint(md) @media rule to avoid mixed-decls (Sass 1.79).
       fill: currentColor;
+      margin-inline-start: $spacing-05;
+
       @include breakpoint(md) {
         margin-inline-start: 0;
-      }
-      @include breakpoint(sm) {
-        margin-inline-start: $spacing-05;
       }
     }
 
@@ -541,9 +547,10 @@
 
   :host(#{$c4d-prefix}-card[link]) {
     ::slotted(#{$c4d-prefix}-card-heading) {
-      @include type-style('heading-02');
-
+      // margin-block-end before type-style() to avoid mixed-decls (Sass 1.79).
       margin-block-end: 0;
+
+      @include type-style('heading-02');
     }
 
     .#{$prefix}--card .#{$prefix}--card__copy {
@@ -559,13 +566,14 @@
 
   :host(#{$c4d-prefix}-card-eyebrow),
   .#{$prefix}--card__eyebrow {
+    // Declarations before mixin calls to avoid mixed-decls (Sass 1.79):
+    // content-width() and type-style() expand to @media nested rules.
     display: block;
+    color: $text-secondary;
+    margin-block-end: $spacing-03;
+
     @include content-width;
     @include type-style('label-02');
-
-    color: $text-secondary;
-
-    margin-block-end: $spacing-03;
   }
 
   :host(#{$c4d-prefix}-card-footer),
@@ -683,9 +691,6 @@
   // static card footer
   :host(#{$c4d-prefix}-card-footer):not([parent-href]) {
     .#{$prefix}--card__footer {
-      justify-content: flex-start;
-      inline-size: auto;
-
       &:hover {
         color: $link-primary-hover;
       }
@@ -759,12 +764,13 @@
 
   :host(#{$c4d-prefix}-card-heading),
   :host(#{$c4d-prefix}-card-link-heading) {
+    // Declarations before mixin call to avoid mixed-decls (Sass 1.79):
+    // content-width() expands to @media nested rules.
     display: block;
-    @include content-width;
-
     color: $text-primary;
-
     margin-block-end: $spacing-10;
+
+    @include content-width;
   }
 
   :host(#{$c4d-prefix}-card-heading) {
@@ -772,9 +778,10 @@
   }
 
   :host(#{$c4d-prefix}-card-link-heading) {
-    @include type-style('heading-02', true);
-
+    // margin-block-end: 0 placed before type-style() to avoid mixed-decls (Sass 1.79).
     margin-block-end: 0;
+
+    @include type-style('heading-02', true);
   }
 
   :host(#{$c4d-prefix}-card)[color-scheme='inverse'],

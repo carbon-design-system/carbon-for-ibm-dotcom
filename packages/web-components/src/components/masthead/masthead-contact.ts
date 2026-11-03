@@ -1,21 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2024
+ * Copyright IBM Corp. 2022, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import Chat20 from '@carbon/icons/es/chat/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import styles from './masthead.scss';
 import C4DMastheadProfile from './masthead-profile';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -64,7 +64,7 @@ class C4DMastheadContact extends C4DMastheadProfile {
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}>
-        ${Chat20()}
+        ${iconLoader(Chat20)}
       </a>
     `;
   }

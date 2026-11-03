@@ -1,25 +1,25 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { TemplateResult, html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import CDSComboBoxItem from '@carbon/web-components/es/components/combo-box/combo-box-item.js';
 import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
   DROPDOWN_TYPE,
   NAVIGATION_DIRECTION,
 } from '@carbon/web-components/es/components/dropdown/dropdown.js';
-import Close16 from '@carbon/web-components/es/icons/close/16.js';
+import Close16 from '@carbon/icons/es/close/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -112,7 +112,9 @@ class C4DComboBox extends CDSDropdown {
     const { _filterInputNode: filterInput } = this;
     this._filterInputValue = !filterInput ? '' : filterInput.value;
     this.open = true;
-    this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
+    // Kept: `_filterInputValue` is a plain field (no `@state()`), so assigning it
+    // does not schedule a render. `open` may not change (it is already `true`).
+    this.requestUpdate();
   }
 
   protected _handleClickInner(event: MouseEvent) {
@@ -153,6 +155,8 @@ class C4DComboBox extends CDSDropdown {
     this._filterInputValue = '';
     this._filterInputNode.focus();
     this.open = false;
+    // Kept: `_filterInputValue` is a plain field, so clearing it needs an explicit render
+    // when `open` was already `false`.
     this.requestUpdate();
   }
 
@@ -168,6 +172,7 @@ class C4DComboBox extends CDSDropdown {
       //    even if there is no change in the selected value
       this._filterInputValue = item.textContent || '';
       this.open = false;
+      // Kept: `_filterInputValue` is a plain field, see `_handleInput()`.
       this.requestUpdate();
     }
     super._handleUserInitiatedSelectItem(item);
@@ -197,7 +202,7 @@ class C4DComboBox extends CDSDropdown {
     `;
   }
 
-  protected _renderFollowingLabel(): TemplateResult | void {
+  protected _renderFollowingLabel(): TemplateResult | undefined {
     const { clearSelectionLabel, _filterInputValue: filterInputValue } = this;
     return filterInputValue.length === 0
       ? undefined
@@ -209,7 +214,7 @@ class C4DComboBox extends CDSDropdown {
             class="${prefix}--list-box__selection"
             tabindex="0"
             title="${clearSelectionLabel}">
-            ${Close16({ 'aria-label': clearSelectionLabel })}
+            ${iconLoader(Close16, { 'aria-label': clearSelectionLabel })}
           </div>
         `;
   }

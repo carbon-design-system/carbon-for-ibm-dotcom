@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2024
+ * Copyright IBM Corp. 2022, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@ import C4DStructuredListCell from '../structured-list/structured-list-cell';
 import C4DPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss';
 import C4DPricingTableCellAnnotation from './pricing-table-cell-annotation';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import { customElement } from 'lit/decorators.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

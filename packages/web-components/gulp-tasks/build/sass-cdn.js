@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,12 @@ function _buildPlex() {
     .src([`${config.srcDir}/globals/scss/plex.scss`])
     .pipe(
       sass({
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)
@@ -42,6 +48,12 @@ function _buildGrid() {
     .src([`${config.srcDir}/globals/scss/grid.scss`])
     .pipe(
       sass({
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)
@@ -59,6 +71,12 @@ function _buildCSSGrid() {
     .src([`${config.srcDir}/globals/scss/cssgrid.scss`])
     .pipe(
       sass({
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)
@@ -76,6 +94,12 @@ function _buildThemes() {
     .src([`${config.srcDir}/globals/scss/themes.scss`])
     .pipe(
       sass({
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)
@@ -93,6 +117,12 @@ function _buildScroll() {
     .src([`${config.srcDir}/components/scroll-animations/scroll-animations-cdn.scss`])
     .pipe(
       sass({
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)
@@ -111,6 +141,12 @@ function _buildTOC() {
     .src([`${config.srcDir}/components/table-of-contents/table-of-contents-cdn.scss`])
     .pipe(
       sass({
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies (kept deliberately for Carbon v12 alpha).
+        // silenceDeprecations: ['legacy-js-api'] silences the API-level notice
+        // that quietDeps cannot cover.
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api'],
         includePaths: ['node_modules', '../../node_modules'],
         outputStyle: 'compressed',
       }).on('error', sass.logError)

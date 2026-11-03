@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit/html.js';
+import { html, render } from 'lit/html.js';
 import '../card';
+import '../card-footer';
 import { Default } from '../__stories__/card.stories';
 
 const template = (props?) =>
@@ -44,6 +45,19 @@ describe('c4d-card', function () {
       expect(document.body.querySelector('c4d-card')).toMatchSnapshot({
         mode: 'shadow',
       });
+    });
+
+    it('should unhide copy wrapper in card footer when copy is slotted (regression)', async function () {
+      render(
+        html`<c4d-card-footer>Card footer copy</c4d-card-footer>`,
+        document.body
+      );
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+      const footer = document.body.querySelector('c4d-card-footer');
+      const copySpan = footer?.shadowRoot?.querySelector('span[part="copy"]');
+      expect(copySpan?.hasAttribute('hidden')).toBe(false);
     });
   });
 

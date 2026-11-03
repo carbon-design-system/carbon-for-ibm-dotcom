@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,6 +41,11 @@ const ConnectMixin =
           const current = props[name];
           if (!Object.is(old, current)) {
             this[name] = current;
+            // Kept: this mix-in is generic over `HTMLElement`, so a mapped prop is
+            // not guaranteed to be a reactive field. For a `@property()` the call
+            // is redundant but harmless (the setter already reported the change
+            // and Lit de-duplicates it); for a plain field it is what schedules
+            // the render.
             // TODO: Figure out how to make this mix-in type-defined as `LitElement` inheritance
             (this as any).requestUpdate(name, old);
           }

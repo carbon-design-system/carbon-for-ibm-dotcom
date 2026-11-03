@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Error20 from '@carbon/web-components/es/icons/error/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import Error20 from '@carbon/icons/es/error/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../region-item';
 
@@ -28,9 +29,12 @@ describe('c4d-region-item', function () {
     xit('should render with various attributes', async function () {
       render(
         html`
-          ${template({ href: 'about:blank', name: 'name-foo' })}${ArrowRight20({
-            id: 'icon-ref',
-          })}
+          ${template({ href: 'about:blank', name: 'name-foo' })}${iconLoader(
+            ArrowRight20,
+            {
+              id: 'icon-ref',
+            }
+          )}
         `,
         document.body
       );
@@ -47,9 +51,12 @@ describe('c4d-region-item', function () {
     xit('should render with invalid state', async function () {
       render(
         html`
-          ${template({ invalid: true, name: 'name-foo' })}${Error20({
-            id: 'icon-ref',
-          })}
+          ${template({ invalid: true, name: 'name-foo' })}${iconLoader(
+            Error20,
+            {
+              id: 'icon-ref',
+            }
+          )}
         `,
         document.body
       );

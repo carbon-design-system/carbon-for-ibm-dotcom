@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 
 import '../card-section-offset';
 
@@ -51,21 +52,21 @@ describe('c4d-card-section-offset', function () {
               <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
               <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
               <c4d-card-footer>
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-card-footer>
             </c4d-card-group-item>
             <c4d-card-group-item href="https://example.com">
               <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
               <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
               <c4d-card-footer>
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-card-footer>
             </c4d-card-group-item>
             <c4d-card-group-item href="https://example.com">
               <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
               <c4d-card-heading>Natural Language Processing.</c4d-card-heading>
               <c4d-card-footer>
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-card-footer>
             </c4d-card-group-item>
           `,

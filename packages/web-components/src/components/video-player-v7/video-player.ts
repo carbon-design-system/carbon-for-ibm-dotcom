@@ -8,12 +8,13 @@
  */
 
 import { LitElement, html, nothing } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import PlayVideo from '../../../es/icons/play-video.js';
-import PlayOutline from '@carbon/web-components/es/icons/play--outline/20.js';
-import PauseOutline from '@carbon/web-components/es/icons/pause--outline/20.js';
+import PlayOutline from '@carbon/icons/es/play--outline/20.js';
+import PauseOutline from '@carbon/icons/es/pause--outline/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -28,7 +29,6 @@ import {
 import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import C4DVideoPlayerComposite from './video-player-composite';
 
@@ -366,7 +366,9 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
                 tabindex="0"
                 part="button"
                 aria-label="${this.isPlaying ? 'Pause' : 'Play'}">
-                ${this.isPlaying ? PauseOutline() : PlayOutline()}
+                ${this.isPlaying
+                  ? iconLoader(PauseOutline)
+                  : iconLoader(PlayOutline)}
               </button>
             `
           : null}

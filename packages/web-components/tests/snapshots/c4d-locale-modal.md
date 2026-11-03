@@ -30,6 +30,7 @@
       <c4d-expressive-modal-header
         data-autoid="c4d--expressive-modal-header"
         part="header"
+        slot="header"
       >
         <c4d-expressive-modal-close-button
           data-autoid="c4d--expressive-modal-close-button"
@@ -96,6 +97,7 @@
       <c4d-expressive-modal-header
         data-autoid="c4d--expressive-modal-header"
         part="header"
+        slot="header"
       >
         <c4d-expressive-modal-close-button
           data-autoid="c4d--expressive-modal-close-button"
@@ -186,6 +188,7 @@
         <c4d-expressive-modal-heading
           aria-level="2"
           data-autoid="c4d--expressive-modal-heading"
+          id="cds--modal-heading--id-9cbd3a7da5c41"
           part="heading"
           role="heading"
         >

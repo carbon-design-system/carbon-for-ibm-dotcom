@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,6 +34,11 @@ describe('c4d-global-banner | default', () => {
       .invoke('text')
       .should('not.be.empty');
 
+    // The text must actually take up space, not just exist in the DOM.
+    cy.get('c4d-global-banner-heading')
+      .invoke('outerHeight')
+      .should('be.greaterThan', 0);
+
     cy.takeSnapshots();
   });
 
@@ -62,11 +67,23 @@ describe('c4d-global-banner | default', () => {
     });
   });
 
-  xit('should load an image only in larger breakpoints', () => {
-    cy.get('c4d-global-banner-image').should('be.visible');
-    cy.viewport(672, 780);
-    cy.get('c4d-global-banner-image').should('not.be.visible');
-    cy.viewport(320, 780);
-    cy.get('c4d-global-banner-image').should('not.be.visible');
+  ['4-col', '8-col'].forEach(imageWidth => {
+    it(`should load the ${imageWidth} image only in larger breakpoints`, () => {
+      cy.visit(
+        `/${_defaultPath}&knob-Image%20width:=${imageWidth}`
+      );
+      // `lg` is 1056px. At and above it, the image is shown.
+      cy.viewport(1056, 780);
+      cy.get('c4d-global-banner-image').should('be.visible');
+      cy.get('c4d-global-banner').should('have.attr', 'has-image');
+
+      // Below `lg`, the image must be hidden (tablet, then mobile).
+      cy.viewport(1055, 780);
+      cy.get('c4d-global-banner-image').should('not.be.visible');
+      cy.viewport(672, 780);
+      cy.get('c4d-global-banner-image').should('not.be.visible');
+      cy.viewport(320, 780);
+      cy.get('c4d-global-banner-image').should('not.be.visible');
+    });
   });
 });

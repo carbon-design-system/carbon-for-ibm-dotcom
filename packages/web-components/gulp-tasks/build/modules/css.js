@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -50,6 +50,13 @@ const _cssStream = ({ banner }) =>
     )
     .pipe(
       sass({
+        // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+        // other third-party dependencies.  silenceDeprecations: ['legacy-js-api']
+        // silences the "The legacy JS API is deprecated" notice that quietDeps
+        // cannot cover.  Both options are kept deliberately: Carbon v12 alpha
+        // packages still emit dependency deprecations.
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api'],
         includePaths: [
           path.resolve(__dirname, '../../../node_modules'),
           path.resolve(__dirname, '../../../../../node_modules'),

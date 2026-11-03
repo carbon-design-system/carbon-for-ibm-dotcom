@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -358,19 +358,39 @@ export const WithLinkList = (args) => {
   `;
 };
 
-WithLinkList.story = {
-  name: 'With link list',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
-    knobs: {
-      ContentBlockMixed: () => ({
-        heading: textNullable(
-          'Heading (heading)',
-          'Lorem ipsum dolor sit amet'
-        ),
+WithLinkList.storyName = 'With link list';
+WithLinkList.parameters = {
+  percy: {
+    skip: true,
+  },
+  gridContentClasses: 'cds--col-lg-12',
+  knobs: {
+    ContentBlockMixed: () => ({
+      heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet'),
+      copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+      cardsGroupHeading: textNullable(
+        'Cards group heading (heading)',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      ),
+      ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
+      linkListHeading: textNullable('Link list heading (heading)', 'Tutorials'),
+      complementaryStyleScheme: select(
+        'Complementary style scheme (complementary-style-scheme)',
+        complementaryStyleSchemes,
+        null
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      ContentBlockMixed: {
+        heading: 'Lorem ipsum dolor sit amet',
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat
@@ -378,39 +398,11 @@ WithLinkList.story = {
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `,
-        cardsGroupHeading: textNullable(
-          'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        ),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
-        linkListHeading: textNullable(
-          'Link list heading (heading)',
-          'Tutorials'
-        ),
-        complementaryStyleScheme: select(
-          'Complementary style scheme (complementary-style-scheme)',
-          complementaryStyleSchemes,
-          null
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentBlockMixed: {
-          heading: 'Lorem ipsum dolor sit amet',
-          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat
-          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-          cardsGroupHeading:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          ctaType: 'local',
-          linkListHeading: 'Tutorials',
-          complementaryStyleScheme: null,
-        },
+        cardsGroupHeading:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        ctaType: 'local',
+        linkListHeading: 'Tutorials',
+        complementaryStyleScheme: null,
       },
     },
   },

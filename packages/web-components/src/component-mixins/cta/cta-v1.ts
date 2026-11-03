@@ -1,26 +1,27 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Download20 from '@carbon/web-components/es/icons/download/20.js';
-import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
-import PlayOutline20 from '@carbon/web-components/es/icons/play--outline/20.js';
-import Blog20 from '@carbon/web-components/es/icons/blog/20.js';
-import DocumentPDF20 from '@carbon/web-components/es/icons/document--pdf/20.js';
-import NewTab20 from '@carbon/web-components/es/icons/new-tab/20.js';
-import Phone20 from '@carbon/web-components/es/icons/phone/20.js';
-import Calendar20 from '@carbon/web-components/es/icons/calendar/20.js';
-import Email20 from '@carbon/web-components/es/icons/email/20.js';
-import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import ArrowDown20 from '@carbon/icons/es/arrow--down/20.js';
+import ArrowLeft20 from '@carbon/icons/es/arrow--left/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import Download20 from '@carbon/icons/es/download/20.js';
+import Launch20 from '@carbon/icons/es/launch/20.js';
+import PlayOutline20 from '@carbon/icons/es/play--outline/20.js';
+import Blog20 from '@carbon/icons/es/blog/20.js';
+import DocumentPDF20 from '@carbon/icons/es/document--pdf/20.js';
+import NewTab20 from '@carbon/icons/es/new-tab/20.js';
+import Phone20 from '@carbon/icons/es/phone/20.js';
+import Calendar20 from '@carbon/icons/es/calendar/20.js';
+import Email20 from '@carbon/icons/es/email/20.js';
+import Chat20 from '@carbon/icons/es/chat/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
@@ -122,7 +123,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       return html`
         <slot name="icon">
           <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
-          ${icon?.({
+          ${iconLoader(icon, {
             class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}
         </slot>

@@ -12,6 +12,7 @@
 >
   <c4d-regions
     data-autoid="c4d--regions"
+    slot="regions-selector"
     title="Select geographic area"
   >
   </c4d-regions>
@@ -21,6 +22,7 @@
     data-autoid="c4d--locale-search"
     label-text="Search by location or language"
     placeholder="Search by location or language"
+    slot="locales-selector"
     unavailability-label-text="This page is unavailable in your preferred location or language"
   >
   </c4d-locale-search>

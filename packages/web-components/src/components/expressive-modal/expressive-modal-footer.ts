@@ -1,18 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import CDSModalFooter from '@carbon/web-components/es/components/modal/modal-footer.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -28,6 +27,11 @@ class C4DExpressiveModalFooter extends StableSelectorMixin(CDSModalFooter) {
    */
   @property({ reflect: true })
   slot = 'footer';
+
+  connectedCallback() {
+    this.setAttribute('slot', 'footer');
+    super.connectedCallback();
+  }
 
   static get stableSelector() {
     return `${c4dPrefix}--expressive-modal-footer`;

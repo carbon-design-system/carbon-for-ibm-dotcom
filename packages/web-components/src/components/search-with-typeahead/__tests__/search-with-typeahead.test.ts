@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -102,20 +102,16 @@ describe('c4d-search-with-typeahead', function () {
       const search = document.body.querySelector(
         'c4d-search-with-typeahead'
       ) as C4DSearchWithTypeahead;
+      const focusSpy = spyOn(HTMLInputElement.prototype, 'focus');
       (
         search.shadowRoot!.querySelector(
           '.cds--header__search--search'
         ) as HTMLElement
       ).click();
       expect(search.active).toBe(true);
+      await search.updateComplete;
       await Promise.resolve();
-      // The `<input>` for the search box isn't rendered unless it's activated
-      const searchInputNode = search.shadowRoot!.querySelector(
-        '.cds--header__search--input'
-      ) as HTMLInputElement;
-      spyOn(searchInputNode, 'focus');
-      await Promise.resolve(); // `.updateComplete()` in `<c4d-search-with-typeahead>` seems to take two rounds of micro-tasks
-      expect(searchInputNode.focus).toHaveBeenCalled();
+      expect(focusSpy).toHaveBeenCalled();
     });
 
     it('should deactivate the search box upon clicking on the close button', async function () {
@@ -139,8 +135,8 @@ describe('c4d-search-with-typeahead', function () {
       ).click();
       expect(searchInputNode.value).toBe('');
       expect(search.active).toBe(false);
+      await search.updateComplete;
       await Promise.resolve();
-      await Promise.resolve(); // `.updateComplete()` in `<c4d-search-with-typeahead>` seems to take two rounds of micro-tasks
       expect(searchButtonNode.focus).toHaveBeenCalled();
     });
   });

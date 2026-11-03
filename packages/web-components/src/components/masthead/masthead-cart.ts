@@ -9,10 +9,10 @@
 
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { html, LitElement } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
-import ShoppingCart20 from '@carbon/web-components/es/icons/shopping--cart/20.js';
+import ShoppingCart20 from '@carbon/icons/es/shopping--cart/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import styles from './masthead.scss';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import SAPCommerceAPI from '@carbon/ibmdotcom-services/es/services/SAPCommerce/SAPCommerce.js';
@@ -91,7 +91,7 @@ class C4DMastheadCart extends StableSelectorMixin(LitElement) {
         href="${href}"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         aria-label="${linkLabel}"
-        >${ShoppingCart20()}</a
+        >${iconLoader(ShoppingCart20)}</a
       >
     `;
   }

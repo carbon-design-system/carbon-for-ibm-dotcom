@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -95,16 +95,14 @@ export const Default = (args) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    colLgClass: 'cds--col-lg-6',
-    propsSet: {
-      default: {
-        LinkListItem: {
-          ctaType: null,
-          download: undefined,
-          href: 'https://www.example.com',
-        },
+Default.parameters = {
+  colLgClass: 'cds--col-lg-6',
+  propsSet: {
+    default: {
+      LinkListItem: {
+        ctaType: null,
+        download: undefined,
+        href: 'https://www.example.com',
       },
     },
   },
@@ -127,16 +125,14 @@ export const Horizontal = (args) => {
   `;
 };
 
-Horizontal.story = {
-  parameters: {
-    colLgClass: 'cds--col-lg-16',
-    propsSet: {
-      default: {
-        LinkListItem: {
-          ctaType: null,
-          download: undefined,
-          href: 'https://www.example.com',
-        },
+Horizontal.parameters = {
+  colLgClass: 'cds--col-lg-16',
+  propsSet: {
+    default: {
+      LinkListItem: {
+        ctaType: null,
+        download: undefined,
+        href: 'https://www.example.com',
       },
     },
   },
@@ -159,16 +155,14 @@ export const Vertical = (args) => {
   `;
 };
 
-Vertical.story = {
-  parameters: {
-    colLgClass: 'cds--col-lg-6',
-    propsSet: {
-      default: {
-        LinkListItem: {
-          ctaType: null,
-          download: undefined,
-          href: 'https://www.example.com',
-        },
+Vertical.parameters = {
+  colLgClass: 'cds--col-lg-6',
+  propsSet: {
+    default: {
+      LinkListItem: {
+        ctaType: null,
+        download: undefined,
+        href: 'https://www.example.com',
       },
     },
   },
@@ -191,16 +185,14 @@ export const End = (args) => {
   `;
 };
 
-End.story = {
-  parameters: {
-    colLgClass: 'cds--col-lg-16',
-    propsSet: {
-      default: {
-        LinkListItem: {
-          ctaType: null,
-          download: undefined,
-          href: 'https://www.example.com',
-        },
+End.parameters = {
+  colLgClass: 'cds--col-lg-16',
+  propsSet: {
+    default: {
+      LinkListItem: {
+        ctaType: null,
+        download: undefined,
+        href: 'https://www.example.com',
       },
     },
   },

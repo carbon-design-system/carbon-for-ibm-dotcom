@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2025
+// Copyright IBM Corp. 2020, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -125,9 +125,12 @@ $pos-btn-bottom: calc(
   outline: none;
 
   a.#{$prefix}--header__name {
-    @include masthead-top-nav-name;
-
+    // Declarations before mixin call to avoid mixed-decls deprecation (Sass 1.79):
+    // masthead-top-nav-name expands to @media rules; bare declarations after
+    // nested rules trigger the warning.
     margin-inline-start: 0;
+
+    @include masthead-top-nav-name;
 
     @include breakpoint-down($breakpoint--desktop-nav) {
       position: absolute;

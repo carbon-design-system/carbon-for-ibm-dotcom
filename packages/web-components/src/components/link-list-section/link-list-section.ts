@@ -12,7 +12,7 @@ import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { state } from 'lit/decorators.js';
 import C4DContentSection from '../content-section/content-section';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import { customElement } from 'lit/decorators.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

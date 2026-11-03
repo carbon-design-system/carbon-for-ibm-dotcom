@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, LitElement, SVGTemplateResult, TemplateResult } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { EXPRESSIVE_MODAL_MODE, EXPRESSIVE_MODAL_SIZE } from './defs';
 import { classMap } from 'lit/directives/class-map.js';
 import C4DCarousel from '../carousel/carousel';
@@ -20,7 +20,6 @@ import on from '@carbon/web-components/es/globals/mixins/on.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './expressive-modal.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -376,7 +375,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
         id="${prefix}--modal-header"
         class="${headerClasses}"
         part="modal-header">
-        <slot name="header"></slot>
+        <slot name="header" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
   }
@@ -391,7 +390,9 @@ class C4DExpressiveModal extends StableSelectorMixin(
       [`${c4dPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
     return html`
-      <div class="${bodyClasses}" part="modal-body"><slot></slot></div>
+      <div class="${bodyClasses}" part="modal-body">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </div>
     `;
   }
 
@@ -401,7 +402,9 @@ class C4DExpressiveModal extends StableSelectorMixin(
   // eslint-disable-next-line class-methods-use-this
   protected _renderFooter(): TemplateResult | SVGTemplateResult | void {
     return html`
-      <div part="footer-container"><slot name="footer"></slot></div>
+      <div part="footer-container">
+        <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
+      </div>
     `;
   }
 
@@ -433,7 +436,6 @@ class C4DExpressiveModal extends StableSelectorMixin(
     const {
       size,
       _handleClickContainer: handleClickContainer,
-      _handleSlotChange: handleSlotChange,
       _handleFocusIn: handleFocusIn,
     } = this;
     const containerClass = this.containerClass
@@ -460,8 +462,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
         tabindex="-1"
         role="dialog"
         aria-labelledby="${c4dPrefix}--modal-header"
-        @click="${handleClickContainer}"
-        @slotchange="${handleSlotChange}">
+        @click="${handleClickContainer}">
         <div class="${prefix}--modal-content" part="modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>

@@ -1,24 +1,24 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
-import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
+import pauseIcon from '@carbon/icons/es/pause--outline--filled/32.js';
+import playIcon from '@carbon/icons/es/play--filled/32.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import C4DImage from '../image/image';
 import C4DVideoPlayerContainer from '../video-player-v7/video-player-container';
 import C4DLeadSpace from '../leadspace/leadspace';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -136,6 +136,8 @@ class C4DBackgroundMedia extends C4DImage {
       video?.playAllVideos();
     }
 
+    // Kept: the play/pause button is rendered from `videoPlayerContainer.isPlaying`,
+    // which belongs to another element, so no reactive field of this component changes.
     this.requestUpdate();
   }
 
@@ -151,7 +153,7 @@ class C4DBackgroundMedia extends C4DImage {
         aria-pressed="${!isPlaying}"
         aria-label="${isPlaying ? 'Pause the video' : 'Play the video'}"
         hasTooltip>
-        ${isPlaying ? pauseIcon() : playIcon()}
+        ${isPlaying ? iconLoader(pauseIcon) : iconLoader(playIcon)}
       </button>
     `;
   }
@@ -176,8 +178,6 @@ class C4DBackgroundMedia extends C4DImage {
     if (this.isRTL) {
       this.gradientDirection = GRADIENT_DIRECTION.RIGHT_TO_LEFT;
     }
-
-    console.log(this.isRTL);
   }
 
   /**
@@ -198,7 +198,8 @@ class C4DBackgroundMedia extends C4DImage {
     }
   }
 
-  firstUpdated(): void {
+  firstUpdated(changedProperties): void {
+    super.firstUpdated(changedProperties);
     this._handleIsRTL();
   }
 

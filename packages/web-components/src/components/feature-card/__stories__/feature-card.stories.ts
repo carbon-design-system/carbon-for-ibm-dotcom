@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -100,40 +100,38 @@ export const Large = (args) => {
   `;
 };
 
-Large.story = {
-  parameters: {
-    storyGrid: `${prefix}--col-lg-12`,
-    knobs: {
-      [`${c4dPrefix}-feature-card`]: () => ({
-        eyebrow: textNullable(
-          'Card Eyebrow (required) (eyebrow):',
-          'This is an eyebrow'
-        ),
-        heading: textNullable(
-          'Card Heading (heading):',
-          'Explore AI use cases in all industries'
-        ),
-        copy: textNullable(
-          'Card copy (copy):',
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`
-        ),
-        href: textNullable('Card Href (href):', 'https://example.com'),
-        colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
-        ctaType: select(
-          'CTA type (cta-type)',
-          typeOptions,
-          types[CTA_TYPE.LOCAL]
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        [`${c4dPrefix}-feature-card`]: {
-          eyebrow: 'This is an eyebrow',
-          heading: 'Explore AI use cases in all industries',
-          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
-          href: 'https://example.com',
-        },
+Large.parameters = {
+  storyGrid: `${prefix}--col-lg-12`,
+  knobs: {
+    [`${c4dPrefix}-feature-card`]: () => ({
+      eyebrow: textNullable(
+        'Card Eyebrow (required) (eyebrow):',
+        'This is an eyebrow'
+      ),
+      heading: textNullable(
+        'Card Heading (heading):',
+        'Explore AI use cases in all industries'
+      ),
+      copy: textNullable(
+        'Card copy (copy):',
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`
+      ),
+      href: textNullable('Card Href (href):', 'https://example.com'),
+      colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
+      ctaType: select(
+        'CTA type (cta-type)',
+        typeOptions,
+        types[CTA_TYPE.LOCAL]
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      [`${c4dPrefix}-feature-card`]: {
+        eyebrow: 'This is an eyebrow',
+        heading: 'Explore AI use cases in all industries',
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        href: 'https://example.com',
       },
     },
   },

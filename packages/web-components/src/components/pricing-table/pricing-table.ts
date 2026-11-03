@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -19,7 +19,6 @@ import C4DPricingTableHeaderCell from './pricing-table-header-cell';
 import C4DPricingTableHighlightLabel from './pricing-table-highlight-label';
 import C4DPricingTableHead from './pricing-table-head';
 import C4DPricingTableHeaderRow from './pricing-table-header-row';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 

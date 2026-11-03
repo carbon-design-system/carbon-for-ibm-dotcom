@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -234,52 +234,50 @@ export const withLinkList = (args) => {
   `;
 };
 
-withLinkList.story = {
-  name: 'With link list',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
-    knobs: {
-      ContentBlockSegmented: () => ({
-        blockHeading: textNullable(
-          'Heading (required)',
-          'Lorem ipsum dolor sit amet.'
-        ),
-        heading: textNullable('Link list heading (heading)', 'Tutorials'),
-        totalLinks: select('Number of links', [2, 3, 4], 2),
+withLinkList.storyName = 'With link list';
+withLinkList.parameters = {
+  percy: {
+    skip: true,
+  },
+  gridContentClasses: 'cds--col-lg-12',
+  knobs: {
+    ContentBlockSegmented: () => ({
+      blockHeading: textNullable(
+        'Heading (required)',
+        'Lorem ipsum dolor sit amet.'
+      ),
+      heading: textNullable('Link list heading (heading)', 'Tutorials'),
+      totalLinks: select('Number of links', [2, 3, 4], 2),
+      copy:
+        'Lorem ipsum dolor sit amet, consectetur ' +
+        'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+        'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
+        ' Mauris iaculis eget dolor nec hendrerit.',
+      ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
+      ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
+      complementaryStyleScheme: select(
+        'Container bottom border',
+        complementaryStyleSchemes,
+        complementaryStyleSchemes['With border']
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      ContentBlockSegmented: {
+        blockHeading: 'Lorem ipsum dolor sit amet.',
+        heading: 'Tutorials',
+        totalLinks: 2,
         copy:
           'Lorem ipsum dolor sit amet, consectetur ' +
           'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
           'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
           ' Mauris iaculis eget dolor nec hendrerit.',
-        ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
-        complementaryStyleScheme: select(
-          'Container bottom border',
-          complementaryStyleSchemes,
-          complementaryStyleSchemes['With border']
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentBlockSegmented: {
-          blockHeading: 'Lorem ipsum dolor sit amet.',
-          heading: 'Tutorials',
-          totalLinks: 2,
-          copy:
-            'Lorem ipsum dolor sit amet, consectetur ' +
-            'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-            'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
-            ' Mauris iaculis eget dolor nec hendrerit.',
-          ctaStyle: null,
-          ctaType: CTA_TYPE.LOCAL,
-          complementaryStyleScheme: 'with-border',
-        },
+        ctaStyle: null,
+        ctaType: CTA_TYPE.LOCAL,
+        complementaryStyleScheme: 'with-border',
       },
     },
   },

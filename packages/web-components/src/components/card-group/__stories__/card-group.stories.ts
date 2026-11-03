@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
+import '@carbon/web-components/es/components/tag/index.js';
 import '../../cta/video-cta-container';
 import { html } from 'lit';
 import { select, number, boolean } from '@storybook/addon-knobs';
@@ -378,32 +379,30 @@ export const withCardInCard = (args) => {
   `;
 };
 
-withCardInCard.story = {
-  name: 'With card in card',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    ...readme.parameters,
-    hasStoryPadding: true,
-    knobs: {
-      CardGroup: () => ({
-        media: boolean('Add media:', false),
-        tagGroup: boolean('Add tags:', false),
-        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW),
-        cards: number('Number of cards', 5, { min: 2, max: 6 }),
-        colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
-      }),
-    },
-    propsSet: {
-      default: {
-        CardGroup: {
-          media: false,
-          tagGroup: false,
-          gridMode: 'narrow',
-          cards: 5,
-          colorScheme: BASIC_COLOR_SCHEME.REGULAR,
-        },
+withCardInCard.storyName = 'With card in card';
+withCardInCard.parameters = {
+  percy: {
+    skip: true,
+  },
+  ...readme.parameters,
+  hasStoryPadding: true,
+  knobs: {
+    CardGroup: () => ({
+      media: boolean('Add media:', false),
+      tagGroup: boolean('Add tags:', false),
+      gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW),
+      cards: number('Number of cards', 5, { min: 2, max: 6 }),
+      colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
+    }),
+  },
+  propsSet: {
+    default: {
+      CardGroup: {
+        media: false,
+        tagGroup: false,
+        gridMode: 'narrow',
+        cards: 5,
+        colorScheme: BASIC_COLOR_SCHEME.REGULAR,
       },
     },
   },

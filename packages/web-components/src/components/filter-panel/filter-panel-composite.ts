@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, LitElement, TemplateResult } from 'lit';
-import { property, state, query } from 'lit/decorators.js';
-import Filter from '@carbon/web-components/es/icons/filter/16.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
+import Filter from '@carbon/icons/es/filter/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-panel';
@@ -18,13 +19,12 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import '@carbon/web-components/es/components/checkbox/checkbox.js';
-import '@carbon/web-components/es/components/button/button.js';
+import '@carbon/web-components/es/components/checkbox/index.js';
+import '@carbon/web-components/es/components/button/index.js';
 import C4DFilterGroupItem from './filter-group-item';
 import C4DFilterPanelCheckbox from './filter-panel-checkbox';
 import C4DFilterPanelInputSelect from './filter-panel-input-select';
 import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
@@ -428,7 +428,8 @@ class C4DFilterPanelComposite extends MediaQueryMixin(
 
   protected _renderMobile = (): TemplateResult => html`
     <cds-button part="button" kind="tertiary" @click=${this._openModal}>
-      ${this._getComposedHeadingFilterCount()} ${Filter({ slot: 'icon' })}
+      ${this._getComposedHeadingFilterCount()}
+      ${iconLoader(Filter, { slot: 'icon' })}
     </cds-button>
 
     ${this._renderModal()}

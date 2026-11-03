@@ -18,8 +18,10 @@
   part="accordion-content"
 >
   <ul part="link-list">
-    <slot>
-    </slot>
+    <li>
+      <slot>
+      </slot>
+    </li>
   </ul>
 </div>
 
@@ -49,8 +51,10 @@
   part="accordion-content"
 >
   <ul part="link-list">
-    <slot>
-    </slot>
+    <li>
+      <slot>
+      </slot>
+    </li>
   </ul>
 </div>
 
@@ -73,8 +77,10 @@
   part="accordion-content"
 >
   <ul part="link-list">
-    <slot>
-    </slot>
+    <li>
+      <slot>
+      </slot>
+    </li>
   </ul>
 </div>
 
@@ -105,8 +111,10 @@
   part="accordion-content"
 >
   <ul part="link-list">
-    <slot>
-    </slot>
+    <li>
+      <slot>
+      </slot>
+    </li>
   </ul>
 </div>
 

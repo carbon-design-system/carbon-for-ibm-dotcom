@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -172,123 +172,113 @@ export const WithVideoOverlay = (args) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
+Default.parameters = {
+  percy: {
+    skip: true,
   },
+  gridContentClasses: 'cds--col-lg-12',
 };
 
-WithThumbnail.story = {
-  name: 'With thumbnail',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
-    knobs: {
-      ContentItemRow: () => ({
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+WithThumbnail.storyName = 'With thumbnail';
+WithThumbnail.parameters = {
+  percy: {
+    skip: true,
+  },
+  gridContentClasses: 'cds--col-lg-12',
+  knobs: {
+    ContentItemRow: () => ({
+      heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+      copy: shortBodyCopy,
+    }),
+  },
+  propsSet: {
+    default: {
+      ContentItemRow: {
+        heading: 'Aliquam condimentum',
         copy: shortBodyCopy,
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentItemRow: {
-          heading: 'Aliquam condimentum',
-          copy: shortBodyCopy,
-        },
       },
     },
   },
 };
 
-WithMedia.story = {
-  name: 'With media',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
-    knobs: {
-      ContentItemRow: () => ({
-        align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
-        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
+WithMedia.storyName = 'With media';
+WithMedia.parameters = {
+  percy: {
+    skip: true,
+  },
+  gridContentClasses: 'cds--col-lg-12',
+  knobs: {
+    ContentItemRow: () => ({
+      align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
+      type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+      heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+      eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
+      copy: shortBodyCopy,
+    }),
+  },
+  propsSet: {
+    default: {
+      ContentItemRow: {
+        align: 'right',
+        type: 'image',
+        alt: 'Image alt text',
+        heading: 'Aliquam condimentum',
+        eyebrow: 'Lorem Ipsum',
         copy: shortBodyCopy,
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentItemRow: {
-          align: 'right',
-          type: 'image',
-          alt: 'Image alt text',
-          heading: 'Aliquam condimentum',
-          eyebrow: 'Lorem Ipsum',
-          copy: shortBodyCopy,
-        },
       },
     },
   },
 };
 
-WithMediaFeatured.story = {
-  name: 'With featured media',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
-    knobs: {
-      ContentItemRow: () => ({
-        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-        eyebrow: textNullable('Eyebrow:', 'Lorem Ipsum'),
-        heading: textNullable('Heading:', 'Aliquam condimentum'),
+WithMediaFeatured.storyName = 'With featured media';
+WithMediaFeatured.parameters = {
+  percy: {
+    skip: true,
+  },
+  gridContentClasses: 'cds--col-lg-12',
+  knobs: {
+    ContentItemRow: () => ({
+      type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+      eyebrow: textNullable('Eyebrow:', 'Lorem Ipsum'),
+      heading: textNullable('Heading:', 'Aliquam condimentum'),
+      copy: bodyCopyWithFeaturedMedia,
+    }),
+  },
+  propsSet: {
+    default: {
+      ContentItemRow: {
+        type: 'image',
+        alt: 'Image alt text',
+        heading: 'Aliquam condimentum',
+        eyebrow: 'Lorem Ipsum',
         copy: bodyCopyWithFeaturedMedia,
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentItemRow: {
-          type: 'image',
-          alt: 'Image alt text',
-          heading: 'Aliquam condimentum',
-          eyebrow: 'Lorem Ipsum',
-          copy: bodyCopyWithFeaturedMedia,
-        },
       },
     },
   },
 };
 
-WithVideoOverlay.story = {
-  name: 'With video overlay',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
-    knobs: {
-      ContentItemRow: () => ({
-        align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
+WithVideoOverlay.storyName = 'With video overlay';
+WithVideoOverlay.parameters = {
+  percy: {
+    skip: true,
+  },
+  gridContentClasses: 'cds--col-lg-12',
+  knobs: {
+    ContentItemRow: () => ({
+      align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
+      heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+      eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
+      copy: shortBodyCopy,
+    }),
+  },
+  propsSet: {
+    default: {
+      ContentItemRow: {
+        align: 'right',
+        alt: 'Image alt text',
+        heading: 'Aliquam condimentum',
+        eyebrow: 'Lorem Ipsum',
         copy: shortBodyCopy,
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentItemRow: {
-          align: 'right',
-          alt: 'Image alt text',
-          heading: 'Aliquam condimentum',
-          eyebrow: 'Lorem Ipsum',
-          copy: shortBodyCopy,
-        },
       },
     },
   },

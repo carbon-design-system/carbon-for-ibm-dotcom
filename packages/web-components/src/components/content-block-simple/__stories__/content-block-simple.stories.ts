@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -144,12 +144,10 @@ export const WithImage = (args) => {
   `;
 };
 
-WithImage.story = {
-  name: 'With image',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+WithImage.storyName = 'With image';
+WithImage.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -192,14 +190,12 @@ export const WithVideo = (args) => {
   `;
 };
 
-WithVideo.story = {
-  name: 'With video',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
+WithVideo.storyName = 'With video';
+WithVideo.parameters = {
+  percy: {
+    skip: true,
   },
+  gridContentClasses: 'cds--col-lg-12',
 };
 
 export const WithLinkList = (args) => {
@@ -254,14 +250,12 @@ export const WithLinkList = (args) => {
   `;
 };
 
-WithLinkList.story = {
-  name: 'With link list',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    gridContentClasses: 'cds--col-lg-12',
+WithLinkList.storyName = 'With link list';
+WithLinkList.parameters = {
+  percy: {
+    skip: true,
   },
+  gridContentClasses: 'cds--col-lg-12',
 };
 
 export default {

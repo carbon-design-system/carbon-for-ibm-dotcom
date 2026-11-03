@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,11 @@ const config = require('../config');
  */
 function _getFolders(dir) {
   return fs.readdirSync(dir).filter(file => {
-    return fs.statSync(path.join(dir, file)).isDirectory();
+    return (
+      !file.startsWith('.') &&
+      !file.startsWith('__') &&
+      fs.statSync(path.join(dir, file)).isDirectory()
+    );
   });
 }
 

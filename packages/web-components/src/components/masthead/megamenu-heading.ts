@@ -1,20 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2024
+ * Copyright IBM Corp. 2022, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import ArrowRight24 from '@carbon/web-components/es/icons/arrow--right/24.js';
-import ArrowLeft24 from '@carbon/web-components/es/icons/arrow--left/24.js';
+import { customElement, property } from 'lit/decorators.js';
+import ArrowRight24 from '@carbon/icons/es/arrow--right/24.js';
+import ArrowLeft24 from '@carbon/icons/es/arrow--left/24.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -54,8 +54,8 @@ class C4DMegaMenuHeading extends HostListenerMixin(LitElement) {
   protected get _arrowIcon() {
     const isRTL = document.dir.toLowerCase() === 'rtl';
     return isRTL
-      ? ArrowLeft24({ part: 'l0-heading-arrow' })
-      : ArrowRight24({ part: 'l0-heading-arrow' });
+      ? iconLoader(ArrowLeft24, { part: 'l0-heading-arrow' })
+      : iconLoader(ArrowRight24, { part: 'l0-heading-arrow' });
   }
 
   /**

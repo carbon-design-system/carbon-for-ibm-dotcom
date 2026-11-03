@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,6 +53,26 @@ describe('c4d-content-item', function () {
       expect(document.body.querySelector('c4d-content-item')).toMatchSnapshot({
         mode: 'shadow',
       });
+    });
+
+    it('should unhide cta footer wrapper when footer slot is slotted (regression)', async function () {
+      render(
+        html`
+          <c4d-content-item>
+            <c4d-text-cta slot="footer" cta-type="local"
+              >footer-foo</c4d-text-cta
+            >
+          </c4d-content-item>
+        `,
+        document.body
+      );
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+      const contentItem = document.body.querySelector('c4d-content-item');
+      const ctaElement =
+        contentItem?.shadowRoot?.querySelector('div[part="cta"]');
+      expect(ctaElement?.hasAttribute('hidden')).toBe(false);
     });
   });
 

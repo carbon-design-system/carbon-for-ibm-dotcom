@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,9 @@
 
 import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import User20 from '@carbon/web-components/es/icons/user/20.js';
-import UserOnline20 from '@carbon/web-components/es/icons/user--online/20.js';
+import User20 from '@carbon/icons/es/user/20.js';
+import UserOnline20 from '@carbon/icons/es/user--online/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import C4DMastheadProfile from '../masthead-profile';
 
 const template = (props?) => {
@@ -47,7 +48,10 @@ describe('c4d-masthead-profile', function () {
 
   describe('Showing authenticated state', function () {
     it('should show the default icon in unauthenticated state', async function () {
-      render(html` ${template()}${User20({ id: 'icon-ref' })} `, document.body);
+      render(
+        html` ${template()}${iconLoader(User20, { id: 'icon-ref' })} `,
+        document.body
+      );
       await Promise.resolve();
       const mastheadProfile = document.body.querySelector(
         'c4d-masthead-profile'
@@ -64,7 +68,7 @@ describe('c4d-masthead-profile', function () {
     it('should show the "online" icon in authenticated state', async function () {
       render(
         html`
-          ${template({ authenticated: true })}${UserOnline20({
+          ${template({ authenticated: true })}${iconLoader(UserOnline20, {
             id: 'icon-ref',
           })}
         `,

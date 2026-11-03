@@ -11,7 +11,7 @@
     data-autoid="c4d--card-group-item"
     grid-mode="default"
     pictogram-placement="bottom"
-    size=""
+    size="md"
   >
   </c4d-card-group-item>
   <c4d-card-group
@@ -37,11 +37,13 @@
   >
     <c4d-button-group-item
       cta-type=""
+      danger-description=""
       data-autoid="c4d--button-group-item"
       isexpressive=""
       kind="primary"
       role="listitem"
       size="lg"
+      tab-index="0"
       tooltip-alignment=""
       tooltip-position="top"
       type="button"
@@ -50,11 +52,13 @@
     </c4d-button-group-item>
     <c4d-button-group-item
       cta-type=""
+      danger-description=""
       data-autoid="c4d--button-group-item"
       isexpressive=""
       kind="tertiary"
       role="listitem"
       size="lg"
+      tab-index="0"
       tooltip-alignment=""
       tooltip-position="top"
       type="button"
@@ -75,7 +79,7 @@
     data-autoid="c4d--card-group-item"
     grid-mode="default"
     pictogram-placement="bottom"
-    size=""
+    size="md"
   >
     heading-foo
   </c4d-card-group-item>
@@ -90,7 +94,7 @@
       grid-mode="default"
       href="https://example.com"
       pictogram-placement="bottom"
-      size=""
+      size="md"
     >
       <c4d-card-heading
         aria-level="3"
@@ -101,10 +105,13 @@
         Nunc convallis lobortis
       </c4d-card-heading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-                Phasellus at elit sollicitudin, sodales nulla quis, consequat
-                libero.
+      </p>
+      <pre style="all:unset;">
+        <code>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean  et ultricies est. Mauris iaculis eget dolor nec hendrerit.  Phasellus at elit sollicitudin, sodales nulla quis, consequat  libero.
+        </code>
+      </pre>
+      <p>
       </p>
       <c4d-card-footer
         color-scheme=""
@@ -142,11 +149,13 @@
   >
     <c4d-button-group-item
       cta-type=""
+      danger-description=""
       data-autoid="c4d--button-group-item"
       isexpressive=""
       kind="primary"
       role="listitem"
       size="lg"
+      tab-index="0"
       tooltip-alignment=""
       tooltip-position="top"
       type="button"
@@ -155,11 +164,13 @@
     </c4d-button-group-item>
     <c4d-button-group-item
       cta-type=""
+      danger-description=""
       data-autoid="c4d--button-group-item"
       isexpressive=""
       kind="tertiary"
       role="listitem"
       size="lg"
+      tab-index="0"
       tooltip-alignment=""
       tooltip-position="top"
       type="button"

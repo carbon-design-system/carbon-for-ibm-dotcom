@@ -10,9 +10,16 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { html, LitElement } from 'lit';
-import { property, query, queryAll, state } from 'lit/decorators.js';
-import ChevronLeft20 from '@carbon/web-components/es/icons/chevron--left/20.js';
-import ChevronRight20 from '@carbon/web-components/es/icons/chevron--right/20.js';
+import {
+  customElement,
+  property,
+  query,
+  queryAll,
+  state,
+} from 'lit/decorators.js';
+import ChevronLeft20 from '@carbon/icons/es/chevron--left/20.js';
+import ChevronRight20 from '@carbon/icons/es/chevron--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import throttle from 'lodash-es/throttle.js';
@@ -21,7 +28,6 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
@@ -144,8 +150,12 @@ class C4DTableOfContents extends MediaQueryMixin(
    */
   @query(`.${prefix}--sub-content-right`)
   private _intersectionRightSentinelNode?: HTMLElement;
+  // No initializer: `@queryAll` defines a getter-only accessor on the prototype,
+  // and under TypeScript semantics (`useDefineForClassFields: false`) an
+  // initializer is emitted as `this._itemNodes = []`, which throws in the
+  // constructor ("Cannot set property _itemNodes ... which has only a getter").
   @queryAll(`.${prefix}--tableofcontents__item`)
-  private _itemNodes?: HTMLElement[] = [];
+  private _itemNodes?: HTMLElement[];
 
   @query(`.${prefix}--tableofcontents__content`)
   private _contentDiv?: HTMLElement;
@@ -817,7 +827,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronRightContainerClasses}"
                         @click="${paginateLeft}">
-                        ${ChevronLeft20()}
+                        ${iconLoader(ChevronLeft20)}
                       </button>
                     `
                   : html`
@@ -827,7 +837,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronLeftContainerClasses}"
                         @click="${paginateLeft}">
-                        ${ChevronLeft20()}
+                        ${iconLoader(ChevronLeft20)}
                       </button>
                     `}
               `
@@ -917,7 +927,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronLeftContainerClasses}"
                         @click="${paginateRight}">
-                        ${ChevronRight20()}
+                        ${iconLoader(ChevronRight20)}
                       </button>
                     `
                   : html`
@@ -927,7 +937,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         aria-hidden="true"
                         class="${chevronRightContainerClasses}"
                         @click="${paginateRight}">
-                        ${ChevronRight20()}
+                        ${iconLoader(ChevronRight20)}
                       </button>
                     `}
               `

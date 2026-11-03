@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -82,23 +82,21 @@ export const Default = (args) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    ...readme.parameters,
-    knobs: {
-      GlobalBanner: () => ({
-        heading: textNullable(
-          'Heading:',
-          'Hybrid cloud and AI for smarter business'
-        ),
-        copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025'),
-        ctaCopy: textNullable('CTA copy:', 'Register for Think. Free'),
-        imageWidth: select('Image width:', imageWidthOptions, '4-col'),
-      }),
-    },
+Default.parameters = {
+  percy: {
+    skip: true,
+  },
+  ...readme.parameters,
+  knobs: {
+    GlobalBanner: () => ({
+      heading: textNullable(
+        'Heading:',
+        'Hybrid cloud and AI for smarter business'
+      ),
+      copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025'),
+      ctaCopy: textNullable('CTA copy:', 'Register for Think. Free'),
+      imageWidth: select('Image width:', imageWidthOptions, '4-col'),
+    }),
   },
 };
 

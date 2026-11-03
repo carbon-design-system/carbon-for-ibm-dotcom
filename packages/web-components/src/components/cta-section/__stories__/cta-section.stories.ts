@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { select, number, boolean } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
@@ -235,36 +236,34 @@ export const WithContentItems = (args) => {
   `;
 };
 
-WithContentItems.story = {
-  name: 'With content items',
-  parameters: {
-    knobs: {
-      WithContentItems: () => {
-        const contentItemType = select(
-          'Content item type',
-          contentItemTypeOptions,
-          contentItemTypeOptions.Text
-        );
+WithContentItems.storyName = 'With content items';
+WithContentItems.parameters = {
+  knobs: {
+    WithContentItems: () => {
+      const contentItemType = select(
+        'Content item type',
+        contentItemTypeOptions,
+        contentItemTypeOptions.Text
+      );
 
-        const logoAspectRatio =
-          contentItemType !== contentItemTypeOptions.Logo
-            ? undefined
-            : select('Logo aspect ratio', ['2:1', '1:1'], '2:1');
-        return {
-          contentItemType,
-          contentItemCount: Array.from({
-            length: number('Number of content items', 3, { min: 2, max: 6 }),
-          }),
-          logoAspectRatio,
-        };
-      },
+      const logoAspectRatio =
+        contentItemType !== contentItemTypeOptions.Logo
+          ? undefined
+          : select('Logo aspect ratio', ['2:1', '1:1'], '2:1');
+      return {
+        contentItemType,
+        contentItemCount: Array.from({
+          length: number('Number of content items', 3, { min: 2, max: 6 }),
+        }),
+        logoAspectRatio,
+      };
     },
-    propsSet: {
-      default: {
-        WithContentItems: {
-          contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
-          contentItemCount: Array(3),
-        },
+  },
+  propsSet: {
+    default: {
+      WithContentItems: {
+        contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
+        contentItemCount: Array(3),
       },
     },
   },
@@ -305,22 +304,22 @@ export const WithLinkList = (args) => {
             >More ways to explore DevOps</c4d-link-list-heading
           >
           <c4d-link-list-item href="https://example.com">
-            Events ${ArrowRight20({ slot: 'icon' })}
+            Events ${iconLoader(ArrowRight20, { slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item href="https://example.com">
-            Blogs ${ArrowRight20({ slot: 'icon' })}
+            Blogs ${iconLoader(ArrowRight20, { slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item href="https://example.com">
-            Training ${ArrowRight20({ slot: 'icon' })}
+            Training ${iconLoader(ArrowRight20, { slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item href="https://example.com">
-            Developer resources ${ArrowRight20({ slot: 'icon' })}
+            Developer resources ${iconLoader(ArrowRight20, { slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item href="https://example.com">
-            Research ${ArrowRight20({ slot: 'icon' })}
+            Research ${iconLoader(ArrowRight20, { slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item href="https://example.com">
-            News ${ArrowRight20({ slot: 'icon' })}
+            News ${iconLoader(ArrowRight20, { slot: 'icon' })}
           </c4d-link-list-item>
         </c4d-link-list>
       </c4d-cta-block>
@@ -328,16 +327,14 @@ export const WithLinkList = (args) => {
   `;
 };
 
-WithLinkList.story = {
-  name: 'With link list',
-  parameters: {
-    propsSet: {
-      default: {
-        CTASection: {
-          heading: 'Optional title heading-05 color text-01',
-          copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-          boolean: false,
-        },
+WithLinkList.storyName = 'With link list';
+WithLinkList.parameters = {
+  propsSet: {
+    default: {
+      CTASection: {
+        heading: 'Optional title heading-05 color text-01',
+        copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+        boolean: false,
       },
     },
   },
