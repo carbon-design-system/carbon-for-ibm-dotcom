@@ -29,14 +29,17 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 class C4DCardInCard extends StableSelectorMixin(C4DCard) {
   protected _renderImage() {
     const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    const thumbnailWidth = Math.round((this.offsetWidth || 672) * pixelRatio);
+    const fallbackThumbnailUrl = `https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/${this.href}/width/${thumbnailWidth}`;
+
     const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
             <c4d-card-in-card-image
               alt="${ifDefined(videoName)}"
-              default-src="${videoThumbnailUrl ||
-              `https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/${this.href}/width/333`}"
+              default-src="${videoThumbnailUrl || fallbackThumbnailUrl}"
               part="image">
             </c4d-card-in-card-image>
           `;
