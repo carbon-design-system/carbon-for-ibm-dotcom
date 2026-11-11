@@ -721,6 +721,10 @@ $pos-btn-bottom: calc(
     inline-size: 100%;
     text-align: start;
 
+    @include breakpoint-up(lg) {
+      padding: rem(6px) $spacing-07;
+    }
+
     &:hover,
     &:focus {
       color: $text-primary;
