@@ -9,6 +9,7 @@
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
@@ -85,6 +86,10 @@
       outline: 1px solid $border-tile-01;
       outline-offset: 0;
 
+      @include breakpoint-down('md') {
+        margin-block-end: 0;
+      }
+
       .#{$prefix}--card__wrapper {
         display: grid;
         justify-content: revert;
@@ -147,12 +152,22 @@
     &[grid-mode='narrow'] {
       .#{$prefix}--card {
         margin-block-end: $spacing-05;
+        @container content-block-cards style(--media-type--logo: false) {
+          @include breakpoint-down('md') {
+            margin-block-end: 0;
+          }
+        }
       }
     }
 
     &[grid-mode='condensed'] {
       .#{$prefix}--card {
         margin-block-end: $spacing-05;
+        @container content-block-cards style(--media-type--logo: false) {
+          @include breakpoint-down('md') {
+            margin-block-end: 0;
+          }
+        }
       }
     }
 
@@ -226,6 +241,29 @@
     }
   }
 
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    )
+    ::slotted(#{$c4d-prefix}-image),
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    )
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--duration: #{$duration-slow-01};
+    --#{$c4d-prefix}--image-zoom--easing: #{motion(standard, expressive)};
+  }
+
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    ):hover
+    ::slotted(#{$c4d-prefix}-image),
+  :host(#{$c4d-prefix}-card-group-item[href]):not([disable-image-zoom]):not(
+      [logo]
+    ):hover
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--scale: 1.05;
+  }
+
   // card with video focus outline
   :host(#{$c4d-prefix}-card-group-item)[cta-type='video'] {
     &:focus-within {
@@ -280,6 +318,11 @@
           flex-basis: clamp(220px, 65vw, 400px);
           flex-shrink: 0;
           align-content: start;
+
+          @include breakpoint-down('md') {
+            align-content: stretch;
+          }
+
           block-size: auto;
 
           // // override web component internal padding and rely on gap instead

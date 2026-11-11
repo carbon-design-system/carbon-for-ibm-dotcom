@@ -323,6 +323,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   @property({ type: Boolean, reflect: true })
   logo = false;
 
+  @property({ type: Boolean, attribute: 'disable-image-zoom', reflect: true })
+  disableImageZoom = false;
+
   @query('div')
   _linkNode;
 

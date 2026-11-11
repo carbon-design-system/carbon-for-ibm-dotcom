@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,7 +65,7 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * The current playback state, inherited from the parent.
    */
-  @property()
+  @property({ reflect: true })
   isPlaying = false;
 
   /**
@@ -181,6 +181,26 @@ class C4DVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         : html` <slot></slot> `;
     }
   };
+
+  /**
+   * setting the mutation observer on component load
+   */
+  connectedCallback() {
+    super.connectedCallback();
+    const playerObserver = new MutationObserver(() => {
+      if (this.querySelector('.playkit-is-playing')) {
+        this.isPlaying = true;
+      } else {
+        this.isPlaying = false;
+      }
+    });
+
+    playerObserver.observe(this as HTMLElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+  }
 
   /**
    * Updates video thumbnail url to match video width

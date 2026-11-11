@@ -24,6 +24,7 @@ import { CTA_TYPE } from './defs';
 import { CTAMixinImpl } from '../../component-mixins/cta/cta';
 import styles from './video-cta-composite.scss';
 import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+import KalturaPlayerAPIV7 from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -129,6 +130,7 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
     const { ctaType, href, videoName, videoDescription, ctaContents } =
       event.detail;
     let { theme } = event.detail;
+
     const { selectorVideoPlayer, selectorLightboxVideoPlayerComposite } = this
       .constructor as typeof C4DVideoCTAComposite;
     if (ctaType === CTA_TYPE.VIDEO) {
@@ -147,6 +149,12 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
         ) as C4DLightboxVideoPlayerComposite;
         videoPlayerComposite.ctaElement = this._ctaContents;
       }
+      if (!videoName) {
+        KalturaPlayerAPIV7.api(href)?.then((data) => {
+          this._videoName = data.name;
+        });
+      }
+
       if (theme) {
         const expressiveModalSelector = `${c4dPrefix}-expressive-modal`;
         const modalParent = this.modalRenderRoot?.parentElement;

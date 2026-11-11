@@ -98,7 +98,7 @@
     .#{$prefix}--carousel__navigation {
       @include type-style('body-02', true);
 
-      display: grid;
+      display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: $spacing-05;
