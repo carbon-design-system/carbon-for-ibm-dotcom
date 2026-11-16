@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2025
+ * Copyright IBM Corp. 2016, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,6 +15,7 @@
 @use '@carbon/styles/scss/components/tile/index' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
+@use '@carbon/styles/scss/motion' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/imports' as *;
 @use '../../globals/utils/content-width' as *;
@@ -850,5 +851,20 @@
 
   :host(#{$c4d-prefix}-card-footer[href])::after {
     position: relative;
+  }
+
+  :host(#{$c4d-prefix}-card[href]):not([disable-image-zoom]):not([logo])
+    ::slotted(#{$c4d-prefix}-image),
+  :host(#{$c4d-prefix}-card[href]):not([disable-image-zoom]):not([logo])
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--duration: #{$duration-slow-01};
+    --#{$c4d-prefix}--image-zoom--easing: #{motion(standard, expressive)};
+  }
+
+  :host(#{$c4d-prefix}-card[href]):not([disable-image-zoom]):not([logo]):hover
+    ::slotted(#{$c4d-prefix}-image),
+  :host(#{$c4d-prefix}-card[href]):not([disable-image-zoom]):not([logo]):hover
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--scale: 1.05;
   }
 }

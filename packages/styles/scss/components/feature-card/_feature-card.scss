@@ -170,6 +170,29 @@ $feature-flags: (
     }
   }
 
+  :host(#{$c4d-prefix}-feature-card[href]):not([disable-image-zoom])
+    ::slotted([slot='image']),
+  :host(#{$c4d-prefix}-feature-cta[href]):not([disable-image-zoom])
+    ::slotted([slot='image']),
+  :host(#{$c4d-prefix}-feature-card[href]):not([disable-image-zoom])
+    #{$c4d-prefix}-image,
+  :host(#{$c4d-prefix}-feature-cta[href]):not([disable-image-zoom])
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--duration: #{$duration-slow-01};
+    --#{$c4d-prefix}--image-zoom--easing: #{motion(standard, expressive)};
+  }
+
+  :host(#{$c4d-prefix}-feature-card[href]):not([disable-image-zoom]):hover
+    ::slotted([slot='image']),
+  :host(#{$c4d-prefix}-feature-cta[href]):not([disable-image-zoom]):hover
+    ::slotted([slot='image']),
+  :host(#{$c4d-prefix}-feature-card[href]):not([disable-image-zoom]):hover
+    #{$c4d-prefix}-image,
+  :host(#{$c4d-prefix}-feature-cta[href]):not([disable-image-zoom]):hover
+    #{$c4d-prefix}-image {
+    --#{$c4d-prefix}--image-zoom--scale: 1.05;
+  }
+
   // All large feature cards.
   :host(#{$c4d-prefix}-feature-card)[size='large'],
   :host(#{$c4d-prefix}-feature-cta)[size='large'] {

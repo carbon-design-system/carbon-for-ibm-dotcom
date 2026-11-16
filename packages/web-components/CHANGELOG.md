@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.63.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.63.0...@carbon/ibmdotcom-web-components@2.63.1) (2026-11-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.63.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.62.1...@carbon/ibmdotcom-web-components@2.63.0) (2026-10-30)
+
+
+### Bug Fixes
+
+* **masthead-l1:** ensure correct nav item highlights ([#12701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12701)) ([cc49783](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cc497832ccebf3c1bfc9393ee7dc8e2d38077a9c))
+
+
+
+
+
+## [2.62.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.62.0...@carbon/ibmdotcom-web-components@2.62.1) (2026-10-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [2.62.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.61.1...@carbon/ibmdotcom-web-components@2.62.0) (2026-10-16)
+
+
+### Bug Fixes
+
+* **link-list-section:** fix hide title slot when empty ([#12691](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12691)) ([eeb3bf1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eeb3bf1d89958228bc5bfa0442af60515a1461ea))
+
+
+### Features
+
+* **footer:** new attr hide-cookie-preferences ([#12685](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12685)) ([0a9313c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0a9313c9d773dc2016f17f7212e47aee0a462cf1))
+
+
+
+
+
+## [2.61.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.61.0...@carbon/ibmdotcom-web-components@2.61.1) (2026-10-09)
+
+
+### Bug Fixes
+
+* **link-list-section:** hide heading when empty ([#12686](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12686)) ([03e0e76](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/03e0e7606a75fea1ab19f0a8aadcab5adab3ab6b))
+
+
+
+
+
 # [2.61.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.60.3...@carbon/ibmdotcom-web-components@2.61.0) (2026-10-02)
 
 

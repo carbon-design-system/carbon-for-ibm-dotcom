@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,6 +41,39 @@ describe('c4d-feature-card', function () {
       expect(document.body.querySelector('c4d-feature-card')).toMatchSnapshot({
         mode: 'shadow',
       });
+    });
+  });
+
+  describe('disable-image-zoom attribute', function () {
+    it('should not have disable-image-zoom attribute by default', async function () {
+      render(
+        template({
+          href: 'https://example.com',
+        }),
+        document.body
+      );
+      await Promise.resolve();
+      expect(
+        document
+          .querySelector('c4d-feature-card')!
+          .hasAttribute('disable-image-zoom')
+      ).toBe(false);
+    });
+
+    it('should reflect disable-image-zoom attribute when disableImageZoom is true', async function () {
+      render(
+        template({
+          href: 'https://example.com',
+          disableImageZoom: true,
+        }),
+        document.body
+      );
+      await Promise.resolve();
+      expect(
+        document
+          .querySelector('c4d-feature-card')!
+          .hasAttribute('disable-image-zoom')
+      ).toBe(true);
     });
   });
 
