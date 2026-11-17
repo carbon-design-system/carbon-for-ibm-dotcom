@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.64.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.63.1...@carbon/ibmdotcom-web-components@2.64.0) (2026-11-17)
+
+
+### Bug Fixes
+
+* **button:** stop rendering when button type is undefined ([#12716](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12716)) ([13ed3d7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/13ed3d738aef9dfdc83d1b6df236d678dd2be716))
+* **masthead:** re-align links in megamenu ([#12703](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12703)) ([53f65a1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/53f65a18e9a8d3216c0d2929fd35dcbf5fbf655a))
+
+
+
+
+
 ## [2.63.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@2.63.0...@carbon/ibmdotcom-web-components@2.63.1) (2026-11-05)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
