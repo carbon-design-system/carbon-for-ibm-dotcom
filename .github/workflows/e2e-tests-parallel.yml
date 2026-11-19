@@ -40,7 +40,7 @@ jobs:
 
       - name: Installing dependencies (if not cached)
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --immutable --immutable-cache
+        run: yarn install --immutable
 
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build

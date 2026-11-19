@@ -17,29 +17,25 @@
 
 # Overview
 
-In light of potential `npm` security issues
-[[1]](https://blog.npmjs.org/post/175824896885/incident-report-npm-inc-operations-incident-of)
-[[2]](https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes),
-we are addressing some of the issues with installing dependencies from a live
-registry by taking advantage of
-[Yarn's offline feature](https://yarnpkg.com/blog/2016/11/24/offline-mirror/).
-The majority of steps taken are inspired by
-[this tweet](https://twitter.com/leeb/status/1017607265115750400) from Lee
-Byron.
+This project uses Yarn to resolve and install dependencies from the package
+registry. The exact version of every dependency, including transitive
+dependencies, is recorded in the `yarn.lock` file, which is checked in to the
+repository. Because the lockfile pins resolved versions, installs are
+reproducible across local development and Continuous Integration.
 
 # Continuous Integration
 
-We specify a `.yarnc` file in this project that sets the path for Yarn's offline
-mirror to the folder `.yarn-offline-mirror`. This folder contains all the
-tarballs for the packages that the project uses. What this allows us to do is
-run `yarn install --offline` in our Continuous Integration environment so that
-we don't have to fetch from the live registry in our builds.
+Our Continuous Integration environment runs `yarn install --immutable`. This
+installs dependencies exactly as recorded in `yarn.lock` and fails if the
+lockfile would need to be modified, which ensures that `package.json` and
+`yarn.lock` stay in sync and that builds do not silently pick up unexpected
+dependency changes.
 
 # FAQ
 
 ## How do I install a dependency?
 
 When installing a dependency, you can just do `yarn add <dependency-name>` as
-normal. The only difference now is that you also will check in the corresponding
-tarball entry in `.yarn-offline-mirror` as well so that we don't have to fetch
-this dependency from the live registry during Continuous Integration builds.
+normal. Make sure to commit the resulting changes to `package.json` and
+`yarn.lock` so that Continuous Integration, which runs
+`yarn install --immutable`, resolves the same dependency versions.

@@ -54,8 +54,8 @@ TEMP_RELEASENOTES.md
 
 # Yarn
 # https://yarnpkg.com/getting-started/qa/#which-files-should-be-gitignored
+.pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases

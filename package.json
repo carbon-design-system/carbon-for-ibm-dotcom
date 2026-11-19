@@ -22,7 +22,7 @@
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:scripts:staged": "eslint",
     "lint:styles": "stylelint '**/*.{css,scss}'",
-    "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
+    "reset": "yarn clean && yarn install && yarn build",
     "test": "yarn test:unit && yarn test:a11y",
     "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
