@@ -25,7 +25,11 @@ module.exports = {
   // (they produce `Can't resolve '../src'`), so none are used.
   stories: process.env.STORYBOOK_STORIES
     ? [process.env.STORYBOOK_STORIES]
-    : ['../docs/*.mdx', '../src/**/*.stories.ts'],
+    : [
+        '../docs/*.mdx',
+        '../src/**/*.stories.ts',
+        '../src/globals/__stories__/*.stories.mdx',
+      ],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-links',

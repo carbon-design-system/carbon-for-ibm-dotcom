@@ -1,0 +1,65 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import '@carbon/web-components/es/components/tag/index.js';
+import { C4DTypeStyles, CarbonTypeStyles } from './type-styles';
+
+<Meta
+  title="Foundations/Type styles"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    docs: {
+      docsOnly: true,
+    },
+  }}
+/>
+
+# Carbon for IBM.com Type Styles
+
+Carbon for IBM.com builds upon Carbon's typography system by providing targeted
+customizations and brand-expressive additions optimized for digital marketing
+and editorial experiences on IBM.com.
+
+## Usage in Component Styles
+
+Import the type module wrapper from `@carbon/ibmdotcom-styles` instead of from
+`@carbon/styles`:
+
+```scss
+@use '@carbon/ibmdotcom-styles/scss/globals/type' as *;
+```
+
+Then apply styles using the `type-style` mixin:
+
+```scss
+// Fluid tokens (responsive scaling across breakpoints)
+.my-fluid-heading {
+  @include type-style('fluid-heading-05', true);
+}
+
+// Fixed tokens (non-responsive)
+.my-fixed-heading {
+  @include type-style('heading-04');
+}
+```
+
+## Available Type Styles
+
+### C4D tokens
+
+- <cds-tag type="purple">Custom</cds-tag> Core Carbon type tokens overridden
+  with custom font sizes, line heights, breakpoints, or weights for IBM.com.
+- <cds-tag type="green">Unique</cds-tag> Type tokens exclusive to
+  `@carbon/ibmdotcom-styles`.
+
+<Story name="C4D type styles">{C4DTypeStyles()}</Story>
+
+### Carbon tokens
+
+Core Carbon type tokens without any modifications.
+
+- [Documentation](https://www.carbondesignsystem.com/building-blocks/foundations/typography/type-sets)
+- [Preview](https://carbon-elements.netlify.app/type/examples/preview/)
+
+<Story name="Carbon type styles">{CarbonTypeStyles()}</Story>
