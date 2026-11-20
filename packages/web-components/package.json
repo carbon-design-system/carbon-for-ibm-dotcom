@@ -180,7 +180,7 @@
     "css-loader": "^5.2.0",
     "cssnano": "^5.0.0",
     "cy2": "^4.0.6",
-    "cypress": "~9.7.0",
+    "cypress": "14.5.4",
     "cypress-axe": "^0.14.0",
     "cypress-wait-until": "^1.7.2",
     "del": "^6.0.0",

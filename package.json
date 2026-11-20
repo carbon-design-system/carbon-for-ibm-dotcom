@@ -78,6 +78,11 @@
   "dependencies": {
     "@babel/runtime": "^7.16.3"
   },
+  "dependenciesMeta": {
+    "cypress": {
+      "built": true
+    }
+  },
   "resolutions": {
     "kind-of": ">=6.0.3",
     "marked": "^4.0.10",
