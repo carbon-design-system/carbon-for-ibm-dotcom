@@ -2421,7 +2421,7 @@ __metadata:
     cssnano: "npm:^5.0.0"
     cypress: "npm:14.5.4"
     cypress-axe: "npm:^1.7.0"
-    cypress-cloud: "patch:cypress-cloud@npm%3A1.13.1#~/.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch"
+    cypress-cloud: "npm:^1.13.1"
     cypress-wait-until: "npm:^1.7.2"
     del: "npm:^6.0.0"
     doctoc: "npm:^2.0.0"
@@ -13354,9 +13354,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-cloud@patch:cypress-cloud@npm%3A1.13.1#~/.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch":
+"cypress-cloud@patch:cypress-cloud@npm%3A1.13.1#./.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch::locator=carbon-for-ibm-dotcom%40workspace%3A.":
   version: 1.13.1
-  resolution: "cypress-cloud@patch:cypress-cloud@npm%3A1.13.1#~/.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch::version=1.13.1&hash=d183f2"
+  resolution: "cypress-cloud@patch:cypress-cloud@npm%3A1.13.1#./.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch::version=1.13.1&hash=d183f2&locator=carbon-for-ibm-dotcom%40workspace%3A."
   dependencies:
     "@currents/commit-info": "npm:1.0.1-beta.0"
     axios: "npm:^1.7.4"

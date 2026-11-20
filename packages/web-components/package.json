@@ -181,7 +181,7 @@
     "cssnano": "^5.0.0",
     "cypress": "14.5.4",
     "cypress-axe": "^1.7.0",
-    "cypress-cloud": "patch:cypress-cloud@npm%3A1.13.1#~/.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch",
+    "cypress-cloud": "^1.13.1",
     "cypress-wait-until": "^1.7.2",
     "del": "^6.0.0",
     "doctoc": "^2.0.0",

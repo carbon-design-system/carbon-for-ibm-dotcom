@@ -88,7 +88,8 @@
     "marked": "^4.0.10",
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1",
-    "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch"
+    "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch",
+    "cypress-cloud@^1.13.1": "patch:cypress-cloud@npm%3A1.13.1#./.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch"
   },
   "commitlint": {
     "extends": [
