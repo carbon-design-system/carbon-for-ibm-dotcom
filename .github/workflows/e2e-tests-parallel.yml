@@ -118,7 +118,7 @@ jobs:
           yarn test:e2e-storybook:test:parallel
         env:
           CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
-          CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
+          CURRENTS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
           CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
 
       - name: Create failure file if job failed

@@ -6,6 +6,7 @@
  */
 
 const { defineConfig } = require('cypress');
+const { cloudPlugin } = require('cypress-cloud/plugin');
 
 module.exports = defineConfig({
   projectId: 'carbon-for-ibmdotcom-wc',
@@ -27,8 +28,9 @@ module.exports = defineConfig({
     baseUrl: 'http://localhost:8081',
     specPattern: 'tests/e2e-storybook/cypress/integration/**/*.e2e.js',
     supportFile: 'tests/e2e-storybook/cypress/support/index.js',
-    setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config);
+    async setupNodeEvents(on, config) {
+      require('./cypress/plugins/index.js')(on, config);
+      return cloudPlugin(on, config);
     },
   },
 });
