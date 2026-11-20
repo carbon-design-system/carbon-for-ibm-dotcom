@@ -119,14 +119,14 @@ describe('c4d-leadspace | tall', () => {
     cy.get('c4d-button-group-item:nth-child(1) svg path').then(($icon) => {
       expect($icon).to.have.attr(
         'd',
-        'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+        'M11.8 2.8 10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
       );
     });
 
     cy.get('c4d-button-group-item:nth-child(2) svg path').then(($icon) => {
       expect($icon).to.have.attr(
         'd',
-        'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z'
+        'M24.59 16.59 17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z'
       );
     });
 
@@ -250,14 +250,14 @@ describe('c4d-leadspace | centered', () => {
     cy.get('c4d-button-group-item:nth-child(1) svg path').then(($icon) => {
       expect($icon).to.have.attr(
         'd',
-        'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+        'M11.8 2.8 10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
       );
     });
 
     cy.get('c4d-button-group-item:nth-child(2) svg path').then(($icon) => {
       expect($icon).to.have.attr(
         'd',
-        'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z'
+        'M24.59 16.59 17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z'
       );
     });
 
@@ -397,14 +397,14 @@ describe('c4d-leadspace | super', () => {
     cy.get('c4d-button-group-item:nth-child(1) svg path').then(($icon) => {
       expect($icon).to.have.attr(
         'd',
-        'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
+        'M11.8 2.8 10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
       );
     });
 
     cy.get('c4d-button-group-item:nth-child(2) svg path').then(($icon) => {
       expect($icon).to.have.attr(
         'd',
-        'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z'
+        'M24.59 16.59 17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z'
       );
     });
 
