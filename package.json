@@ -54,7 +54,7 @@
     "doctoc": "^2.0.0",
     "enzyme-to-json": "^3.3.5",
     "eslint": "^8.53.0",
-    "eslint-config-carbon": "^3.10.0",
+    "eslint-config-carbon": "~3.14.0",
     "eslint-plugin-lit": "^1.10.1",
     "gitignore-to-glob": "^0.3.0",
     "globby": "^10.0.0",
