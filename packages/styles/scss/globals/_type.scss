@@ -1,0 +1,152 @@
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// `@carbon/styles/scss/type` must load before `tokens` and `@carbon/type`.
+// `@carbon/styles` configures the grid module on its first load, and Sass
+// rejects a `with()` on a module that was already loaded.
+@use 'sass:map';
+@use '@carbon/styles/scss/type' as cds;
+@use '@carbon/type';
+@use '@carbon/grid/scss/config' as gridconfig;
+@use 'tokens' as c4d;
+
+// Drop-in replacement for `@carbon/styles/scss/type`. Everything CDS forwards
+// is available, except for `type-style`, `$tokens` and the customized
+// variables. Those are replaced by the C4D versions defined below.
+@forward '@carbon/styles/scss/type' hide type-style, $tokens, $heading-04,
+  $fluid-heading-03, $fluid-heading-04, $fluid-heading-05, $fluid-quotation-02;
+
+// NOTE: CDS `type-classes`, `default-type` and `emit-type-custom-properties`
+// are still forwarded and still read the CDS `$tokens`, not the C4D `$tokens`
+// below. No consumer in this repo uses them, and
+// `emit-type-custom-properties` only runs when `$css--emit-type-custom-props`
+// is true (default false).
+
+//-------------------------
+// Customized CDS tokens
+//-------------------------
+
+/// CDS `$productive-heading-04` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$heading-04: map.deep-merge(cds.$heading-04, c4d.$heading-04) !default;
+
+/// CDS `$expressive-heading-03` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-heading-03: map.deep-merge(
+  cds.$fluid-heading-03,
+  c4d.$fluid-heading-03
+) !default;
+
+/// CDS `$expressive-heading-04` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-heading-04: map.deep-merge(
+  cds.$fluid-heading-04,
+  c4d.$fluid-heading-04
+) !default;
+
+/// CDS `$expressive-heading-05` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-heading-05: map.deep-merge(
+  cds.$fluid-heading-05,
+  c4d.$fluid-heading-05
+) !default;
+
+/// CDS `$quotation-02` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-quotation-02: map.deep-merge(
+  cds.$fluid-quotation-02,
+  c4d.$fluid-quotation-02
+) !default;
+
+//-------------------------
+// C4D-only tokens
+//-------------------------
+
+/// C4D-only fluid body style
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-body-03: c4d.$fluid-body-03 !default;
+
+/// C4D-only fluid statistic style
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-statistic: c4d.$fluid-statistic !default;
+
+/// CDS `$heading-03` with a semibold font weight
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$heading-03-semibold: map.deep-merge(
+  cds.$heading-03,
+  c4d.$heading-03-semibold
+) !default;
+
+//-------------------------
+// Tokens map
+//-------------------------
+
+/// All CDS type tokens, with the customized entries replaced and the C4D-only
+/// entries added
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$tokens: map.merge(
+  cds.$tokens,
+  (
+    heading-04: $heading-04,
+    fluid-heading-03: $fluid-heading-03,
+    fluid-heading-04: $fluid-heading-04,
+    fluid-heading-05: $fluid-heading-05,
+    fluid-quotation-02: $fluid-quotation-02,
+    fluid-body-03: $fluid-body-03,
+    fluid-statistic: $fluid-statistic,
+    heading-03-semibold: $heading-03-semibold,
+  )
+) !default;
+
+//-------------------------
+// Mixin
+//-------------------------
+
+/// Mirrors CDS `type-style`, but reads the C4D `$tokens` map so that the
+/// customized and C4D-only tokens are available.
+/// @param {String} $name - The name of the token to get the styles for
+/// @param {Boolean} [$fluid: false] - Set to `true` to get fluid type styles
+///   for tokens that define `breakpoints`
+/// @param {Map} [$breakpoints: gridconfig.$grid-breakpoints] - Breakpoints
+///   used for fluid type styles
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+@mixin type-style(
+  $name,
+  $fluid: false,
+  $breakpoints: gridconfig.$grid-breakpoints
+) {
+  @if not map.has-key($tokens, $name) {
+    @error 'Unable to find a token with the name: `#{$name}`';
+  }
+
+  $token: map.get($tokens, $name);
+
+  @if $fluid == true and map.has-key($token, 'breakpoints') {
+    @include type.fluid-type($token, $breakpoints);
+  } @else {
+    @include type.custom-properties($name, $token);
+  }
+}
