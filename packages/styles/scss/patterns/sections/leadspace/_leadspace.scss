@@ -125,7 +125,7 @@ $btn-min-width: 26;
     .#{$c4d-prefix}--leadspace__title {
       margin-block-end: $spacing-09;
       padding-block-start: 0;
-      @include type-style(display-01, true);
+      @include type-style(fluid-display-01, true);
     }
 
     &__title {

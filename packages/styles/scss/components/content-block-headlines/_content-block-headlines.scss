@@ -112,7 +112,7 @@
 
     :host(#{$c4d-prefix}-content-block-headlines-heading),
     .#{$prefix}--content-block-headlines__heading {
-      @include type-style('display-02', true);
+      @include type-style('fluid-display-02', true);
     }
 
     .#{$prefix}--content-block-headlines__cta-container {

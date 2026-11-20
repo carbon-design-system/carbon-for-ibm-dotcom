@@ -94,7 +94,7 @@
       }
 
       h4 {
-        @include type-style('display-02', true);
+        @include type-style('fluid-display-02', true);
       }
 
       .#{$prefix}--link {

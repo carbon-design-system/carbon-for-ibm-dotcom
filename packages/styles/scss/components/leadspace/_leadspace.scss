@@ -515,7 +515,7 @@ $btn-min-width: 26;
   }
 
   :host(#{$c4d-prefix}-leadspace-heading[type-style='display-01']) {
-    @include type-style(display-01, true);
+    @include type-style(fluid-display-01, true);
   }
 
   :host(#{$c4d-prefix}-leadspace)[size='super'] {

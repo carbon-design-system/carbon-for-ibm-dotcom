@@ -774,7 +774,7 @@ $pos-btn-bottom: calc(
   }
 
   [part='link-heading'] {
-    @include type-style('expressive-heading-01');
+    @include type-style('heading-01');
 
     svg {
       margin-inline-start: $spacing-03;
