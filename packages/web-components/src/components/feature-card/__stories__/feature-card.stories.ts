@@ -43,8 +43,7 @@ export const Medium = (args) => {
         href=${ifDefined(href || undefined)}
         color-scheme=${colorSchemeMap[colorScheme]}
         cta-type=${ctaType}
-        ?disable-image-zoom=${disableImageZoom}
-      >
+        ?disable-image-zoom=${disableImageZoom}>
         <c4d-image slot="image" alt="Image alt text" default-src="${imgMax1x1}">
           <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg1x1}">
           </c4d-image-item>
@@ -88,8 +87,7 @@ export const Large = (args) => {
         href=${ifDefined(href || undefined)}
         color-scheme=${colorSchemeMap[colorScheme]}
         cta-type=${ctaType}
-        ?disable-image-zoom=${disableImageZoom}
-      >
+        ?disable-image-zoom=${disableImageZoom}>
         <c4d-image slot="image" default-src="${ifDefined(imgLg1x1)}">
           <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg1x1}">
           </c4d-image-item>

@@ -47,12 +47,12 @@ Longer-running work that was spun off as separate, focused plans. Each is
 self-contained and can be picked up independently once the main migration is
 complete.
 
-| Plan | Purpose | Status |
-| ---- | ------- | ------ |
-| [fix-components-plan.md](plans/fix-components-plan.md) | Fix component rendering issues after the Lit v3 / CWC v3 upgrade — aligns the compile pipeline so TypeScript (not Babel) owns decorator semantics | ✅ Complete |
-| [build-toolchain-tsdown-plan.md](plans/build-toolchain-tsdown-plan.md) | Replace the Gulp / Rollup / Babel build pipeline with `tsdown` (TypeScript-native bundler, matching CWC v3) | 🔲 Stub — sub-tasks to be filled |
-| [storybook-upgrade-plan.md](plans/storybook-upgrade-plan.md) | Upgrade Storybook 6.5 → Storybook 10 + Vite (matching CWC v3 setup) | 🔲 Stub — sub-tasks to be filled |
-| [test-runner-web-test-runner-plan.md](plans/test-runner-web-test-runner-plan.md) | Replace Karma + webpack 4 with `web-test-runner` for real-browser unit tests | 🔲 Stub — sub-tasks to be filled |
+| Plan                                                                             | Purpose                                                                                                                                           | Status                           |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| [fix-components-plan.md](plans/fix-components-plan.md)                           | Fix component rendering issues after the Lit v3 / CWC v3 upgrade — aligns the compile pipeline so TypeScript (not Babel) owns decorator semantics | ✅ Complete                      |
+| [build-toolchain-tsdown-plan.md](plans/build-toolchain-tsdown-plan.md)           | Replace the Gulp / Rollup / Babel build pipeline with `tsdown` (TypeScript-native bundler, matching CWC v3)                                       | 🔲 Stub — sub-tasks to be filled |
+| [storybook-upgrade-plan.md](plans/storybook-upgrade-plan.md)                     | Upgrade Storybook 6.5 → Storybook 10 + Vite (matching CWC v3 setup)                                                                               | 🔲 Stub — sub-tasks to be filled |
+| [test-runner-web-test-runner-plan.md](plans/test-runner-web-test-runner-plan.md) | Replace Karma + webpack 4 with `web-test-runner` for real-browser unit tests                                                                      | 🔲 Stub — sub-tasks to be filled |
 
 ---
 

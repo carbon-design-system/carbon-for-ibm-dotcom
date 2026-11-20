@@ -42,8 +42,7 @@ const Card = ({
   <c4d-card
     href="${ifDefined(href)}"
     cta-type="local"
-    ?disable-image-zoom=${disableImageZoom}
-  >
+    ?disable-image-zoom=${disableImageZoom}>
     <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
@@ -51,8 +50,7 @@ const Card = ({
           <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"
-          ></c4d-image>
+            default-src="${image}"></c4d-image>
         `
       : null}
     <c4d-card-footer></c4d-card-footer>
@@ -69,8 +67,7 @@ const CardWithLongHeading = ({
   <c4d-card
     href="${ifDefined(href)}"
     cta-type="local"
-    ?disable-image-zoom=${disableImageZoom}
-  >
+    ?disable-image-zoom=${disableImageZoom}>
     <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
@@ -78,8 +75,7 @@ const CardWithLongHeading = ({
           <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"
-          ></c4d-image>
+            default-src="${image}"></c4d-image>
         `
       : null}
     <c4d-card-footer></c4d-card-footer>
