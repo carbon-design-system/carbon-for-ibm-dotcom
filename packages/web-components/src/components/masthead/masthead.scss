@@ -481,7 +481,7 @@ $pos-btn-bottom: calc(
       content: none;
     }
 
-    @include type-style(heading-02, true);
+    @include type-style(heading-02);
   }
 }
 
@@ -860,7 +860,7 @@ $pos-btn-bottom: calc(
   h4,
   h5,
   h6 {
-    @include type-style(heading-05, true);
+    @include type-style(heading-05);
 
     svg {
       inset-block-start: $spacing-03;
@@ -876,7 +876,7 @@ $pos-btn-bottom: calc(
   h4,
   h5,
   h6 {
-    @include type-style(heading-03, true);
+    @include type-style(heading-03);
 
     svg {
       inset-block-start: $spacing-02;
@@ -894,7 +894,7 @@ $pos-btn-bottom: calc(
   h4,
   h5,
   h6 {
-    @include type-style('productive-heading-05', true);
+    @include type-style('productive-heading-05');
 
     color: $text-primary;
     padding-block-start: 0.5rem;

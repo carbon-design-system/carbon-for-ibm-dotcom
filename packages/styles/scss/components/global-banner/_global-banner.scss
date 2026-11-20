@@ -215,7 +215,7 @@
   }
 
   :host(#{$c4d-prefix}-global-banner-heading) {
-    @include type-style('heading-02', true);
+    @include type-style('heading-02');
 
     display: block;
     color: $text-primary;
@@ -235,7 +235,7 @@
   }
 
   :host(#{$c4d-prefix}-global-banner-copy) {
-    @include type-style('body-compact-02', true);
+    @include type-style('body-compact-02');
 
     display: block;
     color: $text-primary;

@@ -503,7 +503,7 @@
     .#{$prefix}--link-with-icon,
     ::slotted(span),
     span {
-      @include type-style(heading-03, true);
+      @include type-style(heading-03);
 
       color: $text-secondary;
       text-decoration: none;

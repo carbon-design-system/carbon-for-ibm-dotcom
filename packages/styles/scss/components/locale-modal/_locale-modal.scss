@@ -83,7 +83,7 @@
         }
       }
 
-      @include type-style(body-compact-02, true);
+      @include type-style(body-compact-02);
     }
 
     .#{$c4d-prefix}--locale-modal__locales.#{$c4d-prefix}--locale-modal__locales-hidden {

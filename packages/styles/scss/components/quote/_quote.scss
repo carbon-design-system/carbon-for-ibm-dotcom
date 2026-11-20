@@ -117,17 +117,17 @@
 
   :host(#{$c4d-prefix}-quote-source-heading) {
     padding-inline-start: $spacing-05;
-    @include type-style(heading-02, true);
+    @include type-style(heading-02);
   }
 
   :host(#{$c4d-prefix}-quote-source-copy) {
     padding-inline-start: $spacing-05;
-    @include type-style(body-02, true);
+    @include type-style(body-02);
   }
 
   :host(#{$c4d-prefix}-quote-source-bottom-copy) {
     padding-inline-start: $spacing-05;
-    @include type-style(body-02, true);
+    @include type-style(body-02);
   }
 
   .#{$prefix}--quote__mark-closing {

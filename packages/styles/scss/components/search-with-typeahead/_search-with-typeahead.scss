@@ -594,7 +594,7 @@
   }
 
   &[groupTitle] {
-    @include type-style('body-01', true);
+    @include type-style('body-01');
 
     color: $text-helper;
 

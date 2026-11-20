@@ -114,7 +114,7 @@
 }
 
 :host(#{$c4d-prefix}-cta-section-item-heading) {
-  @include type-style('heading-02', true);
+  @include type-style('heading-02');
 
   display: block;
   inline-size: 100%;
