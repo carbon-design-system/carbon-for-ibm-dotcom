@@ -2421,7 +2421,7 @@ __metadata:
     cssnano: "npm:^5.0.0"
     cy2: "npm:^4.0.6"
     cypress: "npm:14.5.4"
-    cypress-axe: "npm:^0.14.0"
+    cypress-axe: "npm:^1.7.0"
     cypress-wait-until: "npm:^1.7.2"
     del: "npm:^6.0.0"
     doctoc: "npm:^2.0.0"
@@ -13281,13 +13281,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-axe@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "cypress-axe@npm:0.14.0"
+"cypress-axe@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "cypress-axe@npm:1.7.0"
   peerDependencies:
     axe-core: ^3 || ^4
-    cypress: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
-  checksum: 10/f49b358b21dc1d5ece920e00a445c03d6d38a2f33dbeacc63817036f854eceddabe7418ad80c062caa79c4b23eb4ad55285142e375b2d6d72e9933d264cec0a2
+    cypress: ^10 || ^11 || ^12 || ^13 || ^14 || ^15
+  checksum: 10/f37620c4c17b315d8ec34e1a51d798b91739ecbd868ac7ee1dc1f47bc7e7412d0e0ad942e13e2e25d397f2d4aa487ce485a86d4aa66fc022bf7d1239576f42a1
   languageName: node
   linkType: hard
 

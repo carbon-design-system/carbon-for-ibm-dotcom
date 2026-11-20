@@ -1,11 +1,24 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import 'cypress-wait-until';
+
+/**
+ * Injects axe-core into the page. Overrides cypress-axe's `injectAxe`, which
+ * resolves axe-core inside the Cypress webpack bundle and can't find it in this
+ * monorepo's hoisted `node_modules`.
+ */
+Cypress.Commands.overwrite('injectAxe', () => {
+  cy.task('axeSource', null, { log: false }).then(source =>
+    cy.window({ log: false }).then(win => {
+      win.eval(source);
+    })
+  );
+});
 
 /**
  * Takes Cypress and Percy snapshots
