@@ -73,7 +73,7 @@
     "rimraf": "^3.0.0",
     "sass": "^1.19.0",
     "stylelint": "^15.11.0",
-    "stylelint-config-carbon": "^1.16.0",
+    "stylelint-config-carbon": "~1.17.1",
     "through2": "^3.0.0"
   },
   "dependencies": {
