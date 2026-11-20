@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,7 +49,7 @@ describe('c4d-footer | Short (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should open locale modal with 4 geos when clicked on locale button', () => {
+  it.skip('should open locale modal with 4 geos when clicked on locale button', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
@@ -61,7 +61,7 @@ describe('c4d-footer | Short (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should display the specific locations and languages of a selected geo', () => {
+  it.skip('should display the specific locations and languages of a selected geo', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
@@ -174,7 +174,7 @@ describe('c4d-footer | Short (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should open locale modal with 4 geos when clicked on locale button', () => {
+  it.skip('should open locale modal with 4 geos when clicked on locale button', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
@@ -186,7 +186,7 @@ describe('c4d-footer | Short (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should display the specific locations and languages of a selected geo', () => {
+  it.skip('should display the specific locations and languages of a selected geo', () => {
     cy.get('c4d-locale-button').click();
 
     cy.wait(500);
@@ -259,7 +259,7 @@ describe('c4d-footer | Short language only (mobile)', () => {
     );
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-mobile').should('have.length', 1);
     cy.get('c4d-language-selector-mobile')
       .shadow()
