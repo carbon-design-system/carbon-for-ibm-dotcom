@@ -92,6 +92,7 @@ const _tests = {
     });
   },
   checkHoverStyles: () => {
+    cy.visit(`/${_paths.default}`);
     cy.get('c4d-card-link-cta').then(([card]) => {
       const sheets = card.shadowRoot.adoptedStylesheets;
 
