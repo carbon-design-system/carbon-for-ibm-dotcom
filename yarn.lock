@@ -11144,6 +11144,7 @@ __metadata:
     "@babel/plugin-transform-export-namespace-from": "npm:~7.27.0"
     "@babel/plugin-transform-nullish-coalescing-operator": "npm:~7.28.0"
     "@babel/plugin-transform-optional-chaining": "npm:~7.28.0"
+    "@babel/plugin-transform-react-constant-elements": "npm:^7.27.1"
     "@babel/plugin-transform-runtime": "npm:7.28.5"
     "@babel/preset-env": "npm:~7.28.0"
     "@babel/preset-react": "npm:~7.28.0"
