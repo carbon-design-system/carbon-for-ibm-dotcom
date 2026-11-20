@@ -7,7 +7,7 @@
 
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;

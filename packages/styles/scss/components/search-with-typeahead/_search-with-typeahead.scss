@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';

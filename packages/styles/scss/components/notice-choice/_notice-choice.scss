@@ -9,6 +9,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/convert';
+@use '../../globals/type' as *;
 @use '@carbon/type';
 
 @include type.reset();
@@ -20,7 +21,7 @@
     p,
     .#{$prefix}--checkbox-group {
       margin-block-end: $spacing-06;
-      @include type.type-style('legal-02');
+      @include type-style('legal-02');
     }
 
     a {
