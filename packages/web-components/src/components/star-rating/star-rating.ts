@@ -1,19 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
-import '@carbon/web-components/es/components/tooltip/tooltip.js';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
-import Star16 from '@carbon/web-components/es/icons/star/16.js';
-import StarHalf16 from '@carbon/web-components/es/icons/star--half/16.js';
-import StarFilled16 from '@carbon/web-components/es/icons/star--filled/16.js';
+import { customElement, property } from 'lit/decorators.js';
+import '@carbon/web-components/es/components/tooltip/index.js';
+import Star16 from '@carbon/icons/es/star/16.js';
+import StarHalf16 from '@carbon/icons/es/star--half/16.js';
+import StarFilled16 from '@carbon/icons/es/star--filled/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import styles from './star-rating.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -51,10 +51,8 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'rating', reflect: true, type: Number })
   set rating(value: number) {
-    const oldValue = this._rating;
     // Place boundaries to avoid out-of-memory issues.
     this._rating = Math.min(Math.max(value, 0), this.starCount);
-    this.requestUpdate('rating', oldValue);
   }
   get rating() {
     return this._rating;
@@ -77,10 +75,8 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'star-count', reflect: true, type: Number })
   set starCount(value: number) {
-    const oldValue = this._starCount;
     // Place boundaries to avoid out-of-memory issues.
     this._starCount = Math.min(Math.max(value, 0), this.maxStarCount);
-    this.requestUpdate('starCount', oldValue);
   }
   get starCount() {
     return this._starCount;
@@ -92,9 +88,7 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'tooltip', reflect: true })
   set tooltip(value: string | null) {
-    const oldValue = this._tooltip;
     this._tooltip = value;
-    this.requestUpdate('tooltip', oldValue);
   }
   get tooltip() {
     return !this._tooltip
@@ -179,13 +173,13 @@ class C4DStarRating extends StableSelectorMixin(LitElement) {
   static renderStar(fill) {
     let markup, classModifier;
     if (fill >= 0.75) {
-      markup = StarFilled16();
+      markup = iconLoader(StarFilled16);
       classModifier = 'filled';
     } else if (fill >= 0.25) {
-      markup = html` ${Star16()}${StarHalf16()} `;
+      markup = html` ${iconLoader(Star16)}${iconLoader(StarHalf16)} `;
       classModifier = 'half';
     } else {
-      markup = Star16();
+      markup = iconLoader(Star16);
       classModifier = 'empty';
     }
     return html`

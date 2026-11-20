@@ -10,8 +10,9 @@ import { LitElement, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { slow01 } from '@carbon/motion';
 import { classMap } from 'lit/directives/class-map.js';
-import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
-import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
+import CaretLeft20 from '@carbon/icons/es/caret--left/20.js';
+import CaretRight20 from '@carbon/icons/es/caret--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
@@ -794,7 +795,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                   @click="${handleClickPrevButton}"
                   aria-label="${prevButtonText || defaultPrevButtonText}"
                   title="${prevButtonText || defaultPrevButtonText}">
-                  ${CaretLeft20()}
+                  ${iconLoader(CaretLeft20)}
                 </button>
 
                 <span
@@ -811,7 +812,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
                   @click="${handleClickNextButton}"
                   aria-label="${nextButtonText || defaultNextButtonText}"
                   title="${nextButtonText || defaultNextButtonText}">
-                  ${CaretRight20()}
+                  ${iconLoader(CaretRight20)}
                 </button>
               </nav>
             `

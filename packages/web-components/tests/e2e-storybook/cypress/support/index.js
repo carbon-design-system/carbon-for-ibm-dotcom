@@ -7,6 +7,7 @@
 
 import '@percy/cypress';
 import 'cypress-axe';
+import 'cypress-cloud/support';
 import './commands';
 
 beforeEach(() => {

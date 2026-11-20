@@ -1,22 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './global-banner.scss';
 import StickyHeader from '@carbon/ibmdotcom-utilities/es/utilities/StickyHeader/StickyHeader.js';
 import C4DButton from '../button/button';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -158,7 +158,9 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
   }
 
   _renderIcon() {
-    return html` ${ctaIcons[this.ctaType]()} `;
+    const { ctaType } = this;
+    const icon = ctaIcons[`${ctaType}-${document.dir}`] ?? ctaIcons[ctaType];
+    return html` ${iconLoader(icon)} `;
   }
 
   _renderInnerContents() {

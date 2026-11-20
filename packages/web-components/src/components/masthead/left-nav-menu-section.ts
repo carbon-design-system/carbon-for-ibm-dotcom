@@ -1,23 +1,23 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import ChevronLeft16 from '@carbon/web-components/es/icons/chevron--left/16.js';
+import ChevronLeft16 from '@carbon/icons/es/chevron--left/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './masthead.scss';
 import C4DLeftNav from './left-nav';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -241,7 +241,7 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
                   <span
                     part="menu-link-text back-button-text"
                     class="${prefix}--side-nav__link-text"
-                    >${ChevronLeft16()}${backButtonText}</span
+                    >${iconLoader(ChevronLeft16)}${backButtonText}</span
                   >
                 </button>
               </li>

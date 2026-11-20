@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -54,9 +54,7 @@ export const FadeOnce = () => {
   `;
 };
 
-FadeOnce.story = {
-  name: 'Fade once',
-};
+FadeOnce.storyName = 'Fade once';
 
 export const FadeWithContinuousAnimations = () => {
   return html`
@@ -73,9 +71,7 @@ export const FadeWithContinuousAnimations = () => {
   `;
 };
 
-FadeWithContinuousAnimations.story = {
-  name: 'Fade with continuous animations',
-};
+FadeWithContinuousAnimations.storyName = 'Fade with continuous animations';
 
 export const SlideUp = () => {
   return html`
@@ -92,9 +88,7 @@ export const SlideUp = () => {
   `;
 };
 
-SlideUp.story = {
-  name: 'Slide up',
-};
+SlideUp.storyName = 'Slide up';
 
 export const SlideUpRight = () => {
   return html`
@@ -111,9 +105,7 @@ export const SlideUpRight = () => {
   `;
 };
 
-SlideUpRight.story = {
-  name: 'Slide up right',
-};
+SlideUpRight.storyName = 'Slide up right';
 
 export const SlideRight = () => {
   return html`
@@ -130,9 +122,7 @@ export const SlideRight = () => {
   `;
 };
 
-SlideRight.story = {
-  name: 'Slide right',
-};
+SlideRight.storyName = 'Slide right';
 
 export const SlideDownRight = () => {
   return html`
@@ -149,9 +139,7 @@ export const SlideDownRight = () => {
   `;
 };
 
-SlideDownRight.story = {
-  name: 'Slide down right',
-};
+SlideDownRight.storyName = 'Slide down right';
 
 export const SlideDown = () => {
   return html`
@@ -168,9 +156,7 @@ export const SlideDown = () => {
   `;
 };
 
-SlideDown.story = {
-  name: 'Slide down',
-};
+SlideDown.storyName = 'Slide down';
 
 export const SlideDownLeft = () => {
   return html`
@@ -187,9 +173,7 @@ export const SlideDownLeft = () => {
   `;
 };
 
-SlideDownLeft.story = {
-  name: 'Slide down left',
-};
+SlideDownLeft.storyName = 'Slide down left';
 
 export const SlideLeft = () => {
   return html`
@@ -206,9 +190,7 @@ export const SlideLeft = () => {
   `;
 };
 
-SlideLeft.story = {
-  name: 'Slide left',
-};
+SlideLeft.storyName = 'Slide left';
 
 export const SlideUpLeft = () => {
   return html`
@@ -225,9 +207,7 @@ export const SlideUpLeft = () => {
   `;
 };
 
-SlideUpLeft.story = {
-  name: 'Slide up left',
-};
+SlideUpLeft.storyName = 'Slide up left';
 
 export default {
   title: 'Components/Scroll animations',

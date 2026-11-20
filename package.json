@@ -22,7 +22,7 @@
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:scripts:staged": "eslint",
     "lint:styles": "stylelint '**/*.{css,scss}'",
-    "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
+    "reset": "yarn clean && yarn install && yarn build",
     "test": "yarn test:unit && yarn test:a11y",
     "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
@@ -39,6 +39,7 @@
     "@babel/plugin-transform-export-namespace-from": "~7.27.0",
     "@babel/plugin-transform-nullish-coalescing-operator": "~7.28.0",
     "@babel/plugin-transform-optional-chaining": "~7.28.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.27.1",
     "@babel/plugin-transform-runtime": "7.28.5",
     "@babel/preset-env": "~7.28.0",
     "@babel/preset-react": "~7.28.0",
@@ -54,7 +55,7 @@
     "doctoc": "^2.0.0",
     "enzyme-to-json": "^3.3.5",
     "eslint": "^8.53.0",
-    "eslint-config-carbon": "^3.10.0",
+    "eslint-config-carbon": "~3.14.0",
     "eslint-plugin-lit": "^1.10.1",
     "gitignore-to-glob": "^0.3.0",
     "globby": "^10.0.0",
@@ -72,18 +73,25 @@
     "rimraf": "^3.0.0",
     "sass": "^1.19.0",
     "stylelint": "^15.11.0",
-    "stylelint-config-carbon": "^1.16.0",
+    "stylelint-config-carbon": "~1.17.1",
     "through2": "^3.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.3"
   },
+  "dependenciesMeta": {
+    "cypress": {
+      "built": true
+    }
+  },
   "resolutions": {
     "kind-of": ">=6.0.3",
+    "cheerio": "1.0.0-rc.12",
     "marked": "^4.0.10",
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1",
-    "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch"
+    "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch",
+    "cypress-cloud@^1.13.1": "patch:cypress-cloud@npm%3A1.13.1#./.yarn/patches/cypress-cloud-npm-1.13.1-fe1515fd8d.patch"
   },
   "commitlint": {
     "extends": [

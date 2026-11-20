@@ -8,7 +8,11 @@
 - [Setting the `<html dir>` attribute](#setting-the-html-dir-attribute)
 - [Enabling RTLCSS](#enabling-rtlcss)
   - [Webpack](#webpack)
+    - [Install `rtlcss`](#install-rtlcss)
+    - [Add `rtlcss` to webpack config](#add-rtlcss-to-webpack-config)
   - [Gulp](#gulp)
+    - [Install `gulp-rtlcss`](#install-gulp-rtlcss)
+    - [Add `rtlcss` to gulp config](#add-rtlcss-to-gulp-config)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->

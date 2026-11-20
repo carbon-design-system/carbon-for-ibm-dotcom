@@ -1,10 +1,11 @@
 //
-// Copyright IBM Corp. 2024
+// Copyright IBM Corp. 2024, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
+@use 'sass:math';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/utilities' as *;
@@ -30,12 +31,16 @@ $max-breakpoint-width: map-get(map-get($grid-breakpoints, max), width);
 // breakpoint-between mixin works. Note that this approach my not work
 // cleanly for the narrow or condensed grid due to the necessary assumptions
 // made for padding widths.
-$lg-12-column-lower-bound: (($lg-breakpoint-width - 2rem) * (12 / 16)) - 2rem;
-$lg-12-column-upper-bound: (($xlg-breakpoint-width - 0.02 - 2rem) * (12 / 16)) -
+$lg-12-column-lower-bound: (($lg-breakpoint-width - 2rem) * math.div(12, 16)) -
   2rem;
-$xlg-12-column-lower-bound: (($xlg-breakpoint-width - 2rem) * (12 / 16)) - 2rem;
-$xlg-12-column-upper-bound: (($max-breakpoint-width - 0.02 - 2rem) * (12 / 16)) -
+$lg-12-column-upper-bound: (
+    ($xlg-breakpoint-width - 0.02 - 2rem) * math.div(12, 16)
+  ) - 2rem;
+$xlg-12-column-lower-bound: (($xlg-breakpoint-width - 2rem) * math.div(12, 16)) -
   2rem;
+$xlg-12-column-upper-bound: (
+    ($max-breakpoint-width - 0.02 - 2rem) * math.div(12, 16)
+  ) - 2rem;
 
 :host(#{$c4d-prefix}-tile) {
   .#{$c4d-prefix}-tile {

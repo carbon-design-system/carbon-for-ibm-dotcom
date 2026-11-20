@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,8 @@ import '../../card-link/card-link-heading';
 import '../../card/card-footer';
 import { boolean, text, select } from '@storybook/addon-knobs';
 import { html } from 'lit';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import logos from './data/logos.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -51,7 +52,7 @@ export const Default = (args) => {
             <c4d-logo-grid-link href="${ctaHref}">
               <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
               <c4d-card-footer>
-                ${ArrowRight20({ slot: 'icon' })}
+                ${iconLoader(ArrowRight20, { slot: 'icon' })}
               </c4d-card-footer>
             </c4d-logo-grid-link>
           `

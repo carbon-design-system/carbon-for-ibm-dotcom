@@ -1,9 +1,11 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+const fs = require('fs');
 
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
@@ -17,6 +19,10 @@ module.exports = (on, config) => {
     }
   });
   on('task', {
+    // Reads axe-core from Node, where module resolution works in this monorepo
+    axeSource() {
+      return fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
+    },
     log(message) {
       console.log(message);
       return null;

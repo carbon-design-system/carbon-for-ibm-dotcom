@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="cds--link"
+  class="cds--link cds--link--md"
   id="link"
   part="link"
   tabindex="0"

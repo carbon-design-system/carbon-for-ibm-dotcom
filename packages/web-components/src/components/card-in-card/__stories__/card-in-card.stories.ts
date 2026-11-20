@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,8 @@ import '../../video-player/video-player-container';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 
 import imgXlg16x9 from '../../../../.storybook/storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
 import imgMd16x9 from '../../../../.storybook/storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
@@ -65,35 +66,33 @@ export const Default = (args) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    knobs: {
-      'c4d-card-in-card': () => {
-        const video = boolean('video', false);
-        const alt = video
-          ? undefined
-          : textNullable('Image alt text (alt):', 'Image alt text');
-        const defaultSrc = video
-          ? undefined
-          : textNullable('Image src (defaultSrc):', imgSm4x3);
-        const heading = video
-          ? undefined
-          : textNullable(
-              'Card Heading (heading):',
-              'Standard Bank Group prepares to embrace Africa’s AI opportunity'
-            );
-        const href = video
-          ? undefined
-          : textNullable('Card Href (href):', 'https://example.com');
-        return {
-          video,
-          alt,
-          defaultSrc,
-          heading,
-          href,
-          eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
-        };
-      },
+Default.parameters = {
+  knobs: {
+    'c4d-card-in-card': () => {
+      const video = boolean('video', false);
+      const alt = video
+        ? undefined
+        : textNullable('Image alt text (alt):', 'Image alt text');
+      const defaultSrc = video
+        ? undefined
+        : textNullable('Image src (defaultSrc):', imgSm4x3);
+      const heading = video
+        ? undefined
+        : textNullable(
+            'Card Heading (heading):',
+            'Standard Bank Group prepares to embrace Africa’s AI opportunity'
+          );
+      const href = video
+        ? undefined
+        : textNullable('Card Href (href):', 'https://example.com');
+      return {
+        video,
+        alt,
+        defaultSrc,
+        heading,
+        href,
+        eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
+      };
     },
   },
 };
@@ -110,7 +109,8 @@ export const WithCarouselVideo = (args) => {
           >Putting innovation in the driver's seat</c4d-card-heading
         >
         <c4d-card-cta-footer
-          >Link ${ArrowRight20({ slot: 'icon' })}</c4d-card-cta-footer
+          >Link
+          ${iconLoader(ArrowRight20, { slot: 'icon' })}</c4d-card-cta-footer
         >
         <c4d-video-player-container
           slot="image"
@@ -129,7 +129,8 @@ export const WithCarouselVideo = (args) => {
           >Putting innovation in the driver's seat</c4d-card-heading
         >
         <c4d-card-cta-footer
-          >Link ${ArrowRight20({ slot: 'icon' })}</c4d-card-cta-footer
+          >Link
+          ${iconLoader(ArrowRight20, { slot: 'icon' })}</c4d-card-cta-footer
         >
         <c4d-video-player-container
           slot="image"
@@ -145,22 +146,20 @@ export const WithCarouselVideo = (args) => {
   `;
 };
 
-WithCarouselVideo.story = {
-  name: 'With carousel video',
-  parameters: {
-    knobs: {
-      WithCarouselVideo: () => {
-        return {
-          video: null,
-          videoId: text('Video id (videoId):', '0_ibuqxqbe'),
-          thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          buttonPosition: select(
-            'Button position (buttonPosition)',
-            enumValsToArray(BUTTON_POSITION),
-            BUTTON_POSITION.BOTTOM_LEFT
-          ),
-        };
-      },
+WithCarouselVideo.storyName = 'With carousel video';
+WithCarouselVideo.parameters = {
+  knobs: {
+    WithCarouselVideo: () => {
+      return {
+        video: null,
+        videoId: text('Video id (videoId):', '0_ibuqxqbe'),
+        thumbnail: text('Custom thumbnail (thumbnail):', ''),
+        buttonPosition: select(
+          'Button position (buttonPosition)',
+          enumValsToArray(BUTTON_POSITION),
+          BUTTON_POSITION.BOTTOM_LEFT
+        ),
+      };
     },
   },
 };

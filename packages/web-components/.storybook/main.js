@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,13 @@ const { getPaths } = deepReplace;
 const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
 
 module.exports = {
-  stories: ['../docs/*.mdx', '../src/**/*.stories.ts'],
+  // React stories (`*.stories.react.tsx` / `*.stories.react.mdx`) are not
+  // matched by these globs, so they stay out of the build until step 13.
+  // Note: Storybook 6.5 (webpack 4) does not support `!` negated globs here
+  // (they produce `Can't resolve '../src'`), so none are used.
+  stories: process.env.STORYBOOK_STORIES
+    ? [process.env.STORYBOOK_STORIES]
+    : ['../docs/*.mdx', '../src/**/*.stories.ts'],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-links',
@@ -49,7 +55,7 @@ module.exports = {
     );
     return config;
   },
-  webpackFinal(config, mode) {
+  webpackFinal(config, options) {
     config.devtool = useStyleSourceMap ? 'source-map' : '';
 
     config.optimization = {
@@ -59,15 +65,20 @@ module.exports = {
         minSize: 30 * 1024,
         maxSize: 1024 * 1024,
       },
-      minimizer: [
-        new TerserPlugin({
-          minify: TerserPlugin.esbuildMinify,
-          sourceMap: useStyleSourceMap,
-          terserOptions: {
-            minify: true,
-          },
-        }),
-      ],
+      // Only minify in production. Running TerserPlugin/esbuild in dev mode
+      // mangles Lit 3 internal names (e.g. reactive-property descriptors),
+      // causing "ReferenceError: k is not defined" in the browser.
+      ...(options?.configType === 'PRODUCTION' && {
+        minimizer: [
+          new TerserPlugin({
+            minify: TerserPlugin.esbuildMinify,
+            sourceMap: useStyleSourceMap,
+            terserOptions: {
+              minify: true,
+            },
+          }),
+        ],
+      }),
     };
 
     // Uses our own option for `@babel/preset-env`
@@ -85,31 +96,54 @@ module.exports = {
         },
       ]
     );
-    // Uses `@babel/plugin-proposal-decorators` configuration in our `.babelrc`
-    config.module.rules = deepReplace(
-      config.module.rules,
-      (value, key, parent, parents) =>
-        getPaths(parents) === 'use.options.plugins' &&
-        Array.isArray(value) &&
-        /@babel\/plugin-proposal-decorators/i.test(value[0]),
-      () => deepReplace.DELETE
+    // TEMP(fix-components): Storybook 6.5 / @storybook/builder-webpack4 injects a
+    // babel-loader rule matching /\.(mjs|tsx?|jsx?)$/ that compiles .ts with Babel
+    // legacy decorators (→ _initializerDefineProperty, own-property shadowing of Lit
+    // accessors).  Replace that rule's .ts extension with ts-loader (transpileOnly) so
+    // TypeScript experimental-decorator semantics are used: __decorate on prototype +
+    // plain constructor assignments, matching CWC v3.  The babel-loader rule stays for
+    // .js/.jsx/.mjs (no change to non-TS handling).  The earlier deepReplace patching of
+    // the Babel decorator and `loose` options was removed because `loose` never fixed
+    // the shadowing and .ts no longer goes through babel-loader.
+    // Remove when storybook-upgrade-plan.md lands.
+    const babelTsRuleIndex = config.module.rules.findIndex(
+      (rule) =>
+        rule &&
+        rule.use &&
+        Array.isArray(rule.use) &&
+        rule.use.some((u) => /babel-loader/i.test(u.loader)) &&
+        rule.test instanceof RegExp &&
+        rule.test.test('file.ts')
     );
-    // Normalizes several plugins with `loose: false` option
-    config.module.rules = deepReplace(
-      config.module.rules,
-      (value, key, parent, parents) =>
-        getPaths(parents) === 'use.options.plugins' &&
-        Array.isArray(value) &&
-        value[1] &&
-        value[1].loose,
-      (value) => [
-        value[0],
-        {
-          ...value[1],
-          loose: false,
-        },
-      ]
-    );
+    if (babelTsRuleIndex >= 0) {
+      const existingRule = config.module.rules[babelTsRuleIndex];
+      // Keep the babel-loader entry but restrict it to .js/.jsx/.mjs only.
+      existingRule.test = /\.(mjs|jsx?)$/;
+      // Insert a new ts-loader rule before it for .ts/.tsx files.
+      config.module.rules.splice(babelTsRuleIndex, 0, {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: require.resolve('ts-loader'),
+            options: {
+              transpileOnly: true,
+              configFile: path.resolve(__dirname, '..', 'tsconfig.json'),
+              compilerOptions: {
+                // experimentalDecorators + useDefineForClassFields:false → Lit
+                // prototype accessors are NOT shadowed by own-property initialisers.
+                experimentalDecorators: true,
+                useDefineForClassFields: false,
+                // ESNext module format; webpack handles bundling.
+                module: 'esnext',
+                // Preserve JSX for the downstream babel preset-react rule on .tsx.
+                jsx: 'preserve',
+              },
+            },
+          },
+        ],
+      });
+    }
 
     // `@carbon/ibmdotcom-web-components` does not use `polymer-webpack-loader` as it does not use full-blown Polymer
     const htmlRuleIndex = config.module.rules.findIndex(
@@ -144,18 +178,75 @@ module.exports = {
       config.module.rules.splice(fileLoaderRuleIndex, 1);
     }
 
-    const babelLoaderRule = config.module.rules.find(
+    // @storybook/web-components injects a framework-preset rule
+    // (framework-preset-web-components.js) whose test array explicitly matches
+    // node_modules/lit-html and applies @babel/preset-env, which hoists Lit 3
+    // class declarations to var assignments and breaks the forward reference
+    // between class R and class k (ReferenceError: k is not defined).
+    // Remove that rule; our two explicit split rules below handle those packages.
+    const frameworkLitRuleIndex = config.module.rules.findIndex(
       (item) =>
-        item.use &&
-        item.use.some &&
-        item.use.some((use) => /babel-loader/i.test(use.loader))
+        Array.isArray(item.test) &&
+        item.test.some(
+          (t) => t instanceof RegExp && /lit-html/.test(t.toString())
+        )
     );
-    if (babelLoaderRule) {
-      config.module.rules.unshift({
-        use: babelLoaderRule.use,
-        include: [path.dirname(require.resolve('lit'))],
-      });
+    if (frameworkLitRuleIndex >= 0) {
+      config.module.rules.splice(frameworkLitRuleIndex, 1);
     }
+
+    // Two Babel rules for node_modules that ship modern syntax webpack 4
+    // cannot parse natively. Split by package to apply only the transforms
+    // each group actually needs. Remove both when webpack 5 is adopted.
+    //
+    // Rule A — CWC v3 (@carbon/*): class-static-block + class-properties (loose)
+    // to fully downlevel `static { this.is = "…" }` to a plain assignment.
+    // class-properties is safe here because CWC's compiled output doesn't have
+    // the forward-reference issue that Lit's compiled output has.
+    config.module.rules.unshift({
+      test: /\.js$/,
+      include: [/[\\/]node_modules[\\/]@carbon[\\/]/],
+      use: {
+        loader: require.resolve('babel-loader'),
+        options: {
+          sourceType: 'unambiguous',
+          plugins: [
+            '@babel/plugin-transform-class-static-block',
+            ['@babel/plugin-transform-class-properties', { loose: true }],
+            ['@babel/plugin-transform-private-methods', { loose: true }],
+            [
+              '@babel/plugin-transform-private-property-in-object',
+              { loose: true },
+            ],
+            '@babel/plugin-transform-logical-assignment-operators',
+            '@babel/plugin-transform-nullish-coalescing-operator',
+            '@babel/plugin-transform-optional-chaining',
+          ],
+        },
+      },
+    });
+    // Rule B — Lit 3 / @lit: already compiled ES2017, only needs operator
+    // transforms for webpack 4 compatibility. Must NOT apply class-property
+    // transforms — Lit's compiled output uses forward class references that
+    // break when Babel re-hoists them (causes ReferenceError: k is not defined).
+    config.module.rules.unshift({
+      test: /\.js$/,
+      include: [
+        path.dirname(require.resolve('lit')),
+        /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element)[\\/]/,
+      ],
+      use: {
+        loader: require.resolve('babel-loader'),
+        options: {
+          sourceType: 'unambiguous',
+          plugins: [
+            '@babel/plugin-transform-logical-assignment-operators',
+            '@babel/plugin-transform-nullish-coalescing-operator',
+            '@babel/plugin-transform-optional-chaining',
+          ],
+        },
+      },
+    });
 
     config.module.rules.push(
       {
@@ -187,7 +278,10 @@ module.exports = {
         enforce: 'pre',
       },
       {
-        test: /\.tsx?$/,
+        // TEMP(fix-components): Changed from /\.tsx?$/ to /\.tsx$/ — plain .ts files
+        // are now handled by the ts-loader rule injected above in webpackFinal.
+        // This babel-loader rule handles React .tsx files only.
+        test: /\.tsx$/,
         use: [
           {
             loader: 'babel-loader',
@@ -239,6 +333,12 @@ module.exports = {
               sourceMap: useStyleSourceMap,
               webpackImporter: false,
               sassOptions: {
+                // quietDeps suppresses Sass deprecation warnings from @carbon/* and
+                // other third-party dependencies (kept deliberately for Carbon v12
+                // alpha).  silenceDeprecations: ['legacy-js-api'] silences the
+                // API-level notice that quietDeps cannot cover.
+                quietDeps: true,
+                silenceDeprecations: ['legacy-js-api'],
                 includePaths: [
                   path.resolve(__dirname, '..', 'node_modules'),
                   path.resolve(__dirname, '../../..', 'node_modules'),
@@ -261,6 +361,22 @@ module.exports = {
     );
 
     config.resolve.extensions.push('.ts', '.tsx', '.d.ts');
+
+    // TEMP(lit3-migration): @storybook/react v6.5 has a dynamic import of
+    // react-dom/client that only exists in React 18.  When the framework is
+    // @storybook/web-components the @storybook/react framework-preset-react-dom-hack
+    // IgnorePlugin is not automatically applied, so we add it here manually.
+    // This can be removed once React wrappers are re-enabled in Step 13 with
+    // a React 18 upgrade, or when @storybook/react is removed as a dependency.
+    const reactDomPkg = require('react-dom/package.json');
+    if (!reactDomPkg.version.startsWith('18')) {
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /react-dom\/client$/,
+          contextRegExp: /(app[\\/]react|@storybook[\\/]react)/,
+        })
+      );
+    }
 
     return config;
   },

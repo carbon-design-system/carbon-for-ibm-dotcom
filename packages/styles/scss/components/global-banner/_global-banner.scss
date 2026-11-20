@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2024
+// Copyright IBM Corp. 2019, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -167,7 +167,10 @@
 
     &[image-width='8-col'] {
       .#{$prefix}--global-banner-image-container {
-        @include make-col(8, 16);
+        // Only show the image on large screens, like the `4-col` variant.
+        @include breakpoint(lg) {
+          @include make-col(8, 16);
+        }
       }
 
       .#{$prefix}--global-banner-text-container {

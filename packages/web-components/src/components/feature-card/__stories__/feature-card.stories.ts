@@ -109,45 +109,43 @@ export const Large = (args) => {
   `;
 };
 
-Large.story = {
-  parameters: {
-    storyGrid: `${prefix}--col-lg-12`,
-    knobs: {
-      [`${c4dPrefix}-feature-card`]: () => ({
-        eyebrow: textNullable(
-          'Card Eyebrow (required) (eyebrow):',
-          'This is an eyebrow'
-        ),
-        heading: textNullable(
-          'Card Heading (heading):',
-          'Explore AI use cases in all industries'
-        ),
-        copy: textNullable(
-          'Card copy (copy):',
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`
-        ),
-        href: textNullable('Card Href (href):', 'https://example.com'),
-        colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
-        ctaType: select(
-          'CTA type (cta-type)',
-          typeOptions,
-          types[CTA_TYPE.LOCAL]
-        ),
-        disableImageZoom: boolean(
-          'Disable image zoom (disableImageZoom):',
-          false
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        [`${c4dPrefix}-feature-card`]: {
-          eyebrow: 'This is an eyebrow',
-          heading: 'Explore AI use cases in all industries',
-          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
-          href: 'https://example.com',
-          disableImageZoom: false,
-        },
+Large.parameters = {
+  storyGrid: `${prefix}--col-lg-12`,
+  knobs: {
+    [`${c4dPrefix}-feature-card`]: () => ({
+      eyebrow: textNullable(
+        'Card Eyebrow (required) (eyebrow):',
+        'This is an eyebrow'
+      ),
+      heading: textNullable(
+        'Card Heading (heading):',
+        'Explore AI use cases in all industries'
+      ),
+      copy: textNullable(
+        'Card copy (copy):',
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`
+      ),
+      href: textNullable('Card Href (href):', 'https://example.com'),
+      colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
+      ctaType: select(
+        'CTA type (cta-type)',
+        typeOptions,
+        types[CTA_TYPE.LOCAL]
+      ),
+      disableImageZoom: boolean(
+        'Disable image zoom (disableImageZoom):',
+        false
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      [`${c4dPrefix}-feature-card`]: {
+        eyebrow: 'This is an eyebrow',
+        heading: 'Explore AI use cases in all industries',
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        href: 'https://example.com',
+        disableImageZoom: false,
       },
     },
   },

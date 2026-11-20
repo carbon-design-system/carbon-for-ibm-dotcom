@@ -23,7 +23,7 @@ jobs:
           node-version: '18.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable --immutable-cache
+        run: yarn install --immutable
       - name: Build project
         run: yarn lerna run build
 
@@ -138,7 +138,7 @@ jobs:
           node-version: '18.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable --immutable-cache
+        run: yarn install --immutable
       - name: Build project
         run: yarn lerna run --ignore @carbon/ibmdotcom-web-components
       - name: Set env vars
@@ -190,7 +190,7 @@ jobs:
           node-version: '18.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable --immutable-cache
+        run: yarn install --immutable
       - name: Build project
         run: yarn lerna run --scope @carbon/ibmdotcom-utilities build
       - name: Set env vars

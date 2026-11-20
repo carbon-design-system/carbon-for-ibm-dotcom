@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -80,19 +80,17 @@ export const defaultWithAdjunctLegalLinks = (args) => {
   return base(args);
 };
 
-defaultWithAdjunctLegalLinks.story = {
-  name: 'Default with adjunct legal links',
-  parameters: {
-    knobs: {
-      FooterComposite: () => ({
-        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks),
-      }),
-    },
-    propsSet: {
-      default: {
-        FooterComposite: {
-          adjunctLinks: mockAdjunctLinks,
-        },
+defaultWithAdjunctLegalLinks.storyName = 'Default with adjunct legal links';
+defaultWithAdjunctLegalLinks.parameters = {
+  knobs: {
+    FooterComposite: () => ({
+      adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks),
+    }),
+  },
+  propsSet: {
+    default: {
+      FooterComposite: {
+        adjunctLinks: mockAdjunctLinks,
       },
     },
   },
@@ -151,19 +149,17 @@ export const shortWithAdjunctLegalLinks = (args) => {
   return base(args);
 };
 
-shortWithAdjunctLegalLinks.story = {
-  name: 'Short with adjunct legal links',
-  parameters: {
-    knobs: {
-      FooterComposite: () => ({
-        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks),
-      }),
-    },
-    propsSet: {
-      default: {
-        FooterComposite: {
-          adjunctLinks: mockAdjunctLinks,
-        },
+shortWithAdjunctLegalLinks.storyName = 'Short with adjunct legal links';
+shortWithAdjunctLegalLinks.parameters = {
+  knobs: {
+    FooterComposite: () => ({
+      adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks),
+    }),
+  },
+  propsSet: {
+    default: {
+      FooterComposite: {
+        adjunctLinks: mockAdjunctLinks,
       },
     },
   },

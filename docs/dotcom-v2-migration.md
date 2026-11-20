@@ -1,3 +1,33 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
+
+- [Carbon for IBM.com: v2 migration guide](#carbon-for-ibmcom-v2-migration-guide)
+  - [Global changes](#global-changes)
+  - [Components](#components)
+    - [Callout with media](#callout-with-media)
+    - [Callout quote](#callout-quote)
+    - [Card](#card)
+    - [Card group](#card-group)
+    - [Content group banner](#content-group-banner)
+    - [Content item](#content-item)
+    - [Content item horizontal](#content-item-horizontal)
+    - [CTA](#cta)
+    - [Feature card](#feature-card)
+    - [Feature section](#feature-section)
+    - [Filter panel](#filter-panel)
+    - [Horizontal rule](#horizontal-rule)
+    - [Image](#image)
+    - [Leadspace](#leadspace)
+    - [Leadspace](#leadspace-1)
+    - [Leadspace with Search](#leadspace-with-search)
+    - [Link list](#link-list)
+    - [Quote](#quote)
+    - [Tabs extended](#tabs-extended)
+    - [Universal banner](#universal-banner)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Carbon for IBM.com: v2 migration guide
 
 This document will review in detail the changes in Carbon for IBM.com v1 to v2.

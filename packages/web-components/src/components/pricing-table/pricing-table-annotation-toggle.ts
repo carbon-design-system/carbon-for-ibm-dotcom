@@ -1,21 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022, 2024
+ * Copyright IBM Corp. 2022, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
-import Close16 from '@carbon/web-components/es/icons/close/16.js';
+import ChevronDown16 from '@carbon/icons/es/chevron--down/16.js';
+import Close16 from '@carbon/icons/es/close/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import C4DPricingTableRow from './pricing-table-row';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -54,6 +54,8 @@ class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
 
   connectedCallback(): void {
     this.parentRow = this.closest(`${c4dPrefix}-pricing-table-row`);
+    this.setAttribute('slot', 'toggle');
+
     super.connectedCallback();
   }
 
@@ -66,7 +68,7 @@ class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
         type="button"
         aria-pressed="${toggled}"
         aria-label="cell annotations visibility">
-        ${toggled ? Close16() : ChevronDown16()}
+        ${toggled ? iconLoader(Close16) : iconLoader(ChevronDown16)}
       </button>
     `;
   }

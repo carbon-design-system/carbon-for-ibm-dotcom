@@ -16,7 +16,7 @@
     name="video-name-foo"
     part="video-player"
     playing-mode="inline"
-    thumbnail-url="https://cfvod.kaltura.com/p/1773841/sp/177384100/thumbnail/entry_id/video-id-foo//width/3"
+    thumbnail-url="https://cfvod.kaltura.com/p/1773841/sp/177384100/thumbnail/entry_id/video-id-foo/height/0/width/3"
     video-id="video-id-foo"
   >
   </c4d-video-player-v7>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,12 +97,10 @@ export const withImages = (args) => {
   `;
 };
 
-withImages.story = {
-  name: 'With images',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+withImages.storyName = 'With images';
+withImages.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -127,12 +125,10 @@ export const withVideos = (args) => {
   `;
 };
 
-withVideos.story = {
-  name: 'With videos',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+withVideos.storyName = 'With videos';
+withVideos.parameters = {
+  percy: {
+    skip: true,
   },
 };
 

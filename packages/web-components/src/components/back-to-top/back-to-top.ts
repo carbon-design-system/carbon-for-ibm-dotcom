@@ -1,22 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import throttle from 'lodash-es/throttle.js';
-import UpToTop20 from '@carbon/web-components/es/icons/up-to-top/20.js';
+import UpToTop20 from '@carbon/icons/es/up-to-top/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './back-to-top.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 interface Cancelable {
@@ -174,7 +174,7 @@ class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--back-to-top__btn"
         aria-label="${backToTopAssistiveText}"
         @click="${handleOnClick}">
-        ${UpToTop20()}
+        ${iconLoader(UpToTop20)}
       </button>
     `;
   }
