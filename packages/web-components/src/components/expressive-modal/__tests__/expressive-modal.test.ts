@@ -263,6 +263,17 @@ describe('c4d-expressive-modal', function () {
       render(template({ open: true }), document.body);
       await Promise.resolve();
       elem = document.querySelector('c4d-expressive-modal');
+      // The close button renders a `cds-tooltip` whose document-level click
+      // handler reads its trigger slot, which doesn't exist until the tooltip
+      // has rendered. Wait for it before dispatching clicks.
+      const closeButton = elem!.querySelector(
+        'c4d-expressive-modal-close-button'
+      ) as (HTMLElement & { updateComplete: Promise<boolean> }) | null;
+      await closeButton?.updateComplete;
+      const tooltip = closeButton?.shadowRoot?.querySelector('cds-tooltip') as
+        | (HTMLElement & { updateComplete: Promise<boolean> })
+        | null;
+      await tooltip?.updateComplete;
     });
 
     it('Should close the modal', async function () {
