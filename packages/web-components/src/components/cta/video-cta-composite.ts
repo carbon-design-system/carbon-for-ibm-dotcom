@@ -90,7 +90,9 @@ class C4DVideoCTAComposite extends ModalRenderMixin(
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
     const videoData = await this._loadVideoData?.(href);
-    if (videoData && videoData?.id) {
+    // The Kaltura media properties response no longer includes `id`, so accept
+    // `name` as well. The service resolves to `{}` when no data is available.
+    if (videoData && (videoData?.id || videoData?.name)) {
       const { duration, name } = videoData;
       const videoName = customVideoName || name;
 
