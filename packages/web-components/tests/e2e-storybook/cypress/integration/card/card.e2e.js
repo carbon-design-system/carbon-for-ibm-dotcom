@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -208,9 +208,11 @@ const _tests = {
           `${_pathPictogram}&knob-Pictogram%20position:${groupId}=bottom`
         );
         cy.get('c4d-card').should('have.attr', 'pictogram-placement', 'bottom');
+        // With a fine pointer the copy is hidden until hover (#12218), so the
+        // card is shorter and the pictogram sits higher.
         cy.get('c4d-card svg').then(($content) => {
-          expect($content[0].getBoundingClientRect().top).to.equal(221);
-          expect($content[0].getBoundingClientRect().bottom).to.equal(269);
+          expect($content[0].getBoundingClientRect().top).to.equal(186);
+          expect($content[0].getBoundingClientRect().bottom).to.equal(234);
         });
       });
     }
