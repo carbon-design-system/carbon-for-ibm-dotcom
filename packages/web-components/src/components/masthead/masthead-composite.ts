@@ -992,8 +992,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     let selected;
 
     if (selectedMenuItem) {
+      // Bundled en-US nav data has no `titleEnglish`, so fall back to `title`.
       selected =
-        titleEnglish?.trim()?.toLowerCase() ===
+        (titleEnglish ?? title)?.trim()?.toLowerCase() ===
         selectedMenuItem?.trim()?.toLowerCase();
     } else {
       selected = this._isActiveMenuItem(item);
