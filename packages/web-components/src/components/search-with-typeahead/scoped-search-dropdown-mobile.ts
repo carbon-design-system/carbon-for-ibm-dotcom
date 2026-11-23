@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import Filter20 from '@carbon/web-components/es/icons/filter/20.js';
+import Filter20 from '@carbon/icons/es/filter/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import CDSSelect from '@carbon/web-components/es/components/select/select.js';
 import { INPUT_SIZE } from '@carbon/web-components/es/components/text-input/text-input.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -17,7 +18,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -196,7 +196,7 @@ class C4DScopedSearchDropdownMobile extends CDSSelect {
               `}
           ${this._renderItemsMobile(this)}
         </select>
-        ${Filter20({ class: `${prefix}--select__arrow` })}
+        ${iconLoader(Filter20, { class: `${prefix}--select__arrow` })}
       </div>
       ${supplementalText}
     `;

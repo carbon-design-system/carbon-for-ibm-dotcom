@@ -9,20 +9,21 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Download20 from '@carbon/web-components/es/icons/download/20.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
-import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
-import PlayFilledAlt20 from '@carbon/web-components/es/icons/play--filled--alt/20.js';
-import Blog20 from '@carbon/web-components/es/icons/blog/20.js';
-import DocumentPDF20 from '@carbon/web-components/es/icons/document--pdf/20.js';
-import NewTab20 from '@carbon/web-components/es/icons/new-tab/20.js';
-import Phone20 from '@carbon/web-components/es/icons/phone/20.js';
-import Calendar20 from '@carbon/web-components/es/icons/calendar/20.js';
-import Email20 from '@carbon/web-components/es/icons/email/20.js';
-import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
+import ArrowDown20 from '@carbon/icons/es/arrow--down/20.js';
+import ArrowLeft20 from '@carbon/icons/es/arrow--left/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import Download20 from '@carbon/icons/es/download/20.js';
+import Launch20 from '@carbon/icons/es/launch/20.js';
+import PlayFilledAlt20 from '@carbon/icons/es/play--filled--alt/20.js';
+import Blog20 from '@carbon/icons/es/blog/20.js';
+import DocumentPDF20 from '@carbon/icons/es/document--pdf/20.js';
+import NewTab20 from '@carbon/icons/es/new-tab/20.js';
+import Phone20 from '@carbon/icons/es/phone/20.js';
+import Calendar20 from '@carbon/icons/es/calendar/20.js';
+import Email20 from '@carbon/icons/es/email/20.js';
+import Chat20 from '@carbon/icons/es/chat/20.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
@@ -81,7 +82,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @internal
      */
-    _linkNode;
+    _linkNode?: HTMLAnchorElement;
 
     /**
      * Handles `click` event on the `<a>.
@@ -215,7 +216,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           <span class="${prefix}--visually-hidden" part="icon-visually-hidden"
             >${ariaLabels[ctaType]}</span
           >
-          ${icon?.({
+          ${iconLoader(icon, {
             class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
             part: 'cta-icon',
           })}
@@ -223,7 +224,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       `;
     }
 
-    firstUpdated() {
+    firstUpdated(changedProperties) {
+      // @ts-ignore — super.firstUpdated may not exist if the mixin base is plain HTMLElement
+      super.firstUpdated?.(changedProperties);
       const { ctaType, href } = this;
       // Check for the URL trigger meant to fire eventRunAction.
       if (ctaType === CTA_TYPE.VIDEO && href) {
@@ -270,7 +273,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           [CTA_TYPE.CALL]: 'phone-link',
         };
 
-        if (Object.keys(contactMethods).includes(ctaType)) {
+        if (linkNode && Object.keys(contactMethods).includes(ctaType)) {
           linkNode.dataset.ibmContact = contactMethods[ctaType];
         }
       }

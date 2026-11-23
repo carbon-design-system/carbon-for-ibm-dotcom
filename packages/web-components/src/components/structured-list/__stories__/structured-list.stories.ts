@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -137,9 +137,7 @@ export const WithRowHeaders = (args) => {
   `;
 };
 
-WithRowHeaders.story = {
-  name: 'With row headers',
-};
+WithRowHeaders.storyName = 'With row headers';
 
 export const WithSubheaders = (args) => {
   const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
@@ -261,9 +259,7 @@ export const WithSubheaders = (args) => {
   `;
 };
 
-WithSubheaders.story = {
-  name: 'With subheaders',
-};
+WithSubheaders.storyName = 'With subheaders';
 
 export const WithComplexContent = (args) => {
   const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
@@ -308,9 +304,7 @@ export const WithComplexContent = (args) => {
   `;
 };
 
-WithComplexContent.story = {
-  name: 'With complex content',
-};
+WithComplexContent.storyName = 'With complex content';
 
 export default {
   title: 'Components/Structured list',

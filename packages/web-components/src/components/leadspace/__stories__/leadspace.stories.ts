@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,14 +9,16 @@
 
 import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
-import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
-import Pdf20 from '@carbon/web-components/es/icons/PDF/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import ArrowLeft20 from '@carbon/icons/es/arrow--left/20.js';
+import ArrowDown20 from '@carbon/icons/es/arrow--down/20.js';
+import Pdf20 from '@carbon/icons/es/PDF/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';
+import '@carbon/web-components/es/components/tag/index.js';
 import '../../background-media/index';
 import '../../video-player-v7/video-player-container';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -142,12 +144,10 @@ export const SuperWithImage = (args) => {
   `;
 };
 
-SuperWithImage.story = {
-  name: 'Super with image',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+SuperWithImage.storyName = 'Super with image';
+SuperWithImage.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -196,12 +196,10 @@ export const SuperWithVideo = (args) => {
   `;
 };
 
-SuperWithVideo.story = {
-  name: 'Super with video',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+SuperWithVideo.storyName = 'Super with video';
+SuperWithVideo.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -287,12 +285,10 @@ export const TallWithImage = (args) => {
   `;
 };
 
-TallWithImage.story = {
-  name: 'Tall with image',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+TallWithImage.storyName = 'Tall with image';
+TallWithImage.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -341,12 +337,10 @@ export const TallWithVideo = (args) => {
   `;
 };
 
-TallWithVideo.story = {
-  name: 'Tall with video',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+TallWithVideo.storyName = 'Tall with video';
+TallWithVideo.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -432,12 +426,10 @@ export const MediumWithImage = (args) => {
   `;
 };
 
-MediumWithImage.story = {
-  name: 'Medium with image',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+MediumWithImage.storyName = 'Medium with image';
+MediumWithImage.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -488,12 +480,10 @@ export const MediumWithVideo = (args) => {
   `;
 };
 
-MediumWithVideo.story = {
-  name: 'Medium with video',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+MediumWithVideo.storyName = 'Medium with video';
+MediumWithVideo.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -510,30 +500,28 @@ export const Short = (args) => {
   `;
 };
 
-Short.story = {
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      LeadSpace: () => ({
-        navElements: select(
-          'navigation elements (optional)',
-          navigationOptions,
-          navigationOptions[2]
-        ),
-        title: text(
-          'title (title):',
-          'A short headline can go on multiple lines in this leadspace'
-        ),
-      }),
-    },
-    propsSet: {
-      default: {
-        LeadSpace: {
-          navElements: navigationOptions[2],
-          title: 'Heading can go to two lines max',
-        },
+Short.parameters = {
+  percy: {
+    skip: true,
+  },
+  knobs: {
+    LeadSpace: () => ({
+      navElements: select(
+        'navigation elements (optional)',
+        navigationOptions,
+        navigationOptions[2]
+      ),
+      title: text(
+        'title (title):',
+        'A short headline can go on multiple lines in this leadspace'
+      ),
+    }),
+  },
+  propsSet: {
+    default: {
+      LeadSpace: {
+        navElements: navigationOptions[2],
+        title: 'Heading can go to two lines max',
       },
     },
   },
@@ -579,35 +567,33 @@ export const ShortWithImage = (args) => {
   `;
 };
 
-ShortWithImage.story = {
-  name: 'Short with image',
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      LeadSpace: () => ({
-        navElements: select(
-          'navigation elements (optional)',
-          navigationOptions,
-          navigationOptions[2]
-        ),
-        title: text(
-          'title (title):',
-          'A short headline can go on multiple lines in this leadspace'
-        ),
-        alt: text('Image alt text (alt):', 'Image alt text'),
-        defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
-      }),
-    },
-    propsSet: {
-      default: {
-        LeadSpace: {
-          navElements: navigationOptions[2],
-          title: 'A short headline can go multiple lines',
-          alt: 'Image alt text',
-          defaultSrc: leadspaceImg,
-        },
+ShortWithImage.storyName = 'Short with image';
+ShortWithImage.parameters = {
+  percy: {
+    skip: true,
+  },
+  knobs: {
+    LeadSpace: () => ({
+      navElements: select(
+        'navigation elements (optional)',
+        navigationOptions,
+        navigationOptions[2]
+      ),
+      title: text(
+        'title (title):',
+        'A short headline can go on multiple lines in this leadspace'
+      ),
+      alt: text('Image alt text (alt):', 'Image alt text'),
+      defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
+    }),
+  },
+  propsSet: {
+    default: {
+      LeadSpace: {
+        navElements: navigationOptions[2],
+        title: 'A short headline can go multiple lines',
+        alt: 'Image alt text',
+        defaultSrc: leadspaceImg,
       },
     },
   },
@@ -645,12 +631,10 @@ export const ShortWithVideo = (args) => {
   `;
 };
 
-ShortWithVideo.story = {
-  name: 'Short with video',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+ShortWithVideo.storyName = 'Short with video';
+ShortWithVideo.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -721,12 +705,10 @@ export const CenteredWithImage = (args) => {
   `;
 };
 
-CenteredWithImage.story = {
-  name: 'Centered with image',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+CenteredWithImage.storyName = 'Centered with image';
+CenteredWithImage.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -766,12 +748,10 @@ export const CenteredWithVideo = (args) => {
   `;
 };
 
-CenteredWithVideo.story = {
-  name: 'Centered with video',
-  parameters: {
-    percy: {
-      skip: true,
-    },
+CenteredWithVideo.storyName = 'Centered with video';
+CenteredWithVideo.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
@@ -787,10 +767,10 @@ const getAriaLabel = (type) => {
 };
 
 const iconMap = {
-  ArrowRight20: ArrowRight20({ slot: 'icon' }),
-  ArrowLeft20: ArrowLeft20({ slot: 'icon' }),
-  ArrowDown20: ArrowDown20({ slot: 'icon' }),
-  Pdf20: Pdf20({ slot: 'icon' }),
+  ArrowRight20: iconLoader(ArrowRight20, { slot: 'icon' }),
+  ArrowLeft20: iconLoader(ArrowLeft20, { slot: 'icon' }),
+  ArrowDown20: iconLoader(ArrowDown20, { slot: 'icon' }),
+  Pdf20: iconLoader(Pdf20, { slot: 'icon' }),
 };
 
 const iconOptions = () => {

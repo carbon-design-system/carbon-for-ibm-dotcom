@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -182,5 +182,38 @@ describe('TranslationAPI', () => {
 
     // fresh data would lack this property
     expect(newSession).not.toHaveProperty('CACHE');
+  });
+
+  describe('transformData', () => {
+    it('should append socialFollow to footerMenu when it has links', () => {
+      const socialFollow = {
+        title: 'Follow IBM',
+        links: [{ title: 'LinkedIn', url: 'https://www.linkedin.com/ibm' }],
+      };
+      const data = TranslationAPI.transformData({
+        footerMenu: [{ title: 'About', links: [] }],
+        socialFollow,
+      });
+
+      expect(data.footerMenu).toHaveLength(2);
+      expect(data.footerMenu[1]).toEqual(socialFollow);
+    });
+
+    it('should not append socialFollow to footerMenu when its links are empty', () => {
+      const data = TranslationAPI.transformData({
+        footerMenu: [{ title: 'About', links: [] }],
+        socialFollow: { title: '', links: [{ title: '', url: '' }] },
+      });
+
+      expect(data.footerMenu).toHaveLength(1);
+    });
+
+    it('should not append socialFollow to footerMenu when it is missing', () => {
+      const data = TranslationAPI.transformData({
+        footerMenu: [{ title: 'About', links: [] }],
+      });
+
+      expect(data.footerMenu).toHaveLength(1);
+    });
   });
 });

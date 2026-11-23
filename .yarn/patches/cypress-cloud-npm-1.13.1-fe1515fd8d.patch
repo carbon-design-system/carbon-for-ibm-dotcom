@@ -1,0 +1,132 @@
+diff --git a/bin/cli.js b/bin/cli.js
+index 40b6fa10ed9bd103e738cdc11f0ccb046fd3cc3c..18b9de24ec71f8025c95b5d3a957799152aa25ad 100755
+--- a/bin/cli.js
++++ b/bin/cli.js
+@@ -2804,8 +2804,8 @@ function getScreenshot(s) {
+ function getTestAttempt2(attempt, screenshots) {
+   return {
+     ...attempt,
+-    startedAt: attempt.wallClockStartedAt,
+-    duration: attempt.wallClockDuration,
++    startedAt: attempt.wallClockStartedAt ?? attempt.startedAt,
++    duration: attempt.wallClockDuration ?? attempt.duration,
+     screenshots: screenshots.map(getScreenshot)
+   };
+ }
+@@ -2826,22 +2826,22 @@ function specResultsToCypressResults(configState, specAfterResult) {
+     status: "finished",
+     // @ts-ignore
+     config: configState.getConfig(),
+-    totalDuration: specAfterResult.stats.wallClockDuration,
++    totalDuration: (specAfterResult.stats.wallClockDuration ?? specAfterResult.stats.duration),
+     totalSuites: specAfterResult.stats.suites,
+     totalTests: specAfterResult.stats.tests,
+     totalFailed: specAfterResult.stats.failures,
+     totalPassed: specAfterResult.stats.passes,
+     totalPending: specAfterResult.stats.pending,
+     totalSkipped: specAfterResult.stats.skipped,
+-    startedTestsAt: specAfterResult.stats.wallClockStartedAt,
+-    endedTestsAt: specAfterResult.stats.wallClockEndedAt,
++    startedTestsAt: (specAfterResult.stats.wallClockStartedAt ?? specAfterResult.stats.startedAt),
++    endedTestsAt: (specAfterResult.stats.wallClockEndedAt ?? specAfterResult.stats.endedAt),
+     runs: [
+       {
+         stats: {
+           ...specAfterResult.stats,
+-          startedAt: specAfterResult.stats.wallClockStartedAt,
+-          endedAt: specAfterResult.stats.wallClockEndedAt,
+-          duration: specAfterResult.stats.wallClockDuration
++          startedAt: (specAfterResult.stats.wallClockStartedAt ?? specAfterResult.stats.startedAt),
++          endedAt: (specAfterResult.stats.wallClockEndedAt ?? specAfterResult.stats.endedAt),
++          duration: (specAfterResult.stats.wallClockDuration ?? specAfterResult.stats.duration)
+         },
+         reporter: specAfterResult.reporter,
+         reporterStats: specAfterResult.reporterStats ?? {},
+diff --git a/index.js b/index.js
+index cb94a0705195c2d57e6f5a00b08c063872925df9..21dea7b5dec44e4957a27f92efc2b366239e089e 100644
+--- a/index.js
++++ b/index.js
+@@ -2658,8 +2658,8 @@ function getScreenshot(s) {
+ function getTestAttempt2(attempt, screenshots) {
+   return {
+     ...attempt,
+-    startedAt: attempt.wallClockStartedAt,
+-    duration: attempt.wallClockDuration,
++    startedAt: attempt.wallClockStartedAt ?? attempt.startedAt,
++    duration: attempt.wallClockDuration ?? attempt.duration,
+     screenshots: screenshots.map(getScreenshot)
+   };
+ }
+@@ -2680,22 +2680,22 @@ function specResultsToCypressResults(configState, specAfterResult) {
+     status: "finished",
+     // @ts-ignore
+     config: configState.getConfig(),
+-    totalDuration: specAfterResult.stats.wallClockDuration,
++    totalDuration: (specAfterResult.stats.wallClockDuration ?? specAfterResult.stats.duration),
+     totalSuites: specAfterResult.stats.suites,
+     totalTests: specAfterResult.stats.tests,
+     totalFailed: specAfterResult.stats.failures,
+     totalPassed: specAfterResult.stats.passes,
+     totalPending: specAfterResult.stats.pending,
+     totalSkipped: specAfterResult.stats.skipped,
+-    startedTestsAt: specAfterResult.stats.wallClockStartedAt,
+-    endedTestsAt: specAfterResult.stats.wallClockEndedAt,
++    startedTestsAt: (specAfterResult.stats.wallClockStartedAt ?? specAfterResult.stats.startedAt),
++    endedTestsAt: (specAfterResult.stats.wallClockEndedAt ?? specAfterResult.stats.endedAt),
+     runs: [
+       {
+         stats: {
+           ...specAfterResult.stats,
+-          startedAt: specAfterResult.stats.wallClockStartedAt,
+-          endedAt: specAfterResult.stats.wallClockEndedAt,
+-          duration: specAfterResult.stats.wallClockDuration
++          startedAt: (specAfterResult.stats.wallClockStartedAt ?? specAfterResult.stats.startedAt),
++          endedAt: (specAfterResult.stats.wallClockEndedAt ?? specAfterResult.stats.endedAt),
++          duration: (specAfterResult.stats.wallClockDuration ?? specAfterResult.stats.duration)
+         },
+         reporter: specAfterResult.reporter,
+         reporterStats: specAfterResult.reporterStats ?? {},
+diff --git a/index.mjs b/index.mjs
+index 3e3d73636a716d9cb0c4575fc1fbe2d23f6a0f88..64388d167a4384a4d2751afa0aa4bc025f90362a 100644
+--- a/index.mjs
++++ b/index.mjs
+@@ -2618,8 +2618,8 @@ function getScreenshot(s) {
+ function getTestAttempt2(attempt, screenshots) {
+   return {
+     ...attempt,
+-    startedAt: attempt.wallClockStartedAt,
+-    duration: attempt.wallClockDuration,
++    startedAt: attempt.wallClockStartedAt ?? attempt.startedAt,
++    duration: attempt.wallClockDuration ?? attempt.duration,
+     screenshots: screenshots.map(getScreenshot)
+   };
+ }
+@@ -2640,22 +2640,22 @@ function specResultsToCypressResults(configState, specAfterResult) {
+     status: "finished",
+     // @ts-ignore
+     config: configState.getConfig(),
+-    totalDuration: specAfterResult.stats.wallClockDuration,
++    totalDuration: (specAfterResult.stats.wallClockDuration ?? specAfterResult.stats.duration),
+     totalSuites: specAfterResult.stats.suites,
+     totalTests: specAfterResult.stats.tests,
+     totalFailed: specAfterResult.stats.failures,
+     totalPassed: specAfterResult.stats.passes,
+     totalPending: specAfterResult.stats.pending,
+     totalSkipped: specAfterResult.stats.skipped,
+-    startedTestsAt: specAfterResult.stats.wallClockStartedAt,
+-    endedTestsAt: specAfterResult.stats.wallClockEndedAt,
++    startedTestsAt: (specAfterResult.stats.wallClockStartedAt ?? specAfterResult.stats.startedAt),
++    endedTestsAt: (specAfterResult.stats.wallClockEndedAt ?? specAfterResult.stats.endedAt),
+     runs: [
+       {
+         stats: {
+           ...specAfterResult.stats,
+-          startedAt: specAfterResult.stats.wallClockStartedAt,
+-          endedAt: specAfterResult.stats.wallClockEndedAt,
+-          duration: specAfterResult.stats.wallClockDuration
++          startedAt: (specAfterResult.stats.wallClockStartedAt ?? specAfterResult.stats.startedAt),
++          endedAt: (specAfterResult.stats.wallClockEndedAt ?? specAfterResult.stats.endedAt),
++          duration: (specAfterResult.stats.wallClockDuration ?? specAfterResult.stats.duration)
+         },
+         reporter: specAfterResult.reporter,
+         reporterStats: specAfterResult.reporterStats ?? {},

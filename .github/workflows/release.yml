@@ -43,7 +43,7 @@ jobs:
           git config --global user.email "digdes@us.ibm.com"
           git config --global user.name "ibmdotcom-bot"
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
       - name: Build project
         run: yarn build
       - name: Set NPM token

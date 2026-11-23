@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2024
+ * Copyright IBM Corp. 2019, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,13 +10,16 @@
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
-import Close20 from '@carbon/web-components/es/icons/close/20.js';
-import Search20 from '@carbon/web-components/es/icons/search/20.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
+import Close20 from '@carbon/icons/es/close/20.js';
+import Search20 from '@carbon/icons/es/search/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
 } from '@carbon/web-components/es/components/dropdown/dropdown.js';
 import CDSDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
+import '@carbon/web-components/es/components/dropdown/index.js';
+import '@carbon/web-components/es/components/select/index.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
@@ -26,7 +29,11 @@ import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
+// The template renders these two when `scopeParameters` is set. Before this,
+// only `search-with-typeahead/index.ts` registered them, so importing this file
+// alone (as `masthead-composite.ts` does) left them undefined.
+import './scoped-search-dropdown';
+import './scoped-search-dropdown-mobile';
 import C4DSearchWithTypeaheadItem from './search-with-typeahead-item';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -614,6 +621,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
     // IE falls back to the old behavior.
     nextItem.scrollIntoView({ block: 'nearest' });
 
+    // Kept: nothing above assigns a reactive field of this component (the
+    // highlight is set on the child items and the `unfocused` attribute is set
+    // directly), so this is not a shadowing workaround. It predates the Lit 3
+    // migration and no test covers keyboard navigation, so it is left as is.
     this.requestUpdate();
   }
 
@@ -975,7 +986,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                 class="${prefix}--header__action ${prefix}--header__search--search"
                 aria-label="${searchButtonAssistiveText}"
                 @click="${handleClickSearchButton}">
-                ${Search20()}
+                ${iconLoader(Search20)}
               </button>
               <button
                 type="button"
@@ -983,7 +994,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                 class="${prefix}--header__action ${prefix}--header__search--close"
                 aria-label="${closeSearchButtonAssistiveText}"
                 @click="${handleClickCloseButton}">
-                ${Close20()}
+                ${iconLoader(Close20)}
               </button>
             </div>
           `
@@ -991,7 +1002,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
             <div
               part="header-search-actions"
               class="${prefix}--header__search--actions">
-              ${Search20({
+              ${iconLoader(Search20, {
                 part: 'search-icon',
                 class: `${prefix}--search-magnifier-icon`,
                 role: 'img',
@@ -1006,7 +1017,7 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
                   : ''}"
                 aria-label="${closeSearchButtonAssistiveText}"
                 @click="${handleClickCloseButton}">
-                ${Close20()}
+                ${iconLoader(Close20)}
               </button>
             </div>
             <div

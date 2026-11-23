@@ -1,18 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Error20 from '@carbon/web-components/es/icons/error/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import Error20 from '@carbon/icons/es/error/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
@@ -31,7 +32,6 @@ import './locale-item';
 import '../card/card-heading';
 import '../card/card-footer';
 import styles from './locale-modal-composite.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -208,11 +208,11 @@ class C4DLocaleModalComposite extends HostListenerMixin(
                   class="${c4dPrefix}--region-item-footer"
                   ?disabled="${isInvalid}">
                   ${isInvalid
-                    ? Error20({
+                    ? iconLoader(Error20, {
                         slot: 'icon',
                         class: `${c4dPrefix}--card__cta`,
                       })
-                    : ArrowRight20({
+                    : iconLoader(ArrowRight20, {
                         slot: 'icon',
                         class: `${c4dPrefix}--card__cta`,
                       })}

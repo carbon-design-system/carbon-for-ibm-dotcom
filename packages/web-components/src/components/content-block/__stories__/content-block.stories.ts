@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import '../index';
 import '../../card/index';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block';
 import readme from './README.stories.mdx';

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -85,15 +85,28 @@ module.exports = function setupKarma(config) {
             test: /[\\/]styles[\\/]icons[\\/]/i,
             use: [require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
           },
+          // TEMP(fix-components): replaced babel-loader (Babel legacy decorators shadow Lit's
+          // accessors) with ts-loader (transpileOnly) so TypeScript experimental-decorator semantics
+          // are used: __decorate on prototype + plain constructor assignments, matching CWC v3.
+          // See fix-components-plan.md sub-task 3 step 1.  Remove when sub-task 3 lands
+          // (build-toolchain-tsdown-plan.md / test-runner-web-test-runner-plan.md).
           {
             test: /\.ts$/,
             use: [
               {
-                // Build note: Locking down `@babel/plugin-transform-typescript` to `~7.6.0`
-                // given `7.7` or later versions seems to have a problem with using decorator with fields without an initializer
-                loader: 'babel-loader',
+                loader: 'ts-loader',
                 options: {
-                  configFile: path.resolve(__dirname, '..', '.babelrc'),
+                  transpileOnly: true,
+                  configFile: path.resolve(__dirname, '..', 'tsconfig.json'),
+                  compilerOptions: {
+                    // Ensure correct semantics even if tsconfig is updated later.
+                    // experimentalDecorators + useDefineForClassFields:false → Lit prototype
+                    // accessors are NOT shadowed by own-property initialisers.
+                    experimentalDecorators: true,
+                    useDefineForClassFields: false,
+                    // Keep module format webpack 4 understands.
+                    module: 'esnext',
+                  },
                 },
               },
             ],
@@ -102,11 +115,7 @@ module.exports = function setupKarma(config) {
             ? {}
             : {
                 test: /\.[jt]s$/,
-                exclude: [
-                  __dirname,
-                  /__tests__/,
-                  path.resolve(__dirname, '../node_modules'),
-                ],
+                exclude: [__dirname, /__tests__/, /[\\/]node_modules[\\/]/],
                 enforce: 'post',
                 use: {
                   loader: 'istanbul-instrumenter-loader',
@@ -115,13 +124,57 @@ module.exports = function setupKarma(config) {
                   },
                 },
               },
+          // Our own .js files: .babelrc (syntax lowering only). `.ts` is compiled by ts-loader above.
           {
             test: /\.js$/,
-            include: [__dirname, path.dirname(require.resolve('lit'))],
+            include: [__dirname],
             use: {
               loader: 'babel-loader',
               options: {
                 configFile: path.resolve(__dirname, '..', '.babelrc'),
+              },
+            },
+          },
+          // CWC v3 (@carbon/*): class-static-block + class-properties to fully
+          // downlevel static blocks. Safe here; no forward-class-ref issues.
+          {
+            test: /\.js$/,
+            include: [/[\\/]node_modules[\\/]@carbon[\\/]/],
+            use: {
+              loader: 'babel-loader',
+              options: {
+                sourceType: 'unambiguous',
+                plugins: [
+                  '@babel/plugin-transform-class-static-block',
+                  ['@babel/plugin-transform-class-properties', { loose: true }],
+                  ['@babel/plugin-transform-private-methods', { loose: true }],
+                  [
+                    '@babel/plugin-transform-private-property-in-object',
+                    { loose: true },
+                  ],
+                  '@babel/plugin-transform-logical-assignment-operators',
+                  '@babel/plugin-transform-nullish-coalescing-operator',
+                  '@babel/plugin-transform-optional-chaining',
+                ],
+              },
+            },
+          },
+          // Lit 3 / @lit: operator transforms only — no class transforms.
+          {
+            test: /\.js$/,
+            include: [
+              path.dirname(require.resolve('lit')),
+              /[\\/]node_modules[\\/](lit|@lit|lit-html|lit-element)[\\/]/,
+            ],
+            use: {
+              loader: 'babel-loader',
+              options: {
+                sourceType: 'unambiguous',
+                plugins: [
+                  '@babel/plugin-transform-logical-assignment-operators',
+                  '@babel/plugin-transform-nullish-coalescing-operator',
+                  '@babel/plugin-transform-optional-chaining',
+                ],
               },
             },
           },
@@ -151,6 +204,12 @@ module.exports = function setupKarma(config) {
                   implementation: sass,
                   webpackImporter: false,
                   sassOptions: {
+                    // quietDeps suppresses Sass deprecation warnings from @carbon/*
+                    // and other third-party dependencies (kept deliberately for
+                    // Carbon v12 alpha).  silenceDeprecations: ['legacy-js-api']
+                    // silences the API-level notice that quietDeps cannot cover.
+                    quietDeps: true,
+                    silenceDeprecations: ['legacy-js-api'],
                     includePaths: [
                       path.resolve(__dirname, '..', 'node_modules'),
                       path.resolve(__dirname, '../../..', 'node_modules'),

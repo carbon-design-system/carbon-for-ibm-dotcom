@@ -1,19 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2025
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import MediaQueryMixin, {
   MQBreakpoints,
@@ -122,7 +121,6 @@ class C4DCardGroup extends MediaQueryMixin(
   // Adding a class that will identify that c4d-card-group is inside c4d-content-block-cards for special treatment.
   private isInsideBlockCards() {
     const cardGroupParentEl = this.parentElement;
-    console.log(cardGroupParentEl);
 
     if (
       cardGroupParentEl?.tagName.toLowerCase() ===
@@ -132,8 +130,8 @@ class C4DCardGroup extends MediaQueryMixin(
     }
   }
 
-  firstUpdated() {
-    super.connectedCallback();
+  firstUpdated(changedProperties) {
+    super.firstUpdated(changedProperties);
 
     if (
       this.previousElementSibling?.matches?.(

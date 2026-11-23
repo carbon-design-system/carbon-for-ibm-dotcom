@@ -11,7 +11,7 @@
 - [Developing Locally](#developing-locally)
 - [Submitting a Pull Request](#submitting-a-pull-request)
 - [FAQ](#faq)
-    - [CI checks are failing saying that it cannot find a dependency in offline mode](#ci-checks-are-failing-saying-that-it-cannot-find-a-dependency-in-offline-mode)
+    - [Dependencies are missing or the project is in an unstable state](#dependencies-are-missing-or-the-project-is-in-an-unstable-state)
     - [Yarn/Gulp tasks are failing after rebasing or getting new `main`](#yarngulp-tasks-are-failing-after-rebasing-or-getting-new-main)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -102,7 +102,7 @@ want to run:
 | `yarn clean`                      | Resets the state of the project by removing all `node_modules` and running the `clean` script in each package |
 | `yarn doctoc`                     | Runs `doctoc` on all files in the `doctoc` directory                                                          |
 | `yarn format`, `yarn format:diff` | Format files using prettier, check if files have been formatted                                               |
-| `yarn reset`                      | Cleans the yarn cache and node_modules folders and brings the project back to a stable state                  |
+| `yarn reset`                      | Cleans node_modules folders and reinstalls dependencies to bring the project back to a stable state           |
 
 In addition, you can use `yarn` to run `bin` files using the `yarn <bin>`
 syntax. For example, if you wanted to use `lerna` to run a script in every
@@ -188,15 +188,13 @@ https://yarnpkg.com/lang/en/docs/cli/link/
 
 ## FAQ
 
-#### CI checks are failing saying that it cannot find a dependency in offline mode
+#### Dependencies are missing or the project is in an unstable state
 
-Most likely this is due to Yarn mistakenly removing, or forgetting to add, a
-dependency to our offline mirror. Typically, running the following set of
-commands should reset the project back to a valid state and should bring back
-any missing dependencies or fetch new ones.
+Typically, running the following set of commands should reset the project back
+to a valid state and should bring back any missing dependencies or fetch new
+ones.
 
 ```bash
-yarn cache clean
 yarn clean
 yarn install
 yarn build

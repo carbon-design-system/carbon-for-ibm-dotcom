@@ -1,21 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import Close from '@carbon/web-components/es/icons/close/16.js';
+import { customElement, property } from 'lit/decorators.js';
+import Close from '@carbon/icons/es/close/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -206,7 +206,7 @@ class C4DFilterPanelInputSelect extends FocusMixin(
           role="button">
           ${title}
           <div class="${prefix}--close__icon" part="icon">
-            ${this.selected && this.isOpen ? Close() : null}
+            ${this.selected && this.isOpen ? iconLoader(Close) : null}
           </div>
         </div>
         <ul

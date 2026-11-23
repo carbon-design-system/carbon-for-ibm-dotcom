@@ -439,30 +439,29 @@ To cause re-rendering upon change in `private`/`protected` properties, use `stat
 Global `document`/`window` can be different from the ones associated with custom element instance, when the custom element is transported to a different frame e.g. with `document.importNode()`. Though such cases are rare, the codebase avoids global `document`/`window` reference to keep ourselves in a good DOM citizen. We use [`element.ownerDocument`](https://developer.mozilla.org/en-US/docs/Web/API/Node/ownerDocument)/[`.element.ownerDocument.defaultView`](https://developer.mozilla.org/en-US/docs/Web/API/Document/defaultView), respectively, instead.
 
 ## Custom Elements
-### @carbonElement Decorator
+### `@customElement` Decorator
 
-We use a custom [`@carbonElement`](../../carbon-web-components/src/globals/decorators/carbon-element.ts) decorator instead of Lit's [`@customElement`](https://lit.dev/docs/v1/api/lit-element/decorators/#customElement), which doesn't provide a way to check if an element has already been defined in the window's `CustomElementRegistry`. If an attempt is made to redefine an element that has already been registered, an error will occur and any remaining code will fail to execute.
-
-`@carbonElement` is identical to `@customElement` with the exception that it gracefully handles any failures from duplicate registrations and continues executing the remainder of the running script.
-
-#### Usage
-
-1. Use this project's `carbon-element.ts` file to supply the decorator
-2. Alias `@carbonElement` to `@customElement`
-
-The second item is **required** for proper creation of the react-wrapped components
-
-Example:
+Use Lit's [`customElement`](https://lit.dev/docs/api/decorators/#customElement)
+decorator imported from `lit/decorators.js`:
 
 ```typescript
 import { html, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
-import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement(`${prefix}-accordion-item`)
-class CDSAccordionItem extends FocusMixin(LitElement) {
+class C4DAccordionItem extends FocusMixin(LitElement) {
   ...
 ```
+
+> **Note:** Lit's `@customElement` throws a `DOMException` if an element tag is
+> already registered. Unlike the previous `@carbonElement` decorator, duplicates
+> are **not** swallowed silently — registration errors will surface immediately.
+
+The old `carbonElement as customElement` alias from
+`@carbon/web-components/es/globals/decorators/carbon-element.js` was used in
+earlier versions of this package and is now replaced throughout. Do not
+re-introduce it.
+
 ### Custom element registration
 
 This library registers custom elements to global `window` automatically upon importing the corresponding modules.

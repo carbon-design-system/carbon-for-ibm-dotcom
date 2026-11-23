@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2025
+// Copyright IBM Corp. 2020, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -62,15 +62,17 @@
   }
 
   ::slotted(#{$c4d-prefix}-content-block-copy) {
-    @include make-col(8, 12);
-    @include type-style('fluid-heading-03', true);
-
+    // Declarations placed before mixin calls to avoid mixed-decls deprecation
+    // warning (Sass 1.79): make-col() and type-style() expand to @media nested
+    // rules; bare declarations after nested rules trigger the warning.
+    // breakpoint(sm) expands to bare content (no @media for the smallest bp),
+    // so its content must also come before the mixin includes.
+    inline-size: 100%;
     max-inline-size: 640px;
     padding-inline: 0;
 
-    @include breakpoint(sm) {
-      inline-size: 100%;
-    }
+    @include make-col(8, 12);
+    @include type-style('fluid-heading-03', true);
 
     @include breakpoint(md) {
       inline-size: 90%;

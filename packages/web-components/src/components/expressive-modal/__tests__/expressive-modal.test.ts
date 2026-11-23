@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,8 @@
 import { html, render } from 'lit/html.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import C4DExpressiveModal from '../expressive-modal';
-import '@carbon/web-components/es/components/button/button.js';
+import '@carbon/web-components/es/components/button/index.js';
+import '@carbon/web-components/es/components/modal/index.js';
 import CDSModalCloseButton from '@carbon/web-components/es/components/modal/modal-close-button.js';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import { Default } from '../__stories__/expressive-modal.stories';
@@ -262,6 +263,17 @@ describe('c4d-expressive-modal', function () {
       render(template({ open: true }), document.body);
       await Promise.resolve();
       elem = document.querySelector('c4d-expressive-modal');
+      // The close button renders a `cds-tooltip` whose document-level click
+      // handler reads its trigger slot, which doesn't exist until the tooltip
+      // has rendered. Wait for it before dispatching clicks.
+      const closeButton = elem!.querySelector(
+        'c4d-expressive-modal-close-button'
+      ) as (HTMLElement & { updateComplete: Promise<boolean> }) | null;
+      await closeButton?.updateComplete;
+      const tooltip = closeButton?.shadowRoot?.querySelector('cds-tooltip') as
+        | (HTMLElement & { updateComplete: Promise<boolean> })
+        | null;
+      await tooltip?.updateComplete;
     });
 
     it('Should close the modal', async function () {

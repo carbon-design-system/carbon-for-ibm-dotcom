@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { boolean, number, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
+import ArrowRight20 from '@carbon/icons/es/arrow--right/20.js';
+import Launch20 from '@carbon/icons/es/launch/20.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
@@ -23,8 +24,8 @@ import { prefix } from '@carbon/web-components/es/globals/settings.js';
 import content from '../../cta-section/__stories__/content';
 
 const iconMap = {
-  ArrowRight20: ArrowRight20({ slot: 'icon' }),
-  Launch20: Launch20({ slot: 'icon' }),
+  ArrowRight20: iconLoader(ArrowRight20, { slot: 'icon' }),
+  Launch20: iconLoader(Launch20, { slot: 'icon' }),
 };
 
 const iconOptions = {
@@ -144,23 +145,21 @@ export const WithContentItems = (args) => {
   `;
 };
 
-WithContentItems.story = {
-  name: 'With content items',
-  parameters: {
-    knobs: {
-      WithContentItems: () => ({
-        contentItemType: contentItemTextCTA,
-        contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }),
-        }),
+WithContentItems.storyName = 'With content items';
+WithContentItems.parameters = {
+  knobs: {
+    WithContentItems: () => ({
+      contentItemType: contentItemTextCTA,
+      contentItemCount: Array.from({
+        length: number('Number of content items', 3, { min: 2, max: 6 }),
       }),
-    },
-    propsSet: {
-      default: {
-        WithContentItems: {
-          contentItemType: contentItemTextCTA,
-          contentItemCount: Array(3),
-        },
+    }),
+  },
+  propsSet: {
+    default: {
+      WithContentItems: {
+        contentItemType: contentItemTextCTA,
+        contentItemCount: Array(3),
       },
     },
   },
@@ -190,31 +189,29 @@ export const WithLinkList = (args) => {
           >More ways to explore DevOps</c4d-link-list-heading
         >
         <c4d-link-list-item href="https://example.com">
-          Events ${ArrowRight20({ slot: 'icon' })}
+          Events ${iconLoader(ArrowRight20, { slot: 'icon' })}
         </c4d-link-list-item>
         <c4d-link-list-item href="https://example.com">
-          Blogs ${ArrowRight20({ slot: 'icon' })}
+          Blogs ${iconLoader(ArrowRight20, { slot: 'icon' })}
         </c4d-link-list-item>
         <c4d-link-list-item href="https://example.com">
-          Training ${ArrowRight20({ slot: 'icon' })}
+          Training ${iconLoader(ArrowRight20, { slot: 'icon' })}
         </c4d-link-list-item>
         <c4d-link-list-item href="https://example.com">
-          Developer resources ${ArrowRight20({ slot: 'icon' })}
+          Developer resources ${iconLoader(ArrowRight20, { slot: 'icon' })}
         </c4d-link-list-item>
         <c4d-link-list-item href="https://example.com">
-          Research ${ArrowRight20({ slot: 'icon' })}
+          Research ${iconLoader(ArrowRight20, { slot: 'icon' })}
         </c4d-link-list-item>
         <c4d-link-list-item href="https://example.com">
-          News ${ArrowRight20({ slot: 'icon' })}
+          News ${iconLoader(ArrowRight20, { slot: 'icon' })}
         </c4d-link-list-item>
       </c4d-link-list>
     </c4d-cta-block>
   `;
 };
 
-WithLinkList.story = {
-  name: 'With link list',
-};
+WithLinkList.storyName = 'With link list';
 
 export const WithinTabs = (args) => {
   const { contentItemType, contentItemCount } = args?.WithinTabs ?? {};
@@ -254,24 +251,22 @@ export const WithinTabs = (args) => {
   `;
 };
 
-WithinTabs.story = {
-  name: 'Within tabs',
-  parameters: {
-    knobs: {
-      CTABlock: () => ({}),
-      WithinTabs: () => ({
-        contentItemType: contentItemTextCTA,
-        contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }),
-        }),
+WithinTabs.storyName = 'Within tabs';
+WithinTabs.parameters = {
+  knobs: {
+    CTABlock: () => ({}),
+    WithinTabs: () => ({
+      contentItemType: contentItemTextCTA,
+      contentItemCount: Array.from({
+        length: number('Number of content items', 3, { min: 2, max: 6 }),
       }),
-    },
-    propsSet: {
-      default: {
-        WithinTabs: {
-          contentItemType: contentItemTextCTA,
-          contentItemCount: Array(3),
-        },
+    }),
+  },
+  propsSet: {
+    default: {
+      WithinTabs: {
+        contentItemType: contentItemTextCTA,
+        contentItemCount: Array(3),
       },
     },
   },

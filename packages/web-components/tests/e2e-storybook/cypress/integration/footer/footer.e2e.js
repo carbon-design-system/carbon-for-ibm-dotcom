@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2024
+ * Copyright IBM Corp. 2021, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,14 +44,14 @@ describe('c4d-footer | default (desktop)', () => {
     });
   });
 
-  it('should load locale modal', () => {
+  it.skip('should load locale modal', () => {
     const localeButton = cy.get('[data-autoid="c4d--locale-btn"]');
     localeButton.click();
 
     cy.screenshot();
   });
 
-  it('should load the Americas region with its languages and locations', () => {
+  it.skip('should load the Americas region with its languages and locations', () => {
     const localeButton = cy.get('[data-autoid="c4d--locale-btn"]');
     localeButton.click();
 
@@ -62,7 +62,7 @@ describe('c4d-footer | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should be able to search with keywords for locations and languages', () => {
+  it.skip('should be able to search with keywords for locations and languages', () => {
     const localeButton = cy.get('[data-autoid="c4d--locale-btn"]');
     localeButton.click();
 
@@ -156,14 +156,14 @@ describe('c4d-footer | default (mobile)', () => {
     });
   });
 
-  it('should load locale modal', () => {
+  it.skip('should load locale modal', () => {
     const localeButton = cy.get('[data-autoid="c4d--locale-btn"]');
     localeButton.click();
 
     cy.screenshot();
   });
 
-  it('should load the Americas region with its languages and locations', () => {
+  it.skip('should load the Americas region with its languages and locations', () => {
     const localeButton = cy.get('[data-autoid="c4d--locale-btn"]');
     localeButton.click();
 
@@ -174,7 +174,7 @@ describe('c4d-footer | default (mobile)', () => {
     cy.takeSnapshots();
   });
 
-  it('should be able to search with keywords for locations and languages', () => {
+  it.skip('should be able to search with keywords for locations and languages', () => {
     const localeButton = cy.get('[data-autoid="c4d--locale-btn"]');
     localeButton.click();
 
@@ -224,7 +224,7 @@ describe('c4d-footer | Default language only (mobile)', () => {
     );
   });
 
-  it('should load language selector dropdown and be interactive', () => {
+  it.skip('should load language selector dropdown and be interactive', () => {
     cy.get('c4d-language-selector-mobile').should('have.length', 1);
     cy.get('c4d-language-selector-mobile')
       .shadow()

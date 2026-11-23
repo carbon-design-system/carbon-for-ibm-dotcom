@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2023
+// Copyright IBM Corp. 2020, 2026
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -29,7 +29,9 @@ cds-leadspace {
 
 /* stylelint-disable-next-line selector-type-no-unknown */
 cds-cta-section {
-  @include theme($g10, true);
-
+  // background-color before theme() to avoid mixed-decls (Sass 1.79):
+  // theme() emits a forced-colors @media nested rule.
   background-color: $background;
+
+  @include theme($g10, true);
 }

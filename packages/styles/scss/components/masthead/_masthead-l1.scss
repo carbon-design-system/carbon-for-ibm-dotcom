@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2025
+ * Copyright IBM Corp. 2016, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -56,6 +56,13 @@ $search-transition-timing: 95ms;
   // Set up variables to store column-widths without using flexbox
   .#{$prefix}--masthead__l1,
   :host(#{$c4d-prefix}-masthead-l1) {
+    // Declarations before any nested @media rule (breakpoint-up, theme) to
+    // avoid the mixed-decls deprecation (Sass 1.79).
+    position: relative;
+    overflow: visible;
+    background-color: $layer-02;
+    transition-timing-function: $search-transition;
+
     /* stylelint-disable-next-line length-zero-no-unit */
     --page-width: calc(100vw - var(--scrollbar-width, 0px));
     --grid-width: var(--page-width);
@@ -80,11 +87,6 @@ $search-transition-timing: 95ms;
     }
 
     @include theme($white, true);
-
-    position: relative;
-    overflow: visible;
-    background-color: $layer-02;
-    transition-timing-function: $search-transition;
   }
 
   // L1 Mobile Styles

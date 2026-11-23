@@ -24,7 +24,7 @@ jobs:
           node-version: '18.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable --immutable-cache
+        run: yarn install --immutable
       - name: Build project
         run: yarn lerna run --ignore '@carbon/react' build
       - name: Create CDN artifacts

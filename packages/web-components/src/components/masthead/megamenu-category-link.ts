@@ -1,22 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2024
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import ifNonEmpty from '@carbon/web-components/es/globals/directives/if-non-empty.js';
 import CDSLink from '@carbon/web-components/es/components/link/link.js';
-import Launch16 from '@carbon/web-components/es/icons/launch/16.js';
+import Launch16 from '@carbon/icons/es/launch/16.js';
+import iconLoader from '@carbon/web-components/es/globals/internal/icon-loader.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '@carbon/web-components/es/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -42,7 +42,7 @@ class C4DMegaMenuCategoryLink extends CDSLink {
   /**
    * Maps target value to icons.
    */
-  protected _targetMap = new Map([['external', Launch16()]]);
+  protected _targetMap = new Map([['external', iconLoader(Launch16)]]);
 
   /**
    * Renders an icon based on target value.
@@ -84,7 +84,6 @@ class C4DMegaMenuCategoryLink extends CDSLink {
       title,
       type,
       _classes: classes,
-      _handleClick: handleClick,
     } = this;
     return html`
       <a
@@ -99,7 +98,6 @@ class C4DMegaMenuCategoryLink extends CDSLink {
         rel="${ifNonEmpty(rel)}"
         target="${ifNonEmpty(target)}"
         type="${ifNonEmpty(type)}"
-        @click="${ifNonEmpty(handleClick)}"
         data-attribute1="headerNav"
         data-attribute2="FlatItem"
         data-attribute3="${title}">

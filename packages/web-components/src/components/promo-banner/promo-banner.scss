@@ -1,12 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2025
+ * Copyright IBM Corp. 2025, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+@use 'sass:math';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/styles/scss/utilities';
 @use '@carbon/styles/scss/spacing' as *;
@@ -16,7 +17,7 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 
 $css--plex: true !default;
-$half-gutter: $grid-gutter / 2;
+$half-gutter: math.div($grid-gutter, 2);
 
 $md-breakpoint-width: map-get(map-get($grid-breakpoints, md), width);
 $lg-breakpoint-width: map-get(map-get($grid-breakpoints, lg), width);
@@ -34,10 +35,10 @@ $max-breakpoint-width: map-get(map-get($grid-breakpoints, max), width);
 // breakpoint-between mixin works. Note that this approach my not work
 // cleanly for the narrow or condensed grid due to the necessary assumptions
 // made for padding widths.
-$lg-12-column-lower-bound: ($lg-breakpoint-width * (12 / 16)) - 2rem;
-$lg-12-column-upper-bound: ($xlg-breakpoint-width - 0.02) * (12 / 16);
-$xlg-12-column-lower-bound: $xlg-breakpoint-width * (12 / 16);
-$xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * (12 / 16);
+$lg-12-column-lower-bound: ($lg-breakpoint-width * math.div(12, 16)) - 2rem;
+$lg-12-column-upper-bound: ($xlg-breakpoint-width - 0.02) * math.div(12, 16);
+$xlg-12-column-lower-bound: $xlg-breakpoint-width * math.div(12, 16);
+$xlg-12-column-upper-bound: ($max-breakpoint-width - 0.02) * math.div(12, 16);
 
 :host(#{$c4d-prefix}-promo-banner) {
   display: block;
