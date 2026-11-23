@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.61.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.60.0...@carbon/ibmdotcom-utilities@2.61.0) (2026-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency js-cookie to v3 [security] ([#12684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/12684)) ([a5d273c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a5d273c4e3072d635121121cf77ed37171c969af))
+
+
+
+
+
 # [2.60.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@2.59.0...@carbon/ibmdotcom-utilities@2.60.0) (2026-10-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

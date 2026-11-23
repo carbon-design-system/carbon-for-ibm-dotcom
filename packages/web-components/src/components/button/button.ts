@@ -74,6 +74,9 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
    */
   _renderButtonIcon() {
     const { ctaType } = this;
+    if (!ctaType) {
+      return '';
+    }
     const icon = icons[`${ctaType}-${document.dir}`] ?? icons[ctaType];
     return `
         <span class="${prefix}--visually-hidden" part="visually-hidden-span">${
