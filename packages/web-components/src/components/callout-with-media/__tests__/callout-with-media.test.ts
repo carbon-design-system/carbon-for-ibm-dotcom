@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2026
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit/html.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayerV7/KalturaPlayer.js';
 import '../callout-with-media';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
@@ -54,6 +55,13 @@ describe('c4d-callout-with-media', function () {
     });
 
     it('should render with video attributes', async function () {
+      // Avoid injecting the real Kaltura `loader.js`. It loads asynchronously
+      // and any error it throws is reported ("Script error.") against whichever
+      // spec happens to be running at the time.
+      spyOn(KalturaPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
+      spyOn(KalturaPlayerAPI, 'embedMedia').and.returnValue(
+        Promise.resolve({ kWidget() {} })
+      );
       render(
         template({
           heading: 'heading-foo',
