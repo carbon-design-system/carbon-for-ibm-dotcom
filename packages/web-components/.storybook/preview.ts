@@ -47,6 +47,7 @@ export const parameters = {
           'Contributing to the Web Components package',
           'Breaking Changes',
         ],
+        'Foundations',
         'Components',
       ],
     },

@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/type' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/cta-block';
 @use '@carbon/ibmdotcom-styles/scss/components/layout';
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
@@ -114,7 +114,7 @@
 }
 
 :host(#{$c4d-prefix}-cta-section-item-heading) {
-  @include type-style('heading-02', true);
+  @include type-style('heading-02');
 
   display: block;
   inline-size: 100%;

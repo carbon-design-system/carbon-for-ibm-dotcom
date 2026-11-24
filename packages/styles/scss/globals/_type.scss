@@ -1,0 +1,219 @@
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// `@carbon/styles/scss/type` must load before `tokens` and `@carbon/type`.
+// `@carbon/styles` configures the grid module on its first load, and Sass
+// rejects a `with()` on a module that was already loaded.
+@use 'sass:list';
+@use 'sass:map';
+@use '@carbon/styles/scss/type' as cds;
+@use '@carbon/type';
+@use '@carbon/grid/scss/config' as gridconfig;
+@use 'tokens' as c4d;
+
+// Drop-in replacement for `@carbon/styles/scss/type`. Everything CDS forwards
+// is available, except for `type-style`, `default-type`, `$tokens` and the
+// customized variables. Those are replaced by the C4D versions defined below.
+// `type-classes` and `emit-type-custom-properties` are hidden because they
+// read the CDS `$tokens`, not the C4D `$tokens` below, so they would output CDS
+// values for the customized tokens. A stale call to either fails to compile.
+@forward '@carbon/styles/scss/type' hide type-style, default-type, type-classes,
+  emit-type-custom-properties, $tokens, $heading-04, $fluid-heading-03,
+  $fluid-heading-04, $fluid-heading-05, $fluid-quotation-02;
+
+// NOTE: CDS still emits `:root` custom properties from its own `$tokens` when
+// `$css--emit-type-custom-props` is true (default false), and CDS's `theme`
+// mixin emits `--cds-<token>-<property>` for every CDS type token. Both carry
+// CDS values. The C4D `type-style` below writes plain properties for the
+// C4D-owned tokens, so those custom properties don't affect them.
+
+//-------------------------
+// Customized CDS tokens
+//-------------------------
+
+/// CDS `$productive-heading-04` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$heading-04: map.deep-merge(cds.$heading-04, c4d.$heading-04) !default;
+
+/// CDS `$expressive-heading-03` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-heading-03: map.deep-merge(
+  cds.$fluid-heading-03,
+  c4d.$fluid-heading-03
+) !default;
+
+/// CDS `$expressive-heading-04` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-heading-04: map.deep-merge(
+  cds.$fluid-heading-04,
+  c4d.$fluid-heading-04
+) !default;
+
+/// CDS `$expressive-heading-05` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-heading-05: map.deep-merge(
+  cds.$fluid-heading-05,
+  c4d.$fluid-heading-05
+) !default;
+
+/// CDS `$quotation-02` with the C4D overrides applied
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-quotation-02: map.deep-merge(
+  cds.$fluid-quotation-02,
+  c4d.$fluid-quotation-02
+) !default;
+
+//-------------------------
+// C4D-only tokens
+//-------------------------
+
+/// C4D-only fluid body style
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-body-03: c4d.$fluid-body-03 !default;
+
+/// C4D-only fluid statistic style
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$fluid-statistic: c4d.$fluid-statistic !default;
+
+/// CDS `$heading-03` with a semibold font weight
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$heading-03-semibold: map.deep-merge(
+  cds.$heading-03,
+  c4d.$heading-03-semibold
+) !default;
+
+//-------------------------
+// Tokens map
+//-------------------------
+
+/// All CDS type tokens, with the customized entries replaced and the C4D-only
+/// entries added
+/// @type Map
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+$tokens: map.merge(
+  cds.$tokens,
+  (
+    heading-04: $heading-04,
+    fluid-heading-03: $fluid-heading-03,
+    fluid-heading-04: $fluid-heading-04,
+    fluid-heading-05: $fluid-heading-05,
+    fluid-quotation-02: $fluid-quotation-02,
+    fluid-body-03: $fluid-body-03,
+    fluid-statistic: $fluid-statistic,
+    heading-03-semibold: $heading-03-semibold,
+  )
+) !default;
+
+/// Names of the tokens C4D owns: the customized CDS tokens and the C4D-only
+/// tokens. `type-style` writes plain properties for these instead of
+/// `var(--cds-*)`, because CDS's `theme` mixin defines those custom properties
+/// with the CDS values, which would override the C4D fallback.
+/// @type List
+/// @access private
+$-c4d-owned: (
+  'heading-04',
+  'fluid-heading-03',
+  'fluid-heading-04',
+  'fluid-heading-05',
+  'fluid-quotation-02',
+  'fluid-body-03',
+  'fluid-statistic',
+  'heading-03-semibold'
+);
+
+//-------------------------
+// Mixin
+//-------------------------
+
+/// Mirrors CDS `type-style`, but reads the C4D `$tokens` map so that the
+/// customized and C4D-only tokens are available. Tokens that C4D owns are
+/// written as plain properties, without `var(--cds-*)`.
+/// @param {String} $name - The name of the token to get the styles for
+/// @param {Boolean} [$fluid: false] - Set to `true` to get fluid type styles
+///   for tokens that define `breakpoints`
+/// @param {Map} [$breakpoints: gridconfig.$grid-breakpoints] - Breakpoints
+///   used for fluid type styles
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+@mixin type-style(
+  $name,
+  $fluid: false,
+  $breakpoints: gridconfig.$grid-breakpoints
+) {
+  @if not map.has-key($tokens, $name) {
+    @error 'Unable to find a token with the name: `#{$name}`';
+  }
+
+  $token: map.get($tokens, $name);
+
+  @if $fluid == true and map.has-key($token, 'breakpoints') {
+    @include type.fluid-type($token, $breakpoints);
+  } @else if list.index($-c4d-owned, $name) {
+    @include type.properties(map.remove($token, 'breakpoints'));
+  } @else {
+    @include type.custom-properties($name, $token);
+  }
+}
+
+/// Mirrors CDS `default-type`, but calls the C4D `type-style` so that `h3`
+/// gets the customized `heading-04`.
+/// @access public
+/// @group @carbon/ibmdotcom-styles
+@mixin default-type {
+  h1 {
+    @include type-style('heading-06');
+  }
+
+  h2 {
+    @include type-style('heading-05');
+  }
+
+  h3 {
+    @include type-style('heading-04');
+  }
+
+  h4 {
+    @include type-style('heading-03');
+  }
+
+  h5 {
+    @include type-style('heading-02');
+  }
+
+  h6 {
+    @include type-style('heading-01');
+  }
+
+  p {
+    @include type-style('body-02');
+  }
+
+  a {
+    color: var(--#{type.$prefix}-link-primary, #0062fe);
+  }
+
+  em {
+    font-style: italic;
+  }
+}

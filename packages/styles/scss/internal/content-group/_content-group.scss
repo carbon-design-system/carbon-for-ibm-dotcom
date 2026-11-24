@@ -8,7 +8,7 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/content-width' as *;
@@ -91,7 +91,7 @@
 
     // FIXME: CardLink is being used as Card in React, need to separate this
     .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
-      @include type-style('heading-02', true);
+      @include type-style('heading-02');
     }
   }
 }

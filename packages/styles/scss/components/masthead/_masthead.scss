@@ -16,7 +16,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '@carbon/styles/scss/layout' as layout;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
@@ -225,7 +225,7 @@
 
 /// @access private
 @mixin masthead-top-nav-link {
-  @include type-style(body-compact-02, true);
+  @include type-style(body-compact-02);
 
   padding: to-rem(13px) $spacing-05;
 
@@ -791,7 +791,7 @@
   }
 
   .#{$prefix}--overflow-menu-options__btn {
-    @include type-style(body-compact-02, true);
+    @include type-style(body-compact-02);
 
     color: $text-primary;
     text-decoration: none;

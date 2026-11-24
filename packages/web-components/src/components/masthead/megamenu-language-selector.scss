@@ -11,7 +11,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/colors' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/type' as *;
 
 :host {
   position: relative;

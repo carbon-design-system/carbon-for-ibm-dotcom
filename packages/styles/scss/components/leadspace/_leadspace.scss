@@ -13,7 +13,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/content-width' as *;
@@ -515,7 +515,7 @@ $btn-min-width: 26;
   }
 
   :host(#{$c4d-prefix}-leadspace-heading[type-style='display-01']) {
-    @include type-style(display-01, true);
+    @include type-style(fluid-display-01, true);
   }
 
   :host(#{$c4d-prefix}-leadspace)[size='super'] {

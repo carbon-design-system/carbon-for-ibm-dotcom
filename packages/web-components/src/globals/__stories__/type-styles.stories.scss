@@ -1,0 +1,54 @@
+//
+// Copyright IBM Corp. 2026
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/ibmdotcom-styles/scss/globals/type' as *;
+
+// One class per C4D token, using the C4D `type-style` mixin so that the
+// customized and C4D-only tokens render with their C4D values.
+@each $name, $token in $tokens {
+  .c4d-type-preview--#{$name} {
+    @include type-style($name, true);
+  }
+}
+
+.c4d-type-preview {
+  border-collapse: collapse;
+  color: var(--cds-text-primary, #161616);
+  inline-size: 100%;
+  margin-block-start: 0.5rem;
+  text-align: start;
+}
+
+.c4d-type-preview th,
+.c4d-type-preview td {
+  padding: 1rem;
+  border-block-end: 1px solid var(--cds-border-subtle-01, #c6c6c6);
+  text-align: start;
+  vertical-align: baseline;
+}
+
+.c4d-type-preview th {
+  @include type-style('heading-compact-01');
+
+  background-color: var(--cds-layer-accent-01, #e0e0e0);
+}
+
+.c4d-type-preview__token {
+  @include type-style('code-01');
+
+  white-space: nowrap;
+}
+
+.c4d-type-preview__type {
+  white-space: nowrap;
+}
+
+.c4d-type-preview__sample {
+  margin: 0;
+  color: var(--cds-text-primary, #161616);
+  inline-size: 100%;
+}

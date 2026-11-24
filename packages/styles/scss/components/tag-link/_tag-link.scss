@@ -7,7 +7,7 @@
 
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/vars' as *;
@@ -15,7 +15,7 @@
 
 @mixin tag-link {
   :host(#{$c4d-prefix}-tag-link) a {
-    @include type-style(body-01, true);
+    @include type-style(body-01);
 
     padding: to-rem(6px) $spacing-05;
     border-radius: to-rem(15px);

@@ -87,7 +87,7 @@
           &__heading {
             inline-size: 100%;
 
-            @include type-style('heading-02', true);
+            @include type-style('heading-02');
           }
 
           &__copy {
@@ -97,7 +97,7 @@
               inline-size: 100%;
               margin-block-end: $spacing-05;
 
-              @include type-style('body-02', true);
+              @include type-style('body-02');
             }
           }
 

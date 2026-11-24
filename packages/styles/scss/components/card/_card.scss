@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '@carbon/styles/scss/components/tag/index' as *;
 @use '@carbon/styles/scss/components/tile/index' as *;
 @use '@carbon/styles/scss/theme' as *;
@@ -775,14 +775,14 @@
   }
 
   :host(#{$c4d-prefix}-card-heading) {
-    @include type-style('heading-03', true);
+    @include type-style('heading-03');
   }
 
   :host(#{$c4d-prefix}-card-link-heading) {
     // margin-block-end: 0 placed before type-style() to avoid mixed-decls (Sass 1.79).
     margin-block-end: 0;
 
-    @include type-style('heading-02', true);
+    @include type-style('heading-02');
   }
 
   :host(#{$c4d-prefix}-card)[color-scheme='inverse'],

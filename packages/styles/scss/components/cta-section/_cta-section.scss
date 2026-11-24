@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/imports' as *;
@@ -127,7 +127,7 @@
         .#{$prefix}--content-item__heading {
           inline-size: 100%;
 
-          @include type-style('heading-02', true);
+          @include type-style('heading-02');
 
           @include breakpoint(md) {
             inline-size: 90%;
@@ -145,7 +145,7 @@
             inline-size: 100%;
             margin-block-end: $spacing-05;
 
-            @include type-style('body-02', true);
+            @include type-style('body-02');
           }
         }
       }

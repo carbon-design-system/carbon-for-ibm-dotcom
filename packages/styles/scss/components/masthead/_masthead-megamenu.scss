@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '../../globals/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '../../globals/utils/flex-grid' as *;
@@ -503,7 +503,7 @@
     .#{$prefix}--link-with-icon,
     ::slotted(span),
     span {
-      @include type-style(heading-03, true);
+      @include type-style(heading-03);
 
       color: $text-secondary;
       text-decoration: none;

@@ -11,7 +11,7 @@
 @use '@carbon/styles/scss/reset' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/components/tooltip/tooltip' as *;
@@ -481,7 +481,7 @@ $pos-btn-bottom: calc(
       content: none;
     }
 
-    @include type-style(heading-02, true);
+    @include type-style(heading-02);
   }
 }
 
@@ -774,7 +774,7 @@ $pos-btn-bottom: calc(
   }
 
   [part='link-heading'] {
-    @include type-style('expressive-heading-01');
+    @include type-style('heading-01');
 
     svg {
       margin-inline-start: $spacing-03;
@@ -860,7 +860,7 @@ $pos-btn-bottom: calc(
   h4,
   h5,
   h6 {
-    @include type-style(heading-05, true);
+    @include type-style(heading-05);
 
     svg {
       inset-block-start: $spacing-03;
@@ -876,7 +876,7 @@ $pos-btn-bottom: calc(
   h4,
   h5,
   h6 {
-    @include type-style(heading-03, true);
+    @include type-style(heading-03);
 
     svg {
       inset-block-start: $spacing-02;
@@ -894,7 +894,7 @@ $pos-btn-bottom: calc(
   h4,
   h5,
   h6 {
-    @include type-style('productive-heading-05', true);
+    @include type-style('productive-heading-05');
 
     color: $text-primary;
     padding-block-start: 0.5rem;

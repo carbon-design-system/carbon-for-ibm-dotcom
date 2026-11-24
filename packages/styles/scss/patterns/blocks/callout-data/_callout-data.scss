@@ -12,7 +12,7 @@
     .#{$prefix}--callout {
       &-data {
         &__data {
-          @include type-style('display-03', true);
+          @include type-style('fluid-display-03', true);
 
           color: $icon-inverse;
 
@@ -29,7 +29,7 @@
         }
 
         &__source {
-          @include type-style('body-compact-01', true);
+          @include type-style('body-compact-01');
 
           color: $text-helper;
 
