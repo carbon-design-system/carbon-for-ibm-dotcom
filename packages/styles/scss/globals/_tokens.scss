@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// stylelint-disable number-max-precision
+
 @use '@carbon/type';
 
 //-------------------------
@@ -18,20 +20,18 @@
 $heading-04: (
   font-size: type.type-scale(6),
   line-height: 1.33333,
-) !default;
+  ) !default;
 
 // Overrides CDS base `$expressive-heading-03`: font-size and line-height at the max breakpoint.
 /// @type Map
 /// @access public
 /// @group @carbon/ibmdotcom-styles
 $fluid-heading-03: (
-  breakpoints: (
-    max: (
-      font-size: type.type-scale(5),
+  breakpoints: (max: (font-size: type.type-scale(5),
       line-height: 1.4,
     ),
   ),
-) !default;
+  ) !default;
 
 // Overrides CDS base `$expressive-heading-04`: font-size and line-height at base and xlg;
 // font-size at max.
@@ -41,16 +41,13 @@ $fluid-heading-03: (
 $fluid-heading-04: (
   font-size: type.type-scale(6),
   line-height: 1.33333,
-  breakpoints: (
-    xlg: (
-      font-size: type.type-scale(7),
+  breakpoints: (xlg: (font-size: type.type-scale(7),
       line-height: 1.28572,
     ),
-    max: (
-      font-size: type.type-scale(7),
+    max: (font-size: type.type-scale(7),
     ),
   ),
-) !default;
+  ) !default;
 
 // Overrides CDS base `$expressive-heading-05`: font-size, font-weight and line-height at base
 // and md; font-size and line-height at lg and xlg; font-size at max.
@@ -61,25 +58,20 @@ $fluid-heading-05: (
   font-size: type.type-scale(7),
   font-weight: type.font-weight('semibold'),
   line-height: 1.28572,
-  breakpoints: (
-    md: (
-      font-size: type.type-scale(8),
+  breakpoints: (md: (font-size: type.type-scale(8),
       font-weight: type.font-weight('semibold'),
       line-height: 1.25,
     ),
-    lg: (
-      font-size: type.type-scale(9),
+    lg: (font-size: type.type-scale(9),
       line-height: 1.22,
     ),
-    xlg: (
-      font-size: type.type-scale(10),
+    xlg: (font-size: type.type-scale(10),
       line-height: 1.19048,
     ),
-    max: (
-      font-size: type.type-scale(10),
+    max: (font-size: type.type-scale(10),
     ),
   ),
-) !default;
+  ) !default;
 
 // Overrides CDS base `$quotation-02`: font-size and line-height at base and every breakpoint.
 /// @type Map
@@ -88,25 +80,20 @@ $fluid-heading-05: (
 $fluid-quotation-02: (
   font-size: type.type-scale(6),
   line-height: 1.33333,
-  breakpoints: (
-    md: (
-      font-size: type.type-scale(7),
+  breakpoints: (md: (font-size: type.type-scale(7),
       line-height: 1.35715,
     ),
-    lg: (
-      font-size: type.type-scale(8),
+    lg: (font-size: type.type-scale(8),
       line-height: 1.3125,
     ),
-    xlg: (
-      font-size: type.type-scale(9),
+    xlg: (font-size: type.type-scale(9),
       line-height: 1.27778,
     ),
-    max: (
-      font-size: type.type-scale(10),
+    max: (font-size: type.type-scale(10),
       line-height: 1.2381,
     ),
   ),
-) !default;
+  ) !default;
 
 // New token, not in CDS. Full map, including letter-spacing: 0.
 /// @type Map
@@ -117,17 +104,14 @@ $fluid-body-03: (
   font-weight: type.font-weight('regular'),
   line-height: 1.33333,
   letter-spacing: 0,
-  breakpoints: (
-    lg: (
-      font-size: type.type-scale(5),
+  breakpoints: (lg: (font-size: type.type-scale(5),
       line-height: 1.4,
     ),
-    max: (
-      font-size: type.type-scale(6),
+    max: (font-size: type.type-scale(6),
       line-height: 1.25,
     ),
   ),
-) !default;
+  ) !default;
 
 // New token, not in CDS. Full map.
 /// @type Map
@@ -138,19 +122,16 @@ $fluid-statistic: (
   font-weight: type.font-weight('regular'),
   line-height: 1.18519,
   letter-spacing: 0,
-  breakpoints: (
-    xlg: (
-      font-size: type.type-scale(13),
+  breakpoints: (xlg: (font-size: type.type-scale(13),
       line-height: 1.16667,
       letter-spacing: -0.16px,
     ),
-    max: (
-      font-size: type.type-scale(15),
+    max: (font-size: type.type-scale(15),
       line-height: 1.13158,
       letter-spacing: -0.32px,
     ),
   ),
-) !default;
+  ) !default;
 
 // New token, not in CDS. Partial map: the wrapper merges it onto CDS `$heading-03`.
 /// @type Map
@@ -158,4 +139,4 @@ $fluid-statistic: (
 /// @group @carbon/ibmdotcom-styles
 $heading-03-semibold: (
   font-weight: type.font-weight('semibold'),
-) !default;
+  ) !default;
